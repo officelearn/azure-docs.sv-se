@@ -1,5 +1,5 @@
 ---
-title: Länkad inloggning för Azure AD-program – Microsoft Identity Platform | Microsoft Docs
+title: Länkad inloggning för Azure AD-appar – Microsoft Identity Platform
 description: Konfigurera länkad enkel inloggning (SSO) till dina Azure AD Enterprise-program i Microsoft Identity Platform (Azure AD)
 services: active-directory
 author: msmimart
@@ -12,16 +12,16 @@ ms.date: 05/08/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc1e26a3c7d284a60b830f6f66cdcecef97db4d6
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 2c4547bddeea8b67bd3377124b1c299662fea3e6
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834618"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274174"
 ---
 # <a name="configure-linked-sign-on"></a>Konfigurera länkad inloggning
 
-När du lägger till ett galleri eller ett webb program som inte är Galleri, länkas ett av de alternativ för enkel inloggning [](what-is-single-sign-on.md)som är tillgängligt för dig. Välj det här alternativet om du vill lägga till en länk till programmet i organisationens Azure AD Access-panel eller Office 365-portal. Du kan använda den här metoden för att lägga till länkar till anpassade webb program som för närvarande använder Active Directory Federation Services (AD FS) (eller andra Federations tjänster) i stället för Azure AD för autentisering. Du kan också lägga till djup länkar till vissa SharePoint-sidor eller andra webb sidor som du bara vill ska visas på användarens åtkomst paneler.
+När du lägger till ett galleri eller ett webb program som inte är Galleri, [länkas](what-is-single-sign-on.md)ett av de alternativ för enkel inloggning som är tillgängligt för dig. Välj det här alternativet om du vill lägga till en länk till programmet i organisationens Azure AD Access-panel eller Office 365-portal. Du kan använda den här metoden för att lägga till länkar till anpassade webb program som för närvarande använder Active Directory Federation Services (AD FS) (eller andra Federations tjänster) i stället för Azure AD för autentisering. Du kan också lägga till djup länkar till vissa SharePoint-sidor eller andra webb sidor som du bara vill ska visas på användarens åtkomst paneler.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 

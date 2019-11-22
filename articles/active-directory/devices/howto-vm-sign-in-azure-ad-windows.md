@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd50ca8b81b933a61a67ac36db6a656791a8121f
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0bfd75f54e2b57e57fcadc27df2ca43d8be5cf37
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832860"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74285510"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logga in på den virtuella Windows-datorn i Azure med Azure Active Directory autentisering (för hands version)
 
@@ -34,8 +34,8 @@ Det finns många fördelar med att använda Azure AD-autentisering för att logg
 - Med Azure RBAC kan du ge rätt åtkomst till virtuella datorer baserat på behov och ta bort den när den inte längre behövs.
 - Innan du tillåter åtkomst till en virtuell dator kan villkorlig åtkomst för Azure AD framtvinga ytterligare krav som: 
    - Multi-Factor Authentication
-   - Inloggnings risk
-- Automatisera och skala Azure AD Join för Azure-baserade virtuella Windows-datorer.
+   - Kontroll av inloggnings risker
+- Automatisera och skala Azure AD-anslutning för virtuella Azure Windows-datorer som ingår i dina VDI-distributioner.
 
 ## <a name="requirements"></a>Krav
 
@@ -43,7 +43,7 @@ Det finns många fördelar med att använda Azure AD-autentisering för att logg
 
 Följande Windows-distributioner stöds för närvarande i för hands versionen av den här funktionen:
 
-- Windows Server 2019 Data Center
+- Windows Server 2019 Datacenter
 - Windows 10 1809 och senare
 
 Följande Azure-regioner stöds för närvarande i för hands versionen av den här funktionen:
@@ -68,7 +68,7 @@ Om du vill använda Azure AD-inloggning för Windows VM i Azure måste du först
 Det finns flera sätt att aktivera Azure AD-inloggning för din virtuella Windows-dator:
 
 - Använda Azure Portal upplevelsen när du skapar en virtuell Windows-dator
-- Använda Azure Cloud Shell upplevelsen när du skapar en virtuell Windows-dator eller för en befintlig virtuell Windows-dator
+- Använda Azure Cloud Shell upplevelsen när du skapar en virtuell Windows-dator **eller för en befintlig virtuell Windows-dator**
 
 ### <a name="using-azure-portal-create-vm-experience-to-enable-azure-ad-login"></a>Använda Azure Portal skapa VM-upplevelse för att aktivera Azure AD-inloggning
 
@@ -186,6 +186,13 @@ Mer information om hur du använder RBAC för att hantera åtkomst till dina Azu
 - [Hantera åtkomst till Azure-resurser med RBAC och Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
 - [Hantera åtkomst till Azure-resurser med hjälp av RBAC och Azure-portalen](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 - [Hantera åtkomst till Azure-resurser med RBAC och Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
+
+## <a name="using-conditional-access"></a>Använda villkorlig åtkomst
+
+Du kan tillämpa principer för villkorlig åtkomst, till exempel Multi-Factor Authentication eller användar inloggnings risker innan du auktoriserar åtkomsten till virtuella Windows-datorer i Azure som är aktiverade med Azure AD-inloggning. Om du vill tillämpa principen för villkorlig åtkomst måste du välja "Azure Windows VM-inloggning" i appen molnappar eller åtgärder tilldelning och sedan använda inloggnings risker som ett villkor och/eller kräva multifaktorautentisering som en bevilja åtkomst kontroll. 
+
+> [!NOTE]
+> Om du använder "Kräv Multi-Factor Authentication" som en beviljande åtkomst kontroll för att begära åtkomst till "Azure Windows VM Sign-in"-appen, måste du ange Multi-Factor Authentication-anspråk som en del av klienten som initierar RDP-sessionen till den virtuella Windows-datorns mål i Azure. Det enda sättet att åstadkomma detta på en Windows 10-klient är att använda Windows Hello för företag-PIN-kod eller bio metrisk autentisering under RDP. Stöd för bio metrisk autentisering under RDP lades till i Windows 10 1809. Användning av Windows Hello för företag-autentisering under RDP är endast tillgängligt för distributioner som använder certifikat förtroende modell och som för närvarande inte är tillgängligt för nyckel förtroende modell.
 
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Logga in med autentiseringsuppgifter för Azure AD till en virtuell Windows-dator
 
@@ -337,7 +344,12 @@ Om du ser följande fel meddelande när du startar en fjärr skrivbords anslutni
 
 ![Den inloggnings metod som du försöker använda är inte tillåten.](./media/howto-vm-sign-in-azure-ad-windows/mfa-sign-in-method-required.png)
 
-Om du har konfigurerat en princip för villkorlig åtkomst som kräver MFA innan du kan komma åt RBAC-resursen, måste du se till att Windows 10-datorn som initierar fjärr skrivbords anslutningen till den virtuella datorn loggar in med en stark autentiseringsmetod, t. ex. som Windows Hello. Om du inte använder en stark autentiseringsmetod för fjärr skrivbords anslutningen visas följande fel meddelande.
+Om du har konfigurerat en princip för villkorlig åtkomst som kräver MFA innan du kan komma åt RBAC-resursen, måste du se till att Windows 10-datorn som initierar fjärr skrivbords anslutningen till den virtuella datorn loggar in med en stark autentiseringsmetod, t. ex. som Windows Hello. Om du inte använder en stark autentiseringsmetod för fjärr skrivbords anslutningen visas följande fel meddelande. 
+
+Om du inte har distribuerat Windows Hello för företag och om det inte är ett alternativ för tillfället, kan du exlcude MFA-kravet genom att konfigurera principen för villkorlig åtkomst som undantar "Azure Windows VM Sign-in"-appen från listan över molnappar som kräver MFA. Mer information om Windows Hello för företag finns i [Översikt över Windows Hello för företag](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification).
+
+> [!NOTE]
+> Windows Hello för företag PIN-autentisering under RDP har stöd för Windows 10 en gång nu. Stöd för bio metrisk autentisering under RDP lades till i Windows 10 1809. Användning av Windows Hello för företag-autentisering under RDP är endast tillgängligt för distributioner som använder certifikat förtroende modell och som för närvarande inte är tillgängligt för nyckel förtroende modell.
  
 ## <a name="preview-feedback"></a>Förhandsgranska feedback
 

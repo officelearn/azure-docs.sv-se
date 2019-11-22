@@ -1,19 +1,19 @@
 ---
-title: Självstudie – dela Azure spatiala ankare mellan sessioner och enheter | Microsoft Docs
+title: 'Självstudie: dela ankare mellan sessioner och enheter'
 description: I den här självstudien får du lära dig hur du delar Azure spatial-ankare mellan Android/iOS-enheter i Unity med en backend-tjänst.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e8a60d5d90b684698d6fcb612278bcae6d4ed08e
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: f0029fcf8e9efdea529212a7cca49cc8660c623f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882318"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276966"
 ---
 # <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices"></a>Självstudie: dela Azure spatiala ankare mellan sessioner och enheter
 
@@ -50,7 +50,7 @@ Det är värt att nämna att även om du använder Unity och en ASP.NET Core-web
 
 [!INCLUDE [Publish Azure](../../../includes/spatial-anchors-publish-azure.md)]
 
-## <a name="visual-studio-codetabvsc"></a>[Visual Studio Code](#tab/VSC)
+## <a name="visual-studio-codetabvsc"></a>[Visual Studio-kod](#tab/VSC)
 
 Du måste skapa en resurs grupp och en App Service plan innan du distribuerar tjänsten i VS Code.
 
@@ -77,7 +77,7 @@ Använd de här inställningarna i dialog rutan **Konfigurera värd plan** :
 | Inställning | Föreslaget värde | Beskrivning |
 |-|-|-|
 |App Service-plan| MySharingServicePlan | Namnet på App Service-planen. |
-| Plats | USA, västra | Datacenter som är värd för webbappen. |
+| Plats | Västra USA | Datacenter som är värd för webbappen. |
 | Storlek | Kostnadsfri | Den [pris nivå](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) som avgör värd funktionerna. |
 
 Välj **OK**.

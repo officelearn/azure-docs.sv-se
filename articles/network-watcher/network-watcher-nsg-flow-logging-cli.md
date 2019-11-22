@@ -1,5 +1,6 @@
 ---
-title: Hantera flödes loggar för nätverks säkerhets grupper med Azure Network Watcher – Azure CLI | Microsoft Docs
+title: Hantera NSG Flow-loggar – Azure CLI
+titleSuffix: Azure Network Watcher
 description: På den här sidan förklaras hur du hanterar flödes loggar för nätverks säkerhets grupper i Azure Network Watcher med Azure CLI
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 5e7c09c1a06a94a2ed64f3624ee38dc42606d7bc
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 950b014d7e08eeeeed40ba7b294e53e1c200474b
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563487"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278022"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Konfigurera flödes loggar för nätverks säkerhets grupper med Azure CLI
 
@@ -53,7 +54,7 @@ az network watcher flow-log configure --resource-group resourceGroupName --enabl
 
 Det lagrings konto som du anger kan inte ha nätverks regler som har kon figurer ATS för att begränsa nätverks åtkomsten till enbart Microsoft-tjänster eller vissa virtuella nätverk. Lagrings kontot kan vara i samma eller en annan Azure-prenumeration än NSG som du aktiverar flödes loggen för. Om du använder olika prenumerationer måste båda vara kopplade till samma Azure Active Directory-klient. Det konto som du använder för varje prenumeration måste ha de [behörigheter som krävs](required-rbac-permissions.md). 
 
-Om lagrings kontot finns i en annan resurs grupp eller prenumeration än nätverks säkerhets gruppen anger du det fullständiga ID: t för lagrings kontot i stället för namnet. Om lagrings kontot till exempel finns i en resurs grupp med namnet *RG-Storage*, i stället för att ange *storageAccountName* i föregående kommando, anger du */Subscriptions/{SubscriptionID}/resourceGroups/RG-Storage/providers/ Microsoft. Storage/storageAccounts/storageAccountName*.
+Om lagrings kontot finns i en annan resurs grupp eller prenumeration än nätverks säkerhets gruppen anger du det fullständiga ID: t för lagrings kontot i stället för namnet. Om lagrings kontot till exempel finns i en resurs grupp med namnet *RG-Storage*, i stället för att ange *storageAccountName* i föregående kommando, anger du */Subscriptions/{SubscriptionID}/resourceGroups/RG-Storage/providers/Microsoft.Storage/storageAccounts/storageAccountName*.
 
 ## <a name="disable-network-security-group-flow-logs"></a>Inaktivera flödes loggar för nätverks säkerhets grupper
 

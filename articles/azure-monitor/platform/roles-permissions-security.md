@@ -1,5 +1,5 @@
 ---
-title: Kom igång med roller, behörigheter och säkerhet med Azure Monitor
+title: Roller, behörigheter och säkerhet i Azure Monitor
 description: Lär dig hur du använder Azure Monitor inbyggda roller och behörigheter för att begränsa åtkomsten till övervakning av resurser.
 author: johnkemnetz
 services: azure-monitor
@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: c745375eb4f59208af79bbb03d45f8f0eea7f3ca
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 424d57c59dea11a49faf7a7bb32d85772ef4de8c
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260608"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305170"
 ---
-# <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Kom igång med roller, behörigheter och säkerhet med Azure Monitor
+# <a name="roles-permissions-and-security-in-azure-monitor"></a>Roller, behörigheter och säkerhet i Azure Monitor
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Många team behöver strikt reglera åtkomsten till övervaknings data och inställningar. Om du till exempel har grupp medlemmar som arbetar exklusivt för övervakning (support tekniker, DevOps-tekniker) eller om du använder en hanterad tjänst leverantör kanske du vill ge dem åtkomst till endast övervaknings data samtidigt som de begränsar deras möjlighet att skapa, ändra eller ta bort resurser. Den här artikeln visar hur du snabbt kan använda en inbyggd övervakning av RBAC-rollen för en användare i Azure eller skapa en egen anpassad roll för en användare som behöver begränsad övervaknings behörighet. Den diskuterar sedan säkerhets överväganden för dina Azure Monitor-relaterade resurser och hur du kan begränsa åtkomsten till de data de innehåller.
 
 ## <a name="built-in-monitoring-roles"></a>Inbyggda övervaknings roller
-Azure Monitor inbyggda roller är utformade för att hjälpa till att begränsa åtkomsten till resurser i en prenumeration samtidigt som den ansvariga för övervakning av infrastruktur för att hämta och konfigurera de data de behöver. Azure Monitor tillhandahåller två färdiga roller: En övervaknings läsare och en övervaknings deltagare.
+Azure Monitor inbyggda roller är utformade för att hjälpa till att begränsa åtkomsten till resurser i en prenumeration samtidigt som den ansvariga för övervakning av infrastruktur för att hämta och konfigurera de data de behöver. Azure Monitor ger två färdiga roller: en övervaknings läsare och en övervaknings deltagare.
 
-### <a name="monitoring-reader"></a>Övervakningsläsare
+### <a name="monitoring-reader"></a>Övervaknings läsare
 Personer som har tilldelats rollen övervaknings läsare kan visa alla övervaknings data i en prenumeration, men kan inte ändra någon resurs eller redigera inställningar som rör övervakning av resurser. Den här rollen lämpar sig för användare i en organisation, till exempel support-eller drift tekniker, som behöver kunna:
 
 * Visa övervaknings instrument paneler i portalen och skapa egna instrument paneler för privat övervakning.
@@ -48,7 +48,7 @@ Personer som har tilldelats rollen övervaknings läsare kan visa alla övervakn
 > 
 > 
 
-### <a name="monitoring-contributor"></a>Övervakningsdeltagare
+### <a name="monitoring-contributor"></a>Övervaknings deltagare
 Personer som har tilldelats rollen övervaknings deltagare kan visa alla övervaknings data i en prenumeration och skapa eller ändra övervaknings inställningar, men kan inte ändra andra resurser. Den här rollen är en supermängd av övervaknings läsar rollen och är lämplig för medlemmar i en organisations övervaknings team eller hanterade tjänst leverantörer som, utöver de behörigheter som anges ovan, också måste kunna:
 
 * Publicera övervaknings instrument paneler som en delad instrument panel.
@@ -61,7 +61,7 @@ Personer som har tilldelats rollen övervaknings deltagare kan visa alla överva
 * Skapa och ta bort och kör sparade sökningar i Log Analytics arbets ytan.
 * Skapa och ta bort lagrings konfigurationen för Log Analytics arbets ytan.
 
-\*användaren måste också separat beviljas Listnycklar-behörighet för mål resursen (lagrings konto-eller Event Hub-namnrymden) för att ställa in en logg profil eller diagnostisk inställning.
+\*användare måste också separat beviljas Listnycklar-behörighet för mål resursen (lagrings kontot eller namn området för händelsehubben) för att ange en logg profil eller diagnostisk inställning.
 
 > [!NOTE]
 > Den här rollen ger inte Läs behörighet för att logga data som har strömmats till en händelsehubben eller lagras i ett lagrings konto. [Nedan finns](#security-considerations-for-monitoring-data) information om hur du konfigurerar åtkomst till dessa resurser.
@@ -182,7 +182,7 @@ Azure Monitor behöver åtkomst till dina Azure-resurser för att tillhandahåll
 ### <a name="secured-storage-accounts"></a>Skyddade lagrings konton 
 
 Övervaknings data skrivs ofta till ett lagrings konto. Du kanske vill se till att data som kopieras till ett lagrings konto inte kan nås av obehöriga användare. För ytterligare säkerhet kan du låsa nätverks åtkomsten för att bara tillåta att dina auktoriserade resurser och betrodda Microsoft-tjänster har åtkomst till ett lagrings konto genom att begränsa ett lagrings konto så att det använder valda nätverk.
-![Dialog](./media/roles-permissions-security/secured-storage-example.png) Azure Monitor Azure Storage inställningar betraktas som en av de här "betrodda Microsoft-tjänsterna" om du tillåter att betrodda Microsoft-tjänster får åtkomst till din säkra lagring, kommer Azure monitor att ha åtkomst till ditt skyddade lagrings konto, aktivera skriva Azure Monitor diagnostikloggar, aktivitets logg och mått till ditt lagrings konto under dessa skyddade villkor. Detta aktiverar även Log Analytics att läsa loggar från säker lagring.   
+![Azure Storage inställningar dialog](./media/roles-permissions-security/secured-storage-example.png) Azure Monitor betraktas som en av dessa "betrodda Microsoft-tjänster" om du tillåter att betrodda Microsoft-tjänster får åtkomst till din skyddade lagring, kommer Azure monitor att ha åtkomst till ditt skyddade lagrings konto. genom att aktivera skrivning Azure Monitor diagnostikloggar, aktivitets logg och mått till ditt lagrings konto under dessa skyddade villkor. Detta aktiverar även Log Analytics att läsa loggar från säker lagring.   
 
 
 Mer information finns i [nätverks säkerhet och Azure Storage](../../storage/common/storage-network-security.md)

@@ -7,16 +7,20 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 11/18/2019
-ms.openlocfilehash: 6fc81fa84d4d40d5318d6bf3690aa4b90c4e3c9b
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 26477eeb00fe7616a8d2f2be343e586042c0d130
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196818"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279672"
 ---
 # <a name="configure-azure-red-hat-openshift-clusters-with-azure-monitor-for-containers"></a>Konfigurera Azure Red Hat OpenShift-kluster med Azure Monitor för behållare
 
 Azure Monitor for containers innehåller omfattande övervaknings funktioner för AKS-och AKS-motorns kluster. Den här artikeln beskriver hur du aktiverar övervakning av Kubernetes-kluster som finns i [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) för att uppnå en liknande övervaknings upplevelse.
+
+>[!NOTE]
+>Stöd för Red Hat OpenShift är en funktion i offentlig för hands version för tillfället.
+>
 
 Azure Monitor för behållare kan aktive ras för nya eller en eller flera befintliga distributioner av Azure Red Hat OpenShift med följande metoder som stöds:
 
@@ -29,7 +33,7 @@ Azure Monitor for containers stöder övervakning av Azure Red Hat OpenShift enl
 
 - Real tids data
 - Prometheus mått
-- Samlar in mått
+- Samla in mått från klusternoder och poddar och skriva dem till lagrings platsen Azure Monitor mått
 - Hälso funktion
 
 ## <a name="prerequisites"></a>Krav

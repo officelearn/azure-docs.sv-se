@@ -1,20 +1,16 @@
 ---
 title: Felsökning
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 09/25/2019
 ms.topic: conceptual
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
-ms.openlocfilehash: 5d327dd1041172bc546b2e0cb5ec3a140f401d84
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
-ms.translationtype: MT
+ms.openlocfilehash: 5eec9771e964cf6b47492fdad34bcba14d897d41
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072196"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279721"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
 
@@ -453,3 +449,13 @@ kubectl -n my-namespace delete pod --all
 ```
 
 När din poddar har startats om kan du börja använda din befintliga namnrymd med Azure dev Spaces.
+
+### <a name="enable-azure-dev-spaces-on-aks-cluster-with-restricted-egress-traffic-for-cluster-nodes"></a>Aktivera Azure dev Spaces på AKS-kluster med begränsad utgående trafik för klusternoder
+
+Om du vill aktivera Azure dev Spaces i ett AKS-kluster där den utgående trafiken från klusternoder är begränsad, måste du tillåta följande FQDN: er:
+
+| FQDN                                    | Port      | Användning      |
+|-----------------------------------------|-----------|----------|
+| cloudflare.docker.com | HTTPS:443 | Hämta Linux Alpine och andra Azure dev Spaces-bilder |
+| gcr.io | HTTP: 443 | Hämta Helm/till-avbildningar|
+| storage.googleapis.com | HTTP: 443 | Hämta Helm/till-avbildningar|

@@ -4,14 +4,14 @@ description: Få svar på vanliga frågor om tjänsten Azure Migrate.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 11/21/2019
 ms.author: snehaa
-ms.openlocfilehash: a622a5793e817be2445e60d925354ab37bb8e331
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: dc7dff0119ec849b447754ae54a45911038f6c48
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185769"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284458"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate: vanliga frågor
 
@@ -118,16 +118,10 @@ Server utvärdering ger en utvärdering för att hjälpa till med migreringen oc
 
 ### <a name="whats-the-difference-between-server-assessment-and-the-site-recovery-deployment-planner"></a>Vad är skillnaden mellan server utvärdering och Site Recovery distributions planeraren?
 
-Server utvärdering är ett verktyg för migrerings planering. Site Recovery Deployment Planner är ett planerings verktyg för haveri beredskap. 
+Server utvärdering är ett verktyg för migrerings planering. Site Recovery Deployment Planner är ett planerings verktyg för haveri beredskap.
 
 - **Planera lokal migrering till Azure**: om du planerar att migrera dina lokala servrar till Azure använder du Server bedömning för migrering. Den bedömer lokala arbets belastningar och ger vägledning och verktyg som hjälper dig att migrera. När migrerings planen är på plats kan du använda verktyg, inklusive Azure Migrate Server-migrering, för att migrera datorerna till Azure.
 - **Planera haveri beredskap till Azure**: om du planerar att konfigurera haveri beredskap från en lokal plats till Azure med Site Recovery använder du Site Recovery Deployment Planner. Distributions planeraren ger en djup, Site Recovery-bestämd utvärdering av din lokala miljö för katastrof återställning. Den ger rekommendationer kring haveri beredskap, till exempel replikering och redundans.
-
-### <a name="does-azure-migrate-estimate-costs-for-the-enterprise-agreement-ea-program"></a>Beräknar Azure Migrate kostnader för programmet Enterprise-avtal (EA)?
-
-Azure Migrate Server utvärderingen stöder för närvarande inte kostnads uppskattningar för [Enterprise-avtal programmet](https://azure.microsoft.com/offers/enterprise-agreement-support/). Som en lösning kan du när du skapar en utvärdering ange **betala per** användning som **erbjudande**och manuellt lägga till rabatt procenten (som gäller för prenumerationen) som **rabatt** i bedömnings egenskaperna:
-
-  ![Bedömnings egenskaper](./media/resources-faq/discount.png)
 
 ### <a name="whats-the-difference-between-as-on-premises-and-performance-based-sizing"></a>Vad är skillnaden mellan både lokal och Prestandaoptimerad storlek?
 

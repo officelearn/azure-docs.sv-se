@@ -1,5 +1,5 @@
 ---
-title: Problem med att konfigurera enkel inloggning för lösen ord för Azure AD Gallery-appen | Microsoft Docs
+title: Problem med att konfigurera lösen ord för SSO för Azure AD Gallery-appen
 description: Förstå vanliga problem när du konfigurerar enkel inloggning för lösen ord för program som redan finns med i Azure AD-programgalleriet
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc75346b1093cc41a44edad1376c5f10dfec2409
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 96e729bee0ac9beac447893ed8dbf1bba633e412
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381141"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274185"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Problem med att konfigurera enkel inloggning med lösen ord för ett Azure AD Gallery-program
 
@@ -41,13 +41,13 @@ Prova med följande saker för att lösa problemet:
 
   * Om inloggningen fungerar kan du klicka på knappen **uppdatera autentiseringsuppgifter** på **program** panelen i avsnittet **appar** i [program åtkomst panelen](https://myapps.microsoft.com/) för att uppdatera dem till det senaste kända fungerande användar namnet och lösen ordet.
 
-  * Om du eller någon annan administratör har tilldelat autentiseringsuppgifterna för den här användaren, hittar du användarens eller gruppens program tilldelning genom att gå till fliken **användare & grupper** i programmet, välja tilldelningen och klicka på **uppdatera autentiseringsuppgifter** knapp.
+  * Om du eller någon annan administratör har tilldelat autentiseringsuppgifterna för den här användaren, hittar du användarens eller gruppens program tilldelning genom att gå till fliken **användare & grupper** i programmet, välja tilldelningen och klicka på knappen **uppdatera autentiseringsuppgifter** .
 
 - Om användaren har tilldelat sina egna autentiseringsuppgifter, måste användaren **kontrol lera att deras lösen ord inte har gått ut i programmet** , och i så fall **uppdatera sitt utgångna lösen ord** genom att logga in till programmet direkt.
 
-  * När lösen ordet har uppdaterats i programmet ber du användaren att klicka på knappen **uppdatera autentiseringsuppgifter** på **program** panelen i avsnittet **appar** i [program åtkomst panelen](https://myapps.microsoft.com/) för att uppdatera dem till den senaste kända arbetar med användar namn och lösen ord.
+  * När lösen ordet har uppdaterats i programmet ber du användaren att klicka på knappen **uppdatera autentiseringsuppgifter** på **program** panelen i avsnittet **appar** i [program åtkomst panelen](https://myapps.microsoft.com/) för att uppdatera dem till det senaste kända fungerande användar namnet och lösen ordet.
 
-  * Om du eller någon annan administratör har tilldelat autentiseringsuppgifterna för den här användaren, hittar du användarens eller gruppens program tilldelning genom att gå till fliken **användare & grupper** i programmet, välja tilldelningen och klicka på **uppdatera autentiseringsuppgifter** knapp.
+  * Om du eller någon annan administratör har tilldelat autentiseringsuppgifterna för den här användaren, hittar du användarens eller gruppens program tilldelning genom att gå till fliken **användare & grupper** i programmet, välja tilldelningen och klicka på knappen **uppdatera autentiseringsuppgifter** .
 
 - Låt användaren uppdatera åtkomst panelens webb läsar tillägg genom att följa stegen nedan i avsnittet [Installera åtkomst panelens webb läsar tillägg](#how-to-install-the-access-panel-browser-extension) .
 

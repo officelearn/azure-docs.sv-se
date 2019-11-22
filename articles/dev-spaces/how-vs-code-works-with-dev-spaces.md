@@ -1,20 +1,16 @@
 ---
 title: Hur Visual Studio Code fungerar med Azure dev Spaces
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 07/08/2019
 ms.topic: conceptual
 description: Hur Visual Studio Code fungerar med Azure dev Spaces
 keywords: Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, containers
-ms.openlocfilehash: 7809f0215137b0c473e13143404a031497906ebf
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 50ce5e90e091ea72761cd7513d2508c657981e60
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725820"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279893"
 ---
 # <a name="how-visual-studio-code-works-with-azure-dev-spaces"></a>Hur Visual Studio Code fungerar med Azure dev Spaces
 
@@ -30,22 +26,22 @@ Visual Studio Code och tillägget Azure dev Spaces genererar följande till gån
 
 * Dockerfiles för Java-program med maven-, Node. js-program och .NET Core-program
 * Helm diagram för nästan alla språk med en Dockerfile
-* En `azds.yaml` fil, som är [konfigurations filen för Azure dev Spaces][azds-yaml] för ditt projekt
-* En `.vscode` mapp med Visual Studio Code start Configuration för ditt projekt för Java-program med hjälp av maven, Node. js-program och .net Core-program
+* En `azds.yaml`-fil, som är [konfigurations filen för Azure dev Spaces][azds-yaml] för ditt projekt
+* En `.vscode`-mapp med Visual Studio Codes start konfiguration av ditt projekt för Java-program med hjälp av maven, Node. js-program och .NET Core-program
 
-Dockerfile, Helm-diagrammet och `azds.yaml` -filerna är samma till gångar som genereras när de körs. `azds prep` Dessa filer kan också användas utanför Visual Studio Code för att köra projektet i AKS, som att köra `azds up`. `.vscode` Mappen används endast av Visual Studio Code för att köra projektet i AKS från Visual Studio Code.
+Dockerfile-, Helm-och `azds.yaml` filerna är samma till gångar som genereras när `azds prep`körs. Dessa filer kan också användas utanför Visual Studio Code för att köra projektet i AKS, till exempel att köra `azds up`. Mappen `.vscode` används endast av Visual Studio Code för att köra projektet i AKS från Visual Studio Code.
 
 ## <a name="run-your-service-in-aks"></a>Kör din tjänst i AKS
 
-När du har genererat till gångarna för ditt projekt kan du köra Java, Node. js och .NET Core-tjänster i ett befintligt dev-utrymme från Visual Studio Code. På sidan *fel sökning* i Visual Studio Code kan du anropa Starta-konfigurationen från `.vscode` katalogen för att köra projektet.
+När du har genererat till gångarna för ditt projekt kan du köra Java, Node. js och .NET Core-tjänster i ett befintligt dev-utrymme från Visual Studio Code. På sidan *fel sökning* i Visual Studio Code kan du anropa Starta-konfigurationen från `.vscode` Directory för att köra projektet.
 
-Du måste skapa ditt AKS-kluster och aktivera Azure dev Spaces i ditt kluster utanför Visual Studio Code. Du kan till exempel använda Azure CLI eller Azure Portal för att göra den här installationen. Du kan återanvända befintliga Dockerfiles, Helm-diagram `azds.yaml` och filer som skapats utanför Visual Studio Code, till exempel de till gångar som `azds prep`genererats genom att köra. Om du återanvänder till gångar som skapats utanför Visual Studio Code måste du ändå ha en `.vscode` katalog. Den `.vscode` här katalogen kan återskapas av Visual Studio Code och tillägget Azure dev Spaces och dina befintliga till gångar skrivs inte över.
+Du måste skapa ditt AKS-kluster och aktivera Azure dev Spaces i ditt kluster utanför Visual Studio Code. Du kan till exempel använda Azure CLI eller Azure Portal för att göra den här installationen. Du kan återanvända befintliga Dockerfiles-, Helm-diagram och `azds.yaml` filer som skapats utanför Visual Studio Code, till exempel de till gångar som genereras genom att `azds prep`körs. Om du återanvänder till gångar som skapats utanför Visual Studio Code måste du ändå ha en `.vscode` katalog. Den här `.vscode` katalogen kan återskapas av Visual Studio Code och tillägget Azure dev Spaces och dina befintliga till gångar skrivs inte över.
 
-För .net Core-projekt måste du ha [ C# tillägget][csharp-extension] installerat för att köra din .net-tjänst från Visual Studio Code. För Java-projekt som använder maven måste du också ha installerat Java-felsökare [för Azure dev Spaces-tillägget][java-extension] samt [maven installerat och konfigurerat][maven] för att köra Java-tjänsten från Visual Studio Code.
+För .net Core-projekt måste du ha [ C# tillägget][csharp-extension] installerat för att köra din .net-tjänst från Visual Studio Code. För Java-projekt som använder maven måste du också ha installerat [Java-felsökare för Azure dev Spaces-tillägget][java-extension] samt [maven installerat och konfigurerat][maven] för att köra Java-tjänsten från Visual Studio Code.
 
 ## <a name="debug-your-service-in-aks"></a>Felsöka tjänsten i AKS
 
-När du har lanserat ditt projekt kan du felsöka Java, Node. js och .NET Core-tjänster som körs i ett dev-utrymme direkt från Visual Studio Code. Start konfigurationen i `.vscode` katalogen ger ytterligare felsöknings information för att köra en tjänst med fel sökning aktiverat i ett dev-utrymme. Visual Studio Code bifogar också fel söknings processen i den behållare som körs i dina dev Spaces, så att du kan ange Bryt punkter, granska variabler och utföra andra fel söknings åtgärder.
+När du har lanserat ditt projekt kan du felsöka Java, Node. js och .NET Core-tjänster som körs i ett dev-utrymme direkt från Visual Studio Code. Med start konfigurationen i `.vscode` Directory får du ytterligare information om fel sökning för att köra en tjänst med fel sökning aktiverat i ett dev-utrymme. Visual Studio Code bifogar också fel söknings processen i den behållare som körs i dina dev Spaces, så att du kan ange Bryt punkter, granska variabler och utföra andra fel söknings åtgärder.
 
 
 ## <a name="use-visual-studio-code-with-azure-dev-spaces"></a>Använda Visual Studio Code med Azure dev Spaces

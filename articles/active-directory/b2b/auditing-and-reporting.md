@@ -1,6 +1,6 @@
 ---
-title: Granskning och rapportering en B2B-samarbete användare – Azure Active Directory | Microsoft Docs
-description: Egenskaper för gäst-användare kan konfigureras i Azure Active Directory B2B-samarbete
+title: Granskning och rapportering av en B2B-samarbets användare – Azure AD
+description: Gäst användar egenskaper kan konfigureras i Azure Active Directory B2B-samarbete
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -12,30 +12,30 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 506721a23a5a18eaea76efaca61df49f20dc9228
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 74d2473d37dcf0d435ab61763e72a64111845956
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65812471"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74273298"
 ---
-# <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Granskning och rapportering av en användare för B2B-samarbete
-Med gästanvändare har du granskningsfunktioner liknar med användare. 
+# <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Granskning och rapportering av en B2B-samarbets användare
+Med gäst användare har du gransknings funktioner som liknar medlems användare. 
 
 ## <a name="access-reviews"></a>Åtkomstgranskningar
-Du kan använda åtkomstgranskningar regelbundet kontrollerar om gästanvändare fortfarande behöver åtkomst till dina resurser. Den **Åtkomstgranskningar** funktionen är tillgänglig i **Azure Active Directory** under **hantera** > **organisationens relationer**. (Du kan också söka efter ”åtkomstgranskningar” från **alla tjänster** i Azure-portalen.) Läs hur du använder åtkomstgranskningar i [hantera gäståtkomst med Azure AD åtkomst går igenom](../governance/manage-guest-access-with-access-reviews.md).
+Du kan använda åtkomst granskningar för att regelbundet kontrol lera om gäst användare fortfarande behöver åtkomst till dina resurser. Funktionen **åtkomst granskningar** finns i **Azure Active Directory** under **Hantera** > **organisations relationer**. (Du kan också söka efter "åtkomst granskningar" från **alla tjänster** i Azure Portal.) Information om hur du använder åtkomst granskningar finns i [Hantera gäst åtkomst med åtkomst granskningar för Azure AD](../governance/manage-guest-access-with-access-reviews.md).
 
 ## <a name="audit-logs"></a>Granskningsloggar
 
-Azure AD-audit-loggarna ger poster i system- och aktiviteter, inklusive aktiviteter som initierats av gästanvändare. Åtkomst till granskningsloggar, på **Azure Active Directory**under **övervakning**väljer **granskningsloggar**. Här är ett exempel på inbjudan och inlösen historiken för inbjudens Sam Oogle:
+Azure AD audit-loggarna innehåller poster för system-och användar aktiviteter, inklusive aktiviteter som initieras av gäst användare. För att få åtkomst till gransknings loggar går du till **Azure Active Directory**, under **övervakning**, och väljer **gransknings loggar**. Här är ett exempel på Inbjudnings-och inlösnings historiken för oogle för inbjudna Sam:
 
-![Skärmbild som visar och exempel på audit logga utdata](./media/auditing-and-reporting/audit-log.png)
+![Skärm bild som visar och exempel på gransknings loggens utdata](./media/auditing-and-reporting/audit-log.png)
 
-Du kan fördjupa dig i var och en av dessa händelser för att hämta information. Exempelvis kan du nu ska vi titta detaljinformationen godkännande.
+Du kan se var och en av dessa händelser för att få information. Låt oss till exempel titta på godkännande informationen.
 
-![Skärmbild som visar och exempel på information om aktivitetsutdata](./media/auditing-and-reporting/activity-details.png)
+![Skärm bild som visar och exempel på utdata från aktivitets information](./media/auditing-and-reporting/activity-details.png)
 
-Du kan också exportera dessa loggar från Azure AD och använda Rapporteringsverktyg föredrar för att hämta anpassade rapporter.
+Du kan också exportera dessa loggar från Azure AD och använda det rapporterings verktyg som du väljer för att hämta anpassade rapporter.
 
 ### <a name="next-steps"></a>Nästa steg
 

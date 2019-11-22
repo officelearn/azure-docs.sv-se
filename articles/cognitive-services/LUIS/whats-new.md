@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/07/2019
 ms.author: diberry
-ms.openlocfilehash: 62ce0ac36223098d013cc75b7f62fc2c68e358ed
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: e03c7489268f3ad7076481de4498c5e202f654b6
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953386"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280300"
 ---
 # <a name="whats-new-in-language-understanding"></a>Vad är nytt i Language Understanding
 
@@ -33,13 +33,13 @@ Läs om vad som är nytt i tjänsten. Dessa objekt innehåller viktig informatio
     * [Arabiska och hindi](luis-language-support.md) i offentlig för hands version.
 * Fördefinierade modeller
     * [Fördefinierade domäner](luis-reference-prebuilt-domains.md) är nu allmänt tillgängliga (ga)
-    * Japanska [fördefinierade entiteter](luis-reference-prebuilt-entities.md#japanese-entity-support) – ålder, valuta, tal, procent stöder inte i v3.
-    * [Fördefinierade italienska entiteter](luis-reference-prebuilt-entities.md#italian-entity-support) – ålder, valuta, dimension, nummer, procents ATS av matchning har ändrats från v2.
-* Förbättra användar upplevelsen i [Preview.Luis.AI-portalen](https://preview.luis.ai) – förbättringar etiketting-upplevelse för att möjliggöra skapande och fel sökning av komplexa modeller. Testa självstudierna för Preview-portalen:
+    * Japanska [fördefinierade entiteter](luis-reference-prebuilt-entities.md#japanese-entity-support) – ålder, valuta, tal och procent stöds inte i v3.
+    * [Inbyggda italienska entiteter](luis-reference-prebuilt-entities.md#italian-entity-support) – ålder, valuta, dimension, nummer och procents ATS för en procentuell matchning har ändrats från v2.
+* Förbättrad användar upplevelse i [Preview.Luis.AI Portal](https://preview.luis.ai) – förbättringar etiketting-upplevelse som möjliggör skapande och fel sökning av komplexa modeller. Testa självstudierna för Preview-portalen:
     * [Endast avsikter](tutorial-intents-only.md)
     * [Desammansättnings bar enhet som har registrerats av enheten](tutorial-machine-learned-entity.md) 
 * Förhands språk förstå funktioner – [skapa sofistikerade språk modeller](luis-concept-entity-types.md) med mindre ansträngning. 
-* Definiera Machine Learning-funktioner på modell nivå och aktivera modeller som ska användas som signaler till annan modell, som att använda entiteter som funktioner till avsikter och andra entiteter.
+* Definiera Machine Learning-funktioner på modell nivå och aktivera modeller som ska användas som signaler till andra modeller, till exempel att använda entiteter som funktioner till avsikter och andra entiteter.
 * Nya, utökade [gränser](luis-boundaries.md) – högre max för fras listor och total fraser, ny modell som funktions gränser
 * Extrahera information från text i formatet djup hierarki-struktur, så att konversations program blir mer kraftfulla.
 

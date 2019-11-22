@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: f7a62d1d2b695726421ba990d0f118eb3ae199da
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
-ms.translationtype: MT
+ms.openlocfilehash: 292619bdf114f366f5d0aff0efdfd8d9606842b1
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031462"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286558"
 ---
 # <a name="example-detect-sentiment-with-text-analytics"></a>Exempel: identifiera sentiment med Textanalys
 
@@ -36,7 +36,7 @@ Attitydanalys utförs i hela dokumentet, till skillnad från åsiktsextrahering 
 
 ## <a name="sentiment-analysis-v3-public-preview"></a>Attitydanalys v3 offentlig för hands version
 
-[Nästa version av Attitydanalys](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment) är nu tillgänglig för offentlig för hands version. Den ger betydande förbättringar av precisionen och detaljerna i API: ns text kategorisering och poängsättning.
+[Nästa version av Attitydanalys](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment) är nu tillgänglig för offentlig för hands version. Den ger betydande förbättringar av precisionen och detaljerna i API: ns text kategorisering och poängsättning.
 
 > [!NOTE]
 > * Formatet för förfrågnings formatet för Attitydanalys v3 och [data begränsningarna](../overview.md#data-limits) är desamma som i den tidigare versionen.

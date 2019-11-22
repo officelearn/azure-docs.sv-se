@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/4/2019
 ms.author: ellacroi
-ms.openlocfilehash: 300f1783c1c514a6cc49d700c2741be85e69c3e8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6a7a0d5bdd07221be823f8b94bd581db6d966fa8
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822988"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74306415"
 ---
 # <a name="microsoft-commercial-marketplace-faqs"></a>Vanliga frågor och svar om Microsoft Marketplace
 
@@ -37,7 +37,7 @@ Azure Marketplace erbjuder tekniska lösningar och tjänster från Microsoft och
 
 * bas operativ system
 * databaser
-* security
+* säkerhet
 * identity
 * nätverk
 * Blockchain
@@ -108,7 +108,7 @@ Om du vill migrera en Azure Marketplace-prenumeration (virtuell dator) till en E
 
 Prissättningen varierar beroende på produkttyp och utgivarens specifikationer. Avgifter för programvarulicenser och kostnader för Azure-användning faktureras separat genom din Azure-prenumeration.
 
-*Unbunta:*
+*Unbundled:*
 
 + *BYOL-modell (tag-Your-License)* : när du skaffar en program varu licens direkt från utgivaren eller en åter försäljare finns det inga ytterligare kostnader eller avgifter för program vara.
 
@@ -165,7 +165,7 @@ Enterprise-avtal (EA) indirekta kunder måste kontakta sin Licensing Solution Pr
 
 **Kan jag kontrol lera mina anställdas åtkomst till Azure Marketplace och Köp behörighet?**
 
-Ja, för kunder med Enterprise-avtal (EA) kan registrerings administratören stänga av köp behörighet för alla konton i registreringen och aktivera den igen tillräckligt länge för att göra ett köp. Dessutom kan alla kunder använda Azure Policy för att begränsa distributions alternativen för sina Azure-prenumerationer, inklusive hantering av Azure Marketplace-resurser.
+Ja, för kunder med Enterprise-avtal (EA) kan registrerings administratören stänga av köp behörighet för alla konton i registreringen och aktivera den igen tillräckligt länge för att göra ett köp.
 
 **Vilka betalnings metoder stöds för inköp av kommersiella marknads platser?**
 
@@ -173,7 +173,7 @@ Kunder kan köpa erbjudanden från Azure Marketplace och Microsoft AppSource att
 
 **Kan jag använda Azures prenumerations krediter eller betalnings medel i mitt konto mot Azure Marketplace-erbjudanden?**
 
-För specifika Azure Marketplace-erbjudanden kan Azure-prenumerationskrediter eller betalningsåtaganden användas. En fullständig lista över produkter som ingår i det här programmet finns i det [monetära åtagandet i Azure](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/) . Dessa erbjudanden omfattar inte BYOL-eller BYOS-alternativ. Alla andra Azure Marketplace-erbjudanden kan inte använda Azures prenumerations krediter eller betalnings åtagande: som den kostnads fria utvärderings versionen på en månad, månatliga MSDN-krediter, krediter från Azure-kampanjer, kredit sal Don och andra kostnads fria krediter från Azure.
+För specifika Azure Marketplace-erbjudanden kan Azure-prenumerationskrediter eller betalningsåtaganden användas. Se [Azure-betalningsåtagande](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/) för en fullständig lista över produkter som medverkar i det här programmet. Dessa erbjudanden omfattar inte BYOL-eller BYOS-alternativ. Alla andra Azure Marketplace-erbjudanden kan inte använda Azures prenumerations krediter eller betalnings åtagande: som den kostnads fria utvärderings versionen på en månad, månatliga MSDN-krediter, krediter från Azure-kampanjer, kredit sal Don och andra kostnads fria krediter från Azure.
 
 **Gäller volym licens rabatter för Azure Marketplace-köp?**
 
@@ -348,7 +348,7 @@ När du har slutfört erbjudandet och konfigurerat ett lead-mål kan du publicer
 
 **Vilka länder/regioner är Azure Marketplace tillgängligt för utgivare att sälja från?**
 
-Utgivare som är baserade i följande länder/regioner kan för närvarande säljas på Azure Marketplace: Afghanistan, Albanien, Algeriet, Angola, Antigua och Barbuda, Argentina, Armenien, Australien, Azerbajdzjan, Azerbajdzjan, Bahrain, Bangladesh, Vitryssland, Belgien, Benin, Bolivia, Bosnien och Hercegovina, Botswana, Brasilien, Bulgarien, Burkina Faso, Burundi, Kambodja, Kamerun, Kanada, Centralafrikanska republiken, Tchad, Chile, Colombia, Komorerna, Kongo, Kongo (Dr), Costa Rica, Elfenbenskusten, Kroatien, Cypern, Tjeckien, Tjeckien Danmark, Dominica, Dominikanska republiken, Ecuador, Egypten, El Salvador, Eritrea, Estland, Etiopien, Fiji, Finland, Frankrike, Georgien, Tyskland, Ghana, Grekland, Guatemala, Guinea, Haiti, Honduras, Hongkong SAR, Ungern, Island, Indien, Indonesien, Irak Irland, Israel, Italien, Jamaica, Japan, Jordanien, Kazakstan, Kenya, Korea (södra), Kuwait, Laos, Lettland, Libanon, Liberia, Liechtenstein, Litauen, Luxemburg, Madagaskar, Malawi, Malaysia, Mali, Malta, Mauritius, Mexiko, Monaco, Mongoliet, Montenegro, Marocko, Moçambique, Nepal, Nederländerna, New Zeeland, Nicaragua, Niger, Nigeria, Norge, Oman, Pakistan, Panama, Paraguay, Peru, Filippinerna, Polen, Portugal, Qatar, Rumänien, Ryssland, Rwanda, Saudiarabien, Senegal, Serbien, Sierra Leone, Singapore, Slovakien, Slovenien, Somalia, Sydafrika, Spanien, Sri Lanka, Sverige, Schweiz, Tadzjikistan, Tanzania, Thailand, Timor-Leste, Togo, Tonga, Trinidad och Tobago, Tunisien, Turkiet, Turkmenistan, Uganda, Ukraina, Förenade Arabemiraten, Förenade kungariket, Förenade kungariket Staterna, Uruguay, Uzbekistan, Venezuela, Vietnam, Zambia och Zimbabwe.
+Utgivare som baseras på följande länder/regioner kan för närvarande sälja på Azure Marketplace: Afghanistan, Albanien, Algeriet, Angola, Antigua och Barbuda, Argentina, Armenien, Australien, Republiken Azerbajdzjan, Bahrain, Bangladesh, Vitryssland, Belgien, Benin, Bolivia, Bosnien och Hercegovina, Botswana, Brasilien, Bulgarien, Burkina Faso, Burundi, Kambodja, Kamerun, Kanada, Centralafrikanska republiken, Tchad, Chile, Colombia, Republiken Kongo, Kongo (Dr), Costa Rica, Kroatien, Cypern, Tjeckien, Tjeckien Danmark, Dominica, Dominikanska republiken, Ecuador, Egypten, El Salvador, Eritrea, Estland, Etiopien, Fiji, Finland, Frankrike, Georgien, Tyskland, Ghana, Grekland, Guatemala, Guinea, Haiti, Honduras, Hongkong SAR, Ungern, Island, Indien, Indonesien, Irak, Irland, Israel, Italien, Jamaica, Japan, Kazakstan, Kenya, Republiken Korea (södra), Kuwait, Laos, Lettland, Libanon, Liberia, Liechtenstein, Litauen, Luxemburg, Madagaskar, Malawi, Malaysia, Mali, Malta, Mauritius, Mexiko, Monaco, Mongoliet, Montenegro Marocko, Moçambique, Nepal, Nederländerna, Nya Zeeland, Nicaragua, Niger, Nigeria, Norge, Oman, Pakistan, Panama, Paraguay, Peru, Filippinerna, Polen, Portugal, Qatar, Rumänien, Ryssland, Rwanda, Saudiarabien, Senegal, Serbien, Sierra Leone, Singapore, Slovakien, Slovenien, Somalia, Sydafrika, Spanien, Sri Lanka, Sverige, Schweiz, Tadzjikistan, Tanzania, Thailand, Timor-Leste, Togo, Tonga, Trinidad och Tobago, Tunisien, Turkiet, Turkmenistan, Uganda, Ukraina, Förenade Arabemiraten, Förenade kungariket, Förenade kungariket Staterna, Uruguay, Uzbekistan, Venezuela, Vietnam, Zambia och Zimbabwe.
 
 **Hur gör jag för att ta bort en lista från Azure Marketplace?**
 

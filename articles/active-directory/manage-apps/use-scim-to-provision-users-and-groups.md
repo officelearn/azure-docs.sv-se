@@ -1,5 +1,5 @@
 ---
-title: SCIM användar etablering med Azure Active Directory | Microsoft Docs
+title: Automatisera etablering av appar med SCIM i Azure AD
 description: Lär dig att skapa en SCIM-slutpunkt, integrera ditt SCIM-API med Azure Active Directory och börja automatisera etableringen av användare och grupper i dina program.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8bb9b507763c935ab244c42584120a279063954
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 1d4694dfa92d282e1dc098a510ac82dd9c703c1e
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195453"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276493"
 ---
 # <a name="scim-user-provisioning-with-azure-active-directory-azure-ad"></a>SCIM användar etablering med Azure Active Directory (Azure AD)
 
@@ -77,7 +77,7 @@ Observera att du inte behöver stödja både användare och grupper eller alla a
 | streetAddress |adresser typ eq ”arbete pågår” .streetAddress |
 | surname |name.familyName |
 | Telefonnummer |phoneNumbers [typ eq ”arbete pågår”] .value |
-| användaren huvudkontot |Användarnamn |
+| användaren huvudkontot |userName |
 
 ### <a name="table-2-default-group-attribute-mapping"></a>Tabell 2: Standard grupp attributmappning
 
@@ -627,7 +627,7 @@ Så fungerar här det:
 
 För att göra den här processen enklare, tillhandahålls [kod exempel](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master) , som skapar en scim-webbtjänst-slutpunkt och demonstrerar automatisk etablering. Exemplet är en provider som upprätthåller en fil med rader som är kommaavgränsade värden som representerar användare och grupper.
 
-**Förutsättningar**
+**Krav**
 
 * Visual Studio 2013 eller senare
 * [Azure SDK för .NET](https://azure.microsoft.com/downloads/)

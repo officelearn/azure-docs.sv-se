@@ -1,20 +1,16 @@
 ---
 title: Grupp utveckling med Azure dev Spaces med Node. js och VS Code
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
-ms.openlocfilehash: d3eecce7e5704752e0a5ea18b2a5d0f668978028
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
-ms.translationtype: MT
+ms.openlocfilehash: 70904ba89c2fa29217891b18beb8844e825c1d98
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129295"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279738"
 ---
 # <a name="team-development-with-azure-dev-spaces-using-nodejs-and-vs-code"></a>Grupp utveckling med Azure dev Spaces med Node. js och VS Code
 

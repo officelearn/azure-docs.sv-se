@@ -1,6 +1,7 @@
 ---
-title: Diagnostisera lokal anslutning via VPN-gateway med Azure Network Watcher | Microsoft Docs
-description: Den här artikeln beskriver hur du diagnostisera lokal anslutning via VPN-gateway med felsökning av Azure Network Watcher-resurs.
+title: Diagnostisera lokal anslutning via VPN-gateway
+titleSuffix: Azure Network Watcher
+description: Den här artikeln beskriver hur du diagnostiserar lokal anslutning via VPN-gateway med Azure Network Watcher Resource Troubleshooting.
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -14,38 +15,38 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 05335cb6949928244e10641ebe82008275830e67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 602a319ce90e5a6d13829e218899f135413d762d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754061"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275941"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnostisera lokal anslutning via VPN-gatewayer
 
-Azure VPN-Gateway kan du skapa hybridlösning som behovet av en säker anslutning mellan ditt lokala nätverk och Azure-nätverk. När dina behov är unika, så är valet av den lokala VPN-enhet. Azure stöder för närvarande [flera VPN-enheter](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable) som verifieras ständigt i samarbete med leverantörer för enheter. Granska de specifika inställningarna innan du konfigurerar den lokala VPN-enheten. På samma sätt kan Azure VPN Gateway har konfigurerats med en uppsättning [stöd för IPsec-parametrar](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) som används för att upprätta anslutningar. Det finns för närvarande inget sätt att ange eller välja en specifik kombination av IPsec-parametrar från Azure VPN Gateway. Inställningar för den lokala VPN-enheter måste vara i enlighet med IPsec-parametrar som föreskrivs av Azure VPN Gateway för att upprätta en anslutning mellan lokala och Azure. Om inställningarna är korrekta, där är en förlust av anslutning och fram till nu felsöka problemen var inte trivial och vanligtvis tog timmar att identifiera och åtgärda problemet.
+Med Azure VPN Gateway kan du skapa en hybrid lösning som tillgodoser behovet av en säker anslutning mellan ditt lokala nätverk och ditt virtuella Azure-nätverk. Eftersom dina krav är unika, så är valet av lokal VPN-enhet. Azure stöder för närvarande [flera VPN-enheter](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable) som ständigt verifieras i partnerskap med enhets leverantörer. Granska de enhetsspecifika konfigurations inställningarna innan du konfigurerar den lokala VPN-enheten. På samma sätt konfigureras Azure VPN Gateway med en uppsättning [IPsec-parametrar som stöds](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) för att upprätta anslutningar. För närvarande finns det inget sätt att ange eller välja en speciell kombination av IPsec-parametrar från Azure-VPN Gateway. För att upprätta en lyckad anslutning mellan lokala och Azure måste inställningarna för den lokala VPN-enheten vara i överensstämmelse med IPsec-parametrarna som föreskrivs i Azure VPN Gateway. Om inställningarna är korrekta går det inte att ansluta och tills de här problemen är lösta, och det tog aldrig några timmar att identifiera och åtgärda problemet.
 
-Felsöka funktionen med Azure Network Watcher, kan du diagnostisera problem med din Gateway och dina anslutningar och inom några minuter har tillräckligt med information för att fatta ett välgrundat beslut att rätta till problemet.
+Med Azure Network Watcher fel söknings funktionen kan du diagnostisera eventuella problem med din gateway och dina anslutningar och inom några minuter har tillräckligt med information för att fatta ett välgrundat beslut om att åtgärda problemet.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="scenario"></a>Scenario
 
-Du vill konfigurera en plats-till-plats-anslutning mellan Azure och lokalt med hjälp av FortiGate som den lokala VPN-Gateway. För att uppnå det här scenariot kan kräver du följande inställningar:
+Du vill konfigurera en plats-till-plats-anslutning mellan Azure och lokalt med FortiGate som lokal VPN Gateway. För att uppnå det här scenariot behöver du följande konfiguration:
 
-1. Vnet-Gateway - VPN-Gateway på Azure
-1. Lokal nätverksgateway - den [lokala (FortiGate) VPN-Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) representation i Azure-molnet
-1. Plats-till-plats-anslutning (routningsbaserade) - [anslutning mellan VPN-Gateway och den lokala routern](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#CreateConnection)
+1. Virtual Network Gateway – VPN Gateway på Azure
+1. Lokal nätverksgateway – den lokala Nätverksgatewayen [(Fortigate) VPN gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) representation i Azure-molnet
+1. Plats-till-plats-anslutning (Route-baserad) – [anslutning mellan VPN gateway och den lokala routern](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#CreateConnection)
 1. [Konfigurera FortiGate](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
-Detaljerade steg-för-steg-guiden för att konfigurera en plats-till-plats-konfiguration kan hittas genom att besöka: [Skapa ett VNet med en plats-till-plats-anslutning med Azure portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Detaljerade anvisningar för hur du konfigurerar en plats-till-plats-konfiguration finns på: [skapa ett VNet med en plats-till-plats-anslutning med hjälp av Azure Portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
-En av de viktiga konfigurationsstegen konfigurera parametrar för IPsec-kommunikation, alla felkonfiguration leder till förlust av anslutning mellan det lokala nätverket och Azure. Azure VPN gateway är konfigurerad för att stödja följande IPsec-parametrar för fas 1. Observera att som vi nämnde tidigare de här inställningarna inte kan ändras.  Som du ser i tabellen nedan är krypteringsalgoritmer som stöds av Azure VPN Gateway AES256, AES128 och 3DES.
+Ett av de viktiga konfigurations stegen är att konfigurera IPsec-kommunikations parametrarna, eventuella felkonfigurationer leder till förlust av anslutning mellan det lokala nätverket och Azure. För närvarande har Azure VPN-gatewayer kon figurer ATS för att stödja följande IPsec-parametrar för fas 1. Observera att det inte går att ändra de här inställningarna som nämnts tidigare.  Som du kan se i tabellen nedan är de krypteringsalgoritmer som stöds av Azure VPN Gateway AES256, AES128 och 3DES.
 
-### <a name="ike-phase-1-setup"></a>IKE fas 1-konfiguration
+### <a name="ike-phase-1-setup"></a>IKE fas 1-installation
 
-| **Egenskap** | **Principbaserad** | **Routningsbaserad och Standard eller högpresterande VPN gateway** |
+| **Egenskap** | **Principbaserad** | **Routningsbaserad och standard eller VPN-gateway med höga prestanda** |
 | --- | --- | --- |
 | IKE-version |IKEv1 |IKEv2 |
 | Diffie-Hellman Group |Grupp 2 (1 024 bitar) |Grupp 2 (1 024 bitar) |
@@ -54,66 +55,66 @@ En av de viktiga konfigurationsstegen konfigurera parametrar för IPsec-kommunik
 | Hash-algoritm |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
 | Fas 1, Security Association (SA), livslängd (tid) |28 800 sekunder |10 800 sekunder |
 
-Du skulle bli ombedd att konfigurera din FortiGate som en användare, en exempelkonfiguration finns på [GitHub](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/fortigate_show%20full-configuration.txt). Utan att veta att du konfigurerat din FortiGate för att använda SHA-512 som hash-algoritm. Eftersom den här algoritmen inte är en algoritm som stöds för principbaserad anslutningar fungerar VPN-anslutningen.
+Som användare måste du konfigurera din FortiGate, en exempel konfiguration finns på [GitHub](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/fortigate_show%20full-configuration.txt). Vet du att du har konfigurerat din FortiGate att använda SHA-512 som hash-algoritm. Eftersom den här algoritmen inte är en algoritm som stöds för principbaserade anslutningar fungerar VPN-anslutningen.
 
-Dessa problem är svåra att felsöka och rotorsaker är ofta tveksamma. I det här fallet kan du öppna ett supportärende för att få hjälp om hur du löser problemet. Men med Azure Network Watcher felsöka API, kan du identifiera problemen på egen hand.
+De här problemen är svåra att felsöka och Rotors Aker är ofta inte intuitiva. I det här fallet kan du öppna ett support ärende för att få hjälp med att lösa problemet. Men med Azure Network Watcher felsöka API kan du identifiera problemen på egen hand.
 
-## <a name="troubleshooting-using-azure-network-watcher"></a>Felsöka med Azure Network Watcher
+## <a name="troubleshooting-using-azure-network-watcher"></a>Fel sökning med Azure Network Watcher
 
-Ansluta till Azure PowerShell för att diagnostisera din anslutning och initiera den `Start-AzNetworkWatcherResourceTroubleshooting` cmdlet. Du hittar information om hur du använder denna cmdlet på [felsöka virtuella nätverks-Gateway och anslutningar – PowerShell](network-watcher-troubleshoot-manage-powershell.md). Denna cmdlet kan ta upp till några minuter att slutföra.
+För att diagnosticera anslutningen ansluter du till Azure PowerShell och initierar `Start-AzNetworkWatcherResourceTroubleshooting`-cmdleten. Du hittar information om hur du använder denna cmdlet vid [fel sökning Virtual Network gateway och anslutningar – PowerShell](network-watcher-troubleshoot-manage-powershell.md). Den här cmdleten kan ta upp till några minuter att slutföra.
 
-När cmdleten har slutförts kan du navigera till lagringsplatsen som angetts i cmdlet för att få detaljerad information om om problemet och loggar. Azure Network Watcher skapar en komprimerad mapp som innehåller följande loggfiler:
+När cmdleten har slutförts kan du gå till den lagrings plats som anges i cmdlet: en för att få detaljerad information om problemet och loggarna. Azure Network Watcher skapar en zip-mapp som innehåller följande loggfiler:
 
 ![1][1]
 
-Öppna den fil som heter IKEErrors.txt och visar följande fel som indikerar ett problem med den lokala IKE inställningen felkonfiguration.
+Öppna filen IKEErrors. txt så visas följande fel meddelande, som anger ett problem med den lokala IKE-inställningen fel konfiguration.
 
 ```
 Error: On-premises device rejected Quick Mode settings. Check values.
      based on log : Peer sent NO_PROPOSAL_CHOSEN notify
 ```
 
-Du kan hämta detaljerad information från Scrubbed-wfpdiag.txt om felet, som i det här fallet nämner det att det fanns `ERROR_IPSEC_IKE_POLICY_MATCH` som leda till att anslutningen inte fungerar korrekt.
+Du kan få detaljerad information från Scrubbed-wfpdiag. txt om felet, som i det här fallet nämns det att det fanns `ERROR_IPSEC_IKE_POLICY_MATCH` som leder till att anslutningen inte fungerar korrekt.
 
-En annan gemensam felkonfigurering är att ange felaktig delade nycklar. Om du hade angett olika delade nycklar i föregående exempel, IKEErrors.txt visas följande fel: `Error: Authentication failed. Check shared key`.
+En annan vanlig fel konfiguration är att ange Felaktiga delade nycklar. Om du i föregående exempel har angett olika delade nycklar, visar IKEErrors. txt följande fel: `Error: Authentication failed. Check shared key`.
 
-Azure Network Watcher Felsöka funktionen gör det möjligt för dig att diagnostisera och felsöka din VPN-Gateway och anslutning med lättanvända en enkel PowerShell-cmdlet. För närvarande vi stöder diagnostisering av följande villkor och arbetar för att lägga till fler villkor.
+Med Azure Network Watcher fel söknings funktionen kan du diagnostisera och felsöka din VPN Gateway och anslutning med enkel PowerShell-cmdlet. För närvarande stöder vi diagnostisering av följande villkor och arbetar med att lägga till fler villkor.
 
 ### <a name="gateway"></a>Gateway
 
-| Zadaný typ | Orsak | Logga|
+| Feltyp | Orsak | Logga|
 |---|---|---|
-| NoFault | När inget fel har identifierats. |Ja|
-| GatewayNotFound | Det går inte att hitta Gateway eller Gateway inte har etablerats. |Nej|
-| PlannedMaintenance |  Gateway-instans är under underhåll.  |Nej|
-| UserDrivenUpdate | När en uppdatering pågår. Detta kan vara en storleksändringen. | Nej |
-| VipUnResponsive | Det går inte att nå den primära instansen av gatewayen. Detta händer när hälsoavsökningen misslyckas. | Nej |
+| Nofel | När inget fel har identifierats. |Ja|
+| GatewayNotFound | Det går inte att hitta någon gateway eller gateway. |Nej|
+| PlannedMaintenance |  Gateway-instansen är under underhåll.  |Nej|
+| UserDrivenUpdate | När en användar uppdatering pågår. Detta kan vara en åtgärd för storleks ändring. | Nej |
+| VipUnResponsive | Det går inte att komma åt den primära instansen av gatewayen. Detta inträffar när hälso avsökningen Miss lyckas. | Nej |
 | PlatformInActive | Det finns ett problem med plattformen. | Nej|
 | ServiceNotRunning | Den underliggande tjänsten körs inte. | Nej|
 | NoConnectionsFoundForGateway | Det finns inga anslutningar på gatewayen. Detta är endast en varning.| Nej|
-| ConnectionsNotConnected | Ingen av anslutningarna är anslutna. Detta är endast en varning.| Ja|
-| GatewayCPUUsageExceeded | Aktuell gatewayanvändning CPU-användning är > 95%. | Ja |
+| ConnectionsNotConnected | Ingen anslutning är ansluten. Detta är endast en varning.| Ja|
+| GatewayCPUUsageExceeded | CPU-användningen för aktuell gateway-användning är > 95%. | Ja |
 
 ### <a name="connection"></a>Anslutning
 
-| Zadaný typ | Orsak | Logga|
+| Feltyp | Orsak | Logga|
 |---|---|---|
-| NoFault | När inget fel har identifierats. |Ja|
-| GatewayNotFound | Det går inte att hitta Gateway eller Gateway inte har etablerats. |Nej|
-| PlannedMaintenance | Gateway-instans är under underhåll.  |Nej|
-| UserDrivenUpdate | När en uppdatering pågår. Detta kan vara en storleksändringen.  | Nej |
-| VipUnResponsive | Det går inte att nå den primära instansen av gatewayen. Det händer när hälsoavsökningen misslyckas. | Nej |
-| ConnectionEntityNotFound | Anslutningskonfiguration saknas. | Nej |
-| ConnectionIsMarkedDisconnected | Anslutningen har markerats ”frånkopplad”. |Nej|
-| ConnectionNotConfiguredOnGateway | Den underliggande tjänsten har inte den anslutningen har konfigurerats. | Ja |
-| ConnectionMarkedStandby | Den underliggande tjänsten har markerats som vänteläge.| Ja|
-| Autentisering | I förväg delad nyckel matchar inte. | Ja|
-| PeerReachability | Peer-gatewayen kan inte nås. | Ja|
-| IkePolicyMismatch | Peer-gateway har IKE-principer som inte stöds av Azure. | Ja|
-| WfpParse Error | Ett fel uppstod parsning WFP-loggen. |Ja|
+| Nofel | När inget fel har identifierats. |Ja|
+| GatewayNotFound | Det går inte att hitta någon gateway eller gateway. |Nej|
+| PlannedMaintenance | Gateway-instansen är under underhåll.  |Nej|
+| UserDrivenUpdate | När en användar uppdatering pågår. Detta kan vara en åtgärd för storleks ändring.  | Nej |
+| VipUnResponsive | Det går inte att komma åt den primära instansen av gatewayen. Det inträffar när hälso avsökningen Miss lyckas. | Nej |
+| ConnectionEntityNotFound | Anslutnings konfigurationen saknas. | Nej |
+| ConnectionIsMarkedDisconnected | Anslutningen är markerad som frånkopplad. |Nej|
+| ConnectionNotConfiguredOnGateway | Ingen anslutning har kon figurer ATS för den underliggande tjänsten. | Ja |
+| ConnectionMarkedStandby | Den underliggande tjänsten är markerad som standby.| Ja|
+| Autentisering | Matchnings fel för i förväg delad nyckel. | Ja|
+| PeerReachability | Det går inte att komma åt peer-gatewayen. | Ja|
+| IkePolicyMismatch | Peer-gatewayen har IKE-principer som inte stöds av Azure. | Ja|
+| WfpParse Error | Ett fel uppstod vid parsning av WFP-loggen. |Ja|
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig att kontrollera VPN Gateway-anslutningar med PowerShell och Azure Automation genom att besöka [övervaka VPN-gatewayer med Azure Network Watcher troubleshooting](network-watcher-monitor-with-azure-automation.md)
+Lär dig att kontrol lera VPN Gateway-anslutningen med PowerShell och Azure Automation genom att gå till [övervaka VPN-gatewayer med Azure Network Watcher fel sökning](network-watcher-monitor-with-azure-automation.md)
 
 [1]: ./media/network-watcher-diagnose-on-premises-connectivity/figure1.png

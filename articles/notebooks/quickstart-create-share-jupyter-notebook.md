@@ -1,25 +1,16 @@
 ---
 title: Skapa och dela en Jupyter notebook på Azure
 description: Snabbt skapa och köra en Jupyter notebook i Azure-anteckningsböcker och sedan dela den notebook med andra.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: 5add60ad-0b4b-4fd5-adf5-eb50ce072d00
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.author: kraigb
-ms.openlocfilehash: 19e8217bf88427c353fdd4c90c9f421445b7c81a
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 71220fa5aa0367d1cb1694582b4f96459a3016e7
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970176"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277505"
 ---
-# <a name="quickstart-create-and-share-a-notebook"></a>Snabbstart: Skapa och dela en notebook-fil
+# <a name="quickstart-create-and-share-a-notebook"></a>Snabbstart: Skapa och dela en anteckningsbok
 
 1. Gå till [Azure anteckningsböcker](https://notebooks.azure.com) och logga in. (Mer information finns i [Snabbstart – logga in på Azure-anteckningsböcker](quickstart-sign-in-azure-notebooks.md)).
 
@@ -33,7 +24,7 @@ ms.locfileid: "71970176"
 
 1. I den **Skapa nytt projekt** popup-fönstret som visas, ange eller ange följande information och välj sedan **skapa**:
 
-   - **Projekt namn**: Hello World i python
+   - **Projektnamnet**: Hello World i Python
    - **Projektet ID**: hello-world – python
    - **Offentliga projekt**: (avmarkerad)
    - **Skapa en README.md**: (avmarkerad)
@@ -42,7 +33,7 @@ ms.locfileid: "71970176"
 
 1. Efter en liten stund navigerar du till det nya projektet i Azure-anteckningsböcker. Lägg till en anteckningsbok i projektet genom att välja den **+ ny** listrutan (som kan visas bara **+** ), sedan välja **Notebook**:
 
-    [![](media/quickstarts/empty-project-new-notebook-button.png "Ett nytt tomt projekt och lägga till notebook-kommando")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
+    [![](media/quickstarts/empty-project-new-notebook-button.png "A new, empty project and add notebook command")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
 
 1. I den **Skapa ny anteckningsbok** popup-fönstret som visas, ange ett filnamn för din bärbara dator, till exempel *HelloWorldInPython.ipynb* ( *.ipynb* innebär v Ironpythonu (Jupyter)-anteckningsbok ), och välj **Python 3.6** för språket (kallas även den *kernel*):
 
@@ -82,7 +73,7 @@ ms.locfileid: "71970176"
     print(msg)
     ```
 
-1. Välj **Kör** (kortkommando: SKIFT + RETUR) för att köra koden. Under cellen bör du se lyckade utdata som liknar följande text:
+1. Välj **kör** (kortkommandot: SKIFT + RETUR) att köra koden. Under cellen bör du se lyckade utdata som liknar följande text:
 
     ```output
     Hello, Azure Notebooks! Today is Thursday, 15 November, 2018
@@ -92,7 +83,7 @@ ms.locfileid: "71970176"
 
     ![Spara ikonen i verktygsfältet Jupyter notebook](media/quickstarts/hello-results-save-icon.png)
 
-1. Välj kommandot **fil** > **Stäng och** stoppa för att stoppa-servern och stänga webbläsarfönstret.
+1. Välj **filen** > **Stäng och** stoppa meny kommandot för att stoppa servern och stänga webbläsarfönstret.
 
 ## <a name="share-the-notebook"></a>Dela anteckningsboken
 

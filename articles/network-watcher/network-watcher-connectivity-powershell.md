@@ -1,5 +1,6 @@
 ---
-title: Felsöka anslutningar med Azure Network Watcher – PowerShell | Microsoft Docs
+title: Felsöka anslutningar – Azure PowerShell
+titleSuffix: Azure Network Watcher
 description: Lär dig hur du använder anslutningen fel söknings funktion i Azure Network Watcher med hjälp av PowerShell.
 services: network-watcher
 documentationcenter: na
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: kumud
-ms.openlocfilehash: 82bd92de8b2cbb0da4d6d37911a6a3f71186b592
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 824799254b2706c64a17921034dbde3e4f60e132
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802042"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275986"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>Felsöka anslutningar med Azure Network Watcher med PowerShell
 
@@ -155,7 +156,7 @@ Test-AzNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1
 
 ### <a name="response"></a>Svar
 
-I följande exempel visas `ConnectionStatus` som **oåtkomlig**. I `Hops`-informationen kan du se under `Issues` att trafiken blockerades på grund av en `UserDefinedRoute`. 
+I följande exempel visas `ConnectionStatus` som **oåtkomlig**. I `Hops` information kan du se under `Issues` att trafiken blockerades på grund av ett `UserDefinedRoute`. 
 
 ```
 ConnectionStatus : Unreachable
@@ -219,7 +220,7 @@ Test-AzNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1
 
 ### <a name="response"></a>Svar
 
-I följande svar kan du se `ConnectionStatus`-visarna är **tillgängliga**. När en anslutning lyckas, anges latens värden.
+I följande svar kan du se `ConnectionStatus` visas som **tillgängliga**. När en anslutning lyckas, anges latens värden.
 
 ```
 ConnectionStatus : Reachable
@@ -271,7 +272,7 @@ Test-AzNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1
 
 ### <a name="response"></a>Svar
 
-Följande JSON är exempel svaret från att köra föregående cmdlet. När målet kan uppnås visas egenskapen `ConnectionStatus` som **nåbar**.  Du får information om antalet hopp som krävs för att komma åt lagrings-bloben och svars tiden.
+Följande JSON är exempel svaret från att köra föregående cmdlet. När målet är nåbart visas egenskapen `ConnectionStatus` som **nåbar**.  Du får information om antalet hopp som krävs för att komma åt lagrings-bloben och svars tiden.
 
 ```json
 ConnectionStatus : Reachable

@@ -12,16 +12,16 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 08/27/2019
-ms.openlocfilehash: 85d2e58d35ef233fda7c724f85152fc74bd11189
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 939606412c55ddad29801776c2385b406dc93a33
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826845"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286766"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Självstudie: Lägg till en SQL Database Hanterad instans i en failover-grupp
 
-Lägg till en SQL Database Hanterad instans i en failover-grupp. I den här artikeln får du lära dig att:
+Lägg till en SQL Database Hanterad instans i en failover-grupp. I den här artikeln får du lära dig hur du:
 
 > [!div class="checklist"]
 > - Skapa en primär hanterad instans
@@ -33,7 +33,7 @@ Lägg till en SQL Database Hanterad instans i en failover-grupp. I den här arti
   > - Det kan ta lång tid att skapa en hanterad instans. Därför kan det ta flera timmar att slutföra den här självstudien. Mer information om etablerings tider finns i [hanterings åtgärder för hanterade instanser](sql-database-managed-instance.md#managed-instance-management-operations). 
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 För att kunna följa den här självstudien måste du ha: 
@@ -1075,7 +1075,7 @@ Rensa resurser genom att först ta bort den hanterade instansen, sedan det virtu
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 1. Navigera till din resurs grupp i [Azure Portal](https://portal.azure.com). 
-1. Välj den hanterade instansen och välj sedan **ta bort**. Skriv `yes` i text rutan för att bekräfta att du vill ta bort resursen och välj sedan **ta bort**. Den här processen kan ta lite tid att slutföra i bakgrunden och tills den är klar kan du inte ta bort det *virtuella klustret* eller andra beroende resurser. Övervaka borttagningen på fliken aktivitet för att bekräfta att den hanterade instansen har tagits bort. 
+1. Välj de hanterade instanserna och välj sedan **ta bort**. Skriv `yes` i text rutan för att bekräfta att du vill ta bort resursen och välj sedan **ta bort**. Den här processen kan ta lite tid att slutföra i bakgrunden och tills den är klar kan du inte ta bort det *virtuella klustret* eller andra beroende resurser. Övervaka borttagningen på fliken aktivitet för att bekräfta att den hanterade instansen har tagits bort. 
 1. När den hanterade instansen har tagits bort tar du bort det *virtuella klustret* genom att markera det i resurs gruppen och sedan välja **ta bort**. Skriv `yes` i text rutan för att bekräfta att du vill ta bort resursen och välj sedan **ta bort**. 
 1. Ta bort eventuella återstående resurser. Skriv `yes` i text rutan för att bekräfta att du vill ta bort resursen och välj sedan **ta bort**. 
 1. Ta bort resurs gruppen genom att välja **ta bort resurs**grupp, Skriv namnet på resurs gruppen `myResourceGroup`och välj sedan **ta bort**. 

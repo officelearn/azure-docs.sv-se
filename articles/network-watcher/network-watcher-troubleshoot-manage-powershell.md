@@ -1,5 +1,6 @@
 ---
-title: Felsöka Azure Virtual Network gateway och anslutningar – PowerShell | Microsoft Docs
+title: Felsöka Azure VNet gateway och anslutningar – Azure PowerShell
+titleSuffix: Azure Network Watcher
 description: På den här sidan förklaras hur du använder Azure Network Watcher felsöka PowerShell-cmdlet
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: kumud
-ms.openlocfilehash: 40d576a980bd66fea44f9f8e4935fab3d777e4c8
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 4e65be8254710beffc6cc042316305d8d64c43c3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163856"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277835"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Felsöka Virtual Network gateway och anslutningar med Azure Network Watcher PowerShell
 
@@ -46,7 +47,7 @@ Resurs fel sökning ger möjlighet att felsöka problem som uppstår med Virtual
 
 ## <a name="retrieve-network-watcher"></a>Hämta Network Watcher
 
-Det första steget är att hämta Network Watcher-instansen. Variabeln skickas till cmdlet: `Start-AzNetworkWatcherResourceTroubleshooting` en i steg 4. `$networkWatcher`
+Det första steget är att hämta Network Watcher-instansen. Variabeln `$networkWatcher` skickas till `Start-AzNetworkWatcherResourceTroubleshooting` cmdlet i steg 4.
 
 ```powershell
 $networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
@@ -60,7 +61,7 @@ I det här exemplet körs resurs fel sökning på en anslutning. Du kan också s
 $connection = Get-AzVirtualNetworkGatewayConnection -Name "2to3" -ResourceGroupName "testrg"
 ```
 
-## <a name="create-a-storage-account"></a>skapar ett lagringskonto
+## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
 
 Resurs fel sökning returnerar data om resursens hälso tillstånd, den sparar också loggar till ett lagrings konto som ska granskas. I det här steget skapar vi ett lagrings konto om det finns ett befintligt lagrings konto som du kan använda.
 
@@ -72,10 +73,10 @@ $sc = New-AzStorageContainer -Name logs
 
 ## <a name="run-network-watcher-resource-troubleshooting"></a>Köra Network Watcher Resource Troubleshooting
 
-Du felsöker resurser med `Start-AzNetworkWatcherResourceTroubleshooting` cmdleten. Vi skickar cmdleten Network Watcher-objektet, ID: t för anslutningen eller Virtual Network Gateway, lagrings kontots ID och sökvägen för att lagra resultaten.
+Du felsöker resurser med `Start-AzNetworkWatcherResourceTroubleshooting`-cmdleten. Vi skickar cmdleten Network Watcher-objektet, ID: t för anslutningen eller Virtual Network Gateway, lagrings kontots ID och sökvägen för att lagra resultaten.
 
 > [!NOTE]
-> Cmdleten körs länge och det kan ta några minuter att slutföra den `Start-AzNetworkWatcherResourceTroubleshooting` .
+> `Start-AzNetworkWatcherResourceTroubleshooting`-cmdleten körs länge och det kan ta några minuter att slutföra den.
 
 ```powershell
 Start-AzNetworkWatcherResourceTroubleshooting -NetworkWatcher $networkWatcher -TargetResourceId $connection.Id -StorageId $sa.Id -StoragePath "$($sa.PrimaryEndpoints.Blob)$($sc.name)"

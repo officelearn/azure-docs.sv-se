@@ -1,6 +1,6 @@
 ---
 title: Förbered för format ändring till Azure Monitor diagnostikloggar
-description: Azure Diagnostic-loggar kommer att flyttas till Använd tilläggs-blobbar den 1 november 2018.
+description: Beskriver effekten och hur du uppdaterar ditt verktyg för att hantera de nya Azure-diagnostikloggar som ändrades till att använda tilläggs-blobbar den 1 november 2018.
 author: johnkemnetz
 services: monitoring
 ms.service: azure-monitor
@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: a5589828570455c61f857dbeadc896e8fef27178
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 5e71f4c590e4eafea5a2c6ad52b8df8c7dcf3814
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258386"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307058"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>Förbered för format ändring till Azure Monitor diagnostikloggar arkiverade på ett lagrings konto
 
 > [!WARNING]
-> Om du skickar [Azure-resursens diagnostikloggar eller mått till ett lagrings konto med hjälp av inställningar för resurs diagnostik](./../../azure-monitor/platform/archive-diagnostic-logs.md) eller [aktivitets loggar till ett lagrings konto med hjälp av logg profiler](./../../azure-monitor/platform/archive-activity-log.md), ändras formatet för data i lagrings kontot till JSON-linjer på Nov. 1, 2018. Anvisningarna nedan beskriver effekten och hur du uppdaterar ditt verktyg för att hantera det nya formatet. 
+> Om du skickar [Azure-resursens diagnostikloggar eller mått till ett lagrings konto med hjälp av inställningar för resurs diagnostik](./../../azure-monitor/platform/archive-diagnostic-logs.md) eller [aktivitets loggar till ett lagrings konto med hjälp av logg profiler](./../../azure-monitor/platform/archive-activity-log.md), kommer formatet för data i lagrings kontot att ändras till JSON-rader på nov. 1 2018. Anvisningarna nedan beskriver effekten och hur du uppdaterar ditt verktyg för att hantera det nya formatet. 
 >
 > 
 
-## <a name="what-is-changing"></a>Vad kommer att förändras
+## <a name="what-is-changing"></a>Vad som ändras
 
 Azure Monitor erbjuder en funktion som gör att du kan skicka resurs diagnostikdata och aktivitets logg data till ett Azure Storage-konto, Event Hubs namnrymd eller till en Log Analytics arbets yta i Azure Monitor. För att lösa ett system prestanda problem, den **1 November 2018 vid 12:00 midnatt UTC** , kommer formatet för logg data att skickas till Blob Storage att ändras. Om du har verktyg som läser data från Blob Storage måste du uppdatera verktyget för att förstå det nya data formatet.
 
@@ -45,7 +45,7 @@ Du påverkas bara av den här ändringen om du:
 1. Skickar loggdata till ett Azure Storage-konto med hjälp av en inställning för resurs diagnos och
 2. Har verktyg som är beroende av JSON-strukturen för dessa loggar i lagring.
  
-För att identifiera om du har inställningar för resurs diagnostik som skickar data till ett Azure Storage-konto, kan du gå till **övervaknings** avsnittet i portalen, klicka på **diagnostikinställningar**och identifiera alla resurser som har **diagnostik Status** satt till **aktive rad**:
+För att identifiera om du har inställningar för resurs diagnostik som skickar data till ett Azure Storage-konto, kan du gå till **övervaknings** avsnittet i portalen, klicka på **diagnostikinställningar**och identifiera alla resurser som har **diagnostisk status** inställd på **aktive rad**:
 
 ![Bladet Azure Monitor diagnostikinställningar](./media/diagnostic-logs-append-blobs/portal-diag-settings.png)
 

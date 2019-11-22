@@ -1,5 +1,6 @@
 ---
-title: Analysera nätverks säkerhet med Azure Network Watcher säkerhets grupp Visa – PowerShell | Microsoft Docs
+title: Analysera nätverks säkerhet – vy över säkerhets grupp – Azure PowerShell
+titleSuffix: Azure Network Watcher
 description: Den här artikeln beskriver hur du använder PowerShell för att analysera säkerheten för virtuella datorer med vyn säkerhets grupp.
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 4c7b79460169612a046b19a4d66f222936710a8e
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 3127d60263437a18e0c8d9a98ebdfad31049c58d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163906"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277921"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-powershell"></a>Analysera säkerheten för virtuella datorer med vyn säkerhets grupp med hjälp av PowerShell
 
@@ -35,7 +36,7 @@ Vyn säkerhets grupp returnerar konfigurerade och effektiva nätverks säkerhets
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-I det här scenariot kör du `Get-AzNetworkWatcherSecurityGroupView` cmdlet: en för att hämta säkerhets regel informationen.
+I det här scenariot kör du `Get-AzNetworkWatcherSecurityGroupView`-cmdlet: en för att hämta säkerhets regel informationen.
 
 Det här scenariot förutsätter att du redan har följt stegen i [skapa ett Network Watcher](network-watcher-create.md) för att skapa ett Network Watcher.
 
@@ -45,7 +46,7 @@ I det scenario som beskrivs i den här artikeln hämtas de konfigurerade och eff
 
 ## <a name="retrieve-network-watcher"></a>Hämta Network Watcher
 
-Det första steget är att hämta Network Watcher-instansen. Den här variabeln skickas till `Get-AzNetworkWatcherSecurityGroupView` cmdleten.
+Det första steget är att hämta Network Watcher-instansen. Den här variabeln skickas till `Get-AzNetworkWatcherSecurityGroupView`-cmdlet.
 
 ```powershell
 $networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }

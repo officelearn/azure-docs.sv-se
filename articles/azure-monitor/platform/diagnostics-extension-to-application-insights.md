@@ -1,5 +1,5 @@
 ---
-title: Konfigurera Azure-diagnostik för att skicka data till Application Insights
+title: Skicka Azure-diagnostik data till Application Insights
 description: Uppdatera Azure-diagnostik offentliga konfigurationen för att skicka data till Application Insights.
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 03/19/2016
-ms.openlocfilehash: 5328d2be4b8bf733041c39fe029ae2d02ecc3a6e
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 6165ff13f489f9f23b9ece677b3643641150130d
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552056"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74285991"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Skicka data från moln tjänst, virtuell dator eller Service Fabric diagnostikdata till Application Insights
 Cloud Services, Virtual Machines, Virtual Machine Scale Sets och Service Fabric alla använder Azure-diagnostik-tillägget för att samla in data.  Azure Diagnostics skickar data till Azure Storage tabeller.  Du kan dock också skicka vidare alla eller en delmängd av data till andra platser med Azure-diagnostik-tillägget 1,5 eller senare.
@@ -61,7 +61,7 @@ Exempel på konfiguration av en mottagare för Application Insights:
 
 - **ApplicationInsights** -elementet anger Instrumentation-nyckeln till Application Insights-resursen där Azure Diagnostics-data skickas.
     - Om du inte har en befintlig Application Insights resurs, se [skapa en ny Application Insights resurs](../../azure-monitor/app/create-new-resource.md ) för mer information om hur du skapar en resurs och hämtar Instrumentation-nyckeln.
-    - Om du utvecklar en moln tjänst med Azure SDK 2,8 och senare fylls den här instrument ande nyckeln i automatiskt. Värdet baseras på konfigurations inställningen för **APPINSIGHTS_INSTRUMENTATIONKEY** -tjänsten när du packar Cloud Service-projektet. Se [använda Application Insights med Cloud Services](../../azure-monitor/app/cloudservices.md).
+    - Om du utvecklar en moln tjänst med Azure SDK 2,8 och senare fylls den här instrument ande nyckeln i automatiskt. Värdet baseras på **APPINSIGHTS_INSTRUMENTATIONKEY** tjänst konfigurations inställningen när Cloud Service-projektet paketeras. Se [använda Application Insights med Cloud Services](../../azure-monitor/app/cloudservices.md).
 
 - Elementet **Channels** innehåller ett eller flera **kanal** element.
     - Namnattributet *avser en unik* kanal.
@@ -70,7 +70,7 @@ Exempel på konfiguration av en mottagare för Application Insights:
         - Information
         - Varning
         - Fel
-        - Kritiskt
+        - Kritisk
 
 En kanal fungerar som ett filter och gör att du kan välja specifika logg nivåer som ska skickas till mål mottagaren. Du kan till exempel samla in utförliga loggar och skicka dem till lagring, men endast skicka fel till mottagaren.
 

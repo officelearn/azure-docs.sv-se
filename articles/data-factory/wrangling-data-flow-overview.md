@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 7b46b1108246f0b83fcfce69844d19d01b1994c4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e36cc044e6a4160d16f15b93d8a88d946f476c89
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73665654"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74287107"
 ---
 # <a name="what-are-wrangling-data-flows"></a>Vad är datatransformering data flöden?
 
@@ -37,6 +37,30 @@ Medborgarnas data integratorer ägnar mer än 60% av tiden att söka efter och f
 ### <a name="data-validation"></a>Data verifiering
 
 Genomsök data visuellt i ett kod fritt sätt för att ta bort eventuella avvikare, avvikelser och anpassa dem till en form för snabb analys.
+
+## <a name="supported-sources"></a>Källor som stöds
+
+| Anslutningsprogram | Dataformat | Autentiseringstyp |
+| -- | -- | --|
+| [Azure Blob Storage](connector-azure-blob-storage.md) | CSV | Kontonyckel |
+| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | CSV | Tjänstens huvudnamn |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV | Konto nyckel, tjänstens huvud namn |
+| [Azure SQL Database](connector-azure-sql-database.md) | - | SQL-autentisering |
+| [Azure Synapse-analys](connector-azure-sql-data-warehouse.md) | - | SQL-autentisering |
+
+## <a name="the-mashup-editor"></a>Mashup-redigeraren
+
+När du skapar ett datatransformering-dataflöde blir alla käll data uppsättningar av data uppsättnings frågor och placeras i mappen **ADFResource** . Som standard pekar UserQuery på den första data uppsättnings frågan. Alla transformeringar bör utföras på UserQuery eftersom ändringar av data uppsättnings frågor inte stöds och inte kommer att vara kvar. Det finns för närvarande inte stöd för att byta namn på, lägga till och ta bort frågor.
+
+![Datatransformering](media/wrangling-data-flow/editor.png)
+
+För närvarande stöds inte alla Power Query M-funktioner för data datatransformering trots att de är tillgängliga under redigeringen. När du skapar dina datatransformering-dataflöden uppmanas du att ange följande fel meddelande om en funktion inte stöds:
+
+`The wrangling data flow is invalid. Expression.Error: The transformation logic isn't supported. Please try a simpler expression`
+
+Mer information om omvandlingar som stöds finns i [datatransformering Data Flow Functions](wrangling-data-flow-functions.md).
+
+För närvarande stöder datatransformering Data Flow endast skrivning till en mottagare.
 
 ## <a name="next-steps"></a>Nästa steg
 

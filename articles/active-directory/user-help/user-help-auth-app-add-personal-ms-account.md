@@ -1,6 +1,6 @@
 ---
-title: Lägga till en personlig Microsoft-konto i en Authenticator-app – Azure AD
-description: Hur du lägger till dina personliga Microsoft-konton, till exempel för Outlook.com eller Xbox LIVE till Microsoft Authenticator-appen för tvåstegsverifiering.
+title: Lägg till en personlig Microsoft-konto i Microsoft Authenticator-appen – Azure AD
+description: Lägg till personliga Microsoft-konton, till exempel för Outlook.com eller Xbox LIVE i Microsoft Authenticator-appen för att verifiera din identitet när du använder tvåstegsverifiering.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ca01aad76bfbeba0cf56be8ee74287a79f6346e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 28fd29c1f3f393c37c9e9a8d0995766258c2eb45
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820244"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278906"
 ---
-# <a name="add-your-personal-microsoft-accounts"></a>Lägg till dina personliga Microsoft-konton
+# <a name="add-personal-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Lägga till personliga Microsoft-konton i Microsoft Authenticator-appen
 
 Lägg till dina personliga Microsoft-konton, till exempel för Outlook.com och Xbox LIVE i Microsoft Authenticator-appen för både standard processen med två faktorer och lösen ords lös inloggnings metod.
 

@@ -1,6 +1,6 @@
 ---
-title: Integrera lokala appar med Cloud App Security - Azure Active Directory | Microsoft Docs
-description: Konfigurera ett lokalt program i Azure Active Directory för att arbeta med Microsoft Cloud App Security (MCAS). Använda MCAS-Appkontroll för villkorsstyrd åtkomst att övervaka och kontrollera sessioner i realtid baserat på principer för villkorlig åtkomst. Du kan använda dessa principer på den lokala program som använder Application Proxy i Azure Active Directory (AD Azure).
+title: Integrera lokala appar med Cloud App Security – Azure AD
+description: Konfigurera ett lokalt program i Azure Active Directory att fungera med Microsoft Cloud App Security (MCAS). Använd MCAS-Appkontroll för villkorsstyrd åtkomst för att övervaka och kontrol lera sessioner i real tid baserat på principer för villkorlig åtkomst. Du kan använda dessa principer för lokala program som använder Application Proxy i Azure Active Directory (Azure AD).
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
@@ -11,61 +11,61 @@ ms.date: 12/19/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7b9b27a3b8329f906b1adfd48d28892a7edc4d1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eb97f9dd87277215a5d4708d3a6f49564c490204
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108455"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275499"
 ---
-# <a name="configure-real-time-application-access-monitoring-with-microsoft-cloud-app-security-and-azure-active-directory"></a>Konfigurera övervakning av realtidsprogram åtkomst med Microsoft Cloud App Security och Azure Active Directory
-Konfigurera ett lokalt program i Azure Active Directory (AD Azure) att använda Microsoft Cloud App Security (MCAS) för övervakning i realtid. MCAS använder Appkontroll för villkorsstyrd åtkomst för att övervaka och kontrollera sessioner i realtid baserat på principer för villkorlig åtkomst. Du kan använda dessa principer på den lokala program som använder Application Proxy i Azure Active Directory (AD Azure).
+# <a name="configure-real-time-application-access-monitoring-with-microsoft-cloud-app-security-and-azure-active-directory"></a>Konfigurera övervakning av program åtkomst i real tid med Microsoft Cloud App Security och Azure Active Directory
+Konfigurera ett lokalt program i Azure Active Directory (Azure AD) för att använda Microsoft Cloud App Security (MCAS) för övervakning i real tid. MCAS använder Appkontroll för villkorsstyrd åtkomst för att övervaka och kontrol lera sessioner i real tid baserat på principer för villkorlig åtkomst. Du kan använda dessa principer för lokala program som använder Application Proxy i Azure Active Directory (Azure AD).
 
-Här följer några exempel på typer av principer som du kan skapa med MCAS:
+Här följer några exempel på de typer av principer som du kan skapa med MCAS:
 
-- Blockera eller skydda hämtningen av känsliga dokument på ohanterade enheter.
-- Övervakare för när med hög risk användare logga in på program och sedan loggar sina åtgärder från inom sessionen. Med den här informationen kan analysera du användarbeteende för att fastställa hur att tillämpa sessionsprinciper för.
-- Använda klientcertifikat eller enhetsefterlevnad för att blockera åtkomst till specifika program från ohanterade enheter.
-- Begränsa användarsessioner från icke-företagsnätverk. Du kan ge begränsad åtkomst till användare med åtkomst till ett program från utanför företagsnätverket. Till exempel kan begränsad åtkomst blockera användaren från att hämta känsliga dokument.
+- Blockera eller skydda nedladdningen av känsliga dokument på ohanterade enheter.
+- Övervaka när användare med hög risk loggar in på program och sedan loggar in sina åtgärder inifrån sessionen. Med den här informationen kan du analysera användar beteendet för att avgöra hur du ska tillämpa arbetsköprinciper.
+- Använd klient certifikat eller enhets kompatibilitet för att blockera åtkomst till vissa program från ohanterade enheter.
+- Begränsa användarsessioner från icke-företags nätverk. Du kan ge begränsad åtkomst till användare som har åtkomst till ett program utanför företagets nätverk. Denna begränsade åtkomst kan till exempel hindra användaren från att hämta känsliga dokument.
 
-Mer information finns i [skydda appar med Microsoft Cloud App Security åtkomst till Appkontroll för villkorsstyrd](/cloud-app-security/proxy-intro-aad).
+Mer information finns i [Skydda appar med Microsoft Cloud App Security appkontroll för villkorsstyrd åtkomst](/cloud-app-security/proxy-intro-aad).
 
 ## <a name="requirements"></a>Krav
 
-Licens:
+Licensavtalet
 
 - EMS E5-licens, eller 
-- Azure Active Directory Premium P1 och MCAS fristående.
+- Azure Active Directory Premium P1 och MCAS standalone.
 
 Lokalt program:
 
-- Lokalt program måste använda Kerberos-begränsad delegering (KCD)
+- Det lokala programmet måste använda Kerberos-begränsad delegering (KCD)
 
 Konfigurera Application Proxy:
 
-- Konfigurera Azure AD för att använda Application Proxy, inklusive förbereda din miljö och installera anslutningsappen för programproxyn. En självstudiekurs finns i [lägga till ett lokalt program för fjärråtkomst via programproxy i Azure AD](application-proxy-add-on-premises-application.md). 
+- Konfigurera Azure AD för att använda programproxy, inklusive förbereda din miljö och installera Application Proxy Connector. En själv studie kurs finns i [lägga till ett lokalt program för fjärråtkomst via Application Proxy i Azure AD](application-proxy-add-on-premises-application.md). 
 
-## <a name="add-on-premises-application-to-azure-ad"></a>Lägg till dina lokala program till Azure AD
+## <a name="add-on-premises-application-to-azure-ad"></a>Lägg till lokalt program i Azure AD
 
-Lägg till ett lokalt program till Azure AD. En Snabbstart Se [lägga till en lokal app i Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad). När du lägger till programmet, måste du ange följande två inställningar den **Lägg till ditt lokala program** bladet:
+Lägg till ett lokalt program i Azure AD. En snabb start finns i [lägga till en lokal app i Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad). När du lägger till programmet måste du ange följande två inställningar i bladet **Lägg till ditt lokala program** :
 
-- **Förautentisering**: Ange **Azure Active Directory**.
-- **Översätt URL: er i brödtexten för programmet**: Välj **Ja**.
+- **Förautentisering**: ange **Azure Active Directory**.
+- **Översätt URL: er i program texten**: Välj **Ja**.
 
-Dessa två inställningar krävs för att programmet ska fungera med MCAS.
+De här två inställningarna krävs för att programmet ska fungera med MCAS.
 
-## <a name="test-the-on-premises-application"></a>Testa programmet lokalt
+## <a name="test-the-on-premises-application"></a>Testa det lokala programmet
 
-När du lägger till ditt program till Azure AD, Följ stegen i [testa programmet](application-proxy-add-on-premises-application.md#test-the-application) att lägga till en användare för testning och testa inloggning. 
+När du har lagt till ditt program i Azure AD kan du använda stegen i [testa programmet](application-proxy-add-on-premises-application.md#test-the-application) för att lägga till en användare för testning och testa inloggningen. 
 
 ## <a name="deploy-conditional-access-app-control"></a>Distribuera Appkontroll för villkorsstyrd åtkomst
 
-Om du vill konfigurera ditt program med programkontroll för villkorlig åtkomst, följer du anvisningarna i [distribuera villkorlig åtkomst till programkontroll för Azure AD-appar](/cloud-app-security/proxy-deployment-aad).
+Om du vill konfigurera ditt program med program kontrollen för villkorlig åtkomst följer du anvisningarna i [distribuera program kontroll för villkorlig åtkomst för Azure AD-appar](/cloud-app-security/proxy-deployment-aad).
 
 
 ## <a name="test-conditional-access-app-control"></a>Test Appkontroll för villkorsstyrd åtkomst
 
-Om du vill testa distributionen av Azure AD-program med villkorlig åtkomstkontroll för programmet, följer du anvisningarna i [Testa distributionen för Azure AD-appar](/cloud-app-security/proxy-deployment-aad).
+Om du vill testa distributionen av Azure AD-program med program kontroll för villkorlig åtkomst följer du anvisningarna i [testa distributionen av Azure AD-appar](/cloud-app-security/proxy-deployment-aad).
 
 
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 78604a4f6fd5a6bcd21d0adc80c1c60278068836
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 9b0602f526991be37b7a9cce1d621dc2138dec48
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037052"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279141"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Använd portalen för att koppla en datadisk till en virtuell Linux-dator 
 Den här artikeln visar hur du ansluter både nya och befintliga diskar till en virtuell Linux-dator via Azure Portal. Du kan också [ansluta en datadisk till en virtuell Windows-dator i Azure Portal](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -183,6 +183,15 @@ Writing inode tables: done
 Creating journal (32768 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
+
+#### <a name="alternate-method-using-parted"></a>Alternativ metod med hjälp av del
+FDISK-verktyget behöver interaktiva ingångar och är därför inte perfekt för användning i Automation-skript. Men [det går att skriva](https://www.gnu.org/software/parted/) skript för det verktyg som används, och därför lämpar sig självt bättre i automatiserings scenarier. Det delvis använda verktyget kan användas för att partitionera och formatera en datadisk. I genom gången nedan använder vi en ny datadisk/dev/SDC och formaterar den med hjälp av [xfs](https://xfs.wiki.kernel.org/) -fil systemet.
+```bash
+sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
+partprobe /dev/sdc1
+```
+Som vi sett ovan använder vi [partprobe](https://linux.die.net/man/8/partprobe) -verktyget för att kontrol lera att kärnan är direkt medveten om den nya partitionen och fil systemet. Om du inte använder partprobe kan blkid-eller lslbk-kommandona inte returnera UUID: t för det nya fil systemet omedelbart.
+
 ### <a name="mount-the-disk"></a>Montera disken
 Skapa en katalog för att montera fil systemet med `mkdir`. I följande exempel skapas en katalog på */datadrive*:
 

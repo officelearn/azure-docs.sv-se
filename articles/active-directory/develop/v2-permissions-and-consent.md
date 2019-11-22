@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b4aa4fbff4e1b89b87dd05e0547db8e14ae5835
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 48ddb4c3baa40bf70fe12451f048b2228c8bd441
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927140"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74271497"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Behörigheter och medgivande i Microsoft Identity Platform-slutpunkten
 
@@ -41,6 +41,7 @@ Microsoft Identity Platform implementerar [OAuth 2,0](active-directory-v2-protoc
 * Microsoft Graph: `https://graph.microsoft.com`
 * Office 365 Mail API: `https://outlook.office.com`
 * Azure AD-diagram: `https://graph.windows.net`
+* Azure Key Vault: `https://vault.azure.net`
 
 > [!NOTE]
 > Vi rekommenderar starkt att du använder Microsoft Graph i stället för Azure AD Graph, Office 365 Mail API osv.
@@ -89,7 +90,7 @@ Om en app utför inloggning genom att använda [OpenID Connect](active-directory
 
 `email` omfång kan användas med `openid` omfattning och andra. Den ger appen åtkomst till användarens primära e-postadress i form av `email`-anspråk. `email`-anspråket ingår bara i en token om en e-postadress är kopplad till användar kontot, vilket inte alltid är fallet. Om den använder `email` omfattning bör din app förberedas för att hantera ett fall där `email`-anspråket inte finns i token.
 
-### <a name="profile"></a>upphandlarprofil
+### <a name="profile"></a>profile
 
 `profile` omfång kan användas med `openid` omfattning och andra. Den ger appen åtkomst till en stor mängd information om användaren. Den information som den kan komma åt inkluderar, men är inte begränsad till, användarens förnamn, efter namn, önskat användar namn och objekt-ID. En fullständig lista över de profil anspråk som är tillgängliga i id_tokens-parametern för en speciell användare finns i [`id_tokens` referens](id-tokens.md).
 

@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig hur du skapar Recovery Services val
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: c678452cd65d0b03d923659e380c1dcef3540ce1
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 144d8cdb870e12474dfc47784749b5f0e466f8bf
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172430"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74273398"
 ---
 # <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
 
@@ -72,6 +72,13 @@ Azure Backup hanterar automatiskt lagring för valvet. Du måste ange hur lagrin
 
 > [!NOTE]
 > Att ändra **typ av lagrings replikering** (lokalt redundant/Geo-redundant) för ett Recovery Services-valv måste göras innan du konfigurerar säkerhets kopieringar i valvet. När du har konfigurerat säkerhets kopiering inaktive ras alternativet att ändra och du kan inte ändra **typen av lagrings replik**.
+
+## <a name="modifying-default-settings"></a>Ändra standardinställningar
+
+Vi rekommenderar starkt att du granskar standardinställningarna för typ och **säkerhets inställningar** för **lagringsprovider** innan du konfigurerar säkerhets kopieringar i valvet. 
+* **Typen av lagringsprovider** är som standard inställd på **Geo-redundant**. När du har konfigurerat säkerhets kopieringen inaktive ras alternativet att ändra. Följ dessa [steg](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) om du vill granska och ändra inställningarna. 
+* **Mjuk borttagning** är **aktiverat** som standard på nyligen skapade valv för att skydda säkerhets kopierings data från oavsiktliga eller skadliga borttagningar. Följ dessa [steg](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#disabling-soft-delete) om du vill granska och ändra inställningarna.
+
 
 ## <a name="next-steps"></a>Nästa steg
 

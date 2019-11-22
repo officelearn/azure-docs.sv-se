@@ -1,21 +1,21 @@
 ---
-title: Använda Visual Studio Code – Azure blockchain service
+title: Själv studie kurs om att skapa, skapa & distribuera smarta avtal – Azure blockchain service
 description: Självstudie om hur du använder Azure blockchain Development Kit för Ethereum-tillägget i Visual Studio Code för att skapa, bygga och distribuera ett smart kontrakt på Azure blockchain-tjänsten.
 services: azure-blockchain
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/14/2019
+ms.date: 11/20/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: chrisseg
-ms.openlocfilehash: 13a5993a14e386dc7d24c7464610bbf1ace4b9cb
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
-ms.translationtype: MT
+ms.openlocfilehash: 9e3b9dc7ea10e67b636194d955f3a7b50d990a23
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329247"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286694"
 ---
-# <a name="tutorial-usevisual-studio-code-to-create-buildanddeploysmartcontracts"></a>Självstudie: Använd Visual Studio Code för att skapa, bygga och distribuera smarta kontrakt
+# <a name="tutorial-create-buildanddeploysmartcontracts-on-azure-blockchain-service"></a>Självstudie: skapa, skapa och distribuera smarta avtal i Azure blockchain-tjänsten
 
 I den här självstudien använder du tillägget Azure blockchain Development Kit for Ethereum i Visual Studio Code för att skapa, bygga och distribuera ett smart kontrakt på Azure blockchain-tjänsten. Du kan också använda Truffle för att köra en smart kontrakts funktion via en transaktion.
 
@@ -32,6 +32,21 @@ Du använder Azure blockchain Development Kit för att Ethereum:
 ## <a name="prerequisites"></a>Krav
 
 * Slutför [snabb start: Använd Visual Studio Code för att ansluta till ett Azure blockchain service Consortium-nätverk](connect-vscode.md)
+* [Visual Studio-kod](https://code.visualstudio.com/Download)
+* [Azure blockchain Development Kit för Ethereum-tillägg](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
+* [Node. js-10.15. x eller högre](https://nodejs.org/download)
+* [Git 2.10. x eller högre](https://git-scm.com)
+* [Python-2.7.15](https://www.python.org/downloads/release/python-2715/) Lägg till python. exe i sökvägen. Python-2.7.15 i din sökväg krävs för Azure blockchain Development Kit.
+* [Truffle 5.0.0](https://www.trufflesuite.com/docs/truffle/getting-started/installation)
+* [Ganache CLI-6.0.0](https://github.com/trufflesuite/ganache-cli)
+
+I Windows krävs en installerad C++ kompilator för Node-Gyp-modulen. Du kan använda MSBuild-verktygen:
+
+* Om Visual Studio 2017 är installerat konfigurerar du NPM att använda MSBuild-verktygen med kommandot `npm config set msvs_version 2017 -g`
+* Om Visual Studio 2019 är installerat ställer du in sökvägen för MS build-verktyg för NPM. Till exempel, `npm config set msbuild_path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe"`
+* Annars installerar du fristående VS build-verktyg med `npm install --global windows-build-tools` i ett förhöjdt *Kör som administratörs* kommando gränssnitt.
+
+Mer information om Node-Gyp finns i [nod-Gyp-lagringsplatsen på GitHub](https://github.com/node-gyp).
 
 ## <a name="create-a-smart-contract"></a>Skapa ett smart kontrakt
 
@@ -104,7 +119,7 @@ Azure blockchain Development Kit använder Truffle för att köra migrations skr
     truffle exec sendrequest.js --network <blockchain network>
     ```
 
-    Ersätt \<blockchain Network @ no__t-1 med namnet på det blockchain-nätverk som definierats i **Truffle-config. js**.
+    Ersätt \<blockchain Network\> med namnet på blockchain-nätverket som definierats i **Truffle-config. js**.
 
 Truffle kör skriptet i ditt blockchain-nätverk.
 
@@ -159,13 +174,13 @@ Smarta kontrakt funktioner kan returnera det aktuella värdet för State-variabl
     truffle exec getmessage.js --network <blockchain network>
     ```
 
-    Ersätt \<blockchain Network @ no__t-1 med namnet på det blockchain-nätverk som definierats i **Truffle-config. js**.
+    Ersätt \<blockchain Network\> med namnet på blockchain-nätverket som definierats i **Truffle-config. js**.
 
 Skriptet frågar det smarta kontraktet genom att anropa funktionen getMessage. Det aktuella värdet för **RequestMessage** status-variabeln returneras.
 
 ![Skriptets utdata](./media/send-transaction/execute-get.png)
 
-Observera att värdet inte är **Hej, blockchain!** . I stället är det returnerade värdet en plats hållare. När du ändrar och distribuerar kontraktet får kontraktet en ny kontrakts adress och State-variablerna tilldelas värden i konstruktorn för smarta kontrakt. Truffle-exemplet för **2_deploy_contracts. js** distribuerar det smarta kontraktet och skickar ett värde för plats hållare som ett argument. Konstruktorn anger **RequestMessage** tillstånds variabeln till värdet för plats hållaren och det som returneras.
+Observera att värdet inte är **Hej, blockchain!** . I stället är det returnerade värdet en plats hållare. När du ändrar och distribuerar kontraktet distribueras det ändrade kontraktet till en ny adress och State-variablerna tilldelas värden i konstruktorn för smarta kontrakt. Truffle-exemplet **2_deploy_contracts. js** -migreringsjobb distribuerar det smarta kontraktet och skickar ett värde för plats hållare som ett argument. Konstruktorn anger **RequestMessage** tillstånds variabeln till värdet för plats hållaren och det som returneras.
 
 1. Om du vill ställa in **RequestMessage** tillstånds variabel och fråga efter värdet kör du skripten **SendRequest. js** och **GetMessage. js** igen.
 
@@ -175,7 +190,7 @@ Observera att värdet inte är **Hej, blockchain!** . I stället är det returne
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När de inte längre behövs kan du ta bort resurserna genom att ta bort resurs gruppen `myResourceGroup` som du skapade i snabb starten för att *skapa en blockchain-medlems* krav.
+När de inte längre behövs kan du ta bort resurserna genom att ta bort `myResourceGroup` resurs grupp som du skapade i snabb starten för att *skapa en blockchain medlems* krav.
 
 Ta bort resurs gruppen:
 

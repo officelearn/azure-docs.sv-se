@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
-ms.openlocfilehash: 2140216a27d9c903495da4f7b43f6fdfda62591e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b3b735f7ee644bb017756f3d6378e625fa66d448
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826913"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280794"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arkitektur för Azure SQL-anslutning
 
@@ -55,6 +55,10 @@ Om du ansluter från en plats utanför Azure, har anslutningarna en anslutnings 
 
 ![arkitektur översikt](./media/sql-database-connectivity-architecture/connectivity-onprem.png)
 
+> [!IMPORTANT]
+> Öppna även portarna 14000-14999 för att aktivera [anslutning med DAC](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
+
+
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Gateway-IP-adresser för Azure SQL Database
 
 I tabellen nedan visas IP-adresserna för gatewayer per region. Om du vill ansluta till en Azure SQL Database måste du tillåta nätverks trafik att & från **alla** gatewayer i regionen.
@@ -70,7 +74,7 @@ Information om hur trafiken ska migreras till nya gateways i vissa regioner finn
 | Sydöstra Australien | 191.239.192.109, 13.73.109.251 |
 | Södra Brasilien         | 104.41.11.5, 191.233.200.14 |
 | Centrala Kanada       | 40.85.224.249      |
-| Östra Kanada          | 40.86.226.166      |
+| Kanada, östra          | 40.86.226.166      |
 | Centrala USA           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 | 
 | Kina, östra           | 139.219.130.35     |
 | Kina, östra 2         | 40.73.82.1         |
@@ -89,8 +93,8 @@ Information om hur trafiken ska migreras till nya gateways i vissa regioner finn
 | Västra Japan           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 | 
 | Sydkorea, centrala        | 52.231.32.42       |
 | Sydkorea, södra          | 52.231.200.86      |
-| Norra centrala USA     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
-| Norra Europa         | 40.113.93.91, 191.235.193.75, 52.138.224.1 | 
+| USA, norra centrala     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
+| Europa, norra         | 40.113.93.91, 191.235.193.75, 52.138.224.1 | 
 | Sydafrika, norra   | 102.133.152.0      |
 | Sydafrika, västra    | 102.133.24.0       |
 | Södra centrala USA     | 13.66.62.124, 23.98.162.75, 104.214.16.32   | 
@@ -100,7 +104,7 @@ Information om hur trafiken ska migreras till nya gateways i vissa regioner finn
 | Storbritannien, södra             | 51.140.184.11      |
 | Storbritannien, västra              | 51.141.8.11        |
 | Västra centrala USA      | 13.78.145.25       |
-| Västra Europa          | 40.68.37.158, 191.237.232.75, 104.40.168.105  |
+| Europa, västra          | 40.68.37.158, 191.237.232.75, 104.40.168.105  |
 | Västra USA              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
 | Västra USA 2            | 13.66.226.202      |
 |                      |                    |

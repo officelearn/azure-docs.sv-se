@@ -8,44 +8,44 @@ ms.topic: include
 ms.date: 09/23/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: adc4a894f4617f681cefbc8049e453d004ce417e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 846fd92bce3056dc119f38ac253a0a937e8c56a4
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74260890"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74309832"
 ---
-Incremental snapshots (preview) are point in time backups for managed disks that, when taken, consist only of all the changes since the last snapshot. When you attempt to download or otherwise use an incremental snapshot, the full VHD is used. This new capability for managed disk snapshots can potentially allow them to be more cost effective, since you are no longer required to store the entire disk with each individual snapshot, unless you choose to. Just like regular snapshots, incremental snapshots can be used to create a full managed disk or, to make a regular snapshot.
+Stegvisa ögonblicks bilder (för hands version) är tidpunkter för säkerhets kopiering av hanterade diskar som, när de tas, endast består av alla ändringar sedan den senaste ögonblicks bilden. När du försöker hämta eller på annat sätt använda en stegvis ögonblicks bild, används hela den virtuella hård disken. Den här nya funktionen för ögonblicks bilder av hanterade diskar kan eventuellt göra att de är mer kostnads effektiva eftersom du inte längre behöver lagra hela disken med varje enskild ögonblicks bild, såvida du inte väljer att. Precis som vanliga ögonblicks bilder kan du använda stegvisa ögonblicks bilder för att skapa en fullständig hanterad disk eller för att göra en vanlig ögonblicks bild.
 
-There are a few differences between an incremental snapshot and a regular snapshot. Incremental snapshots will always use standard HDDs storage, irrespective of the storage type of the disk, whereas regular snapshots can use premium SSDs. If you are using regular snapshots on Premium Storage to scale up VM deployments, we recommend you use custom images on standard storage in the [Shared Image Gallery](../articles/virtual-machines/linux/shared-image-galleries.md). It will help you to achieve a more massive scale with lower cost. Additionally, incremental snapshots potentially offer better reliability with [zone-redundant storage](../articles/storage/common/storage-redundancy-zrs.md) (ZRS). If ZRS is available in the selected region, an incremental snapshot will use ZRS automatically. If ZRS is not available in the region, then the snapshot will default to [locally-redundant storage](../articles/storage/common/storage-redundancy-lrs.md) (LRS). You can override this behavior and select one manually but, we do not recommend that.
+Det finns några skillnader mellan en stegvis ögonblicks bild och en vanlig ögonblicks bild. Stegvisa ögonblicks bilder använder alltid standard lagring av hård diskar, oavsett diskens lagrings typ, medan vanliga ögonblicks bilder kan använda Premium-SSD. Om du använder vanliga ögonblicks bilder på Premium Storage för att skala upp VM-distributioner rekommenderar vi att du använder anpassade avbildningar på standard lagring i det [delade avbildnings galleriet](../articles/virtual-machines/linux/shared-image-galleries.md). Det hjälper dig att få en mer enorm skala med lägre kostnad. Dessutom kan stegvisa ögonblicks bilder erbjuda bättre tillförlitlighet med [zon redundant lagring](../articles/storage/common/storage-redundancy-zrs.md) (ZRS). Om ZRS är tillgängligt i den valda regionen kommer en stegvis ögonblicks bild att använda ZRS automatiskt. Om ZRS inte är tillgängligt i regionen kommer ögonblicks bilden att vara [Lokalt Redundant lagring](../articles/storage/common/storage-redundancy-lrs.md) (LRS) som standard. Du kan åsidosätta det här beteendet och välja ett manuellt, men vi rekommenderar inte detta.
 
-Incremental snapshots also offer a differential capability, which is uniquely available to managed disks. They enable you to get the changes between two incremental snapshots of the same managed disks, down to the block level. You can use this capability to reduce your data footprint when copying snapshots across regions.
+Stegvisa ögonblicks bilder erbjuder också en differentiell funktion som är unikt tillgänglig för hanterade diskar. De gör att du kan hämta ändringarna mellan två stegvisa ögonblicks bilder av samma hanterade diskar, ned till block nivån. Du kan använda den här funktionen för att minska dina data när du kopierar ögonblicks bilder över flera regioner.
 
-If you haven't yet signed up for the preview and you'd like to start using incremental snapshots, email us at AzureDisks@microsoft.com to get access to the public preview.
+Om du ännu inte har registrerat dig för för hands versionen och du vill börja använda stegvisa ögonblicks bilder kan du kontakta oss på AzureDisks@microsoft.com för att få åtkomst till den offentliga för hands versionen.
 
 ## <a name="restrictions"></a>Begränsningar
 
-- Incremental snapshots are currently only available in West Central US and North Europe.
-- Incremental snapshots currently cannot be created after you've changed the size of a disk.
-- Incremental snapshots currently cannot be moved between subscriptions.
-- You can currently only generate SAS URIs of up to five snapshots of a particular snapshot family at any given time.
-- You cannot create an incremental snapshot for a particular disk outside of that disk's subscription.
-- Up to seven incremental snapshots per disk can be created every five minutes.
-- A total of 200 incremental snapshots can be created for a single disk.
+- Stegvisa ögonblicks bilder är för närvarande endast tillgängliga i USA, västra centrala och Europa, norra.
+- Det går för närvarande inte att skapa stegvisa ögonblicks bilder när du har ändrat storleken på en disk.
+- Det går för närvarande inte att flytta stegvisa ögonblicks bilder mellan prenumerationer.
+- För närvarande kan du bara skapa SAS-URI: er på upp till fem ögonblicks bilder av en viss ögonblicks bild serie vid en given tidpunkt.
+- Du kan inte skapa en stegvis ögonblicks bild för en viss disk utanför diskens prenumeration.
+- Upp till sju stegvisa ögonblicks bilder per disk kan skapas var femte minut.
+- Totalt 200 stegvisa ögonblicks bilder kan skapas för en enskild disk.
 
 ## <a name="powershell"></a>PowerShell
 
-You can use Azure PowerShell to create an incremental snapshot. You will need the latest version of Azure PowerShell, the following command will either install it or update your existing installation to latest:
+Du kan använda Azure PowerShell för att skapa en stegvis ögonblicks bild. Du behöver den senaste versionen av Azure PowerShell, följande kommando kommer antingen att installera den eller uppdatera den befintliga installationen till senaste:
 
 ```PowerShell
 Install-Module -Name Az -AllowClobber -Scope CurrentUser
 ```
 
-Once that is installed, login to your PowerShell session with `az login`.
+När den är installerad loggar du in på PowerShell-sessionen med `az login`.
 
-To create an incremental snapshot with Azure PowerShell, set the configuration with [New-AzSnapShotConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshotconfig?view=azps-2.7.0) with the `-Incremental` parameter and then pass that as a variable to [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot?view=azps-2.7.0) through the `-Snapshot` parameter.
+Om du vill skapa en stegvis ögonblicks bild med Azure PowerShell anger du konfigurationen med [New-AzSnapShotConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshotconfig?view=azps-2.7.0) med parametern `-Incremental` och skickar den som en variabel till [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot?view=azps-2.7.0) via `-Snapshot`-parametern.
 
-Replace `<yourDiskNameHere>`, `<yourResourceGroupNameHere>`, and `<yourDesiredSnapShotNameHere>` with your values, then you can use the following script to create an incremental snapshot:
+Ersätt `<yourDiskNameHere>`, `<yourResourceGroupNameHere>`och `<yourDesiredSnapShotNameHere>` med dina värden. sedan kan du använda följande skript för att skapa en stegvis ögonblicks bild:
 
 ```PowerShell
 # Get the disk that you need to backup by creating an incremental snapshot
@@ -56,9 +56,9 @@ $snapshotConfig=New-AzSnapshotConfig -SourceUri $yourDisk.Id -Location $yourDisk
 New-AzSnapshot -ResourceGroupName <yourResourceGroupNameHere> -SnapshotName <yourDesiredSnapshotNameHere> -Snapshot $snapshotConfig 
 ```
 
-You can identify incremental snapshots from the same disk with the `SourceResourceId` and the `SourceUniqueId` properties of snapshots. `SourceResourceId` is the Azure Resource Manager resource ID of the parent disk. `SourceUniqueId` is the value inherited from the `UniqueId` property of the disk. If you were to delete a disk and then create a new disk with the same name, the value of the `UniqueId` property changes.
+Du kan identifiera stegvisa ögonblicks bilder från samma disk med `SourceResourceId` och `SourceUniqueId` egenskaper för ögonblicks bilder. `SourceResourceId` är Azure Resource Manager resurs-ID för den överordnade disken. `SourceUniqueId` är värdet som ärvts från diskens egenskap `UniqueId`. Om du skulle ta bort en disk och sedan skapa en ny disk med samma namn ändras värdet för egenskapen `UniqueId`.
 
-You can use `SourceResourceId` and `SourceUniqueId` to create a list of all snapshots associated with a particular disk. Replace `<yourResourceGroupNameHere>` with your value and then you can use the following example to list your existing incremental snapshots:
+Du kan använda `SourceResourceId` och `SourceUniqueId` för att skapa en lista över alla ögonblicks bilder som är associerade med en viss disk. Ersätt `<yourResourceGroupNameHere>` med ditt värde och Använd sedan följande exempel för att visa en lista över dina befintliga stegvisa ögonblicks bilder:
 
 ```PowerShell
 $snapshots = Get-AzSnapshot -ResourceGroupName <yourResourceGroupNameHere>
@@ -78,15 +78,17 @@ $incrementalSnapshots
 
 ## <a name="cli"></a>CLI
 
-You can create an incremental snapshot with the Azure CLI, you will need the latest version of Azure CLI. The following command will either install or update your existing installation to the latest version:
+Du kan skapa en stegvis ögonblicks bild med Azure CLI, du behöver den senaste versionen av Azure CLI. 
 
+I Windows installerar eller uppdaterar du den befintliga installationen till den senaste versionen med följande kommando:
 ```PowerShell
 Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'
 ```
+I Linux kan CLI-installationen variera beroende på operativ systemets version.  Se [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) för din specifika Linux-version.
 
-To create an incremental snapshot, use [az snapshot create](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) with the `--incremental` parameter.
+Om du vill skapa en stegvis ögonblicks bild använder du [AZ Snapshot Create](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) med parametern `--incremental`.
 
-The following example creates an incremental snapshot, replace `<yourDesiredSnapShotNameHere>`, `<yourResourceGroupNameHere>`,`<exampleDiskName>`, and `<exampleLocation>` with your own values, then run the example:
+I följande exempel skapas en stegvis ögonblicks bild, ersätter `<yourDesiredSnapShotNameHere>`, `<yourResourceGroupNameHere>`,`<exampleDiskName>`och `<exampleLocation>` med dina egna värden och kör sedan exemplet:
 
 ```bash
 sourceResourceId=$(az disk show -g <yourResourceGroupNameHere> -n <exampleDiskName> --query '[id]' -o tsv)
@@ -98,13 +100,13 @@ az snapshot create -g <yourResourceGroupNameHere> \
 --incremental
 ```
 
-You can identify incremental snapshots from the same disk with the `SourceResourceId` and the `SourceUniqueId` properties of snapshots. `SourceResourceId` is the Azure Resource Manager resource ID of the parent disk. `SourceUniqueId` is the value inherited from the `UniqueId` property of the disk. If you were to delete a disk and then create a new disk with the same name, the value of the `UniqueId` property changes.
+Du kan identifiera stegvisa ögonblicks bilder från samma disk med `SourceResourceId` och `SourceUniqueId` egenskaper för ögonblicks bilder. `SourceResourceId` är Azure Resource Manager resurs-ID för den överordnade disken. `SourceUniqueId` är värdet som ärvts från diskens egenskap `UniqueId`. Om du skulle ta bort en disk och sedan skapa en ny disk med samma namn ändras värdet för egenskapen `UniqueId`.
 
-You can use `SourceResourceId` and `SourceUniqueId` to create a list of all snapshots associated with a particular disk. The following example will list all incremental snapshots associated with a particular disk but, it requires some setup.
+Du kan använda `SourceResourceId` och `SourceUniqueId` för att skapa en lista över alla ögonblicks bilder som är associerade med en viss disk. I följande exempel visas en lista över alla stegvisa ögonblicks bilder som är associerade med en viss disk, men den kräver vissa inställningar.
 
-This example uses jq for querying the data. To run the example, you must [install jq](https://stedolan.github.io/jq/download/).
+I det här exemplet används JQ för att fråga efter data. Du måste [Installera JQ](https://stedolan.github.io/jq/download/)för att kunna köra exemplet.
 
-Replace `<yourResourceGroupNameHere>` and `<exampleDiskName>` with your values, then you can use the following example to list your existing incremental snapshots, as long as you've also installed jq:
+Ersätt `<yourResourceGroupNameHere>` och `<exampleDiskName>` med dina värden kan du använda följande exempel för att visa en lista över dina befintliga stegvisa ögonblicks bilder, förutsatt att du även har installerat JQ:
 
 ```bash
 sourceUniqueId=$(az disk show -g <yourResourceGroupNameHere> -n <exampleDiskName> --query '[uniqueId]' -o tsv)
@@ -118,7 +120,7 @@ az snapshot list -g <yourResourceGroupNameHere> -o json \
 
 ## <a name="resource-manager-template"></a>Resource Manager-mall
 
-You can also use Azure Resource Manager templates to create an incremental snapshot. You'll need to make sure the apiVersion is set to **2019-03-01** and that the incremental property is also set to true. The following snippet is an example of how to create an incremental snapshot with Resource Manager templates:
+Du kan också använda Azure Resource Manager mallar för att skapa en stegvis ögonblicks bild. Du måste kontrol lera att API version är inställt på **2019-03-01** och att den stegvisa egenskapen också har angetts till true. Följande fragment är ett exempel på hur du skapar en stegvis ögonblicks bild med Resource Manager-mallar:
 
 ```json
 {
@@ -154,8 +156,8 @@ You can also use Azure Resource Manager templates to create an incremental snaps
 
 ## <a name="next-steps"></a>Nästa steg
 
-1. If you haven't yet signed up for the preview and you'd like to start using incremental snapshots, email us at AzureDisks@microsoft.com to get access to the public preview. 
+1. Om du ännu inte har registrerat dig för för hands versionen och du vill börja använda stegvisa ögonblicks bilder kan du kontakta oss på AzureDisks@microsoft.com för att få åtkomst till den offentliga för hands versionen. 
 
-2. Explore the following samples for cross-region copy of incremental snapshots using differential capability   
+2. Utforska följande exempel för en över-region kopia av stegvisa ögonblicks bilder med hjälp av differentiell funktion   
 
-    - [Using Azure .Net SDKs](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots)
+    - [Använda Azure .NET-SDK: er](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots)

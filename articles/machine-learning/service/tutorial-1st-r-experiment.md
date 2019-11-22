@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: ditt första ML experiment med R'
+title: 'Självstudie: din första ML-modell med R'
 titleSuffix: Azure Machine Learning
 description: I den här självstudien får du lära dig grundläggande design mönster i Azure Machine Learning och träna en logistik Regressions modell modell med R-paketen azuremlsdk och cirkumflex för att förutse sannolikheten för en oåterkallelighet i en bil haveri.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 11/04/2019
-ms.openlocfilehash: 72ab2717cea479de6150f435398f164c7c9d5937
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 52dc0ff27ad2f04b9faeab24c6bdba68d9ec138e
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74092266"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307272"
 ---
 # <a name="tutorial-train-and-deploy-your-first-model-in-r-with-azure-machine-learning"></a>Självstudie: träna och distribuera din första modell i R med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]

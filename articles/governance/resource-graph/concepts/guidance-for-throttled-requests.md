@@ -1,14 +1,14 @@
 ---
 title: Vägledning för begränsade begäranden
-description: Lär dig att skapa bättre frågor för att undvika att förfrågningar till Azure Resource Graph begränsas.
-ms.date: 10/18/2019
+description: Lär dig mer om batch, spridning, sid brytning och fråga parallellt för att undvika att förfrågningar begränsas av Azure Resource Graph.
+ms.date: 11/21/2019
 ms.topic: conceptual
-ms.openlocfilehash: 651a5daa9e7e19a5dc157ba0cfa17da2c8abe3db
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 4405cce567a75f83823cc2d441b2a59985c196ad
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038331"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304675"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Vägledning för begränsade begär anden i Azure Resource Graph
 

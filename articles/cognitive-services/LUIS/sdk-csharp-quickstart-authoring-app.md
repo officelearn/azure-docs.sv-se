@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 08/30/2019
 ms.author: diberry
-ms.openlocfilehash: 6af076f585e7fc9afe870acada744ead2d2e9118
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b3b7fed91be00e1bf2ac097638f14d1bbe6481f0
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73672097"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280305"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-net"></a>Snabb start: Language Understanding (LUIS) Redigera klient bibliotek för .NET
 
@@ -30,16 +30,56 @@ Använd det Language Understanding (LUIS) som redigerar klient biblioteket för 
 
 [Referens dokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet) | [biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.LUIS.Authoring) | [redigerings paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/) | [ C# exempel](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/LUIS/LUIS.cs)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * Language Understanding (LUIS) Portal konto – [skapa ett kostnads fritt](https://www.luis.ai)
 * Den aktuella versionen av [.net Core](https://dotnet.microsoft.com/download/dotnet-core).
+
 
 ## <a name="setting-up"></a>Konfigurera
 
 ### <a name="get-your-language-understanding-luis-starter-key"></a>Hämta din Language Understandings start nyckel (LUIS)
 
-Hämta din [Start nyckel](luis-how-to-azure-subscription.md#starter-key)och [skapa en miljö variabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckeln, med namnet `COGNITIVESERVICE_AUTHORING_KEY`.
+Hämta din [Start nyckel](luis-how-to-azure-subscription.md#starter-key) genom att skapa en Luis Authoring-resurs. Behåll din nyckel och regionen för nyckeln för nästa steg.
+
+### <a name="create-an-environment-variable"></a>Skapa en miljö variabel
+
+Med din nyckel och region för nyckeln skapar du två miljövariabler för autentisering:
+
+* `COGNITIVESERVICE_AUTHORING_KEY`-resurs nyckeln för att autentisera dina begär Anden.
+* `COGNITIVESERVICE_REGION` – den region som är kopplad till din nyckel. Till exempel `westus`.
+
+Följ anvisningarna för ditt operativ system.
+
+#### <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+```console
+setx COGNITIVESERVICE_AUTHORING_KEY <replace-with-your-authoring-key>
+setx COGNITIVESERVICE_REGION <replace-with-your-authoring-region>
+```
+
+Starta om konsol fönstret när du har lagt till miljövariabeln.
+
+#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+```bash
+export COGNITIVESERVICE_AUTHORING_KEY=<replace-with-your-authoring-key>
+export COGNITIVESERVICE_REGION=<replace-with-your-authoring-region>
+```
+
+När du har lagt till miljövariabeln så kör `source ~/.bashrc` från konsolfönstret så att ändringarna träder i kraft.
+
+#### <a name="macostabunix"></a>[macOS](#tab/unix)
+
+Redigera `.bash_profile`och Lägg till miljövariabeln:
+
+```bash
+export COGNITIVESERVICE_AUTHORING_KEY=<replace-with-your-authoring-key> 
+export COGNITIVESERVICE_REGION=<replace-with-your-authoring-region>
+```
+
+När du har lagt till miljövariabeln så kör `source .bash_profile` från konsolfönstret så att ändringarna träder i kraft.
+***
 
 ### <a name="create-a-new-c-application"></a>Skapa ett nytt C# program
 

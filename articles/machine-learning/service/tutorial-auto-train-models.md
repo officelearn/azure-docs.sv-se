@@ -1,5 +1,5 @@
 ---
-title: 'Regressions modell självstudie: automatiserad ML'
+title: 'Regressions självstudie: automatiserad ML'
 titleSuffix: Azure Machine Learning
 description: Lär dig att skapa en maskininlärningsmodell med automatiserad maskininlärning. Azure Machine Learning kan förbearbeta data, välja algoritm och hyperparameter på ett automatiserat sätt åt dig. Sedan distribueras den slutliga modellen med Azure Machine Learning.
 services: machine-learning
@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 11/04/2019
-ms.openlocfilehash: 23441fb64293647698921c17c06731ab413b7699
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 5e7d897b3a845580d7830e2cf816417f2282dd27
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582457"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74271868"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Självstudie: Använd automatisk maskin inlärning för att förutse taxi priser
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen](https://aka.ms/AMLFree) av Azure Machine Learning idag.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * Slutför [installations självstudien](tutorial-1st-experiment-sdk-setup.md) om du inte redan har en Azure Machine Learning arbets yta eller en virtuell dator.
 * När du har slutfört installations guiden öppnar du **självstudierna/regression-Automated-ml. ipynb** Notebook med samma Notebook-Server.
@@ -97,7 +97,7 @@ green_taxi_df.head(10)
       <th>...</th>
       <th>paymentType</th>
       <th>fareAmount</th>
-      <th>Extra</th>
+      <th>extra</th>
       <th>mtaTax</th>
       <th>improvementSurcharge</th>
       <th>tipAmount</th>
@@ -146,7 +146,7 @@ green_taxi_df.head(10)
       <td>– 73,96</td>
       <td>...</td>
       <td>2</td>
-      <td>4,50</td>
+      <td>4.50</td>
       <td>1,00</td>
       <td>0,50</td>
       <td>0,3</td>
@@ -721,7 +721,7 @@ green_taxi_df.describe()
       <td>48000,00</td>
     </tr>
     <tr>
-      <th>anses</th>
+      <th>medelvärde</th>
       <td>1,78</td>
       <td>1,37</td>
       <td>2,87</td>
@@ -737,15 +737,15 @@ green_taxi_df.describe()
     </tr>
     <tr>
       <th>standard</th>
-      <td>0,41</td>
+      <td>0.41</td>
       <td>1,04</td>
       <td>2,93</td>
       <td>2,76</td>
       <td>1,52</td>
-      <td>2,61</td>
+      <td>2.61</td>
       <td>1,44</td>
       <td>12,08</td>
-      <td>3,45</td>
+      <td>3.45</td>
       <td>8,45</td>
       <td>1,95</td>
       <td>6,83</td>
@@ -766,7 +766,7 @@ green_taxi_df.describe()
       <td>0,00</td>
     </tr>
     <tr>
-      <th>25 %</th>
+      <th>25%</th>
       <td>2,00</td>
       <td>1,00</td>
       <td>1,06</td>
@@ -775,7 +775,7 @@ green_taxi_df.describe()
       <td>– 73,97</td>
       <td>40,70</td>
       <td>7,80</td>
-      <td>3,75</td>
+      <td>3.75</td>
       <td>8,00</td>
       <td>2,00</td>
       <td>9,00</td>
@@ -792,7 +792,7 @@ green_taxi_df.describe()
       <td>11,30</td>
       <td>6,50</td>
       <td>15,00</td>
-      <td>3,00</td>
+      <td>3.00</td>
       <td>15,00</td>
     </tr>
     <tr>
@@ -811,7 +811,7 @@ green_taxi_df.describe()
       <td>19,00</td>
     </tr>
     <tr>
-      <th>bekräftat</th>
+      <th>max</th>
       <td>2,00</td>
       <td>9,00</td>
       <td>97,57</td>
@@ -900,7 +900,7 @@ Definiera experiment parametern och modell inställningarna för träning. Visa 
 |**experiment_timeout_minutes**|20|Den maximala tid i minuter som alla iterationer kombineras kan ta innan experimentet avslutas.|
 |**enable_early_stopping**|True|Flagga för att Enble tidig uppsägning om poängen inte förbättras på kort sikt.|
 |**primary_metric**| spearman_correlation | Mått som du vill optimera. Den modell som passar bäst väljs utifrån det här måttet.|
-|**funktionalisering**| Disk | Genom att använda **Auto**kan experimentet Förbearbeta indata (hantering av saknade data, konvertera text till numeriskt osv.)|
+|**funktionalisering**| disk | Genom att använda **Auto**kan experimentet Förbearbeta indata (hantering av saknade data, konvertera text till numeriskt osv.)|
 |**verbosity**| logging.INFO | Styr loggningsnivån.|
 |**n_cross_validations**|5|Det antal delningar av korsvalidering som ska utföras när verifieringsdata inte har angetts.|
 

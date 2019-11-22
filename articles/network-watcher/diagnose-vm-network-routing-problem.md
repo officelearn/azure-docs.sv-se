@@ -1,5 +1,6 @@
 ---
-title: Diagnostisera problem med nätverksroutning för virtuella datorer – självstudie – Azure Portal | Microsoft Docs
+title: 'Självstudie: diagnostisera ett problem med Routning av VM-nätverk – Azure Portal'
+titleSuffix: Azure Network Watcher
 description: I den här självstudien får du lära dig hur du diagnostiserar problem med nätverksroutning för virtuella datorer med funktionen för nästa hopp i Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
@@ -17,16 +18,16 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 3ad9cd8b620b55aaa17e84343a82ac361081de44
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f9c7139dc9c27ed5b4f97f38e98b4663e9676288
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64684523"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276050"
 ---
-# <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Självstudier: Diagnostisera en virtuell dator problem med nätverksroutning med Azure portal
+# <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Självstudie: Diagnostisera problem med nätverksroutning i Azure Portal
 
-När du distribuerar en virtuell dator (VM) skapas flera standardvägar i Azure för den. Du kan skapa egna vägar som ersätter Azures standardvägar. Ibland kan en egen väg leda till att en virtuell dator inte kan kommunicera med andra resurser. I den här guiden får du lära dig att:
+När du distribuerar en virtuell dator (VM) skapas flera standardvägar i Azure för den. Du kan skapa egna vägar som ersätter Azures standardvägar. Ibland kan en egen väg leda till att en virtuell dator inte kan kommunicera med andra resurser. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa en virtuell dator
@@ -55,7 +56,7 @@ Logga in på Azure Portal på https://portal.azure.com.
     |Lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Prenumeration| Välj din prenumeration.|
     |Resursgrupp| Välj **Skapa ny** och ange **myResourceGroup**.|
-    |Location| Välj **USA, östra**|
+    |Plats| Välj **USA, östra**|
 
 4. Välj en storlek för den virtuella datorn och sedan **Välj**.
 5. Acceptera standardinställningarna under **Inställningar** och välj **OK**.
@@ -69,12 +70,12 @@ Om du vill testa nätverkskommunikationen med Network Watcher måste du först a
 
 Om du redan har aktiverat en nätverksbevakare i minst en region går du vidare till [Använda funktionen för nästa hopp](#use-next-hop).
 
-1. Välj **Alla tjänster** i portalen. I **filterrutan** skriver du *Network Watcher*. Välj **Network Watcher** i sökresultatet.
+1. Välj **Alla tjänster** på portalen. I **filterrutan** skriver du *Network Watcher*. Välj **Network Watcher** i sökresultatet.
 2. Välj **Regioner** för att expandera avsnittet och välj sedan **...** till höger om **USA, östra**, som du ser i följande bild:
 
     ![Aktivera Network Watcher](./media/diagnose-vm-network-traffic-filtering-problem/enable-network-watcher.png)
 
-3. Välj **Aktivera Network Watcher**.
+3. Välj **Aktivera nätverksbevakaren**.
 
 ### <a name="use-next-hop"></a>Använda funktionen för nästa hopp
 
@@ -89,7 +90,7 @@ Azure skapar automatiskt vägar till olika standardmål. Du kan skapa egna väga
     | Virtuell dator         | Välj myVm                                            |
     | Nätverksgränssnitt       | myvm – namnet på ditt nätverksgränssnitt kan vara ett annat.   |
     | Källans IP-adress       | 10.0.0.4                                               |
-    | Mål-IP-adress  | 13.107.21.200 - en av adresserna för < www.bing.com>. |
+    | Mål-IP-adress  | 13.107.21.200 – en av adresserna för < www. Bing. com >. |
 
     ![Nästa hopp](./media/diagnose-vm-network-routing-problem/next-hop.png)
 
@@ -114,7 +115,7 @@ Ta bort resursgruppen, skalningsuppsättningen och alla resurser som den innehå
 
 1. Skriv *myResourceGroup* i **sökrutan** överst i portalen. När du ser **myResourceGroup** i sökresultatet väljer du den.
 2. Välj **Ta bort resursgrupp**.
-3. Skriv *myResourceGroup* där du uppmanas att **skriva resursgruppens namn:** (Skriv resursgruppens namn) och välj **Ta bort**.
+3. Skriv *myResourceGroup* i **SKRIV RESURSGRUPPSNAMNET:** och välj **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 

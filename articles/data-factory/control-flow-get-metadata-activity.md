@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 11/20/2019
 ms.author: jingwang
-ms.openlocfilehash: e891f6675920e7bb90d2a6d007676cdd65f19917
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 039176f2c546aa933d3a87ded8b6ded94e485d74
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679894"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280650"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Hämta metadata-aktivitet i Azure Data Factory
 
@@ -43,7 +43,7 @@ Aktiviteten hämta metadata tar en data uppsättning som indata och returnerar m
 
 **Fil lagring**
 
-| Koppling/metadata | ItemName<br>(fil/mapp) | ItemType<br>(fil/mapp) | ändra<br>Arkiv | Create<br>(fil/mapp) | lastModified<br>(fil/mapp) |childItems<br>projektbevakningsmappen |contentMD5<br>Arkiv | hierarkistruktur<br/>Arkiv | Antal<br>Arkiv | finns<br>(fil/mapp) |
+| Koppling/metadata | itemName<br>(fil/mapp) | itemType<br>(fil/mapp) | size<br>Arkiv | Create<br>(fil/mapp) | lastModified<br>(fil/mapp) |childItems<br>projektbevakningsmappen |contentMD5<br>Arkiv | structure<br/>Arkiv | Antal<br>Arkiv | finns<br>(fil/mapp) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√ * | √ | x | √ | √ | √/√ * |
 | [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√ * | √ | x | √ | √ | √/√ * |
@@ -57,10 +57,11 @@ Aktiviteten hämta metadata tar en data uppsättning som indata och returnerar m
 
 - För Amazon S3 och Google Cloud Storage gäller `lastModified` för Bucket och nyckeln, men inte i den virtuella mappen, och `exists` gäller för Bucket och nyckeln, men inte till prefixet eller den virtuella mappen.
 - För Azure Blob Storage gäller `lastModified` för behållaren och blobben, men inte i den virtuella mappen.
+- Wildcard-filter i mappar/filer stöds inte för aktiviteten hämta metadata.
 
 **Relations databas**
 
-| Koppling/metadata | hierarkistruktur | Antal | finns |
+| Koppling/metadata | structure | Antal | finns |
 |:--- |:--- |:--- |:--- |
 | [Azure SQL Database](connector-azure-sql-database.md) | √ | √ | √ |
 | [Hanterad Azure SQL Database-instans](connector-azure-sql-database-managed-instance.md) | √ | √ | √ |
@@ -73,14 +74,14 @@ Du kan ange följande typer av metadata i listan Hämta metadata aktivitet fält
 
 | Typ av metadata | Beskrivning |
 |:--- |:--- |
-| ItemName | Filens eller mappens namn. |
-| ItemType | Typ av fil eller mapp. Returnerat värde är `File` eller `Folder`. |
-| ändra | Filens storlek i byte. Gäller endast för filer. |
+| itemName | Filens eller mappens namn. |
+| itemType | Typ av fil eller mapp. Returnerat värde är `File` eller `Folder`. |
+| size | Filens storlek i byte. Gäller endast för filer. |
 | Create | Datum/tid för filen eller mappen har skapats. |
 | lastModified | Datum och tid då filen eller mappen senast ändrades. |
 | childItems | Lista över undermappar och filer i den aktuella mappen. Gäller endast för mappar. Returnerat värde är en lista över namn och typ för varje underordnat objekt. |
 | contentMD5 | MD5 av filen. Gäller endast för filer. |
-| hierarkistruktur | Data strukturen för filen eller Relations databas tabellen. Returnerat värde är en lista med kolumn namn och kolumn typer. |
+| structure | Data strukturen för filen eller Relations databas tabellen. Returnerat värde är en lista med kolumn namn och kolumn typer. |
 | Antal | Antalet kolumner i filen eller Relations tabellen. |
 | finns| Om en fil, mapp eller tabell finns. Observera att om `exists` anges i fält listan Hämta metadata, kommer aktiviteten inte att kunna köras även om filen, mappen eller tabellen inte finns. I stället returneras `exists: false` i utdata. |
 
@@ -137,7 +138,7 @@ För närvarande kan aktiviteten hämta metadata returnera följande typer av me
 Egenskap | Beskrivning | Krävs
 -------- | ----------- | --------
 Fält lista | De typer av metadatainformation som krävs. Mer information om metadata som stöds finns i avsnittet [metadata-alternativ](#metadata-options) i den här artikeln. | Ja 
-Data uppsättning | Referens data uppsättningen vars metadata ska hämtas av aktiviteten hämta metadata. I avsnittet [funktioner](#capabilities) finns information om anslutnings program som stöds. Information om syntax för data uppsättning finns i specifika anslutnings avsnitt. | Ja
+data uppsättning | Referens data uppsättningen vars metadata ska hämtas av aktiviteten hämta metadata. I avsnittet [funktioner](#capabilities) finns information om anslutnings program som stöds. Information om syntax för data uppsättning finns i specifika anslutnings avsnitt. | Ja
 formatSettings | Använd när du använder data uppsättning för format typ. | Nej
 storeSettings | Använd när du använder data uppsättning för format typ. | Nej
 

@@ -1,27 +1,23 @@
 ---
 title: Felsöka och iterera med Visual Studio Code och Node. js på Kubernetes med hjälp av Azure dev Spaces
-titleSuffix: Azure Dev Spaces
-author: zr-msft
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-ms.author: zarhoads
 ms.date: 07/08/2019
 ms.topic: quickstart
 description: Snabb Kubernetes utveckling med behållare, mikrotjänster och Node. js på Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
 manager: gwallace
-ms.openlocfilehash: b53e18d4b759bc86dd0bc8f913e02b9523fb328b
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
-ms.translationtype: MT
+ms.openlocfilehash: e255a2f751a4747331ed959def67517a7e95baa9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815814"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279568"
 ---
-# <a name="quickstart-debug-and-iterate-with-visual-studio-code-and-nodejs-on-kubernetes-using-azure-dev-spaces"></a>Snabbstart: Felsöka och iterera med Visual Studio Code och Node. js på Kubernetes med hjälp av Azure dev Spaces
+# <a name="quickstart-debug-and-iterate-with-visual-studio-code-and-nodejs-on-kubernetes-using-azure-dev-spaces"></a>Snabb start: Felsöka och iterera med Visual Studio Code och Node. js på Kubernetes med hjälp av Azure dev Spaces
 
 I den här guiden får du lära dig hur du:
 
-- Ställa in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
+- Ställer in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
 - Utveckla en iterativ kod i behållare med hjälp av Visual Studio Code.
 - Felsök koden i ditt dev Space från Visual Studio Code.
 
@@ -30,9 +26,9 @@ Med Azure dev Spaces kan du också felsöka och iterera med:
 - [.NET Core och Visual Studio Code](quickstart-netcore.md)
 - [.NET Core och Visual Studio](quickstart-netcore-visualstudio.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- En Azure-prenumeration. Om du inte har en Azure-prenumeration, kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
+- En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
 - [Visual Studio Code installerat](https://code.visualstudio.com/download).
 - Tillägget [Azure dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) för Visual Studio Code installerat.
 - [Azure CLI installerat](/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -48,7 +44,7 @@ az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --gen
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Aktivera Azure dev Spaces i ditt AKS-kluster
 
-`use-dev-spaces` Använd kommandot för att aktivera dev Spaces på ditt AKS-kluster och följ anvisningarna. Kommandot nedan aktiverar dev-utrymmen i *MyAKS* -klustret i gruppen *MyResourceGroup* och skapar ett *standard* dev-utrymme.
+Använd kommandot `use-dev-spaces` för att aktivera dev Spaces i ditt AKS-kluster och följa anvisningarna. Kommandot nedan aktiverar dev-utrymmen i *MyAKS* -klustret i gruppen *MyResourceGroup* och skapar ett *standard* dev-utrymme.
 
 > [!NOTE]
 > Kommandot `use-dev-spaces` installerar även Azure dev Spaces CLI om det inte redan är installerat. Det går inte att installera Azure dev Spaces CLI i Azure Cloud Shell.
@@ -91,7 +87,7 @@ Du har nu öppnat *webfrontend* -projektet i Visual Studio Code. Om du vill kör
 
 ![Förbereda konfigurationsfiler för Azure dev Spaces](./media/common/command-palette.png)
 
-När Visual Studio Code meddelar dig även att du konfigurerar din offentliga slut punkt väljer `Yes` du att aktivera en offentlig slut punkt.
+När Visual Studio Code meddelar dig även att du konfigurerar din offentliga slut punkt väljer du `Yes` för att aktivera en offentlig slut punkt.
 
 ![Välj offentlig slut punkt](media/common/select-public-endpoint.png)
 
@@ -117,7 +113,7 @@ Klicka på *Felsök* och *stoppa* fel sökningen för att stoppa fel söknings p
 Om du vill distribuera en uppdaterad version av tjänsten kan du uppdatera alla filer i projektet och köra *starta om servern*. Exempel:
 
 1. Om programmet fortfarande körs klickar du på *Felsök* och *stoppar sedan fel sökningen* för att stoppa det.
-1. Uppdatera [rad 13 i `server.js` ](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13) till:
+1. Uppdatera [rad 13 i `server.js`](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13) till:
     
     ```javascript
         res.send('Hello from webfrontend in Azure');

@@ -11,32 +11,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 45415af479c9581ee04b97af4fb5297d09c5769d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 02d6e150e638321e11a8dec9838e360faa00783e
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496327"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280941"
 ---
 # <a name="use-firewall-rules"></a>Använd brand Väggs regler
 
-För scenarier där Azure Service Bus endast kan nås från vissa välkända platser, kan du konfigurera regler för att acceptera trafik från specifika IPv4-adresser i brand Väggs regler. Dessa adresser kan till exempel vara de som tillhör en Corporate NAT-gateway.
+För scenarier där Azure Service Bus endast kan nås från vissa välkända platser, kan du konfigurera regler för att acceptera trafik från specifika IPv4-adresser i brand Väggs regler. Dessa adresser kan exempelvis vara de för en företagets NAT-gateway.
 
-## <a name="when-to-use"></a>När du ska använda detta
+## <a name="when-to-use"></a>Används till att
 
 Om du vill konfigurera Service Bus så att den endast ska ta emot trafik från ett visst intervall med IP-adresser och neka allt annat, kan du använda en *brand vägg* för att blockera Service Bus slut punkter från andra IP-adresser. Du använder till exempel Service Bus med [Azure Express Route][express-route] för att skapa privata anslutningar till din lokala infrastruktur. 
 
-## <a name="how-filter-rules-are-applied"></a>Hur filter regler tillämpas
+## <a name="how-filter-rules-are-applied"></a>Hur filterregler tillämpas
 
-IP-filter regler tillämpas på Service Bus namn områdes nivå. Reglerna gäller därför för alla anslutningar från klienter som använder ett protokoll som stöds.
+IP-filter regler tillämpas på Service Bus namn områdes nivå. Därför gäller reglerna för alla anslutningar från klienter som använder alla protokoll som stöds.
 
-Eventuella anslutnings försök från en IP-adress som inte matchar en tillåten IP-regel på Service Bus namn området nekas som obehörig. Svaret innehåller ingen IP-regel.
+Eventuella anslutnings försök från en IP-adress som inte matchar en tillåten IP-regel på Service Bus namn området nekas som obehörig. Svaret nämner inte IP-regeln.
 
-## <a name="default-setting"></a>Standardinställning
+## <a name="default-setting"></a>Standardinställningen
 
-Som standard är rutnätet för **IP-filter** i portalen för Service Bus tomt. Den här standardinställningen innebär att namn området accepterar anslutningar från alla IP-adresser. Standardvärdet motsvarar en regel som accepterar IP-adressintervallet 0.0.0.0/0.
+Som standard är rutnätet för **IP-filter** i portalen för Service Bus tomt. Den här standardinställningen innebär att namn området accepterar anslutningar från alla IP-adresser. Den här standardinställningen motsvarar en regel som accepterar 0.0.0.0/0 IP-adressintervall.
 
-## <a name="ip-filter-rule-evaluation"></a>Regel utvärdering av IP-filter
+## <a name="ip-filter-rule-evaluation"></a>IP-filter rule utvärdering
 
 IP-filter regler tillämpas i ordning och den första regeln som matchar IP-adressen bestämmer åtgärden acceptera eller avvisa.
 
@@ -46,7 +46,6 @@ IP-filter regler tillämpas i ordning och den första regeln som matchar IP-adre
 > Betrodda Microsoft-tjänster stöds inte när IP-filtrering (brand Väggs regler) implementeras och kommer snart att göras tillgänglig.
 >
 > Vanliga Azure-scenarier som inte fungerar med IP-filtrering (Observera att listan **inte** är fullständig) –
-> - Azure Monitor
 > - Azure Stream Analytics
 > - Integrering med Azure Event Grid
 > - Azure IoT Hub vägar
@@ -65,13 +64,13 @@ Följande Resource Manager-mall gör det möjligt att lägga till en virtuell n�
 
 Mallparametrar:
 
-- **ipMask** är en enskild IPv4-adress eller ett block med IP-adresser i CIDR-notation. I CIDR-notation 70.37.104.0/24 representerar till exempel 256 IPv4-adresser från 70.37.104.0 till 70.37.104.255, med 24 som anger antalet signifikanta prefix för intervallet.
+- **ipMask** är en enskild IPv4-adress eller ett block med IP-adresser i CIDR-notation. Till exempel i CIDR representerar notation 70.37.104.0/24 256 IPv4-adresser från 70.37.104.0 till 70.37.104.255 med 24 som anger antalet bitar betydande prefixet för intervallet.
 
 > [!NOTE]
 > Även om det inte finns några tillåtna nekade regler, har Azure Resource Manager mal len standard åtgärden inställd på **Tillåt** , vilket inte begränsar anslutningar.
 > När du skapar Virtual Network-eller brand Väggs regler måste vi ändra ***"defaultAction"***
 > 
-> som
+> from
 > ```json
 > "defaultAction": "Allow"
 > ```

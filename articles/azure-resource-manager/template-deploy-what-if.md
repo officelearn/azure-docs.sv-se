@@ -1,71 +1,71 @@
 ---
-title: Template deployment what-if (Preview)
-description: Determine what changes will happen to your resources before deploying an Azure Resource Manager template.
+title: Malldistribution vad-om (för hands version)
+description: Ta reda på vilka ändringar som sker i resurserna innan du distribuerar en Azure Resource Manager-mall.
 author: mumian
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 11/20/2019
 ms.author: jgao
-ms.openlocfilehash: f399a89ff22dd3d1b360196c81d652b55f30e029
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: HT
+ms.openlocfilehash: 19cb674ca7a2dfefc11c7646b23427c722f6e671
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230210"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278305"
 ---
-# <a name="resource-manager-template-deployment-what-if-operation-preview"></a>Resource Manager template deployment what-if operation (Preview)
+# <a name="resource-manager-template-deployment-what-if-operation-preview"></a>Resource Manager-mall för att distribuera konsekvens åtgärder (för hands version)
 
-Before deploying a template, you might want to preview the changes that will happen. Azure Resource Manager provides the what-if operation to let you see how resources will change if you deploy the template. The what-if operation doesn't make any changes to existing resources. Instead, it predicts the changes if the specified template is deployed.
+Innan du distribuerar en mall kanske du vill förhandsgranska de ändringar som kommer att ske. Azure Resource Manager tillhandahåller åtgärden vad händer om du kan se hur resurser kommer att ändras om du distribuerar mallen. Konsekvens åtgärden gör inga ändringar i befintliga resurser. I stället förväntas ändringarna om den angivna mallen distribueras.
 
 > [!NOTE]
-> The what-if operation is currently in preview. To use it, you must [sign up for the preview](https://aka.ms/armtemplatepreviews). As a preview release, the results may sometimes show that a resource will change when actually no change will happen. We're working to reduce these issues, but we need your help. Please report these issues at [https://aka.ms/armwhatifissues](https://aka.ms/armwhatifissues).
+> Konsekvens åtgärden är för närvarande en för hands version. Du måste [Registrera dig för för hands versionen för](https://aka.ms/armtemplatepreviews)att kunna använda den. Som en för hands version kan resultatet ibland visa att en resurs kommer att ändras när ingen ändring sker. Vi arbetar för att minska problemen, men vi behöver din hjälp. Rapportera de här problemen på [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
 
-You can use the what-if operation with the `New-AzDeploymentWhatIf` PowerShell command or the [Deployments - What If](/rest/api/resources/deployments/whatif) REST operation.
+Du kan använda åtgärden vad händer om med kommandot `New-AzDeploymentWhatIf` PowerShell eller [distributions what if](/rest/api/resources/deployments/whatif) rest.
 
-In PowerShell, the output looks like:
+I PowerShell ser utdata ut ungefär så här:
 
-![Resource Manager template deployment what-if operation fullresourcepayload and change types](./media/template-deploy-what-if/resource-manager-deployment-whatif-change-types.png)
+![Resource Manager-mall distribution av konsekvens åtgärder fullresourcepayload och ändrings typer](./media/template-deploy-what-if/resource-manager-deployment-whatif-change-types.png)
 
-## <a name="change-types"></a>Change types
+## <a name="change-types"></a>Ändra typer
 
-The what-if operation lists six different types of changes:
+Åtgärden konsekvens visar sex olika typer av ändringar:
 
-- **Create**: The resource doesn't currently exist but is defined in the template. The resource will be created.
+- **Skapa**: resursen finns inte för närvarande, men den har definierats i mallen. Resursen kommer att skapas.
 
-- **Delete**: This change type only applies when using [complete mode](deployment-modes.md) for deployment. The resource exists, but isn't defined in the template. With complete mode, the resource will be deleted. Only resources that [support complete mode deletion](complete-mode-deletion.md) are included in this change type.
+- **Ta bort**: den här ändrings typen gäller endast när [slutfört läge](deployment-modes.md) används för distribution. Resursen finns, men har inte definierats i mallen. Med slutfört läge tas resursen bort. Endast resurser som [stöder fullständig borttagning av läge](complete-mode-deletion.md) ingår i den här ändrings typen.
 
-- **Ignore**: The resource exists, but isn't defined in the template. The resource won't be deployed or modified.
+- **Ignorera**: resursen finns, men har inte definierats i mallen. Resursen kommer inte att distribueras eller ändras.
 
-- **NoChange**: The resource exists, and is defined in the template. The resource will be redeployed, but the properties of the resource won't change. This change type is returned when [ResultFormat](#result-format) is set to `FullResourcePayloads`, which is the default value.
+- **Nochang**: resursen finns och definieras i mallen. Resursen kommer att omdistribueras, men egenskaperna för resursen ändras inte. Den här ändrings typen returneras när [ResultFormat](#result-format) är inställt på `FullResourcePayloads`, vilket är standardvärdet.
 
-- **Modify**: The resource exists, and is defined in the template. The resource will be redeployed, and the properties of the resource will change. This change type is returned when [ResultFormat](#result-format) is set to `FullResourcePayloads`, which is the default value.
+- **Ändra**: resursen finns och definieras i mallen. Resursen kommer att omdistribueras och egenskaperna för resursen ändras. Den här ändrings typen returneras när [ResultFormat](#result-format) är inställt på `FullResourcePayloads`, vilket är standardvärdet.
 
-- **Deploy**: The resource exists, and is defined in the template. The resource will be redeployed. The properties of the resource may or may not change. The operation returns this change type when it doesn't have enough information to determine if any properties will change. You only see this condition when [ResultFormat](#result-format) is set to `ResourceIdOnly`.
+- **Distribuera**: resursen finns och definieras i mallen. Resursen kommer att omdistribueras. Egenskaperna för resursen kanske inte ändras. Åtgärden returnerar den här ändrings typen när den inte har tillräckligt med information för att avgöra om några egenskaper kommer att ändras. Du ser bara det här villkoret när [ResultFormat](#result-format) är inställt på `ResourceIdOnly`.
 
-## <a name="deployment-scope"></a>Deployment scope
+## <a name="deployment-scope"></a>Distributions omfång
 
-You can use the what-if operation for deployments at either the subscription or resource group level. You set the deployment scope with the `-ScopeType` parameter. The accepted values are `Subscription` and `ResourceGroup`. This article demonstrates resource group deployments.
+Du kan använda åtgärden vad händer om för distributioner antingen på prenumerations-eller resurs grupps nivå. Du anger distributions omfånget med parametern `-ScopeType`. De godkända värdena är `Subscription` och `ResourceGroup`. Den här artikeln visar distributioner av resurs grupper.
 
-To learn about subscription level deployments, see [Create resource groups and resources at the subscription level](deploy-to-subscription.md#).
+Information om distributioner på prenumerations nivå finns i [skapa resurs grupper och resurser på prenumerations nivå](deploy-to-subscription.md#).
 
-## <a name="result-format"></a>Result format
+## <a name="result-format"></a>Resultat format
 
-You can control the level of detail that is returned about the predicted changes. Set the `ResultFormat` parameter to `FullResourcePayloads` to get a list of resources what will change and details about the properties that will change. Set the `ResultFormat` parameter to `ResourceIdOnly` to get a list of resources that will change. The default value is `FullResourcePayloads`.  
+Du kan styra detalj nivån som returneras om förväntade ändringar. Ange `ResultFormat` parametern till `FullResourcePayloads` för att få en lista över resurser som kommer att ändras och information om de egenskaper som kommer att ändras. Ange `ResultFormat` parametern till `ResourceIdOnly` för att hämta en lista över resurser som kommer att ändras. Standardvärdet är `FullResourcePayloads`.  
 
-The following screenshots show the two different output formats:
+Följande skärm bilder visar de två olika utdataformaten:
 
-- Full resource payloads
+- Fullständiga resurs nytto laster
 
-    ![Resource Manager template deployment what-if operation fullresourcepayloads output](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-fullresourcepayload.png)
+    ![Resource Manager-mall distribution av konsekvens åtgärder för fullresourcepayloads-utdata](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-fullresourcepayload.png)
 
-- Resource ID only
+- Endast resurs-ID
 
-    ![Resource Manager template deployment what-if operation resourceidonly output](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-resourceidonly.png)
+    ![Resource Manager-mall distribution av konsekvens åtgärder för resourceidonly-utdata](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-resourceidonly.png)
 
-## <a name="run-what-if-operation"></a>Run what-if operation
+## <a name="run-what-if-operation"></a>Kör konsekvens Åtgärd
 
-### <a name="set-up-environment"></a>Set up environment
+### <a name="set-up-environment"></a>Konfigurera miljö
 
-To see how what-if works, let's runs some tests. First, deploy a template from [Azure Quickstart templates that creates a storage account](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json). The default storage account type is `Standard_LRS`. You'll use this storage account to test how changes are reported by what-if.
+För att se hur det fungerar kan vi köra vissa tester. Börja med att distribuera en mall från [Azure snabb starts mallar som skapar ett lagrings konto](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json). Standard lagrings konto typen är `Standard_LRS`. Du använder det här lagrings kontot för att testa hur ändringar rapporteras av vad-om.
 
 ```azurepowershell-interactive
 New-AzResourceGroup `
@@ -76,9 +76,9 @@ New-AzResourceGroupDeployment `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
 ```
 
-### <a name="test-modification"></a>Test modification
+### <a name="test-modification"></a>Test ändring
 
-After the deployment completes, you're ready to test the what-if operation. Run the what-if command but change the storage account type to `Standard_GRS`.
+När distributionen är klar är du redo att testa konsekvens åtgärden. Kör kommandot what-if men ändra lagrings konto typen till `Standard_GRS`.
 
 ```azurepowershell-interactive
 New-AzDeploymentWhatIf `
@@ -88,19 +88,19 @@ New-AzDeploymentWhatIf `
   -storageAccountType Standard_GRS
 ```
 
-The what-if output is similar to:
+Vad-om-utdata ser ut ungefär så här:
 
-![Resource Manager template deployment what-if operation output](./media/template-deploy-what-if/resource-manager-deployment-whatif-output.png)
+![Resource Manager-mall distribution av konsekvens åtgärder](./media/template-deploy-what-if/resource-manager-deployment-whatif-output.png)
 
-Notice at the top of the output that colors are defined to indicate the type of changes.
+Observera överst i utdata som färger definieras för att ange typ av ändringar.
 
-At the bottom of the output, it shows the sku name (storage account type) will be changed from **Standard_LRS** to **Standard_GRS**.
+Längst ned i utdata visas SKU-namnet (lagrings konto typen) kommer att ändras från **Standard_LRS** till **Standard_GRS**.
 
-Some of the properties that are listed as deleted won't actually change. In the preceding image, these properties are accessTier, encryption.keySource and others in that section. Properties can be incorrectly reported as deleted when they aren't in the template but are automatically set during deployment. The final deployed resource will have the values set for the properties. As the what-if operation matures, these properties will be filtered out of the result.
+Några av egenskaperna som visas som borttagna ändras inte. I föregående bild är dessa egenskaper accessTier, kryptering. käll-och andra i avsnittet. Egenskaper kan rapporteras felaktigt som borttagna när de inte finns i mallen, utan anges automatiskt under distributionen som standardvärden. Resultatet betraktas som "brus" i svaret. Den slutgiltiga distribuerade resursen kommer att ha värdena som angetts för egenskaperna. När konsekvens åtgärden mognar kommer dessa egenskaper att filtreras bort från resultatet.
 
-### <a name="test-deletion"></a>Test deletion
+### <a name="test-deletion"></a>Ta bort test
 
-The what-if operation supports using [deployment mode](deployment-modes.md). When set to complete mode, resources not in the template are deleted. The following example deploys a [template that has no resources defined](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) in complete mode.
+Konsekvens åtgärden stöder användning av [distributions läge](deployment-modes.md). När du har angett till slutfört läge raderas inte resurser som inte finns i mallen. I följande exempel distribueras en [mall som inte har några definierade resurser](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) i komplett läge.
 
 ```azurepowershell-interactive
 New-AzDeploymentWhatIf `
@@ -110,15 +110,15 @@ New-AzDeploymentWhatIf `
   -Mode Complete
 ```
 
-Because no resources are defined in the template and the deployment mode is set to complete, the storage account will be deleted.
+Eftersom inga resurser har definierats i mallen och distributions läget är inställt på Slutför, tas lagrings kontot bort.
 
-![Resource Manager template deployment what-if operation output deployment mode complete](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-mode-complete.png)
+![Resource Manager-mall distributions läge för konsekvens distribution av utdata slutförs](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-mode-complete.png)
 
-It's important to remember what-if makes no actual changes. The storage account still exists in your resource group.
+Det är viktigt att komma ihåg vad som händer om inga faktiska ändringar görs. Lagrings kontot finns kvar i resurs gruppen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- If you notice incorrect results from the preview release of what-if, please report the issues at [https://aka.ms/armwhatifissues](https://aka.ms/armwhatifissues).
-- To deploy templates with Azure PowerShell, see [Deploy resources with Resource Manager templates and Azure PowerShell](resource-group-template-deploy.md).
-- To deploy templates with REST, see [Deploy resources with Resource Manager templates and Resource Manager REST API](resource-group-template-deploy-rest.md).
-- To roll back to a successful deployment when you get an error, see [Rollback on error to successful deployment](rollback-on-error.md).
+- Om du upptäcker felaktiga resultat från för hands versionen av vad-om, kan du rapportera problemen på [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
+- Information om hur du distribuerar mallar med Azure PowerShell finns i [distribuera resurser med Resource Manager-mallar och Azure PowerShell](resource-group-template-deploy.md).
+- Information om hur du distribuerar mallar med REST finns i [distribuera resurser med Resource Manager-mallar och Resource Manager-REST API](resource-group-template-deploy-rest.md).
+- Om du vill återställa till en lyckad distribution när du får ett fel, se [återställa vid fel till lyckad distribution](rollback-on-error.md).

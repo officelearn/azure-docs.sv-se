@@ -1,20 +1,20 @@
 ---
 title: Använd dynamiska grupper med Azure Uppdateringshantering
-description: beskriver hur dynamiska grupper fungerar med Uppdateringshantering
+description: Den här artikeln beskriver hur dynamiska grupper fungerar med Azure Automation Uppdateringshantering.
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
-ms.date: 10/02/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 11/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: edc4384be0f1dc73f2e7e098114080d304d92ce8
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 022c2061febb54666acee1cfed4ec595421660a3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72377751"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278721"
 ---
 # <a name="use-dynamic-groups-with-update-management"></a>Använd dynamiska grupper med Uppdateringshantering
 

@@ -1,5 +1,5 @@
 ---
-title: Utföra åtgärder på Azure Queue Storage med PowerShell – Azure Storage
+title: Utföra Azure Queue Storage-åtgärder i PowerShell
 description: Så här utför du åtgärder i Azure Queue Storage med PowerShell
 author: mhopkins-msft
 ms.author: mhopkins
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: bf5cf668620eb08e0d808c2052eac59b15af740c
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 98c59555f2b9b93ee3f78da91f85a7728679235d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721215"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74269385"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Utför Azure Queue Storage-åtgärder med Azure PowerShell
 
@@ -23,7 +23,7 @@ Azure Queue Storage är en tjänst för att lagra ett stort antal meddelanden so
 >
 > * Skapa en kö
 > * Hämta en kö
-> * Lägga till ett meddelande
+> * Lägg till ett meddelande
 > * Läsa ett meddelande
 > * Ta bort ett meddelande
 > * Ta bort en kö
@@ -129,7 +129,7 @@ Om du använder [Azure Storage Explorer](https://storageexplorer.com)kan du ansl
 
 Meddelanden läses in i bästa möjliga försök från första och följande. Detta är inte garanterat. När du läser meddelandet från kön blir det osynligt för alla andra processer som tittar på kön. Detta säkerställer att om din kod inte kan bearbeta meddelandet på grund av maskin-eller program varu fel, kan en annan instans av koden Hämta samma meddelande och försöka igen.  
 
-Denna **timeout** för insikt definierar hur länge meddelandet förblir osynligt innan det blir tillgängligt igen för bearbetning. Standardvärdet är 30 sekunder.
+Denna **timeout för insikt** definierar hur länge meddelandet förblir osynligt innan det blir tillgängligt igen för bearbetning. Standardvärdet är 30 sekunder.
 
 Koden läser ett meddelande från kön i två steg. När du anropar metoden [Microsoft. Azure. Storage. Queue. CloudQueue. GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) får du nästa meddelande i kön. Ett meddelande som returneras från **GetMessage** blir osynligt för andra meddelanden som läser kod i den här kön. Om du vill slutföra borttagningen av meddelandet från kön anropar du metoden [Microsoft. Azure. Storage. Queue. CloudQueue. DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage) .
 
@@ -187,7 +187,7 @@ I den här instruktions artikeln har du lärt dig om grundläggande lagrings han
 >
 > * Skapa en kö
 > * Hämta en kö
-> * Lägga till ett meddelande
+> * Lägg till ett meddelande
 > * Läs nästa meddelande
 > * Ta bort ett meddelande
 > * Ta bort en kö

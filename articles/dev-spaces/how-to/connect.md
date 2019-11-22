@@ -1,22 +1,18 @@
 ---
-title: " Ansluta din utvecklings dator till ett AKS-kluster"
-titleSuffix: Azure Dev Spaces
+title: Ansluta din utvecklingsdator till ett AKS-kluster
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 11/04/2019
 ms.topic: conceptual
 description: Lär dig hur du ansluter din utvecklings dator till ett AKS-kluster med Azure dev Spaces
 keywords: Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, containers
-ms.openlocfilehash: 15e46fba19d92e08a9c87a63f6f01ec6b0836910
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 1b65721b67ff63525adfe5d2061f22f359c02bde
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888914"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280125"
 ---
-# <a name="connect-your-development-machine-to-an-aks-cluster-preview"></a>Ansluta din utvecklings dator till ett AKS-kluster (för hands version)
+# <a name="connect-your-development-machine-to-an-aks-cluster-preview"></a>Ansluta din utvecklingsdator till ett AKS-kluster (förhandsversion)
 
 Med Azure dev Spaces kan du köra och felsöka kod med eller utan en behållare på din utvecklings dator, medan du fortfarande är ansluten till ditt Kubernetes-kluster med resten av dina program eller tjänster. Genom att ansluta din utvecklings dator till klustret kan du snabbt utveckla ditt program och utföra testning från slut punkt till slut punkt utan att behöva skapa någon Docker-eller Kubernetes-konfiguration. Du kan också ansluta till ditt AKS-kluster utan att påverka andra arbets belastningar eller användare som kan använda samma kluster.
 
@@ -39,9 +35,9 @@ I den här guiden används [cykel delnings exempel programmet i Azure dev Spaces
 
 * UDP stöds inte för tillfället.
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Krav
 
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration, kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
+* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
 * [Azure CLI installerat][azure-cli].
 * [Visual Studio Code][vs-code] med tillägget [Azure dev Spaces][azds-vs-code] installerat och körs på MacOS eller Windows 10.
 * [Exempel programmet för cykel delning i Azure dev Spaces](https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp) eller ditt eget program som körs på ett AKS-kluster.

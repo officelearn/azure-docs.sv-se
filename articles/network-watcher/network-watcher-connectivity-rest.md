@@ -1,5 +1,6 @@
 ---
-title: Felsöka anslutningar med Azure Network Watcher – Azure REST API | Microsoft Docs
+title: Felsöka anslutningar – Azure REST API
+titleSuffix: Azure Network Watcher
 description: Lär dig hur du använder anslutningen fel söknings funktion i Azure Network Watcher med Azure-REST API.
 services: network-watcher
 documentationcenter: na
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: kumud
-ms.openlocfilehash: 82dd77e8ea36610244b97c1701209d5aa3be2869
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 792556a63b5ca9ef53a33960e8284354972b3895
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69017770"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275962"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Felsöka anslutningar med Azure Network Watcher med Azure-REST API
 
@@ -38,7 +39,7 @@ Den här artikeln förutsätter att du har följande resurser:
 * Virtuella datorer för att felsöka anslutningar med.
 
 > [!IMPORTANT]
-> Fel sökning av anslutning kräver att den virtuella datorn som du `AzureNetworkWatcherExtension` felsöker från har VM-tillägget installerat. För att installera tillägget på en virtuell Windows-dator går du till [azure Network Watcher agent-tillägget virtuell dator för Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) och för virtuella Linux-datorer gå till [Azure Network Watcher virtuell dator tillägg för Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Tillägget krävs inte på mål slut punkten.
+> Fel sökning av anslutning kräver att den virtuella datorn som du felsöker från har `AzureNetworkWatcherExtension` VM-tillägget installerat. För att installera tillägget på en virtuell Windows-dator går du till [azure Network Watcher agent-tillägget virtuell dator för Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) och för virtuella Linux-datorer gå till [Azure Network Watcher virtuell dator tillägg för Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Tillägget krävs inte på mål slut punkten.
 
 ## <a name="log-in-with-armclient"></a>Logga in med ARMClient
 
@@ -133,7 +134,7 @@ null
 
 ### <a name="response"></a>Svar
 
-Följande svar är från föregående exempel.  I det här svaret går `ConnectionStatus` det inte att **komma åt**. Du kan se att alla avsökningar som skickats misslyckades. Anslutningen kunde inte utföras på den virtuella installationen på grund av en `NetworkSecurityRule` användardefinierad namngiven **UserRule_Port80**som kon figurer ATS för att blockera inkommande trafik på port 80. Den här informationen kan användas för att undersöka anslutnings problem.
+Följande svar är från föregående exempel.  I detta svar går det inte att **komma åt**`ConnectionStatus`. Du kan se att alla avsökningar som skickats misslyckades. Anslutningen misslyckades på den virtuella enheten på grund av en användardefinierad `NetworkSecurityRule` med namnet **UserRule_Port80**, konfigurerad för att blockera inkommande trafik på port 80. Den här informationen kan användas för att undersöka anslutnings problem.
 
 ```json
 {
@@ -249,7 +250,7 @@ null
 
 ### <a name="response"></a>Svar
 
-I följande exempel visas den `connectionStatus` som **oåtkomlig**. I informationen kan du `issues` se att trafiken blockerades på grund av en `UserDefinedRoute`. `hops`
+I följande exempel visas `connectionStatus` som **oåtkomlig**. I `hops` information kan du se under `issues` att trafiken blockerades på grund av ett `UserDefinedRoute`.
 
 ```json
 {
@@ -345,7 +346,7 @@ null
 
 ### <a name="response"></a>Svar
 
-I följande svar kan du se `connectionStatus` programmen som **tillgängliga**. När en anslutning lyckas, anges latens värden.
+I följande svar kan du se `connectionStatus` visas som **tillgängliga**. När en anslutning lyckas, anges latens värden.
 
 ```json
 {
@@ -432,7 +433,7 @@ null
 
 ### <a name="response"></a>Svar
 
-I följande exempel är svaret på att köra det tidigare API-anropet. När kontrollen har slutförts `connectionStatus` visas egenskapen som **nåbar**.  Du får information om antalet hopp som krävs för att komma åt lagrings-bloben och svars tiden.
+I följande exempel är svaret på att köra det tidigare API-anropet. När kontrollen är klar visas `connectionStatus`-egenskapen som **nåbar**.  Du får information om antalet hopp som krävs för att komma åt lagrings-bloben och svars tiden.
 
 ```json
 {

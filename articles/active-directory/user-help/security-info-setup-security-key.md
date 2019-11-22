@@ -1,6 +1,6 @@
 ---
-title: Konfigurera säkerhets information (för hands version) för en säkerhets nyckel – Azure AD
-description: Konfigurera din säkerhets information för att verifiera din identitet med hjälp av en snabb identitet Online (FIDO2) säkerhets nyckel.
+title: Konfigurera en säkerhets nyckel som verifierings metod – Azure AD
+description: Hur du konfigurerar din säkerhets information (förhands gransknings sida) för att verifiera din identitet för att använda en snabb identitet Online (FIDO2)-säkerhets nyckel som din verifierings metod.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9d86d594f0918e6a9ffed49142a81a0f7834e86
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7d02ca3a8b5b617edb8ee00ae7d15ea7e94cae80
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73803795"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278955"
 ---
-# <a name="set-up-security-info-preview-for-a-security-key"></a>Konfigurera säkerhets information (för hands version) för en säkerhets nyckel
+# <a name="set-up-a-security-key-as-your-verification-method"></a>Konfigurera en säkerhets nyckel som verifierings metod
 
-Du kan använda säkerhets nycklar som en lösen ords avskriven inloggnings metod i din organisation. En säkerhets nyckel är en fysisk enhet som används med en unik PIN-kod för att logga in på ditt arbets-eller skol konto. Eftersom säkerhets nycklar kräver att du har den fysiska enheten och något som du bara känner till, betraktas det som en starkare autentiseringsmetod än användar namn och lösen ord.
+Du kan använda säkerhets nycklar som en lösen ords avskriven inloggnings metod i din organisation. En säkerhets nyckel är en fysisk enhet som används med en unik PIN-kod för att logga in på ditt arbets-eller skol konto. Eftersom säkerhets nycklar kräver att du har den fysiska enheten och något som du bara känner till, betraktas det som en starkare verifierings metod än användar namn och lösen ord.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-key.md)]
 
@@ -35,7 +35,7 @@ Vi stöder för närvarande flera konstruktioner och providrar för säkerhets n
 Din administratör eller din organisation får en säkerhets nyckel om de kräver det för ditt arbets-eller skol konto. Det finns olika typer av säkerhets nycklar som du kan använda, till exempel en USB-nyckel som du ansluter till din enhet eller en NFC-nyckel som du trycker på en NFC-läsare. Du kan få mer information om din säkerhets nyckel, inklusive vilken typ det är, från tillverkarens dokumentation.
 
 > [!Note]
-> Om du inte kan använda en säkerhets nyckel för FIDO2 kan du använda andra metoder för lösen ords kryptering som du kan använda som Microsoft Authenticator app eller Windows Hello. Mer information om Microsoft Authenticator-appen finns i [Vad är Microsoft Authenticator-appen?](user-help-auth-app-overview.md). Mer information om Windows Hello finns i [Översikt över Windows Hello](https://www.microsoft.com/windows/windows-hello).
+> Om du inte kan använda en säkerhets nyckel för FIDO2 kan du använda andra metoder för att verifiera lösen ord som du kan använda som Microsoft Authenticator app eller Windows Hello. Mer information om Microsoft Authenticator-appen finns i [Vad är Microsoft Authenticator-appen?](user-help-auth-app-overview.md). Mer information om Windows Hello finns i [Översikt över Windows Hello](https://www.microsoft.com/windows/windows-hello).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -150,7 +150,7 @@ För att kunna registrera en säkerhets nyckel måste du ha minst en annan metod
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om metoder för lösen ords skydds metoder finns i [Microsofts Azure AD påbörjar en offentlig för hands version av FIDO2-säkerhetsnycklar, aktiverar blogg inloggnings](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) blogg eller läser [Vad är Microsoft Authenticator-appen?](user-help-auth-app-overview.md) [ Översikt över Windows Hello](https://www.microsoft.com/windows/windows-hello) -artiklar.
+- Mer information om verifierings metoder för lösen ord finns i [Microsoft Azure AD påbörjar den offentliga för hands versionen av FIDO2-säkerhetsnycklar, aktiverar blogg inloggnings](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) blogg eller läser artikeln [Vad är Microsoft Authenticator app?](user-help-auth-app-overview.md) och [Översikt över Windows Hello](https://www.microsoft.com/windows/windows-hello) .
 
 - Mer detaljerad information om [Microsoft-kompatibla säkerhets nycklar](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key).
 

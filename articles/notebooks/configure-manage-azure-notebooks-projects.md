@@ -1,23 +1,14 @@
 ---
 title: Konfigurera och hantera Azure-anteckningsbok projekt
 description: Så här hanterar du projektet metadata, projektfiler, projektets miljö och installationsprogrammet visar både Användargränssnittet för Azure-anteckningsböcker och terminal direktåtkomst.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: 35dd6ff1-a14a-4a2e-b173-6d8467de3e89
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/13/2019
-ms.author: kraigb
-ms.openlocfilehash: fca98594be08f04b2f266f3aa574837ac024ecf4
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 56c265122894412e79b3d5a7b256964c49ab81a6
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973137"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277646"
 ---
 # <a name="manage-and-configure-projects"></a>Hantera och konfigurera projekt
 
@@ -34,7 +25,7 @@ Ett projekt i Azure-datorer är i grunden en konfiguration av den underliggande 
 
 Azure-datorer startar den underliggande virtuella datorn när du kör en bärbar dator eller en annan fil. Servern sparar filer automatiskt och stängs av efter 60 minuters inaktivitet. Du kan också stoppa servern när som helst med den **avstängning** kommando (kortkommandot: h).
 
-## <a name="compute-tier"></a>Beräkningsnivå
+## <a name="compute-tier"></a>Beräknings nivå
 
 Som standard körs projekt på den **kostnads fria beräknings** nivån, som är begränsad till 4 GB minne och 1 GB data för att förhindra missbruk. Du kan kringgå de här begränsningarna och öka beräknings kraften genom att använda en annan virtuell dator som du har etablerad i en Azure-prenumeration. Mer information finns i [så här använder du data vetenskap Virtual Machines](use-data-science-virtual-machine.md).
 
@@ -70,7 +61,7 @@ Den **+ ny** kommando (kortkommandot: n) skapar nya filer eller mappar. När du 
 
 ### <a name="upload-files"></a>Överföra filer
 
-**Uppladdnings** kommandot innehåller två alternativ för att importera data från andra platser: **Från URL** och **från dator**. Mer information finns i [arbeta med datafiler i Azure-anteckningsbok projekt](work-with-project-data-files.md).
+Den **överför** kommandot ger två alternativ för att importera data från andra platser: **från URL: en** och **från datorn**. Mer information finns i [arbeta med datafiler i Azure-anteckningsbok projekt](work-with-project-data-files.md).
 
 ### <a name="select-file-specific-commands"></a>Välj fil-fil
 
@@ -115,7 +106,7 @@ Alla former av projektkonfigurationen tillämpas när den virtuella datorn har s
 
 ### <a name="one-time-initialization-script"></a>Initieringsskript för enstaka
 
-Azure-anteckningsböcker för första gången skapar en server för projektet, det ser ut för en fil i projektet med namnet *aznbsetup.sh*. Om den här filen finns körs det i Azure-anteckningsböcker. Utdata från skriptet lagras i en projektmapp som *. aznbsetup.log*.
+Första gången Azure Notebooks skapar en server för projektet söker den efter en fil i projektet som heter *aznbsetup.sh*. Om den här filen finns körs Azure Notebooks. Utdata från skriptet lagras i en projektmapp som *. aznbsetup.log*.
 
 ### <a name="environment-setup-steps"></a>Steg för konfiguration av miljö
 
@@ -131,11 +122,11 @@ Om du vill lägga till ett steg, väljer du först **+ Lägg till**, Välj en st
 
 Vilken information som du sedan projicera beror på vilken typ av åtgärd som du har valt:
 
-- **Krav. txt**: I den andra List rutan väljer du en fil med *kraven. txt* som redan finns i projektet. Välj sedan en Python-version från den tredje listan som visas. Med hjälp av en *requirements.txt* fil, Azure-datorer körs `pip install -r` med den *requirements.txt* filen när du startar en notebook-server. Du behöver inte uttryckligen installera paket från i anteckningsboken själva.
+- **Requirements.txt**: I den andra listan väljer du en *requirements.txt* fil som redan finns i projektet. Välj sedan en Python-version från den tredje listan som visas. Med hjälp av en *requirements.txt* fil, Azure-datorer körs `pip install -r` med den *requirements.txt* filen när du startar en notebook-server. Du behöver inte uttryckligen installera paket från i anteckningsboken själva.
 
-- **Gränssnitts skript**: I den andra List rutan väljer du ett bash-gränssnitts skript i projektet (vanligt vis en fil med fil namns tillägget *. sh* ) som innehåller alla kommandon som du vill köra för att initiera miljön.
+- **Kommandoskriptet**: I den andra listan väljer du ett bash shell-skript i projektet (vanligtvis en fil med det *.sh* tillägget) som innehåller alla kommandon som du vill köra för att initiera miljön.
 
-- **Miljö. yml**: I den andra List rutan väljer du en *miljö. yml* -fil för python-projekt med hjälp av en Conda-miljö.
+- **Environment.yml**: I den andra listan väljer du en *environments.yml* -filen för Python-projekt med hjälp av en conda-miljö.
 
 När du är klar att lägga till steg, Välj **spara**.
 
@@ -190,5 +181,5 @@ Du kan även använda kommandot från en kodcell i en Python notebook:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Anvisningar: Arbeta med Project-datafiler @ no__t-0
+- [Så här: arbeta med data projektfiler](work-with-project-data-files.md)
 - [Åtkomst till molndata på en bärbar dator](access-data-resources-jupyter-notebooks.md)

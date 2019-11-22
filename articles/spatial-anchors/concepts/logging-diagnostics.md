@@ -1,28 +1,28 @@
 ---
-title: Loggning och diagnostik i Azure Spatial ankare | Microsoft Docs
-description: Detaljerad förklaring av hur du skapar och hämtar loggning och diagnostik i Azure Spatial fästpunkter.
+title: Loggning och diagnostik
+description: Djupgående förklaring av hur du genererar och hämtar loggning och diagnostik i Azures spatialdata.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/22/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: b66dc7d6ec9d11fe645587fe791824009231b7c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4359db1deda2295a66bcb97cf374d0fe9bc3ef7
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964756"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270135"
 ---
-# <a name="logging-and-diagnostics-in-azure-spatial-anchors"></a>Loggning och diagnostik i Azure Spatial ankare
+# <a name="logging-and-diagnostics-in-azure-spatial-anchors"></a>Loggning och diagnostik i Azure spatiala ankare
 
-Azure Spatial fästpunkter är en standard loggningsmekanism som är användbar för utveckling av appar. Loggning för Spatial ankare diagnostikläge är användbart när du behöver mer information för felsökning. Diagnostikloggning lagrar bilder av miljön.
+Azures spatiala ankare ger en standard loggnings funktion som är användbar för utveckling av appar. Loggnings läget för avstånds ankare är användbart när du behöver mer information för fel sökning. Diagnostikloggning lagrar avbildningar av miljön.
 
-## <a name="standard-logging"></a>Standard-loggning
-I Spatial ankare API, kan du prenumerera mekanismen loggning för att få användbara loggar för utveckling och felsökning. Standard loggning API: er inte lagra bilder av miljön på disken för enheten. SDK innehåller loggarna som händelsen återanrop. Det är upp till dig att integrera dessa loggar i programmets loggningsmekanism.
+## <a name="standard-logging"></a>Standard loggning
+I API: et spatiala ankare kan du prenumerera på loggnings mekanismen för att få användbara loggar för program utveckling och fel sökning. Standard loggnings-API: er lagrar inte bilder i miljön på enhets disken. SDK: n tillhandahåller dessa loggar som händelse återanrop. Det är upp till dig att integrera dessa loggar i programmets loggnings funktion.
 
-### <a name="configuration-of-log-messages"></a>Konfigurationen av loggmeddelanden
+### <a name="configuration-of-log-messages"></a>Konfiguration av logg meddelanden
 Det finns två återanrop av intresse för användaren. I följande exempel visas hur du konfigurerar sessionen.
 
 ```csharp
@@ -40,25 +40,25 @@ Det finns två återanrop av intresse för användaren. I följande exempel visa
 
 ### <a name="events-and-properties"></a>Händelser och egenskaper
 
-Dessa event återanrop tillhandahålls för att bearbeta loggar och fel från sessionen:
+De här händelse återanropen tillhandahålls för att bearbeta loggar och fel från sessionen:
 
-- [LogLevel](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.loglevel): Anger detaljnivån för att händelser ska ta emot från körningen.
-- [OnLogDebug](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.onlogdebug): Innehåller standard debug logghändelser.
-- [Fel](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.error): Ger händelser som körningen anser vara fel.
+- [LogLevel](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.loglevel): anger detalj nivån för de händelser som ska tas emot från körnings miljön.
+- [OnLogDebug](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.onlogdebug): innehåller standard fel söknings logg händelser.
+- [Fel](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.error): innehåller logg händelser som körningen anser vara fel.
 
 ## <a name="diagnostics-logging"></a>Diagnostikloggning
 
-Spatial fästpunkter har också en diagnostikläge förutom standardläge för loggning. Diagnostikläge samlar in bilder av miljön och loggar dem till disken. Du kan använda det här läget för att felsöka vissa typer av problem, t.ex. Det gick inte att hitta en fästpunkt förutsägbart. Aktivera diagnostik loggning endast för att återskapa ett specifikt problem. Inaktivera det sedan. Aktivera inte diagnostik när du kör dina appar normalt.
+Förutom standard läget för loggning har spatiala ankare också ett diagnostik-läge. Diagnostic mode fångar avbildningar av miljön och loggar dem på disken. Du kan använda det här läget för att felsöka vissa typer av problem, t. ex. om det inte går att förutsäga ett ankare. Aktivera endast diagnostikloggning för att återskapa ett speciellt problem. Inaktivera det sedan. Aktivera inte diagnostik när du kör apparna på vanligt sätt.
 
-Under en stöd för interaktion med Microsoft kan en Microsoft-representant fråga om du är beredd att skicka ett paket med diagnostik för vidare studier. I det här fallet kan du välja att aktivera diagnostik och återskapa problemet så att du kan skicka diagnostiska paket. 
+Under en support interaktion med Microsoft kan en Microsoft-representant fråga om du vill skicka ett diagnostiskt paket för ytterligare undersökning. I så fall kan du välja att aktivera diagnostik och återskapa problemet så att du kan skicka det diagnostiska paketet.
 
-Om du skickar en diagnostiklogg till Microsoft utan föregående bekräftelse från en Microsoft-representant hamnar överföringen obesvarade.
+Om du skickar en diagnostisk logg till Microsoft utan föregående bekräftelse från en Microsoft-representant kommer överföringen att skickas utan svar.
 
-I följande avsnitt visas hur du aktiverar diagnostikläge och hur du skickar in diagnostikloggar till Microsoft.
+I följande avsnitt visas hur du aktiverar diagnos läge och hur du skickar diagnostikloggar till Microsoft.
 
 ### <a name="enable-diagnostics-logging"></a>Aktivera diagnostikloggning
 
-När du aktiverar en session för diagnostik loggar har alla åtgärder i sessionen motsvarande diagnostik loggning i det lokala filsystemet. Under loggning sparas bilder miljöns till disken.
+När du aktiverar en session för diagnostikloggning, har alla åtgärder i sessionen motsvarande diagnostikloggning i det lokala fil systemet. Under loggningen sparas bilder av miljön på disken.
 
 ```csharp
 private void ConfigureSession()
@@ -86,9 +86,9 @@ private void ConfigureSession()
 }
 ```
 
-### <a name="submit-the-diagnostics-bundle"></a>Skicka diagnostik-paket
+### <a name="submit-the-diagnostics-bundle"></a>Skicka diagnostik-paketet
 
-Följande kodfragment visar hur du skickar in ett diagnostik-paket till Microsoft. Det här paketet innehåller bilder av miljö som avbildas av sessionen när du aktiverar diagnostik. 
+Följande kodfragment visar hur du skickar ett diagnostiskt paket till Microsoft. Paketet innehåller avbildningar av den miljö som inhämtats av sessionen när du har aktiverat diagnostik.
 
 ```csharp
 // method to handle the diagnostics bundle submission
@@ -104,9 +104,9 @@ private async Task CreateAndSubmitBundle()
 }
 ```
 
-### <a name="parts-of-a-diagnostics-bundle"></a>Delar av ett paket med diagnostik
-Diagnostik-paket kan innehålla följande information:
+### <a name="parts-of-a-diagnostics-bundle"></a>Delar av ett diagnostik-paket
+Diagnostikloggar kan innehålla följande information:
 
-- **Bildrutan avbildningar**: Avbildningar av miljö som hämtats under sessionen medan diagnostik aktiverades.
-- **Loggar**: Logga händelser som registreras av körningen.
-- **Sessionen metadata**: Metadata som identifierar sessionen.
+- **Nyckel bilds bilder**: avbildningar av miljön som fångats under sessionen medan diagnostik aktiverades.
+- **Loggar**: logg händelser som registrerats av körnings miljön.
+- **Metadata för session**: metadata som identifierar sessionen.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acdcbef74d95fbbc4cfb49176d1f98621e746ff6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3ca668036a8b4a4af261ee85b8a884c22258beb4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474359"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74269506"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Aktivera lösen ords utan lösen ord med Microsoft Authenticator-appen (förhands granskning)
 
@@ -29,7 +29,7 @@ I stället för att se en uppmaning om att ange ett lösen ord när du har anget
 > [!NOTE]
 > Den här funktionen har funnits i Microsoft Authenticator app sedan mars 2017, så det finns en risk att när principen är aktive rad för en katalog kan användarna stöta på det här flödet omedelbart och se ett fel meddelande om de inte har Aktiver ATS av en princip. Tänk på och Förbered dina användare för den här ändringen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure Multi-Factor Authentication, med push-meddelanden som är tillåtna som en verifieringsmetod 
 - Den senaste versionen av Microsoft Authenticator installerad på enheter som kör iOS 8,0 eller senare, eller Android 6,0 eller senare.
@@ -46,7 +46,7 @@ Registrerings funktioner för metoder för lösen ords kryptering förlitar sig 
 ### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>Aktivera autentiseringsmetoder för inloggning med lösen ord
 
 1. Logga in på [Azure-portalen](https://portal.azure.com)
-1. Bläddra till **Azure AD-säkerhets** > **autentiseringsmetoder** > **princip för autentiserings metod (för hands version)**
+1. Sök efter och välj *Azure Active Directory*. Välj **autentiseringsmetoder för** **säkerhets** >  > **princip för autentiserings metod (för hands version)**
 1. Under **lösen ords telefon inloggning**väljer du följande alternativ
    1. **Aktivera** – Ja eller Nej
    1. **Mål** – alla användare eller Välj användare

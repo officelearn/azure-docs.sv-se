@@ -1,6 +1,6 @@
 ---
-title: Dölja ett program från användarupplevelsen i Azure Active Directory | Microsoft Docs
-description: Hur du kan dölja ett program från användarupplevelsen i åtkomstpaneler för Azure Active Directory eller Office 365-startprogram.
+title: Dölj ett program från användarens upplevelse i Azure AD
+description: Dölja ett program från användarens upplevelse i Azure Active Directory åtkomst paneler eller Office 365-lanseringar.
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -12,52 +12,52 @@ ms.date: 11/12/2018
 ms.author: mimart
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3dd98aa974f2adcd363c04c10b7a10cef6ca8ce7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e01c79c5cc9391922333af4e9a60ba44a6a6b13
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824541"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274007"
 ---
 # <a name="hide-applications-from-end-users-in-azure-active-directory"></a>Dölj program från slutanvändare i Azure Active Directory
 
-Anvisningar för hur du kan dölja program från slutanvändares MyApps panelen eller startprogrammet för Office 365. När ett program är dold har användare fortfarande behörighet för programmet. 
+Instruktioner för hur du döljer program från användarnas panel för Mina appar eller Office 365-Launcher. När ett program är dolt har användarna fortfarande behörighet till programmet. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Programmet administratörsbehörighet krävs för att dölja ett program från MyApps panelen och startprogram för Office 365.
+Program administratörs behörighet krävs för att dölja ett program från mina apps-panelen och Office 365-Launcher.
 
-Behörigheter som global administratör krävs för att dölja alla Office 365-program.
+Det krävs globala administratörs behörigheter för att dölja alla Office 365-program.
 
 
-## <a name="hide-an-application-from-the-end-user"></a>Dölja ett program från användaren
-Använd följande steg för att dölja ett program från MyApps panelen och startprogrammet för Office 365.
+## <a name="hide-an-application-from-the-end-user"></a>Dölj ett program från slutanvändaren
+Använd följande steg för att dölja ett program från panelen för Mina appar och Office 365 Application start.
 
-1.  Logga in på den [Azure-portalen](https://portal.azure.com) som global administratör för din katalog.
+1.  Logga in på [Azure Portal](https://portal.azure.com) som global administratör för din katalog.
 2.  Välj **Azure Active Directory**.
-3.  Välj **företagsprogram**. Den **företagsprogram – alla program** blad öppnas.
-4.  Under **programtyp**väljer **företagsprogram**, om det inte redan är markerat.
-5.  Sök efter program som du vill dölja och på programmet.  Översikt över programmets öppnas.
+3.  Välj **företags program**. Bladet **företags program – alla program** öppnas.
+4.  Under **program typ**väljer du **företags program**, om det inte redan är markerat.
+5.  Sök efter det program som du vill dölja och klicka på programmet.  Programmets översikt öppnas.
 6.  Klicka på **Egenskaper**. 
-7.  För den **synlig för användarna?** fråga, klickar du på **nr**.
-8.  Klicka på **Spara**.
+7.  För frågan **synlig för användare?** klickar du på **Nej**.
+8.  Klicka på **Save** (Spara).
 
 
-## <a name="hide-office-365-applications-from-the-myapps-panel"></a>Dölj Office 365-program från panelen MyApps
+## <a name="hide-office-365-applications-from-the-myapps-panel"></a>Dölj Office 365-program från panelen för Mina appar
 
-Använd följande steg för att dölja alla Office 365-program från panelen MyApps. Programmen är fortfarande visas i Office 365-portalen.
+Använd följande steg för att dölja alla Office 365-program på panelen för Mina appar. Programmen syns fortfarande i Office 365-portalen.
 
-1.  Logga in på den [Azure-portalen](https://portal.azure.com) som global administratör för din katalog.
+1.  Logga in på [Azure Portal](https://portal.azure.com) som global administratör för din katalog.
 2.  Välj **Azure Active Directory**.
-3.  Välj **användarinställningar**.
-4.  Under **företagsprogram**, klickar du på **hantera hur slutanvändare startar och visar sina program.**
-5.  För **användare kan bara se Office 365-appar i Office 365-portalen**, klickar du på **Ja**.
-6.  Klicka på **Spara**.
+3.  Välj **användar inställningar**.
+4.  Under **företags program**klickar du på hantera hur slutanvändare **startar och visar sina program.**
+5.  För **användare kan bara se office 365-appar i office 365-portalen**, klicka på **Ja**.
+6.  Klicka på **Save** (Spara).
 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Se alla mina grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
-* [Tilldela en användare eller grupp till en företagsapp](assign-user-or-group-access-portal.md)
-* [Ta bort en användare eller grupp från en företagsapp](remove-user-or-group-access-portal.md)
-* [Ändra namnet eller logotyp i en företagsapp](change-name-or-logo-portal.md)
+* [Visa alla mina grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
+* [Tilldela en användare eller grupp till en företags app](assign-user-or-group-access-portal.md)
+* [Ta bort en användare eller grupp tilldelning från en företags app](remove-user-or-group-access-portal.md)
+* [Ändra namn eller logo typ för en företags app](change-name-or-logo-portal.md)
 

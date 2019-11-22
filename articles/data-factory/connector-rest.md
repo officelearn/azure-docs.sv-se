@@ -10,18 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 6bb597ab49050c2bb365379cfac44f4b4d176af1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c691281f1ff0cf88d1ba61af43fad8e7782924aa
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680396"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278515"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Kopiera data från en REST-slutpunkt genom att använda Azure Data Factory
 
-Den här artikeln beskriver hur du använder kopierings aktivitet i Azure Data Factory för att kopiera data från en REST-slutpunkt. Artikeln bygger på [kopierings aktivitet i Azure Data Factory](copy-activity-overview.md), som visar en översikt över kopierings aktiviteten.
+Den här artikeln beskriver hur du använder kopierings aktivitet i Azure Data Factory för att kopiera data från en REST-slutpunkt. Artikeln bygger vidare på [Kopieringsaktivitet i Azure Data Factory](copy-activity-overview.md), som anger en allmän översikt över Kopieringsaktivitet.
 
 Skillnaden mellan den här REST-anslutningen, [http-kopplingen](connector-http.md) och [webb tabell anslutningen](connector-web-table.md) är:
 
@@ -31,7 +31,7 @@ Skillnaden mellan den här REST-anslutningen, [http-kopplingen](connector-http.m
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Du kan kopiera data från en REST-källa till alla mottagar data lager som stöds. En lista över data lager som kopierings aktiviteten stöder som källor och mottagare finns i [data lager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+Du kan kopiera data från en REST-källa till alla mottagar data lager som stöds. En lista över data lagrar att det stöder Kopieringsaktiviteten som källor och mottagare, finns i [datalager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Mer specifikt stöder den här generiska REST-anslutningen:
 
@@ -43,7 +43,7 @@ Mer specifikt stöder den här generiska REST-anslutningen:
 > [!TIP]
 > Om du vill testa en begäran om data hämtning innan du konfigurerar REST-anslutningen i Data Factory kan du läsa om API-specifikationen för sidhuvuds-och text krav. Du kan använda verktyg som Postman eller webbläsare för att validera.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -53,7 +53,7 @@ Mer specifikt stöder den här generiska REST-anslutningen:
 
 Följande avsnitt innehåller information om egenskaper som du kan använda för att definiera Data Factory entiteter som är speciella för REST-anslutningen.
 
-## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
+## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
 Följande egenskaper stöds för den REST-länkade tjänsten:
 
@@ -63,7 +63,7 @@ Följande egenskaper stöds för den REST-länkade tjänsten:
 | url | Bas-URL: en för REST-tjänsten. | Ja |
 | enableServerCertificateValidation | Om SSL-certifikatet på Server sidan ska verifieras vid anslutning till slut punkten. | Nej<br /> (Standardvärdet är **Sant**) |
 | authenticationType | Typ av autentisering som används för att ansluta till REST-tjänsten. Tillåtna värden är **Anonymous**, **Basic**, **AadServicePrincipal** och **ManagedServiceIdentity**. Se motsvarande avsnitt nedan om du vill ha fler egenskaper respektive exempel. | Ja |
-| connectVia | [Integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om detta inte anges använder den här egenskapen standard Azure Integration Runtime. |Nej |
+| connectVia | Den [Integreringskörningen](concepts-integration-runtime.md) för att ansluta till datalagret. Läs mer från avsnittet [krav](#prerequisites) . Om detta inte anges använder den här egenskapen standard Azure Integration Runtime. |Nej |
 
 ### <a name="use-basic-authentication"></a>Använd grundläggande autentisering
 
@@ -71,8 +71,8 @@ Ange egenskapen **authenticationType** som **Basic**. Förutom de allmänna egen
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| Användar | Användar namnet som används för att få åtkomst till REST-slutpunkten. | Ja |
-| lösenord | Användarens lösen ord (värdet **username** ). Markera det här fältet som en **SecureString** -typ för att lagra det på ett säkert sätt i Data Factory. Du kan också [referera till en hemlighet som lagrats i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| userName | Användar namnet som används för att få åtkomst till REST-slutpunkten. | Ja |
+| lösenord | Lösenordet för användaren (den **userName** värde). Markera det här fältet som en **SecureString** Skriv för att lagra den på ett säkert sätt i Data Factory. Du kan också [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 
 **Exempel**
 
@@ -105,8 +105,8 @@ Ange egenskapen **authenticationType** till **AadServicePrincipal**. Förutom de
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | servicePrincipalId | Ange det Azure Active Directory programmets klient-ID. | Ja |
-| servicePrincipalKey | Ange Azure Active Directory programmets nyckel. Markera det här fältet som **SecureString** för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| innehav | Ange den klient information (domän namn eller klient-ID) som programmet finns under. Hämta det genom att hovra musen i det övre högra hörnet av Azure Portal. | Ja |
+| servicePrincipalKey | Ange Azure Active Directory programmets nyckel. Markera det här fältet som en **SecureString** ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| tenant | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Hämta det håller musen i det övre högra hörnet i Azure Portal. | Ja |
 | aadResourceId | Ange den AAD-resurs som du begär för auktorisering, t. ex. `https://management.core.windows.net`.| Ja |
 
 **Exempel**
@@ -163,18 +163,18 @@ Ange egenskapen **authenticationType** till **ManagedServiceIdentity**. Förutom
 }
 ```
 
-## <a name="dataset-properties"></a>Egenskaper för data mängd
+## <a name="dataset-properties"></a>Egenskaper för datamängd
 
 Det här avsnittet innehåller en lista över egenskaper som stöds av REST-datauppsättningen. 
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i [data uppsättningar och länkade tjänster](concepts-datasets-linked-services.md). 
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [datauppsättningar och länkade tjänster](concepts-datasets-linked-services.md). 
 
 Följande egenskaper stöds för att kopiera data från REST:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Data uppsättningens **typ** -egenskap måste anges till **RestResource**. | Ja |
-| relativeUrl | En relativ URL till den resurs som innehåller data. När den här egenskapen inte anges används endast den URL som anges i den länkade tjänst definitionen. | Nej |
+| relativeUrl | En relativ URL till den resurs som innehåller data. När den här egenskapen inte anges används endast den URL som anges i den länkade tjänst definitionen. HTTP-anslutningen kopierar data från den kombinerade URL: en: `[URL specified in linked service]/[relative URL specified in dataset]`. | Nej |
 
 Om du har angett `requestMethod`, `additionalHeaders`, `requestBody` och `paginationRules` i data uppsättningen, stöds det fortfarande som det är, men du rekommenderas att använda den nya modellen i aktivitets källan som går framåt.
 
@@ -197,15 +197,15 @@ Om du har angett `requestMethod`, `additionalHeaders`, `requestBody` och `pagina
 }
 ```
 
-## <a name="copy-activity-properties"></a>Kopiera aktivitets egenskaper
+## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
 Det här avsnittet innehåller en lista över egenskaper som REST-källan stöder.
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [pipelines](concepts-pipelines-activities.md). 
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [Pipelines](concepts-pipelines-activities.md). 
 
 ### <a name="rest-as-source"></a>REST som källa
 
-Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
+Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
@@ -216,6 +216,9 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 | paginationRules | Sid brytnings regler för att skapa nästa sida begär Anden. Mer information finns i avsnittet om [sid brytnings stöd](#pagination-support) . | Nej |
 | httpRequestTimeout | Timeout ( **TimeSpan** -värdet) för http-begäran för att få ett svar. Det här värdet är tids gränsen för att få ett svar, inte tids gränsen för att läsa svars data. Standardvärdet är **00:01:40**.  | Nej |
 | requestInterval | Vänte tiden innan begäran skickas för nästa sida. Standardvärdet är **00:00:01** |  Nej |
+
+>[!NOTE]
+>REST Connector ignorerar eventuellt "Accept"-huvud som anges i `additionalHeaders`. Eftersom REST Connector endast stöder svar i JSON genererar tt automatiskt ett huvud av `Accept: application/json`.
 
 **Exempel 1: använda Get-metoden med sid brytning**
 
@@ -309,14 +312,14 @@ Denna generiska REST-anslutning har stöd för följande sid brytnings mönster:
 | Nyckel | Beskrivning |
 |:--- |:--- |
 | AbsoluteUrl | Anger den URL som utfärdar nästa begäran. Det kan **antingen vara en absolut URL eller en relativ URL**. |
-| QueryParameters. *request_query_parameter* ELLER QueryParameters [' request_query_parameter '] | "request_query_parameter" är användardefinierad som refererar till ett parameter namn för en fråga i nästa HTTP-begärande-URL. |
-| Sidhuvud. *request_header* ELLER rubriker [' request_header '] | "request_header" är användardefinierad som refererar till ett rubrik namn i nästa HTTP-begäran. |
+| QueryParameters. *request_query_parameter* ELLER QueryParameters ["request_query_parameter"] | "request_query_parameter" är användardefinierad som refererar till ett parameter namn för en fråga i nästa HTTP-begärande-URL. |
+| Sidhuvud. *request_header* ELLER huvuden ["request_header"] | "request_header" är användardefinierat och refererar till ett rubrik namn i nästa HTTP-begäran. |
 
 **Värden som stöds** i sid brytnings regler:
 
 | Värde | Beskrivning |
 |:--- |:--- |
-| Sidhuvud. *response_header* ELLER rubriker [' response_header '] | "response_header" är användardefinierad som refererar till ett rubrik namn i det aktuella HTTP-svaret och värdet som ska användas för nästa begäran. |
+| Sidhuvud. *response_header* ELLER huvuden ["response_header"] | "response_header" är användardefinierad som refererar till ett rubrik namn i det aktuella HTTP-svaret och värdet som ska användas för nästa begäran. |
 | Ett JSONPath-uttryck som börjar med "$" (som representerar roten i svars texten) | Svars texten får bara innehålla ett JSON-objekt. JSONPath-uttrycket ska returnera ett enda primitivt värde som ska användas för nästa begäran. |
 
 **Exempel:**
@@ -380,4 +383,4 @@ Information om hur du kopierar data från REST-slutpunkt till tabell mottagare f
 
 ## <a name="next-steps"></a>Nästa steg
 
-En lista över data lager som kopierings aktiviteten stöder som källor och handfat i Azure Data Factory finns i [data lager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över datalager som Kopieringsaktiviteten som källor och egenskaperna i Azure Data Factory finns i [datalager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

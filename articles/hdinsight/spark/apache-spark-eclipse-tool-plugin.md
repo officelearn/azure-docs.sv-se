@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: 7e320b4a0166ffad3ba62c80ad7667c626acb136
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6268256c9be26ef3e7e1061eef7cdb3b3f7d31db
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494688"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286943"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Använd Azure Toolkit for Eclipse för att skapa Apache Spark-program för ett HDInsight-kluster
 
@@ -26,7 +26,7 @@ Använd HDInsight-verktyg i Azure Toolkit [för att](https://www.eclipse.org/) u
 > [!IMPORTANT]  
 > Du kan använda det här verktyget för att skapa och skicka program endast för ett HDInsight Spark-kluster i Linux.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Apache Spark kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 * Oracle Java Development Kit version 8, som används för en Sol förmörkelse IDE-körning. Du kan ladda ned den från [Oracle-webbplatsen](https://aka.ms/azure-jdks).
@@ -84,7 +84,10 @@ Du kan länka ett vanligt kluster med Ambari-hanterade användar namn. På samma
    > [!NOTE]  
    > Vi använder den länkade lagrings nyckeln, användar namnet och lösen ordet om klustret både är inloggat i Azure-prenumerationen och länkade ett kluster.
    > ![lagrings konton i Azure Explorer](./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png)
-
+   >
+   > För endast tangent bords användare, när det aktuella fokus ligger på **lagrings nyckeln**, måste du använda **CTRL + TABB** för att fokusera på nästa fält i dialog rutan.
+   
+   
 1. Du kan se ett länkat kluster i **HDInsight** -noden när du har klickat på OK, om indatan är rätt. Nu kan du skicka ett program till det här länkade klustret.
 
    ![Azure Explorer HDI-länkat kluster](./media/apache-spark-eclipse-tool-plugin/hdinsight-linked-cluster.png)

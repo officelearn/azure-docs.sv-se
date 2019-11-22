@@ -1,6 +1,6 @@
 ---
-title: Länkarna på sidan fungerar inte för ett program med Application Proxy | Microsoft Docs
-description: Så här felsöker du problem med brutna länkar på Application Proxy-program som du har integrerat med Azure AD
+title: Länkar på sidan fungerar inte för ett Application Proxy-program
+description: Så här felsöker du problem med brutna länkar i Application Proxy-program som du har integrerat med Azure AD
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,35 +16,35 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8bb7326ed22217e56bdaf9a119529ba775b69a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 570699fe83197a1b5442909d8b89e285a1dfa73b
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65783232"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275437"
 ---
-# <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>Länkarna på sidan fungerar inte för ett Application Proxy-program
+# <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>Länkar på sidan fungerar inte för ett Application Proxy-program
 
-Den här artikeln hjälper dig att felsöka varför länkarna på ditt Azure Active Directory Application Proxy-program inte fungerar korrekt.
+Den här artikeln hjälper dig att felsöka varför länkar i Azure Active Directory-programproxy programmet inte fungerar som de ska.
 
 ## <a name="overview"></a>Översikt 
-När du har publicerat en app med Application Proxy är de enda länkar som fungerar som standard i programmet länkar till mål som ingår i den publicerade rot-URL. Länkar i programmen fungerar inte, den interna URL: en för programmet inte innehåller förmodligen alla mål för länkar i programmet.
+När du har publicerat en app för programproxy är de enda länkarna som fungerar som standard i programmet länkar till destinationer som finns i den publicerade rot-URL: en. Länkarna i programmen fungerar inte, den interna URL: en för programmet innehåller antagligen inte alla mål för länkar i programmet.
 
-**Varför inträffar det?** När du klickar på en länk i ett program, försöker Application Proxy hitta URL: en som en intern URL inom samma program eller som en URL som är externt tillgänglig. Om länken pekar på en intern Webbadress som inte ligger inom samma program, den inte tillhör någon av dessa behållare och leda till felet hittades inte.
+**Varför sker detta?** När du klickar på en länk i ett program försöker programproxyn matcha webb adressen antingen som en intern URL i samma program, eller som en extern URL. Om länken pekar på en intern URL som inte finns i samma program, tillhör den inte någon av dessa buckets och resulterar i ett fel som inte hittas.
 
-## <a name="ways-you-can-resolve-broken-links"></a>Sätt som du kan lösa brutna länkar
+## <a name="ways-you-can-resolve-broken-links"></a>Sätt att lösa brutna länkar
 
-Det finns tre sätt att lösa problemet. Alternativen nedan visas i i allt mer komplexa.
+Det finns tre sätt att lösa det här problemet. Alternativen nedan visas i ökande komplexitet.
 
-1.  Kontrollera att den interna URL: en är en rotcertifikatutfärdare som innehåller de relevanta länkarna för programmet. Detta gör att alla länkar kan matchas som innehåll som publicerats i samma program.
+1.  Kontrol lera att den interna URL: en är en rot som innehåller alla relevanta länkar för programmet. Detta gör att alla länkar kan matchas när innehåll publiceras i samma program.
 
-    Om du ändrar den interna URL: en, men inte vill ändra landningssidan för användare, kan du ändra hemsidans URL till den tidigare publicerade interna URL: en. Detta kan göras genom att gå till ”Azure Active Directory” -&gt; Appregistreringar -&gt; väljer du programmet -&gt; egenskaper. I den här fliken Egenskaper kan se du fältet ”startsida URL”, vilket du kan anpassa sig till önskad landningssidan för att vara.
+    Om du ändrar den interna URL: en men inte vill ändra landnings sidan för användare ändrar du Start sidans URL till den tidigare publicerade interna URL: en. Det kan du göra genom att gå till "Azure Active Directory"-&gt; app-registreringar –&gt; Välj program-&gt;-egenskaperna. På fliken Egenskaper ser du fältet "hem sidans URL", som du kan anpassa till den önskade landnings sidan.
 
-2.  Om ditt program använder fullständigt kvalificerade domännamn (FQDN), använda [anpassade domäner](application-proxy-configure-custom-domain.md) att publicera dina program. Den här funktionen kan du samma URL som ska användas både internt och externt.
+2.  Om dina program använder fullständigt kvalificerade domän namn (FQDN) kan du använda [anpassade domäner](application-proxy-configure-custom-domain.md) för att publicera dina program. Den här funktionen tillåter att samma URL används både internt och externt.
 
-    Det här alternativet säkerställer att länkar i ditt program är externt tillgänglig via programproxy eftersom länkarna i programmet till interna URL: er identifieras också externt. Alla länkar måste tillhöra ett publicerat program. Men med det här alternativet länkarna behöver inte tillhöra samma program och kan höra till flera program.
+    Med det här alternativet ser du till att länkarna i programmet kan nås externt via programproxyn, eftersom länkarna i programmet till interna URL: er också känns igen externt. Alla länkar måste redan tillhöra ett publicerat program. Men med det här alternativet behöver länkarna inte tillhöra samma program och kan tillhöra flera program.
 
-3.  Om inget av dessa alternativ är möjlig, finns det flera alternativ för att aktivera infogad länköversättning. Dessa alternativ inkluderar med hjälp av Intune Managed Browser, Mina appar-tillägg, eller med hjälp av länken anonymt i programmet. Läs mer om var och en av dessa alternativ och hur du aktiverar dem i [omdirigera hårdkodad länkar till appar som publiceras med Azure AD Application Proxy](application-proxy-configure-hard-coded-link-translation.md).
+3.  Om inget av dessa alternativ är möjligt finns det flera alternativ för att aktivera översättning av infogade länkar. De här alternativen omfattar att använda Intune Managed Browser, mina apps-tillägg eller använda länk översättnings inställningen i ditt program. Läs mer om var och en av dessa alternativ och hur du aktiverar dem i [omdirigera hårdkodad-Länkar för appar som publicerats med Azure AD-programproxy](application-proxy-configure-hard-coded-link-translation.md).
 
 ## <a name="next-steps"></a>Nästa steg
 [Arbeta med befintliga lokala proxyservrar](application-proxy-configure-connectors-with-proxy-servers.md)

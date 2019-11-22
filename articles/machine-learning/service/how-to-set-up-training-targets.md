@@ -1,5 +1,5 @@
 ---
-title: Skapa och Använd Compute-mål för modell utbildning
+title: Använda beräknings mål för modell träning
 titleSuffix: Azure Machine Learning
 description: Konfigurera utbildnings miljöer (beräknings mål) för maskin inlärnings modell träning. Du kan enkelt växla mellan utbildnings miljöer. Börja träna lokalt. Om du behöver skala ut växlar du till ett moln baserat beräknings mål.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3237272c7bdab5a798e84117147254a3471f5c6d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d628bbe889617464fe97695a17687d5f02cc61bc
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489562"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305317"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Konfigurera och Använd Compute-mål för modell träning 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,11 +32,11 @@ I den här artikeln får du lära dig hur du använder olika beräknings mål f�
 
 
 >[!NOTE]
-> Koden i den här artikeln har testats med Azure Machine Learning SDK-version 1.0.39.
+> Koden i den här artikeln har testats med Azure Machine Learning SDK-version 1.0.74.
 
 ## <a name="compute-targets-for-training"></a>Compute-mål för utbildning
 
-Azure Machine Learning har varierande stöd för olika beräknings mål. En typisk modell utvecklings livs cykel börjar med utveckling/experiment på en liten mängd data. I det här skedet rekommenderar vi att du använder en lokal miljö. Till exempel din lokala dator eller en molnbaserad virtuell dator. När du skalar din utbildning på större data uppsättningar, eller utför distribuerad utbildning, rekommenderar vi att du använder Azure Machine Learning Compute för att skapa ett kluster med en eller flera noder som autoskalar varje gång du skickar en körning. Du kan också koppla din egen beräknings resurs, även om stöd för olika scenarier kan variera enligt beskrivningen nedan:
+Azure Machine Learning har varierande stöd för olika beräknings mål. En typisk modellen för säkerhetsutveckling börjar med utveckling/experimentering på en liten mängd data. I det här skedet bör du använda en lokal miljö. Den lokala datorn eller en molnbaserad VM. När du skalar upp utbildning på större datauppsättningar eller göra distribuerad utbildning, bör du använda beräkning av Azure Machine Learning för att skapa ett enda eller flera node kluster som skalar varje gång du skickar en körning. Du kan även bifoga dina egna beräkningsresurs, även om stöd för olika scenarier kan variera som beskrivs nedan:
 
 [!INCLUDE [aml-compute-target-train](../../../includes/aml-compute-target-train.md)]
 
@@ -76,7 +76,7 @@ ML pipelines skapas från flera **steg**, som är distinkta beräknings enheter 
 Använd avsnitten nedan för att konfigurera dessa beräknings mål:
 
 * [Lokal dator](#local)
-* [Azure Machine Learning Compute](#amlcompute)
+* [Azure Machine Learning-beräkning](#amlcompute)
 * [Virtuella fjärrdatorer](#vm)
 * [Azure HDInsight](#hdinsight)
 
@@ -91,23 +91,20 @@ Använd avsnitten nedan för att konfigurera dessa beräknings mål:
 
 Nu när du har kopplat beräkningen och konfigurerat din körning är nästa steg att [Skicka utbildningen](#submit).
 
-### <a id="amlcompute"></a>Azure Machine Learning Compute
+### <a id="amlcompute"></a>Azure Machine Learning-beräkning
 
 Azure Machine Learning Compute är en hanterad beräknings infrastruktur som gör det möjligt för användaren att enkelt skapa en enda eller beräkning med flera noder. Beräkningen skapas i arbets ytans region som en resurs som kan delas med andra användare i din arbets yta. Beräkningen skalas upp automatiskt när ett jobb skickas och kan placeras i ett Azure-Virtual Network. Beräkningen körs i en behållare miljö och paketerar dina modell beroenden i en [Docker-behållare](https://www.docker.com/why-docker).
 
-Du kan använda Azure Machine Learning Compute för att distribuera inlärnings processen över ett kluster av processor-eller GPU-datornoder i molnet. Mer information om de VM-storlekar som innehåller GPU: er finns i [GPU-optimerade storlekar för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu).
+Du kan använda beräkning av Azure Machine Learning för att distribuera träningsprocess över ett kluster med CPU eller GPU-beräkningsnoder i molnet. Mer information om de VM-storlekar som innehåller GPU: er finns i [GPU-optimerade storlekar för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu).
 
 Azure Machine Learning Compute har standard gränser, till exempel antalet kärnor som kan allokeras. Mer information finns i [Hantera och begära kvoter för Azure-resurser](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-quotas).
 
 
 Du kan skapa en Azure Machine Learning beräknings miljö på begäran när du schemalägger en körning eller som en beständig resurs.
 
-#### <a name="run-based-creation"></a>Körning-baserad skapande
+#### <a name="run-based-creation"></a>Kör-baserade skapas
 
 Du kan skapa Azure Machine Learning Compute som ett beräknings mål vid körning. Beräkningen skapas automatiskt för din körning. Beräkningen tas bort automatiskt när körningen är klar. 
-
-> [!NOTE]
-> Om du vill ange det högsta antalet noder som ska användas anger du normalt `node_count` till antalet noder. Det finns för närvarande (04/04/2019) ett fel som förhindrar att detta fungerar. Som en lösning använder du egenskapen `amlcompute._cluster_max_node_count` för körnings konfigurationen. Till exempel `run_config.amlcompute._cluster_max_node_count = 5`.
 
 > [!IMPORTANT]
 > Körning-baserad skapande av Azure Machine Learning Compute är för närvarande en för hands version. Använd inte körnings-baserad generering om du använder automatisk justering av en parameter eller Automatisk maskin inlärning. Om du vill använda en inställning för min parameter eller Automatisk maskin inlärning skapar du i stället ett [beständigt beräknings](#persistent) mål.
@@ -123,9 +120,9 @@ Nu när du har kopplat beräkningen och konfigurerat din körning är nästa ste
 
 En beständig Azure Machine Learning beräkning kan återanvändas mellan jobb. Beräkningen kan delas med andra användare i arbets ytan och bevaras mellan jobben.
 
-1. **Skapa och koppla**: om du vill skapa en beständig Azure Machine Learning beräknings resurs i python anger du egenskaperna **vm_size** och **max_nodes** . Azure Machine Learning använder sedan smarta standardinställningar för de andra egenskaperna. Beräkningen skalas ned till noll noder när den inte används.   Dedikerade virtuella datorer skapas för att köra jobben efter behov.
+1. **Skapa och koppla**: om du vill skapa en beständig Azure Machine Learning beräknings resurs i python anger du **vm_size** och **max_nodes** egenskaper. Azure Machine Learning använder sedan smarta standardinställningar för de andra egenskaperna. Beräkningen skalas ned till noll noder när den inte används.   Dedikerade virtuella datorer skapas för att köra jobben efter behov.
     
-    * **vm_size**: VM-serien för de noder som skapats av Azure Machine Learning Compute.
+    * **vm_size**: VM-serien för noderna som skapats av Azure Machine Learning Compute.
     * **max_nodes**: det högsta antalet noder som autoskalar upp till när du kör ett jobb på Azure Machine Learning beräkning.
     
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
@@ -144,9 +141,9 @@ Nu när du har kopplat beräkningen och konfigurerat din körning är nästa ste
 
 ### <a id="vm"></a>Virtuella fjärrdatorer
 
-Azure Machine Learning också stöd för att ta med din egen beräknings resurs och koppla den till din arbets yta. En sådan resurs typ är en godtycklig virtuell fjärrdator, så länge den är tillgänglig från Azure Machine Learning. Resursen kan vara en virtuell Azure-dator, en fjärrserver i din organisation eller lokalt. Mer specifikt, baserat på IP-adress och autentiseringsuppgifter (användar namn och lösen ord eller SSH-nyckel), kan du använda valfri tillgänglig virtuell dator för fjärrkörningar.
+Azure Machine Learning har även stöd för att få ut dina egna beräkningsresurs och kopplar den till din arbetsyta. En sådan resurs typ är en godtycklig virtuell fjärrdator, så länge den är tillgänglig från Azure Machine Learning. Resursen kan vara en virtuell Azure-dator, en fjärrserver i din organisation eller lokalt. Mer specifikt, baserat på IP-adress och autentiseringsuppgifter (användar namn och lösen ord eller SSH-nyckel), kan du använda valfri tillgänglig virtuell dator för fjärrkörningar.
 
-Du kan använda en systemskapad Conda-miljö, en redan befintlig python-miljö eller en Docker-behållare. Om du vill köra på en Docker-behållare måste du ha en Docker-motor som körs på den virtuella datorn. Den här funktionen är särskilt användbar när du vill ha en mer flexibel, molnbaserad utvecklings-eller experiment miljö än din lokala dator.
+Du kan använda en inbyggd system conda-miljö, en redan befintlig Python-miljö eller en Docker-behållare. Om du vill köra på en Docker-behållare måste du ha en Docker-motor som körs på den virtuella datorn. Den här funktionen är särskilt användbart när du vill att en mer flexibel, molnbaserad utveckling/experimentmiljön än den lokala datorn.
 
 Använd Azure-Data Science Virtual Machine (DSVM) som den virtuella Azure-dator som du väljer för det här scenariot. Den här virtuella datorn är en förkonfigurerad miljö för data vetenskap och AI-utveckling i Azure. Den virtuella datorn innehåller ett granskat val av verktyg och ramverk för hela livs cykeln för Machine Learning-utveckling. Mer information om hur du använder DSVM med Azure Machine Learning finns i [Konfigurera en utvecklings miljö](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-environment#dsvm).
 
@@ -199,7 +196,7 @@ Azure HDInsight är en populär plattform för stor data analys. Plattformen ger
     
     När klustret har skapats ansluter du till det med värd namnet \<kluster namn >-ssh.azurehdinsight.net, där \<kluster namn > är det namn som du har angett för klustret. 
 
-1. **Bifoga**: om du vill ansluta ett HDInsight-kluster som ett beräknings mål måste du ange värdnamn, användar namn och lösen ord för HDInsight-klustret. I följande exempel används SDK för att ansluta ett kluster till din arbets yta. I exemplet ersätter du \<kluster namn > med namnet på klustret. Ersätt \<användar namn > och \<lösen ord > med SSH-användarnamnet och lösen ordet för klustret.
+1. **Bifoga**: om du vill ansluta ett HDInsight-kluster som ett beräknings mål måste du ange värdnamn, användar namn och lösen ord för HDInsight-klustret. I följande exempel använder SDK för att koppla ett kluster till din arbetsyta. I exemplet ersätter du \<kluster namn > med namnet på klustret. Ersätt \<användar namn > och \<lösen ord > med SSH-användarnamnet och lösen ordet för klustret.
 
    ```python
    from azureml.core.compute import ComputeTarget, HDInsightCompute
@@ -350,7 +347,7 @@ Följ stegen som beskrivs ovan för att visa listan över beräknings mål. Anv�
     > Microsoft rekommenderar att du använder SSH-nycklar, som är säkrare än lösen ord. Lösen ord är utsatta för angrepp med brute force. SSH-nycklar är beroende av kryptografiska signaturer. Information om hur du skapar SSH-nycklar för användning med Azure Virtual Machines finns i följande dokument:
     >
     > * [Skapa och använda SSH-nycklar på Linux eller macOS](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
-    > * [Skapa och Använd SSH-nycklar i Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
+    > * [Skapa och använda SSH-nycklar i Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
 
 1. Välj __bifoga__. 
 1. Visa status för åtgärden Anslut genom att välja Compute-målet i listan.
@@ -375,7 +372,7 @@ När du har skapat en körnings konfiguration använder du den för att köra ex
 
 1. Skapa ett experiment att köra
 1. Skicka in körningen.
-1. Vänta tills körningen har slutförts.
+1. Vänta tills den kör för att slutföra.
 
 > [!IMPORTANT]
 > När du skickar utbildningen skapas en ögonblicks bild av den katalog som innehåller dina utbildnings skript och skickas till beräknings målet. Den lagras också som en del av experimentet i din arbets yta. Om du ändrar filer och skickar körningen igen kommer bara de ändrade filerna att överföras.
@@ -396,7 +393,7 @@ Skicka experimentet med ett `ScriptRunConfig`-objekt.  Det här objektet innehå
 
 * **source_directory**: käll katalogen som innehåller ditt utbildnings skript
 * **skript**: identifiera utbildnings skriptet
-* **run_config**: körnings konfigurationen, som i sin tur definierar var träningen ska ske.
+* **run_config**: kör konfigurationen, som i sin tur definierar var träningen ska ske.
 
 Om du till exempel vill använda [den lokala mål](#local) konfigurationen:
 
@@ -507,8 +504,8 @@ När du startar en utbildning som kör där käll katalogen är en lokal git-lag
 ## <a name="notebook-examples"></a>Exempel på bärbara datorer
 
 Se dessa antecknings böcker för exempel på utbildning med olika beräknings mål:
-* [instruktion för att använda – azureml/utbildning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
-* [Självstudier/img-Classification-part1-Training. ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
+* [How-to-till-användning – azureml/utbildning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
+* [självstudier/img-klassificering – del 1 – training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

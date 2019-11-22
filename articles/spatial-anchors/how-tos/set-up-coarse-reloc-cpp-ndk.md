@@ -1,5 +1,5 @@
 ---
-title: Skapa och hitta ankare med hjälp av sensorer för enhets sensorer i C++/NDK | Microsoft Docs
+title: Grov omlokalisering i C++/NDK
 description: Djupgående förklaring av hur du skapar och hittar ankare med hjälp av sensorer för enhets sensorer i C++/NDK.
 author: bucurb
 manager: dacoghl
@@ -8,12 +8,12 @@ ms.author: bobuc
 ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: f5de4ae050ff01bc86f8c1e11a2afb2887fd8bd7
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: e505e6a8a3c9f28905c1b1fc3d90dbeee959a793
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74093162"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277250"
 ---
 # <a name="how-to-create-and-locate-anchors-using-on-device-sensors-in-cndk"></a>Skapa och hitta ankare med hjälp av sensorer för enhets sensorer i C++/NDK
 

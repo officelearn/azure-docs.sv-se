@@ -1,6 +1,7 @@
 ---
-title: Visualizing Azure Network Security Group flödesloggar med Power BI | Microsoft Docs
-description: Den här sidan beskriver hur du kan visualisera NSG-flödesloggar med Power BI.
+title: Visualisera Azure NSG Flow-loggar – Power BI
+titleSuffix: Azure Network Watcher
+description: Den här sidan beskriver hur du visualiserar NSG Flow-loggar med Power BI.
 services: network-watcher
 documentationcenter: na
 author: mattreatMSFT
@@ -14,116 +15,116 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 6df49f9cd308f4bb9b1fef6e5860872526ce8bb7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 05378799dd77a17b69adbcf492af2e1cb1030375
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60860879"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277735"
 ---
-# <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Visualizing Nätverkssäkerhetsgrupp flödesloggar med Power BI
+# <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Visualisering av flödes loggar för nätverks säkerhets grupper med Power BI
 
-Flödesloggar för Nätverkssäkerhetsgruppen kan du visa information om ingående och utgående IP-trafik på Nätverkssäkerhetsgrupper. Dessa flödar loggar Visa utgående och inkommande flöden på basis av per regel, NIC flödet som gäller för, 5-tuppel information om flödet (käll-och mål IP, källa/mål-Port, protokoll), och om trafik tillåts eller nekas.
+Flödes loggar för nätverks säkerhets grupper gör att du kan visa information om inkommande och utgående IP-trafik på nätverks säkerhets grupper. I dessa flödes loggar visas utgående och inkommande flöden per regel, vilket nätverkskort flödet avser, 5-tuple-information om flödet (käll-/mål-IP, käll-och mål Port, protokoll) och om trafiken tillåts eller nekas.
 
-Det kan vara svårt att få insikter om flow loggningsdata genom att manuellt söka loggfilerna. Den här artikeln innehåller en lösning för att visualisera dina senaste flödesloggar och lär dig mer om trafik i nätverket.
+Det kan vara svårt att få insikter om flödes loggnings data genom att manuellt söka igenom loggfilerna. I den här artikeln tillhandahåller vi en lösning för att visualisera dina senaste flödes loggar och lär dig mer om trafik i nätverket.
 
 > [!Warning]  
-> Följande steg fungerar med flow loggar version 1. Mer information finns i [introduktion till flödesloggar för nätverkssäkerhetsgrupper](network-watcher-nsg-flow-logging-overview.md). Följande instruktioner fungerar inte med version 2 av loggfiler, utan modifiering.
+> Följande steg fungerar med Flow-loggar version 1. Mer information finns i [Introduktion till flödes loggning för nätverks säkerhets grupper](network-watcher-nsg-flow-logging-overview.md). Följande instruktioner fungerar inte med version 2 av loggfilerna utan ändringar.
 
 ## <a name="scenario"></a>Scenario
 
-I följande scenario ansluter vi Power BI desktop till storage-kontot som vi har konfigurerat som mottagare för våra data för NSG Flow loggning. När vi har anslutit till våra storage-konto laddar ned Power BI och Parsar loggarna för att tillhandahålla en visuell representation av den trafik som loggas av nätverkssäkerhetsgrupper.
+I följande scenario ansluter vi Power BI Station ära Skriv bordet till lagrings kontot som vi har konfigurerat som mottagare för våra NSG flödes loggnings data. När vi ansluter till vårt lagrings konto kan Power BI Ladda ned och parsa loggarna för att tillhandahålla en visuell representation av den trafik som loggas av nätverks säkerhets grupper.
 
-Med hjälp av de visuella objekten som angetts i mallen som du kan kontrollera:
+Med hjälp av de visualiseringar som anges i mallen kan du undersöka:
 
-* Toppkommunikatörer
-* Time Series-flödesdata per riktning och regelbeslut
-* Flöden per nätverksgränssnittet MAC-adress
-* Flöden per NSG och regel
-* Flöden per målport
+* Främsta pratare
+* Tids serie flödes data efter riktning och regel beslut
+* Flöden efter nätverks gränssnittets MAC-adress
+* Flöden efter NSG och regel
+* Flöden efter mål Port
 
-Mallen som tillhandahölls redigeras så att du kan ändra den för att lägga till nya data, visuella objekt, eller redigera frågor efter dina behov.
+Den angivna mallen kan redige ras så att du kan ändra den för att lägga till nya data, visuella objekt eller redigera frågor som passar dina behov.
 
 ## <a name="setup"></a>Konfiguration
 
-Du måste ha Network Security grupp Flow Logging har aktiverats på en eller flera Nätverkssäkerhetsgrupper i ditt konto innan du börjar. Mer information om hur du aktiverar flödesloggar för nätverkssäkerhet finns i följande artikel: [Introduktion till flödesloggar för Nätverkssäkerhetsgrupper](network-watcher-nsg-flow-logging-overview.md).
+Innan du börjar måste du ha nätverks säkerhets gruppens flödes loggning aktiverat på en eller flera nätverks säkerhets grupper i ditt konto. Anvisningar om hur du aktiverar nätverks säkerhets flödes loggar finns i följande artikel: [Introduktion till flödes loggning för nätverks säkerhets grupper](network-watcher-nsg-flow-logging-overview.md).
 
-Du måste också ha Power BI Desktop klienten är installerad på din dator och tillräckligt med ledigt utrymme på din dator för att ladda ned och läsa in loggdata som finns i ditt storage-konto.
+Du måste också ha Power BI Desktop-klienten installerad på datorn och tillräckligt med ledigt utrymme på datorn för att ladda ned och läsa in de loggdata som finns i ditt lagrings konto.
 
 ![Visio-diagram][1]
 
 ### <a name="steps"></a>Steg
 
-1. Ladda ned och öppna följande Power BI-mall i Power BI Desktop programmet [flödesloggarna i Network Watcher PowerBI mall](https://aka.ms/networkwatcherpowerbiflowlogstemplate)
-1. Ange de obligatoriska parametrarna i frågan
-   1. **StorageAccountName** – anger namnet på lagringskontot som innehåller NSG-flödesloggar som du vill läsa in och visualisera.
-   1. **NumberOfLogFiles** – anger hur många loggfiler som du vill ladda ned och visualisera i Power BI. Om 50 anges, till exempel de 50 senaste loggfilerna. Om vi har 2 NSG: er aktiveras och konfigureras att skicka NSG-flödesloggar till det här kontot kan de senaste 25 timmarna av loggar ses.
+1. Ladda ned och öppna följande Power BI mall i mallen för Power BI Desktop program [Network Watcher PowerBI Flow-loggar](https://aka.ms/networkwatcherpowerbiflowlogstemplate)
+1. Ange de frågeparametrar som krävs
+   1. **StorageAccountName** – anger namnet på det lagrings konto som innehåller de NSG-flödes loggar som du vill läsa in och visualisera.
+   1. **NumberOfLogFiles** – anger antalet loggfiler som du vill hämta och visualisera i Power BI. Om till exempel 50 anges, de senaste loggfilerna för 50. Om vi har 2 NSG: er-aktiverade och konfigurerade för att skicka NSG Flow-loggar till det här kontot, kan de senaste 25 timmarna med loggar visas.
 
-      ![Power BI main][2]
+      ![Power BI-huvud][2]
 
-1. Ange åtkomstnyckel för lagringskontot. Du kan hitta giltiga åtkomstnycklar genom att gå till ditt lagringskonto i Azure-portalen och välja **åtkomstnycklar** från menyn Inställningar. Klicka på **Connect** tillämpa ändringarna.
+1. Ange åtkomst nyckeln för ditt lagrings konto. Du kan hitta giltiga åtkomst nycklar genom att gå till ditt lagrings konto i Azure Portal och välja **åtkomst nycklar** på menyn Inställningar. Klicka på **Anslut** och Verkställ ändringarna.
 
-    ![Åtkomstnycklar][3]
+    ![åtkomst nycklar][3]
 
-    ![få åtkomst till nyckel 2][4]
+    ![åtkomst nyckel 2][4]
 
-4. Loggarna är ladda ned och parsa och du kan nu använda de färdiga visuella objekt.
+4. Loggarna hämtas och tolkas och du kan nu använda de färdiga visuella objekten.
 
-## <a name="understanding-the-visuals"></a>Förstå de visuella objekten
+## <a name="understanding-the-visuals"></a>Förstå visualiseringarna
 
-I mallen är en uppsättning visuell information som hjälper dig att göra uppfattning om loggdata NSG Flow. Följande bilder visar ett exempel på hur instrumentpanelen som ser ut när du har fyllts med data. Nedan närmare vi på varje visuellt objekt i större detalj 
+Anges i mallen är en uppsättning visuella objekt som hjälper dig att förstå NSG Flow-loggdata. Följande bilder visar ett exempel på hur instrument panelen ser ut när den fylls med data. Nedan granskar vi varje visuellt objekt i större detalj 
 
 ![powerbi][5]
  
-I visual visas på översta Talkers som angetts för IP-adresser som har initierat de flesta anslutningar under perioden. Storleken på rutorna motsvarar det relativa antalet anslutningar. 
+De främsta Pratarna visar de IP-adresser som har initierat de flesta anslutningar under den angivna perioden. Storleken på rutorna motsvarar det relativa antalet anslutningar. 
 
 ![toptalkers][6]
 
-I följande time series diagram visas hur många flöden under perioden. Övre diagrammet är uppdelat efter flödesriktningen och lägre uppdelat efter beslutet (Tillåt eller neka). Med det här visuella objektet du granska din trafik trender över tid, och upptäcka eventuella onormala toppar eller neka trafik eller trafik segmentering.
+I följande tids serie diagram visas antalet flöden under perioden. Den övre grafen segmenteras av flödes riktningen och det lägre värdet segmenteras av det beslut som fattas (Tillåt eller neka). Med det här visuella objektet kan du undersöka dina trafik trender över tid och var onormala toppar eller neka trafik eller trafik segmentering.
 
 ![flowsoverperiod][7]
 
-Följande diagram visar flöden per nätverksgränssnitt, med upp till uppdelat efter flödesriktning och lägre uppdelat efter beslut. Med den här informationen kan du få insikter om trafik till en specifik virtuell dator håller och vilka av dina virtuella datorer kommer mest i förhållande till andra tillåts eller nekas.
+I följande diagram visas flödena per nätverks gränssnitt, med de övre segmenten efter flödes riktning och de lägre segment som fattas. Med den här informationen kan du få insikter om vilka av dina virtuella datorer som kommunicerar mest i förhållande till andra och om trafik till en angiven virtuell dator tillåts eller nekas.
 
 ![flowspernic][8]
 
-Följande hjul ringdiagrammet visar en sammanfattning av flöden per målport. Med den här informationen kan du visa de vanligaste mål-portarna som används inom den angivna perioden.
+Följande ring diagram visar en nedbrytning av flöden per målport. Med den här informationen kan du Visa de vanligaste portarna som används inom den angivna perioden.
 
-![donut][9]
+![Ring][9]
 
-Följande stapeldiagrammet visar flödet genom NSG och regel. Med den här informationen kan se du ansvarar för de flesta trafiken och fördelningen av trafiken NSG: er på en NSG av regeln.
+Följande stapeldiagram visar flödet efter NSG och regel. Med den här informationen kan du se NSG: er som ansvarar för den högsta trafiken och nedbrytning av trafik på en NSG enligt regel.
 
 ![barchart][10]
  
-Följande information diagrammen visar information om Nätverkssäkerhetsgrupper finns i loggarna, Antal flöden som hämtats under perioden och datumet då den tidigaste loggen avbildas. Den här informationen ger dig en uppfattning om vilken NSG: er är som du loggar in och datumintervall för flöden.
+I följande informations diagram visas information om NSG: er som finns i loggarna, antalet flöden som har tagits emot under perioden och datum för den tidigaste loggen. Den här informationen ger dig en uppfattning om vilka NSG: er som loggas och datum intervallet för flöden.
 
 ![infochart1][11]
 
 ![infochart2][12]
 
-Den här mallen innehåller följande utsnitt så att du kan visa de data som du är mest intresserad av. Du kan filtrera efter dina resursgrupper, Nätverkssäkerhetsgrupper och regler. Du kan också filtrera på 5-tuppel information, beslut och den tid som har skrivits i loggen.
+Den här mallen innehåller följande utsnitt så att du endast kan se de data som du är mest intresse rad av. Du kan filtrera efter resurs grupper, NSG: er och regler. Du kan också filtrera på 5-tuple-information, beslut och tidpunkten då loggen skrevs.
 
 ![utsnitt][13]
 
 ## <a name="conclusion"></a>Sammanfattning
 
-Vi visade i det här scenariot att med hjälp av Network Security Group Flow loggar som tillhandahålls av Network Watcher och Power BI, kommer du att visualisera och förstå trafiken. Med den angivna mallen kan Power BI hämtar loggarna direkt från storage och bearbetar dem lokalt. Åtgången tid för att läsa in mallen varierar beroende på hur många filer som begärs och totala storleken på filerna ned.
+Vi visade i det här fallet genom att använda flödes loggar för nätverks säkerhets grupper som tillhandahålls av Network Watcher och Power BI, och vi kan visualisera och förstå trafiken. Med den angivna mallen kan Power BI Ladda ned loggarna direkt från lagringen och bearbeta dem lokalt. Hur lång tid det tar att läsa in mallen beror på antalet begärda filer och den totala storleken på hämtade filer.
 
-Passa på att anpassa den här mallen för dina behov. Det finns många olika sätt att du kan använda Power BI med Flow loggar för Nätverkssäkerhetsgrupper. 
+Du kan anpassa den här mallen efter dina behov. Det finns många olika sätt som du kan använda för Power BI med flödes loggar för nätverks säkerhets grupper. 
 
 ## <a name="notes"></a>Anteckningar
 
 * Loggar som standard lagras i `https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/`
 
-    * Om det finns andra data i en annan katalog som de frågorna till pull och bearbeta data måste ändras.
+    * Om det finns andra data i en annan katalog, så måste de frågor som krävs för att hämta och bearbeta data ändras.
 
-* Den angivna mallen rekommenderas inte för användning med mer än 1 GB av loggar.
+* Den angivna mallen rekommenderas inte för användning med mer än 1 GB loggar.
 
-* Om du har en stor mängd loggar, rekommenderar vi att du undersöker en lösning med ett annat datalager som Data Lake eller SQL server.
+* Om du har en stor mängd loggar rekommenderar vi att du undersöker en lösning med hjälp av ett annat data lager som Data Lake eller SQL Server.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig att visualisera dina NSG-flödesloggar med Elastic Stack genom att besöka [visualisera Azure Network Watcher NSG-flödesloggar med verktyg för öppen källkod](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
+Lär dig hur du visualiserar dina NSG Flow-loggar med den elastiska stacken genom att besöka [visualisera Azure Network WATCHER NSG flödes loggar med verktyg för öppen källkod](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 
 [1]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure1.png
 [2]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure2.png

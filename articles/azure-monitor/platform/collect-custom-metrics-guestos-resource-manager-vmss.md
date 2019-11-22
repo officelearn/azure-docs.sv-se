@@ -1,5 +1,5 @@
 ---
-title: Skicka gäst operativ systemets mått till Azure Monitor Mät lagringen med hjälp av en Azure Resource Manager mall för en skalnings uppsättning för virtuella Windows-datorer
+title: Samla in mått för Windows skalnings uppsättning i Azure Monitor med mall
 description: Skicka gäst operativ systemets mått till Azure Monitor Metric Store med hjälp av en Resource Manager-mall för en skalnings uppsättning för virtuella Windows-datorer
 author: anirudhcavale
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 8ee8c0c9d9724706f9b46013eba14e878832fd02
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 691b2ae7e497c9292975083e3687d9240ce6f3e6
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844968"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286124"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Skicka gäst operativ systemets mått till Azure Monitor Mät lagringen med hjälp av en Azure Resource Manager mall för en skalnings uppsättning för virtuella Windows-datorer
 
@@ -25,7 +25,7 @@ I den här artikeln beskrivs processen för att skicka gäst operativ systemets 
 
 Om du är nybörjare på Resource Manager-mallar kan du läsa mer om [mall distributioner](../../azure-resource-manager/resource-group-overview.md) och deras struktur och syntax.  
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Din prenumeration måste vara registrerad med [Microsoft. Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
@@ -240,7 +240,7 @@ Använd Azure PowerShell för att distribuera Resource Manager-mallen:
 
 1. Starta PowerShell. 
 1. Logga in på Azure med `Login-AzAccount`.
-1. Hämta din lista över prenumerationer med `Get-AzSubscription`hjälp av.
+1. Hämta din lista över prenumerationer med hjälp av `Get-AzSubscription`.
 1. Ange den prenumeration som du ska skapa eller uppdatera den virtuella datorn: 
 
    ```powershell
@@ -267,7 +267,7 @@ Använd Azure PowerShell för att distribuera Resource Manager-mallen:
 1. När distributionen har slutförts bör du hitta skalnings uppsättningen för den virtuella datorn i Azure Portal. Den ska generera mått till Azure Monitor. 
 
    > [!NOTE]  
-   > Du kan stöta på fel kring de valda **vmSkuSize**. I så fall går du tillbaka till filen **azuredeploy. JSON** och uppdaterar standardvärdet för parametern **vmSkuSize** . Vi rekommenderar att du testar **Standard_DS1_v2**. 
+   > Du kan stöta på fel kring de valda **vmSkuSize**. I så fall går du tillbaka till filen **azuredeploy. JSON** och uppdaterar standardvärdet för parametern **vmSkuSize** . Vi rekommenderar att du försöker **Standard_DS1_v2**. 
 
 
 ## <a name="chart-your-metrics"></a>Diagrammets mått 

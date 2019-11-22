@@ -1,6 +1,6 @@
 ---
-title: Skicka gäst operativ systemets mått till Azure Monitor mått lagrets klassiska Cloud Services
-description: Skicka gäst operativ systemets mått till Azure Monitor Metric Store Cloud Services
+title: Skicka klassiska Cloud Services mått till Azure Monitor mått databas
+description: Beskriver processen för att skicka gäst operativ systemets prestanda mått för den klassiska Azure-Cloud Services till Azure Monitor Metric-lagret.
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 56138277866d3b2bf02733a2c595a5a232faed8c
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 1c742daf29cbbef5e6f51af5363be7fd949aaebf
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844932"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304771"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Skicka gäst operativ systemets mått till Azure Monitor mått lagrets klassiska Cloud Services 
 
@@ -27,7 +27,7 @@ Genom att lagra dem på den här platsen kan du komma åt samma åtgärder som d
 
 Processen som beskrivs i den här artikeln fungerar bara för prestanda räknare i Azure Cloud Services. Det fungerar inte för andra anpassade mått. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Du måste vara [tjänst administratör eller delad administratör](~/articles/billing/billing-add-change-azure-subscription-administrator.md) på din Azure-prenumeration. 
 

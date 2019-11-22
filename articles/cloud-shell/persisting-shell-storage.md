@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 11/20/2019
 ms.author: damaerte
-ms.openlocfilehash: ee68400d000ca823816c8efc6bcbc224d1388832
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 8e04e7c1919deaf60e083aba4588943147ebd6bf
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082984"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284814"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Bevara filer i Azure Cloud Shell
 Cloud Shell använder Azure File Storage för att spara filer mellan sessioner. Vid inledande start blir Cloud Shell att du kan associera en ny eller befintlig fil resurs för att spara filer mellan sessioner.
@@ -38,14 +38,11 @@ När du använder grundläggande inställningar och bara väljer en prenumeratio
 
 Fil resursen monteras som `clouddrive` i `$Home`s katalogen. Detta är en engångs åtgärd och fil resursen monteras automatiskt i efterföljande sessioner. 
 
-> [!NOTE]
-> För säkerhet bör varje användare etablera sitt eget lagrings konto.  För rollbaserad åtkomst kontroll (RBAC) måste användare ha deltagar åtkomst eller högre på lagrings konto nivå.
-
 Fil resursen innehåller också en avbildning på 5 GB som skapas för dig och som automatiskt sparar data i `$Home`s katalogen. Detta gäller både bash och PowerShell.
 
 ## <a name="use-existing-resources"></a>Använd befintliga resurser
 
-Med alternativet Avancerat kan du associera befintliga resurser. När du väljer en Cloud Shell region måste du välja ett lagrings konto som finns i samma region. Om din tilldelade region t. ex. är västra USA än så måste du associera en fil resurs som finns i västra USA även.
+Med alternativet Avancerat kan du associera befintliga resurser. När du väljer en Cloud Shell region måste du välja ett lagrings konto som finns i samma region. Om din tilldelade region t. ex. är västra USA måste du associera en fil resurs som finns i västra USA.
 
 När installations programmet för lagring visas väljer du **Visa avancerade inställningar** för att visa fler alternativ. De ifyllda lagrings alternativ filtren för lokalt redundant lagring (LRS), Geo-redundant lagring (GRS) och ZRS-konton (Zone-redundant lagring). 
 
@@ -54,7 +51,14 @@ När installations programmet för lagring visas väljer du **Visa avancerade in
 
 ![Resurs grupps inställningen](media/persisting-shell-storage/advanced-storage.png)
 
-### <a name="supported-storage-regions"></a>Lagrings regioner som stöds
+## <a name="securing-storage-access"></a>Skydda lagrings åtkomst
+För säkerhet bör varje användare etablera sitt eget lagrings konto.  För rollbaserad åtkomst kontroll (RBAC) måste användare ha deltagar åtkomst eller högre på lagrings konto nivå.
+
+Cloud Shell använder en Azure-filresurs i ett lagrings konto i en angiven prenumeration. På grund av ärvda behörigheter kommer användare med tillräcklig åtkomst behörighet till prenumerationen att kunna komma åt alla lagrings konton och fil resurser som ingår i prenumerationen.
+
+Användarna bör låsa åtkomsten till sina filer genom att ange behörigheterna på lagrings kontot eller på prenumerations nivån.
+
+## <a name="supported-storage-regions"></a>Lagrings regioner som stöds
 Associerade Azure Storage-konton måste finnas i samma region som den Cloud Shell datorn som du monterar dem på. Om du vill hitta din aktuella region kan du köra `env` i bash och leta upp variabeln `ACC_LOCATION`. Fil resurser får en avbildning på 5 GB som skapats så att du kan spara din `$Home` katalog.
 
 Det finns Cloud Shell datorer i följande regioner:
@@ -67,8 +71,6 @@ Det finns Cloud Shell datorer i följande regioner:
 
 ## <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Begränsa resurs skapande med en Azure-resurs princip
 De lagrings konton som du skapar i Cloud Shell taggas med `ms-resource-usage:azure-cloud-shell`. Om du inte vill att användare ska kunna skapa lagrings konton i Cloud Shell skapar du en [princip för Azure-resurser för Taggar](../azure-policy/json-samples.md) som utlösts av den här taggen.
-
-
 
 ## <a name="how-cloud-shell-storage-works"></a>Så här fungerar Cloud Shell Storage 
 Cloud Shell sparar filer genom båda följande metoder: 

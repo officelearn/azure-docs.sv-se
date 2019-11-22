@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: d91ac6d50faaadf560ae7ff9e9cce5f7bc4b180a
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 47e66bfc4550372b571b7263ef5b7f2f149712dc
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803928"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307307"
 ---
 # <a name="supported-platforms"></a>Plattformar som stöds 
 
@@ -91,11 +91,11 @@ Följande Azure PaaS-resurser stöds av Azure Security Center:
 * MySQL
 * CosmosDB
 * Lagringskonto
-* App Service
+* Apptjänst
 * Funktion
 * Molntjänst
 * VNet
-* Undernät
+* Subnet
 * NIC
 * NSG
 * Batch-konto
@@ -103,7 +103,7 @@ Följande Azure PaaS-resurser stöds av Azure Security Center:
 * Automation-konto
 * Lastbalanserare
 * Search
-* Service Bus-namnrymd
+* service bus namnrymd
 * Stream analytics
 * Namnområde för händelsehubb
 * Logikappar
@@ -113,6 +113,8 @@ Följande Azure PaaS-resurser stöds av Azure Security Center:
 * Nyckelvalv
 
 Mer information om vilka funktioner som stöds för ovanstående lista över PaaS-resurser finns i [PaaS Services-funktioner som stöds](security-center-services.md#paas-services).
+
+Skydd för Virtual Machines som finns i Azure Stack stöds också. Mer information om Security Centers integrering med Azure Stack finns i [publicera dina Azure Stack virtuella datorer i Security Center](https://docs.microsoft.com/azure/security-center/quick-onboard-azure-stack).
 
 ## <a name="next-steps"></a>Nästa steg
 

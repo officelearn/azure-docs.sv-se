@@ -1,20 +1,16 @@
 ---
 title: Installera Azure dev Spaces på AKS och klient sidans verktyg
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 07/24/2019
 ms.topic: conceptual
 description: Lär dig hur du installerar Azure dev Spaces i ett AKS-kluster och installerar verktyg på klient sidan.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
-ms.openlocfilehash: 642d4406840f1748c3b6cbb4441227fff0c6d721
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
-ms.translationtype: MT
+ms.openlocfilehash: c62fe38a12b5ec279bc51fe8bc0d340e2f439200
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494852"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280057"
 ---
 # <a name="install-azure-dev-spaces-on-aks-and-the-client-side-tooling"></a>Installera Azure dev Spaces på AKS och klient sidans verktyg
 
@@ -23,11 +19,11 @@ Den här artikeln visar flera olika sätt att installera Azure dev Spaces på et
 ## <a name="install-azure-dev-spaces-using-the-cli"></a>Installera Azure dev Spaces med CLI
 
 Innan du kan installera dev-utrymmen med hjälp av CLI behöver du:
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration, kan du skapa ett [kostnadsfritt konto][az-portal-create-account].
+* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][az-portal-create-account].
 * [Azure CLI installerat][install-cli].
 * [Ett AKS-kluster][create-aks-cli] i en [region som stöds][supported-regions].
 
-`use-dev-spaces` Använd kommandot för att aktivera dev Spaces på ditt AKS-kluster och följ anvisningarna.
+Använd kommandot `use-dev-spaces` för att aktivera dev Spaces i ditt AKS-kluster och följa anvisningarna.
 
 ```cmd
 az aks use-dev-spaces -g myResourceGroup -n myAKSCluster
@@ -53,16 +49,16 @@ Configuring and selecting dev space 'default'...3s
 Managed Kubernetes cluster 'myAKSCluster' in resource group 'myResourceGroup' is ready for development in dev space 'default'. Type `azds prep` to prepare a source directory for use with Azure Dev Spaces and `azds up` to run.
 ```
 
-`use-dev-spaces` Kommandot installerar även Azure dev Spaces cli.
+Kommandot `use-dev-spaces` installerar även Azure dev Spaces CLI.
 
 ## <a name="install-azure-dev-spaces-using-the-azure-portal"></a>Installera Azure dev Spaces med hjälp av Azure Portal
 
 Innan du kan installera dev-utrymmen med Azure Portal behöver du:
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration, kan du skapa ett [kostnadsfritt konto][az-portal-create-account].
+* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][az-portal-create-account].
 * [Ett AKS-kluster][create-aks-portal] i en [region som stöds][supported-regions].
 
 Så här installerar du Azure dev Spaces med hjälp av Azure Portal:
-1. Logga in på [Azure Portal][az-portal].
+1. Logga in på [Azure-portalen][az-portal].
 1. Navigera till ditt AKS-kluster.
 1. Klicka på *dev Spaces*.
 1. Ändra *Aktivera dev Spaces* till *Ja* och klicka på *Spara*.

@@ -1,6 +1,6 @@
 ---
-title: Så här konfigurerar du ett programproxy-program att använda PingAccess | Microsoft Docs
-description: Lär dig hur du använder PingAccess för att utöka fördelarna med Application Proxy program med rubrikbaserad autentisering
+title: Så här konfigurerar du en Application Proxy-app för att använda PingAccess
+description: Lär dig hur du använder PingAccess för att utöka fördelarna med programproxyn till program med hjälp av en huvud-baserad autentisering
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,27 +16,27 @@ ms.date: 05/21/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d555aaf99470588bb3ed2b328adb3e99f6c4a50e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c852c69b6f64b59845b551202bd1a25646a49eb6
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65783981"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275645"
 ---
-# <a name="how-to-configure-an-application-proxy-application-to-use-pingaccess"></a>Så här konfigurerar du ett programproxy-program att använda PingAccess
+# <a name="how-to-configure-an-application-proxy-application-to-use-pingaccess"></a>Så här konfigurerar du ett Application Proxy-program för att använda PingAccess
 
-Vårt samarbete med PingAccess nu kan du utöka fördelarna med Application Proxy program med rubrikbaserad autentisering. Om dina program inte använder rubriker, se vår [enkel inloggning för dokumentation](application-proxy-configure-single-sign-on-with-kcd.md) mer information om andra alternativ.
+Med vårt samarbete med PingAccess kan du nu utöka fördelarna med programproxyn till program med hjälp av rubrik-baserad autentisering. Om dina program inte använder sidhuvuden kan du läsa mer i vår [enkel inloggnings dokumentation](application-proxy-configure-single-sign-on-with-kcd.md) för mer information om andra alternativ.
 
-## <a name="overview-of-steps-and-recommended-documents"></a>Översikt över stegen och rekommenderade dokument
+## <a name="overview-of-steps-and-recommended-documents"></a>Översikt över steg och rekommenderade dokument
 
-Om du vill konfigurera ett program med PingAccess, finns det fyra steg:
+Om du vill konfigurera ett program med PingAccess finns det fyra steg:
 
-1.  Konfigurera anslutningar för programproxy
+1.  Konfigurera Application Proxy-kopplingar
 
-2.  Skapa ett Azure AD Application Proxy-program
+2.  Skapa ett Azure AD-programproxy-program
 
-3.  Ladda ned och konfigurera PingAccess
+3.  Ladda ned & Konfigurera PingAccess
 
-4.  Konfigurera program för PingAccess
+4.  Konfigurera program i PingAccess
 
-Information om var och en av de här stegen finns i vår [enkel inloggning med rubriker dokumentation](application-proxy-configure-single-sign-on-with-ping-access.md).
+Mer information om vart och ett av dessa steg finns i vår [enkel inloggning med rubrik dokumentation](application-proxy-configure-single-sign-on-with-ping-access.md).

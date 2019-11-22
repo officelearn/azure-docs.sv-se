@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 4cbca96ed95167615f3ff2876e27e546d08d92f5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d721ceb25b3ce2408563a0bed16457d05affe7b4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73507719"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280871"
 ---
 # <a name="design-with-intent-and-entity-models"></a>Design med avsikts-och enhets modeller 
 
@@ -37,7 +37,7 @@ Modell dispositionen har följande delar:
 * [enheter som har lärts till enheten](#machine-learned-entities)
     * [del komponenter](#entity-subcomponents-help-extract-data) (även enhets belärt entiteter)
         * [beskrivningar](#descriptors-are-features) som tillhandahålls av funktioner 
-        * [begränsningar](#constraints-are-text-rules) som tillhandahålls av icke-maskinläsbara entiteter som t. ex. (reguljära uttryck och listor)
+        * [begränsningar](#constraints-are-text-rules) som tillhandahålls av icke-maskinläsbara entiteter som reguljära uttryck och listor
 
 ## <a name="v2-authoring-models"></a>V2-redigerings modeller
 
@@ -134,7 +134,7 @@ Avsikt är det önskade resultatet av _hela_ uttryck medan entiteter är bitar a
 
 Den här uttryck _måste_ ha en avsikt och _kan_ ha entiteter:
 
-`Buy a airline ticket from Seattle to Cairo`
+`Buy an airline ticket from Seattle to Cairo`
 
 Den här uttryck har en enda avsikt:
 

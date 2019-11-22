@@ -1,6 +1,6 @@
 ---
-title: Extern delning i Office 365 och B2B - samarbete i Azure Active Directory | Microsoft Docs
-description: Beskriver delning av resurser med externa partner med O365 och Azure Active Directory B2B collaboration.
+title: Office 365 externt delning och B2B-samarbete – Azure AD
+description: Beskriver hur du delar resurser med externa partner med hjälp av O365 och Azure Active Directory B2B-samarbete.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -11,42 +11,42 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f6cdc782f091709ed00358dd309e9fd4ccfd0eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d70aed6fbe0f09ea6284f913c88186ecf94e297
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66807689"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272276"
 ---
-# <a name="office-365-external-sharing-and-azure-active-directory-b2b-collaboration"></a>Extern delning i Office 365 och Azure Active Directory B2B-samarbete
+# <a name="office-365-external-sharing-and-azure-active-directory-b2b-collaboration"></a>Office 365 extern delning och Azure Active Directory B2B-samarbete
 
-Extern delning i Office 365 (OneDrive, SharePoint Online, enhetliga grupper, etc.) och Azure Active Directory (Azure AD) B2B-samarbete är tekniskt sett samma sak. Alla extern delning (utom OneDrive/SharePoint Online), inklusive gäster i Office 365-grupper, använder redan Azure AD B2B-samarbetsinbjudan API: er för att dela.
+Extern delning i Office 365 (OneDrive, SharePoint Online, enhetliga grupper osv.) och Azure Active Directory (Azure AD) B2B-samarbete är tekniskt sett samma sak. All extern delning (förutom OneDrive/SharePoint Online), inklusive gäster i Office 365-grupper, använder redan Azure AD B2B-samarbets-API: erna för att dela.
 
 ## <a name="how-does-azure-ad-b2b-differ-from-external-sharing-in-sharepoint-online"></a>Hur skiljer sig Azure AD B2B från extern delning i SharePoint Online?
 
-OneDrive/SharePoint Online har en separat inbjudan chef. Stöd för extern delning i OneDrive/SharePoint Online startats innan Azure AD utvecklas stödet. OneDrive/SharePoint Online extern delning ackumuleras har flera funktioner med tiden, och många miljontals användare som använder produkten är inbyggd delning mönster. Det finns dock några små skillnader mellan hur OneDrive/SharePoint Online extern delning fungerar och hur fungerar Azure AD B2B-samarbete. Du kan lära dig mer om OneDrive/SharePoint Online extern delning i [externa översikt över delade](https://docs.microsoft.com/sharepoint/external-sharing-overview). Processen skiljer sig vanligtvis från Azure AD B2B på följande sätt:
+OneDrive/SharePoint Online har en separat Inbjudnings hanterare. Stöd för extern delning i OneDrive/SharePoint Online har startats innan Azure AD utvecklade sitt stöd. Över tid har den externa delningen av OneDrive/SharePoint Online flera funktioner och många miljoner användare som använder produktens inbyggda delnings mönster. Det finns dock några diskreta skillnader mellan hur extern delning i OneDrive/SharePoint Online fungerar och hur Azure AD B2B-samarbete fungerar. Du kan läsa mer om extern delning av OneDrive/SharePoint Online i [extern delnings översikt](https://docs.microsoft.com/sharepoint/external-sharing-overview). Processen skiljer sig i allmänhet från Azure AD B2B på följande sätt:
 
-- OneDrive/SharePoint Online lägger till användare i katalogen när användarna har löst in sina inbjudningar. Därför före inlösen ser du användaren i Azure AD-portalen. Om en annan plats bjuder in en användare under tiden, skapas en ny inbjudan. Men när du använder Azure AD B2B-samarbete läggs användare till direkt på inbjudan så att de visas var som helst.
+- OneDrive/SharePoint Online lägger till användare i katalogen efter att användarna har löst deras inbjudningar. Därför visas inte användaren i Azure AD-portalen före inlösen. Om en annan plats bjuder in en användare under tiden skapas en ny inbjudan. Men när du använder Azure AD B2B-samarbete läggs användare omedelbart till på inbjudan så att de visas överallt.
 
-- Inlösen upplevelse i OneDrive/SharePoint Online ser annorlunda ut än upplevelse i Azure AD B2B-samarbete. När en användare redeems inbjudan, hur ser likadan ut.
+- Inlösnings upplevelsen i OneDrive/SharePoint Online ser annorlunda ut jämfört med Azure AD B2B-samarbete. När en användare har löst en inbjudan ser upplevelsen likadan ut.
 
-- Azure AD B2B-samarbete inbjuden användare kan hämtas från OneDrive/SharePoint Online delning av dialogrutor. OneDrive/SharePoint Online inbjuden användare visas också i Azure AD när de lösa sina inbjudningar.
+- Azure AD B2B-samarbete inbjudna användare kan plockas från dialog rutorna OneDrive/SharePoint Online-delning. OneDrive/SharePoint Online inbjudna användare visas också i Azure AD när de har löst in sina inbjudningar.
 
-- Licenskraven skiljer sig åt. För var och en betald Azure AD-licens kan du låta upp till 5 gästanvändare åtkomst till din betalda Azure AD-funktioner. Mer information om licensiering finns [Azure AD B2B-licensiering](https://docs.microsoft.com/azure/active-directory/b2b/licensing-guidance) och [”vad är en extern användare”? i SharePoint Online extern delning översikt](https://docs.microsoft.com/sharepoint/external-sharing-overview#what-happens-when-users-share).
+- Licensierings kraven skiljer sig åt. För varje betald Azure AD-licens kan du låta upp till fem gäst användare få åtkomst till dina betal funktioner i Azure AD. Läs mer om licensiering i [Azure AD B2B-licensiering](https://docs.microsoft.com/azure/active-directory/b2b/licensing-guidance) och ["Vad är en extern användare?" i Översikt över SharePoint Online-delning](https://docs.microsoft.com/sharepoint/external-sharing-overview#what-happens-when-users-share).
 
-För att hantera extern delning i OneDrive/SharePoint Online med Azure AD B2B-samarbete, ställa in OneDrive/SharePoint Online extern delning inställningen för att **Tillåt delning endast med externa användare som redan finns i din organisation Directory**. Användare kan gå till externt delade platser och välj från externa medarbetare som administratören har lagt till. Administratören kan lägga till de externa medarbetarna via API: er för inbjudan i B2B-samarbete.
+Om du vill hantera extern delning i OneDrive/SharePoint Online med Azure AD B2B-samarbete ställer du in inställningen för extern delning i OneDrive/SharePoint Online så att **den bara tillåter delning med de externa användare som redan finns i din organisations katalog**. Användare kan gå till externt delade platser och välja från externa medarbetare som administratören har lagt till. Administratören kan lägga till externa medarbetare via API: er för inbjudan till B2B-samarbete.
 
 
-![OneDrive/SharePoint Online extern delning](media/o365-external-user/odsp-sharing-setting.png)
+![Inställningen för extern delning i OneDrive/SharePoint Online](media/o365-external-user/odsp-sharing-setting.png)
 
-När du har aktiverat extern delning är möjligheten att söka efter befintliga gästanvändare i SharePoint Online (SPO) Personväljaren av som standard så att de matchar äldre beteende.
+När du har aktiverat extern delning är möjligheten att söka efter befintliga gäst användare i användar väljaren för SharePoint Online (SPO) inaktive rad som standard för att matcha äldre beteende.
 
-Du kan aktivera den här funktionen med hjälp av inställningen ”ShowPeoplePickerSuggestionsForGuestUsers” på samlingsnivå klient- och plats. Du kan ange funktionen med hjälp av Set-SPOTenant och Set-SPOSite cmdletar som ger möjlighet att söka efter alla befintliga gästanvändare i katalogen. Ändringar i klientorganisationsområdet påverkar inte redan etablerade SPO-webbplatser.
+Du kan aktivera den här funktionen genom att använda inställningen "ShowPeoplePickerSuggestionsForGuestUsers" på klient-och webbplats samlings nivå. Du kan ställa in funktionen med cmdletarna Set-SPOTenant och set-SPOSite, vilket gör det möjligt för medlemmar att söka igenom alla befintliga gäst användare i katalogen. Ändringar i klient omfånget påverkar inte redan etablerade SPO-webbplatser.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Vad är Azure AD B2B-samarbete?](what-is-b2b.md)
-* [Att lägga till en B2B-användare till en roll](add-guest-to-role.md)
-* [Delegera inbjudningar för B2B-samarbete](delegate-invitations.md)
+* [Lägga till en B2B-samarbets användare till en roll](add-guest-to-role.md)
+* [Delegera B2B-samarbets inbjudningar](delegate-invitations.md)
 * [Dynamiska grupper och B2B-samarbete](use-dynamic-groups.md)
-* [Felsökning av Azure Active Directory B2B-samarbete](troubleshoot.md)
+* [Felsöka Azure Active Directory B2B-samarbete](troubleshoot.md)

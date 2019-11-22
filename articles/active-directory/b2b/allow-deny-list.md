@@ -1,5 +1,5 @@
 ---
-title: Tillåt eller blockera inbjudningar till vissa organisationer – Azure Active Directory | Microsoft Docs
+title: Tillåt eller blockera inbjudningar till vissa organisationer – Azure AD
 description: Visar hur en administratör kan använda Azure Portal eller PowerShell för att ange en åtkomst-eller neka-lista för att tillåta eller blockera B2B-användare från vissa domäner.
 services: active-directory
 ms.service: active-directory
@@ -12,14 +12,14 @@ manager: celestedg
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cd0cc6b2343a84287bd2ffdfd9df8d832f17fc8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8b5100c4406cfd4a8395dfa177dc3cd5e911decb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474170"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74273431"
 ---
-# <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Tillåt eller blockera inbjudningar till B2B-användare från vissa organisationer
+# <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Tillåt eller blockera inbjudningar till B2B-användare från specifika organisationer
 
 Du kan använda en lista över tillåtna eller en neka för att tillåta eller blockera inbjudningar till B2B-användare från vissa organisationer. Om du till exempel vill blockera privata e-postadresser kan du konfigurera en lista över nekade domäner som innehåller domäner som Gmail.com och Outlook.com. Eller, om ditt företag har ett partnerskap med andra företag som Contoso.com, Fabrikam.com och Litware.com, och du vill begränsa inbjudningar till dessa organisationer, kan du lägga till Contoso.com, Fabrikam.com och Litware.com i listan över tillåtna.
   
@@ -45,11 +45,11 @@ Så här lägger du till en neka-lista:
 2. Välj **Azure Active Directory** > **användare** > **användar inställningar**.
 3. Under **externa användare**väljer du **Hantera inställningar för externt samarbete**.
 4. Under **samarbets begränsningar**väljer **du neka inbjudningar till de angivna domänerna**.
-5. Under **mål domäner**anger du namnet på en av de domäner som du vill blockera. För flera domäner anger du varje domän på en ny rad. Till exempel:
+5. Under **mål domäner**anger du namnet på en av de domäner som du vill blockera. För flera domäner anger du varje domän på en ny rad. Exempel:
 
    ![Visar alternativet neka med tillagda domäner](./media/allow-deny-list/DenyListSettings.png)
  
-6. När du är klar klickar du på **Spara**.
+6. När du är klar klickar du på **spara**.
 
 Om du försöker bjuda in en användare från en blockerad domän efter att du har angett principen, får du ett meddelande om att användarens domän för närvarande är blockerad av din Inbjudnings princip.
  
@@ -66,11 +66,11 @@ Så här lägger du till en lista över tillåtna:
 2. Välj **Azure Active Directory** > **användare** > **användar inställningar**.
 3. Under **externa användare**väljer du **Hantera inställningar för externt samarbete**.
 4. Under **samarbets begränsningar**väljer du **Tillåt endast inbjudningar till de angivna domänerna (mest restriktiva)** .
-5. Under **mål domäner**anger du namnet på en av de domäner som du vill tillåta. För flera domäner anger du varje domän på en ny rad. Till exempel:
+5. Under **mål domäner**anger du namnet på en av de domäner som du vill tillåta. För flera domäner anger du varje domän på en ny rad. Exempel:
 
    ![Visar alternativet Tillåt med tillagda domäner](./media/allow-deny-list/AllowListSettings.png)
  
-6. När du är klar klickar du på **Spara**.
+6. När du är klar klickar du på **spara**.
 
 Om du försöker bjuda in en användare från en domän som inte finns med i listan över tillåtna, visas ett meddelande om att användarens domän för närvarande är blockerad av din Inbjudnings princip när du har angett principen.
 
@@ -140,19 +140,19 @@ Följande visar samma exempel, men med princip definitionen infogad.
 New-AzureADPolicy -Definition @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}") -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true 
 ```
 
-Använd cmdleten [set-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview) för att ange List principen för att tillåta eller neka. Till exempel:
+Använd cmdleten [set-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview) för att ange List principen för att tillåta eller neka. Exempel:
 
 ```powershell   
 Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id 
 ```
 
-Använd cmdleten [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) för att hämta principen. Till exempel:
+Använd cmdleten [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) för att hämta principen. Exempel:
 
 ```powershell
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 
 ```
 
-Använd cmdleten [Remove-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview) om du vill ta bort principen. Till exempel:
+Använd cmdleten [Remove-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview) om du vill ta bort principen. Exempel:
 
 ```powershell
 Remove-AzureADPolicy -Id $currentpolicy.Id 

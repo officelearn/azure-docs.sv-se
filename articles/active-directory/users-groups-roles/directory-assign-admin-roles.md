@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc9565f44fdb868bc45d2f99de1d4036e1d5d123
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 5eefac10e2ab196affc4c4148348d19959fcfeec
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74181148"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74266904"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administratörs roll behörigheter i Azure Active Directory
 
@@ -238,6 +238,7 @@ Användare med den här rollen kan läsa inställningar och administrativ inform
 >- [Azure AD-portalen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) – den globala läsaren kan inte läsa etablerings läget för en företags app.
 >- [M365 administrations Center](https://admin.microsoft.com/Adminportal/Home#/homepage) – den globala läsaren kan inte läsa förfrågningar om kundsäkerhet. Du hittar inte fliken **Customer Locked-begäranden** under **stöd** i den vänstra rutan i M365 administrations Center.
 >- [M365 Security Center](https://security.microsoft.com/homepage) – den globala läsaren kan inte läsa känslighets-och lagrings etiketter. Du hittar inte **känslighets etiketter**, **lagrings etiketter**och **etikett Analytics** -flikar i den vänstra rutan i M365 Security Center.
+>- Det går inte att läsa SCC gransknings loggar eller göra innehållss ökning i [Office-säkerhets-och Efterlevnadscenter](https://protection.microsoft.com) – global läsare.
 >- [Team administrations Center](https://admin.teams.microsoft.com) – den globala läsaren kan inte läsa **team livs cykeln**, analysera **& rapporter**, **hantering av IP-telefon enheter** och **program katalog**.
 >- [Privileged Access Management (PAM)](https://docs.microsoft.com/office365/securitycompliance/privileged-access-management-overview) stöder inte rollen global läsare.
 >- [Azure information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection) – global läsare stöds endast [för central rapportering](https://docs.microsoft.com/azure/information-protection/reports-aip) , och när din Azure AD-organisation inte finns på den [enhetliga etiketterande plattformen](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).

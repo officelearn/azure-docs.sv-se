@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9d134e522575f30fd1f1be8176e0e1589faa7ac
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a45caeed8b601a845b0eb0fbcd25f1ec097a77a1
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73587633"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279043"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-preview-page"></a>Visa och Sök efter din senaste inloggnings aktivitet från sidan mina inloggningar (för hands version)
 
@@ -29,7 +29,7 @@ Du kan visa all din senaste inloggnings aktivitet för arbets-eller skol konton 
 
 - Vilka appar angriparen försökte få åtkomst till.
 
-## <a name="view-your-recent-sign-in-activity"></a>Visa din senaste inloggnings aktivitet
+## <a name="view-your-recent-sign-in-activity"></a>Visa din senaste inloggningsaktivitet
 
 1. Logga in på ditt arbets-eller skol konto och gå sedan till din https://myprofile.microsoft.com/ sida.
 
@@ -49,7 +49,7 @@ Innan du fastställer något är felaktigt kontrollerar du att du inte ser ett f
 
 ### <a name="if-you-see-an-unsuccessful-sign-in"></a>Om du ser en misslyckad inloggning
 
-En misslyckad inloggning, utan session-aktivitet, innebär att den primära autentiseringsmetoden (username/Password) misslyckades. Detta kan betyda att du felaktigt skrev ditt användar namn eller lösen ord, men det kan också betyda att en angripare försökte gissa ditt lösen ord. Om du tror att en angripare försöker att gissa ditt lösen ord behöver du inte ändra ditt lösen ord, men vi rekommenderar starkt att du registrerar dig för Azure Multi-Factor Authentication (MFA). Med MFA, även om hackaren till sist gissar ditt lösen ord, räcker det inte att komma åt ditt konto.
+En misslyckad inloggning, med ingen session-aktivitet, innebär att den primära verifierings metoden (username/Password) misslyckades. Detta kan betyda att du felaktigt skrev ditt användar namn eller lösen ord, men det kan också betyda att en angripare försökte gissa ditt lösen ord. Om du tror att en angripare försöker att gissa ditt lösen ord behöver du inte ändra ditt lösen ord, men vi rekommenderar starkt att du registrerar dig för Azure Multi-Factor Authentication (MFA). Med MFA, även om hackaren till sist gissar ditt lösen ord, räcker det inte att komma åt ditt konto.
 
 Om du ser en misslyckad inloggning, med en anteckning under session-aktivitet som säger att **Ytterligare verifiering misslyckades, ogiltig kod**, innebär det att din primära autentisering (username/Password) lyckades, men MFA misslyckades. Om detta var en angripare gissade de sig korrekt till ditt lösen ord, men kunde fortfarande inte skicka MFA-utmaningen. I det här fallet rekommenderar vi att du fortfarande ändrar ditt lösen ord, eftersom angriparen får den delen till höger och sedan går till sidan [säkerhets information](https://mysignins.microsoft.com/security-info) för att uppdatera dina säkerhets inställningar.
 

@@ -1,27 +1,27 @@
 ---
-title: Använd Azure Blockchain Workbench Data med SQL Server Management Studio
+title: Använd Azure blockchain Workbench-data med en SQL-databas
 description: Lär dig hur du ansluter till SQL Database i Azure Blockchain Workbench från SQL Server Management Studio.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/09/2019
+ms.date: 11/20/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: db43dd04da601650b3592dc74cdd804fae394c00
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 3a734c09b3a74fbe4165f4de25ce450fd3fbde1d
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510902"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286730"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-sql-server-management-studio"></a>Använda Azure Blockchain Workbench Data med SQL Server Management Studio
 
-Microsoft SQL Server Management Studio ger möjlighet att snabbt skriva och testa frågor mot Azure Blockchain Workbench SQL DB. Det här avsnittet beskriver steg för steg hur du ansluter till SQL Database i Azure Blockchain Workbench från SQL Server Management Studio.
+Microsoft SQL Server Management Studio ger möjlighet att snabbt skriva och testa frågor mot Azure blockchain Workbench SQL DB. Det här avsnittet innehåller en stegvis genom gång av hur du ansluter till Azure blockchain Workbenchs SQL Database inifrån SQL Server Management Studio.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * Ladda ned [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
 
@@ -43,7 +43,7 @@ Microsoft SQL Server Management Studio ger möjlighet att snabbt skriva och test
       ![Lista över databaser](./media/data-sql-management-studio/db-list.png)
 
 5. Om du vill visa data som associeras med någon av databasvyerna kan du automatiskt generera en select-instruktion genom att följa stegen nedan.
-6. Högerklicka på någon av vyerna databas i Object Explorer.
+6. Högerklicka på någon av databas vyerna i Object Explorer.
 7. Välj **Skriptvy som**.
 8. Välj **SELECT to** (SELECT till).
 9. Välj **Nytt frågeredigeringsfönster**.

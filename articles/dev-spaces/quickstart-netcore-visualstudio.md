@@ -1,10 +1,6 @@
 ---
 title: Felsöka och iterera med Visual Studio och .NET Core på AKS med Azure dev Spaces
-titleSuffix: Azure Dev Spaces
-author: zr-msft
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-ms.author: zarhoads
 ms.date: 11/13/2019
 ms.topic: quickstart
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
@@ -12,12 +8,12 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, 
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 5a7ab993c58730594a0c4e10572939d3dccbdf02
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
-ms.translationtype: MT
+ms.openlocfilehash: 58812a4bea7948c38fb0dda782a3f601004b74c0
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091833"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279842"
 ---
 # <a name="quickstart-debug-and-iterate-with-visual-studio-and-net-core-on-kubernetes-with-azure-dev-spaces"></a>Snabb start: Felsöka och iterera med Visual Studio och .NET Core på Kubernetes med Azure dev Spaces
 

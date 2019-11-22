@@ -1,20 +1,16 @@
 ---
-title: Köra flera beroende tjänster med hjälp av Node.js och VS Code
-titleSuffix: Azure Dev Spaces
+title: Köra flera beroende tjänster med Node. js och VS Code
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 11/21/2018
 ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s
-ms.openlocfilehash: 136d48f1c420ac71896eaafa0daab476c7fba6fa
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
-ms.translationtype: MT
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
+ms.openlocfilehash: e9aca4415b9500a6f9667f7df54916d783367f22
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67503068"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279596"
 ---
 # <a name="multi-service-development-with-azure-dev-spaces"></a>Utveckling av flera tjänster med Azure Dev Spaces
 
@@ -27,13 +23,13 @@ I det här avsnittet ska du skapa en andra tjänst, `mywebapi`, som ska anropas 
 ![](media/common/multi-container.png)
 
 ### <a name="open-sample-code-for-mywebapi"></a>Öppna exempelkod för *mywebapi*
-Du bör redan ha exempelkoden för `mywebapi` för den här guiden under en mapp med namnet `samples` (om inte går du till https://github.com/Azure/dev-spaces och väljer **Klona eller Ladda ned** för att ladda ned GitHub-databasen). Koden för det här avsnittet finns i `samples/nodejs/getting-started/mywebapi`.
+Du bör redan ha exempel koden för `mywebapi` för den här guiden under en mapp med namnet `samples` (om inte går du till https://github.com/Azure/dev-spaces och väljer **klon eller ladda ned** för att ladda ned GitHub-lagringsplatsen.) Koden för det här avsnittet är i `samples/nodejs/getting-started/mywebapi`.
 
 ### <a name="run-mywebapi"></a>Kör *mywebapi*
 1. Öppna mappen `mywebapi` i ett *separat VS Code-fönster*.
 1. Öppna **Kommandopaletten** (med hjälp av menyn **Visa | Kommandopalett**) och använd automatisk komplettering för att ange och välja det här kommandot: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`. Det här kommandot ska inte förväxlas med kommandot `azds prep` som konfigurerar projektet för distribution.
-1. Tryck på F5 och vänta tills tjänsten har skapats och distribuerats. Du vet att den är klar när den *lyssnar på port 80* meddelande visas i Felsökningskonsolen.
-1. Skriv ned slutpunktens URL, som ser ut ungefär så här: `http://localhost:<portnumber>`. **Tips: I statusfältet för VS Code att Stäng orange och klickbara vinsingswebbadress.** Det kan verka som om containern körs lokalt, men i själva verket körs den i utvecklingsmiljön i Azure. localhost-adressen beror på att `mywebapi` inte har definierat några offentliga slutpunkter och endast kan nås från Kubernetes-instansen. För enkelhetens skull, och för att underlätta interaktionen med den privata tjänsten från den lokala datorn, skapar Azure Dev Spaces en tillfällig SSH-tunnel för containern som körs i Azure.
+1. Tryck på F5 och vänta tills tjänsten har skapats och distribuerats. Du vet att det är klart när meddelandet *lyssning på port 80* visas i fel söknings konsolen.
+1. Skriv ned slutpunktens URL, som ser ut ungefär så här: `http://localhost:<portnumber>`. **Tips! statusfältet för VS-koden blir orange och visar en klicknings bar URL.** Det kan verka som om containern körs lokalt, men i själva verket körs den i utvecklingsmiljön i Azure. localhost-adressen beror på att `mywebapi` inte har definierat några offentliga slutpunkter och endast kan nås från Kubernetes-instansen. För enkelhetens skull, och för att underlätta interaktionen med den privata tjänsten från den lokala datorn, skapar Azure Dev Spaces en tillfällig SSH-tunnel för containern som körs i Azure.
 1. När `mywebapi` är redo öppnar du webbläsaren på localhost-adressen. Du bör se ett svar från `mywebapi`-tjänsten (”Hello from mywebapi”).
 
 
@@ -66,10 +62,10 @@ I föregående kodexempel vidarebefordras rubriken `azds-route-as` från den ink
 
 ### <a name="debug-across-multiple-services"></a>Felsöka över flera tjänster
 1. I detta läge bör `mywebapi` fortfarande köras med felsökaren. Om inte trycker du på F5 i `mywebapi`-projektet.
-1. Konfigurera en brytpunkt i standard GET `/` hanteraren [på rad 8 av `server.js` ](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/mywebapi/server.js#L8).
+1. Ange en Bryt punkt inuti standard HÄMTNINGs `/`s hanteraren [på rad 8 i `server.js`](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/mywebapi/server.js#L8).
 1. I `webfrontend`-projektet lägger du till en brytpunkt precis innan en GET-begäran skickas till `http://mywebapi`.
 1. Tryck på F5 i `webfrontend`-projektet.
-1. Öppna webbappen och stega igenom koden i båda tjänsterna. I webbappen bör ett sammanslaget meddelande från de båda tjänsterna visas: ”Hello from webfrontend and Hello from mywebapi” (Hej från webfrontend och hej från mywebapi).
+1. Öppna webbappen och stega igenom koden i båda tjänsterna. Webbappen bör visa ett sammanslaget meddelande för de båda tjänsterna: ”Hello from webfrontend and Hello from mywebapi”.
 
 ### <a name="well-done"></a>Bra gjort!
 Nu har du ett program med flera containrar där varje container kan utvecklas och distribueras separat.

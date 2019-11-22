@@ -1,5 +1,5 @@
 ---
-title: Problem med att konfigurera federerad enkel inloggning för Azure AD Gallery-appar | Microsoft Docs
+title: Problem med att konfigurera federerad SSO för Azure AD Gallery-appar
 description: Åtgärda några av de vanliga problem som kan uppstå när du konfigurerar federerad enkel inloggning med SAML för program som listas i Azure AD-programgalleriet
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f4e690b440604a312ddfa8cd320ac200c0f40cf
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 87c2497a781b0d46b3b2f1e281a3d7b327b60952
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381219"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274644"
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Problem med att konfigurera federerad enkel inloggning för ett Azure AD Gallery-program
 
@@ -42,7 +42,7 @@ Om du inte kan konfigurera identifieraren eller svars-URL: en bekräftar du ID: 
 
 För att veta vilka mönster som är förkonfigurerade för programmet:
 
-1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör** eller medadministratör **.** Gå till steg 7. Om du redan finns på bladet program konfiguration på Azure AD.
+1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör** eller **medadministratör.** Gå till steg 7. Om du redan finns på bladet program konfiguration på Azure AD.
 
 2. Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
@@ -60,7 +60,7 @@ För att veta vilka mönster som är förkonfigurerade för programmet:
 
 8. Välj **SAML-baserad inloggning** från List rutan **läge** .
 
-9. Gå till text rutan **identifierare** eller svars- **URL** , under **avsnittet domän och URL: er.**
+9. Gå till text rutan **identifierare** eller **svars-URL** , under **avsnittet domän och URL: er.**
 
 10. Det finns tre sätt att känna till de mönster som stöds för programmet:
 
@@ -86,7 +86,7 @@ Azure AD väljer formatet för attributet NameID (användar identifierare) baser
 
 Följ dessa steg om du vill ladda ned metadata för programmet eller certifikatet från Azure AD:
 
-1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör** eller medadministratör **.**
+1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör** eller **medadministratör.**
 
 2. Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
@@ -108,7 +108,7 @@ Azure AD tillhandahåller inte en URL för att hämta metadata. Det går bara at
 
 ## <a name="dont-know-how-to-customize-saml-claims-sent-to-an-application"></a>Vet inte hur man anpassar SAML-anspråk som skickas till ett program
 
-Information om hur du anpassar SAML-attributets anspråk som skickas till ditt program finns i anspråks [mappning i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) för mer information.
+Information om hur du anpassar SAML-attributets anspråk som skickas till ditt program finns i [anspråks mappning i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) för mer information.
 
 ## <a name="next-steps"></a>Nästa steg
 [Hantera program med Azure Active Directory](what-is-application-management.md)

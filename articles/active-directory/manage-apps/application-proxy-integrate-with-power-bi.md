@@ -1,5 +1,5 @@
 ---
-title: Få fjärråtkomst till Power BI med Azure AD-programproxy | Microsoft Docs
+title: Få fjärråtkomst till Power BI med Azure AD-programproxy
 description: Beskriver grunderna för hur du integrerar en lokal Power BI med Azure AD-programproxy.
 services: active-directory
 documentationcenter: ''
@@ -16,18 +16,18 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 845ffda22cae9464870786cc5997b9f5521c03e1
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 9faa1fffde5553168c8b76ea40cebc001c1e27b2
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795632"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275516"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Få fjärråtkomst till Power BI Mobile med Azure AD-programproxy
 
 Den här artikeln beskriver hur du använder Azure AD-programproxy för att aktivera Power BI mobilappen för att ansluta till Power BI-rapportserver (PBIRS) och SQL Server Reporting Services (SSRS) 2016 och senare. Med den här integrationen kan användare som är borta från företags nätverket komma åt sina Power BI rapporter från Power BI mobilapp och skyddas av Azure AD-autentisering. Det här skyddet omfattar [säkerhets förmåner](application-proxy-security.md#security-benefits) som villkorlig åtkomst och Multi-Factor Authentication.  
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Den här artikeln förutsätter att du redan har distribuerat rapport tjänster och [aktiverat Application Proxy](application-proxy-add-on-premises-application.md).
 
@@ -37,7 +37,7 @@ Den här artikeln förutsätter att du redan har distribuerat rapport tjänster 
 
 ## <a name="step-1-configure-kerberos-constrained-delegation-kcd"></a>Steg 1: Konfigurera Kerberos-begränsad delegering (KCD)
 
-För lokala program som använder Windows-autentisering kan du använda enkel inloggning (SSO) med Kerberos-autentiseringsprotokollet och en funktion som kallas Kerberos-begränsad delegering (KCD). När KCD har kon figurer ATS kan du använda Application Proxy Connector för att hämta en Windows-token för en användare, även om användaren inte har loggat in i Windows direkt. Mer information om KCD finns i [Översikt över Kerberos-begränsad delegering](https://technet.microsoft.com/library/jj553400.aspx) och [Kerberos-begränsad delegering för enkel inloggning till dina appar med Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md).
+För lokala program som använder Windows-autentisering, kan du få enkel inloggning (SSO) med Kerberos-autentiseringsprotokollet och en funktion som kallas Kerberos-begränsad delegering (KCD). När KCD har kon figurer ATS kan du använda Application Proxy Connector för att hämta en Windows-token för en användare, även om användaren inte har loggat in i Windows direkt. Mer information om KCD finns i [Översikt över Kerberos-begränsad delegering](https://technet.microsoft.com/library/jj553400.aspx) och [Kerberos-begränsad delegering för enkel inloggning till dina appar med Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md).
 
 Det finns inte mycket att konfigurera på repor ting Services-sidan. Se bara till att ha ett giltigt SPN (Service Principal Name) för att möjliggöra korrekt Kerberos-autentisering. Kontrol lera också att repor ting Services-servern är aktive rad för Negotiate-autentisering.
 
@@ -46,7 +46,7 @@ Fortsätt med följande steg för att konfigurera KCD för repor ting Services.
 ### <a name="configure-the-service-principal-name-spn"></a>Konfigurera tjänstens huvud namn (SPN)
 
 SPN är en unik identifierare för en tjänst som använder Kerberos-autentisering. Du måste kontrol lera att du har rätt HTTP SPN för rapport servern. Information om hur du konfigurerar rätt SPN (Service Principal Name) för rapport servern finns i [Registrera ett tjänst huvud namn (SPN) för en rapport Server](https://msdn.microsoft.com/library/cc281382.aspx).
-Du kan kontrol lera att SPN har lagts till genom att köra Setspn-kommandot med alternativet-L. Mer information om det här kommandot finns i [setspn](https://social.technet.microsoft.com/wiki/contents/articles/717.service-principal-names-spn-setspn-syntax.aspx).
+Du kan kontrol lera att SPN har lagts till genom att köra Setspn-kommandot med alternativet-L. Mer information om det här kommandot finns [Setspn](https://social.technet.microsoft.com/wiki/contents/articles/717.service-principal-names-spn-setspn-syntax.aspx).
 
 ### <a name="enable-negotiate-authentication"></a>Aktivera Negotiate-autentisering
 
@@ -63,14 +63,14 @@ Om du vill aktivera en rapport Server för att använda Kerberos-autentisering k
 Mer information finns i [ändra en repor ting Services-konfigurationsfil](https://msdn.microsoft.com/library/bb630448.aspx) och [Konfigurera Windows-autentisering på en rapport Server](https://msdn.microsoft.com/library/cc281253.aspx).
 
 ### <a name="ensure-the-connector-is-trusted-for-delegation-to-the-spn-added-to-the-reporting-services-application-pool-account"></a>Se till att anslutningen är betrodd för delegering till det SPN som lagts till i repor ting Services-programpoolens konto
-Konfigurera KCD så att Azure AD-programproxy-tjänsten kan delegera användar identiteter till repor ting Services-programpoolens konto. Konfigurera KCD genom att aktivera Application Proxy Connector för att hämta Kerberos-biljetter för användare som har autentiserats i Azure AD. Sedan skickar servern kontexten till mål programmet eller repor ting Services i det här fallet.
+Konfigurera KCD så att Azure AD-programproxy-tjänsten kan delegera användar identiteter till repor ting Services-programpoolens konto. Konfigurera KCD genom att aktivera programproxy-kopplingen att hämta Kerberos-biljetter för de användare som har verifierats i Azure AD. Sedan skickar servern kontexten till mål programmet eller repor ting Services i det här fallet.
 
 Om du vill konfigurera KCD upprepar du följande steg för varje kopplings dator:
 
 1. Logga in på en domänkontrollant som domän administratör och öppna sedan **Active Directory användare och datorer**.
-2. Hitta den dator som anslutningen körs på.  
+2. Hitta den dator som kör anslutningstjänsten på.  
 3. Dubbelklicka på datorn och välj sedan fliken **delegering** .
-4. Ställ in Delegerings inställningarna på **den här datorn som betrodd för delegering till de angivna tjänsterna**. Välj sedan **Använd valfritt autentiseringsprotokoll**.
+4. Ställ in Delegerings inställningarna på **den här datorn som betrodd för delegering till de angivna tjänsterna**. Välj **Använd valfritt autentiseringsprotokoll**.
 5. Välj **Lägg till**och välj sedan **användare eller datorer**.
 6. Ange det tjänst konto som du använder för repor ting Services. Detta är det konto som du har lagt till SPN-namnet i repor ting Services-konfigurationen.
 7. Klicka på **OK**. Klicka på **OK** igen för att spara ändringarna.
@@ -89,17 +89,17 @@ Nu är du redo att konfigurera Azure AD-programproxy.
 
    - **Metod för förautentisering**: Azure Active Directory
 
-2. När din app har publicerats konfigurerar du inställningarna för enkel inloggning med följande steg:
+2. När din app har publicerats kan du konfigurera inställningar för enkel inloggning med följande steg:
 
-   a. På sidan program i portalen väljer du **enkel inloggning**.
+   a. På programsidan i portalen väljer **enkel inloggning**.
 
    b. För **läge för enkel inloggning**väljer du **integrerad Windows-autentisering**.
 
    c. Ange det **interna programmets SPN** till det värde som du angav tidigare.  
 
-   d. Välj den **delegerade inloggnings identitet** för anslutningen som du vill använda för användarens räkning. Mer information finns i [arbeta med olika lokala och molnbaserade identiteter](application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities).
+   d. Välj den **delegerad inloggningsidentitet** för anslutningstjänsten att använda för användare. Mer information finns i [arbeta med olika lokala och molnbaserade identiteter](application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities).
 
-   e. Klicka på **Spara** för att spara ändringarna.
+   e. Klicka på **spara** att spara dina ändringar.
 
 Slutför konfigurationen av programmet genom att gå till avsnittet **användare och grupper** och tilldela användare åtkomst till det här programmet.
 

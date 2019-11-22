@@ -1,61 +1,59 @@
 ---
-title: Företag affärskontinuitet och haveriberedskap återställning i Azure Dev blanksteg
-titleSuffix: Azure Dev Spaces
+title: Verksamhets kontinuitet och haveri beredskap i Azure dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
 author: lisaguthrie
 ms.author: lcozzens
 ms.date: 01/28/2019
 ms.topic: conceptual
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
-keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s '
+keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
 manager: gwallace
-ms.openlocfilehash: 2da92b4fcd98024ada8d852d65e08fe8c70e3884
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
-ms.translationtype: MT
+ms.openlocfilehash: f2c2767d23a99644ee4ecb4e1040162c58a72b1a
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704059"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280095"
 ---
-# <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Företag affärskontinuitet och haveriberedskap återställning i Azure Dev blanksteg
+# <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Verksamhets kontinuitet och haveri beredskap i Azure dev Spaces
 
-## <a name="review-disaster-recovery-guidance-for-azure-kubernetes-service-aks"></a>Granska vägledning om haveriberedskap för Azure Kubernetes Service (AKS)
+## <a name="review-disaster-recovery-guidance-for-azure-kubernetes-service-aks"></a>Granska katastrof återställnings vägledning för Azure Kubernetes service (AKS)
 
-Azure Dev blanksteg är en funktion i Azure Kubernetes Service (AKS). Du bör vara medveten om riktlinjer för haveriberedskap i AKS och överväga om de tillämpas på AKS-kluster som du använder för Dev blanksteg. Mer information hittar [bästa praxis för företag affärskontinuitet och haveriberedskap i Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region)
+Azure dev Spaces är en funktion i Azure Kubernetes service (AKS). Du bör vara medveten om rikt linjerna för haveri beredskap i AKS och fundera över om de gäller för de AKS-kluster som du använder för dev Spaces. Mer information finns [i metod tips för verksamhets kontinuitet och haveri beredskap i Azure Kubernetes service (AKS)](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region)
 
-## <a name="enable-dev-spaces-on-aks-clusters-in-different-regions"></a>Aktivera Dev blanksteg i AKS-kluster i olika regioner
+## <a name="enable-dev-spaces-on-aks-clusters-in-different-regions"></a>Aktivera dev Spaces på AKS-kluster i olika regioner
 
-Aktivera Dev blanksteg i AKS-kluster i olika regioner kan du fortsätta att använda Dev blanksteg direkt efter ett fel i Azure-region.
+Genom att aktivera dev Spaces på AKS-kluster i olika regioner kan du återuppta användningen av dev-utrymmen direkt efter ett Azure-regions fel.
 
-Allmän information om distributioner över flera regioner med AKS finns i [planera för distribution i flera regioner](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment)
+Allmän information om distributioner av flera regioner i AKS finns i [Planera för distribution i flera regioner](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment)
 
-Information om hur du distribuerar ett AKS-kluster som är kompatibel med Azure Dev blanksteg finns i [skapa ett Kubernetes-kluster med Azure Cloud Shell](https://docs.microsoft.com/azure/dev-spaces/how-to/create-cluster-cloud-shell)
+Information om hur du distribuerar ett AKS-kluster som är kompatibelt med Azure dev Spaces finns i [skapa ett Kubernetes-kluster med hjälp av Azure Cloud Shell](https://docs.microsoft.com/azure/dev-spaces/how-to/create-cluster-cloud-shell)
 
-### <a name="enable-dev-spaces-via-the-azure-portal"></a>Aktivera Dev blanksteg via Azure portal
+### <a name="enable-dev-spaces-via-the-azure-portal"></a>Aktivera dev Spaces via Azure Portal
 
-Klicka på den **Dev blanksteg** navigering objekt under egenskaperna för varje kluster i Azure-portalen. Välj sedan alternativet för att aktivera Dev blanksteg.
+Klicka på navigerings objektet **dev Spaces** under egenskaperna för varje kluster i Azure Portal. Välj sedan alternativet för att aktivera dev Spaces.
 
-![Aktivera Dev blanksteg via Azure-portalen](../media/common/enable-dev-spaces.jpg)
+![Aktivera dev Spaces via Azure Portal](../media/common/enable-dev-spaces.jpg)
 
-Upprepa proceduren för varje kluster.
+Upprepa den här processen för varje kluster.
 
-### <a name="enable-dev-spaces-via-the-azure-cli"></a>Aktivera Dev blanksteg via Azure CLI
+### <a name="enable-dev-spaces-via-the-azure-cli"></a>Aktivera dev Spaces via Azure CLI
 
-Du kan också aktivera Dev blanksteg på kommandoraden:
+Du kan också aktivera dev Spaces på kommando raden:
 
 ```cmd
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
 
-## <a name="deploy-your-teams-baseline-to-each-cluster"></a>Distribuera din grupps baslinjen till varje kluster
+## <a name="deploy-your-teams-baseline-to-each-cluster"></a>Distribuera teamets bas linje till varje kluster
 
-När du arbetar med utveckling blanksteg, distribuera hela tillämpningen till överordnade dev kan vanligtvis på ett Kubernetes-kluster. Som standard den `default` utrymme används. Den första distributionen omfattar alla tjänster, samt de externa resurserna som dessa tjänster är beroende av, till exempel databaser eller köer. Detta kallas den *baslinje*. När du har konfigurerat en baslinje i överordnade dev utrymme du iterera och Felsök enskilda tjänster i underordnade dev blanksteg.
+När du arbetar med dev-utrymmen distribuerar du normalt hela programmet till ett överordnat dev-utrymme på ditt Kubernetes-kluster. Som standard används `default` utrymmet. Den första distributionen omfattar alla tjänster och de externa resurser som tjänsterna är beroende av, till exempel databaser eller köer. Detta kallas för *bas linjen*. När du har skapat en bas linje i det överordnade dev-utrymmet itererar du och felsöker enskilda tjänster inom underordnade dev-utrymmen.
 
-Du bör distribuera de senaste versionerna av din baslinje har ställts in av tjänster till ett kluster i flera regioner. Uppdatera dina baslinje-tjänster på detta sätt säkerställer du att du kan fortsätta att använda Dev blanksteg om det uppstår ett fel i Azure-region. Om du distribuerar din baslinje via en CI/CD-pipeline, ändra till exempel pipelinen så att distribueras till flera kluster i olika regioner.
+Du bör distribuera de senaste versionerna av din bas linje uppsättning av tjänster till kluster i flera regioner. Genom att uppdatera dina bas linje tjänster på det här sättet ser du till att du kan fortsätta att använda dev-utrymmen om det uppstår ett Azure-regions haveri. Om du till exempel distribuerar din bas linje via en CI/CD-pipeline ändrar du pipelinen så att den distribueras till flera kluster i olika regioner.
 
-## <a name="select-the-correct-aks-cluster-to-use-for-dev-spaces"></a>Välj rätt AKS-kluster för utveckling blanksteg
+## <a name="select-the-correct-aks-cluster-to-use-for-dev-spaces"></a>Välj rätt AKS-kluster som ska användas för dev Spaces
 
-När du har korrekt konfigurerat ett säkerhetskopiering kluster som kör din grupps baslinje, kan du snabbt växla till säkerhetskopiering klustret när som helst. Du kan sedan köra enskilda tjänster som du arbetar med i Dev blanksteg.
+När du har konfigurerat ett säkerhets kopierings kluster som kör din grupps bas linje kan du snabbt växla över till säkerhets kopierings klustret när som helst. Sedan kan du köra om de enskilda tjänster som du arbetar med i dev-utrymmen.
 
 Välj ett annat kluster med följande CLI-kommando:
 
@@ -63,40 +61,40 @@ Välj ett annat kluster med följande CLI-kommando:
 az aks use-dev-spaces -g <new resource group name> -n <new cluster name>
 ```
 
-Du kan ange adressutrymmen tillgängliga utveckling på det nya klustret med följande kommando:
+Du kan visa en lista över tillgängliga dev Spaces på det nya klustret med följande kommando:
 
 ```cmd
 azds space list
 ```
 
-Du kan skapa ett nytt dev utrymme att arbeta i eller välj en befintlig dev diskutrymme, med följande kommando:
+Du kan skapa ett nytt dev-utrymme för att arbeta i eller välja ett befintligt dev-utrymme med följande kommando:
 
 ```cmd
 azds space select -n <space name>
 ```
 
-När du har kört dessa kommandon används valda klustret och dev utrymme för efterföljande CLI-åtgärder och för felsökning projekt med hjälp av Visual Studio Code-tillägg för Azure Dev blanksteg.
+När du har kört de här kommandona används det valda klustret och dev-utrymmet för efterföljande CLI-åtgärder och för fel sökning av projekt med Visual Studio Code-tillägget för Azure dev Spaces.
 
-Om du använder Visual Studio kan växla du klustret används av ett befintligt projekt genom följande steg:
+Om du använder Visual Studio kan du växla klustret som används av ett befintligt projekt genom följande steg:
 
 1. Öppna projektet i Visual Studio.
-1. Högerklicka på projektnamnet i Solution Explorer och klicka på **egenskaper**
-1. I den vänstra rutan klickar du på **felsöka**
-1. På sidan Debug egenskaper klickar du på den **profil** nedrullningsbara listan och välj **Azure Dev blanksteg**.
-1. Klicka på den **ändra** knappen.
-1. I dialogrutan som visas, väljer du det AKS-kluster som du vill använda. Om du vill välja en annan dev utrymme att arbeta i eller skapa ett nytt dev-utrymme genom att välja lämpligt alternativ från den **utrymme** listrutan.
+1. Högerklicka på projekt namnet i Solution Explorer och klicka på **Egenskaper**
+1. I den vänstra rutan klickar du på **Felsök**
+1. På sidan fel söknings egenskaper klickar du på list rutan **profil** och väljer **Azure dev Spaces**.
+1. Klicka på knappen **ändra** .
+1. I dialog rutan som visas väljer du det AKS-kluster som du vill använda. Om du vill kan du välja ett annat dev Space för att arbeta i eller skapa ett nytt dev-utrymme genom att välja lämpligt alternativ i list rutan **utrymme** .
 
-När du har valt rätt klustret och utrymme, kan du trycka på F5 för att köra tjänsten i Dev blanksteg.
+När du har valt rätt kluster och utrymme kan du köra tjänsten i dev Spaces genom att trycka på F5.
 
-Upprepa dessa steg för andra projekt som konfigurerats för att använda det ursprungliga klustret.
+Upprepa de här stegen för alla andra projekt som har kon figurer ATS för att använda det ursprungliga klustret.
 
-## <a name="access-a-service-on-a-backup-cluster"></a>Åtkomst till en tjänst i ett kluster med säkerhetskopiering
+## <a name="access-a-service-on-a-backup-cluster"></a>Få åtkomst till en tjänst i ett säkerhets kopierings kluster
 
-Om du har konfigurerat din tjänst om du vill använda ett offentligt DNS-namn, kommer tjänsten har en annan URL Om du kör den i ett backup-kluster. Offentliga DNS-namn är alltid i formatet `<space name>.s.<root space name>.<service name>.<cluster GUID>.<region>.azds.io`. Om du växlar till ett annat kluster, kluster GUID och eventuellt regionen kommer att ändras.
+Om du har konfigurerat tjänsten att använda ett offentligt DNS-namn, kommer tjänsten att ha en annan URL om du kör den på ett säkerhets kopierings kluster. Offentliga DNS-namn är alltid i formatet `<space name>.s.<root space name>.<service name>.<cluster GUID>.<region>.azds.io`. Om du växlar till ett annat kluster ändras kluster-GUID och eventuellt regionen.
 
-Dev blanksteg visar alltid rätt URL för tjänsten när du kör `azds up`, eller i utdatafönstret i Visual Studio under **Azure Dev blanksteg**.
+I dev Spaces visas alltid rätt URL för tjänsten när du kör `azds up`eller i fönstret utdata i Visual Studio under **Azure dev Spaces**.
 
-Du kan också hitta URL: en genom att köra den `azds list-uris` kommando:
+Du kan också hitta URL: en genom att köra kommandot `azds list-uris`:
 ```
 $ azds list-uris
 Uri                                                     Status

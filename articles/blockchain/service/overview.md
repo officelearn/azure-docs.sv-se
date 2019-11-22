@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: Blockchain
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 11/18/2019
 ms.topic: overview
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 9fcf75a07d1caf7b411c315d11ce984cbe35df75
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
-ms.translationtype: MT
+ms.openlocfilehash: 55c4c3f2c6a7856f3e7c0aea81ce013d3ff56f8b
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73577188"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284790"
 ---
 # <a name="what-is-azure-blockchain-service"></a>Vad är Azure Blockchain Service?
 
@@ -31,7 +31,7 @@ Dessa funktioner kräver nästan ingen administration och de tillhandahålls uta
 
 ## <a name="network-deployment-and-operations"></a>Nätverks distribution och åtgärder
 
-Distribution av Azure blockchain-tjänsten kan göras via Azure Portal, Azure CLI och via Visual Studio Code med Azure blockchain-tillägget.  Distributionen är förenklad, inklusive etablering av både Transaction-och validator-noder, virtuella Azure-nätverk för säkerhets isolering samt hanterad lagring.  Dessutom, när du distribuerar en ny blockchain-medlem, skapar användare även eller ansluter till en konsortium.  Konsortiet gör det möjligt för flera parter i olika Azure-prenumerationer att kunna kommunicera på ett säkert sätt med varandra på en delad blockchain.  Den här förenklade distributionen minskar blockchain nätverks distribution från dagar till minuter.
+Distribution av Azure blockchain-tjänsten görs via Azure Portal, Azure CLI eller via Visual Studio Code med Azure blockchain-tillägget. Distributionen är förenklad, inklusive etablering av både Transaction-och validator-noder, virtuella Azure-nätverk för säkerhets isolering samt hanterad lagring.  Dessutom, när du distribuerar en ny blockchain-medlem, skapar användare även eller ansluter till en konsortium.  Konsortiet gör det möjligt för flera parter i olika Azure-prenumerationer att kunna kommunicera på ett säkert sätt med varandra på en delad blockchain.  Den här förenklade distributionen minskar blockchain nätverks distribution från dagar till minuter.
 
 ### <a name="performance-and-service-tiers"></a>Prestanda-och tjänst nivåer
 
@@ -43,13 +43,13 @@ Förutom att erbjuda två validator-noder tillhandahåller *standard* nivån 2 *
 
 ### <a name="security-and-maintenance"></a>Säkerhet och underhåll
 
-När du har slutfört din första blockchain-medlem har du möjlighet att lägga till ytterligare transaktionsloggfiler till din medlem.  Som standard skyddas transaktions noder genom brand Väggs regler och måste konfigureras för åtkomst.  Dessutom kan alla transaktionsloggfiler kryptera data i rörelse via TLS.  Det finns flera alternativ för att skydda åtkomst till Transaction Node, inklusive brand Väggs regler, grundläggande autentisering, åtkomst nycklar och Azure Active Directory-integrering. Mer information finns i [Konfigurera Transaction Nodes](configure-transaction-nodes.md) och [Konfigurera Azure Active Directory åtkomst](configure-aad.md).
+När du har slutfört din första blockchain-medlem har du möjlighet att lägga till ytterligare transaktionsloggfiler till din medlem.  Som standard skyddas transaktions noder genom brand Väggs regler och kräver konfiguration för åtkomst.  Dessutom kan alla transaktionsloggfiler kryptera data i rörelse via TLS.  Det finns flera alternativ för att skydda åtkomst till Transaction Node, inklusive brand Väggs regler, grundläggande autentisering, åtkomst nycklar och Azure Active Directory-integrering. Mer information finns i [Konfigurera Transaction Nodes](configure-transaction-nodes.md) och [Konfigurera Azure Active Directory åtkomst](configure-aad.md).
 
 Som en hanterad tjänst ser Azure blockchain-tjänsten till att din blockchain-medlems noder korrigeras med de senaste uppdateringarna för värd operativ systemet och program stacken i redovisningen, konfigurerade för hög tillgänglighet (endast standard nivån), vilket eliminerar mycket av DevOps krävs för traditionella IaaS blockchain-noder.  Mer information om korrigeringar och uppdateringar finns i [Azure blockchain service Ledger-versioner som stöds](ledger-versions.md).
 
 ### <a name="monitoring-and-logging"></a>Övervakning och loggning
 
-Dessutom tillhandahåller Azure blockchain-tjänsten omfattande mått via Azure Monitor tjänst som ger insikter om noders CPU, minne och lagrings användning, samt användbara insikter om blockchain nätverks aktivitet, till exempel transaktioner och block används, transaktions köns djup, samt aktiva anslutningar.  Mått kan anpassas för att ge vyer i de insikter som är viktiga för ditt blockchain-program.  Dessutom kan tröskelvärden definieras via aviseringar som gör det möjligt för användare att utlösa åtgärder som att skicka ett e-postmeddelande eller SMS, köra en Logic app, Azure Function eller skicka till en anpassad, webhook.
+Dessutom tillhandahåller Azure blockchain-tjänsten omfattande mått genom Azure Monitor tjänst som ger insikter om noders CPU, minne och lagrings användning.  Azure Monitor ger också till gång till insikter om blockchain nätverks aktivitet, till exempel transaktioner och block används, transaktions köns djup och aktiva anslutningar.  Mått kan anpassas för att ge vyer i de insikter som är viktiga för ditt blockchain-program.  Dessutom kan tröskelvärden definieras via aviseringar som gör det möjligt för användare att utlösa åtgärder som att skicka ett e-postmeddelande eller SMS, köra en Logic app, Azure Function eller skicka till en anpassad, webhook.
 
 ![Mått](./media/overview/metrics.png)
 

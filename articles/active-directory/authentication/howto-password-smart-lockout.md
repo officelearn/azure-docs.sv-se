@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a762009a7aaf1a965333ac573efe55d792c3f04b
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: d4cb2d424d242fd9ea078d981a85516a00c8115f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125005"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74268673"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory Smart utelåsning
 
@@ -56,7 +56,7 @@ Använd följande instruktioner för att verifiera din lokala princip för Activ
 
 1. Öppna verktyget grupprincip hantering.
 2. Redigera grup principen som innehåller din organisations princip för konto utelåsning, till exempel **standard domän principen**.
-3. Bläddra till **dator konfiguration** > **principer** > **Windows-inställningar** > **säkerhets inställningar** > **konto**principerkonto > **utelåsning Princip**.
+3. Bläddra till **dator konfiguration** > **principer** > **Windows-inställningar** > **säkerhets inställningar** > **konto principer** > **konto utelåsnings princip**.
 4. Verifiera ditt **konto utelåsnings tröskelvärde** och **Återställ räknaren för konto utelåsning efter** värden.
 
 ![Ändra principen för den lokala Active Directory konto utelåsning](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
@@ -67,8 +67,9 @@ Med hjälp av dina organisations krav kan smarta utelåsnings värden behöva an
 
 Använd följande steg för att kontrol lera eller ändra de smarta utelåsnings värdena för din organisation:
 
-1. Logga in på [Azure Portal](https://portal.azure.com) och navigera till **Azure Active Directory** > **autentiseringsmetoder** > **lösen ords skydd**.
-1. Ange tröskelvärdet för **utelåsning**, baserat på hur många misslyckade inloggningar som tillåts på ett konto före det första utelåsning. Standardvärdet är 10.
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Sök efter och välj *Azure Active Directory*. Välj **autentiseringsmetoder** > **lösen ords skydd**.
+1. Ange **tröskelvärdet för utelåsning**, baserat på hur många misslyckade inloggningar som tillåts på ett konto före det första utelåsning. Standardvärdet är 10.
 1. Ange **utelåsnings tiden i sekunder**till längden i sekunder för varje utelåsning. Standardvärdet är 60 sekunder (en minut).
 
 > [!NOTE]

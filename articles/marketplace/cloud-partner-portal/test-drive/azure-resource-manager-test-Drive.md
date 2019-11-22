@@ -1,25 +1,26 @@
 ---
-title: Azure Resource Manager-provkörning | Azure Marketplace
-description: Skapa en Marketplace-Test-enhet med Azure Resource Manager
+title: Azure Resource Manager testen het | Azure Marketplace
+description: Bygg en Marketplace-testenhet med Azure Resource Manager
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 manager: Patrick .Butler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 92c55c7f15b3f350ad802157bf401f3e75983789
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 610673c548294f875ca70edb8ab26b1fdeb41cb6
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606431"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838086"
 ---
-# <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager-provkörning
+# <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager Test Drive
 
 Den här artikeln är utgivare som har sitt erbjudande på Azure Marketplace eller som står på AppSource men vill bygga sina Test Drive med endast Azure-resurser.
 
-En mall för Azure Resource Manager (Resource Manager) är en inbyggd behållare för Azure-resurser att du utformar för bästa representerar din lösning. Om du är bekant med vilken en Resource Manager-mall är kan du läsa mer om [förstå Resource Manager-mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) och [skapa Resource Manager-mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) att kontrollera att du vet hur du skapar och testa egna mallar.
+En mall för Azure Resource Manager (Resource Manager) är en kodad behållare för Azure-resurser som du utformar till att bäst representera din lösning. Om du inte är bekant med vad en Resource Manager-mall är, kan du läsa mer i [Resource Manager-mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) och [Redigera Resource Manager-mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) för att se till att du vet hur du skapar och testar dina egna mallar.
 
 Vad Test Drive gör är att det tar den angivna Resource Manager-mallen och gör en distribution av alla resurser som krävs med Resource Manager-mallen i en resursgrupp.
 
@@ -31,25 +32,25 @@ Om du vill skapa en Azure Resource Manager Test Drive är kraven för dig att:
 
 ## <a name="how-to-build-an-azure-resource-manager-test-drive"></a>Hur du skapar en Azure Resource Manager-provkörning
 
-Här är en process för att skapa en Azure Resource Manager Test Drive:
+Här är processen för att skapa en Azure Resource Manager testen het:
 
-1. Utforma vad du vill att dina kunder att göra ett diagram i flödet.
-1. Definiera vilka upplevelser som kunderna att bygga.
-1. Baserat på ovanstående definitioner kan avgöra vilka delar och resurser som krävs för kunder att utföra sådana upplevelse: till exempel D365 instans eller en webbplats med en-databas.
+1. Designa vad du vill att dina kunder ska göra i ett flödes diagram.
+1. Definiera vilka upplevelser som kunderna ska bygga.
+1. Utifrån definitionerna ovan bestämmer du vilka delar och resurser som krävs för att kunderna ska kunna utföra sådan upplevelse: till exempel D365-instans eller en webbplats med en databas.
 1. Skapa designen lokalt och testa upplevelsen.
-1. Paketet upplevelse i en ARM-mall för distribution, och därifrån:
+1. Paketera upplevelsen i en distribution av ARM-mallar och därifrån:
     1. Definiera vilka delar av resurserna som är indataparametrar;
-    1. Vilka variabler är;
-    1. Vilka utdata ges till kundupplevelsen.
-1. Publicera, testa och publicera.
+    1. Vilka variabler är,
+    1. Vilka utdata ges till kund upplevelsen.
+1. Publicera, testa och gå live.
 
 Den viktigaste delen om att skapa en Azure Resource Manager Test Drive är att definiera vilka scenarier som du vill att dina kunder att uppleva. Är du en brandväggsprodukt och du vill demonstrera hur väl du hantera skript-inmatningsattacker? Är du en produkt för lagring och du vill demonstrera hur snabbt och enkelt din lösning komprimerar filer?
 
-Se till att använda en tillräcklig tidsperiod som utvärderar vilka är de bästa sätten att visa upp din produkt. Mer specifikt runt alla nödvändiga resurser behöver, som gör det paketering Resource Manager-mallen tillräckligt enklare.
+Se till att ägna en tillräckligt lång tids period att utvärdera vad som är det bästa sättet att Visa produkten. Mer specifikt kring alla nödvändiga resurser som du behöver, eftersom det gör det enklare att paketera Resource Manager-mallen.
 
 Om du vill fortsätta med vårt exempel för brandväggen kanske arkitekturen du behöver en offentlig IP-URL för din tjänst och en annan offentlig IP-URL för webbplatsen som din brandvägg skyddar. Varje IP distribueras på en virtuell dator och ansluten tillsammans med en nätverkssäkerhetsgrupp + nätverksgränssnitt.
 
-När du har utformat det önskade paketet av resurser, kommer nu skriva och bygga Test Drive Resource Manager-mallen.
+När du har utformat det önskade paketet med resurser, kommer nu att bli att skriva och bygga i Resource Manager-mallen för test enheten.
 
 ## <a name="writing-test-drive-resource-manager-templates"></a>Skriva Test Drive Resource Manager-mallar
 
@@ -207,7 +208,7 @@ Kontrollera att du sammanfoga parametern/variabeln-strängar (\'contosovm\') med
 
 Till exempel de flesta resursnamn får inte börja med en siffra, men unik Strängfunktion kan returnera en sträng som börjar med en siffra. Så om du använder unika rådatasträng utdata, misslyckas distributionen. 
 
-Du hittar mer information om resursen namngivningsregler och begränsningar i [i den här artikeln](https://docs.microsoft.com/azure/guidance/guidance-naming-conventions).
+Du hittar mer information om resursen namngivningsregler och begränsningar i [i den här artikeln](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
 
 ### <a name="deployment-location"></a>Distributionsplats
 
@@ -300,9 +301,9 @@ Under publishing-certifiering, Test Drive upp distributionspaket och placerar in
 
 | Package.zip                       | Test Drive blob-behållare         |
 |---|---|
-| main-template.json                | https:\//\<\...\>.blob.core.windows.net/\<\...\>/main-template.json  |
-| Templates/Solution.JSON           | https:\//\<\.... \>.blob.core.windows.net/\<\.... \>/templates/solution.json |
-| Scripts/warmup.ps1                | https:\//\<\...\>.blob.core.windows.net/\<\...\>/scripts/warmup.ps1  |
+| main-template.json                | https:\//\<\...\>. blob.core.windows.net/\<\...\>/main-Template.JSON  |
+| Templates/Solution.JSON           | https:\//\<\...\>. blob.core.windows.net/\<\...\>/templates/Solution.JSON |
+| Scripts/warmup.ps1                | https:\//\<\...\>. blob.core.windows.net/\<\...\>/scripts/WarmUp.ps1  |
 
 
 Vi kallar en Uri för den här blobbehållaren bas-Uri. Varje revision över ditt labb har sin egen blob-behållare och därför varje revision över ditt labb har sin egen bas-Uri. Test Drive kan skicka en bas-Uri för uppzippade distributionspaket i mallen via mallparametrarna.
@@ -317,9 +318,9 @@ Nu när du har din provkörning som skapats beskriver i det här avsnittet var o
 
 ![Aktivera Test Drive i användargränssnittet](./media/azure-resource-manager-test-drive/howtopub1.png)
 
-Fältet första och viktigaste är att ange om du vill Test Drive aktiverats för ditt erbjudande eller inte. När du väljer **Ja,** resten av formuläret med alla de obligatoriska fälten visas för att fylla. När du väljer **Nej,** formuläret blir inaktiverad och om du publicerar med Test Drive inaktiverat din provkörning tas bort från produktionen.
+Fältet första och viktigaste är att ange om du vill Test Drive aktiverats för ditt erbjudande eller inte. När du väljer **Ja** visas resten av formuläret med alla obligatoriska fält som du kan fylla i. När du väljer **Nej** inaktive ras formuläret och om du återpublicerar med test enheten inaktive rad tas test enheten bort från produktionen.
 
-Obs! Om det finns några tester enheter som aktivt används av användare, fortsätter dessa Provkörningar att köras tills sin session upphör att gälla.
+Obs: Om det finns några tester enheter som aktivt används av användare, dessa Provkörningar fortsätter att köras tills sin session upphör att gälla.
 
 ### <a name="details"></a>Information
 
@@ -382,7 +383,7 @@ Annars skapar du en ny klient i Azure Active Directory.
 
 ![Lista över Azure Active Directory-klienter](./media/azure-resource-manager-test-drive/subdetails4.png)
 
-![Definiera organisation, domän och land/region för Azure AD-klient](./media/azure-resource-manager-test-drive/subdetails5.png)
+![Definiera organisation, domän och land/region för Azure AD-klienten](./media/azure-resource-manager-test-drive/subdetails5.png)
 
 ![Bekräfta valet](./media/azure-resource-manager-test-drive/subdetails6.png)
 
@@ -403,13 +404,13 @@ Klicka på Spara. Det sista steget är att hämta program-ID för den här regis
 Får vi använder programmet för att distribuera till prenumerationen, behöver vi lägga till programmet som deltagare för prenumerationen. Anvisningarna för dessa är som nedan:
 
 1. Gå till bladet prenumerationer och välj lämplig prenumeration som du använder för Test-enheten.
-1. Klicka på **åtkomstkontroll (IAM)** .
-1. Klicka på den **rolltilldelningar** fliken.  ![Lägg till ett nytt huvudnamn för åtkomstkontroll](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
+1. Klicka på **Åtkomstkontroll (IAM)** .
+1. Klicka på fliken **roll tilldelningar** .  ![lägga till ett nytt Access Control-huvudobjekt](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
 1. Klicka på **Lägg till rolltilldelning**.
 1. Ange rollen som **deltagare**.
 1. Skriv namnet på Azure AD-programmet och Välj program att tilldela rollen.
     ![Lägg till behörigheter](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
-1. Klicka på **Spara**.
+1. Klicka på **Save** (Spara).
 
 **Azure AD App Key -** *krävs* sista fältet är att generera en autentiseringsnyckel. Under nycklar, Lägg till en beskrivning av nyckeln, ange hur lång tid att aldrig upphöra, sedan väljer Spara. Det är **viktiga** för att förhindra att ett utgånget nyckel, vilket bryter din provkörning i produktion. Kopiera detta värde och klistra in den i din Test Drive-obligatoriskt.
 
@@ -419,7 +420,7 @@ Får vi använder programmet för att distribuera till prenumerationen, behöver
 
 Nu när du har alla Test Drive fälten ifyllda, gå igenom och **publicera** ditt erbjudande. När din provkörning har gått ut certifiering, bör du gå en stor utsträckning testa kundupplevelsen i den **förhandsversion** i ditt erbjudande. Starta en Test Drive i Användargränssnittet och öppna din Azure-prenumeration i Azure-portalen och kontrollera att din Provkörningar fullständigt distribueras på rätt sätt.
 
-![Azure Portal](./media/azure-resource-manager-test-drive/subdetails9.png)
+![Azure portal](./media/azure-resource-manager-test-drive/subdetails9.png)
 
 Det är viktigt att Observera att du inte tar bort alla Test Drive-instanser som de har etablerats för dina kunder så Test Drive-tjänsten kommer automatiskt att rensa de här resursgrupperna upp när en kund har slutförts med den.
 

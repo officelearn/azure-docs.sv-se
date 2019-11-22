@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
-ms.openlocfilehash: 5e71f30723826a18f10d4c8e1b9d34e356c9962b
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 9071596d384d09bf6cbc46316a7f33c69c7b32e9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74114637"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278461"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Skapa, ändra eller ta bort en offentlig IP-adress
 
@@ -45,7 +45,7 @@ Offentliga IP-adresser har en nominell avgift. Om du vill visa prissättningen l
 
 ## <a name="create-a-public-ip-address"></a>Skapa en offentlig IP-adress
 
-1. I det övre vänstra hörnet i portalen väljer du **+ skapa en resurs**.
+1. På Azure Portal-menyn eller på **Start** sidan väljer du **skapa en resurs**.
 2. Ange *offentlig IP-adress* i rutan *Sök i Marketplace* . När den **offentliga IP-adressen** visas i Sök resultaten väljer du den.
 3. Under **offentlig IP-adress**väljer du **skapa**.
 4. Ange eller välj värden för följande inställningar under **skapa offentlig IP-adress**och välj sedan **skapa**:

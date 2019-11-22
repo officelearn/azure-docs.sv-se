@@ -1,5 +1,5 @@
 ---
-title: Nätverks sto pol faktorer för Azure AD-programproxy | Microsoft Docs
+title: Nätverks sto pol faktorer för Azure AD-programproxy
 description: Beskriver topologiöverväganden för nätverk när du använder Azure AD-programproxy.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7320df63885f562b4724285a3ca5c3cf6ea2a52
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 075b2c92168afe0c366608266c38b14394b73cff
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381433"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275486"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Topologiöverväganden för nätverk när du använder Azure Active Directory Application Proxy
 
@@ -80,13 +80,13 @@ Om du har en dedikerad VPN eller ExpressRoute-länk mellan Azure och företagets
 
 Det finns lite som du kan göra för att kontrollera anslutningen mellan dina användare och programproxytjänsten. Användare kan komma åt dina appar från ett hem nätverk, ett kafé eller ett annat land/en annan region. I stället kan du optimera anslutningar från Application Proxy-tjänsten till Application Proxy-kopplingar till appar. Överväg att använda följande mönster i din miljö.
 
-### <a name="pattern-1-put-the-connector-close-to-the-application"></a>Mönster 1: Sätt kopplingen nära programmet
+### <a name="pattern-1-put-the-connector-close-to-the-application"></a>Mönstret 1: Placera nära programmet-anslutningen
 
 Placera nära målprogrammet kopplingen i kundens nätverk. Den här konfigurationen minskar steg 3 i diagrammet topografi eftersom anslutningen och program är Stäng.
 
 Om din anslutningsapp behöver åtkomst till domänkontrollanten, är det fördelaktigt med det här mönstret. De flesta av våra kunder att använda det här mönstret eftersom den fungerar bra för de flesta scenarier. Det här mönstret kan också kombineras med mönstret 2 för att optimera trafik mellan tjänsten och anslutningen.
 
-### <a name="pattern-2-take-advantage-of-expressroute-with-microsoft-peering"></a>Mönster 2: Dra nytta av ExpressRoute med Microsoft-peering
+### <a name="pattern-2-take-advantage-of-expressroute-with-microsoft-peering"></a>Mönstret 2: Dra nytta av ExpressRoute med Microsoft-peering
 
 Om du har ExpressRoute som konfigurerats med Microsoft-peering kan använda du snabbare ExpressRoute-anslutningen för trafik mellan Application Proxy och anslutningen. Anslutningen är fortfarande i nätverket, nära appen.
 
@@ -112,15 +112,15 @@ I det här avsnittet ska gå vi igenom några vanliga scenarier. Anta att den Az
 
 Dessa scenarier kan vi anropa en ”hopp” för varje anslutning och nummer dem enklare beskrivning:
 
-- **Hopp 1**: Användare till Application Proxy-tjänsten
-- **Hopp 2**: Application Proxy-tjänst till Application Proxy Connector
-- **Hopp 3**: Application Proxy Connector till mål programmet 
+- **Hopp 1**: användaren till Application Proxy-tjänsten
+- **Hopp 2**: programproxy för programproxy-kopplingen
+- **Hopp 3**: programproxy-kopplingen till målprogrammet 
 
 ### <a name="use-case-1"></a>Användningsfall 1
 
-**Situationen** Appen är i en organisations nätverk i USA, med användare i samma region. Inga ExpressRoute eller VPN finns mellan Azure-datacentret och företagets nätverk.
+**Scenario:** appen är i en organisations nätverk i USA, med användare i samma region. Inga ExpressRoute eller VPN finns mellan Azure-datacentret och företagets nätverk.
 
-**Rekommenderade** Följ mönstret 1, förklaras i föregående avsnitt. Överväg att använda ExpressRoute för bättre svarstid, om det behövs.
+**Rekommendation:** följer mönstret 1, som beskrivs i föregående avsnitt. Överväg att använda ExpressRoute för bättre svarstid, om det behövs.
 
 Det här är ett enkelt mönster. Du kan optimera hopp 3 genom att placera anslutningen i appen. Detta är också det naturliga valet eftersom anslutningen installeras vanligtvis med åtkomst till appen och till datacenter för att utföra åtgärder för KCD.
 
@@ -128,9 +128,9 @@ Det här är ett enkelt mönster. Du kan optimera hopp 3 genom att placera anslu
 
 ### <a name="use-case-2"></a>Användningsfall 2
 
-**Situationen** Appen är i en organisations nätverk i USA, där användare sprids ut globalt. Inga ExpressRoute eller VPN finns mellan Azure-datacentret och företagets nätverk.
+**Scenario:** appen är i en organisations nätverk i USA, med användare som sprider globalt. Inga ExpressRoute eller VPN finns mellan Azure-datacentret och företagets nätverk.
 
-**Rekommenderade** Följ mönstret 1, förklaras i föregående avsnitt.
+**Rekommendation:** följer mönstret 1, som beskrivs i föregående avsnitt.
 
 Igen, det vanliga mönstret är att optimera hopp 3, där du placerar anslutningen i appen. Hopp 3 är inte vanligtvis dyr, om det är allt inom samma region. Hopp 1 kan dock dyrare beroende på var användaren befinner, eftersom användare över hela världen måste komma åt Application Proxy-instans i USA. Det är värt att någon proxy-lösning har liknande egenskaper om användare att sprida ut globalt.
 
@@ -138,9 +138,9 @@ Igen, det vanliga mönstret är att optimera hopp 3, där du placerar anslutning
 
 ### <a name="use-case-3"></a>Användningsfall 3
 
-**Situationen** Appen finns i en organisations nätverk i USA. ExpressRoute med Microsoft-peering finns mellan Azure och företagets nätverk.
+**Scenario:** appen är i en organisations nätverk i USA. ExpressRoute med Microsoft-peering finns mellan Azure och företagets nätverk.
 
-**Rekommenderade** Följ mönster 1 och 2, förklaras i föregående avsnitt.
+**Rekommendation:** följer mönster 1 och 2, som beskrivs i föregående avsnitt.
 
 Placera först anslutningen så nära som möjligt till appen. Systemet använder sedan automatiskt ExpressRoute för hopp 2.
 
@@ -150,9 +150,9 @@ Om ExpressRoute-länken använder Microsoft-peering, flödar trafiken mellan pro
 
 ### <a name="use-case-4"></a>Användningsfall 4
 
-**Situationen** Appen finns i en organisations nätverk i USA. ExpressRoute med privat peering finns mellan Azure och företagets nätverk.
+**Scenario:** appen är i en organisations nätverk i USA. ExpressRoute med privat peering finns mellan Azure och företagets nätverk.
 
-**Rekommenderade** Följ mönstret 3, förklaras i föregående avsnitt.
+**Rekommendation:** följer mönstret 3, som beskrivs i föregående avsnitt.
 
 Placera anslutningen i Azure-datacentret som är ansluten till företagsnätverket via ExpressRoute privat peering.
 
@@ -162,9 +162,9 @@ Anslutningen kan placeras i Azure-datacentret. Eftersom anslutningen har fortfar
 
 ### <a name="use-case-5"></a>Användningsfall 5
 
-**Situationen** Appen finns i en organisations nätverk i EU, med Application Proxy-instansen och de flesta användare i USA.
+**Scenario:** appen är i en organisations nätverk inom EU, med Application Proxy-instans och de flesta användare i USA.
 
-**Rekommenderade** Placera kopplingen nära appen. Eftersom USA användarna kommer åt en Application Proxy-instans som råkar vara i samma region, är hopp 1 inte för dyrt. Hopp 3 optimeras. Överväg att använda ExpressRoute för att optimera hopp 2.
+**Rekommendation:** placera connector nära appen. Eftersom USA användarna kommer åt en Application Proxy-instans som råkar vara i samma region, är hopp 1 inte för dyrt. Hopp 3 optimeras. Överväg att använda ExpressRoute för att optimera hopp 2.
 
 ![Diagrammet visar användare och proxy i USA, anslutning och app i EU](./media/application-proxy-network-topology/application-proxy-pattern5b.png)
 

@@ -5,18 +5,18 @@ services: cdn
 author: SyntaxC4
 ms.service: azure-cdn
 ms.topic: include
-ms.date: 04/13/2018
-ms.author: cfowler
+ms.date: 11/15/2019
+ms.author: magattus
 ms.custom: include file
-ms.openlocfilehash: a9c929018a457449b867ee986210214b4c1690fd
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 5c6f79cb7ad0a31eb3461d6d8e54307537f0491e
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593165"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284166"
 ---
 > [!IMPORTANT]
-> Det här är en funktion i **Azure CDN Premium från Verizon** , och är inte tillgänglig med Azure CDN standard produkter. En jämförelse av CDN-funktioner finns under [Azure CDN produktfunktioner](../articles/cdn/cdn-features.md). 
+> Det här är en funktion i **Azure CDN Premium från endast Verizon** , för att konfigurera regler på **Azure CDN från Microsoft** använder du [standard regel motorn](../articles/cdn/cdn-standard-rules-engine-reference.md). Avancerade regler är inte tillgängliga för **Azure CDN från Akamai**. En fullständig jämförelse av CDN-funktioner finns i [Azure CDN produkt funktioner](../articles/cdn/cdn-features.md). 
 > 
 > 
 

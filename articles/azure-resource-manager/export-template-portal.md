@@ -2,13 +2,13 @@
 title: Exportera mall i Azure Portal
 description: Använd Azure Portal för att exportera en Azure Resource Manager mall från resurser i din prenumeration.
 ms.topic: conceptual
-ms.date: 10/11/2019
-ms.openlocfilehash: 6e05a8bff27e56bc5942a7c16ab63921c489f44c
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.date: 11/21/2019
+ms.openlocfilehash: 9e6a4089758809cbebc6a3c0cd586cb418ca42bf
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149865"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74306792"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Exportera en och flera resurser till en mall i Azure Portal
 
@@ -33,7 +33,7 @@ De exporterade mallarna har olika kvalitet beroende på vilket alternativ du vä
 | Mallen är en ögonblicks bild av resursens aktuella tillstånd. Den innehåller alla manuella ändringar som du har gjort efter distributionen. | Mall visar endast tillstånd för resurser vid tidpunkten för distributionen. Eventuella manuella ändringar som du har gjort efter distributionen ingår inte. |
 | Du kan välja vilka resurser från en resurs grupp som ska exporteras. | Alla resurser för en speciell distribution ingår. Du kan inte välja en delmängd av dessa resurser eller lägga till resurser som har lagts till vid en annan tidpunkt. |
 | Mallen innehåller alla egenskaper för resurserna, inklusive vissa egenskaper som du normalt sett angav under distributionen. Du kanske vill ta bort eller rensa dessa egenskaper innan du återanvänder mallen. | Mallen innehåller bara de egenskaper som krävs för distributionen. Mallen är klar att användas. |
-| Mallen innehåller antagligen inte alla parametrar som du behöver för åter användning. De flesta egenskaps värden är hårdkodade i mallen. Om du vill distribuera om mallen i andra miljöer måste du lägga till parametrar som ökar möjligheten att konfigurera resurserna. | Mallen innehåller parametrar som gör det enkelt att omdistribuera i olika miljöer. |
+| Mallen innehåller antagligen inte alla parametrar som du behöver för åter användning. De flesta egenskaps värden är hårdkodade i mallen. Om du vill distribuera om mallen i andra miljöer måste du lägga till parametrar som ökar möjligheten att konfigurera resurserna.  Du kan också välja att avmarkera **Inkludera parametrar** så att du kan redigera dina egna parametrar. | Mallen innehåller parametrar som gör det enkelt att omdistribuera i olika miljöer. |
 
 Exportera mallen från en resurs grupp eller resurs när:
 
@@ -62,6 +62,8 @@ Så här exporterar du en eller flera resurser från en resurs grupp:
 
    ![Visa mall](./media/export-template-portal/show-template.png)
 
+   **Inkludera parametrar** är valt som standard.  När du väljer det här alternativet kommer alla mallparametrar att inkluderas när mallen genereras. Om du vill skapa egna parametrar kan du växla den här kryss rutan så att den inte inkluderas.
+
 ## <a name="export-template-from-a-resource"></a>Exportera mall från en resurs
 
 Så här exporterar du en resurs:
@@ -74,7 +76,7 @@ Så här exporterar du en resurs:
 
    ![Exportera resurs](./media/export-template-portal/export-single-resource.png)
 
-1. Den exporterade mallen visas och är tillgänglig för hämtning och distribution. Mallen innehåller bara den enskilda resursen.
+1. Den exporterade mallen visas och är tillgänglig för hämtning och distribution. Mallen innehåller bara den enskilda resursen. **Inkludera parametrar** är valt som standard.  När du väljer det här alternativet kommer alla mallparametrar att inkluderas när mallen genereras. Om du vill skapa egna parametrar kan du växla den här kryss rutan så att den inte inkluderas.
 
 ## <a name="export-template-before-deployment"></a>Exportera mall före distribution
 

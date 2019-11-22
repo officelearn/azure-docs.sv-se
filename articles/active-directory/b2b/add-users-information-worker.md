@@ -1,6 +1,6 @@
 ---
-title: Lägga till användare i B2B-samarbetet som en informationsanställd - Azure Active Directory | Microsoft Docs
-description: B2B-samarbete tillåter informationsarbetare och app ägare för att lägga till gästanvändare till Azure AD för åtkomst | Microsoft Docs
+title: Lägg till B2B-samarbets användare som en informations arbetare – Azure AD
+description: B2B-samarbete gör att informations arbetare och app-ägare kan lägga till gäst användare i Azure AD för åtkomst | Microsoft Docs
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -12,112 +12,112 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8606a0d4e203e1a910a5cd15ca83a622f5286bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 37dc4a618f01022f4963a14aba921edcce9f4b60
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65812533"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74268859"
 ---
-# <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Hur användare i din organisation kan bjuda in gästanvändare till en app
+# <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Hur användare i din organisation kan bjuda in gäst användare till en app
 
-När du har en gäst har användare lagts till katalogen i Azure AD en programmets ägare kan skicka gästanvändaren en direktlänk till appen som de vill dela. Azure AD-administratörer kan också ställa in självbetjäningshantering för galleriet eller SAML-baserade appar i sina Azure AD-klient. På så sätt kan programmet ägare kan hantera sina egna gästanvändare även om gästanvändare inte har lagts till katalogen ännu. När en app har konfigurerats för självbetjäning, används programmets ägare sin åtkomstpanel att bjuda in gästanvändare till en app eller Lägg till en gästanvändare till en grupp som har åtkomst till appen. Självbetjäning apphantering för galleriet och SAML-baserade appar kräver vissa installationen av en administratör. Följande är en sammanfattning av installationsanvisningarna (mer detaljerade instruktioner finns i [krav](#prerequisites) senare på den här sidan):
+När en gäst användare har lagts till i katalogen i Azure AD kan en program ägare skicka gäst användaren en direkt länk till den app som de vill dela. Azure AD-administratörer kan också konfigurera självbetjänings hantering för Galleri-eller SAML-baserade appar i sin Azure AD-klient. På så sätt kan program ägare hantera sina egna gäst användare, även om gäst användarna inte har lagts till i katalogen ännu. När en app har kon figurer ATS för självbetjäning använder program ägaren sin åtkomst panel för att bjuda in en gäst användare till en app eller lägga till en gäst användare i en grupp som har åtkomst till appen. Program hantering via självbetjäning för Galleri-och SAML-baserade appar kräver en del inledande konfiguration av en administratör. Följande är en sammanfattning av installations stegen (mer information finns i [krav](#prerequisites) senare på den här sidan):
 
- - Aktivera hantering av Självbetjäning för din klient
- - Skapa en grupp om du vill tilldela till appen och göra användaren ägare
+ - Aktivera självbetjänings grupp hantering för din klient organisation
+ - Skapa en grupp som ska tilldelas appen och ge användaren en ägare
  - Konfigurera appen för självbetjäning och tilldela gruppen till appen
 
 > [!NOTE]
-> Den här artikeln beskriver hur du ställer in självbetjäning hantering för galleriet och SAML-baserade appar som du har lagt till din Azure AD-klient. Du kan också [ställer in självbetjäning Office 365-grupper](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management) så att användarna kan hantera åtkomst till sina egna Office 365-grupper. Fler sätt användare kan dela Office-filer och appar med gästanvändare, finns i [gäståtkomst i Office 365-grupper](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6) och [delar SharePoint-filer eller mappar](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c).
+> Den här artikeln beskriver hur du konfigurerar självbetjänings hantering för Galleri-och SAML-baserade appar som du har lagt till i din Azure AD-klient. Du kan också [Konfigurera självbetjänings kontor 365 grupper](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management) så att användarna kan hantera åtkomst till sina egna Office 365-grupper. Mer information om hur användare kan dela Office-filer och appar med gäst användare finns i [gäst åtkomst i Office 365-grupper](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6) och [dela SharePoint-filer eller mappar](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c).
 
-## <a name="invite-a-guest-user-to-an-app-from-the-access-panel"></a>Bjud in en gästanvändare till en app från åtkomstpanelen
+## <a name="invite-a-guest-user-to-an-app-from-the-access-panel"></a>Bjud in en gäst användare till en app från åtkomst panelen
 
-När en app har konfigurerats för självbetjäning, använda programägare sina egna åtkomstpanelen att bjuda in gästanvändare till appen som de vill dela. Gästanvändaren behöver inte nödvändigtvis att läggas till i förväg Azure AD. 
+När en app har kon figurer ATS för självbetjäning kan program ägare använda sin egen åtkomst panel för att bjuda in en gäst användare till appen som de vill dela. Gäst användaren behöver inte läggas till i Azure AD i förväg. 
 
-1. Öppna din åtkomstpanelen genom att gå till `https://myapps.microsoft.com`.
-2. Peka på appen, Välj ellipserna ( **...** ), och välj sedan **hantera app**.
+1. Öppna åtkomst panelen genom att gå till `https://myapps.microsoft.com`.
+2. Peka på appen, Välj ellipserna ( **...** ) och välj sedan **Hantera app**.
  
-   ![Skärmbild som visar de hantera app undermenyn för Salesforce-appen](media/add-users-iw/access-panel-manage-app.png)
+   ![Skärm bild som visar undermenyn hantera app för Salesforce-appen](media/add-users-iw/access-panel-manage-app.png)
  
-3. Överst i listan över användare, Välj **+** .
+3. Välj **+** överst i listan användare.
    
-   ![Skärmbild som visar på plustecknet för att lägga till medlemmar till appen](media/add-users-iw/access-panel-manage-app-add-user.png)
+   ![Skärm bild som visar plus symbolen för att lägga till medlemmar i appen](media/add-users-iw/access-panel-manage-app-add-user.png)
    
-4. I den **lägga till medlemmar** sökrutan, Skriv e-postadress för gästanvändare. Du kan också lägga till ett välkomstmeddelande.
+4. Skriv e-postadressen för gäst användaren i sökrutan **Lägg till medlemmar** . Du kan också lägga till ett välkomstmeddelande.
    
-   ![Skärmbild som visar Lägg till medlemmar fönstret för att lägga till en gäst](media/add-users-iw/access-panel-invitation.png)
+   ![Skärm bild som visar fönstret Lägg till medlemmar för att lägga till en gäst](media/add-users-iw/access-panel-invitation.png)
    
-5. Välj **Lägg till** att skicka en inbjudan till gästanvändaren. När du har skickat inbjudan läggs användarkontot automatiskt till i katalogen som gäst.
+5. Välj **Lägg till** för att skicka en inbjudan till gäst användaren. När du har skickat inbjudan läggs användarkontot automatiskt till i katalogen som gäst.
 
-## <a name="invite-someone-to-join-a-group-that-has-access-to-the-app"></a>Bjud in andra att delta i en grupp som har åtkomst till appen
-När en app har konfigurerats för självbetjäning kan programägare kan bjuda in gästanvändare till de grupper som de hanterar och som har åtkomst till appar som de vill dela. Gästanvändare inte redan finns i katalogen. Programmets ägare följer stegen nedan för att bjuda in gästanvändare till gruppen så att de kan komma åt appen.
+## <a name="invite-someone-to-join-a-group-that-has-access-to-the-app"></a>Bjuda in någon att ansluta till en grupp som har åtkomst till appen
+När en app har kon figurer ATS för självbetjäning kan program ägare bjuda in gäst användare till de grupper som de hanterar som har åtkomst till de appar som de vill dela. Gäst användarna behöver inte redan finnas i katalogen. Program ägaren följer de här stegen för att bjuda in en gäst användare till gruppen så att de kan komma åt appen.
 
-1. Kontrollera att du är ägare av gruppen självbetjäning som har åtkomst till appen som du vill dela.
-2. Öppna din åtkomstpanelen genom att gå till `https://myapps.microsoft.com`.
-3. Välj den **grupper** app.
+1. Se till att du är ägare till självbetjänings gruppen som har åtkomst till den app som du vill dela.
+2. Öppna åtkomst panelen genom att gå till `https://myapps.microsoft.com`.
+3. Välj appen **grupper** .
    
-   ![Skärmbild som visar appen grupper i åtkomstpanelen](media/add-users-iw/access-panel-groups.png)
+   ![Skärm bild som visar appen grupper i åtkomst panelen](media/add-users-iw/access-panel-groups.png)
    
-4. Under **grupper som jag äger**, Välj den grupp som har åtkomst till appen som du vill dela.
+4. Under **grupper som jag äger**väljer du den grupp som har åtkomst till den app som du vill dela.
    
-   ![Skärmbild som visar var du vill välja en grupp under de grupper som jag äger](media/add-users-iw/access-panel-groups-i-own.png)
+   ![Skärm bild som visar var du väljer en grupp under grupper som jag äger](media/add-users-iw/access-panel-groups-i-own.png)
    
-5. Överst i listan över gruppmedlemmar, Välj **+** .
+5. Välj **+** överst i listan grupp medlemmar.
    
-   ![Skärmbild som visar på plustecknet för att lägga till medlemmar i gruppen](media/add-users-iw/access-panel-groups-add-member.png)
+   ![Skärm bild som visar plus symbolen för att lägga till medlemmar i gruppen](media/add-users-iw/access-panel-groups-add-member.png)
    
-6. I den **lägga till medlemmar** sökrutan, Skriv e-postadress för gästanvändare. Du kan också lägga till ett välkomstmeddelande.
+6. Skriv e-postadressen för gäst användaren i sökrutan **Lägg till medlemmar** . Du kan också lägga till ett välkomstmeddelande.
    
-   ![Skärmbild som visar Lägg till medlemmar fönstret för att lägga till en gäst](media/add-users-iw/access-panel-invitation.png)
+   ![Skärm bild som visar fönstret Lägg till medlemmar för att lägga till en gäst](media/add-users-iw/access-panel-invitation.png)
    
-7. Välj **Lägg till** att skicka inbjudan till gästanvändaren automatiskt. När du har skickat inbjudan läggs användarkontot automatiskt till i katalogen som gäst.
+7. Välj **Lägg till** för att automatiskt skicka inbjudan till gäst användaren. När du har skickat inbjudan läggs användarkontot automatiskt till i katalogen som gäst.
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Självbetjäning av kräver vissa installationen av en Global administratör och en Azure AD-administratör. Som en del av den här konfigurationen kan du konfigurera appen för självbetjäning och tilldela en grupp till den app som programmets ägare kan hantera. Du kan också konfigurera grupp om du vill att vem som helst att begära medlemskap men kräver en gruppägare godkännande. (Läs mer om [självbetjäningsgrupphantering](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management).) 
+Hantering av självbetjänings program kräver viss inledande installation av en global administratör och en Azure AD-administratör. Som en del av den här installationen konfigurerar du appen för självbetjäning och tilldelar en grupp till appen som program ägaren kan hantera. Du kan också konfigurera gruppen så att alla kan begära medlemskap men kräva en grupp ägares godkännande. (Läs mer om [grupp hantering](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management)via självbetjäning.) 
 
 > [!NOTE]
-> Du kan inte lägga till gästanvändare till en dynamisk grupp eller en grupp som har synkroniserats med den lokala Active Directory.
+> Du kan inte lägga till gäst användare i en dynamisk grupp eller i en grupp som synkroniseras med lokala Active Directory.
 
-### <a name="enable-self-service-group-management-for-your-tenant"></a>Aktivera hantering av Självbetjäning för din klient
-1. Logga in på den [Azure-portalen](https://portal.azure.com) som Global administratör.
-2. I navigeringsfönstret, väljer **Azure Active Directory**.
+### <a name="enable-self-service-group-management-for-your-tenant"></a>Aktivera självbetjänings grupp hantering för din klient organisation
+1. Logga in på [Azure Portal](https://portal.azure.com) som global administratör.
+2. I navigerings fönstret väljer du **Azure Active Directory**.
 3. Välj **grupper**.
-4. Under **inställningar**väljer **Allmänt**.
-5. Under **Self Service grupphantering**, bredvid **ägare kan hantera begäranden om gruppmedlemskap i åtkomstpanelen**väljer **Ja**.
+4. Under **Inställningar**väljer du **Allmänt**.
+5. Under **hantering av självbetjänings grupper**, bredvid **ägare kan hantera begär Anden om grupp medlemskap i åtkomst panelen**, väljer du **Ja**.
 6. Välj **Spara**.
 
-### <a name="create-a-group-to-assign-to-the-app-and-make-the-user-an-owner"></a>Skapa en grupp om du vill tilldela till appen och göra användaren ägare
-1. Logga in på den [Azure-portalen](https://portal.azure.com) som Azure AD-administratör eller Global administratör.
-2. I navigeringsfönstret, väljer **Azure Active Directory**.
+### <a name="create-a-group-to-assign-to-the-app-and-make-the-user-an-owner"></a>Skapa en grupp som ska tilldelas appen och ge användaren en ägare
+1. Logga in på [Azure Portal](https://portal.azure.com) som en Azure AD-administratör eller global administratör.
+2. I navigerings fönstret väljer du **Azure Active Directory**.
 3. Välj **grupper**.
 4. Välj **ny grupp**.
-5. Under **grupptyp**väljer **Security**.
-6. Ange ett **gruppnamn** och **Gruppbeskrivning**.
-7. Under **Medlemskapstyp**väljer **tilldelad**.
-8. Välj **skapa**, och Stäng den **grupp** sidan.
-9. På den **grupper – alla grupper** öppnar gruppen. 
-10. Under **hantera**väljer **ägare** > **lägga till ägare**. Sök efter den användare som ska hantera åtkomst till programmet. Välj användaren och klicka sedan på **Välj**.
+5. Under **grupptyp**väljer du **säkerhet**.
+6. Ange ett **grupp namn** och en **grupp Beskrivning**.
+7. Under **medlemskaps typ**väljer du **tilldelad**.
+8. Välj **skapa**och Stäng sidan **grupp** .
+9. Öppna gruppen på sidan **grupper – alla grupper** . 
+10. Under **Hantera**väljer du **ägare** > **Lägg till ägare**. Sök efter den användare som ska hantera åtkomst till programmet. Välj användaren och klicka sedan på **Välj**.
 
 ### <a name="configure-the-app-for-self-service-and-assign-the-group-to-the-app"></a>Konfigurera appen för självbetjäning och tilldela gruppen till appen
-1. Logga in på den [Azure-portalen](https://portal.azure.com) som Azure AD-administratör eller Global administratör.
-2. I navigeringsfönstret väljer **Azure Active Directory**.
-3. Under **hantera**väljer **företagsprogram** > **alla program**.
-4. Hitta och öppna appen i programlistan med.
-5. Under **hantera**väljer **enkel inloggning**, och konfigurera programmet för enkel inloggning. (Mer information finns i [hur du hanterar enkel inloggning för företagsappar](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-portal).)
-6. Under **hantera**väljer **självbetjäning**, och Ställ in åtkomst till själva appen. (Mer information finns i [hur du använder självbetjäning appåtkomst](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to).) 
+1. Logga in på [Azure Portal](https://portal.azure.com) som en Azure AD-administratör eller global administratör.
+2. I navigerings fönstret väljer du **Azure Active Directory**.
+3. Under **Hantera**väljer du **företags program** > **alla program**.
+4. Leta upp och öppna appen i listan program.
+5. Under **Hantera**väljer du **enkel inloggning**och konfigurerar programmet för enkel inloggning. (Mer information finns i [hantera enkel inloggning för företags program](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-portal).)
+6. Under **Hantera** **väljer du självbetjäning och**konfigurera åtkomst till självbetjänings program. (Mer information finns i [så här använder du självbetjäning för app-åtkomst](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to).) 
 
     > [!NOTE]
-    > För inställningen **till vilken grupp ska tilldelade användare läggas?** Välj den grupp som du skapade i föregående avsnitt.
-7. Under **hantera**väljer **användare och grupper**, och kontrollera att gruppen självbetjäning som du har skapat visas i listan.
-8. Om du vill lägga till appen i gruppägarens åtkomstpanelen, Välj **Lägg till användare** > **användare och grupper**. Sök efter gruppägare och Välj användaren, klickar du på **Välj**, och klicka sedan på **tilldela** att lägga till användaren i appen.
+    > För den inställning som **gruppen ska tilldelas användare till?** väljer du den grupp som du skapade i föregående avsnitt.
+7. Under **Hantera**väljer **du användare och grupper**och kontrollerar att självbetjänings gruppen som du skapade visas i listan.
+8. Om du vill lägga till appen i grupp ägarens åtkomst panel väljer du **Lägg till användare** > **användare och grupper**. Sök efter grupp ägaren och välj användaren, klicka på **Välj**och klicka sedan på **tilldela** för att lägga till användaren i appen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se följande artiklar på Azure AD B2B-samarbete:
+Se följande artiklar om Azure AD B2B-samarbete:
 
 - [Vad är Azure AD B2B-samarbete?](what-is-b2b.md)
-- [Hur lägger Azure Active Directory-administratörer till B2B-samarbetare?](add-users-administrator.md)
-- [B2B-samarbete inlösning av inbjudan](redemption-experience.md)
+- [Hur lägger Azure Active Directory administratörer till B2B-samarbets användare?](add-users-administrator.md)
+- [Inlösen av B2B-samarbets inbjudningar](redemption-experience.md)
 - [Azure AD B2B-samarbetslicensiering](licensing-guidance.md)

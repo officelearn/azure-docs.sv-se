@@ -1,5 +1,5 @@
 ---
-title: Konfigurera automatisk inloggnings acceleration med hjälp av princip för identifiering av start sfär | Microsoft Docs
+title: Konfigurera automatisk inloggnings acceleration med hjälp av identifiering av start sfär
 description: Lär dig hur du konfigurerar identifierings princip för start sfär för Azure Active Directory autentisering för federerade användare, inklusive automatisk acceleration och domän tips.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f8f51fcd69a7115879aad97bbf696833e87877b
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 174cdc31d7e5f29716febc7f68bbb410f33926c6
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477211"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274632"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Konfigurera Azure Active Directory inloggnings beteende för ett program med hjälp av en princip för identifiering av start sfär
 
@@ -65,9 +65,9 @@ Domän tipsets syntax varierar beroende på vilket protokoll som används, och d
 
 **WS-Federation**: wattimmar = contoso. com i frågesträngen.
 
-**SAML**:  Antingen en SAML-autentiseringsbegäran som innehåller ett domän tips eller en frågesträng wattimmar = contoso. com.
+**SAML**: en SAML-autentiseringsbegäran som innehåller ett domän tips eller frågesträngen wattimmar = contoso. com.
 
-**Öppna ID Connect**: En frågesträng domain_hint = contoso. com. 
+**Öppna ID Connect**: en frågesträng domain_hint = contoso. com. 
 
 Om ett domän tips ingår i autentiseringsbegäran från programmet och klienten är federerad med domänen, försöker Azure AD omdirigera inloggningen till IdP som har kon figurer ATS för domänen. 
 
@@ -152,7 +152,7 @@ Vi använder Azure AD PowerShell-cmdlets för att gå igenom några scenarier, b
 - Visar en lista över de program för vilka en princip har kon figurer ATS.
 
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 I följande exempel kan du skapa, uppdatera, länka och ta bort principer för program tjänstens huvud namn i Azure AD.
 
 1.  Börja med att hämta den senaste för hands versionen av Azure AD PowerShell-cmdleten. 
@@ -177,7 +177,7 @@ I det här exemplet skapar du en princip som när den tilldelas till ett program
 - Automatiskt accelererar användare till en AD FS inloggnings skärm det finns fler än en federerad domän i din klient organisation.
 - Möjliggör inloggning med icke-interaktivt användar namn/lösen ord direkt till Azure Active Directory för federerade användare för de program som principen är tilldelad till.
 
-#### <a name="step-1-create-an-hrd-policy"></a>Steg 1: Skapa en HRD-princip
+#### <a name="step-1-create-an-hrd-policy"></a>Steg 1: skapa en HRD-princip
 
 Följande princip påskyndar automatiskt användare till en AD FS inloggnings skärm när de loggar in på ett program när det finns en enda domän i din klient organisation.
 
@@ -206,7 +206,7 @@ Get-AzureADPolicy
 
 Om du vill tillämpa HRD-principen när du har skapat den kan du tilldela den till flera program tjänstens huvud namn.
 
-#### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Steg 2: Leta reda på tjänstens huvud namn som principen ska tilldelas till  
+#### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Steg 2: hitta det tjänst huvud namn som principen ska tilldelas till  
 Du behöver **ObjectID** för de tjänst huvud namn som du vill tilldela principen till. Det finns flera sätt att hitta **ObjectID** för tjänstens huvud namn.    
 
 Du kan använda portalen, eller så kan du fråga [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Du kan också gå till [Graph Explorer-verktyget](https://developer.microsoft.com/graph/graph-explorer) och logga in på ditt Azure AD-konto för att se alla företagets tjänst huvud namn. 
@@ -217,7 +217,7 @@ Eftersom du använder PowerShell kan du använda följande cmdlet för att visa 
 Get-AzureADServicePrincipal
 ```
 
-#### <a name="step-3-assign-the-policy-to-your-service-principal"></a>Steg 3: Tilldela principen till tjänstens huvud namn  
+#### <a name="step-3-assign-the-policy-to-your-service-principal"></a>Steg 3: tilldela principen till tjänstens huvud namn  
 När du har **ObjectID** för tjänstens huvud namn för det program som du vill konfigurera automatisk acceleration för, kör du följande kommando. Det här kommandot kopplar HRD-principen som du skapade i steg 1 med tjänstens huvud namn som du letade i steg 2.
 
 ``` powershell
@@ -228,16 +228,16 @@ Du kan upprepa det här kommandot för varje huvud namn för tjänsten som du vi
 
 Om ett program redan har tilldelats en HomeRealmDiscovery-princip kan du inte lägga till ytterligare en.  I så fall kan du ändra definitionen av identifierings principen för start sfär som är tilldelad till programmet för att lägga till ytterligare parametrar.
 
-#### <a name="step-4-check-which-application-service-principals-your-hrd-policy-is-assigned-to"></a>Steg 4: Kontrol lera vilken program tjänst huvud namn din HRD-princip har tilldelats
+#### <a name="step-4-check-which-application-service-principals-your-hrd-policy-is-assigned-to"></a>Steg 4: kontrol lera vilka program tjänst objekt som din HRD-princip har tilldelats
 Använd cmdleten **Get-AzureADPolicyAppliedObject** för att kontrol lera vilka program som har HRD-principen konfigurerad. Skicka det till **ObjectID** för den princip som du vill checka in.
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
-#### <a name="step-5-youre-done"></a>Steg 5: Du är klar!
+#### <a name="step-5-youre-done"></a>Steg 5: du är klar!
 Prova programmet för att kontrol lera att den nya principen fungerar.
 
-### <a name="example-list-the-applications-for-which-hrd-policy-is-configured"></a>Exempel: Lista de program som HRD-principen har kon figurer ATS för
+### <a name="example-list-the-applications-for-which-hrd-policy-is-configured"></a>Exempel: Visa en lista över de program som HRD-principen har kon figurer ATS för
 
 #### <a name="step-1-list-all-policies-that-were-created-in-your-organization"></a>Steg 1: Visa en lista med alla principer som har skapats i din organisation 
 
@@ -247,23 +247,23 @@ Get-AzureADPolicy
 
 Observera **ObjectID** för den princip som du vill visa tilldelningar för.
 
-#### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>Steg 2: Visa en lista med tjänstens huvud namn som principen är tilldelad  
+#### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>Steg 2: Visa en lista över de tjänst huvud namn som principen tilldelas till  
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 
-### <a name="example-remove-an-hrd-policy-for-an-application"></a>Exempel: Ta bort en HRD-princip för ett program
+### <a name="example-remove-an-hrd-policy-for-an-application"></a>Exempel: ta bort en HRD-princip för ett program
 #### <a name="step-1-get-the-objectid"></a>Steg 1: Hämta ObjectID
 Använd föregående exempel för att hämta **ObjectID** för principen och det som är det program tjänst objekt som du vill ta bort den från. 
 
-#### <a name="step-2-remove-the-policy-assignment-from-the-application-service-principal"></a>Steg 2: Ta bort princip tilldelningen från program tjänstens huvud namn  
+#### <a name="step-2-remove-the-policy-assignment-from-the-application-service-principal"></a>Steg 2: ta bort princip tilldelningen från program tjänstens huvud namn  
 
 ``` powershell
 Remove-AzureADApplicationPolicy -id <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
 ```
 
-#### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>Steg 3: Kontrol lera borttagningen genom att lista de tjänst huvud namn som principen tilldelas till 
+#### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>Steg 3: kontrol lera borttagningen genom att lista de tjänst huvud namn som principen är tilldelad till 
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>

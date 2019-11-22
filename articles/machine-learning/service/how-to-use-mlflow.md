@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 946350af0c1a4e8140fbf7f926061aae250e9969
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 9b6efdc75c15e9686728236f82fea8794f3782bf
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73716478"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276643"
 ---
 # <a name="track-metrics-and-deploy-models-with-mlflow-and-azure-machine-learning-preview"></a>Spåra mått och distribuera modeller med MLflow och Azure Machine Learning (för hands version)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -55,7 +55,7 @@ Följande diagram illustrerar att med MLflow spårning spårar du ett Experiment
 |Övervaka modell prestanda||✓|  |   |
 | Identifiera dataavvikelser |   | ✓ |   | ✓ |
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * [Installera MLflow.](https://mlflow.org/docs/latest/quickstart.html)
 * [Installera Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) på den lokala datorn SDK: n ger anslutningen till MLflow för att få åtkomst till din arbets yta.
@@ -88,7 +88,7 @@ mlflow.set_tracking_uri(ws.get_mlflow_tracking_uri())
 ```
 
 >[!NOTE]
->Spårnings-URI: n är giltig till en timme eller mindre. Om du startar om skriptet efter inaktivitet kan du använda get_mlflow_tracking_uri-API: et för att hämta en ny URI.
+>Spårnings-URI: n är giltig till en timme eller mindre. Om du startar om skriptet efter inaktivitet använder du get_mlflow_tracking_uri API för att hämta en ny URI.
 
 Ange namnet på MLflow-experimentet med `set_experiment()` och starta din utbildning och kör `start_run()`. Använd sedan `log_metric()` för att aktivera loggnings-API: et för MLflow och börja logga dina utbildnings körnings mått.
 
@@ -238,7 +238,7 @@ Följande diagram visar att med MLflow distributions-API: t kan du distribuera d
 
 ### <a name="log-your-model"></a>Logga din modell
 
-Innan du kan distribuera måste du se till att din modell sparas så att du kan referera till den och dess sökväg för distribution. I utbildnings skriptet bör det finnas en kod som liknar följande [mlflow. sklearn. log _model ()](https://www.mlflow.org/docs/latest/python_api/mlflow.sklearn.html) -metod som sparar din modell i den angivna katalogen med utdata. 
+Innan du kan distribuera måste du se till att din modell sparas så att du kan referera till den och dess sökväg för distribution. I utbildnings skriptet bör det finnas en kod som liknar följande [mlflow. sklearn. log_model ()](https://www.mlflow.org/docs/latest/python_api/mlflow.sklearn.html) -metod som sparar din modell i den angivna katalogen med utdata. 
 
 ```python
 # change sklearn to pytorch, tensorflow, etc. based on your experiment's framework 
@@ -269,7 +269,7 @@ model_save_path = 'model'
 
 Funktionen `mlflow.azureml.build_image()` skapar en Docker-avbildning från den sparade modellen i ett Ramverks medveten sätt. Det skapar automatiskt den Framework-/regionsspecifika inferencing omslutnings koden och anger paket beroenden för dig. Ange modell Sök vägen, din arbets yta, kör ID och andra parametrar.
 
-Följande kod skapar en Docker-avbildning med hjälp av *kör:/< kör. id >/Model* som model_uri-sökväg för ett Scikit-test.
+I följande kod skapas en Docker-avbildning med hjälp av *kör:/< kör. id >/Model* som model_uri Sök väg för ett Scikit-test.
 
 ```python
 import mlflow.azureml
@@ -303,7 +303,7 @@ aci_config = AciWebservice.deploy_configuration(cpu_cores=1,
                                                 location='eastus2')
 ```
 
-Distribuera sedan avbildningen med hjälp av Azure Machine Learning SDK: s [deploy_from_image ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none-) -metod. 
+Distribuera sedan avbildningen med hjälp av Azure Machine Learning SDK: s [deploy_from_image ()-](/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none--overwrite-false-) metod. 
 
 ```python
 webservice = Webservice.deploy_from_image( image=azure_image, 
@@ -359,7 +359,7 @@ aks_config = AksWebservice.deploy_configuration(enable_app_insights=True)
 service_name ='aks-service'
 ```
 
-Distribuera sedan avbildningen med hjälp av Azure Machine Learning SDK: s [deploy_from_image ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none-) -metod. 
+Distribuera sedan avbildningen med hjälp av Azure Machine Learning SDK: s [deploy_from_image ()-](/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none--overwrite-false-) metod. 
 
 ```python
 # Webservice creation using single command
@@ -389,7 +389,7 @@ Om du inte planerar att använda de loggade måtten och artefakterna i din arbet
 1. Ange resursgruppsnamnet. Välj sedan **Ta bort**.
 
 
-## <a name="example-notebooks"></a>Exempel på bärbara datorer
+## <a name="example-notebooks"></a>Exempel-anteckningsböcker
 
 [MLflow med Azure ml-anteckningsböcker](https://aka.ms/azureml-mlflow-examples) demonstrerar och utökar begrepp som presenteras i den här artikeln.
 

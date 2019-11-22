@@ -1,5 +1,5 @@
 ---
-title: Avancerade signerings alternativ för SAML-token för förintegrerade Azure AD-appar | Microsoft Docs
+title: Avancerade alternativ för certifikat signering för SAML-token för Azure AD-appar
 description: Lär dig hur du använder avancerade alternativ för certifikat signering i SAML-token för förintegrerade appar i Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.author: mimart
 ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea99344399dbbbc17f0d7381e54ab68ae4bcc78f
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 614a90fcc0daef3eb77c43e6b56848c34d160ed5
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381276"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274750"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Avancerade alternativ för certifikat signering i SAML-token för Galleri-appar i Azure Active Directory
 
-Idag Azure Active Directory (Azure AD) stöder tusentals förintegrerade program i Azure Active Directory app-galleriet. Över 500 av programmen stöder enkel inloggning med hjälp av [Security Assertion Markup Language](https://wikipedia.org/wiki/Security_Assertion_Markup_Language) (SAML) 2,0-protokollet, till exempel Netsuite- [](https://azuremarketplace.microsoft.com/marketplace/apps/aad.netsuite) programmet. När en kund autentiserar till ett program via Azure AD med hjälp av SAML, skickar Azure AD en token till programmet (via ett HTTP-inlägg). Programmet validerar och använder sedan token för att logga in kunden i stället för att begära ett användar namn och lösen ord. Dessa SAML-token är signerade med det unika certifikat som genereras i Azure AD och med specifika standardalgoritmer.
+Idag Azure Active Directory (Azure AD) stöder tusentals förintegrerade program i Azure Active Directory app-galleriet. Över 500 av programmen stöder enkel inloggning med hjälp av [Security Assertion Markup Language](https://wikipedia.org/wiki/Security_Assertion_Markup_Language) (SAML) 2,0-protokollet, till exempel [Netsuite](https://azuremarketplace.microsoft.com/marketplace/apps/aad.netsuite) -programmet. När en kund autentiserar till ett program via Azure AD med hjälp av SAML, skickar Azure AD en token till programmet (via ett HTTP-inlägg). Programmet validerar och använder sedan token för att logga in kunden i stället för att begära ett användar namn och lösen ord. Dessa SAML-token är signerade med det unika certifikat som genereras i Azure AD och med specifika standardalgoritmer.
 
 Azure AD använder några av standardinställningarna för Galleri programmen. Standardvärdena ställs in baserat på programmets krav.
 
@@ -57,7 +57,7 @@ Om du vill ändra ett programs signerings alternativ för SAML-certifikat och al
 1. I den vänstra rutan väljer du **Företagsprogram**. En lista över företags program i ditt konto visas.
 1. Välj ett program. En översikts sida för programmet visas.
 
-   ![Exempel: Sidan program översikt](./media/certificate-signing-options/application-overview-page.png)
+   ![Exempel: översikts sida för program](./media/certificate-signing-options/application-overview-page.png)
 
 Ändra sedan alternativen för certifikat signering i SAML-token för programmet:
 
@@ -67,10 +67,10 @@ Om du vill ändra ett programs signerings alternativ för SAML-certifikat och al
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML** om det är tillgängligt. (Om **SAML** inte är tillgängligt stöder programmet inte SAML, och du kan ignorera resten av den här proceduren och artikeln.)
 1. På sidan **Konfigurera enkel inloggning med SAML-förhands granskning** letar du upp certifikat rubriken för **SAML-signering** och väljer **redigerings** ikonen (en blyertspenna). Sidan **SAML-signerings certifikat** visas.
 
-   ![Exempel: Certifikat sidan för SAML-signering](./media/certificate-signing-options/saml-signing-page.png)
+   ![Exempel: sidan för SAML-signerings certifikat](./media/certificate-signing-options/saml-signing-page.png)
 
 1. I list rutan **signerings alternativ väljer du** **signera SAML-svar**, **signera SAML-kontroll**eller **signera SAML-svar och kontroll**. Beskrivningar av de här alternativen visas tidigare i den här artikeln i [alternativ för certifikat signering](#certificate-signing-options).
-1. I list rutan **Signeringsalgoritm** väljer du **SHA-1** eller **SHA-256**. Beskrivningar av de här alternativen visas tidigare i den här artikeln i avsnittet algoritmer för [certifikat signering](#certificate-signing-algorithms) .
+1. I list rutan **Signeringsalgoritm** väljer du **SHA-1** eller **SHA-256**. Beskrivningar av de här alternativen visas tidigare i den här artikeln i avsnittet [algoritmer för certifikat signering](#certificate-signing-algorithms) .
 1. Om du är nöjd med dina val väljer du **Spara** för att tillämpa de nya certifikat inställningarna för SAML-signering. Annars väljer du **X** för att ignorera ändringarna.
 
 ## <a name="next-steps"></a>Nästa steg

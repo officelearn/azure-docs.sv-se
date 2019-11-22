@@ -1,19 +1,19 @@
 ---
-title: Självstudie – dela Azure spatiala ankare mellan sessioner och enheter med en Azure Cosmos DB server del | Microsoft Docs
+title: 'Självstudie: dela ankare med Azure Cosmos DB'
 description: I den här självstudien får du lära dig hur du delar identifierare för Azure spatial-ankare mellan Android/iOS-enheter i enhets trafik med en backend-tjänst och Azure Cosmos DB.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 7ddbff563f79992f21aef5182177f4fb60c61dab
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 57bf9c9752cf2203ffcac08c213373fd71a79148
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882169"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276883"
 ---
 # <a name="tutorial-sharing-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>Självstudie: dela Azure spatiala ankare mellan sessioner och enheter med en Azure Cosmos DB server del
 
@@ -25,7 +25,7 @@ Det är värt att Observera att även om du kommer att använda Unity och Azure 
 
 ## <a name="create-a-database-account"></a>Skapa ett databaskonto
 
-Lägg till en Azure Cosmos-databas i resurs gruppen som du skapade tidigare. 
+Lägg till en Azure Cosmos-databas i resurs gruppen som du skapade tidigare.
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../../includes/cosmos-db-create-dbaccount-table.md)]
 

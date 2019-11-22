@@ -1,6 +1,6 @@
 ---
-title: Enhetlig avisering & övervakning i Azure Monitor ersätter klassisk avisering & övervakning
-description: Översikt över pensionering av klassiska övervaknings tjänster och funktioner, som tidigare visas i Azure Portal under aviseringar (klassisk). Klassisk avisering & övervakning innehåller klassiska mått varningar för Azure-resurser, klassiska mått varningar för Application Insights, klassiska webtest-aviseringar för Application Insights, klassiska anpassade Metric-baserade aviseringar för Application Insights och klassisk aviseringar för Application Insights SmartDetection v1
+title: Uppdatering av klassisk avisering & övervakning i Azure Monitor
+description: Beskrivning av indragningen av klassiska övervaknings tjänster och funktioner, tidigare visas i Azure Portal under aviseringar (klassisk).
 author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: ea50a4f10aa1d794f875cb1eb9601774bec146cd
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: f4639d46a796924b4fe1dcbb46735abea128388f
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676898"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307096"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Enhetlig avisering & övervakning i Azure Monitor ersätter klassisk avisering & övervakning
 
 Azure Monitor har nu blivit en enhetlig tjänst för fullständig stack övervakning som nu stöder "ett mått" och "en avisering" mellan resurser. Mer information finns i vårt [blogg inlägg på nya Azure Monitor](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/). De nya plattformarna för Azure-övervakning och-avisering har utformats för att vara snabbare, smartare och utöknings Bar – hålla jämna steg med den växande expanse av molnbaserad data behandling och online med Microsoft Intelligent Cloud-filosofi. 
 
-Med den nya plattformen för Azure-övervakning och avisering kommer vi att ta bort den "klassiska" övervaknings-och varnings plattformen som finns i avsnittet *klassiska aviseringar* i Azure-aviseringar, **kommer att föråldras med 2019 i Azures offentliga moln** . [Azure Government Cloud](../../azure-government/documentation-government-welcome.md) och [Azure Kina 21Vianet](https://docs.azure.cn/) kommer inte att påverkas.
+Med den nya plattformen för Azure-övervakning och avisering kommer vi att ta bort den "klassiska" övervaknings-och varnings plattformen som finns i avsnittet *klassiska aviseringar* i Azure-aviseringar, **kommer att föråldras med 2019 i Azures offentliga moln**. [Azure Government Cloud](../../azure-government/documentation-government-welcome.md) och [Azure Kina 21Vianet](https://docs.azure.cn/) kommer inte att påverkas.
 
 > [!NOTE]
-> På grund av fördröjning i uppsamlingen av migreringen har den senaste indragnings tiden för migrering av klassisk avisering utökats [till 31 augusti 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) från det ursprungligen presenterade datumet den 30 juni 2019.
+> På grund av fördröjning i uppsamlingen av migreringen har den senaste indragnings tiden för migrering av klassisk avisering [utökats till 31 augusti 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) från det ursprungligen presenterade datumet den 30 juni 2019.
 
  ![Klassisk avisering i Azure Portal](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 
@@ -70,7 +70,7 @@ I slutet av augusti 2019 i Azure Monitor:
 - Vissa [klassiska varnings regler som inte kan migreras automatiskt](alerts-understand-migration.md#classic-alert-rules-that-will-not-be-migrated) och kräver manuell åtgärd från användarna fortsätter att köras fram till 2020 juni.
 
 > [!IMPORTANT]
-> Microsoft Azure övervakare har distribuerats i faser- [verktyget för att frivilligt migrera](alerts-using-migration-tool.md) sina klassiska varnings regler till den nya plattformen snart. Och kör det i kraft för alla klassiska varnings regler som fortfarande finns och som kan migreras, från och med 2019 september. Kunderna måste se till att den klassiska varnings regel nytto lasten är anpassad för att hantera den nya nytto lasten från [enhetliga mått och aviseringar i Application Insights](#unified-metrics-and-alerts-in-application-insights) eller [enhetliga mått och aviseringar för andra Azure-resurser](#unified-metrics-and-alerts-for-other-azure-resources), efter migreringen av de klassiska varnings reglerna. Mer information finns i [förbereda för klassisk migrering av aviserings regel](alerts-prepare-migration.md)
+> Microsoft Azure övervakare har distribuerats i faser- [verktyget för att frivilligt migrera](alerts-using-migration-tool.md) sina klassiska varnings regler till den nya plattformen snart. Och kör det i kraft för alla klassiska varnings regler som fortfarande finns och som kan migreras, från och med 2019 september. Kunder måste se till att den klassiska varnings regel nytto lasten är anpassad för att hantera den nya nytto lasten från [enhetliga mått och aviseringar i Application Insights](#unified-metrics-and-alerts-in-application-insights) eller [enhetliga mått och aviseringar för andra Azure-resurser](#unified-metrics-and-alerts-for-other-azure-resources), efter migrering av de klassiska varnings reglerna. Mer information finns i [förbereda för klassisk migrering av aviserings regel](alerts-prepare-migration.md)
 
 Den här artikeln uppdateras kontinuerligt med länkar & information om de nya funktionerna för Azure Monitoring-& avisering, samt tillgänglighet för verktyg för att hjälpa användarna att införa den nya Azure Monitor-plattformen.
 

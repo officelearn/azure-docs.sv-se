@@ -1,5 +1,5 @@
 ---
-title: Inbjudan att inlösa i B2B-samarbete – Azure Active Directory | Microsoft Docs
+title: Inbjudan om inlösning i B2B-samarbete – Azure AD
 description: Beskriver Azure AD B2B-samarbets Inbjudnings upplevelsen för slutanvändare, inklusive avtalets Sekretess villkor.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d32818f9e96e931f9e8c3c13554752327c5c456
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 3e85b0ae298589c0e0e051a24e5db89eae81db62
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622618"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272140"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B-samarbete för inbjudan
 
@@ -38,10 +38,10 @@ När du lägger till en gäst användare till din katalog med [hjälp av Azure P
 Som ett alternativ till e-postinbjudan kan du ge en gäst en direkt länk till din app eller Portal. Du måste först lägga till gäst användaren till din katalog via [Azure Portal](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-add-guest-users-portal) eller [PowerShell](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-invite-powershell). Sedan kan du använda något av de [anpassningsbara sätten för att distribuera program till användare](https://docs.microsoft.com/azure/active-directory/manage-apps/end-user-experiences), inklusive direkt inloggnings länkar. När en gäst använder en direkt länk i stället för e-postinbjudan, kommer de fortfarande att guidas genom den första gången.
 
 > [!IMPORTANT]
-> Den direkta länken måste vara klient-/regionsspecifika. Med andra ord måste det innehålla ett klient-ID eller verifierad domän så att gästen kan autentiseras i din klient, där den delade appen finns. En vanlig URL som https://myapps.microsoft.com inte fungerar för en gäst, eftersom den kommer att omdirigeras till sin hem klient för autentisering. Här följer några exempel på direkta länkar med klient kontext:
- > - Åtkomst panel för appar https://myapps.microsoft.com/?tenantid=&lt:; klient-ID&gt; 
- > - Åtkomst panel för appar för en verifierad https://myapps.microsoft.com/&lt domän:; verifierad domän&gt;
- > - Azure Portal: https://portal.azure.com/&lt ; klient-ID&gt;
+> Den direkta länken måste vara klient-/regionsspecifika. Med andra ord måste det innehålla ett klient-ID eller verifierad domän så att gästen kan autentiseras i din klient, där den delade appen finns. En vanlig URL som https://myapps.microsoft.com fungerar inte för en gäst eftersom den kommer att omdirigeras till sin hem klient för autentisering. Här följer några exempel på direkta länkar med klient kontext:
+ > - Åtkomst panel för appar: https://myapps.microsoft.com/?tenantid=&lt; klient-ID&gt; 
+ > - Åtkomst panelen för appar för en verifierad domän: https://myapps.microsoft.com/&lt; verifierad domän&gt;
+ > - Azure Portal: https://portal.azure.com/&lt; klient-ID&gt;
  > - Enskild app: se så här använder du en [direkt inloggnings länk](../manage-apps/end-user-experiences.md#direct-sign-on-links)
 
 Det finns vissa fall där e-postinbjudan rekommenderas över en direkt länk. Om dessa specialfall är viktiga för din organisation rekommenderar vi att du bjuder in användare genom att använda metoder som fortfarande skickar e-postinbjudan:
@@ -58,7 +58,7 @@ När en gäst loggar in för att komma åt resurser i en partner organisation f�
    ![Skärm bild som visar sidan gransknings behörigheter](media/redemption-experience/review-permissions.png) 
 
    > [!NOTE]
-   > Information om hur du som klient organisations administratör kan länka till din organisations sekretess policy finns i [How-to: Lägg till din organisations sekretess information i](https://aka.ms/adprivacystatement)Azure Active Directory.
+   > Information om hur du som klient organisations administratör kan länka till din organisations sekretess policy finns i [How-to: Lägg till din organisations sekretess information i Azure Active Directory](https://aka.ms/adprivacystatement).
 
 2. Om användnings villkoren har kon figurer ATS öppnas gästen och granskar användnings villkoren och väljer sedan **acceptera**. 
 

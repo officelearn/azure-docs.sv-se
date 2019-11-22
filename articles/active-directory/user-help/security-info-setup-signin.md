@@ -1,6 +1,6 @@
 ---
-title: Konfigurera säkerhets information (för hands version) från en inloggnings tolk – Azure AD
-description: Hur du konfigurerar säkerhetsinformationen för ditt arbets- eller skolkonto om du uppmanas av organisationens inloggningssida.
+title: Konfigurera din säkerhets information (för hands version) från en inloggnings tolk – Azure AD
+description: Hur du ställer in din säkerhets information (för hands version) för ditt arbets-eller skol konto när du har tillfrågats från din organisations inloggnings sida.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.topic: overview
 ms.date: 08/05/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ae1856c7934c658bd244445306b4bb78c666e38
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 710e43aec82c5d154b2e17a20abb2ce4dd481129
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820287"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278985"
 ---
-# <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>Konfigurera din säkerhetsinformation (förhandsversion) från uppmaningen på inloggningssidan
+# <a name="set-up-your-security-info-preview-from-a-sign-in-prompt"></a>Konfigurera din säkerhets information (för hands version) från en inloggnings tolk
 
 Du kan följa de här stegen om du uppmanas att konfigurera säkerhetsinformation omedelbart efter att du har loggat in på ditt arbets- eller skolkonto.
 

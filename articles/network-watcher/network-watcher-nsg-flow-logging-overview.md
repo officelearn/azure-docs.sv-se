@@ -1,5 +1,6 @@
 ---
-title: Introduktion till flödes loggning för nätverks säkerhets grupper med Azure Network Watcher | Microsoft Docs
+title: 'Introduktion till flödes loggning för NSG: er'
+titleSuffix: Azure Network Watcher
 description: Den här artikeln förklarar hur du använder funktionen NSG Flow-loggar i Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
@@ -14,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: a77cc22c7a56c29b5b42a032af3d0ea0b2c17d88
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 373a3a66044f996edee904c0073dcb0deb58a85b
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563514"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277987"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduktion till flödes loggning för nätverks säkerhets grupper
 
-Flödes loggar för nätverks säkerhets grupper (NSG) är en funktion i Network Watcher som gör att du kan visa information om inkommande och utgående IP-trafik via en NSG. Flödes loggar skrivs i JSON-format och visar utgående och inkommande flöden per regel, nätverks gränssnittet (NIC) flödet gäller för 5-tuple-information om flödet (käll-/mål-IP, käll-och mål Port och protokoll) om trafiken var tillåts eller nekas, och i version 2, data flödes information (byte och paket).
+Flödes loggar för nätverks säkerhets grupper (NSG) är en funktion i Network Watcher som gör att du kan visa information om inkommande och utgående IP-trafik via en NSG. Flödes loggar skrivs i JSON-format och visar utgående och inkommande flöden per regel, nätverks gränssnittet (NIC) flödet gäller för 5-tuple-information om flödet (käll-/mål-IP, käll-och mål Port och protokoll), om trafiken tilläts eller nekades, och i version 2, data flödes information (byte och paket).
 
 
 ![Översikt över flödes loggar](./media/network-watcher-nsg-flow-logging-overview/figure1.png)
@@ -65,7 +66,7 @@ Flödes loggar innehåller följande egenskaper:
                     * **Protokoll** – protokollet för flödet. Giltiga värden är **T** för TCP och **U** för UDP
                     * **Trafikflöde** – riktningen för trafikflödet. Giltiga värden är **i** för inkommande och **O** för utgående trafik.
                     * **Trafik beslut** – huruvida trafik tillåts eller nekas. Giltiga värden är **A** för tillåtna och **D** för nekad.
-                    * **Flödes tillstånd-version 2 endast** – fångar in flödets tillstånd. Möjliga tillstånd är **B**: Början när ett flöde skapas. Statistik tillhandahålls inte. **C**: Fortsätter för ett pågående flöde. Statistik tillhandahålls med 5 minuters mellanrum. **E**: Slutet (End), när ett flöde avslutas. Statistik tillhandahålls.
+                    * **Flödes tillstånd-version 2 endast** – fångar in flödets tillstånd. Möjliga tillstånd är **B**: Börja, när ett flöde skapas. Statistik tillhandahålls inte. **C**: Fortsätter (Continuing) för en pågående flöde. Statistik tillhandahålls med 5 minuters mellanrum. **E**: Slutet (End), när ett flöde avslutas. Statistik tillhandahålls.
                     * **Paket-källa till mål-version 2** Det totala antalet TCP-eller UDP-paket som har skickats från källan till målet sedan den senaste uppdateringen.
                     * **Skickade byte-källa till mål version 2** Det totala antalet TCP-eller UDP-paketfilter som har skickats från källan till målet sedan den senaste uppdateringen. Paketbyte omfattar paketets huvud och nyttolast.
                     * **Paket-mål till källa-endast version 2** Det totala antalet TCP-eller UDP-paket som har skickats från målet till källan sedan senaste uppdateringen.
@@ -87,14 +88,14 @@ Texten som följer är ett exempel på en flödes logg. Som du kan se finns det 
 
 ## <a name="nsg-flow-logging-considerations"></a>NSG flödes loggnings överväganden
 
-**Aktivera NSG flödes loggning på alla NSG: er som är kopplade till en resurs**: Flödes loggning i Azure har kon figurer ATS på NSG-resursen. Ett flöde kommer bara att associeras med en NSG-regel. I scenarier där flera NSG: er används, rekommenderar vi att loggning av NSG-flöde är aktiverat på alla NSG: er använder en resurss undernät eller nätverks gränssnitt för att säkerställa att all trafik registreras. Se [hur trafiken utvärderas](../virtual-network/security-overview.md#how-traffic-is-evaluated) för mer information om nätverks säkerhets grupper. 
+**Aktivera NSG flödes loggning på alla NSG: er som är kopplade till en resurs**: flödes loggning i Azure konfigureras på NSG-resursen. Ett flöde kommer bara att associeras med en NSG-regel. I scenarier där flera NSG: er används, rekommenderar vi att loggning av NSG-flöde är aktiverat på alla NSG: er använder en resurss undernät eller nätverks gränssnitt för att säkerställa att all trafik registreras. Se [hur trafiken utvärderas](../virtual-network/security-overview.md#how-traffic-is-evaluated) för mer information om nätverks säkerhets grupper. 
 
 **Flödes loggnings kostnader**: NSG flödes loggning debiteras på volymen av loggar som skapats. Hög trafik volym kan resultera i stor flödes logg volym och tillhör ande kostnader. NSG Flow logg priser omfattar inte de underliggande lagrings kostnaderna. Om du använder funktionen bevarande princip med NSG flödes loggning kan det leda till en stor mängd lagrings åtgärder och tillhör ande kostnader. Om du inte behöver funktionen bevarande princip rekommenderar vi att du anger värdet till 0. Mer information finns [Network Watcher priser](https://azure.microsoft.com/pricing/details/network-watcher/) och [Azure Storage priser](https://azure.microsoft.com/pricing/details/storage/) .
 
 > [!IMPORTANT]
 > För närvarande finns det ett problem där [nätverks säkerhets grupps flödes loggar (NSG)](network-watcher-nsg-flow-logging-overview.md) för Network Watcher inte automatiskt tas bort från Blob Storage utifrån inställningar för bevarande principer. Om du har en befintlig bevarande princip som inte är noll rekommenderar vi att du regelbundet tar bort de lagrings blobbar som håller på att kvarhållas för att undvika kostnader. Mer information om hur du tar bort NSG Flow logg Storage-bloggen finns i [ta bort NSG Flow logg Storage blobs](network-watcher-delete-nsg-flow-log-blobs.md).
 
-**Inkommande flöden som loggats från Internet-IP-adresser till virtuella datorer utan offentliga IP**: Virtuella datorer som inte har en offentlig IP-adress som tilldelats via en offentlig IP-adress som är kopplad till NÄTVERKSKORTet som en offentlig IP-adress på instans nivå, eller som är en del av en grundläggande belastningsutjämnare, använder [standard SNAT](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) och har en IP-adress som tilldelats av Azure för att under lätta utgående anslutning. Därför kan du se flödes logg poster för flöden från Internet-IP-adresser, om flödet är avsett för en port i intervallet för de portar som tilldelats för SNAT. Även om Azure inte tillåter dessa flöden till den virtuella datorn, loggas försöket och visas i Network Watcher flödes loggen för NSG efter design. Vi rekommenderar att oönskad inkommande Internet trafik uttryckligen blockeras med NSG.
+**Inkommande flöden som loggats från Internet-IP-adresser till virtuella datorer utan offentliga**IP-adresser: virtuella datorer som inte har en offentlig IP-adress som tilldelats via en offentlig IP-adress som är kopplad till nätverkskortet som en offentlig IP-adress på instans nivå eller som är en del av en grundläggande belastningsutjämnare, använder [standard SNAT](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) och har en IP-adress som tilldelats av Azure för att under lätta Därför kan du se flödes logg poster för flöden från Internet-IP-adresser, om flödet är avsett för en port i intervallet för de portar som tilldelats för SNAT. Även om Azure inte tillåter dessa flöden till den virtuella datorn, loggas försöket och visas i Network Watcher flödes loggen för NSG efter design. Vi rekommenderar att oönskad inkommande Internet trafik uttryckligen blockeras med NSG.
 
 ## <a name="sample-log-records"></a>Exempel på logg poster
 

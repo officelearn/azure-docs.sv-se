@@ -2,14 +2,14 @@
 title: Säker distribution över regioner – Azure Deployment Manager
 description: Beskriver hur du distribuerar en tjänst via många regioner med Azure Deployment Manager. Den visar säker distribution metoder för att kontrollera stabiliteten för distributionen innan du distribuerar till alla regioner.
 ms.topic: conceptual
-ms.date: 05/31/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0a0d13150086b393e10bc16c5c2cef173ab0abab
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 9b0e314b3911dcd3b96dc2b5b32081bd2e9c0c0c
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74147185"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307042"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Aktivera distributions metoder för säker distribution med Azure Deployment Manager (offentlig för hands version)
 
@@ -338,3 +338,5 @@ I den här artikeln har du lärt dig om Deployment Manager. Gå vidare till näs
 
 > [!div class="nextstepaction"]
 > [Självstudier: Använd Azure Deployment Manager med Resource Manager-mallar](./deployment-manager-tutorial.md)
+>
+> [Snabb start: prova Azure Deployment Manager på bara några minuter](https://github.com/Azure-Samples/adm-quickstart)

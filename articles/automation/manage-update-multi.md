@@ -1,20 +1,20 @@
 ---
 title: Hantera uppdateringar för flera virtuella Azure-datorer
-description: Den här artikeln beskriver hur du hanterar uppdateringar för virtuella Azure-datorer.
+description: Den här artikeln beskriver hur du hanterar uppdateringar för virtuella Azure-datorer och icke-Azure-datorer.
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
-ms.date: 04/02/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 11/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 367a4409c004c98cc4b5ec844aab5b05ec74abcb
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 70f4f4163a143354cd1fe5adf031c4d9cd87a46e
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374501"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278661"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Hantera uppdateringar av flera datorer
 
@@ -31,6 +31,8 @@ Om du vill använda Uppdateringshantering behöver du:
 
 - En virtuell dator eller en dator med ett operativsystem som stöds installerat.
 
+- Åtkomst till ett uppdaterings lager för virtuella Linux-datorer som publicerats i lösningen.
+
 ## <a name="supported-operating-systems"></a>Operativsystem som stöds
 
 Uppdateringshantering stöds i följande operativ system:
@@ -39,17 +41,13 @@ Uppdateringshantering stöds i följande operativ system:
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Stöder endast uppdaterings bedömningar.         |
 |Windows Server 2008 R2 SP1 och senare     |Windows PowerShell 4,0 eller senare krävs. ([Hämta WMF 4,0](https://www.microsoft.com/download/details.aspx?id=40855))</br> Windows PowerShell 5,1 rekommenderas för ökad tillförlitlighet. ([Hämta WMF 5,1](https://www.microsoft.com/download/details.aspx?id=54616))         |
-|CentOS 6 (x86/x64) och 7 (x64)      | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
-|Red Hat Enterprise 6 (x86/x64) och 7 (x64)     | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
-|SUSE Linux Enterprise Server 11 (x86/x64) och 12 (x64)     | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
-|Ubuntu 14,04 LTS, 16,04 LTS och 18,04 LTS (x86/x64)      |Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.         |
+|CentOS 6 (x86/x64) och 7 (x64)      | |
+|Red Hat Enterprise 6 (x86/x64) och 7 (x64)     | |
+|SUSE Linux Enterprise Server 11 (x86/x64) och 12 (x64)     | |
+|Ubuntu 14,04 LTS, 16,04 LTS och 18,04 LTS (x86/x64)      | |
 
 > [!NOTE]
 > Konfigurera om Unattended Upgrade-paketet om du vill inaktivera automatiska uppdateringar för att undvika att uppdateringar tillämpas utanför en underhållsperiod på Ubuntu. Mer information finns i avsnittet om [automatiska uppdateringar i handboken för Ubuntu Server](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
-
-Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.
-
-Den här lösningen har inte stöd för en Log Analytics-agent för Linux som är konfigurerad att rapportera till flera Azure Log Analytics-arbetsytor.
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Aktivera Uppdateringshantering för virtuella Azure-datorer
 
@@ -69,13 +67,11 @@ När onboarding är klart är Uppdateringshantering aktive rad för den virtuell
 
 ## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Aktivera Uppdateringshantering för virtuella datorer och datorer som inte är Azure-datorer
 
-Information om hur du aktiverar Uppdateringshantering för virtuella Windows-datorer och datorer som inte är Azure-datorer finns i [ansluta Windows-datorer till tjänsten Azure Monitor i Azure](../log-analytics/log-analytics-windows-agent.md).
-
-Information om hur du aktiverar Uppdateringshantering för virtuella datorer som inte använder Azure Linux och datorer finns i [ansluta dina Linux-datorer till Azure Monitor loggar](../log-analytics/log-analytics-agent-linux.md).
+Log Analytics-agenten för Windows och Linux måste installeras på de virtuella datorer som körs i företags nätverket eller i en annan moln miljö för att du ska kunna göra det med Uppdateringshantering. Mer information om system kraven och de metoder som stöds för att distribuera agenten till datorer som ligger utanför Azure finns i [Översikt över Log Analytics agenten](../azure-monitor/platform/log-analytics-agent.md).
 
 ## <a name="view-computers-attached-to-your-automation-account"></a>Visa datorer som är anslutna till ditt Automation-konto
 
-När du har aktiverat Uppdateringshantering för dina datorer kan du Visa dator information genom att välja **datorer**. Du kan se information om *dator namn*, *kompatibilitetsstatus*, *miljö*, *OS-typ*, *kritiska uppdateringar och säkerhets uppdateringar installerade*, *andra installerade uppdateringar*och *uppdatering av agent beredskap* för din Computer.
+När du har aktiverat Uppdateringshantering för dina datorer kan du Visa dator information genom att välja **datorer**. Du kan se information om *dator namn*, *kompatibilitetsstatus*, *miljö*, *OS-typ*, *viktiga uppdateringar och säkerhets uppdateringar installerade*, *andra uppdateringar*som är installerade och för att *Uppdatera agent beredskap* för dina datorer.
 
   ![Visa fliken för datorer](./media/manage-update-multi/update-computers-tab.png)
 
@@ -130,8 +126,13 @@ I fönstret **ny uppdaterings distribution** anger du följande information:
 
 - **Namn**: Ange ett unikt namn som identifierar uppdaterings distributionen.
 - **Operativ system**: Välj **Windows** eller **Linux**.
-- **Grupper att uppdatera (förhandsversion)** : definiera en fråga som baseras på en kombination av prenumeration, resursgrupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer som ska ingå i din distribution. Mer information finns i [Dynamiska grupper](automation-update-management-groups.md)
-- **Datorer som ska uppdateras**: Välj en sparad sökning, importerad grupp eller Välj datorer för att välja de datorer som du vill uppdatera. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**. Du kan se hälso tillståndet för datorn innan du schemalägger uppdaterings distributionen. Information om de olika metoderna för att skapa datorgrupper i Azure Monitor-loggar finns i [datorgrupper i Azure Monitor-loggar](../azure-monitor/platform/computer-groups.md)
+- **Grupper att uppdatera**: definiera en fråga baserat på en kombination av prenumeration, resurs grupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer som ska ingå i distributionen. För virtuella datorer som inte är Azure-datorer används sparade sökningar för att skapa en dynamisk grupp som ska inkluderas i distributionen. Mer information finns i [dynamiska grupper](automation-update-management-groups.md).
+- **Datorer som ska uppdateras**: Välj en sparad sökning, importerad grupp eller Välj datorer för att välja de datorer som du vill uppdatera.
+
+   >[!NOTE]
+   >Att välja det sparade sökalternativet returnerar inte dator identiteter, bara deras namn. Om du har flera virtuella datorer med samma namn i flera resurs grupper returneras de i resultaten. Du rekommenderas att använda alternativet **grupper för uppdatering** för att se till att du inkluderar unika virtuella datorer som matchar dina kriterier.
+
+   Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**. Du kan se hälso tillståndet för datorn innan du schemalägger uppdaterings distributionen. Information om de olika metoderna för att skapa datorgrupper i Azure Monitor-loggar finns i [datorgrupper i Azure Monitor-loggar](../azure-monitor/platform/computer-groups.md)
 
   ![Nytt distributions fönster för uppdatering](./media/manage-update-multi/update-select-computers.png)
 
@@ -196,5 +197,5 @@ Välj **Fel** om du vill se detaljerad information om fel som uppstått vid dist
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om Uppdateringshantering, inklusive loggar, utdata och fel, finns i [uppdateringshantering lösning i Azure](../operations-management-suite/oms-solution-update-management.md).
+Mer information om Uppdateringshantering, inklusive loggar, utdata och fel, finns i [uppdateringshantering lösning i Azure](../operations-management-suite/oms-solution-update-management.md).
 

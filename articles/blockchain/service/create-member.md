@@ -1,25 +1,25 @@
 ---
-title: Skapa en Azure blockchain service-medlem med hjälp av Azure Portal
-description: Använd Azure blockchain-tjänsten för att skapa en blockchain-medlem.
+title: Skapa en Azure blockchain service-medlem – Azure Portal
+description: Skapa en Azure blockchain service-medlem för ett blockchain-konsortium med hjälp av Azure Portal.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/14/2019
+ms.date: 11/18/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: c87f9a044d6655b2062f2c2657d3b465699e0dd2
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
-ms.translationtype: MT
+ms.openlocfilehash: 9b08bf030d66c058ef1ec7c57f1fb2517046c522
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329251"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74285117"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-the-azure-portal"></a>Snabb start: skapa en Azure blockchain-tjänst blockchain-medlem med hjälp av Azure Portal
 
-Azure blockchain-tjänsten är en blockchain-plattform som du kan använda för att köra affärs logiken inom ett smart kontrakt. Den här snabb starten visar hur du kommer igång genom att skapa en blockchain-medlem med hjälp av Azure Portal.
+I den här snabb starten distribuerar du en ny blockchain-medlem och konsortiet i Azure blockchain-tjänsten med hjälp av Azure Portal.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -29,25 +29,24 @@ Skapa en blockchain-medlem som kör kvorumresursens huvud protokoll i ett nytt e
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Klicka på **Skapa en resurs** längst upp till vänster i Azure-portalen.
-1. Välj **Blockchain** > **Azure blockchain-tjänsten**.
-1. Slutför mallen.
+1. Välj **Blockchain** > **Azure blockchain service (för hands version)** .
 
     ![Skapa tjänst](./media/create-member/create-member.png)
 
     Inställning | Beskrivning
     --------|------------
-    Blockchain-medlem | Välj ett unikt namn som identifierar din Azure blockchain service blockchain-medlem. Blockchain-medlems namnet får bara innehålla gemena bokstäver och siffror. Det första tecknet måste vara en bokstav. Värdet måste vara mellan 2 och 20 tecken långt.
     Prenumeration | Välj den Azure-prenumeration som du vill använda för din tjänst. Om du har flera prenumerationer väljer du den prenumeration som resursen ska debiteras till.
-    Resursgrupp | Ett nytt resursgruppnamn eller ett befintligt namn i prenumerationen.
-    Region | Platsen måste vara samma för alla medlemmar i konsortiet.
+    Resursgrupp | Skapa ett nytt resurs grupp namn eller Välj en befintlig från din prenumeration.
+    Region | Välj en region för att skapa medlemmen. Alla medlemmar i konsortiet måste finnas på samma plats.
+    Protokoll | För närvarande stöder för hands versionen av Azure blockchain service protokollet kvorum.
+    Konsortium | Ange ett unikt namn för ett nytt konsortium. Om du ansluter till ett konsortium via en inbjudan väljer du det konsortium som du ansluter till.
+    Namn | Välj ett unikt namn för Azure blockchain service-medlemmen. Blockchain-medlems namnet får bara innehålla gemena bokstäver och siffror. Det första tecknet måste vara en bokstav. Värdet måste vara mellan 2 och 20 tecken långt.
     Konto lösen ord för medlem | Medlems kontots lösen ord används för att kryptera den privata nyckeln för det Ethereum-konto som skapas för din medlem. Du använder medlems kontot och medlems kontots lösen ord för hantering av konsortier.
-    Namn på konsortium | Ange ett unikt namn för ett nytt konsortium. Om du ansluter till ett konsortium via en inbjudan är värdet det konsortium som du ansluter till.
     Beskrivning | Beskrivning av konsortiet.
-    Protokoll |  För hands versionen har stöd för protokollet kvorum.
-    Prissättning | Node-konfigurationen för den nya tjänsten. Välj **standard**. 2 validator-noder och 1 Transaction-nod är standardinställningarna.
-    Transaction Node-lösenord | Lösen ordet för medlemmens standard transaktions nod. Använd lösen ordet för grundläggande autentisering vid anslutning till blockchain-medlemmens offentliga standard transaktions nod.
+    Priser | Nodens konfiguration och kostnad för den nya tjänsten. Välj länken **ändra** om du vill välja mellan nivåerna **standard** och **Basic** .
+    Node-lösenord | Lösen ordet för medlemmens standard transaktions nod. Använd lösen ordet för grundläggande autentisering vid anslutning till blockchain-medlemmens offentliga standard transaktions nod.
 
-1. Välj **skapa** för att etablera tjänsten. Etableringen tar cirka 10 minuter.
+1. Välj **Granska + skapa** för att validera inställningarna. Välj **skapa** för att etablera tjänsten. Etableringen tar cirka 10 minuter.
 1. Välj **meddelanden** i verktygsfältet för att övervaka distributions processen.
 1. Efter distributionen navigerar du till din blockchain-medlem.
 
@@ -57,7 +56,7 @@ Välj **Översikt**. du kan visa grundläggande information om tjänsten inklusi
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Du kan använda den medlem som du skapade för nästa snabb start eller självstudier. När de inte längre behövs kan du ta bort resurserna genom att ta bort resurs gruppen `myResourceGroup` som du skapade i Azure blockchain-tjänsten.
+Du kan använda den medlem som du skapade för nästa snabb start eller självstudier. När de inte längre behövs kan du ta bort resurserna genom att ta bort `myResourceGroup` resurs grupp som du skapade för snabb starten.
 
 Ta bort resurs gruppen:
 
@@ -66,5 +65,7 @@ Ta bort resurs gruppen:
 
 ## <a name="next-steps"></a>Nästa steg
 
+I den här snabb starten har du distribuerat en Azure blockchain service-medlem och ett nytt konsortium. Prova nästa snabb start för att använda Azure blockchain Development Kit för Ethereum för att ansluta till ett konsortium på Azure blockchain-tjänsten.
+
 > [!div class="nextstepaction"]
-> [Använda MetaMask för att ansluta och distribuera ett smart kontrakt](connect-metamask.md)
+> [Använd Visual Studio Code för att ansluta till ett Azure blockchain service Consortium-nätverk](connect-vscode.md)

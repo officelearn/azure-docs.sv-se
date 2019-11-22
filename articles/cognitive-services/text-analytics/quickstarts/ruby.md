@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Använda Ruby för att anropa API för textanalys'
+title: 'Snabbstart: Anropa API:et för textanalys med hjälp av Ruby'
 titleSuffix: Azure Cognitive Services
 description: Få information och kod exempel som hjälper dig att snabbt komma igång med API för textanalys i Azure Cognitive Services.
 services: cognitive-services
@@ -10,21 +10,21 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 08/28/2019
 ms.author: aahi
-ms.openlocfilehash: 9c7c85ae9573efa202f5fc27ae78aee57fa67ab8
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 924f3a9019d3ddac0b8f1f942028e78f9a5a432e
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142700"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286481"
 ---
 # <a name="quickstart-using-ruby-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Anropa den kognitiva tjänsten för textanalys med hjälp av Ruby
 <a name="HOLTop"></a>
 
 Den här artikeln visar hur du [identifierar språk](#Detect), [analyserar sentiment](#SentimentAnalysis), [extraherar diskussionsämnen](#KeyPhraseExtraction) och [identifierar länkade entiteter](#Entities) med hjälp av  [API:er för textanalys](//go.microsoft.com/fwlink/?LinkID=759711) med Ruby.
 
-Se [API-definitionerna](//go.microsoft.com/fwlink/?LinkID=759346) för teknisk dokumentation för API:erna.
+[!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
@@ -262,7 +262,7 @@ end
 puts JSON::pretty_generate (JSON (response.body))
 ```
 
-**Svar vid extrahering av diskussionsämne**
+**Svar vid extrahering av nyckelfraser**
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
@@ -303,7 +303,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 ```
 <a name="Entities"></a>
 
-## <a name="entity-recognition"></a>Enhets igenkänning
+## <a name="entity-recognition"></a>Enhetsidentifiering
 
 API:et för entiteter identifierar entiteter i ett textdokument med hjälp av [metoden Entiteter](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634). I följande exempel identifieras entiteter för engelska dokument.
 
@@ -355,7 +355,7 @@ end
 puts JSON::pretty_generate (JSON (response.body))
 ```
 
-**Svar vid entitetextrahering**
+**Svar vid entitetsextrahering**
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
@@ -409,7 +409,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Textanalys med Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Se också 
+## <a name="see-also"></a>Se även 
 
  [Översikt över Textanalys](../overview.md)  
  [Vanliga frågor och svar (FAQ)](../text-analytics-resource-faq.md)

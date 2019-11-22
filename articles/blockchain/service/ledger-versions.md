@@ -1,21 +1,21 @@
 ---
-title: Azure blockchain service-versioner, uppdatering och uppgradering
+title: Azure blockchain service-versioner, uppdatering, & uppgradering
 description: Översikt över de redovisnings versioner som stöds i Azure blockchain-tjänsten, inklusive principer för system korrigeringar och systemhanterade uppgraderingar och användar hanterade uppgraderingar.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/14/2019
+ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 16d0f0876e7d75dfd0266468ddc3005b86fc632f
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
-ms.translationtype: MT
+ms.openlocfilehash: 03eaf86ece191cce7eef6647a582a66495692db2
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579805"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284931"
 ---
 # <a name="supported-azure-blockchain-service-ledger-versions"></a>Versioner som stöds av Azure blockchain service-redovisning
 
@@ -27,7 +27,7 @@ För närvarande stöder Azure blockchain-tjänsten [kvorumresursens version 2.2
 
 Versions hantering i kvorum görs via en större version, dels och korrigerings version. Om kvorumloggen till exempel är 2.0.1, kommer versions typen att kategoriseras på följande sätt:
 
-|Major | Del  | 9\.0a  |
+|Större | Mindre  | 9\.0a  |
 | :--- | :----- | :----- |
 | 2 | 0 | 1 | 
 

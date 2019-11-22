@@ -1,6 +1,6 @@
 ---
-title: Konfigurera säkerhets information (för hands version) för textmeddelanden – Azure AD
-description: Hur du konfigurerar din säkerhets information för att verifiera din identitet med hjälp av SMS och din mobila enhet.
+title: Konfigurera SMS-meddelanden som verifierings metod – Azure AD
+description: Hur du konfigurerar din säkerhets information (förhands gransknings sida) för att verifiera din identitet med hjälp av SMS som din verifierings metod.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a4be99a84964b7a55448692385d027262ecfec3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 2fe8610d7551b63ed613153ba1ee0e6f8e73b5a5
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73803844"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278910"
 ---
-# <a name="set-up-security-info-preview-to-use-text-messaging"></a>Konfigurera säkerhets information (för hands version) för att använda SMS-meddelanden
+# <a name="set-up-text-messaging-as-your-verification-method"></a>Konfigurera SMS-meddelanden som din verifierings metod
 
 Du kan följa de här stegen för att lägga till dina metoder för verifiering och återställning av lösen ord. När du har konfigurerat den första gången kan du gå tillbaka till sidan **säkerhets** information för att lägga till, uppdatera eller ta bort din säkerhets information.
 

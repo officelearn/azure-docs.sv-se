@@ -1,6 +1,7 @@
 ---
-title: Introduktion till felsökning i Azure Network Watcher-resurs | Microsoft Docs
-description: Den här sidan innehåller en översikt över funktioner för felsökning i Network Watcher-resurs
+title: Introduktion till resurs fel sökning
+titleSuffix: Azure Network Watcher
+description: Den här sidan ger en översikt över fel söknings funktionerna i Network Watcher-resursen
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -14,75 +15,75 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: kumud
-ms.openlocfilehash: 65ce9e7d298131486ae4e5f3584c7975ca81e1ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 736bbd16456dd0abda3292b9b9e73ea5b941e7ed
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64684251"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277778"
 ---
-# <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introduktion till felsökning i Azure Network Watcher-resurs
+# <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introduktion till resurs fel sökning i Azure Network Watcher
 
-Virtuella Nätverksgatewayer möjliggöra anslutning mellan lokala resurser och andra virtuella nätverk i Azure. Gatewayer för övervakning och deras anslutningar är viktiga för att säkerställa att kommunikationen inte bryts. Network Watcher kan du felsöka gateways och anslutningar. Funktionen kan anropas via portalen, PowerShell, Azure CLI eller REST API. När den anropas, Network Watcher diagnostiserar hälsotillståndet för gateway eller anslutning och returnerar en rapport. Begäran är en tidskrävande transaktion. Resultaten returneras när diagnosen har slutförts.
+Virtual Network gatewayer ger anslutning mellan lokala resurser och andra virtuella nätverk i Azure. Gatewayer för övervakning och deras anslutningar är viktiga för att säkerställa att kommunikationen inte bryts. Network Watcher ger möjlighet att felsöka gatewayer och anslutningar. Kapaciteten kan anropas via portalen, PowerShell, Azure CLI eller REST API. När den anropas diagnostiserar Network Watcher hälso tillståndet för gatewayen eller anslutningen och returnerar lämpliga resultat. Begäran är en tids krävande transaktion. Resultaten returneras när diagnostiken är klar.
 
 ![portal][2]
 
 ## <a name="results"></a>Resultat
 
-Preliminär resultaten ger en övergripande bild av hälsotillståndet för resursen. Mer detaljerad information kan anges för resurser som du ser i följande avsnitt:
+De preliminära resultaten som returneras ger en övergripande bild av resursens hälso tillstånd. Mer detaljerad information kan ges för resurser som visas i följande avsnitt:
 
-I följande lista är de värden som returneras med Felsök API:
+Följande lista innehåller värdena som returneras med fel söknings-API:
 
-* **startTime** – det här värdet är Felsök API-anropet startades.
-* **endTime** – det här värdet är den tid då felsökning avslutades.
-* **kod** – det här värdet är inte felfri, om det finns ett enda diagnos-fel.
-* **resultaten** -resultatet är en uppsättning resultat som returneras på anslutningen eller den virtuella nätverksgatewayen.
-    * **ID** – det här värdet är typ av fel.
-    * **Sammanfattning av** – det här värdet är en sammanfattning av felet.
-    * **detaljerad** – det här värdet innehåller en detaljerad beskrivning av felet.
-    * **recommendedActions** -den här egenskapen är en uppsättning rekommenderade åtgärder som ska vidtas.
-      * **actionText** – det här värdet innehåller den text som beskriver åtgärd att vidta.
-      * **actionUri** – det här värdet innehåller URI: N till dokumentationen om hur så att den fungerar.
-      * **actionUriText** – det här värdet är en kort beskrivning av åtgärden texten.
+* **StartTime** – det här värdet är den tid då fel söknings-API-anrop startades.
+* **slut tid** – det här värdet är den tidpunkt då fel sökningen avslutades.
+* **Code** – det här värdet är inte felfritt, om det uppstår ett enda diagnos fel.
+* **resultat** – resultat är en samling resultat som returneras på anslutningen eller den virtuella Nätverksgatewayen.
+    * **ID** – det här värdet är fel typen.
+    * **Sammanfattning** – det här värdet är en sammanfattning av felet.
+    * **detaljerat** – det här värdet ger en detaljerad beskrivning av felet.
+    * **recommendedActions** – den här egenskapen är en samling rekommenderade åtgärder som ska vidtas.
+      * **actionText** – det här värdet innehåller texten som beskriver vilken åtgärd som ska vidtas.
+      * **actionUri** – det här värdet ger URI: n till dokumentationen om hur man agerar.
+      * **actionUriText** – det här värdet är en kort beskrivning av åtgärds texten.
 
-Följande tabeller visar de olika fel-typer (id under resultat i listan ovan) som är tillgängliga och om felet skapar loggar.
+Följande tabeller visar de olika fel typerna (ID under resultat från föregående lista) som är tillgängliga och om felet skapar loggar.
 
 ### <a name="gateway"></a>Gateway
 
-| Zadaný typ | Orsak | Logga|
+| Feltyp | Orsak | Logga|
 |---|---|---|
-| NoFault | När inget fel har identifierats |Ja|
-| GatewayNotFound | Det går inte att hitta gateway eller gateway inte har etablerats |Nej|
-| PlannedMaintenance |  Gateway-instans är under Underhåll  |Nej|
-| UserDrivenUpdate | Det här felet uppstår när en uppdatering pågår. Uppdateringen kan vara en storleksändringen. | Nej |
-| VipUnResponsive | Det här felet uppstår när den primära instansen av gatewayen inte kan nås på grund av en avsökning uteblivna. | Nej |
+| Nofel | När inget fel har identifierats |Ja|
+| GatewayNotFound | Det går inte att hitta någon gateway eller gateway som har tillhandahållits |Nej|
+| PlannedMaintenance |  Gateway-instansen är under underhåll  |Nej|
+| UserDrivenUpdate | Det här felet inträffar när en användar uppdatering pågår. Uppdateringen kan vara en åtgärd för storleks ändring. | Nej |
+| VipUnResponsive | Det här felet uppstår när den primära instansen av gatewayen inte kan nås på grund av ett hälso avsöknings fel. | Nej |
 | PlatformInActive | Det finns ett problem med plattformen. | Nej|
 | ServiceNotRunning | Den underliggande tjänsten körs inte. | Nej|
 | NoConnectionsFoundForGateway | Det finns inga anslutningar på gatewayen. Det här felet är bara en varning.| Nej|
-| ConnectionsNotConnected | Anslutning är inte ansluten. Det här felet är bara en varning.| Ja|
-| GatewayCPUUsageExceeded | Den aktuella gatewayen CPU-användning är > 95%. | Ja |
+| ConnectionsNotConnected | Anslutningarna är inte anslutna. Det här felet är bara en varning.| Ja|
+| GatewayCPUUsageExceeded | Den aktuella processor användningen för gateway är > 95%. | Ja |
 
 ### <a name="connection"></a>Anslutning
 
-| Zadaný typ | Orsak | Logga|
+| Feltyp | Orsak | Logga|
 |---|---|---|
-| NoFault | När inget fel har identifierats |Ja|
-| GatewayNotFound | Det går inte att hitta gateway eller gateway inte har etablerats |Nej|
-| PlannedMaintenance | Gateway-instans är under Underhåll  |Nej|
-| UserDrivenUpdate | Det här felet uppstår när en uppdatering pågår. Uppdateringen kan vara en storleksändringen.  | Nej |
-| VipUnResponsive | Det här felet uppstår när den primära instansen av gatewayen inte kan nås på grund av en avsökning uteblivna. | Nej |
-| ConnectionEntityNotFound | Anslutningskonfiguration saknas | Nej |
-| ConnectionIsMarkedDisconnected | Anslutningen har markerats ”frånkopplad” |Nej|
-| ConnectionNotConfiguredOnGateway | Den underliggande tjänsten har inte den anslutningen har konfigurerats. | Ja |
-| ConnectionMarkedStandby | Den underliggande tjänsten har markerats som vänteläge.| Ja|
-| Authentication | I förväg delad nyckel matchar inte | Ja|
-| PeerReachability | Peer-gatewayen kan inte nås. | Ja|
-| IkePolicyMismatch | Peer-gateway har IKE-principer som inte stöds av Azure. | Ja|
-| WfpParse Error | Ett fel uppstod parsning WFP-loggen. |Ja|
+| Nofel | När inget fel har identifierats |Ja|
+| GatewayNotFound | Det går inte att hitta någon gateway eller gateway som har tillhandahållits |Nej|
+| PlannedMaintenance | Gateway-instansen är under underhåll  |Nej|
+| UserDrivenUpdate | Det här felet inträffar när en användar uppdatering pågår. Uppdateringen kan vara en åtgärd för storleks ändring.  | Nej |
+| VipUnResponsive | Det här felet uppstår när den primära instansen av gatewayen inte kan nås på grund av ett hälso avsöknings fel. | Nej |
+| ConnectionEntityNotFound | Anslutnings konfigurationen saknas | Nej |
+| ConnectionIsMarkedDisconnected | Anslutningen har marker ATS som "frånkopplad" |Nej|
+| ConnectionNotConfiguredOnGateway | Ingen anslutning har kon figurer ATS för den underliggande tjänsten. | Ja |
+| ConnectionMarkedStandby | Den underliggande tjänsten är markerad som standby.| Ja|
+| Autentisering | I förväg delad nyckel matchar inte | Ja|
+| PeerReachability | Det går inte att komma åt peer-gatewayen. | Ja|
+| IkePolicyMismatch | Peer-gatewayen har IKE-principer som inte stöds av Azure. | Ja|
+| WfpParse Error | Ett fel uppstod vid parsning av WFP-loggen. |Ja|
 
 ## <a name="supported-gateway-types"></a>Gateway-typer som stöds
 
-I följande tabell visas vilka gateways och anslutningar som stöds med Network Watcher troubleshooting:
+I följande tabell visas vilka gatewayer och anslutningar som stöds med Network Watcher fel sökning:
 
 |  |  |
 |---------|---------|
@@ -90,31 +91,31 @@ I följande tabell visas vilka gateways och anslutningar som stöds med Network 
 |VPN      | Stöds        |
 |ExpressRoute | Stöds inte |
 |**VPN-typer** | |
-|Routningsbaserade | Stöds|
+|Route-baserad | Stöds|
 |Principbaserad | Stöds inte|
-|**Anslutningstyper**||
-|IPSec| Stöds|
+|**Anslutnings typer**||
+|Principinställningar| Stöds|
 |VNet2Vnet| Stöds|
 |ExpressRoute| Stöds inte|
 |VPNClient| Stöds inte|
 
 ## <a name="log-files"></a>Loggfiler
 
-Resursen felsökning loggfilerna lagras i ett lagringskonto efter resurs felsökning har slutförts. I följande bild visas exempel innehållet i ett anrop som resulterade i ett fel.
+De resurs fel söknings loggfilerna lagras i ett lagrings konto när resurs fel sökningen är färdig. Följande bild visar exempel innehållet för ett anrop som resulterade i ett fel.
 
-![ZIP-filen][1]
-
-> [!NOTE]
-> I vissa fall kan skrivs endast en delmängd av loggfilerna till lagring.
-
-Instruktioner om att ladda ned filer från azure storage-konton finns i [komma igång med Azure Blob storage med hjälp av .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Ett annat verktyg som kan användas är Storage Explorer. Mer information om Storage Explorer finns här på följande länk: [Storage Explorer](https://storageexplorer.com/)
-
-### <a name="connectionstatstxt"></a>ConnectionStats.txt
-
-Den **ConnectionStats.txt** filen innehåller övergripande statistik för anslutningen, inklusive ingående och utgående byte, anslutningsstatus och den tid som anslutningen har upprättats.
+![zip-fil][1]
 
 > [!NOTE]
-> Om anropet till felsökning API: et returnerar felfritt, det enda som returneras i zip-filen är en **ConnectionStats.txt** fil.
+> I vissa fall skrivs bara en delmängd av loggfilerna till lagringen.
+
+Anvisningar om hur du laddar ned filer från Azure Storage-konton finns i [komma igång med Azure Blob Storage med hjälp av .net](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Ett annat verktyg som kan användas är Storage Explorer. Mer information om Storage Explorer hittar du här på följande länk: [Storage Explorer](https://storageexplorer.com/)
+
+### <a name="connectionstatstxt"></a>ConnectionStats. txt
+
+Filen **ConnectionStats. txt** innehåller övergripande statistik för anslutningen, inklusive ingångs-och utgående byte, anslutnings status och tidpunkten då anslutningen upprättades.
+
+> [!NOTE]
+> Om anropet till fel söknings-API: t returnerar felfri, är det enda som returneras i zip-filen en **ConnectionStats. txt** -fil.
 
 Innehållet i den här filen liknar följande exempel:
 
@@ -126,19 +127,19 @@ Egress Bytes (Since last connected) : 288 B
 Connected Since : 2/1/2017 8:22:06 PM
 ```
 
-### <a name="cpustatstxt"></a>CPUStats.txt
+### <a name="cpustatstxt"></a>CPUStats. txt
 
-Den **CPUStats.txt** filen innehåller CPU-användning och minne som är tillgänglig vid tidpunkten för testning.  Innehållet i den här filen liknar följande exempel:
+Filen **CPUStats. txt** innehåller CPU-användning och tillgängligt minne vid test tillfället.  Innehållet i den här filen liknar följande exempel:
 
 ```
 Current CPU Usage : 0 % Current Memory Available : 641 MBs
 ```
 
-### <a name="ikeerrorstxt"></a>IKEErrors.txt
+### <a name="ikeerrorstxt"></a>IKEErrors. txt
 
-Den **IKEErrors.txt** filen innehåller några IKE-fel som har identifierats under övervakningen.
+Filen **IKEErrors. txt** innehåller alla IKE-fel som påträffades under övervakningen.
 
-I följande exempel visar innehållet i en IKEErrors.txt-fil. Felen kan vara olika beroende på problemet.
+I följande exempel visas innehållet i en IKEErrors. txt-fil. Felen kan variera beroende på problemet.
 
 ```
 Error: Authentication failed. Check shared key. Check crypto. Check lifetimes. 
@@ -147,11 +148,11 @@ Error: On-prem device sent invalid payload.
      based on log : IkeFindPayloadInPacket failed with Windows error 13843(ERROR_IPSEC_IKE_INVALID_PAYLOAD)
 ```
 
-### <a name="scrubbed-wfpdiagtxt"></a>Gömd wfpdiag.txt
+### <a name="scrubbed-wfpdiagtxt"></a>Scrubbed-wfpdiag. txt
 
-Den **Scrubbed wfpdiag.txt** loggfilen innehåller wfp-loggen. Den här loggfilen innehåller loggning av paket släpp och IKE/AuthIP fel.
+Logg filen **Scrubbed-wfpdiag. txt** innehåller WFP-loggen. Den här loggen innehåller loggning av ignorerade paket och IKE/AuthIP-problem.
 
-I följande exempel visar innehållet i filen Scrubbed wfpdiag.txt. I det här exemplet var den delade nyckeln för en anslutning inte korrekt eftersom kan ses från den tredje raden längst ned. I följande exempel är bara ett kort utdrag av hela loggen, eftersom loggen kan vara långa beroende på problemet.
+I följande exempel visas innehållet i filen Scrubbed-wfpdiag. txt. I det här exemplet var den delade nyckeln till en anslutning inte korrekt eftersom kan ses från den tredje raden från den nedre. Följande exempel är bara ett kodfragment till hela loggen, eftersom loggen kan vara lång beroende på problemet.
 
 ```
 ...
@@ -180,11 +181,11 @@ I följande exempel visar innehållet i filen Scrubbed wfpdiag.txt. I det här e
 ...
 ```
 
-### <a name="wfpdiagtxtsum"></a>wfpdiag.txt.SUM
+### <a name="wfpdiagtxtsum"></a>wfpdiag. txt. sum
 
-Den **wfpdiag.txt.sum** filen är en logg som innehåller buffertar och händelser som bearbetas.
+Filen **wfpdiag. txt. sum** är en logg som visar de buffertar och händelser som bearbetas.
 
-I följande exempel är innehållet i en wfpdiag.txt.sum-fil.
+Följande exempel är innehållet i en wfpdiag. txt. SUM-fil.
 ```
 Files Processed:
     C:\Resources\directory\924336c47dd045d5a246c349b8ae57f2.GatewayTenantWorker.DiagnosticsStorage\2017-02-02T17-34-23\wfpdiag.etl
@@ -212,7 +213,7 @@ Elapsed Time            330 sec
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs hur du diagnostiserar problem med en gateway eller gateway-anslutning i [diagnostisera kommunikationsproblem mellan nätverk](diagnose-communication-problem-between-networks.md).
+Information om hur du diagnostiserar ett problem med en gateway-eller gateway-anslutning finns i [diagnostisera kommunikations problem mellan nätverk](diagnose-communication-problem-between-networks.md).
 <!--Image references-->
 
 [1]: ./media/network-watcher-troubleshoot-overview/GatewayTenantWorkerLogs.png

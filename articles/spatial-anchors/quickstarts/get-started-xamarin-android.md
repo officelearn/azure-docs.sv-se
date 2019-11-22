@@ -1,21 +1,21 @@
 ---
-title: Snabb start – skapa en Xamarin Android-app med moln rums ankare | Microsoft Docs
+title: 'Snabb start: skapa en Xamarin Android-app'
 description: I den här snabb starten får du lära dig hur du skapar en Android-app med Xamarin med hjälp av spatiala ankare.
 author: craigktreasure
-manager: virivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 0958961f1e66be130dd2be816f6002dd34465dc6
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 2976104c72179fede3b39816663ac8196d7539ec
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931660"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277012"
 ---
-# <a name="quickstart-create-a-xamarin-android-app-with-azure-spatial-anchors"></a>Snabbstart: Skapa en Xamarin Android-app med avstånds ankare för Azure
+# <a name="quickstart-create-a-xamarin-android-app-with-azure-spatial-anchors"></a>Snabb start: skapa en Xamarin Android-app med Azures spatiala ankare
 
 Den här snabb starten beskriver hur du skapar en Android-app med Xamarin med hjälp av [Azure spatiala ankare](../overview.md). Azure Spatial Anchors är en plattformsoberoende utvecklartjänst som du kan använda för att skapa upplevelser med mixad verklighet med hjälp av objekt som bevarar sin plats mellan enheter över tid. När du är klar har du en Android-app som kan spara och återkalla en spatial fäst punkt.
 
@@ -23,14 +23,14 @@ Du lär dig följande:
 
 > [!div class="checklist"]
 > * Skapa ett Spatial Anchors-konto
-> * Konfigurera kontoidentifierare och kontonyckel för Spatial Anchors
+> * Konfigurera konto-ID och kontonyckel för Spatial Anchors
 > * Distribuera och köra på en Android-enhet
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Kontrollera att du har följande så att du kan utföra den här snabbstarten:
+Kontrollera att du har följande för genomföra den här snabbstarten:
 - En Windows-eller macOS-dator:
   - Om du använder Windows:
     - En uppdaterad version av <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019 16.2 +</a>.
@@ -51,7 +51,7 @@ Kontrollera att du har följande så att du kan utföra den här snabbstarten:
 
 Öppna `Xamarin/SampleXamarin.sln` i Visual Studio.
 
-## <a name="configure-account-identifier-and-key"></a>Konfigurera kontoidentifierare och nyckel
+## <a name="configure-account-identifier-and-key"></a>Konfigurera konto-ID och -nyckel
 
 Nästa steg är att konfigurera appen så att den använder din konto identifierare och konto nyckeln. Du kopierade dem till en text redigerare när du [ställer in resursen för spatiala ankare](#create-a-spatial-anchors-resource).
 
@@ -59,7 +59,7 @@ Nästa steg är att konfigurera appen så att den använder din konto identifier
 
 Leta upp fältet `SpatialAnchorsAccountKey` och ersätt `Set me` med kontonyckeln.
 
-Leta upp fältet `SpatialAnchorsAccountId` och ersätt `Set me` med kontoidentifieraren.
+Leta upp fältet `SpatialAnchorsAccountId` och ersätt `Set me` med konto-ID.
 
 ## <a name="deploy-the-app-to-your-android-device"></a>Distribuera appen till din Android-enhet
 
@@ -71,25 +71,25 @@ Ställ in startprojektet på **SampleXamarin. Android**, ändra **lösningens ko
 
 ![Visual Studio-konfiguration](./media/get-started-xamarin-android/visual-studio-windows-configuration.png)
 
-Välj **Felsök** > **Starta fel sökning** för att distribuera och starta din app.
+Välj **felsök** > **Starta fel sökning** för att distribuera och starta din app.
 
 # <a name="macostabdeploy-macos"></a>[macOS](#tab/deploy-macos)
 
 ![Visual Studio-konfiguration](./media/get-started-xamarin-android/visual-studio-macos-configuration.jpg)
 
-Välj **Kör** > **starta utan fel sökning** för att distribuera och starta din app.
+Välj **kör** > **starta utan fel sökning** för att distribuera och starta din app.
 
 ---
 
 I appen väljer du **Basic** för att köra demonstrationen och följer anvisningarna för att placera och återkalla en fäst punkt.
 
-> ![Skärm bild](./media/get-started-xamarin-android/screenshot-1.jpg)
-> 1![skärmdump](./media/get-started-xamarin-android/screenshot-2.jpg)
-> 2![, skärm bild 3](./media/get-started-xamarin-android/screenshot-3.jpg)
+> ![skärm bild 1](./media/get-started-xamarin-android/screenshot-1.jpg)
+> ![skärm bild 2](./media/get-started-xamarin-android/screenshot-2.jpg)
+> ![skärm bild 3](./media/get-started-xamarin-android/screenshot-3.jpg)
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
 [!INCLUDE [Next steps](../../../includes/spatial-anchors-quickstarts-nextsteps.md)]
 
 > [!div class="nextstepaction"]
-> [Självstudier: Dela Spatial Anchors mellan olika enheter](../tutorials/tutorial-share-anchors-across-devices.md)
+> [Självstudie: dela spatiala ankare mellan enheter](../tutorials/tutorial-share-anchors-across-devices.md)

@@ -12,19 +12,19 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/28/2019
+ms.date: 11/15/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 6826c1340de16891933b290eb29bd4fb8d120974
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 64b906c8a6b52d9c9655f3fe2b13d504d8eed4cb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127921"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278079"
 ---
 # <a name="compare-azure-cdn-product-features"></a>Jämföra Azure CDN-produktfunktioner
 
-Azure Content Delivery Network (CDN) innehåller av fyra produkter: **Azure CDN Standard från Microsoft**, **Azure CDN Standard från Akamai**, **Azure CDN Standard från Verizon** och **Azure CDN Premium from Verizon**. Information om hur du migrerar en **Azure CDN Standard från Verizon**-profil till **Azure CDN Premium från Verizon** finns i [Migrera en Azure CDN-profil från Standard Verizon till Premium Verizon](cdn-migrate.md). Observera att det finns en uppgraderings väg från standard Verizon till Premium Verizon, men det finns ingen konverterings funktion mellan andra produkter för tillfället.
+Azure Content Delivery Network (CDN) innehåller fyra produkter: **Azure CDN Standard från Microsoft**, **Azure CDN Standard från Akamai**, **Azure CDN Standard från Verizon** och **Azure CDN Premium från Verizon**. Information om hur du migrerar en **Azure CDN Standard från Verizon**-profil till **Azure CDN Premium från Verizon** finns i [Migrera en Azure CDN-profil från Standard Verizon till Premium Verizon](cdn-migrate.md). Observera att det finns en uppgraderings väg från standard Verizon till Premium Verizon, men det finns ingen konverterings funktion mellan andra produkter för tillfället.
 
 I följande tabell jämförs de funktioner som är tillgängliga med respektive produkt.
 
@@ -41,11 +41,11 @@ I följande tabell jämförs de funktioner som är tillgängliga med respektive 
 | [Global serverbelastningsutjämning (GSLB)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Snabbrensning](cdn-purge-endpoint.md)  | **&#x2713;** |**&#x2713;** , Rensa alla och rensa jokertecken stöds inte av Azure CDN från Akamai för närvarande |**&#x2713;** |**&#x2713;** |
 | [Inläsning av tillgångar i förväg](cdn-preload-endpoint.md)  |  | |**&#x2713;** |**&#x2713;** |
-| Inställningar för cache/huvud (med hjälp av [cachelagringsregler](cdn-caching-rules.md))  |  |**&#x2713;** |**&#x2713;** | |
-| Anpassningsbar, regel baserad innehålls leverans motor (med hjälp av [regel motor](cdn-rules-engine.md))  |  | | |**&#x2713;** |
-| Inställningar för cache/huvud (med hjälp av [regelmotor](cdn-rules-engine.md))  |  | | |**&#x2713;** |
-| URL-omdirigering/omskrivning (med [regel motor](cdn-rules-engine.md))  |  | | |**&#x2713;** |
-| Regler för mobil enhet (med hjälp av [regelmotor](cdn-rules-engine.md))  |  | | |**&#x2713;** |
+| Inställningar för cache/huvud (med hjälp av [cachelagringsregler](cdn-caching-rules.md))  |**&#x2713;** använda [standard regel motor](cdn-standard-rules-engine.md)  |**&#x2713;** |**&#x2713;** | |
+| Anpassningsbar, regel baserad innehålls leverans motor |**&#x2713;** använda [standard regel motor](cdn-standard-rules-engine.md)  | | |**&#x2713;** använda [regel motor](cdn-rules-engine.md) |
+| Inställningar för cache/huvud  |**&#x2713;** använda [standard regel motor](cdn-standard-rules-engine.md) | | |**&#x2713;** använda [Premium regel motor](cdn-rules-engine.md) |
+| URL-omdirigering/omskrivning |**&#x2713;** använda [standard regel motor](cdn-standard-rules-engine.md)  | | |**&#x2713;** använda [Premium regel motor](cdn-rules-engine.md) |
+| Regler för mobila enheter  |**&#x2713;** använda [standard regel motor](cdn-standard-rules-engine.md) | | |**&#x2713;** använda [Premium regel motor](cdn-rules-engine.md) |
 | [Cachelagring av frågesträngar](cdn-query-string.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Dual stack-IPv4/IPv6 | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Stöd för HTTP/2](cdn-http2.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
@@ -72,7 +72,7 @@ I följande tabell jämförs de funktioner som är tillgängliga med respektive 
 | Enkel integrering med Azure-tjänster, bland annat [Storage](cdn-create-a-storage-account-with-cdn.md), [Web Apps](cdn-add-to-web-app.md) och [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Hantering via [REST API](/rest/api/cdn/), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) eller [PowerShell](cdn-manage-powershell.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Komprimering av MIME-typer](https://docs.microsoft.com/azure/cdn/cdn-improve-performance)  |Endast standard |Konfigurerbara |Konfigurerbara  |Konfigurerbara  |
-| Komprimerings kodning  |gzip, brotli |gzip |gzip, deflate, bzip2, brotili  |gzip, deflate, bzip2, brotili  |
+| Komprimerings kodning  |gzip, brotli |Gzip |gzip, deflate, bzip2, brotili  |gzip, deflate, bzip2, brotili  |
 
 
 

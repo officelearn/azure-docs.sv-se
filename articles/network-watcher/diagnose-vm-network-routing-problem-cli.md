@@ -1,6 +1,7 @@
 ---
-title: Diagnostisera en virtuell dator problem med nätverksroutning – Azure CLI | Microsoft Docs
-description: I den här artikeln får du lära dig hur du diagnostiserar en virtuell dator problem med nätverksroutning med nästa hopp-funktionen i Azure Network Watcher.
+title: Diagnostisera ett problem med Routning av VM-nätverk – Azure CLI
+titleSuffix: Azure Network Watcher
+description: I den här artikeln får du lära dig hur du diagnostiserar ett problem med nätverks routning i en virtuell dator med hjälp av nästa hopp funktion i Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
 author: KumudD
@@ -17,22 +18,22 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 968b7dd703ba40f46a068deb1d8b7d2b32e0de2b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 23ffc16948c250a6999c33b8812769ba889f4900
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64688216"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276094"
 ---
-# <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnostisera en virtuell dator problem med nätverksroutning – Azure CLI
+# <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnostisera ett problem med nätverks routning för virtuella datorer – Azure CLI
 
-I den här artikeln får du distribuera en virtuell dator (VM) och kontrollera kommunikation till en IP-adress och URL: en. Du lär dig också hur du fastställer orsaken till ett kommunikationsfel och hur du löser problemet.
+I den här artikeln distribuerar du en virtuell dator (VM) och kontrollerar sedan kommunikationen med en IP-adress och URL. Du lär dig också hur du fastställer orsaken till ett kommunikationsfel och hur du löser problemet.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt måste den här artikeln kräver att du kör Azure CLI version 2.0.28 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli). När du har verifierat CLI-versionen kör du `az login` för att skapa en anslutning till Azure. CLI-kommandon i den här artikeln har formaterats för att köras i ett Bash-gränssnitt.
+Om du väljer att installera och använda CLI lokalt kräver den här artikeln att du kör Azure CLI-version 2.0.28 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli). När du har verifierat CLI-versionen kör du `az login` för att skapa en anslutning till Azure. CLI-kommandona i den här artikeln är formaterade för att köras i ett bash-gränssnitt.
 
 ## <a name="create-a-vm"></a>Skapa en virtuell dator
 
@@ -56,11 +57,11 @@ Det tar några minuter att skapa den virtuella datorn. Fortsätt inte med de åt
 
 ## <a name="test-network-communication"></a>Testa nätverkskommunikationen
 
-Om du vill testa nätverkskommunikation med Network Watcher måste du först aktivera en network watcher i den region som den virtuella datorn som du vill testa har och sedan använda Network Watcher nästa hopp-funktionen för att testa kommunikation.
+Om du vill testa nätverkskommunikation med Network Watcher måste du först aktivera en nätverks bevakare i den region som den virtuella datorn som du vill testa är i och sedan använda Network Watchers nästa hopp-funktion för att testa kommunikationen.
 
 ### <a name="enable-network-watcher"></a>Aktivera nätverksbevakare
 
-Om du redan har en network watcher som aktiverats i regionen USA, östra, gå vidare till [Använd nästa hopp](#use-next-hop). Använd den [az network watcher konfigurera](/cli/azure/network/watcher#az-network-watcher-configure) kan du skapa en network watcher i regionen östra USA:
+Om du redan har en nätverks övervakare aktive rad i regionen USA, östra, hoppar du över till [Använd nästa hopp](#use-next-hop). Använd [AZ Network Watcher Configure](/cli/azure/network/watcher#az-network-watcher-configure) för att skapa en nätverks övervakare i regionen USA, östra:
 
 ```azurecli-interactive
 az network watcher configure \
@@ -71,7 +72,7 @@ az network watcher configure \
 
 ### <a name="use-next-hop"></a>Använda funktionen för nästa hopp
 
-Azure skapar automatiskt vägar till olika standardmål. Du kan skapa egna vägar som ersätter standardvägarna. Ibland kan egna vägar göra att kommunikationen misslyckas. Testa routning från en virtuell dator med [az network watcher show-next-hop](/cli/azure/network/watcher?view=azure-cli-latest#az-network-watcher-show-next-hop) fastställa nexthop routning när trafik är avsedd för en specifik adress.
+Azure skapar automatiskt vägar till olika standardmål. Du kan skapa egna vägar som ersätter standardvägarna. Ibland kan egna vägar göra att kommunikationen misslyckas. Om du vill testa routning från en virtuell dator använder du [AZ Network Watcher show-Next-hop](/cli/azure/network/watcher?view=azure-cli-latest#az-network-watcher-show-next-hop) för att fastställa nästa Dirigerings hopp när trafiken är avsedd för en speciell adress.
 
 Testa utgående kommunikation från den virtuella datorn till någon av IP-adresserna för www.bing.com:
 
@@ -85,7 +86,7 @@ az network watcher show-next-hop \
   --out table
 ```
 
-Efter några sekunder utdata informerar dig som den **nextHopType** är **Internet**, och att den **routeTableId** är **Systemväg**. Det här resultatet talar om att det finns en giltig väg till målet.
+Efter några sekunder informerar utdata om att **nextHopType** är **Internet**och att **routeTableId** är **system väg**. Det innebär att du vet att det finns en giltig väg till målet.
 
 Testa utgående kommunikation från den virtuella datorn till 172.31.0.100:
 
@@ -99,11 +100,11 @@ az network watcher show-next-hop \
   --out table
 ```
 
-Informerar dig om de utdata som returneras som **ingen** är den **nextHopType**, och att den **routeTableId** är också **Systemväg**. Resultatet visar att det visserligen finns en giltig systemväg till målet, men att det inte finns något nästa hopp för att dirigera trafiken till målet.
+Utdata som returneras informerar dig om att **ingen** är **NextHopType**och att **routeTableId** också är **system väg**. Resultatet visar att det visserligen finns en giltig systemväg till målet, men att det inte finns något nästa hopp för att dirigera trafiken till målet.
 
 ## <a name="view-details-of-a-route"></a>Visa information om en väg
 
-Om du vill analysera routning ytterligare, granska de effektiva vägarna för nätverksgränssnittet med den [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table) kommando:
+Om du vill analysera routning ytterligare granskar du de effektiva vägarna för nätverks gränssnittet med kommandot [AZ Network NIC show-effektiv-Route-Table](/cli/azure/network/nic#az-network-nic-show-effective-route-table) :
 
 ```azurecli-interactive
 az network nic show-effective-route-table \
@@ -111,7 +112,7 @@ az network nic show-effective-route-table \
   --name myVmVMNic
 ```
 
-Följande text som ingår i den returnerade utdatan:
+Följande text ingår i returnerade utdata:
 
 ```azurecli
 {
@@ -129,9 +130,9 @@ Följande text som ingår i den returnerade utdatan:
 },
 ```
 
-När du använde den `az network watcher show-next-hop` kommando för att testa utgående kommunikation till 13.107.21.200 i [Använd nästa hopp](#use-next-hop), vägen med den **addressPrefix** 0.0.0.0/0** användes för att dirigera trafik till adressen, eftersom Ingen annan väg i utdata innehåller adressen. Som standard dirigeras alla adresser som inte anges inom adressprefixet till en annan väg till internet.
+När du använde kommandot `az network watcher show-next-hop` för att testa utgående kommunikation till 13.107.21.200 i [Använd nästa hopp](#use-next-hop), användes vägen med **addressPrefix** 0.0.0.0/0 * * för att dirigera trafik till adressen, eftersom ingen annan väg i utdata innehåller adressen. Som standard dirigeras alla adresser som inte anges inom adressprefixet till en annan väg till internet.
 
-När du använde den `az network watcher show-next-hop` kommandot för att testa utgående kommunikation till 172.31.0.100 men, resultatet informeras du om att det fanns inga nästa hopptyp. I den returnerade utdatan se du också följande text:
+När du använde kommandot `az network watcher show-next-hop` för att testa utgående kommunikation till 172.31.0.100 kan resultatet emellertid informeras om att det inte fanns någon nästa hopp typ. I returnerade utdata visas även följande text:
 
 ```azurecli
 {
@@ -149,7 +150,7 @@ När du använde den `az network watcher show-next-hop` kommandot för att testa
 },
 ```
 
-Som du ser i utdata från den `az network watcher nic show-effective-route-table` kommandot, men det finns en standardväg till 172.16.0.0/12 prefix, som innehåller 172.31.0.100 adressen, den **nextHopType** är **ingen**. Azure skapar en standardväg till 172.16.0.0/12 men anger inte en nästa hopptyp förrän det finns någon anledning till det. Om du till exempel att du lagt till adressintervallet 172.16.0.0/12 adressutrymmet för det virtuella nätverket, Azure ändras den **nextHopType** till **virtuellt nätverk** för vägen. En kontroll visas sedan **virtuellt nätverk** som den **nextHopType**.
+Som du kan se i utdata från kommandot `az network watcher nic show-effective-route-table`, men det finns en standard väg till prefixet 172.16.0.0/12, som innehåller 172.31.0.100-adressen, är **NextHopType** **none**. Azure skapar en standardväg till 172.16.0.0/12 men anger inte en nästa hopptyp förrän det finns någon anledning till det. Om du till exempel har lagt till adress intervallet 172.16.0.0/12 i det virtuella nätverkets adress utrymme ändrar Azure **nextHopType** till det **virtuella nätverket** för vägen. En kontroll visar sedan det **virtuella nätverket** som **nextHopType**.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -161,6 +162,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du skapat en virtuell dator och diagnostiseras nätverksroutning från den virtuella datorn. Du har lärt dig att Azure skapar flera standardvägar och testat routning till två olika mål. Läs mer om [routning i Azure](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) och hur du [skapar egna vägar](../virtual-network/manage-route-table.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-route).
+I den här artikeln har du skapat en virtuell dator och en diagnostiserad nätverks dirigering från den virtuella datorn. Du har lärt dig att Azure skapar flera standardvägar och testat routning till två olika mål. Läs mer om [routning i Azure](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) och hur du [skapar egna vägar](../virtual-network/manage-route-table.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-route).
 
-För utgående VM-anslutningar kan också bestämma svarstiden du och tillåtna respektive nekade nätverkstrafik mellan den virtuella datorn och en slutpunkt med Network Watchers [anslutningsfelsökning](network-watcher-connectivity-cli.md) kapaciteten. Du kan övervaka kommunikation mellan en virtuell dator och en slutpunkt, till exempel en IP-adress eller URL: en, över tid med Network Watcher anslutning monitor-funktionen. Läs hur genom att läsa [övervaka en nätverksanslutning](connection-monitor.md).
+För utgående VM-anslutningar kan du också bestämma svars tiden och tillåten och nekad nätverks trafik mellan den virtuella datorn och en slut punkt med hjälp av Network Watcher [anslutnings fel söknings](network-watcher-connectivity-cli.md) funktion. Du kan övervaka kommunikationen mellan en virtuell dator och en slut punkt, till exempel en IP-adress eller URL, med tiden med hjälp av funktionen för Network Watcher anslutnings övervakaren. Mer information finns i [övervaka en nätverks anslutning](connection-monitor.md).

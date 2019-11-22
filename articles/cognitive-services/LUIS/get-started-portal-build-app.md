@@ -10,18 +10,18 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: diberry
-ms.openlocfilehash: 087b3a61902c533648b5d6e1b4b763f88ee5d794
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: cbfb0ddb0ee901545443fc127f80a1837c7bde9b
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669685"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278583"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Snabb start: skapa en ny app i LUIS-portalen
 
 [!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
 
-I den här snabb starten skapar du en ny app i [Luis-portalen](https://www.luis.ai). Först skapar du grundläggande delar av en app, **avsikter**och **entiteter**. Sedan testar du appen genom att tillhandahålla ett exempel på användarens uttryck i den interaktiva test panelen för att få den förväntade avsikten.
+I den här snabb starten skapar du en ny app i LUIS-portalen. Först skapar du grundläggande delar av en app, **avsikter**och **entiteter**. Sedan testar du appen genom att tillhandahålla ett exempel på användarens uttryck i den interaktiva test panelen för att få den förväntade avsikten.
 
 Att skapa en app är kostnads fritt och kräver inte en Azure-prenumeration. När du är redo att distribuera din app kan du läsa [snabb starten för att distribuera en app](get-started-portal-deploy-app.md). Den visar hur du skapar en Azure-tjänst resurs för en Azure-tjänst och tilldelar den till appen.
 
@@ -39,7 +39,7 @@ Att skapa en app är kostnads fritt och kräver inte en Azure-prenumeration. Nä
    |--|--|--|
    |Namn|`myEnglishApp`|Unikt namn på LUIS-app<br>kunna|
    |Kultur|**Engelska**|Språk för yttranden från användare, **en-US**<br>kunna|
-   |Beskrivning (valfritt)|`App made with LUIS Portal`|Beskrivning av app<br>Valfritt|
+   |Beskrivning (valfritt)|`App made with LUIS Portal`|Beskrivning av app<br>valfritt|
    |Förutsägelse resurs (valfritt) |-  |Välj inte. LUIS ger dig en start nyckel som du kan använda utan kostnad för redigering och 1 000 förutsägelse slut punkts begär Anden. |
 
    ![Ange nya inställningar för app](./media/get-started-portal-build-app/create-new-app-settings.png)
@@ -66,7 +66,7 @@ Utför följande steg för att skapa avsikter:
 
 1. Ange namnet på avsikten `FindForm`och välj sedan **färdig**.
 
-## <a name="add-an-example-utterance"></a>Lägg till ett exempel uttryck
+## <a name="add-an-example-utterance"></a>Lägg till en exempel-uttryck
 
 Du lägger till exempel yttranden när du har skapat avsikter. Exempel på yttranden är text som en användare anger i en chat-robot eller något annat klient program. De mappar avsikten med användarens text till ett LUISt syfte.
 
@@ -85,7 +85,7 @@ Lägg till följande 15 exempel yttranden i `FindForm` avsikten.
 |5|Behöver jag HRF-234695 för att ansöka om ett internt jobb?|
 |6|Behöver min chef veta att jag använder för ett jobb med HRF-234091|
 |7|Var skickar jag HRF-234918? Får jag ett e-postmeddelande om att det togs emot?|
-|8|HRF – 234555|
+|8|hrf-234555|
 |9|När var HRF-234987 uppdaterad?|
 |10|Använder jag formatet HRF-876345 för att ansöka om tekniska platser|
 |11|Har en ny version av HRF-765234 skickats för mina öppna REQ?|

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 3fd97e33c88e7767e1d9b230792aea675a744f27
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: c16abd02dfef5fb8b74cd5c0cafa97e5f29cc6b2
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73619773"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286985"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Kända problem och fel söknings Azure Machine Learning
 
@@ -25,7 +25,7 @@ Den här artikeln hjälper dig att hitta och korrigera fel eller fel som uppstå
 
 Azure Compute uppdaterar NCv3 SKU: er som startar tidigt november 2019 för att ge stöd för alla MPI-implementeringar och-versioner samt RDMA-verb för InfiniBand-utrustade virtuella datorer. Detta kräver kort stillestånds tid – [Läs mer om SR-IOV-uppgraderingen](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku).
 
-Som kund av Azure Machine Learnings hanterade Compute-erbjudande (AmlCompute) behöver du inte göra några ändringar för tillfället. Utifrån [uppdaterings schemat](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku) skulle du behöva planera för en kort rast i utbildningen. Tjänsten tar ansvar för att uppdatera VM-avbildningarna på klusternoderna och skala automatiskt upp klustret. När uppgraderingen är klar kan du använda alla andra MPI-discibutions (t. ex. OpenMPI med Pytorch), förutom att få större InfiniBand-bandbredd, lägre fördröjning och bättre prestanda för distribuerade program.
+Som kund av Azure Machine Learnings hanterade Compute-erbjudande (AmlCompute) behöver du inte göra några ändringar för tillfället. Utifrån [uppdaterings schemat](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku) skulle du behöva planera för en kort rast i utbildningen. Tjänsten tar ansvar för att uppdatera VM-avbildningarna på klusternoderna och skala automatiskt upp klustret. När uppgraderingen är klar kan du använda alla andra MPI-distributioner (t. ex. OpenMPI med Pytorch), förutom att få större InfiniBand-bandbredd, lägre fördröjning och bättre prestanda för distribuerade program.
 
 ## <a name="azure-machine-learning-designer-issues"></a>Problem med Azure Machine Learning designer
 
@@ -44,11 +44,11 @@ Före korrigeringen kan du ansluta data uppsättningen till en datatransformerin
 
 Bilden nedan visar hur: ![visulize-data](./media/resource-known-issues/aml-visualize-data.png)
 
-## <a name="sdk-installation-issues"></a>Installations problem för SDK
+## <a name="sdk-installation-issues"></a>SDK-installationsproblem
 
-**Fel meddelande: det går inte att avinstallera ' PyYAML '**
+**Felmeddelande: Det går inte att avinstallera 'PyYAML'**
 
-Azure Machine Learning SDK för python: PyYAML är ett distutils-installerat projekt. Därför kan vi inte korrekt avgöra vilka filer som tillhör den om det finns en delvis avinstallation. Om du vill fortsätta att installera SDK och ignorera det här felet använder du:
+Azure Machine Learning-SDK för Python: PyYAML är ett projekt för distutils installerad. Därför kan vi inte korrekt avgöra vilka filer som tillhör den om det finns en delvis avinstallation. Om du vill fortsätta installerar denna SDK när du ignorera det här felet, använder du:
 
 ```Python
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
@@ -62,13 +62,13 @@ conda create -n <env-name> python=3.7.3
 ```
 Som skapar en Conda-miljö med python 3.7.3, som inte har installations problemet som finns i 3.7.4.
 
-## <a name="trouble-creating-azure-machine-learning-compute"></a>Problem med att skapa Azure Machine Learning Compute
+## <a name="trouble-creating-azure-machine-learning-compute"></a>Problem med att skapa beräkning av Azure Machine Learning
 
-Det är en sällsynt risk att vissa användare som har skapat sin Azure Machine Learning-arbetsyta från Azure Portal innan GA-versionen inte kan skapa Azure Machine Learning beräkning på den arbets ytan. Du kan antingen utlösa en supportbegäran mot tjänsten eller skapa en ny arbets yta via portalen eller SDK för att häva blockeringen direkt.
+Det finns en ovanligt risk att vissa användare som skapade sin Azure Machine Learning-arbetsyta från Azure-portalen innan GA-versionen kan inte skapa beräkning av Azure Machine Learning på arbetsytan. Du kan generera en supportförfrågan mot tjänsten, eller så kan du skapa en ny arbetsyta via portalen eller SDK, för att avblockera själv omedelbart.
 
-## <a name="image-building-failure"></a>Det gick inte att skapa bild
+## <a name="image-building-failure"></a>Bild byggnad fel
 
-Det gick inte att skapa bild när du distribuerar webb tjänsten. Lösning är att lägga till "pynacl = = 1.2.1" som ett pip-beroende av Conda-filen för avbildnings konfiguration.
+Bild för att skapa fel när du distribuerar webbtjänsten. Lösningen är att lägga till ”pynacl == 1.2.1” som ett pip beroende till Conda-fil för konfiguration av avbildningen.
 
 ## <a name="deployment-failure"></a>Distributions problem
 
@@ -76,7 +76,7 @@ Om du ser `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <
 
 ## <a name="fpgas"></a>FPGA:er
 
-Du kommer inte att kunna distribuera modeller på FPGAs förrän du har begärt och godkänts för FPGA-kvoten. Om du vill begära åtkomst fyller du i formuläret kvot förfrågan: https://aka.ms/aml-real-time-ai
+Du kommer inte att kunna distribuera modeller på FPGA förrän du har begärt och godkänts för FPGA kvot. För att begära åtkomst, fyller du i formuläret för begäran av kvot: https://aka.ms/aml-real-time-ai
 
 ## <a name="automated-machine-learning"></a>Automatiserad maskininlärning
 
@@ -98,7 +98,7 @@ Det finns ett känt problem i AzureML nu SDK version 1.1.25 som orsakar ett fel 
 pip install --upgrade azureml-dataprep
 ```
 
-### <a name="typeerror-mount-got-an-unexpected-keyword-argument-invocation_id"></a>TypeError: Mount () fick ett oväntat nyckelords argument ' invocation_id '
+### <a name="typeerror-mount-got-an-unexpected-keyword-argument-invocation_id"></a>TypeError: Mount () fick ett oväntat nyckelords argument invocation_id
 
 Det här felet uppstår om du har en inkompatibel version mellan `azureml-core` och `azureml-dataprep`. Om det här felet visas uppgraderar du `azureml-dataprep`-paketet till en nyare version (större än eller lika med 1.1.29).
 
@@ -108,7 +108,7 @@ pip install --upgrade azureml-dataprep
 
 ## <a name="databricks"></a>Databricks
 
-Databricks-och Azure Machine Learning problem.
+Databricks och Azure Machine Learning-problem.
 
 ### <a name="failure-when-installing-packages"></a>Det gick inte att installera paket
 
@@ -159,13 +159,13 @@ Om du ser ett `FailToSendFeather` fel när du läser data på Azure Databricks k
 * Lägg till `azureml-dataprep` version 1.1.8 eller senare.
 * Lägg till `pyarrow` version 0,11 eller senare.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure portal
 
-Om du går direkt till att visa din arbets yta från en resurs länk från SDK eller portalen, kan du inte visa sidan för normal översikt med prenumerations information i tillägget. Du kommer inte heller att kunna byta till en annan arbets yta. Om du behöver visa en annan arbets yta är lösningen att gå direkt till [Azure Machine Learning Studio](https://ml.azure.com) och söka efter namnet på arbets ytan.
+Om du går direkt för att visa din arbetsyta från en delningslänk från SDK: N eller portalen kan du inte visa normala översikt översiktssidan med prenumerationsinformation i tillägget. Du kommer inte heller att kunna växla till en annan arbetsyta. Om du behöver visa en annan arbets yta är lösningen att gå direkt till [Azure Machine Learning Studio](https://ml.azure.com) och söka efter namnet på arbets ytan.
 
 ## <a name="diagnostic-logs"></a>Diagnostikloggar
 
-Ibland kan det vara bra om du kan ange diagnostikinformation när du ber om hjälp. Om du vill se några loggar går du till [Azure Machine Learning Studio](https://ml.azure.com) och går till din arbets yta och väljer **arbets yta > Experiment > Kör > loggar**.  
+Ibland kan det vara bra om du kan ange diagnostisk information när du frågar om du behöver hjälp. Om du vill se några loggar går du till [Azure Machine Learning Studio](https://ml.azure.com) och går till din arbets yta och väljer **arbets yta > Experiment > Kör > loggar**.  
 
 > [!NOTE]
 > Azure Machine Learning loggar information från en rad olika källor under utbildningen, till exempel AutoML eller Docker-behållaren som kör övnings jobbet. Många av dessa loggar dokumenteras inte. Om du stöter på problem och kontaktar Microsoft-supporten kan det hända att de kan använda dessa loggar under fel sökning.

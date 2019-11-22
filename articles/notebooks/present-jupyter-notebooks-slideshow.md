@@ -1,23 +1,14 @@
 ---
 title: Presentera en Jupyter-anteckningsbok som ett bildspel på Azure
 description: Hur du konfigurerar cellerna för bildspel läge Jupyter notebook och sedan presentera bildspel med hjälp av upphov-tillägget.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: c372175b-beb5-4b45-b2f8-34cb06990117
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/04/2018
-ms.author: kraigb
-ms.openlocfilehash: 04612dc8892a544397251580b3494badc84e2ad5
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: d180eaf571fa57191e3b0856020b02f05d05e344
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973119"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277599"
 ---
 # <a name="run-a-notebook-slideshow"></a>Kör en notebook bildspel
 
@@ -101,7 +92,7 @@ Eftersom bildspelet renderas fragment med mer lodrätt avstånd än när alla pu
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Anvisningar: Konfigurera och hantera projekt @ no__t-0
-- [Anvisningar: Installera paket inifrån en bärbar dator @ no__t-0
-- [Anvisningar: Arbeta med datafiler @ no__t-0
-- [Anvisningar: Åtkomst till data resurser @ no__t-0
+- [Så här: konfigurera och hantera projekt](configure-manage-azure-notebooks-projects.md)
+- [Så här: Installera paket från inom en anteckningsbok](install-packages-jupyter-notebook.md)
+- [Så här: arbeta med filer](work-with-project-data-files.md)
+- [Så här: åtkomst till dataresurser](access-data-resources-jupyter-notebooks.md)

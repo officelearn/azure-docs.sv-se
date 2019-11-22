@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: diberry
-ms.openlocfilehash: 8069b3b9c9a226e29a3eae3261948ee92291726d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7412677773b60a1894a6ece7251e797bfddee091
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73486638"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280798"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Förstå vilka bra yttranden är för din LUIS-app
 
@@ -60,17 +60,17 @@ Gör följande exempel yttranden:
 |Jag vill skaffa en dator, hur gör jag?|
 |När kan jag ha en dator?| 
 
-Kärn termen här, "dator", är inte varierande. Använd alternativ som stationär dator, bärbar dator, arbets Station eller till och med bara dator. LUIS härleder intelligenta synonymer från kontexten, men när du skapar yttranden för utbildning är det fortfarande bättre att variera.
+Kärn termen här, "dator", är inte varierande. Använd alternativ som stationär dator, bärbar dator, arbets Station eller till och med bara dator. LUIS kan på ett intelligent sätt härleda synonymer från kontexten, men när du skapar yttranden för utbildning är det alltid bättre att variera dem.
 
 ## <a name="example-utterances-in-each-intent"></a>Exempel på yttranden i varje avsikt
 
-Varje avsikt måste ha exempel yttranden, minst 15. Om du har en avsikt som inte har något exempel yttranden, kan du inte träna LUIS. Om du har en avsikt med ett eller väldigt få exempel yttranden, kommer LUIS inte att förutsäga avsikten korrekt. 
+Varje avsikt måste ha exempel yttranden, minst 15. Om du har en avsikt som inte har något exempel yttranden, kan du inte träna LUIS. Om du har en avsikt med ett eller väldigt få exempel yttranden kan LUIS inte förutse avsikten korrekt. 
 
 ## <a name="add-small-groups-of-15-utterances-for-each-authoring-iteration"></a>Lägg till små grupper på 15 yttranden för varje redigering av iterationer
 
 I varje iteration av modellen ska du inte lägga till en stor mängd yttranden. Lägg till yttranden i kvantiteter på 15. [Träna](luis-how-to-train.md), [publicera](luis-how-to-publish-app.md)och [testa](luis-interactive-test.md) igen.  
 
-LUIS skapar effektiva modeller med yttranden som väljs noggrant av LUIS Model-författaren. Att lägga till för många yttranden är inte värdefullt eftersom det introducerar förvirring.  
+LUIS skapar effektiva modeller med yttranden som väljs noggrant av LUIS Model-författaren. Att lägga till för många yttranden är inte värdefullt eftersom det introducerar förvirring.
 
 Det är bättre att börja med några få yttranden och sedan [Granska slut punkts yttranden](luis-how-to-review-endpoint-utterances.md) för korrekt matchning av avsikts förutsägelse och enhets extrahering.
 
@@ -108,11 +108,11 @@ Normalisering innebär inte att du inte ser interpunktion och dia kritiska tecke
 
 ### <a name="punctuation-marks"></a>Skiljetecken
 
-Interpunktion är en separat token i LUIS. En uttryck som innehåller en period i slutet jämfört med en uttryck som inte innehåller en period i slutet är två separata yttranden och kan få två olika förutsägelser. 
+Skiljetecken är en separat token i LUIS. En uttryck som innehåller en period i slutet jämfört med en uttryck som inte innehåller en period i slutet är två separata yttranden och kan få två olika förutsägelser. 
 
 Om interpunktion inte är normaliserad ignorerar LUIS inte skiljetecken som standard eftersom vissa klient program kan placera signifikans på dessa märken. Se till att ditt exempel yttranden använder både skiljetecken och ingen interpunktion för att båda formaten ska returnera samma relativa resultat. 
 
-Se till att modellen hanterar skiljetecken antingen i [exemplet yttranden](luis-concept-utterance.md) (med och utan interpunktion) eller i [mönstren](luis-concept-patterns.md) där det är enklare att ignorera interpunktion med den särskilda syntaxen: `I am applying for the {Job} position[.]`
+Se till att modellen hanterar skiljetecken antingen i exemplet yttranden (med och utan interpunktion) eller i [mönstren](luis-concept-patterns.md) där det är enklare att ignorera interpunktion med den särskilda syntaxen: `I am applying for the {Job} position[.]`
 
 Om interpunktionen inte har någon specifik betydelse i klient programmet, bör du överväga att [Ignorera interpunktion](#utterance-normalization) genom normalisera interpunktion. 
 
@@ -136,18 +136,18 @@ När din modell har tränat, publicerat och tagit emot [slut punkts](luis-glossa
 
 Granska [metod tips](luis-concept-best-practices.md) och Använd dem som en del av din vanliga redigerings cykel.
 
-## <a name="label-for-word-meaning"></a>Etikett för ord betydelse
+## <a name="label-for-word-meaning"></a>Etikett för word betydelse
 
-Om Word-valet eller ord ordningen är detsamma, men inte samma sak, ska du inte märka det med entiteten. 
+Om word val eller word placering är samma, men inte betyda samma sak, du inte märker den med entiteten. 
 
-Följande yttranden är ordet `fair` ett homograph. Den har stavats likadan men har en annan betydelse:
+Följande uttryck, ordet `fair` är en homografiska. Det har stavats samma, men har en annan betydelse:
 
 |Yttrande|
 |--|
-|Vilken typ av regions mässor sker i Seattle-arean på sommaren?|
-|Är det aktuella omdömet för översynen i Stockholm?|
+|Vilken typ av region mässor sker i Seattle-området den här sommaren?|
+|Är den aktuella klassificeringen för Seattle-granskning fair?|
 
-Om du vill att en händelse entitet ska hitta alla händelse data kan du märka ordet `fair` i den första uttryck, men inte i den andra.
+Om du vill att en händelse entitet för att hitta alla händelsedata kan etikettera ordet `fair` i den första uttryck, men inte i andra.
 
 
 ## <a name="next-steps"></a>Nästa steg

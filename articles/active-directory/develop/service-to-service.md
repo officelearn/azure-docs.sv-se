@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 11/20/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8f95dfd6410ae22a4596ac7d5d72add57e8029d
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 49081ba72559b021d2e4846e7d9feffd61ae7b36
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72373899"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284901"
 ---
 # <a name="service-to-service-apps"></a>Tjänst-till-tjänst-appar
 
@@ -40,7 +40,7 @@ Tjänst-till-tjänst-program kan vara ett daemon-eller serverprogram som behöve
 
 ![Daemon-eller Server program till webb-API-diagram](./media/authentication-scenarios/daemon_server_app_to_web_api.png)
 
-## <a name="dprotocol-flow"></a>DProtocol-flöde
+## <a name="protocol-flow"></a>Protokoll flöde
 
 ### <a name="application-identity-with-oauth-20-client-credentials-grant"></a>Program identitet med beviljande av OAuth 2,0-klientautentiseringsuppgifter
 
@@ -59,11 +59,11 @@ Flödet som beskrivs nedan förutsätter att en användare har autentiserats i e
 
 ## <a name="code-samples"></a>Kodexempel
 
-Se kod exemplen för daemon eller Server program till webb-API-scenarier. Och kom tillbaka ofta när nya exempel läggs till ofta. [Server-eller daemon-program till webb-API](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
+Se kod exemplen för daemon eller Server program till webb-API-scenarier: [Server-eller daemon-program till webb-API](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
 
 ## <a name="app-registration"></a>Appregistrering
 
-* En enskild klient – både för program identiteten och den delegerade användarens identitets fall, måste daemon-eller Server programmet vara registrerat i samma katalog i Azure AD. Webb-API: et kan konfigureras för att visa en uppsättning behörigheter som används för att begränsa daemon eller serverns åtkomst till resurserna. Om en delegerad användares identitets typ används måste serverprogrammet välja önskade behörigheter från den nedrullningsbara menyn "behörigheter till andra program" i Azure Portal. Det här steget krävs inte om program identitets typen används.
+* En enskild klient – både för program identiteten och den delegerade användarens identitets fall, måste daemon-eller Server programmet vara registrerat i samma katalog i Azure AD. Webb-API: et kan konfigureras för att visa en uppsättning behörigheter som används för att begränsa daemon eller serverns åtkomst till resurserna. Om en delegerad användar identitets typ används måste serverprogrammet välja önskade behörigheter. På sidan **API-behörighet** för program registreringen när du har valt **Lägg till en behörighet** och valt API-serien väljer du **delegerade behörigheter**och väljer sedan behörigheter. Det här steget krävs inte om program identitets typen används.
 * Daemon-eller serverprogram har kon figurer ATS för att ange de behörigheter som krävs för att fungera med flera klient organisationer. Den här listan över nödvändiga behörigheter visas i en dialog ruta när en användare eller administratör i mål katalogen ger tillåtelse till programmet, vilket gör det tillgängligt för deras organisation. Vissa program kräver bara behörigheter på användar nivå, som alla användare i organisationen kan godkänna. Andra program kräver behörigheter på administratörs nivå, som en användare i organisationen inte kan godkänna. Endast en katalog administratör kan ge medgivande till program som kräver den här nivån av behörigheter. När användaren eller administratören samtycks, registreras båda webb-API: erna i katalogen.
 
 ## <a name="token-expiration"></a>Förfallo datum för token

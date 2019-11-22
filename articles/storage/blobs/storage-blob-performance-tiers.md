@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 64efd1a02b903ec3874066f6c663b86a8080f746
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: ff82986b27d038c536872b07e1308b0d48fadaef
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73932277"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270229"
 ---
 # <a name="performance-tiers-for-block-blob-storage"></a>Prestanda nivåer för Block Blob Storage
 
@@ -54,6 +54,12 @@ Premium Performance Storage är perfekt för arbets belastningar som kräver sna
 ## <a name="standard-performance"></a>Standard prestanda
 
 Standard prestanda stöder olika [åtkomst nivåer](storage-blob-storage-tiers.md) för att lagra data på det mest kostnads effektiva sättet. Den är optimerad för hög kapacitet och högt data flöde på stora data mängder.
+
+- **Data uppsättningar för säkerhets kopiering och haveri beredskap**. Standard prestanda lagring erbjuder kostnads effektiva nivåer, vilket gör det till ett perfekt användnings fall för både kortsiktiga och långsiktiga data uppsättningar för haveri beredskap, sekundära säkerhets kopieringar och data arkivering för regelefterlevnad.
+
+- **Medie innehåll**. Bilder och videor används ofta ofta när de först skapas och lagras, men den här innehålls typen används mindre ofta när den blir äldre. Standard prestanda lagring erbjuder lämpliga nivåer för medie innehålls behov. 
+
+- **Mass bearbetning av data**. Dessa typer av arbets belastningar är lämpliga för standard lagring eftersom de kräver kostnads effektiv lagring med höga data flöden i stället för konsekvent låg latens. Stora data uppsättningar för RAW-datauppsättningar mellanlagras för bearbetning och slutligen till slut på låg frekventa nivåer.
 
 ## <a name="migrate-from-standard-to-premium"></a>Migrera från standard till Premium
 

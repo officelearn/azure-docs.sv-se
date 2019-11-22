@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Konfigurera LinkedIn Sales Navigator för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
-description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och avetablera användarkonton på LinkedIn Sales Navigator.
+title: 'Självstudie: användar etablering – LinkedIn Sales Navigator, Azure AD'
+description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till LinkedIn Sales Navigator.
 services: active-directory
 documentationcenter: ''
 author: ArvindHarinder1
@@ -15,113 +15,113 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8977e6bb8b665705af7183ff0cdcfae22a19c759
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dbf8923d62b49ed5341776aef03bc1bc2dabeaa9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65965940"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276809"
 ---
-# <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Självstudier: Konfigurera LinkedIn Sales Navigator för automatisk användaretablering
+# <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Självstudie: Konfigurera LinkedIn Sales Navigator för automatisk användar etablering
 
-Målet med den här självstudien är att visa dig de steg som du behöver utföra på LinkedIn Sales Navigator och Azure AD för att automatiskt etablera och avetablera användarkonton från Azure AD på LinkedIn Sales Navigator.
+Syftet med den här självstudien är att visa de steg du behöver utföra i LinkedIn Sales Navigator och Azure AD för att automatiskt etablera och avetablera användar konton från Azure AD till LinkedIn Sales Navigator.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 
 * En Azure Active Directory-klientorganisation
 * En LinkedIn Sales Navigator-klient 
-* Ett administratörskonto i LinkedIn Sales Navigator med åtkomst till Kontocenter LinkedIn
+* Ett administratörs konto i LinkedIn Sales Navigator med åtkomst till LinkedIn-konto Center
 
 > [!NOTE]
-> Azure Active Directory kan integreras med LinkedIn Sales Navigator med hjälp av den [SCIM](http://www.simplecloud.info/) protokoll.
+> Azure Active Directory integreras med LinkedIn Sales Navigator med [scim](http://www.simplecloud.info/) -protokollet.
 
 ## <a name="assigning-users-to-linkedin-sales-navigator"></a>Tilldela användare till LinkedIn Sales Navigator
 
-Azure Active Directory använder ett begrepp som kallas ”tilldelningar” för att avgöra vilka användare får åtkomst till valda appar. I samband med automatisk användarkontoetablering, kommer endast de användare och grupper som är ”kopplade” till ett program i Azure AD att synkroniseras.
+Azure Active Directory använder ett begrepp som kallas "tilldelningar" för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar konto etablering synkroniseras endast de användare och grupper som har tilldelats till ett program i Azure AD.
 
-Innan du konfigurerar och aktiverar etableringstjänsten, måste du bestämma vilka användare och/eller grupper i Azure AD representerar de användare som behöver åtkomst till LinkedIn Sales Navigator. När du valt, kan du tilldela dessa användare på LinkedIn Sales Navigator genom att följa instruktionerna här:
+Innan du konfigurerar och aktiverar etablerings tjänsten måste du bestämma vilka användare och/eller grupper i Azure AD som ska representera de användare som behöver åtkomst till LinkedIn Sales Navigator. När du har bestämt dig kan du tilldela dessa användare till LinkedIn Sales Navigator genom att följa anvisningarna här:
 
-[Tilldela en användare eller grupp till en företagsapp](../manage-apps/assign-user-or-group-access-portal.md)
+[Tilldela en användare eller grupp till en företags app](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-linkedin-sales-navigator"></a>Viktiga tips för att tilldela användare till LinkedIn Sales Navigator
 
-* Vi rekommenderar att en enda Azure AD-användare tilldelas till LinkedIn Sales Navigator att testa etablering konfigurationen. Ytterligare användare och/eller grupper kan tilldelas senare.
+* Vi rekommenderar att en enda Azure AD-användare tilldelas till LinkedIn Sales Navigator för att testa etablerings konfigurationen. Ytterligare användare och/eller grupper kan tilldelas senare.
 
-* När du tilldelar en användare på LinkedIn Sales Navigator, måste du välja den **användaren** roll i dialogrutan för tilldelning. Rollen ”standard åtkomst” fungerar inte för etablering.
+* När du tilldelar en användare till LinkedIn Sales Navigator måste du välja **användar** rollen i tilldelnings dialog rutan. Rollen "standard åtkomst" fungerar inte för etablering.
 
-## <a name="configuring-user-provisioning-to-linkedin-sales-navigator"></a>Konfigurera användaretablering på LinkedIn Sales Navigator
+## <a name="configuring-user-provisioning-to-linkedin-sales-navigator"></a>Konfigurera användar etablering till LinkedIn Sales Navigator
 
-Det här avsnittet vägleder dig genom anslutning av din Azure AD för att etablera API LinkedIn Sales Navigator-SCIM-användarkonto och konfigurera etableringstjänsten för att skapa, uppdatera och inaktivera tilldelade användarkonton i LinkedIn Sales Navigator baserat på användaren och grupptilldelning i Azure AD.
+I det här avsnittet får du hjälp med att ansluta din Azure AD till LinkedIn-SCIM för användar konton och konfigurera etablerings tjänsten för att skapa, uppdatera och inaktivera tilldelade användar konton i LinkedIn Sales Navigator baserat på användare och grupp tilldelning i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktiveras SAML-baserad enkel inloggning för LinkedIn Sales Navigator, följa anvisningarna enligt [Azure-portalen](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av Automatisk etablering, även om de här två funktionerna kompletterar varandra.
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för LinkedIn Sales Navigator genom att följa anvisningarna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner kompletterar varandra.
 
-### <a name="to-configure-automatic-user-account-provisioning-to-linkedin-sales-navigator-in-azure-ad"></a>Konfigurera automatisk etablering av användarkonto på LinkedIn Sales Navigator i Azure AD:
+### <a name="to-configure-automatic-user-account-provisioning-to-linkedin-sales-navigator-in-azure-ad"></a>Konfigurera automatisk användar konto etablering till LinkedIn Sales Navigator i Azure AD:
 
-Det första steget är att hämta din LinkedIn-åtkomsttoken. Om du är en Enterprise-administratör kan själv du en åtkomst-token. I din kontocenter, går du till **inställningar &gt; globala inställningar** och öppna den **SCIM installationsprogrammet** panelen.
+Det första steget är att hämta din LinkedIn-åtkomsttoken. Om du är företags administratör kan du själv etablera en åtkomsttoken. I ditt konto Center går du till **inställningar &gt; globala inställningar** och öppnar installations panelen för **scim** .
 
 > [!NOTE]
-> Om du kommer åt kontocentret direkt i stället för via en länk, kan du nå den med hjälp av följande steg.
+> Om du ansluter till konto Center direkt i stället för via en länk kan du nå det med hjälp av följande steg.
 
-1. Logga in på kontot Center.
+1. Logga in på konto Center.
 
-2. Välj **Admin &gt; administratörsinställningar** .
+2. Välj **administratörs &gt; administratörs inställningar** .
 
-3. Klicka på **avancerade integreringar** i vänster Sidopanel. Du dirigeras till kontocenter.
+3. Klicka på **avancerade integreringar** på den vänstra sid panelen. Du dirigeras till konto centret.
 
-4. Klicka på **+ Lägg till ny SCIM konfiguration** , och följa genom att fylla i fälten.
-
-    > [!NOTE]
-    > När autoassign licenser inte är aktiverad, betyder det att endast användardata som är synkroniserad.
-
-    ![LinkedIn Sales Navigator etablering](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_1.PNG)
+4. Klicka på **+ Lägg till ny scim-konfiguration** och följ proceduren genom att fylla i varje fält.
 
     > [!NOTE]
-    > När autolicense tilldelning har aktiverats kan behöva du Observera programinstans och licenstyp. Licenser har tilldelats på en första kommer kan först fungerar basis tills kommer alla licenser.
+    > När tilldela licenser inte är aktiverat innebär det att endast användar data synkroniseras.
 
-    ![LinkedIn Sales Navigator etablering](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_2.PNG)
+    ![LinkedIn Sales Navigator-etablering](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_1.PNG)
 
-5. Klicka på **generera token**. Du bör se din token visas under den **åtkomsttoken** fält.
+    > [!NOTE]
+    > När autolicense-tilldelning har Aktiver ATS måste du anteckna program instansen och licens typen. Licenser tilldelas för första och första gången tills alla licenser har vidtagits.
 
-6. Spara ditt åtkomst-token till Urklipp eller datorn innan de lämnar sidan.
+    ![LinkedIn Sales Navigator-etablering](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_2.PNG)
 
-7. Logga sedan in på den [Azure-portalen](https://portal.azure.com), och bläddra till den **Azure Active Directory > Företagsappar > alla program** avsnittet.
+5. Klicka på **generera token**. Du bör se att din åtkomsttoken visas under fältet **åtkomsttoken** .
 
-8. Om du redan har konfigurerat LinkedIn Sales Navigator för enkel inloggning, söka efter din instans av LinkedIn Sales Navigator med hjälp av sökfältet. Annars väljer **Lägg till** och Sök efter **LinkedIn Sales Navigator** i programgalleriet. Välj LinkedIn Sales Navigator från sökresultaten och lägga till den i din lista över program.
+6. Spara din åtkomsttoken i Urklipp eller på datorn innan du lämnar sidan.
 
-9. Välj din instans av LinkedIn Sales Navigator och välj sedan den **etablering** fliken.
+7. Logga sedan in på [Azure Portal](https://portal.azure.com)och bläddra till avsnittet **Azure Active Directory > Enterprise-appar > alla program** .
 
-10. Ange den **Etableringsläge** till **automatisk**.
+8. Om du redan har konfigurerat LinkedIn Sales Navigator för enkel inloggning söker du efter din instans av LinkedIn Sales Navigator med Sök fältet. Annars väljer du **Lägg till** och söker efter **LinkedIn Sales Navigator** i program galleriet. Välj LinkedIn Sales Navigator från Sök resultaten och Lägg till den i listan över program.
 
-    ![LinkedIn Sales Navigator etablering](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_3.PNG)
+9. Välj din instans av LinkedIn Sales Navigator och välj fliken **etablering** .
 
-11. Fyll i följande fält under **administratörsautentiseringsuppgifter** :
+10. Ställ in **etablerings läget** på **automatiskt**.
 
-    * I den **klient-URL** anger https://api.linkedin.com.
+    ![LinkedIn Sales Navigator-etablering](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_3.PNG)
 
-    * I den **hemlighet Token** fältet, ange den åtkomsttoken som du genererade i steg 1 och klicka på **Testanslutningen** .
+11. Fyll i följande fält under **admin-autentiseringsuppgifter** :
 
-    * Du bör se ett meddelande om lyckad på upperright sida av portalen.
+    * I fältet **klient-URL** anger du https://api.linkedin.com.
 
-12. Ange e-postadress för en person eller grupp som ska få meddelanden om etablering fel i den **e-postmeddelande** fältet och markera kryssrutan nedan.
+    * I fältet **hemlig token** anger du den åtkomsttoken som du skapade i steg 1 och klickar på **Testa anslutning** .
 
-13. Klicka på **Spara**.
+    * Du bör se ett meddelande om att det är klart på upperright-sidan i portalen.
 
-14. I den **attributmappningar** går du igenom de användar- och attribut som synkroniseras från Azure AD på LinkedIn Sales Navigator. Observera att attribut som är markerade som **matchande** egenskaper som används för att matcha de användarkonton och grupper i LinkedIn Sales Navigator för uppdateringsåtgärder. Välj knappen Spara för att genomföra ändringarna.
+12. Ange e-postadressen till en person eller grupp som ska få etablerings fel meddelanden i fältet **e-postavisering** och markera kryss rutan nedan.
 
-    ![LinkedIn Sales Navigator etablering](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_4.PNG)
+13. Klicka på **Save** (Spara).
 
-15. Om du vill aktivera den Azure AD-etableringstjänsten för LinkedIn Sales Navigator, ändra den **Etableringsstatus** till **på** i den **inställningar** avsnittet
+14. I avsnittet **mappningar för attribut** granskar du de användar-och Gruppattribut som ska synkroniseras från Azure AD till LinkedIn Sales Navigator. Observera att attributen som har valts som **matchande** egenskaper kommer att användas för att matcha användar konton och grupper i LinkedIn Sales Navigator för uppdaterings åtgärder. Välj knappen Spara för att genomföra ändringarna.
 
-16. Klicka på **Spara**.
+    ![LinkedIn Sales Navigator-etablering](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_4.PNG)
 
-Detta startar den första synkroniseringen av användare och/eller grupper som har tilldelats på LinkedIn Sales Navigator i avsnittet användare och grupper. Observera att den inledande synkroniseringen tar längre tid att genomföra än efterföljande synkroniseringar som sker ungefär var 40 minut så länge som tjänsten körs. Du kan använda den **synkroniseringsinformation** avsnitt för att övervaka förloppet och följer länkar till att etablera aktivitetsloggar som beskriver alla åtgärder som utförs av etableringstjänsten på LinkedIn Sales Navigator-app.
+15. Om du vill aktivera Azure AD Provisioning-tjänsten för LinkedIn Sales Navigator ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar**
+
+16. Klicka på **Save** (Spara).
+
+Detta startar den inledande synkroniseringen av alla användare och/eller grupper som har tilldelats LinkedIn Sales Navigator i avsnittet användare och grupper. Observera att den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** för att övervaka förloppet och följa länkar till etablering av aktivitets loggar, som beskriver alla åtgärder som utförs av etablerings tjänsten i din LinkedIn Sales Navigator-app.
 
 Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantering av användarkontoetablering för Företagsappar](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantera användar konto etablering för företags program](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

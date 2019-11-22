@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 341383c232718349f091a9c92207bb27cf87cc48
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: e6415c9e8e0ab8743042891a2d0d422dffe37bdb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083022"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279123"
 ---
 # <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>Självstudie – Använda lagringsblobar via en anpassad Azure CDN-domän och HTTPS
 
@@ -43,11 +43,15 @@ Azure CDN ignorerar eventuella begränsningar som läggs till i SAS-token. Alla 
 Överväg att aktivera cachelagring av frågesträngar om du skapar flera SAS-webbadresser för samma blobslutpunkt. Då ser du till att varje webbadress behandlas som en unik entitet. Mer information finns i [Kontrollera cachelagringsbeteendet i Azure CDN med frågesträngar](cdn-query-string.md).
 
 ## <a name="http-to-https-redirection"></a>Omdirigering från HTTP till HTTPS
-Du kan välja att dirigera om HTTP-trafik till HTTPS genom att skapa en [regel för omdirigering av webbadresser](cdn-verizon-premium-rules-engine-reference-features.md#url-redirect) i [Azure CDN-regelmotorn](cdn-verizon-premium-rules-engine.md). För det här alternativet behöver du en profil av typen **Azure CDN Premium från Verizon**.
+Du kan välja att omdirigera HTTP-trafik till HTTPS genom att skapa en regel för att omdirigera en URL med [standard regel motorn](cdn-standard-rules-engine.md) eller [Verizon Premium-regel motorn](cdn-verizon-premium-rules-engine.md). Standard regel motor är bara tillgänglig för Azure CDN från Microsoft-profiler, medan Verizon Premium Rules-motorn endast är tillgänglig från Azure CDN Premium från Verizon-profiler.
 
-![Omdirigeringsregel för webbadresser](./media/cdn-storage-custom-domain-https/cdn-url-redirect-rule.png)
+![Microsoft-Omdirigerad regel](./media/cdn-storage-custom-domain-https/cdn-standard-redirect-rule.png)
 
-I den här regeln avser *Cdn-endpoint-name* namnet du konfigurerat för din CDN-slutpunkt. Du kan välja namnet från listrutan. Värdet för *origin-path* avser sökvägen i ditt ursprungliga lagringskonto där det statiska innehållet finns. Om du har allt statiskt innehåll i en enda container ska du byta ut *origin-path* mot namnet på containern.
+I regeln ovan lämnar du värdnamn, sökväg, frågesträng och fragment till att de inkommande värdena används i omdirigeringen. 
+
+![Regel för att omdirigera Verizon](./media/cdn-storage-custom-domain-https/cdn-url-redirect-rule.png)
+
+I regeln ovan refererar *CDN-slutpunkt-Name* till det namn som du konfigurerade för CDN-slutpunkten, som du kan välja i list rutan. Värdet för *origin-path* avser sökvägen i ditt ursprungliga lagringskonto där det statiska innehållet finns. Om du har allt statiskt innehåll i en enda container ska du byta ut *origin-path* mot namnet på containern.
 
 ## <a name="pricing-and-billing"></a>Priser och fakturering
 När du använder blobar via Azure CDN betalar du [bloblagringspriser](https://azure.microsoft.com/pricing/details/storage/blobs/) för trafiken mellan POP-servrarna och ursprunget (bloblagringen), och [Azure CDN-priser](https://azure.microsoft.com/pricing/details/cdn/) för data som nås via POP-servrarna.

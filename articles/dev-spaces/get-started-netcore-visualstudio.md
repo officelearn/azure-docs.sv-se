@@ -1,34 +1,30 @@
 ---
-title: Skapa ett utrymme för Kubernetes-utveckling i molnet med .NET Core och Visual Studio
-titleSuffix: Azure Dev Spaces
+title: Skapa ett Kubernetes dev-utrymme i molnet med .NET Core och Visual Studio
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
-author: zr-msft
-ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s
-ms.openlocfilehash: 4b37da8d31fc5ac605e59d9aceb456e996df438b
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
-ms.translationtype: MT
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
+ms.openlocfilehash: 2509226bfa76d4a2f98282b062f7d7714f202b00
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67503049"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280214"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Komma igång med Azure Dev Spaces med .NET Core och Visual Studio
 
 I den här guiden får du lära dig hur du:
 
-- Ställa in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
+- Ställer in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
 - Iterativt utvecklar kod i containrar med Visual Studio.
 - Oberoende utvecklar två separata tjänster och använder Kubernetes DNS-tjänstidentifiering för att anropa en annan tjänst.
 - Effektivt utvecklar och testar din kod i en teammiljö.
 
 > [!Note]
-> **Om du fastnar** när som helst, finns det [felsökning](troubleshooting.md) avsnittet.
+> **Om du får fastna när som** helst kan du läsa avsnittet [fel sökning](troubleshooting.md) .
 
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Skapa ett Kubernetes-kluster som är aktiverat för Azure Dev Spaces
@@ -36,9 +32,9 @@ I den här guiden får du lära dig hur du:
 1. Logga in på Azure Portal på https://portal.azure.com.
 1. Välj **Skapa en resurs** > sök efter **Kubernetes** > välj **Kubernetes Service** > **Skapa**.
 
-   Gör följande under varje rubrik i den *skapa Kubernetes-kluster* formuläret och verifiera dina valda [region har stöd för Azure Dev blanksteg][supported-regions].
+   Utför följande steg under varje rubrik i formuläret *skapa Kubernetes-kluster* och kontrol lera att din valda [region stöder Azure dev Spaces][supported-regions].
 
-   - **PROJEKTINFORMATION**: Välj en Azure-prenumeration och en ny eller befintlig Azure-resursgrupp.
+   - **Projekt information**: Välj en Azure-prenumeration och en ny eller befintlig Azure-resurs grupp.
    - **KLUSTERINFORMATION**: ange namn, region, version och DNS-prefix för AKS-klustret.
    - **SKALNING**: välj en VM-storlek för AKS-agentnoderna och sedan antalet noder. Om du håller på att komma igång med Azure Dev Spaces är en nod tillräckligt för att utforska alla funktioner. Antalet noder kan enkelt justeras när som helst efter att klustret har distribuerats. Observera att VM-storleken inte kan ändras efter att ett AKS-kluster har skapats. Men när ett AKS-kluster har distribuerats kan du enkelt skapa ett nytt AKS-kluster med större virtuella datorer och använda Dev Spaces för att distribuera till större kluster igen om du behöver skala upp.
 
@@ -53,16 +49,16 @@ I den här guiden får du lära dig hur du:
 
 1. Välj **Granska + skapa** och välj sedan **Skapa** när du är klar.
 
-## <a name="get-the-visual-studio-tools"></a>Skaffa Visual Studio-verktygen
-Installera den senaste versionen av [Visual Studio](https://www.visualstudio.com/vs/). Du måste installera arbetsbelastningen Azure Development för Visual Studio 2019 på Windows. Du behöver installera utvecklingsarbetsbelastningar för ASP.NET och för Visual Studio 2017 på Windows, samt [Visual Studio Tools for Kubernetes](https://aka.ms/get-azds-visualstudio).
+## <a name="get-the-visual-studio-tools"></a>Hämta Visual Studio-verktygen
+Installera den senaste versionen av [Visual Studio](https://www.visualstudio.com/vs/). För Visual Studio 2019 i Windows måste du installera arbets belastningen Azure Development. För Visual Studio 2017 i Windows måste du installera arbets belastningen ASP.NET och webb utveckling samt [Visual Studio Tools för Kubernetes](https://aka.ms/get-azds-visualstudio).
 
 ## <a name="create-a-web-app-running-in-a-container"></a>Skapa en webbapp som körs i en container
 
-I det här avsnittet ska du skapa en ASP.NET Core-webbapp och hämta den körs i en behållare i Kubernetes.
+I det här avsnittet ska du skapa en ASP.NET Core-webbapp och få den igång i en behållare i Kubernetes.
 
 ### <a name="create-an-aspnet-web-app"></a>Skapa en ASP.NET-webbapp
 
-Skapa ett nytt projekt från Visual Studio. För närvarande måste projektet vara ett **ASP.NET Core-webbprogram**. Ge projektet namnet ”**webfrontend**”.
+Skapa ett nytt projekt i Visual Studio. För närvarande måste projektet vara ett **ASP.NET Core-webbprogram**. Ge projektet namnet ”**webfrontend**”.
 
 ![](media/get-started-netcore-visualstudio/NewProjectDialog1.png)
 
@@ -80,7 +76,7 @@ I nästa dialogruta som visas kontrollerar du att du har loggat in med rätt kon
 
 ![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.PNG)
 
-Lämna standardinställningen `default` i listrutan **Utrymme** tills vidare. Du lär dig mer om det här alternativet längre fram. Markera kryssrutan **Offentligt tillgänglig**, så att webbprogrammet är tillgängligt via en offentlig slutpunkt. Den här inställningen är inte obligatorisk, men är användbar för att demonstrera några begrepp längre fram i den här genomgången. Men oroa dig inte, du kan felsöka din webbplats med hjälp av Visual Studio oavsett om du väljer inställningen eller inte.
+Lämna standardinställningen **i listrutan**Utrymme`default` tills vidare. Du lär dig mer om det här alternativet längre fram. Markera kryssrutan **Offentligt tillgänglig**, så att webbprogrammet är tillgängligt via en offentlig slutpunkt. Den här inställningen är inte obligatorisk, men är användbar för att demonstrera några begrepp längre fram i den här genomgången. Men oroa dig inte, du kan felsöka din webbplats med hjälp av Visual Studio oavsett om du väljer inställningen eller inte.
 
 ![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog2.png)
 
@@ -127,7 +123,7 @@ Azure Dev Spaces handlar om mer än att bara få kod att köra i Kubernetes – 
 ### <a name="update-a-content-file"></a>Uppdatera en innehållsfil
 
 
-1. Leta upp filen `./Views/Home/Index.cshtml` och gör en ändring i HTML-koden. Till exempel ändra [rad 73 som läser `<h2>Application uses</h2>` ](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Views/Home/Index.cshtml#L73) till något som liknar: 
+1. Leta upp filen `./Views/Home/Index.cshtml` och gör en ändring i HTML-koden. Ändra till exempel [rad 73 som läser `<h2>Application uses</h2>`](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Views/Home/Index.cshtml#L73) till något som: 
   
     ```html
     <h2>Hello k8s in Azure!</h2>`

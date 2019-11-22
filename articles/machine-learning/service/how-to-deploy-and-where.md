@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 9d7dc724130286298af6e1d4b0babc551f3f2658
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 63d2aa5c9e4ec751d9b95ba0d884e6dc17e207bb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123615"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276794"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuera modeller med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -530,7 +530,7 @@ Följande tabell innehåller ett exempel på hur du skapar en distributions konf
 
 | Beräkningsmål | Exempel på distributions konfiguration |
 | ----- | ----- |
-| Lokala | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
+| Lokal | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
 | Azure Container Instances | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
@@ -578,6 +578,10 @@ Mer information finns i följande dokument:
 ## <a name="deploy-to-target"></a>Distribuera till mål
 
 Distributionen använder distributions konfigurationen för konfigurations konfiguration för att distribuera modellerna. Distributions processen är liknande oavsett beräknings målet. Distribution till AKS är något annorlunda eftersom du måste ange en referens till AKS-klustret.
+
+### <a name="securing-deployments-with-ssl"></a>Skydda distributioner med SSL
+
+Mer information om hur du skyddar en webb tjänst distribution finns i [använda SSL för att skydda en webb tjänst](how-to-secure-web-service.md#enable).
 
 ### <a id="local"></a>Lokal distribution
 

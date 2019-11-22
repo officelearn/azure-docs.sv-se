@@ -1,6 +1,6 @@
 ---
 title: Hantera Azure CDN med PowerShell | Microsoft Docs
-description: Lär dig hur du använder Azure PowerShell-cmdlets för att hantera Azure CDN.
+description: Lär dig hur du använder Azure PowerShell-cmdletar för att hantera Azure CDN.
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -12,61 +12,75 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 11/20/2019
 ms.author: magattus
-ms.openlocfilehash: 44274c2a46ce51e51d3d8f16d96a0b50c43a3aa1
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 476779eff41cb9ce1c0a9c79430813ce9a39e91f
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593697"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286651"
 ---
 # <a name="manage-azure-cdn-with-powershell"></a>Hantera Azure CDN med PowerShell
-PowerShell får du en av de mest flexibla metoderna för att hantera dina Azure CDN-profiler och slutpunkter.  Du kan använda PowerShell interaktivt eller genom att skriva skript för att automatisera hanteringsuppgifter.  Den här kursen visar flera av de vanligaste uppgifterna som du kan utföra med PowerShell för att hantera dina Azure CDN-profiler och slutpunkter.
+PowerShell tillhandahåller en av de mest flexibla metoderna för att hantera dina Azure CDN profiler och slut punkter.  Du kan använda PowerShell interaktivt eller genom att skriva skript för att automatisera hanterings uppgifter.  Den här självstudien visar flera av de vanligaste uppgifterna som du kan utföra med PowerShell för att hantera dina Azure CDN profiler och slut punkter.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Om du vill hantera dina Azure CDN-profiler och slutpunkter med hjälp av PowerShell, måste du ha Azure PowerShell-modulen installerad.  Lär dig hur du installerar Azure PowerShell och Anslut till Azure med hjälp av den `Connect-AzAccount` cmdlet, se [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
+Om du vill använda PowerShell för att hantera dina Azure CDN profiler och slut punkter måste du ha installerat modulen Azure PowerShell.  Information om hur du installerar Azure PowerShell och ansluter till Azure med hjälp av `Connect-AzAccount`-cmdlet finns i [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
 
 > [!IMPORTANT]
-> Du måste logga in med `Connect-AzAccount` innan du kan köra Azure PowerShell-cmdlets.
+> Du måste logga in med `Connect-AzAccount` innan du kan köra Azure PowerShell-cmdletar.
 > 
 > 
 
-## <a name="listing-the-azure-cdn-cmdlets"></a>Visa en lista över Azure CDN-cmdletar
-Du kan lista alla Azure CDN-cmdletar med den `Get-Command` cmdlet.
+## <a name="listing-the-azure-cdn-cmdlets"></a>Visar Azure CDN-cmdletar
+Du kan visa en lista över alla Azure CDN-cmdletar med hjälp av `Get-Command`-cmdleten.
 
 ```text
 PS C:\> Get-Command -Module Az.Cdn
 
 CommandType     Name                                               Version    Source
 -----------     ----                                               -------    ------
-Cmdlet          Get-AzCdnCustomDomain                         2.0.0      Az.Cdn
-Cmdlet          Get-AzCdnEndpoint                             2.0.0      Az.Cdn
-Cmdlet          Get-AzCdnEndpointNameAvailability             2.0.0      Az.Cdn
-Cmdlet          Get-AzCdnOrigin                               2.0.0      Az.Cdn
-Cmdlet          Get-AzCdnProfile                              2.0.0      Az.Cdn
-Cmdlet          Get-AzCdnProfileSsoUrl                        2.0.0      Az.Cdn
-Cmdlet          New-AzCdnCustomDomain                         2.0.0      Az.Cdn
-Cmdlet          New-AzCdnEndpoint                             2.0.0      Az.Cdn
-Cmdlet          New-AzCdnProfile                              2.0.0      Az.Cdn
-Cmdlet          Publish-AzCdnEndpointContent                  2.0.0      Az.Cdn
-Cmdlet          Remove-AzCdnCustomDomain                      2.0.0      Az.Cdn
-Cmdlet          Remove-AzCdnEndpoint                          2.0.0      Az.Cdn
-Cmdlet          Remove-AzCdnProfile                           2.0.0      Az.Cdn
-Cmdlet          Set-AzCdnEndpoint                             2.0.0      Az.Cdn
-Cmdlet          Set-AzCdnOrigin                               2.0.0      Az.Cdn
-Cmdlet          Set-AzCdnProfile                              2.0.0      Az.Cdn
-Cmdlet          Start-AzCdnEndpoint                           2.0.0      Az.Cdn
-Cmdlet          Stop-AzCdnEndpoint                            2.0.0      Az.Cdn
-Cmdlet          Test-AzCdnCustomDomain                        2.0.0      Az.Cdn
-Cmdlet          Unpublish-AzCdnEndpointContent                2.0.0      Az.Cdn
+Cmdlet          Confirm-AzCdnEndpointProbeURL                      1.4.0      Az.Cdn
+Cmdlet          Disable-AzCdnCustomDomain                          1.4.0      Az.Cdn
+Cmdlet          Disable-AzCdnCustomDomainHttps                     1.4.0      Az.Cdn
+Cmdlet          Enable-AzCdnCustomDomain                           1.4.0      Az.Cdn
+Cmdlet          Enable-AzCdnCustomDomainHttps                      1.4.0      Az.Cdn
+Cmdlet          Get-AzCdnCustomDomain                              1.4.0      Az.Cdn
+Cmdlet          Get-AzCdnEdgeNode                                  1.4.0      Az.Cdn
+Cmdlet          Get-AzCdnEndpoint                                  1.4.0      Az.Cdn
+Cmdlet          Get-AzCdnEndpointNameAvailability                  1.4.0      Az.Cdn
+Cmdlet          Get-AzCdnEndpointResourceUsage                     1.4.0      Az.Cdn
+Cmdlet          Get-AzCdnOrigin                                    1.4.0      Az.Cdn
+Cmdlet          Get-AzCdnProfile                                   1.4.0      Az.Cdn
+Cmdlet          Get-AzCdnProfileResourceUsage                      1.4.0      Az.Cdn
+Cmdlet          Get-AzCdnProfileSsoUrl                             1.4.0      Az.Cdn
+Cmdlet          Get-AzCdnProfileSupportedOptimizationType          1.4.0      Az.Cdn
+Cmdlet          Get-AzCdnSubscriptionResourceUsage                 1.4.0      Az.Cdn
+Cmdlet          New-AzCdnCustomDomain                              1.4.0      Az.Cdn
+Cmdlet          New-AzCdnDeliveryPolicy                            1.4.0      Az.Cdn
+Cmdlet          New-AzCdnDeliveryRule                              1.4.0      Az.Cdn
+Cmdlet          New-AzCdnDeliveryRuleAction                        1.4.0      Az.Cdn
+Cmdlet          New-AzCdnDeliveryRuleCondition                     1.4.0      Az.Cdn
+Cmdlet          New-AzCdnEndpoint                                  1.4.0      Az.Cdn
+Cmdlet          New-AzCdnProfile                                   1.4.0      Az.Cdn
+Cmdlet          Publish-AzCdnEndpointContent                       1.4.0      Az.Cdn
+Cmdlet          Remove-AzCdnCustomDomain                           1.4.0      Az.Cdn
+Cmdlet          Remove-AzCdnEndpoint                               1.4.0      Az.Cdn
+Cmdlet          Remove-AzCdnProfile                                1.4.0      Az.Cdn
+Cmdlet          Set-AzCdnEndpoint                                  1.4.0      Az.Cdn
+Cmdlet          Set-AzCdnOrigin                                    1.4.0      Az.Cdn
+Cmdlet          Set-AzCdnProfile                                   1.4.0      Az.Cdn
+Cmdlet          Start-AzCdnEndpoint                                1.4.0      Az.Cdn
+Cmdlet          Stop-AzCdnEndpoint                                 1.4.0      Az.Cdn
+Cmdlet          Test-AzCdnCustomDomain                             1.4.0      Az.Cdn
+Cmdlet          Unpublish-AzCdnEndpointContent                     1.4.0      Az.Cdn
 ```
 
 ## <a name="getting-help"></a>Få hjälp
-Du kan få hjälp med dessa cmdlets med hjälp av den `Get-Help` cmdlet.  `Get-Help` ger användning och syntax och du kan också visas exempel.
+Du kan få hjälp med någon av dessa cmdlets med hjälp av `Get-Help`-cmdleten.  `Get-Help` tillhandahåller användning och syntax, och kan också visa exempel.
 
 ```text
 PS C:\> Get-Help Get-AzCdnProfile
@@ -96,14 +110,14 @@ REMARKS
 
 ```
 
-## <a name="listing-existing-azure-cdn-profiles"></a>Lista över befintliga Azure CDN-profiler
-Den `Get-AzCdnProfile` cmdlet: en utan några parametrar hämtar alla dina befintliga CDN-profiler.
+## <a name="listing-existing-azure-cdn-profiles"></a>Visar befintliga Azure CDN profiler
+`Get-AzCdnProfile`-cmdlet utan parametrar hämtar alla befintliga CDN-profiler.
 
 ```powershell
 Get-AzCdnProfile
 ```
 
-Dessa utdata kan skickas till cmdlets för uppräkningen.
+De här utdata kan skickas till cmdlets för uppräkning.
 
 ```powershell
 # Output the name of all profiles on this subscription.
@@ -113,19 +127,19 @@ Get-AzCdnProfile | ForEach-Object { Write-Host $_.Name }
 Get-AzCdnProfile | Where-Object { $_.Sku.Name -eq "Standard_Verizon" }
 ```
 
-Du kan också returnera en enskild profil genom att ange namn och resursgrupp profilgrupp.
+Du kan också returnera en enskild profil genom att ange profil namnet och resurs gruppen.
 
 ```powershell
 Get-AzCdnProfile -ProfileName CdnDemo -ResourceGroupName CdnDemoRG
 ```
 
 > [!TIP]
-> Det är möjligt att ha flera CDN-profiler med samma namn, så länge som de är i olika resursgrupper.  Om du utesluter den `ResourceGroupName` parametern returnerar alla profiler med ett matchande namn.
+> Det är möjligt att ha flera CDN-profiler med samma namn, så länge de är i olika resurs grupper.  Om du utelämnar parametern `ResourceGroupName` returneras alla profiler med ett matchande namn.
 > 
 > 
 
-## <a name="listing-existing-cdn-endpoints"></a>Lista över befintliga CDN-slutpunkter
-`Get-AzCdnEndpoint` Hämta en enskild slutpunkt eller alla slutpunkter i en profil.  
+## <a name="listing-existing-cdn-endpoints"></a>Visar befintliga CDN-slutpunkter
+`Get-AzCdnEndpoint` kan hämta en enskild slut punkt eller alla slut punkter i en profil.  
 
 ```powershell
 # Get a single endpoint.
@@ -141,8 +155,8 @@ Get-AzCdnProfile | Get-AzCdnEndpoint
 Get-AzCdnProfile | Get-AzCdnEndpoint | Where-Object { $_.ResourceState -eq "Running" }
 ```
 
-## <a name="creating-cdn-profiles-and-endpoints"></a>Skapa CDN-profiler och slutpunkter
-`New-AzCdnProfile` och `New-AzCdnEndpoint` används för att skapa CDN-profiler och slutpunkter. Följande SKU: er stöds:
+## <a name="creating-cdn-profiles-and-endpoints"></a>Skapa CDN-profiler och slut punkter
+`New-AzCdnProfile` och `New-AzCdnEndpoint` används för att skapa CDN-profiler och slut punkter. Följande SKU: er stöds:
 - Standard_Verizon
 - Premium_Verizon
 - Custom_Verizon
@@ -162,8 +176,8 @@ New-AzCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -Sku Stan
 
 ```
 
-## <a name="checking-endpoint-name-availability"></a>Kontroll av namntillgänglighet för slutpunkt
-`Get-AzCdnEndpointNameAvailability` Returnerar ett objekt som visar om slutpunktsnamnet är tillgänglig.
+## <a name="checking-endpoint-name-availability"></a>Kontrollerar tillgänglighet för slut punkts namn
+`Get-AzCdnEndpointNameAvailability` returnerar ett objekt som anger om ett slut punkts namn är tillgängligt.
 
 ```powershell
 # Retrieve availability
@@ -174,11 +188,11 @@ If($availability.NameAvailable) { Write-Host "Yes, that endpoint name is availab
 Else { Write-Host "No, that endpoint name is not available." }
 ```
 
-## <a name="adding-a-custom-domain"></a>Att lägga till en anpassad domän
-`New-AzCdnCustomDomain` lägger till ett anpassat domännamn till en befintlig slutpunkt.
+## <a name="adding-a-custom-domain"></a>Lägga till en anpassad domän
+`New-AzCdnCustomDomain` lägger till ett anpassat domän namn i en befintlig slut punkt.
 
 > [!IMPORTANT]
-> Du måste konfigurera CNAME med din DNS-leverantör som beskrivs i [så här mappar du anpassade domäner till Content Delivery Network (CDN) slutpunkt](cdn-map-content-to-custom-domain.md).  Du kan testa mappningen innan du ändrar din slutpunkt med hjälp av `Test-AzCdnCustomDomain`.
+> Du måste ställa in CNAME med DNS-providern enligt beskrivningen i [så här mappar du en anpassad domän till en Content Delivery Network (CDN) slut punkt](cdn-map-content-to-custom-domain.md).  Du kan testa mappningen innan du ändrar slut punkten med hjälp av `Test-AzCdnCustomDomain`.
 > 
 > 
 
@@ -193,8 +207,8 @@ $result = Test-AzCdnCustomDomain -CdnEndpoint $endpoint -CustomDomainHostName "c
 If($result.CustomDomainValidated){ New-AzCdnCustomDomain -CustomDomainName Contoso -HostName "cdn.contoso.com" -CdnEndpoint $endpoint }
 ```
 
-## <a name="modifying-an-endpoint"></a>Ändra en slutpunkt
-`Set-AzCdnEndpoint` ändrar en befintlig slutpunkt.
+## <a name="modifying-an-endpoint"></a>Ändra en slut punkt
+`Set-AzCdnEndpoint` ändrar en befintlig slut punkt.
 
 ```powershell
 # Get an existing endpoint
@@ -208,8 +222,8 @@ $endpoint.ContentTypesToCompress = "text/javascript","text/css","application/jso
 Set-AzCdnEndpoint -CdnEndpoint $endpoint
 ```
 
-## <a name="purgingpre-loading-cdn-assets"></a>Rensa/Förproduktions-loading CDN tillgångar
-`Unpublish-AzCdnEndpointContent` återställningspunkter cachelagrade tillgångar, medan `Publish-AzCdnEndpointContent` förväg läser in tillgångar för slutpunkter som stöds.
+## <a name="purgingpre-loading-cdn-assets"></a>Rensa/för inläsning av CDN-tillgångar
+`Unpublish-AzCdnEndpointContent` rensar cachelagrade till gångar, samtidigt som du `Publish-AzCdnEndpointContent` för inläsning av till gångar i slut punkter som stöds.
 
 ```powershell
 # Purge some assets.
@@ -222,8 +236,8 @@ Publish-AzCdnEndpointContent -ProfileName CdnDemo -ResourceGroupName CdnDemoRG -
 Get-AzCdnProfile | Get-AzCdnEndpoint | Unpublish-AzCdnEndpointContent -PurgeContent "/images/*"
 ```
 
-## <a name="startingstopping-cdn-endpoints"></a>Starta/Stoppa CDN-slutpunkter
-`Start-AzCdnEndpoint` och `Stop-AzCdnEndpoint` kan användas för att starta och stoppa enskilda slutpunkter eller grupper av slutpunkter.
+## <a name="startingstopping-cdn-endpoints"></a>Starta/stoppa CDN-slutpunkter
+`Start-AzCdnEndpoint` och `Stop-AzCdnEndpoint` kan användas för att starta och stoppa enskilda slut punkter eller grupper av slut punkter.
 
 ```powershell
 # Stop the cdndocdemo endpoint
@@ -236,8 +250,31 @@ Get-AzCdnProfile | Get-AzCdnEndpoint | Stop-AzCdnEndpoint
 Get-AzCdnProfile | Get-AzCdnEndpoint | Start-AzCdnEndpoint
 ```
 
+## <a name="creating-standard-rules-engine-policy-and-applying-to-an-existing-cdn-endpoint"></a>Skapa en standard regel motor princip och tillämpa den på en befintlig CDN-slutpunkt
+`New-AzCdnDeliveryRule`, `New=AzCdnDeliveryRuleCondition`och `New-AzCdnDeliveryRuleAction` kan användas för att konfigurera Azure CDN Standard regel motor på Azure CDN från Microsoft-profiler. 
+
+```powershell
+# Create a new http to https redirect rule
+$Condition=New-AzCdnDeliveryRuleCondition -MatchVariable RequestProtocol -Operator Equal -MatchValue HTTP
+$Action=New-AzCdnDeliveryRuleAction -RedirectType Found -DestinationProtocol HTTPS
+$HttpToHttpsRedirectRule=New-AzCdnDeliveryRule -Name "HttpToHttpsRedirectRule" -Order 2 -Condition $Condition -Action $Action
+
+# Create a path based Response header modification rule. 
+$Cond1=New-AzCdnDeliveryRuleCondition -MatchVariable UrlPath -Operator BeginsWith -MatchValue "/images/"
+$Action1=New-AzCdnDeliveryRuleAction -HeaderActionType ModifyResponseHeader -Action Overwrite -HeaderName "Access-Control-Allow-Origin" -Value "*"
+$PathBasedCacheOverrideRule=New-AzCdnDeliveryRule -Name "PathBasedCacheOverride" -Order 1 -Condition $Cond1 -Action $action1
+
+# Create a delivery policy with above deliveryRules.
+$Policy = New-AzCdnDeliveryPolicy -Description "DeliveryPolicy" -Rule $HttpToHttpsRedirectRule,$UrlRewriteRule
+
+# Update existing endpoint with created delivery policy
+$ep = Get-AzCdnEndpoint -EndpointName cdndocdemo -ProfileName CdnDemo -ResourceGroupName CdnDemoRG
+$ep.DeliveryPolicy = $Policy
+Set-AzCdnEndpoint -CdnEndpoint $ep
+```
+
 ## <a name="deleting-cdn-resources"></a>Ta bort CDN-resurser
-`Remove-AzCdnProfile` och `Remove-AzCdnEndpoint` kan användas för att ta bort profiler och slutpunkter.
+`Remove-AzCdnProfile` och `Remove-AzCdnEndpoint` kan användas för att ta bort profiler och slut punkter.
 
 ```powershell
 # Remove a single endpoint
@@ -253,5 +290,5 @@ Remove-AzCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om hur man automatiserar Azure CDN med [.NET](cdn-app-dev-net.md) eller [Node.js](cdn-app-dev-node.md).
 
-Läs om CDN-funktioner i [översikt över CDN](cdn-overview.md).
+Mer information om CDN-funktioner finns i [CDN-översikt](cdn-overview.md).
 

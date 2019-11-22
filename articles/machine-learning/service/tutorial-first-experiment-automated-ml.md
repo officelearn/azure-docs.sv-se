@@ -1,5 +1,5 @@
 ---
-title: Skapa ditt första automatiserade ML-klassificerings experiment
+title: Skapa ditt första automatiserade ML-experiment
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du tränar och distribuerar en klassificerings modell med automatisk maskin inlärning i Azure Machine Learning Studio.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: ecad41097786a40f7c605a686f085136856c950a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 04035e23c0c650fb6cbf4fdca3b78ce5e814c9d3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581588"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270726"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Självstudie: skapa din första klassificerings modell med automatiserad maskin inlärning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -32,11 +32,11 @@ I den här självstudien får du lära dig hur du utför följande uppgifter:
 > * Visa experiment information.
 > * Distribuera modellen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://aka.ms/AMLFree).
 
-* Hämta data filen [**bankmarketing_train. csv**](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) . **Y** -kolumnen visar om en kund prenumererar på en fast term insättning, som senare identifieras som mål kolumn för förutsägelser i den här självstudien. 
+* Ladda ned data filen [**bankmarketing_train. csv**](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) . **Y** -kolumnen visar om en kund prenumererar på en fast term insättning, som senare identifieras som mål kolumn för förutsägelser i den här självstudien. 
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
 
@@ -71,7 +71,7 @@ Du har slutfört följande experiment med att ställa in och köra steg i Azure 
 
     1. Välj **Bläddra**.
     
-    1. Välj filen **bankmarketing_train. csv** på den lokala datorn. Det här är den fil som du laddade ned som en [förutsättning](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
+    1. Välj **bankmarketing_train. csv** -filen på den lokala datorn. Det här är den fil som du laddade ned som en [förutsättning](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
 
     1. Välj **tabell** som data uppsättnings typ. 
 
@@ -98,7 +98,7 @@ Du har slutfört följande experiment med att ställa in och köra steg i Azure 
     1. I formuläret **bekräfta information** kontrollerar du att informationen stämmer överens med den **grundläggande informationen** och **inställningarna och för hands** formulären.
     1. Klicka på **skapa** för att slutföra skapandet av din data uppsättning.
     1. Välj din data uppsättning när den visas i listan.
-    1. Granska **data förhands granskningen** för att se till att du inte inkluderar **day_of_week** och välj sedan **OK**.
+    1. Granska **data förhands granskningen** för att se till att du inte har inkluderat **day_of_week** Välj **OK**.
 
     1. Välj **Nästa**.
 
@@ -151,7 +151,7 @@ Du har slutfört följande experiment med att ställa in och köra steg i Azure 
 
 ##  <a name="explore-models"></a>Utforska modeller
 
-Gå till fliken **modeller** om du vill se vilka algoritmer (modeller) som har testats. Som standard sorteras modellerna efter mått poäng när de är klara. I den här självstudien visas modellen som visar den högsta baserat på det valda **AUC_weighted** -måttet överst i listan.
+Gå till fliken **modeller** om du vill se vilka algoritmer (modeller) som har testats. Som standard sorteras modellerna efter mått poäng när de är klara. I den här självstudien visas modellen som visar den högsta baserat på det valda **AUC_weighted** måttet överst i listan.
 
 Medan du väntar på att alla experiment modeller ska slutföras väljer du **algoritmens namn** för en slutförd modell för att utforska dess prestanda information. 
 

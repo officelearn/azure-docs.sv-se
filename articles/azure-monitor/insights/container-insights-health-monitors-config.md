@@ -12,16 +12,20 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 11/12/2019
 ms.author: magoedte
-ms.openlocfilehash: b782581318751830ec47b9fecb056fecefb353eb
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 7a774adb33646635832dba5505abf57b2703de5d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74134962"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279701"
 ---
 # <a name="azure-monitor-for-containers-health-monitor-configuration-guide"></a>Konfigurations guide för Azure Monitor för behållares hälso övervakning
 
-Övervakare är det primära elementet för att mäta hälsa och identifiera fel i Azure Monitor för behållare. Den här artikeln hjälper dig att förstå koncepten för hur hälsa mäts och vilka element som utgör hälso modellen för att övervaka och rapportera om hälsan hos ditt Kubernetes-kluster med [hälso funktionen](container-insights-health.md).
+Övervakare är det primära elementet för att mäta hälsa och identifiera fel i Azure Monitor för behållare. Den här artikeln hjälper dig att förstå begreppen för hur hälsa mäts och vilka element som utgör hälso modellen för att övervaka och rapportera om hälsan hos ditt Kubernetes-kluster med funktionen för [hälso tillstånd (för hands version)](container-insights-health.md) .
+
+>[!NOTE]
+>Hälso funktionen finns nu i offentlig för hands version.
+>
 
 ## <a name="monitors"></a>Övervakare
 

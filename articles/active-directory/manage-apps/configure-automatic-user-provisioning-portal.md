@@ -1,5 +1,5 @@
 ---
-title: Hantering av användar etablering för företags program i Azure Active Directory | Microsoft Docs
+title: Hantering av användar etablering för företags program i Azure AD
 description: Lär dig hur du hanterar användar konto etablering för företags program med hjälp av Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26b00670ad93cceab8f570d3a5f56bd095fa80b5
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 77cda523582b513669adcafd3a46b6ac02dd99db
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315260"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74285627"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Hantera användar konto etablering för företags program i Azure Portal
 
@@ -53,7 +53,7 @@ Använd Azure Active Directory Portal för att visa och hantera alla program som
 
 Välj det **automatiska** alternativet om du vill ange inställningar för administratörs behörighet, mappningar, starta och stoppa och synkronisering.
 
-### <a name="admin-credentials"></a>Autentiseringsuppgifter för administratör
+### <a name="admin-credentials"></a>Admin-autentiseringsuppgifter
 
 Expandera **administratörsautentiseringsuppgifter** för att ange de autentiseringsuppgifter som krävs för att Azure AD ska kunna ansluta till programmets användar hanterings-API. Vilka indatatyper som krävs varierar beroende på programmet. Information om vilka typer av autentiseringsuppgifter som krävs för specifika program finns i [konfigurations guiden för det specifika programmet](user-provisioning.md).
 
@@ -85,9 +85,4 @@ Om etableringen aktive ras för första gången för ett program aktiverar du tj
 
 Ändra **etablerings statusen** till **av** för att pausa etablerings tjänsten. I det här läget skapar inte Azure, uppdaterar eller tar bort användar-eller grupp objekt i appen. Ändra statusen tillbaka till **på** och tjänsten hämtar var den slutade.
 
-Markera kryss rutan **Rensa aktuell status och starta om synkronisering** och välj **Spara** till:
-
-* Stoppa etablerings tjänsten
-* Starta om tjänsterna och kör den första cykeln igen
-
-Med det här alternativet kan administratörer starta distributions processen för etablering igen.
+**Rensa nuvarande tillstånd och starta om synkronisering** utlöser en första cykel. Tjänsten utvärderar sedan alla användare i käll systemet igen och fastställer om de är inom omfånget för etablering. Detta kan vara användbart när ditt program är i karantän eller om du behöver göra en ändring i mappningarna för attribut. Detta bör inte användas för att utlösa en Delete-eller Disable-begäran eftersom dessa händelser kan släppas när de utlöses av rensnings tillstånd och startar om. Den första cykeln tar också längre tid än den normala stegvisa cykeln på grund av antalet objekt som måste utvärderas. Du kan lära dig mer om prestanda för inledande och stegvisa cykler [här.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user).. 

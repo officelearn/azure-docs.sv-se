@@ -1,6 +1,6 @@
 ---
 title: Använda Azure CDN med CORS | Microsoft Docs
-description: Lär dig hur du använder Azure Content Delivery Network (CDN) till med Cross-Origin Resource Sharing (CORS).
+description: Lär dig hur du använder Azure-Content Delivery Network (CDN) till resurs delning mellan ursprung (CORS).
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -14,86 +14,94 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 204183fa25203a094eecd8df85a8bfd5dcf271cc
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 169de21b6dbdafaaeff64e315daa104f3b6faadd
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593978"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278106"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Använda Azure CDN med CORS
 ## <a name="what-is-cors"></a>Vad är CORS?
-CORS (Cross Origin Resource Sharing) är en HTTP-funktion som gör ett webbprogram som körs i en domän att komma åt resurser i en annan domän. För att minska risken för cross-site skriptattacker alla moderna webbläsare implementerar en säkerhetsbegränsning som kallas [princip om samma ursprung](https://www.w3.org/Security/wiki/Same_Origin_Policy).  Detta förhindrar att en webbsida från anropa API: er i en annan domän.  CORS erbjuder ett säkert sätt så att ett ursprung (ursprungsdomänen) att anropa API: er i ett annat ursprung.
+CORS (resurs delning mellan ursprung) är en HTTP-funktion som gör det möjligt för ett webb program att köras under en domän för att få åtkomst till resurser i en annan domän. För att minska risken för skript angrepp över flera webbplatser, implementerar alla moderna webbläsare en säkerhets begränsning som kallas princip för [samma ursprung](https://www.w3.org/Security/wiki/Same_Origin_Policy).  Detta förhindrar att en webb sida anropar API: er i en annan domän.  CORS är ett säkert sätt att tillåta ett ursprung (ursprungs domänen) att anropa API: er i ett annat ursprung.
 
 ## <a name="how-it-works"></a>Hur det fungerar
-Det finns två typer av CORS-förfrågningar, *enkla begäranden* och *komplexa begäranden.*
+Det finns två typer av CORS-begäranden, *enkla begär Anden* och *komplexa begär Anden.*
 
-### <a name="for-simple-requests"></a>För enkla begäranden:
+### <a name="for-simple-requests"></a>För enkla begär Anden:
 
-1. Webbläsaren skickar en begäran om CORS med ytterligare **ursprung** HTTP-frågehuvudet. Värdet för den här rubriken är ursprunget som användes för överordnade-sidan, vilket definieras som en kombination av *-protokollet,* *domän,* och *port.*  När en sida från https\:/ / www.contoso.com försöker komma åt data för en användare i fabrikam.com ursprung, skulle följande huvudet för begäran skickas till fabrikam.com:
+1. Webbläsaren skickar CORS-begäran med en ytterligare **källa** för http-begäran. Värdet för den här rubriken är ursprunget som hanterade den överordnade sidan, som definieras som kombinationen av *protokoll,* *domän* och *port.*  När en sida från https\://www.contoso.com försöker få åtkomst till en användares data i fabrikam.com ursprung, skickas följande begär ande huvud till fabrikam.com:
 
    `Origin: https://www.contoso.com`
 
-2. Servern svarar med något av följande:
+2. Servern kan svara med något av följande:
 
-   * En **Access-Control-Allow-Origin** rubrik i sitt svar som anger vilken ursprungsplats som tillåts. Exempel:
+   * En **Access-Control-Allow-Origin** -rubrik i sitt svar som anger vilken ursprungs plats som tillåts. Exempel:
 
      `Access-Control-Allow-Origin: https://www.contoso.com`
 
-   * En HTTP-felkoden, till exempel 403 om servern inte tillåter resursdelning för korsande ursprung begäran när du har kontrollerat rubriken ursprung
+   * En HTTP-felkod, till exempel 403, om servern inte tillåter Cross-Origin-begäran efter kontroll av käll rubriken
 
-   * En **Access-Control-Allow-Origin** huvud med jokertecken som gör att alla ursprung:
+   * En **Access-Control-Allow-Origin** -rubrik med ett jokertecken som tillåter alla ursprung:
 
      `Access-Control-Allow-Origin: *`
 
-### <a name="for-complex-requests"></a>För komplexa begäranden:
+### <a name="for-complex-requests"></a>För komplexa begär Anden:
 
-En begäran om komplexa är en CORS-begäran där webbläsaren krävs för att skicka en *preliminära begäran* (det vill säga en preliminär avsökning) innan du skickar den faktiska CORS-förfrågan. Preliminära begäran begär serverbehörighet om de ursprungliga CORS begära kan fortsätta och är en `OPTIONS` begäran till samma URL.
+En komplex begäran är en CORS-begäran där webbläsaren krävs för att skicka en *preflight-begäran* (det vill säga en preliminär avsökning) innan den aktuella CORS-begäran skickas. Preflight-begäran ber Server behörigheten om den ursprungliga CORS-begäran kan fortsätta och är en `OPTIONS` begäran till samma URL.
 
 > [!TIP]
-> Mer information om CORS flöden och vanliga fallgropar visa den [Guide till CORS för REST API: er](https://www.moesif.com/blog/technical/cors/Authoritative-Guide-to-CORS-Cross-Origin-Resource-Sharing-for-REST-APIs/).
+> Mer information om CORS-flöden och vanliga fall GRO par finns i [guiden till CORS för REST-API: er](https://www.moesif.com/blog/technical/cors/Authoritative-Guide-to-CORS-Cross-Origin-Resource-Sharing-for-REST-APIs/).
 >
 >
 
-## <a name="wildcard-or-single-origin-scenarios"></a>Jokertecken eller enskild ursprung scenarier
-CORS i Azure CDN fungerar automatiskt utan någon ytterligare konfiguration när den **Access-Control-Allow-Origin** rubrik är inställd på jokertecken (*) eller ett enda ursprung.  CDN ska cachelagra det första svaret och efterföljande förfrågningar kommer att använda samma rubrik.
+## <a name="wildcard-or-single-origin-scenarios"></a>Scenarier med jokertecken eller enstaka ursprung
+CORS på Azure CDN fungerar automatiskt utan ytterligare konfiguration när rubriken **åtkomst kontroll – Tillåt-ursprung** är inställd på jokertecken (*) eller ett enda ursprung.  CDN cachelagrar det första svaret och efterföljande begär Anden kommer att använda samma rubrik.
 
-Om begäranden har redan gjorts till CDN innan CORS som anges på ditt ursprung, måste du rensa innehåll på slutpunkten innehållet läses in på nytt innehåll med den **Access-Control-Allow-Origin** rubrik.
+Om begär Anden redan har gjorts till CDN innan CORS har angetts i ditt ursprung måste du rensa innehållet i slut punkts innehållet för att läsa in innehållet igen med **Access-Control-Allow-Origin** -rubriken.
 
 ## <a name="multiple-origin-scenarios"></a>Scenarier med flera ursprung
-Om du vill tillåta att en specifik lista över ursprung som ska tillåtas för CORS få saker lite mer komplicerat. Problemet uppstår när CDN cachelagrar den **Access-Control-Allow-Origin** rubriken för det första CORS-ursprunget.  När en annan CORS-ursprunget gör en efterföljande begäran, CDN fungerar den cachelagrade **Access-Control-Allow-Origin** rubriken, som inte matchar.  Det finns flera sätt att åtgärda detta.
+Om du behöver tillåta en speciell lista över ursprung som ska tillåtas för CORS kan saker bli lite mer komplicerat. Problemet uppstår när CDN cachelagrar rubriken **Access-Control-Allow-Origin** för det första CORS-ursprunget.  När ett annat CORS-ursprung gör en efterföljande begäran kommer CDN att betjäna det cachelagrade **Access-Control-Allow-Origin-** huvudet, som inte matchar.  Det finns flera sätt att åtgärda detta.
+
+### <a name="azure-cdn-standard-profiles"></a>Azure CDN Standard profiler
+På Azure CDN Standard från Microsoft kan du skapa en regel i [standard regel motorn](cdn-standard-rules-engine-reference.md) för att kontrol lera **käll** rubriken på begäran. Om det är ett giltigt ursprung anger din regel **Access-Control-Allow-Origin-** huvudet med det önskade värdet. I det här fallet ignoreras rubriken för **Access-Control-Allow-Origin** från filens ursprungs Server och CDN: s regel motor hanterar de tillåtna CORS-ursprungen fullständigt.
+
+![Regel exempel med standard regel motor](./media/cdn-cors/cdn-standard-cors.png)
+
+> [!TIP]
+> Du kan lägga till ytterligare åtgärder i regeln för att ändra ytterligare svarshuvuden, till exempel **Access-Control-Allow-Methods**.
+> 
+
+På **Azure CDN Standard från Akamai**är den enda mekanismen att tillåta för flera ursprung utan att använda jokertecken för att använda [cachelagring av frågesträngar](cdn-query-string.md). Aktivera inställningen för frågesträngen för CDN-slutpunkten och Använd sedan en unik frågesträng för begär Anden från varje tillåten domän. Detta leder till att CDN cachelagrar ett separat objekt för varje unik frågesträng. Den här metoden är inte idealisk, men eftersom det leder till att flera kopior av samma fil cachelagras i CDN.  
 
 ### <a name="azure-cdn-premium-from-verizon"></a>Azure CDN Premium från Verizon
-Det bästa sättet att aktivera det här alternativet är att använda **Azure CDN Premium från Verizon**, som visar några avancerade funktioner. 
+Med hjälp av Verizon Premium Rules-motorn måste du [skapa en regel](cdn-rules-engine.md) för att kontrol lera **käll** rubriken på begäran.  Om det är ett giltigt ursprung anger din regel **Access-Control-Allow-Origin-** huvudet med ursprunget i begäran.  Om det ursprung som anges i **ursprungs** huvudet inte är tillåtet, ska regeln utesluta rubriken **Access-Control-Allow-Origin** , som gör att webbläsaren avvisar begäran. 
 
-Du måste [skapa en regel](cdn-rules-engine.md) att kontrollera den **ursprung** sidhuvud på begäran.  Om det är ett giltigt ursprung regeln anger den **Access-Control-Allow-Origin** huvud med ursprung som tillhandahölls i begäran.  Om ursprunget anges i den **ursprung** rubrik tillåts inte, regeln utelämna den **Access-Control-Allow-Origin** rubrik, vilket leder till webbläsaren om du vill avvisa begäran. 
-
-Det finns två sätt att göra detta med regelmotorn. I båda fallen kan den **Access-Control-Allow-Origin** huvudet från filens ursprungsservern ignoreras och CDN: s regelmotor fullständig hantering av de tillåtna CORS-ursprung.
+Det finns två sätt att göra detta med Premium Rules-motorn. I båda fallen ignoreras rubriken för **Access-Control-Allow-Origin** från filens ursprungs Server och CDN: s regel motor hanterar de tillåtna CORS-ursprungen fullständigt.
 
 #### <a name="one-regular-expression-with-all-valid-origins"></a>Ett reguljärt uttryck med alla giltiga ursprung
-I det här fallet ska du skapa ett reguljärt uttryck som innehåller alla de ursprung som du vill tillåta: 
+I det här fallet skapar du ett reguljärt uttryck som innehåller alla ursprung som du vill tillåta: 
 
     https?:\/\/(www\.contoso\.com|contoso\.com|www\.microsoft\.com|microsoft.com\.com)$
 
 > [!TIP]
-> **Azure CDN Premium från Verizon** använder [Perl kompatibla reguljära uttryck](https://pcre.org/) som motorn för reguljära uttryck.  Du kan använda ett verktyg som [reguljära uttryck 101](https://regex101.com/) att verifiera det reguljära uttrycket.  Observera att tecknet ”/” är giltig i reguljära uttryck och behöver inte undantas, men undantagstecken tecknet anses vara bästa praxis och förväntas av vissa regex-systemhälsoverifierare.
+> **Azure CDN Premium från Verizon** använder [perl-kompatibla reguljära uttryck](https://pcre.org/) som sin motor för reguljära uttryck.  Du kan använda ett verktyg som [reguljära uttryck 101](https://regex101.com/) för att validera ditt reguljära uttryck.  Observera att "/"-tecken är giltigt i reguljära uttryck och inte behöver vara undantagna, men det är inte nödvändigt att undanta det tecken som är ett bra tillvägagångs sätt och förväntas av några regex-verifierare.
 > 
 > 
 
-Om det reguljära uttrycket matchar regeln ersätter den **Access-Control-Allow-Origin** huvudet (om sådan finns) från ursprunget med ursprung som skickade begäran.  Du kan också lägga till ytterligare CORS-huvuden som **Access-Control-Tillåt-metoder**.
+Om det reguljära uttrycket matchar, kommer din regel att ersätta **Access-Control-Allow-Origin** -huvudet (om det finns) från ursprunget med det ursprung som skickade begäran.  Du kan också lägga till ytterligare CORS-rubriker, till exempel **Access-Control-Allow-Methods**.
 
-![Exempel på regler med reguljära uttryck](./media/cdn-cors/cdn-cors-regex.png)
+![Regel exempel med reguljärt uttryck](./media/cdn-cors/cdn-cors-regex.png)
 
-#### <a name="request-header-rule-for-each-origin"></a>Begära huvud-regel för varje ursprung.
-I stället för reguljära uttryck kan du istället skapa en separat regel för varje ursprung som du vill att med hjälp av den **begära huvud med jokertecken** [matchningsvillkor](/previous-versions/azure/mt757336(v=azure.100)#match-conditions). Precis som med metoden reguljärt uttryck anger enbart regelmotorn CORS-huvuden. 
+#### <a name="request-header-rule-for-each-origin"></a>Begär ande huvud regel för varje ursprung.
+I stället för reguljära uttryck kan du i stället skapa en separat regel för varje ursprung som du vill tillåta med hjälp av [matchnings villkoret](/previous-versions/azure/mt757336(v=azure.100)#match-conditions)för **förfrågnings huvudet** . Precis som med metoden för reguljära uttryck, ställer enbart regel motorn CORS-huvuden. 
 
-![Regler för exemplet utan reguljärt uttryck](./media/cdn-cors/cdn-cors-no-regex.png)
+![Regel exempel utan reguljärt uttryck](./media/cdn-cors/cdn-cors-no-regex.png)
 
 > [!TIP]
-> I exemplet ovan är användningen av jokertecknet * talar om regelmotor som motsvarar både HTTP och HTTPS.
+> I exemplet ovan talar användningen av jokertecknet * till att regel motorn matchar både HTTP och HTTPS.
 > 
 > 
 
-### <a name="azure-cdn-standard-profiles"></a>Azure standard CDN-profiler
-På standard Azure CDN-profiler (**Azure CDN Standard från Microsoft**, **Azure CDN Standard från Akamai**, och **Azure CDN Standard från Verizon**), den enda metoden för att tillåter flera ursprung utan användning av jokertecken ursprunget är att använda [cachelagring av frågesträngar](cdn-query-string.md). Aktivera inställningen fråga sträng för CDN-slutpunkten och sedan använda en unik frågesträng för begäranden från varje tillåtna domän. Detta resulterar i CDN-nätverkets ett separat objekt för varje unikt frågesträng. Den här metoden är perfekt, dock inte eftersom det kommer leda till flera kopior av samma fil som cachelagrats på CDN.  
+
 

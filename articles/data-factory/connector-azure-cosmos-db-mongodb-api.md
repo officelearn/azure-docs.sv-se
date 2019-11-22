@@ -10,31 +10,31 @@ ms.service: multiple
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 11/20/2019
 ms.author: jingwang
-ms.openlocfilehash: d0c90562c5e0810e5ed4898f6b2ec09ee52d16a0
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0da3452964a7c4bb7d2a22ce4cd5164ad8c1e3fb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681326"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280694"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-dbs-api-for-mongodb-by-using-azure-data-factory"></a>Kopiera data till eller från Azure Cosmos DBs API för MongoDB med hjälp av Azure Data Factory
 
-Den här artikeln beskriver hur du använder kopierings aktivitet i Azure Data Factory för att kopiera data från och till Azure Cosmos DB s API för MongoDB. Artikeln bygger på [kopierings aktivitet i Azure Data Factory](copy-activity-overview.md), som visar en översikt över kopierings aktiviteten.
+Den här artikeln beskriver hur du använder kopierings aktivitet i Azure Data Factory för att kopiera data från och till Azure Cosmos DB s API för MongoDB. Artikeln bygger vidare på [Kopieringsaktivitet i Azure Data Factory](copy-activity-overview.md), som anger en allmän översikt över Kopieringsaktivitet.
 
 >[!NOTE]
 >Den här kopplingen stöder endast kopiering av data till/från Azure Cosmos DB s API för MongoDB. SQL-API finns i [Cosmos DB SQL API-anslutning](connector-azure-cosmos-db.md). Andra API-typer stöds inte nu.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Du kan kopiera data från Azure Cosmos DBs API för MongoDB till alla mottagar data lager som stöds, eller kopiera data från alla käll data lager som stöds till Azure Cosmos DB s API för MongoDB. En lista över data lager som kopierings aktiviteten stöder som källor och mottagare finns i [data lager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+Du kan kopiera data från Azure Cosmos DBs API för MongoDB till alla mottagar data lager som stöds, eller kopiera data från alla käll data lager som stöds till Azure Cosmos DB s API för MongoDB. En lista över data lagrar att det stöder Kopieringsaktiviteten som källor och mottagare, finns i [datalager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Du kan använda Azure Cosmos DBs API för MongoDB-anslutning för att:
 
 - Kopiera data från och till [Azure Cosmos DBS API för MongoDB](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction).
-- Skriv till Azure Cosmos DB som **insert** eller **upsert**.
-- Importera och exportera JSON-dokument som-är eller kopiera data från eller till en tabell data uppsättning. Exempel på detta är en SQL-databas och en CSV-fil. Om du vill kopiera dokument som de är till eller från JSON-filer eller till eller från en annan Azure Cosmos DB samling, se Importera eller exportera JSON-dokument.
+- Skriva till Azure Cosmos DB som **infoga** eller **upsert**.
+- Importera och exportera JSON-dokument som – är, eller kopiera data från eller till en datauppsättning i tabellformat. Exempel: en SQL-databas och en CSV-fil. Om du vill kopiera dokument som de är till eller från JSON-filer eller till eller från en annan Azure Cosmos DB samling, se Importera eller exportera JSON-dokument.
 
 ## <a name="get-started"></a>Kom igång
 
@@ -42,16 +42,16 @@ Du kan använda Azure Cosmos DBs API för MongoDB-anslutning för att:
 
 Följande avsnitt innehåller information om egenskaper som du kan använda för att definiera Data Factory entiteter som är speciella för Azure Cosmos DBs API för MongoDB.
 
-## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
+## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
 Följande egenskaper stöds för Azure Cosmos DB: s API för den länkade tjänsten MongoDB:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen **Type** måste anges till **CosmosDbMongoDbApi**. | Ja |
-| Begär |Ange anslutnings strängen för din Azure Cosmos DBs API för MongoDB. Du hittar det i Azure Portal-> Cosmos DB bladet > primär eller sekundär anslutnings sträng med mönstret för `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb`. <br/><br />Markera det här fältet som en **SecureString** -typ för att lagra det på ett säkert sätt i Data Factory. Du kan också [referera till en hemlighet som lagrats i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
+| connectionString |Ange anslutnings strängen för din Azure Cosmos DBs API för MongoDB. Du hittar det i Azure Portal-> Cosmos DB bladet > primär eller sekundär anslutnings sträng med mönstret för `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb`. <br/><br />Markera det här fältet som en **SecureString** Skriv för att lagra den på ett säkert sätt i Data Factory. Du kan också [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | databas | Namnet på den databas som du vill få åtkomst till. | Ja |
-| connectVia | [Integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Du kan använda Azure Integration Runtime eller en egen värd för integration Runtime (om ditt data lager finns i ett privat nätverk). Om den här egenskapen inte anges används standard Azure Integration Runtime. |Nej |
+| connectVia | Den [Integreringskörningen](concepts-integration-runtime.md) för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller en lokal integration runtime (om ditt datalager finns i ett privat nätverk). Om egenskapen inte anges används standard Azure Integration Runtime. |Nej |
 
 **Exempel**
 
@@ -75,14 +75,14 @@ Följande egenskaper stöds för Azure Cosmos DB: s API för den länkade tjäns
 }
 ```
 
-## <a name="dataset-properties"></a>Egenskaper för data mängd
+## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i [data uppsättningar och länkade tjänster](concepts-datasets-linked-services.md). Följande egenskaper stöds för Azure Cosmos DB s API för MongoDB-datauppsättning:
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [datauppsättningar och länkade tjänster](concepts-datasets-linked-services.md). Följande egenskaper stöds för Azure Cosmos DB s API för MongoDB-datauppsättning:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Data uppsättningens **typ** -egenskap måste anges till **CosmosDbMongoDbApiCollection**. |Ja |
-| Samling |Namnet på den Azure Cosmos DB samlingen. |Ja |
+| collectionName |Namnet på den Azure Cosmos DB samlingen. |Ja |
 
 **Exempel**
 
@@ -103,20 +103,20 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 }
 ```
 
-## <a name="copy-activity-properties"></a>Kopiera aktivitets egenskaper
+## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
 Det här avsnittet innehåller en lista över egenskaper som Azure Cosmos DBs API för MongoDB-källa och mottagar stöd.
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [pipelines](concepts-pipelines-activities.md).
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [Pipelines](concepts-pipelines-activities.md).
 
 ### <a name="azure-cosmos-dbs-api-for-mongodb-as-source"></a>Azure Cosmos DB s API för MongoDB som källa
 
-Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
+Följande egenskaper stöds i Kopieringsaktiviteten **källa** avsnittet:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | **Typ** egenskapen för kopierings aktivitets källan måste anges till **CosmosDbMongoDbApiSource**. |Ja |
-| Synkroniseringsfilter | Anger urvals filter med hjälp av fråge operatorer. Om du vill returnera alla dokument i en samling utelämnar du den här parametern eller skickar ett tomt dokument ({}). | Nej |
+| filter | Anger urvals filter med hjälp av fråge operatorer. Om du vill returnera alla dokument i en samling utelämnar du den här parametern eller skickar ett tomt dokument ({}). | Nej |
 | cursorMethods.project | Anger de fält som ska returneras i dokument för projektion. Om du vill returnera alla fält i de matchande dokumenten utelämnar du den här parametern. | Nej |
 | cursorMethods.sort | Anger i vilken ordning som frågan returnerar matchande dokument. Se [cursor. sort ()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort). | Nej |
 | cursorMethods.limit | Anger det maximala antalet dokument som servern returnerar. Referera till [cursor. Limit ()](https://docs.mongodb.com/manual/reference/method/cursor.limit/#cursor.limit).  | Nej | 
@@ -166,13 +166,13 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 
 ### <a name="azure-cosmos-dbs-api-for-mongodb-as-sink"></a>Azure Cosmos DB s API för MongoDB som mottagare
 
-Följande egenskaper stöds i avsnittet Kopiera aktivitets **mottagare** :
+Följande egenskaper stöds i Kopieringsaktiviteten **mottagare** avsnittet:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen **Type** för kopierings aktivitetens Sink måste anges till **CosmosDbMongoDbApiSink**. |Ja |
-| WriteBehavior |Beskriver hur du skriver data till Azure Cosmos DB. Tillåtna värden: **insert** och **upsert**.<br/><br/>Beteendet för **upsert** är att ersätta dokumentet om det redan finns ett dokument med samma ID. annars infogar du dokumentet.<br /><br />**Obs!** Data Factory automatiskt genererar ett ID för ett dokument om inget ID anges i det ursprungliga dokumentet eller med kolumn mappning. Det innebär att du måste se till att ditt dokument har ett ID för att **upsert** ska fungera som förväntat. |Nej<br />(Standardvärdet är **insert**) |
-| writeBatchSize | Egenskapen **writeBatchSize** styr storleken på dokument som ska skrivas i varje batch. Du kan prova att öka värdet för **writeBatchSize** för att förbättra prestandan och minska värdet om dokument storleken är stor. |Nej<br />(Standardvärdet är **10 000**) |
+| writeBehavior |Beskriver hur du skriver data till Azure Cosmos DB. Tillåtna värden: **infoga** och **upsert**.<br/><br/>Beteendet för **upsert** är att ersätta dokumentet om det redan finns ett dokument med samma `_id`. annars infogar du dokumentet.<br /><br />**Obs!** Data Factory skapar automatiskt ett `_id` för ett dokument om ett `_id` inte har angetts antingen i det ursprungliga dokumentet eller med kolumn mappning. Det innebär att måste du se till att, för **upsert** för att fungera som förväntat, dokumentet har ett ID. |Nej<br />(standardvärdet är **infoga**) |
+| writeBatchSize | Egenskapen **writeBatchSize** styr storleken på dokument som ska skrivas i varje batch. Du kan prova att öka värdet för **writeBatchSize** för att förbättra prestandan och minska värdet om dokument storleken är stor. |Nej<br />(standardvärdet är **10 000**) |
 | writeBatchTimeout | Vänte tiden för att infoga batch-operationen ska avslutas innan den nådde tids gränsen. Det tillåtna värdet är TimeSpan. | Nej<br/>(Standardvärdet är **00:30:00** – 30 minuter) |
 
 **Exempel**
@@ -212,11 +212,11 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets **mottagare** :
 
 ## <a name="import-or-export-json-documents"></a>Importera eller exportera JSON-dokument
 
-Du kan använda den här Azure Cosmos DB anslutningen för att enkelt:
+Du kan använda den här Azure Cosmos DB-anslutningen för att enkelt:
 
-* Importera JSON-dokument från olika källor till Azure Cosmos DB, inklusive från Azure Blob Storage, Azure Data Lake Store och andra filbaserade arkiv som Azure Data Factory stöder.
-* Exportera JSON-dokument från en Azure Cosmos DB-samling till olika filbaserade arkiv.
-* Kopiera dokument mellan två Azure Cosmos DB samlingar som de är.
+* Importera JSON-dokument från olika källor till Azure Cosmos DB, såsom från Azure Blob storage, Azure Data Lake Store och andra filbaserade butiker som har stöd för Azure Data Factory.
+* Exportera JSON-dokument från en Azure Cosmos DB-samling till olika filbaserade lager.
+* Kopiera mellan två Azure Cosmos DB-samlingar som – är.
 
 För att få en sådan oberoende kopia kan du hoppa över avsnittet "struktur" (kallas även *schema*) i data uppsättning och schema mappning i kopierings aktiviteten.
 
@@ -238,4 +238,4 @@ Efter körningen av kopierings aktiviteten skapas under BSON ObjectId i Sink:
 
 ## <a name="next-steps"></a>Nästa steg
 
-En lista över data lager som kopierings aktiviteten stöder som källor och handfat i Azure Data Factory finns i [data lager som stöds](copy-activity-overview.md##supported-data-stores-and-formats).
+En lista över datalager som Kopieringsaktiviteten som källor och egenskaperna i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md##supported-data-stores-and-formats).

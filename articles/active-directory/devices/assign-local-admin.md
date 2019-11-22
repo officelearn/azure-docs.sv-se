@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5372bf853092ea55952b45a1300d0f979f1b086c
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: b222e67d06bc9fa0fabcc0bc3c0ddd2c6855fbc3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062262"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74271295"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Hantera den lokala gruppen Administratörer på Azure AD-anslutna enheter
 
@@ -24,7 +24,7 @@ Om du vill hantera en Windows-enhet måste du vara medlem i den lokala gruppen A
 
 I den här artikeln förklaras hur medlemskaps uppdateringen fungerar och hur du kan anpassa den under en Azure AD-anslutning. Innehållet i den här artikeln gäller inte för en **hybrid** Azure AD-anslutning.
 
-## <a name="how-it-works"></a>Så här fungerar det
+## <a name="how-it-works"></a>Hur det fungerar
 
 När du ansluter en Windows-enhet med Azure AD med hjälp av en Azure AD-anslutning lägger Azure AD till följande säkerhets principer i den lokala gruppen Administratörer på enheten:
 
@@ -48,7 +48,7 @@ Information om hur du visar och uppdaterar medlemskapet för den globala adminis
 I Azure Portal kan du hantera rollen som enhets administratör på sidan **enheter** . Så här öppnar du sidan **enheter** :
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som global administratör eller enhets administratör.
-1. Klicka på **Azure Active Directory**i det vänstra navigerings fältet. 
+1. Sök efter och välj *Azure Active Directory*.
 1. I avsnittet **Hantera** klickar du på **enheter**.
 1. På sidan **enheter** klickar du på **enhets inställningar**.
 

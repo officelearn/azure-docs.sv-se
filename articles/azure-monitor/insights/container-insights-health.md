@@ -12,16 +12,20 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 11/18/2019
 ms.author: magoedte
-ms.openlocfilehash: f748399b6b356e5f8655f59221e78acd0d98f51e
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 08f7cf5a26108608aa3719085d69ec9543f4aa51
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173639"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279643"
 ---
 # <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>Förstå Kubernetes-kluster hälsa med Azure Monitor för behållare
 
-Med Azure Monitor för behållare övervakas och rapporteras hälso status för de hanterade infrastruktur komponenterna och alla noder som körs på ett Kubernetes-kluster som stöds av Azure Monitor for containers. Den här upplevelsen överskrider kluster hälso statusen som beräknas och rapporteras i [vyn multi-Cluster](container-insights-analyze.md#multi-cluster-view-from-azure-monitor), där nu kan du förstå om en eller flera noder i klustret är begränsade eller om en nod eller Pod inte är tillgänglig som kan påverka ett program som körs i klustret baserat på granskade mått. 
+Med Azure Monitor för behållare övervakas och rapporteras hälso status för de hanterade infrastruktur komponenterna och alla noder som körs på ett Kubernetes-kluster som stöds av Azure Monitor for containers. Den här upplevelsen överskrider kluster hälso statusen som beräknas och rapporteras i [vyn multi-Cluster](container-insights-analyze.md#multi-cluster-view-from-azure-monitor), där nu kan du förstå om en eller flera noder i klustret är begränsade eller om en nod eller Pod inte är tillgänglig som kan påverka ett program som körs i klustret baserat på granskade mått.
+
+>[!NOTE]
+>Hälso funktionen finns nu i offentlig för hands version.
+>
 
 Information om hur du aktiverar Azure Monitor för behållare finns i [Onboard Azure Monitor for containers](container-insights-onboard.md).
 
@@ -33,7 +37,7 @@ Information om hur du aktiverar Azure Monitor för behållare finns i [Onboard A
 
 ## <a name="overview"></a>Översikt
 
-I Azure Monitor för behållare ger hälso funktionen proaktiv hälso övervakning av ditt Kubernetes-kluster för att hjälpa dig att identifiera och diagnostisera problem. Det ger dig möjlighet att Visa viktiga problem som har identifierats. Övervakare utvärderar hälso tillståndet för klustret som körs på behållarens agent i klustret och hälso data skrivs till tabellen **KubeHealth** i din Log Analytics-arbetsyta. 
+I Azure Monitor för behållare ger funktionen Health (förhands granskning) proaktiv hälso övervakning av ditt Kubernetes-kluster för att hjälpa dig att identifiera och diagnostisera problem. Det ger dig möjlighet att Visa viktiga problem som har identifierats. Övervakare utvärderar hälso tillståndet för klustret som körs på behållarens agent i klustret och hälso data skrivs till tabellen **KubeHealth** i din Log Analytics-arbetsyta. 
 
 Kubernetes-klustrets hälsa är baserat på ett antal övervaknings scenarier ordnade efter följande Kubernetes-objekt och abstraktioner:
 
@@ -72,7 +76,7 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="view-health-of-an-aks-or-non-aks-cluster"></a>Visa hälso tillståndet för ett AKS-eller icke-AKS-kluster
 
-Åtkomst till Azure Monitor för behållare hälso funktion är tillgänglig direkt från ett AKS-kluster genom att välja **insikter** i den vänstra rutan i Azure Portal. Under den **Insights** väljer **behållare**. 
+Åtkomst till funktionen Azure Monitor för behållare hälsa (för hands version) är tillgänglig direkt från ett AKS-kluster genom att välja **insikter** i den vänstra rutan i Azure Portal. Under den **Insights** väljer **behållare**. 
 
 Om du vill visa hälso tillståndet från ett icke-AKS kluster, det vill säga ett AKS-motor kluster lokalt eller på Azure Stack väljer **Azure Monitor** i det vänstra fönstret i Azure Portal. Under den **Insights** väljer **behållare**.  På sidan flera kluster väljer du det icke-AKS klustret i listan.
 

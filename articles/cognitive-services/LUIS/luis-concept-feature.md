@@ -1,7 +1,7 @@
 ---
 title: Funktioner – LUIS
 titleSuffix: Azure Cognitive Services
-description: Lägg till funktioner i en språk modell för att ge tips om hur du identifierar indatatyper som du vill etikettera eller klassificera.
+description: Lägga till funktioner till en språkmodell ge tips om hur du identifierar indata som du vill märka eller klassificera.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: diberry
-ms.openlocfilehash: 0cab6eb38459a632f1e7bd1a21e6a7251d33f683
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: b151043babd6c67a17f704bb671a415fcc3ba7b2
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647422"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280902"
 ---
 # <a name="machine-learned-features"></a>Funktioner som har lästs av datorn 
 
-I Machine Learning är en *funktion* en särskiljande egenskaps-eller dataattribut som systemet iakttar & lär sig igenom. I Language Understanding (LUIS) beskriver en funktion och förklarar vad som är viktigt om dina avsikter och entiteter.
+I Machine Learning är en _funktion_ en särskiljande egenskaps-eller dataattribut som systemet iakttar & lär sig igenom. I Language Understanding (LUIS) beskriver en funktion och förklarar vad som är viktigt om dina avsikter och entiteter.
 
 I [Luis-portalen för förhands granskning](https://preview.luis.ai)är funktioner _Descriptor_ eftersom de används för att _beskriva_ avsikten eller entiteten.  
 
@@ -43,7 +43,7 @@ Med en fras lista anser LUIS kontext och generalizes för att identifiera objekt
 
 När du vill kunna identifiera nya instanser, till exempel en schemaläggare för möten som ska identifiera namnen på nya kontakter eller en inventerings app som ska identifiera nya produkter, börjar du med en enhet som har lärts från enheten. Skapa sedan en fras lista som hjälper LUIS att hitta ord med liknande betydelse. Den här frasen visar en lista över LUIS som hjälper dig att identifiera exempel genom att lägga till ytterligare betydelse för värdet av dessa ord. 
 
-Fras listor är som domänbaserad vokabulär som hjälper till att förbättra kvaliteten på både avsikter och entiteter. 
+Fras listor liknar domänspecifika ordförråd hjälp med att förbättra kvaliteten på förståelse för både avsikter och entiteter. 
 
 ## <a name="considerations-when-using-a-phrase-list"></a>Att tänka på när du använder en fras lista
 
@@ -57,7 +57,7 @@ Flaggan `enabledForAllModels` styr det här modell omfånget i API: et.
 
 ### <a name="how-to-use-a-phrase-list"></a>Så här använder du en fras lista
 
-[Skapa en fras](luis-how-to-add-features.md) lista när ditt avsikt eller din entitet har ord eller fraser som är viktiga, till exempel:
+[Skapa en fras lista](luis-how-to-add-features.md) när avsikten eller entiteten innehåller ord eller fraser som är viktiga, till exempel:
 
 * bransch villkor
 * slang
@@ -82,13 +82,13 @@ Om avsikten exempelvis är att boka en flygning och entiteten är biljett inform
 
 ### <a name="entity-as-a-feature-to-another-entity"></a>Entitet som en funktion till en annan entitet
 
-En entitet (A) ska läggas till som en funktion till en annan entitet (B) när entitetens identifiering (A) är signifikant för (B).
+En entitet (A) bör läggas till som en funktion till en annan entitet (B) när entitetens identifiering (A) är signifikant för förutsägelsen av entiteten (B).
 
 Om t. ex. entiteten gatuadress (A) har identifierats lägger du till en vikt till förutsägelsen för entiteten leverans adress (B) genom att söka efter gatuadressen (A). 
 
 ## <a name="best-practices"></a>Bästa praxis
-Lär dig [metod tips](luis-concept-best-practices.md).
+Lär dig [bästa praxis](luis-concept-best-practices.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se [Lägg till funktioner](luis-how-to-add-features.md) för att lära dig mer om hur du lägger till funktioner i Luis-appen.
+Se [Lägg till funktioner](luis-how-to-add-features.md) mer information om hur du lägger till funktioner till din LUIS-app.

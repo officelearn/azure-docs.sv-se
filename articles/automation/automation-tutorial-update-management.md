@@ -1,20 +1,20 @@
 ---
 title: Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer
-description: I den här artikeln finns en översikt över hur du använder Azure Automations uppdateringshantering för att hantera uppdateringar och korrigeringsfiler för dina virtuella Azure-datorer i Windows.
+description: Den här artikeln innehåller en översikt över hur du använder Azure Automation Uppdateringshantering för att hantera uppdateringar och korrigeringar för dina virtuella Azure-och icke-Azure-datorer.
 services: automation
-author: zjalexander
+author: mgoedtel
 ms.service: automation
 ms.subservice: update-management
 ms.topic: tutorial
-ms.date: 12/04/2018
-ms.author: zachal
+ms.date: 11/20/2019
+ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 65bbf58d8514f9fea082b839f57e9aaf3417dc14
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 65ce4234da3f44de11522a626d2c0d10524e4673
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469741"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278787"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer
 
@@ -22,7 +22,7 @@ Du kan använda uppdateringshanteringen för att hantera uppdateringar och korri
 
 Prisinformation finns i [Automation-priser för uppdateringshantering](https://azure.microsoft.com/pricing/details/automation/).
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Publicera en virtuell dator för hantering av uppdateringar
@@ -31,7 +31,7 @@ I den här guiden får du lära dig att:
 > * Schemalägga en uppdateringsdistribution
 > * Visa resultatet av en distribution
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -51,15 +51,15 @@ Först aktiverar du uppdateringshantering på din virtuella datorn för att kunn
 1. Välj den virtuella dator som du vill aktivera Uppdateringshantering för.
 1. På sidan för virtuell dator under **ÅTGÄRDER** väljer du **Uppdateringshantering**. Fönstret **Aktivera uppdateringshantering** öppnas.
 
-Verifieringen utförs för att fastställa om uppdateringshantering är aktiverat för den här virtuella datorn. Verifieringen söker efter en Log Analytics-arbetsyta och ett länkat Azure Automation-konto, och om lösningen för uppdateringshantering är i arbetsytan.
+Verifieringen utförs för att fastställa om uppdateringshantering är aktiverat för den här virtuella datorn. Den här verifieringen innehåller kontroller för en Log Analytics arbets yta och ett länkat Automation-konto och om Uppdateringshanterings lösningen är aktive rad i arbets ytan.
 
-En [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)-arbetsyta används för att samla in data som genereras av funktioner och tjänster som uppdateringshantering. Arbetsytan tillhandahåller en enda plats för att granska och analysera data från flera källor.
+En [Log Analytics](../azure-monitor/platform/data-platform-logs.md)-arbetsyta används för att samla in data som genereras av funktioner och tjänster som uppdateringshantering. Arbetsytan tillhandahåller en enda plats för att granska och analysera data från flera källor.
 
-Verifieringsprocessen kontrollerar också om den virtuella datorn har etablerats med MMA och Automation Hybrid Runbook Worker. Den här agenten används för att kommunicera med Azure Automation och hämta information om uppdateringsstatus. Agenten kräver att port 443 till öppnas för att kommunicera med Azure Automation-tjänsten och för att ladda ner uppdateringar.
+Verifierings processen kontrollerar också om den virtuella datorn är etablerad med Log Analytics agent och automation Hybrid Runbook Worker. Den här agenten används för att kommunicera med Azure Automation och hämta information om uppdateringsstatus. Agenten kräver att port 443 till öppnas för att kommunicera med Azure Automation-tjänsten och för att ladda ner uppdateringar.
 
 Om några av följande krav saknades under publiceringen läggs de till automatiskt:
 
-* [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)-arbetsyta
+* [Log Analytics](../azure-monitor/platform/data-platform-logs.md)-arbetsyta
 * Ett [Automation-konto](./automation-offering-get-started.md)
 * En [Hybrid Runbook Worker](./automation-hybrid-runbook-worker.md) (aktiverad på den virtuella datorn)
 
@@ -71,9 +71,9 @@ Det kan ta några minuter att aktivera lösningen. Under tiden ska du inte stän
 
 ## <a name="view-update-assessment"></a>Visa kontroll av uppdateringar
 
-När uppdateringshantering är aktiverat visas fönstret **Uppdateringshantering**. Om några uppdateringar saknas visas en lista med uppdateringar som saknas på fliken  **Uppdateringar som saknas**.
+När uppdateringshantering är aktiverat visas fönstret **Uppdateringshantering**. Om några uppdateringar identifieras som saknade visas en lista med uppdateringar som saknas på fliken uppdateringar som **saknas** .
 
-Under **INFORMATIONSLÄNKEN** välj uppdateringslänken för att öppna supportartikeln för uppdateringen i ett nytt fönster. Du kan lära dig viktig information om uppdateringen i det här fönstret.
+Under **informations länk**väljer du länken Uppdatera för att öppna Support artikeln för uppdateringen. Du kan läsa viktig information om uppdateringen.
 
 ![Visa uppdateringsstatus](./media/automation-tutorial-update-management/manageupdates-view-status-win.png)
 

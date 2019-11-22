@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 05/15/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57d14ac3cbce6880604ad44b6aa71998ed061c10
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6d517c5f0e45edd16778b1300ba9ff41a1483d84
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74028494"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74266941"
 ---
 # <a name="reset-your-own-work-or-school-password-overview"></a>Återställa ditt eget arbets-eller skol lösen ord – översikt
 
@@ -34,5 +34,5 @@ Detaljerad information och anvisningar om hur du registrerar ditt konto för lö
 
 |Artikel |Beskrivning |
 |------|------------|
-| [Registrera för återställning av lösenord för självbetjäning](active-directory-passwords-reset-register.md) | Instruktioner för hur du verifierar dina autentiseringsmetoder och registrerar dig för lösen ords återställning via självbetjäning så att du kan återställa ditt eget lösen ord. |
+| [Registrera för återställning av lösenord för självbetjäning](active-directory-passwords-reset-register.md) | Instruktioner för hur du verifierar dina verifierings metoder och registrerar dig för lösen ords återställning via självbetjäning så att du kan återställa ditt eget lösen ord. |
 | [Återställa lösenordet](active-directory-passwords-update-your-own-password.md) | Anvisningar om hur du återställer eller låser upp lösen ordet för ett arbets-eller skol konto. |

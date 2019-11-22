@@ -1,123 +1,123 @@
 ---
-title: IRS 1075 blueprint sample - Deploy steps
-description: Deploy steps for the IRS 1075 (Rev.11-2016) blueprint sample including blueprint artifact parameter details.
+title: IRS 1075 skiss exempel – distribuera steg
+description: Distribuera steg för skiss exemplet för IRS 1075 (Rev. 11-2016) som innehåller information om skiss artefakt parameter.
 ms.date: 11/20/2019
 ms.topic: sample
-ms.openlocfilehash: 117f5b9e2ec33afd23b3ae348570070a45c56e63
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: HT
+ms.openlocfilehash: 033d4b38b7ccaf4d187615ec1df48c200fe5e683
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229230"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279487"
 ---
-# <a name="deploy-the-irs-1075-blueprint-sample"></a>Deploy the IRS 1075 blueprint sample
+# <a name="deploy-the-irs-1075-blueprint-sample"></a>Distribuera IRS 1075-skiss exemplet
 
-To deploy the Azure Blueprints IRS 1075 (Rev.11-2016) blueprint sample, the following steps must be taken:
+Om du vill distribuera skiss exemplet för Azure skisser IRS 1075 (Rev. 11-2016) måste du utföra följande steg:
 
 > [!div class="checklist"]
-> - Create a new blueprint from the sample
-> - Mark your copy of the sample as **Published**
-> - Assign your copy of the blueprint to an existing subscription
+> - Skapa en ny skiss från exemplet
+> - Markera din kopia av exemplet som **publicerad**
+> - Tilldela din kopia av skissen till en befintlig prenumeration
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 
-## <a name="create-blueprint-from-sample"></a>Create blueprint from sample
+## <a name="create-blueprint-from-sample"></a>Skapa skiss från exempel
 
-First, implement the blueprint sample by creating a new blueprint in your environment using the sample as a starter.
-
-1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
-
-1. From the **Getting started** page on the left, select the **Create** button under _Create a blueprint_.
-
-1. Find the **IRS 1075 (Rev.11-2016)** blueprint sample under _Other Samples_ and select **Use this sample**.
-
-1. Enter the _Basics_ of the blueprint sample:
-
-   - **Blueprint name**: Provide a name for your copy of the IRS 1075 (Rev.11-2016) blueprint sample.
-   - **Definition location**: Use the ellipsis and select the management group to save your copy of the sample to.
-
-1. Select the _Artifacts_ tab at the top of the page or **Next: Artifacts** at the bottom of the page.
-
-1. Review the list of artifacts that make up the blueprint sample. Many of the artifacts have parameters that we'll define later. Select **Save Draft** when you've finished reviewing the blueprint sample.
-
-## <a name="publish-the-sample-copy"></a>Publish the sample copy
-
-Your copy of the blueprint sample has now been created in your environment. It's created in **Draft** mode and must be **Published** before it can be assigned and deployed. The copy of the blueprint sample can be customized to your environment and needs, but that modification may move it away from alignment with NIST SP 800-53 controls.
+Börja med att implementera skiss exemplet genom att skapa en ny skiss i din miljö med hjälp av exemplet som ett start verktyg.
 
 1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
 
-1. Select the **Blueprint definitions** page on the left. Use the filters to find your copy of the blueprint sample and then select it.
+1. Från sidan **komma igång** till vänster väljer du knappen **skapa** under _skapa en skiss_.
 
-1. Select **Publish blueprint** at the top of the page. In the new page on the right, provide a **Version** for your copy of the blueprint sample. This property is useful for if you make a modification later. Provide **Change notes** such as "First version published from the NIST SP 800-53 R4 blueprint sample." Then select **Publish** at the bottom of the page.
+1. Hitta skiss exemplet **IRS 1075 (Rev. 11-2016)** under _andra exempel_ och välj **Använd det här exemplet**.
 
-## <a name="assign-the-sample-copy"></a>Assign the sample copy
+1. Ange _grunderna_ för skiss exemplet:
 
-Once the copy of the blueprint sample has been successfully **Published**, it can be assigned to a subscription within the management group it was saved to. This step is where parameters are provided to make each deployment of the copy of the blueprint sample unique.
+   - **Skiss namn**: Ange ett namn för din kopia av skiss EXEMPLET för IRS 1075 (Rev. 11-2016).
+   - **Definitions plats**: Använd ellipsen och välj den hanterings grupp där du vill spara din kopia av exemplet.
+
+1. Välj fliken _artefakter_ överst på sidan eller **Nästa: artefakter** längst ned på sidan.
+
+1. Granska listan över artefakter som utgör skiss exemplet. Många av artefakterna har parametrar som vi definierar senare. Välj **Spara utkast** när du är klar med att granska skiss exemplet.
+
+## <a name="publish-the-sample-copy"></a>Publicera exempel kopian
+
+Din kopia av skiss exemplet har nu skapats i din miljö. Den skapas i **utkast** läge och måste **publiceras** innan den kan tilldelas och distribueras. Kopian av skiss exemplet kan anpassas efter din miljö och behov, men den ändringen kan flytta den bort från justeringen med NIST SP 800-53-kontroller.
 
 1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
 
-1. Select the **Blueprint definitions** page on the left. Use the filters to find your copy of the blueprint sample and then select it.
+1. Välj sidan **skiss definitioner** till vänster. Använd filtren för att hitta din kopia av skiss exemplet och markera det.
 
-1. Select **Assign blueprint** at the top of the blueprint definition page.
+1. Välj **publicera skiss** överst på sidan. På den nya sidan till höger anger du en **version** för din kopia av skiss exemplet. Den här egenskapen är användbar för om du gör en ändring senare. Ange **ändrings anteckningar** som "första versionen som publicerats från NIST SP 800-53 R4 skiss exemplet". Välj sedan **publicera** längst ned på sidan.
 
-1. Provide the parameter values for the blueprint assignment:
+## <a name="assign-the-sample-copy"></a>Tilldela exempel kopian
+
+När kopieringen av skiss exemplet har **publicerats**kan den tilldelas en prenumeration i hanterings gruppen som den sparades till. Det här steget är den plats där parametrar tillhandahålls för att göra varje distribution av kopian av skiss exemplet unik.
+
+1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
+
+1. Välj sidan **skiss definitioner** till vänster. Använd filtren för att hitta din kopia av skiss exemplet och markera det.
+
+1. Välj **tilldela skiss** överst på skiss definitions sidan.
+
+1. Ange parameter värden för skiss tilldelningen:
 
    - Grundläggande inställningar
 
-     - **Subscriptions**: Select one or more of the subscriptions that are in the management group you saved your copy of the blueprint sample to. If you select more than one subscription, an assignment will be created for each using the parameters entered.
-     - **Assignment name**: The name is pre-populated for you based on the name of the blueprint.
-       Change as needed or leave as is.
-     - **Location**: Select a region for the managed identity to be created in. Azure Blueprint använder den här hanterade identiteten för att distribuera alla artefakter i den tilldelade skissen. Mer information finns i [Hanterade identiteter för Azure-resurser](../../../../active-directory/managed-identities-azure-resources/overview.md).
-     - **Blueprint definition version**: Pick a **Published** version of your copy of the blueprint sample.
+     - **Prenumerationer**: Välj en eller flera av de prenumerationer som finns i hanterings gruppen som du sparade din kopia av skiss exemplet till. Om du väljer fler än en prenumeration skapas en tilldelning för varje användning av de angivna parametrarna.
+     - **Tilldelnings namn**: namnet fylls i automatiskt för dig baserat på namnet på skissen.
+       Ändra vid behov eller lämna det som är.
+     - **Plats**: Välj en region som den hanterade identiteten ska skapas i. Azure Blueprint använder den här hanterade identiteten för att distribuera alla artefakter i den tilldelade skissen. Mer information finns i [Hanterade identiteter för Azure-resurser](../../../../active-directory/managed-identities-azure-resources/overview.md).
+     - **Ritnings definitions version**: Välj en **publicerad** version av din kopia av skiss exemplet.
 
-   - Lock Assignment
+   - Lås tilldelning
 
-     Select the blueprint lock setting for your environment. Mer information finns i [Låsa skissresurser](../../concepts/resource-locking.md).
+     Välj skiss lås inställningen för din miljö. Mer information finns i [Låsa skissresurser](../../concepts/resource-locking.md).
 
    - Hanterad identitet
 
-     Leave the default _system assigned_ managed identity option.
+     Lämna alternativet standard _tilldelade_ hanterade identiteter.
 
-   - Artifact parameters
+   - Artefakt parametrar
 
-     The parameters defined in this section apply to the artifact under which it's defined. These parameters are [dynamic parameters](../../concepts/parameters.md#dynamic-parameters) since they're defined during the assignment of the blueprint. For a full list or artifact parameters and their descriptions, see [Artifact parameters table](#artifact-parameters-table).
+     De parametrar som definieras i det här avsnittet gäller för den artefakt som den definieras under. Dessa parametrar är [dynamiska parametrar](../../concepts/parameters.md#dynamic-parameters) eftersom de definieras när skissen tilldelas. En fullständig lista eller artefakt parametrar och deras beskrivningar finns i [tabellen artefakt parametrar](#artifact-parameters-table).
 
-1. Once all parameters have been entered, select **Assign** at the bottom of the page. The blueprint assignment is created and artifact deployment begins. Deployment takes roughly an hour. To check on the status of deployment, open the blueprint assignment.
+1. När alla parametrar har angetts väljer du **tilldela** längst ned på sidan. Skiss tilldelningen skapas och artefakt distributionen påbörjas. Distributionen tar ungefär en timme. Du kan kontrol lera statusen för distributionen genom att öppna skiss tilldelningen.
 
 > [!WARNING]
-> The Azure Blueprints service and the built-in blueprint samples are **free of cost**. Azure resources are [priced by product](https://azure.microsoft.com/pricing/). Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the cost of running resources deployed by this blueprint sample.
+> Tjänsten Azure-ritningar och de inbyggda skiss exemplen är **kostnads fria**. Azure-resurser [priss ätts per produkt](https://azure.microsoft.com/pricing/). Använd [pris kalkylatorn](https://azure.microsoft.com/pricing/calculator/) för att beräkna kostnaden för att köra resurser som distribuerats i skiss exemplet.
 
-## <a name="artifact-parameters-table"></a>Artifact parameters table
+## <a name="artifact-parameters-table"></a>Tabellen artefakt parametrar
 
-The following table provides a list of the blueprint artifact parameters:
+I följande tabell visas en lista över Skissernas artefakt parametrar:
 
-|Artifact name|Artifact type|Parameternamn|Beskrivning|
+|Artefakt namn|Artefakt typ|Parameternamn|Beskrivning|
 |-|-|-|-|
-|Audit IRS 1075 (Rev.11-2016) controls and deploy specific VM Extensions to support audit requirements|Principtilldelning|Log Analytics workspace ID that VMs should be configured for|This is the ID (GUID) of the Log Analytics workspace that the VMs should be configured for.|
-|Audit IRS 1075 (Rev.11-2016) controls and deploy specific VM Extensions to support audit requirements|Principtilldelning|List of resource types that should have diagnostic logs enabled|List of resource types to audit if diagnostic log setting is not enabled. Acceptable values can be found at [Azure Monitor diagnostic logs schemas](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
-|Audit IRS 1075 (Rev.11-2016) controls and deploy specific VM Extensions to support audit requirements|Principtilldelning|List of users that should be excluded from Windows VM Administrators group|A semicolon-separated list of members that should be excluded in the Administrators local group. Ex: Administrator; myUser1; myUser2|
-|Audit IRS 1075 (Rev.11-2016) controls and deploy specific VM Extensions to support audit requirements|Principtilldelning|List of users that should be included in Windows VM Administrators group|A semicolon-separated list of members that should be included in the Administrators local group. Ex: Administrator; myUser1; myUser2|
-|Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)|Principtilldelning|Log Analytics workspace for Linux VM Scale Sets (VMSS)|If this workspace is outside of the scope of the assignment you must manually grant 'Log Analytics Contributor' permissions (or similar) to the policy assignment's principal ID.|
-|Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)|Principtilldelning|Optional: List of VM images that have supported Linux OS to add to scope|An empty array may be used to indicate no optional parameters: \[\]|
-|Deploy Log Analytics Agent for Linux VMs|Principtilldelning|Log Analytics workspace for Linux VMs|If this workspace is outside of the scope of the assignment you must manually grant 'Log Analytics Contributor' permissions (or similar) to the policy assignment's principal ID.|
-|Deploy Log Analytics Agent for Linux VMs|Principtilldelning|Optional: List of VM images that have supported Linux OS to add to scope|An empty array may be used to indicate no optional parameters: \[\]|
-|Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)|Principtilldelning|Log Analytics workspace for Windows VM Scale Sets (VMSS)|If this workspace is outside of the scope of the assignment you must manually grant 'Log Analytics Contributor' permissions (or similar) to the policy assignment's principal ID.|
-|Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)|Principtilldelning|Optional: List of VM images that have supported Windows OS to add to scope|An empty array may be used to indicate no optional parameters: \[\]|
-|Deploy Log Analytics Agent for Windows VMs|Principtilldelning|Log Analytics workspace for Windows VMs|If this workspace is outside of the scope of the assignment you must manually grant 'Log Analytics Contributor' permissions (or similar) to the policy assignment's principal ID.|
-|Deploy Log Analytics Agent for Windows VMs|Principtilldelning|Optional: List of VM images that have supported Windows OS to add to scope|An empty array may be used to indicate no optional parameters: \[\]|
-|Deploy Advanced Threat Protection on Storage Accounts|Principtilldelning|Verkan|Information about policy effects can be found at [Understand Azure Policy Effects](../../../policy/concepts/effects.md)|
-|Deploy Auditing on SQL servers|Principtilldelning|The value in days of the retention period (0 indicates unlimited retention)|Retention days (optional, 180 days if unspecified)|
-|Deploy Auditing on SQL servers|Principtilldelning|Resource group name for storage account for SQL server auditing|Auditing writes database events to an audit log in your Azure Storage account (a storage account will be created in each region where a SQL Server is created that will be shared by all servers in that region). Important - for proper operation of Auditing do not delete or rename the resource group or the storage accounts.|
-|Deploy diagnostic settings for Network Security Groups|Principtilldelning|Storage account prefix for network security group diagnostics|This prefix will be combined with the network security group location to form the created storage account name.|
-|Deploy diagnostic settings for Network Security Groups|Principtilldelning|Resource group name for storage account for network security group diagnostics (must exist)|The resource group that the storage account will be created in. This resource group must already exist.|
+|Granska IRS 1075-kontroller (Rev. 11-2016) och distribuera särskilda VM-tillägg för att stödja gransknings krav|Principtilldelning|Log Analytics arbetsyte-ID som virtuella datorer ska konfigureras för|Detta är ID (GUID) för Log Analytics arbets ytan som de virtuella datorerna ska konfigureras för.|
+|Granska IRS 1075-kontroller (Rev. 11-2016) och distribuera särskilda VM-tillägg för att stödja gransknings krav|Principtilldelning|Lista över resurs typer som ska ha diagnostiska loggar aktiverade|Lista över resurs typer som ska granskas om diagnostisk logg inställning inte är aktive rad. Du hittar giltiga värden i [Azure Monitor-diagnostiska loggar scheman](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|Granska IRS 1075-kontroller (Rev. 11-2016) och distribuera särskilda VM-tillägg för att stödja gransknings krav|Principtilldelning|Lista över användare som ska undantas från gruppen Administratörer för virtuella Windows-datorer|En semikolonavgränsad lista med medlemmar som ska uteslutas i den lokala gruppen Administratörer. T. ex. administratör; Mina Användare1; myUser2|
+|Granska IRS 1075-kontroller (Rev. 11-2016) och distribuera särskilda VM-tillägg för att stödja gransknings krav|Principtilldelning|Lista över användare som ska ingå i administratörs gruppen för en virtuell Windows-dator|En semikolonavgränsad lista med medlemmar som ska ingå i den lokala gruppen Administratörer. T. ex. administratör; Mina Användare1; myUser2|
+|Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)|Principtilldelning|Log Analytics arbets yta för Linux VM Scale Sets (VMSS)|Om den här arbets ytan ligger utanför tilldelnings omfånget måste du manuellt bevilja behörigheten Log Analytics deltagare (eller liknande) till princip tilldelningens huvud-ID.|
+|Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)|Principtilldelning|Valfritt: lista över virtuella dator avbildningar som har stöd för Linux-operativsystem som ska läggas till i omfånget|En tom matris kan användas för att ange inga valfria parametrar: \[\]|
+|Distribuera Log Analytics agent för virtuella Linux-datorer|Principtilldelning|Log Analytics arbets yta för virtuella Linux-datorer|Om den här arbets ytan ligger utanför tilldelnings omfånget måste du manuellt bevilja behörigheten Log Analytics deltagare (eller liknande) till princip tilldelningens huvud-ID.|
+|Distribuera Log Analytics agent för virtuella Linux-datorer|Principtilldelning|Valfritt: lista över virtuella dator avbildningar som har stöd för Linux-operativsystem som ska läggas till i omfånget|En tom matris kan användas för att ange inga valfria parametrar: \[\]|
+|Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)|Principtilldelning|Log Analytics arbets yta för Windows VM Scale Sets (VMSS)|Om den här arbets ytan ligger utanför tilldelnings omfånget måste du manuellt bevilja behörigheten Log Analytics deltagare (eller liknande) till princip tilldelningens huvud-ID.|
+|Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)|Principtilldelning|Valfritt: lista över virtuella dator avbildningar som har stöd för Windows OS som ska läggas till i omfånget|En tom matris kan användas för att ange inga valfria parametrar: \[\]|
+|Distribuera Log Analytics agent för virtuella Windows-datorer|Principtilldelning|Log Analytics arbets yta för virtuella Windows-datorer|Om den här arbets ytan ligger utanför tilldelnings omfånget måste du manuellt bevilja behörigheten Log Analytics deltagare (eller liknande) till princip tilldelningens huvud-ID.|
+|Distribuera Log Analytics agent för virtuella Windows-datorer|Principtilldelning|Valfritt: lista över virtuella dator avbildningar som har stöd för Windows OS som ska läggas till i omfånget|En tom matris kan användas för att ange inga valfria parametrar: \[\]|
+|Distribuera Avancerat skydd på lagrings konton|Principtilldelning|Verkan|Information om princip effekter finns i [förstå Azure policys effekter](../../../policy/concepts/effects.md)|
+|Distribuera granskning på SQL-servrar|Principtilldelning|Värdet i dagar för kvarhållningsperioden (0 anger obegränsad kvarhållning)|Retentions dagar (valfritt, 180 dagar om inget anges)|
+|Distribuera granskning på SQL-servrar|Principtilldelning|Resurs grupp namn för lagrings konto för SQL Server-granskning|Granskning skriver databas händelser till en Gransknings logg i ditt Azure Storage konto (ett lagrings konto skapas i varje region där ett SQL Server skapas som kommer att delas av alla servrar i den regionen). Viktigt – för att kunna utföra granskningen tar du inte bort eller byter namn på resurs gruppen eller lagrings kontona.|
+|Distribuera diagnostikinställningar för nätverks säkerhets grupper|Principtilldelning|Prefix för lagrings konto för diagnostik för nätverks säkerhets grupp|Det här prefixet kombineras med nätverks säkerhets gruppens plats för att bilda det skapade lagrings konto namnet.|
+|Distribuera diagnostikinställningar för nätverks säkerhets grupper|Principtilldelning|Resurs grupp namn för lagrings konto för nätverksdiagnostik för nätverks säkerhets grupp (måste finnas)|Resurs gruppen som lagrings kontot kommer att skapas i. Resurs gruppen måste redan finnas.|
 
 ## <a name="next-steps"></a>Nästa steg
 
-Now that you've reviewed the steps to deploy the IRS 1075 (Rev.11-2016) blueprint sample, visit the following articles to learn about the blueprint and control mapping:
+Nu när du har granskat stegen för att distribuera skiss exemplet för IRS 1075 (Rev. 11-2016) kan du gå till följande artiklar om du vill veta mer om skiss-och kontroll mappning:
 
 > [!div class="nextstepaction"]
-> [IRS 1075 (Rev.11-2016) blueprint - Overview](./index.md)
-> [IRS 1075 (Rev.11-2016) blueprint - Control mapping](./control-mapping.md)
+> [IRS 1075 skiss – översikt](./index.md)
+> [IRS 1075 skiss-kontroll mappning](./control-mapping.md)
 
 Ytterligare artiklar om skisser och hur de används:
 

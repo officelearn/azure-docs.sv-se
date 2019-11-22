@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 3274641f7b118e13b3ed727f609ce7471fd66b54
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e2517ec4a02a5d61fb3ce1d9ca9ffa2b5f4e8bf8
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682291"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74287030"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>Omvandlings funktioner i datatransformering Data Flow
 
@@ -73,7 +73,7 @@ Använd [Table. Group](https://docs.microsoft.com/powerquery-m/table-group) för
 * Måste användas med en agg regerings funktion
 * Sammansättnings funktioner som stöds: [Table. rowCount](https://docs.microsoft.com/powerquery-m/table-rowcount), [list. sum](https://docs.microsoft.com/powerquery-m/list-sum), [list. Count](https://docs.microsoft.com/powerquery-m/list-count), [list. genomsnitt](https://docs.microsoft.com/powerquery-m/list-average), [list. min](https://docs.microsoft.com/powerquery-m/list-min), [list. Max](https://docs.microsoft.com/powerquery-m/list-max), [list. StandardDeviation](https://docs.microsoft.com/powerquery-m/list-standarddeviation), [list. First](https://docs.microsoft.com/powerquery-m/list-first), list. [Last](https://docs.microsoft.com/powerquery-m/list-last)
 
-## <a name="sorting"></a>ordning
+## <a name="sorting"></a>Ordning
 
 Använd [Table. sort](https://docs.microsoft.com/powerquery-m/table-sort) för att sortera värden.
 
@@ -81,12 +81,21 @@ Använd [Table. sort](https://docs.microsoft.com/powerquery-m/table-sort) för a
 
 Behåll och ta bort överkant, Behåll intervallet (motsvarande M-funktioner, endast stödda antal, inte villkor: [Table. firstd](https://docs.microsoft.com/powerquery-m/table-firstn), [Table. Skip](https://docs.microsoft.com/powerquery-m/table-skip), [Table. RemoveFirstN](https://docs.microsoft.com/powerquery-m/table-removefirstn), [Table. Range](https://docs.microsoft.com/powerquery-m/table-range), [Table. MinN](https://docs.microsoft.com/powerquery-m/table-minn), [Table. MaxN](https://docs.microsoft.com/powerquery-m/table-maxn))
 
-## <a name="known-unsupported-functionality"></a>Kända funktioner som inte stöds
+## <a name="known-unsupported-functions"></a>Kända funktioner som inte stöds
 
-Nedan visas funktioner som inte stöds. Den här listan är inte uttömmande och kan komma att ändras.
-* Sammanfoga kolumner (kan uppnås med AddColumn)
-* Dela kolumn
-* Lägg till frågor
-* ' Använd första raden som rubrik och ' Använd rubriker som första rad '
+| Funktion | Status |
+| -- | -- |
+| Table. PromoteHeaders | Stöds ej. Du kan åstadkomma samma resultat genom att ange "första raden som rubrik" i data uppsättningen. |
+| Table. CombineColumns | Det här är ett vanligt scenario som inte stöds direkt, men som kan uppnås genom att lägga till en ny kolumn som sammanfogar två kolumner.  Till exempel Table. AddColumn (RemoveEmailColumn, "namn", varje [FirstName] & "" & [LastName]) |
+| Table. TransformColumnTypes | Detta stöds i de flesta fall. Följande scenarier stöds inte: omvandling av sträng till valuta typ, transformering av sträng till tids typ, omvandling av sträng till procent typ. |
+| Table. NestedJoin | Att bara göra en koppling leder till ett verifierings fel. Kolumnerna måste utökas för att den ska fungera. |
+| Table. DISTINCT | Det finns inte stöd för att ta bort dubbla rader. |
+| Table. RemoveLastN | Ta bort de nedersta raderna stöds inte. |
+| Table. RowCount | Stöds inte, men kan uppnås med en Add-kolumn där alla celler är tomma (villkors kolumnen kan användas) och sedan använda Group by i den kolumnen. Table. Group stöds. | 
+| Fel hantering på radnivå | Fel hantering på radnivå stöds inte för närvarande. Om du till exempel vill filtrera ut icke-numeriska värden från en kolumn, skulle en metod vara att omvandla text kolumnen till ett tal. Varje cell som inte kan transformera är i fel tillstånd och måste filtreras. Det här scenariot är inte möjligt i datatransformering Data Flow. |
+| Table. transponera | Stöds inte |
+| Table. Pivot | Stöds inte |
 
 ## <a name="next-steps"></a>Nästa steg
+
+Lär dig hur du [skapar ett datatransformering-dataflöde](wrangling-data-flow-tutorial.md).

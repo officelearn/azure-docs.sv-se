@@ -1,5 +1,5 @@
 ---
-title: Visa Azure Storage resurser med lagrings klient biblioteket för C++ | Microsoft Docs
+title: Visa Azure Storage resurser med C++ klient bibliotek
 description: 'Lär dig hur du använder API: er för registrering i Microsoft Azure Storage C++ klient bibliotek för att räkna upp behållare, blobbar, köer, tabeller och entiteter.'
 author: mhopkins-msft
 ms.author: mhopkins
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: dineshm
-ms.openlocfilehash: 3a87e39c9435ba02357b4b655e95e96666242b71
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 0f9e80aff20c1b2663491f6d6ceb99aaec58230f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721921"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74269454"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Visa Azure Storage resurser iC++
 
@@ -55,7 +55,7 @@ Om du arbetar med flera trådbaserade program eller tjänster rekommenderar vi a
 
 Skalan för moln lagring kräver segmenterad lista. Du kan till exempel ha över en miljon blobbar i en Azure Blob-behållare eller över en miljard entiteter i en Azure-tabell. Dessa är inte teoretiska tal, men verkliga kund användnings fall.
 
-Det är därför opraktiskt att lista alla objekt i ett enda svar. I stället kan du lista objekt med växling. Varje lista över API: er har en segmenterad överlagring.
+Det är därför opraktiskt att lista alla objekt i ett enda svar. I stället kan du lista objekt med växling. Varje lista över API: er har en *segmenterad* överlagring.
 
 Svaret på en segmenterad registrerings åtgärd inkluderar:
 
@@ -97,7 +97,7 @@ list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, boo
 
 Om du inte anger parametern *max_results* returneras det maximala standardvärdet på upp till 5000 resultat på en enda sida.
 
-Observera också att en fråga mot Azure Table Storage kan returnera inga poster eller färre poster än värdet för den *max_results* -parameter som du har angett, även om tilläggs-token inte är tom. En orsak kan vara att frågan inte kunde slutföras på fem sekunder. Så länge som tilläggs-token inte är tom, ska frågan fortsätta och din kod ska inte anta storleken på segment resultatet.
+Observera också att en fråga mot Azure Table Storage kan returnera inga poster eller färre poster än värdet för den *max_results* parameter som du har angett, även om tilläggs-token inte är tom. En orsak kan vara att frågan inte kunde slutföras på fem sekunder. Så länge som tilläggs-token inte är tom, ska frågan fortsätta och din kod ska inte anta storleken på segment resultatet.
 
 Rekommenderat kodnings mönster för de flesta scenarier är segmenterade listor, vilket ger uttryckliga förlopps noteringar eller frågor och hur tjänsten svarar på varje begäran. I synnerhet C++ för program eller tjänster kan kontrollens prestanda på lägre nivå kontrol leras för att kontrol lera minne och prestanda.
 
@@ -143,7 +143,7 @@ do
 } while (!token.empty());
 ```
 
-Genom att ange *max_results* -parametern för segmentet kan du balansera mellan antalet förfrågningar och minnes användning för att uppfylla prestanda överväganden för ditt program.
+Genom att ange *max_results* parameter för segmentet kan du balansera mellan antalet förfrågningar och minnes användning för att uppfylla prestanda överväganden för ditt program.
 
 Om du använder segmentbaserade API: er för registrering, men lagrar data i en lokal samling i ett "girig"-format, rekommenderar vi också att du återanvänder din kod för att hantera lagring av data i en lokal samling noggrant i stor skala.
 
@@ -153,7 +153,7 @@ Om du använder segmentbaserade API: er för registrering, men lagrar data i en 
 
 Om du också använder C# eller Oracle Java SDK: er bör du vara bekant med programmerings modellen enumerable, som erbjuder en lista med Lazy-format, där data vid en viss förskjutning bara hämtas om det krävs. I C++har den iteratorbaserade mallen också en liknande metod.
 
-Ett typiskt Lazy List-API med **list_blobs** som exempel ser ut så här:
+Ett typiskt Lazy List-API som använder **list_blobs** som exempel, ser ut så här:
 
 ```cpp
 list_blob_item_iterator list_blobs() const;

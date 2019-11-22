@@ -12,18 +12,18 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26f25daa01288959c38520f9713d35eb975d2df2
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: c6df50db564dac09785b460d158d4276ea8a215e
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73941388"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74271253"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Diagnostisera fel med den Azure Active Directory anslutna tjänsten
 
-Vid identifiering av tidigare autentiserings kod identifierade Azure Active Director Connect-servern en inkompatibel autentiseringstyp.
+Vid identifiering av tidigare autentiserings kod identifierade den Azure Active Directory anslutna tjänsten en inkompatibel autentiseringstyp.
 
-Om du vill identifiera tidigare autentiserings kod i ett projekt korrekt måste projektet skapas.  Om du ser det här felet och du inte har en tidigare autentiseringsnyckel i projektet, återskapa du och försöker igen.
+Projektet måste återskapas för att det ska gå att identifiera tidigare autentiserings kod i ett projekt. Om du ser det här felet och du inte har en tidigare autentiseringsnyckel i projektet, återskapa du och försöker igen.
 
 ## <a name="project-types"></a>Projekt typer
 

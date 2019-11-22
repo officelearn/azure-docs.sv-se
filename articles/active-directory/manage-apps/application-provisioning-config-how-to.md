@@ -1,5 +1,5 @@
 ---
-title: Konfigurera användar etablering för ett Azure AD Gallery-program | Microsoft Docs
+title: Konfigurera användar etablering i en Azure AD-Galleri-app
 description: Hur du snabbt kan konfigurera omfattande användar konto etablering och avetablering för program som redan finns med i Azure AD-programgalleriet
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bcc53b97b1187314404cfe075f6593f437e7bf4
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 5a2955a418aa0ce43c030afc588a2840bbb9b50f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789054"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275815"
 ---
 # <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>Konfigurera användar etablering för ett Azure AD Gallery-program
 

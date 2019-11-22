@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Konfigurera ThousandEyes för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
-description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och avetablera användarkonton till ThousandEyes.
+title: 'Självstudie: användar etablering för ThousandEyes – Azure AD'
+description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till ThousandEyes.
 services: active-directory
 documentationcenter: ''
 author: ArvindHarinder1
@@ -15,88 +15,88 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f8325737a62bba71364c02a234636999b0b1b9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eaf019303c311519c4b7d483d8f9193f432b8385
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964135"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278838"
 ---
-# <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Självstudier: Konfigurera ThousandEyes för automatisk användaretablering
+# <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Självstudie: Konfigurera ThousandEyes för automatisk användar etablering
 
-Målet med den här självstudien är att visa dig de steg du måste utföra i ThousandEyes och Azure AD för att automatiskt etablera och avetablera användarkonton från Azure AD till ThousandEyes. 
+Syftet med den här självstudien är att visa de steg du behöver utföra i ThousandEyes och Azure AD för att automatiskt etablera och avetablera användar konton från Azure AD till ThousandEyes. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 
-* En Azure Active directory-klient
-* En ThousandEyes klient med den [standardprenumerationen](https://www.thousandeyes.com/pricing) eller bättre har aktiverats 
-* Ett användarkonto i ThousandEyes med administratörsbehörighet 
+* En Azure Active Directory-klient
+* En ThousandEyes-klient med [standard planen](https://www.thousandeyes.com/pricing) eller bättre aktive rad 
+* Ett användar konto i ThousandEyes med administratörs behörighet 
 
 > [!NOTE]
-> Azure AD etablering integration förlitar sig på den [ThousandEyes SCIM API](https://success.thousandeyes.com/PublicArticlePage?articleIdParam=kA044000000CnWrCAK), som är tillgängliga för ThousandEyes team på Standard-avtalet eller bättre.
+> Integreringen med Azure AD provisioning är beroende av [THOUSANDEYES scim-API: et](https://success.thousandeyes.com/PublicArticlePage?articleIdParam=kA044000000CnWrCAK), som är tillgängligt för ThousandEyes-team i standard planen eller bättre.
 
 ## <a name="assigning-users-to-thousandeyes"></a>Tilldela användare till ThousandEyes
 
-Azure Active Directory använder ett begrepp som kallas ”tilldelningar” för att avgöra vilka användare får åtkomst till valda appar. I samband med automatisk användarkontoetablering, synkroniseras de användare och grupper som är ”kopplade” till ett program i Azure AD. 
+Azure Active Directory använder ett begrepp som kallas "tilldelningar" för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar konto etablering synkroniseras endast de användare och grupper som har tilldelats till ett program i Azure AD. 
 
-Innan du konfigurerar och aktiverar etableringstjänsten, måste du bestämma vilka användare och/eller grupper i Azure AD representerar de användare som behöver åtkomst till din ThousandEyes-app. När du valt, kan du tilldela dessa användare till ThousandEyes appen genom att följa instruktionerna här:
+Innan du konfigurerar och aktiverar etablerings tjänsten måste du bestämma vilka användare och/eller grupper i Azure AD som representerar de användare som behöver åtkomst till ThousandEyes-appen. När du har bestämt dig kan du tilldela dessa användare till ThousandEyes-appen genom att följa anvisningarna här:
 
-[Tilldela en användare eller grupp till en företagsapp](../manage-apps/assign-user-or-group-access-portal.md)
+[Tilldela en användare eller grupp till en företags app](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-thousandeyes"></a>Viktiga tips för att tilldela användare till ThousandEyes
 
-* Vi rekommenderar att en enda Azure AD-användare har tilldelats ThousandEyes att testa etablering konfigurationen. Ytterligare användare och/eller grupper kan tilldelas senare.
+* Vi rekommenderar att en enda Azure AD-användare tilldelas ThousandEyes för att testa etablerings konfigurationen. Ytterligare användare och/eller grupper kan tilldelas senare.
 
-* När du tilldelar en användare till ThousandEyes, måste du välja antingen den **användaren** roll eller en annan giltig programspecifika roll (om tillgängligt) i dialogrutan för tilldelning. Den **standard åtkomst** rollen fungerar inte för etablering och dessa användare hoppas över.
+* När du tilldelar en användare till ThousandEyes måste du välja antingen **användar** rollen eller en annan giltig programspecifik roll (om tillgänglig) i tilldelnings dialog rutan. **Standard åtkomst** rollen fungerar inte för etablering, och dessa användare hoppas över.
 
-## <a name="configuring-user-provisioning-to-thousandeyes"></a>Konfigurera användaretablering för ThousandEyes 
+## <a name="configuring-user-provisioning-to-thousandeyes"></a>Konfigurera användar etablering till ThousandEyes 
 
-Det här avsnittet hjälper dig att ansluta din Azure AD till Thousandeyess användarkonto etablering API och konfigurera etableringstjänsten att skapa, uppdatera och inaktivera tilldelade användarkonton i ThousandEyes baserat på användar- och grupptilldelningar i Azure AD .
+Det här avsnittet vägleder dig genom att ansluta din Azure AD till ThousandEyes-API för användar konto och konfigurera etablerings tjänsten för att skapa, uppdatera och inaktivera tilldelade användar konton i ThousandEyes baserat på användar-och grupp tilldelning i Azure AD .
 
 > [!TIP]
-> Du kan också välja att aktiveras SAML-baserad enkel inloggning för ThousandEyes, följa anvisningarna enligt [Azure-portalen](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av Automatisk etablering, även om de här två funktionerna komplettera varandra.
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för ThousandEyes enligt anvisningarna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner är gemensamt.
 
-### <a name="configure-automatic-user-account-provisioning-to-thousandeyes-in-azure-ad"></a>Konfigurera automatisk etablering av användarkonto till ThousandEyes i Azure AD
+### <a name="configure-automatic-user-account-provisioning-to-thousandeyes-in-azure-ad"></a>Konfigurera automatisk etablering av användar konton till ThousandEyes i Azure AD
 
-1. I den [Azure-portalen](https://portal.azure.com), bläddra till den **Azure Active Directory > Företagsappar > alla program** avsnittet.
+1. I [Azure Portal](https://portal.azure.com)bläddrar du till avsnittet **Azure Active Directory > Enterprise-appar > alla program** .
 
-2. Om du redan har konfigurerat ThousandEyes för enkel inloggning, söka efter din instans av ThousandEyes med hjälp av sökfältet. Annars väljer **Lägg till** och Sök efter **ThousandEyes** i programgalleriet. Välj ThousandEyes i sökresultatet och lägga till den i din lista över program.
+2. Om du redan har konfigurerat ThousandEyes för enkel inloggning söker du efter din instans av ThousandEyes med hjälp av Sök fältet. Annars väljer du **Lägg till** och söker efter **ThousandEyes** i program galleriet. Välj ThousandEyes från Sök resultaten och Lägg till den i listan över program.
 
-3. Välj din instans av ThousandEyes och välj sedan den **etablering** fliken.
+3. Välj din instans av ThousandEyes och välj sedan fliken **etablering** .
 
-4. Ange den **Etableringsläge** till **automatisk**.
+4. Ställ in **etablerings läget** på **automatiskt**.
 
-    ![ThousandEyes etablering](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
+    ![ThousandEyes-etablering](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
 
-5. Under den **administratörsautentiseringsuppgifter** avsnittet Ange den **OAuth ägar-Token** genereras av din ThousandEyes konto (du kan hitta och eller skapa en token under kontot för ThousandEyes  **Profilera** avsnittet).
+5. Under avsnittet **admin credentials** kan du mata in **OAuth Bearer-token** som genererats av ditt ThousandEyes-konto (du kan söka efter och eller generera en token under din ThousandEyes konto **profil** ).
 
-    ![ThousandEyes etablering](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
+    ![ThousandEyes-etablering](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
 
-6. I Azure-portalen klickar du på **Testanslutningen** att se till att Azure AD kan ansluta till din ThousandEyes-app. Om anslutningen misslyckas, kontrollera ThousandEyes-kontot har administratörsbehörighet och försök steg 5 igen.
+6. I Azure Portal klickar du på **Testa anslutning** för att se till att Azure AD kan ansluta till din ThousandEyes-app. Om anslutningen Miss lyckas kontrollerar du att ThousandEyes-kontot har administratörs behörighet och försöker sedan steg 5 igen.
 
-7. Ange e-postadress för en person eller grupp som ska få meddelanden om etablering fel i den **e-postmeddelande** fältet och markera kryssrutan ”Skicka ett e-postmeddelande när ett fel uppstår”.
+7. Ange e-postadressen till en person eller grupp som ska få etablerings fel meddelanden i fältet **e-postavisering** och markera kryss rutan "Skicka ett e-postmeddelande när ett fel inträffar".
 
-8. Klicka på **Spara**.
+8. Klicka på **Save** (Spara).
 
-9. Under avsnittet mappningar väljer **synkronisera Azure Active Directory-användare till ThousandEyes**.
+9. Under avsnittet mappningar väljer du **synkronisera Azure Active Directory användare till ThousandEyes**.
 
-10. I den **attributmappningar** går du igenom användarattribut som synkroniseras från Azure AD till ThousandEyes. Attribut som har markerats som **matchande** egenskaper som används för att matcha användarkontona i ThousandEyes för uppdateringsåtgärder. Välj knappen Spara för att genomföra ändringarna.
+10. I avsnittet **mappningar för attribut** granskar du de användarattribut som synkroniseras från Azure AD till ThousandEyes. Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i ThousandEyes för uppdaterings åtgärder. Välj knappen Spara för att genomföra ändringarna.
 
-11. Om du vill aktivera den Azure AD-etableringstjänsten för ThousandEyes, ändra den **Etableringsstatus** till **på** i den **inställningar** avsnittet
+11. Om du vill aktivera Azure AD Provisioning-tjänsten för ThousandEyes ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar**
 
-12. Klicka på **Spara**.
+12. Klicka på **Save** (Spara).
 
-Den här åtgärden startar den första synkroniseringen av användare och/eller grupper som tilldelats till ThousandEyes i avsnittet användare och grupper. Den första synkroniseringen tar längre tid att genomföra än efterföljande synkroniseringar som sker ungefär var 40 minut så länge som tjänsten körs. Du kan använda den **synkroniseringsinformation** avsnitt för att övervaka förloppet och följer länkar till att etablera aktivitetsloggar som beskriver alla åtgärder som utförs av etableringstjänsten.
+Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som har tilldelats ThousandEyes i avsnittet användare och grupper. Den första synkroniseringen tar längre tid att genomföra än efterföljande synkroniseringar som sker ungefär var 40 minut så länge som tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** om du vill övervaka förloppet och följa länkar till etablering av aktivitets loggar, som beskriver alla åtgärder som utförs av etablerings tjänsten.
 
 Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantering av användarkontoetablering för Företagsappar](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantera användar konto etablering för företags program](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig att granska loggarna och få rapporter om etablering aktivitet](../manage-apps/check-status-user-account-provisioning.md)
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../manage-apps/check-status-user-account-provisioning.md)

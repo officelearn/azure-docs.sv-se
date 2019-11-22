@@ -1,5 +1,6 @@
 ---
-title: Logga nätverkstrafik till och från en virtuell dator – Azure Portal | Microsoft Docs
+title: 'Självstudie: Logga flöde för nätverks trafik till och från en virtuell dator – Azure Portal'
+titleSuffix: Azure Network Watcher
 description: Lär dig hur du loggar nätverkstrafik till och från en virtuell dator med funktionen NSG-flödesloggar i Network Watcher.
 services: network-watcher
 documentationcenter: na
@@ -17,16 +18,16 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 3e5490a4d74f10532764029f7a83788e3e39b592
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 53cfb2e46b642def12bfc6aea2f35c245e8427aa
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69636219"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277991"
 ---
-# <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Självstudier: Logga nätverkstrafik till och från en virtuell dator med hjälp av Azure-portalen
+# <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Självstudier: Logga nätverkstrafik till och från en virtuell dator med hjälp av Azure Portal
 
-Med en nätverkssäkerhetsgrupp (NSG) kan du filtrera inkommande trafik till och utgående trafik från en virtuell dator (VM). Du kan logga nätverkstrafiken som skickas via en NSG med funktionen NSG-flödesloggar i Network Watcher. I den här guiden får du lära dig att:
+Med en nätverkssäkerhetsgrupp (NSG) kan du filtrera inkommande trafik till och utgående trafik från en virtuell dator (VM). Du kan logga nätverkstrafiken som skickas via en NSG med funktionen NSG-flödesloggar i Network Watcher. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa en virtuell dator med en nätverkssäkerhetsgrupp
@@ -45,12 +46,12 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
     |Inställning|Värde|
     |---|---|
-    |Name|myVm|
+    |Namn|myVm|
     |Användarnamn| Ange ett valfritt användarnamn.|
-    |lösenordsinställning| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Subscription| Välj din prenumeration.|
-    |Resource group| Välj **Skapa ny** och ange **myResourceGroup**.|
-    |Location| Välj **USA, östra**|
+    |Lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Prenumeration| Välj din prenumeration.|
+    |Resursgrupp| Välj **Skapa ny** och ange **myResourceGroup**.|
+    |Plats| Välj **USA, östra**|
 
 4. Välj en storlek för den virtuella datorn och sedan **Välj**.
 5. Acceptera standardinställningarna under **Inställningar** och välj **OK**.
@@ -88,19 +89,19 @@ Providern **Microsoft.Insights** krävs för NSG-flödesloggning. Registrera pro
 
     | Inställning        | Värde                                                        |
     | ---            | ---   |
-    | Name           | 3 till 24 tecken långt, får endast innehålla gemener och siffror och måste vara unikt bland alla Azure Storage-konton.                                                               |
-    | Location       | Välj **USA, östra**                                           |
-    | Resource group | Välj **Använd befintlig** och sedan **myResourceGroup**. |
+    | Namn           | 3 till 24 tecken långt, får endast innehålla gemener och siffror och måste vara unikt bland alla Azure Storage-konton.                                                               |
+    | Plats       | Välj **USA, östra**                                           |
+    | Resursgrupp | Välj **Använd befintlig** och sedan **myResourceGroup**. |
 
     Det tar ungefär en minut att skapa lagringskontot. Fortsätt inte med de återstående stegen förrän lagringskontot har skapats. Om du använder ett befintligt lagringskonto i stället för att skapa ett nytt väljer du ett lagringskonto där **Alla nätverk** (standard) har valts för **Brandväggar och virtuella nätverk** under **Inställningar** för lagringskontot. I samtliga fall måste lagrings kontot finnas i samma region som NSG. 
     
     > [!NOTE]
     > Även om Microsoft. Insight och Microsoft. Networking-leverantörer stöds för närvarande som [betrodda Microsoft-tjänster för Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services), är NSG Flow-loggar fortfarande inte fullständigt installerade. Om du vill aktivera NSG flödes loggning måste **alla nätverk** väljas enligt ovan.
     
-4. Välj **Alla tjänster** längst upp till vänster på portalen. Skriv *Network Watcher* i **filterrutan**. När **Network Watcher** visas i sökresultatet väljer du posten.
+4. Välj **Alla tjänster** längst upp till vänster på portalen. Skriv **Network Watcher** i *filterrutan*. När **Network Watcher** visas i sökresultatet väljer du posten.
 5. Välj **NSG-flödesloggar** under **LOGGAR**, som du ser i följande bild:
 
-    ![Nätverkssäkerhetsgrupper (NSG)](./media/network-watcher-nsg-flow-logging-portal/nsgs.png)
+    ![NSG:er](./media/network-watcher-nsg-flow-logging-portal/nsgs.png)
 
 6. Välj nätverkssäkerhetsgruppen **myVm-nsg** i listan med nätverkssäkerhetsgrupper.
 7. Välj **På** under **Flödesloggsinställningar**.
@@ -113,7 +114,7 @@ Providern **Microsoft.Insights** krävs för NSG-flödesloggning. Registrera pro
    > NSG flödes loggar fungerar inte med lagrings konton om:
    > * Lagrings kontona har en brand vägg aktive rad.
    > * [Hierarkiskt namn område](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) har Aktiver ATS för lagrings kontona.
-1. Välj **Alla tjänster** längst upp till vänster på portalen. Skriv *Network Watcher* i **filterrutan**. När **Network Watcher** visas i sökresultatet väljer du posten.
+1. Välj **Alla tjänster** längst upp till vänster på portalen. Skriv **Network Watcher** i *filterrutan*. När **Network Watcher** visas i sökresultatet väljer du posten.
 10. Ange **Bevarande (dagar)** till 5 och välj sedan **Spara**.
     > [!IMPORTANT]
     > För närvarande finns det ett problem där [nätverks säkerhets grupps flödes loggar (NSG)](network-watcher-nsg-flow-logging-overview.md) för Network Watcher inte automatiskt tas bort från Blob Storage utifrån inställningar för bevarande principer. Om du har en befintlig bevarande princip som inte är noll rekommenderar vi att du regelbundet tar bort de lagrings blobbar som håller på att kvarhållas för att undvika kostnader. Mer information om hur du tar bort NSG Flow logg Storage-bloggen finns i [ta bort NSG Flow logg Storage blobs](network-watcher-delete-nsg-flow-log-blobs.md).
@@ -127,7 +128,7 @@ Providern **Microsoft.Insights** krävs för NSG-flödesloggning. Registrera pro
 
 3. Välj lagringskontot som du konfigurerade i steg 2 i [Aktivera NSG-flödesloggar](#enable-nsg-flow-log).
 4. Under **BLOB service**väljer du **blobbar**och väljer sedan behållaren **Insights-logs-networksecuritygroupflowevent** .
-5. I behållaren navigerar du till mapphierarkin tills du kommer till en PT1H. JSON-fil, som du ser i bilden nedan. Loggfiler skrivs till en mapphierarki som följer följande namngivnings konvention: https://{storageAccountName}. blob. Core. Windows. net/Insights-logs-networksecuritygroupflowevent/resourceId =/SUBSCRIPTIONS/{subscriptionID}/ RESOURCEGROUPS/{resourceGroupName}/PROVIDERs/MICROSOFT. NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y = {Year}/m = {månad}/d = {Day}/h = {Hour}/m = 00/macAddress = {macAddress}/PT1H.json
+5. I behållaren navigerar du till mapphierarkin tills du kommer till en PT1H. JSON-fil, som du ser i bilden nedan. Loggfiler skrivs till en mapphierarki som följer följande namngivnings konvention: https://{storageAccountName}. blob. Core. Windows. net/Insights-logs-networksecuritygroupflowevent/resourceId =/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y = {Year}/m = {månad}/d = {Day}/h = {Hour}/m = 00/macAddress = {macAddress}/PT1H.json
 
    ![Flödes logg](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
 
@@ -211,14 +212,14 @@ Värdet för **mac** i föregående utdata är nätverksgränssnittets MAC-adres
 | Exempeldata | Vad data representerar   | Förklaring                                                                              |
 | ---          | ---                    | ---                                                                                      |
 | 1542110377   | Tidsstämpel             | Tidsstämpeln för när flödet uppstod, i UNIX EPOK-format. I föregående exempel konverterades datumet till 1 maj 2018 kl. 14:59:05 GMT.                                                                                    |
-| 10.0.0.4  | IP-källadress      | Käll-IP-adressen som flödet kom från. 10.0.0.4 är den privata IP-adressen för den virtuella datorn som du skapade i [Skapa en virtuell dator](#create-a-vm).
+| 10.0.0.4  | Källans IP-adress      | Käll-IP-adressen som flödet kom från. 10.0.0.4 är den privata IP-adressen för den virtuella datorn som du skapade i [Skapa en virtuell dator](#create-a-vm).
 | 13.67.143.118     | Mål-IP-adress | Mål-IP-adressen som flödet skickades till.                                                                                  |
 | 44931        | Källport            | Källporten som flödet kom från.                                           |
 | 443         | Målport       | Målporten som flödet skickades till. Eftersom trafiken skulle till port 443 bearbetades flödet av regeln med namnet **UserRule_default-allow-rdp** i loggfilen.                                                |
-| t            | Protocol               | Anger om protokollet för flödet var TCP (T) eller UDP (U).                                  |
-| O            | Direction              | Anger om trafiken var inkommande (I) eller utgående (O).                                     |
-| G            | Action                 | Anger om trafiken tilläts (A) eller nekades (D).  
-| C            | Flödestillstånd **endast version 2** | Registrerad flödets tillstånd. Möjliga tillstånd är **B**: Början när ett flöde skapas. Statistik tillhandahålls inte. **C**: Fortsätter för ett pågående flöde. Statistik tillhandahålls med 5 minuters mellanrum. **E**: Slutet (End), när ett flöde avslutas. Statistik tillhandahålls. |
+| T            | Protokoll               | Anger om protokollet för flödet var TCP (T) eller UDP (U).                                  |
+| O            | Riktning              | Anger om trafiken var inkommande (I) eller utgående (O).                                     |
+| A            | Åtgärd                 | Anger om trafiken tilläts (A) eller nekades (D).  
+| C            | Flödestillstånd **endast version 2** | Registrerad flödets tillstånd. Möjliga tillstånd är **B**: Börja, när ett flöde skapas. Statistik tillhandahålls inte. **C**: Fortsätter (Continuing) för en pågående flöde. Statistik tillhandahålls med 5 minuters mellanrum. **E**: Slutet (End), när ett flöde avslutas. Statistik tillhandahålls. |
 | 30 | Skickade paket – källa till mål **endast version 2** | Det totala antalet TCP- eller UDP-paket som skickats från källa till mål sedan den senaste uppdateringen. |
 | 16978 | Skickade byte – källa till mål **endast version 2** | Det totala antalet TCP- eller UDP-paketbyte som skickats från källa till mål sedan den senaste uppdateringen. Paketbyte omfattar paketets huvud och nyttolast. |
 | 24 | Skickade paket – mål till källa **endast version 2** | Det totala antalet TCP- eller UDP-paket som skickats från mål till källa sedan den senaste uppdateringen. |

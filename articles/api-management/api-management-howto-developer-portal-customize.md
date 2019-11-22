@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: c8aa3fb124420c933e17b0e9f7e52b7f114a7f61
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 28ef082d6aac5557998f7b67443d4dafd3a0fb15
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012912"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74285586"
 ---
 # <a name="access-and-customize-developer-portal"></a>Komma åt och anpassa Developer-portalen
 
@@ -35,10 +35,6 @@ I den här självstudiekursen får du lära du dig att:
 Du hittar mer information om Developer-portalen i [Översikt över Azure API Management Developer-portalen](api-management-howto-developer-portal.md).
 
 ![API Management Developer-portalen-admin-läge](media/api-management-howto-developer-portal-customize/cover.png)
-
-> [!WARNING]
-> Developer-portalen är för närvarande distribuerad till API Management tjänster.
-> Om din tjänst har skapats nyligen eller är en tjänst för utvecklare, bör du redan ha den senaste versionen. Annars kan det uppstå problem (till exempel med publicerings funktionen). Funktions distributionen förväntas slutföras senast den 22 november 2019. 
 
 ## <a name="prerequisites"></a>Krav
 

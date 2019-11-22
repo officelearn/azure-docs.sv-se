@@ -1,5 +1,6 @@
 ---
-title: Hantera paket fångster med Azure Network Watcher – PowerShell | Microsoft Docs
+title: Hantera paket fångster – Azure PowerShell
+titleSuffix: Azure Network Watcher
 description: På den här sidan förklaras hur du hanterar funktionen för att hämta paket i Network Watcher med hjälp av PowerShell
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 4158c2c5ce69d1811b20c9937c1d064f4fe657ee
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 3be68f6ef87ba37bcfaf418225ce7f460aed53a1
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163948"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277881"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>Hantera paket fångster med Azure Network Watcher med hjälp av PowerShell
 
@@ -50,7 +51,7 @@ Den här artikeln förutsätter att du har följande resurser:
 * En virtuell dator med paket insamlings tillägget aktiverat.
 
 > [!IMPORTANT]
-> Paket fångst kräver ett tillägg `AzureNetworkWatcherExtension`för virtuell dator. För att installera tillägget på en virtuell Windows-dator går du till [azure Network Watcher agent-tillägget virtuell dator för Windows](../virtual-machines/windows/extensions-nwa.md) och för virtuella Linux-datorer gå till [Azure Network Watcher virtuell dator tillägg för Linux](../virtual-machines/linux/extensions-nwa.md).
+> Paket fångst kräver ett tillägg för virtuell dator `AzureNetworkWatcherExtension`. För att installera tillägget på en virtuell Windows-dator går du till [azure Network Watcher agent-tillägget virtuell dator för Windows](../virtual-machines/windows/extensions-nwa.md) och för virtuella Linux-datorer gå till [Azure Network Watcher virtuell dator tillägg för Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="install-vm-extension"></a>Installera VM-tillägg
 
@@ -62,10 +63,10 @@ $VM = Get-AzVM -ResourceGroupName testrg -Name VM1
 
 ### <a name="step-2"></a>Steg 2
 
-I följande exempel hämtas den tilläggs information som krävs för att köra `Set-AzVMExtension` cmdleten. Denna cmdlet installerar paket insamlings agenten på den virtuella gäst datorn.
+I följande exempel hämtas den tilläggs information som behövs för att köra cmdleten `Set-AzVMExtension`. Denna cmdlet installerar paket insamlings agenten på den virtuella gäst datorn.
 
 > [!NOTE]
-> Det `Set-AzVMExtension` kan ta flera minuter att slutföra cmdleten.
+> Det kan ta flera minuter att slutföra `Set-AzVMExtension` cmdleten.
 
 För virtuella Windows-datorer:
 
@@ -83,7 +84,7 @@ $ExtensionName = "AzureNetworkWatcherExtension"
 Set-AzVMExtension -ResourceGroupName $VM.ResourceGroupName  -Location $VM.Location -VMName $VM.Name -Name $ExtensionName -Publisher $AzureNetworkWatcherExtension.PublisherName -ExtensionType $AzureNetworkWatcherExtension.Type -TypeHandlerVersion $AzureNetworkWatcherExtension.Version.Substring(0,3)
 ```
 
-Följande exempel är ett lyckat svar när du `Set-AzVMExtension` har kört cmdleten.
+Följande exempel är ett lyckat svar när du har kört `Set-AzVMExtension`-cmdleten.
 
 ```
 RequestId IsSuccessStatusCode StatusCode ReasonPhrase
@@ -93,13 +94,13 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 
 ### <a name="step-3"></a>Steg 3
 
-Kontrol lera att agenten är installerad genom att köra `Get-AzVMExtension` cmdleten och skicka den till den virtuella datorns namn och tilläggets namn.
+Kontrol lera att agenten är installerad genom att köra cmdleten `Get-AzVMExtension` och skicka den till namnet på den virtuella datorn och tillägget.
 
 ```powershell
 Get-AzVMExtension -ResourceGroupName $VM.ResourceGroupName  -VMName $VM.Name -Name $ExtensionName
 ```
 
-Följande exempel är ett exempel på svaret från att köras`Get-AzVMExtension`
+Följande exempel är ett exempel på svaret från att köra `Get-AzVMExtension`
 
 ```
 ResourceGroupName       : testrg
@@ -127,7 +128,7 @@ När föregående steg har slutförts installeras paket insamlings agenten på d
 
 ### <a name="step-1"></a>Steg 1
 
-Nästa steg är att hämta Network Watcher-instansen. Den här variabeln skickas till `New-AzNetworkWatcherPacketCapture` cmdleten i steg 4.
+Nästa steg är att hämta Network Watcher-instansen. Den här variabeln skickas till `New-AzNetworkWatcherPacketCapture` cmdlet i steg 4.
 
 ```powershell
 $networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
@@ -155,13 +156,13 @@ $filter2 = New-AzPacketCaptureFilterConfig -Protocol UDP
 
 ### <a name="step-4"></a>Steg 4
 
-`New-AzNetworkWatcherPacketCapture` Kör cmdleten för att starta paket fångst processen och överför de nödvändiga värdena som hämtades i föregående steg.
+Kör cmdleten `New-AzNetworkWatcherPacketCapture` för att starta processen för inhämtning av paket och överför de nödvändiga värdena som hämtades i föregående steg.
 ```powershell
 
 New-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $vm.Id -PacketCaptureName "PacketCaptureTest" -StorageAccountId $storageAccount.id -TimeLimitInSeconds 60 -Filter $filter1, $filter2
 ```
 
-I följande exempel visas förväntade utdata från att `New-AzNetworkWatcherPacketCapture` köra cmdleten.
+I följande exempel visas förväntade utdata från att köra cmdleten `New-AzNetworkWatcherPacketCapture`.
 
 ```
 Name                    : PacketCaptureTest
@@ -201,13 +202,13 @@ Filters                 : [
 
 ## <a name="get-a-packet-capture"></a>Hämta en paket fångst
 
-`Get-AzNetworkWatcherPacketCapture` Kör cmdleten, hämtar status för en pågående eller slutförd paket fångst.
+Om du kör `Get-AzNetworkWatcherPacketCapture`-cmdlet: en, hämtas statusen för den pågående eller slutförda paket fångsten.
 
 ```powershell
 Get-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName "PacketCaptureTest"
 ```
 
-I följande exempel visas utdata från `Get-AzNetworkWatcherPacketCapture` cmdleten. Följande exempel är efter att avbildningen har slutförts. PacketCaptureStatus-värdet har stoppats, med en StopReason på TimeExceeded. Det här värdet visar att paket fångsten lyckades och körde tiden.
+I följande exempel visas utdata från `Get-AzNetworkWatcherPacketCapture`-cmdleten. Följande exempel är efter att avbildningen har slutförts. PacketCaptureStatus-värdet har stoppats, med en StopReason på TimeExceeded. Det här värdet visar att paket fångsten lyckades och körde tiden.
 ```
 Name                    : PacketCaptureTest
 Id                      : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/networkWatcher
@@ -248,7 +249,7 @@ PacketCaptureError      : []
 
 ## <a name="stop-a-packet-capture"></a>Stoppa en paket fångst
 
-Genom att `Stop-AzNetworkWatcherPacketCapture` köra cmdleten stoppas den om en insamlings session pågår.
+Genom att köra cmdleten `Stop-AzNetworkWatcherPacketCapture`, om en redigeringssession pågår, stoppas den.
 
 ```powershell
 Stop-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName "PacketCaptureTest"

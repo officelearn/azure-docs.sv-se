@@ -5,20 +5,20 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 11/05/2019
+ms.date: 11/21/2019
 ms.author: victorh
-ms.openlocfilehash: df649eab1f0e2946078f8efd3cdd6ab68c3b7938
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 897819928ab0bcf48b58428014c03aea6b2145fd
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580199"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267957"
 ---
 # <a name="what-is-azure-firewall-manager-preview"></a>Vad är för hands version av Azure Firewall Manager?
 
 [!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
-För hands versionen av Azure Firewall Manager är en säkerhets hanterings tjänst som tillhandahåller centrala säkerhets principer och väg hantering för molnbaserade säkerhetsperimetern. Det fungerar med [Azure Virtual WAN Hub](../virtual-wan/virtual-wan-about.md#resources), en Microsoft-hanterad resurs som gör att du enkelt kan skapa Hubbs-och eker-arkitekturer. När säkerhets-och routningsprinciperna är associerade med en sådan hubb kallas den för en *[säker virtuell hubb](secured-virtual-hub.md)* . 
+Azure Firewall Manager Preview är en säkerhetshanteringstjänst som ger dig en central säkerhetsprincip och väghantering för molnbaserade säkerhetsperimeterar. Det fungerar med [Azure Virtual WAN Hub](../virtual-wan/virtual-wan-about.md#resources), en Microsoft-hanterad resurs som gör att du enkelt kan skapa Hubbs-och eker-arkitekturer. När säkerhets-och routningsprinciperna är associerade med en sådan hubb kallas den för en *[säker virtuell hubb](secured-virtual-hub.md)* . 
 
 ![Firewall-Manager](media/overview/firewallmanagerv3.png)
 
@@ -75,6 +75,7 @@ För hands versionen av Azure Firewall Manager har följande kända problem:
 |Delning av trafik stöds inte för närvarande|Det finns för närvarande inte stöd för att dela upp Office 365 och Azure offentlig PaaS-trafik. Det innebär att om du väljer en tredjeparts-Provider för V2I eller B2I skickas även all Azures offentliga PaaS och Office 365-trafik via partner tjänsten.|Undersöker för närvarande trafik delning på hubben.
 |En hubb per region|Du kan inte ha mer än en hubb per region|Skapa flera virtuella WAN-näti en region.|
 |Bas principerna måste finnas i samma region som den lokala principen|Skapa alla lokala principer i samma region som bas principen. Du kan fortfarande använda en princip som har skapats i en region på ett skyddat nav från en annan region.|Undersöker för närvarande.|
+|Kommunikation mellan olika hubbar fungerar inte med skyddad virtuell hubb|Skyddad virtuell hubb till skyddad virtuell nav-kommunikation stöds inte ännu.|Undersöker för närvarande.|
 
 ## <a name="next-steps"></a>Nästa steg
 

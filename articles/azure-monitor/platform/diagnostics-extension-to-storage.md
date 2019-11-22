@@ -1,6 +1,6 @@
 ---
 title: Lagra och visa diagnostikdata i Azure Storage
-description: Hämta Azure diagnostics-data till Azure Storage och visa den
+description: Lär dig hur du samlar in Azure Diagnostics-data i ett Azure Storage-konto så att du kan visa det med ett av flera tillgängliga verktyg.
 services: azure-monitor
 author: jpconnock
 ms.service: azure-monitor
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 08/01/2016
 ms.author: jeconnoc
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 23379e9d9bb29efb7fb026260e8245e8eb8a2d71
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 35e852a36ebc52edff338ed640419afe32297b81
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60395075"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304965"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Lagra och visa diagnostikdata i Azure Storage
-Diagnostiska data lagras inte permanent såvida inte du överföra den till Microsoft Azure storage-emulatorn eller Azure storage. En gång i lagring, den kan visas med en av flera tillgängliga verktyg.
+Diagnostikdata lagras inte permanent om du inte överför den till Microsoft Azure Storage-emulatorn eller till Azure Storage. En gång i lagret kan visas med ett av flera tillgängliga verktyg.
 
-## <a name="specify-a-storage-account"></a>Ange ett lagringskonto
-Du anger det lagringskonto som du vill använda i ServiceConfiguration.cscfg-filen. Informationen definieras som en anslutningssträng i en konfigurationsinställning. I följande exempel visas standardanslutningssträngen som skapats för en ny Cloud Service-projekt i Visual Studio:
+## <a name="specify-a-storage-account"></a>Ange ett lagrings konto
+Du anger det lagrings konto som du vill använda i filen ServiceConfiguration. cscfg. Konto informationen definieras som en anslutnings sträng i en konfigurations inställning. I följande exempel visas standard anslutnings strängen som skapats för ett nytt moln tjänst projekt i Visual Studio:
 
 ```
     <ConfigurationSettings>
@@ -27,57 +27,57 @@ Du anger det lagringskonto som du vill använda i ServiceConfiguration.cscfg-fil
     </ConfigurationSettings>
 ```
 
-Du kan ändra den här anslutningssträngen för att ange kontoinformationen för ett Azure storage-konto.
+Du kan ändra den här anslutnings strängen för att tillhandahålla konto information för ett Azure Storage-konto.
 
-Beroende på vilken typ av diagnostiska data som samlas in, använder Azure Diagnostics Blob service eller Table service. I följande tabell visar de datakällor som är beständiga och deras format.
+Beroende på vilken typ av diagnostikdata som samlas in använder Azure-diagnostik antingen Blob Service eller Table service. I följande tabell visas de data källor som är beständiga och deras format.
 
-| Datakälla | Lagringsformat |
+| Datakälla | Lagrings format |
 | --- | --- |
-| Azure loggar |Tabell |
-| IIS 7.0-loggar |Blob |
+| Azure-loggar |Tabell |
+| IIS 7,0-loggar |Blob |
 | Azure Diagnostics-infrastrukturloggar |Tabell |
-| Det gick inte begära spårningsloggar |Blob |
+| Spårnings loggar för misslyckade begär Anden |Blob |
 | Windows-händelseloggar |Tabell |
 | Prestandaräknare |Tabell |
 | Kraschdumpar |Blob |
 | Anpassa felloggar |Blob |
 
-## <a name="transfer-diagnostic-data"></a>Diagnostikdata för överföring
-För SDK 2.5 och senare, kan förfrågan om att överföra diagnostikdata ske via konfigurationsfilen. Du kan överföra diagnostikdata med schemalagda intervall som anges i konfigurationen.
+## <a name="transfer-diagnostic-data"></a>Överför diagnostikdata
+För SDK 2,5 och senare kan begäran om att överföra diagnostikdata ske via konfigurations filen. Du kan överföra diagnostikdata enligt schemalagda intervall som anges i konfigurationen.
 
-För SDK 2.4 och tidigare kan du begära för att överföra diagnostiska data igenom konfigurationsfilen som programmässigt. Den programmässiga metoden kan du göra på begäran-överföringar.
+För SDK 2,4 och tidigare kan du begära att överföra diagnostikdata via konfigurations filen och program mässigt. Med programmerings metoden kan du också utföra överföringar på begäran.
 
 > [!IMPORTANT]
-> När du överför diagnostiska data till ett Azure storage-konto medföra kostnader för lagringsresurser som använder dina diagnostiska data.
+> När du överför diagnostikdata till ett Azure Storage-konto debiteras du kostnader för de lagrings resurser som dina diagnostikdata använder.
 > 
 > 
 
-## <a name="store-diagnostic-data"></a>Diagnostikdata för Store
-Loggdata som lagras i Blob eller Table storage med följande namn:
+## <a name="store-diagnostic-data"></a>Lagra diagnostikdata
+Loggdata lagras antingen i BLOB-eller Table Storage med följande namn:
 
 **Tabeller**
 
-* **WadLogsTable** – loggar som skrivits i kod med hjälp av spårning lyssnaren.
-* **WADDiagnosticInfrastructureLogsTable** -diagnostik och övervaka konfigurationsändringar.
-* **WADDirectoriesTable** – kataloger som övervakar diagnostikövervakare.  Detta omfattar IIS-loggar, IIS kunde inte begära loggar och anpassade kataloger.  Platsen för loggfilen blob har angetts i fältet behållare och namnet på bloben är i fältet RelativePath.  Fältet AbsolutePath indikerar platsen och namnet på filen som den fanns på Azure-dator.
-* **WADPerformanceCountersTable** – prestandaräknare.
-* **WADWindowsEventLogsTable** – Windows-händelseloggar.
+* **WadLogsTable** – loggar som skrivits i kod med spårnings lyssnaren.
+* **WADDiagnosticInfrastructureLogsTable** – diagnostisk övervakning och konfigurations ändringar.
+* **WADDirectoriesTable** – kataloger som diagnostiken övervakar.  Detta inkluderar IIS-loggar, IIS misslyckade begär Anden och anpassade kataloger.  Platsen för blobb logg filen anges i fältet container och namnet på blobben är i fältet RelativePath.  Fältet AbsolutePath anger platsen och namnet på filen som den fanns på den virtuella Azure-datorn.
+* **WADPerformanceCountersTable** – prestanda räknare.
+* **WADWindowsEventLogsTable** – händelse loggar i Windows.
 
 **Blobbar**
 
-* **wad kontrollbehållare** – (endast för SDK 2.4 och tidigare) innehåller XML-filerna som styr Azure-diagnostik.
-* **wad-iis-failedreqlogfiles** – innehåller information från IIS det gick inte begära loggar.
-* **wad-iis-loggfiler** – innehåller information om IIS-loggar.
-* **”anpassad”** – en anpassad behållare baserat på Konfigurera kataloger som övervakas av diagnostikövervakare.  Namnet på den här blobbehållaren kommer att anges i WADDirectoriesTable.
+* **wad-Control-container** – (endast för SDK 2,4 och tidigare) innehåller de XML-konfigurationsfiler som styr Azure Diagnostics.
+* **wad-IIS-failedreqlogfiles** – innehåller information från IIS misslyckade begär Anden om misslyckade förfrågningar.
+* **wad-IIS-LogFiles** – innehåller information om IIS-loggar.
+* **anpassad** – en anpassad behållare baserat på konfigurations kataloger som övervakas av diagnostiken.  Namnet på den här BLOB-behållaren anges i WADDirectoriesTable.
 
-## <a name="tools-to-view-diagnostic-data"></a>Verktyg för att visa diagnostikdata
-Det finns flera verktyg för att visa data när den överförs till lagring. Exempel:
+## <a name="tools-to-view-diagnostic-data"></a>Verktyg för att Visa diagnostikdata
+Det finns flera verktyg för att visa data när de har överförts till lagring. Exempel:
 
-* Server Explorer i Visual Studio - om du har installerat Azure Tools för Microsoft Visual Studio, du kan använda Azure Storage-noden i Server Explorer visa skrivskyddade blob- och tabelldata från Azure storage-konton. Du kan visa data från lokala emulatorn lagringskontot och även från storage-konton du har skapat för Azure. Mer information finns i [webbsökning och hantera lagringsresurser med Server Explorer](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage).
-* [Microsoft Azure Lagringsutforskaren](../../vs-azure-tools-storage-manage-with-storage-explorer.md) är en fristående app som gör det enkelt att arbeta med Azure Storage-data i Windows, OSX och Linux.
-* [Azure Management Studio](https://www.cerebrata.com/products/azure-management-studio/introduction) innehåller Azure Diagnostics Manager där du kan visa, ladda ned och hantera diagnostics-data som samlas in av programmen som körs på Azure.
+* Server Explorer i Visual Studio – om du har installerat Azure-verktygen för Microsoft Visual Studio kan du använda noden Azure Storage i Server Explorer för att visa skrivskyddade blob-och tabell data från dina Azure Storage-konton. Du kan visa data från ditt lokala Storage emulator-konto och även från lagrings konton som du har skapat för Azure. Mer information finns i avsnittet [om att bläddra och hantera lagrings resurser med Server Explorer](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage).
+* [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) är en fristående app som gör det enkelt att arbeta med Azure Storage data på Windows, OSX och Linux.
+* [Azure Management Studio](https://www.cerebrata.com/products/azure-management-studio/introduction) innehåller Azure-diagnostik Manager som gör att du kan visa, ladda ned och hantera de diagnostikdata som samlas in av programmen som körs på Azure.
 
 ## <a name="next-steps"></a>Nästa steg
-[Spåra flödet i Cloud Services-program med Azure Diagnostics](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
+[Spåra flödet i ett Cloud Services program med Azure-diagnostik](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
 
 

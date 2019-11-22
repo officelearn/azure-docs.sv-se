@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 11/18/2019
-ms.openlocfilehash: 97aad6f3853de07a3c4d2fc694c1dcefbd0e82a4
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 12860d70cad2dbcfa3d06bf4df6939dd27ab3ab3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195124"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279634"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Azure Monitor för översikt över behållare
 
@@ -47,6 +47,10 @@ Azure Monitor för behållare ger en omfattande övervaknings upplevelse med oli
 
 * Övervaka arbets belastningar för behållare [som distribueras till AKS-motorn](https://github.com/microsoft/OMS-docker/tree/aks-engine) lokalt och [AKS-motorn på Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
 * Övervaka arbets belastningar [för behållare som distribueras till Azure Red Hat OpenShift](../../openshift/intro-openshift.md).
+
+    >[!NOTE]
+    >Stöd för Red Hat OpenShift är en funktion i offentlig för hands version för tillfället.
+    >
 
 Titta på följande videoklipp med en mellanliggande nivå för att hjälpa dig att lära dig mer om att övervaka ditt AKS-kluster med Azure Monitor för behållare.
 

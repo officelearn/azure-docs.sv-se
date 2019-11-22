@@ -1,25 +1,16 @@
 ---
 title: Skapa ett projekt med Azure-anteckningsböcker med anpassad miljö
 description: Skapa ett nytt projekt i Azure-anteckningsböcker som har konfigurerats med en specifik uppsättning installerade paket och startskript.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: e049f591-27a7-440f-a1a3-c5bef25e8a28
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.author: kraigb
-ms.openlocfilehash: 6ec0d2fae285889a731e9b881ea90f15b96c85f2
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: f167d1bf6064cde535d17fa4a336ee13424baba7
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973073"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277484"
 ---
-# <a name="quickstart-create-a-project-with-a-custom-environment"></a>Snabbstart: Skapa ett projekt med en anpassad miljö
+# <a name="quickstart-create-a-project-with-a-custom-environment"></a>Snabbstart: Skapa ett projekt med anpassad miljö
 
 Ett projekt i Azure-datorer är en samling av filer, till exempel bärbara datorer, filer, dokumentation, bilder och så vidare, tillsammans med en miljö som kan konfigureras med specifika installationsprogrammet kommandon. Vem som helst som klonar projektet till sina egna anteckningsböcker i Azure-konto har all information som de behöver för att återskapa den nödvändiga miljön genom att definiera miljön med projektet.
 
@@ -37,7 +28,7 @@ Ett projekt i Azure-datorer är en samling av filer, till exempel bärbara dator
 
 1. I den **Skapa nytt projekt** popup-fönstret som visas, ange eller ange följande information och välj sedan **skapa**:
 
-    - **Projekt namn**: Projekt med en anpassad miljö
+    - **Projektnamnet**: projekt med anpassad miljö
     - **Projektet ID**: projekt-anpassad-miljö
     - **Offentliga projekt**: (avmarkerad)
     - **Skapa en README.md**: (avmarkerad)

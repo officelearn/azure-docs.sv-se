@@ -1,5 +1,5 @@
 ---
-title: Det går inte att komma åt detta företags program fel med App proxy-appen | Microsoft Docs "
+title: Det går inte att komma åt detta företags program fel med App proxy-appen
 description: Så här att lösa vanliga åtkomstproblem med Azure AD Application Proxy-program.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e54b54f592082ad998e1f5dfbdcb5ed30e6dc4a
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 3d61f4b4bce9b8287dc13237f071684ea5d135fa
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381412"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275471"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>”Det går inte att komma åt företagets programmet” fel när du använder ett programproxy-program
 
@@ -31,9 +31,9 @@ Den här artikeln hjälper dig att felsöka vanliga problem med ”företagets a
 
 När du ser det här felet kan du hitta statuskoden på felsidan. Koden är förmodligen en av följande statuskoder:
 
-- **Gateway-timeout**: Tjänsten Application Proxy kan inte ansluta till anslutnings tjänsten. Det här felet tyder vanligen på problem med anslutningen tilldelningen kopplingen själv, eller nätverket regler runt anslutningen.
-- **Felaktig Gateway**: Anslutningen kan inte komma åt backend-programmet. Det här felet kan indikera en felaktig konfiguration av programmet.
-- **Tillåts**inte: Användaren har inte behörighet att komma åt programmet. Det här felet kan inträffa om användaren inte har tilldelats till programmet i Azure Active Directory eller om på serverdelen användaren inte har behörighet att komma åt programmet.
+- **Gateway-Timeout**: The Application Proxy-tjänsten kan inte nå anslutningen. Det här felet tyder vanligen på problem med anslutningen tilldelningen kopplingen själv, eller nätverket regler runt anslutningen.
+- **Felaktig Gateway**: kopplingen kan inte nå backend-applikationer. Det här felet kan indikera en felaktig konfiguration av programmet.
+- **Det är inte tillåtet**: användaren har inte behörighet att komma åt programmet. Det här felet kan inträffa om användaren inte har tilldelats till programmet i Azure Active Directory eller om på serverdelen användaren inte har behörighet att komma åt programmet.
 
 Du hittar koden genom att titta på texten längst ned till vänster i felmeddelandet för fältet ”statuskod”. Också söka efter eventuella ytterligare tips längst ned på sidan.
 
@@ -75,9 +75,9 @@ Att kontrollera att tilldelas till ett aktivt Anslutningsgrupp:
 1. Om fel Anslutningsgrupp visas, kan du använda listrutan för att välja rätt grupp och bekräfta att du inte längre visas för alla varningar. Om den avsedda Anslutningsgrupp visas, klickar du på varningsmeddelandet att öppna sidan med kopplingens.
 1. Här kan finns det ett antal sätt att öka detaljnivån ytterligare:
 
-   - Flytta en aktiv koppling till gruppen: Om du har en aktiv anslutning som ska tillhöra den här gruppen och har en detaljerad information till mål server delen, kan du flytta anslutningen till den tilldelade gruppen. Du gör detta genom att klicka på kopplingen. I fältet ”Anslutningsgrupp” använder du listrutan att välja rätt grupp Klicka på Spara.
-   - Hämta en ny anslutning för gruppen: Från den här sidan kan du Hämta länken för att [Hämta en ny anslutning](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Installera anslutningen på en dator med direkt åtkomst till backend-applikationer. Normalt installeras anslutningen på samma server som programmet. Använd download Connector-länk för att hämta en anslutningsapp på måldatorn. Sedan klickar du på anslutningen och använda ”Anslutningsgruppen” listrutan för att se till att det hör till rätt grupp.
-   - Undersök en inaktiv koppling: Om en koppling visas som inaktiv kan den inte komma åt tjänsten. Det här felet beror vanligtvis på vissa portar som krävs blockeras. Lös problemet genom att gå vidare för att kontrol lera att alla nödvändiga portar är tillåtna.
+   - Flytta en aktiv anslutning till gruppen: Om du har en aktiv anslutning som ska tillhöra den här gruppen och har åtkomst till backend-applikationer mål, du kan flytta anslutningen till den tilldelade gruppen. Du gör detta genom att klicka på kopplingen. I fältet ”Anslutningsgrupp” använder du listrutan att välja rätt grupp Klicka på Spara.
+   - Hämta en ny Anslutningsapp för gruppen: den här sidan kan du hämta en länk till [hämta en ny Anslutningsapp](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Installera anslutningen på en dator med direkt åtkomst till backend-applikationer. Normalt installeras anslutningen på samma server som programmet. Använd download Connector-länk för att hämta en anslutningsapp på måldatorn. Sedan klickar du på anslutningen och använda ”Anslutningsgruppen” listrutan för att se till att det hör till rätt grupp.
+   - Undersöka en inaktiv anslutning: om en koppling visas som inaktiva, det inte går att nå tjänsten. Det här felet beror vanligtvis på vissa portar som krävs blockeras. Lös problemet genom att gå vidare för att kontrol lera att alla nödvändiga portar är tillåtna.
 
 När du använder testa dessa steg för att se till att programmet har tilldelats en grupp med fungerar anslutningar, programmet igen. Om det fortfarande inte fungerar, kan du fortsätta till nästa avsnitt.
 

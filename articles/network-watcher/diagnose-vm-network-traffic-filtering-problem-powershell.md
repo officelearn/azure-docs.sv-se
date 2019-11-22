@@ -1,5 +1,6 @@
 ---
-title: Diagnostisera problem med filtreringen av nätverkstrafik på virtuella datorer – snabbstart – Azure PowerShell | Microsoft Docs
+title: 'Snabb start: diagnostisera ett problem med trafik filter för virtuella dator nätverk – Azure PowerShell'
+titleSuffix: Azure Network Watcher
 description: I den här snabbstarten lär du dig hur du diagnostiserar problem med filtreringen av nätverkstrafik på en virtuell dator med hjälp av funktionen Kontrollera IP-flöde i Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
@@ -17,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 5cc735c6ad3986161b155ab97bbb3d6be5713d15
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 756c8d4d7e227d477c3031aab0d0a478454c35bf
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729878"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276062"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-powershell"></a>Snabbstart: Diagnostisera problem med filtreringen av nätverkstrafik på virtuella datorer – Azure PowerShell
 
@@ -34,7 +35,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda PowerShell lokalt, i den här snabbstarten kräver Azure PowerShell- `Az` modulen. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt kräver den här snabb starten Azure PowerShell `Az`-modulen. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
 
 
@@ -63,7 +64,7 @@ För att testa nätverkskommunikation med Network Watcher måste du först aktiv
 
 ### <a name="enable-network-watcher"></a>Aktivera nätverksbevakare
 
-Om du redan har en network watcher som aktiverats i regionen USA, östra, använda [Get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher) att hämta network watcher. I följande exempel hämtas en befintlig nätverksbevakare med namnet *NetworkWatcher_eastus* som finns i resursgruppen *NetworkWatcherRG*:
+Om du redan har en nätverks Övervakare som är aktive rad i regionen USA, östra, använder du [Get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher) för att hämta nätverks bevakaren. I följande exempel hämtas en befintlig nätverksbevakare med namnet *NetworkWatcher_eastus* som finns i resursgruppen *NetworkWatcherRG*:
 
 ```azurepowershell-interactive
 $networkWatcher = Get-AzNetworkWatcher `
@@ -71,7 +72,7 @@ $networkWatcher = Get-AzNetworkWatcher `
   -ResourceGroupName NetworkWatcherRG
 ```
 
-Om du inte redan har en network watcher som aktiverats i regionen östra USA kan du använda [New AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher) att skapa en network watcher i regionen östra USA:
+Om du inte redan har en nätverks Övervakare som är aktive rad i regionen USA, östra, använder du [New-AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher) för att skapa en nätverks övervakare i regionen USA, östra:
 
 ```azurepowershell-interactive
 $networkWatcher = New-AzNetworkWatcher `
@@ -82,7 +83,7 @@ $networkWatcher = New-AzNetworkWatcher `
 
 ### <a name="use-ip-flow-verify"></a>Använda Kontrollera IP-flöde
 
-När du skapar en virtuell dator tillåter och nekar Azure nätverkstrafik till och från den virtuella datorn som standard. Om du vill kan du åsidosätta standardinställningarna i Azure och tillåta eller neka andra typer av trafik. Du kan testa om trafik tillåts eller nekas till olika mål och från en käll-IP-adress, använder den [Test AzNetworkWatcherIPFlow](/powershell/module/az.network/test-aznetworkwatcheripflow) kommando.
+När du skapar en virtuell dator tillåter och nekar Azure nätverkstrafik till och från den virtuella datorn som standard. Om du vill kan du åsidosätta standardinställningarna i Azure och tillåta eller neka andra typer av trafik. Om du vill testa om trafik tillåts eller nekas till olika mål och från en käll-IP-adress använder du kommandot [test-AzNetworkWatcherIPFlow](/powershell/module/az.network/test-aznetworkwatcheripflow) .
 
 Testa utgående kommunikation från den virtuella datorn till någon av IP-adresserna för www.bing.com:
 
@@ -134,7 +135,7 @@ Resultatet som returneras anger att åtkomsten nekas på grund av en säkerhetsr
 
 ## <a name="view-details-of-a-security-rule"></a>Visa information om en säkerhetsregel
 
-Att ta reda på varför reglerna i [testa nätverkskommunikation](#test-network-communication) tillåter eller förhindrar kommunikation, granska de effektiva säkerhetsreglerna för nätverksgränssnittet med [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup):
+För att avgöra varför reglerna i [testa nätverkskommunikation](#test-network-communication) tillåter eller förhindrar kommunikation, granska de effektiva säkerhets reglerna för nätverks gränssnittet med [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup):
 
 ```azurepowershell-interactive
 Get-AzEffectiveNetworkSecurityGroup `
@@ -239,7 +240,7 @@ Kontrollerna i den här snabbstarten testade Azure-konfigurationen. Om kontrolle
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du inte längre behövs kan du använda [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) att ta bort resursgruppen och alla resurser den innehåller:
+När de inte längre behövs kan du använda [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) för att ta bort resurs gruppen och alla resurser som den innehåller:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force

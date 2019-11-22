@@ -1,5 +1,5 @@
 ---
-title: Tilldela en användare eller grupp till en Enterprise-App i Azure Active Directory | Microsoft Docs
+title: Tilldela en användare eller grupp till en Enterprise-App i Azure AD
 description: Så här väljer du en företags app för att tilldela en användare eller grupp till den i Azure Active Directory
 services: active-directory
 author: msmimart
@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d28b9c31b8fbad8a565ff8cbdf717bfb3bc1309
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 3a5135f97ffb7d29c9fd928382ca4344beaa654d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72896478"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274727"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Tilldela en användare eller grupp till en företags app i Azure Active Directory
 
@@ -28,7 +28,7 @@ Om du vill tilldela en användare eller grupp till en företags app bör du ha t
 
 ## <a name="assign-a-user-to-an-app---portal"></a>Tilldela en användare till en app – Portal
 
-1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som är en global administratör för katalogen.
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett konto som är en global administratör för katalogen.
 1. Välj **alla tjänster**, ange Azure Active Directory i text rutan och välj sedan **RETUR**.
 1. Välj **företags program**.
 1. I fönstret **företags program – alla program** visas en lista över de appar som du kan hantera. Välj en app.
@@ -44,7 +44,7 @@ Om du vill tilldela en användare eller grupp till en företags app bör du ha t
 
 ## <a name="allow-all-users-to-access-an-app---portal"></a>Ge alla användare åtkomst till en app – Portal
 
-1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som är en global administratör för katalogen.
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett konto som är en global administratör för katalogen.
 1. Välj **alla tjänster**, ange Azure Active Directory i text rutan och välj sedan **RETUR**.
 1. Välj **företags program**.
 1. I fönstret **företags program** väljer du **alla program**. Här visas de appar som du kan hantera.
@@ -93,7 +93,7 @@ Om du vill tilldela en grupp till en företags app måste du ersätta `Get-Azure
 
 I det här exemplet tilldelas användaren Britta Simon till Microsoft-programmet för [företags analys](https://products.office.com/business/workplace-analytics) med hjälp av PowerShell.
 
-1. I PowerShell tilldelar du motsvarande värden till variablerna $username, $app _name och $app _role_name.
+1. I PowerShell tilldelar du motsvarande värden till variablerna $username $app _name och $app _role_name.
 
     ```powershell
     # Assign the values to the variables

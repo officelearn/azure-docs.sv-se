@@ -1,6 +1,6 @@
 ---
-title: Ställ in direkt federation med en AD FS för B2B - Azure Active Directory | Microsoft Docs
-description: Lär dig hur du konfigurerar AD FS som en identitetsleverantör för direkta federation så att gäster kan logga in på din Azure AD-appar
+title: Konfigurera direkt Federation med en AD FS för B2B – Azure AD
+description: Lär dig hur du konfigurerar AD FS som identitets leverantör för direkt Federation så att gästerna kan logga in till dina Azure AD-appar
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -12,146 +12,146 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8f709186f0ef17e037c4203118be07ea2d4f511
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: e350d6338b6ca589ab18d068ef6a314363fe205c
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67544327"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272832"
 ---
-# <a name="example-direct-federation-with-active-directory-federation-services-ad-fs-preview"></a>Exempel: Direct federation med Active Directory Federation Services (AD FS) (förhandsversion)
+# <a name="example-direct-federation-with-active-directory-federation-services-ad-fs-preview"></a>Exempel: direkt Federation med Active Directory Federation Services (AD FS) (AD FS) (för hands version)
 |     |
 | --- |
-| Direct federation är en funktion i offentliga förhandsversionen av Azure Active Directory. Mer information om förhandsversioner finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+| Direkt Federation är en offentlig förhands gransknings funktion i Azure Active Directory. Mer information om förhandsversioner finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
-Den här artikeln beskriver hur du ställer in [dirigera federation](direct-federation.md) med hjälp av Active Directory Federation Services (AD FS) som en SAML 2.0 eller WS-Fed identitetsprovider. För att stödja direkt federation, måste vissa attribut och anspråk konfigureras hos identitetsprovidern. För att visa hur du konfigurerar en identitetsprovider för direkta federation kan använder vi Active Directory Federation Services (AD FS) som ett exempel. Vi visar hur du konfigurerar AD FS både som en SAML-identitetsprovider och som en identitetsprovider för WS-Fed.
+I den här artikeln beskrivs hur du konfigurerar [direkt Federation](direct-federation.md) med Active Directory Federation Services (AD FS) (AD FS) som antingen en SAML 2,0 eller en identitets leverantör med WS-utfodras. För att stödja direkt Federation måste vissa attribut och anspråk konfigureras hos identitets leverantören. För att illustrera hur du konfigurerar en identitets leverantör för direkt Federation använder vi Active Directory Federation Services (AD FS) (AD FS) som exempel. Vi visar hur du konfigurerar AD FS både som en SAML-identitetsprovider och som en identitets leverantör med WS-utfodras.
 
 > [!NOTE]
-> Den här artikeln beskriver hur du konfigurerar AD FS för både SAML och WS-Fed för tydlighetens skull. För direkt federation integrationer där identitetsprovidern är AD FS, bör du använda WS-Fed som protokoll. 
+> I den här artikeln beskrivs hur du konfigurerar AD FS för både SAML och WS-utfodras i illustrations syfte. För direkta Federations integrationer där identitetsprovider är AD FS rekommenderar vi att du använder WS-utfodras som protokoll. 
 
-## <a name="configure-ad-fs-for-saml-20-direct-federation"></a>Konfigurera AD FS för SAML 2.0 direkt federation
-Azure AD B2B kan konfigureras för att federera med identitetsleverantörer som använder SAML-protokoll med specifika krav som anges nedan. Det här avsnittet visas hur du konfigurerar AD FS för SAML 2.0 för att illustrera SAML-konfigurationssteg. 
+## <a name="configure-ad-fs-for-saml-20-direct-federation"></a>Konfigurera AD FS för SAML 2,0 direkt Federation
+Azure AD B2B kan konfigureras för att federera med identitets leverantörer som använder SAML-protokollet med särskilda krav som anges nedan. I det här avsnittet visas hur du konfigurerar AD FS för SAML 2,0 för att illustrera stegen i SAML-konfigurationen. 
 
-Om du vill konfigurera direkt federation tas följande attribut emot i SAML 2.0-svar från identitetsprovidern. Dessa attribut kan konfigureras genom att länka till online säkerhetstokentjänsten XML-fil eller genom att ange dem manuellt. Steg 12 i [skapa en test AD FS-instans](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed) beskriver hur du hittar AD FS-slutpunkter eller hur du skapar dina Metadata_url, till exempel `https://fs.iga.azure-test.net/federationmetadata/2007-06/federationmetadata.xml`. 
+Om du vill konfigurera direkt Federation måste följande attribut tas emot i SAML 2,0-svaret från identitets leverantören. Dessa attribut kan konfigureras genom att länka till XML-filen för Online Security token eller genom att ange dem manuellt. Steg 12 i [skapa en test AD FS-instans](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed) beskriver hur du hittar AD FS slut punkter eller hur du skapar din metadata-URL, till exempel `https://fs.iga.azure-test.net/federationmetadata/2007-06/federationmetadata.xml`. 
 
 |Attribut  |Värde  |
 |---------|---------|
 |AssertionConsumerService     |`https://login.microsoftonline.com/login.srf`         |
 |Målgrupp     |`urn:federation:MicrosoftOnline`         |
-|Utfärdare     |Utfärdar-URI för partner IDP: N, till exempel `http://www.example.com/exk10l6w90DHM0yi...`         |
+|Utfärdare     |Utfärdar-URI för partner IdP, till exempel `http://www.example.com/exk10l6w90DHM0yi...`         |
 
-Följande anspråk måste konfigureras i SAML 2.0-token som utfärdas av identitetsleverantören.:
+Följande anspråk måste konfigureras i SAML 2,0-token som utfärdas av identitets leverantören:
 
 
 |Attribut  |Värde  |
 |---------|---------|
-|NameID-Format     |`urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`         |
+|NameID-format     |`urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
 
 
-Nästa avsnitt visar hur du konfigurerar obligatoriska attribut och anspråk med hjälp av AD FS som ett exempel på en SAML 2.0-identitetsprovider.
+I nästa avsnitt beskrivs hur du konfigurerar de attribut och anspråk som krävs med AD FS som ett exempel på en identitets leverantör för SAML 2,0.
 
 ### <a name="before-you-begin"></a>Innan du börjar
 
-AD FS-servern måste redan vara inställt upp och fungerar innan du påbörjar den här proceduren. Om du vill ha hjälp med att konfigurera AD FS-servern finns i [skapar en test AD FS 3.0-instans på en Azure virtuell dator](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed).
+En AD FS server måste redan vara konfigurerad och fungerande innan du påbörjar den här proceduren. Information om hur du konfigurerar en AD FS-server finns i [skapa en test AD FS 3,0-instans på en virtuell Azure-dator](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed).
 
-### <a name="add-the-claim-description"></a>Lägg till kravet beskrivning
+### <a name="add-the-claim-description"></a>Lägg till anspråks beskrivningen
 
-1. AD FS-servern, Välj **verktyg** > **AD FS-hantering**.
-2. I navigeringsfönstret väljer **Service** > **Anspråksbeskrivningar**.
-3. Under **åtgärder**väljer **Lägg till kravet beskrivning**.
-4. I den **lägga till en beskrivning av anspråk** fönstret, ange följande värden:
+1. På AD FS-servern väljer du **verktyg** > **AD FS hantering**.
+2. I navigerings fönstret väljer du beskrivningar av **Service > -** **anspråk**.
+3. Under **åtgärder**väljer du **Lägg till anspråks Beskrivning**.
+4. I fönstret **Lägg till en anspråks Beskrivning** anger du följande värden:
 
-   - **Visningsnamn**: Beständiga identifierare
-   - **Anspråk identifierare**: `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent` 
-   - Markera kryssrutan för **publicera beskrivningen anspråket i federationsmetadata som en Anspråkstyp som federationstjänsten kan acceptera**.
-   - Markera kryssrutan för **publicera beskrivningen anspråket i federationsmetadata som en Anspråkstyp som federationstjänsten kan skicka**.
+   - **Visnings namn**: beständig identifierare
+   - **Anspråks identifierare**: `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent` 
+   - Markera kryss rutan för att **publicera den här anspråks beskrivningen i federationsmetadata som en anspråks typ som Federations tjänsten kan acceptera**.
+   - Markera kryss rutan för att **publicera den här anspråks beskrivningen i federationsmetadata som en anspråks typ som Federations tjänsten kan skicka**.
 
 5. Klicka på **OK**.
 
-### <a name="add-the-relying-party-trust-and-claim-rules"></a>Lägg till förtroende för förlitande part och anspråksregler
+### <a name="add-the-relying-party-trust-and-claim-rules"></a>Lägg till förtroende för förlitande part och anspråks regler
 
-1. På AD FS-servern går du till **verktyg** > **AD FS-hantering**.
-2. I navigeringsfönstret väljer **förtroenden** > **förlitande Partsförtroenden**.
-3. Under **åtgärder**väljer **Lägg till förlitande part**. 
-4. I guiden Lägg till förlitande part förtroende för **Välj datakälla**, använder du alternativet **importera data om förlitande part publicerats online eller i ett lokalt nätverk**. Ange den här federationsmetadata URL - https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml. Lämna de andra standardinställningarna. Välj **Stäng**.
-5. Den **redigera Anspråksregler** guiden öppnas.
-6. I den **redigera Anspråksregler** väljer **Lägg till regel**. I **Välj regeltyp**väljer **skicka LDAP-attribut som anspråk**. Välj **Nästa**.
-7. I **konfigurera Anspråksregel**, ange följande värden: 
+1. På AD FS-servern går du till **verktyg** > **AD FS hantering**.
+2. I navigerings fönstret väljer du **förtroende relationer** > förtroenden för **förlitande part**.
+3. Under **åtgärder**väljer du **Lägg till förtroende för förlitande part**. 
+4. I guiden Lägg till förlitande part förtroende för **Välj data källa**använder du alternativet **Importera data om den förlitande parten som publicerats online eller i ett lokalt nätverk**. Ange URL för federationsmetadata – https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml. Lämna andra standard val. Välj **Stäng**.
+5. Guiden **Redigera anspråks regler** öppnas.
+6. I guiden **Redigera anspråks regler** väljer du **Lägg till regel**. I **Välj regeltyp**väljer du **Skicka LDAP-attribut som anspråk**. Välj **Nästa**.
+7. I **Konfigurera anspråks regel**anger du följande värden: 
 
-   - **Namn på anspråksregel**: E-postkravregel 
+   - **Namn på anspråks regel**: regel för e-postanspråk 
    - **Attributarkiv**: Active Directory 
-   - **LDAP-attribut**: E-Mail-Addresses 
-   - **Utgående Anspråkstyp**: E-postadress
+   - **LDAP-attribut**: e-post-adresser 
+   - **Utgående anspråks typ**: e-postadress
 
 8. Välj **Slutför**.
-9. Den **redigera Anspråksregler** den nya regeln visas i fönstret. Klicka på **Verkställ**. 
+9. I fönstret **Redigera anspråks regler** visas den nya regeln. Klicka på **Använd**. 
 10. Klicka på **OK**.  
 
-### <a name="create-an-email-transform-rule"></a>Skapa en regel för e-transformering
-1. Gå till **redigera Anspråksregler** och klicka på **Lägg till regel**. I **Välj regeltyp**väljer **transformera ett inkommande anspråk** och klicka på **nästa**. 
-2. I **konfigurera Anspråksregel**, ange följande värden: 
+### <a name="create-an-email-transform-rule"></a>Skapa en regel för e-posttransformering
+1. Gå till **Redigera anspråks regler** och klicka på **Lägg till regel**. I **Välj regeltyp**väljer du **transformera ett inkommande anspråk** och klickar på **Nästa**. 
+2. I **Konfigurera anspråks regel**anger du följande värden: 
 
-   - **Namn på anspråksregel**: E-transformeringsregel 
-   - **Typ av inkommande anspråk**: E-postadress 
-   - **Utgående Anspråkstyp**: Namn-ID 
-   - **Format för utgående namn-ID**: Beständiga identifierare 
+   - **Anspråks regel namn**: e-posttransformerings regel 
+   - **Inkommande anspråks typ**: e-postadress 
+   - **Utgående anspråks typ**: namn-ID 
+   - **Format för utgående namn-ID**: beständig identifierare 
    - Välj **Släpp igenom alla anspråksvärden**.
 
 3. Klicka på **Slutför**. 
-4. Den **redigera Anspråksregler** fönstret visar nya regler. Klicka på **Verkställ**. 
-5. Klicka på **OK**. AD FS-servern har konfigurerats för direkt federation med hjälp av SAML 2.0-protokollet.
+4. I fönstret **Redigera anspråks regler** visas de nya reglerna. Klicka på **Använd**. 
+5. Klicka på **OK**. AD FS servern har nu kon figurer ATS för direkt Federation med hjälp av SAML 2,0-protokollet.
 
-## <a name="configure-ad-fs-for-ws-fed-direct-federation"></a>Konfigurera AD FS för WS-Fed direkt federation 
-Azure AD B2B kan konfigureras för att federera med identitetsleverantörer som använder protokollet WS-Fed de särskilda krav som anges nedan. För närvarande har två WS-Fed providrar testats för kompatibilitet med Azure AD inkluderar AD FS och Shibboleth. Här kan använder vi Active Directory Federation Services (AD FS) som ett exempel på WS-Fed identitetsprovider. Ladda ned Azure AD Identity providern kompatibilitet dokumentationen för mer information om hur du upprättar ett förlitande partsförtroende mellan en kompatibel WS-Fed-provider med Azure AD.
+## <a name="configure-ad-fs-for-ws-fed-direct-federation"></a>Konfigurera AD FS för WS-utfodras direkt Federation 
+Azure AD B2B kan konfigureras för att federera med identitets leverantörer som använder WS-utfodras protokoll med de särskilda krav som anges nedan. För närvarande har två WS-utfodras-leverantörer testats för kompatibilitet med Azure AD inkluderar AD FS-och Shibboleth. Här använder vi Active Directory Federation Services (AD FS) (AD FS) som exempel på WS-utfodras identitets leverantören. Om du vill ha mer information om hur du etablerar ett förlitande part förtroende mellan en WS-utfodras-kompatibel Provider med Azure AD kan du hämta Compatibility-dokumenten för Azure AD Identity Provider.
 
-Om du vill konfigurera direkt federation tas följande attribut emot i WS-Fed meddelandet från identitetsprovidern. Dessa attribut kan konfigureras genom att länka till online säkerhetstokentjänsten XML-fil eller genom att ange dem manuellt. Steg 12 i [skapa en test AD FS-instans](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed) beskriver hur du hittar AD FS-slutpunkter eller hur du skapar dina Metadata_url, till exempel `https://fs.iga.azure-test.net/federationmetadata/2007-06/federationmetadata.xml`.
+Om du vill konfigurera direkt Federation måste följande attribut tas emot i det WS-utfodras meddelandet från identitets leverantören. Dessa attribut kan konfigureras genom att länka till XML-filen för Online Security token eller genom att ange dem manuellt. Steg 12 i [skapa en test AD FS-instans](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed) beskriver hur du hittar AD FS slut punkter eller hur du skapar din metadata-URL, till exempel `https://fs.iga.azure-test.net/federationmetadata/2007-06/federationmetadata.xml`.
  
 |Attribut  |Värde  |
 |---------|---------|
 |PassiveRequestorEndpoint     |`https://login.microsoftonline.com/login.srf`         |
 |Målgrupp     |`urn:federation:MicrosoftOnline`         |
-|Utfärdare     |Utfärdar-URI för partner IDP: N, till exempel `http://www.example.com/exk10l6w90DHM0yi...`         |
+|Utfärdare     |Utfärdar-URI för partner IdP, till exempel `http://www.example.com/exk10l6w90DHM0yi...`         |
 
-Begärda anspråk för WS-Fed token som utfärdats av IDP: N:
+Obligatoriska anspråk för WS-utfodras token som utfärdats av IdP:
 
 |Attribut  |Värde  |
 |---------|---------|
 |ImmutableID     |`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
 
-Nästa avsnitt visas hur du konfigurerar attributen som krävs och anspråk med hjälp av AD FS som ett exempel på en identitetsprovider för WS-Fed.
+I nästa avsnitt beskrivs hur du konfigurerar nödvändiga attribut och anspråk med AD FS som ett exempel på en WS-Identity-Provider.
 
 ### <a name="before-you-begin"></a>Innan du börjar
-AD FS-servern måste redan vara inställt upp och fungerar innan du påbörjar den här proceduren. Om du vill ha hjälp med att konfigurera AD FS-servern finns i [skapar en test AD FS 3.0-instans på en Azure virtuell dator](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed).
+En AD FS server måste redan vara konfigurerad och fungerande innan du påbörjar den här proceduren. Information om hur du konfigurerar en AD FS-server finns i [skapa en test AD FS 3,0-instans på en virtuell Azure-dator](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed).
 
 
-### <a name="add-the-relying-party-trust-and-claim-rules"></a>Lägg till förtroende för förlitande part och anspråksregler 
-1. På AD FS-servern går du till **verktyg** > **AD FS-hantering**. 
-1. I navigeringsfönstret väljer **förtroenden** > **förlitande Partsförtroenden**. 
-1. Under **åtgärder**väljer **Lägg till förlitande part**.  
-1. I Lägg till förlitande part förtroende guiden för **Välj datakälla**, använder du alternativet **importera data om förlitande part publicerats online eller i ett lokalt nätverk**. Ange den här URL för federation metadata: `https://nexus.microsoftonline-p.com/federationmetadata/2007-06/federationmetadata.xml`.  Lämna de andra standardinställningarna. Välj **Stäng**.
-1. Den **redigera Anspråksregler** guiden öppnas. 
-1. I den **redigera Anspråksregler** väljer **Lägg till regel**. I **Välj regeltyp**väljer **skicka anspråk med en anpassad regel**. Välj *Nästa*. 
-1. I **konfigurera Anspråksregel**, ange följande värden:
+### <a name="add-the-relying-party-trust-and-claim-rules"></a>Lägg till förtroende för förlitande part och anspråks regler 
+1. På AD FS-servern går du till **verktyg** > **AD FS hantering**. 
+1. I navigerings fönstret väljer du **förtroende relationer** > förtroenden för **förlitande part**. 
+1. Under **åtgärder**väljer du **Lägg till förtroende för förlitande part**.  
+1. I guiden Lägg till förlitande part förtroende, för **Välj data källa**, använder du alternativet **Importera data om den förlitande parten som publicerats online eller i ett lokalt nätverk**. Ange den här URL: en för federationsmetadata: `https://nexus.microsoftonline-p.com/federationmetadata/2007-06/federationmetadata.xml`.  Lämna andra standard val. Välj **Stäng**.
+1. Guiden **Redigera anspråks regler** öppnas. 
+1. I guiden **Redigera anspråks regler** väljer du **Lägg till regel**. I **Välj regeltyp**väljer du **skicka anspråk med en anpassad regel**. Välj *Nästa*. 
+1. I **Konfigurera anspråks regel**anger du följande värden:
 
-   - **Namn på anspråksregel**: Problemet oföränderligt Id  
+   - **Namn på anspråks regel**: utfärda oföränderligt ID  
    - **Anpassad regel**: `c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] => issue(store = "Active Directory", types = ("http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID"), query = "samAccountName={0};objectGUID;{1}", param = regexreplace(c.Value, "(?<domain>[^\\]+)\\(?<user>.+)", "${user}"), param = c.Value);`
 
 1. Välj **Slutför**. 
-1. Den **redigera Anspråksregler** den nya regeln visas i fönstret. Klicka på **Verkställ**.  
-1. I samma **redigera Anspråksregler** väljer **Lägg till regel**. I **Cohose regeltyp**väljer **skicka LDAP-attribut som anspråk**. Välj **Nästa**.
-1. I **konfigurera Anspråksregel**, ange följande värden: 
+1. I fönstret **Redigera anspråks regler** visas den nya regeln. Klicka på **Använd**.  
+1. I guiden **Redigera anspråks regler** väljer du **Lägg till regel**. I **typ av inslang-regel**väljer du **Skicka LDAP-attribut som anspråk**. Välj **Nästa**.
+1. I **Konfigurera anspråks regel**anger du följande värden: 
 
-   - **Namn på anspråksregel**: E-postkravregel  
+   - **Namn på anspråks regel**: regel för e-postanspråk  
    - **Attributarkiv**: Active Directory  
-   - **LDAP-attribut**: E-Mail-Addresses  
-   - **Utgående Anspråkstyp**: E-postadress 
+   - **LDAP-attribut**: e-post-adresser  
+   - **Utgående anspråks typ**: e-postadress 
 
 1.  Välj **Slutför**. 
-1.  Den **redigera Anspråksregler** den nya regeln visas i fönstret. Klicka på **Verkställ**.  
-1.  Klicka på **OK**. AD FS-servern har konfigurerats för direkt federation med hjälp av WS-Fed.
+1.  I fönstret **Redigera anspråks regler** visas den nya regeln. Klicka på **Använd**.  
+1.  Klicka på **OK**. Den AD FS servern har nu kon figurer ATS för direkt Federation med WS-utfodras.
 
 ## <a name="next-steps"></a>Nästa steg
-Nu ska du ska [konfigurera direkt federation i Azure AD](direct-federation.md#step-2-configure-direct-federation-in-azure-ad) antingen i Azure AD-portalen eller med hjälp av PowerShell. 
+Sedan [konfigurerar du direkt Federation i Azure AD](direct-federation.md#step-2-configure-direct-federation-in-azure-ad) antingen i Azure AD-portalen eller med hjälp av PowerShell. 

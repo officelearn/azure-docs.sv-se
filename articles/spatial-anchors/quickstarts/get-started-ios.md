@@ -1,19 +1,19 @@
 ---
-title: Snabbstart – Skapa iOS-app med Azure Spatial Anchors | Microsoft Docs
+title: 'Snabb start: skapa en iOS-app'
 description: I den här snabbstarten lär du dig att skapa en iOS-app med hjälp av Spatial Anchors.
 author: craigktreasure
-manager: aliemami
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: a1d2fa083c0083423767484b20e296a3080e4ebe
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 39732ef785fc610572f917be77dec3f560698fb7
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74092117"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277193"
 ---
 # <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Snabb start: skapa en iOS-app med molnbaserade ankare, antingen i Swift eller mål-C
 

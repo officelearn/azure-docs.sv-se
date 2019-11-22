@@ -1,6 +1,6 @@
 ---
-title: Set up an email address as your authentication method - Azure AD
-description: How to set up the Security info page to verify your identity using an email address as your authentication method.
+title: Konfigurera en e-postadress som verifierings metod – Azure AD
+description: Hur du konfigurerar din säkerhets information (för hands version) för att verifiera din identitet med hjälp av en e-postadress som verifierings metod.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,86 +12,86 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03b53760f27f853f34397ac9047f18a37e1bc845
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: HT
+ms.openlocfilehash: dafa78e6f46a3d2d6b7a9c505defaeae21875946
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231787"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279025"
 ---
-# <a name="set-up-an-email-address-as-your-authentication-method-from-the-security-info-preview-page"></a>Set up an email address as your authentication method from the Security info (preview) page
+# <a name="set-up-an-email-address-as-your-verification-method"></a>Konfigurera en e-postadress som verifierings metod
 
-You can follow these steps to add your password reset method. After you've set this up the first time, you can return to the **Security info** page to add, update, or delete your security information.
+Du kan följa de här stegen för att lägga till din metod för lösen ords återställning. När du har konfigurerat den första gången kan du gå tillbaka till sidan **säkerhets** information för att lägga till, uppdatera eller ta bort din säkerhets information.
 
-After you set up your password reset method, you must also set up your two-factor verification method, using an [authenticator app](security-info-setup-auth-app.md), [text messaging](security-info-setup-text-msg.md), or a [phone call](security-info-setup-phone-number.md).
+När du har ställt in din metod för lösen ords återställning måste du också ställa in en tvåfaktorautentisering med hjälp av en [Authenticator-app](security-info-setup-auth-app.md), [SMS](security-info-setup-text-msg.md)eller ett [telefonsamtal](security-info-setup-phone-number.md).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-## <a name="set-up-your-email-address-from-the-security-info-page"></a>Set up your email address from the Security info page
+## <a name="set-up-your-email-address-from-the-security-info-page"></a>Konfigurera din e-postadress på sidan säkerhets information
 
-Depending on your organization’s settings, you might be able to use your email address as one of your security info methods.
+Beroende på din organisations inställningar kanske du kan använda din e-postadress som en av dina säkerhets metoder.
 
 >[!Note]
->We recommend using an email address that doesn't require your network password to access. If you don't see the email option, it's possible that your organization doesn't allow you to use an email for verification. If this is the case, you'll need to choose another method or contact your administrator for more help.
+>Vi rekommenderar att du använder en e-postadress som inte kräver nätverks lösen ordet för att komma åt. Om du inte ser e-postalternativet är det möjligt att din organisation inte tillåter att du använder ett e-postmeddelande för verifiering. Om så är fallet måste du välja en annan metod eller kontakta administratören om du vill ha mer hjälp.
 
-### <a name="to-set-up-your-email-address"></a>To set up your email address
+### <a name="to-set-up-your-email-address"></a>Konfigurera din e-postadress
 
-1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
+1. Logga in på ditt arbets-eller skol konto och gå sedan till din https://myprofile.microsoft.com/ sida.
 
-    ![My Profile page, showing highlighted Security info links](media/security-info/securityinfo-myprofile-page.png)
+    ![Sidan min profil, som visar markerade länkar för säkerhets information](media/security-info/securityinfo-myprofile-page.png)
 
-2. Select **Security info** from the left navigation pane or from the link in the **Security info** block, and then select **Add method** from the **Security info** page.
+2. Välj **säkerhets information** i det vänstra navigerings fönstret eller från länken i **säkerhets informations** blocket och välj sedan **Lägg till metod** på sidan **säkerhets information** .
 
-    ![Security info page with highlighted Add method option](media/security-info/securityinfo-myprofile-addmethod-page.png)
+    ![Sidan säkerhets information med markerat Lägg till metod-alternativ](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
-3. On the **Add a method** page, select **Email** from the drop-down list, and then select **Add**.
+3. På sidan **Lägg till en metod** väljer du **e-post** i list rutan och väljer sedan **Lägg till**.
 
-    ![Add method box, with email selected](media/security-info/securityinfo-myprofile-addemail.png)
+    ![Rutan Lägg till metod, med e-post valt](media/security-info/securityinfo-myprofile-addemail.png)
 
-4. On the **Email** page, type your email address (for example, alain@gmail.com), and then select **Next**.
+4. På sidan **e-post** anger du din e-postadress (till exempel alain@gmail.com) och väljer sedan **Nästa**.
 
-    ![Add phone number and choose phone calls](media/security-info/securityinfo-myprofile-emailaddress.png)
+    ![Lägg till telefonnummer och välj telefonsamtal](media/security-info/securityinfo-myprofile-emailaddress.png)
 
     >[!Important]
-    >This email address can't be your work or school email.
+    >E-postadressen får inte vara din e-postadress till arbetet eller skolan.
 
-5. Type the code sent to your specified email address, and then select **Next**.
+5. Skriv koden som skickas till din angivna e-postadress och välj sedan **Nästa**.
 
-    ![Add phone number and choose text messages](media/security-info/securityinfo-myprofile-emailcode.png)
+    ![Lägg till telefonnummer och välj textmeddelanden](media/security-info/securityinfo-myprofile-emailcode.png)
 
-    Your security info is updated and you can use your email address to verify your identity when using password reset.
+    Din säkerhets information uppdateras och du kan använda din e-postadress för att verifiera din identitet när du använder lösen ords återställning.
 
-## <a name="delete-your-email-address-from-your-security-info-methods"></a>Delete your email address from your security info methods
+## <a name="delete-your-email-address-from-your-security-info-methods"></a>Ta bort din e-postadress från säkerhets informationens metoder
 
-If you no longer want to use your email address as a security info method, you can remove it from the **Security info** page.
+Om du inte längre vill använda din e-postadress som metod för säkerhets information kan du ta bort den från sidan **säkerhets information** .
 
 >[!Important]
->If you delete your email address by mistake, there's no way to undo it. You'll have to add the method again, following the steps in the [Set up your email address](#set-up-your-email-address-from-the-security-info-page) section of this article.
+>Om du tar bort din e-postadress av misstag finns det inget sätt att ångra. Du måste lägga till metoden igen enligt stegen i avsnittet [Konfigurera din e-postadress](#set-up-your-email-address-from-the-security-info-page) i den här artikeln.
 
-### <a name="to-delete-your-email-address"></a>To delete your email address
+### <a name="to-delete-your-email-address"></a>Ta bort din e-postadress
 
-1. On the **Security info** page, select the **Delete** link next to the **Email** option.
+1. På sidan **säkerhets information** väljer du länken **ta bort** bredvid alternativet **e-post** .
 
-    ![Link to delete the phone method from security info](media/security-info/securityinfo-myprofile-emaildelete.png)
+    ![Länk för att ta bort telefon metoden från säkerhets information](media/security-info/securityinfo-myprofile-emaildelete.png)
 
-2. Select **Yes** from the confirmation box to delete the **Email** account. After the email account is deleted, it's removed from your security info and it disappears from the **Security info** page.
+2. Välj **Ja** i bekräftelse rutan om du vill ta bort **e-** postkontot. När e-postkontot har tagits bort tas det bort från din säkerhets information och försvinner från sidan **säkerhets information** .
 
-## <a name="additional-security-info-methods"></a>Additional security info methods
+## <a name="additional-security-info-methods"></a>Ytterligare metoder för säkerhets information
 
-You have additional options for how your organization contacts you to verify your identity, based on what's you're trying to do. Följande alternativ är tillgängliga:
+Du har ytterligare alternativ för hur din organisation kontaktar dig för att verifiera din identitet, baserat på vad som you're försöker göra. Följande alternativ är tillgängliga:
 
-- **Authenticator app.** Download and use an authenticator app to get either an approval notification or a randomly generated approval code for two-step verification or password reset. For step-by-step instructions about how to set up and use the Microsoft Authenticator app, see [Set up security info to use an authenticator app](security-info-setup-auth-app.md).
+- **Authenticator-app.** Hämta och Använd en Authenticator-app för att få ett meddelande om godkännande eller en slumpmässigt genererad godkännande kod för tvåstegsverifiering eller lösen ords återställning. Stegvisa instruktioner om hur du konfigurerar och använder Microsoft Authenticator-appen finns i [Konfigurera säkerhets information så att en autentiserare används](security-info-setup-auth-app.md).
 
-- **Mobile device text.** Enter your mobile device number and get a text a code you'll use for two-step verification or password reset. For step-by-step instructions about how to verify your identity with a text message (SMS), see [Set up security info to use text messaging (SMS)](security-info-setup-text-msg.md).
+- **Mobil enhets text.** Ange ditt mobila enhets nummer och få en text kod som du kan använda för tvåstegsverifiering eller lösen ords återställning. Stegvisa instruktioner för hur du verifierar din identitet med ett textmeddelande (SMS) finns i [Konfigurera säkerhets information för att använda SMS (text messaging)](security-info-setup-text-msg.md).
 
-- **Mobile device or work phone call.** Enter your mobile device number and get a phone call for two-step verification or password reset. For step-by-step instructions about how to verify your identity with a phone number, see [Set up security info to use phone calls](security-info-setup-phone-number.md).
+- **Mobil enhets-eller arbets telefon samtal.** Ange ditt mobila enhets nummer och få ett telefonsamtal för tvåstegsverifiering eller lösen ords återställning. Stegvisa instruktioner för hur du verifierar din identitet med ett telefonnummer finns i [Konfigurera säkerhets information så att telefonsamtal används](security-info-setup-phone-number.md).
 
-- **Security key.** Register your Microsoft-compatible security key and use it along with a PIN for two-step verification or password reset. For step-by-step instructions about how to verify your identity with a security key, see [Set up security info to use a security key](security-info-setup-security-key.md).
+- **Säkerhets nyckel.** Registrera din Microsoft-kompatibla säkerhets nyckel och Använd den tillsammans med en PIN-kod för tvåstegsverifiering eller lösen ords återställning. Stegvisa instruktioner för hur du verifierar din identitet med en säkerhets nyckel finns i [Konfigurera säkerhets information för att använda en säkerhets nyckel](security-info-setup-security-key.md).
 
-- **Security questions.** Answer some security questions created by your administrator for your organization. This option is only available for password reset and not for two-step verification. For step-by-step instructions about how to set up your security questions, see the [Set up security info to use security questions](security-info-setup-questions.md) article.
+- **Säkerhets frågor.** Svara på vissa säkerhets frågor som har skapats av administratören för din organisation. Det här alternativet är bara tillgängligt för lösen ords återställning och inte för tvåstegsverifiering. Stegvisa instruktioner om hur du konfigurerar dina säkerhets frågor finns i artikeln [Konfigurera säkerhets information för att använda säkerhets frågor](security-info-setup-questions.md) .
 
     >[!Note]
-    >If some of these options are missing, it's most likely because your organization doesn't allow those methods. If this is the case, you'll need to choose an available method or contact your administrator for more help.
+    >Om några av dessa alternativ saknas beror det förmodligen på att din organisation inte tillåter dessa metoder. Om så är fallet måste du välja en tillgänglig metod eller kontakta administratören om du vill ha mer hjälp.
 
 ## <a name="next-steps"></a>Nästa steg
 

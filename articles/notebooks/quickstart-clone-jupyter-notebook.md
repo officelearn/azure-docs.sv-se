@@ -1,25 +1,16 @@
 ---
 title: Klona en Jupyter-anteckningsbok från GitHub med Azure-anteckningsböcker
 description: Snabbt klona en Jupyter-anteckningsbok från en GitHub-lagringsplats och kör det i dina anteckningsböcker i Azure-konto.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: d7122b78-6daa-4bea-883b-ff832cfecef3
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.author: kraigb
-ms.openlocfilehash: ed239c470a49fc045bd436668f83dff32eac3a66
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 500bd3f85409bb2f5e7b73be0478694695cc9c00
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970121"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277530"
 ---
-# <a name="quickstart-clone-a-notebook"></a>Snabbstart: Skapa en notebook-fil
+# <a name="quickstart-clone-a-notebook"></a>Snabbstart: Klona en anteckningsbok
 
 Många dataanalytiker och utvecklare lagra sina bärbara datorer i [GitHub-lagringsplatser](https://github.com), en kostnadsfri tjänst som tillhandahåller lagring och versionskontroll för många olika projekttyper. GitHub används ofta för att samarbeta i Jupyter-anteckningsböcker som körs lokalt. I sådana fall kan varje medarbetare upprätthåller en lokal kopia av databasen och kör de bärbara datorerna från kopian.
 
@@ -33,15 +24,15 @@ Kloning av skapar en kopia av en GitHub-anteckningsbok i anteckningsböcker i Az
 
     ![Mina projekt länk överst i webbläsarfönstret](media/quickstarts/my-projects-link.png)
 
-1. På sidan **Mina projekt** väljer du pilknappen (kortkommando: Ä knappen visas som **överför GitHub lagrings platsen** när webbläsarfönstret är tillräckligt bred):
+1. På sidan **Mina projekt** väljer du pilknappen (kortkommando: U; knappen visas som **Ladda upp GitHub lagrings platsen** när webbläsarfönstret är tillräckligt bred):
 
     ![Ladda upp GitHub lagrings platsen-kommandot på sidan mina projekt](media/quickstarts/upload-github-repo-command.png)
 
 1. I fönstret **överför GitHub-lagringsplats** som visas anger eller anger du följande information och väljer sedan **Importera**:
 
-   - **GitHub-lagringsplats**: Microsoft/kognitiva-tjänster – Notebook (det här namnet klonar Jupyter-anteckningsböcker för Azure Cognitive Services vid [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks)).
+   - **GitHub-lagringsplats**: Microsoft/kognitivt-Services-Notebooks (det här namnet klonar Jupyter-anteckningsböcker för Azure Cognitive Services på [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks)).
    - **Klona rekursivt**: (avmarkerad)
-   - **Projekt namn**: Klona Cognitive Services
+   - **Projektnamnet**: Cognitive Services-klon
    - **Projektet ID**: cognitive services klon
    - **Offentliga**: (avmarkerad)
 
@@ -51,7 +42,7 @@ Kloning av skapar en kopia av en GitHub-anteckningsbok i anteckningsböcker i Az
 
 1. När Kloningen har slutförts, går Azure-datorer du till det nya projektet där du kan se kopior av alla filer.
 
-    [![](media/quickstarts/completed-clone.png "Vy över en slutförd klon")](media/quickstarts/completed-clone.png#lightbox)
+    [![](media/quickstarts/completed-clone.png "View of a completed clone")](media/quickstarts/completed-clone.png#lightbox)
 
 ## <a name="share-a-notebook"></a>Dela en anteckningsbok
 

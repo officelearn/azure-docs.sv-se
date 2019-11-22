@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: fd7ff7aa2275defba57aa24b5ef0b9adc78a5355
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: f6e1af2fdf43eb4351e996297f7dba775b7ffcef
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74093792"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278797"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Flytta en Log Analytics arbets yta till en annan prenumeration eller resurs grupp
 
@@ -29,17 +29,17 @@ Käll-och mål prenumerationer måste finnas i samma Azure Active Directory-klie
 (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
 ```
 
-## <a name="remove-solutions"></a>Ta bort lösningar
-Hanterade lösningar som är installerade på arbets ytan flyttas med flytt åtgärden Log Analytics-arbetsyta. Eftersom du måste ta bort länken från arbets ytan till ett Automation-konto, måste lösningar som förlitar sig på den länken tas bort.
+## <a name="workspace-move-considerations"></a>Överväganden vid arbets ytans flyttning
+Hanterade lösningar som är installerade på arbets ytan flyttas med flytt åtgärden Log Analytics-arbetsyta. Anslutna agenter förblir anslutna och fortsätter att skicka data till arbets ytan efter flytten. Eftersom flytt åtgärden kräver att det inte finns någon länk från arbets ytan till något Automation-konto, måste lösningar som förlitar sig på den länken tas bort.
 
-Lösningar som måste tas bort inkluderar följande: 
+Lösningar som måste tas bort innan du kan ta bort länken till ditt Automation-konto:
 
 - Uppdateringshantering
 - Spårning av ändringar
 - Starta/stoppa virtuella datorer utanför arbetstid
 
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="delete-in-azure-portal"></a>Ta bort i Azure Portal
 Använd följande procedur för att ta bort lösningarna med hjälp av Azure Portal:
 
 1. Öppna menyn för resurs gruppen som alla lösningar är installerade i.
@@ -48,7 +48,7 @@ Använd följande procedur för att ta bort lösningarna med hjälp av Azure Por
 
 ![Ta bort lösningar](media/move-workspace/delete-solutions.png)
 
-### <a name="powershell"></a>PowerShell
+### <a name="delete-using-powershell"></a>Ta bort med PowerShell
 
 Om du vill ta bort lösningarna med PowerShell använder du cmdleten [Remove-AzResource](/powershell/module/az.resources/remove-azresource?view=azps-2.8.0) som visas i följande exempel:
 
@@ -58,7 +58,7 @@ Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -Reso
 Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "Start-Stop-VM(<workspace-name>)" -ResourceGroupName <resource-group-name>
 ```
 
-## <a name="remove-alert-rules"></a>Ta bort aviserings regler
+### <a name="remove-alert-rules"></a>Ta bort aviserings regler
 För lösningen **Starta/stoppa virtuella datorer** måste du också ta bort de aviserings regler som skapats av lösningen. Använd följande procedur i Azure Portal för att ta bort dessa regler.
 
 1. Öppna menyn **övervakare** och välj sedan **aviseringar**.
@@ -82,7 +82,7 @@ Använd följande procedur för att ta bort länken till Automation-kontot från
 
 ## <a name="move-your-workspace"></a>Flytta din arbets yta
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 Använd följande procedur för att flytta din arbets yta med Azure Portal:
 
 1. Öppna menyn **Log Analytics arbets ytor** och välj sedan din arbets yta.

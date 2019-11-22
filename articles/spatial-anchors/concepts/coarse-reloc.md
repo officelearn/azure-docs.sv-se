@@ -1,5 +1,5 @@
 ---
-title: Grov omlokalisering | Microsoft Docs
+title: Grov omlokalisering
 description: Snabb starts guide för grov omlokalisering.
 author: bucurb
 manager: dacoghl
@@ -8,12 +8,12 @@ ms.author: bobuc
 ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 1d9e58f2d7eda818665a6253a8d0508104b17405
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: f03d2fba01dadc443da19416871a93a72289c0c6
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74093883"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270152"
 ---
 # <a name="coarse-relocalization"></a>Grov omlokalisering
 
@@ -652,7 +652,7 @@ Noggrannheten i GPS-signalen, både vid skapande av ankare och under frågor, ha
 
 Tabellen nedan uppskattar det förväntade Sök utrymmet för varje sensor typ:
 
-| Mäta      | Sök efter utrymmes radie (ca.) | Detaljer |
+| Mäta      | Sök efter utrymmes radie (ca.) | Information |
 |-------------|:-------:|---------|
 | GPS         | 20 m – 30 m | Bestäms av en GPS-osäkerhet bland andra faktorer. De rapporterade siffrorna beräknas för median precisionen för median för mobil telefoner med en-GPS, som är 7 meter. |
 | Wi-Fi        | 50 m-100 m | Bestäms av intervallet för de trådlösa åtkomst punkterna. Beror på frekvensen, sändnings styrkan, fysiska hinder, störning och så vidare. |

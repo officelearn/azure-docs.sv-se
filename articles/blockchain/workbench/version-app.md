@@ -1,21 +1,21 @@
 ---
-title: Blockchain program Versioning – Azure blockchain Workbench
+title: Blockchain app-versioner – Azure blockchain Workbench
 description: Så här använder du program versioner i Azure blockchain Workbench Preview.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/14/2019
+ms.date: 11/20/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: f6edbb54962ff11b5ed1497b6a202b9010c67aae
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
-ms.translationtype: MT
+ms.openlocfilehash: 35d9be219d1473ac56ca501f80fca96a265e814f
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72328827"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284839"
 ---
 # <a name="azure-blockchain-workbench-preview-application-versioning"></a>Versions hantering av Azure blockchain Workbench Preview-program
 
@@ -32,7 +32,7 @@ Du kan skapa och använda flera versioner av en Azure blockchain Workbench Previ
 
 Om du vill lägga till en ny version laddar du upp den nya konfigurationen och smarta kontrakts filer till blockchain Workbench.
 
-1. I en webbläsare går du till webbadressen för Blockchain Workbench. Exempel: `https://{workbench URL}.azurewebsites.net/` information om hur du hittar din blockchain Workbench-webbadress finns i [blockchain Workbench Web URL](deploy.md#blockchain-workbench-web-url)
+1. I en webbläsare går du till webbadressen för Blockchain Workbench. `https://{workbench URL}.azurewebsites.net/` till exempel information om hur du hittar din webb adress för blockchain Workbench finns i [blockchain Workbench Web URL](deploy.md#blockchain-workbench-web-url)
 2. Logga in som [Blockchain Workbench-administratör](manage-users.md#manage-blockchain-workbench-administrators).
 3. Välj det blockchain-program som du vill uppdatera med en annan version.
 4. Välj **Lägg till version**. Fönstret **Lägg till version** visas.

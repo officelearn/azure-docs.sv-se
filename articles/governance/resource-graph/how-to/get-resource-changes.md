@@ -1,14 +1,14 @@
 ---
 title: Hämta resursändringar
-description: Förstå hur du hittar när en resurs har ändrats och hämtar en lista över de egenskaper som har ändrats.
+description: Lär dig hur du hittar när en resurs har ändrats, hämta en lista över de egenskaper som har ändrats och utvärdera differenserna.
 ms.date: 10/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 25d900276518e51e80021d1fdb1ac80945eb2d5c
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 2ed2c0ef8638744aeaa9f31eded14d1716d891ae
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958767"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74303989"
 ---
 # <a name="get-resource-changes"></a>Hämta resursändringar
 
@@ -168,7 +168,7 @@ Exempel-begärandetexten:
 ```json
 {
     "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount",
-    "changeId": "{\"beforeId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-09T00:00:00.000Z\",\"afterId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-10T00:00:00.000Z\"}"
+    "changeId": "{\"beforeId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-09T00:00:00.000Z\",\"afterId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"afterTime\":'2019-05-10T00:00:00.000Z\"}"
 }
 ```
 

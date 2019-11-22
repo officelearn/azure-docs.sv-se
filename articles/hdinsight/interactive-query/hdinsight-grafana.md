@@ -7,18 +7,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: cea0e9709afb65caa23d28be093c28498f2b82d0
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: dae9c47f535d87214c9e1583562b4c0419cd44cf
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122985"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305435"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Åtkomst till Grafana i Azure HDInsight
 
 [Grafana](https://grafana.com/) är ett populärt diagram och instrument panels verktyg med öppen källkod. Grafana är funktionen Rich; Det innebär inte bara att användare kan skapa anpassningsbara och shareable-instrumentpaneler, men den erbjuder även mallbaserade och skriptbaserade instrument paneler, LDAP-integration, flera data källor med mera.
 
-För närvarande stöds Grafana i Azure HDInsight med kluster typerna HBase och interaktiv fråga.
+För närvarande stöds Grafana i Azure HDInsight med kluster typerna HBase, Kafka och interaktiv fråga. Det finns inte stöd för kluster med Enterprise Security Pack aktiverat.
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -37,7 +37,7 @@ I det här avsnittet skapar du ett interaktivt Query-kluster i HDInsight med hj�
     > 
     >
     
-    ![HDInsight Linux komma igång med Resource Manager-mall i portalen](./media/hdinsight-grafana/hdinsight-linux-get-started-arm-template-on-portal.png "Distribuera Hadoop-kluster i HDInsigut med hjälp av Azure portal och en resursgrupphanterarmall")
+    ![HDInsight Linux komma igång med Resource Manager-mall på portalen](./media/hdinsight-grafana/hdinsight-linux-get-started-arm-template-on-portal.png "Distribuera Hadoop-kluster i HDInsigut med hjälp av Azure Portal och en mall för resurs grupp hanteraren")
 
     Ange eller välj följande värden:
     
@@ -45,21 +45,21 @@ I det här avsnittet skapar du ett interaktivt Query-kluster i HDInsight med hj�
     |---------|---------|
     |**Prenumeration**     |  Välj din Azure-prenumeration. |
     |**Resursgrupp**     | Skapa en resursgrupp eller välj en befintlig resursgrupp.  En resursgrupp är en container med Azure-komponenter.  I det här fallet innehåller resursgruppen HDInsight-klustret och det beroende Azure Storage-kontot. |
-    |**Location**     | Välj en Azure-plats där du vill skapa klustret.  Välj en plats närmare så får du bättre prestanda. |
+    |**Plats**     | Välj en Azure-plats där du vill skapa klustret.  Välj en plats närmare så får du bättre prestanda. |
     |**Klustertyp**     | Välj **Hadoop**. |
     |**Klusternamn**     | Ange ett namn för Apache Hadoop klustret. Eftersom alla kluster i HDInsight delar samma DNS-namnområde måste namnet vara unikt. Namnet kan bestå av upp till 59 tecken, inklusive bokstäver, siffror och bindestreck. De första och sista tecknen i namnet får inte vara bindestreck. |
-    |**Inloggningsnamn och lösenord för klustret**     | Standardinloggningsnamnet är **admin**. Lösenordet måste bestå av minst 10 tecken och måste innehålla åtminstone en siffra, en versal, en gemen, ett alfanumeriskt tecken (förutom tecknen ' " ` \). Se till att du **inte anger** vanliga lösenord som Pass@word1.|
+    |**Inloggningsnamn och lösenord för klustret**     | Standard inloggnings namnet är **admin**. Lösen ordet måste bestå av minst 10 tecken och måste innehålla minst en siffra, en versal och en gemen bokstav, ett icke-alfanumeriskt tecken (förutom tecknen "" "\). Se till att du **inte anger** vanliga lösenord som Pass@word1.|
     |**SSH-användarnamn och lösenord**     | Standardanvändarnamnet är **sshuser**.  Du kan byta namn på SSH-användarnamn.  SSH-användarlösenordet har samma krav som lösenordet för klusterinloggning.|
 
     Vissa egenskaper har hårdkodats i mallen.  Du kan konfigurera dessa värden från mallen. Fler förklaringar av dessa egenskaper finns i [Skapa Apache Hadoop-kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
 3. Välj **Jag godkänner villkoren som anges ovan**, **Fäst på instrumentpanelen** och sedan **Köp**. Du ser en ny panel som heter **Skicka distribution** på portalens instrumentpanel. Det tar cirka 20 minuter att skapa ett kluster.
 
-    ![Azure malldistribution-förlopp](./media/hdinsight-grafana/deployment-progress-tile.png "Azure malldistribution-förlopp")
+    ![Azure Malldistribution-förlopp](./media/hdinsight-grafana/deployment-progress-tile.png "Azure Malldistribution-förlopp")
 
 4. När klustret skapas, ändras namnet i rubriktexten på panelen till det resursgruppsnamn som du har angett. Panelen visar även det HDInsight-kluster som skapas i resursgruppen.
 
-    ![HDInsight Linux komma igång resursgrupp](./media/hdinsight-grafana/hdinsight-linux-get-started-resource-group.png "Azure HDInsight klusterresursgrupp")
+    ![HDInsight Linux komma igång resurs grupp](./media/hdinsight-grafana/hdinsight-linux-get-started-resource-group.png "Resurs grupp för Azure HDInsight-kluster")
 
 5. Panelen visas också den standardlagring som associeras med klustret. Varje kluster är beroende av ett [Azure Storage-konto](../hdinsight-hadoop-use-blob-storage.md) eller ett [Azure Data Lake-konto](../hdinsight-hadoop-use-data-lake-store.md). Det kallas Storage-konto av standardtyp. HDInsight-kluster och dess standard lagrings konto måste samplaceras i samma Azure-region. Lagringskontot tas inte bort om du tar bort kluster.
     
@@ -69,7 +69,7 @@ I det här avsnittet skapar du ett interaktivt Query-kluster i HDInsight med hj�
 
 ## <a name="access-the-grafana-dashboard"></a>Öppna Grafana-instrumentpanelen
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 2. Välj **HDInsight-kluster**och välj sedan det kluster namn som du skapade i det sista avsnittet.
 

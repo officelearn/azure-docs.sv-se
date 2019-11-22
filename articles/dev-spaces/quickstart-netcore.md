@@ -1,27 +1,23 @@
 ---
 title: Felsöka och iterera med Visual Studio Code och .NET Core på Kubernetes med hjälp av Azure dev Spaces (Visual Studio Code)
-titleSuffix: Azure Dev Spaces
-author: zr-msft
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-ms.author: zarhoads
 ms.date: 07/08/2019
 ms.topic: quickstart
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
 manager: gwallace
-ms.openlocfilehash: b65dc5ed5d6d69ecde2108fcc322e27999704123
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
-ms.translationtype: MT
+ms.openlocfilehash: 94bab8044ad9221fe9445dfa7c9e6912274bfe2b
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815848"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279794"
 ---
-# <a name="quickstart-debug-and-iterate-with-visual-studio-code-and-net-core-on-kubernetes-using-azure-dev-spaces-visual-studio-code"></a>Snabbstart: Felsöka och iterera med Visual Studio Code och .NET Core på Kubernetes med hjälp av Azure dev Spaces (Visual Studio Code)
+# <a name="quickstart-debug-and-iterate-with-visual-studio-code-and-net-core-on-kubernetes-using-azure-dev-spaces-visual-studio-code"></a>Snabb start: Felsöka och iterera med Visual Studio Code och .NET Core på Kubernetes med hjälp av Azure dev Spaces (Visual Studio Code)
 
 I den här guiden får du lära dig hur du:
 
-- Ställa in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
+- Ställer in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
 - Utveckla en iterativ kod i behållare med hjälp av Visual Studio Code.
 - Felsök koden i ditt dev Space från Visual Studio Code.
 
@@ -30,7 +26,7 @@ Med Azure dev Spaces kan du också felsöka och iterera med:
 - [Node. js och Visual Studio Code](quickstart-nodejs.md)
 - [.NET Core och Visual Studio](quickstart-netcore-visualstudio.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En Azure-prenumeration. Om du inte har någon, kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
 - [Visual Studio Code installerat](https://code.visualstudio.com/download).
@@ -48,7 +44,7 @@ az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --gen
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Aktivera Azure dev Spaces i ditt AKS-kluster
 
-`use-dev-spaces` Använd kommandot för att aktivera dev Spaces på ditt AKS-kluster och följ anvisningarna. Kommandot nedan aktiverar dev-utrymmen i *MyAKS* -klustret i gruppen *MyResourceGroup* och skapar ett *standard* dev-utrymme.
+Använd kommandot `use-dev-spaces` för att aktivera dev Spaces i ditt AKS-kluster och följa anvisningarna. Kommandot nedan aktiverar dev-utrymmen i *MyAKS* -klustret i gruppen *MyResourceGroup* och skapar ett *standard* dev-utrymme.
 
 > [!NOTE]
 > Kommandot `use-dev-spaces` installerar även Azure dev Spaces CLI om det inte redan är installerat. Det går inte att installera Azure dev Spaces CLI i Azure Cloud Shell.
@@ -91,7 +87,7 @@ Du har nu öppnat *webfrontend* -projektet i Visual Studio Code. Om du vill kör
 
 ![Förbereda konfigurationsfiler för Azure dev Spaces](./media/common/command-palette.png)
 
-När Visual Studio Code meddelar dig även att du konfigurerar din offentliga slut punkt väljer `Yes` du att aktivera en offentlig slut punkt.
+När Visual Studio Code meddelar dig även att du konfigurerar din offentliga slut punkt väljer du `Yes` för att aktivera en offentlig slut punkt.
 
 ![Välj offentlig slut punkt](media/common/select-public-endpoint.png)
 

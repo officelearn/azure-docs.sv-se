@@ -5,20 +5,19 @@ services: data-factory
 documentationcenter: ''
 author: djpmsft
 ms.author: daperlov
-manager: jroth
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/12/2018
-ms.openlocfilehash: bed81633b27d5d0f89cb7e3d7a6e0975de4b6772
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.date: 11/19/2019
+ms.openlocfilehash: 6e466675a9bd86693ce0ee048480712a55829ce6
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681464"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280741"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines och aktiviteter i Azure Data Factory
+
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-create-pipelines.md)
 > * [Aktuell version](concepts-pipelines-activities.md)
@@ -26,17 +25,18 @@ ms.locfileid: "73681464"
 I den här artikeln beskriver vi pipelines och aktiviteter i Azure Data Factory och hur du kan använda dem för att konstruera datadrivna arbetsflöden från slutpunkt till slutpunkt för dina dataförflyttnings- och databearbetningsscenarier.
 
 ## <a name="overview"></a>Översikt
-En datafabrik kan ha en eller flera pipelines. En pipeline är en logisk gruppering aktiviteter som tillsammans utför en uppgift. Till exempel kan en pipeline innehålla en uppsättning aktiviteter som infogar och rensar loggdata och sedan startar ett Spark-jobb på ett HDInsight-kluster för att analysera loggdata. Det fina med detta är att pipelinen låter dig hantera aktiviteterna som en grupp i stället för enskilt. Du kan till exempel distribuera och schemalägga en hel pipeline i stället för att göra detta separat för varje aktivitet.
+En datafabrik kan ha en eller flera pipelines. En pipeline är en logisk gruppering aktiviteter som tillsammans utför en uppgift. En pipeline kan till exempel innehålla en uppsättning aktiviteter som matar in och rensar loggdata, och sedan startar ett mappnings data flöde för att analysera loggdata. Pipelinen låter dig hantera aktiviteterna som en uppsättning i stället för var och en. Du distribuerar och schemalägger pipelinen i stället för aktiviteterna oberoende av varandra.
 
-Aktiviteterna i en pipeline definierar åtgärder som ska utföras för dina data. Du kan till exempel använda en kopieringsaktivitet för att kopiera data från en lokal SQL Server till Azure Blob Storage. Använd sedan en Hive-aktivitet som kör ett Hive-skript på ett Azure HDInsight-kluster för att bearbeta/transformera data från Blob Storage för att producera utdata. Till sist använder du en andra kopieringsaktivitet för att kopiera utdata till ett Azure SQL Data Warehouse som Business Intelligence-rapporteringslösningar har skapats på.
+Aktiviteterna i en pipeline definierar åtgärder som ska utföras för dina data. Du kan till exempel använda en kopieringsaktivitet för att kopiera data från en lokal SQL Server till Azure Blob Storage. Använd sedan en data flödes aktivitet eller en Databricks-anteckningsbok-aktivitet för att bearbeta och transformera data från Blob Storage till en Azure Synapse Analytics-pool som Business Intelligence rapporterings lösningar bygger på.
 
-Data Factory stöder tre typer av aktiviteter: [dataförflyttning](copy-activity-overview.md), [datatransformering](transform-data.md) och [kontroll](control-flow-web-activity.md). En aktivitet kan ha noll eller flera [indatauppsättningar](concepts-datasets-linked-services.md) och kan producera en eller flera [utdatauppsättningar](concepts-datasets-linked-services.md). I följande diagram visas förhållandet mellan pipeline, aktivitet och datauppsättning i Data Factory:
+Data Factory har tre grupperingar av aktiviteter: [data förflyttnings aktiviteter](copy-activity-overview.md), [data omvandlings aktiviteter](transform-data.md)och [kontroll aktiviteter](control-flow-web-activity.md). En aktivitet kan ha noll eller flera [indatauppsättningar](concepts-datasets-linked-services.md) och kan producera en eller flera [utdatauppsättningar](concepts-datasets-linked-services.md). I följande diagram visas förhållandet mellan pipeline, aktivitet och datauppsättning i Data Factory:
 
 ![Förhållande mellan datauppsättning, aktivitet och pipeline](media/concepts-pipelines-activities/relationship-between-dataset-pipeline-activity.png)
 
 En indatauppsättning representerar indata för en aktivitet i pipeline och en utdatauppsättning representerar utdata för aktiviteten. Datauppsättningar identifierar data inom olika datalager, till exempel tabeller, filer, mappar och dokument. När du har skapat en datauppsättning kan du använda den med aktiviteter i en pipeline. Till exempel kan en datauppsättning vara en in-/utdatauppsättning för en kopieringsaktivitet eller en HDInsightHive-aktivitet. Mer information om datauppsättning finns i artikeln [Datauppsättningar i Azure Data Factory](concepts-datasets-linked-services.md).
 
 ## <a name="data-movement-activities"></a>Dataförflyttningsaktiviteter
+
 Kopieringsaktiviteten i Data Factory kopierar data från källans datalager till mottagarens datalager. Data Factory stödjer de datalager som listas i tabellen i det här avsnittet. Data kan skrivas från valfri källa till valfri mottagare. Klicka på ett datalager om du vill veta hur du kopierar data till och från det datalagret.
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores.md)]
@@ -48,6 +48,8 @@ Azure Data Factory stöder följande transformeringsaktiviteter som kan läggas 
 
 Datatransformeringsaktivitet | Compute-miljö
 ---------------------------- | -------------------
+[Data flöde](control-flow-execute-data-flow-activity.md) | Azure Databricks hanteras av Azure Data Factory
+[Azure Function](control-flow-azure-function-activity.md) | Azure Functions
 [Hive](transform-data-using-hadoop-hive.md) | HDInsight [Hadoop]
 [Pig](transform-data-using-hadoop-pig.md) | HDInsight [Hadoop]
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
@@ -56,26 +58,31 @@ Datatransformeringsaktivitet | Compute-miljö
 [Machine Learning-aktiviteter: batchkörning och resursuppdatering](transform-data-using-machine-learning.md) | Azure VM
 [Lagrad procedur](transform-data-using-stored-procedure.md) | Azure SQL, Azure SQL Data Warehouse eller SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics
-[Anpassad kod](transform-data-using-dotnet-custom-activity.md) | Azure Batch
+[Anpassad aktivitet](transform-data-using-dotnet-custom-activity.md) | Azure Batch
 [Databricks-anteckningsbok](transform-data-databricks-notebook.md) | Azure Databricks
 [Databricks jar-aktivitet](transform-data-databricks-jar.md) | Azure Databricks
 [Databricks python-aktivitet](transform-data-databricks-python.md) | Azure Databricks
 
 Mer information finns i artikeln om [datatransformeringsaktiviteter](transform-data.md).
 
-## <a name="control-activities"></a>Kontrollaktiviteter
+## <a name="control-flow-activities"></a>Kontroll flödes aktiviteter
 Följande kontrollflödesaktiviteter stöds:
 
 Kontrollaktivitet | Beskrivning
 ---------------- | -----------
-[Execute Pipeline-aktivitet](control-flow-execute-pipeline-activity.md) | Med Execute Pipeline-aktiviteten kan en Data Factory-pipeline anropa en annan pipeline.
-[ForEach-aktivitet](control-flow-for-each-activity.md) | ForEach-aktiviteten definierar ett upprepat kontrollflöde i din pipeline. Den här aktiviteten används till att iterera över en samling och kör angivna aktiviteter i en loop. Implementeringen av loopen för den här aktiviteten liknar Foreach-loopstrukturen i programmeringsspråk.
-[Webbaktivitet](control-flow-web-activity.md) | Webbaktiviteten kan används till att anropa en anpassad REST-slutpunkt från en Data Factory-pipeline. Du kan överföra datauppsättningar och länkade tjänster så att de förbrukas och används av aktiviteten.
-[Lookup-aktivitet](control-flow-lookup-activity.md) | Lookup-aktiviteten kan användas till att läsa eller söka efter en post/ett tabellnamn/ett värde från valfri extern källa. Dessa utdata kan vidare refereras av efterföljande aktiviteter.
-[GetMetadata-aktivitet](control-flow-get-metadata-activity.md) | GetMetadata-aktiviteten kan användas till att hämta metadata för data i Azure Data Factory.
-[Until-aktivitet](control-flow-until-activity.md) | Implementerar Do-Until-loop som liknar Do-Until-loopstrukturen i programmeringsspråk. En uppsättning aktiviteter körs i en loop tills det villkor som är associerat med aktiviteten utvärderas till sant. Du kan ange en tidsgräns för Until-aktiviteten i Data Factory.
+[Lägg till variabel](control-flow-append-variable-activity.md) | Lägg till ett värde i en befintlig mat ris variabel.
+[Kör pipeline](control-flow-execute-pipeline-activity.md) | Med Execute Pipeline-aktiviteten kan en Data Factory-pipeline anropa en annan pipeline.
+[Synkroniseringsfilter](control-flow-filter-activity.md) | Använda ett filter uttryck för en indatakälla
+[För varje](control-flow-for-each-activity.md) | ForEach-aktiviteten definierar ett upprepat kontrollflöde i din pipeline. Den här aktiviteten används till att iterera över en samling och kör angivna aktiviteter i en loop. Implementeringen av loopen för den här aktiviteten liknar Foreach-loopstrukturen i programmeringsspråk.
+[Hämta metadata](control-flow-get-metadata-activity.md) | GetMetadata-aktiviteten kan användas till att hämta metadata för data i Azure Data Factory.
 [If-villkorsaktivitet](control-flow-if-condition-activity.md) | If-villkoret kan användas grenbaserat på villkor som utvärderas som sanna eller falska. If-villkoret fungerar på samma sätt som en if-sats i ett programmeringsspråk. Det utvärderar en uppsättning aktiviteter om villkoret utvärderas till `true` och en annan uppsättning aktiviteter när villkoret utvärderas till `false`.
+[Lookup-aktivitet](control-flow-lookup-activity.md) | Lookup-aktiviteten kan användas till att läsa eller söka efter en post/ett tabellnamn/ett värde från valfri extern källa. Dessa utdata kan vidare refereras av efterföljande aktiviteter.
+[Ange variabel](control-flow-set-variable-activity.md) | Ange värdet för en befintlig variabel.
+[Until-aktivitet](control-flow-until-activity.md) | Implementerar Do-Until-loop som liknar Do-Until-loopstrukturen i programmeringsspråk. En uppsättning aktiviteter körs i en loop tills det villkor som är associerat med aktiviteten utvärderas till sant. Du kan ange en tidsgräns för Until-aktiviteten i Data Factory.
+[Validerings aktivitet](control-flow-validation-activity.md) | Se till att en pipeline bara fortsätter att köras om det finns en referens data uppsättning som uppfyller ett angivet villkor, eller om en tids gräns har nåtts.
 [Wait-aktivitet](control-flow-wait-activity.md) | När du använder en Wait-aktivitet i en pipeline väntar pipelinen under den angivna tidsperioden innan körningen återupptas med alla efterföljande aktiviteter.
+[Webb aktivitet](control-flow-web-activity.md) | Webbaktiviteten kan används till att anropa en anpassad REST-slutpunkt från en Data Factory-pipeline. Du kan överföra datauppsättningar och länkade tjänster så att de förbrukas och används av aktiviteten.
+[Webhook-aktivitet](control-flow-webhook-activity.md) | Anropa en slut punkt och skicka en återanrops-URL med hjälp av webhook-aktiviteten. Pipeline-körningen väntar på att återanropet ska anropas innan nästa aktivitet fortsätter.
 
 ## <a name="pipeline-json"></a>Pipeline JSON
 Så här definieras en pipeline i JSON-format:
@@ -90,17 +97,22 @@ Så här definieras en pipeline i JSON-format:
         [
         ],
         "parameters": {
-         }
+        },
+        "concurrency": <your max pipeline concurrency>,
+        "annotations": [
+        ]
     }
 }
 ```
 
-Tagga | Beskrivning | Typ | Krävs
+Tagg | Beskrivning | Typ | Krävs
 --- | ----------- | ---- | --------
-namn | Namnet på pipeline. Ange ett namn som representerar åtgärden som pipeline utför. <br/><ul><li>Maximalt antal tecken: 140</li><li>Måste börja med en bokstav, en siffra eller ett under streck (\_)</li><li>Följande tecken är inte tillåtna: ”.”, ”+”, ”?”, ”/”, ”<”,”>”,” * ”,”%”,”&”,”:”,”\”</li></ul> | Sträng | Ja
+namn | Namnet på pipeline. Ange ett namn som representerar åtgärden som pipeline utför. <br/><ul><li>Maximalt antal tecken: 140</li><li>Måste börja med en bokstav, en siffra eller ett under streck (\_)</li><li>Följande tecken är inte tillåtna: ”.”, ”+”, ”?”, ”/”, ”<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | Sträng | Ja
 description | Ange texten som beskriver vad pipeline används till. | Sträng | Nej
 activities | Avsnittet **activities** kan ha en eller flera definierade aktiviteter. I avsnittet [Aktivitets-JSON](#activity-json) finns information om aktivitets-JSON-elementet. | Matris | Ja
 parameters | Avsnittet **parameters** kan ha en eller flera definierade parametrar i pipeline, vilket gör pipeline flexibel för återanvändning. | Visa lista | Nej
+concurrency | Det maximala antalet samtidiga körningar som pipelinen kan ha. Som standard finns det inget maximum. Om samtidigheten uppnås placeras ytterligare pipeline-körningar i kö tills tidigare har slutförts | Tal | Nej 
+Anteckningar | En lista med taggar som är associerade med pipelinen | Matris | Nej
 
 ## <a name="activity-json"></a>Aktivitets-JSON
 Avsnittet **activities** kan ha en eller flera definierade aktiviteter. Det finns två huvudtyper av aktiviteter: körnings- och kontrollaktiviteter.
@@ -128,11 +140,11 @@ I körningsaktiviteter ingår [dataförflyttning](#data-movement-activities) och
 
 I följande tabell beskrivs egenskaperna i definitionen för aktivitets-JSON:
 
-Tagga | Beskrivning | Krävs
+Tagg | Beskrivning | Krävs
 --- | ----------- | ---------
-namn | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför. <br/><ul><li>Maximalt antal tecken: 55</li><li>Måste börja med en bokstavs siffra eller ett under streck (\_)</li><li>Följande tecken är inte tillåtna: ”.”, ”+”, ”?”, ”/”, ”<”,”>”,” * ”,”%”,”&”,”:”,”\” | Ja</li></ul>
+namn | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför. <br/><ul><li>Maximalt antal tecken: 55</li><li>Måste börja med en bokstavs siffra eller ett under streck (\_)</li><li>Följande tecken är inte tillåtna: ”.”, ”+”, ”?”, ”/”, ”<”,”>”,”*”,”%”,”&”,”:”,”\” | Ja</li></ul>
 description | Text som beskriver vad aktiviteten används till | Ja
-typ | Typ av aktivitet. Information om olika typer av aktiviteter finns i avsnitten [Dataförflyttningsaktiviteter](#data-movement-activities), [Datatransformeringsaktiviteter](#data-transformation-activities) och [Kontrollaktiviteter](#control-activities). | Ja
+typ | Typ av aktivitet. Information om olika typer av aktiviteter finns i avsnitten [Dataförflyttningsaktiviteter](#data-movement-activities), [Datatransformeringsaktiviteter](#data-transformation-activities) och [Kontrollaktiviteter](#control-flow-activities). | Ja
 linkedServiceName | Namnet på den länkade tjänst som används av aktiviteten.<br/><br/>En aktivitet kan kräva att du anger den länkade tjänst som länkar till den nödvändiga beräkningsmiljön. | Ja för HDInsight-aktivitet, Azure Machine Learning-batchbedömningsaktivitet, lagrad proceduraktivitet. <br/><br/>Nej för alla andra
 typeProperties | Egenskaperna i avsnittet typeProperties beror på varje typ av aktivitet. Om du vill visa typegenskaper för en aktivitet klickar du på länkarna till aktiviteten i föregående avsnitt. | Nej
 policy | Principer som påverkar körningsbeteende för aktiviteten. I den här egenskapen ingår tidsgräns- och omförsökbeteende. Standardvärden används om inga anges. Mer information finns i avsnittet [Aktivitetsprincip](#activity-policy). | Nej
@@ -193,11 +205,11 @@ Kontrollaktiviteter har följande toppnivåstruktur:
 }
 ```
 
-Tagga | Beskrivning | Krävs
+Tagg | Beskrivning | Krävs
 --- | ----------- | --------
-namn | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför.<br/><ul><li>Maximalt antal tecken: 55</li><li>Måste börja med en bokstavs siffra eller ett under streck (\_)</li><li>Följande tecken är inte tillåtna: ”.”, ”+”, ”?”, ”/”, ”<”,”>”,” * ”,”%”,”&”,”:”,”\” | Ja</li><ul>
+namn | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför.<br/><ul><li>Maximalt antal tecken: 55</li><li>Måste börja med en bokstavs siffra eller ett under streck (\_)</li><li>Följande tecken är inte tillåtna: ”.”, ”+”, ”?”, ”/”, ”<”,”>”,”*”,”%”,”&”,”:”,”\” | Ja</li><ul>
 description | Text som beskriver vad aktiviteten används till | Ja
-typ | Typ av aktivitet. Information om olika typer av aktiviteter finns i avsnitten [Dataförflyttningsaktiviteter](#data-movement-activities), [Datatransformeringsaktiviteter](#data-transformation-activities) och [Kontrollaktiviteter](#control-activities). | Ja
+typ | Typ av aktivitet. Information om olika typer av aktiviteter finns i avsnitten [Dataförflyttningsaktiviteter](#data-movement-activities), [Datatransformeringsaktiviteter](#data-transformation-activities) och [Kontrollaktiviteter](#control-flow-activities). | Ja
 typeProperties | Egenskaperna i avsnittet typeProperties beror på varje typ av aktivitet. Om du vill visa typegenskaper för en aktivitet klickar du på länkarna till aktiviteten i föregående avsnitt. | Nej
 dependsOn | Den här egenskapen används till att definiera aktivitetsberoende och hur efterföljande aktiviteter beror på tidigare aktiviteter. Mer information finns i [Aktivitetsberoende](#activity-dependency). | Nej
 
@@ -362,7 +374,7 @@ Pipelines schemaläggs av utlösare. Det finns olika typer av utlösare (schedul
 
 Om du vill att utlösaren startar en pipelinekörning måste du ta med en pipelinereferens i utlösardefinitionen. Pipelines och utlösare har ett n-m-förhållande. Flera utlösare kan starta en enda pipeline och samma utlösare kan starta flera pipelines. När utlösaren har definierats måste du starta utlösaren så att den kan börja utlösa pipeline. Mer information om utlösare finns i artikeln om [pipelinekörning och utlösare](concepts-pipeline-execution-triggers.md).
 
-Anta till exempel att du har en scheduler-utlösare, ”TriggerA” som ska starta en pipeline, ”MyCopyPipeline.” Du definierar utlösaren enligt följande exempel:
+Anta till exempel att du har en Scheduler-utlösare, "Utlös A" som jag vill använda för min pipeline, "MyCopyPipeline". Du definierar utlösaren enligt följande exempel:
 
 ### <a name="trigger-a-definition"></a>Definition av TriggerA
 

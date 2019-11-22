@@ -1,23 +1,14 @@
 ---
 title: Komma åt dataresurser från Jupyter-anteckningsböcker i Azure
 description: 'Så här att få åtkomst till filer, REST API: er, databaser och olika Azure Storage-resurser från en Jupyter-anteckningsbok.'
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: ee867303-a5e5-4686-b2da-8a0108247d18
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/04/2018
-ms.author: kraigb
-ms.openlocfilehash: e1284072db8ca8aa7a49bd3c4d52f54e5d09420a
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 23acdf99f6cb69f100e484e236580f3b2b43ba94
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970262"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277685"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Åtkomst till molndata på en bärbar dator
 
@@ -79,12 +70,12 @@ När du arbetar med Cosmos DB kan du använda den [azure-cosmos DB-table](https:
 
 Azure tillhandahåller ett antal andra typer av databaser som du kan använda. Artiklarna nedan innehåller riktlinjer för att komma åt dessa databaser från Python:
 
-- [Azure Database för PostgreSQL: Använd python för att ansluta och fråga data @ no__t-0
-- [Snabbstart: Använda Azure Redis Cache med python @ no__t-0
-- [Azure Database för MySQL: Använd python för att ansluta och fråga data @ no__t-0
+- [Azure Database för PostgreSQL: använda Python för att ansluta och fråga efter data](https://docs.microsoft.com/azure/postgresql/connect-python)
+- [Snabbstart: Använda Azure Redis Cache med Python](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
+- [Azure Database för MySQL: använda Python för att ansluta och fråga efter data](https://docs.microsoft.com/azure/mysql/connect-python)
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
   - [Kopieringsguiden för Azure Data Factory](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Anvisningar: Arbeta med Project-datafiler @ no__t-0
+- [Så här: arbeta med data projektfiler](work-with-project-data-files.md)

@@ -1,6 +1,6 @@
 ---
 title: Samla in anpassade mått för virtuella Linux-datorer med InfluxData-agenten för teleympkvistar
-description: Samla in anpassade mått för en virtuell Linux-dator med InfluxData-agenten för teleympkvistar
+description: anvisningar om hur du distribuerar InfluxData-på en virtuell Linux-dator i Azure och konfigurerar agenten för att publicera mått till Azure Monitor.
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 05cc1dcb2a6fa4e7790fa57cd2136d21d94b8a0b
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 4e8783d500ed7dd6e8e5d518d2a4fbe5e5e1e276
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200517"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305287"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Samla in anpassade mått för en virtuell Linux-dator med InfluxData-agenten för teleympkvistar
 

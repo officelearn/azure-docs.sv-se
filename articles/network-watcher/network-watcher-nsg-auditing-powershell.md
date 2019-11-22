@@ -1,5 +1,6 @@
 ---
-title: Automatisera NSG granskning med Azure Network Watcher Security Group View | Microsoft Docs
+title: Automatisera NSG granskning – vyn säkerhets grupp
+titleSuffix: Azure Network Watcher
 description: Den här sidan innehåller instruktioner för hur du konfigurerar granskning av en nätverks säkerhets grupp
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 8e0eddd07fc0c473e4777d9dd90d0b2c64145e34
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: f4c553cd144f7c921121aa943e3c40849891f957
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165143"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278044"
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Automatisera NSG granskning med vyn Azure Network Watcher säkerhets grupp
 
@@ -49,7 +50,7 @@ I det här scenariot kommer du att:
 
 ## <a name="retrieve-rule-set"></a>Hämta regel uppsättning
 
-Det första steget i det här exemplet är att arbeta med en befintlig bas linje. I följande exempel är en JSON-extraherad från en befintlig nätverks säkerhets grupp `Get-AzNetworkSecurityGroup` med hjälp av den cmdlet som används som bas linje för det här exemplet.
+Det första steget i det här exemplet är att arbeta med en befintlig bas linje. I följande exempel är en JSON-extraherad från en befintlig nätverks säkerhets grupp med hjälp av den `Get-AzNetworkSecurityGroup`-cmdlet som används som bas linje för det här exemplet.
 
 ```json
 [
@@ -126,7 +127,7 @@ $nsgbaserules = Get-Content -Path C:\temp\testvm1-nsg.json | ConvertFrom-Json
 
 ## <a name="retrieve-network-watcher"></a>Hämta Network Watcher
 
-Nästa steg är att hämta Network Watcher-instansen. Variabeln skickas `AzNetworkWatcherSecurityGroupView` till cmdleten. `$networkWatcher`
+Nästa steg är att hämta Network Watcher-instansen. Variabeln `$networkWatcher` skickas till `AzNetworkWatcherSecurityGroupView`-cmdleten.
 
 ```powershell
 $networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 

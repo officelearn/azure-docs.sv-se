@@ -1,23 +1,14 @@
 ---
 title: Logga in på Azure-anteckningsböcker
 description: Snabbt logga in på Azure-anteckningsböcker och ange ett användar-ID, vilket ger dig möjlighet att komma åt sparade projekt och dela anteckningsböcker med andra.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: fb8c94b1-6d0a-4b77-8d14-ae6efcdd99f4
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 04/15/2019
-ms.author: kraigb
-ms.openlocfilehash: 0c12c8673ff61dcca62c72addcbf0d9b33c2c252
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 234703da9662380a59c7673ca3b34a1b01b7dbef
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973065"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277445"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id"></a>Snabbstart: Logga in och ange ett användar-ID
 
@@ -66,4 +57,4 @@ Att logga ut, väljer användarnamnet längst upp till höger på sidan och seda
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Skapa och dela en Notebook @ no__t-0
+> [Snabbstart: Skapa och dela en anteckningsbok](quickstart-create-share-jupyter-notebook.md)

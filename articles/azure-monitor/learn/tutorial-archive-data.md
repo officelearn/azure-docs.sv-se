@@ -1,6 +1,6 @@
 ---
 title: Arkivera Azure mått och loggdata med hjälp av Azure Storage
-description: Arkivera loggen och mätdata som genereras i Azure i ett lagringskonto.
+description: Arkivera logg-och mått data som genererats av Azure-resurser till ett lagrings konto.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.subservice: metrics
-ms.openlocfilehash: e784b76af478f834a7d1104650da1cbd3ca2a31f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4d150a1f6793cc20d58bebc67d5c6b58c03139d4
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60552934"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304707"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Arkivera Azure mått och loggdata med hjälp av Azure Storage
 
@@ -38,9 +38,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
-## <a name="create-a-storage-account"></a>skapar ett lagringskonto
+## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
 
 Du måste först skapa ett lagringskonto där övervakningsdata arkiveras. För att göra det [följer du de här stegen](../../storage/common/storage-quickstart-create-account.md).
 
@@ -96,14 +96,14 @@ Nu konfigurerar vi resursnivådata (resursmått och diagnostikloggar) så att de
 
 6. Ställ in reglaget **Bevarande (dagar)** till 30. Det här reglaget anger hur många dagar som övervakningsdata behålls på lagringskontot. Azure Monitor avlägsnar automatiskt data som är äldre än det angivna antalet dagar. Om du ställer in noll dagar lagras data utan tidsbegränsning.
 
-7. Klicka på **Spara**.
+7. Klicka på **Save** (Spara).
 
 Nu flödar övervakningsdata från resursen till lagringskontot.
 
 > [!NOTE]
 > Det går för närvarande inte att skicka flerdimensionella mätvärden via diagnostikinställningar. Mått med dimensioner exporteras som tillplattade endimensionella mått som aggregeras över dimensionsvärden.
 >
-> *Till exempel*: Måttet för inkommande meddelanden i en händelsehubb kan utforskas och visas för varje enskild kö. När måttet exporteras via diagnostikinställningar visas det dock som alla inkommande meddelanden i alla köer i händelsehubben.
+> *Till exempel*: Måttet för inkommande meddelanden i en händelsehubb kan utforskas och läggas till på per-kö-nivå. När måttet exporteras via diagnostikinställningar visas det dock som alla inkommande meddelanden i alla köer i händelsehubben.
 >
 >
 
@@ -137,7 +137,7 @@ Nu flödar övervakningsdata från resursen till lagringskontot.
 
 9. I avsnittet som visas väljer du det lagringskonto som du skapade i föregående steg i **Skapa ett lagringskonto**.
 
-10. Klicka på **Spara**.
+10. Klicka på **Save** (Spara).
 
 Nu flödar övervakningsdata från de virtuella datorerna till lagringskontot.
 

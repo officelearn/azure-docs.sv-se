@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 3df1bd879c10411800596ce7157be4554fcffaf6
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 71a0be68f91c468813c1ed2fc8764d9714deb54a
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903501"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276200"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Snabbstart: Etablera en simulerad TPM-enhet med Azure IoT C SDK
 
@@ -115,24 +115,25 @@ I det här avsnittet kompilerar och kör du ett exempel som läser bekräftelsen
 
 3. I fönstret *Solution Explorer* i Visual Studio går du till mappen **Provision (Etablera)\_Verktyg**. Högerklicka på projektet **tpm_device_provision** och markera **Set as Startup Project** (Ange som startprojekt). 
 
-4. I Visual Studio-menyn väljer du **Felsökning** > **Starta utan felsökning** för att köra lösningen. Appen läser och visar ett **_registrerings-ID_** och en **_bekräftelsenyckel_** . Kopiera de här värdena. De kommer att användas i nästa avsnitt för enhetsregistrering. 
+4. I Visual Studio-menyn väljer du **Felsökning** > **Starta utan felsökning** för att köra lösningen. Appen läser och visar ett **_registrerings-ID_** och en **_bekräftelse nyckel_** . Observera eller kopiera dessa värden. De kommer att användas i nästa avsnitt för enhetsregistrering. 
 
 
 <a id="portalenrollment"></a>
 
 ## <a name="create-a-device-enrollment-entry-in-the-portal"></a>Skapa en post för enhetsregistrering i portalen
 
-1. Logga in på Azure-portalen, klicka på knappen **Alla resurser** i den vänstra menyn och öppna Device Provisioning-tjänsten.
+1. Logga in på Azure Portal, Välj knappen **alla resurser** i den vänstra menyn och öppna Device Provisioning-tjänsten.
 
-2. Välj fliken **Hantera registreringar** och klicka sedan på knappen **Lägg till enskild registrering** längst upp. 
+1. Välj fliken **Hantera registreringar** och välj sedan knappen **Lägg till individuell registrering** överst. 
 
-3. På **Lägg till registrering** anger du följande information och klickar på knappen **Spara**.
-
-    - **Mekanism:** välj **TPM** som identitetsattesterings*mekanism*.
-    - **Bekräftelsenyckel:** ange den *bekräftelsenyckel* som du skapade för din TPM-enhet genom att köra projektet *tpm_device_provision*.
-    - **Registrerings-ID:** ange det *Registrerings-ID* som du skapade för din TPM-enhet genom att köra projektet *tpm_device_provision*.
-    - **IoT Edge-enhet:** välj **Inaktivera**.
-    - **Enhets-ID för IoT Hub:** ange **test-docs-device** för att ge enheten ett ID.
+1. Ange följande information på panelen **Lägg till registrering** :
+   - Välj **TPM** som identitet för bestyrkande *mekanism*.
+   - Ange *registrerings-ID* och *bekräftelse nyckel* för din TPM-enhet från de värden som du antecknade tidigare.
+   - Välj en IoT hub som är länkad till din etableringstjänst.
+   - Du kan även ange följande information:
+       - Ange ett unikt *enhets-ID* (du kan använda den föreslagna **test-dok-enheten** eller ange en egen). Se till att undvika känsliga data när du namnger din enhet. Om du väljer att inte ange en, används registrerings-ID: t för att identifiera enheten i stället.
+       - Uppdatera **inledande enhetstvillingstatus** med önskad inledande konfiguration för enheten.
+   - När du är klar trycker du på knappen **Spara** . 
 
       ![Ange information för enhetsregistrering i portalen](./media/quick-create-simulated-device/enter-device-enrollment.png)  
 
@@ -182,7 +183,7 @@ I det här avsnittet konfigurerar du exempelkod för att använda [Advanced Mess
 
 6. Högerklicka på projektet **prov\_dev\_client\_sample** och välj **Set as Startup Project** (Ange som startprojekt). 
 
-7. I Visual Studio-menyn väljer du **Felsökning** > **Starta utan felsökning** för att köra lösningen. I meddelandet för att omkompilera projektet klickar du på **Ja**, för att omkompilera projektet innan du kör.
+7. I Visual Studio-menyn väljer du **Felsökning** > **Starta utan felsökning** för att köra lösningen. I prompten för att återskapa projektet väljer du **Ja**för att återskapa projektet innan det körs.
 
     Följande utdata är ett exempel på när etableringsenhetens klientprov lyckas med starten och ansluter till en instans av enhetsetableringstjänst för att hämta IoT-hubbinformation och registrera:
 
@@ -200,23 +201,23 @@ I det här avsnittet konfigurerar du exempelkod för att använda [Advanced Mess
     test-docs-hub.azure-devices.net, deviceId: test-docs-device
     ```
 
-8. När den simulerade enheten har etablerats till IoT-hubben av etableringstjänsten visas enhets-ID med hubbens **IoT-enheter**. 
+8. När den simulerade enheten har allokerats till IoT-hubben av etablerings tjänsten visas enhets-ID: t med hubbens **IoT-enheter**. 
 
     ![Enheten är registrerad på IoT-hubben](./media/quick-create-simulated-device/hub-registration.png) 
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du vill fortsätta att arbeta med och utforska enhetsklientexemplet ska du inte rensa de resurser som har skapats i den här snabbstarten. Om du inte planerar att fortsätta kan du använda stegen nedan för att ta bort alla resurser som har skapats i den här snabbstarten.
+Om du planerar att fortsätta att arbeta med och utforska enhets klient exemplet ska du inte rensa upp resurserna som du skapade i den här snabb starten. Om du inte planerar att fortsätta kan du använda följande steg för att ta bort alla resurser som skapats i den här snabb starten.
 
 1. Stäng utdatafönstret för enhetsklientexemplet på datorn.
 2. Stäng fönstret för TPM-simulatorn på datorn.
-3. Klicka på **Alla resurser** på menyn till vänster på Azure-portalen och välj din Device Provisioning-tjänst. Öppna **Hantera registreringar** för tjänsten och klicka sedan på fliken **enskilda registreringar** . Välj *registrerings-ID* för enheten som du har registrerat i den här snabb starten och klicka på knappen **ta bort** högst upp. 
-4. Klicka på **Alla resurser** på menyn till vänster på Azure-portalen och välj din IoT-hubb. Öppna **IoT-enheter** för din hubb, välj *ENHETS-ID* för den enhet som du har registrerat i den här snabbstarten och klicka på knappen **Ta bort** högst upp.
+3. Välj **alla resurser** på den vänstra menyn i Azure Portal och välj sedan enhets etablerings tjänsten. Öppna **Hantera registreringar** för din tjänst och välj sedan fliken **enskilda registreringar** . Markera kryss rutan bredvid *registrerings-ID* för den enhet som du har registrerat i den här snabb starten och klicka på knappen **ta bort** högst upp i fönstret. 
+4. Välj **alla resurser** på den vänstra menyn i Azure Portal och välj sedan din IoT Hub. Öppna **IoT-enheter** för navet, markera kryss rutan bredvid *enhets-ID* för enheten som du registrerade i den här snabb starten och tryck sedan på knappen **ta bort** högst upp i fönstret.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du skapat en TPM-simulerad enhet på datorn och etablerat den på IoT-hubben med hjälp av IoT Hub Device Provisioning-tjänsten. Information om hur du registrerar TPM-enheten programmässigt får du om du fortsätter till snabbstarten för programmässig registrering av en TPM-enhet. 
+I den här snabb starten har du skapat en TPM-simulerad enhet på datorn och allokerat den till IoT-hubben med hjälp av IoT Hub Device Provisioning Service. Om du vill lära dig hur du registrerar en TPM-enhet program mässigt kan du fortsätta till snabb starten för program registrering av en TPM-enhet. 
 
 > [!div class="nextstepaction"]
-> [Azure snabbstart – Registrera TPM-enhet på Azure IoT Hub Device Provisioning-tjänsten](quick-enroll-device-tpm-java.md)
+> [Azure snabb start – registrera TPM-enhet på Azure IoT Hub Device Provisioning Service](quick-enroll-device-tpm-java.md)

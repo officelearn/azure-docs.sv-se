@@ -1,5 +1,5 @@
 ---
-title: Skicka gäst operativ systemets mått till Azure Monitor Metric Store med hjälp av en Resource Manager-mall för en virtuell Windows-dator
+title: Samla in Windows VM-mått i Azure Monitor med mall
 description: Skicka gäst operativ systemets mått till Azure Monitor Metric Store med hjälp av en Resource Manager-mall för en virtuell Windows-dator
 author: anirudhcavale
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: ac8d059c2bcad7aaa005b4afe1fb7814d49f9339
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: b6e66bea6dd86409866db1fee3564d21236ecbce
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844955"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286183"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Skicka gäst operativ systemets mått till Azure Monitor Metric Store med hjälp av en Resource Manager-mall för en virtuell Windows-dator
 
@@ -27,7 +27,7 @@ Genom att lagra dem på den här platsen kan du komma åt samma åtgärder för 
 
 Om du är nybörjare på Resource Manager-mallar kan du läsa mer om [mall distributioner](../../azure-resource-manager/resource-group-overview.md) och deras struktur och syntax.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Din prenumeration måste vara registrerad med [Microsoft. Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services).
 
@@ -40,7 +40,7 @@ Om du är nybörjare på Resource Manager-mallar kan du läsa mer om [mall distr
 Azure-diagnostik-tillägget använder en funktion som kallas "data mottagare" för att dirigera mått och loggar till olika platser. Följande steg visar hur du använder en Resource Manager-mall och PowerShell för att distribuera en virtuell dator med hjälp av den nya "Azure Monitor"-data mottagaren.
 
 ## <a name="author-resource-manager-template"></a>Skapa Resource Manager-mall
-I det här exemplet kan du använda en offentligt tillgänglig exempel mall. Startmallarna finns på https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows.
+I det här exemplet kan du använda en offentligt tillgänglig exempel mall. Startmallarna finns https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows.
 
 - **Azuredeploy. JSON** är en förkonfigurerad Resource Manager-mall för distribution av en virtuell dator.
 
@@ -126,7 +126,7 @@ Lägg till **identitets** konfigurationen i VM-resursen för att säkerställa a
     ...
 ```
 
-Lägg till följande konfiguration för att aktivera diagnostikprogrammet-tillägget på en virtuell Windows-dator. För en enkel Resource Manager-baserad virtuell dator kan vi lägga till tilläggs konfigurationen till resurs-matrisen för den virtuella datorn. Raden "Sinks&mdash; " "AzMonSink" och motsvarande "SinksConfig" senare i avsnittet&mdash;aktiverar tillägget för att generera mått direkt till Azure Monitor. Du kan lägga till eller ta bort prestanda räknare efter behov.
+Lägg till följande konfiguration för att aktivera diagnostikprogrammet-tillägget på en virtuell Windows-dator. För en enkel Resource Manager-baserad virtuell dator kan vi lägga till tilläggs konfigurationen till resurs-matrisen för den virtuella datorn. Raden "Sinks"&mdash; "AzMonSink" och motsvarande "SinksConfig" senare i avsnittet&mdash;aktiverar tillägget för att generera mått direkt till Azure Monitor. Du kan lägga till eller ta bort prestanda räknare efter behov.
 
 
 ```json
@@ -242,7 +242,7 @@ För att distribuera Resource Manager-mallen utnyttjar vi Azure PowerShell.
 
 1. Starta PowerShell.
 1. Logga in på Azure med `Login-AzAccount`.
-1. Hämta din lista över prenumerationer med `Get-AzSubscription`hjälp av.
+1. Hämta din lista över prenumerationer med hjälp av `Get-AzSubscription`.
 1. Ange den prenumeration som du använder för att skapa/uppdatera den virtuella datorn i:
 
    ```powershell

@@ -3,12 +3,12 @@ title: Fastställa orsaker till icke-kompatibilitet
 description: När en resurs är icke-kompatibel finns det många möjliga orsaker. Lär dig hur du tar reda på vad som orsakade bristande efterlevnad.
 ms.date: 04/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6f113080ab84fe7d159766e6543ff61b28f4ead2
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 839e6c61c4a44ba7c7581290408bb997b53b8f96
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959615"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279404"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Fastställa orsaker till icke-kompatibilitet
 
@@ -216,6 +216,6 @@ Data för ändrings historiken tillhandahålls av [Azure Resource Graph](../../r
 - Granska [Azure Policy-definitionsstrukturen](../concepts/definition-structure.md).
 - Granska [Förstå policy-effekter](../concepts/effects.md).
 - Lär dig att [program mässigt skapa principer](programmatically-create.md).
-- Lär dig hur du [hämtar efterlevnadsprinciper](getting-compliance-data.md).
+- Lär dig hur du [hämtar efterlevnadsprinciper](get-compliance-data.md).
 - Lär dig hur du [åtgärdar icke-kompatibla resurser](remediate-resources.md).
 - Granska en hanterings grupp med [organisera dina resurser med Azures hanterings grupper](../../management-groups/overview.md).

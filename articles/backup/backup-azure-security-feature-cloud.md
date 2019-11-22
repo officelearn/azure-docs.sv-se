@@ -3,12 +3,12 @@ title: Säkerhetsfunktioner som hjälper dig att skydda moln arbets belastningar
 description: Lär dig hur du använder säkerhetsfunktioner i Azure Backup för att göra säkerhets kopieringar säkrare.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 95eb72fe9d918b527cdceec69a0e90a682d62b07
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: b6ce2f9400ad46150fbd4ee86f126b137b5f7800
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172722"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278216"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Säkerhetsfunktioner som hjälper dig att skydda moln arbets belastningar som använder Azure Backup
 
@@ -41,7 +41,7 @@ Mjuk borttagning stöds för närvarande i USA, västra centrala, Asien, östra,
    > [!NOTE]
    > Om det finns mjuka, borttagna säkerhets kopierings objekt i valvet kan valvet inte tas bort vid denna tidpunkt. Försök att ta bort valvet när säkerhets kopierings objekten har tagits bort permanent och att det inte finns något objekt i läget Soft Deleted kvar i valvet.
 
-4. För att återställa den mjuk-borttagna virtuella datorn måste den först tas bort. Om du vill ångra borttagningen väljer du den mjuk-borttagna virtuella datorn och klickar sedan på alternativet **ångra borttagning**.
+4. För att återställa den mjuk-borttagna virtuella datorn måste den först tas bort. Om du vill ångra borttagningen väljer du den mjuk-borttagna virtuella datorn och väljer sedan alternativet **ta bort**.
 
    ![Skärm bild av Azure Portal, ta bort virtuell dator](./media/backup-azure-security-feature-cloud/choose-undelete.png)
 
@@ -60,7 +60,7 @@ Mjuk borttagning stöds för närvarande i USA, västra centrala, Asien, östra,
 
    ![Skärm bild av Azure Portal, återuppta säkerhets kopierings alternativ](./media/backup-azure-security-feature-cloud/resume-backup.png)
 
-Det här Flow-diagrammet visar de olika stegen och tillstånden för ett säkerhets kopierings objekt:
+Det här Flow-diagrammet visar de olika stegen och tillstånden för ett säkerhets kopierings objekt när mjuk borttagning är aktiverat:
 
 ![Livs cykel för mjuk borttagning av säkerhets kopierings objekt](./media/backup-azure-security-feature-cloud/lifecycle.png)
 
@@ -68,26 +68,47 @@ Mer information finns i avsnittet [vanliga frågor och svar](backup-azure-securi
 
 ## <a name="disabling-soft-delete"></a>Inaktiverar mjuk borttagning
 
-Mjuk borttagning är aktiverat som standard på nyligen skapade valv. Om funktionen för mjuk borttagning är inaktive rad skyddas inte säkerhetskopierade data från oavsiktliga eller skadliga borttagningar. Utan funktionen mjuk borttagning leder all borttagning av skyddade objekt till omedelbar borttagning, utan möjlighet att återställa. Eftersom säkerhets kopierings data i läget "mjuk borttagning" inte kostar någon kostnad för kunden, rekommenderas inte att du inaktiverar den här funktionen. Den enda omständigheterna där du bör inaktivera mjuk borttagning är om du planerar att flytta dina skyddade objekt till ett nytt valv. det går inte att vänta 14 dagar innan du tar bort och återskyddar (till exempel i en test miljö).
+Mjuk borttagning är aktiverat som standard på nyligen skapade valv för att skydda säkerhets kopierings data från oavsiktliga eller skadliga borttagningar.  Du bör inte inaktivera den här funktionen. Den enda omständigheterna där du bör inaktivera mjuk borttagning är om du planerar att flytta dina skyddade objekt till ett nytt valv. det går inte att vänta 14 dagar innan du tar bort och återskyddar (till exempel i en test miljö). Endast en säkerhets kopierings administratör kan inaktivera den här funktionen. Om du inaktiverar den här funktionen kommer all borttagning av skyddade objekt att leda till omedelbar borttagning, utan möjlighet att återställa. Säkerhets kopierings data i läget Soft Deleted tidigare inaktive ring av den här funktionen kommer att vara i läget Soft Deleted Om du vill ta bort dessa omedelbart permanent måste du ångra borttagningen och ta bort dem igen för att ta bort dem permanent.
 
-### <a name="prerequisites-for-disabling-soft-delete"></a>Krav för att inaktivera mjuk borttagning
-
-- Det går bara att göra Azure Portal att aktivera eller inaktivera mjuk borttagning för valv (utan skyddade objekt). Detta gäller för:
-  - Nyligen skapade valv som inte innehåller skyddade objekt
-  - Befintliga valv vars skyddade objekt har tagits bort och upphört att gälla (utöver den fasta bevarande perioden på 14 dagar)
-- Om funktionen för mjuk borttagning är inaktive rad för valvet kan du återaktivera den, men du kan inte ångra det alternativet och inaktivera det igen om valvet innehåller skyddade objekt.
-- Du kan inte inaktivera mjuk borttagning för valv som innehåller skyddade objekt eller objekt i läget Soft-Deleted. Följ dessa steg om du behöver göra det:
-  - Sluta skydda borttagna data för alla skyddade objekt.
-  - Vänta tills säkerhets kvarhållning 14 dagar upphör att gälla.
-  - Inaktivera mjuk borttagning.
-
-Om du vill inaktivera mjuk borttagning kontrollerar du att kraven är uppfyllda och följer sedan de här stegen:
+Följ dessa steg om du vill inaktivera mjuk borttagning:
 
 1. Gå till ditt valv i Azure Portal och gå sedan till **inställningar** -> **Egenskaper**.
-2. I fönstret Egenskaper väljer du **säkerhets inställningar** -> **uppdatering**.
-3. I rutan säkerhets inställningar under mjuk borttagning väljer du **inaktivera**.
+2. I fönstret Egenskaper väljer du **säkerhets inställningar** -> **uppdatering**.  
+3. I rutan säkerhets inställningar under **mjuk borttagning**väljer du **inaktivera**.
+
 
 ![Inaktivera mjuk borttagning](./media/backup-azure-security-feature-cloud/disable-soft-delete.png)
+
+## <a name="permanently-deleting-soft-deleted-backup-items"></a>Ta bort mjuka borttagna säkerhets kopierings objekt permanent
+
+Säkerhets kopierings data i läget Soft Deleted tidigare inaktive ring av den här funktionen kommer att vara i läget Soft Deleted Om du vill ta bort dessa omedelbart tar du bort dem igen och tar bort dem permanent. 
+
+Följ de här stegen:
+
+1. Följ stegen för att [inaktivera mjuk borttagning](#disabling-soft-delete). 
+2. Gå till ditt valv i Azure Portal, gå till **säkerhets kopierings objekt** och välj den mjuka BORTTAGNA virtuella datorn 
+
+![Välj Mjuk borttagning av virtuell dator](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
+
+3. Välj alternativet **ångra borttagning**.
+
+![Välj ångra borttagning](./media/backup-azure-security-feature-cloud/choose-undelete.png)
+
+
+4. Ett fönster visas. Välj **ångra borttagning**.
+
+![Välj ångra borttagning](./media/backup-azure-security-feature-cloud/undelete-vm.png)
+
+5. Välj **ta bort säkerhetskopierade data** om du vill ta bort säkerhetskopierade data permanent.
+
+![Välj Ta bort säkerhets kopierings data](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+
+6. Ange namnet på det säkerhetskopierade objektet för att bekräfta att du vill ta bort återställnings punkterna.
+
+![Ange namnet på det säkerhetskopierade objektet](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+
+7. Om du vill ta bort säkerhetskopierade data för objektet väljer du **ta bort**. Ett meddelande visas där du vet att säkerhets kopierings data har tagits bort.
+
 
 ## <a name="other-security-features"></a>Andra säkerhetsfunktioner
 
@@ -139,7 +160,7 @@ Undelete följt av Resume-åtgärden skyddar resursen igen. Återuppta åtgärd 
 
 #### <a name="can-i-delete-my-vault-if-there-are-soft-deleted-items-in-the-vault"></a>Kan jag ta bort mitt valv om det finns mjuka borttagna objekt i valvet?
 
-Det går inte att ta bort Recovery Services valv om det finns säkerhets kopierings objekt i läget Soft-Deleted i valvet. De mjuka borttagna objekten tas bort permanent efter 14 dagars borttagnings åtgärd. Du kan bara ta bort valvet när alla mjuka borttagna objekt har rensats.  
+Det går inte att ta bort Recovery Services valvet om det finns säkerhets kopierings objekt i läget Soft-Deleted i valvet. De mjuka borttagna objekten tas bort permanent 14 dagar efter borttagnings åtgärden. Om du inte kan vänta i 14 dagar [inaktiverar du mjuk borttagning](#disabling-soft-delete), tar bort de mjuka borttagna objekten och tar bort dem igen för att ta bort dem permanent. När du har kontrollerat att det inte finns några skyddade objekt och inga mjuka borttagna objekt kan valvet tas bort.  
 
 #### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>Kan jag ta bort data som är tidigare än de 14 dagarna mjuk borttagnings perioden efter borttagningen?
 

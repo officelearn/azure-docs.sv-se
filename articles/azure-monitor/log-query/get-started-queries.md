@@ -7,12 +7,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: d0e19c8483321189cb38a4eebdbf7b2cb89785ef
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 0503ebc7a585210f95eb58b0f11ae1dd0a835264
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933030"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278610"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Kom igång med logg frågor i Azure Monitor
 
@@ -239,4 +239,7 @@ Om du vill göra resultatet tydligare väljer du att visa det som ett tids diagr
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om att [skriva Sök frågor](search-queries.md)
+- Läs mer om hur du använder sträng data i en logg fråga med att [arbeta med strängar i Azure Monitor logg frågor](string-operations.md).
+- Lär dig mer om att aggregera data i en logg fråga med [avancerade agg regeringar i Azure Monitor logg frågor](advanced-aggregations.md).
+- Lär dig hur du kopplar data från flera tabeller med [kopplingar i Azure Monitor logg frågor](joins.md).
+- Hämta dokumentation om hela Kusto-frågespråket i [språk referens för KQL](/azure/kusto/query/).

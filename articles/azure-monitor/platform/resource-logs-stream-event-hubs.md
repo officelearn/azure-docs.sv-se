@@ -1,6 +1,6 @@
 ---
 title: Strömma Azure-resurs loggar till en Event Hub
-description: Lär dig hur du direktuppspelar Azures resurs loggar till en Event Hub.
+description: Lär dig att strömma Azure-resurshanteraren till en Event Hub för att skicka data till externa system, till exempel Siem från tredje part och andra Log Analytics-lösningar.
 author: bwren
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 1d7a533658b6c72caae9649d7e5a9c4fad117245
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 680570c5102f656b2b2d2e05f9e08f51fe892f44
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262419"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304940"
 ---
 # <a name="stream-azure-resource-logs-to-azure-event-hubs"></a>Strömma Azures resurs loggar till Azure Event Hubs
 [Resurs loggar](resource-logs-overview.md) i Azure ger omfattande, frekventa data om den interna driften av en Azure-resurs. I den här artikeln beskrivs strömmande resurs loggar till händelse hubbar för att skicka data till externa system, till exempel Siem från tredje part och andra Log Analytics-lösningar.
@@ -25,7 +25,7 @@ Strömma resurs loggar i Azure till Event Hubs för att tillhandahålla följand
 * **Strömma loggar till loggnings-och telemetri system från tredje part** – strömma alla dina resurs loggar till en enda händelsehubben för att skicka loggdata till ett Siem-eller Log Analytics-verktyg från tredje part.
 * **Bygg en anpassad telemetri-och loggnings plattform** – den mycket skalbara publicerings prenumerations typen för Event Hub gör att du kan mata in resurs loggar på ett flexibelt sätt i en anpassad teletry-plattform. Mer information finns i [utforma och ändra storlek på en plattform för global skalnings telemetri på Azure Event Hubs](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/) .
 
-* **Visa tjänstens hälsa genom att strömma data till Power BI** – Använd Event Hubs, Stream Analytics och Power BI för att omvandla dina diagnostikdata till nära real tids insikter om dina Azure-tjänster. Se [Stream Analytics och Power BI: En instrument panel för real tids analys för strömmande data](../../stream-analytics/stream-analytics-power-bi-dashboard.md) för mer information om den här lösningen.
+* **Visa tjänstens hälsa genom att strömma data till Power BI** – Använd Event Hubs, Stream Analytics och Power BI för att omvandla dina diagnostikdata till nära real tids insikter om dina Azure-tjänster. Mer information om den här lösningen finns i [Stream Analytics och Power BI: en analys instrument panel i real tid för att strömma data](../../stream-analytics/stream-analytics-power-bi-dashboard.md) .
 
     Följande SQL-kod är ett exempel på en Stream Analytics fråga som du kan använda för att parsa alla loggdata i en Power BI tabell:
     
@@ -39,7 +39,7 @@ Strömma resurs loggar i Azure till Event Hubs för att tillhandahålla följand
     CROSS APPLY GetArrayElements(e.records) AS records
     ```
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Du måste [skapa en Event Hub](../../event-hubs/event-hubs-create.md) om du inte redan har en. Om du tidigare har strömmat resurs loggar till det här Event Hubs namn området, kommer den händelsehubben att återanvändas.
 
 Principen för delad åtkomst för namn området definierar de behörigheter som den strömmande mekanismen har. Strömning till Event Hubs kräver behörigheterna hantera, skicka och lyssna. Du kan skapa eller ändra principer för delad åtkomst i Azure Portal under fliken Konfigurera för ditt Event Hubs-namnområde.
@@ -59,12 +59,12 @@ När du använder resurs loggar från Event Hub är det JSON-format med elemente
 
 | Element namn | Beskrivning |
 | --- | --- |
-| poster |En matris med alla logg händelser i denna nytto Last. |
+| resurspost |En matris med alla logg händelser i denna nytto Last. |
 | time |Tiden då händelsen inträffade. |
 | category |Logg kategori för den här händelsen. |
 | resourceId |Resurs-ID för den resurs som skapade den här händelsen. |
 | operationName |Åtgärdens namn. |
-| level |Valfritt. Anger händelse nivån för loggen. |
+| level |Valfri. Anger händelse nivån för loggen. |
 | properties |Händelsens egenskaper. Dessa kan variera för varje Azure-tjänst enligt beskrivningen [ ]()i. |
 
 

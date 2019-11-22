@@ -1,6 +1,6 @@
 ---
-title: Lägga till en icke-Microsoft-konto till en Authenticator-app – Azure AD
-description: Hur du lägger till konton som inte kommer från Microsoft, till exempel för Google, Facebook eller GitHub till Microsoft Authenticator-appen för tvåstegsverifiering.
+title: Lägg till konton som inte kommer från Microsoft i Microsoft Authenticator app – Azure AD
+description: Lägg till konton som inte kommer från Microsoft, till exempel för Google eller Facebook till Microsoft Authenticator-appen för att verifiera din identitet när du använder tvåstegsverifiering.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62d866e9bf543577887ee99173a52202fcfec632
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c01377280c4e4c97b729e27c22496c388652924f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73803669"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278884"
 ---
-# <a name="add-your-non-microsoft-accounts"></a>Lägg till konton som inte kommer från Microsoft
+# <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Lägg till konton som inte kommer från Microsoft i Microsoft Authenticator-appen
 
 Lägg till konton som inte kommer från Microsoft, t. ex. för Google, Facebook eller GitHub till Microsoft Authenticator-appen för tvåstegsverifiering. Microsoft Authenticator-appen fungerar med alla appar som använder tvåfaktorsverifiering och alla konton som har stöd för tidsbaserade engångslösenord (TOTP).
 

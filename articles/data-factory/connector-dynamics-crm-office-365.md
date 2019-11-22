@@ -12,13 +12,13 @@ author: linda33wj
 manager: craigg
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 10/25/2019
-ms.openlocfilehash: b2eb6f877daf2fddaa5a61a958254cc8222ac6db
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: HT
+ms.date: 11/20/2019
+ms.openlocfilehash: eaf8060d3ccfd1f76aa81a289cba5b795106b2b1
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74218592"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280692"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Kopiera data från och till Dynamics 365 (Common Data Service) eller Dynamics CRM genom att använda Azure Data Factory
 
@@ -43,7 +43,7 @@ Se följande tabell på de autentiseringstyper och konfigurationer som stöds f�
 
 | Dynamics-versioner | Autentiseringstyper | Länkade tjänst exempel |
 |:--- |:--- |:--- |
-| Dynamics 365 online <br> Dynamics CRM Online | Office365 | [Dynamics online + Office365-autentisering](#dynamics-365-and-dynamics-crm-online) |
+| Common Data Service <br> Dynamics 365 online <br> Dynamics CRM Online | AAD-tjänstens huvud namn <br> Office365 | [Dynamics Online + AAD-tjänstens huvud namn eller Office365-autentisering](#dynamics-365-and-dynamics-crm-online) |
 | Dynamics 365 lokalt med IFD <br> Dynamics CRM 2016 lokalt med IFD <br> Dynamics CRM 2015 lokalt med IFD | IFD | [Dynamics lokalt med IFD + IFD-autentisering](#dynamics-365-and-dynamics-crm-on-premises-with-ifd) |
 
 För Dynamics 365 är det specifikt att följande program typer stöds:
@@ -78,13 +78,68 @@ Följande egenskaper stöds för den länkade Dynamics-tjänsten.
 | typ | Egenskapen Type måste anges till **Dynamics**, **DynamicsCrm**eller **CommonDataServiceForApps**. | Ja |
 | deploymentType | Dynamics-instansens distributions typ. Det måste vara **"online"** för Dynamics Online. | Ja |
 | serviceUri | Tjänst-URL för din Dynamics-instans, t. ex. `https://adfdynamics.crm.dynamics.com`. | Ja |
-| authenticationType | Autentiseringstypen för att ansluta till en Dynamics-Server. Ange **"Office365"** för Dynamics Online. | Ja |
-| användarnamn | Ange användar namnet för att ansluta till Dynamics. | Ja |
-| lösenord | Ange lösen ordet för det användar konto som du har angett för användar namn. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| authenticationType | Autentiseringstypen för att ansluta till en Dynamics-Server. Tillåtna värden är: **AADServicePrincipal** eller **"Office365"** . | Ja |
+| servicePrincipalId | Ange det Azure Active Directory programmets klient-ID. | Ja när du använder `AADServicePrincipal` autentisering |
+| servicePrincipalCredentialType | Ange vilken typ av autentiseringsuppgift som ska användas för autentisering av tjänstens huvud namn. Tillåtna värden är: **ServicePrincipalKey** eller **ServicePrincipalCert**. | Ja när du använder `AADServicePrincipal` autentisering |
+| servicePrincipalCredential | Ange autentiseringsuppgifterna för tjänstens huvud namn. <br>När du använder `ServicePrincipalKey` som autentiseringstyp kan `servicePrincipalCredential` vara en sträng (ADF krypterar den vid länkad tjänst distribution) eller en referens till en hemlighet i AKV. <br>När du använder `ServicePrincipalCert` som autentiseringsuppgift bör `servicePrincipalCredential` vara en referens till ett certifikat i AKV. | Ja när du använder `AADServicePrincipal` autentisering | 
+| användarnamn | Ange användar namnet för att ansluta till Dynamics. | Ja när du använder `Office365` autentisering |
+| lösenord | Ange lösen ordet för det användar konto som du har angett för användar namn. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja när du använder `Office365` autentisering |
 | connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Om den inte anges används standard Azure Integration Runtime. | Nej för källa, Ja för mottagare om den länkade käll tjänsten inte har en integrerings körning |
 
 >[!NOTE]
 >Dynamics-anslutningen som används för att använda valfri "företags namn"-egenskap för att identifiera din Dynamics CRM/365 Online-instans. Medan det fungerar, rekommenderar vi att du anger den nya egenskapen "serviceUri" i stället för att få bättre prestanda för instans identifiering.
+
+**Exempel: Dynamics Online med AAD-tjänstens huvud namn + nyckel-autentisering**
+
+```json
+{  
+    "name": "DynamicsLinkedService",  
+    "properties": {  
+        "type": "Dynamics",  
+        "typeProperties": {  
+            "deploymentType": "Online",  
+            "serviceUri": "https://adfdynamics.crm.dynamics.com",  
+            "authenticationType": "AADServicePrincipal",  
+            "servicePrincipalId": "<service principal id>",  
+            "servicePrincipalCredentialType": "ServicePrincipalKey",  
+            "servicePrincipalCredential": "<service principal key>"
+        },  
+        "connectVia": {  
+            "referenceName": "<name of Integration Runtime>",  
+            "type": "IntegrationRuntimeReference"  
+        }  
+    }  
+}  
+```
+**Exempel: Dynamics Online med AAD-tjänstens huvud namn och certifikatautentisering**
+
+```json
+{ 
+    "name": "DynamicsLinkedService", 
+    "properties": { 
+        "type": "Dynamics", 
+        "typeProperties": { 
+            "deploymentType": "Online", 
+            "serviceUri": "https://adfdynamics.crm.dynamics.com", 
+            "authenticationType": "AADServicePrincipal", 
+            "servicePrincipalId": "<service principal id>", 
+            "servicePrincipalCredentialType": "ServicePrincipalCert", 
+            "servicePrincipalCredential": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<AKV reference>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<certificate name in AKV>" 
+            } 
+        }, 
+        "connectVia": { 
+            "referenceName": "<name of Integration Runtime>", 
+            "type": "IntegrationRuntimeReference" 
+        } 
+    } 
+} 
+```
 
 **Exempel: Dynamics Online med Office365-autentisering**
 
@@ -93,7 +148,6 @@ Följande egenskaper stöds för den länkade Dynamics-tjänsten.
     "name": "DynamicsLinkedService",
     "properties": {
         "type": "Dynamics",
-        "description": "Dynamics online linked service using Office365 authentication",
         "typeProperties": {
             "deploymentType": "Online",
             "serviceUri": "https://adfdynamics.crm.dynamics.com",

@@ -1,5 +1,5 @@
 ---
-title: Skicka gäst operativ systemets mått till Azure Monitor data lager för en virtuell Windows-dator (klassisk)
+title: Skicka de klassiska Windows-DATORernas mått till Azure Monitor mått databasen
 description: Skicka gäst operativ systemets mått till Azure Monitor data lager för en virtuell Windows-dator (klassisk)
 author: anirudhcavale
 services: azure-monitor
@@ -8,26 +8,26 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: cc0c7c4928fb03cb60bb51f74d74fdc1ab914348
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: af99bd8ea619d17bdc40ea025f0bfcb1c095db52
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844917"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286152"
 ---
-# <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>Skicka gäst operativ systemets mått till Azure Monitor data lager för en virtuell Windows-dator (klassisk)
+# <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Skicka gäst operativ systemets mått till Azure Monitor Metrics-databasen för en virtuell Windows-dator (klassisk)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Med Azure Monitor [Diagnostics-tillägget](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) (kallas "wad" eller "diagnostik") kan du samla in mått och loggar från gäst operativ systemet (gäst operativ system) som körs som en del av en virtuell dator, moln tjänst eller Service Fabric kluster. Tillägget kan skicka telemetri till [flera olika platser.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
 
-I den här artikeln beskrivs processen för att skicka gäst operativ systemets prestanda mått för en virtuell Windows-dator (klassisk) till Azure Monitor mått lagret. Från och med diagnostik version 1,11 kan du skriva mått direkt till lagrings platsen Azure Monitor mått, där standard plattforms mått redan har samlats in. 
+I den här artikeln beskrivs processen för att skicka gäst operativ systemets prestanda mått för en virtuell Windows-dator (klassisk) till Azure Monitor Metric-databasen. Från och med diagnostik version 1,11 kan du skriva mått direkt till lagrings platsen Azure Monitor mått, där standard plattforms mått redan har samlats in. 
 
 Genom att lagra dem på den här platsen kan du komma åt samma åtgärder som du gör för plattforms mått. Åtgärder är nästan real tids avisering, diagram, routning, åtkomst från en REST API med mera. Tidigare skrev diagnostikprogrammet-tillägget till Azure Storage, men inte till Azure Monitor data lager. 
 
 Processen som beskrivs i den här artikeln fungerar bara på klassiska virtuella datorer som kör Windows operativ system.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Du måste vara [tjänst administratör eller delad administratör](../../billing/billing-add-change-azure-subscription-administrator.md) på din Azure-prenumeration. 
 
@@ -40,12 +40,12 @@ Processen som beskrivs i den här artikeln fungerar bara på klassiska virtuella
 ## <a name="create-a-classic-virtual-machine-and-storage-account"></a>Skapa en klassisk virtuell dator och ett lagrings konto
 
 1. Skapa en klassisk virtuell dator med hjälp av Azure Portal.
-   ![Skapa en klassisk virtuell dator](./media/collect-custom-metrics-guestos-vm-classic/create-classic-vm.png)
+   ![skapa en klassisk virtuell dator](./media/collect-custom-metrics-guestos-vm-classic/create-classic-vm.png)
 
 1. När du skapar den här virtuella datorn väljer du alternativet för att skapa ett nytt klassiskt lagrings konto. Vi använder det här lagrings kontot i senare steg.
 
 1. I Azure Portal går du till resurs bladet **lagrings konton** . Välj **nycklar**och anteckna lagrings kontots namn och lagrings konto nyckel. Du behöver den här informationen i senare steg.
-   ![Lagrings åtkomst nycklar](./media/collect-custom-metrics-guestos-vm-classic/storage-access-keys.png)
+   ![åtkomst nycklar för lagring](./media/collect-custom-metrics-guestos-vm-classic/storage-access-keys.png)
 
 ## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
 

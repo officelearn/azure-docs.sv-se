@@ -4,14 +4,14 @@ description: Beskriver hur du identifierar appar, roller och funktioner på loka
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 11/18/2019
+ms.date: 11/20/2019
 ms.author: snehaa
-ms.openlocfilehash: 14ecc6454c3d0f167c671532dd8e659e767cda66
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 279e326ace308b354d7bcb8366d3286980e7b8c6
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158631"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278477"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Identifiera appar, roller och funktioner i datorn
 
@@ -19,10 +19,10 @@ I den här artikeln beskrivs hur du identifierar program, roller och funktioner 
 
 Att identifiera inventeringen av appar, och roller/funktioner som körs på dina lokala datorer hjälper dig att identifiera och planera en migrerings Sök väg till Azure som är skräddarsydd för dina arbets belastningar.
 
-Identifiering av app med Azure Migrate: Server utvärderingen är agent lös. Inget måste installeras på datorer och virtuella datorer. Server utvärderingen använder Azure Migrate-installationen för att utföra identifiering tillsammans med autentiseringsuppgifter för dator gäst. Enheten fjärransluter till datorer med hjälp av WMI och SSH-samtal.
-
 > [!NOTE]
 > Identifiering av appar stöds för närvarande endast för virtuella VMware-datorer och är begränsat till enbart identifiering. Vi erbjuder ännu inte app-baserad utvärdering.  För närvarande bedömer Server utvärderingen lokala virtuella VMware-datorer, virtuella Hyper-V-datorer och fysiska servrar på dator nivå för migrering av lyft och Shift.
+
+Identifiering av app med Azure Migrate: Server utvärderingen är agent lös. Inget måste installeras på datorer och virtuella datorer. Server utvärderingen använder Azure Migrate-installationen för att utföra identifiering tillsammans med autentiseringsuppgifter för dator gäst. Enheten ansluter till VMware-datorerna via VMware-API: er.
 
 
 ## <a name="before-you-start"></a>Innan du börjar

@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: cephalin
-ms.openlocfilehash: f9b1af14bd986f1fa6fb5feb398a7f1fdf982f77
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 02d8c511b799a4caee185f7ecb847e6cc15f3c87
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669100"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304740"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Konfigurera mellanlagrings miljöer i Azure App Service
 <a name="Overview"></a>
@@ -211,7 +212,7 @@ Vissa appar kan kräva anpassade värme åtgärder innan växlingen. Med konfigu
         </applicationInitialization>
     </system.webServer>
 
-Mer information om hur du anpassar `applicationInitialization`-elementet finns i [de flesta vanliga växlings fel i distributions fack och hur du åtgärdar dem](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
+Mer information om hur du anpassar den `applicationInitialization` element, se [vanligaste slot swap distributionsfel och hur du åtgärdar dem](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
 
 Du kan också anpassa det varmaste sättet med en eller båda av följande [appinställningar](configure-common.md):
 
@@ -248,6 +249,10 @@ Så här dirigerar du produktions trafiken automatiskt:
 När inställningen har sparats dirigeras den angivna procent andelen av klienter slumpmässigt till den icke-produktions platsen. 
 
 När en klient dirigeras automatiskt till en speciell plats, är den "fäst" på den platsen under den aktuella klient sessionen. I klientens webbläsare kan du se vilka platser som din session fästs på genom att titta på `x-ms-routing-name` cookie i dina HTTP-huvuden. En begäran som dirigeras till "mellanlagring"-platsen har cookie-`x-ms-routing-name=staging`. En begäran som dirigeras till produktions platsen har cookien `x-ms-routing-name=self`.
+
+   > [!NOTE]
+   > Bredvid Azure-portalen kan du också använda kommandot [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing.md#az-webapp-traffic-routing-set) i Azure CLI för att ställa in procent andelar från CI/CD-verktyg som DevOps pipelines eller andra Automation-system.
+   > 
 
 ### <a name="route-production-traffic-manually"></a>Dirigera produktions trafik manuellt
 

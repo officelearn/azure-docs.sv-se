@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: c639cb059d773042b7f45160dea18bfc2130cae9
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 1fcaf694e7a628232ea252585d6d9a507a9850da
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73893811"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74287055"
 ---
 # <a name="create-an-azure-iot-central-application-preview-features"></a>Skapa ett Azure IoT Central-program (för hands versions funktioner)
 
@@ -33,7 +33,7 @@ Du skapar ett nytt program antingen från listan över bransch relevanta IoT Cen
 
 ![Sidan skapa en program-Azure IoT Central](media/quick-deploy-iot-central/iotcentralcreate-templates-pnp.png)
 
-Så här skapar du ett nytt Azure IoT Central-program:
+Skapa ett nytt Azure IoT Central-program:
 
 1. Om du vill skapa ett nytt Azure IoT Central-program från en *bransch mall*väljer du en Programmall i listan över tillgängliga mallar under en av branscherna. Du kan också starta från början genom att välja *anpassad app*.
 1. Azure IoT Central föreslår automatiskt ett **program namn** baserat på den program mall som du har valt. Du kan använda det här namnet eller ange ett eget vänligt program namn.
@@ -46,13 +46,13 @@ Så här skapar du ett nytt Azure IoT Central-program:
 
 1. Välj om du vill skapa det här programmet med en kostnads fri utvärderings version på 7 dagar eller Använd en prenumeration där du betalar per användning.
     - **Utvärderings** program är kostnads fria i sju dagar och har stöd för upp till fem enheter. De kan konverteras till betala per användning när som helst innan de upphör att gälla. Om du skapar ett utvärderings program måste du ange din kontakt information och välja om du vill få information och tips från Microsoft.
-    - **Betala** per användning-program debiteras per enhet och de två första enheterna är kostnads fria. Läs mer om [IoT Central prissättning](https://aka.ms/iotcentral-pricing). Om du skapar ett program enligt principen betala per användning måste du välja din *katalog*, *Azure-prenumeration*och *region*:
+    - **Betala** per användning-program debiteras per enhet och de två första enheterna är kostnads fria. Läs mer om [IoT Central prissättning](https://aka.ms/iotcentral-pricing). Om du skapar ett program enligt principen betala per användning måste du välja *katalog*, *Azure-prenumeration*och *plats*:
         - *Directory* är den Azure Active Directory (AAD) som du ska använda för att skapa programmet. En Azure AD innehåller användar identiteter, autentiseringsuppgifter och annan organisations information. Om du inte har en Azure AD skapas en åt dig när du skapar en Azure-prenumeration.
         - Med en *Azure-prenumeration* kan du skapa instanser av Azure-tjänster. IoT Central etablerar resurser i din prenumeration. Om du inte har någon Azure-prenumeration kan du skapa en på [Azures registreringssida](https://aka.ms/createazuresubscription). När du har skapat Azure-prenumerationen går du tillbaka till sidan **skapa ett program** . Den nya prenumerationen visas i list rutan för **Azure-prenumerationen** .
-        - *Region* är den fysiska plats där dina enhets data ska lagras. Normalt bör du välja den region som är fysiskt närmast dina enheter för att få bästa möjliga prestanda samt för att säkerställa efterlevnad av data. När du har valt en region kan du inte flytta programmet till en annan region senare.
+        - *Plats* är den [geografi](https://azure.microsoft.com/global-infrastructure/geographies/) där du vill skapa ditt program. Normalt bör du välja den plats som är fysiskt närmast dina enheter för att få optimala prestanda. Azure IoT Central offentlig för hands version är för närvarande tillgänglig i **USA**eller i **Europa**. När du har valt en plats kan du inte flytta programmet till en annan plats senare.
 
         > [!NOTE]
-        > Under den offentliga för hands versionen är de enda tillgängliga regionerna för för **hands versions program** **Nord Europa** och **centrala USA**.
+        > Under den offentliga för hands versionen är de enda tillgängliga platserna för för **hands versions program** **Europa** och **USA**.
 
 1. Granska de allmänna villkoren och välj **skapa** längst ned på sidan.
 

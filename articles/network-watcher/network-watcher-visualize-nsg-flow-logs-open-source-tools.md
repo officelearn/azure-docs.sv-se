@@ -1,6 +1,7 @@
 ---
-title: Hantera och analysera flödesloggar för Nätverkssäkerhetsgruppen med Network Watcher och Elastic Stack | Microsoft Docs
-description: Hantera och analysera Flow loggar för Nätverkssäkerhetsgrupper i Azure med Network Watcher och Elastic Stack.
+title: Visualisera NSG Flow-loggar – elastisk stack
+titleSuffix: Azure Network Watcher
+description: Hantera och analysera flödes loggar för nätverks säkerhets grupper i Azure med hjälp av Network Watcher och elastisk stack.
 services: network-watcher
 documentationcenter: na
 author: mattreatMSFT
@@ -14,40 +15,40 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 7361eff0f76271564fd5a0e9b8a18221ec4138e3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 53cbfe08d310f7244134e1ae31b18644a83c63d3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60860148"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277750"
 ---
-# <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualisera Azure Network Watcher NSG-flödesloggar med verktyg för öppen källkod
+# <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualisera Azure Network Watcher NSG Flow-loggar med verktyg för öppen källkod
 
-Flödesloggar för Nätverkssäkerhetsgruppen innehåller information som du kan använda förstå ingående och utgående IP-trafik på Nätverkssäkerhetsgrupper. Dessa flödesloggar visar utgående och inkommande flöden på basis av per regel, flödet som gäller för nätverkskortet, 5 tuppel information om flödet (käll-och mål IP, källa/mål-Port, protokoll), och om trafik tillåts eller nekas.
+Flödes loggar för nätverks säkerhets grupper innehåller information som kan användas för att förstå inkommande och utgående IP-trafik för nätverks säkerhets grupper. I dessa flödes loggar visas utgående och inkommande flöden per regel, vilket nätverkskort flödet gäller för, 5 tuple-information om flödet (källa/mål-IP, käll-och mål Port, protokoll) och om trafiken tillåts eller nekas.
 
-Dessa flödesloggar kan vara svårt att tolka och få insikter från manuellt. Det finns dock flera verktyg för öppen källkod som kan hjälpa dig att visualisera data. Den här artikeln ger en lösning för att visualisera dessa loggar med hjälp av Elastic Stack, som gör att du kan snabbt indexera och visualisera ditt flöde loggar in på en Kibana-instrumentpanelen.
+Dessa flödes loggar kan vara svåra att manuellt parsa och få insikter från. Det finns dock flera verktyg för öppen källkod som kan användas för att visualisera dessa data. I den här artikeln får du en lösning för att visualisera dessa loggar med hjälp av den elastiska stacken som gör att du snabbt kan indexera och visualisera flödes loggar på en Kibana-instrumentpanel.
 
 > [!Warning]  
-> Följande steg fungerar med flow loggar version 1. Mer information finns i [introduktion till flödesloggar för nätverkssäkerhetsgrupper](network-watcher-nsg-flow-logging-overview.md). Följande instruktioner fungerar inte med version 2 av loggfiler, utan modifiering.
+> Följande steg fungerar med Flow-loggar version 1. Mer information finns i [Introduktion till flödes loggning för nätverks säkerhets grupper](network-watcher-nsg-flow-logging-overview.md). Följande instruktioner fungerar inte med version 2 av loggfilerna utan ändringar.
 
 ## <a name="scenario"></a>Scenario
 
-I den här artikeln ska vi konfigurera en lösning som gör att du kan visualisera flödesloggar för Nätverkssäkerhetsgruppen med Elastic Stack.  En inkommande Logstash-plugin-programmet hämtar flödesloggar direkt från storage-blob som konfigurerats för som innehåller flödesloggar. Sedan kommer använder Elastic Stack, flödesloggar vara indexerade och används för att skapa en Kibana-instrumentpanelen för att visualisera informationen.
+I den här artikeln skapar vi en lösning som gör att du kan visualisera flödes loggar för nätverks säkerhets grupper med hjälp av den elastiska stacken.  Ett plugin-program för Logstash hämtar flödes loggarna direkt från den lagrings-blob som har kon figurer ATS för flödes loggar. Sedan kommer flödes loggarna att indexeras och användas för att skapa en Kibana-instrumentpanel för att visualisera informationen med hjälp av den elastiska stacken.
 
 ![scenario][scenario]
 
 ## <a name="steps"></a>Steg
 
-### <a name="enable-network-security-group-flow-logging"></a>Aktivera Nätverkssäkerhetsgrupp flödesloggar
-Det här scenariot måste du ha nätverk grupp Flow säkerhetsloggning aktiverat på minst en Nätverkssäkerhetsgrupp i ditt konto. Instruktioner om hur du aktiverar Network Security Flödesloggar finns i följande artikel [introduktion till flödesloggar för Nätverkssäkerhetsgrupper](network-watcher-nsg-flow-logging-overview.md).
+### <a name="enable-network-security-group-flow-logging"></a>Aktivera flödes loggning för nätverks säkerhets grupp
+I det här scenariot måste du ha nätverks säkerhets gruppens flödes loggning aktiverat på minst en nätverks säkerhets grupp i ditt konto. Anvisningar om hur du aktiverar nätverks säkerhets flödes loggar finns i följande artikel [Introduktion till flödes loggning för nätverks säkerhets grupper](network-watcher-nsg-flow-logging-overview.md).
 
-### <a name="set-up-the-elastic-stack"></a>Konfigurera Elastic Stack
-Genom att ansluta NSG-flödesloggar med Elastic Stack, kan vi skapa en instrumentpanel med Kibana vad kan vi söka, diagram, analysera och slutsatser från våra loggar.
+### <a name="set-up-the-elastic-stack"></a>Konfigurera den elastiska stacken
+Genom att ansluta NSG Flow-loggar med den elastiska stacken kan vi skapa en Kibana-instrumentpanel som gör det möjligt för oss att söka i, rita, analysera och härleda insikter från våra loggar.
 
-#### <a name="install-elasticsearch"></a>Installera Elasticsearch
+#### <a name="install-elasticsearch"></a>Installera ElasticSearch
 
-1. Elastic Stack från version 5.0 och senare kräver Java 8. Kör kommandot `java -version` kan kontrollera din version. Om du inte har installerat java läser dokumentationen på den [Azure kodblock JDKs](https://aka.ms/azure-jdks).
-2. Ladda ned rätt binära paket för ditt system:
+1. Den elastiska stacken från version 5,0 och senare kräver Java 8. Kör kommandot `java -version` för att kontrol lera din version. Om du inte har installerat Java kan du läsa mer i dokumentationen om [Azure-suppored JDKs](https://aka.ms/azure-jdks).
+2. Hämta rätt binärt paket för systemet:
 
    ```bash
    curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.deb
@@ -55,9 +56,9 @@ Genom att ansluta NSG-flödesloggar med Elastic Stack, kan vi skapa en instrumen
    sudo /etc/init.d/elasticsearch start
    ```
 
-   Andra installationsmetoder finns på [Elasticsearch-Installation](https://www.elastic.co/guide/en/beats/libbeat/5.2/elasticsearch-installation.html)
+   Du hittar andra installations metoder i [ElasticSearch-installationen](https://www.elastic.co/guide/en/beats/libbeat/5.2/elasticsearch-installation.html)
 
-3. Kontrollera att Elasticsearch körs med kommandot:
+3. Kontrol lera att ElasticSearch körs med kommandot:
 
     ```bash
     curl http://127.0.0.1:9200
@@ -80,17 +81,17 @@ Genom att ansluta NSG-flödesloggar med Elastic Stack, kan vi skapa en instrumen
     }
     ```
 
-Mer information om installation elastiska search finns [Installationsinstruktioner](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/_installation.html).
+Mer information om hur du installerar elastisk sökning finns i [installations anvisningarna](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/_installation.html).
 
 ### <a name="install-logstash"></a>Installera Logstash
 
-1. Installera Logstash kör följande kommandon:
+1. Kör följande kommandon för att installera Logstash:
 
     ```bash
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
-2. Därefter måste vi konfigurera Logstash för att komma åt och parsa flödesloggar. Skapa en logstash.conf filen med:
+2. Härnäst behöver vi konfigurera Logstash för att komma åt och parsa flödes loggarna. Skapa en logstash. conf-fil med:
 
     ```bash
     sudo touch /etc/logstash/conf.d/logstash.conf
@@ -159,25 +160,25 @@ Mer information om installation elastiska search finns [Installationsinstruktion
    }  
    ```
 
-För ytterligare instruktioner om hur du installerar Logstash avser den [officiella dokumentationen](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html).
+Mer information om hur du installerar Logstash finns i den [officiella dokumentationen](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html).
 
-### <a name="install-the-logstash-input-plugin-for-azure-blob-storage"></a>Installera Logstash inkommande plugin-programmet för Azure blob storage
+### <a name="install-the-logstash-input-plugin-for-azure-blob-storage"></a>Installera plugin-programmet Logstash indata för Azure Blob Storage
 
-Den här Logstash plugin-programmet kan du få direkt åtkomst till flow-loggar från deras avsedda storage-konto. Om du vill installera det här plugin-programmet kör från Logstash standardkatalogen (i det här fallet /usr/share/logstash/bin) du kommandot:
+Med det här Logstash-plugin-programmet kan du direkt komma åt flödes loggarna från det angivna lagrings kontot. För att installera det här plugin-programmet, från standard installations katalogen för Logstash (i det här fallet/usr/share/logstash/bin), kör du kommandot:
 
 ```bash
 logstash-plugin install logstash-input-azureblob
 ```
 
-Starta Logstash kör kommandot:
+Starta Logstash genom att köra kommandot:
 
 ```bash
 sudo /etc/init.d/logstash start
 ```
 
-Mer information om det här plugin-programmet i den [dokumentation](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob).
+Mer information om det här plugin-programmet finns i [dokumentationen](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob).
 
-### <a name="install-kibana"></a>Install Kibana
+### <a name="install-kibana"></a>Installera Kibana
 
 1. Kör följande kommandon för att installera Kibana:
 
@@ -186,66 +187,66 @@ Mer information om det här plugin-programmet i den [dokumentation](https://gith
    tar xzvf kibana-5.2.0-linux-x86_64.tar.gz
    ```
 
-2. Om du vill köra Använd Kibana kommandon:
+2. Använd kommandona för att köra Kibana:
 
    ```bash
    cd kibana-5.2.0-linux-x86_64/
    ./bin/kibana
    ```
 
-3. Om du vill visa Kibana-webbgränssnittet, gå till `http://localhost:5601`
-4. Det här scenariot är mönstret index används för flödesloggar ”nsg-flödesloggar”. Du kan ändra index mönstret i avsnittet ”utdata” i filen logstash.conf.
-5. Om du vill visa Kibana-instrumentpanelen via en fjärranslutning, skapar du en inkommande NSG-regel som tillåter åtkomst till **port 5601**.
+3. Om du vill visa Kibana-webbgränssnittet navigerar du till `http://localhost:5601`
+4. I det här scenariot är index mönstret som används för flödes loggarna "NSG-Flow-logs". Du kan ändra index mönstret i avsnittet "utdata" i filen logstash. conf.
+5. Om du vill visa Kibana-instrumentpanelen på distans skapar du en inkommande NSG-regel som tillåter åtkomst till **port 5601**.
 
-### <a name="create-a-kibana-dashboard"></a>Skapa en instrumentpanel i Kibana
+### <a name="create-a-kibana-dashboard"></a>Skapa en Kibana-instrumentpanel
 
-I följande bild visas ett exempel på en instrumentpanel att visa trender och information i dina aviseringar:
+Ett exempel på en instrument panel för att visa trender och information i dina aviseringar visas på följande bild:
 
 ![bild 1][1]
 
-Ladda ned den [instrumentpanelsfil](https://aka.ms/networkwatchernsgflowlogdashboard), [visualisering filen](https://aka.ms/networkwatchernsgflowlogvisualizations), och [sparade sökningen filen](https://aka.ms/networkwatchernsgflowlogsearch).
+Hämta [instrument panels filen](https://aka.ms/networkwatchernsgflowlogdashboard), [visualiserings filen](https://aka.ms/networkwatchernsgflowlogvisualizations)och den [sparade Sök filen](https://aka.ms/networkwatchernsgflowlogsearch).
 
-Under den **Management** fliken av Kibana, gå till **sparade objekt** och importera alla tre filerna. Sedan från den **instrumentpanelen** fliken kan du öppna och läsa in exempelinstrumentpanel.
+Under fliken **hantering** i Kibana navigerar du till **sparade objekt** och importerar alla tre filerna. Sedan kan du öppna och läsa in exempel instrument panelen från fliken **instrument panel** .
 
-Du kan också skapa egna visualiseringar och instrumentpaneler som är skräddarsydda för din egen mätvärden. Läs mer om att skapa Kibana visualiseringar från Kibana's [officiella dokumentationen](https://www.elastic.co/guide/en/kibana/current/visualize.html).
+Du kan också skapa egna visualiseringar och instrument paneler som skräddarsys mot mått av ditt eget intresse. Läs mer om att skapa Kibana-visualiseringar från Kibanas [officiella dokumentation](https://www.elastic.co/guide/en/kibana/current/visualize.html).
 
-### <a name="visualize-nsg-flow-logs"></a>Visualisera flödesloggar för NSG
+### <a name="visualize-nsg-flow-logs"></a>Visualisera NSG flödes loggar
 
-Exempelinstrumentpanelen innehåller flera visualiseringar av flow-loggar:
+Instrument panelen exempel innehåller flera visualiseringar av flödes loggarna:
 
-1. Flöden per beslut/riktning över tid – time series diagram som visar antalet flöden under tidsperioden. Du kan redigera tidsenheten och span båda dessa visuella objekt. Flöden per beslut visar andelen tillåter eller nekar beslut som fattas, medan flöden per riktning visas andelen av inkommande och utgående trafik. Med dessa visuella objekt kan du granska trafik trender över tid och leta efter eventuella toppar och onormala mönster.
+1. Flöden efter beslut/riktning över tid – serie diagram som visar antalet flöden under tids perioden. Du kan redigera tidsenhet och omfång för båda dessa visualiseringar. Flöden efter beslut visar en andel tillåtna eller nekade beslut, medan flöden efter riktning visar förhållandet mellan inkommande och utgående trafik. Med dessa visuella objekt kan du undersöka trafik trender över tid och leta efter eventuella toppar eller ovanliga mönster.
 
    ![bild 2][2]
 
-2. Flöden per mål/källport – diagram som visar fördelningen av flöden till respektive port. Med den här vyn kan du se dina vanligaste portar. Om du klickar på en specifik port i cirkeldiagrammet filtrerar resten av instrumentpanelen ned till flöden av den porten.
+2. Flöden efter mål-/käll port – cirkel diagram som visar nedbrytningen av flöden till respektive port. I den här vyn kan du se dina vanligaste portar. Om du klickar på en enskild port i cirkel diagrammet filtreras resten av instrument panelen ned till flöden av den porten.
 
    ![figure3][3]
 
-3. Antal flöden och tidigaste Loggtid – mått som visar du antalet flöden som har registrerats och datumet då den tidigaste loggen avbildas.
+3. Antal flöden och tidigaste logg tid – mått som visar dig antalet registrerade flöden och datum för den tidigaste loggen.
 
-   ![bild 4][4]
+   ![figure4][4]
 
-4. Flöden per NSG och regel – ett stapeldiagram som visar fördelningen av flöden i varje NSG, samt distribution av regler i varje NSG. Härifrån kan du se vilka regler och NSG genereras mest trafik.
+4. Flöden efter NSG och regel – ett stapeldiagram som visar distributionen av flöden inom varje NSG, samt distribution av regler inom varje NSG. Härifrån kan du se vilka NSG och regler som genererade den mest trafik.
 
    ![figure5][5]
 
-5. Främsta 10 källans/målets IP-adresser – stapeldiagram som visar översta 10 källans och målets IP-adresser. Du kan justera dessa diagram om du vill visa mer eller mindre främsta IP-adresser. Härifrån kan du se de vanligaste inträffar IP-adresser samt beslutet trafik (Tillåt eller neka) som görs för varje IP.
+5. De 10 främsta käll-och mål-IP-stapeldiagram som visar de 10 främsta käll-och mål-IP-adresserna. Du kan justera dessa diagram om du vill visa fler eller färre översta IP-adresser. Härifrån kan du se de vanligaste IP-adresserna samt det trafikbeslut (Tillåt eller neka) som görs för varje IP-adress.
 
    ![figure6][6]
 
-6. Flow Tupplar – den här tabellen visar du informationen i varje flöde tuppel samt dess motsvarande redigera och regeln.
+6. Flow-tupler – i den här tabellen visas den information som finns i varje flödes tupel, samt dess motsvarande redigera och regel.
 
    ![figure7][7]
 
-Med fältet fråga överst på instrumentpanelen kan filtrera du ned instrumentpanelen med någon parameter av de, till exempel prenumerations-ID, resursgrupper, regel eller alla andra variabler av intresse. Mer information om Kibanas frågor och filter som avser den [officiella dokumentationen](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html)
+Med hjälp av frågefönstret överst i instrument panelen kan du filtrera instrument panelen baserat på vilken parameter som helst i flödena, till exempel prenumerations-ID, resurs grupper, regel eller någon annan variabel av intresse. Mer information om Kibana-frågor och filter finns i den [officiella dokumentationen](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html)
 
 ## <a name="conclusion"></a>Sammanfattning
 
-Genom att kombinera flödesloggar för Nätverkssäkerhetsgruppen med Elastic Stack, har vi kom fram till kraftfull och anpassningsbar sätt att visualisera vår nätverkstrafik. Dessa instrumentpaneler kan du snabbt få och dela information om nätverkstrafik, samt filtrera ned och undersöka om alla potentiella avvikelser. Med Kibana kan du skräddarsy dessa instrumentpaneler och skapa specifika visualiseringar för att uppfylla alla behov för säkerhet, granskning och efterlevnad.
+Genom att kombinera flödes loggar för nätverks säkerhets grupper med den elastiska stacken har vi kommit igång med kraftfulla och anpassningsbara sätt att visualisera vår nätverks trafik. Med dessa instrument paneler kan du snabbt få och dela insikter om din nätverks trafik, samt filtrera och undersöka eventuella avvikelser. Med Kibana kan du skräddarsy dessa instrument paneler och skapa olika visualiseringar för att uppfylla alla krav på säkerhet, granskning och efterlevnad.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig att visualisera dina NSG-flödesloggar med Power BI genom att besöka [visualisera NSG-flödesloggar med Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+Lär dig hur du visualiserar dina NSG Flow-loggar med Power BI genom att besöka [visualisera NSG flöden loggar med Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 
 <!--Image references-->
 

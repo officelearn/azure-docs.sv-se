@@ -1,6 +1,6 @@
 ---
-title: Säkerhetskopiera och återställa med Microsoft Authenticator app – Azure AD
-description: Lär dig hur du säkerhetskopierar och återställer autentiseringsuppgifter för kontot med hjälp av Microsoft Authenticator-appen.
+title: Säkerhetskopiera och återställa konton med Microsoft Authenticator app – Azure AD
+description: Lär dig hur du säkerhetskopierar och återställer autentiseringsuppgifter för säkerhetskopierade konton med hjälp av Microsoft Authenticator-appen.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.date: 08/22/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2404dd443c1e3ede1d3ad5a81888e9f805edb810
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 827213c8d243e9d66c58195e1d9400bed9c3e337
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820266"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267008"
 ---
-# <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Säkerhetskopiera och återställa kontoautentiseringsuppgifter med Microsoft Authenticator-appen
+# <a name="backup-and-recover-account-credentials-using-the-microsoft-authenticator-app"></a>Säkerhetskopiera och återställa kontoautentiseringsuppgifter med hjälp av Microsoft Authenticator-appen
 
 **Gäller för:**
 

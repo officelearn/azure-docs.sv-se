@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 15e0b8a5b3ea64148eb78cb376500adac2410a71
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: a9c1ca3ac55c1c995ac858e758d6930b49c5ea1c
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949676"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74287018"
 ---
 # <a name="azure-serial-console-for-linux"></a>Azures serie konsol för Linux
 
@@ -32,7 +32,7 @@ Information om en dokumentation för Windows i serie konsolen finns i [serie kon
 > Serie konsolen är allmänt tillgänglig i globala Azure-regioner. Det finns inte ännu i Azure government eller Azure Kina moln.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Den virtuella datorn eller den virtuella datorns skalnings uppsättnings instans måste använda distributions modellen för resurs hantering. Klassiska distributioner stöds inte.
 
@@ -107,7 +107,7 @@ All åtkomst till seriekonsol för tillfället är inloggad på [startdiagnostik
 Om en användare är ansluten till seriekonsol och en annan användare begär har åtkomst till den samma virtuella datorn, kommer att kopplas från den första användaren och den andra användaren som är anslutna till samma session.
 
 > [!CAUTION]
-> Det innebär att en användare som är frånkopplad inte kommer att loggas ut. Möjligheten att genomdriva en utloggning vid från koppling (med SIGHUP eller liknande mekanism) finns fortfarande i översikten. För Windows finns en automatisk timeout som är aktive rad i SAC (administrations konsol). för Linux kan du dock konfigurera inställningen för timeout för Terminal. Om du vill göra det lägger du till `export TMOUT=600` i filen *. bash_profile* eller *. Profile* för den användare som du använder för att logga in i-konsolen. Den här inställningen tar bort sessionen efter 10 minuter.
+> Det innebär att en användare som är frånkopplad inte kommer att loggas ut. Möjligheten att genomdriva en utloggning vid från koppling (med SIGHUP eller liknande mekanism) finns fortfarande i översikten. För Windows finns en automatisk timeout som är aktive rad i SAC (administrations konsol). för Linux kan du dock konfigurera inställningen för timeout för Terminal. Om du vill göra det lägger du till `export TMOUT=600` i *. bash_profile* -eller *. Profile* -filen för den användare som du använder för att logga in i-konsolen. Den här inställningen tar bort sessionen efter 10 minuter.
 
 ## <a name="accessibility"></a>Hjälpmedel
 Hjälpmedel är en viktig fokus för Azures serie konsol. Vi har därför säkerställt att serie konsolen är fullständigt tillgänglig.
@@ -124,52 +124,52 @@ Vi är medvetna om några problem med serie konsolen och den virtuella datorns o
 Problem                           |   Åtgärd
 :---------------------------------|:--------------------------------------------|
 Att trycka på **RETUR** när anslutningen popup-meddelandet inte orsakar en uppmaning som ska visas. | Mer information finns i [Hitting ange ingenting](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Det här problemet kan uppstå om du kör en anpassad virtuell dator, en härdnings apparat eller en GRUB-konfiguration som gör att Linux inte kan ansluta till den seriella porten.
-Seriell konsol text tar bara upp en del av skärm storleken (ofta efter att ha använt en text redigerare). | Serie konsoler har inte stöd för förhandling om fönster storlek ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), vilket innebär att ingen SIGWINCH-signal skickas till uppdateringens skärm storlek och att den virtuella datorn inte kommer att ha någon kunskap om din Terminals storlek. Installera xterm eller ett liknande verktyg för att ge dig kommandot `resize` och kör sedan `resize`.
+Seriell konsol text tar bara upp en del av skärm storleken (ofta efter att ha använt en text redigerare). | Serie konsoler har inte stöd för förhandling om fönster storlek ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), vilket innebär att ingen SIGWINCH-signal skickas till uppdateringens skärm storlek och att den virtuella datorn inte kommer att ha någon kunskap om din Terminals storlek. Installera xterm eller ett liknande verktyg för att ge dig kommandot `resize` och kör `resize`.
 Klistra in lång sträng fungerar inte. | Seriekonsolen begränsar längden på strängar som klistras in i terminalen för att 2048 tecken för att förhindra överbelastning serieport bandbredd.
-Oförutsägbara inmatade tangenter i SLES BYOS-avbildningar. Tangent bords inskrivning känns bara igen sporadiskt. | Detta är ett problem med Plymouth-paketet. Plymouth bör inte köras i Azure eftersom du inte behöver en välkomst skärm och Plymouth stör plattforms möjligheten att använda serie konsol. Ta bort Plymouth med `sudo zypper remove plymouth` och starta sedan om. Du kan också ändra kernel-raden för GRUB-konfigurationen genom att lägga till `plymouth.enable=0` i slutet av raden. Du kan göra detta genom att [Redigera start posten vid start](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles), eller genom att redigera GRUB_CMDLINE_LINUX-raden i `/etc/default/grub`, återskapa GRUB med `grub2-mkconfig -o /boot/grub2/grub.cfg` och sedan starta om.
+Oförutsägbara inmatade tangenter i SLES BYOS-avbildningar. Tangent bords inskrivning känns bara igen sporadiskt. | Detta är ett problem med Plymouth-paketet. Plymouth bör inte köras i Azure eftersom du inte behöver en välkomst skärm och Plymouth stör plattforms möjligheten att använda serie konsol. Ta bort Plymouth med `sudo zypper remove plymouth` och starta sedan om. Du kan också ändra kernel-raden för GRUB-konfigurationen genom att lägga till `plymouth.enable=0` i slutet av raden. Du kan göra detta genom att [Redigera start posten vid start](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles), eller genom att redigera GRUB_CMDLINE_LINUX rad i `/etc/default/grub`, återskapa GRUB med `grub2-mkconfig -o /boot/grub2/grub.cfg`och sedan starta om.
 
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
-**FRÅGOR OCH. Hur kan jag skicka feedback?**
+**F. Hur gör jag för att skicka feedback?**
 
 A. Ge feedback genom att skapa ett GitHub-problem på https://aka.ms/serialconsolefeedback. Du kan också (mindre rekommenderas), kan du skicka feedback via azserialhelp@microsoft.com eller i kategorin virtuell dator för https://feedback.azure.com.
 
-**FRÅGOR OCH. Stöder seriekonsolen kopiera och klistra in?**
+**F. har serie konsolen stöd för kopiera/klistra in?**
 
 A. Ja. Använd **Ctrl**+**SKIFT**+**C** och **Ctrl**+**SKIFT** + **V** kopiera och klistra in i terminalen.
 
-**FRÅGOR OCH. Kan jag använda en serie konsol i stället för en SSH-anslutning?**
+**F. kan jag använda en serie konsol i stället för en SSH-anslutning?**
 
 A. Även om den här användningen kan verka tekniskt möjlig, är serie konsolen avsedd att användas främst som ett fel söknings verktyg i situationer där det inte går att ansluta via SSH. Vi rekommenderar att du använder serie konsolen som en SSH-ersättning av följande skäl:
 
 - Serie konsolen har inte lika mycket bandbredd som SSH. Eftersom det är en endast text anslutning är det svårt att använda mer grafiska och omfattande interaktioner.
 - Seriell konsol åtkomst är för närvarande möjligt bara med ett användar namn och lösen ord. Eftersom SSH-nycklar är mycket säkrare än kombinationer av användar namn/lösen ord, rekommenderar vi SSH över seriell konsol från ett säkerhets perspektiv för inloggning.
 
-**FRÅGOR OCH. Vem kan aktivera eller inaktivera en serie konsol för min prenumeration?**
+**F. Vem kan aktivera eller inaktivera en serie konsol för min prenumeration?**
 
 A. Om du vill aktivera eller inaktivera seriekonsolen på en prenumeration hela-nivå, måste du ha skrivbehörighet till prenumerationen. Roller som har behörighet att skriva vara administratörer eller ägare. Anpassade roller kan också ha skrivbehörighet.
 
-**FRÅGOR OCH. Vem har åtkomst till serie konsolen för min skalnings uppsättning för virtuella datorer/virtuella datorer?**
+**F. Vem har åtkomst till serie konsolen för min skalnings uppsättning för virtuella datorer/virtuella datorer?**
 
 A. Du måste ha rollen virtuell dator deltagare eller högre för en virtuell dator eller skalnings uppsättning för virtuell dator för att få åtkomst till serie konsolen.
 
-**FRÅGOR OCH. Min seriekonsolen inte visar någonting, vad gör jag?**
+**F. min serie konsol visar inte något, vad gör jag?**
 
 A. Avbildningen är antagligen felkonfigurerad för seriell konsolåtkomst. Information om hur du konfigurerar avbildningen för att aktivera en serie konsol finns [seriell konsol tillgänglighet för Linux-distribution](#serial-console-linux-distribution-availability).
 
-**FRÅGOR OCH. Är seriell konsol som är tillgänglig för VM-skalningsuppsättningar?**
+**F. är serie konsolen tillgänglig för skalnings uppsättningar för virtuella datorer?**
 
 A. Ja det är det! Se [serie konsolen för Virtual Machine Scale Sets](serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)
 
-**FRÅGOR OCH. Om jag konfigurerar den virtuella datorn eller skalnings uppsättningen för virtuella datorer genom att bara använda SSH-nyckelalgoritm, kan jag fortfarande använda den seriella konsolen för att ansluta till min VM/virtuella dators skalnings uppsättnings instans?**
+**F. om jag konfigurerar en skalnings uppsättning för den virtuella datorn eller den virtuella datorn genom att bara använda SSH-nyckelalgoritm, kan jag fortfarande använda den seriella konsolen för att ansluta till min VM/virtuell dators skalnings uppsättnings instans?**
 
 A. Ja. Eftersom serie konsolen inte kräver SSH-nycklar behöver du bara konfigurera en kombination av användar namn/lösen ord. Du kan göra det genom att välja **Återställ lösen ord** i Azure Portal och använda autentiseringsuppgifterna för att logga in i serie konsolen.
 
 ## <a name="next-steps"></a>Nästa steg
 * Använd serie konsolen för att [komma åt grub och enanvändarläge](serial-console-grub-single-user-mode.md).
 * Använd serie konsolen för [NMI-och SysRq-anrop](serial-console-nmi-sysrq.md).
-* Lär dig hur du använder serie konsolen för att [Aktivera grub i olika distributioner](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/).
+* Lär dig hur du använder serie konsolen för att [Aktivera grub i olika distributioner](serial-console-grub-proactive-configuration.md) 
 * Serie konsolen är också tillgänglig för [virtuella Windows-datorer](../windows/serial-console.md).
 * Läs mer om [startdiagnostik](boot-diagnostics.md).
 

@@ -1,5 +1,6 @@
 ---
-title: Hantera paket fångster med Azure Network Watcher-Azure Portal | Microsoft Docs
+title: Hantera paket fångster – Azure Portal
+titleSuffix: Azure Network Watcher
 description: Lär dig hur du hanterar paket insamlings funktionen i Network Watcher att använda Azure Portal.
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
-ms.openlocfilehash: 00349a7e681beab447e585139e481c04755b7879
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 4950ef8b763967e4e852e319429cc263a4a85f6c
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102852"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277858"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Hantera paket fångster med Azure Network Watcher med hjälp av portalen
 
@@ -41,26 +42,26 @@ Om en nätverks säkerhets grupp är kopplad till nätverks gränssnittet eller 
 1. I webbläsaren navigerar du till [Azure Portal](https://portal.azure.com) och väljer **alla tjänster**och väljer sedan **Network Watcher** i **avsnittet nätverk**.
 2. Välj **paket avbildning** under **diagnostikverktyg för nätverk**. Alla befintliga paket fångster visas, oavsett deras status.
 3. Välj **Lägg till** för att skapa en paket fångst. Du kan välja värden för följande egenskaper:
-   - **Prenumeration**: Den prenumeration som den virtuella datorn som du vill skapa paket fångsten för finns i.
-   - **Resursgrupp**: Den virtuella datorns resurs grupp.
-   - **Virtuell måldator**: Den virtuella dator som du vill skapa paket fångst för.
-   - **Namn på paket insamling**: Ett namn på paket fångsten.
+   - **Prenumeration**: den prenumeration som den virtuella datorn som du vill skapa paket fångsten för finns i.
+   - **Resurs grupp**: den virtuella datorns resurs grupp.
+   - **Virtuell mål dator**: den virtuella dator som du vill skapa paket fångst för.
+   - **Namn på paket fångst**: ett namn för paket fångsten.
    - **Lagrings konto eller fil**: Välj **lagrings konto**, **fil**eller både och. Om du väljer **fil**skrivs avbildningen till en sökväg i den virtuella datorn.
-   - **Lokal fil Sök väg**: Den lokala sökvägen på den virtuella datorn där paket fångsten ska sparas (endast giltig när *filen* har valts). Sökvägen måste vara en giltig sökväg. Om du använder en virtuell Linux-dator måste sökvägen börja med */var/Captures*.
+   - **Lokal fil Sök väg**: den lokala sökvägen på den virtuella datorn där paket fångsten ska sparas (endast giltig när *filen* har valts). Sökvägen måste vara en giltig sökväg. Om du använder en virtuell Linux-dator måste sökvägen börja med */var/Captures*.
    - **Lagrings konton**: Välj ett befintligt lagrings konto om du har valt *lagrings konto*. Det här alternativet är bara tillgängligt om du har valt **lagring**.
    
      > [!NOTE]
      > Premium Storage-konton stöds för närvarande inte för lagring av paket fångster.
 
-   - **Maximalt antal byte per paket**: Antal byte från varje paket som samlas in. Om inget anges registreras alla byte.
-   - **Maximalt antal byte per session**: Det totala antalet byte som har fångats. När värdet har nåtts stoppas paket fångsten.
-   - **Tids gräns (sekunder)** : Tids gränsen innan paket fångsten stoppas. Standardvärdet är 18 000 sekunder.
+   - **Högsta antal byte per paket**: antalet byte från varje paket som fångas. Om inget anges registreras alla byte.
+   - **Maximalt antal byte per session**: det totala antalet byte som har fångats. När värdet har nåtts stoppas paket fångsten.
+   - **Tids gräns (sekunder)** : tids gränsen innan paket fångsten stoppas. Standardvärdet är 18 000 sekunder.
    - Filtrering (valfritt). Välj **+ Lägg till filter**
-     - **Protokoll**: Protokollet som ska filtreras efter paket fångsten. De tillgängliga värdena är TCP, UDP och any.
-     - **Lokal IP-adress**: Filtrerar paket fångsten för paket där den lokala IP-adressen matchar det här värdet.
-     - **Lokal port**: Filtrerar paket fångsten för paket där den lokala porten matchar det här värdet.
-     - **Fjärr-IP-adress**: Filtrerar paket fångsten för paket där fjärr-IP-adressen matchar det här värdet.
-     - **Fjärrport**: Filtrerar paket fångsten för paket där fjärrporten matchar det här värdet.
+     - **Protokoll**: protokollet som ska filtreras för infångade paket. De tillgängliga värdena är TCP, UDP och any.
+     - **Lokal IP-adress**: filtrerar paket fångsten för paket där den lokala IP-adressen matchar det här värdet.
+     - **Lokal port**: filtrerar paket fångsten för paket där den lokala porten matchar det här värdet.
+     - **Fjärr-IP-adress**: filtrerar paket fångsten för paket där fjärr-IP-adressen matchar det här värdet.
+     - **Fjärrport**: filtrerar paket fångsten för paket där fjärrporten matchar det här värdet.
     
      > [!NOTE]
      > Port-och IP-adress värden kan vara ett enda värde, ett intervall med värden eller ett intervall, till exempel 80-1024, för port. Du kan definiera så många filter som du behöver.

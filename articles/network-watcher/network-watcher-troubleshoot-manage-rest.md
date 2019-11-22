@@ -1,6 +1,7 @@
 ---
-title: Felsöka virtuella nätverkets Gateway och anslutningar som använder Azure Network Watcher - REST | Microsoft Docs
-description: Den här sidan förklaras hur du felsöker virtuella Nätverksgatewayer och anslutningar med Azure Network Watcher med hjälp av REST
+title: Felsöka VNET gateway och anslutningar – Azure REST API
+titleSuffix: Azure Network Watcher
+description: Den här sidan förklarar hur du felsöker Virtual Network gatewayer och anslutningar med Azure Network Watcher med REST
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -14,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: kumud
-ms.openlocfilehash: 0f10b9b45f63485417685a0826c047725a264772
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9b3898a7c4cd09b59da0fc167b758199119793eb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64686122"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277789"
 ---
-# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>Felsöka Vnet-gateway och anslutningar som använder Azure Network Watcher
+# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>Felsöka Virtual Network gateway och anslutningar med Azure Network Watcher
 
 > [!div class="op_single_selector"]
 > - [Portal](diagnose-communication-problem-between-networks.md)
@@ -29,24 +30,24 @@ ms.locfileid: "64686122"
 > - [Azure CLI](network-watcher-troubleshoot-manage-cli.md)
 > - [REST-API](network-watcher-troubleshoot-manage-rest.md)
 
-Network Watcher innehåller många funktioner som den relaterar till att förstå nätverksresurserna i Azure. En av dessa funktioner är resurs felsökning. Felsökning av resursen kan anropas via portal, PowerShell, CLI eller REST API. När den anropas, Network Watcher kontrollerar hälsotillståndet för en virtuell nätverksgateway eller en anslutning och returnerar resultatet.
+Network Watcher innehåller många funktioner som är relaterade till förståelse av dina nätverks resurser i Azure. En av dessa funktioner är resurs fel sökning. Resurs fel sökning kan anropas via portalen, PowerShell, CLI eller REST API. När den anropas kontrollerar Network Watcher hälsan för en Virtual Network gateway eller en anslutning och returnerar resultatet.
 
-Den här artikeln tar dig igenom de olika administrativa uppgifter som är tillgängliga för felsökning av resursen.
+Den här artikeln tar dig igenom de olika hanterings aktiviteter som för närvarande är tillgängliga för resurs fel sökning.
 
-- [**Felsöka en virtuell nätverksgateway**](#troubleshoot-a-virtual-network-gateway)
+- [**Felsöka en Virtual Network Gateway**](#troubleshoot-a-virtual-network-gateway)
 - [**Felsöka en anslutning**](#troubleshoot-connections)
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-ARMclient används för att anropa REST-API med hjälp av PowerShell. ARMClient hittas på chocolatey på [ARMClient på Chocolatey](https://chocolatey.org/packages/ARMClient)
+ARMclient används för att anropa REST API med hjälp av PowerShell. ARMClient finns på choklad på [ARMClient](https://chocolatey.org/packages/ARMClient)
 
-Det här scenariot förutsätter att du redan har följt stegen i [skapa en Network Watcher](network-watcher-create.md) att skapa en Network Watcher.
+Det här scenariot förutsätter att du redan har följt stegen i [skapa ett Network Watcher](network-watcher-create.md) för att skapa ett Network Watcher.
 
-En lista över stöds gateway typer besök [stöds gatewaytyper](network-watcher-troubleshoot-overview.md#supported-gateway-types).
+En lista över Gateway-typer som stöds finns i [Gateway-typer som stöds](network-watcher-troubleshoot-overview.md#supported-gateway-types).
 
 ## <a name="overview"></a>Översikt
 
-Network Watcher troubleshooting kan felsöka problem som kan uppstå med Vnet-gateways och anslutningar. När en begäran skickas till den resurs som felsökning, frågar och kontrolleras. När kontrollen är klar visas returneras resultaten. Felsök API-begäranden är långa begäranden, vilket kan ta flera minuter att returnera ett resultat som körs. Loggar lagras i en behållare på ett lagringskonto.
+Network Watcher fel sökning ger möjlighet att felsöka problem som uppstår med Virtual Network gatewayer och anslutningar. När en begäran görs till resurs fel sökningen, frågar och inspekteras loggarna. När inspektionen är klar returneras resultatet. Felsök API-begäranden är tids krävande begär Anden, vilket kan ta flera minuter att returnera ett resultat. Loggar lagras i en behållare på ett lagrings konto.
 
 ## <a name="log-in-with-armclient"></a>Logga in med ARMClient
 
@@ -54,12 +55,12 @@ Network Watcher troubleshooting kan felsöka problem som kan uppstå med Vnet-ga
 armclient login
 ```
 
-## <a name="troubleshoot-a-virtual-network-gateway"></a>Felsöka en virtuell nätverksgateway
+## <a name="troubleshoot-a-virtual-network-gateway"></a>Felsöka en Virtual Network Gateway
 
 
-### <a name="post-the-troubleshoot-request"></a>Publicera Felsök begäran
+### <a name="post-the-troubleshoot-request"></a>PUBLICERA fel söknings förfrågan
 
-I följande exempel frågar efter statusen för en virtuell nätverksgateway.
+I följande exempel frågas statusen för en Virtual Network Gateway.
 
 ```powershell
 
@@ -84,12 +85,12 @@ $requestBody = @"
 armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${NWresourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/troubleshoot?api-version=2016-03-30" $requestBody -verbose
 ```
 
-Eftersom den här åtgärden är långt körs, URI: N för att fråga igen och URI: N för resultatet returneras i svarshuvudet enligt följande svar:
+Eftersom den här åtgärden körs för länge returneras URI: n för att fråga åtgärden och URI: n för resultatet i svars huvudet som visas i följande svar:
 
 **Viktiga värden**
 
-* **Azure-AsyncOperation** -den här egenskapen innehåller URI: N till fråga Async felsöka åtgärden
-* **Plats** – den här egenskapen innehåller URI: N där resultatet är när åtgärden har slutförts
+* **Azure-AsyncOperation** – den här egenskapen innehåller URI: n för att skicka frågor till den asynkrona fel söknings åtgärden
+* **Plats** – den här egenskapen innehåller URI: n där resultatet är när åtgärden har slutförts
 
 ```
 HTTP/1.1 202 Accepted
@@ -109,15 +110,15 @@ Date: Thu, 12 Jan 2017 18:32:01 GMT
 null
 ```
 
-### <a name="query-the-async-operation-for-completion"></a>Fråga den asynkron åtgärden för slutförande
+### <a name="query-the-async-operation-for-completion"></a>Fråga den asynkrona åtgärden för slut för ande
 
-Använd åtgärderna URI till frågan för förloppet för åtgärden som visas i följande exempel:
+Använd Operations-URI: n för att fråga efter åtgärdens förlopp som visas i följande exempel:
 
 ```powershell
 armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operations/8a1167b7-6768-4ac1-85dc-703c9c9b9247?api-version=2016-03-30" -verbose
 ```
 
-Medan åtgärden pågår, visar svaret **InProgress** som visas i följande exempel:
+När åtgärden pågår, visar svaret **det som visas** i följande exempel:
 
 ```json
 {
@@ -125,7 +126,7 @@ Medan åtgärden pågår, visar svaret **InProgress** som visas i följande exem
 }
 ```
 
-När åtgärden har slutförts ändras statusen till **lyckades**.
+När åtgärden har slutförts ändras statusen till **slutförd**.
 
 ```json
 {
@@ -135,13 +136,13 @@ När åtgärden har slutförts ändras statusen till **lyckades**.
 
 ### <a name="retrieve-the-results"></a>Hämta resultaten
 
-När statusen som returnerades är **lyckades**, anropa en GET-metod i operationResult URI för att hämta resultaten.
+När statusen som returnerades är **klar**anropar du en get-metod på OperationResult under pågående-URI: n för att hämta resultaten.
 
 ```powershell
 armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operationResults/8a1167b7-6768-4ac1-85dc-703c9c9b9247?api-version=2016-03-30" -verbose
 ```
 
-Följande svar är exempel på en typisk försämrad svaret som returnerades vid frågor om resultatet av att felsöka en gateway. Se [förstå resultatet](#understanding-the-results) att få hjälp på vad som betyder egenskaperna i svaret.
+Följande svar är exempel på ett typiskt försämrat svar som returneras när du frågar efter resultatet av fel sökning av en gateway. Se [förstå resultaten](#understanding-the-results) för att få information om vad egenskaperna i svaret innebär.
 
 ```json
 {
@@ -188,9 +189,9 @@ Följande svar är exempel på en typisk försämrad svaret som returnerades vid
 ```
 
 
-## <a name="troubleshoot-connections"></a>Felsök anslutningar
+## <a name="troubleshoot-connections"></a>Felsöka anslutningar
 
-I följande exempel frågar efter statusen för en anslutning.
+I följande exempel frågas statusen för en anslutning.
 
 ```powershell
 
@@ -213,14 +214,14 @@ armclient post "https://management.azure.com/subscriptions/${subscriptionId}/Res
 ```
 
 > [!NOTE]
-> Felsök åtgärden kan inte köras parallellt på en anslutning och dess motsvarande gateways. Åtgärden måste slutföras innan den körs på tidigare resursen.
+> Fel söknings åtgärden kan inte köras parallellt på en anslutning och dess motsvarande gatewayer. Åtgärden måste slutföras innan den körs på den tidigare resursen.
 
-Eftersom det här är en tidskrävande transaktion i svarshuvudet, returneras URI: N för att fråga URI för resultatet av åtgärden och den som visas i följande svar:
+Eftersom det här är en tids krävande transaktion, i svars huvudet, returneras URI: n för att fråga åtgärden och URI: n för resultatet som visas i följande svar:
 
 **Viktiga värden**
 
-* **Azure-AsyncOperation** -den här egenskapen innehåller URI: N till fråga Async felsöka åtgärden
-* **Plats** – den här egenskapen innehåller URI: N där resultatet är när åtgärden har slutförts
+* **Azure-AsyncOperation** – den här egenskapen innehåller URI: n för att skicka frågor till den asynkrona fel söknings åtgärden
+* **Plats** – den här egenskapen innehåller URI: n där resultatet är när åtgärden har slutförts
 
 ```
 HTTP/1.1 202 Accepted
@@ -240,15 +241,15 @@ Date: Thu, 12 Jan 2017 18:32:01 GMT
 null
 ```
 
-### <a name="query-the-async-operation-for-completion"></a>Fråga den asynkron åtgärden för slutförande
+### <a name="query-the-async-operation-for-completion"></a>Fråga den asynkrona åtgärden för slut för ande
 
-Använd åtgärderna URI till frågan för förloppet för åtgärden som visas i följande exempel:
+Använd Operations-URI: n för att fråga efter åtgärdens förlopp som visas i följande exempel:
 
 ```powershell
 armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operations/843b1c31-4717-4fdd-b7a6-4c786ca9c501?api-version=2016-03-30"
 ```
 
-Medan åtgärden pågår, visar svaret **InProgress** som visas i följande exempel:
+När åtgärden pågår, visar svaret **det som visas** i följande exempel:
 
 ```json
 {
@@ -256,7 +257,7 @@ Medan åtgärden pågår, visar svaret **InProgress** som visas i följande exem
 }
 ```
 
-När åtgärden har slutförts ändras statusen till **lyckades**.
+När åtgärden har slutförts ändras statusen till **slutförd**.
 
 ```json
 {
@@ -264,17 +265,17 @@ När åtgärden har slutförts ändras statusen till **lyckades**.
 }
 ```
 
-Följande svar är exempel på en typisk svaret som returnerades vid frågor om resultatet av att felsöka en anslutning.
+Följande svar är exempel på ett typiskt svar som returneras när du frågar efter resultatet av fel sökning av en anslutning.
 
 ### <a name="retrieve-the-results"></a>Hämta resultaten
 
-När statusen som returnerades är **lyckades**, anropa en GET-metod i operationResult URI för att hämta resultaten.
+När statusen som returnerades är **klar**anropar du en get-metod på OperationResult under pågående-URI: n för att hämta resultaten.
 
 ```powershell
 armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operationResults/843b1c31-4717-4fdd-b7a6-4c786ca9c501?api-version=2016-03-30"
 ```
 
-Följande svar är exempel på en typisk svaret som returnerades vid frågor om resultatet av att felsöka en anslutning.
+Följande svar är exempel på ett typiskt svar som returneras när du frågar efter resultatet av fel sökning av en anslutning.
 
 ```json
 {
@@ -323,10 +324,10 @@ is a transient state while the Azure platform is being updated.",
 
 ## <a name="understanding-the-results"></a>Förstå resultaten
 
-Åtgärd-texten innehåller allmänna råd om hur du löser problemet. Om en åtgärd kan utföras på problemet, länk en med ytterligare vägledning. I fall där det finns inga ytterligare vägledning, svaret anger webbadressen för att öppna ett supportärende.  Mer information om egenskaperna för svaret och vad som ingår finns [felsökning av Network Watcher-översikt](network-watcher-troubleshoot-overview.md)
+Åtgärds texten ger allmän vägledning om hur du löser problemet. Om en åtgärd kan vidtas för problemet, finns en länk med ytterligare vägledning. I de fall där det inte finns någon ytterligare vägledning ger svaret URL: en för att öppna ett support ärende.  Mer information om svarets egenskaper och vad som ingår finns i [Network Watcher Felsök översikt](network-watcher-troubleshoot-overview.md)
 
-Instruktioner om att ladda ned filer från azure storage-konton finns i [komma igång med Azure Blob storage med hjälp av .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Ett annat verktyg som kan användas är Storage Explorer. Mer information om Storage Explorer finns här på följande länk: [Storage Explorer](https://storageexplorer.com/)
+Anvisningar om hur du laddar ned filer från Azure Storage-konton finns i [komma igång med Azure Blob Storage med hjälp av .net](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Ett annat verktyg som kan användas är Storage Explorer. Mer information om Storage Explorer hittar du här på följande länk: [Storage Explorer](https://storageexplorer.com/)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om inställningarna har ändrats som stoppa VPN-anslutning, se [hantera Nätverkssäkerhetsgrupper](../virtual-network/manage-network-security-group.md) att spåra de och Nätverkssäkerhetsregler som kan vara i fråga.
+Om inställningarna har ändrats som förhindrar VPN-anslutning, se [Hantera nätverks säkerhets grupper](../virtual-network/manage-network-security-group.md) för att spåra de nätverks säkerhets grupper och säkerhets regler som kan vara i fråga.

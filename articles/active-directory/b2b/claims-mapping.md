@@ -1,6 +1,6 @@
 ---
-title: B2B-användare Anspråksmappning - Azure Active Directory | Microsoft Docs
-description: Anpassa användaranspråk som har utfärdats i SAML-token för Azure Active Directory (Azure AD) B2B-användare.
+title: Användar anspråk mappning för B2B-samarbete – Azure Active Directory
+description: Anpassa användar anspråk som utfärdas i SAML-token för Azure Active Directory (Azure AD) B2B-användare.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -11,33 +11,33 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: edb18c31f40de3358ad987be4a9c67ed3a5079e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3508865d9f89501cf70e09087c6a609beb6662b2
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65811920"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74273190"
 ---
-# <a name="b2b-collaboration-user-claims-mapping-in-azure-active-directory"></a>B2B-användare Anspråksmappning i Azure Active Directory
+# <a name="b2b-collaboration-user-claims-mapping-in-azure-active-directory"></a>Användar anspråk mappning för B2B-samarbete i Azure Active Directory
 
-Azure Active Directory (Azure AD) stöder anpassa anspråk som utfärdats i SAML-token för användare i B2B-samarbetet. När en användare autentiseras till programmet utfärdar Azure AD en SAML-token till appen som innehåller information (eller anspråk) om användaren som unikt identifierar dem. Som standard innehåller detta användarens användarnamn, e-postadress, Förnamn och efternamn.
+Azure Active Directory (Azure AD) stöder anpassning av anspråk som utfärdas i SAML-token för B2B-samarbets användare. När en användare autentiserar sig till programmet utfärdar Azure AD en SAML-token till den app som innehåller information (eller anspråk) om den användare som unikt identifierar dem. Som standard innehåller detta användarens användar namn, e-postadress, förnamn och efter namn.
 
-I den [Azure-portalen](https://portal.azure.com), du kan visa eller redigera de anspråk som skickas i SAML-token för programmet. Om du vill komma åt inställningarna, Välj **Azure Active Directory** > **företagsprogram** > det program som har konfigurerats för enkel inloggning > **enkel inloggning** . SAML-token-inställningar i den **användarattribut** avsnittet.
+I [Azure Portal](https://portal.azure.com)kan du Visa eller redigera de anspråk som skickas i SAML-token till programmet. För att få åtkomst till inställningarna väljer du **Azure Active Directory** > **företags program** > programmet som är konfigurerat för enkel inloggning > **enkel inloggning**. Se inställningarna för SAML-token i avsnittet **användarattribut** .
 
-![Visar SAML-tokenattribut i Användargränssnittet](media/claims-mapping/view-claims-in-saml-token.png)
+![Visar attributen för SAML-token i användar gränssnittet](media/claims-mapping/view-claims-in-saml-token.png)
 
-Det finns två möjliga orsaker till varför du kan behöva redigera de anspråk som utfärdats i SAML-token:
+Det finns två möjliga orsaker till varför du kan behöva redigera anspråk som utfärdats i SAML-token:
 
-1. Programmet kräver en annan uppsättning anspråk URI: er eller anspråksvärden.
+1. Programmet kräver en annan uppsättning av anspråk-URI: er eller anspråks värden.
 
-2. Programmet kräver NameIdentifier-anspråket ska vara något annat än användarens huvudnamn (UPN) som lagras i Azure AD.
+2. Programmet kräver att NameIdentifier-anspråk är något annat än det User Principal Name (UPN) som lagras i Azure AD.
 
-Information om hur du lägger till och redigera anspråk finns i [anpassa anspråk som utfärdats i SAML-token för företagsprogram i Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
+Information om hur du lägger till och redigerar anspråk finns i [Anpassa anspråk som utfärdats i SAML-token för företags program i Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
 
-Användare, mappa NameID- och UPN flera klienter som inte av säkerhetsskäl för B2B-samarbete.
+För B2B-samarbets användare, förhindras mappning av NameID och UPN mellan klient av säkerhets skäl.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs om hur egenskaper för användare av B2B-samarbete [egenskaperna för en användare för Azure Active Directory B2B-samarbete](user-properties.md).
-- Läs om hur användartoken för B2B-samarbetare [förstå användartoken i Azure AD B2B-samarbete](user-token.md).
+- Information om användar egenskaper för B2B-samarbete finns i [Egenskaper för en Azure Active Directory B2B-samarbets användare](user-properties.md).
+- Information om användartoken för B2B-samarbets användare finns i [förstå användar-tokens i Azure AD B2B-samarbete](user-token.md).
 

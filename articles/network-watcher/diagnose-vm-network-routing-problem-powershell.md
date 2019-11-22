@@ -1,6 +1,7 @@
 ---
-title: Diagnostisera en virtuell dator problem med nätverksroutning – Azure PowerShell | Microsoft Docs
-description: I den här artikeln får du lära dig hur du diagnostiserar en virtuell dator problem med nätverksroutning med nästa hopp-funktionen i Azure Network Watcher.
+title: Diagnostisera ett problem med Routning av VM-nätverk – Azure PowerShell
+titleSuffix: Azure Network Watcher
+description: I den här artikeln får du lära dig hur du diagnostiserar ett problem med nätverks routning i en virtuell dator med hjälp av nästa hopp funktion i Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
 author: KumudD
@@ -17,16 +18,16 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 08d273ce6e6ecb1b10d3c39a0954d430a3cb674a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 81e2af329661d485b2d189e9a1f70b50bd6d4b7d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66730740"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276116"
 ---
-# <a name="diagnose-a-virtual-machine-network-routing-problem---azure-powershell"></a>Diagnostisera en virtuell dator problem med nätverksroutning – Azure PowerShell
+# <a name="diagnose-a-virtual-machine-network-routing-problem---azure-powershell"></a>Diagnostisera ett problem med nätverks dirigering för virtuella datorer – Azure PowerShell
 
-I den här artikeln får du distribuera en virtuell dator (VM) och kontrollera kommunikation till en IP-adress och URL: en. Du lär dig också hur du fastställer orsaken till ett kommunikationsfel och hur du löser problemet.
+I den här artikeln distribuerar du en virtuell dator (VM) och kontrollerar sedan kommunikationen med en IP-adress och URL. Du lär dig också hur du fastställer orsaken till ett kommunikationsfel och hur du löser problemet.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -34,7 +35,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här artikeln Azure PowerShell- `Az` modulen. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt kräver den här artikeln Azure PowerShell `Az`-modulen. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
 
 
@@ -59,11 +60,11 @@ Det tar några minuter att skapa den virtuella datorn. Fortsätt inte med de åt
 
 ## <a name="test-network-communication"></a>Testa nätverkskommunikationen
 
-Om du vill testa nätverkskommunikation med Network Watcher måste du först aktivera en network watcher i den region som den virtuella datorn som du vill testa har och sedan använda Network Watcher nästa hopp-funktionen för att testa kommunikation.
+Om du vill testa nätverkskommunikation med Network Watcher måste du först aktivera en nätverks bevakare i den region som den virtuella datorn som du vill testa är i och sedan använda Network Watchers nästa hopp-funktion för att testa kommunikationen.
 
 ## <a name="enable-network-watcher"></a>Aktivera nätverksbevakare
 
-Om du redan har en network watcher som aktiverats i regionen USA, östra, använda [Get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher) att hämta network watcher. I följande exempel hämtas en befintlig nätverksbevakare med namnet *NetworkWatcher_eastus* som finns i resursgruppen *NetworkWatcherRG*:
+Om du redan har en nätverks Övervakare som är aktive rad i regionen USA, östra, använder du [Get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher) för att hämta nätverks bevakaren. I följande exempel hämtas en befintlig nätverksbevakare med namnet *NetworkWatcher_eastus* som finns i resursgruppen *NetworkWatcherRG*:
 
 ```azurepowershell-interactive
 $networkWatcher = Get-AzNetworkWatcher `
@@ -71,7 +72,7 @@ $networkWatcher = Get-AzNetworkWatcher `
   -ResourceGroupName NetworkWatcherRG
 ```
 
-Om du inte redan har en network watcher som aktiverats i regionen östra USA kan du använda [New AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher) att skapa en network watcher i regionen östra USA:
+Om du inte redan har en nätverks Övervakare som är aktive rad i regionen USA, östra, använder du [New-AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher) för att skapa en nätverks övervakare i regionen USA, östra:
 
 ```azurepowershell-interactive
 $networkWatcher = New-AzNetworkWatcher `
@@ -82,7 +83,7 @@ $networkWatcher = New-AzNetworkWatcher `
 
 ### <a name="use-next-hop"></a>Använda funktionen för nästa hopp
 
-Azure skapar automatiskt vägar till olika standardmål. Du kan skapa egna vägar som ersätter standardvägarna. Ibland kan egna vägar göra att kommunikationen misslyckas. Testa routning från en virtuell dator med den [Get-AzNetworkWatcherNextHop](/powershell/module/az.network/get-aznetworkwatchernexthop) kommando för att fastställa nexthop routning när trafik är avsedd för en specifik adress.
+Azure skapar automatiskt vägar till olika standardmål. Du kan skapa egna vägar som ersätter standardvägarna. Ibland kan egna vägar göra att kommunikationen misslyckas. Om du vill testa routning från en virtuell dator använder du kommandot [Get-AzNetworkWatcherNextHop](/powershell/module/az.network/get-aznetworkwatchernexthop) för att fastställa nästa dirigering när trafiken är avsedd för en speciell adress.
 
 Testa utgående kommunikation från den virtuella datorn till någon av IP-adresserna för www.bing.com:
 
@@ -94,7 +95,7 @@ Get-AzNetworkWatcherNextHop `
   -DestinationIPAddress 13.107.21.200
 ```
 
-Efter några sekunder utdata informerar dig som den **NextHopType** är **Internet**, och att den **RouteTableId** är **Systemväg**. Det här resultatet talar om att det finns en giltig väg till målet.
+Efter några sekunder informerar utdata om att **NextHopType** är **Internet**och att **RouteTableId** är **system väg**. Det innebär att du vet att det finns en giltig väg till målet.
 
 Testa utgående kommunikation från den virtuella datorn till 172.31.0.100:
 
@@ -106,11 +107,11 @@ Get-AzNetworkWatcherNextHop `
   -DestinationIPAddress 172.31.0.100
 ```
 
-Informerar dig om de utdata som returneras som **ingen** är den **NextHopType**, och att den **RouteTableId** är också **Systemväg**. Resultatet visar att det visserligen finns en giltig systemväg till målet, men att det inte finns något nästa hopp för att dirigera trafiken till målet.
+Utdata som returneras informerar dig om att **ingen** är **NextHopType**och att **RouteTableId** också är **system väg**. Resultatet visar att det visserligen finns en giltig systemväg till målet, men att det inte finns något nästa hopp för att dirigera trafiken till målet.
 
 ## <a name="view-details-of-a-route"></a>Visa information om en väg
 
-Om du vill analysera routning ytterligare, granska de effektiva vägarna för nätverksgränssnittet med den [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable) kommando:
+Granska de effektiva vägarna för nätverks gränssnittet med kommandot [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable) för att analysera routning ytterligare:
 
 ```azurepowershell-interactive
 Get-AzEffectiveRouteTable `
@@ -131,11 +132,11 @@ Name State  Source  AddressPrefix           NextHopType NextHopIpAddress
      Active Default {172.16.0.0/12}         None        {}              
 ```
 
-Som du ser i föregående utdata vägen med den **AddressPrefix** av **0.0.0.0/0** dirigerar all trafik som inte är avsedda för adresser inom annan väg adressprefix med ett nexthop för **Internet**. Som du ser också i utdata, men det finns en standardväg till 172.16.0.0/12 prefix, som innehåller 172.31.0.100 adressen, den **nextHopType** är **ingen**. Azure skapar en standardväg till 172.16.0.0/12 men anger inte en nästa hopptyp förrän det finns någon anledning till det. Om du till exempel att du lagt till adressintervallet 172.16.0.0/12 adressutrymmet för det virtuella nätverket, Azure ändras den **nextHopType** till **virtuellt nätverk** för vägen. En kontroll visas sedan **virtuellt nätverk** som den **nextHopType**.
+Som du kan se i föregående utdata dirigerar vägen med **AddressPrefix** av **0.0.0.0/0** all trafik som inte är avsedd för adresser inom andra vägars adressprefix med ett nästa hopp på **Internet**. Som du kan också se i utdata, men det finns en standard väg till prefixet 172.16.0.0/12, som innehåller 172.31.0.100-adressen, är **NextHopType** **ingen**. Azure skapar en standardväg till 172.16.0.0/12 men anger inte en nästa hopptyp förrän det finns någon anledning till det. Om du till exempel har lagt till adress intervallet 172.16.0.0/12 i det virtuella nätverkets adress utrymme ändrar Azure **nextHopType** till det **virtuella nätverket** för vägen. En kontroll visar sedan det **virtuella nätverket** som **nextHopType**.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du inte längre behövs kan du använda [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) att ta bort resursgruppen och alla resurser den innehåller:
+När de inte längre behövs kan du använda [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) för att ta bort resurs gruppen och alla resurser som den innehåller:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force
@@ -143,6 +144,6 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du skapat en virtuell dator och diagnostiseras nätverksroutning från den virtuella datorn. Du har lärt dig att Azure skapar flera standardvägar och testat routning till två olika mål. Läs mer om [routning i Azure](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) och hur du [skapar egna vägar](../virtual-network/manage-route-table.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-route).
+I den här artikeln har du skapat en virtuell dator och en diagnostiserad nätverks dirigering från den virtuella datorn. Du har lärt dig att Azure skapar flera standardvägar och testat routning till två olika mål. Läs mer om [routning i Azure](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) och hur du [skapar egna vägar](../virtual-network/manage-route-table.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-route).
 
-För utgående VM-anslutningar kan också bestämma svarstiden du och tillåtna respektive nekade nätverkstrafik mellan den virtuella datorn och en slutpunkt med Network Watchers [anslutningsfelsökning](network-watcher-connectivity-powershell.md) kapaciteten. Du kan övervaka kommunikation mellan en virtuell dator och en slutpunkt, till exempel en IP-adress eller URL: en, över tid med Network Watcher anslutning monitor-funktionen. Läs hur genom att läsa [övervaka en nätverksanslutning](connection-monitor.md).
+För utgående VM-anslutningar kan du också bestämma svars tiden och tillåten och nekad nätverks trafik mellan den virtuella datorn och en slut punkt med hjälp av Network Watcher [anslutnings fel söknings](network-watcher-connectivity-powershell.md) funktion. Du kan övervaka kommunikationen mellan en virtuell dator och en slut punkt, till exempel en IP-adress eller URL, med tiden med hjälp av funktionen för Network Watcher anslutnings övervakaren. Mer information finns i [övervaka en nätverks anslutning](connection-monitor.md).

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: fb8f5f2adf497a12b4ed54b381a2dbf85e160b8e
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 2a40680b45522d8a8e49a3f01a50a748e1c71b53
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123963"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274066"
 ---
 # <a name="container-security-in-security-center"></a>Behållar säkerhet i Security Center
 
@@ -32,7 +32,7 @@ Den här artikeln beskriver hur du kan förbättra, övervaka och upprätthålla
 [fliken behållar säkerhet för ![Azure Security Center](media/container-security/container-security-tab.png)](media/container-security/container-security-tab.png#lightbox)
 
 ## <a name="vulnerability-management---scanning-container-images-preview"></a>Sårbarhets hantering – Skanna behållar avbildningar (för hands version)
-Om du vill övervaka din Azure Container Registry ansluter du den till Security Center. När en ny avbildning överförs, Security Center skannar avbildningen med hjälp av en skanner från den branschledande sårbara sårbarheten hos leverantören, Qualys.
+Kontrol lera att du är på Security Center standard nivå (se [prissättning](https://docs.microsoft.com/azure/security-center/security-center-pricing.md)) för att övervaka dina Azure Container Registry. Aktivera sedan de valfria paketen för behållar register. När en ny avbildning överförs, Security Center skannar avbildningen med hjälp av en skanner från den branschledande sårbara sårbarheten hos leverantören, Qualys.
 
 När problem påträffas – av Qualys eller Security Center – får du ett meddelande i Security Center instrument panel. För varje sårbarhet ger Security Center rekommendationer som kan åtgärdas, tillsammans med en allvarlighets grad och vägledning för hur du kan åtgärda problemet. Information om Security Centers rekommendationer finns i listan över rekommendationer i skyddet av [virtuella datorer](security-center-virtual-machine-protection.md##compute-and-app-recs).
 
@@ -55,7 +55,7 @@ AKS tillhandahåller säkerhets kontroller och insyn i säkerhets position i din
 
 Information om Security Centers rekommendationer finns i [säkerhet för virtuella datorer](security-center-virtual-machine-protection.md).
 
-## <a name="run-time-protection---real-time-threat-detection"></a>Kör tids skydd – real tids identifiering av hot 
+## <a name="run-time-protection---real-time-threat-detection"></a>Kör tids skydd – real tids identifiering av hot
 
 Security Center tillhandahåller hot identifiering i real tid för dina behållares miljöer och genererar aviseringar för misstänkta aktiviteter. Du kan använda den här informationen för att snabbt åtgärda säkerhetsproblem och förbättra säkerheten för dina behållare.
 

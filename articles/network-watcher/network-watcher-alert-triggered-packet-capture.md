@@ -1,5 +1,6 @@
 ---
-title: Använd paket fångst för proaktiv nätverks övervakning med aviseringar och Azure Functions | Microsoft Docs
+title: Använd paket fångst för proaktiv nätverks övervakning med aviseringar – Azure Functions
+titleSuffix: Azure Network Watcher
 description: Den här artikeln beskriver hur du skapar en avisering som utlöses av en paket insamling med Azure Network Watcher
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: d894fabf3cfd4c6949aba94d558751bf007356d9
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 26599776abdf7ecbb6c86c332a40e0c2b7d6e67e
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165164"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276122"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Använda paket fångst för proaktiv nätverks övervakning med aviseringar och Azure Functions
 
@@ -36,7 +37,7 @@ Genom att använda Network Watcher, aviseringar och funktioner i Azure-eko syste
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Den senaste versionen av [Azure PowerShell](/powershell/azure/install-Az-ps).
 * En befintlig instans av Network Watcher. Om du inte redan har en, [skapar du en instans av Network Watcher](network-watcher-create.md).
@@ -69,26 +70,26 @@ Det här scenariot gör följande:
 
 Det första steget är att skapa en Azure-funktion för att bearbeta aviseringen och skapa en paket fångst.
 
-1. I [Azure Portal](https://portal.azure.com)väljer du **skapa en resurs** > **beräknings** > **Funktionsapp**.
+1. I [Azure Portal](https://portal.azure.com)väljer du **skapa en resurs** > **Compute** > **Funktionsapp**.
 
     ![Skapa en Function-app][1-1]
 
 2. Ange följande värden på bladet **Funktionsapp** och välj sedan **OK** för att skapa appen:
 
-    |**Inställning** | **Värde** | **Detaljer** |
+    |**Inställning** | **Värde** | **Information** |
     |---|---|---|
     |**Appens namn**|PacketCaptureExample|Namnet på Function-appen.|
     |**Prenumeration**|[Din prenumeration] Den prenumeration som du vill skapa Function-appen för.||
     |**Resursgrupp**|PacketCaptureRG|Resurs gruppen som innehåller Function-appen.|
     |**Värdplan**|Förbrukningsplan| Typ av plan som din Function-app använder. Alternativen är förbruknings-eller Azure App Services planer. |
-    |**Location**|Centrala USA| Den region där du vill skapa Function-appen.|
+    |**Plats**|Centrala USA| Den region där du vill skapa Function-appen.|
     |**Lagringskonto**|automatiskt skapade texter| Det lagrings konto som Azure Functions behöver för allmän lagring.|
 
-3. På bladet **PacketCaptureExample Function-appar** väljer > du**anpassad funktion** >. **+**
+3. På bladet **PacketCaptureExample Function-appar** väljer **du Functions** > **anpassad funktion** > **+** .
 
 4. Välj **HttpTrigger-PowerShell**och ange sedan återstående information. Slutligen, för att skapa funktionen, väljer du **skapa**.
 
-    |**Inställning** | **Värde** | **Detaljer** |
+    |**Inställning** | **Värde** | **Information** |
     |---|---|---|
     |**Scenario**|Experimentell|Typ av scenario|
     |**Namnge din funktion**|AlertPacketCapturePowerShell|Namnet på funktionen|
@@ -121,7 +122,7 @@ Om du vill använda Network Watcher PowerShell-cmdlets laddar du upp den senaste
 
      ![PowerShell-mappar][functions5]
 
-1. Välj **funktions program inställningar** > **gå till App Service Editor**.
+1. Välj **Function app-inställningar** > **gå till App Service Editor**.
 
     ![Funktionsappinställningar][functions2]
 
@@ -141,7 +142,7 @@ Om du vill använda Network Watcher PowerShell-cmdlets laddar du upp den senaste
 
 6. Gå till dina Azure-moduler. I mappen lokal **AZ. Network** väljer du alla filer i mappen. Välj sedan **OK**. 
 
-7. Upprepa de här stegen för **AZ. Accounts** och **AZ.** Resources.
+7. Upprepa de här stegen för **AZ. Accounts** och **AZ. Resources**.
 
     ![Överföra filer][functions6]
 
@@ -149,7 +150,7 @@ Om du vill använda Network Watcher PowerShell-cmdlets laddar du upp den senaste
 
     ![PowerShell-filer][functions7]
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autentisering
 
 Om du vill använda PowerShell-cmdletar måste du autentisera dig. Du konfigurerar autentisering i Function-appen. Om du vill konfigurera autentisering måste du konfigurera miljövariabler och ladda upp en krypterad nyckel fil till Function-appen.
 
@@ -226,7 +227,7 @@ Hämta klient-ID: t genom att köra följande PowerShell-exempel:
 
 #### <a name="azurecredpassword"></a>AzureCredPassword
 
-Värdet för AzureCredPassword-miljövariabeln är det värde som du får från att köra följande PowerShell-exempel. Det här exemplet är samma som visas i avsnittet föregående **krypterade autentiseringsuppgifter** . Värdet som behövs är resultatet av `$Encryptedpassword` variabeln.  Detta är det lösen ord för tjänstens huvud namn som du krypterade med hjälp av PowerShell-skriptet.
+Värdet för AzureCredPassword-miljövariabeln är det värde som du får från att köra följande PowerShell-exempel. Det här exemplet är samma som visas i avsnittet föregående **krypterade autentiseringsuppgifter** . Värdet som behövs är resultatet av variabeln `$Encryptedpassword`.  Detta är det lösen ord för tjänstens huvud namn som du krypterade med hjälp av PowerShell-skriptet.
 
 ```powershell
 #Variables
@@ -247,7 +248,7 @@ $Encryptedpassword
 
 ### <a name="store-the-environment-variables"></a>Lagra miljövariablerna
 
-1. Gå till Function-appen. Välj sedan **funktions program inställningar** > **Konfigurera appinställningar**.
+1. Gå till Function-appen. Välj sedan **Function app-inställningar** > **Konfigurera appinställningar**.
 
     ![Konfigurera appinställningar][functions11]
 
@@ -343,7 +344,7 @@ Aviseringar kan konfigureras för att meddela individer när ett speciellt mått
 
 Gå till en befintlig virtuell dator och Lägg sedan till en varnings regel. Mer detaljerad dokumentation om hur du konfigurerar aviseringar finns i [skapa aviseringar i Azure Monitor för Azure-tjänster – Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md). Ange följande värden på bladet **aviserings regel** och välj sedan **OK**.
 
-  |**Inställning** | **Värde** | **Detaljer** |
+  |**Inställning** | **Värde** | **Information** |
   |---|---|---|
   |**Namn**|TCP_Segments_Sent_Exceeded|Aviserings regelns namn.|
   |**Beskrivning**|TCP skickade segment överskred tröskeln|Beskrivning av varnings regeln.|
@@ -373,7 +374,7 @@ När din avbildning har hämtats kan du Visa den med hjälp av alla verktyg som 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du visar dina paket fångster genom att besöka insamlings [analys av paket med wireshark](network-watcher-deep-packet-inspection.md).
+Lär dig hur du visar dina paket fångster genom att besöka [insamlings analys av paket med wireshark](network-watcher-deep-packet-inspection.md).
 
 
 [1]: ./media/network-watcher-alert-triggered-packet-capture/figure1.png

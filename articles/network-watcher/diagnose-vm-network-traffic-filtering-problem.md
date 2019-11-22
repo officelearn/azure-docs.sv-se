@@ -1,5 +1,6 @@
 ---
-title: Diagnostisera problem med filtreringen av nätverkstrafik på virtuella datorer – snabbstart – Azure Portal | Microsoft Docs
+title: 'Snabb start: diagnostisera ett problem med trafik filter för virtuella dator nätverk – Azure Portal'
+titleSuffix: Azure Network Watcher
 description: I den här snabbstarten lär du dig hur du diagnostiserar problem med filtreringen av nätverkstrafik på en virtuell dator med hjälp av funktionen Kontrollera IP-flöde i Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
@@ -17,14 +18,14 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 6478c82a93cd35eead3972bb4dccf402219d9b7d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d436fab100dc05cde8a434af564c67477b33d8d3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702899"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276015"
 ---
-# <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Snabbstart: Diagnostisera problem med filtreringen av nätverkstrafik på virtuella datorer med hjälp av Azure-portalen
+# <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Snabbstart: Diagnostisera problem med filtreringen av nätverkstrafik på virtuella datorer med hjälp av Azure Portal
 
 I den här snabbstarten ska du distribuera en virtuell dator (VM) och kontrollera kommunikationen till en IP-adress och URL och från en IP-adress. Du lär dig också hur du fastställer orsaken till ett kommunikationsfel och hur du löser problemet.
 
@@ -47,7 +48,7 @@ Logga in på Azure Portal på https://portal.azure.com.
     |Lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Prenumeration| Välj din prenumeration.|
     |Resursgrupp| Välj **Skapa ny** och ange **myResourceGroup**.|
-    |Location| Välj **USA, östra**|
+    |Plats| Välj **USA, östra**|
 
 4. Välj en storlek för den virtuella datorn och sedan **Välj**.
 5. Acceptera standardinställningarna under **Inställningar** och välj **OK**.
@@ -72,7 +73,7 @@ Om du redan har aktiverat en nätverksbevakare i minst en region går du vidare 
 
 När du skapar en virtuell dator tillåter och nekar Azure nätverkstrafik till och från den virtuella datorn som standard. Om du vill kan du åsidosätta standardinställningarna i Azure och tillåta eller neka andra typer av trafik.
 
-1. Välj **Alla tjänster** på portalen. Skriv *Network Watcher* i *filterrutan* för **Alla tjänster**. Välj **Network Watcher** i sökresultatet.
+1. Välj **Alla tjänster** på portalen. Skriv **Network Watcher** i *filterrutan* för *Alla tjänster*. Välj **Network Watcher** i sökresultatet.
 2. Välj **Kontrollera IP-flöde** under **DIAGNOSTISKA VERKTYG FÖR NÄTVERK**.
 3. Välj din prenumeration, ange eller välj följande värden och välj sedan **Kontrollera**, som du ser i bilden nedan:
 
@@ -82,10 +83,10 @@ När du skapar en virtuell dator tillåter och nekar Azure nätverkstrafik till 
     | Virtuell dator   | Välj myVm                                                                                       |
     | Nätverksgränssnitt | myvm – Namnet på nätverksgränssnittet som skapades av portalen när du skapade den virtuella datorn är ett annat. |
     | Protokoll          | TCP                                                                                               |
-    | Direction         | Utgående                                                                                          |
+    | Riktning         | Utgående                                                                                          |
     | Lokal IP-adress  | 10.0.0.4                                                                                          |
     | Lokal port      | 60000                                                                                                |
-    | Fjärr-IP-adress | 13.107.21.200 - en av adresserna för < www.bing.com>.                                             |
+    | Fjärr-IP-adress | 13.107.21.200 – en av adresserna för < www. Bing. com >.                                             |
     | Fjärrport       | 80                                                                                                |
 
     ![Kontrollera IP-flöde](./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-outbound.png)
@@ -120,7 +121,7 @@ Ta bort resursgruppen, skalningsuppsättningen och alla resurser som den innehå
 
 1. Skriv *myResourceGroup* i **sökrutan** överst i portalen. När du ser **myResourceGroup** i sökresultatet väljer du den.
 2. Välj **Ta bort resursgrupp**.
-3. Skriv *myResourceGroup* där du uppmanas att **skriva resursgruppens namn:** (Skriv resursgruppens namn) och välj **Ta bort**.
+3. Skriv *myResourceGroup* i **SKRIV RESURSGRUPPSNAMNET:** och välj **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 

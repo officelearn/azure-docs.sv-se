@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Använd Java för att anropa Textanalys REST API'
+title: 'Snabb start: Använd Java för att anropa Textanalys REST API'
 titleSuffix: Azure Cognitive Services
 description: Få information och kod exempel som hjälper dig att snabbt komma igång med API för textanalys i Azure Cognitive Services.
 services: cognitive-services
@@ -11,21 +11,21 @@ ms.topic: quickstart
 ms.date: 08/28/2019
 ms.author: aahi
 ms.custom: seo-java-july2019, seo-java-august2019
-ms.openlocfilehash: e875c74884fcea824ac29001aa5bcca9009e3dcb
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: f4bae69f1ce65b98a4b83d50e906a1636833a1fd
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142768"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284870"
 ---
-# <a name="quickstart-use-java-to-call-the-azure-text-analytics-cognitive-service"></a>Snabbstart: Använd Java för att anropa tjänsten Azure Textanalys kognitivt
+# <a name="quickstart-use-java-to-call-the-azure-text-analytics-cognitive-service"></a>Snabb start: Använd Java för att anropa tjänsten Azure Textanalys kognitivt
 <a name="HOLTop"></a>
 
 Den här artikeln visar hur du [identifierar språk](#Detect), [analyserar sentiment](#SentimentAnalysis), [extraherar diskussionsämnen](#KeyPhraseExtraction) och [identifierar länkade entiteter](#Entities) med hjälp av  [API:er för textanalys](//go.microsoft.com/fwlink/?LinkID=759711) med Java.
 
-Se [API-definitionerna](//go.microsoft.com/fwlink/?LinkID=759346) för teknisk dokumentation för API:erna.
+[!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
@@ -38,7 +38,7 @@ Du måste även ha [slutpunkten och åtkomstnyckeln](../../cognitive-services-ap
 API:et för språkidentifiering identifierar språket i ett textdokument med hjälp av metoden  [Detect Language](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) (Identifiera språk).
 
 1. Skapa miljövariabler `TEXT_ANALYTICS_SUBSCRIPTION_KEY` och `TEXT_ANALYTICS_ENDPOINT` för resursens Azure-slutpunkt och prenumerations nyckel. Om du har skapat de här miljövariablerna när du började redigera programmet måste du stänga och öppna den redigerare, IDE eller Shell som du använder för att få åtkomst till miljövariablerna.
-1. Skapa ett nytt Java-projekt i din favorit IDE (eller nya mapp på Skriv bordet). Skapa en klass med `DetectLanguage.java`namnet.
+1. Skapa ett nytt Java-projekt i din favorit IDE (eller nya mapp på Skriv bordet). Skapa en klass med namnet `DetectLanguage.java`.
 1. Lägg till den kod som anges nedan till din-klass.
 1. Kontrol lera att du har [Gson](https://github.com/google/gson) -biblioteket installerat.
 1. Kör programmet i IDE-nätverket eller Använd kommando raden för att köra (anvisningar i kod kommentarerna).
@@ -216,7 +216,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 API:et för attitydanalys identifierar attityden i en uppsättning textposter, med metoden [Sentiment](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) (Attityd). I följande exempel poängsätts två dokument, ett på engelska och ett annat på spanska.
 
 1. Skapa miljövariabler `TEXT_ANALYTICS_SUBSCRIPTION_KEY` och `TEXT_ANALYTICS_ENDPOINT` för resursens Azure-slutpunkt och prenumerations nyckel. Om du har skapat de här miljövariablerna när du började redigera programmet måste du stänga och öppna den redigerare, IDE eller Shell som du använder för att få åtkomst till miljövariablerna.
-1. Skapa ett nytt Java-projekt i din favorit IDE (eller nya mapp på Skriv bordet). Skapa en klass i den med `GetSentiment.java`namnet.
+1. Skapa ett nytt Java-projekt i din favorit IDE (eller nya mapp på Skriv bordet). Skapa en klass med namnet `GetSentiment.java`.
 1. Lägg till den kod som anges nedan till din-klass.
 1. Kontrol lera att du har [Gson](https://github.com/google/gson) -biblioteket installerat.
 1. Kör programmet i IDE-nätverket eller Använd kommando raden för att köra (anvisningar i kod kommentarerna).
@@ -371,7 +371,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 API:et för extrahering av diskussionsämnen extraherar diskussionsämnen från ett textdokument, med metoden [Key Phrases](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) (Diskussionsämnen). I följande exempel extraheras diskussionsämnen för både engelska och spanska dokument.
 
 1. Skapa miljövariabler `TEXT_ANALYTICS_SUBSCRIPTION_KEY` och `TEXT_ANALYTICS_ENDPOINT` för resursens Azure-slutpunkt och prenumerations nyckel. Om du har skapat de här miljövariablerna när du började redigera programmet måste du stänga och öppna den redigerare, IDE eller Shell som du använder för att få åtkomst till miljövariablerna.
-1. Skapa ett nytt Java-projekt i din favorit IDE (eller nya mapp på Skriv bordet). Skapa en klass i den kallas `GetKeyPhrases.java`.
+1. Skapa ett nytt Java-projekt i din favorit IDE (eller nya mapp på Skriv bordet). Skapa en klass med namnet `GetKeyPhrases.java`.
 1. Lägg till den kod som anges nedan till din-klass.
 1. Kontrol lera att du har [Gson](https://github.com/google/gson) -biblioteket installerat.
 1. Kör programmet i IDE-nätverket eller Använd kommando raden för att köra (anvisningar i kod kommentarerna).
@@ -542,10 +542,10 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="identify-entities"></a>Identifiera entiteter
 
-API:et för entiteter identifierar välkända entiteter i ett textdokument med hjälp av [metoden Entiteter](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [Entiteter](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraherar ord från text, t. ex. "USA", och ger dig sedan typen och/eller Wikipedia-länken för dessa ord. Typen för "USA" är `location`, medan länken till Wikipedia är. `https://en.wikipedia.org/wiki/United_States`  I följande exempel identifieras entiteter för engelska dokument.
+API:et för entiteter identifierar välkända entiteter i ett textdokument med hjälp av metoden [Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634) (Entiteter). [Entiteter](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraherar ord från text, t. ex. "USA", och ger dig sedan typen och/eller Wikipedia-länken för dessa ord. Typen för "USA" är `location`, medan länken till Wikipedia är `https://en.wikipedia.org/wiki/United_States`.  I följande exempel identifieras entiteter för engelska dokument.
 
 1. Skapa miljövariabler `TEXT_ANALYTICS_SUBSCRIPTION_KEY` och `TEXT_ANALYTICS_ENDPOINT` för resursens Azure-slutpunkt och prenumerations nyckel. Om du har skapat de här miljövariablerna när du började redigera programmet måste du stänga och öppna den redigerare, IDE eller Shell som du använder för att få åtkomst till miljövariablerna.
-1. Skapa ett nytt Java-projekt i din favorit IDE (eller nya mapp på Skriv bordet). Skapa en klass i den med `GetEntities.java`namnet.
+1. Skapa ett nytt Java-projekt i din favorit IDE (eller nya mapp på Skriv bordet). Skapa en klass med namnet `GetEntities.java`.
 1. Lägg till den kod som anges nedan till din-klass.
 1. Kontrol lera att du har [Gson](https://github.com/google/gson) -biblioteket installerat.
 1. Kör programmet i IDE-nätverket eller Använd kommando raden för att köra (anvisningar i kod kommentarerna).
@@ -725,7 +725,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Textanalys med Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
  [Översikt över Textanalys](../overview.md)  
  [Vanliga frågor och svar (FAQ)](../text-analytics-resource-faq.md)

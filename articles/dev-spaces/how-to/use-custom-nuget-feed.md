@@ -1,8 +1,6 @@
 ---
 title: Använda en anpassad NuGet-feed i Azure dev Spaces
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
 author: zr-msft
 ms.author: zarhoads
 ms.date: 07/17/2019
@@ -10,12 +8,12 @@ ms.topic: conceptual
 description: Använd en anpassad NuGet-feed för att få åtkomst till och använda NuGet-paket i ett Azure dev-utrymme.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, behållare
 manager: gwallace
-ms.openlocfilehash: 019335cd73e8eaf0ada6897f08c88ef2b8bbf631
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
-ms.translationtype: MT
+ms.openlocfilehash: ee14d999872f6e739321c144831d60a4ae6f9388
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162795"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279954"
 ---
 #  <a name="use-a-custom-nuget-feed-in-an-azure-dev-space"></a>Använda en anpassad NuGet-feed i ett Azure dev-utrymme
 

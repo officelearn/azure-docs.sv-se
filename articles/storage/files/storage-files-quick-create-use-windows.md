@@ -7,14 +7,14 @@ ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 95a5df4ca14f4be8553c83dfe8b4d09d00341102
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 22c2f3b91b650bcdbf8eb7368023e068a397323f
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260402"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305822"
 ---
-# <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Snabbstart: Skapa och hantera Azure Files-resurs med virtuella Windows-datorer
+# <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Snabb start: skapa och hantera Azure Files resurs med virtuella Windows-datorer
 
 Artikeln visar de grundläggande stegen för att skapa och använda en Azure Files-resurs. I den här snabbstarten fokuserar vi på att snabbt konfigurera en Azure Files-resurs så att du kan se hur tjänsten fungerar. Om du behöver mer detaljerade instruktioner för att skapa och använda Azure-filresurser i din egen miljö, kan du läsa mer i [Använda en Azure-filresurs med Windows](storage-how-to-use-files-windows.md).
 
@@ -22,7 +22,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure Portal](https://portal.azure.com).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="prepare-your-environment"></a>Förbered din miljö
 
@@ -31,7 +31,7 @@ I den här snabbstarten konfigurerar du följande objekt:
 - Skapa ett Azure-lagringskonto och en Azure-filresurs
 - En virtuell Windows Server 2016 Datacenter-dator
 
-### <a name="create-a-storage-account"></a>skapar ett lagringskonto
+### <a name="create-a-storage-account"></a>Skapa ett lagringskonto
 
 Innan du kan arbeta med en Azure-filresurs måste du skapa ett Azure-lagringskonto. Ett v2-lagringskonto för generell användning ger åtkomst till alla Azure Storage-tjänster: blobar, filer, köer och tabeller. Snabbstarten skapar ett v2-lagringskonto för generell användning, men stegen för att skapa alla typer av lagringskonton liknar dessa. Ett lagringskonto kan innehålla ett obegränsat antal resurser. En resurs kan lagra ett obegränsat antal filer, upp till kapacitetsbegränsningen för lagringskontot.
 
@@ -54,7 +54,7 @@ Därefter skapar du en filresurs.
 1. Skapa en ny txt-fil med namnet *qsTestFile* på den lokala datorn.
 1. Välj den nya filresursen och välj sedan **Överför** på filresursens plats.
 
-    ![Ladda upp en fil](./media/storage-files-quick-create-use-windows/create-file-share-portal5.png)
+    ![Överför en fil](./media/storage-files-quick-create-use-windows/create-file-share-portal5.png)
 
 1. Bläddra till platsen där du skapade din txt-fil > välj *qsTestFile.txt* > välj **Överför**.
 
@@ -173,7 +173,7 @@ Precis som med lokala VSS-ögonblicksbilder, kan du visa ögonblicksbilder från
 
 1. Välj **Återställ**. Åtgärden kopierar innehållet i hela katalogen rekursivt vid tidpunkten då resursögonblicksbilden skapades till den ursprungliga platsen.
 
-   ![Återställningsknapp i varningsmeddelande](./media/storage-files-quick-create-use-windows/snapshot-windows-restore.png)
+   ![Restore Button i varnings meddelandet](./media/storage-files-quick-create-use-windows/snapshot-windows-restore.png) Obs! Om filen inte har ändrats visas inte en tidigare version av filen eftersom den är samma version som ögonblicks bilden. Detta är konsekvent med hur det fungerar på en Windows-filserver.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

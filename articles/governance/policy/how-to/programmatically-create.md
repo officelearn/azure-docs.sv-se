@@ -3,18 +3,18 @@ title: Skapa principer programmässigt
 description: Den här artikeln beskriver hur du programmässigt kan skapa och hantera principer för Azure Policy.
 ms.date: 01/31/2019
 ms.topic: conceptual
-ms.openlocfilehash: 581f7e5cc2fa20f1ff284e32351e495349fdfad2
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: bc97eac8f66a3c289bb22bfac8617177d60b4583
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959423"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267242"
 ---
 # <a name="programmatically-create-policies"></a>Skapa principer programmässigt
 
 Den här artikeln beskriver hur du programmässigt kan skapa och hantera principer. Azure Policy definitioner tillämpar olika regler och effekter över dina resurser. Tvingande ser till att resurserna kompatibla med företagets standarder och serviceavtal.
 
-Information om efterlevnad finns i [komma kompatibilitetsdata](getting-compliance-data.md).
+Information om efterlevnad finns i [komma kompatibilitetsdata](get-compliance-data.md).
 
 ## <a name="prerequisites"></a>Krav
 

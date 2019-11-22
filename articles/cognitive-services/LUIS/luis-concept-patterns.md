@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 6234a13d07ac024849d1c890d82ef03e19c11af4
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 32b9b42ee0962353405616e501de95b19e40ea1a
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74011998"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280862"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Mönster förbättra prognosens noggrannhet
 Mönster är utformade för att förbättra noggrannheten när flera uttryck är mycket lika.  Med ett mönster får du bättre exakthet för en avsikt utan att behöva tillhandahålla många fler yttranden. 
@@ -45,7 +45,7 @@ Mönster använder en blandning av tekniker för förutsägelse. Ange ett syfte 
 
 ## <a name="patterns-do-not-improve-machine-learned-entity-detection"></a>Mönster ger inte bättre identifiering av enhets identifiering
 
-Ett mönster är främst avsett att hjälpa till att förutsäga avsikter och roller. Mönstret. en entitet används för att extrahera fria formulär enheter. När mönster använder entiteter kan ett mönster inte identifiera en enhet som har lärts ur enheten.  
+Ett mönster är främst avsett att hjälpa till att förutsäga avsikter och roller. _Mönstret. en_ entitet används för att extrahera fria formulär enheter. När mönster använder entiteter kan ett mönster inte identifiera en enhet som har lärts ur enheten.  
 
 Vänta inte att se förbättrad enhets förutsägelse om du komprimerar flera yttranden till ett enda mönster. För att enkla entiteter ska kunna startas måste du lägga till yttranden eller använda List entiteter, annars går det inte att starta mönstret.
 
@@ -64,7 +64,7 @@ Du kan bygga en app med avsikter som inte har något exempel yttranden, så län
 ## <a name="best-practices"></a>Bästa praxis
 Lär dig [bästa praxis](luis-concept-best-practices.md).
 
-## <a name="pattern-syntax"></a>Mönstret syntax
+## <a name="pattern-syntax"></a>Mönstersyntax
 
 Lär dig mönstermatchningssyntax från [Pattern-syntaxen](reference-pattern-syntax.md). 
 

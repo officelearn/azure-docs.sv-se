@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: diberry
-ms.openlocfilehash: 279ec4e8a6d9a9d473cc511b4ec690391cdbd634
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 65af2caa2272549b5ad562ff3c38b90e3ea43fd5
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669423"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278548"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Snabb start: Distribuera en app i LUIS-portalen
 
@@ -25,10 +25,11 @@ När din LUIS-app är redo att returnera uttryck förutsägelser till ett klient
 
 I den här snabb starten lär du dig att distribuera ett program. Du skapar en förutsägelse slut punkt resurs, tilldelar resursen till appen, tränar appen och publicerar appen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * Skaffa en [Azure-prenumeration](https://azure.microsoft.com/free).
 * Slutför den [föregående Portal snabb](get-started-portal-build-app.md) starten eller [Ladda ned och importera appen](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json).
+* [Migrera till en Azure-resurs](luis-migration-authoring.md)om du har appar som är i förväg inaktuella Azure-resurs-autentisering. Vissa Portal sidor ser annorlunda ut när e-postautentiseringen är aktiv.
 
 ## <a name="create-the-endpoint-resource"></a>Skapa slut punkts resursen
 
@@ -60,7 +61,7 @@ Du skapar en förutsägelse slut punkts resurs i Azure Portal. Den här resursen
 
 Varje gång du skapar en ny resurs för LUIS måste du tilldela resursen till LUIS-appen. När du har tilldelat dig behöver du inte göra detta steg igen om du inte skapar en ny resurs. Du kan skapa en ny resurs för att expandera regionerna i appen eller för att stödja ett större antal förutsägelse frågor.
 
-1. Logga in på [Luis-portalen](https://www.luis.ai) och välj **myEnglishApp** -appen från listan appar.
+1. Logga in på [Luis-portalen](https://preview.luis.ai) och välj **myEnglishApp** -appen från listan appar.
 
 1. Välj **Hantera** på menyn längst upp till höger och välj sedan **Azure-resurser**.
 
@@ -68,7 +69,7 @@ Varje gång du skapar en ny resurs för LUIS måste du tilldela resursen till LU
 
     ![Om du vill lägga till LUIS förutsägelse resurs väljer du Lägg till förutsägelse resurs](./media/get-started-portal-deploy-app/azure-resources-add-prediction-resource.png)
 
-1. Välj klient, prenumeration och resurs namn. Välj **tilldela resurs**.
+1. Välj klient, prenumeration och resurs namn. Välj **Tilldela resurs**.
 
    ![Tilldela en resurs till din app](./media/get-started-portal-deploy-app/assign-resource.png)
 
@@ -86,7 +87,7 @@ Varje gång du skapar en ny resurs för LUIS måste du tilldela resursen till LU
 
 ## <a name="prediction-endpoint-request"></a>Förutsägelse slut punkts förfrågan
 
-`query=` i slutet av URL: en är där användarens uttryck läggs till i GET-begäran. Efter `query=`anger du samma användar-uttryck som användes i slutet av föregående snabb start:
+I för hands versionen av portalen är `query=` i slutet av URL: en där användarens uttryck läggs till i GET-begäran. Efter `query=`anger du samma användar-uttryck som användes i slutet av föregående snabb start:
 
 ```Is there a form named hrf-234098```
 

@@ -3,12 +3,12 @@ title: Utvärdera effekten av en ny Azure-princip
 description: Förstå den process som ska följas när du introducerar en ny princip i Azure-miljön.
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6c1a3ea764aedec7de5eab1f564176eaafead70b
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: e39183b13d2b3cf8c7527f9372879372b2123648
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959832"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279432"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy"></a>Utvärdera effekten av en ny Azure-princip
 
@@ -71,6 +71,6 @@ Att implementera och tilldela en princip definition är inte det sista steget. �
 - Lär dig mer om [princip definitions strukturen](./definition-structure.md).
 - Lär dig mer om [princip tilldelnings strukturen](./assignment-structure.md).
 - Lär dig att [program mässigt skapa principer](../how-to/programmatically-create.md).
-- Lär dig hur du [hämtar efterlevnadsprinciper](../how-to/getting-compliance-data.md).
+- Lär dig hur du [hämtar efterlevnadsprinciper](../how-to/get-compliance-data.md).
 - Lär dig hur du [åtgärdar icke-kompatibla resurser](../how-to/remediate-resources.md).
 - Granska en hanterings grupp med [organisera dina resurser med Azures hanterings grupper](../../management-groups/overview.md).

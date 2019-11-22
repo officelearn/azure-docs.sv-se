@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Konfigurera Cerner Central för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
-description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera användare till en lista i Cerner Central.
+title: 'Självstudie: användar etablering för CERN, centrala – Azure AD'
+description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera användare till en lista i CERN Central.
 services: active-directory
 documentationcenter: ''
 author: ArvindHarinder1
@@ -15,121 +15,121 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61e88e0fe7e6eec5b3cdfd03755a186744b77b47
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2e80373fa28f1ea24d6a2d5fc2c147bf81b2b279
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964196"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276517"
 ---
-# <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Cerner Central för automatisk användaretablering
+# <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Självstudie: Konfigurera CERN central för automatisk användar etablering
 
-Målet med den här självstudien är att visa dig vad du behöver för att utföra i Cerner Central och Azure AD för att automatiskt etablera och avetablera användarkonton från Azure AD till en lista med användare i Cerner Central.
+Syftet med den här självstudien är att visa de steg du behöver utföra i CERN Central och Azure AD för att automatiskt etablera och avetablera användar konton från Azure AD till en användar lista i CERN Central.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 
 * En Azure Active Directory-klientorganisation
-* En Cerner Central-klient
+* En CERN-Central klient
 
 > [!NOTE]
-> Azure Active Directory kan integreras med Cerner Central med hjälp av den [SCIM](http://www.simplecloud.info/) protokoll.
+> Azure Active Directory integreras med CERN Central med [scim](http://www.simplecloud.info/) -protokollet.
 
-## <a name="assigning-users-to-cerner-central"></a>Tilldela användare till Cerner Central
+## <a name="assigning-users-to-cerner-central"></a>Tilldela användare till CERN Central
 
-Azure Active Directory använder ett begrepp som kallas ”tilldelningar” för att avgöra vilka användare får åtkomst till valda appar. I samband med automatisk användarkontoetablering, synkroniseras de användare och grupper som är ”kopplade” till ett program i Azure AD. 
+Azure Active Directory använder ett begrepp som kallas "tilldelningar" för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar konto etablering synkroniseras endast de användare och grupper som har tilldelats till ett program i Azure AD. 
 
-Innan du konfigurerar och aktiverar etableringstjänsten, bör du bestämma vilka användare och/eller grupper i Azure AD representerar de användare som behöver åtkomst till Cerner Central. När du valt, kan du tilldela dessa användare till Cerner Central genom att följa instruktionerna här:
+Innan du konfigurerar och aktiverar etablerings tjänsten bör du bestämma vilka användare och/eller grupper i Azure AD som representerar de användare som behöver åtkomst till CERN Central. När du har bestämt dig kan du tilldela dessa användare till CERN Central genom att följa anvisningarna här:
 
-[Tilldela en användare eller grupp till en företagsapp](../manage-apps/assign-user-or-group-access-portal.md)
+[Tilldela en användare eller grupp till en företags app](../manage-apps/assign-user-or-group-access-portal.md)
 
-### <a name="important-tips-for-assigning-users-to-cerner-central"></a>Viktiga tips för att tilldela användare till Cerner Central
+### <a name="important-tips-for-assigning-users-to-cerner-central"></a>Viktiga tips för att tilldela användare till CERN Central
 
-* Vi rekommenderar att en enda Azure AD-användare tilldelas till Cerner Central att testa etablering konfigurationen. Ytterligare användare och/eller grupper kan tilldelas senare.
+* Vi rekommenderar att en enda Azure AD-användare tilldelas till CERN central för att testa etablerings konfigurationen. Ytterligare användare och/eller grupper kan tilldelas senare.
 
-* När den inledande testningen är klar för en enskild användare, rekommenderar Cerner centrala tilldela hela listan över användare som ska få åtkomst till någon Cerner-lösning (inte bara Cerner centrala) som ska tillhandahållas Cerners användaren lista.  Andra lösningar för Cerner utnyttja den här listan över användare i användarens lista.
+* När den första testningen har slutförts för en enskild användare rekommenderar CERN Central att du tilldelar hela listan över användare som är avsedda att få åtkomst till en CERN-lösning (inte bara CERN Central) som ska tillhandahållas till CERN-användarens användar lista.  Andra CERN-lösningar utnyttjar den här listan med användare i användar listan.
 
-* När du tilldelar en användare till Cerner Central, måste du välja den **användaren** roll i dialogrutan för tilldelning. Användare med rollen ”standard åtkomst” undantas från etablering.
+* När du tilldelar en användare till CERN Central måste du välja **användar** rollen i tilldelnings dialog rutan. Användare med rollen "standard åtkomst" undantas från etablering.
 
-## <a name="configuring-user-provisioning-to-cerner-central"></a>Konfigurera användaretablering till Cerner Central
+## <a name="configuring-user-provisioning-to-cerner-central"></a>Konfigurera användar etablering till CERN Central
 
-Det här avsnittet hjälper dig att ansluta din Azure AD till Cerner centrala användare lista med Cerner's SCIM användarkonto etablering API och konfigurera etableringstjänsten att skapa, uppdatera och inaktivera tilldelad användare som har konton i Cerner centrala baserat på tilldelning av användare och grupper i Azure AD.
+Det här avsnittet vägleder dig genom att ansluta din Azure AD till CERN Centrals användar lista med hjälp av CERN-SCIM för användar konto och konfigurera etablerings tjänsten för att skapa, uppdatera och inaktivera tilldelade användar konton i CERN Central baserat på tilldelning av användare och grupper i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktiverat SAML-baserad enkel inloggning för Cerner Central, följa anvisningarna enligt [Azure-portalen](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av Automatisk etablering, även om de här två funktionerna kompletterar varandra. Mer information finns i den [Cerner centrala enkel inloggning för självstudien](cernercentral-tutorial.md).
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för CERN Central, enligt anvisningarna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner kompletterar varandra. Mer information finns i [själv studie kursen om enkel inloggning i CERN](cernercentral-tutorial.md).
 
-### <a name="to-configure-automatic-user-account-provisioning-to-cerner-central-in-azure-ad"></a>Konfigurera automatisk etablering av användarkonto till Cerner Central i Azure AD:
+### <a name="to-configure-automatic-user-account-provisioning-to-cerner-central-in-azure-ad"></a>Konfigurera automatisk användar konto etablering till CERN Central i Azure AD:
 
-För att kunna tillhandahålla användarkonton till Cerner Central behöver att begära ett Cerner centrala systemkonto från Cerner och generera en OAuth-ägartoken som Azure AD kan använda för att ansluta till Cerner's SCIM-slutpunkten. Vi rekommenderar också att integrationen ska utföras i en testmiljö för Cerner innan du distribuerar till produktion.
+För att kunna etablera användar konton till CERN Central måste du begära ett CERN-system konto från CERN, och generera en OAuth Bearer-token som Azure AD kan använda för att ansluta till CERNs SCIM-slutpunkt. Vi rekommenderar också att integrationen utförs i en miljö med CERN-sandbox innan du distribuerar till produktion.
 
-1. Det första steget är att se till att de personer som hanterar Cerner och Azure AD-integrering har ett konto för CernerCare som krävs för att få tillgång till dokumentationen som behövs för att slutföra anvisningarna. Om det behövs kan du använda adresserna nedan för att skapa CernerCare konton i varje tillämplig miljö.
+1. Det första steget är att se till att de personer som hanterar CERN-och Azure AD-integreringen har ett CernerCare-konto, vilket krävs för att få åtkomst till den dokumentation som krävs för att slutföra anvisningarna. Om det behövs kan du använda URL: erna nedan för att skapa CernerCare-konton i varje tillämplig miljö.
 
-   * Sandbox-miljön:  https://sandboxcernercare.com/accounts/create
+   * Sandbox: https://sandboxcernercare.com/accounts/create
 
-   * Produktion:  https://cernercare.com/accounts/create  
+   * Produktion: https://cernercare.com/accounts/create  
 
-2. Därefter måste du skapade ett systemkonto för Azure AD. Följ anvisningarna nedan om du vill begära ett systemkonto för din sandbox- och produktionsmiljöer.
+2. Därefter måste ett system konto skapas för Azure AD. Använd anvisningarna nedan om du vill begära ett system konto för dina sand Box-och produktions miljöer.
 
-   * Instruktioner:  https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
+   * Instruktioner: https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
 
-   * Sandbox-miljön: https://sandboxcernercentral.com/system-accounts/
+   * Sandbox: https://sandboxcernercentral.com/system-accounts/
 
-   * Produktion:  https://cernercentral.com/system-accounts/
+   * Produktion: https://cernercentral.com/system-accounts/
 
-3. Nu ska du generera en OAuth-ägartoken för var och en av dina Systemkonton. Följ anvisningarna nedan om du vill göra detta.
+3. Därefter genererar du en OAuth Bearer-token för varje system konto. Det gör du genom att följa anvisningarna nedan.
 
-   * Instruktioner:  https://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
+   * Instruktioner: https://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
 
-   * Sandbox-miljön: https://sandboxcernercentral.com/system-accounts/
+   * Sandbox: https://sandboxcernercentral.com/system-accounts/
 
-   * Produktion:  https://cernercentral.com/system-accounts/
+   * Produktion: https://cernercentral.com/system-accounts/
 
-4. Slutligen måste du skaffa användaridentiteter lista sfär för både sandbox- och produktionsdistributionerna miljöer i Cerner att slutföra konfigurationen. Information om hur du skaffar detta finns: https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+SCIM. 
+4. Slutligen måste du skaffa användar domän-ID: t för användar domänen för både Sandbox-och produktions miljöerna i CERN för att slutföra konfigurationen. Information om hur du hämtar detta finns i: https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+SCIM. 
 
-5. Nu kan du konfigurera Azure AD för att etablera användarkonton till Cerner. Logga in på den [Azure-portalen](https://portal.azure.com), och bläddra till den **Azure Active Directory > Företagsappar > alla program** avsnittet.
+5. Nu kan du konfigurera Azure AD för att etablera användar konton till CERN. Logga in på [Azure Portal](https://portal.azure.com)och bläddra till avsnittet **Azure Active Directory > Enterprise-appar > alla program** .
 
-6. Om du redan har konfigurerat Cerner Central för enkel inloggning, söka efter din instans av Cerner centrala med hjälp av sökfältet. Annars väljer **Lägg till** och Sök efter **Cerner centrala** i programgalleriet. Välj Cerner centrala från sökresultaten och lägga till den i din lista över program.
+6. Om du redan har konfigurerat CERN central för enkel inloggning söker du efter din instans av CERN Central med Sök fältet. Annars väljer du **Lägg till** och söker efter **CERN Central** i program galleriet. Välj CERN Central från Sök resultatet och Lägg till det i listan över program.
 
-7. Välj din instans av Cerner Central och välj sedan den **etablering** fliken.
+7. Välj din instans av CERN Central och välj sedan fliken **etablering** .
 
-8. Ange den **Etableringsläge** till **automatisk**.
+8. Ställ in **etablerings läget** på **automatiskt**.
 
-   ![Cerner Central etablering](./media/cernercentral-provisioning-tutorial/Cerner.PNG)
+   ![CERN, Central etablering](./media/cernercentral-provisioning-tutorial/Cerner.PNG)
 
-9. Fyll i följande fält under **administratörsautentiseringsuppgifter**:
+9. Fyll i följande fält under **admin-autentiseringsuppgifter**:
 
-   * I den **klient-URL** anger en URL i formatet nedan, där du ersätter ”User-lista-sfär-ID” med ID: T för sfär som du har köpt i steg #4.
+   * I fältet **klient-URL** anger du en URL i formatet nedan och ersätter "User-List-REALM-ID" med sfär-ID: t som du fick i steg #4.
 
-    > Sandbox-miljön: https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+    > Sandbox: https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
     > 
     > Produktion: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
-   * I den **hemlighet Token** fältet anger OAuth-ägartoken som du genererade i steg #3 Klicka **Testanslutningen**.
+   * I fältet **hemlig token** anger du den OAuth Bearer-token som du skapade i steg #3 och klickar på **Testa anslutning**.
 
-   * Du bör se ett meddelande om lyckad på upperright sida av portalen.
+   * Du bör se ett meddelande om att det är klart på upperright-sidan i portalen.
 
-1. Ange e-postadress för en person eller grupp som ska få meddelanden om etablering fel i den **e-postmeddelande** fältet och markera kryssrutan nedan.
+1. Ange e-postadressen till en person eller grupp som ska få etablerings fel meddelanden i fältet **e-postavisering** och markera kryss rutan nedan.
 
-1. Klicka på **Spara**.
+1. Klicka på **Save** (Spara).
 
-1. I den **attributmappningar** går du igenom attribut för användare och grupper som ska synkroniseras från Azure AD till Cerner Central. Attribut som har markerats som **matchande** egenskaper som används för att matcha de användarkonton och grupper i Cerner Central för uppdateringsåtgärder. Välj knappen Spara för att genomföra ändringarna.
+1. I avsnittet **mappningar för attribut** granskar du de användar-och Gruppattribut som ska synkroniseras från Azure AD till CERN Central. Attributen som väljs som **matchande** egenskaper används för att matcha användar konton och grupper i CERN central för uppdaterings åtgärder. Välj knappen Spara för att genomföra ändringarna.
 
-1. Om du vill aktivera den Azure AD-etableringstjänsten för Cerner Central, ändra den **Etableringsstatus** till **på** i den **inställningar** avsnittet
+1. Om du vill aktivera Azure AD Provisioning-tjänsten för CERN Central ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar**
 
-1. Klicka på **Spara**.
+1. Klicka på **Save** (Spara).
 
-Detta startar den första synkroniseringen av användare och/eller grupper som har tilldelats till Cerner Central i avsnittet användare och grupper. Den första synkroniseringen tar längre tid att genomföra än efterföljande synkroniseringar som sker ungefär var 40 minut så länge som den Azure AD-etableringtjänsten körs. Du kan använda den **synkroniseringsinformation** avsnitt för att övervaka förloppet och följer länkar till att etablera aktivitetsloggar som beskriver alla åtgärder som utförs av etableringstjänsten på din Cerner Central-app.
+Detta startar den inledande synkroniseringen av alla användare och/eller grupper som tilldelats till CERN Central i avsnittet användare och grupper. Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge Azure AD Provisioning-tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** för att övervaka förloppet och följa länkar till etablering av aktivitets loggar, som beskriver alla åtgärder som utförs av etablerings tjänsten i din CERN-centrala app.
 
 Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Cerner centrala: Publicera identitetsdata med hjälp av Azure AD](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD)
-* [Självstudie: Konfigurera Cerner Central för enkel inloggning med Azure Active Directory](cernercentral-tutorial.md)
-* [Hantering av användarkontoetablering för Företagsappar](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [CERN, Central: publicera identitets data med Azure AD](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD)
+* [Självstudie: Konfigurera CERN central för enkel inloggning med Azure Active Directory](cernercentral-tutorial.md)
+* [Hantera användar konto etablering för företags program](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig att granska loggarna och få rapporter om etablering aktivitet](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).

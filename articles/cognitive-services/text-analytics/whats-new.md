@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: aahi
-ms.openlocfilehash: 15beb8d3e326f04f1ae61c26f00e9428d95f6bc4
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6ef23c03f01cd8e83d4327f358eaf12209659ce8
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031381"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286445"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Vad är nytt i API:et för textanalys?
 
@@ -29,8 +29,8 @@ Nästa version av namngiven enhets igenkänning (NER) är nu tillgänglig för o
     * Telefonnummer
     * IP-adress
 
-* En [ny slut punkt](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionPii) för att identifiera entitets typer för personlig information (endast engelska)
-* Separata slut punkter för [entitets igenkänning]( https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) och [entitet länkning]( https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesLinking).
+* En [ny slut punkt](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionPii) för att identifiera entitets typer för personlig information (endast engelska)
+* Separata slut punkter för [entitets igenkänning](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) och [entitet länkning](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesLinking).
 
 Enhets länkning stöder engelska och spanska. Språk stöd för NER varierar beroende på enhets typen. 
 
@@ -39,7 +39,7 @@ Enhets länkning stöder engelska och spanska. Språk stöd för NER varierar be
 
 ## <a name="sentiment-analysis-v3-public-preview---october-2019"></a>Attitydanalys v3 offentlig för hands version – oktober 2019
 
-[Nästa version av Attitydanalys](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment) är nu tillgänglig för offentlig för hands version och ger avsevärda förbättringar av precisionen och detaljerna i API: ns text kategorisering och poängsättning. Det ger också:
+[Nästa version av Attitydanalys](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment) är nu tillgänglig för offentlig för hands version och ger avsevärda förbättringar av precisionen och detaljerna i API: ns text kategorisering och poängsättning. Det ger också:
 
 * Automatisk etikettering för olika sentiment i text.
 * Sentiment analys och utdata på en dokument-och menings nivå. 

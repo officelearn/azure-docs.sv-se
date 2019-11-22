@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: aahi
-ms.openlocfilehash: 5933c7ec56ded971e4daf96ea6d4302c04921f2f
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
-ms.translationtype: MT
+ms.openlocfilehash: d3869438f299383a0b3096babbd4874c24f08b3a
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031434"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286593"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Använda namngiven enhets igenkänning i Textanalys
 
@@ -33,7 +33,7 @@ Med namngiven enhets igenkänning (NER) kan du identifiera olika entiteter i tex
 
 ## <a name="named-entity-recognition-v3-public-preview"></a>Namngiven enhets igenkänning v3 offentlig för hands version
 
-[Nästa version av namngiven enhets igenkänning]( https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) är nu tillgänglig för offentlig för hands version. Den ger uppdateringar för både entitets-och enhets identifiering. 
+[Nästa version av namngiven enhets igenkänning](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) är nu tillgänglig för offentlig för hands version. Den ger uppdateringar för både entitets-och enhets identifiering.
 
 :::row:::
     :::column span="":::

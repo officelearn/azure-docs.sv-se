@@ -1,5 +1,5 @@
 ---
-title: Jokertecken-program i Azure Active Directory application proxy | Microsoft Docs
+title: Jokertecken i Azure-AD-programproxy
 description: Lär dig hur du använder jokertecken-program i Azure Active Directory-programproxyn.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d3b8176566593c5c9e9ff63a6ccbafcb2a35cd5
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: c5a9e7be5f582051e03cba08733fcbfa697cc8f5
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827994"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275036"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Jokertecken-program i Azure Active Directory-programproxyn
 
@@ -53,9 +53,9 @@ Om du har ytterligare program med olika konfigurationsinställningar, måste du 
 
 Skapar ett jokertecken-program är baserad på samma [publishing programflödet](application-proxy-add-on-premises-application.md) som är tillgänglig för alla andra program. Den enda skillnaden är att du inkluderar ett jokertecken i URL: er och potentiellt SSO-konfiguration.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Kom igång genom att kontrollera att du har uppfyllt dessa krav.
+Kom igång genom att se till att du uppfyller dessa krav.
 
 ### <a name="custom-domains"></a>Anpassade domäner
 
@@ -78,17 +78,17 @@ Bekräfta att du har konfigurerat din CNAME korrekt kan du använda [nslookup](h
 
 ## <a name="considerations"></a>Överväganden
 
-Följande är några saker du bör tänka på för jokertecken-program.
+Här följer några överväganden som du bör tänka på när du använder jokertecken.
 
 ### <a name="accepted-formats"></a>Godkända format
 
 För jokertecken-program, den **interna URL: en** måste formateras som `http(s)://*.<domain>`.
 
-![För interna URL: en använder formatet http (s) :/ / *. \<domän >](./media/application-proxy-wildcard/22.png)
+![Använd formatet http (s)://* för intern URL.\<domän >](./media/application-proxy-wildcard/22.png)
 
 När du konfigurerar en **externa URL: en**, måste du använda följande format: `https://*.<custom domain>`
 
-![Använd formatet https://* för extern URL. \<anpassad domän >](./media/application-proxy-wildcard/21.png)
+![För extern URL använder du formatet https://*.\<anpassad domän >](./media/application-proxy-wildcard/21.png)
 
 Andra ställen jokertecknet, flera jokertecken eller andra regex-strängar stöds inte och orsakar fel.
 
@@ -105,7 +105,7 @@ Du kan också begränsa jokertecken till fungerar endast för specifika program 
 
 Om du använder det här alternativet kan du även behöver en annan CNAME-posten för värdet `AppId.domain`, till exempel `00000000-1a11-22b2-c333-444d4d4dd444.adventure-works.com`, också peka på samma plats. Du hittar den **AppId** på egenskapssidan för programmet för jokertecken-program:
 
-![Hitta program-ID på egenskapssidan för appens](./media/application-proxy-wildcard/01.png)
+![Hitta program-ID: t på appens egenskaps sida](./media/application-proxy-wildcard/01.png)
 
 ### <a name="setting-the-homepage-url-for-the-myapps-panel"></a>Ange hemsides-URL för panelen MyApps
 
@@ -142,25 +142,25 @@ Efter den [beskrivs stegen](application-proxy-add-on-premises-application.md), d
 
 - Intern URL:
 
-    ![Exempel: Jokertecken i intern URL](./media/application-proxy-wildcard/42.png)
+    ![Exempel: jokertecken i intern URL](./media/application-proxy-wildcard/42.png)
 
 - Externa URL: en:
 
-    ![Exempel: Jokertecken i extern URL](./media/application-proxy-wildcard/43.png)
+    ![Exempel: jokertecken i extern URL](./media/application-proxy-wildcard/43.png)
 
 - Intern program-SPN:
 
-    ![Exempel: Jokertecken i SPN-konfiguration](./media/application-proxy-wildcard/44.png)
+    ![Exempel: jokertecken i SPN-konfigurationen](./media/application-proxy-wildcard/44.png)
 
 Genom att publicera programmet med jokertecken, du kan nu komma åt dina tre program genom att gå till URL: er som du är van vid (till exempel `travel.adventure-works.com`).
 
 Konfigurationen implementerar följande struktur:
 
-![Visar strukturen som implementeras av de exempel på konfigurationen](./media/application-proxy-wildcard/05.png)
+![Visar den struktur som implementeras i exempel konfigurationen](./media/application-proxy-wildcard/05.png)
 
 | Färg | Beskrivning |
 | ---   | ---         |
-| Blå  | Program som uttryckligen publicerat och synliga i Azure-portalen. |
+| Blå  | Program som uttryckligen publiceras och visas i Azure Portal. |
 | Grå  | Program du kan nås via det överordnade programmet. |
 
 ## <a name="scenario-2-general-wildcard-application-with-exception"></a>Scenario 2: Allmänna jokertecken-program med undantag
@@ -173,19 +173,19 @@ Efter den [beskrivs stegen](application-proxy-add-on-premises-application.md), d
 
 - I den **interna URL: en**, du ställer in **ekonomi** i stället för ett jokertecken.
 
-    ![Exempel: Ange ekonomi i stället för ett jokertecken i intern URL](./media/application-proxy-wildcard/52.png)
+    ![Exempel: Ange ekonomi i stället för ett jokertecken i en intern URL](./media/application-proxy-wildcard/52.png)
 
 - I den **externa URL: en**, du ställer in **ekonomi** i stället för ett jokertecken.
 
-    ![Exempel: Ange ekonomi i stället för ett jokertecken i extern URL](./media/application-proxy-wildcard/53.png)
+    ![Exempel: Ange ekonomi i stället för ett jokertecken i en extern URL](./media/application-proxy-wildcard/53.png)
 
 - Intern program-SPN som du ställer in **ekonomi** i stället för ett jokertecken.
 
-    ![Exempel: Ange ekonomi i stället för ett jokertecken i SPN-konfiguration](./media/application-proxy-wildcard/54.png)
+    ![Exempel: Ange ekonomi i stället för ett jokertecken i SPN-konfigurationen](./media/application-proxy-wildcard/54.png)
 
 Den här konfigurationen implementerar följande scenario:
 
-![Visar konfigurationen implementeras av Exempelscenario](./media/application-proxy-wildcard/09.png)
+![Visar konfigurationen som implementeras i exempel scenariot](./media/application-proxy-wildcard/09.png)
 
 Eftersom `finance.adventure-works.com` är en mer specifik URL än `*.adventure-works.com`, den företräde. Användare som navigerar till `finance.adventure-works.com` har erfarenhet som angetts i programmet ekonomi-resurser. I det här fallet bara medarbetare ska kunna komma åt `finance.adventure-works.com`.
 
@@ -193,5 +193,5 @@ Om du har flera program som publicerats för ekonomi och du har `finance.adventu
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om **anpassade domäner**, se [arbeta med anpassade domäner i Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
-- Mer information om **publicering av program**, se [publicera program med Azure AD Application Proxy](application-proxy-add-on-premises-application.md)
+- Mer information om **anpassade domäner**finns [i arbeta med anpassade domäner i Azure AD-programproxy](application-proxy-configure-custom-domain.md).
+- Mer information om hur du **publicerar program**finns i [Publicera program med hjälp av Azure AD-programproxy](application-proxy-add-on-premises-application.md)

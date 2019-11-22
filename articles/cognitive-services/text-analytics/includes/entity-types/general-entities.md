@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/18/2019
 ms.author: aahi
-ms.openlocfilehash: 693a81cfb15407541311d7ab053bb2ab6a267b29
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: a4c911fa077c2ec332974fb2f0c5abcdef21307c
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73800167"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284168"
 ---
 ## <a name="general-entity-types"></a>Allmänna enhets typer:
 
@@ -51,7 +51,7 @@ Erkända organisationer, organisationer, organ och andra grupper av personer. Ex
 
 ### <a name="phone-number"></a>Telefonnummer
 
-Telefonnummer. 
+Telefonnummer (endast telefonnummer till USA). 
 
 Språk:
 
@@ -60,7 +60,7 @@ Språk:
 
 | Under typs namn | Beskrivning                                  |
 |----------|----------------------------------------------|
-| Saknas         | Telefonnummer, till exempel `+1 123-123-123`. |
+| Saknas         | AMERIKANSKt telefonnummer, till exempel `(312) 555-0176`. |
 
 ### <a name="email"></a>E-post
 

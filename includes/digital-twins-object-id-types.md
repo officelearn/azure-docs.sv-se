@@ -7,20 +7,20 @@ author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
-ms.date: 09/30/2019
+ms.date: 11/20/2019
 ms.custom: include file
-ms.openlocfilehash: 12d4278171d43fdaf8613a1c91bdbffc269adc56
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: e46041a33c12b3fcb40e5a04de11108471e59855
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949053"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307258"
 ---
-@No__t-0 (eller **objekt identifierare**) avser den typ av identitet som har tilldelats en roll. Förutom `DeviceId`-och `UserDefinedFunctionId`-typerna motsvarar objekt identifierare olika egenskaper för Azure Active Directory objekt.
+`objectIdType` (eller **objekt identifierarens typ**) avser den typ av identitet som har tilldelats en roll. Förutom `DeviceId`-och `UserDefinedFunctionId` typer motsvarar objekt identifierare typer egenskaper för Azure Active Directory objekt.
 
 Följande tabell innehåller de typer av objekt identifierare som stöds i Azure Digitals:
 
-| type | Beskrivning |
+| Typ | Beskrivning |
 | --- | --- |
 | UserId | Tilldelar en användare en roll. |
 | DeviceId | Tilldelar en enhet en roll. |

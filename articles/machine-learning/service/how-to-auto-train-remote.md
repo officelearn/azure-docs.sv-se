@@ -11,28 +11,28 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 5104e6e037341c41a032f80287c6d56d17361d4c
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 8c50a1ba79fc07f62e319c6dceb75c32a9e8609f
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73932186"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74287110"
 ---
-# <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Träna modeller med automatiserad maskin inlärning i molnet
+# <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Träna modeller med automatiserade maskininlärning i molnet
 
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I Azure Machine Learning tränar du din modell på olika typer av beräknings resurser som du hanterar. Compute-målet kan vara en lokal dator eller en resurs i molnet.
+I Azure Machine Learning träna din modell på olika typer av beräkningsresurser som du hanterar. Compute-målet kan vara en lokal dator eller en resurs i molnet.
 
 Du kan enkelt skala upp eller skala ut dator inlärnings experimentet genom att lägga till ytterligare beräknings mål, till exempel Azure Machine Learning Compute (AmlCompute Compute). AmlCompute är en hanterad beräknings infrastruktur som gör att du enkelt kan skapa en beräkning med en enda eller flera noder.
 
 I den här artikeln får du lära dig hur du skapar en modell med hjälp av automatiserad ML med AmlCompute.
 
-## <a name="how-does-remote-differ-from-local"></a>Hur skiljer sig fjärrifrån från lokala objekt?
+## <a name="how-does-remote-differ-from-local"></a>Hur skiljer sig remote från lokal?
 
-I självstudien "[träna en klassificerings modell med automatisk maskin inlärning](tutorial-auto-train-models.md)" lär du dig hur du använder en lokal dator för att träna en modell med automatiserad ml. Arbets flödet när utbildning lokalt även gäller för fjärranslutna mål. Med fjärrberäkning utförs dock automatiskt ML experiment upprepningar asynkront. Med den här funktionen kan du avbryta en viss iteration, se status för körningen eller fortsätta att arbeta med andra celler i Jupyter Notebook. För att kunna träna via fjärr anslutning skapar du först ett fjärrberäknings mål som AmlCompute. Sedan konfigurerar du fjär resursen och skickar koden dit.
+I självstudien "[träna en klassificerings modell med automatisk maskin inlärning](tutorial-auto-train-models.md)" lär du dig hur du använder en lokal dator för att träna en modell med automatiserad ml. Arbetsflödet när utbildning lokalt gäller även för samt fjärranslutna mål. Men med remote beräkning körs automatiserade iterationer av experiment ML asynkront. Den här funktionen kan du avbryta en viss iteration, se status för körning eller fortsätta att arbeta med andra celler i Jupyter-anteckningsboken. För att kunna träna via fjärr anslutning skapar du först ett fjärrberäknings mål som AmlCompute. Sedan konfigurerar om fjärresursen och skicka koden där.
 
-Den här artikeln visar de extra steg som krävs för att köra ett automatiserat ML-experiment på ett fjärran slutet AmlCompute-mål. Objektet arbets yta `ws`från självstudien används i hela koden här.
+Den här artikeln visar de extra steg som krävs för att köra ett automatiserat ML-experiment på ett fjärran slutet AmlCompute-mål. Objektet arbetsytan `ws`, från självstudierna används i hela koden här.
 
 ```python
 ws = Workspace.from_config()
@@ -62,19 +62,26 @@ compute_target.wait_for_completion(
     show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
 
-Du kan nu använda `compute_target`-objektet som fjärrberäknings mål.
+Du kan nu använda den `compute_target` -objektet som den fjärranslutna beräkningsmål.
 
 Kluster namns begränsningarna är:
 + Måste vara kortare än 64 tecken.
-+ Det får inte finnas något av följande tecken: `\` ~! @ # $% ^ & * () = + _ [] {} \\\\ |; : \' \\, < >/?. `
++ Får inte innehålla följande tecken: `\` ~! @ # $ % ^ & * () = + _ [] {} \\ \\ |;: \' \\”, < > /?. `
 
 ## <a name="access-data-using-tabulardataset-function"></a>Åtkomst till data med funktionen TabularDataset
 
-Definierat X och y som `TabularDataset`s, som skickas till automatiserad ML i AutoMLConfig. `from_delimited_files` som standard anges `infer_column_types` till true, vilket kommer att härleda kolumn typen automatiskt. 
+Definierad training_data som `TabularDataset`och etiketten som skickas till automatiserad ML i AutoMLConfig. `from_delimited_files` som standard anges `infer_column_types` till true, vilket kommer att härleda kolumn typen automatiskt. 
 
-Om du vill ställa in kolumn typerna manuellt kan du ange att argumentet `set_column_types` manuellt ska ange typ för varje kolumn. I följande kod exempel kommer data från sklearn-paketet.
+Om du vill ställa in kolumn typerna manuellt kan du ange att argumentet `set_column_types` manuellt ska ange typ för varje kolumn. I följande kodexempel kommer data från sklearn-paketet.
 
 ```python
+from sklearn import datasets
+from azureml.core.dataset import Dataset
+from scipy import sparse
+import numpy as np
+import pandas as pd
+import os
+
 # Create a project_folder if it doesn't exist
 if not os.path.isdir('data'):
     os.mkdir('data')
@@ -82,23 +89,20 @@ if not os.path.isdir('data'):
 if not os.path.exists(project_folder):
     os.makedirs(project_folder)
 
-from sklearn import datasets
-from azureml.core.dataset import Dataset
-from scipy import sparse
-import numpy as np
-import pandas as pd
+X = pd.DataFrame(data_train.data[100:,:])
+y = pd.DataFrame(data_train.target[100:])
 
-data_train = datasets.load_digits()
+# merge X and y
+label = "digit"
+X[label] = y
 
-pd.DataFrame(data_train.data[100:,:]).to_csv("data/X_train.csv", index=False)
-pd.DataFrame(data_train.target[100:]).to_csv("data/y_train.csv", index=False)
+training_data = X
 
+training_data.to_csv('data/digits.csv')
 ds = ws.get_default_datastore()
 ds.upload(src_dir='./data', target_path='digitsdata', overwrite=True, show_progress=True)
 
-X = Dataset.Tabular.from_delimited_files(path=ds.path('digitsdata/X_train.csv'))
-y = Dataset.Tabular.from_delimited_files(path=ds.path('digitsdata/y_train.csv'))
-
+training_data = Dataset.Tabular.from_delimited_files(path=ds.path('digitsdata/digits.csv'))
 ```
 
 ## <a name="create-run-configuration"></a>Skapa körnings konfiguration
@@ -115,14 +119,14 @@ run_config.environment.docker.enabled = True
 run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
 
 dependencies = CondaDependencies.create(
-    pip_packages=["scikit-learn", "scipy", "numpy"])
+    pip_packages=["scikit-learn", "scipy", "numpy==1.16.2"])
 run_config.environment.python.conda_dependencies = dependencies
 ```
 
 I den här [exempel antecknings boken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb) finns ytterligare ett exempel på det här design mönstret.
 
 ## <a name="configure-experiment"></a>Konfigurera experiment
-Ange inställningarna för `AutoMLConfig`.  (Se en [fullständig lista över parametrar](how-to-configure-auto-train.md#configure-experiment) och deras möjliga värden.)
+Ange inställningar för `AutoMLConfig`.  (Finns i en [fullständig lista över parametrar](how-to-configure-auto-train.md#configure-experiment) och deras möjliga värden.)
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -131,29 +135,27 @@ import logging
 
 automl_settings = {
     "name": "AutoML_Demo_Experiment_{0}".format(time.time()),
+    "experiment_timeout_minutes" : 20,
+    "enable_early_stopping" : True,
     "iteration_timeout_minutes": 10,
-    "iterations": 20,
     "n_cross_validations": 5,
     "primary_metric": 'AUC_weighted',
-    "preprocess": False,
     "max_concurrent_iterations": 10,
-    "verbosity": logging.INFO
 }
 
 automl_config = AutoMLConfig(task='classification',
                              debug_log='automl_errors.log',
                              path=project_folder,
                              compute_target=compute_target,
-                             run_configuration=run_config,
-                             X = X,
-                             y = y,
+                             training_data=training_data,
+                             label_column_name=label,
                              **automl_settings,
                              )
 ```
 
-## <a name="submit-training-experiment"></a>Skicka utbildnings experiment
+## <a name="submit-training-experiment"></a>Skicka träningsexperiment
 
-Nu ska du skicka konfigurationen för att automatiskt välja algoritmen, Hyper-parametrarna och träna modellen.
+Nu skicka konfigurationen för att automatiskt välja algoritmen, hyper parametrar och träna modellen.
 
 ```python
 from azureml.core.experiment import Experiment
@@ -161,7 +163,7 @@ experiment = Experiment(ws, 'automl_remote')
 remote_run = experiment.submit(automl_config, show_output=True)
 ```
 
-Du kommer att se utdata som liknar följande exempel:
+Du ser utdata som liknar följande exempel:
 
     Running on remote compute: mydsvmParent Run ID: AutoML_015ffe76-c331-406d-9bfd-0fd42d8ab7f6
     ***********************************************************************************************
@@ -204,12 +206,12 @@ from azureml.widgets import RunDetails
 RunDetails(remote_run).show()
 ```
 
-Här är en statisk bild av widgeten.  I antecknings boken kan du klicka på en rad i tabellen för att se körnings egenskaper och utgående loggar för den körningen.   Du kan också använda List rutan ovanför grafen för att visa ett diagram över varje tillgängligt mått för varje iteration.
+Här är en statisk bild av widgeten.  Du kan klicka på någon av staplarna i tabell för att visa egenskaper för körning och utdataloggar för som körs i anteckningsboken.   Du kan också använda listrutan ovanför diagrammet för att visa ett diagram över alla tillgängliga mått för varje iteration.
 
 ![widgettabell](./media/how-to-auto-train-remote/table.png)
 ![widgetdiagram](./media/how-to-auto-train-remote/plot.png)
 
-Widgeten visar en URL som du kan använda för att visa och utforska de enskilda körnings uppgifterna.  
+Widgeten visar en URL som du kan använda för att visa och utforska de enskilda körningsinformation.  
 
 Om du inte använder en Jupyter-anteckningsbok kan du Visa URL: en från själva köra:
 

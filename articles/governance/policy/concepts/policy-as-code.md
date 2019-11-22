@@ -3,12 +3,12 @@ title: Arbetsflöden för att utforma princip som kod
 description: Lär dig att utforma arbets flöden för att distribuera dina Azure Policy-definitioner som kod och validera resurserna automatiskt.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 935616145ee32bea8c3b514c495690ce4105cb80
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 0914ba6510c9d2ef87d3f83417f97340d42c8bce
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072074"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267265"
 ---
 # <a name="design-policy-as-code-workflows"></a>Arbetsflöden för att utforma princip som kod
 
@@ -128,6 +128,6 @@ Den här artikeln beskriver det allmänna arbets flödet för policy som kod och
 - Lär dig mer om [princip definitions strukturen](./definition-structure.md).
 - Lär dig mer om [princip tilldelnings strukturen](./assignment-structure.md).
 - Lär dig att [program mässigt skapa principer](../how-to/programmatically-create.md).
-- Lär dig hur du [hämtar efterlevnadsprinciper](../how-to/getting-compliance-data.md).
+- Lär dig hur du [hämtar efterlevnadsprinciper](../how-to/get-compliance-data.md).
 - Lär dig hur du [åtgärdar icke-kompatibla resurser](../how-to/remediate-resources.md).
 - Granska en hanterings grupp med [organisera dina resurser med Azures hanterings grupper](../../management-groups/overview.md).

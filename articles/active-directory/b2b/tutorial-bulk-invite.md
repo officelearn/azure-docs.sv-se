@@ -1,5 +1,5 @@
 ---
-title: Självstudie för Mass inbjudan av B2B-samarbets användare – Azure Active Directory | Microsoft Docs
+title: Självstudie för Mass inbjudan av B2B-samarbets användare – Azure AD
 description: I den här självstudien lär du dig hur du använder PowerShell och en CSV-fil för att skicka massinbjudningar till externa Azure AD B2B-samarbetsanvändare.
 services: active-directory
 ms.service: active-directory
@@ -11,14 +11,14 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec1a6ea8f363f2ddd4a9568700d5bff3330443c0
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 1ffcdad43195ce49ef3cd8b695f9ad5009af82fb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71128728"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272360"
 ---
-# <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users-preview"></a>Självstudier: Grupp inbjudan till Azure AD B2B-samarbets användare (för hands version)
+# <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users-preview"></a>Självstudie: grupp inbjudan till Azure AD B2B Collaboration Users (för hands version)
 
 |     |
 | --- |
@@ -35,7 +35,7 @@ Om du använder Azure Active Directory (Azure AD) B2B-samarbete för att arbeta 
 
 Om du inte har Azure Active Directory skapar du ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver två eller flera test-e-postkonton att skicka inbjudningar till. Kontona måste finnas utanför din organisation. Du kan använda vilken typ av konto som helst, t.ex. konton i sociala medier som gmail.com- eller outlook.com-adresser.
 
@@ -88,7 +88,7 @@ Kör följande kommando:
  Get-AzureADUser -Filter "UserType eq 'Guest'"
 ```
 
-Du bör se de användare som du har bjudit in i listan, med en User Principal Name (UPN)i formatet EmailAddress\@#EXT #*Domain*. Till exempel *lstokes_fabrikam. com #\@ext # contoso.onmicrosoft.com*, där contoso.onmicrosoft.com är den organisation som du skickade inbjudningarna från.
+Du bör se de användare som du har bjudit in i listan, med en User Principal Name (UPN) i formatet *emailaddress*#EXT #\@- *domän*. Till exempel *lstokes_fabrikam. com # ext #\@contoso.onmicrosoft.com*, där contoso.onmicrosoft.com är organisationen som du skickade inbjudningarna från.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

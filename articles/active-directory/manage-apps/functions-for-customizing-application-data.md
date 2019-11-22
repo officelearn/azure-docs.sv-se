@@ -1,5 +1,5 @@
 ---
-title: Skriva uttryck för attributmappningar i Azure Active Directory | Microsoft Docs
+title: Skriva uttryck för mappningar av attribut i Azure AD
 description: Lär dig hur du använder uttrycksmappningar för att omvandla attributvärden till ett acceptabelt format vid automatisk etablering av objekt för SaaS-app i Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd7abdeef7c13c272a0e4bbf2075c6eda8f73a07
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 5f1880a79f7fdb27b407ecb7ed1b761493fe850d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162384"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274015"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Skriva uttryck för attributmappningar i Azure Active Directory
 När du konfigurerar etablering till ett SaaS-program, är en av typerna av attributmappningar som du kan ange mappningen för en uttryck. För dessa, måste du skriva ett skript-liknande uttryck som hjälper dig att omvandla dina användares data till format som kan användas mer för SaaS-program.
@@ -33,12 +33,12 @@ Syntaxen för uttryck för attributmappningar är påminner om Visual Basic för
 * Du kan skicka tre olika typer av argument funktioner:
   
   1. Attribut måste omges av hakparenteser. Till exempel: [attributeName]
-  2. Strängkonstanter måste vara inom dubbla citattecken. Exempel: "USA"
-  3. Andra funktioner. Exempel: FunctionOne (`<<argument1>>`, FunctionTwo (`<<argument2>>`))
-* För strängkonstanter, om du behöver ett omvänt snedstreck (\) eller citattecken (”) i strängen är måste den föregås symbolen omvänt snedstreck (\). Exempel: "Företags namn: \\"Contoso\\" "
+  2. Strängkonstanter måste vara inom dubbla citattecken. Till exempel: ”USA”
+  3. Andra funktioner. Till exempel: FunctionOne (`<<argument1>>`, FunctionTwo (`<<argument2>>`))
+* För strängkonstanter, om du behöver ett omvänt snedstreck (\) eller citattecken (”) i strängen är måste den föregås symbolen omvänt snedstreck (\). Exempel: "företags namn: \\" contoso\\""
 
 ## <a name="list-of-functions"></a>Lista över funktioner
-[Lägg till](#append) &nbsp; [](#formatdatetime) [](#join) FormatDateTime -anslutning&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [](#mid) Mid &nbsp; [](#normalizediacritics) [](#not) NormalizeDiacritics inte &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ErsättSelectUniqueValue&nbsp; [](#replace) &nbsp; &nbsp; [](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [ SingleAppRoleAssignment](#singleapproleassignment) &nbsp; delaStripSpaces&nbsp; [](#stripspaces) [](#split)&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; VäxlaToLower&nbsp; [](#tolower) [](#switch) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [ToUpper](#toupper)
+[Lägg till](#append) &nbsp;&nbsp;&nbsp;[&nbsp; FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [gå](#join) &nbsp;&nbsp;&nbsp;&nbsp; [mitten](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [&nbsp;&nbsp;&nbsp;](#not) &nbsp; [&nbsp;&nbsp;&nbsp;&nbsp;](#replace)&nbsp;&nbsp;[SelectUniqueValue](#selectuniquevalue) &nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [dela](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [växel](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)
 
 ---
 ### <a name="append"></a>Lägg till
@@ -109,7 +109,7 @@ Om ett av käll värdena är ett flervärdesattribut, kopplas alla värden i det
 | **Källa** |Krävs |Sträng | Vanligt vis attributet förnamn eller efter namn. |
 
 ---
-### <a name="not"></a>inte
+### <a name="not"></a>Inte
 **Funktionen:**<br> Not(Source)
 
 **Beskrivning:**<br> Vänder booleskt värde för den **källa**. Om **källa** värdet är ”*SANT*”, returnerar ”*FALSKT*”. I annat fall returnerar ”*SANT*”.
@@ -189,7 +189,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 | **[appRoleAssignments]** |Krävs |Sträng |**[appRoleAssignments]**  objekt. |
 
 ---
-### <a name="split"></a>Delat
+### <a name="split"></a>Dela
 **Funktionen:**<br> Dela (källa, avgränsare)
 
 **Beskrivning:**<br> Delar upp en sträng i en Multivärdes mat ris med hjälp av det angivna avgränsnings tecken.
@@ -199,7 +199,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
 | **Källa** |Krävs |Sträng |**källan** värde att uppdatera. |
-| **avgränsare** |Obligatorisk |Sträng |Anger det tecken som ska användas för att dela strängen (exempel: ",") |
+| **avgränsare** |Krävs |Sträng |Anger det tecken som ska användas för att dela strängen (exempel: ",") |
 
 ---
 ### <a name="stripspaces"></a>StripSpaces
@@ -229,7 +229,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 | **värde** |Krävs |Sträng |Ersättningsvärdet för den **källa** matchar nyckeln. |
 
 ---
-### <a name="tolower"></a>toLower
+### <a name="tolower"></a>ToLower
 **Funktionen:**<br> ToLower (källa, kultur)
 
 **Beskrivning:**<br> Tar ett *käll* sträng värde och konverterar det till gemener med de angivna kultur reglerna. Om det inte finns någon angiven *kultur* information, används en invariant kultur.
@@ -239,10 +239,10 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
 | **Källa** |Krävs |Sträng |Vanligtvis namnet på attributet från källobjektet |
-| **substrat** |Valfritt |Sträng |Formatet för kultur namnet baserat på RFC 4646 är *languagecode2-land/regioncode2*, där *languagecode2* är språk koden för två bokstäver och *land/regioncode2* är under kultur koden med två bokstäver. Exempel är ja-JP för japanska (Japan) och en-US för engelska (USA). I de fall där en språkkod med två bokstäver inte är tillgänglig används en kod med tre bokstäver härledd från ISO 639-2.|
+| **substrat** |Valfri |Sträng |Formatet för kultur namnet baserat på RFC 4646 är *languagecode2-land/regioncode2*, där *languagecode2* är språk koden för två bokstäver och *land/regioncode2* är under kultur koden med två bokstäver. Exempel är ja-JP för japanska (Japan) och en-US för engelska (USA). I de fall där en språkkod med två bokstäver inte är tillgänglig används en kod med tre bokstäver härledd från ISO 639-2.|
 
 ---
-### <a name="toupper"></a>toUpper
+### <a name="toupper"></a>ToUpper
 **Funktionen:**<br> ToUpper (källa, kultur)
 
 **Beskrivning:**<br> Tar ett *käll* sträng värde och konverterar det till versaler med de angivna kultur reglerna. Om det inte finns någon angiven *kultur* information, används en invariant kultur.
@@ -252,7 +252,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
 | **Källa** |Krävs |Sträng |Vanligtvis namnet på attributet från källobjektet. |
-| **substrat** |Valfritt |Sträng |Formatet för kultur namnet baserat på RFC 4646 är *languagecode2-land/regioncode2*, där *languagecode2* är språk koden för två bokstäver och *land/regioncode2* är under kultur koden med två bokstäver. Exempel är ja-JP för japanska (Japan) och en-US för engelska (USA). I de fall där en språkkod med två bokstäver inte är tillgänglig används en kod med tre bokstäver härledd från ISO 639-2.|
+| **substrat** |Valfri |Sträng |Formatet för kultur namnet baserat på RFC 4646 är *languagecode2-land/regioncode2*, där *languagecode2* är språk koden för två bokstäver och *land/regioncode2* är under kultur koden med två bokstäver. Exempel är ja-JP för japanska (Japan) och en-US för engelska (USA). I de fall där en språkkod med två bokstäver inte är tillgänglig används en kod med tre bokstäver härledd från ISO 639-2.|
 
 ## <a name="examples"></a>Exempel
 ### <a name="strip-known-domain-name"></a>Remsans kända domännamn
@@ -286,9 +286,9 @@ Du måste du generera en användare alias genom att först 3 bokstäverna i anv�
 
 **Exempel indata/utdata:** <br>
 
-* **Mata in** (givenName): Anders
-* **Mata in** (efter namn): Andersson
-* **OUTPUT**:  "JohDoe"
+* **INDATA** (givenName): ”John”
+* **INDATA** (efternamn): ”Berg”
+* **UTDATA**: ”JohDoe”
 
 ### <a name="remove-diacritics-from-a-string"></a>Ta bort diakritiska tecken från en sträng
 Du måste ersätta tecken med accenter med motsvarande tecken som inte innehåller accenttecken.
@@ -298,8 +298,8 @@ NormalizeDiacritics([givenName])
 
 **Exempel indata/utdata:** <br>
 
-* **Mata in** (givenName): "Zoë"
-* **OUTPUT**:  "Zoe"
+* **INDATA** (givenName): ”Zoë”
+* **UTDATA**: ”Zoe”
 
 ### <a name="split-a-string-into-a-multi-valued-array"></a>Dela upp en sträng i en Multivärdes mat ris
 Du måste ta en kommaavgränsad lista med strängar och dela upp dem i en matris som kan kopplas till ett flervärdesattribut som Salesforce: s PermissionSets-attribut. I det här exemplet har en lista över behörighets uppsättningar fyllts i extensionAttribute5 i Azure AD.
@@ -309,7 +309,7 @@ Dela ([extensionAttribute5], ",")
 
 **Exempel indata/utdata:** <br>
 
-* **Mata in** (extensionAttribute5): "PermissionSetOne, PermisionSetTwo"
+* **Inmatade** (extensionAttribute5): "PermissionSetOne, PermisionSetTwo"
 * **Output**: ["PermissionSetOne", "PermissionSetTwo"]
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Utdatadatum som en sträng i ett visst format
@@ -322,8 +322,8 @@ Exempelvis kan du formatera datum för ServiceNow.
 
 **Exempel indata/utdata:**
 
-* **Mata in** (extensionAttribute1): "20150123105347.1Z"
-* **OUTPUT**:  "2015-01-23"
+* **INDATA** (extensionAttribute1): ”20150123105347.1Z”
+* **UTDATA**: ”2015-01-23”
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Ersätt ett värde baserat på fördefinierade uppsättning med alternativ
 
@@ -335,8 +335,8 @@ Om delstatskod inte matchar någon av de fördefinierade alternativ, använder d
 
 **Exempel indata/utdata:**
 
-* **Mata in** (tillstånd): "QLD"
-* **OUTPUT**: "Australien/Brisbane"
+* **INDATA** (tillstånd): ”QLD”
+* **UTDATA**: ”Australien/Brisbane”
 
 ### <a name="replace-characters-using-a-regular-expression"></a>Ersätt tecken med ett reguljärt uttryck
 Du måste hitta tecken som matchar ett reguljärt uttrycks värde och ta bort dem.
@@ -347,8 +347,8 @@ Ersätt ([smek namn],, "[a-zA-Z_] *",, "",,)
 
 **Exempel indata/utdata:**
 
-* **Mata in** (smek namn: "john_doe72"
-* **OUTPUT**: "72"
+* **Inmatade** (smek namn: "john_doe72"
+* **Utdata**: "72"
 
 ### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>Konvertera genererat userPrincipalName-värde (UPN) till gemener
 I exemplet nedan genereras UPN-värdet genom att sammanfoga PreferredFirstName-och PreferredLastName-käll fälten och ToLower-funktionen fungerar på den genererade strängen för att konvertera alla tecken till gemener. 
@@ -357,9 +357,9 @@ I exemplet nedan genereras UPN-värdet genom att sammanfoga PreferredFirstName-o
 
 **Exempel indata/utdata:**
 
-* **Mata in** (PreferredFirstName): Anders
-* **Mata in** (PreferredLastName): Son
-* **UTDATA**: "john.smith@contoso.com"
+* **INDATA** (PreferredFirstName): ”John”
+* **INDATA** (PreferredLastName): ”Smith”
+* **Utdata**: "john.smith@contoso.com"
 
 ### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Generera unikt värde för attributet userPrincipalName (UPN)
 Baserat på användarens förnamn, mellannamn och efternamn, måste du generera ett värde för UPN-attributet och Sök efter dess unikhet i målkatalogen AD innan tilldelas värdet till UPN-attributet.
@@ -374,8 +374,8 @@ Baserat på användarens förnamn, mellannamn och efternamn, måste du generera 
 
 **Exempel indata/utdata:**
 
-* **Mata in** (PreferredFirstName): Anders
-* **Mata in** (PreferredLastName): Son
+* **INDATA** (PreferredFirstName): ”John”
+* **INDATA** (PreferredLastName): ”Smith”
 * **UTDATA**”:John.Smith@contoso.com” om UPN-värdet för John.Smith@contoso.com inte redan finns i katalogen
 * **UTDATA**”:J.Smith@contoso.com” om UPN-värdet för John.Smith@contoso.com finns redan i katalogen
 * **UTDATA**”:Jo.Smith@contoso.com” om ovanstående två UPN-värden som redan finns i katalogen

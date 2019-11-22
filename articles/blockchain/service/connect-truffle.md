@@ -1,31 +1,31 @@
 ---
-title: Ansluta med Truffle
+title: Använda Truffle för att ansluta till Azure blockchain-tjänsten
 description: Ansluta till ett Azure blockchain service-nätverk med Truffle
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 08/29/2019
+ms.date: 11/20/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
-ms.reviewer: jackyhsu
+ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: ea64e3fe4789ac0558463ded81c8179db83469d5
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
-ms.translationtype: MT
+ms.openlocfilehash: f5d752c99331d454e7f9f98c06b9ba0209de8cc7
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932583"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74285390"
 ---
-# <a name="quickstart-use-truffle-to-connect-to-a-transaction-node"></a>Snabbstart: Använda Truffle för att ansluta till en transaktionsnod
+# <a name="quickstart-use-truffle-to-connect-to-azure-blockchain-service"></a>Snabb start: använda Truffle för att ansluta till Azure blockchain-tjänsten
 
-Truffle är en blockchain utvecklings miljö som du kan använda för att ansluta till en Azure blockchain service Transaction-nod.
+I den här snabb starten använder du Truffle Anslut till en Azure blockchain service Transaction-nod. Sedan använder du den interaktiva konsolen Truffle för att anropa **Web3** -metoder för att interagera med ditt blockchain-nätverk.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Slutför [snabb start: Skapa en blockchain-medlem med hjälp](create-member.md) av [Azure Portal eller snabb start: Skapa en Azure blockchain-tjänst blockchain-medlem med Azure CLI](create-member-cli.md)
+* Slutför [snabb start: skapa en blockchain-medlem med hjälp av Azure Portal](create-member.md) eller [snabb start: skapa en Azure blockchain service blockchain-medlem med Azure CLI](create-member-cli.md)
 * Installera [Truffle](https://github.com/trufflesuite/truffle). Truffle kräver att flera verktyg installeras, inklusive [Node. js](https://nodejs.org), [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 * Installera [python-2.7.15](https://www.python.org/downloads/release/python-2715/). Python krävs för web3.
 
@@ -58,18 +58,21 @@ Truffle är en blockchain utvecklings miljö som du kan använda för att anslut
 
 Om du vill konfigurera Truffle-projektet behöver du en del transaktionsinformation från Azure Portal.
 
-### <a name="transaction-node-endpoint-addresses"></a>Slut punkts adresser för Transaction Node
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Gå till din Azure blockchain service-medlem. Välj **Transactions-noder** och noden standard transaktions nod.
 
-1. I Azure Portal navigerar du till noden standardtransaktion och väljer Transaction Nodes **> anslutnings strängar**.
-1. Kopiera och spara slut punkts-URL: en från **https (åtkomst nyckel 1)** . Du behöver slut punkts adresserna för konfigurations filen för smarta kontrakt senare i självstudien.
+    ![Välj noden standard transaktion](./media/connect-truffle/transaction-nodes.png)
 
-    ![Slut punkts adress för transaktion](./media/connect-truffle/endpoint.png)
+1. Välj **anslutnings strängar**.
+1. Kopiera anslutnings strängen från **https (åtkomst nyckel 1)** . Du behöver strängen för nästa avsnitt.
+
+    ![Anslutningssträng](./media/connect-truffle/connection-string.png)
 
 ### <a name="edit-configuration-file"></a>Redigera konfigurations fil
 
 Sedan måste du uppdatera konfigurations filen för Truffle med Transaction Node-slutpunkten.
 
-1. Öppna konfigurations filen `truffle-config.js` Truffle i en redigerare i **truffledemo** -projektmappen.
+1. Öppna Truffle-konfigurationsfilen `truffle-config.js` i en redigerare i mappen **truffledemo** -projekt.
 1. Ersätt innehållet i filen med följande konfigurations information. Lägg till en variabel som innehåller slut punkts adressen. Ersätt vinkel paren med värden som du har samlat in från föregående avsnitt.
 
     ``` javascript
@@ -100,7 +103,7 @@ Använd *Web3* för att ansluta till Transaction-noden.
 
     Truffle ansluter till noden standard transaktion och tillhandahåller en interaktiv konsol.
 
-    Du kan anropa metoder på **Web3** -objektet för att interagera med din Transaction-nod.
+    Du kan anropa metoder på **Web3** -objektet för att interagera med ditt blockchain-nätverk.
 
 1. Anropa **getBlockNumber** -metoden för att returnera det aktuella block numret.
 
@@ -122,9 +125,9 @@ Använd *Web3* för att ansluta till Transaction-noden.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten skapade du ett Truffle-projekt för att ansluta till din Azure blockchain-tjänst som standard transaktions nod.
+I den här snabb starten använde du Truffle Anslut till en Azure blockchain service-standardnod och använde den interaktiva konsolen för att returnera det aktuella blockchain block-numret.
 
-Testa nästa självstudie för att använda Azure blockchain Development Kit för Ethereum och Truffle för att skapa, bygga, distribuera och köra en smart kontrakts funktion via en transaktion.
+Testa nästa självstudie för att använda Azure blockchain Development Kit för Ethereum för att skapa, bygga, distribuera och köra en smart kontrakts funktion via en transaktion.
 
 > [!div class="nextstepaction"]
 > [Använd Visual Studio Code för att skapa, bygga och distribuera smarta kontrakt](send-transaction.md)

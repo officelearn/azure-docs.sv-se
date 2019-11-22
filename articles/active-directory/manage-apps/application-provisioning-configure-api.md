@@ -16,16 +16,16 @@ ms.date: 11/15/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00b3e6f84051aec97691d2bedda6665d3c9c0ceb
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 1ca26c7277f69a817a48884acce116e3a66608ff
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74125079"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275720"
 ---
 # <a name="configure-provisioning-using-microsoft-graph-apis"></a>Konfigurera etablering med hjälp av Microsoft Graph API: er
 
-Azure Portal är ett bekvämt sätt att konfigurera etablering för enskilda appar en i taget. Men om du skapar flera – eller till och med hundratals instanser av ett program, kan det vara lättare att automatisera skapandet och konfigurationen av appar med Microsoft Graph-API: er. Den här artikeln beskriver hur du automatiserar etablering av konfigurationen via API: er. Den här metoden används ofta för program som [Amazon Web Services](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-single-sign-on).
+Azure Portal är ett bekvämt sätt att konfigurera etablering för enskilda appar en i taget. Men om du skapar flera – eller till och med hundratals instanser av ett program, kan det vara lättare att automatisera skapandet och konfigurationen av appar med Microsoft Graph-API: er. Den här artikeln beskriver hur du automatiserar etablering av konfigurationen via API: er. Den här metoden används ofta för program som [Amazon Web Services](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-sso).
 
 **Översikt över steg för att använda Microsoft Graph API: er för att automatisera etablerings konfigurationen**
 

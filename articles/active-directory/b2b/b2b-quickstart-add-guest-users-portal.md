@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: Lägg till gäst användare i Azure Portal-Azure Active Directory'
+title: 'Snabb start: Lägg till gäst användare i Azure Portal – Azure AD'
 description: Använd den här snabbstarten för att lära dig hur Azure AD-administratörer kan lägga till B2B-gästanvändare i Azure-portalen och gå igenom arbetsflödet för B2B-inbjudan.
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 064af4f54f3d3069c7e04a66cc7248dbfaa7ba0b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 431d2eac6b612bee629df184ed80c5c8a15513db
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74008557"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74273375"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>Snabbstart: Lägga till gästanvändare till din katalog i Azure-portalen
 

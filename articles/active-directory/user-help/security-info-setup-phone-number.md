@@ -1,6 +1,6 @@
 ---
-title: Set up your phone number as your authentication method - Azure AD
-description: How to set up the Security info page to verify your identity using your phone number and mobile device as your authentication method.
+title: Konfigurera ditt telefonnummer som din verifierings metod – Azure AD
+description: Hur du konfigurerar din säkerhets information (förhands gransknings sida) för att verifiera din identitet med hjälp av ditt telefonnummer och din mobila enhet som verifierings metod.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,106 +12,106 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74a0c0d374e9a3bc58a62ba72a0c934ed0c6eff2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: HT
+ms.openlocfilehash: 6bb7d811b1d622fb14935b4d5ddf0cb60e44daa8
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233138"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278967"
 ---
-# <a name="set-up-your-phone-number-as-your-authentication-method-from-the-security-info-preview-page"></a>Set up your phone number as your authentication method from the Security info (preview) page
+# <a name="set-up-a-phone-number-as-your-verification-method"></a>Konfigurera ett telefonnummer som din verifierings metod
 
-You can follow these steps to add your two-factor verification and password reset methods. After you've set this up the first time, you can return to the **Security info** page to add, update, or delete your security information.
+Du kan följa de här stegen för att lägga till dina metoder för verifiering och återställning av lösen ord. När du har konfigurerat den första gången kan du gå tillbaka till sidan **säkerhets** information för att lägga till, uppdatera eller ta bort din säkerhets information.
 
-If you're prompted to set this up immediately after you sign in to your work or school account, see the detailed steps in the [Set up your security info from the sign-in page prompt](security-info-setup-signin.md) article.
+Om du uppmanas att ställa in det här direkt efter att du har loggat in på ditt arbets-eller skol konto, se anvisningarna i artikeln [Konfigurera din säkerhets information från inloggnings sidan](security-info-setup-signin.md) .
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 > [!Note]
-> Security info doesn't support using phone extensions. Even if you add the proper format, +1 4255551234X12345, the extensions are removed before the call is placed.
+> Säkerhets information har inte stöd för användning av telefon tillägg. Även om du lägger till rätt format, + 1 4255551234X12345, tas tilläggen bort innan anropet placeras.
 >
-> If you don't see a phone option, it's possible that your organization doesn't allow you to use a phone number for verification. In this case, you'll need to choose another method or contact your administrator for more help.
+> Om du inte ser något telefon alternativ är det möjligt att din organisation inte tillåter att du använder ett telefonnummer för verifiering. I så fall måste du välja en annan metod eller kontakta administratören om du vill ha mer hjälp.
 
-## <a name="set-up-phone-calls-from-the-security-info-page"></a>Set up phone calls from the Security info page
+## <a name="set-up-phone-calls-from-the-security-info-page"></a>Konfigurera telefonsamtal från sidan säkerhets information
 
-Depending on your organization’s settings, you might be able to use phone calls as one of your security info methods.
+Beroende på din organisations inställningar kanske du kan använda telefonsamtal som en av dina säkerhets metoder.
 
 >[!Note]
->If you want to receive a text message instead of a phone call, follow the steps in the [Set up security info to use text messaging](security-info-setup-text-msg.md) article.
+>Om du vill ta emot ett SMS i stället för ett telefonsamtal följer du stegen i artikeln [Konfigurera säkerhets information för att använda SMS-meddelanden](security-info-setup-text-msg.md) .
 
-### <a name="to-set-up-phone-calls"></a>To set up phone calls
+### <a name="to-set-up-phone-calls"></a>Konfigurera telefonsamtal
 
-1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
+1. Logga in på ditt arbets-eller skol konto och gå sedan till din https://myprofile.microsoft.com/ sida.
 
-    ![My Profile page, showing highlighted Security info links](media/security-info/securityinfo-myprofile-page.png)
+    ![Sidan min profil, som visar markerade länkar för säkerhets information](media/security-info/securityinfo-myprofile-page.png)
 
-2. Select **Security info** from the left navigation pane or from the link in the **Security info** block, and then select **Add method** from the **Security info** page.
+2. Välj **säkerhets information** i det vänstra navigerings fönstret eller från länken i **säkerhets informations** blocket och välj sedan **Lägg till metod** på sidan **säkerhets information** .
 
-    ![Security info page with highlighted Add method option](media/security-info/securityinfo-myprofile-addmethod-page.png)
+    ![Sidan säkerhets information med markerat Lägg till metod-alternativ](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
-3. On the **Add a method** page, select **Phone** from the drop-down list, and then select **Add**.
+3. På sidan **Lägg till en metod** väljer du **telefon** i list rutan och väljer sedan **Lägg till**.
 
-    ![Add method box, with Phone selected](media/security-info/securityinfo-myprofile-addphonetext.png)
+    ![Rutan Lägg till metod, med valt telefonnummer](media/security-info/securityinfo-myprofile-addphonetext.png)
 
-4. On the **Phone** page, type the phone number for your mobile device, choose **Call me**, and then select **Next**.
+4. Skriv telefonnumret för din mobila enhet på sidan **telefon** och välj **Ring mig**och sedan **Nästa**.
 
-    ![Add phone number and choose phone calls](media/security-info/securityinfo-myprofile-phonecall-addnumber.png)
+    ![Lägg till telefonnummer och välj telefonsamtal](media/security-info/securityinfo-myprofile-phonecall-addnumber.png)
 
-5. Answer the verification phone call, sent to the phone number you entered, and follow the instructions.
+5. Besvara verifierings telefonsamtalet, som skickas till det telefonnummer du angav, och följ anvisningarna.
 
-    The page changes to show your success.
+    Sidan ändras för att visa din framgång.
 
-    ![Success notification, connecting the phone number, the choice to receive phone calls, and your account](media/security-info/securityinfo-myprofile-phonetext-success.png)
+    ![Meddelande om lyckad kommunikation, anslutning av telefonnumret, valet att ta emot telefonsamtal och ditt konto](media/security-info/securityinfo-myprofile-phonetext-success.png)
 
-    Your security info is updated and you can use phone calls to verify your identity when using two-step verification or password reset. If you want to make phone calls your default method, see the [Change your default security info method](#change-your-default-security-info-method) section of this article.
+    Din säkerhets information uppdateras och du kan använda telefonsamtal för att verifiera din identitet när du använder tvåstegsverifiering eller lösen ords återställning. Om du vill ringa telefonsamtal som standard metod, se avsnittet [ändra din standard säkerhets information](#change-your-default-security-info-method) i den här artikeln.
 
-## <a name="delete-phone-calls-from-your-security-info-methods"></a>Delete phone calls from your security info methods
+## <a name="delete-phone-calls-from-your-security-info-methods"></a>Ta bort telefonsamtal från dina metoder för säkerhets information
 
-If you no longer want to use phone calls as a security info method, you can remove it from the **Security info** page.
+Om du inte längre vill använda telefonsamtal som en metod för säkerhets information kan du ta bort det från sidan **säkerhets information** .
 
 >[!Important]
->If you delete phone calls by mistake, there's no way to undo it. You'll have to add the method again, following the steps in the [Set up phone calls](#set-up-phone-calls-from-the-security-info-page) section of this article.
+>Om du tar bort telefonsamtal av misstag finns det inget sätt att ångra det. Du måste lägga till metoden igen enligt stegen i avsnittet [Konfigurera telefonsamtal](#set-up-phone-calls-from-the-security-info-page) i den här artikeln.
 
-### <a name="to-delete-phone-calls"></a>To delete phone calls
+### <a name="to-delete-phone-calls"></a>Ta bort telefonsamtal
 
-1. On the **Security info** page, select the **Delete** link next to the **Phone** option.
+1. På sidan **säkerhets information** väljer du länken **ta bort** bredvid alternativet **telefon** .
 
-    ![Link to delete the phone method from security info](media/security-info/securityinfo-myprofile-phonetext-delete.png)
+    ![Länk för att ta bort telefon metoden från säkerhets information](media/security-info/securityinfo-myprofile-phonetext-delete.png)
 
-2. Select **Yes** from the confirmation box to delete the **Phone** number. After your phone number is deleted, it's removed from your security info and it disappears from the **Security info** page. If **Phone** is your default method, the default will change to another available method.
+2. Klicka på **Ja** i bekräftelse rutan för att ta bort **telefonnumret** . När ditt telefonnummer har tagits bort tas det bort från din säkerhets information och försvinner från sidan **säkerhets information** . Om **telefonen** är standard-metoden ändras standard till en annan tillgänglig metod.
 
-## <a name="change-your-default-security-info-method"></a>Change your default security info method
+## <a name="change-your-default-security-info-method"></a>Ändra din standard metod för säkerhets information
 
-If you want phone calls to be the default method used when you sign-in to your work or school account using two-factor verification or for password reset requests, you can set it from the **Security info** page.
+Om du vill att telefonsamtal ska vara standard metoden som används när du loggar in på ditt arbets-eller skol konto med hjälp av tvåstegsverifiering eller för förfrågningar om lösen ords återställning, kan du ställa in det på sidan **säkerhets information** .
 
-### <a name="to-change-your-default-security-info-method"></a>To change your default security info method
+### <a name="to-change-your-default-security-info-method"></a>Ändra din standard metod för säkerhets information
 
-1. On the **Security info** page, select the **Change** link next to the **Default sign-in method** information.
+1. På sidan **säkerhets information** väljer du länken **ändra** bredvid standard information om **inloggnings metoden** .
 
-    ![Change link for default sign-in method](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
+    ![Ändra länk för standard inloggnings metod](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 
-2. Select **Phone - call ( *_your_phone_number_* )** from the drop-down list of available methods, and then select **Confirm**.
+2. Välj **telefon samtal ( *_your_phone_number_* )** i list rutan med tillgängliga metoder och välj sedan **Bekräfta**.
 
-    ![Choose method for default sign-in](media/security-info/securityinfo-myprofile-phonecall-changeddefault.png)
+    ![Välj metod för standard inloggning](media/security-info/securityinfo-myprofile-phonecall-changeddefault.png)
 
-    The default method used for sign-in changes to **Phone - call ( *_your_phone_number_* )** .
+    Standard metoden som används för inloggnings ändringar till **telefonsamtal ( *_your_phone_number_* )** .
 
-## <a name="additional-security-info-methods"></a>Additional security info methods
+## <a name="additional-security-info-methods"></a>Ytterligare metoder för säkerhets information
 
-You have additional options for how your organization contacts you to verify your identity, based on what's you're trying to do. Följande alternativ är tillgängliga:
+Du har ytterligare alternativ för hur din organisation kontaktar dig för att verifiera din identitet, baserat på vad som you're försöker göra. Följande alternativ är tillgängliga:
 
-- **Authenticator app.** Download and use an authenticator app to get either an approval notification or a randomly generated approval code for two-step verification or password reset. For step-by-step instructions about how to set up and use the Microsoft Authenticator app, see [Set up security info to use an authenticator app](security-info-setup-auth-app.md).
+- **Authenticator-app.** Hämta och Använd en Authenticator-app för att få ett meddelande om godkännande eller en slumpmässigt genererad godkännande kod för tvåstegsverifiering eller lösen ords återställning. Stegvisa instruktioner om hur du konfigurerar och använder Microsoft Authenticator-appen finns i [Konfigurera säkerhets information så att en autentiserare används](security-info-setup-auth-app.md).
 
-- **Mobile device text.** Enter your mobile device number and get a text a code you'll use for two-step verification or password reset. For step-by-step instructions about how to verify your identity with a text message (SMS), see [Set up security info to use text messaging (SMS)](security-info-setup-text-msg.md).
+- **Mobil enhets text.** Ange ditt mobila enhets nummer och få en text kod som du kan använda för tvåstegsverifiering eller lösen ords återställning. Stegvisa instruktioner för hur du verifierar din identitet med ett textmeddelande (SMS) finns i [Konfigurera säkerhets information för att använda SMS (text messaging)](security-info-setup-text-msg.md).
 
-- **Security key.** Register your Microsoft-compatible security key and use it along with a PIN for two-step verification or password reset. For step-by-step instructions about how to verify your identity with a security key, see [Set up security info to use a security key](security-info-setup-security-key.md).
+- **Säkerhets nyckel.** Registrera din Microsoft-kompatibla säkerhets nyckel och Använd den tillsammans med en PIN-kod för tvåstegsverifiering eller lösen ords återställning. Stegvisa instruktioner för hur du verifierar din identitet med en säkerhets nyckel finns i [Konfigurera säkerhets information för att använda en säkerhets nyckel](security-info-setup-security-key.md).
 
-- **Email address.** Enter your work or school email address to get an email for password reset. This option isn't available for two-step verification. For step-by-step instructions about how to set up your email, see [Set up security info to use email](security-info-setup-email.md).
+- **E-postadress.** Ange din e-postadress till arbetet eller skolan för att få ett e-postmeddelande om lösen ords återställning. Det här alternativet är inte tillgängligt för tvåstegsverifiering. Stegvisa instruktioner om hur du konfigurerar din e-post finns i [Konfigurera säkerhets information för att använda e-post](security-info-setup-email.md).
 
-- **Security questions.** Answer some security questions created by your administrator for your organization. This option is only available for password reset and not for two-step verification. For step-by-step instructions about how to set up your security questions, see the [Set up security info to use security questions](security-info-setup-questions.md) article.
+- **Säkerhets frågor.** Svara på vissa säkerhets frågor som har skapats av administratören för din organisation. Det här alternativet är bara tillgängligt för lösen ords återställning och inte för tvåstegsverifiering. Stegvisa instruktioner om hur du konfigurerar dina säkerhets frågor finns i artikeln [Konfigurera säkerhets information för att använda säkerhets frågor](security-info-setup-questions.md) .
 
     >[!Note]
-    >If some of these options are missing, it's most likely because your organization doesn't allow those methods. If this is the case, you'll need to choose an available method or contact your administrator for more help.
+    >Om några av dessa alternativ saknas beror det förmodligen på att din organisation inte tillåter dessa metoder. Om så är fallet måste du välja en tillgänglig metod eller kontakta administratören om du vill ha mer hjälp.
 
 ## <a name="next-steps"></a>Nästa steg
 

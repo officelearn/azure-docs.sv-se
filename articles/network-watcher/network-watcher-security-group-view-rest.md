@@ -1,6 +1,7 @@
 ---
-title: Analysera nätverkssäkerhet med Azure Network Watcher Säkerhetsgruppvy - REST API | Microsoft Docs
-description: Den här artikeln beskriver hur du använder PowerShell för att analysera en säkerhet för virtuella datorer med Säkerhetsgruppvy.
+title: Analysera nätverks säkerhet – vyn säkerhets grupp – Azure REST API
+titleSuffix: Azure Network Watcher
+description: Den här artikeln beskriver hur du använder PowerShell för att analysera säkerheten för virtuella datorer med vyn säkerhets grupp.
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -14,34 +15,34 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 86fff39605fa91c1b09c1547dd0efa97b8fd26cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f11e288c28274e08fdabe7fee02a099410611872
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64687848"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277900"
 ---
-# <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>Analysera din säkerhet för virtuella datorer med Säkerhetsgruppvy med hjälp av REST API
+# <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>Analysera säkerheten för virtuella datorer med vyn säkerhets grupp med REST API
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
 > - [Azure CLI](network-watcher-security-group-view-cli.md)
 > - [REST-API](network-watcher-security-group-view-rest.md)
 
-Säkerhetsgruppvy returnerar konfigurerade och gällande säkerhetsregler som tillämpas på en virtuell dator. Den här funktionen är användbar för att granska och diagnostisera Nätverkssäkerhetsgrupper och regler som är konfigurerade på en virtuell dator för att se till att trafik som ska tillåtas eller nekas. I den här artikeln har visar vi hur du hämta effektiva och tillämpade säkerhetsregler till en virtuell dator med hjälp av REST API
+Vyn säkerhets grupp returnerar konfigurerade och effektiva nätverks säkerhets regler som tillämpas på en virtuell dator. Den här funktionen är användbar för att granska och diagnostisera nätverks säkerhets grupper och regler som har kon figurer ATS på en virtuell dator för att säkerställa att trafiken är korrekt tillåten eller nekad. I den här artikeln visar vi hur du hämtar effektiva och tillämpade säkerhets regler på en virtuell dator med hjälp av REST API
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-I det här scenariot kan anropa du Network Watcher Rest-API för att få säkerhetsgruppvy för en virtuell dator. ARMclient används för att anropa REST-API med hjälp av PowerShell. ARMClient hittas på chocolatey på [ARMClient på Chocolatey](https://chocolatey.org/packages/ARMClient)
+I det här scenariot anropar du Network Watcher REST API för att hämta vyn säkerhets grupp för en virtuell dator. ARMclient används för att anropa REST API med hjälp av PowerShell. ARMClient finns på choklad på [ARMClient](https://chocolatey.org/packages/ARMClient)
 
-Det här scenariot förutsätter att du redan har följt stegen i [skapa en Network Watcher](network-watcher-create.md) att skapa en Network Watcher. Det här scenariot förutsätter att det finns en resursgrupp med en giltig virtuell dator för att användas.
+Det här scenariot förutsätter att du redan har följt stegen i [skapa ett Network Watcher](network-watcher-create.md) för att skapa ett Network Watcher. Scenariot förutsätter också att det finns en resurs grupp med en giltig virtuell dator som kan användas.
 
 ## <a name="scenario"></a>Scenario
 
-Det scenario som beskrivs i den här artikeln hämtar effektiva och tillämpade säkerhetsregler för en viss virtuell dator.
+I det scenario som beskrivs i den här artikeln hämtas effektiva och tillämpade säkerhets regler för en specifik virtuell dator.
 
 ## <a name="log-in-with-armclient"></a>Logga in med ARMClient
 
@@ -51,10 +52,10 @@ armclient login
 
 ## <a name="retrieve-a-virtual-machine"></a>Hämta en virtuell dator
 
-Kör följande skript för att returnera en virtuell machineThe följande kod som behöver variabler:
+Kör följande skript för att returnera en virtuell machineThe följande kod behöver variabler:
 
-- **subscriptionId** -prenumerations-id kan också hämtas med den **Get-AzSubscription** cmdlet.
-- **resourceGroupName** -namnet på en resursgrupp som innehåller virtuella datorer.
+- **subscriptionId** -prenumerations-ID kan också hämtas med cmdleten **Get-AzSubscription** .
+- **resourceGroupName** – namnet på en resurs grupp som innehåller virtuella datorer.
 
 ```powershell
 $subscriptionId = '<subscription id>'
@@ -63,7 +64,7 @@ $resourceGroupName = '<resource group name>'
 armclient get https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Compute/virtualMachines?api-version=2015-05-01-preview
 ```
 
-Den information som behövs är den **id** under typen `Microsoft.Compute/virtualMachines` svar, som visas i följande exempel:
+Den information som behövs är **ID** under typen `Microsoft.Compute/virtualMachines` som svar, som visas i följande exempel:
 
 ```json
 ...,
@@ -93,9 +94,9 @@ pute/virtualMachines/{vmName}/extensions/CustomScriptExtension"
 }
 ```
 
-## <a name="get-security-group-view-for-virtual-machine"></a>Hämta säkerhetsgruppvy för virtuell dator
+## <a name="get-security-group-view-for-virtual-machine"></a>Hämta vyn säkerhets grupp för virtuell dator
 
-I följande exempel begär säkerhetsgruppvy för en viss virtuell dator. Resultaten från det här exemplet kan användas för att jämföra med de regler och säkerhet som definierats av ursprunget att leta efter konfigurationsförändringar.
+I följande exempel begärs vyn säkerhets grupp för en riktad virtuell dator. Resultatet från det här exemplet kan användas för att jämföra med de regler och den säkerhet som definierats av ursprunget för att söka efter konfigurations avvikelser.
 
 ```powershell
 $subscriptionId = "<subscription id>"
@@ -114,7 +115,7 @@ armclient post "https://management.azure.com/subscriptions/${subscriptionId}/Res
 
 ## <a name="view-the-response"></a>Visa svaret
 
-I följande exempel är svaret som returnerades från föregående kommando. Resultaten visar alla effektiva och tillämpade säkerhetsregler på den virtuella datorn som är uppdelade i grupper med **NetworkInterfaceSecurityRules**, **DefaultSecurityRules**, och  **EffectiveSecurityRules**.
+Följande exempel är svaret som returnerades från föregående kommando. Resultaten visar alla effektiva och tillämpade säkerhets regler på den virtuella datorn, uppdelade i grupper av **NetworkInterfaceSecurityRules**, **DefaultSecurityRules**och **EffectiveSecurityRules**.
 
 ```json
 
@@ -184,6 +185,6 @@ I följande exempel är svaret som returnerades från föregående kommando. Res
 
 ## <a name="next-steps"></a>Nästa steg
 
-Besök [granskning Nätverkssäkerhetsgrupper (NSG) med Network Watcher](network-watcher-security-group-view-powershell.md) att lära dig hur du automatiserar verifieringen av Nätverkssäkerhetsgrupper.
+Besök [granskning av nätverks säkerhets grupper (NSG) med Network Watcher](network-watcher-security-group-view-powershell.md) för att lära dig hur du automatiserar validering av nätverks säkerhets grupper.
 
 

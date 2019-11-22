@@ -114,6 +114,8 @@
           href: serial-console-grub-single-user-mode.md
         - name: NMI/SysRq för seriekonsol
           href: serial-console-nmi-sysrq.md
+        - name: Seriekonsol – grub-proaktiv konfiguration
+          href: serial-console-grub-proactive-configuration.md
     - name: Seriekonsol för Windows
       href: serial-console-windows.md
       items:
@@ -125,8 +127,6 @@
       href: serial-console-power-options.md
     - name: Vanliga fel i seriekonsol
       href: serial-console-errors.md
-    - name: Seriekonsol – grub-proaktiv konfiguration
-      href: serial-console-grub-proactive-configuration.md
 - name: Fel när du tar bort lagringsresurser
   href: storage-resource-deletion-errors.md
 - name: Fel när du tar bort klassiska lagringsresurser

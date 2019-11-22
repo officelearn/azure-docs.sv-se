@@ -28,6 +28,8 @@
       href: tutorial-restore-files.md
     - name: Säkerhetskopiera SQL Server på virtuella Azure-datorer
       href: tutorial-sql-backup.md
+    - name: Säkerhetskopiera SAP HANA-databaser i virtuella Azure-datorer
+      href: tutorial-backup-sap-hana-db.md
     - name: Säkerhetskopiera Azure Files-filresurser
       href: tutorial-backup-azure-files.md
     - name: Säkerhetskopiera Windows Server
@@ -52,6 +54,8 @@
           href: backup-support-matrix-mabs-dpm.md
         - name: Stödmatris för MARS-agenten
           href: backup-support-matrix-mars-agent.md
+        - name: Stödmatris för SAP HANA-säkerhetskopiering
+          href: sap-hana-backup-support-matrix.md
     - name: Säkerhet
       items:
         - name: Rollbaserad Access Control
@@ -74,6 +78,8 @@
           href: backup-azure-files-faq.md
         - name: Vanliga frågor och svar – Säkerhetskopiering av SQL Server-databaser på virtuella Azure-datorer
           href: faq-backup-sql-server.md
+        - name: Vanliga frågor och svar – Säkerhetskopiera SAP HANA-databaser på virtuella Azure-datorer
+          href: sap-hana-faq-backup-azure-vm.md
         - name: Vanliga frågor och svar om Azure Backup Server och DPM
           href: backup-azure-dpm-azure-server-faq.md
         - name: Vanliga frågor och svar om Azure Backup-övervakningsaviseringar
@@ -228,8 +234,14 @@
           href: restore-sql-database-azure-vm.md
         - name: Hantera säkerhetskopierade SQL Server-databaser
           href: manage-monitor-sql-database-backup.md
-    - name: Säkerhetskopiera SAP HANA-databaser på virtuella Azure-datorer
-      href: backup-azure-sap-hana-database.md
+    - name: SAP HANA-databaser på virtuella Azure-datorer
+      items:
+        - name: Säkerhetskopiera SAP HANA-databaser på virtuella Azure-datorer
+          href: backup-azure-sap-hana-database.md
+        - name: Återställa SAP HANA-databaser i virtuella Azure-datorer
+          href: sap-hana-db-restore.md
+        - name: Hantera säkerhetskopierade SAP HANA-databaser
+          href: sap-hana-db-manage.md
     - name: Windows Server
       items:
         - name: Säkerhetskopiera Windows Server-filer och -mappar

@@ -49,6 +49,8 @@
           href: routing-coverage.md
         - name: Mobilitetstäckning
           href: mobility-coverage.md
+        - name: Vädertäckning
+          href: weather-coverage.md
     - name: Lokaliseringsstöd
       href: supported-languages.md
     - name: Mappningsformat som stöds
@@ -57,6 +59,8 @@
       href: zoom-levels-and-tile-grid.md
     - name: Mobility Service-datastruktur
       href: mobility-service-data-structure.md
+    - name: Begrepp för vädertjänster
+      href: weather-services-concepts.md
 - name: Instruktionsguider
   items:
     - name: Hantera Maps-konton
@@ -185,6 +189,8 @@
           href: 'https://docs.microsoft.com/rest/api/maps/mobility'
         - name: Renderingstjänst
           href: 'https://docs.microsoft.com/rest/api/maps/render'
+        - name: Renderingstjänst V2
+          href: 'https://docs.microsoft.com/rest/api/maps/renderv2'
         - name: Routningstjänst
           href: 'https://docs.microsoft.com/rest/api/maps/route'
         - name: Söktjänst
@@ -195,6 +201,8 @@
           href: 'https://docs.microsoft.com/rest/api/maps/timezone'
         - name: Trafiktjänst
           href: 'https://docs.microsoft.com/rest/api/maps/traffic'
+        - name: Vädertjänst
+          href: 'https://docs.microsoft.com/rest/api/maps/weather'
         - name: Kontohantering för Maps
           href: 'https://docs.microsoft.com/rest/api/maps-management'
     - name: JavaScript

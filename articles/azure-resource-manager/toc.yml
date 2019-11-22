@@ -177,15 +177,35 @@
           displayName: DevOps
     - name: Exportera mall
       href: export-template-portal.md
-    - name: Flytta
+    - name: Flytta – regioner
       items:
-        - name: Flytta resurser
+        - name: Flytta mellan regioner
+          href: resource-group-move-region.md
+        - name: Tjänster som stöds
+          href: region-move-support.md
+        - name: Tjänster
+          items:
+            - name: Virtuella Azure-datorer
+              href: ../site-recovery/azure-to-azure-tutorial-migrate.md?toc=/azure/azure-resource-manager/toc.json
+            - name: Azure Storage
+              href: ../storage/common/storage-account-move.md?toc=/azure/azure-resource-manager/toc.json
+            - name: Azure SQL
+              href: ../sql-database/sql-database-move-resources-across-regions.md?toc=/azure/azure-resource-manager/toc.json
+            - name: Virtuellt nätverk
+              href: ../virtual-network/move-across-regions-nsg-portal.md?toc=/azure/azure-resource-manager/toc.json
+            - name: Nätverkssäkerhetsgrupp (NSG)
+              href: ../virtual-network/move-across-regions-nsg-portal.md?toc=/azure/azure-resource-manager/toc.json
+            - name: Offentliga IP-adresser
+              href: ../virtual-network/move-across-regions-publicip-portal.md?toc=/azure/azure-resource-manager/toc.json
+    - name: Flytta – resursgrupper/prenumerationer
+      items:
+        - name: Flytta – mellan resursgrupper/prenumerationer
           href: resource-group-move-resources.md
-        - name: Resursstöd
+        - name: Tjänster som stöds
           href: move-support-resources.md
         - name: Felsöka flytt
           href: troubleshoot-move.md
-        - name: Flytta vägledning för tjänster
+        - name: Tjänster
           items:
             - name: App Service
               href: ./move-limitations/app-service-move-limitations.md

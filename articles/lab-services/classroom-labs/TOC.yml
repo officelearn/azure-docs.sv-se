@@ -40,6 +40,8 @@
           href: class-type-ethical-hacking.md
         - name: Databashantering
           href: class-type-database-management.md
+        - name: Python och Jupyter Notebook
+          href: class-type-jupyter-notebook.md
     - name: Skapa och konfigurera labbkonton (labbkontoägare)
       items:
         - name: Skapa och hantera labbkonton

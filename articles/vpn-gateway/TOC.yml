@@ -156,7 +156,7 @@
           href: vpn-gateway-howto-always-on-user-tunnel.md
         - name: Annonsera anpassade vägar till P2S-klienter
           href: vpn-gateway-p2s-advertise-custom-routes.md
-    - name: Skapa en zonredundant VNet-gateway i Azure-tillgänglighetszoner
+    - name: Skapa en zonredundant gateway
       href: create-zone-redundant-vnet-gateway.md
     - name: Konfigurera IPsec-/IKE-principer för anslutningar
       href: vpn-gateway-ipsecikepolicy-rm-powershell.md

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 8331161cde9e7717834dabd2228848de40f7be23
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: e02f0de685dc1f67633e13fed1f4114c399afdea
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360281"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280540"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Enhetsetablering med Azure IoT Hub Device Provisioning Service
 Microsoft Azure har en stor uppsättning integrerade offentliga molntjänster för alla dina IoT-lösningsbehov. IoT Hub Device Provisioning Service är en hjälptjänst för IoT Hub som möjliggör zero-touch och just-in-time-etablering till rätt IoT-hubb utan mänsklig interaktion, vilket gör att kunder kan etablera miljontals enheter på ett säkert och skalbart sätt.
@@ -78,7 +78,7 @@ Device Provisioning Service innehåller många funktion, vilket gör den utmärk
 
 * Stöd för **säker attestering** för både X.509- och TPM-baserade identiteter.
 * **Registreringslista** som innehåller fullständiga uppgifter för enheter eller grupper av enheter som kan komma att registreras. Registreringslistan innehåller information om önskad konfiguration för enheten när den registreras, och den kan uppdateras när som helst.
-* **Principer för flera allokeringar** för att kontrollera hur Device Provisioning Service tilldelar enheter till IoT-hubbar som stöd för dina scenarier.
+* **Flera allokeringsregler** som styr hur enhets etablerings tjänsten tilldelar enheter till IoT-hubbar som stöder dina scenarier: lägsta latens, jämnt viktad distribution (standard) och statisk konfiguration via registrerings listan. Observera att svars tiden fastställs med samma metod som [Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#performance).
 * **Övervaknings- och diagnostikloggning** för att kontrollera att allt fungerar korrekt.
 * **Stöd för flera hubbar** gör att Device Provisioning Service kan tilldela enheter till mer än en IoT-hubb. Device Provisioning Service kan kommunicera med hubbar över flera Azure-prenumerationer.
 * **Stöd mellan regioner** gör att Device Provisioning Service kan tilldela enheter till IoT-hubbar i andra regioner.
@@ -96,7 +96,7 @@ Liksom alla Azure IoT-tjänster fungerar Device Provisioning Service plattformso
 
 Device Provisioning Service stödjer endast HTTPS-anslutningar för tjänståtgärder.
 
-## <a name="regions"></a>Regions
+## <a name="regions"></a>Regioner
 Device Provisioning Service är tillgänglig i många regioner. En uppdaterad lista över befintliga och nyligen tillkännagivna regioner för alla tjänster finns på [Azure Regions](https://azure.microsoft.com/regions/) (Azure-regioner). Du kan kontrollera tillgängligheten för Device Provisioning Service på sidan [Azure Status](https://azure.microsoft.com/status/) (Azure-status).
 
 > [!NOTE]

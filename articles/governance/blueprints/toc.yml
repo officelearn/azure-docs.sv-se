@@ -2,7 +2,7 @@
   href: index.yml
 - name: Översikt
   items:
-    - name: Översikt över Azure Blueprint
+    - name: Vad är Azure Blueprint?
       displayName: 'templates, policy, definition, assignment, rbac'
       href: overview.md
 - name: Snabbstarter

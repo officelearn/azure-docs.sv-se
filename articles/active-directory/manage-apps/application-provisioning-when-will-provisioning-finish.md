@@ -1,5 +1,5 @@
 ---
-title: Användar etablering i ett Azure AD Gallery-program tar flera timmar eller mer | Microsoft Docs
+title: Användar etablering i Azure AD Gallery-appen tar flera timmar eller mer
 description: Så här tar du reda på varför etableringen av programmet kan ta längre tid än förväntat
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca2257a46815dd5e685b9cc746a64cede510d10a
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 7425731a8d4adde11cd3f15df2cd27cd8541f615
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034188"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275702"
 ---
 # <a name="user-provisioning-to-an-azure-ad-gallery-application-is-taking-hours-or-more"></a>Användar etablering i ett Azure AD Gallery-program tar flera timmar eller mer
 

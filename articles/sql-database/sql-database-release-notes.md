@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: sstein
-ms.openlocfilehash: 5c70d1d7d62b41965d4c81e8bbe0e5b2dc3cbb92
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: bdea9af04008ef68578ff8c136760f2493a2ae35
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166255"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279217"
 ---
 # <a name="sql-database-release-notes"></a>Viktig information om SQL Database
 
@@ -80,6 +80,7 @@ Följande funktioner är aktiverade i distributions modellen för hanterade inst
 
 - **Aug 2019** -inneslutna databaser stöds fullt ut i den hanterade instansen.
 - **Okt 2019** – inbyggd databas återställning från affärskritisk nivå till generell användning nivå kommer inte att lyckas om käll databasen innehåller minnesbaserade OLTP-objekt.
+- **Okt 2019** – du kan använda **Database mail** funktion med externa (icke-Azure) e-postservrar med säker anslutning.
 - **Nov 2019** – databas konsekvens verifieras med hjälp av `DBCC CHECKDB` när du har återställt databasen från Azure Blob Storage.
 
 ## <a name="updates"></a>Uppdateringar

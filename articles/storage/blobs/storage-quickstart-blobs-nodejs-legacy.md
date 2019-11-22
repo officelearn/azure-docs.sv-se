@@ -1,6 +1,6 @@
 ---
 title: 'Snabb start: Azure Blob Storage klient bibliotek v2 för Java Script'
-description: Skapa ett lagringskonto och en container i objektlagring (Blob). Använd sedan Azure Storage klient biblioteket för Node. js v2 för att ladda upp en blob till Azure Storage, hämta en blob och lista blobarna i en behållare.
+description: Skapa ett lagringskonto och en container i objektlagring (Blob). Använd Azure Storage klient bibliotek för Node. js v2 för att ladda upp en BLOB, hämta en blob och visa en lista över blobarna i en behållare.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 02/04/2019
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: 12078300b36412a1507991507a39654acdeb7c69
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7300d4eccec5b1e4b3b5b7dc292cf6150a42e7b4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825336"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74269692"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v2-for-javascript"></a>Snabb start: Azure Blob Storage klient bibliotek v2 för Java Script
 
@@ -22,7 +22,7 @@ I den här instruktions guiden lär du dig hur du använder klient biblioteket f
 > [!TIP]
 > Den senaste versionen av Azure Storage klient biblioteket för Node. js är v10. Microsoft rekommenderar att du använder den senaste versionen av klient biblioteket när det är möjligt. För att komma igång med v10, se [snabb start: Ladda upp, ladda ned, lista och ta bort blobar med hjälp av Azure Storage klient bibliotek för Java Script v10 (för hands version)](storage-quickstart-blobs-nodejs-v10.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 

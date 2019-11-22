@@ -1,110 +1,73 @@
 ---
-title: Övervaka Azure-datafabriker visuellt
+title: Övervaka Azure Data Factory visuellt
 description: Lär dig att visuellt övervaka Azures data fabriker
 services: data-factory
 documentationcenter: ''
 author: djpmsft
 ms.author: daperlov
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/19/2018
-ms.openlocfilehash: 7b79fd9c87e97e624cce567b57c1c65fefcc151e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.date: 11/19/2018
+ms.openlocfilehash: a4258b51acfa603c156bc35cdb2cbc3b16f37ab0
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684640"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278383"
 ---
-# <a name="visually-monitor-azure-data-factories"></a>Övervaka Azure-datafabriker visuellt
-Azure Data Factory är en molnbaserad data integrerings tjänst. Du kan använda den för att skapa data drivna arbets flöden i molnet för att dirigera och automatisera data förflyttning och data omvandling. Med hjälp av Azure Data Factory kan du:
+# <a name="visually-monitor-azure-data-factory"></a>Övervaka Azure Data Factory visuellt
 
-- Skapa och schemalägga datadrivna arbetsflöden (kallas pipelines) som kan mata in data från olika datalager.
-- Bearbeta/transformera data med hjälp av beräknings tjänster som Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics och Azure Machine Learning.
-- Publicera utdata till datalager som Azure SQL Data Warehouse och som sedan kan användas av Business Intelligence-program (BI).
+När du har skapat och publicerat en pipeline i Azure Data Factory kan du associera den med en utlösare eller manuellt starta en ad hoc-körning. Du kan övervaka alla dina pipelines körs internt i Azure Data Factory användar upplevelse. Öppna övervaknings upplevelsen genom att välja panelen **övervaka & hantera** på Data Factory-bladet i [Azure Portal](https://portal.azure.com/). Om du redan befinner dig i ADF-UX klickar du på ikonen **övervaka** på den vänstra panelen.
 
-I den här snabb starten får du lära dig hur du övervakar Data Factory pipelines visuellt utan att skriva en enda rad kod.
-
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
-
-## <a name="monitor-data-factory-pipelines"></a>Övervaka Data Factory pipelines
-
-Övervaka pipeline och aktivitet körs med ett enkelt gränssnitt för List visning. Alla körningar visas i webbläsarens lokala tidszon. Om du ändrar tids zonen fästs alla datum/tid-fält på den som du har valt.  
-
-1. Starta Microsoft Edge eller Google Chrome. För närvarande stöds Data Factory-gränssnittet bara i dessa två webbläsare.
-2. Logga in på [Azure Portal](https://portal.azure.com/).
-3. Gå till bladet för den skapade data fabriken i Azure Portal. Välj panelen **övervaka & hantera** för att starta den Data Factory visuella övervaknings miljön.
+Alla data Factory-körningar visas i webbläsarens lokala tidszon. Om du ändrar tids zonen fästs alla datum/tid-fält på den som du har valt.
 
 ## <a name="monitor-pipeline-runs"></a>Övervaka pipelinekörningar
-I listvyn visas varje pipeline-körning för Data Factory pipeliner. Den innehåller följande kolumner:
 
-| **Kolumn namn** | **Beskrivning** |
+Vyn standard övervakning är en lista över pipelines som körs under den valda tids perioden. Följande kolumner visas:
+
+| **Kolumnnamn** | **Beskrivning** |
 | --- | --- |
 | Pipeline-namn | Namn på pipelinen |
-| Åtgärder | Enskild åtgärd som är tillgänglig för att Visa aktivitets körningar |
+| Åtgärder | Ikoner som låter dig Visa aktivitets information, avbryta eller köra pipelinen igen |
 | Kör Start | Start datum och-tid för pipeline-körningen (MM/DD/ÅÅÅÅ, HH: MM: SS fm/em) |
 | Varaktighet | Körnings tid (HH: MM: SS) |
-| Utlöst av | Manuell utlösare eller schemalagd utlösare |
-| Status | **Misslyckades**, **lyckades**eller **pågår** |
+| Utlöst av | Namnet på utlösaren som startade pipelinen |
+| Status | **Misslyckades**, **lyckades**,pågår, **avbröts**eller **köade** |
+| Anteckningar | Filter bara taggar som är associerade med en pipeline  |
 | Parametrar | Parametrar för pipeline-körningen (namn/värde-par) |
-| Fel | Fel i pipeline-körning (om det finns) |
+| Fel | Om pipelinen misslyckades, körs fel |
 | Körnings-ID | ID för pipeline-körningen |
 
 ![Listvy för övervakning av pipeline-körningar](media/monitor-visually/pipeline-runs.png)
 
-## <a name="monitor-activity-runs"></a>Övervaka aktivitetskörningar
-Listvyn visar aktivitets körningar som motsvarar varje pipeline-körning. Om du vill visa aktivitets körningar för varje pipeline-körning väljer du ikonen **aktivitet körs** under kolumnen **åtgärder** . Listvyn innehåller följande kolumner:
-
-| **Kolumn namn** | **Beskrivning** |
-| --- | --- |
-| Aktivitets namn | Namn på aktiviteten inuti pipelinen |
-| Aktivitets typ | Typ av aktivitet, till exempel **copy**, **HDInsightSpark**eller **HDInsightHive** |
-| Kör Start | Start datum och-tid för aktivitets körningen (MM/DD/ÅÅÅÅ, HH: MM: SS fm/em) |
-| Varaktighet | Körnings tid (HH: MM: SS) |
-| Status | **Misslyckades**, **lyckades**eller **pågår** |
-| Indata | JSON-matris som beskriver aktivitetens indata |
-| Resultat | JSON-matris som beskriver aktivitetens utdata |
-| Fel | Aktivitets körnings fel (om det finns) |
-
-![Listvy för övervakning av aktivitets körningar](media/monitor-visually/activity-runs.png)
-
-> [!IMPORTANT]
-> Du måste välja knappen **Uppdatera** överst för att uppdatera listan över pipeline-och aktivitets körningar. Automatisk uppdatering stöds inte för tillfället.
+Du måste manuellt välja knappen **Uppdatera** för att uppdatera listan över pipeline-och aktivitets körningar. Autouppdatering stöds inte för närvarande.
 
 ![Knappen Uppdatera](media/monitor-visually/refresh.png)
 
-## <a name="select-a-data-factory-to-monitor"></a>Välj en data fabrik som ska övervakas
-Hovra över **Data Factory** ikonen längst upp till vänster. Välj pilen för att se en lista med Azure-prenumerationer och data fabriker som du kan övervaka.
+## <a name="monitor-activity-runs"></a>Övervaka aktivitetskörningar
 
-![Välj data fabriken](media/monitor-visually/select-datafactory.png)
+Om du vill visa aktivitets körningar för varje pipeline-körning väljer du ikonen **Visa aktivitet körs** under kolumnen **åtgärder** . Listvyn visar aktivitets körningar som motsvarar varje pipeline-körning.
 
-## <a name="configure-the-list-view"></a>Konfigurera listvyn
-
-### <a name="apply-rich-ordering-and-filtering"></a>Använd omfattande ordning och filtrering
-
-Order pipelinen körs i DESC/ASC enligt kör Start tiden. Filtrera Pipeline-körningar med hjälp av följande kolumner:
-
-| **Kolumn namn** | **Beskrivning** |
+| **Kolumnnamn** | **Beskrivning** |
 | --- | --- |
-| Pipeline-namn | Namnet på pipeline. Alternativen inkluderar snabb filter för de **senaste 24 timmarna**, **senaste veckan**och de **senaste 30 dagarna**. Eller Välj ett anpassat datum och tid. |
-| Kör Start | Start datum och-tid för pipeline-körningen. |
-| Körnings status | Filter körs efter status: **lyckades**, **misslyckades**eller **pågår**. |
+| Aktivitets namn | Namn på aktiviteten inuti pipelinen |
+| Aktivitets typ | Typ av aktivitet, till exempel **copy**, **ExecuteDataFlow**eller **AzureMLExecutePipeline** |
+| Åtgärder | Ikoner som gör att du kan se information om JSON-indata, JSON-utdata eller detaljerade verksamhetsspecifika övervaknings upplevelser | 
+| Kör Start | Start datum och-tid för aktivitets körningen (MM/DD/ÅÅÅÅ, HH: MM: SS fm/em) |
+| Varaktighet | Körnings tid (HH: MM: SS) |
+| Status | **Misslyckades**, **lyckades**, **pågår**eller **avbröts** |
+| Integration Runtime | Som Integration Runtime aktiviteten kördes på |
+| Användar egenskaper | Användardefinierade egenskaper för aktiviteten |
+| Fel | Om aktiviteten misslyckades, körs fel |
+| Körnings-ID | ID för aktivitets körning |
 
-![Alternativ för filtrering](media/monitor-visually/filter.png)
+![Listvy för övervakning av aktivitets körningar](media/monitor-visually/activity-runs.png)
 
-### <a name="add-or-remove-columns"></a>Lägg till eller ta bort kolumner
-Högerklicka på rubriken för listvyn och Välj kolumner som du vill ska visas i listvyn.
+### <a name="promote-user-properties-to-monitor"></a>Befordra användar egenskaper för övervakning
 
-![Alternativ för kolumner](media/monitor-visually/columns.png)
-
-### <a name="adjust-column-widths"></a>Justera kolumn bredder
-Öka och minska kolumn bredderna i listvyn genom att hovra över kolumn rubriken.
-
-## <a name="promote-user-properties-to-monitor"></a>Befordra användar egenskaper för övervakning
-
-Du kan befordra valfri aktivitets egenskap för pipeline som en användar egenskap så att den blir en entitet som du kan övervaka. Du kan till exempel flytta **käll** -och **mål** egenskaperna för kopierings aktiviteten i din pipeline som användar egenskaper. Du kan också välja **generera automatiskt** för att generera egenskaperna för **käll** -och **mål** användare för en kopierings aktivitet.
+Höj en pipeline-aktivitets egenskap som en användar egenskap så att den blir en entitet som du övervakar. Du kan till exempel flytta **käll** -och **mål** egenskaperna för kopierings aktiviteten i din pipeline som användar egenskaper. Välj **generera automatiskt** för att generera egenskaperna för **käll** -och **mål** användare för en kopierings aktivitet.
 
 ![Skapa användar egenskaper](media/monitor-visually/monitor-user-properties-image1.png)
 
@@ -119,9 +82,33 @@ När du har skapat användar egenskaperna kan du övervaka dem i vyerna i överv
 
 ![Aktivitets körnings lista med kolumner för användar egenskaper](media/monitor-visually/monitor-user-properties-image4.png)
 
+## <a name="configure-the-list-view"></a>Konfigurera listvyn
+
+### <a name="order-and-filter"></a>Ordning och filter
+
+Växla om pipeline-körningar ska ske i fallande eller stigande ordning enligt körningens start tid. Filtrera Pipeline-körningar med hjälp av följande kolumner:
+
+| **Kolumnnamn** | **Beskrivning** |
+| --- | --- |
+| Pipeline-namn | Filtrera efter namnet på pipelinen. |
+| Kör Start |  Bestäm tidsintervallet för pipelinen som visas. Alternativen inkluderar snabb filter för de **senaste 24 timmarna**, **senaste veckan**och de **senaste 30 dagarna** , eller för att välja ett anpassat datum och tid. |
+| Körnings status | Filter körs efter status: **lyckades**, **misslyckades**, **köade**, **avbröts**eller **pågår**. |
+| Anteckningar | Filtrera efter taggar som används för varje pipeline |
+| Körningar | Filtrera om du vill se reran-pipeliner |
+
+![Alternativ för filtrering](media/monitor-visually/filter.png)
+
+### <a name="add-or-remove-columns"></a>Lägg till eller ta bort kolumner
+Högerklicka på rubriken för listvyn och Välj kolumner som du vill ska visas i listvyn.
+
+![Alternativ för kolumner](media/monitor-visually/columns.png)
+
+### <a name="adjust-column-widths"></a>Justera kolumn bredder
+Öka och minska kolumn bredderna i listvyn genom att hovra över kolumn rubriken.
+
 ## <a name="rerun-activities-inside-a-pipeline"></a>Kör om aktiviteter i en pipeline
 
-Nu kan du köra om aktiviteter i en pipeline. Välj **Visa aktivitets körningar**och välj sedan aktiviteten i din pipeline från vilken plats du vill köra pipelinen igen.
+Du kan köra om aktiviteter i en pipeline. Välj **Visa aktivitets körningar**och välj sedan aktiviteten i din pipeline från vilken plats du vill köra pipelinen igen.
 
 ![Visa aktivitetskörningar](media/monitor-visually/rerun-activities-image1.png)
 
@@ -139,9 +126,11 @@ Du kan också Visa körnings historiken för en viss pipeline-körning.
 
 ## <a name="gantt-views"></a>Gantt-vyer
 
-Använd Gantt-vyer för att snabbt visualisera dina pipeliner och aktivitets körningar. Du kan titta på vyn Gantt-visning per pipeline eller grupp efter anteckningar/taggar som du har skapat i pipelinen.
+Använd Gantt-vyer för att snabbt visualisera dina pipeliner och aktivitets körningar.
 
 ![Exempel på ett Gantt-diagram](media/monitor-visually/gantt1.png)
+
+Du kan titta på vyn Gantt-visning per pipeline eller grupp efter anteckningar/taggar som du har skapat i pipelinen.
 
 ![Anteckningar i Gantt-diagram](media/monitor-visually/gantt2.png)
 
@@ -153,11 +142,6 @@ Längden på fältet informerar pipelinens varaktighet. Du kan också välja fä
 Välj **informations** ikonen längst ned till vänster. Välj sedan **guidade visningar** för att få stegvisa instruktioner om hur du övervakar pipeline och aktivitets körningar.
 
 ![Guidade visningar](media/monitor-visually/guided-tours.png)
-
-## <a name="feedback"></a>Feedback
-Välj **feedback** -ikonen för att ge oss feedback om olika funktioner eller problem som du kan komma att behöva.
-
-![Feedback](media/monitor-visually/feedback.png)
 
 ## <a name="alerts"></a>Aviseringar
 

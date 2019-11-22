@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Konfigurera slack för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudie: användar etablering för slack – Azure AD'
 description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till slack.
 services: active-directory
 documentationcenter: ''
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a294254bd52db89179c5644ea7a0f0f04027f30
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: a90151679b71364d93446d1acc46a461d2a9d8f9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932476"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278169"
 ---
-# <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Självstudier: Konfigurera slack för automatisk användar etablering
+# <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Självstudie: Konfigurera slack för automatisk användar etablering
 
 Syftet med den här självstudien är att visa de steg du behöver utföra i slack och Azure AD för att automatiskt etablera och avetablera användar konton från Azure AD till slack.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 
@@ -34,7 +34,7 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 * En slack-klient med [plus](https://aadsyncfabric.slack.com/pricing) -eller bättre aktiverat
 * Ett användar konto i slack med team administratörs behörighet
 
-Anteckning: Azure AD Provisioning-integrationen är beroende av [SLACK scim-API: et](https://api.slack.com/scim), som är tillgängligt för slack-teamen på plus-eller-planen.
+Obs! Azure AD Provisioning-integreringen förlitar sig på [SLACK scim API](https://api.slack.com/scim), som är tillgängligt för slack-teamen på plus-eller-plan.
 
 ## <a name="assigning-users-to-slack"></a>Tilldela användare till slack
 
@@ -78,7 +78,7 @@ I det här avsnittet får du hjälp med att ansluta Azure AD till slack-API: et 
 
 8. Ange e-postadressen till en person eller grupp som ska få etablerings fel meddelanden i fältet **e-postavisering** och markera kryss rutan nedan.
 
-9. Klicka på **Spara**.
+9. Klicka på **Save** (Spara).
 
 10. Under avsnittet mappningar väljer du **synkronisera Azure Active Directory användare till slack**.
 
@@ -86,7 +86,7 @@ I det här avsnittet får du hjälp med att ansluta Azure AD till slack-API: et 
 
 12. Om du vill aktivera Azure AD Provisioning-tjänsten för slack ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar**
 
-13. Klicka på **Spara**.
+13. Klicka på **Save** (Spara).
 
 Detta startar den inledande synkroniseringen av alla användare och/eller grupper som har tilldelats slack i avsnittet användare och grupper. Observera att den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var tionde minut så länge tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** om du vill övervaka förloppet och följa länkar till etablerings aktivitets rapporter som beskriver alla åtgärder som utförs av etablerings tjänsten i din slack-app.
 
@@ -102,7 +102,7 @@ Alternativt kan du aktivera etableringen av grupp objekt från Azure AD till sla
 
 3. I avsnittet **mappningar för attribut** granskar du de Gruppattribut som ska synkroniseras från Azure AD till slack. Observera att attributen som har valts som **matchande** egenskaper kommer att användas för att matcha grupperna i slack för uppdaterings åtgärder. 
 
-4. Klicka på **Spara**.
+4. Klicka på **Save** (Spara).
 
 Detta resulterar i att alla grupp objekt som tilldelats slack i avsnittet **användare och grupper** är fullständigt synkroniserade från Azure AD till slack. Du kan använda avsnittet **synkroniseringsinformation** för att övervaka förloppet och följa länkar till etablering av aktivitets loggar, som beskriver alla åtgärder som utförs av etablerings tjänsten i din slack-app.
 

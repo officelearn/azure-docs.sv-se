@@ -3,18 +3,22 @@ title: Azure Monitor loggar data modell
 description: I den här artikeln lär du dig mer om Azure Monitor Log Analytics data modell information för Azure Backup data.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 055a36fb2aa8e9048089a338f57555242e8eb754
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: eed3f66c1743bb21118a2d90343989d2b6a081de
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173016"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278496"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Log Analytics data modell för Azure Backup data
 
 Använd Log Analytics data modell för att skapa anpassade aviseringar från Log Analytics.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+> [!NOTE]
+>
+> Den här data modellen refererar till Azure-diagnostik läge för att skicka diagnostiska händelser till Log Analytics (LA). Om du vill lära dig data modellen för det nya resurs läget kan du läsa följande artikel: [data modell för Azure Backup diagnostiska händelser](https://aka.ms/diagnosticsdatamodel)
 
 ## <a name="using-azure-backup-data-model"></a>Använda Azure Backup data modell
 

@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4a0a005d096702b864c770675a427184547a2b44
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: a86c809e239a84b2ec6910c47a17b935c440c741
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185706"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74287001"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Felsöka vanliga index fel och varningar i Azure Kognitiv sökning
 
@@ -291,3 +291,19 @@ Mappningar av utdatakolumner som refererar till icke-existerande/null-data gener
 
 ## <a name="warning-the-data-change-detection-policy-is-configured-to-use-key-column-x"></a>Varning! principen för data ändrings identifiering har kon figurer ATS för att använda nyckel kolumnen "X"
 [Principer för data ändrings identifiering](https://docs.microsoft.com/rest/api/searchservice/create-data-source#data-change-detection-policies) har särskilda krav för de kolumner som de använder för att identifiera ändringar. Ett av dessa krav är att den här kolumnen uppdateras varje gång käll posten ändras. Ett annat krav är att det nya värdet för den här kolumnen är större än det tidigare värdet. Nyckel kolumnerna uppfyller inte det här kravet eftersom de inte ändras vid varje uppdatering. Undvik det här problemet genom att välja en annan kolumn för principen för ändrings identifiering.
+
+<a name="document-text-appears-to-be-utf-16-encoded-but-is-missing-a-byte-order-mark"/>
+
+## <a name="warning-document-text-appears-to-be-utf-16-encoded-but-is-missing-a-byte-order-mark"></a>Varning! dokument texten verkar vara UTF-16-kodad, men saknar en byte ordnings markering
+
+[Indexerings lägena för indexeraren](https://docs.microsoft.com/rest/api/searchservice/create-indexer#blob-configuration-parameters) måste veta hur texten kodas innan den kan parsas. De två vanligaste sätten att koda text är UTF-16 och UTF-8. UTF-8 är en kodning med variabel längd där varje tecken är mellan 1 byte och 4 byte långt. UTF-16 är en kodning med fast längd där varje tecken är 2 byte långt. UTF-16 har två olika varianter, "big endian" och "little endian". Text kodningen bestäms av en "byte ordnings markering", en serie byte före texten.
+
+| Kodning | Markering av byte ordning |
+| --- | --- |
+| UTF-16 big endian | 0xFE 0xFF |
+| UTF-16 lite endian | 0xFF 0xFE |
+| UTF-8 | 0xEF 0xBB 0xBF |
+
+Om det inte finns någon byte ordnings markering antas texten vara kodad som UTF-8.
+
+Du kan undvika den här varningen genom att ta reda på vad text kodningen för denna BLOB är och lägga till rätt byte ordnings tecken.

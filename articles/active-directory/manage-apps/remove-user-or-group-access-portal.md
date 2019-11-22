@@ -1,5 +1,5 @@
 ---
-title: Ta bort användar-eller grupp tilldelningar från en app i Azure Active Directory | Microsoft Docs
+title: Ta bort användar-eller grupp tilldelningar från en app i Azure AD
 description: Så här tar du bort åtkomst tilldelningen för en användare eller grupp från en företags app i Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 380816283156969c47f45a9b47435688df91f4ca
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: edf918b57212cf2adfbffb358a0257d9dbea85e9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381042"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275868"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Ta bort en användare eller grupp tilldelning från en företags app i Azure Active Directory
 
@@ -32,7 +32,7 @@ Det är enkelt att ta bort en användare eller en grupp från tilldelad åtkomst
 
 ## <a name="how-do-i-remove-a-user-or-group-assignment-to-an-enterprise-app-in-the-azure-portal"></a>Hur gör jag för att ta bort en användare eller grupp tilldelning till en företags app i Azure Portal?
 
-1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som är en global administratör för katalogen.
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett konto som är en global administratör för katalogen.
 1. Välj **alla tjänster**, ange **Azure Active Directory** i text rutan och välj sedan **RETUR**.
 1. På sidan **Azure Active Directory- *DirectoryName***  (det vill säga Azure AD-sidan för den katalog som du hanterar) väljer du **företags program**.
 1. På sidan **företags program – alla program** visas en lista över de appar som du kan hantera. Välj en app.

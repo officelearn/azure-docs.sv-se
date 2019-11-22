@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: memildin
-ms.openlocfilehash: dc1cb5cde06314e52ac886c1be1bb46b5f4bbd73
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 693e7d35a0bb4c7dfbb3e033690a5e86e2c398a8
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686478"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278338"
 ---
 # <a name="integration-of-azure-security-products-in-azure-security-center"></a>Integrering av Azures säkerhets produkter i Azure Security Center
 
@@ -28,7 +28,7 @@ Azure Security Center ger dig ytterligare Microsoft-licenser för att arbeta med
 
 Azure Application Gateway erbjuder en WAF (brandvägg för webbaserade program) som ger ett centraliserat skydd för dina webbappar mot vanliga kryphål och säkerhetsproblem.
 
-Webb program är alltmer riktade mot skadliga attacker som utnyttjar ofta kända sårbarheter. Application Gateway-WAF baseras på kärn regel uppsättningen 3,0 eller 2.2.9 från det öppna säkerhets projektet för webb program. WAF uppdateras automatiskt för att skydda mot nya sårbarheter, utan ytterligare konfiguration som behövs. WAF-aviseringar strömmas till Security Center. Mer information om de aviseringar som genererats av WAF finns i [regel grupper och regler för webb programs brand vägg](https://docs.microsoft.com/azure/application-gateway/application-gateway-crs-rulegroups-rules?tabs=owasp3#crs911).
+Webb program är alltmer riktade mot skadliga attacker som utnyttjar ofta kända sårbarheter. Application Gateway-WAF baseras på kärn regel uppsättningen 3,0 eller 2.2.9 från det öppna säkerhets projektet för webb program. WAF uppdateras automatiskt för att skydda mot nya sårbarheter, utan ytterligare konfiguration som behövs. WAF-aviseringar strömmas till Security Center. Mer information om de aviseringar som genererats av WAF finns i [regel grupper och regler för webb programs brand vägg](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md?tabs=owasp31#crs911-31).
 
 ## Azure DDoS Protection<a name="azure-ddos"></a>
 

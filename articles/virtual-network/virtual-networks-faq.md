@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 30398b5f81ac1893129ba222c5f1a2d762ad1e7f
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 81384bb784e3417dabfd673ef746463f55fc3063
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595068"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304731"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Virtual Network
 
@@ -63,7 +63,7 @@ Alla IP-adressintervall definieras i [RFC 1918](https://tools.ietf.org/html/rfc1
 * 168.63.129.16/32 (intern DNS)
 
 ### <a name="can-i-have-public-ip-addresses-in-my-vnets"></a>Kan jag ha offentliga IP-adresser i min virtuella nätverk?
-Ja. Mer information om offentliga IP-adressintervall finns i [skapa ett virtuellt nätverk](manage-virtual-network.md#create-a-virtual-network). Offentliga IP-adresser är inte direkt tillgängliga från Internet.
+Ja. Mer information om offentliga IP-adressintervall finns i [skapa ett virtuellt nätverk](manage-virtual-network.md#create-a-virtual-network). Offentliga IP-adresser kan inte nås direkt från internet.
 
 ### <a name="is-there-a-limit-to-the-number-of-subnets-in-my-vnet"></a>Finns det en gräns för antalet undernät i mitt VNet?
 Ja. Mer information finns i [Azure-gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) . Under näts adress utrymmen får inte överlappa varandra.
@@ -188,7 +188,7 @@ Ja. Du kan distribuera Web Apps inuti ett VNet med hjälp av en ASE (App Service
 
 * [App Service nätverksfunktioner](../app-service/networking-features.md)
 * [Skapa Web Apps i en App Service-miljön](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-* [Integrera din app med en Azure-Virtual Network](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+* [Integrera en app med Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * [Begränsningar för App Service åtkomst](../app-service/app-service-ip-restrictions.md)
 
 ### <a name="can-i-deploy-cloud-services-with-web-and-worker-roles-paas-in-a-vnet"></a>Kan jag distribuera Cloud Services med Web-och Worker-roller (PaaS) i ett VNet?
@@ -232,7 +232,7 @@ Ja. Lär dig mer om att använda:
 - PowerShell för att hantera virtuella nätverk som distribueras via [Resource Manager](/powershell/module/az.network) och [klassiska](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0) distributions modeller.
 - Kommando rads gränssnittet för Azure (CLI) för att distribuera och hantera virtuella nätverk som distribueras via [Resource Manager](/cli/azure/network/vnet) och [klassiska](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources) distributions modeller.  
 
-## <a name="vnet-peering"></a>VNET-peering
+## <a name="vnet-peering"></a>VNet-peering
 
 ### <a name="what-is-vnet-peering"></a>Vad är VNet-peering?
 Med VNet-peering (eller virtuell nätverks-peering) kan du ansluta virtuella nätverk. Med en VNet-peering-anslutning mellan virtuella nätverk kan du dirigera trafik mellan dem privat via IPv4-adresser. Virtuella datorer i peer-virtuella nätverk kan kommunicera med varandra som om de befinner sig i samma nätverk. De här virtuella nätverken kan finnas i samma region eller i olika regioner (även kallade global VNet-peering). VNet-peering-anslutningar kan också skapas mellan Azure-prenumerationer.
@@ -241,20 +241,20 @@ Med VNet-peering (eller virtuell nätverks-peering) kan du ansluta virtuella nä
 Ja. Med global VNet-peering kan du peer-virtuella nätverk i olika regioner. Global VNet-peering är tillgänglig i alla offentliga Azure-regioner, i Kina och i moln regioner i myndigheter. Du kan inte globalt peer-koppla från offentliga Azure-regioner till nationella moln regioner.
 
 ### <a name="what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers"></a>Vilka är begränsningarna relaterade till globala VNet-peering och belastningsutjämnare?
-Om de två virtuella nätverken finns i olika regioner (global VNet-peering) kan du inte ansluta till resurser som använder grundläggande Load Balancer. Du kan ansluta till resurser som använder Standard Load Balancer.
-Följande resurser använder grundläggande belastnings utjämning, vilket innebär att du inte kan kommunicera med dem i global VNet-peering:
+Om de två virtuella nätverken i två olika regioner är peer-kopplade via global VNet-peering, kan du inte ansluta till resurser som ligger bakom en grundläggande Load Balancer via klient delens IP-adress för Load Balancer. Den här begränsningen finns inte för en Standard Load Balancer.
+Följande resurser kan använda grundläggande belastningsutjämnare, vilket innebär att du inte kan komma åt dem via Load Balancerens klient del IP över global VNet-peering. Du kan dock använda global VNet-peering för att komma åt resurserna direkt via sina privata VNet-IP: er, om det är tillåtet. 
 - Virtuella datorer bakom Basic Load Balancer
 - Skalnings uppsättningar för virtuella datorer med Basic Load Balancer 
 - Redis Cache 
 - SKU för Application Gateway (v1)
 - Service Fabric
-- SQL-MI
+- SQL MI
 - API Management
 - Active Directory-domän tjänst (lägger till)
-- Logikappar
+- Logic Apps
 - HDInsight
 -   Azure Batch
-- Miljö för App Service
+- App Service Environment
 
 Du kan ansluta till dessa resurser via ExpressRoute eller VNet-till-VNet via VNet-gatewayer.
 
@@ -405,7 +405,7 @@ Det finns ingen gräns för det totala antalet VNet-slutpunkter i ett virtuellt 
 |Azure Storage| 100|
 |Azure SQL| 128|
 |Azure SQL Data Warehouse|  128|
-|Azure-valv|    127|
+|Azure KeyVault|    127|
 |Azure Cosmos DB|   64|
 |Azure Event Hub|   128|
 |Azure Service Bus| 128|

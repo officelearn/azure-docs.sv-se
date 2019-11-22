@@ -1,16 +1,16 @@
 ---
 title: Översikt över Azure Resource Graph
-description: Förstå hur Azure Resource Graph-tjänsten möjliggör komplexa frågor om resurser i stor skala.
+description: Förstå hur Azure Resource Graph-tjänsten möjliggör komplexa frågor om resurser i stor skala över prenumerationer och klienter.
 ms.date: 10/21/2019
 ms.topic: overview
-ms.openlocfilehash: f75a2b65b59a9f0367a6c52c2a1cf058df5b59c3
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 49af2bc62c277bd61f051243e23fa05466dc89eb
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958731"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304047"
 ---
-# <a name="overview-of-the-azure-resource-graph-service"></a>Översikt över Azure Resource Graph-tjänsten
+# <a name="what-is-azure-resource-graph"></a>Vad är Azure Resource Graph?
 
 Azure Resource Graph är en tjänst i Azure som är utformad för att utöka Azures resurs hantering genom att tillhandahålla effektiv och genomförd resurs utforskning med möjlighet att fråga i skala över en specifik uppsättning prenumerationer så att du effektivt kan styra din miljö. De här frågorna innehåller följande funktioner:
 

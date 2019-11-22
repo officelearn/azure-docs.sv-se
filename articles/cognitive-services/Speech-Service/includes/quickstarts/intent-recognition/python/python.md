@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 4efa535118d075addf78b2e9be6a645c458d6bb4
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: f39ddc8a3460bc026bdac96c18b5bea4d6ecfc0f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74125620"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280436"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -25,7 +25,7 @@ Innan du börjar ska du se till att:
 > [!div class="checklist"]
 >
 > * [Skapa en Azure tal-resurs](../../../../get-started.md)
-> * [Skapa ett LUIS-program och hämta en slut punkts nyckel](../../../../quickstarts/create-luis.md)
+> * [Skapa ett Language Understanding-program (LUIS) och hämta en slut punkts nyckel](../../../../quickstarts/create-luis.md)
 > * [Konfigurera utvecklings miljön](../../../../quickstarts/setup-platform.md)
 > * [Skapa ett tomt exempel projekt](../../../../quickstarts/create-project.md)
 

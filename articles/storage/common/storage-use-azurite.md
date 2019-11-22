@@ -1,5 +1,5 @@
 ---
-title: Använd Azurite-emulatorn med öppen källkod för utveckling och testning av Azure Storage (för hands version)
+title: Använd Azurite-emulatorn för lokal Azure Storage utveckling
 description: Azurite-emulatorn med öppen källkod (för hands version) tillhandahåller en kostnads fri lokal miljö för att testa dina Azure Storage-program.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -7,14 +7,14 @@ ms.date: 08/31/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: e611afd6f10154636eb2e0dd08437b4f7468d6b3
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 0421f49b31eba688542adc0a5b62e1cf75028836
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309545"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74269460"
 ---
-# <a name="use-the-azurite-open-source-emulator-for-azure-storage-development-and-testing-preview"></a>Använd Azurite-emulatorn med öppen källkod för utveckling och testning av Azure Storage (för hands version)
+# <a name="use-the-azurite-emulator-for-local-azure-storage-development-and-testing-preview"></a>Använd Azurite-emulatorn för lokal Azure Storage utveckling och testning (för hands version)
 
 Azurite-versionen 3,2 med öppen källkod (för hands version) är en kostnads fri lokal miljö för att testa dina Azure blob-och Queue Storage-program. När du är nöjd med hur ditt program fungerar lokalt växlar du till att använda ett Azure Storage konto i molnet. Emulatorn ger plattforms oberoende stöd för Windows, Linux och MacOS. Azurite v3 stöder API: er som implementeras av Azure-Blob Service.
 
@@ -39,15 +39,15 @@ Du kan snabbt starta eller stänga Azurite genom att klicka på **[Azurite BLOB 
 
 Tillägget har stöd för följande Visual Studio Code-kommandon:
 
-   * **Azurite: Starta** alla Azurite-tjänster
+   * **Azurite: starta** – starta alla Azurite-tjänster
    * **Azurite: Stäng** alla Azurite-tjänster
-   * **Azurite: Rensa** alla Azurite Services persistency-data
-   * **Azurite: Starta BLOB service** – starta BLOB service
+   * **Azurite: Rensa** -Återställ alla Azurite Services persistency-data
+   * **Azurite: starta BLOB service** – starta BLOB service
    * **Azurite: Stäng BLOB service** – Stäng BLOB service
-   * **Azurite: Rensa BLOB service** -rensa BLOB service
-   * **Azurite: Starta Queue Service** – starta Queue Service
-   * **Azurite: Stäng Queue Service** – Stäng Queue Service
-   * **Azurite: Rensa Queue Service** – tjänsten rensa kö
+   * **Azurite: Rensa BLOB** service-rensad BLOB service
+   * **Azurite: starta Queue Service** – starta Queue Service
+   * **Azurite: Stäng Queue Service** -Stäng Queue Service
+   * **Azurite: Rensa Queue Service** -rensa Queue Service
 
 Välj fönstret tillägg om du vill konfigurera Azurite i Visual Studio Code. Välj ikonen **Hantera** (kugg hjul) för **Azurite**. Välj **Konfigurera tilläggs inställningar**.
 
@@ -55,13 +55,13 @@ Välj fönstret tillägg om du vill konfigurera Azurite i Visual Studio Code. V�
 
 Följande inställningar stöds:
 
-   * **Azurite: BLOB-** värd – den BLOB service lyssnar slut punkten. Standardvärdet är 127.0.0.1.
-   * **Azurite: BLOB-** port – den BLOB service lyssnings porten. Standard porten är 10000.
-   * **Azurite: Felsök** – utdata från fel söknings loggen till Azurite-kanalen. Standardvärdet är **FALSKT**.
-   * **Azurite: Plats** – sökvägen till arbets ytans plats. Standardvärdet är Visual Studio Code-arbetsmappen.
-   * **Azurite: Köa värd** -den kötjänst lyssnar slut punkten. Standardvärdet är 127.0.0.1.
-   * **Azurite: Queue port** – kötjänst lyssnings port. Standard porten är 10001.
-   * **Azurite: Tyst** -tyst läge inaktiverar åtkomst loggen. Standardvärdet är **FALSKT**.
+   * **Azurite: BLOB Host** – slut punkten för BLOB service lyssning. Standardvärdet är 127.0.0.1.
+   * **Azurite: BLOB-port** – BLOB service lyssnings port. Standard porten är 10000.
+   * **Azurite: Felsök** – mata ut fel söknings loggen till Azurite-kanalen. Standardvärdet är **FALSKT**.
+   * **Azurite: plats** – sökvägen till arbets ytans plats. Standardvärdet är Visual Studio Code-arbetsmappen.
+   * **Azurite: köa värd** -den kötjänst lyssnar slut punkten. Standardvärdet är 127.0.0.1.
+   * **Azurite: Queue port** -den kötjänst lyssnings porten. Standard porten är 10001.
+   * **Azurite: tyst** -tyst läge inaktiverar åtkomst loggen. Standardvärdet är **FALSKT**.
 
 ## <a name="install-and-run-azurite-by-using-npm"></a>Installera och kör Azurite med NPM
 
@@ -83,7 +83,7 @@ docker pull mcr.microsoft.com/azure-storage/azurite
 
 **Kör Azurite Docker-avbildningen**:
 
-Följande kommando kör Azurite Docker-avbildningen. `-p 10000:10000` Parametern omdirigerar begär Anden från värd datorns port 10000 till Docker-instansen.
+Följande kommando kör Azurite Docker-avbildningen. Parametern `-p 10000:10000` omdirigerar begär Anden från värd datorns port 10000 till Docker-instansen.
 
 ```console
 docker run -p 10000:10000 -p 10001:10001 mcr.microsoft.com/azure-storage/azurite
@@ -91,7 +91,7 @@ docker run -p 10000:10000 -p 10001:10001 mcr.microsoft.com/azure-storage/azurite
 
 **Ange arbets ytans plats**:
 
-I följande exempel `-v c:/azurite:/data` anger parametern *c:/Azurite* som den Azurite sparade data platsen. Katalogen, *c:/Azurite*, måste skapas innan du kör Docker-kommandot.
+I följande exempel anger parametern `-v c:/azurite:/data` *c:/Azurite* som den Azurite sparade data platsen. Katalogen, *c:/Azurite*, måste skapas innan du kör Docker-kommandot.
 
 ```console
 docker run -p 10000:10000 -p 10001:10001 -v c:/azurite:/data mcr.microsoft.com/azure-storage/azurite
@@ -290,8 +290,8 @@ Anslut till Azurite från Azure Storage SDK: er eller verktyg, t. ex. [Azure Sto
 
 Du kan använda följande konto namn och nyckel med Azurite. Detta är samma välkända konto och nyckel som används av den äldre Azure Storage-emulatorn.
 
-* Konto namn:`devstoreaccount1`
-* Konto nyckel:`Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
+* Konto namn: `devstoreaccount1`
+* Konto nyckel: `Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
 
 > [!NOTE]
 > Förutom SharedKey-autentisering stöder Azurite konto-och tjänstens SAS-autentisering. Anonym åtkomst är också tillgängligt när en behållare är inställd att tillåta offentlig åtkomst.

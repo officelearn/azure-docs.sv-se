@@ -1,21 +1,19 @@
 ---
-title: Skapa ett utrymme för Kubernetes-utveckling i molnet med Java och VS Code
-titleSuffix: Azure Dev Spaces
+title: Skapa ett Kubernetes dev-utrymme i molnet med Java och VS Code
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
 author: stepro
 ms.author: stephpr
 ms.date: 09/26/2018
 ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
 manager: gwallace
-ms.openlocfilehash: ec1c2b385797b1219814e584a9db7da82d111e2d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
-ms.translationtype: MT
+ms.openlocfilehash: 8e5d1c070b3c8320a97ab4345cb8c5c12118d0af
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704092"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280233"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-java"></a>Komma igång med Azure Dev Spaces med Java
 
@@ -26,7 +24,7 @@ I den här guiden får du lära dig hur du:
 - Effektivt utvecklar och testar din kod i en teammiljö.
 
 > [!Note]
-> **Om du fastnar** när som helst, finns det [felsökning](troubleshooting.md) avsnittet.
+> **Om du får fastna när som** helst kan du läsa avsnittet [fel sökning](troubleshooting.md) .
 
 ## <a name="install-the-azure-cli"></a>Installera Azure CLI
 Azure Dev Spaces kräver minimal konfiguration av den lokala datorn. Merparten av utvecklarmiljöns konfiguration lagras i molnet och kan delas med andra användare. Börja genom att ladda ned och köra [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -56,7 +54,7 @@ az account set --subscription <subscription ID>
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Skapa ett Kubernetes-kluster som är aktiverat för Azure Dev Spaces
 
-I Kommandotolken, skapa en resursgrupp i en [region som stöder Azure Dev blanksteg][supported-regions].
+I kommando tolken skapar du resurs gruppen i en [region som stöder Azure dev Spaces][supported-regions].
 
 ```cmd
 az group create --name MyResourceGroup --location <region>
@@ -141,18 +139,18 @@ Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890a
 Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 ```
 
-Identifiera en offentlig URL för tjänsten i utdata från den `up` kommando. Det avslutas med `.azds.io`. I exemplet ovan är en offentlig URL `http://webfrontend.1234567890abcdef1234.eus.azds.io/`.
+Identifiera den offentliga URL: en för tjänsten i utdata från kommandot `up`. Den avslutas i `.azds.io`. I exemplet ovan är den offentliga URL: en `http://webfrontend.1234567890abcdef1234.eus.azds.io/`.
 
-Om du vill se din webbapp öppnar du en offentlig URL i en webbläsare. Lägg också märke till `stdout` och `stderr` utdata strömmas till den *azds trace* terminalfönstret som du interagerar med din webbapp. Du ser också spårningsinformation för HTTP-begäranden under övergången till systemet. Detta gör det enklare för dig att spåra komplexa flera tjänster anrop under utveckling. Instrumentation som läggs till av Dev blanksteg ger den här begäran spårning.
+Om du vill se din webbapp öppnar du den offentliga URL: en i en webbläsare. Observera också att `stdout` och `stderr` utdata strömmas till azds-fönstret för *spårnings* terminalen när du interagerar med din webbapp. Du kan också se spårnings information för HTTP-begäranden när de går igenom systemet. Detta gör det enklare för dig att spåra komplexa anrop i flera tjänster under utvecklingen. Instrumentation som lagts till av dev Spaces innehåller den här förfrågan spårningen.
 
 > [!Note]
-> Utöver den offentliga URL, kan du använda alternativet `http://localhost:<portnumber>` URL som visas i konsolens utdata. Om du använder localhost-URL:en kan det verka som om containern körs lokalt, men i själva verket körs den i AKS. Azure Dev blanksteg används Kubernetes *port och tydlig* funktioner kan mappa localhost-port till den behållare som körs i AKS. Detta underlättar interagera med tjänsten från din lokala dator.
+> Förutom den offentliga URL: en kan du använda den alternativa `http://localhost:<portnumber>`-URL: en som visas i konsolens utdata. Om du använder localhost-URL:en kan det verka som om containern körs lokalt, men i själva verket körs den i AKS. I Azure dev Spaces används Kubernetes *Port-Forward-* funktioner för att mappa localhost-porten till den behållare som körs i AKS. Detta underlättar interaktion med tjänsten från den lokala datorn.
 
 ### <a name="update-a-content-file"></a>Uppdatera en innehållsfil
 Azure Dev Spaces handlar om mer än att bara få kod att köra i Kubernetes – det handlar om att du snabbt och löpande kan se effekten av dina kodändringar i en Kubernetes-miljö i molnet.
 
 1. Tryck på `Ctrl+C` (för att stoppa `azds up`) i terminalfönstret.
-1. Öppna `src/main/java/com/ms/sample/webfrontend/Application.java`, och redigera hälsningsmeddelande på [rad 19](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19):
+1. Öppna `src/main/java/com/ms/sample/webfrontend/Application.java`och redigera hälsnings meddelandet på [rad 19](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19):
 
     ```java
     return "Hello from webfrontend in Azure!";
@@ -172,7 +170,7 @@ I det här avsnittet ska du använda VS Code för att direkt felsöka våra cont
 ![](media/common/edit-refresh-see.png)
 
 > [!Note]
-> **Om du fastnar** du kan när som helst referera till avsnittet [Felsökning](troubleshooting.md) eller lägga upp en kommentar på den här sidan.
+> **Om du fastnar** läser du [felsökningsavsnittet](troubleshooting.md) eller skriver en kommentar på den här sidan.
 
 ### <a name="initialize-debug-assets-with-the-vs-code-extension"></a>Initiera felsökningstillgångar med VS Code-tillägget
 Du måste först konfigurera kodprojektet så att VS Code kommunicerar med vår utvecklarmiljö i Azure. VS Code-tillägget för Azure Dev Spaces har ett hjälpkommando för att konfigurera felsökningskonfigurationen. 
@@ -190,7 +188,7 @@ Då läggs felsökningskonfigurationen för Azure Dev Spaces till under mappen `
 ![](media/get-started-java/debug-configuration.png)
 
 > [!Note]
-> Om du inte ser några Azure Dev Spaces-kommandon på kommandopaletten kontrollerar du att du har installerat VS Code-tillägget för Azure Dev Spaces. Se till att den arbetsyta som du öppnade i VS Code är den mapp som innehåller `azds.yaml`.
+> Om du inte ser några Azure Dev Spaces-kommandon på kommandopaletten kontrollerar du att du har installerat VS Code-tillägget för Azure Dev Spaces. Se till att arbets ytan du öppnade i VS Code är den mapp som innehåller `azds.yaml`.
 
 ### <a name="debug-the-container-in-kubernetes"></a>Felsöka containern i Kubernetes
 Tryck på **F5** för att felsöka koden i Kubernetes.
@@ -198,7 +196,7 @@ Tryck på **F5** för att felsöka koden i Kubernetes.
 Precis som med `up`-kommandot, synkroniseras koden med utvecklarmiljön och en container skapas och distribueras till Kubernetes. Men den här gången är felsökaren kopplad till fjärrcontainern.
 
 > [!Tip]
-> I statusfältet för VS Code inaktiveras orange, som anger att felsökningsprogrammet är ansluten. Den visas också en klickbara URL som du kan använda för att öppna ditt program.
+> Statusfältet för VS Code blir orange, vilket indikerar att fel söknings programmet är kopplat. En klicknings bara URL visas också, som du kan använda för att öppna programmet.
 
 ![](media/common/vscode-status-bar-url.png)
 
@@ -216,11 +214,11 @@ public String greeting()
 }
 ```
 
-Spara filen och i den **Debug åtgärdsfönstret**, klickar du på den **starta om** knappen.
+Spara filen och klicka på knappen **starta om** i **rutan fel söknings åtgärder**.
 
 ![](media/common/debug-action-refresh.png)
 
-I stället för att återskapa och distribuera om en ny containeravbildning varje gång koden ändras, vilket ofta tar lång tid, kompilerar Azure Dev Spaces om koden inkrementellt i den befintliga containern för snabbare redigerings- och felsökningsförlopp.
+I stället för att återskapa och distribuera om en ny containeravbildning varje gång koden ändras, vilket ofta tar lång tid, kompilerar Azure Dev Spaces om koden inkrementellt i befintliga containern för snabbare redigerings- och felsökningsförlopp.
 
 Uppdatera webbappen i webbläsaren. Nu bör ditt anpassade meddelande visas i användargränssnittet.
 

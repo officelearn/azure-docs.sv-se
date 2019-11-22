@@ -2,18 +2,18 @@
 title: 'Fördelar: migrera lokala Apache Hadoop till Azure HDInsight'
 description: Lär dig motivation och fördelarna med att migrera lokala Hadoop-kluster till Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/25/2018
-ms.author: hrasheed
-ms.openlocfilehash: 7f67b85b66748ae98cbb520bf4ebc11a2eef9efb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/15/2019
+ms.openlocfilehash: 2440b93629416ea73fcf211cbe7bf5a3b72ab2e7
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494931"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267329"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight – motivation och fördelar
 
@@ -132,7 +132,7 @@ Det här avsnittet innehåller fråge formulär för mallar som hjälper dig att
 |Skript|Shell, python||
 |**Ämne**: **data**|||
 |Datakällor|Flata filer, JSON, Kafka, RDBMS||
-|Dataorkestrering|Oozie-arbetsflöden, luft flöde||
+|Datadirigering|Oozie-arbetsflöden, luft flöde||
 |I minnes sökningar|Apache antändning, Redis||
 |Data destinationer|HDFS, RDBMS, Kafka, MPP ||
 |**Ämne**: **metadata-data**|||
@@ -150,7 +150,7 @@ Det här avsnittet innehåller fråge formulär för mallar som hjälper dig att
 |Genomsnittlig CPU% som används|60 %||
 |Genomsnittligt minne% använt|75%||
 |Använt disk utrymme|75%||
-|Genomsnittligt nätverk% använt|25 %
+|Genomsnittligt nätverk% använt|25%
 |**Ämne**: **personal**|||
 |Antal administratörer|2||
 |Antal utvecklare|10||
@@ -166,7 +166,7 @@ Det här avsnittet innehåller fråge formulär för mallar som hjälper dig att
 |**Ämne**: **infrastruktur** |||
 |---|---|---|
 |**Ifrågasätta**|**Exempel**|**Svarsfilen**|
-| Önskad region|USA, Östra||
+| Önskad region|USA, östra||
 |Virtuellt nätverk?|Ja||
 |Krävs/DR?|Ja||
 |Integrering med andra moln tjänster?|ADF, CosmosDB||

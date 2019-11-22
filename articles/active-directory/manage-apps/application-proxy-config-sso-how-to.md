@@ -1,5 +1,5 @@
 ---
-title: Så här konfigurerar du enkel inloggning till ett program med Application Proxy | Microsoft Docs
+title: Så här konfigurerar du enkel inloggning till en Application Proxy-app
 description: Hur du kan konfigurera enkel inloggning till din application proxy-program snabbt
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 03/12/2019
 ms.author: mimart
 ms.reviewer: japere, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f26b28b34a569673b397fa4700c5332c3550500f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8b5eca08e0b736937af42e58d81148636e3269df
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65825858"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275640"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Så här konfigurerar du enkel inloggning till ett Application Proxy-program
 
@@ -37,22 +37,22 @@ Mer information om de före autentiseringsmetoderna finns i steg 4 i den [publis
 ## <a name="configuring-single-sign-on-modes-for-application-proxy-applications"></a>Konfigurera enkel inloggning lägen för Application Proxy-program
 Konfigurera vilken typ av enkel inloggning. Metoderna som inloggning klassificeras baserat på vilken typ av autentisering backend-programmet använder. App Proxy-program stöder tre typer av inloggning:
 
--   **Lösenordsbaserad inloggning**: Lösenordsbaserad inloggning kan användas för alla program som använder fälten användarnamn och lösenord för att logga in. Konfigurationsstegen finns i [konfigurera lösenord för enkel inloggning för ett Azure AD-galleriprogram](configure-password-single-sign-on-gallery-applications.md).
+-   **Lösenordsbaserad inloggning**: lösenordsbaserad inloggning kan användas för alla program som använder fälten användarnamn och lösenord för att logga in. Konfigurationsstegen finns i [konfigurera lösenord för enkel inloggning för ett Azure AD-galleriprogram](configure-password-single-sign-on-gallery-applications.md).
 
--   **Integrerad Windows-autentisering**: För program som använder integrerad Windows autentisering (IWA), är enkel inloggning aktiverat via Kerberos-begränsad delegering (KCD). Den här metoden ger Programproxyns-kopplingar behörighet i Active Directory att personifiera användare, och för att skicka och ta emot token för deras räkning. Information om hur du konfigurerar KCD finns i den [enkel inloggning med KCD-dokumentation](application-proxy-configure-single-sign-on-with-kcd.md).
+-   **Integrerad Windows-autentisering**: för program som använder integrerad Windows autentisering (IWA), enkel inloggning är aktiverat via Kerberos-begränsad delegering (KCD). Den här metoden ger Programproxyns-kopplingar behörighet i Active Directory att personifiera användare, och för att skicka och ta emot token för deras räkning. Information om hur du konfigurerar KCD finns i den [enkel inloggning med KCD-dokumentation](application-proxy-configure-single-sign-on-with-kcd.md).
 
--   **Rubrikbaserad inloggning**: Rubrikbaserad inloggning är aktiverat via ett partnerskap och kräver ytterligare konfigurering. Mer information om partnerskap och stegvisa instruktioner för att konfigurera enkel inloggning till ett program som använder rubriker för autentisering finns i den [PingAccess för Azure AD-dokumentationen](application-proxy-configure-single-sign-on-with-ping-access.md).
+-   **Rubrikbaserad inloggning**: rubrikbaserad inloggning är aktiverat via ett partnerskap och kräver ytterligare konfigurering. Mer information om partnerskap och stegvisa instruktioner för att konfigurera enkel inloggning till ett program som använder rubriker för autentisering finns i den [PingAccess för Azure AD-dokumentationen](application-proxy-configure-single-sign-on-with-ping-access.md).
 
--   **SAML enkel inloggning**: Med SAML enkel inloggning autentiserar Azure AD till programmet med hjälp av användarens Azure AD-konto. Azure AD kommunicerar information inloggning till programmet via en anslutningsprotokoll. Med SAML-baserad enkel inloggning, kan du mappa användare till specifika programroller baserat på regler som du definierar i SAML-anspråk. Information om hur du konfigurerar SAML enkel inloggning finns i [SAML för enkel inloggning med programproxy](application-proxy-configure-single-sign-on-on-premises-apps.md).
+-   **SAML enkel inloggning**: med enkel inloggning med SAML, autentiserar Azure AD programmet med hjälp av användarens Azure AD-konto. Azure AD kommunicerar information inloggning till programmet via en anslutningsprotokoll. Med SAML-baserad enkel inloggning kan du mappa användare till specifika program roller baserat på regler som du definierar i dina SAML-anspråk. Information om hur du konfigurerar SAML enkel inloggning finns i [SAML för enkel inloggning med Application Proxy](application-proxy-configure-single-sign-on-on-premises-apps.md).
 
-Var och en av dessa alternativ kan hittas genom att gå till ditt program i ”program” och öppna den **enkel inloggning** sida på den vänstra menyn. Observera att om ditt program har skapats i den gamla portalen kan du inte kanske ser alla dessa alternativ.
+Var och en av dessa alternativ kan hittas genom att gå till ditt program i ”program” och öppna den **enkel inloggning** sida på den vänstra menyn. Observera att om ditt program skapades på den gamla portalen kanske du inte ser alla dessa alternativ.
 
-På den här sidan kan du också ser något alternativ för ytterligare inloggning: Länkad inloggning. Det här alternativet stöds också av programproxy. Det här alternativet läggs dock inte enkel inloggning till programmet. Men programmet kan redan ha enkel inloggning implementeras med hjälp av en annan tjänst, till exempel Active Directory Federation Services. 
+På den här sidan kan du också ser något alternativ för ytterligare inloggning: länkad inloggning. Det här alternativet stöds också av programproxy. Det här alternativet läggs dock inte enkel inloggning till programmet. Men programmet kan redan ha enkel inloggning implementeras med hjälp av en annan tjänst, till exempel Active Directory Federation Services. 
 
 Det här alternativet kan en administratör för att skapa en länk till ett program att första mark användare på vid åtkomst till programmet. Om det finns ett program som är konfigurerad för att autentisera användare som använder Active Directory Federation Services 2.0, kan en administratör exempelvis använda alternativet ”länkad inloggning” för att skapa en länk till den på åtkomstpanelen.
 
 ## <a name="next-steps"></a>Nästa steg
-- [Lösenord vaulting för enkel inloggning med programproxy](application-proxy-configure-single-sign-on-password-vaulting.md)
-- [Kerberos-begränsad delegering för enkel inloggning med programproxy](application-proxy-configure-single-sign-on-with-kcd.md)
-- [Rubrikbaserad autentisering för enkel inloggning med programproxy](application-proxy-configure-single-sign-on-with-ping-access.md) 
+- [Lösen ords valv för enkel inloggning med programproxy](application-proxy-configure-single-sign-on-password-vaulting.md)
+- [Kerberos-begränsad delegering för enkel inloggning med Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md)
+- [Huvud-baserad autentisering för enkel inloggning med Application Proxy](application-proxy-configure-single-sign-on-with-ping-access.md) 
 - [SAML för enkel inloggning med programproxy](application-proxy-configure-single-sign-on-on-premises-apps.md).

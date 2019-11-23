@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Kontrollera stavning med REST API för stavningskontroll i Bing och Node.js'
+title: 'Quickstart: Check spelling with the REST API and Node.js - Bing Spell Check'
 titleSuffix: Azure Cognitive Services
 description: Kom igång med REST API för stavningskontroll i Bing för att kontrollera stavning och grammatik.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 04/02/2019
 ms.author: aahill
-ms.openlocfilehash: c45e9e7743aca2d091b62caed6a7c5a724bacebf
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: ab8f1d52b5a0b9f5f2539de0acc4728277f9f7b2
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423498"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74378826"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>Snabbstart: Kontrollera stavning med REST API för stavningskontroll i Bing och Node.js
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>Quickstart: Check spelling with the Bing Spell Check REST API and Node.js
 
-Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. Detta enkla Node-program skickar en begäran till API: et och returnerar en lista med ord som inte identifierades, följt av föreslagna korrigeringar. Även om det här programmet är skrivet i Node. js är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden till det här programmet finns [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js).
+Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. This simple Node application sends a request to the API and returns a list of words it didn't recognize, followed by suggested corrections. While this application is written in Node.js, the API is a RESTful Web service compatible with most programming languages. Källkoden för det här programmet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Node.js 6](https://nodejs.org/en/download/) eller senare.
 
@@ -30,7 +30,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
 
 ## <a name="create-and-initialize-a-project"></a>Skapa och initiera ett projekt
 
-1. Skapa en ny JavaScript-fil i valfri IDE eller valfritt redigeringsprogram. Ange stränghet och Kräv `https`. Skapa sedan variabler för API-slutpunktens värd, sökväg och prenumerationsnyckel.
+1. Skapa en ny JavaScript-fil i valfri IDE eller valfritt redigeringsprogram. Set the strictness, and require `https`. Skapa sedan variabler för API-slutpunktens värd, sökväg och prenumerationsnyckel.
 
     ```javascript
     'use strict';
@@ -41,7 +41,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
     let key = '<ENTER-KEY-HERE>';
     ```
 
-2. Skapa variabler för dina Sök parametrar och den text som du vill kontrol lera. Lägg till din marknads kod `mkt=`efter. Marknads koden är det land som du gör begäran från. Lägg också till ditt stavnings kontroll läge efter `&mode=`. Läget är antingen `proof` (fångar de flesta stavnings-och grammatikfel) `spell` eller (fångar de flesta stavfel men inte lika många grammatiska fel).
+2. Create variables for your search parameters and the text you want to check. Append your market code after `mkt=`. The market code is the country you make the request from. Also, append your spell-check mode after `&mode=`. Mode is either `proof` (catches most spelling/grammar errors) or `spell` (catches most spelling but not as many grammar errors).
 
     ```javascript
     let mkt = "en-US";
@@ -144,5 +144,5 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Skapa en webbapp med en sida](../tutorials/spellcheck.md)
 
-- [Vad är API:et för stavningskontroll i Bing?](../overview.md)
+- [Vad är API för stavningskontroll i Bing?](../overview.md)
 - [API-referens för stavningskontroll i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

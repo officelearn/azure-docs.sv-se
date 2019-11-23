@@ -13,41 +13,41 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: 0a3bc6bcae2f06173cbc334ffe80e2dfa001e407
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 435ae9f08f718a9310fd1687fb7859058edf8b45
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309269"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384253"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrera säkerhetslösningar i Azure Security Center
 Det här dokumentet hjälper dig att hantera säkerhetslösningar som redan är anslutna till Azure Security Center och lägga till nya.
 
 > [!NOTE]
-> En delmängd säkerhets lösningar har dragits tillbaka den 31 juli 2019. Mer information och alternativa tjänster finns i [dra tillbaka Security Center funktioner (2019 juli)](security-center-features-retirement-july2019.md#menu_solutions).
+> A subset of security solutions has been retired on July 31st, 2019. For more information and alternative services, see [Retirement of Security Center features (July 2019)](security-center-features-retirement-july2019.md#menu_solutions).
 
 ## <a name="integrated-azure-security-solutions"></a>Integrerade Azure-säkerhetslösningar
 Med Security Center är det enkelt att aktivera integrerade säkerhetslösningar i Azure. Fördelarna innefattar:
 
-- **Förenklad distribution**: Security Center erbjuder strömlinjeformad etablering av integrerade partner lösningar. För lösningar som program mot skadlig kod och sårbarhets bedömning kan Security Center etablera agenten på dina virtuella datorer. För brand Väggs apparater kan Security Center ta hand om en stor del av nätverks konfigurationen som krävs.
+- **Förenklad distribution**: Security Center erbjuder effektiviserad etablering av integrerade partnerlösningar. For solutions like antimalware and vulnerability assessment, Security Center can provision the agent on your virtual machines. For firewall appliances, Security Center can take care of much of the network configuration required.
 - **Integrerade identifieringar**: Säkerhetshändelser från partnerlösningar samlas in, aggregeras och visas automatiskt som en del av aviseringarna och incidenterna i Security Center. Dessa händelser kombineras också med identifieringar från andra källor för att tillhandahålla funktioner för avancerad hotidentifiering.
-- **Enhetlig hälso övervakning och hantering**: Kunder kan använda integrerade hälsohändelser för att få en snabbövervakning av alla partnerlösningar. Grundläggande hantering finns tillgängligt med enkel åtkomst till avancerad konfiguration med hjälp av partnerlösningen.
+- **Enhetlig övervakning och hantering av hälsa**: Kunderna kan använda integrerade hälsohändelser för att snabbt övervaka alla partnerlösningar. Grundläggande hantering finns tillgängligt med enkel åtkomst till avancerad konfiguration med hjälp av partnerlösningen.
 
-För närvarande omfattar integrerade säkerhetslösningar sårbarhets bedömning av [Qualys](https://www.qualys.com/public-cloud/#azure) och [Rapid7](https://www.rapid7.com/products/insightvm/) och Microsoft Application Gateway brand vägg för webbaserade program.
+Currently, integrated security solutions include vulnerability assessment by [Qualys](https://www.qualys.com/public-cloud/#azure) and [Rapid7](https://www.rapid7.com/products/insightvm/) and Microsoft Application Gateway Web application firewall.
 
 > [!NOTE]
-> Security Center installerar inte Microsoft Monitoring Agent på virtuella partner enheter eftersom de flesta säkerhets leverantörer förhindrar att externa agenter körs på sina enheter.
+> Security Center does not install the Microsoft Monitoring Agent on partner virtual appliances because most security vendors prohibit external agents running on their appliances.
 >
 >
 
 ## <a name="how-security-solutions-are-integrated"></a>Så här integreras säkerhetslösningar
-Azure-säkerhetslösningar som distribueras från Security Center ansluts automatiskt. Du kan också ansluta andra säkerhets data källor, inklusive datorer som körs lokalt eller i andra moln.
+Azure-säkerhetslösningar som distribueras från Security Center ansluts automatiskt. You can also connect other security data sources, including computers running on-premises or in other clouds.
 
 ![Integrerings av partnerlösningar](./media/security-center-partner-integration/security-center-partner-integration-fig8.png)
 
 ## <a name="manage-integrated-azure-security-solutions-and-other-data-sources"></a>Hantera integrerade Azure-säkerhetslösningar och andra datakällor
 
-1. Logga in på [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
+1. Logga in på [Azure-portalen](https://azure.microsoft.com/features/azure-portal/).
 
 2. På menyn **Microsoft Azure** väljer du **Security Center**. **Security Center – Översikt** öppnas.
 
@@ -55,47 +55,45 @@ Azure-säkerhetslösningar som distribueras från Security Center ansluts automa
 
    ![Security Center – Översikt](./media/security-center-partner-integration/overview.png)
 
-I **säkerhetslösningar**kan du se hälsan hos integrerade Azure-säkerhetslösningar och köra grundläggande hanterings uppgifter.
+In **Security solutions**, you can see the health of integrated Azure security solutions and run basic management tasks.
 
 ### <a name="connected-solutions"></a>Anslutna lösningar
 
-Avsnittet **anslutna lösningar** innehåller säkerhetslösningar som för närvarande är anslutna till Security Center. Den visar också hälso status för varje lösning.  
+The **Connected solutions** section includes security solutions that are currently connected to Security Center. It also shows the health status of each solution.  
 
 ![Anslutna lösningar](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
 
-Status för en partner lösning kan vara:
+The status of a partner solution can be:
 
-* Felfritt (grönt) – inga hälso problem.
-* Ej felfri (röd) – det finns ett hälso problem som kräver omedelbar uppmärksamhet.
-* Hälso problem (orange) – lösningen har slutat rapportera dess hälsa.
-* Inte rapporterat (grått) – lösningen har inte rapporterat något än och inga hälso data är tillgängliga. Statusen för en lösning kan vara avrapporterad om den var ansluten nyligen och fortfarande distribueras.
+* Healthy (green) - no health issues.
+* Unhealthy (red) - there's a health issue that requires immediate attention.
+* Health issues (orange) - the solution has stopped reporting its health.
+* Not reported (gray) - the solution hasn't reported anything yet and no health data is available. A solution's status may be unreported if it was connected recently and is still deploying.
 
 > [!NOTE]
-> Om hälso status data inte är tillgängliga visar Security Center datum och tid för den senaste händelsen som togs emot för att indikera om lösningen är rapporterad eller inte. Om inga hälso data är tillgängliga och inga aviseringar togs emot under de senaste 14 dagarna, visar Security Center att lösningen inte är felfri eller rapporterar.
+> If health status data is not available, Security Center shows the date and time of the last event received to indicate whether the solution is reporting or not. If no health data is available and no alerts were received within the last 14 days, Security Center indicates that the solution is unhealthy or not reporting.
 >
 >
 
-1. Välj **Visa** för ytterligare information och alternativ, till exempel:
+1. Select **VIEW** for additional information and options such as:
 
-   - **Lösnings konsol**. Öppnar hanterings upplevelsen för den här lösningen.
-   - **Länka virtuell dator**. Öppnar sidan länka program. Här kan du ansluta resurser till partnerlösningen.
-   - **Ta bort lösning**.
-   - **Konfigurera**.
+   - **Solution console**. Opens the management experience for this solution.
+   - **Link VM**. Opens the Link Applications page. Här kan du ansluta resurser till partnerlösningen.
+   - **Delete solution**.
+   - **Configure**.
 
    ![Partnerlösningsinformation](./media/security-center-partner-solutions/partner-solutions-detail.png)
 
-### <a name="discovered-solutions"></a>Upptäckta lösningar
+### <a name="discovered-solutions"></a>Identifierade lösningar
 
-Security Center identifierar automatiskt säkerhetslösningar som körs i Azure men inte är anslutna till Security Center och visar lösningarna i avsnittet **identifierade lösningar** . Dessa lösningar omfattar Azure-lösningar som [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)och partner lösningar.
+Security Center automatically discovers security solutions running in Azure but not connected to Security Center and displays the solutions in the **Discovered solutions** section. These  solutions include Azure solutions, like [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), and partner solutions.
 
 > [!NOTE]
-> Standardnivån av Security Center krävs på prenumerationsnivån för funktionen identifierade lösningar. Se [prissättning](security-center-pricing.md) för att lära dig mer om pris nivåerna.
+> Standardnivån av Security Center krävs på prenumerationsnivån för funktionen identifierade lösningar. See [Pricing](security-center-pricing.md) to learn more about the pricing tiers.
 >
 >
 
-Välj **Anslut** under en lösning för att integrera med Security Center och bli informerad om säkerhets aviseringar.
-
-![Upptäckta lösningar](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
+Select **CONNECT** under a solution to integrate with Security Center and be notified of security alerts.
 
 ### <a name="add-data-sources"></a>Lägg till datakällor
 
@@ -103,47 +101,47 @@ Avsnittet **Lägg till datakällor** innehåller andra tillgängliga datakällor
 
 ![Datakällor](./media/security-center-partner-integration/security-center-partner-integration-fig7.png)
 
-## <a name="exporting-data-to-a-siem"></a>Exportera data till en SIEM
+## <a name="exporting-data-to-a-siem"></a>Exporting data to a SIEM
 
-Du kan konfigurera Siem eller andra övervaknings verktyg för att ta emot Azure Security Center händelser.
+You can configure your SIEMs or other monitoring tools to receive Azure Security Center events.
 
-Alla händelser från Azure Security Center publiceras i Azure Monitor s [aktivitets logg](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)i Azure. Azure Monitor använder [en konsol IDE rad pipeline](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) för att strömma data till en händelsehubben där den sedan kan hämtas till övervaknings verktyget.
+All events from Azure Security Center are published to Azure Monitor's Azure [Activity log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Azure Monitor uses [a consolidated pipeline](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) to  stream the data to an Event Hub where it can then be pulled into your monitoring tool.
 
-I nästa avsnitt beskrivs hur du kan konfigurera data så att de strömmas till en händelsehubben. Stegen förutsätter att du redan har Azure Security Center konfigurerat i din Azure-prenumeration.
+The next sections describe how you can configure data to be streamed to an event hub. The steps assume that you already have Azure Security Center configured in your Azure subscription.
 
 ### <a name="high-level-overview"></a>Översikt på hög nivå
 
-![Översikt på hög nivå](media/security-center-export-data-to-siem/overview.png)
+![High-Level overview](media/security-center-export-data-to-siem/overview.png)
 
-### <a name="what-is-the-azure-security-data-exposed-to-siem"></a>Vad är Azures säkerhets data exponerade för SIEM?
+### <a name="what-is-the-azure-security-data-exposed-to-siem"></a>What is the Azure security data exposed to SIEM?
 
-I den här versionen exponeras [säkerhets aviseringarna.](../security-center/security-center-managing-and-responding-alerts.md) I kommande versioner kommer vi att utöka data uppsättningen med säkerhets rekommendationer.
+In this version, we expose the [security alerts.](../security-center/security-center-managing-and-responding-alerts.md) In upcoming releases, we will enrich the data set with security recommendations.
 
-### <a name="how-to-set-up-the-pipeline"></a>Så här konfigurerar du pipelinen
+### <a name="how-to-set-up-the-pipeline"></a>How to set up the pipeline
 
 #### <a name="create-an-event-hub"></a>Skapa en händelsehubb
 
-Innan du börjar [skapar du en Event Hubs namnrymd](../event-hubs/event-hubs-create.md) – målet för alla dina övervaknings data.
+Before you begin, [create an Event Hubs namespace](../event-hubs/event-hubs-create.md) - the destination for all your monitoring data.
 
-#### <a name="stream-the-azure-activity-log-to-event-hubs"></a>Strömma Azure-aktivitets loggen till Event Hubs
+#### <a name="stream-the-azure-activity-log-to-event-hubs"></a>Stream the Azure Activity Log to Event Hubs
 
-Se följande artikel [Ströms aktivitets logg för att Event Hubs](../azure-monitor/platform/activity-logs-stream-event-hubs.md)
+See the following article [stream activity log to Event Hubs](../azure-monitor/platform/activity-logs-stream-event-hubs.md)
 
-#### <a name="install-a-partner-siem-connector"></a>Installera en partner SIEM-anslutning 
+#### <a name="install-a-partner-siem-connector"></a>Install a partner SIEM connector 
 
-Genom att vidarebefordra dina övervaknings data till en Event Hub med Azure Monitor kan du enkelt integrera med partner SIEM och övervaknings verktyg.
+Routing your monitoring data to an Event Hub with Azure Monitor enables you to easily integrate with partner SIEM and monitoring tools.
 
-I följande artikel finns en lista över [Siem som stöds](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-resource-logs-sent-to-an-event-hub)
+See the following article for the list of [supported SIEMs](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-resource-logs-sent-to-an-event-hub)
 
-### <a name="example-for-querying-data"></a>Exempel för att fråga efter data 
+### <a name="example-for-querying-data"></a>Example for Querying data 
 
-Här följer några Splunk-frågor som du kan använda för att hämta aviserings data:
+Here are some Splunk queries you can use to pull alert data:
 
-| **Beskrivning av fråga** | **Fråga** |
+| **Description of Query** | **Fråga** |
 |----|----|
-| Alla aviseringar| index = main Microsoft. Security/locations/Alerts|
-| Sammanfatta antalet åtgärder med deras namn| index = main SourceType = "Amal: säkerhet" \| Table operationName \| stats antal per operationName|
-| Hämta aviserings information: Tid, namn, tillstånd, ID och prenumeration | index = main Microsoft. Security/locations/ \| Alerts Table \_Time, Properties. EventName, State, Properties. operationId, am_subscriptionId |
+| All Alerts| index=main Microsoft.Security/locations/alerts|
+| Summarize count of operations by their name| index=main sourcetype="amal:security" \| table operationName \| stats count by operationName|
+| Get Alerts info: Time, Name, State, ID, and Subscription | index=main Microsoft.Security/locations/alerts \| table \_time, properties.eventName, State, properties.operationId, am_subscriptionId |
 
 
 ## <a name="next-steps"></a>Nästa steg

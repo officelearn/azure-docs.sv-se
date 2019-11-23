@@ -1,50 +1,46 @@
 ---
-title: Vad är Azure blockchain-token
-description: Azure blockchain-token är en plattform som en tjänst (PaaS) för utfärdande och hantering av token.
-services: azure-blockchain
-author: PatAltimore
-ms.author: patricka
+title: What is Azure Blockchain Tokens
+description: Azure Blockchain Tokens is a platform as a service (PaaS) for token issuance and management.
 ms.date: 11/04/2019
 ms.topic: overview
-ms.service: azure-blockchain
 ms.reviewer: brendal
-ms.openlocfilehash: cd41d52e06a5c1833dca9669881cbe48f362d81d
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: c1c18298ba82775c9b10bb79c420704bd462e2b4
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579755"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326088"
 ---
-# <a name="what-is-azure-blockchain-tokens"></a>Vad är Azure blockchain-token?
+# <a name="what-is-azure-blockchain-tokens"></a>Vad är Azure Blockchain-token?
 
 [!INCLUDE [Preview note](./includes/preview.md)]
 
-Azure blockchain-token är en plattform som en tjänst (PaaS) för standardiserad token-utfärdande och-hantering över blockchain-redovisningar i Azure.
+Azure Blockchain Tokens is a platform as a service (PaaS) for standardized token issuance and management across blockchain ledgers in Azure.
 
-Med Azure blockchain-token kan du skapa standardiserade tokens för din blockchain-lösning med hjälp av en fördefinierad token-mall. Du kan också skapa en egen token-mall med hjälp av tjänsten. När du har skapat använder du Azure blockchain-token för att ansluta och utfärda token på en blockchain. När du har utfärdat kan du sedan hantera tokens i flera blockchain-nätverk.
+Using Azure Blockchain Tokens you can create standardized tokens for your blockchain solution using a pre-built token template. You can also compose your own token template using the service. Once created, use Azure Blockchain Tokens to connect and issue the tokens on a blockchain. Once issued, you can then manage the tokens across multiple blockchain networks.
 
 ## <a name="templates"></a>Mallar
 
-Använd Azure blockchain-token för att välja en fördefinierad token-mall eller skapa en egen token-mall. Azure blockchain-token stöder filsammansättning för token som gör att du kan skapa din egen token-mall baserat på beteenden som stöds. Token-mallar kan användas för de flesta blockchain-lösningar eftersom de mappar till de mest använda token. Du kan börja med en mall, anpassa den och distribuera token för din lösning.
+Use Azure Blockchain Tokens to select a pre-built token template or create your own token template. Azure Blockchain Tokens supports token template composability that allows you to create your own token template based on supported behaviors. Token templates can be used for most blockchain solutions since they map to the most commonly utilized tokens. You can start with a template, personalize it, and deploy the tokens for your solution.
 
-Mer information om mallar för Azure blockchain-token finns i [mallar för Azure blockchain-token](templates.md).
+For more information on Azure Blockchain Tokens templates, see [Azure Blockchain Tokens templates](templates.md).
 
-## <a name="management"></a>Hantering
+## <a name="management"></a>Förvaltning
 
-Azure blockchain-token tillhandahåller Azure Portal hantering och API: er för att ansluta till ett befintligt blockchain-nätverk. För närvarande kan du ansluta till [Azure blockchain-tjänsten](../service/overview.md) eller en annan Ethereum Family-blockchain.
+Azure Blockchain Tokens provides Azure portal management and APIs to connect to an existing blockchain network. Currently, you can connect to [Azure Blockchain Service](../service/overview.md) or another Ethereum family blockchain.
 
-När du har anslutit till ett eller flera blockchain-nätverk kan du använda API: er för Azure blockchain-token för att utfärda och hantera token för användning i din blockchain-lösning. Med hjälp av API: er kan du integrera hantering av token i affärs program och logik. Du kan till exempel använda REST API för att hantera tokens i stället för att hantera tokens direkt på blockchain.
+Once connected to one or multiple blockchain networks, you can use Azure Blockchain Tokens APIs to issue and manage tokens for use in your blockchain solution. Using APIs, you can integrate token management in your business applications and logic. For example, you can use the REST API to  manage tokens instead of managing tokens directly on the blockchain.
 
-## <a name="blockchains-and-accounts"></a>Blockchains och konton
+## <a name="blockchains-and-accounts"></a>Blockchains and accounts
 
-Azure blockchain-token tillhandahåller Azure Portal hantering och API: er för att skapa nya grupper och nya Blockchain-konton på anslutna blockchain-nätverk. Du kan skapa nya konton direkt på dina anslutna nätverk och Azure blockchain-token hanterar ditt kontos privata nycklar åt dig. Med hjälp av grupper kan du gruppera olika blockchain-konton från flera nätverk och hantera åtkomst kontroll via grupperna.
+Azure Blockchain Tokens provides Azure portal management and APIs to create new groups and new blockchain accounts on connected blockchain networks. You can create new accounts directly on your connected networks, and Azure Blockchain Tokens manages your account private keys on your behalf. Using groups, you can group together different blockchain accounts from multiple networks and manage access control via the groups.
 
-Mer information om konto hantering för Azure blockchain-token finns i [konto hantering för Azure blockchain-token](account-management.md).
+For more information on Azure Blockchain Tokens account management, see [Azure Blockchain Tokens account management](account-management.md).
 
-## <a name="token-taxonomy-framework"></a>Ramverk för token taxonomi
+## <a name="token-taxonomy-framework"></a>Token Taxonomy Framework
 
-Azure blockchain-token bygger på en standard-baserad grund som kallas för token för token. TTF är en uppsättning slut produkter som skapats från arbets gruppen [token](https://entethalliance.org/participate/token-taxonomy-initiative/) för TTI-token. TTI-arbetsgruppen definierar en affärstaxonomi för token och deras beteenden som kan tillämpas på alla huvud böcker, inklusive Ethereum, kvorum, sladdar och mikroredovisningens infrastruktur resurs. Arbets gruppens mål är att skapa ett ramverk som standardiserar användningen av tokens från ett affärs perspektiv till att förenkla och demokratisera identifieringen av-baserad utveckling. Genom att låta branschen definiera dessa tokens och deras beteende på affärs nivå, är den detaljerade implementeringen av tokens sammanslagen från affärs logiken som manipulerar tokens.
+Azure Blockchain Tokens is built on a standards-based foundation named the Token Taxonomy Framework (TTF). TTF is a set of deliverables created from the [Token Taxonomy Initiative](https://entethalliance.org/participate/token-taxonomy-initiative/) (TTI) token working group. The TTI working group defines a business taxonomy for tokens and their behaviors that can be applied across all major ledgers including Ethereum, Quorum, Corda, and Hyperledger Fabric. The working group's goal is to create a framework that standardizes the use of tokens from a business perspective to drive simplification and democratize token based development. By letting the industry define these tokens and their behavior at the business level, the detailed implementation of the tokens are abstracted away from the business logic that manipulates the tokens.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om tillgängliga [mallar för Azure blockchain-token](templates.md).
+Learn more about available [Azure Blockchain Tokens templates](templates.md).

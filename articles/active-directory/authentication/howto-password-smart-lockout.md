@@ -1,89 +1,89 @@
 ---
-title: Förhindra brute force-attacker med Azure AD Smart utelåsning – Azure Active Directory
-description: Azure Active Directory Smart utelåsning hjälper till att skydda din organisation från brute force-attacker som försöker gissa lösen ord
+title: Preventing attacks using smart lockout - Azure Active Directory
+description: Azure Active Directory smart lockout helps protect your organization from brute-force attacks trying to guess passwords
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4cb2d424d242fd9ea078d981a85516a00c8115f
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 066c4cb598d9a8c14ab5d6ee893376266e104d15
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74268673"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381535"
 ---
-# <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory Smart utelåsning
+# <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory smart lockout
 
-Smart utelåsning hjälper dig att låsa upp dåliga aktörer som försöker gissa dina användares lösen ord eller använda råa metoder för att komma igång. Den kan identifiera inloggningar som kommer från giltiga användare och behandla dem annorlunda än för angripare och andra okända källor. Smart utelåsning låser angriparna och låter användarna fortsätta att komma åt sina konton och vara produktiva.
+Smart lockout assists in locking out bad actors who are trying to guess your users’ passwords or use brute-force methods to get in. It can recognize sign-ins coming from valid users and treat them differently than ones of attackers and other unknown sources. Smart lockout locks out the attackers, while letting your users continue to access their accounts and be productive.
 
-Som standard låser Smart utelåsning kontot från inloggnings försök i en minut efter 10 misslyckade försök. Kontot låser sig igen efter varje efterföljande misslyckad inloggnings försök, i en minut vid första och längre vid efterföljande försök.
+By default, smart lockout locks the account from sign-in attempts for one minute after 10 failed attempts. The account locks again after each subsequent failed sign-in attempt, for one minute at first and longer in subsequent attempts.
 
-Smart utelåsning spårar de tre senaste Felaktiga hasharna för lösen ord för att undvika ökning av utelåsnings räknaren för samma lösen ord. Om någon anger samma Felaktiga lösen ord flera gånger, kommer det här beteendet inte att orsaka att kontot kan låsas.
+Smart lockout tracks the last three bad password hashes to avoid incrementing the lockout counter for the same password. If someone enters the same bad password multiple times, this behavior will not cause the account to lockout.
 
  > [!NOTE]
- > Funktionen för hash-spårning är inte tillgänglig för kunder med direkt autentisering aktive rad eftersom autentisering sker lokalt, inte i molnet.
+ > Hash tracking functionality is not available for customers with pass-through authentication enabled as authentication happens on-premises not in the cloud.
 
-Federerade distributioner som använder AD FS 2016 och AF FS 2019 kan möjliggöra liknande förmåner med [AD FS extra näts utelåsning och extra näts Smart utelåsning](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection).
+Federated deployments using AD FS 2016 and AF FS 2019 can enable similar benefits using [AD FS Extranet Lockout and Extranet Smart Lockout](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection).
 
-Smart utelåsning är alltid aktiverat för alla Azure AD-kunder med dessa standardinställningar som ger rätt blandning av säkerhet och användbarhet. Anpassning av inställningarna för smart utelåsning, med värden som är speciella för din organisation, kräver betalda Azure AD-licenser för dina användare.
+Smart lockout is always on for all Azure AD customers with these default settings that offer the right mix of security and usability. Customization of the smart lockout settings, with values specific to your organization, requires paid Azure AD licenses for your users.
 
-Att använda Smart utelåsning garanterar inte att en äkta användare aldrig blir utelåst. När Smart utelåsning låser ett användar konto, försöker vi med vårt bästa att inte låsa den äkta användaren. Utelåsnings tjänsten försöker se till att felaktiga aktörer inte får åtkomst till ett äkta användar konto.  
+Using smart lockout does not guarantee that a genuine user will never be locked out. When smart lockout locks a user account, we try our best to not lockout the genuine user. The lockout service attempts to ensure that bad actors can’t gain access to a genuine user account.  
 
-* Varje Azure Active Directory data Center spårar utelåsning separat. En användare får (threshold_limit * datacenter_count) antal försök om användaren träffar varje data Center.
-* Smart utelåsning använder bekant plats kontra osäker plats för att skilja mellan en felaktig aktör och den äkta användaren. Okända och välbekanta platser kommer båda att ha separata utelåsnings räknare.
+* Each Azure Active Directory data center tracks lockout independently. A user will have (threshold_limit * datacenter_count) number of attempts, if the user hits each data center.
+* Smart Lockout uses familiar location vs unfamiliar location to differentiate between a bad actor and the genuine user. Unfamiliar and familiar locations will both have separate lockout counters.
 
-Smart utelåsning kan integreras med hybrid distributioner, med hjälp av hash-synkronisering av lösen ord eller genom strömning för att skydda lokala Active Directory-konton från att låsas av angripare. Genom att ange principer för smart utelåsning i Azure AD kan angrepp filtreras ut innan de når lokala Active Directory.
+Smart lockout can be integrated with hybrid deployments, using password hash sync or pass-through authentication to protect on-premises Active Directory accounts from being locked out by attackers. By setting smart lockout policies in Azure AD appropriately, attacks can be filtered out before they reach on-premises Active Directory.
 
-När du använder [direktautentisering](../hybrid/how-to-connect-pta.md)måste du se till att:
+When using [pass-through authentication](../hybrid/how-to-connect-pta.md), you need to make sure that:
 
-* Tröskelvärdet för Azure AD-utelåsning är **mindre** än tröskelvärdet för Active Directory konto utelåsning. Ange värdena så att tröskelvärdet för Active Directory konto utelåsning är minst två eller tre gånger längre än tröskelvärdet för Azure AD-utelåsning. 
-* Azure AD-utelåsningsens varaktighet måste vara längre än Active Directory Återställ räknaren för konto utelåsning efter varaktighet. Tänk på att Azure AD-varaktigheten anges i sekunder, medan AD-varaktigheten anges i minuter. 
+* The Azure AD lockout threshold is **less** than the Active Directory account lockout threshold. Set the values so that the Active Directory account lockout threshold is at least two or three times longer than the Azure AD lockout threshold. 
+* The Azure AD lockout duration must be set longer than the Active Directory reset account lockout counter after duration. Be aware that the Azure AD duration is set in seconds, while the AD duration is set in minutes. 
 
-Om du till exempel vill att din Azure AD-räknare ska vara högre än AD blir Azure AD 120 sekunder (2 minuter) medan din lokala AD har angetts till 1 minut (60 sekunder).
+For example, if you want your Azure AD counter to be higher than AD, then Azure AD would be 120 seconds (2 minutes) while your on-premises AD is set to 1 minute (60 seconds).
 
 > [!IMPORTANT]
-> För närvarande kan en administratör inte låsa upp användarnas moln konton om de har låsts av funktionen Smart utelåsning. Administratören måste vänta tills utelåsnings tiden upphör att gälla. Användaren kan dock låsa upp med hjälp av självbetjäning för återställning av lösen ord (SSPR) från en betrodd enhet eller plats.
+> Currently, an administrator can't unlock the users' cloud accounts if they have been locked out by the Smart Lockout capability. The administrator must wait for the lockout duration to expire. However, the user can unlock by using self-service password reset (SSPR) from a trusted device or location.
 
-## <a name="verify-on-premises-account-lockout-policy"></a>Verifiera den lokala konto utelåsnings principen
+## <a name="verify-on-premises-account-lockout-policy"></a>Verify on-premises account lockout policy
 
-Använd följande instruktioner för att verifiera din lokala princip för Active Directory konto utelåsning:
+Use the following instructions to verify your on-premises Active Directory account lockout policy:
 
-1. Öppna verktyget grupprincip hantering.
-2. Redigera grup principen som innehåller din organisations princip för konto utelåsning, till exempel **standard domän principen**.
-3. Bläddra till **dator konfiguration** > **principer** > **Windows-inställningar** > **säkerhets inställningar** > **konto principer** > **konto utelåsnings princip**.
-4. Verifiera ditt **konto utelåsnings tröskelvärde** och **Återställ räknaren för konto utelåsning efter** värden.
+1. Open the Group Policy Management tool.
+2. Edit the group policy that includes your organization's account lockout policy, for example, the **Default Domain Policy**.
+3. Browse to **Computer Configuration** > **Policies** > **Windows Settings** > **Security Settings** > **Account Policies** > **Account Lockout Policy**.
+4. Verify your **Account lockout threshold** and **Reset account lockout counter after** values.
 
-![Ändra principen för den lokala Active Directory konto utelåsning](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
+![Modify the on-premises Active Directory account lockout policy](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
 
-## <a name="manage-azure-ad-smart-lockout-values"></a>Hantera Azure AD Smart utelåsnings värden
+## <a name="manage-azure-ad-smart-lockout-values"></a>Manage Azure AD smart lockout values
 
-Med hjälp av dina organisations krav kan smarta utelåsnings värden behöva anpassas. Anpassning av inställningarna för smart utelåsning, med värden som är speciella för din organisation, kräver betalda Azure AD-licenser för dina användare.
+Based on your organizational requirements, smart lockout values may need to be customized. Customization of the smart lockout settings, with values specific to your organization, requires paid Azure AD licenses for your users.
 
-Använd följande steg för att kontrol lera eller ändra de smarta utelåsnings värdena för din organisation:
+To check or modify the smart lockout values for your organization, use the following steps:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Sök efter och välj *Azure Active Directory*. Välj **autentiseringsmetoder** > **lösen ords skydd**.
-1. Ange **tröskelvärdet för utelåsning**, baserat på hur många misslyckade inloggningar som tillåts på ett konto före det första utelåsning. Standardvärdet är 10.
-1. Ange **utelåsnings tiden i sekunder**till längden i sekunder för varje utelåsning. Standardvärdet är 60 sekunder (en minut).
+1. Search for and select *Azure Active Directory*. Select **Authentication methods** > **Password protection**.
+1. Set the **Lockout threshold**, based on how many failed sign-ins are allowed on an account before its first lockout. The default is 10.
+1. Set the **Lockout duration in seconds**, to the length in seconds of each lockout. The default is 60 seconds (one minute).
 
 > [!NOTE]
-> Om den första inloggningen efter en utelåsning också Miss lyckas, låser kontot ut igen. Om ett konto låser sig upprepade gånger ökar utelåsnings varaktigheten.
+> If the first sign-in after a lockout also fails, the account locks out again. If an account locks repeatedly, the lockout duration increases.
 
-![Anpassa Azure AD Smart utelåsnings-principen i Azure Portal](./media/howto-password-smart-lockout/azure-active-directory-custom-smart-lockout-policy.png)
+![Customize the Azure AD smart lockout policy in the Azure portal](./media/howto-password-smart-lockout/azure-active-directory-custom-smart-lockout-policy.png)
 
-## <a name="how-to-determine-if-the-smart-lockout-feature-is-working-or-not"></a>Så här avgör du om funktionen för smart utelåsning fungerar eller inte
+## <a name="how-to-determine-if-the-smart-lockout-feature-is-working-or-not"></a>How to determine if the Smart lockout feature is working or not
 
-När tröskelvärdet för smart utelåsning utlöses, får du följande meddelande när kontot är låst:
+When the smart lockout threshold is triggered, you will get the following message while the account is locked:
 
-**Ditt konto är tillfälligt låst för att förhindra obehörig användning. Försök igen senare och kontakta administratören om du fortfarande har problem.**
+**Your account is temporarily locked to prevent unauthorized use. Try again later, and if you still have trouble, contact your admin.**
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Ta reda på hur du kan förbjuda Felaktiga lösen ord i din organisation med hjälp av Azure AD.](howto-password-ban-bad.md)
-* [Konfigurera lösen ords återställning via självbetjäning så att användarna kan låsa upp sina egna konton.](quickstart-sspr.md)
+* [Find out how to ban bad passwords in your organization using Azure AD.](howto-password-ban-bad.md)
+* [Configure self-service password reset to allow users to unlock their own accounts.](quickstart-sspr.md)

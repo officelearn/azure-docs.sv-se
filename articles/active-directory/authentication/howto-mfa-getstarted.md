@@ -1,179 +1,179 @@
 ---
-title: Planera och köra en Azure Multi-Factor Authentication-distribution – Azure Active Directory
-description: Microsoft Azure Multi-Factor Authentication distributions planering
+title: Deploy Azure Multi-Factor Authentication - Azure Active Directory
+description: Microsoft Azure Multi-Factor Authentication deployment planning
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22e3131a204589a506b2d5f1e2508c37ad3b4100
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: cab4b57513f90a5cbe80724d4937f8d0f87b5517
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847207"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381786"
 ---
-# <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planera en molnbaserad Azure Multi-Factor Authentication-distribution
+# <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planning a cloud-based Azure Multi-Factor Authentication deployment
 
-Personer ansluter till organisations resurser i allt större komplicerade scenarier. Människor ansluter till och från organisationer som ägs, personliga och offentliga enheter på företags nätverket med hjälp av telefoner, surfplattor, datorer och bärbara datorer, ofta på flera plattformar. I den här enheten för alltid ansluten, flera enheter och flera plattformar är säkerheten för användar konton viktigare än någonsin. Lösen ord, oavsett om de är komplicerade, som används på enheter, nätverk och plattformar är inte längre tillräckliga för att säkerställa användar kontots säkerhet, särskilt när användare tenderar att återanvända lösen ord över konton. Sofistikerade nätfiske och andra sociala teknik attacker kan leda till att användar namn och lösen ord publiceras och säljs på den mörka webben.
+People are connecting to organizational resources in increasingly complicated scenarios. People connect from organization-owned, personal, and public devices on and off the corporate network using smart phones, tablets, PCs, and laptops, often on multiple platforms. In this always-connected, multi-device and multi-platform world, the security of user accounts is more important than ever. Passwords, no matter their complexity, used across devices, networks, and platforms are no longer sufficient to ensure the security of the user account, especially when users tend to reuse passwords across accounts. Sophisticated phishing and other social engineering attacks can result in usernames and passwords being posted and sold across the dark web.
 
-[Azure Multi-Factor Authentication (MFA)](concept-mfa-howitworks.md) hjälper till att skydda åtkomsten till data och program. Det ger ett extra säkerhets lager med hjälp av en andra form av autentisering. Organisationer kan använda [villkorlig åtkomst](../conditional-access/overview.md) för att se till att lösningen passar deras speciella behov.
+[Azure Multi-Factor Authentication (MFA)](concept-mfa-howitworks.md) helps safeguard access to data and applications. It provides an additional layer of security using a second form of authentication. Organizations can use [Conditional Access](../conditional-access/overview.md) to make the solution fit their specific needs.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Innan du påbörjar en distribution av Azure Multi-Factor Authentication finns det nödvändiga objekt som bör övervägas.
+Before starting a deployment of Azure Multi-Factor Authentication, there are prerequisite items that should be considered.
 
 | Scenario | Krav |
 | --- | --- |
-| Identitets miljö med **enbart moln** med modern autentisering | **Inga ytterligare nödvändiga aktiviteter** |
-| **Hybrid** identitets scenarier | [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) distribueras och användar identiteter synkroniseras eller federerade med den lokala Active Directory Domain Services med Azure Active Directory. |
-| Lokala äldre program som publicerats för moln åtkomst | Azure AD [Application Proxy](../manage-apps/application-proxy.md) har distribuerats. |
-| Använda Azure MFA med RADIUS-autentisering | En [nätverks princip Server (NPS)](howto-mfa-nps-extension.md) har distribuerats. |
-| Användare har Microsoft Office 2010 eller tidigare, eller Apple Mail för iOS 11 eller tidigare | Uppgradera till [Microsoft Office 2013 eller senare](https://support.microsoft.com/help/4041439/modern-authentication-configuration-requirements-for-transition-from-o) och Apple Mail för iOS 12 eller senare. Villkorlig åtkomst stöds inte av bakåtkompatibla autentiseringsprotokoll. |
+| **Cloud-only** identity environment with modern authentication | **No additional prerequisite tasks** |
+| **Hybrid** identity scenarios | [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) is deployed and user identities are synchronized or federated with the on-premises Active Directory Domain Services with Azure Active Directory. |
+| On-premises legacy applications published for cloud access | Azure AD [Application Proxy](../manage-apps/application-proxy.md) is deployed. |
+| Using Azure MFA with RADIUS Authentication | A [Network Policy Server (NPS)](howto-mfa-nps-extension.md) is deployed. |
+| Users have Microsoft Office 2010 or earlier, or Apple Mail for iOS 11 or earlier | Upgrade to [Microsoft Office 2013 or later](https://support.microsoft.com/help/4041439/modern-authentication-configuration-requirements-for-transition-from-o) and Apple mail for iOS 12 or later. Conditional Access is not supported by legacy authentication protocols. |
 
-## <a name="plan-user-rollout"></a>Planera användar lansering
+## <a name="plan-user-rollout"></a>Plan user rollout
 
-Din plan för MFA-distribution ska innehålla en pilot distribution som följs av distributions vågor som ligger inom support kapaciteten. Börja distributionen genom att tillämpa dina principer för villkorlig åtkomst till en liten grupp pilot användare. När du har utvärderat effekterna på funktionerna för pilot användare, process användning och registrering kan du antingen lägga till fler grupper i principen eller lägga till fler användare i de befintliga grupperna.
+Your MFA rollout plan should include a pilot deployment followed by deployment waves that are within your support capacity. Begin your rollout by applying your Conditional Access policies to a small group of pilot users. After evaluating the effect on the pilot users, process used, and registration behaviors, you can either add more groups to the policy or add more users to the existing groups.
 
-### <a name="user-communications"></a>Användar kommunikation
+### <a name="user-communications"></a>User communications
 
-Det är viktigt att informera användarna, i planerad kommunikation, om kommande ändringar, registrerings krav för Azure MFA och eventuella nödvändiga användar åtgärder. Vi rekommenderar att kommunikationen utvecklas i samförstånd med representanter från din organisation, till exempel en kommunikation, en ändrings hanterings avdelning eller personalavdelningen.
+It is critical to inform users, in planned communications, about upcoming changes, Azure MFA registration requirements, and any necessary user actions. We recommend communications are developed in concert with representatives from within your organization, such as a Communications, Change Management, or Human Resources departments.
 
-Microsoft tillhandahåller [kommunikations mallar](https://aka.ms/mfatemplates) och [dokumentation för slutanvändare](../user-help/security-info-setup-signin.md) för att hjälpa till att formulera kommunikationen. Du kan skicka användare till [https://myprofile.microsoft.com](https://myprofile.microsoft.com) för att registrera dem direkt genom att välja länkarna för **säkerhets information** på sidan.
+Microsoft provides [communication templates](https://aka.ms/mfatemplates) and [end-user documentation](../user-help/security-info-setup-signin.md) to help draft your communications. You can send users to [https://myprofile.microsoft.com](https://myprofile.microsoft.com) to register directly by selecting the **Security Info** links on that page.
 
 ## <a name="deployment-considerations"></a>Distributionsöverväganden
 
-Azure Multi-Factor Authentication distribueras genom att tvinga principer med villkorlig åtkomst. En [princip för villkorlig åtkomst](../conditional-access/overview.md) kan kräva att användare utför Multi-Factor Authentication när vissa villkor uppfylls, t. ex.:
+Azure Multi-factor Authentication is deployed by enforcing policies with Conditional Access. A [Conditional Access policy](../conditional-access/overview.md) can require users to perform multi-factor authentication when certain criteria are met such as:
 
-* Alla användare, en speciell användare, medlem i en grupp eller tilldelad roll
-* Specifika moln program som ska användas
-* Enhets plattform
-* Enhetens tillstånd
-* Nätverks plats eller geo-lokaliserad IP-adress
+* All users, a specific user, member of a group, or assigned role
+* Specific cloud application being accessed
+* Device platform
+* State of device
+* Network location or geo-located IP address
 * Klientprogram
-* Inloggnings risk (kräver identitets skydd)
+* Sign-in risk (Requires Identity Protection)
 * Kompatibel enhet
-* Hybrid Azure AD-ansluten enhet
-* Godkänt klient program
+* Hybrid Azure AD joined device
+* Approved client application
 
-Använd anpassningsbara affischer och e-postmallar i distributions [material för Multi-Factor Authentication](https://www.microsoft.com/download/details.aspx?id=57600&WT.mc_id=rss_alldownloads_all) för att distribuera Multi-Factor Authentication till din organisation.
+Use the customizable posters and email templates in [multi-factor authentication rollout materials](https://www.microsoft.com/download/details.aspx?id=57600&WT.mc_id=rss_alldownloads_all) to roll out multi-factor authentication to your organization.
 
-## <a name="enable-multi-factor-authentication-with-conditional-access"></a>Aktivera Multi-Factor Authentication med villkorlig åtkomst
+## <a name="enable-multi-factor-authentication-with-conditional-access"></a>Enable Multi-Factor Authentication with Conditional Access
 
-Principer för villkorlig åtkomst framtvingar registrering, vilket kräver att användare som är oregistrerade att slutföra registreringen vid första inloggning, en viktig säkerhets åtgärd.
+Conditional Access policies enforce registration, requiring unregistered users to complete registration at first sign-in, an important security consideration.
 
-[Azure AD Identity Protection](../identity-protection/howto-configure-risk-policies.md) bidrar både till en registrerings princip för och automatiserade identifierings-och reparations principer till Azure Multi-Factor Authentication-artikeln. Principer kan skapas för att tvinga lösen ords ändringar när det finns ett hot mot komprometterad identitet eller kräver MFA när en inloggning bedöms vara riskfylld av följande [händelser](../reports-monitoring/concept-risk-events.md):
+[Azure AD Identity Protection](../identity-protection/howto-configure-risk-policies.md) contributes both a registration policy for and automated risk detection and remediation policies to the Azure Multi-Factor Authentication story. Policies can be created to force password changes when there is a threat of compromised identity or require MFA when a sign-in is deemed risky by the following [events](../reports-monitoring/concept-risk-events.md):
 
-* Läckta autentiseringsuppgifter
+* Leaked credentials
 * Inloggningar från anonyma IP-adresser
 * Omöjliga resor till ovanliga platser
 * Inloggningar från okända platser
 * Inloggningar från angripna enheter
-* Inloggningar från IP-adresser med misstänkta aktiviteter
+* Sign-ins from IP addresses with suspicious activities
 
-Några av de risker som identifieras av Azure Active Directory Identity Protection uppstår i real tid och vissa kräver offline-bearbetning. Administratörer kan välja att blockera användare som har uppvisat riskfyllda beteenden och reparera manuellt, kräva en lösen ords ändring eller kräva Multi-Factor Authentication som en del av principerna för villkorlig åtkomst.
+Some of the risk detections detected by Azure Active Directory Identity Protection occur in real time and some require offline processing. Administrators can choose to block users who exhibit risky behaviors and remediate manually, require a password change, or require a multi-factor authentication as part of their Conditional Access policies.
 
-## <a name="define-network-locations"></a>Definiera nätverks platser
+## <a name="define-network-locations"></a>Define network locations
 
-Vi rekommenderar att organisationer använder villkorlig åtkomst för att definiera deras nätverk med [namngivna platser](../conditional-access/location-condition.md#named-locations). Om din organisation använder identitets skydd bör du överväga att använda riskfyllda principer i stället för namngivna platser.
+We recommended that organizations use Conditional Access to define their network using [named locations](../conditional-access/location-condition.md#named-locations). If your organization is using Identity Protection, consider using risk-based policies instead of named locations.
 
-### <a name="configuring-a-named-location"></a>Konfigurera en namngiven plats
+### <a name="configuring-a-named-location"></a>Configuring a named location
 
-1. Öppna **Azure Active Directory** i Azure Portal
-2. Klicka på **villkorlig åtkomst**
-3. Klicka på **namngivna platser**
-4. Klicka på **ny plats**
-5. I fältet **namn** anger du ett beskrivande namn
-6. Välj om du definierar platsen med hjälp av IP-intervall eller länder/regioner
-   1. Om du använder IP-intervall
-      1. Bestäm om du vill markera platsen som betrodd. Inloggning från en betrodd plats minskar en användares inloggningsrisk. Markera bara den här platsen som betrodd om du vet att de angivna IP-intervallen är etablerade och trovärdiga i din organisation.
-      2. Ange IP-intervall
-   2. Om du använder länder/regioner
-      1. Expandera den nedrullningsbara menyn och välj de länder eller regioner som du vill definiera för den här namngivna platsen.
-      2. Bestäm om du vill inkludera okända områden. Okända områden är IP-adresser som inte kan mappas till ett land/en region.
+1. Open **Azure Active Directory** in the Azure portal
+2. Click **Conditional Access**
+3. Click **Named Locations**
+4. Click **New Location**
+5. In the **Name** field, provide a meaningful name
+6. Select whether you are defining the location using IP ranges or Countries/Regions
+   1. If using IP Ranges
+      1. Decide whether to mark the location as Trusted. Inloggning från en betrodd plats minskar en användares inloggningsrisk. Only mark this location as trusted if you know the IP ranges entered are established and credible in your organization.
+      2. Specify the IP Ranges
+   2. If using Countries/Regions
+      1. Expand the drop-down menu and select the countries or regions you wish to define for this named location.
+      2. Decide whether to Include unknown areas. Unknown areas are IP addresses that can't be mapped to a country/region.
 7. Klicka på **Skapa**
 
-## <a name="plan-authentication-methods"></a>Planera autentiseringsmetoder
+## <a name="plan-authentication-methods"></a>Plan authentication methods
 
-Administratörer kan välja de [autentiseringsmetoder](../authentication/concept-authentication-methods.md) som de vill göra tillgängliga för användare. Det är viktigt att tillåta mer än en enda autentiseringsmetod så att användare har en säkerhets kopierings metod som är tillgänglig om deras primära metod inte är tillgänglig. Följande metoder är tillgängliga för administratörer att aktivera:
+Administrators can choose the [authentication methods](../authentication/concept-authentication-methods.md) that they want to make available for users. It is important to allow more than a single authentication method so that users have a backup method available in case their primary method is unavailable. The following methods are available for administrators to enable:
 
-### <a name="notification-through-mobile-app"></a>Meddelande via mobilapp
+### <a name="notification-through-mobile-app"></a>Notification through mobile app
 
-Ett push-meddelande skickas till Microsoft Authenticator-appen på din mobila enhet. Användaren visar meddelandet och väljer **Godkänn** för att slutföra verifieringen. Push-meddelanden via en mobilapp ger användarna minst påträngande-alternativ. De är också det mest pålitliga och säkra alternativet eftersom de använder en data anslutning i stället för telefoni.
+A push notification is sent to the Microsoft Authenticator app on your mobile device. The user views the notification and selects **Approve** to complete verification. Push notifications through a mobile app provide the least intrusive option for users. They are also the most reliable and secure option because they use a data connection rather than telephony.
 
 > [!NOTE]
-> Om din organisation har personal som arbetar i eller reser i Kina fungerar inte **meddelandet via mobilappen** på **Android-enheter** i det landet. Alternativa metoder bör göras tillgängliga för dessa användare.
+> If your organization has staff working in or traveling to China, the **Notification through mobile app** method on **Android devices** does not work in that country. Alternate methods should be made available for those users.
 
-### <a name="verification-code-from-mobile-app"></a>Verifierings kod från mobilapp
+### <a name="verification-code-from-mobile-app"></a>Verification code from mobile app
 
-En mobilapp som Microsoft Authenticator-appen genererar en ny OATH-verifierings kod var 30: e sekund. Användaren anger verifierings koden i inloggnings gränssnittet. Alternativet mobil app kan användas om telefonen har en data-eller mobilen signal.
+A mobile app like the Microsoft Authenticator app generates a new OATH verification code every 30 seconds. The user enters the verification code into the sign-in interface. The mobile app option can be used whether or not the phone has a data or cellular signal.
 
-### <a name="call-to-phone"></a>Ring till telefon
+### <a name="call-to-phone"></a>Call to phone
 
-Ett automatiskt röst samtal placeras till användaren. Användaren svarar på anropet och trycker **#** på telefon tangent bordet för att godkänna deras autentisering. Samtal till telefon är en bra säkerhets kopierings metod för meddelande-eller verifierings kod från en mobilapp.
+An automated voice call is placed to the user. The user answers the call and presses **#** on the phone keypad to approve their authentication. Call to phone is a great backup method for notification or verification code from a mobile app.
 
-### <a name="text-message-to-phone"></a>Textmeddelande till telefon
+### <a name="text-message-to-phone"></a>Text message to phone
 
-Ett textmeddelande som innehåller en verifierings kod skickas till användaren, användaren uppmanas att ange verifierings koden i inloggnings gränssnittet.
+A text message that contains a verification code is sent to the user, the user is prompted to enter the verification code into the sign-in interface.
 
-### <a name="choose-verification-options"></a>Välj verifierings alternativ
+### <a name="choose-verification-options"></a>Choose verification options
 
-1. Bläddra till **Azure Active Directory**, **användare** **Multi-Factor Authentication**.
+1. Browse to **Azure Active Directory**, **Users**, **Multi-Factor Authentication**.
 
-   ![Öppna Multi-Factor Authentication portal från Azure AD-bladet i Azure Portal](media/howto-mfa-getstarted/users-mfa.png)
+   ![Accessing the Multi-Factor Authentication portal from Azure AD Users blade in Azure portal](media/howto-mfa-getstarted/users-mfa.png)
 
-1. På den nya fliken som öppnas Bläddra till **tjänst inställningar**.
-1. Under **verifierings alternativ**markerar du alla rutor för metoder som är tillgängliga för användare.
+1. In the new tab that opens browse to **service settings**.
+1. Under **verification options**, check all of the boxes for methods available to users.
 
-   ![Konfigurera verifierings metoder på fliken Multi-Factor Authentication tjänst inställningar](media/howto-mfa-getstarted/mfa-servicesettings-verificationoptions.png)
+   ![Configuring verification methods in the Multi-Factor Authentication service settings tab](media/howto-mfa-getstarted/mfa-servicesettings-verificationoptions.png)
 
 1. Klicka på **Spara**.
-1. Stäng fliken **tjänst inställningar** .
+1. Close the **service settings** tab.
 
-## <a name="plan-registration-policy"></a>Planera registrerings princip
+## <a name="plan-registration-policy"></a>Plan registration policy
 
-Administratörer måste bestämma hur användarna ska registrera sina metoder. Organisationer bör [Aktivera den nya kombinerade registrerings upplevelsen](howto-registration-mfa-sspr-combined.md) för Azure MFA och lösen ords återställning via självbetjäning (SSPR). SSPR tillåter användare att återställa sina lösen ord på ett säkert sätt med samma metoder som de använder för Multi-Factor Authentication. Vi rekommenderar den här kombinerade registreringen, som för närvarande finns i en offentlig för hands version, eftersom det är en bra upplevelse för användarna, med möjlighet att registrera sig en gång för båda tjänsterna. Om du aktiverar samma metoder för SSPR och Azure MFA kan användarna registreras för att använda båda funktionerna.
+Administrators must determine how users will register their methods. Organizations should [enable the new combined registration experience](howto-registration-mfa-sspr-combined.md) for Azure MFA and self-service password reset (SSPR). SSPR allows users to reset their password in a secure way using the same methods they use for multi-factor authentication. We recommend this combined registration, currently in public preview, because it’s a great experience for users, with the ability to register once for both services. Enabling the same methods for SSPR and Azure MFA will allow your users to be registered to use both features.
 
-### <a name="registration-with-identity-protection"></a>Registrering med identitets skydd
+### <a name="registration-with-identity-protection"></a>Registration with Identity Protection
 
-Om din organisation använder Azure Active Directory Identity Protection [konfigurerar du principen för MFA-registrering](../identity-protection/howto-mfa-policy.md) så att användarna kan registrera sig nästa gången de loggar in interaktivt.
+If your organization is using Azure Active Directory Identity Protection, [configure the MFA registration policy](../identity-protection/howto-mfa-policy.md) to prompt your users to register the next time they sign in interactively.
 
-### <a name="registration-without-identity-protection"></a>Registrering utan identitets skydd
+### <a name="registration-without-identity-protection"></a>Registration without Identity Protection
 
-Om din organisation inte har licenser som aktiverar identitets skydd uppmanas användarna att registrera sig nästa gången MFA krävs vid inloggningen. Användare får inte registreras för MFA om de inte använder program som skyddas med MFA. Det är viktigt att du får alla användare registrerade så att felaktiga aktörer inte kan gissa lösen ordet för en användare och registrera sig för MFA för deras räkning, vilket effektivt tar kontroll över kontot.
+If your organization does not have licenses that enable Identity Protection, users are prompted to register the next time that MFA is required at sign-in. Users may not be registered for MFA if they don't use applications protected with MFA. It's important to get all users registered so that bad actors cannot guess the password of a user and register for MFA on their behalf, effectively taking control of the account.
 
-#### <a name="enforcing-registration"></a>Verkställa registrering
+#### <a name="enforcing-registration"></a>Enforcing registration
 
-Med hjälp av följande steg kan en princip för villkorlig åtkomst tvinga användare att registrera sig för Multi-Factor Authentication
+Using the following steps a Conditional Access policy can force users to register for Multi-Factor Authentication
 
-1. Skapa en grupp, Lägg till alla användare som inte är registrerade för tillfället.
-2. Använd villkorlig åtkomst för att genomdriva Multi-Factor Authentication för den här gruppen för åtkomst till alla resurser.
-3. Utvärdera grupp medlemskapet med jämna mellanrum och ta bort användare som har registrerat sig från gruppen.
+1. Create a group, add all users not currently registered.
+2. Using Conditional Access, enforce multi-factor authentication for this group for access to all resources.
+3. Periodically, reevaluate the group membership, and remove users who have registered from the group.
 
-Du kan identifiera registrerade och icke-registrerade Azure MFA-användare med PowerShell-kommandon som är beroende av [MSOnline PowerShell-modulen](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
+You may identify registered and non-registered Azure MFA users with PowerShell commands that rely on the [MSOnline PowerShell module](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
 
-#### <a name="identify-registered-users"></a>Identifiera registrerade användare
+#### <a name="identify-registered-users"></a>Identify registered users
 
 ```PowerShell
 Get-MsolUser -All | where {$_.StrongAuthenticationMethods -ne $null} | Select-Object -Property UserPrincipalName | Sort-Object userprincipalname 
 ```
 
-#### <a name="identify-non-registered-users"></a>Identifiera icke-registrerade användare
+#### <a name="identify-non-registered-users"></a>Identify non-registered users
 
 ```PowerShell
 Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName | Sort-Object userprincipalname 
 ```
 
-### <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>Konvertera användare från per användare MFA till villkorlig åtkomst baserat MFA
+### <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>Convert users from per-user MFA to Conditional Access based MFA
 
-Om dina användare har Aktiver ATS med alternativet per användare aktiverat och tillämpade Azure-Multi-Factor Authentication kan följande PowerShell hjälpa dig att göra konverteringen till Azure Multi-Factor Authentication med villkorlig åtkomst.
+If your users were enabled using per-user enabled and enforced Azure Multi-Factor Authentication the following PowerShell can assist you in making the conversion to Conditional Access based Azure Multi-Factor Authentication.
 
-Kör PowerShell i ett ISE-fönster eller Spara som. PS1-fil som ska köras lokalt.
+Run this PowerShell in an ISE window or save as a .PS1 file to run locally.
 
 ```PowerShell
 # Sets the MFA requirement state
@@ -210,153 +210,153 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 ```
 
 > [!NOTE]
-> Vi ändrade nyligen beteendet och PowerShell-skriptet ovan enligt detta. Tidigare har skriptet sparat av MFA-metoderna, inaktiverat MFA och återställt metoderna. Detta behövs inte längre nu när standard beteendet för inaktivera inte tar bort metoderna.
+> We recently changed the behavior and PowerShell script above accordingly. Previously, the script saved off the MFA methods, disabled MFA, and restored the methods. This is no longer necessary now that the default behavior for disable doesn't clear the methods.
 
-## <a name="plan-conditional-access-policies"></a>Planera principer för villkorlig åtkomst
+## <a name="plan-conditional-access-policies"></a>Plan Conditional Access policies
 
-För att planera strategin för principer för villkorlig åtkomst som avgör när MFA och andra kontroller krävs, se [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md).
+To plan your Conditional Access policy strategy, which will determine when MFA and other controls are required, refer to [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md).
 
-Det är viktigt att du förhindrar oavsiktligt låst av din Azure AD-klient. Du kan minska effekten av denna oavsiktliga brist på administrativ åtkomst genom att [skapa två eller fler konton för nöd åtkomst i din klient organisation](../users-groups-roles/directory-emergency-access.md) och utesluta dem från din princip för villkorlig åtkomst.
+It is important that you prevent being inadvertently locked out of your Azure AD tenant. You can mitigate the impact of this inadvertent lack of administrative access by [creating two or more emergency access accounts in your tenant](../users-groups-roles/directory-emergency-access.md) and excluding them from your Conditional Access policy.
 
-### <a name="create-conditional-access-policy"></a>Skapa princip för villkorlig åtkomst
+### <a name="create-conditional-access-policy"></a>Create Conditional Access policy
 
-1. Logga in på [Azure Portal](https://portal.azure.com) med ett globalt administratörs konto.
-1. Bläddra till **Azure Active Directory**, **villkorlig åtkomst**.
-1. Välj **ny princip**.
-   ![skapa en princip för villkorlig åtkomst för att aktivera MFA för Azure Portal användare i pilot gruppen](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
-1. Ange ett beskrivande namn för principen.
-1. Under **användare och grupper**:
-   * På fliken **Inkludera** väljer du alternativ knappen **alla användare**
-   * Markera kryss rutan för **användare och grupper** på fliken **exkludera** och välj sedan återställnings konton.
+1. Sign in to the [Azure portal](https://portal.azure.com) using a global administrator account.
+1. Browse to **Azure Active Directory**, **Conditional Access**.
+1. Select **New policy**.
+   ![Create a Conditional Access policy to enable MFA for Azure portal users in pilot group](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
+1. Provide a meaningful name for your policy.
+1. Under **users and groups**:
+   * On the **Include** tab, select the **All users** radio button
+   * On the **Exclude** tab, check the box for **Users and groups** and choose your emergency access accounts.
    * Klicka på **Klar**.
-1. Under **molnappar**väljer du alternativ knappen **alla molnappar** .
-   * Alternativt: på fliken **exkludera** väljer du de molnappar som din organisation inte behöver MFA för.
+1. Under **Cloud apps**, select the **All cloud apps** radio button.
+   * OPTIONALLY: On the **Exclude** tab, choose cloud apps that your organization does not require MFA for.
    * Klicka på **Klar**.
-1. Avsnittet **villkor** :
-   * Du kan också välja att utvärdera inloggnings risker som en del av principen om du har aktiverat Azure Identity Protection.
-   * Om du har konfigurerat betrodda platser eller namngivna platser kan du ange att de platserna ska tas med eller undantas från principen.
-1. Under **bevilja**, se till att alternativ knappen **bevilja åtkomst** är markerad.
-    * Markera kryss rutan för att **kräva Multi-Factor Authentication**.
+1. Under **Conditions** section:
+   * OPTIONALLY: If you have enabled Azure Identity Protection, you can choose to evaluate sign-in risk as part of the policy.
+   * OPTIONALLY: If you have configured trusted locations or named locations, you can specify to include or exclude those locations from the policy.
+1. Under **Grant**, make sure the **Grant access** radio button is selected.
+    * Check the box for **Require multi-factor authentication**.
     * Klicka på **Välj**.
-1. Hoppa över avsnittet **session** .
-1. Ange **aktiverings principen** växla till **på**.
+1. Skip the **Session** section.
+1. Set the **Enable policy** toggle to **On**.
 1. Klicka på **Skapa**.
 
-## <a name="plan-integration-with-on-premises-systems"></a>Planera integrering med lokala system
+## <a name="plan-integration-with-on-premises-systems"></a>Plan integration with on-premises systems
 
-Vissa äldre program och lokala program som inte autentiserar direkt mot Azure AD kräver ytterligare åtgärder för att använda MFA, inklusive:
+Some legacy and on-premises applications that do not authenticate directly against Azure AD require additional steps to use MFA including:
 
-* Äldre lokala program som behöver använda programproxyn.
-* Lokala RADIUS-program som kommer att behöva använda MFA adapter med NPS-servern.
-* Lokala AD FS program som behöver använda MFA adapter med AD FS 2016 eller senare.
+* Legacy on-premises applications, which will need to use Application proxy.
+* On-premises RADIUS applications, which will need to use MFA adapter with NPS server.
+* On-premises AD FS applications, which will need to use MFA adapter with AD FS 2016 or newer.
 
-Program som autentiserar direkt med Azure AD och har modern autentisering (WS-utfodras, SAML, OAuth, OpenID Connect) kan använda principer för villkorlig åtkomst direkt.
+Applications that authenticate directly with Azure AD and have modern authentication (WS-Fed, SAML, OAuth, OpenID Connect) can make use of Conditional Access policies directly.
 
-### <a name="use-azure-mfa-with-azure-ad-application-proxy"></a>Använda Azure MFA med Azure AD-programproxy
+### <a name="use-azure-mfa-with-azure-ad-application-proxy"></a>Use Azure MFA with Azure AD Application Proxy
 
-Program som finns lokalt kan publiceras till din Azure AD-klient via [azure AD-programproxy](../manage-apps/application-proxy.md) och kan dra nytta av Azure Multi-Factor Authentication om de är konfigurerade för att använda Azure AD-förautentisering.
+Applications residing on-premises can be published to your Azure AD tenant via [Azure AD Application Proxy](../manage-apps/application-proxy.md) and can take advantage of Azure Multi-Factor Authentication if they are configured to use Azure AD pre-authentication.
 
-De här programmen omfattas av principer för villkorlig åtkomst som tvingar Azure Multi-Factor Authentication, precis som andra Azure AD-integrerade program.
+These applications are subject to Conditional Access policies that enforce Azure Multi-Factor Authentication, just like any other Azure AD-integrated application.
 
-På samma sätt kommer, om Azure Multi-Factor Authentication tillämpas för alla användar inloggningar, lokala program som publiceras med Azure AD-programproxy att skyddas.
+Likewise, if Azure Multi-Factor Authentication is enforced for all user sign-ins, on-premises applications published with Azure AD Application Proxy will be protected.
 
-### <a name="integrating-azure-multi-factor-authentication-with-network-policy-server"></a>Integrera Azure-Multi-Factor Authentication med nätverks princip Server
+### <a name="integrating-azure-multi-factor-authentication-with-network-policy-server"></a>Integrating Azure Multi-Factor Authentication with Network Policy Server
 
-Nätverks princip Server (NPS)-tillägget för Azure MFA lägger till molnbaserade MFA-funktioner till din infrastruktur för autentisering med hjälp av befintliga servrar. Med NPS-tillägget kan du lägga till telefonsamtal, textmeddelande eller standardapp för ditt befintliga autentiseringspaket. Denna integrering har följande begränsningar:
+The Network Policy Server (NPS) extension for Azure MFA adds cloud-based MFA capabilities to your authentication infrastructure using your existing servers. With the NPS extension, you can add phone call, text message, or phone app verification to your existing authentication flow. This integration has the following limitations:
 
-* Med ett CHAPv2-protokoll stöds endast push-meddelanden för Authenticator-appar och röst samtal.
-* Det går inte att tillämpa principer för villkorlig åtkomst.
+* With the CHAPv2 protocol, only authenticator app push notifications and voice call are supported.
+* Conditional Access policies cannot be applied.
 
-NPS-tillägget fungerar som ett kort mellan RADIUS och molnbaserad Azure MFA för att tillhandahålla en andra faktor för autentisering för att skydda [VPN](howto-mfa-nps-extension-vpn.md), [anslutning till fjärr skrivbords-Gateway](howto-mfa-nps-extension-rdg.md)eller andra RADIUS-kompatibla program. Användare som registrerar sig för Azure MFA i den här miljön kommer att anropas för alla autentiseringsförsök, bristen på principer för villkorlig åtkomst innebär att MFA alltid krävs.
+The NPS extension acts as an adapter between RADIUS and cloud-based Azure MFA to provide a second factor of authentication to protect [VPN](howto-mfa-nps-extension-vpn.md), [Remote Desktop Gateway connections](howto-mfa-nps-extension-rdg.md), or other RADIUS capable applications. Users that register for Azure MFA in this environment will be challenged for all authentication attempts, the lack of Conditional Access policies means MFA is always required.
 
-#### <a name="implementing-your-nps-server"></a>Implementera NPS-servern
+#### <a name="implementing-your-nps-server"></a>Implementing your NPS server
 
-Om du har en distribuerad NPS-instans och redan använder, [integrerar du din befintliga NPS-infrastruktur med Azure Multi-Factor Authentication](howto-mfa-nps-extension.md). Om du konfigurerar NPS för första gången, se [nätverks Policy Server (NPS)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) för instruktioner. Fel söknings vägledning hittar du i artikeln [lösa fel meddelanden från NPS-tillägget för Azure Multi-Factor Authentication](howto-mfa-nps-extension-errors.md).
+If you have an NPS instance deployed and in use already, reference [Integrate your existing NPS Infrastructure with Azure Multi-Factor Authentication](howto-mfa-nps-extension.md). If you are setting up NPS for the first time, refer to [Network Policy Server (NPS)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) for instructions. Troubleshooting guidance can be found in the article [Resolve error messages from the NPS extension for Azure Multi-Factor Authentication](howto-mfa-nps-extension-errors.md).
 
-#### <a name="prepare-nps-for-users-that-arent-enrolled-for-mfa"></a>Förbered NPS för användare som inte har registrerats för MFA
+#### <a name="prepare-nps-for-users-that-arent-enrolled-for-mfa"></a>Prepare NPS for users that aren't enrolled for MFA
 
-Välj vad som ska hända när användare som inte är registrerade med MFA försöker autentisera sig. Använd register inställningen `REQUIRE_USER_MATCH` i register Sök vägen `HKLM\Software\Microsoft\AzureMFA` för att styra funktions sättet. Den här inställningen har ett enda konfigurations alternativ.
+Choose what happens when users that aren’t enrolled with MFA try to authenticate. Use the registry setting `REQUIRE_USER_MATCH` in the registry path `HKLM\Software\Microsoft\AzureMFA` to control the feature behavior. This setting has a single configuration option.
 
 | Nyckel | Värde | Standard |
 | --- | --- | --- |
-| `REQUIRE_USER_MATCH` | TRUE/FALSE | Inte angivet (motsvarar sant) |
+| `REQUIRE_USER_MATCH` | TRUE / FALSE | Not set (equivalent to TRUE) |
 
-Syftet med den här inställningen är att fastställa vad som ska göras när en användare inte är registrerad för MFA. Effekterna av att ändra den här inställningen visas i tabellen nedan.
+The purpose of this setting is to determine what to do when a user is not enrolled for MFA. The effects of changing this setting are listed in the table below.
 
-| Inställningar | MFA-status för användare | Animeringseffekt |
+| Inställningar | User MFA Status | Effects |
 | --- | --- | --- |
-| Nyckeln finns inte | Inte registrerad | MFA-utmaningen lyckades inte |
-| Värdet är inställt på Sant/ej angivet | Inte registrerad | MFA-utmaningen lyckades inte |
-| Nyckeln har angetts till false | Inte registrerad | Autentisering utan MFA |
-| Nyckeln har angetts till false eller True | Registrerade | Måste autentisera med MFA |
+| Key does not exist | Not enrolled | MFA challenge is unsuccessful |
+| Value set to True / not set | Not enrolled | MFA challenge is unsuccessful |
+| Key set to False | Not enrolled | Authentication without MFA |
+| Key set to False or True | Enrolled | Must authenticate with MFA |
 
-### <a name="integrate-with-active-directory-federation-services"></a>Integrera med Active Directory Federation Services (AD FS)
+### <a name="integrate-with-active-directory-federation-services"></a>Integrate with Active Directory Federation Services
 
-Om din organisation är federerad med Azure AD kan du använda [azure Multi-Factor Authentication för att skydda AD FS resurser](multi-factor-authentication-get-started-adfs.md), både lokalt och i molnet. Med Azure MFA kan du minska lösen ord och tillhandahålla ett säkrare sätt att autentisera. Från och med Windows Server 2016 kan du nu konfigurera Azure MFA för primär autentisering.
+If your organization is federated with Azure AD, you can use [Azure Multi-Factor Authentication to secure AD FS resources](multi-factor-authentication-get-started-adfs.md), both on-premises and in the cloud. Azure MFA enables you to reduce passwords and provide a more secure way to authenticate. Starting with Windows Server 2016, you can now configure Azure MFA for primary authentication.
 
-Till skillnad från AD FS i Windows Server 2012 R2 integrerar AD FS 2016 Azure MFA-adaptern direkt med Azure AD och kräver inte en lokal Azure MFA-Server. Azure MFA-adaptern är inbyggd i Windows Server 2016 och det finns inget behov av en ytterligare installation.
+Unlike with AD FS in Windows Server 2012 R2, the AD FS 2016 Azure MFA adapter integrates directly with Azure AD and does not require an on-premises Azure MFA server. The Azure MFA adapter is built into Windows Server 2016, and there is no need for an additional installation.
 
-När du använder Azure MFA med AD FS 2016 och mål programmet omfattas av principen för villkorlig åtkomst, finns det ytterligare överväganden:
+When using Azure MFA with AD FS 2016 and the target application is subject to Conditional Access policy, there are additional considerations:
 
-* Villkorlig åtkomst är tillgängligt när programmet är en förlitande part till Azure AD, federerad med AD FS 2016 eller senare.
-* Villkorlig åtkomst är inte tillgängligt när programmet är en förlitande part till AD FS 2016 eller AD FS 2019 och hanteras eller sammanslags med AD FS 2016 eller AD FS 2019.
-* Villkorlig åtkomst är inte heller tillgängligt när AD FS 2016 eller AD FS 2019 har kon figurer ATS för att använda Azure MFA som primär autentiseringsmetod.
+* Conditional Access is available when the application is a relying party to Azure AD, federated with AD FS 2016 or newer.
+* Conditional Access is not available when the application is a relying party to AD FS 2016 or AD FS 2019 and is managed or federated with AD FS 2016 or AD FS 2019.
+* Conditional Access is also not available when AD FS 2016 or AD FS 2019 is configured to use Azure MFA as the primary authentication method.
 
-#### <a name="ad-fs-logging"></a>AD FS loggning
+#### <a name="ad-fs-logging"></a>AD FS logging
 
-Standard AD FS 2016-och 2019-loggning i både Windows-säkerhetsloggen och AD FS admin-loggen innehåller information om autentiseringsbegäranden och deras framgångar eller haverier. Händelse logg data i dessa händelser anger om Azure MFA användes. Till exempel kan en AD FS granskning av händelse-ID 1200 innehålla:
+Standard AD FS 2016 and 2019 logging in both the Windows Security Log and the AD FS Admin log, contains information about authentication requests and their success or failure. Event log data within these events will indicate whether Azure MFA was used. For example, an AD FS Auditing Event ID 1200 may contain:
 
 ```
 <MfaPerformed>true</MfaPerformed>
 <MfaMethod>MFA</MfaMethod>
 ```
 
-#### <a name="renew-and-manage-certificates"></a>Förnya och hantera certifikat
+#### <a name="renew-and-manage-certificates"></a>Renew and manage certificates
 
-På varje AD FS-server finns det ett självsignerat Azure MFA-certifikat med titeln OU = Microsoft AD FS Azure MFA som innehåller certifikatets förfallo datum i den lokala datorns mitt arkiv. Kontrol lera giltighets perioden för det här certifikatet på varje AD FS server för att fastställa förfallo datumet.
+On each AD FS server, in the local computer My Store, there will be a self-signed Azure MFA certificate titled OU=Microsoft AD FS Azure MFA, which contains the certificate expiration date. Check the validity period of this certificate on each AD FS server to determine the expiration date.
 
-Om giltighets tiden för dina certifikat snart upphör att gälla, [genererar och verifierar du ett nytt MFA-certifikat på varje AD FS server](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa#configure-the-ad-fs-servers).
+If the validity period of your certificates is nearing expiration, [generate and verify a new MFA certificate on each AD FS server](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa#configure-the-ad-fs-servers).
 
-Följande anvisningar beskriver hur du hanterar Azure MFA-certifikat på dina AD FS-servrar. När du konfigurerar AD FS med Azure MFA är de certifikat som genereras via PowerShell-cmdleten för `New-AdfsAzureMfaTenantCertificate` giltiga i två år. Förnya och installera de förnyade certifikaten innan de upphör att gälla för ovoid-avbrott i MFA-tjänsten.
+The following guidance details how to manage the Azure MFA certificates on your AD FS servers. When you configure AD FS with Azure MFA, the certificates generated via the `New-AdfsAzureMfaTenantCertificate` PowerShell cmdlet are valid for 2 years. Renew and install the renewed certificates prior to expiration to ovoid disruptions in MFA service.
 
-## <a name="implement-your-plan"></a>Implementera din plan
+## <a name="implement-your-plan"></a>Implement your plan
 
-Nu när du har planerat din lösning kan du implementera genom att följa stegen nedan:
+Now that you have planned your solution, you can implement by following the steps below:
 
-1. Uppfylla alla nödvändiga komponenter
-   1. Distribuera [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) för alla hybrid scenarier
-   1. Distribuera [Azure AD-programproxy](../manage-apps/application-proxy.md) för i alla lokala appar som publicerats för moln åtkomst
-   1. Distribuera [NPS](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) för alla RADIUS-autentiseringar
-   1. Se till att användarna har uppgraderat till stödda versioner av Microsoft Office med modern autentisering aktive rad
-1. Konfigurera valda [autentiseringsmetoder](#choose-verification-options)
-1. Definiera dina [namngivna nätverks platser](../conditional-access/location-condition.md#named-locations)
-1. Välj grupper för att börja distribuera MFA.
-1. Konfigurera [principer för villkorlig åtkomst](#create-conditional-access-policy)
-1. Konfigurera din princip för MFA-registrering
-   1. [Kombinera MFA och SSPR](howto-registration-mfa-sspr-combined.md)
-   1. Med [identitets skydd](../identity-protection/howto-mfa-policy.md)
-1. Skicka användar kommunikation och få användare att registrera sig på [https://aka.ms/mfasetup](https://aka.ms/mfasetup)
-1. [Håll koll på vem som har registrerats](#identify-non-registered-users)
+1. Meet any necessary prerequisites
+   1. Deploy [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) for any hybrid scenarios
+   1. Deploy [Azure AD Application Proxy](../manage-apps/application-proxy.md) for on any on-premises apps published for cloud access
+   1. Deploy [NPS](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) for any RADIUS authentication
+   1. Ensure users have upgraded to supported versions of Microsoft Office with modern authentication enabled
+1. Configure chosen [authentication methods](#choose-verification-options)
+1. Define your [named network locations](../conditional-access/location-condition.md#named-locations)
+1. Select groups to begin rolling out MFA.
+1. Configure your [Conditional Access policies](#create-conditional-access-policy)
+1. Configure your MFA registration policy
+   1. [Combined MFA and SSPR](howto-registration-mfa-sspr-combined.md)
+   1. With [Identity Protection](../identity-protection/howto-mfa-policy.md)
+1. Send user communications and get users to enroll at [https://aka.ms/mfasetup](https://aka.ms/mfasetup)
+1. [Keep track of who’s enrolled](#identify-non-registered-users)
 
 > [!TIP]
-> Offentliga moln användare kan registrera sig på [https://aka.ms/GovtMFASetup](https://aka.ms/GovtMFASetup)
+> Government cloud users can enroll at [https://aka.ms/GovtMFASetup](https://aka.ms/GovtMFASetup)
 
-## <a name="manage-your-solution"></a>Hantera din lösning
+## <a name="manage-your-solution"></a>Manage your solution
 
-Rapporter för Azure MFA
+Reports for Azure MFA
 
-Azure Multi-Factor Authentication ger rapporter via Azure Portal:
+Azure Multi-Factor Authentication provides reports through the Azure portal:
 
 | Rapport | Plats | Beskrivning |
 | --- | --- | --- |
-| Användnings-och bedrägeri varningar | Inloggnings program för Azure AD > | Innehåller information om allmän användning, användar Sammanfattning och användar information. samt en historik över bedrägeri aviseringar som skickats under det angivna datum intervallet. |
+| Usage and fraud alerts | Azure AD > Sign-ins | Provides information on overall usage, user summary, and user details; as well as a history of fraud alerts submitted during the date range specified. |
 
-## <a name="troubleshoot-mfa-issues"></a>Felsök MFA-problem
+## <a name="troubleshoot-mfa-issues"></a>Troubleshoot MFA issues
 
-Hitta lösningar på vanliga problem med Azure MFA i [artikeln om fel sökning av Azure-Multi-Factor Authentication](https://support.microsoft.com/help/2937344/troubleshooting-azure-multi-factor-authentication-issues) i Microsoft Support Center.
+Find solutions for common issues with Azure MFA at the [Troubleshooting Azure Multi-Factor Authentication article](https://support.microsoft.com/help/2937344/troubleshooting-azure-multi-factor-authentication-issues) on the Microsoft Support Center.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Vad är autentiseringsmetoder?](concept-authentication-methods.md)
-* [Aktivera konvergerad registrering för Azure Multi-Factor Authentication och återställning av lösen ord för självbetjäning i Azure AD](concept-registration-mfa-sspr-converged.md)
-* Varför uppmanas användaren eller inte att göra MFA? Se avsnittet [Azure AD-inloggningar i rapporterna i azure Multi-Factor Authentication-dokumentet](howto-mfa-reporting.md#azure-ad-sign-ins-report).
+* [Enable converged registration for Azure Multi-Factor Authentication and Azure AD self-service password reset](concept-registration-mfa-sspr-converged.md)
+* Why was a user prompted or not prompted to perform MFA? See the section [Azure AD sign-ins report in the Reports in Azure Multi-Factor Authentication document](howto-mfa-reporting.md#azure-ad-sign-ins-report).

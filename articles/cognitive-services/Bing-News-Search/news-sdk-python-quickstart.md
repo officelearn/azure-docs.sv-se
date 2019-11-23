@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Utföra en API för nyhetssökning med Bing News Search SDK för Python'
+title: 'Quickstart: Perform a news search using the SDK for Python - Bing News Search'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten för att söka efter nyheter med SDK för nyhetssökning i Bing för Python och bearbeta svaret.
 services: cognitive-services
@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.date: 06/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 2f6185ca6c2ddd44be2c12a81cedf1adcc2e30cd
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 2f3d8c88e7949265f12405760acbccebb89d1df5
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67339010"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74379059"
 ---
-# <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-python"></a>Snabbstart: Utför en nyhetssökning med SDK för nyhetssökning i Bing för Python
+# <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-python"></a>Quickstart: Perform a news search with the Bing News Search SDK for Python
 
 Använd den här snabbstarten om du vill börja söka efter nyheter med SDK för nyhetssökning i Bing för Python. Även om Nyhetssökning i Bing har ett REST API som är kompatibelt med de flesta programmeringsspråk så tillhandahåller SDK:n ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/news_search_samples.py).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * [Python](https://www.python.org/) 2.x eller 3.x
 
@@ -53,7 +53,7 @@ python -m pip install azure-cognitiveservices-search-newssearch
 
 ## <a name="initialize-the-client-and-send-a-request"></a>Initiera klienten och skicka en begäran
 
-1. Skapa en instans av `CognitiveServicesCredentials`. Instantiera klienten:
+1. Skapa en instans av `CognitiveServicesCredentials`. Instansiera klienten:
     
     ```python
     client = NewsSearchAPI(CognitiveServicesCredentials(subscription_key))

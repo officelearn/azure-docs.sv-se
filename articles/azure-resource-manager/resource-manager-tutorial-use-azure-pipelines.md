@@ -1,36 +1,36 @@
 ---
 title: Kontinuerlig integrering med Azure Pipelines
-description: Lär dig hur du kontinuerligt skapar, testar och distribuerar Azure Resource Manager mallar.
+description: Learn how to continuously build, test, and deploy Azure Resource Manager templates.
 author: mumian
 ms.date: 10/29/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 73ab01b5e4ea923b990932986a938f8c1fb25629
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 457d2a8868283eed2e211ff26ce77156eee68e01
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149300"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326415"
 ---
-# <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Självstudie: kontinuerlig integrering av Azure Resource Manager mallar med Azure-pipelines
+# <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutorial: Continuous integration of Azure Resource Manager templates with Azure Pipelines
 
-Lär dig hur du använder Azure pipelines för att kontinuerligt bygga och Distribuera Azure Resource Manager mal Lav projekt.
+Learn how to use Azure Pipelines to continuously build and deploy Azure Resource Manager template projects.
 
-Azure DevOps tillhandahåller utvecklartjänster som stöd för team för att planera arbete, samar beta med kod utveckling och bygga och distribuera program. Utvecklare kan arbeta i molnet med Azure DevOps Services. Azure DevOps tillhandahåller en integrerad uppsättning funktioner som du kan komma åt via webbläsaren eller IDE-klienten. Azure pipeline är en av dessa funktioner. Azure-pipelines är en helt aktuell tjänst för kontinuerlig integrering (CI) och kontinuerlig leverans (CD). Det fungerar med din prioriterade git-Provider och kan distribueras till de flesta större moln tjänster. Sedan kan du automatisera bygge, testning och distribution av koden till Microsoft Azure, Google Cloud Platform eller Amazon Web Services.
+Azure DevOps provides developer services to support teams to plan work, collaborate on code development, and build and deploy applications. Developers can work in the cloud using Azure DevOps Services. Azure DevOps provides an integrated set of features that you can access through your web browser or IDE client. Azure Pipeline is one of these features. Azure Pipelines is a fully featured continuous integration (CI) and continuous delivery (CD) service. It works with your preferred Git provider and can deploy to most major cloud services. Then you can automate the build, testing, and deployment of your code to Microsoft Azure, Google Cloud Platform, or Amazon Web Services.
 
-Den här självstudien är avsedd för Azure Resource Manager mallar för utvecklare som är nya Azure DevOps-tjänster och Azure-pipeliner. Om du redan är bekant med GitHub och DevOps kan du gå vidare till [skapa en pipeline](#create-a-pipeline).
+This tutorial is designed for Azure Resource Manager template developers who are new Azure DevOps Services and Azure Pipelines. If you are already familiar with GitHub and DevOps, you can skip to [Create a pipeline](#create-a-pipeline).
 
 > [!NOTE]
-> Välj ett projekt namn. När du går igenom självstudien ersätter du någon av **AzureRmPipeline** med ditt projekt namn.
+> Pick a project name. When you go through the tutorial, replace any of the **AzureRmPipeline** with your project name.
 
 Den här självstudien omfattar följande uppgifter:
 
 > [!div class="checklist"]
 > * Förbereda en GitHub-lagringsplats
 > * Skapa ett Azure DevOps-projekt
-> * Skapa en Azure-pipeline
-> * Verifiera pipeline-distributionen
-> * Uppdatera mallen och distribuera om
+> * Create an Azure pipeline
+> * Verify the pipeline deployment
+> * Update the template and redeploy
 > * Rensa resurser
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
@@ -39,38 +39,38 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 För att kunna följa stegen i den här artikeln behöver du:
 
-* **Ett GitHub-konto**där du använder det för att skapa en lagrings plats för mallarna. Om du inte har ett kan du [skapa ett kostnads fritt](https://github.com). Mer information om hur du använder GitHub-databaser finns i [bygga GitHub-databaser](/azure/devops/pipelines/repos/github).
-* **Installera Git**. I den här självstudien används *git bash* eller *git-gränssnittet*. Anvisningar finns i [Installera git]( https://www.atlassian.com/git/tutorials/install-git).
-* **En Azure DevOps-organisation**. Om du inte har ett kan du skapa ett kostnads fritt. Se [skapa en organisation eller en projekt samling]( https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization?view=azure-devops).
-* **[Visual Studio Code](https://code.visualstudio.com/) med tillägget Resource Manager-verktyg**. Se [Installera tillägget](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* **A GitHub account**, where you use it to create a repository for your templates. If you don’t have one, you can [create one for free](https://github.com). For more information about using GitHub repositories, see [Build GitHub repositories](/azure/devops/pipelines/repos/github).
+* **Installera Git**. This tutorial instruction uses *Git Bash* or *Git Shell*. For instructions, see [Install Git]( https://www.atlassian.com/git/tutorials/install-git).
+* **An Azure DevOps organization**. If you don't have one, you can create one for free. See [Create an organization or project collection]( https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization?view=azure-devops).
+* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](./resource-manager-tools-vs-code.md).
 
 ## <a name="prepare-a-github-repository"></a>Förbereda en GitHub-lagringsplats
 
-GitHub används för att lagra projekt käll koden, inklusive Resource Manager-mallar. För andra databaser som stöds, se [databaser som stöds av Azure-DevOps](/azure/devops/pipelines/repos/?view=azure-devops#supported-repository-types).
+GitHub is used to store your project source code including Resource Manager templates. For other supported repositories, see [repositories supported by Azure DevOps](/azure/devops/pipelines/repos/?view=azure-devops#supported-repository-types).
 
-### <a name="create-a-github-repository"></a>Skapa en GitHub-lagringsplats
+### <a name="create-a-github-repository"></a>Create a GitHub repository
 
-Om du inte har ett GitHub-konto, se [krav](#prerequisites).
+If you don’t have a GitHub account, see [Prerequisites](#prerequisites).
 
-1. Logga in på [GitHub](https://github.com).
-2. Välj din konto avbildning i det övre högra hörnet och välj sedan **dina databaser**.
+1. Sign in to [GitHub](https://github.com).
+2. Select your account image on the upper right corner, and then select **Your repositories**.
 
-    ![Azure Resource Manager Azure-pipeline för Azure DevOps skapa GitHub-lagringsplats](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-github-repository.png)
+    ![Azure Resource Manager Azure DevOps Azure Pipelines create GitHub repository](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-github-repository.png)
 
-1. Välj **nytt**, en grön knapp.
-1. I **databas namn**anger du ett namn på databasen.  Till exempel **AzureRmPipeline-lagrings platsen**. Kom ihåg att ersätta **AzureRmPipeline** med ditt projekt namn. Du kan välja antingen **offentlig** eller **privat** för att gå igenom den här självstudien. Och välj sedan **skapa lagrings plats**.
-1. Skriv ner URL: en. URL: en för databasen är i följande format:
+1. Select **New**, a green button.
+1. In **Repository name**, enter a repository name.  For example, **AzureRmPipeline-repo**. Remember to replace any of **AzureRmPipeline** with your project name. You can select either **Public** or **private** for going through this tutorial. And then select **Create repository**.
+1. Write down the URL. The repository URL is the following format:
 
     ```url
     https://github.com/[YourAccountName]/[YourRepositoryName]
     ```
 
-Den här lagrings platsen kallas för en *fjärrlagringsplats*. Varje utvecklare av samma projekt kan klona sin egen *lokala lagrings plats*och sammanfoga ändringarna till fjärrlagringsplatsen.
+This repository is referred to as a *remote repository*. Each of the developers of the same project can clone his/her own *local repository*, and merge the changes to the remote repository.
 
-### <a name="clone-the-remote-repository"></a>Klona fjärrlagringsplatsen
+### <a name="clone-the-remote-repository"></a>Clone the remote repository
 
-1. Öppna git-Shell eller git-bash.  Se [Förutsättningar](#prerequisites).
-1. Kontrol lera att din aktuella mapp är **GitHub**.
+1. Open Git Shell or Git Bash.  Se [Förutsättningar](#prerequisites).
+1. Verify your current folder is **github**.
 1. Kör följande kommando:
 
     ```bash
@@ -81,34 +81,34 @@ Den här lagrings platsen kallas för en *fjärrlagringsplats*. Varje utvecklare
     pwd
     ```
 
-    Ersätt **[YourAccountName]** med namnet på ditt GitHub-konto och Ersätt **[YourGitHubRepositoryName]** med ditt databas namn som du skapade i föregående procedur.
+    Replace **[YourAccountName]** with your GitHub account name, and replace **[YourGitHubRepositoryName]** with your repository name you created in the previous procedure.
 
-    Följande skärm bild visar ett exempel.
+    The following screenshot shows an example.
 
-    ![Azure Resource Manager Azure-pipeline för Azure DevOps skapa GitHub bash](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-github-bash.png)
+    ![Azure Resource Manager Azure DevOps Azure Pipelines create GitHub bash](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-github-bash.png)
 
-Mappen **CreateAzureStorage** är den mapp där mallen lagras. Kommandot **PWD** visar mappsökvägen. Sökvägen är den plats där du sparar mallen i följande procedur.
+The **CreateAzureStorage** folder is the folder where the template is stored. The **pwd** command shows the folder path. The path is where you save the template to in the following procedure.
 
-### <a name="download-a-quickstart-template"></a>Hämta en snabb starts mall
+### <a name="download-a-quickstart-template"></a>Download a Quickstart template
 
-I stället för att skapa en mall kan du hämta en [snabb starts mall]( https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json). Den här mallen skapar ett Azure Storage-konto.
+Instead of creating a template, you can download a [Quickstart template]( https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json). This template creates an Azure Storage account.
 
-1. Öppna Visual Studio Code. Se [Förutsättningar](#prerequisites).
-2. Öppna mallen med följande URL:
+1. Open Visual Studio code. Se [Förutsättningar](#prerequisites).
+2. Open the template with the following URL:
 
     ```URL
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
 
-3. Spara filen som **azuredeploy. JSON** i mappen **CreateAzureStorage** . Både mappnamnet och fil namnet används som de är i pipelinen.  Om du ändrar namnen måste du uppdatera namnen som används i pipelinen.
+3. Save the file as **azuredeploy.json** to the **CreateAzureStorage** folder. Both the folder name and the file name are used as they are in the pipeline.  If you change these names, you must update the names used in the pipeline.
 
-### <a name="push-the-template-to-the-remote-repository"></a>Skicka mallen till fjärrlagringsplatsen
+### <a name="push-the-template-to-the-remote-repository"></a>Push the template to the remote repository
 
-Azuredeploy. JSON har lagts till i den lokala lagrings platsen. Sedan laddar du upp mallen till fjärrlagringsplatsen.
+The azuredeploy.json has been added to the local repository. Next, you upload the template to the remote repository.
 
-1. Öppna *git-Shell* eller *git-bash*, om den inte är öppen.
-1. Ändra katalogen till mappen CreateAzureStorage på din lokala lagrings plats.
-1. Kontrol lera att filen **azuredeploy. JSON** finns i mappen.
+1. Open *Git Shell* or *Git Bash*, if it is not opened.
+1. Change directory to the CreateAzureStorage folder in your local repository.
+1. Verify the **azuredeploy.json** file is in the folder.
 1. Kör följande kommando:
 
     ```bash
@@ -117,61 +117,61 @@ Azuredeploy. JSON har lagts till i den lokala lagrings platsen. Sedan laddar du 
     git push origin master
     ```
 
-    Du kan få en varning om LF. Du kan ignorera varningen. **Master** är huvud grenen.  Du skapar vanligt vis en gren för varje uppdatering. För att förenkla självstudien använder du huvud grenen direkt.
-1. Bläddra till GitHub-lagringsplatsen från en webbläsare.  URL: en är **https://github.com/[YourAccountName]/[YourGitHubRepository]** . Du ska se mappen **CreateAzureStorage** och **Azuredeploy. JSON** i mappen.
+    You might get a warning about LF. You can ignore the warning. **master** is the master branch.  You typically create a branch for each update. To simplify the tutorial, you use the master branch directly.
+1. Browse to your GitHub repository from a browser.  The URL is **https://github.com/ [YourAccountName]/[YourGitHubRepository]** . You shall see the **CreateAzureStorage** folder and **Azuredeploy.json** inside the folder.
 
-Hittills har du skapat en GitHub-lagringsplats och laddat upp en mall till lagrings platsen.
+So far, you have created a GitHub repository, and uploaded a template to the repository.
 
-## <a name="create-a-devops-project"></a>Skapa ett DevOps-projekt
+## <a name="create-a-devops-project"></a>Create a DevOps project
 
-En DevOps-organisation krävs innan du kan fortsätta till nästa procedur.  Om du inte har en sådan, se [krav](#prerequisites).
+A DevOps organization is needed before you can proceed to the next procedure.  If you don’t have one, see [Prerequisites](#prerequisites).
 
-1. Logga in på [Azure-DevOps](https://dev.azure.com).
-1. Välj en DevOps organisation från vänster.
+1. Sign in to [Azure DevOps](https://dev.azure.com).
+1. Select a DevOps organization from the left.
 
-    ![Azure Resource Manager Azure-pipeline för Azure DevOps skapa Azure DevOps-projekt](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-create-devops-project.png)
+    ![Azure Resource Manager Azure DevOps Azure Pipelines create Azure DevOps project](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-create-devops-project.png)
 
-1. Välj **Skapa projekt**. Om du inte har några projekt öppnas sidan Skapa projekt automatiskt.
+1. Välj **Skapa projekt**. If you don't have any projects, the create project page is opened automatically.
 1. Ange följande värden:
 
-    * **Projekt namn**: Ange ett projekt namn. Du kan använda det projekt namn som du valde i början av självstudien.
-    * **Versions kontroll**: Välj **git**. Du kan behöva expandera **Avancerad** för att se **versions kontrollen**.
+    * **Project name**: enter a project name. You can use the project name you picked at the very beginning of the tutorial.
+    * **Version control**: Select **Git**. You might need to expand **Advanced** to see **Version control**.
 
-    Använd standardvärdet för de andra egenskaperna.
+    Use the default value for the other properties.
 1. Välj **Skapa projekt**.
 
-Skapa en tjänst anslutning som används för att distribuera projekt till Azure.
+Create a service connection that is used to deploy projects to Azure.
 
-1. Välj **projekt inställningar** längst ned på den vänstra menyn.
-1. Välj **tjänst anslutningar** under **pipeliner**.
-1. Välj **ny tjänst anslutning**och välj sedan **AzureResourceManager**.
+1. Select **Project settings** from the bottom of the left menu.
+1. Select **Service connections** under **Pipelines**.
+1. Select **New Service connection**, and then select **AzureResourceManager**.
 1. Ange följande värden:
 
-    * **Anslutnings namn**: Ange ett anslutnings namn. Till exempel **AzureRmPipeline-ansluten**. Skriv ned det här namnet. du behöver namnet när du skapar din pipeline.
-    * **Omfattnings nivå**: Välj **prenumeration**.
-    * **Prenumeration**: Välj din prenumeration.
-    * **Resurs grupp**: lämna det tomt.
-    * **Tillåt alla pipeliner att använda den här anslutningen**. välja
+    * **Connection name**: enter a connection name. For example, **AzureRmPipeline-conn**. Write down this name, you need the name when you create your pipeline.
+    * **Scope level**: select **Subscription**.
+    * **Subscription**: select your subscription.
+    * **Resource Group**: Leave it blank.
+    * **Allow all pipelines to use this connection**. (selected)
 1. Välj **OK**.
 
 ## <a name="create-a-pipeline"></a>Skapa en pipeline
 
-Tills nu har du slutfört följande uppgifter.  Om du hoppar över föregående avsnitt eftersom du är van vid GitHub och DevOps måste du slutföra uppgifterna innan du fortsätter.
+Until now, you have completed the following tasks.  If you skip the previous sections because you are familiar with GitHub and DevOps, you must complete the tasks before you continue.
 
-- Skapa en GitHub-lagringsplats och spara [mallen](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) i mappen **CreateAzureStorage** i lagrings platsen.
-- Skapa ett DevOps-projekt och skapa en Azure Resource Manager tjänst anslutning.
+- Create a GitHub repository, and save [this template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) to the **CreateAzureStorage** folder in the repository.
+- Create a DevOps project, and create an Azure Resource Manager service connection.
 
-Så här skapar du en pipeline med ett steg för att distribuera en mall:
+To create a pipeline with a step to deploy a template:
 
-1. Välj **pipeliner** på den vänstra menyn.
-1. Välj **ny pipeline**.
-1. På fliken **Anslut** väljer du **GitHub**. Om du uppmanas anger du dina GitHub-autentiseringsuppgifter och följer sedan anvisningarna. Om du ser följande skärm väljer du **endast Välj databaser**och kontrollerar att lagrings platsen finns i listan innan du väljer **Godkänn & installera**.
+1. Select **Pipelines** from the left menu.
+1. Select **New pipeline**.
+1. From the **Connect** tab, select **GitHub**. If asked, enter your GitHub credentials, and then follow the instructions. If you see the following screen, select **Only select repositories**, and verify your repository is in the list before you select **Approve & Install**.
 
-    ![Azure Resource Manager Azure DevOps Azure-pipeliner Välj bara databaser](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-only-select-repositories.png)
+    ![Azure Resource Manager Azure DevOps Azure Pipelines only select repositories](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-only-select-repositories.png)
 
-1. Välj din lagrings plats på fliken **Välj** .  Standard namnet är **[YourAccountName]/[YourGitHubRepositoryName]** .
-1. På fliken **Konfigurera** väljer du **starter pipeline**. Den visar pipeline-filen **Azure-pipelines. yml** med två skript steg.
-1. Ersätt avsnittet **steg** med följande yaml:
+1. From the **Select** tab, select your repository.  The default name is **[YourAccountName]/[YourGitHubRepositoryName]** .
+1. From the **Configure** tab, select **Starter pipeline**. It shows the **azure-pipelines.yml** pipeline file with two script steps.
+1. Replace the **steps** section with the following YAML:
 
     ```yaml
     steps:
@@ -188,48 +188,48 @@ Så här skapar du en pipeline med ett steg för att distribuera en mall:
         deploymentMode: 'Incremental'
     ```
 
-    Det ser ut så här:
+    It shall look like:
 
-    ![Azure Resource Manager Azure DevOps Azure pipelines yaml](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-yml.png)
+    ![Azure Resource Manager Azure DevOps Azure Pipelines yaml](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-yml.png)
 
     Gör följande ändringar:
 
-    * **deloymentScope**: Välj distributions område från alternativen: `Management Group``Subscription` och `Resource Group`. Använd **resurs grupp** i den här självstudien. Mer information om omfattningarna finns i [distributions omfång](./resource-group-template-deploy-rest.md#deployment-scope).
-    * **ConnectedServiceName**: Ange namnet på tjänst anslutningen som du skapade tidigare.
-    * **SubscriptionName**: Ange PRENUMERATIONS-ID för mål.
-    * **åtgärd**: åtgärden **skapa eller uppdatera resurs grupp** utför 2 åtgärder-1. skapa en resurs grupp om ett nytt resurs grupps namn har angetts. 11.2. distribuera den angivna mallen.
-    * **resourceGroupName**: Ange ett nytt resurs grupps namn. Till exempel **AzureRmPipeline-RG**.
-    * **plats**: Ange platsen för resurs gruppen.
-    * **templateLocation**: när den **länkade artefakten** anges söker aktiviteten efter mallfilen direkt från den anslutna lagrings platsen.
-    * **csmFile** är sökvägen till mallfilen. Du behöver inte ange en mallparametrar-fil eftersom alla parametrar som definierats i mallen har standardvärden.
+    * **deloymentScope**: Select the scope of deployment from the options: `Management Group`, `Subscription` and `Resource Group`. Use **Resource Group** in this tutorial. To learn more about the scopes, see [Deployment scopes](./resource-group-template-deploy-rest.md#deployment-scope).
+    * **ConnectedServiceName**: Specify the service connection name that you created earlier.
+    * **SubscriptionName**:  Specify the target subscription ID.
+    * **action**: the **Create Or Update Resource Group** action does 2 actions - 1. create a resource group if a new resource group name is provided; 2. deploy the template specified.
+    * **resourceGroupName**: specify a new resource group name. For example, **AzureRmPipeline-rg**.
+    * **location**: specify the location for the resource group.
+    * **templateLocation**: when **Linked artifact** is specified, the task looks for the template file directly from the connected repository.
+    * **csmFile** is the path to the template file. You don't need to specify a template parameters file because all of the parameters defined in the template have default values.
 
-    Mer information om uppgiften finns i [distributions uppgiften för Azure Resource Group](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment)och [Azure Resource Manager för mall distribution](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md)
+    For more information about the task, see [Azure Resource Group Deployment task](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment), and [Azure Resource Manager template deployment task](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md)
 1. Välj **Spara och kör**.
-1. Välj **Spara och kör** igen. En kopia av YAML-filen sparas i den anslutna lagrings platsen. Du kan se YAML-filen genom att bläddra till din lagrings plats.
-1. Kontrol lera att pipelinen har körts.
+1. Select **Save and run** again. A copy of the YAML file is saved into the connected repository. You can see the YAML file by browse to your repository.
+1. Verify that the pipeline is executed successfully.
 
-    ![Azure Resource Manager Azure DevOps Azure pipelines yaml](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-status.png)
+    ![Azure Resource Manager Azure DevOps Azure Pipelines yaml](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-status.png)
 
 ## <a name="verify-the-deployment"></a>Verifiera distributionen
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Öppna resurs gruppen. Namnet är det du angav i YAML-filen för pipelinen.  Du ska se ett lagrings konto som skapats.  Lagrings kontots namn börjar med **Store**.
-1. Välj lagrings kontots namn för att öppna det.
-1. Välj **Egenskaper**. Observera att **replikeringen** är **lokalt REDUNDANT lagring (LRS)** .
+1. Open the resource group. The name is what you specified in the pipeline YAML file.  You shall see one storage account created.  The storage account name starts with **store**.
+1. Select the storage account name to open it.
+1. Välj **Egenskaper**. Notice the **Replication** is **Locally-redundant storage (LRS)** .
 
-    ![Azure Resource Manager Azure-pipeline för Azure-DevOps Azure](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-portal-verification.png)
+    ![Azure Resource Manager Azure DevOps Azure Pipelines portal verification](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-portal-verification.png)
 
-## <a name="update-and-redeploy"></a>Uppdatera och distribuera om
+## <a name="update-and-redeploy"></a>Update and redeploy
 
-När du uppdaterar mallen och push-överför ändringarna till fjärrlagringsplatsen uppdaterar pipelinen automatiskt resurserna, lagrings kontot i det här fallet.
+When you update the template and push the changes to the remote repository, the pipeline automatically updates the resources, the storage account in this case.
 
-1. Öppna **azuredeploy. JSON** från din lokala lagrings plats i Visual Studio Code.
-1. Uppdatera **DefaultValue** för **storageAccountType** till **Standard_GRS**. Se följande skärmbild:
+1. Open **azuredeploy.json** from your local repository in Visual Studio Code.
+1. Update the **defaultValue** of **storageAccountType** to **Standard_GRS**. Se följande skärmbild:
 
-    ![Azure Resource Manager Azure DevOps Azure-pipeline uppdatera yaml](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-update-yml.png)
+    ![Azure Resource Manager Azure DevOps Azure Pipelines update yaml](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-update-yml.png)
 
 1. Spara ändringarna.
-1. Skicka ändringarna till fjärrlagringsplatsen genom att köra följande kommandon från git bash/shell.
+1. Push the changes to the remote repository by running the following commands from Git Bash/Shell.
 
     ```bash
     git pull origin master
@@ -238,11 +238,11 @@ När du uppdaterar mallen och push-överför ändringarna till fjärrlagringspla
     git push origin master
     ```
 
-    Det första kommandot synkroniserar den lokala lagrings platsen med fjärrlagringsplatsen. Kom ihåg att YAML-filen för pipelinen har lagts till i fjärrlagringsplatsen.
+    The first command syncs the local repository with the remote repository. Remember the pipeline YAML file was added to the remote repository.
 
-    När huvud delen av fjärrlagringsplatsen har uppdaterats, utlöses pipelinen igen.
+    With the master branch of the remote repository updated, the pipeline is fired again.
 
-Du kan kontrol lera ändringarna genom att kontrol lera egenskapen replikering för lagrings kontot.  Se [Verifiera distributionen](#verify-the-deployment).
+To verify the changes, you can check the Replication property of the storage account.  See [Verify the deployment](#verify-the-deployment).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -253,11 +253,11 @@ När Azure-resurserna inte längre behövs rensar du de resurser som du har dist
 3. Välj resursgruppens namn.
 4. Välj **Ta bort resursgrupp** från menyn längst upp.
 
-Du kanske också vill ta bort GitHub-lagringsplatsen och Azure DevOps-projektet.
+You might also want to delete the GitHub repository and the Azure DevOps project.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien skapar du en Azure DevOps-pipeline för att distribuera en Azure Resource Manager-mall. Mer information om att distribuera Azure-resurser i flera regioner, och om att använda säker distributionspraxis, finns i
+In this tutorial, you create an Azure DevOps pipeline to deploy an Azure Resource Manager template. Mer information om att distribuera Azure-resurser i flera regioner, och om att använda säker distributionspraxis, finns i
 
 > [!div class="nextstepaction"]
 > [Använda säkra distributionsmetoder](./deployment-manager-tutorial.md)

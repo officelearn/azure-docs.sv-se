@@ -1,101 +1,101 @@
 ---
-title: Användning av autentiseringsmetoder & Insights-rapportering (för hands version) – Azure Active Directory
-description: Rapportering om användning av lösen ords återställning via självbetjäning i Azure AD och Multi-Factor Authentication
+title: Authentication methods usage & insights - Azure Active Directory
+description: Reporting on Azure AD self-service password reset and Multi-Factor Authentication authentication method usage
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ddfea07989f52c463816318276fd5b6643cb2041
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 0d6a87b5797ea5c8f4ac116d6df9e6a48204f1fd
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255058"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381905"
 ---
-# <a name="authentication-methods-usage--insights-preview"></a>Användning av autentiseringsmetoder & insikter (för hands version)
+# <a name="authentication-methods-usage--insights-preview"></a>Authentication methods usage & insights (preview)
 
-Med hjälp & insikter kan du förstå hur autentiseringsmetoder för funktioner som Azure Multi-Factor Authentication och lösen ords återställning via självbetjäning fungerar i din organisation. Den här rapporterings funktionen ger din organisation möjlighet att förstå vilka metoder som registreras och hur de används.
+Usage & insights enables you to understand how authentication methods for features like Azure Multi-Factor Authentication and self-service password reset are working in your organization. This reporting capability provides your organization with the means to understand what methods are being registered and how they are being used.
 
-## <a name="permissions-and-licenses"></a>Behörigheter och licenser
+## <a name="permissions-and-licenses"></a>Permissions and licenses
 
-Följande roller kan komma åt användning och insikter:
+The following roles can access usage and insights:
 
 - Global administratör
-- Säkerhets läsare
-- Säkerhets administratör
-- Rapport läsare
+- Security Reader
+- Security Administrator
+- Reports Reader
 
-Ingen ytterligare licens krävs för att komma åt användning och insikter. Azure Multi-Factor Authentication och SSPR-licensierings information (Self-Service Password rereset) finns på [webbplatsen för Azure Active Directory prissättning](https://azure.microsoft.com/pricing/details/active-directory/).
+No additional licensing is required to access usage and insights. Azure Multi-Factor Authentication and self-service password reset (SSPR) licensing information can be found on the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="how-it-works"></a>Så här fungerar det
 
-Åtkomst till användning av autentiseringsmetoder och insikter:
+To access authentication method usage and insights:
 
 1. Bläddra till [Azure-portalen](https://portal.azure.com).
-1. Bläddra till **Azure Active Directory** > **lösen ords återställning** > **användning & insikter**.
-1. Från **registreringen** eller **användnings** översikterna kan du välja att öppna de för filtrerade rapporterna för att filtrera efter dina behov.
+1. Browse to **Azure Active Directory** > **Password reset** > **Usage & insights**.
+1. From the **Registration** or **Usage** overviews, you can choose to open the pre-filtered reports to filter based on your needs.
 
-![Översikt över användning & Insights](./media/howto-authentication-methods-usage-insights/usage-insights-overview.png)
+![Usage & insights overview](./media/howto-authentication-methods-usage-insights/usage-insights-overview.png)
 
-Om du vill komma åt användning & insikter direkt går du till [https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade). Med den här länken får du översikt över registreringen.
+To access usage & insights directly, go to [https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade). This link will bring you to the registration overview.
 
-Användare som är registrerade, användare aktiverade och användare som stöder paneler visar följande registrerings data för dina användare:
+The Users registered, Users enabled, and Users capable tiles show the following registration data for your users:
 
-- Registrerad: en användare anses vara registrerad om de (eller en administratör) har registrerat tillräckligt autentiseringsmetoder för att uppfylla organisationens SSPR eller Multi-Factor Authentication princip.
-- Aktive rad: en användare anses vara aktive rad om de befinner sig inom omfånget för SSPR-principen. Om SSPR har Aktiver ATS för en grupp anses användaren vara aktive rad om de är i gruppen. Om SSPR har Aktiver ATS för alla användare anses alla användare i klient organisationen (exklusive gäster) vara aktiverade.
-- Kompatibel: en användare anses vara kapabel om de både är registrerade och aktiverade. Denna status innebär att de kan utföra SSPR när som helst, om det behövs.
+- Registered: A user is considered registered if they (or an admin) have registered enough authentication methods to meet your organization's SSPR or Multi-Factor Authentication policy.
+- Enabled: A user is considered enabled if they are in scope for the SSPR policy. If SSPR is enabled for a group, then the user is considered enabled if they are in that group. If SSPR is enabled for all users, then all users in the tenant (excluding guests) are considered enabled.
+- Capable: A user is considered capable if they are both registered and enabled. This status means that they can perform SSPR at any time if needed.
 
-Om du klickar på någon av dessa paneler eller de insikter som visas i dem visas en förfiltrerad lista över registrerings information.
+Clicking on any of these tiles or the insights shown in them will bring you to a pre-filtered list of registration details.
 
-I diagrammet **registreringar** på fliken **registrering** visas antalet lyckade och misslyckade registrerings metoder för autentiseringsmetoder efter autentiseringsmetod. Diagrammet **återställs** på fliken **användning** visar antalet lyckade och misslyckade autentiseringar under flödet för lösen ords återställnings flöde per autentiseringsmetod.
+The **Registrations** chart on the **Registration** tab shows the number of successful and failed authentication method registrations by authentication method. The **Resets** chart on the **Usage** tab shows the number of successful and failed authentications during the password reset flow by authentication method.
 
-Om du klickar på någon av diagrammen visas en förfiltrerad lista över registrerings-eller återställnings händelser.
+Clicking on either of the charts will bring you to a pre-filtered list of registration or reset events.
 
-Med hjälp av kontrollen i det övre högra hörnet kan du ändra datum intervallet för gransknings data som visas i registreringarna och återställa diagram till 24 timmar, 7 dagar eller 30 dagar.
+Using the control in the upper, right-hand corner, you can change the date range for the audit data shown in the Registrations and Resets charts to 24 hours, 7 days, or 30 days.
 
-### <a name="registration-details"></a>Registrerings information
+### <a name="registration-details"></a>Registration details
 
-Om du klickar på de användare som är **registrerade**, **användare aktiverade**eller **användare som stöder** paneler eller insikter kommer du till registrerings informationen.
+Clicking on the **Users registered**, **Users enabled**, or **Users capable** tiles or insights will bring you to the registration details.
 
-Rapporten registrerings information visar följande information för varje användare:
-
-- Namn
-- Användarnamn
-- Registrerings status (alla, registrerad, ej registrerad)
-- Aktive rad status (all, aktive rad, inte aktive rad)
-- Kapacitets status (alla, kapabel, kan inte användas)
-- Metoder (app notification, app Code, telefonsamtal, SMS, e-post, säkerhets frågor)
-
-Med hjälp av kontrollerna överst i listan kan du söka efter en användare och filtrera listan över användare baserat på de kolumner som visas.
-
-### <a name="reset-details"></a>Återställ information
-
-Om du klickar på registreringar eller återställer diagram går du till återställnings informationen.
-
-I rapporten Återställ detaljer visas registrerings-och återställnings händelser från de senaste 30 dagarna, inklusive:
+The registration details report shows the following information for each user:
 
 - Namn
 - Användarnamn
-- Funktion (all, registrering, återställning)
-- Autentiseringsmetod (app-meddelande, app-kod, telefonsamtal, Office-samtal, SMS, e-post, säkerhets frågor)
-- Status (alla, lyckades, misslyckades)
+- Registration status (All, Registered, Not registered)
+- Enabled status (All, Enabled, Not enabled)
+- Capable status (All, Capable, Not capable)
+- Methods (App notification, App code, Phone call, SMS, Email, Security questions)
 
-Med hjälp av kontrollerna överst i listan kan du söka efter en användare och filtrera listan över användare baserat på de kolumner som visas.
+Using the controls at the top of the list, you can search for a user and filter the list of users based on the columns shown.
+
+### <a name="reset-details"></a>Reset details
+
+Clicking on the Registrations or Resets charts will bring you to the reset details.
+
+The reset details report shows registration and reset events from the last 30 days including:
+
+- Namn
+- Användarnamn
+- Feature (All, Registration, Reset)
+- Authentication method (App notification, App code, Phone call, Office call, SMS, Email, Security questions)
+- Status (All, Success, Failure)
+
+Using the controls at the top of the list, you can search for a user and filter the list of users based on the columns shown.
 
 ## <a name="limitations"></a>Begränsningar
 
-De data som visas i dessa rapporter kommer att fördröjas med upp till 60 minuter. Fältet "senast uppdaterat" finns i Azure Portal för att identifiera hur senaste dina data är.
+The data shown in these reports will be delayed by up to 60 minutes. A “Last refreshed" field exists in the Azure portal to identify how recent your data is.
 
-Användnings-och insikts data är inte en ersättning för Azure Multi-Factor Authentication aktivitets rapporter eller information som finns i rapporten Azure AD-inloggningar.
+Usage and insights data is not a replacement for the Azure Multi-Factor Authentication activity reports or information contained in the Azure AD sign-ins report.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Arbeta med autentiserings metoder användning rapport-API](https://docs.microsoft.com/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)
-- [Välja autentiseringsmetoder för din organisation](concept-authentication-methods.md)
-- [Kombinerad registrerings upplevelse](concept-registration-mfa-sspr-combined.md)
+- [Working with the authentication methods usage report API](https://docs.microsoft.com/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)
+- [Choosing authentication methods for your organization](concept-authentication-methods.md)
+- [Combined registration experience](concept-registration-mfa-sspr-combined.md)

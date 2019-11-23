@@ -1,5 +1,5 @@
 ---
-title: Planera hybrid Azure Active Directory Join-implementering i Azure Active Directory (Azure AD) | Microsoft Docs
+title: Plan hybrid Azure Active Directory join - Azure Active Directory
 description: Lär dig att konfigurera anslutna Azure Active Directory-hybridenheter.
 services: active-directory
 ms.service: active-directory
@@ -11,113 +11,113 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a188349e15c5e4c486d37daed9f8b611a325dcf
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 3a4f85aeaf2fb263ba2df8f34a51f9e25c212aff
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167324"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74379324"
 ---
-# <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Gör så här: planera din hybrid Azure Active Directory delta-implementering
+# <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>How To: Plan your hybrid Azure Active Directory join implementation
 
-På ett liknande sätt som en användare är en enhet en annan kärn identitet som du vill skydda och använda den för att skydda dina resurser när som helst och var som helst. Du kan uppnå det här målet genom att placera och hantera enhets identiteter i Azure AD med någon av följande metoder:
+In a similar way to a user, a device is another core identity you want to protect and use it to protect your resources at any time and from any location. You can accomplish this goal by bringing and managing device identities in Azure AD using one of the following methods:
 
 - Azure Active Directory-anslutning
 - Hybrid Azure Active Directory-anslutning
 - Azure Active Directory-registrering
 
-När du börjar använda dina enheter med Azure Active Directory maximerar du användarnas produktivitet med enkel inloggning (SSO) mellan dina molnresurser och lokala resurser. På samma gång kan du skydda åtkomsten till molnet och lokala resurser med [villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md).
+När du börjar använda dina enheter med Azure Active Directory maximerar du användarnas produktivitet med enkel inloggning (SSO) mellan dina molnresurser och lokala resurser. At the same time, you can secure access to your cloud and on-premises resources with [Conditional Access](../active-directory-conditional-access-azure-portal.md).
 
-Om du har en lokal Active Directory (AD)-miljö och vill ansluta till dina AD-domänanslutna datorer till Azure AD kan du göra detta genom att göra en hybrid Azure AD-anslutning. Den här artikeln innehåller relaterade steg för att implementera en hybrid Azure AD-anslutning i din miljö. 
+If you have an on-premises Active Directory (AD) environment and you want to join your AD domain-joined computers to Azure AD, you can accomplish this by doing hybrid Azure AD join. This article provides you with the related steps to implement a hybrid Azure AD join in your environment. 
 
 ## <a name="prerequisites"></a>Krav
 
-Den här artikeln förutsätter att du är bekant med [introduktionen till enhets identitets hantering i Azure Active Directory](../device-management-introduction.md).
+This article assumes that you are familiar with the [Introduction to device identity management in Azure Active Directory](../device-management-introduction.md).
 
 > [!NOTE]
-> Den minsta nödvändiga domänkontrollanten för Windows 10 hybrid Azure AD Join är Windows Server 2008 R2.
+> The minimum required domain controller version for Windows 10 hybrid Azure AD join is Windows Server 2008 R2.
 
 ## <a name="plan-your-implementation"></a>Planera implementeringen
 
-För att planera din hybrid Azure AD-implementering bör du bekanta dig med:
+To plan your hybrid Azure AD implementation, you should familiarize yourself with:
 
 |   |   |
 | --- | --- |
-| ![Markera][1] | Granska enheter som stöds |
-| ![Markera][1] | Granska saker du bör känna till |
-| ![Markera][1] | Granska kontrollerad validering av hybrid Azure AD-anslutning |
-| ![Markera][1] | Välj ditt scenario baserat på din identitets infrastruktur |
-| ![Markera][1] | Granska lokala AD UPN-stöd för Hybrid Azure AD-anslutning |
+| ![Markera][1] | Review supported devices |
+| ![Markera][1] | Review things you should know |
+| ![Markera][1] | Review controlled validation of hybrid Azure AD join |
+| ![Markera][1] | Select your scenario based on your identity infrastructure |
+| ![Markera][1] | Review on-premises AD UPN support for hybrid Azure AD join |
 
-## <a name="review-supported-devices"></a>Granska enheter som stöds
+## <a name="review-supported-devices"></a>Review supported devices
 
-Hybrid Azure AD-anslutning har stöd för ett brett utbud av Windows-enheter. Eftersom konfigurationen för enheter som kör äldre versioner av Windows kräver ytterligare eller olika steg, grupperas de enheter som stöds i två kategorier:
+Hybrid Azure AD join supports a broad range of Windows devices. Because the configuration for devices running older versions of Windows requires additional or different steps, the supported devices are grouped into two categories:
 
-### <a name="windows-current-devices"></a>Aktuella Windows-enheter
+### <a name="windows-current-devices"></a>Windows current devices
 
 - Windows 10
 - Windows Server 2016
 - Windows Server 2019
 
-För enheter som kör operativ systemet Windows-skrivbordet visas den version som stöds i den här artikeln [information om Windows 10-utgåvor](https://docs.microsoft.com/windows/release-information/). Som bästa praxis rekommenderar Microsoft att du uppgraderar till den senaste versionen av Windows 10.
+For devices running the Windows desktop operating system, supported version are listed in this article [Windows 10 release information](https://docs.microsoft.com/windows/release-information/). As a best practice, Microsoft recommends you upgrade to the latest version of Windows 10.
 
-### <a name="windows-down-level-devices"></a>Windows-enheter på nivån
+### <a name="windows-down-level-devices"></a>Windows down-level devices
 
 - Windows 8.1
-- Windows 7. Information om support för Windows 7 finns i [Support för Windows 7](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support).
+- Windows 7. For support information on Windows 7, see [Support for Windows 7 is ending](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support).
 - Windows Server 2012 R2
 - Windows Server 2012
-- Windows Server 2008 R2. Information om support för Windows Server 2008 och 2008 R2 finns i [förbereda för Windows server 2008-slut för support](https://www.microsoft.com/cloud-platform/windows-server-2008).
+- Windows Server 2008 R2. For support information on Windows Server 2008 and 2008 R2, see [Prepare for Windows Server 2008 end of support](https://www.microsoft.com/cloud-platform/windows-server-2008).
 
-Som första planerings steg bör du granska din miljö och avgöra om du behöver stöd för Windows-enheter på äldre nivå.
+As a first planning step, you should review your environment and determine whether you need to support Windows down-level devices.
 
-## <a name="review-things-you-should-know"></a>Granska saker du bör känna till
+## <a name="review-things-you-should-know"></a>Review things you should know
 
-Hybrid Azure AD Join stöds inte för närvarande om din miljö består av en enda AD-skog som synkroniserar identitets data till mer än en Azure AD-klient.
+Hybrid Azure AD join is currently not supported if your environment consists of a single AD forest synchronizing identity data to more than one Azure AD tenant.
 
-Om din miljö använder VDI (Virtual Desktop Infrastructure), se [enhets identitet och skriv bords virtualisering](https://docs.microsoft.com/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
+If your environment uses virtual desktop infrastructure (VDI), see [Device identity and desktop virtualization](https://docs.microsoft.com/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
 
-Hybrid Azure AD-anslutning stöds för FIPS-kompatibla TPM 2,0 och stöds inte för TPM 1,2. Om dina enheter har FIPS-kompatibel TPM 1,2 måste du inaktivera dem innan du fortsätter med hybrid Azure AD-anslutning. Microsoft tillhandahåller inga verktyg för att inaktivera FIPS-läge för TPM eftersom det är beroende av TPM-tillverkaren. Kontakta maskin varans OEM om du vill ha hjälp. Från och med WIndows 10 1903-versionen används inte TPM 1,2 för Hybrid Azure AD-anslutning och enheter med de här TPM: erna kommer att anses som om de inte har någon TPM.
+Hybrid Azure AD join is supported for FIPS-compliant TPM 2.0 and not supported for TPM 1.2. If your devices have FIPS-compliant TPM 1.2, you must disable them before proceeding with Hybrid Azure AD join. Microsoft does not provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Please contact your hardware OEM for support. Starting from WIndows 10 1903 release, TPMs 1.2 are not used for hybrid Azure AD join and devices with those TPMs will be considered as if they don't have a TPM.
 
-Hybrid Azure AD Join stöds inte för Windows Server som kör rollen domänkontrollant (DC).
+Hybrid Azure AD join is not supported for Windows Server running the Domain Controller (DC) role.
 
-Hybrid Azure AD-anslutning stöds inte på Windows-enheter med äldre versioner när du använder centrala autentiseringsuppgifter eller nätverks profiler.
+Hybrid Azure AD join is not supported on Windows down-level devices when using credential roaming or user profile roaming or mandatory profile.
 
-Om du förlitar dig på system förberedelse verktyget (Sysprep) och om du använder en avbildning med **tidigare versioner än Windows 10 1809** för installation kontrollerar du att avbildningen inte är från en enhet som redan har registrerats med Azure AD som en hybrid Azure AD-anslutning.
+If you are relying on the System Preparation Tool (Sysprep) and if you are using a **pre-Windows 10 1809** image for installation, make sure that image is not from a device that is already registered with Azure AD as Hybrid Azure AD join.
 
-Om du förlitar dig på en ögonblicks bild av en virtuell dator (VM) för att skapa ytterligare virtuella datorer, se till att ögonblicks bilden inte är från en virtuell dator som redan är registrerad i Azure AD som en hybrid Azure AD-anslutning.
+If you are relying on a Virtual Machine (VM) snapshot to create additional VMs, make sure that snapshot is not from a VM that is already registered with Azure AD as Hybrid Azure AD join.
 
-Om dina Windows 10-domänanslutna enheter är [registrerade i Azure AD](overview.md#getting-devices-in-azure-ad) till din klient organisation, kan det leda till ett dubbelt tillstånd med hybrid Azure AD-anslutna och en registrerad Azure AD-enhet. Vi rekommenderar att du uppgraderar till Windows 10 1803 (med KB4489894 installerat) eller senare för att automatiskt hantera det här scenariot. I pre-1803-versioner måste du ta bort Azure AD-registrerat tillstånd manuellt innan du aktiverar hybrid Azure AD Join. I 1803 och senare versioner har följande ändringar gjorts för att undvika detta dubbla tillstånd:
+If your Windows 10 domain joined devices are [Azure AD registered](overview.md#getting-devices-in-azure-ad) to your tenant, it could lead to a dual state of Hybrid Azure AD joined and Azure AD registered device. We recommend upgrading to Windows 10 1803 (with KB4489894 applied) or above to automatically address this scenario. In pre-1803 releases, you will need to remove the Azure AD registered state manually before enabling Hybrid Azure AD join. In 1803 and above releases, the following changes have been made to avoid this dual state:
 
-- Alla befintliga Azure AD-registrerade tillstånd tas bort automatiskt <i>när enheten är hybrid Azure AD-ansluten</i>.
-- Du kan förhindra att din domänanslutna enhet är registrerad i Azure AD genom att lägga till register nyckeln-HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin" = DWORD: 00000001.
-- Om du har konfigurerat Windows Hello för företag i Windows 10 1803 måste användaren konfigurera Windows Hello för företag igen när dubbelt tillstånd rensas. Det här problemet har åtgärd ATS med KB4512509
+- Any existing Azure AD registered state would be automatically removed <i>after the device is Hybrid Azure AD joined</i>.
+- You can prevent your domain joined device from being Azure AD registered by adding this registry key - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001.
+- In Windows 10 1803, if you have Windows Hello for Business configured, the user needs to re-setup Windows Hello for Business after the dual state clean up.This issue has been addressed with KB4512509
 
 > [!NOTE]
-> Den registrerade Azure AD-enheten tas inte bort automatiskt om den hanteras av Intune.
+> The Azure AD registered device will not be automatically removed if it is managed by Intune.
 
-## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>Granska kontrollerad validering av hybrid Azure AD-anslutning
+## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>Review controlled validation of hybrid Azure AD join
 
-När alla krav är på plats registreras Windows-enheter automatiskt som enheter i din Azure AD-klient. Status för dessa enhets identiteter i Azure AD kallas för Hybrid Azure AD-anslutning. Mer information om de begrepp som beskrivs i den här artikeln finns i artikeln [Introduktion till enhets identitets hantering i Azure Active Directory](overview.md).
+When all of the pre-requisites are in place, Windows devices will automatically register as devices in your Azure AD tenant. The state of these device identities in Azure AD is referred as hybrid Azure AD join. More information about the concepts covered in this article can be found in the article [Introduction to device identity management in Azure Active Directory](overview.md).
 
-Organisationer kan vilja göra en kontrollerad validering av hybrid Azure AD-anslutning innan den aktive ras i hela organisationen samtidigt. Läs igenom artikeln [kontrollerad verifiering av hybrid Azure AD-anslutning](hybrid-azuread-join-control.md) för att förstå hur du utför den.
+Organizations may want to do a controlled validation of hybrid Azure AD join before enabling it across their entire organization all at once. Review the article [controlled validation of hybrid Azure AD join](hybrid-azuread-join-control.md) to understand how to accomplish it.
 
-## <a name="select-your-scenario-based-on-your-identity-infrastructure"></a>Välj ditt scenario baserat på din identitets infrastruktur
+## <a name="select-your-scenario-based-on-your-identity-infrastructure"></a>Select your scenario based on your identity infrastructure
 
-Hybrid Azure AD Join fungerar med både hanterade och federerade miljöer beroende på om UPN är dirigerbart eller inte. Se slutet på sidan för tabell i scenarier som stöds.  
+Hybrid Azure AD join works with both, managed and federated environments depending on whether the UPN is routable or non-routable. See bottom of the page for table on supported scenarios.  
 
-### <a name="managed-environment"></a>Hanterad miljö
+### <a name="managed-environment"></a>Managed environment
 
-En hanterad miljö kan distribueras antingen via [PHS (Password hash Sync)](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-phs) eller [genom strömning (PTA)](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta) med [sömlös enkel inloggning](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso).
+A managed environment can be deployed either through [Password Hash Sync (PHS)](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-phs) or [Pass Through Authentication (PTA)](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta) with [Seamless Single Sign On](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso).
 
-De här scenarierna kräver inte att du konfigurerar en Federations Server för autentisering.
+These scenarios don't require you to configure a federation server for authentication.
 
-### <a name="federated-environment"></a>Federerad miljö
+### <a name="federated-environment"></a>Federated environment
 
-En federerad miljö bör ha en identitetsprovider som uppfyller följande krav. Om du har en federerad miljö som använder Active Directory Federation Services (AD FS) (AD FS) stöds redan nedanstående krav.
+A federated environment should have an identity provider that supports the following requirements. If you have a federated environment using Active Directory Federation Services (AD FS), then the below requirements are already supported.
 
-- **WIAORMULTIAUTHN-anspråk:** Detta anspråk krävs för att göra en hybrid Azure AD-anslutning för Windows-enheter på hög nivå.
-- **WS-Trust-protokoll:** Det här protokollet krävs för att autentisera Windows aktuella hybrid Azure AD-anslutna enheter med Azure AD. När du använder AD FS måste du aktivera följande WS-Trust-slutpunkter: `/adfs/services/trust/2005/windowstransport`  
+- **WIAORMULTIAUTHN claim:** This claim is required to do hybrid Azure AD join for Windows down-level devices.
+- **WS-Trust protocol:** This protocol is required to authenticate Windows current hybrid Azure AD joined devices with Azure AD. When you're using AD FS, you need to enable the following WS-Trust endpoints: `/adfs/services/trust/2005/windowstransport`  
 `/adfs/services/trust/13/windowstransport`  
   `/adfs/services/trust/2005/usernamemixed` 
   `/adfs/services/trust/13/usernamemixed`
@@ -125,39 +125,39 @@ En federerad miljö bör ha en identitetsprovider som uppfyller följande krav. 
   `/adfs/services/trust/13/certificatemixed` 
 
 > [!WARNING] 
-> Både **ADFS/tjänster/Trust/2005/windowstransport** eller **adfs/services/trust/13/windowstransport** ska aktive ras som enbart intranät riktade slut punkter och får inte visas som extra näts slut punkter via webbprogramproxy. Läs mer om hur du inaktiverar Windows-slutpunkter för WS-Trust i [inaktivera WS-Trust Windows-slutpunkter på proxyn](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Du kan se vilka slutpunkter som är aktiverade via AD FS-hanteringskonsolen under **Tjänst** > **Slutpunkter**.
+> Both **adfs/services/trust/2005/windowstransport** or **adfs/services/trust/13/windowstransport** should be enabled as intranet facing endpoints only and must NOT be exposed as extranet facing endpoints through the Web Application Proxy. To learn more on how to disable WS-Trust Windows endpoints, see [Disable WS-Trust Windows endpoints on the proxy](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Du kan se vilka slutpunkter som är aktiverade via AD FS-hanteringskonsolen under **Tjänst** > **Slutpunkter**.
 
 > [!NOTE]
-> Azure AD har inte stöd för smartkort eller certifikat i hanterade domäner.
+> Azure AD does not support smartcards or certificates in managed domains.
 
-Från och med version 1.1.819.0 tillhandahåller Azure AD Connect en guide för att konfigurera Hybrid Azure AD-koppling. Med guiden kan du förenkla konfigurationsprocessen avsevärt. Om du installerar den nödvändiga versionen av Azure AD Connect inte är ett alternativ för dig, kan du läsa mer i [Konfigurera enhets registrering manuellt](hybrid-azuread-join-manual.md). 
+Från och med version 1.1.819.0 tillhandahåller Azure AD Connect en guide för att konfigurera Hybrid Azure AD-koppling. Med guiden kan du förenkla konfigurationsprocessen avsevärt. If installing the required version of Azure AD Connect is not an option for you, see [how to manually configure device registration](hybrid-azuread-join-manual.md). 
 
-Baserat på scenariot som matchar din identitets infrastruktur, se:
+Based on the scenario that matches your identity infrastructure, see:
 
-- [Konfigurera hybrid Azure Active Directory anslutning för federerad miljö](hybrid-azuread-join-federated-domains.md)
-- [Konfigurera hybrid Azure Active Directorys anslutning för hanterad miljö](hybrid-azuread-join-managed-domains.md)
+- [Configure hybrid Azure Active Directory join for federated environment](hybrid-azuread-join-federated-domains.md)
+- [Configure hybrid Azure Active Directory join for managed environment](hybrid-azuread-join-managed-domains.md)
 
-## <a name="review-on-premises-ad-upn-support-for-hybrid-azure-ad-join"></a>Granska lokala AD UPN-stöd för Hybrid Azure AD-anslutning
+## <a name="review-on-premises-ad-upn-support-for-hybrid-azure-ad-join"></a>Review on-premises AD UPN support for Hybrid Azure AD join
 
-Ibland kan dina lokala AD-UPN skilja sig från dina Azure AD-UPN. I sådana fall ger Windows 10 hybrid Azure AD Join begränsat stöd för lokala AD-UPN: er baserat på [autentiseringsmetoden](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn), domän typen och Windows 10-versionen. Det finns två typer av lokala AD-UPN: er som kan finnas i din miljö:
+Sometimes, your on-premises AD UPNs could be different from your Azure AD UPNs. In such cases, Windows 10 Hybrid Azure AD join provides limited support for on-premises AD UPNs based on the [authentication method](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn), domain type and Windows 10 version. There are two types of on-premises AD UPNs that can exist in your environment:
 
-- Dirigerbart UPN: ett dirigerbart UPN har en giltig verifierad domän som är registrerad hos en domän registrator. Om contoso.com till exempel är den primära domänen i Azure AD, är contoso.org den primära domänen i den lokala AD som ägs av Contoso och [verifierats i Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
-- Icke-dirigerbart UPN: ett icke-dirigerbart UPN har ingen verifierad domän. Den kan bara användas inom din organisations privata nätverk. Om contoso.com till exempel är den primära domänen i Azure AD, är contoso. local den primära domänen i den lokala AD-domänen, men är inte en verifierbar domän på Internet och används endast i Contosos nätverk.
+- Routable UPN: A routable UPN has a valid verified domain, that is registered with a domain registrar. For example, if contoso.com is the primary domain in Azure AD, contoso.org is the primary domain in on-premises AD owned by Contoso and [verified in Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
+- Non-routable UPN: A non-routable UPN does not have a verified domain. It is applicable only within your organization's private network. For example, if contoso.com is the primary domain in Azure AD, contoso.local is the primary domain in on-premises AD but is not a verifiable domain in the internet and only used within Contoso's network.
 
-Tabellen nedan innehåller information om stöd för dessa lokala AD-UPN i Windows 10 hybrid Azure AD Join
+The table below provides details on support for these on-premises AD UPNs in Windows 10 Hybrid Azure AD join
 
-| Typ av lokalt AD-UPN | Domäntyp | Windows 10 version | Beskrivning |
+| Type of on-premises AD UPN | Domäntyp | Windows 10 version | Beskrivning |
 | ----- | ----- | ----- | ----- |
-| Dirigera | Externt | Från 1703-version | Allmänt tillgänglig |
-| Ej dirigerbart | Externt | Från 1803-version | Allmänt tillgänglig |
-| Dirigera | Hanterad | Från 1803-version | Azure AD-SSPR på Windows-låsskärm som är allmänt tillgängligt stöds inte |
-| Ej dirigerbart | Hanterad | Stöds inte | |
+| Routable | Federated | From 1703 release | Generally available |
+| Non-routable | Federated | From 1803 release | Generally available |
+| Routable | Hanterad | From 1803 release | Generally available, Azure AD SSPR on Windows lockscreen is not supported |
+| Non-routable | Hanterad | Stöds inte | |
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Konfigurera hybrid Azure Active Directory anslutning för federerad miljö](hybrid-azuread-join-federated-domains.md)
-> [Konfigurera hybrid Azure Active Directory anslutning för hanterad miljö](hybrid-azuread-join-managed-domains.md)
+> [Configure hybrid Azure Active Directory join for federated environment](hybrid-azuread-join-federated-domains.md)
+> [Configure hybrid Azure Active Directory join for managed environment](hybrid-azuread-join-managed-domains.md)
 
 <!--Image references-->
 [1]: ./media/hybrid-azuread-join-plan/12.png

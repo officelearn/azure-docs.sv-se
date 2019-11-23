@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Hämta information om bilder med hjälp av Bing Visual Search REST API och Ruby'
+title: 'Quickstart: Get image insights using the REST API and Ruby - Bing Visual Search'
 titleSuffix: Azure Cognitive Services
 description: Ta reda på hur du laddar upp en bild till API:et för visuell sökning i Bing och får information om den.
 services: cognitive-services
@@ -10,29 +10,29 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 4/02/2019
 ms.author: rosh
-ms.openlocfilehash: 563c0d39eb5c057aef9b9c7cdcba798dc6ee4cbb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 55bf189195cc2d9eca0700fd703840da38c71592
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796506"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383119"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-ruby"></a>Snabbstart: Hämta information om bilder med hjälp av Bing Visual Search REST API och Ruby
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-ruby"></a>Quickstart: Get image insights using the Bing Visual Search REST API and Ruby
 
-Den här snabbstarten använder Ruby programmeringsspråk för att anropa Bing Visual Search och visa resultat. En POST-begäran laddar upp en bild till API-slutpunkt. Resultatet är URL: er och beskrivande information om avbildningar liknar den uppladdade avbildningen.
+This quickstart uses the Ruby programming language to call Bing Visual Search and display results. A POST request uploads an image to the API endpoint. The results include URLs and descriptive information about images similar to the uploaded image.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Att köra den här snabbstarten:
+To run this quickstart:
 
-* Installera [Ruby 2.4 eller senare](https://www.ruby-lang.org/en/downloads/)
-* Få en prenumerationsnyckel:
+* Install [Ruby 2.4 or later](https://www.ruby-lang.org/en/downloads/)
+* Get a subscription key:
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
-## <a name="project-and-required-modules"></a>Projekt och moduler som krävs
+## <a name="project-and-required-modules"></a>Project and required modules
 
-Skapa ett nytt projekt för Ruby i din IDE eller redigerare. Importera `net/http`, `uri` , och `json` att hantera JSON-texten i resultaten. Den `base64` biblioteket används för att koda namnsträngen fil: 
+Create a new Ruby project in your IDE or editor. Import `net/http`, `uri` , and `json` to handle the JSON text of results. The `base64` library is used to encode the file name string: 
 
 ```
 require 'net/https'
@@ -44,7 +44,7 @@ require 'base64'
 
 ## <a name="define-variables"></a>Definiera variabler
 
-Följande kod tilldelar krävs variabler. Bekräfta att slutpunkten är korrekt och Ersätt den `accessKey` värde med en prenumerationsnyckel från ditt Azure-konto.  Den `batchNumber` är ett GUID som krävs för inledande och avslutande gränserna för att skicka data.  Den `fileName` variabeln identifierar avbildningsfilen för INLÄGGET.  Den `if` blockera tester för att en giltig prenumeration-nyckel.
+The following code assigns required variables. Confirm that the endpoint is correct and replace the `accessKey` value with a subscription key from your Azure account.  The `batchNumber` is a GUID required for leading and trailing boundaries of the POST data.  The `fileName` variable identifies the image file for the POST.  The `if` block tests for a valid subscription key.
 
 ```
 accessKey = "ACCESS-KEY"
@@ -61,9 +61,9 @@ end
 
 ```
 
-## <a name="form-data-for-post-request"></a>Formulärdata för POST-begäran
+## <a name="form-data-for-post-request"></a>Form data for POST request
 
-Bilddata inlägget omges av inledande och avslutande gränser. Gränserna för att ange följande funktioner:
+The image data to POST is enclosed by leading and trailing boundaries. The following functions set the boundaries:
 
 ```
 def BuildFormDataStart(batNum, fileName)
@@ -76,7 +76,7 @@ def BuildFormDataEnd(batNum)
 end
 ```
 
-Skapa sedan slutpunkten URI och en matris som innehåller POST-brödtext.  Använda funktionen tidigare för att läsa in gräns för start i matrisen. Läsa bildfilen i matrisen. Läs sedan slutet gränsen i matrisen:
+Next, construct the endpoint URI and an array to contain the POST body.  Use the previous function to load the start boundary into the array. Read the image file into the array. Then, read the end boundary into the array:
 
 ```
 uri = URI(uri + path)
@@ -92,9 +92,9 @@ post_body << File.read(fileName) #Base64.encode64(File.read(fileName))
 post_body << BuildFormDataEnd(batchNumber)
 ```
 
-## <a name="create-the-http-request"></a>Skapa HTTP-begäran
+## <a name="create-the-http-request"></a>Create the HTTP request
 
-Ange den `Ocp-Apim-Subscription-Key` rubrik.  Skapa begäran. Tilldela sedan rubrik och innehållstyp. Anslut till INLÄGG brödtexten skapade tidigare på begäran:
+Set the `Ocp-Apim-Subscription-Key` header.  Skapa begäran. Then, assign the header and content type. Join the POST body created previously to the request:
 
 ```
 header = {'Ocp-Apim-Subscription-Key': accessKey}
@@ -106,9 +106,9 @@ request.body = post_body.join
 
 ```
 
-## <a name="request-and-response"></a>Begäran och svar
+## <a name="request-and-response"></a>Request and response
 
-Ruby skickar en begäran och får svar med följande rad med kod:
+Ruby sends the request and gets the response with the following line of code:
 
 ```
 response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
@@ -117,9 +117,9 @@ end
 
 ```
 
-## <a name="print-the-results"></a>Skriva ut resultatet
+## <a name="print-the-results"></a>Print the results
 
-Skriva ut huvuden i svaret och användning av JSON-biblioteket för att formatera utdata:
+Print the headers of the response, and use the JSON library to format output:
 
 ```
 puts "\nRelevant Headers:\n\n"
@@ -136,7 +136,7 @@ puts JSON::pretty_generate(JSON(response.body))
 
 ## <a name="results"></a>Resultat
 
-Följande JSON är en del av utdata:
+The following JSON is a segment of the output:
 
 ```
 Relevant Headers:
@@ -284,5 +284,5 @@ JSON Response:
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Översikt över Bing Visual Search](../overview.md)
-> [skapa en enda sida i Visual Search webbapp](../tutorial-bing-visual-search-single-page-app.md)
+> [Bing Visual Search overview](../overview.md)
+> [Build a Visual Search single-page web app](../tutorial-bing-visual-search-single-page-app.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Söka efter videor med hjälp av REST API för videosökning i Bing och Java'
+title: 'Quickstart: Search for videos using the REST API and Java - Bing Video Search'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten för att skicka videosökningsbegäranden till REST API för videosökning i Bing med hjälp av Java.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 06/19/2019
 ms.author: aahi
-ms.openlocfilehash: 0823c115f47bb6bff0396cd154164183cf46d8e4
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 30234758761e06c65e621c7f512ed8cafa02e090
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500701"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74378654"
 ---
-# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-java"></a>Snabbstart: Söka efter videor med hjälp av REST API för videosökning i Bing och Java
+# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-java"></a>Quickstart: Search for videos using the Bing Video Search REST API and Java
 
-Använd den här snabbstarten för att skicka ditt första anrop till API:et för videosökning i Bing och visa ett sökresultat från JSON-svaret. Det här enkla Java-programmet skickar en HTTP-videosökfråga till API:et och visar svaret. Även om det här programmet är skrivet i Java, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingVideoSearchv7.java) tillsammans med ytterligare felhantering, funktioner och kodkommentarer.
+Använd den här snabbstarten för att skicka ditt första anrop till API:et för videosökning i Bing och visa ett sökresultat från JSON-svaret. Det här enkla Java-programmet skickar en HTTP-videosökfråga till API:et och visar svaret. Även om det här programmet är skrivet i Java, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingVideoSearchv7.java) tillsammans med ytterligare kommentarer om hantering av fel, funktioner och kodanteckningar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)
 

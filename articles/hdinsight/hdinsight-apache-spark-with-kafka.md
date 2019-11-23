@@ -1,24 +1,23 @@
 ---
-title: Apache Spark strömning med Apache Kafka – Azure HDInsight
-description: Lär dig hur du använder Apache Spark för att strömma data till eller från Apache Kafka med hjälp av DStreams. I det här exemplet strömmas data med hjälp av en Jupyter Notebook från Apache Spark på HDInsight.
-keywords: Kafka-exempel, Kafka Zookeeper, Spark streaming Kafka, Spark streaming Kafka-exempel
+title: Apache Spark streaming with Apache Kafka - Azure HDInsight
+description: Learn how to use Apache Spark to stream data into or out of Apache Kafka using DStreams. I det här exemplet strömmas data med hjälp av en Jupyter Notebook från Apache Spark på HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.author: hrasheed
-ms.openlocfilehash: 201e86908b61efa72eed76346f70cfc55e08d03c
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.custom: hdinsightactive
+ms.date: 11/21/2019
+ms.openlocfilehash: d868cdd346c79cf77d4f8c1ea6e4b20adcd99b6c
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076800"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327404"
 ---
-# <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>Apache Spark streaming (DStream)-exempel med Apache Kafka på HDInsight
+# <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>Apache Spark streaming (DStream) example with Apache Kafka on HDInsight
 
-Lär dig hur du använder [Apache Spark](https://spark.apache.org/) för att strömma data till eller från [Apache Kafka](https://kafka.apache.org/) i HDInsight med hjälp av [DStreams](https://spark.apache.org/docs/latest/api/java/org/apache/spark/streaming/dstream/DStream.html). I det här exemplet används en [Jupyter Notebook](https://jupyter.org/) som körs i Spark-klustret.
+Learn how to use [Apache Spark](https://spark.apache.org/) to stream data into or out of [Apache Kafka](https://kafka.apache.org/) on HDInsight using [DStreams](https://spark.apache.org/docs/latest/api/java/org/apache/spark/streaming/dstream/DStream.html). This example uses a [Jupyter Notebook](https://jupyter.org/) that runs on the Spark cluster.
 
 > [!NOTE]  
 > Stegen i det här dokumentet skapar en Azure-resursgrupp som innehåller både en Apache Spark på HDInsight och en Kafka på HDInsight-klustret. Båda dessa kluster finns i ett virtuellt Azure-nätverk, vilket innebär att Apache Spark-klustret kan kommunicera direkt med Kafka-klustret.
@@ -26,18 +25,18 @@ Lär dig hur du använder [Apache Spark](https://spark.apache.org/) för att str
 > Kom ihåg att ta bort klustren för att undvika onödiga avgifter när du är klar med stegen i det här dokumentet.
 
 > [!IMPORTANT]  
-> I det här exemplet används DStreams, som är en äldre Spark streaming-teknik. Ett exempel som använder nya funktioner för Spark-direktuppspelning finns i [Spark Structured streaming med Apache Kafka](hdinsight-apache-kafka-spark-structured-streaming.md) Document.
+> This example uses DStreams, which is an older Spark streaming technology. For an example that uses newer Spark streaming features, see the [Spark Structured Streaming with Apache Kafka](hdinsight-apache-kafka-spark-structured-streaming.md) document.
 
 ## <a name="create-the-clusters"></a>Skapa kluster
 
-Apache Kafka på HDInsight ger inte tillgång till asynkrona meddelandeköer i Kafka via offentligt Internet. Allt som pratar med Kafka måste finnas i samma virtuella Azure-nätverk som noderna i Kafka-klustret. I det här exemplet finns både Kafka-och Spark-klustren i ett virtuellt Azure-nätverk. Följande diagram visar hur kommunikations flöden mellan klustren:
+Apache Kafka on HDInsight doesn't provide access to the Kafka brokers over the public internet. Anything that talks to Kafka must be in the same Azure virtual network as the nodes in the Kafka cluster. For this example, both the Kafka and Spark clusters are located in an Azure virtual network. The following diagram shows how communication flows between the clusters:
 
 ![Diagram över Apache Spark- och Kafka-kluster i ett virtuellt Azure-nätverk](./media/hdinsight-apache-spark-with-kafka/apache-spark-kafka-vnet.png)
 
 > [!NOTE]  
-> Även om Kafka är begränsad till kommunikation inom det virtuella nätverket kan andra tjänster i klustret, till exempel SSH och Ambari, nås via Internet. Mer information om de offentliga portar som är tillgängliga med HDInsight finns i [Portar och URI:er som används av HDInsight](hdinsight-hadoop-port-settings-for-services.md).
+> Though Kafka itself is limited to communication within the virtual network, other services on the cluster such as SSH and Ambari can be accessed over the internet. Mer information om de offentliga portar som är tillgängliga med HDInsight finns i [Portar och URI:er som används av HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
-Även om du kan skapa ett virtuellt Azure-nätverk, Kafka och Spark-kluster manuellt, är det enklare att använda en Azure Resource Manager mall. Använd följande steg för att distribuera ett virtuellt Azure-nätverk, Kafka och Spark-kluster till din Azure-prenumeration.
+While you can create an Azure virtual network, Kafka, and Spark clusters manually, it's easier to use an Azure Resource Manager template. Use the following steps to deploy an Azure virtual network, Kafka, and Spark clusters to your Azure subscription.
 
 1. Använd följande knapp för att logga in på Azure och öppna mallen i Azure Portal.
 
@@ -48,54 +47,47 @@ Apache Kafka på HDInsight ger inte tillgång till asynkrona meddelandeköer i K
     > [!WARNING]  
     > Klustret måste innehålla minst tre arbetsnoder för att garantera tillgängligheten för Kafka i HDInsight. Den här mallen skapar ett Kafka-kluster som innehåller tre arbetarnoder.
 
-    Den här mallen skapar ett HDInsight 3,6-kluster för både Kafka och Spark.
+    This template creates an HDInsight 3.6 cluster for both Kafka and Spark.
 
-2. Använd följande information för att fylla i posterna i avsnittet **Anpassad distribution** :
+1. Use the following information to populate the entries on the **Custom deployment** section:
 
-    ![Anpassade parametrar för HDInsight-distribution](./media/hdinsight-apache-spark-with-kafka/hdinsight-parameters.png)
+    |Egenskap |Värde |
+    |---|---|
+    |Resursgrupp|Create a group or select an existing one.|
+    |Plats|Select a location geographically close to you.|
+    |Base Cluster Name|This value is used as the base name for the Spark and Kafka clusters. For example, entering **hdistreaming** creates a Spark cluster named __spark-hdistreaming__ and a Kafka cluster named **kafka-hdistreaming**.|
+    |Användarnamn för klusterinloggning|The admin user name for the Spark and Kafka clusters.|
+    |Lösenord för klusterinloggning|The admin user password for the Spark and Kafka clusters.|
+    |SSH-användarnamn|The SSH user to create for the Spark and Kafka clusters.|
+    |SSH-lösenord|The password for the SSH user for the Spark and Kafka clusters.|
 
-    * **Resursgrupp**: Skapa en grupp eller Välj en befintlig. Den här gruppen innehåller HDInsight-klustret.
+    ![HDInsight custom deployment parameters](./media/hdinsight-apache-spark-with-kafka/hdinsight-parameters.png)
 
-    * **Plats**: Välj en plats geografiskt nära dig.
+1. Granska **villkoren** och välj sedan **Jag godkänner villkoren ovan**.
 
-    * **Namn på bas kluster**: Det här värdet används som grund namn för Spark-och Kafka-klustren. Om du till exempel anger **hdistreaming** skapas ett Spark-kluster med namnet __Spark-Hdistreaming__ och ett Kafka-kluster med namnet **Kafka-hdistreaming**.
+1. Finally, select **Purchase**. It takes about 20 minutes to create the clusters.
 
-    * **Användar namn för kluster inloggning**: Administratörs användar namnet för Spark-och Kafka-klustren.
+Once the resources have been created, a summary page appears.
 
-    * **Lösen ord för kluster inloggning**: Administratörs användarens lösen ord för Spark-och Kafka-kluster.
-
-    * **SSH-användar namn**: SSH-användaren som ska skapas för Spark-och Kafka-kluster.
-
-    * **SSH-lösenord**: Lösen ordet för SSH-användaren för Spark-och Kafka-klustren.
-
-3. Granska **villkoren** och välj sedan **Jag godkänner villkoren ovan**.
-
-4. Välj slutligen **köp**. Det tar ungefär 20 minuter att skapa klustren.
-
-När resurserna har skapats visas en sammanfattnings sida.
-
-![Resurs grupps Sammanfattning för VNet och kluster](./media/hdinsight-apache-spark-with-kafka/hdinsight-group-blade.png)
+![Resource group summary for the vnet and clusters](./media/hdinsight-apache-spark-with-kafka/hdinsight-group-blade.png)
 
 > [!IMPORTANT]  
-> Observera att namnen på HDInsight-klustren är **Spark-BASENAME** och **Kafka-BASENAME**, där BASENAME är det namn som du angav för mallen. Du kan använda dessa namn i senare steg när du ansluter till klustren.
+> Notice that the names of the HDInsight clusters are **spark-BASENAME** and **kafka-BASENAME**, where BASENAME is the name you provided to the template. You use these names in later steps when connecting to the clusters.
 
-## <a name="use-the-notebooks"></a>Använda antecknings böckerna
+## <a name="use-the-notebooks"></a>Use the notebooks
 
 Koden för exemplet som beskrivs i det här dokumentet finns på [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka).
-
-Slutför det här exemplet genom att följa stegen i `README.md`.
 
 ## <a name="delete-the-cluster"></a>Ta bort klustret
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Eftersom stegen i det här dokumentet skapar båda klustren i samma Azure-resurs grupp kan du ta bort resurs gruppen i Azure Portal. Om du tar bort gruppen tas alla resurser som skapats i följande dokument, Azure-Virtual Network och lagrings kontot som används av klustren bort.
+Since the steps in this document create both clusters in the same Azure resource group, you can delete the resource group in the Azure portal. Deleting the group removes all resources created by following this document, the Azure Virtual Network, and storage account used by the clusters.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I det här exemplet har du lärt dig hur du använder Spark för att läsa och skriva till Kafka. Använd följande länkar för att identifiera andra sätt att arbeta med Kafka:
+In this example, you learned how to use Spark to read and write to Kafka. Use the following links to discover other ways to work with Kafka:
 
-* [Kom igång med Apache Kafka på HDInsight](kafka/apache-kafka-get-started.md)
-* [Använd MirrorMaker för att skapa en replik av Apache Kafka på HDInsight](kafka/apache-kafka-mirroring.md)
-* [Använda Apache Storm med Apache Kafka på HDInsight](hdinsight-apache-storm-with-kafka.md)
-
+* [Get started with Apache Kafka on HDInsight](kafka/apache-kafka-get-started.md)
+* [Use MirrorMaker to create a replica of Apache Kafka on HDInsight](kafka/apache-kafka-mirroring.md)
+* [Use Apache Storm with Apache Kafka on HDInsight](hdinsight-apache-storm-with-kafka.md)

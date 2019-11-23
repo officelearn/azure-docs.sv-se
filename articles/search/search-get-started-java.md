@@ -1,22 +1,22 @@
 ---
-title: 'Snabb start: skapa ett Sök index i Java med hjälp av REST API: er'
+title: 'Quickstart: Create a search index in Java using REST APIs'
 titleSuffix: Azure Cognitive Search
-description: 'Förklarar hur du skapar ett index, läser in data och kör frågor med Java och Azure Kognitiv sökning REST-API: er.'
+description: In this Java quickstart, learn how to create an index, load data, and run queries using the Azure Cognitive Search REST APIs.
 manager: nitinme
-author: lisaleib
-ms.author: v-lilei
+author: HeidiSteen
+ms.author: heidist
 ms.devlang: java
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 9f30c30276db6daa0b4afdf3e6bdd8e617dedc52
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 5e53167a083b5e89bd88a45452929dd40f0868f2
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792802"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406736"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i Java med hjälp av REST API: er
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Quickstart: Create an Azure Cognitive Search index in Java using REST APIs
 > [!div class="op_single_selector"]
 > * [JavaScript](search-get-started-nodejs.md)
 > * [C#](search-get-started-dotnet.md)
@@ -26,60 +26,60 @@ ms.locfileid: "72792802"
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
-Skapa ett Java-konsolprogram som skapar, läser in och skickar frågor till ett Azure Kognitiv sökning-index med [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/?view=azure-java-stable)och [Azure kognitiv sökning REST API](/rest/api/searchservice/). Den här artikeln innehåller stegvisa instruktioner för att skapa programmet. Du kan också [Hämta och köra hela programmet](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
+Create a Java console application that creates, loads, and queries an Azure Cognitive Search index using [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/?view=azure-java-stable),  and the [Azure Cognitive Search REST API](/rest/api/searchservice/).This article provides step-by-step instructions for creating the application. Alternatively, you can [download and run the complete application](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
-Vi använde följande program och tjänster för att bygga och testa det här exemplet:
+We used the following software and services to build and test this sample:
 
-+ [IntelliJ idé](https://www.jetbrains.com/idea/)
++ [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 
 + [Java 11 SDK](/java/azure/jdk/?view=azure-java-stable)
 
-+ [Skapa en Azure kognitiv sökning-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnads fri tjänst för den här snabb starten.
++ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart.
 
 <a name="get-service-info"></a>
 
-## <a name="get-a-key-and-url"></a>Hämta en nyckel och URL
+## <a name="get-a-key-and-url"></a>Get a key and URL
 
-Anrop till tjänsten kräver en URL-slutpunkt och en åtkomst nyckel på varje begäran. En Sök tjänst skapas med båda, så om du har lagt till Azure-Kognitiv sökning till din prenumeration följer du dessa steg för att få den information som krävs:
+Calls to the service require a URL endpoint and an access key on every request. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
 
-1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta URL: en på sidan **Översikt över** Sök tjänsten. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
+1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
 
-2. I **inställningar** > **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
+2. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
-   Skapa även en sessionsnyckel. Det är en bra idé att utfärda förfrågningar med skrivskyddad åtkomst.
+   Create a query key, too. It's a best practice to issue query requests with read-only access.
 
-![Hämta tjänstens namn och administratör och fråge nycklar](media/search-get-started-nodejs/service-name-and-keys.png)
+![Get the service name and admin and query keys](media/search-get-started-nodejs/service-name-and-keys.png)
 
-Varje begäran som skickas till din tjänst kräver en API-nyckel. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
+Every request sent to your service requires an api key. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
 ## <a name="set-up-your-environment"></a>Konfigurera din miljö
 
-Börja med att öppna IntelliJ-idén och skapa ett nytt projekt.
+Begin by opening IntelliJ IDEA and setting up a new project.
 
 ### <a name="create-the-project"></a>Skapa projektet
 
-1. Öppna IntelliJ idé och välj **Skapa nytt projekt**.
-1. Välj **maven**.
-1. I listan **Project SDK** väljer du Java 11 SDK.
+1. Open IntelliJ IDEA, and select **Create New Project**.
+1. Select **Maven**.
+1. In the **Project SDK** list, select the Java 11 SDK.
 
-    ![Skapa ett Maven-projekt](media/search-get-started-java/java-quickstart-create-new-maven-project.png) 
+    ![Create a maven project](media/search-get-started-java/java-quickstart-create-new-maven-project.png) 
 
-1. Ange **`AzureSearchQuickstart`** för **ArtifactId**.
-1. Godkänn de återstående standardvärdena för att öppna projektet.
+1. For **GroupId** and **ArtifactId**, enter `AzureSearchQuickstart`.
+1. Accept the remaining defaults to open the project.
 
-### <a name="specify-maven-dependencies"></a>Ange maven-beroenden
+### <a name="specify-maven-dependencies"></a>Specify Maven dependencies
 
-1. Välj **fil** > **Inställningar**.
-1. I fönstret **Inställningar** väljer du **build, Execution, Deployment** > **build Tools** > **maven** > **Importing**.
-1. Markera kryss rutan **Importera Maven projekt automatiskt** och Stäng fönstret genom att klicka på **OK** . Maven-plugin-program och andra beroenden kommer nu att synkroniseras automatiskt när du uppdaterar Pom. XML-filen i nästa steg.
+1. Select **File** > **Settings**.
+1. In the **Settings** window, select **Build, Execution, Deployment** > **Build Tools** > **Maven** > **Importing**.
+1. Select the  **Import Maven projects automatically** check box, and click **OK** to close the window. Maven plugins and other dependencies will now be automatically synchronized when you update the pom.xml file in the next step.
 
-    ![Maven som importerar alternativ i IntelliJ-inställningar](media/search-get-started-java/java-quickstart-settings-import-maven-auto.png)
+    ![Maven importing options in IntelliJ settings](media/search-get-started-java/java-quickstart-settings-import-maven-auto.png)
 
-1. Öppna filen Pom. xml och ersätt innehållet med följande konfigurations information för maven. Dessa inkluderar referenser till [exec maven-plugin-programmet](https://www.mojohaus.org/exec-maven-plugin/) och ett JSON- [GRÄNSSNITTs-API](https://javadoc.io/doc/org.glassfish/javax.json/1.0.2)
+1. Open the pom.xml file and replace the contents with the following Maven configuration details. These include references to the [Exec Maven Plugin](https://www.mojohaus.org/exec-maven-plugin/) and a [JSON interface API](https://javadoc.io/doc/org.glassfish/javax.json/1.0.2)
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -130,24 +130,24 @@ Börja med att öppna IntelliJ-idén och skapa ett nytt projekt.
     </project>
     ```
 
-### <a name="set-up-the-project-structure"></a>Konfigurera projekt strukturen
+### <a name="set-up-the-project-structure"></a>Set up the project structure
 
-1. Välj **fil** > **projekt struktur**.
-1. Välj **moduler**och expandera käll trädet för att få åtkomst till innehållet i mappen `src` >  `main`.
-1. Lägg till`java` och `app` mappar i mappen `src` >  `main` > `service`. Det gör du genom att markera mappen `java`, trycka på ALT + INSERT och ange sedan mappnamnet.
-1. Lägg till`resources` och `app` mappar i mappen `src` >  `main` >`service`.
+1. Select **File** > **Project Structure**.
+1. Select **Modules**, and expand the source tree to access the contents of the `src` >  `main` folder.
+1. In the `src` >  `main` > `java` folder, add  `app` and `service` folders. To do this, select the `java` folder, press Alt + Insert, and then enter the folder name.
+1. In the `src` >  `main` >`resources` folder, add `app` and `service` folders.
 
-    När du är klar bör projekt trädet se ut som på följande bild.
+    When you're done, the project tree should look like the following picture.
 
-    ![Projekt katalog struktur](media/search-get-started-java/java-quickstart-basic-code-tree.png)
+    ![Project directory structure](media/search-get-started-java/java-quickstart-basic-code-tree.png)
 
-1. Stäng fönstret genom att klicka på **OK** .
+1. Click **OK** to close the window.
 
-### <a name="add-azure-cognitive-search-service-information"></a>Lägg till information om Azure Kognitiv sökning-tjänsten
+### <a name="add-azure-cognitive-search-service-information"></a>Add Azure Cognitive Search service information
 
-1. I fönstret **projekt** expanderar du käll trädet för att komma åt `src` >  `main` >`resources` > `app` mapp och lägga till en `config.properties` fil. Det gör du genom att markera mappen `app`, trycka på ALT + INSERT, välja **fil**och ange fil namnet.
+1. In the **Project** window, expand the source tree to access the `src` >  `main` >`resources` > `app` folder, and add a `config.properties` file. To do this, select the `app` folder, press Alt + Insert, select **File**, and then enter the file name.
 
-1. Kopiera följande inställningar till den nya filen och ersätt `<YOUR-SEARCH-SERVICE-NAME>`, `<YOUR-ADMIN-KEY>` och `<YOUR-QUERY-KEY>` med ditt tjänst namn och nycklar. Om tjänstens slut punkt är `https://mydemo.search.windows.net` blir tjänst namnet "demonstration".
+1. Copy the following settings into the new file and replace `<YOUR-SEARCH-SERVICE-NAME>`, `<YOUR-ADMIN-KEY>`, and `<YOUR-QUERY-KEY>` with your service name and keys. If your service endpoint is `https://mydemo.search.windows.net`, the service name would be "mydemo".
 
     ```java
         SearchServiceName=<YOUR-SEARCH-SERVICE-NAME>
@@ -157,14 +157,14 @@ Börja med att öppna IntelliJ-idén och skapa ett nytt projekt.
         ApiVersion=2019-05-06
     ```
 
-### <a name="add-the-main-method"></a>Lägg till main-metoden
+### <a name="add-the-main-method"></a>Add the main method
 
-1. I `src` >  `main` > `java` > `app` mapp lägger du till en `App`-klass. Det gör du genom att välja mappen `app`, tryck på ALT + INSERT, Välj **Java-klass**och sedan ange klass namnet.
-1. Öppna klassen `App` och ersätt innehållet med följande kod. Den här koden innehåller metoden `main`. 
+1. In  the `src` >  `main` > `java` > `app` folder, add an `App` class. To do this, select the `app` folder, press Alt + Insert, select **Java Class**, and then enter the class name.
+1. Open the `App` class and replace the content with the following code. This code contains the `main` method. 
 
-    Den avkommenterade koden läser Sök tjänst parametrarna och använder dem för att skapa en instans av Sök tjänst klienten. Sök tjänstens klient kod kommer att läggas till i nästa avsnitt.
+    The uncommented code reads the search service parameters and uses them to create an instance of the search service client. The search service client code will be added in the next section.
 
-    Den kommenterade koden i den här klassen kommer att bli kommenterad i ett senare avsnitt i den här snabb starten.
+    The commented code in this class will be uncommented in a later section of this quickstart.
 
     ```java
     package main.java.app;
@@ -256,10 +256,10 @@ Börja med att öppna IntelliJ-idén och skapa ett nytt projekt.
     }
     ```
 
-### <a name="add-the-http-operations"></a>Lägg till HTTP-åtgärder
+### <a name="add-the-http-operations"></a>Add the HTTP operations
 
-1. I `src` >  `main` > `java` > `service` mapp lägger du till en`SearchServiceClient`-klass. Det gör du genom att välja mappen `service`, tryck på ALT + INSERT, Välj **Java-klass**och sedan ange klass namnet.
-1. Öppna klassen `SearchServiceClient` och ersätt innehållet med följande kod. Den här koden innehåller de HTTP-åtgärder som krävs för att använda Azure Kognitiv sökning-REST API. Ytterligare metoder för att skapa ett index, överföring av dokument och frågor om indexet läggs till i ett senare avsnitt.
+1. In  the `src` >  `main` > `java` > `service` folder, add an`SearchServiceClient` class. To do this, select the `service` folder, press Alt + Insert, select **Java Class**, and then enter the class name.
+1. Open the `SearchServiceClient` class, and replace the contents with the following code. This code provides the HTTP operations required to use the Azure Cognitive Search REST API. Additional methods for creating an index, uploading documents, and querying the index will be added in a later section.
 
     ```java
     package main.java.service;
@@ -370,22 +370,22 @@ Börja med att öppna IntelliJ-idén och skapa ett nytt projekt.
 
 ### <a name="build-the-project"></a>Bygga projektet
 
-1. Kontrol lera att projektet har följande struktur.
+1. Verify that your project has the following structure.
 
-    ![Projekt katalog struktur](media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png)
+    ![Project directory structure](media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png)
 
-1. Öppna fönstret **maven** -verktyg och kör det här maven-målet: `verify exec:java`
-![kör maven mål: verifiera exec: Java](media/search-get-started-java/java-quickstart-execute-maven-goal.png)
+1. Open the **Maven** tool window, and execute this maven goal: `verify exec:java`
+![Execute maven goal: verify exec:java](media/search-get-started-java/java-quickstart-execute-maven-goal.png)
 
-När bearbetningen är klar söker du efter ett meddelande om att BYGGet lyckades följt av noll (0) avslutnings kod.
+When processing completes, look for a BUILD SUCCESS message followed by a zero (0) exit code.
 
-## <a name="1---create-index"></a>1 – Skapa index
+## <a name="1---create-index"></a>1 - Create index
 
-Index definitionen för hotell innehåller enkla fält och ett komplext fält. Exempel på ett enkelt fält är "HotelName" eller "Description". Fältet "adress" är ett komplext fält eftersom det innehåller under fält, till exempel "gatuadress" och "stad". I den här snabb starten anges index definitionen med JSON.
+The hotels index definition contains simple fields and one complex field. Examples of a simple field are "HotelName" or "Description". The "Address" field is a complex field because it has subfields, such as "Street Address" and "City". In this quickstart, the index definition is specified using JSON.
 
-1. I fönstret **projekt** expanderar du käll trädet för att komma åt `src` >  `main` >`resources` > `service` mapp och lägga till en `index.json` fil. Det gör du genom att markera mappen `app`, trycka på ALT + INSERT, välja **fil**och ange fil namnet.
+1. In the **Project** window, expand the source tree to access the `src` >  `main` >`resources` > `service` folder, and add an `index.json` file. To do this, select the `app` folder, press Alt + Insert, select **File**, and then enter the file name.
 
-1. Öppna filen `index.json` och infoga följande index definition.
+1. Open the `index.json` file and insert the following index definition.
 
     ```json
     {
@@ -510,11 +510,11 @@ Index definitionen för hotell innehåller enkla fält och ett komplext fält. E
     }
     ```
 
-    Index namnet blir "Hotels-snabb start". Attributen för index fälten avgör hur indexerade data kan genomsökas i ett program. Till exempel måste attributet `IsSearchable` tilldelas till alla fält som ska ingå i en full texts ökning. Mer information om attribut finns i [fält samling och fältattribut](search-what-is-an-index.md#fields-collection).
+    The index name will be "hotels-quickstart". Attributes on the index fields determine how the indexed data can be searched in an application. For example, the `IsSearchable` attribute must be assigned to every field that should be included in a full text search. To learn more about attributes, see [Fields collection and field attributes](search-what-is-an-index.md#fields-collection).
     
-    I fältet `Description` i det här indexet används den valfria egenskapen `analyzer` för att åsidosätta standard språk analys för Lucene. I fältet `Description_fr` används den franska Lucene Analyzer-`fr.lucene` eftersom den innehåller fransk text. `Description` använder den valfria Microsoft Language Analyzer en. Lucene. Mer information om analys verktyg finns i [analys verktyg för text bearbetning i Azure kognitiv sökning](search-analyzers.md).
+    The `Description` field in this index uses the optional `analyzer` property to override the default Lucene language analyzer. The `Description_fr` field is using the French Lucene analyzer `fr.lucene` because it stores French text. The `Description` is using the optional Microsoft language analyzer en.lucene. To learn more about analyzers, see [Analyzers for text processing in Azure Cognitive Search](search-analyzers.md).
 
-1. Lägg till följande kod i klassen `SearchServiceClient`. Dessa metoder skapar URL: er för Azure Kognitiv sökning REST-tjänster som skapar och tar bort ett index och som avgör om det finns ett index. Metoderna gör också HTTP-begäran.
+1. Add the following code to the `SearchServiceClient` class. These methods build Azure Cognitive Search REST service URLs that create and delete an index, and that determine if an index exists. The methods also make the HTTP request.
 
     ```java
     public boolean indexExists() throws IOException, InterruptedException {
@@ -554,9 +554,9 @@ Index definitionen för hotell innehåller enkla fält och ett komplext fält. E
     }
     ```
 
-1. Ta bort kommentaren till följande kod i klassen `App`. Den här koden tar bort indexet "Hotels-snabb start", om det finns, och skapar ett nytt index baserat på index definitionen i filen "index. JSON". 
+1. Uncomment the following code in the `App` class. This code deletes the "hotels-quickstart" index, if it exists, and creates a new index based on the index definition in the "index.json" file. 
 
-    En paus på en sekund infogas efter begäran om att skapa index. Den här pausen säkerställer att indexet skapas innan du överför dokument.
+    A one-second pause is inserted after the index creation request. This pause ensures that the index is created before you upload documents.
 
     ```java
         if (client.indexExists()) { client.deleteIndex();}
@@ -564,14 +564,14 @@ Index definitionen för hotell innehåller enkla fält och ett komplext fält. E
           Thread.sleep(1000L); // wait a second to create the index
     ```
 
-1. Öppna fönstret **maven** -verktyg och kör det här maven-målet: `verify exec:java`
+1. Open the **Maven** tool window, and execute this maven goal: `verify exec:java`
 
-    När koden körs söker du efter ett "skapa index"-meddelande följt av en 201-svarskod. Den här svars koden bekräftar att indexet har skapats. Körningen ska avslutas med ett meddelande om att skapa ett meddelande och noll (0) avslutnings kod.
+    As the code runs, look for a "Creating index" message followed by a 201 response code. This response code confirms that the index was created. The run should end with a BUILD SUCCESS message and a zero (0) exit code.
     
-## <a name="2---load-documents"></a>2 Läs in dokument
+## <a name="2---load-documents"></a>2 - Load documents
 
-1. I fönstret **projekt** expanderar du käll trädet för att komma åt `src` >  `main` >`resources` > `service` mapp och lägga till en `hotels.json` fil. Det gör du genom att markera mappen `app`, trycka på ALT + INSERT, välja **fil**och ange fil namnet.
-1. Infoga följande hotell dokument i filen.
+1. In the **Project** window, expand the source tree to access the `src` >  `main` >`resources` > `service` folder, and add an `hotels.json` file. To do this, select the `app` folder, press Alt + Insert, select  **File**, and then enter the file name.
+1. Insert the following hotel documents into the file.
 
     ```json
     {
@@ -656,7 +656,7 @@ Index definitionen för hotell innehåller enkla fält och ett komplext fält. E
     }
     ```
 
-1. Infoga följande kod i klassen `SearchServiceClient`. Den här koden skapar URL: en för REST-tjänsten för att ladda upp hotell dokumenten till indexet och gör HTTP POST-begäran.
+1. Insert the following code into the `SearchServiceClient` class. This code builds the REST service URL to upload the hotel documents to the index, and then makes the HTTP POST request.
 
     ```java
     public boolean uploadDocuments(String documentsFile) throws IOException, InterruptedException {
@@ -675,30 +675,30 @@ Index definitionen för hotell innehåller enkla fält och ett komplext fält. E
     }
     ```
 
-1. Ta bort kommentaren till följande kod i klassen `App`. Den här koden överför dokumenten i "Hotels. JSON" till indexet.
+1. Uncomment the following code in the `App` class. This code uploads the documents in "hotels.json" to the index.
 
     ```java
     client.uploadDocuments("/service/hotels.json");
     Thread.sleep(2000L); // wait 2 seconds for data to upload
     ```
 
-    En paus på två sekunder infogas efter överförings förfrågan för att säkerställa att dokument inläsningen slutförs innan du skickar frågor till indexet.
+    A two-second pause is inserted after the upload request to ensure that the document loading process completes before you query the index.
 
-1. Öppna fönstret **maven** -verktyg och kör det här maven-målet: `verify exec:java`
+1. Open the **Maven** tool window, and execute this maven goal: `verify exec:java`
 
-    Eftersom du skapade ett index med "Hotels-snabb start" i föregående steg tar koden bort den och återskapar den igen innan du läser in hotellet-dokumenten.
+    Because you created a "hotels-quickstart" index in the previous step, the code will now delete it and recreate it again before loading the hotel documents.
 
-    När koden körs söker du efter meddelandet "överför dokument" följt av en 200-svarskod. Den här svars koden bekräftar att dokumenten överfördes till indexet. Körningen ska avslutas med ett meddelande om att skapa ett meddelande och noll (0) avslutnings kod.
+    As the code runs, look for an "Uploading documents" message followed by a 200 response code. This response code confirms that the documents were uploaded to the index. The run should end with a BUILD SUCCESS message and a zero (0) exit code.
 
 ## <a name="3---search-an-index"></a>3 – Söka i ett index
 
-Nu när du har läst in hotell dokumenten kan du skapa Sök frågor för att få åtkomst till hotell data.
+Now that you've loaded the hotels documents, you can create search queries to access the hotels data.
 
-1. Lägg till följande kod i klassen `SearchServiceClient`. Den här koden skapar URL: er för Azure Kognitiv sökning REST-tjänst för att söka i indexerade data och skriva ut Sök resultaten.
+1. Add the following code to the `SearchServiceClient` class. This code builds Azure Cognitive Search REST service URLs to search the indexed data and prints the search results.
 
-    Med `SearchOptions`-klassen och `createSearchOptions`-metoden kan du ange en delmängd av de tillgängliga Azure Kognitiv sökning REST API frågealternativen. Mer information om alternativ för REST API-frågor finns i [Sök dokument (Azure Kognitiv sökning REST API)](/rest/api/searchservice/search-documents).
+    The `SearchOptions` class and `createSearchOptions` method let you specify a subset of the available Azure Cognitive Search REST API query options. For more information on the REST API query options, see [Search Documents (Azure Cognitive Search REST API)](/rest/api/searchservice/search-documents).
 
-    Metoden `SearchPlus` skapar Sök frågans URL, gör sökningen och skriver sedan ut resultatet i-konsolen. 
+    The `SearchPlus` method creates the search query URL, makes the search request, and then prints the results to the console. 
 
     ```java
     public SearchOptions createSearchOptions() { return new SearchOptions();}
@@ -761,7 +761,7 @@ Nu när du har läst in hotell dokumenten kan du skapa Sök frågor för att få
     }
     ```
 
-1. I klassen `App` tar du bort kommentaren till följande kod. Den här koden konfigurerar fem olika frågor, inklusive söktext, frågeparametrar och data fält som ska returneras. 
+1. In the `App` class, uncomment the following code. This code sets up five different queries, including the search text, query parameters, and data fields to return. 
 
     ```java
     // Query 1
@@ -811,26 +811,23 @@ Nu när du har läst in hotell dokumenten kan du skapa Sök frågor för att få
 
 
 
-    Det finns två [sätt att matcha termer i en fråga](search-query-overview.md#types-of-queries): full texts ökning och filter. En fullständig text Sök fråga söker efter en eller flera termer i `IsSearchable`-fält i ditt index. Ett filter är ett booleskt uttryck som utvärderas över `IsFilterable`-fält i ett index. Du kan använda full texts ökning och filter tillsammans eller separat.
+    There are two [ways of matching terms in a query](search-query-overview.md#types-of-queries): full-text search, and filters. A full-text search query searches for one or more terms in `IsSearchable` fields in your index. A filter is a boolean expression that is evaluated over `IsFilterable` fields in an index. You can use full-text search and filters together or separately.
 
-1. Öppna fönstret **maven** -verktyg och kör det här maven-målet: `verify exec:java`
+1. Open the **Maven** tool window, and execute this maven goal: `verify exec:java`
 
-    Leta efter en sammanfattning av varje fråga och resultatet. Körningen måste slutföras med ett meddelande om att det är klart och en slutkod (0).
+    Look for a summary of each query and its results. The run should complete with BUILD SUCCESS message and a zero (0) exit code.
 
-## <a name="clean-up"></a>Rensa
+## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som har lämnats igång kostar dig pengar. Du kan ta bort resurser individuellt eller ta bort resurs gruppen för att ta bort hela uppsättningen resurser.
+When you're working in your own subscription, at the end of a project, it's a good idea to remove the resources that you no longer need. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
 
-Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurser** eller **resurs grupper** i det vänstra navigerings fönstret.
+You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
 
-Kom ihåg att du är begränsad till tre index, indexerare och data källor om du använder en kostnads fri tjänst. Du kan ta bort enskilda objekt i portalen för att hålla dig under gränsen. 
+If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här Java-snabb starten har du arbetat genom en serie aktiviteter för att skapa ett index, läsa in det med dokument och köra frågor. Om du är van vid grundläggande koncept rekommenderar vi följande artiklar för djupare inlärning.
+In this Java quickstart, you worked through a series of tasks to create an index, load it with documents, and run queries. If you are comfortable with the basic concepts, we recommend the following article that lists indexer operations in REST.
 
-+ [Index åtgärder](/rest/api/searchservice/index-operations)
-
-+ [Dokument åtgärder](/rest/api/searchservice/document-operations)
-
-+ [Indexerings åtgärder](/rest/api/searchservice/indexer-operations)
+> [!div class="nextstepaction"]
+> [Indexer operations](/rest/api/searchservice/indexer-operations)

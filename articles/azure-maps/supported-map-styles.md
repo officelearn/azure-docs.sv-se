@@ -1,6 +1,6 @@
 ---
-title: Kart format som stöds i Azure Maps | Microsoft Docs
-description: Kart format som stöds av Azure Maps
+title: Supported map styles in Azure Maps| Microsoft Docs
+description: Map styles supported by Azure Maps
 author: walsehgal
 ms.author: v-musehg
 ms.date: 05/06/2019
@@ -8,99 +8,101 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: cd16ee87b213c2bfa4c541c4d3c453a4499855d0
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 5368aec04eb0a57654adf5b0d5914282a979dcfd
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887737"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325398"
 ---
-# <a name="azure-maps-supported-map-styles"></a>Mappnings format som stöds Azure Maps
-Azure Maps stöder flera olika inbyggda kart format enligt beskrivningen nedan.
+# <a name="azure-maps-supported-map-styles"></a>Azure Maps supported map styles
+Azure Maps supports several different built-in map styles as described below.
 
-## <a name="road"></a>utanför
-En **väg** karta är en standard karta som visar vägar, naturliga och artificiella funktioner tillsammans med etiketter för dessa funktioner.
+## <a name="road"></a>road
+A **road** map is a standard map that displays roads, natural and artificial features along with the labels for those features.
 
-![utanför](./media/supported-map-styles/road.png)
+![road](./media/supported-map-styles/road.png)
 
-**Tillämpliga API: er:**
-* [Kart bild](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* [Kart panel](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
-* Kart kontroll för webb-SDK
-* Kontroll av Android-kartning
+**Applicable APIs:**
+* [Map image](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
+* [Map tile](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* Web SDK map control
+* Android map control
 
-## <a name="blank-and-blank_accessible"></a>Tom och blank_accessible
+## <a name="blank-and-blank_accessible"></a>blank and blank_accessible
 
-De **tomma** och **blank_accessible** kart formaten innehåller en tom arbets yta där du kan visualisera data på. **Blank_accessible** formatet fortsätter att tillhandahålla skärm läsar uppdateringar med plats information om var kartan finns, även om bas kartan inte visas.
+The **blank** and **blank_accessible** map styles provide a blank canvas on which to visualize data on. The **blank_accessible** style will continue to provide screen reader updates with location details of where the map is located, even though the base map is not displayed.
 
 > [!Note]
-> I webb-SDK kan du ändra bakgrunds färgen för kartan genom att ange CSS-`background-color`-formatet för elementet Map DIV.
+> In the web SDK you can change the background color of the map by setting the CSS `background-color` style of map DIV element.
 
-**Tillämpliga API: er:**
-* Kart kontroll för webb-SDK
+**Applicable APIs:**
+* Web SDK map control
 
-## <a name="satellite"></a>satellit 
-**Satellit** stilen är en kombination av satellit-och antenn bilder.
+## <a name="satellite"></a>satellite 
+The **satellite** style is a combination of satellite and aerial imagery.
 
-![satellit](./media/supported-map-styles/satellite.png)
+![satellite](./media/supported-map-styles/satellite.png)
 
-**Tillämpliga API: er:**
-* [Satellit panel](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
-* Kart kontroll för webb-SDK
-* Kontroll av Android-kartning
+**Applicable APIs:**
+* [Satellite tile](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
+* Web SDK map control
+* Android map control
 
 ## <a name="satellite_road_labels"></a>satellite_road_labels
-Den här kart stilen är en hybrid av vägar och etiketter som finns ovanpå satellit-och antenn bilder.
+This map style is a hybrid of roads and labels overlaid on top of satellite and aerial imagery.
 
 ![satellite_road_labels](./media/supported-map-styles/satellite_road_labels.png)
 
-**Tillämpliga API: er:**
-* Kart kontroll för webb-SDK
-* Kontroll av Android-kartning
+**Applicable APIs:**
+* Web SDK map control
+* Android map control
 
 ## <a name="grayscale_dark"></a>grayscale_dark
-**gråskala** är en mörk version av vägens kart stil.
+**grayscale dark** is a dark version of the road map style.
 
 ![gray_scale](./media/supported-map-styles/grayscale_dark.png)
 
-**Tillämpliga API: er:**
-* Kart kontroll för webb-SDK 
-* Kontroll av Android-kartning
+**Applicable APIs:**
+* [Map image](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
+* [Map tile](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* Web SDK map control 
+* Android map control
 
 
 ## <a name="grayscale_light"></a>grayscale_light
-**grå Skale lampor** är en låg version av vägens kart stil.
+**grayscale light** is a light version of the road map style.
 
-![grå ljus](./media/supported-map-styles/grayscale_light.png)
+![grayscale light](./media/supported-map-styles/grayscale_light.png)
 
-**Tillämpliga API: er:**
-* Kart kontroll för webb-SDK
-* Kontroll av Android-kartning
+**Applicable APIs:**
+* Web SDK map control
+* Android map control
 
 
-## <a name="night"></a>natten
-**natt** är en mörk version av kart formatet för vägar med färgade vägar och symboler.
+## <a name="night"></a>night
+**night** is a dark version of the road map style with colored roads and symbols.
 
-![natten](./media/supported-map-styles/night.png)
+![night](./media/supported-map-styles/night.png)
 
-**Tillämpliga API: er:**
-* Kart kontroll för webb-SDK
-* Kontroll av Android-kartning
+**Applicable APIs:**
+* Web SDK map control
+* Android map control
 
 ## <a name="road_shaded_relief"></a>road_shaded_relief
-en **nedtonad** avlastning är ett Azure Maps huvud format som har slutförts med hjälp av jordens profiler.
+**road shaded relief** is an Azure Maps main style completed with contours of the Earth.
 
-![skuggad reducering](./media/supported-map-styles/shaded-relief.png)
+![shaded relief](./media/supported-map-styles/shaded-relief.png)
 
-**Tillämpliga API: er:**
-* [Kart panel](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
-* Kart kontroll för webb-SDK
-* Kontroll av Android-kartning
+**Applicable APIs:**
+* [Map tile](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* Web SDK map control
+* Android map control
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om hur du anger ett kart format i Azure Maps:
+Learn about how to set a map style in Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Välj en kart stil](https://docs.microsoft.com/azure/azure-maps/choose-map-style)
+> [Choose a map style](https://docs.microsoft.com/azure/azure-maps/choose-map-style)

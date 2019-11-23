@@ -1,6 +1,6 @@
 ---
-title: Introduktion till ML-tjänster på Azure HDInsight
-description: Lär dig hur du använder ML-tjänster i HDInsight för att skapa program för stor data analys.
+title: Introduction to ML Services on Azure HDInsight
+description: Learn how to use ML Services on HDInsight to create applications for big data analysis.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,42 +8,42 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 06/12/2019
-ms.openlocfilehash: 782c860ca50c1ef12eda1ec33f29c5103b396349
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b04cc3a5e3a5680f7a16e890c39a4a7d83002bd7
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73665293"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74321663"
 ---
-# <a name="what-is-ml-services-in-azure-hdinsight"></a>Vad är ML-tjänster i Azure HDInsight
+# <a name="what-is-ml-services-in-azure-hdinsight"></a>What is ML Services in Azure HDInsight
 
-Microsoft Machine Learning Server är tillgängligt som ett distributions alternativ när du skapar HDInsight-kluster i Azure. Kluster typen som innehåller det här alternativet kallas **ml-tjänster**. Den här funktionen ger data vetenskaps-, statistiker-och R-programmerare med åtkomst på begäran till skalbara, distribuerade analys metoder på HDInsight.
+Microsoft Machine Learning Server is available as a deployment option when you create HDInsight clusters in Azure. The cluster type that provides this option is called **ML Services**. This capability provides data scientists, statisticians, and R programmers with on-demand access to scalable, distributed methods of analytics on HDInsight.
 
-Med ML tjänster i HDInsight får du de senaste funktionerna för R-baserade analyser på data uppsättningar i praktiskt taget vilken storlek som helst, som läses in på antingen Azure Blob eller Data Lake-lagring. Eftersom ML Services-kluster bygger på R med öppen källkod kan de R-baserade programmen som du skapar utnyttja alla R-paket med öppen källkod. Rutinerna i scaler, Microsofts Big data Analytics-paket är också tillgängliga.
+ML Services on HDInsight provides the latest capabilities for R-based analytics on datasets of virtually any size, loaded to either Azure Blob or Data Lake storage. Since ML Services cluster is built on open-source R, the R-based applications you build can leverage any of the 8000+ open-source R packages. The routines in ScaleR, Microsoft’s big data analytics package are also available.
 
-Edge-noden i ett kluster är en praktisk plats för att ansluta till klustret och köra R-skript. Med en Edge-nod kan du välja att köra de parallellt distribuerade funktionerna i skalan över gränserna för Edge-nodens Server. Du kan också köra dem över noderna i klustret med hjälp av skalnings tjänstens Hadoop-karta minska eller Apache Spark Compute-kontexter.
+The edge node of a cluster provides a convenient place to connect to the cluster and to run your R scripts. With an edge node, you have the option of running the parallelized distributed functions of ScaleR across the cores of the edge node server. You can also run them across the nodes of the cluster by using ScaleR’s Hadoop Map Reduce or Apache Spark compute contexts.
 
-De modeller eller förutsägelser som orsakas av analyser kan laddas ned för lokal användning. De kan också användas på andra platser i Azure, särskilt via [Azure Machine Learning Studio (klassisk)](https://studio.azureml.net) [-webb tjänst](../../machine-learning/studio/deploy-a-machine-learning-web-service.md).
+The models or predictions that result from analysis can be downloaded for on-premises use. They can also be operationalized elsewhere in Azure, in particular through [Azure Machine Learning Studio (classic)](https://studio.azureml.net) [web service](../../machine-learning/studio/deploy-a-machine-learning-web-service.md).
 
-## <a name="get-started-with-ml-services-on-hdinsight"></a>Kom igång med ML-tjänster i HDInsight
+## <a name="get-started-with-ml-services-on-hdinsight"></a>Get started with ML Services on HDInsight
 
-Om du vill skapa ett ML Services-kluster i Azure HDInsight väljer du kluster typen **ml Services** när du skapar ett HDInsight-kluster med hjälp av Azure Portal. Kluster typen ML-tjänster innehåller ML Server på datanoderna i klustret och på en Edge-nod, som fungerar som en landnings zon för ML service-baserad analys. Se [skapa Apache Hadoop kluster med hjälp av Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) för en genom gång av hur du skapar klustret.
+To create an ML Services cluster in Azure HDInsight, select the **ML Services** cluster type when creating an HDInsight cluster using the Azure portal. The ML Services cluster type includes ML Server on the data nodes of the cluster and on an edge node, which serves as a landing zone for ML Services-based analytics. See [Create Apache Hadoop clusters using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md) for a walkthrough on how to create the cluster.
 
-## <a name="why-choose-ml-services-in-hdinsight"></a>Varför bör man välja ML-tjänster i HDInsight?
+## <a name="why-choose-ml-services-in-hdinsight"></a>Why choose ML Services in HDInsight?
 
-ML-tjänster i HDInsight ger följande fördelar:
+ML Services in HDInsight provides the following benefits:
 
-### <a name="ai-innovation-from-microsoft-and-open-source"></a>AI-innovation från Microsoft och öppen källkod
+### <a name="ai-innovation-from-microsoft-and-open-source"></a>AI innovation from Microsoft and open-source
 
-  ML-tjänster innehåller hög skalbar, distribuerad uppsättning algoritmer som [RevoscaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), [revoscalepy](https://docs.microsoft.com/machine-learning-server/python-reference/revoscalepy/revoscalepy-package)och [microsoftML](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/microsoftml-package) som kan arbeta med data storlekar som är större än storleken på det fysiska minnet och körs på en mängd olika plattformar i en fördelat sätt. Läs mer om samlingen av Microsofts anpassade R- [paket](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) och [python-paket](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) som ingår i produkten.
+  ML Services includes highly scalable, distributed set of algorithms such as [RevoscaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), [revoscalepy](https://docs.microsoft.com/machine-learning-server/python-reference/revoscalepy/revoscalepy-package), and [microsoftML](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/microsoftml-package) that can work on data sizes larger than the size of physical memory, and run on a wide variety of platforms in a distributed manner. Learn more about the collection of Microsoft's custom [R packages](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) and [Python packages](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) included with the product.
   
-  ML-tjänster förenar dessa Microsoft-innovationer och bidrag från communityn för öppen källkod (R, python och AI-verktyg) allt ovanpå en enda plattform i företags klass. Ett Machine Learning-paket med R eller python kan fungera sida vid sida med en egen innovation från Microsoft.
+  ML Services bridges these Microsoft innovations and contributions coming from the open-source community (R, Python, and AI toolkits) all on top of a single enterprise-grade platform. Any R or Python open-source machine learning package can work side by side with any proprietary innovation from Microsoft.
 
-### <a name="simple-secure-and-high-scale-operationalization-and-administration"></a>Enkel, säker och driftsättning och administration med hög skala
+### <a name="simple-secure-and-high-scale-operationalization-and-administration"></a>Simple, secure, and high-scale operationalization and administration
 
-  Företag som förlitar sig på traditionella paradigm och miljöer investerar mycket tid och ansträngning mot driftsättning. Detta resulterar i fasta kostnader och fördröjningar, inklusive översättnings tiden för modeller, iterationer för att hålla dem giltiga och aktuella, reglerade godkännande och hantera behörigheter via driftsättning.
+  Enterprises relying on traditional paradigms and environments invest much time and effort towards operationalization. This results in inflated costs and delays including the translation time for models, iterations to keep them valid and current, regulatory approval, and managing permissions through operationalization.
 
-  ML-tjänster erbjuder [driftsättning](https://docs.microsoft.com/machine-learning-server/what-is-operationalization)i företags klass, i det fall när en maskin inlärnings modell har slutförts tar det bara några klick att generera webb tjänst-API: er. Dessa [webb tjänster](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services) finns i ett Server rutnät i molnet och kan integreras med branschspecifika program. Möjligheten att distribuera till ett elastiskt rutnät gör att du kan skala sömlöst med företagets behov, både för batch-och real tids resultat. Instruktioner finns i [OPERATIONALISERA ml-tjänster i HDInsight](r-server-operationalize.md).
+  ML Services offers enterprise grade [operationalization](https://docs.microsoft.com/machine-learning-server/what-is-operationalization), in that, after a machine learning model is completed, it takes just a few clicks to generate web services APIs. These [web services](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services) are hosted on a server grid in the cloud and can be integrated with line-of-business applications. The ability to deploy to an elastic grid lets you scale seamlessly with the needs of your business, both for batch and real-time scoring. For instructions, see [Operationalize ML Services on HDInsight](r-server-operationalize.md).
 
 <!---
 * **Deep ecosystem engagements to deliver customer success with optimal total cost of ownership**
@@ -51,97 +51,97 @@ ML-tjänster i HDInsight ger följande fördelar:
   Individuals embarking on the journey of making their applications intelligent or simply wanting to learn the new world of AI and machine learning, need the right resources to help them get started. In addition to this documentation, Microsoft provides several learning resources and has engaged several training partners to help you ramp up and become productive quickly.
 --->
 
-## <a name="key-features-of-ml-services-on-hdinsight"></a>Viktiga funktioner i ML-tjänster i HDInsight
+## <a name="key-features-of-ml-services-on-hdinsight"></a>Key features of ML Services on HDInsight
 
-Följande funktioner ingår i ML-tjänster i HDInsight.
+The following features are included in ML Services on HDInsight.
 
-| Funktions kategori | Beskrivning |
+| Feature category | Beskrivning |
 |------------------|-------------|
-| R-aktiverad | [R-paket](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) för lösningar som skrivits i r, med en distribution med öppen källkod av R och körnings infrastruktur för skript körning. |
-| Python-aktiverat | [Python-moduler](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) för lösningar som skrivits i python, med en distribution med öppen källkod av python och körnings infrastruktur för skript körning.
-| [Förtränade modeller](https://docs.microsoft.com/machine-learning-server/install/microsoftml-install-pretrained-models) | För analys av visuella analyser och text sentiment är det dags att visa data som du anger. |
-| [Distribuera och förbruka](r-server-operationalize.md) | Operationalisera servern och distribuera lösningar som en webb tjänst. |
-| [Fjärrkörning](r-server-hdinsight-manage.md#connect-remotely-to-microsoft-ml-services) | Starta fjärrsessioner på ML Services-kluster i nätverket från din klient dator. |
+| R-enabled | [R packages](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) for solutions written in R, with an open source distribution of R, and run-time infrastructure for script execution. |
+| Python-enabled | [Python modules](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) for solutions written in Python, with an open source distribution of Python, and run-time infrastructure for script execution.
+| [Pre-trained models](https://docs.microsoft.com/machine-learning-server/install/microsoftml-install-pretrained-models) | For visual analysis and text sentiment analysis, ready to score data you provide. |
+| [Deploy and consume](r-server-operationalize.md) | Operationalize your server and deploy solutions as a web service. |
+| [Remote execution](r-server-hdinsight-manage.md#connect-remotely-to-microsoft-ml-services) | Start remote sessions on ML Services cluster on your network from your client workstation. |
 
 
-## <a name="data-storage-options-for-ml-services-on-hdinsight"></a>Alternativ för data lagring för ML-tjänster i HDInsight
+## <a name="data-storage-options-for-ml-services-on-hdinsight"></a>Data storage options for ML Services on HDInsight
 
-Standard lagring för HDFS-filsystemet i HDInsight-kluster kan associeras med antingen ett Azure Storage konto eller ett Azure Data Lake Storage. Den här kopplingen ser till att alla data som överförs till kluster lagringen under analysen görs beständiga och att data är tillgängliga även efter att klustret har tagits bort. Det finns olika verktyg för att hantera data överföringen till det lagrings alternativ som du väljer, inklusive Portal-baserad uppladdnings funktion för lagrings kontot och [AzCopy](../../storage/common/storage-use-azcopy.md) -verktyget.
+Default storage for the HDFS file system of HDInsight clusters can be associated with either an Azure Storage account or an Azure Data Lake Storage. This association ensures that whatever data is uploaded to the cluster storage during analysis is made persistent and the data is available even after the cluster is deleted. There are various tools for handling the data transfer to the storage option that you select, including the portal-based upload facility of the storage account and the [AzCopy](../../storage/common/storage-use-azcopy.md) utility.
 
-Du kan välja att aktivera åtkomst till ytterligare blob-och data Lake Store under kluster etablerings processen oavsett vilket primärt lagrings alternativ som används.  Se [Azure Storage alternativ för ml-tjänster i HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-storage) -artikeln för att lära dig mer om hur du använder flera lagrings konton.
+You have the option of enabling access to additional Blob and Data lake stores during the cluster provisioning process regardless of the primary storage option in use.  See [Azure Storage options for ML Services on HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-storage) article to learn more about using multiple storage accounts.
 
-Du kan också använda [Azure Files](../../storage/files/storage-how-to-use-files-linux.md) som ett lagrings alternativ för att använda på Edge-noden. Med Azure Files kan du montera en fil resurs som har skapats i Azure Storage till Linux-filsystemet. Mer information om dessa alternativ för data lagring för ML-tjänster i HDInsight-kluster finns [Azure Storage alternativ för ml-tjänster i HDInsight](r-server-storage.md).
+You can also use [Azure Files](../../storage/files/storage-how-to-use-files-linux.md) as a storage option for use on the edge node. Azure Files enables you to mount a file share that was created in Azure Storage to the Linux file system. For more information about these data storage options for ML Services on HDInsight cluster, see [Azure Storage options for ML Services on HDInsight](r-server-storage.md).
 
-## <a name="access-ml-services-edge-node"></a>Edge-noden Access ML Services
+## <a name="access-ml-services-edge-node"></a>Access ML Services edge node
 
-Du kan ansluta till Microsoft ML Server på Edge-noden med hjälp av en webbläsare. Den installeras som standard när klustret skapas.  Du kan också ansluta till klustret Edge-noden från kommando raden med hjälp av SSH/SparaTillFil för att få åtkomst till R-konsolen.
+You can connect to Microsoft ML Server on the edge node using a browser. It is installed by default during cluster creation.  You can also connect to the cluster edge node from the command line by using SSH/PuTTY to access the R console.
 
-## <a name="develop-and-run-r-scripts"></a>Utveckla och köra R-skript
+## <a name="develop-and-run-r-scripts"></a>Develop and run R scripts
 
-De R-skript som du skapar och kör kan använda alla R-paket med öppen källkod utöver de parallella och distribuerade rutinerna som finns i skalnings biblioteket. I allmänhet körs ett skript som körs med ML-tjänster på Edge-noden i R-tolken på den noden. Undantag är de steg som krävs för att anropa en scaler-funktion med en beräknings kontext som är inställd på Hadoop Map reduce (RxHadoopMR) eller Spark (Rxspark beräkningskontexten). I det här fallet körs funktionen i ett distribuerat läge över dessa data (aktivitet) noder i klustret som är associerade med data som refereras till. Mer information om olika alternativ för beräknings kontexter finns i [alternativ för beräknings kontext för ml-tjänster i HDInsight](r-server-compute-contexts.md).
+The R scripts you create and run can use any of the 8000+ open-source R packages in addition to the parallelized and distributed routines available in the ScaleR library. In general, a script that is run with ML Services on the edge node runs within the R interpreter on that node. The exceptions are those steps that need to call a ScaleR function with a compute context that is set to Hadoop Map Reduce (RxHadoopMR) or Spark (RxSpark). In this case, the function runs in a distributed fashion across those data (task) nodes of the cluster that are associated with the data referenced. For more information about the different compute context options, see [Compute context options for ML Services on HDInsight](r-server-compute-contexts.md).
 
 ## <a name="operationalize-a-model"></a>Operationalisera en modell
 
-När data modelleringen är klar kan du operationalisera modellen för att göra förutsägelser för nya data antingen från Azure eller lokalt. Den här processen kallas för poängsättning. Du kan göra en beräkning i HDInsight, Azure Machine Learning eller lokalt.
+When your data modeling is complete, you can operationalize the model to make predictions for new data either from Azure or on-premises. This process is known as scoring. Scoring can be done in HDInsight, Azure Machine Learning, or on-premises.
 
-### <a name="score-in-hdinsight"></a>Poäng i HDInsight
+### <a name="score-in-hdinsight"></a>Score in HDInsight
 
-Skriv en R-funktion som anropar din modell för att göra förutsägelser för en ny datafil som du har läst in till ditt lagrings konto för att få poäng i HDInsight. Spara sedan förutsägelserna på lagrings kontot. Du kan köra den här rutinen på begäran på noden Edge i klustret eller genom att använda ett schemalagt jobb.
+To score in HDInsight, write an R function that calls your model to make predictions for a new data file that you've loaded to your storage account. Then, save the predictions back to the storage account. You can run this routine on-demand on the edge node of your cluster or by using a scheduled job.
 
-### <a name="score-in-azure-machine-learning-aml"></a>Poäng i Azure Machine Learning (AML)
+### <a name="score-in-azure-machine-learning-aml"></a>Score in Azure Machine Learning (AML)
 
-Om du vill använda Azure Machine Learning använder du det Azure Machine Learning R-paketet med öppen källkod som heter [azureml](https://cran.r-project.org/src/contrib/Archive/AzureML/) för att publicera din modell som en Azure-webbtjänst. För enkelhetens skull är det här paketet förinstallerat på Edge-noden. Använd sedan funktionerna i Azure Machine Learning för att skapa ett användar gränssnitt för webb tjänsten och anropa sedan webb tjänsten efter behov för att gå vidare.
+To score using Azure Machine Learning, use the open-source Azure Machine Learning R package known as [AzureML](https://cran.r-project.org/src/contrib/Archive/AzureML/) to publish your model as an Azure web service. For convenience, this package is pre-installed on the edge node. Next, use the facilities in Azure Machine Learning to create a user interface for the web service, and then call the web service as needed for scoring.
 
-Om du väljer det här alternativet måste du konvertera alla skalnings modell objekt till motsvarande modell objekt med öppen källkod för användning med webb tjänsten. Använd funktioner för skalnings tvång, till exempel `as.randomForest()` för Ensemble-baserade modeller, för den här konverteringen.
+If you choose this option, you must convert any ScaleR model objects to equivalent open-source model objects for use with the web service. Use ScaleR coercion functions, such as `as.randomForest()` for ensemble-based models, for this conversion.
 
-### <a name="score-on-premises"></a>Poängen lokalt
+### <a name="score-on-premises"></a>Score on-premises
 
-Om du vill att poängen ska vara lokalt när du har skapat din modell kan du serialisera modellen i R, ladda ned den, deserialisera den och sedan använda den för att bedöma nya data. Du kan räkna med nya data med hjälp av metoden som beskrivits tidigare i [Poäng i HDInsight](#score-in-hdinsight) eller med hjälp av [webb tjänster](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services).
+To score on-premises after creating your model, you can serialize the model in R, download it, de-serialize it, and then use it for scoring new data. You can score new data by using the approach described earlier in [Score in HDInsight](#score-in-hdinsight) or by using [web services](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services).
 
-## <a name="maintain-the-cluster"></a>Underhålla klustret
+## <a name="maintain-the-cluster"></a>Maintain the cluster
 
-### <a name="install-and-maintain-r-packages"></a>Installera och underhålla R-paket
+### <a name="install-and-maintain-r-packages"></a>Install and maintain R packages
 
-De flesta R-paket som du använder krävs på Edge-noden eftersom de flesta stegen i dina R-skript körs där. Om du vill installera ytterligare R-paket på Edge-noden kan du använda metoden `install.packages()` i R.
+Most of the R packages that you use are required on the edge node since most steps of your R scripts run there. To install additional R packages on the edge node, you can use the `install.packages()` method in R.
 
-Om du bara använder rutiner från skalnings biblioteket i klustret, behöver du vanligt vis inte installera ytterligare R-paket på datanoderna. Du kan dock behöva ytterligare paket för att stödja användningen av **rxExec** -eller **RxDataStep** -körning på datanoderna.
+If you are just using routines from the ScaleR library across the cluster, you do not usually need to install additional R packages on the data nodes. However, you might need additional packages to support the use of **rxExec** or **RxDataStep** execution on the data nodes.
 
-I sådana fall kan du installera ytterligare paket med en skript åtgärd när du har skapat klustret. Mer information finns i [Hantera ml-tjänster i HDInsight-kluster](r-server-hdinsight-manage.md).
+In such cases, the additional packages can be installed with a script action after you create the cluster. For more information, see [Manage ML Services in HDInsight cluster](r-server-hdinsight-manage.md).
 
-### <a name="change-apache-hadoop-mapreduce-memory-settings"></a>Ändra Apache Hadoop MapReduce minnes inställningar
+### <a name="change-apache-hadoop-mapreduce-memory-settings"></a>Change Apache Hadoop MapReduce memory settings
 
-Ett kluster kan ändras för att ändra mängden minne som är tillgängligt för ML-tjänster när ett MapReduce-jobb körs. Om du vill ändra ett kluster använder du Apache Ambari-ANVÄNDARGRÄNSSNITTET som är tillgängligt via bladet Azure Portal för klustret. Anvisningar om hur du kommer åt Ambari-ANVÄNDARGRÄNSSNITTET för klustret finns i [Hantera HDInsight-kluster med hjälp av Ambari-WEBBgränssnittet](../hdinsight-hadoop-manage-ambari.md).
+A cluster can be modified to change the amount of memory that is available to ML Services when it is running a MapReduce job. To modify a cluster, use the Apache Ambari UI that's available through the Azure portal blade for your cluster. For instructions about how to access the Ambari UI for your cluster, see [Manage HDInsight clusters using the Ambari Web UI](../hdinsight-hadoop-manage-ambari.md).
 
-Det är också möjligt att ändra mängden minne som är tillgängligt för ML-tjänster med hjälp av Hadoop-växlar i anropet till **RxHadoopMR** på följande sätt:
+It is also possible to change the amount of memory that is available to ML Services by using Hadoop switches in the call to **RxHadoopMR** as follows:
 
     hadoopSwitches = "-libjars /etc/hadoop/conf -Dmapred.job.map.memory.mb=6656"  
 
 ### <a name="scale-your-cluster"></a>Skala ditt kluster
 
-Ett befintligt ML-kluster i HDInsight kan skalas upp eller ned via portalen. Genom att skala upp kan du få den ytterligare kapacitet som du kan behöva för större bearbetnings uppgifter eller så kan du skala upp ett kluster när det är inaktivt. Instruktioner för hur du skalar ett kluster finns i [Hantera HDInsight-kluster](../hdinsight-administer-use-portal-linux.md).
+An existing ML Services cluster on HDInsight can be scaled up or down through the portal. By scaling up, you can gain the additional capacity that you might need for larger processing tasks, or you can scale back a cluster when it is idle. For instructions about how to scale a cluster, see [Manage HDInsight clusters](../hdinsight-administer-use-portal-linux.md).
 
-### <a name="maintain-the-system"></a>Underhålla systemet
+### <a name="maintain-the-system"></a>Maintain the system
 
-Underhåll för att tillämpa OS-korrigeringsfiler och andra uppdateringar utförs på de underliggande virtuella Linux-datorerna i ett HDInsight-kluster under andra tider. Normalt görs underhåll på 3:30 AM (baserat på den lokala tiden för den virtuella datorn) varje måndag och torsdag. Uppdateringar utförs på ett sådant sätt att de inte påverkar mer än en fjärdedel av klustret i taget.
+Maintenance to apply OS patches and other updates is performed on the underlying Linux VMs in an HDInsight cluster during off-hours. Typically, maintenance is done at 3:30 AM (based on the local time for the VM) every Monday and Thursday. Updates are performed in such a way that they don't impact more than a quarter of the cluster at a time.
 
-Eftersom huvudnoderna är redundanta och inte alla datanoder påverkas, kan alla jobb som körs under den här tiden sakta ned. De bör dock fortfarande köras till slut för ande. All anpassad program vara eller lokala data som du har bevaras över dessa underhålls händelser om inte ett oåterkalleligt fel uppstår som kräver en kluster återuppbyggnad.
+Since the head nodes are redundant and not all data nodes are impacted, any jobs that are running during this time might slow down. However, they should still run to completion. Any custom software or local data that you have is preserved across these maintenance events unless a catastrophic failure occurs that requires a cluster rebuild.
 
-## <a name="ide-options-for-ml-services-on-hdinsight"></a>IDE-alternativ för ML-tjänster i HDInsight
+## <a name="ide-options-for-ml-services-on-hdinsight"></a>IDE options for ML Services on HDInsight
 
-Linux Edge-noden i ett HDInsight-kluster är landnings zon för R-baserad analys. De senaste versionerna av HDInsight tillhandahåller en standard installation av RStudio-servern på Edge-noden som en webbläsarbaserad IDE. Användning av RStudio-servern som en IDE för utveckling och körning av R-skript kan vara betydligt mer produktiv än att bara använda R-konsolen.
+The Linux edge node of an HDInsight cluster is the landing zone for R-based analysis. Recent versions of HDInsight provide a default installation of RStudio Server on the edge node as a browser-based IDE. Use of RStudio Server as an IDE for the development and execution of R scripts can be considerably more productive than just using the R console.
 
-Dessutom kan du installera en Desktop IDE och använda den för att få åtkomst till klustret genom att använda en fjärran sluten MapReduce eller Spark Compute context. Alternativen omfattar Microsofts [R-verktyg för Visual Studio](https://www.visualstudio.com/features/rtvs-vs.aspx) (RTVS), RStudio och Walwares Sol förmörkelse-baserade [tillstånd](http://www.walware.de/goto/statet).
+Additionally, you can install a desktop IDE and use it to access the cluster through use of a remote MapReduce or Spark compute context. Options include Microsoft’s [R Tools for Visual Studio](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019) (RTVS), RStudio, and Walware’s Eclipse-based [StatET](http://www.walware.de/goto/statet).
 
-Dessutom kan du komma åt R-konsolen på Edge-noden genom att skriva **R** i kommando tolken i Linux när du har anslutit via SSH eller SparaTillFil. När du använder-konsol gränssnittet är det praktiskt att köra en text redigerare för R-skript utveckling i ett annat fönster och klippa ut och klistra in avsnitt i skriptet i R-konsolen efter behov.
+Additionally, you can access the R console on the edge node by typing **R** at the Linux command prompt after connecting via SSH or PuTTY. When using the console interface, it is convenient to run a text editor for R script development in another window, and cut and paste sections of your script into the R console as needed.
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 
-Priserna som är associerade med ett ML-kluster i ML-tjänster struktureras på samma sätt som priserna för andra typer av HDInsight-kluster. De baseras på storleken på de underliggande virtuella datorerna över namn-, data-och Edge-noderna, med tillägg av en prishöjning på en timme. Mer information finns i avsnittet om [priser för HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+The prices that are associated with an ML Services HDInsight cluster are structured similarly to the prices for other HDInsight cluster types. They are based on the sizing of the underlying VMs across the name, data, and edge nodes, with the addition of a core-hour uplift. For more information, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du använder ML-tjänster i HDInsight-kluster finns i följande avsnitt:
+To learn more about how to use ML Services on HDInsight clusters, see the following topics:
 
-* [Köra ett R-skript i ett ML Services-kluster i Azure HDInsight med RStudio-Server](machine-learning-services-quickstart-job-rstudio.md)
+* [Execute an R script on an ML Services cluster in Azure HDInsight using RStudio Server](machine-learning-services-quickstart-job-rstudio.md)
 * [Alternativ för beräkningskontexter för ML-tjänstkluster i HDInsight](r-server-compute-contexts.md)
-* [Lagrings alternativ för ML Services-kluster i HDInsight](r-server-storage.md)
+* [Storage options for ML Services cluster on HDInsight](r-server-storage.md)

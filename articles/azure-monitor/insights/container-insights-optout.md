@@ -1,47 +1,47 @@
 ---
-title: Så här stoppar du övervakningen av Azure Kubernetes service-klustret | Microsoft Docs
-description: Den här artikeln beskriver hur du kan avbryta övervakning av ditt Azure AKS-kluster med Azure Monitor för behållare.
+title: How to Stop Monitoring Your Azure Kubernetes Service cluster | Microsoft Docs
+description: This article describes how you can discontinue monitoring of your Azure AKS cluster with Azure Monitor for containers.
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 08/19/2019
-ms.openlocfilehash: 508bfa9cf7bff0084e7f0644ee5e053e683cb9cf
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: fe0155d6102dac12d5d4c01b78b1ddd45f9bee02
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554110"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74382247"
 ---
-# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Så här stoppar du övervakning av Azure Kubernetes service (AKS) med Azure Monitor för behållare
+# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>How to stop monitoring your Azure Kubernetes Service (AKS) with Azure Monitor for containers
 
-När du har aktiverat övervakning av AKS-klustret kan du stoppa övervakningen av klustret om du vill att du inte längre vill övervaka det. Den här artikeln visar hur du gör detta med hjälp av Azure CLI eller med de tillhandahållna Azure Resource Manager mallarna.  
+After you enable monitoring of your AKS cluster, you can stop monitoring the cluster if you decide you no longer want to monitor it. This article shows how to accomplish this using the Azure CLI or with the provided Azure Resource Manager templates.  
 
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Använd kommandot [AZ AKS Disable-addons](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) för att inaktivera Azure Monitor för behållare. Kommandot tar bort agenten från klusternoderna, den tar inte bort lösningen eller de data som redan har samlats in och lagrats i Azure Monitor resursen.  
+Use the [az aks disable-addons](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) command to disable Azure Monitor for containers. The command removes the agent from the cluster nodes, it does not remove the solution or the data already collected and stored in your Azure Monitor resource.  
 
 ```azurecli
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
 ```
 
-Om du vill aktivera övervakning för klustret igen går du till [Aktivera övervakning med Azure CLI](container-insights-enable-new-cluster.md#enable-using-azure-cli).
+To re-enable monitoring for your cluster, see [Enable monitoring using Azure CLI](container-insights-enable-new-cluster.md#enable-using-azure-cli).
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager-mall
 
-Det finns två Azure Resource Manager-mall som stöder borttagning av lösnings resurserna konsekvent och flera gånger i resurs gruppen. Det ena är en JSON-mall som anger konfigurationen för att stoppa övervakningen och den andra innehåller parameter värden som du konfigurerar för att ange AKS-kluster resurs-ID och resurs grupp som klustret har distribuerats i. 
+Provided are two Azure Resource Manager template to support removing the solution resources consistently and repeatedly in your resource group. One is a JSON template specifying the configuration to stop monitoring and the other contains parameter values that you configure to specify the AKS cluster resource ID and resource group that the cluster is deployed in. 
 
-Om du inte känner till konceptet att distribuera resurser med hjälp av en mall, se:
+If you're unfamiliar with the concept of deploying resources by using a template, see:
 * [Distribuera resurser med Resource Manager-mallar och Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
-* [Distribuera resurser med Resource Manager-mallar och Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
 >[!NOTE]
->Mallen måste distribueras i samma resurs grupp i klustret. Om du utelämnar andra egenskaper eller tillägg när du använder den här mallen kan det leda till att de tas bort från klustret. Till exempel *enableRBAC* för RBAC-principer som implementeras i klustret eller *aksResourceTagValues* IF-Taggar har angetts för AKS-klustret.  
+>The template needs to be deployed in the same resource group of the cluster. If you omit any other properties or add-ons when using this template, it can result in their removal from the cluster. For example, *enableRBAC* for RBAC policies implemented in your cluster, or *aksResourceTagValues* if tags are specified for the AKS cluster.  
 >
 
-Om du väljer att använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.27 eller senare. Du kan identifiera din version genom att köra `az --version`. Om du behöver installera eller uppgradera Azure CLI kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.27 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 ### <a name="create-template"></a>Skapa mallen
 
@@ -93,9 +93,9 @@ Om du väljer att använda Azure CLI måste du först installera och använda CL
     }
     ```
 
-2. Spara filen som **OptOutTemplate. JSON** i en lokal mapp.
+2. Save this file as **OptOutTemplate.json** to a local folder.
 
-3. Klistra in följande JSON-syntax i filen:
+3. Paste the following JSON syntax into your file:
 
     ```json
     {
@@ -119,21 +119,21 @@ Om du väljer att använda Azure CLI måste du först installera och använda CL
     }
     ```
 
-4. Redigera värdena för **aksResourceId** och **aksResourceLocation** med hjälp av värdena för AKS-klustret, som du hittar på **egenskaps** sidan för det valda klustret.
+4. Edit the values for **aksResourceId** and **aksResourceLocation** by using the values of the AKS cluster, which you can find on the **Properties** page for the selected cluster.
 
-    ![Sidan behållar egenskaper](media/container-insights-optout/container-properties-page.png)
+    ![Container properties page](media/container-insights-optout/container-properties-page.png)
 
-    När du är på sidan **Egenskaper** kopierar du även **arbets ytans resurs-ID**. Det här värdet krävs om du vill ta bort arbets ytan Log Analytics senare. Att ta bort Log Analytics arbets ytan utförs inte som en del av den här processen. 
+    While you are on the **Properties** page, also copy the **Workspace Resource ID**. This value is required if you decide you want to delete the Log Analytics workspace later. Deleting the Log Analytics workspace is not performed as part of this process. 
 
-    Redigera värdena för **aksResourceTagValues** så att de matchar de befintliga taggvärde som angetts för AKS-klustret.
+    Edit the values for **aksResourceTagValues** to match the existing tag values specified for the AKS cluster.
 
-5. Spara filen som **OptOutParam. JSON** i en lokal mapp.
+5. Save this file as **OptOutParam.json** to a local folder.
 
 6. Nu är det dags att distribuera den här mallen. 
 
-### <a name="remove-the-solution-using-azure-cli"></a>Ta bort lösningen med Azure CLI
+### <a name="remove-the-solution-using-azure-cli"></a>Remove the solution using Azure CLI
 
-Kör följande kommando med Azure CLI i Linux för att ta bort lösningen och rensa konfigurationen på ditt AKS-kluster.
+Execute the following command with Azure CLI on Linux to remove the solution and clean up the configuration on your AKS cluster.
 
 ```azurecli
 az login   
@@ -141,17 +141,17 @@ az account set --subscription "Subscription Name"
 az group deployment create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
 ```
 
-Konfigurations ändringen kan ta några minuter att slutföra. När det är klart visas ett meddelande som liknar följande som innehåller resultatet:
+The configuration change can take a few minutes to complete. When it's completed, a message similar to the following that includes the result is returned:
 
 ```azurecli
 ProvisioningState       : Succeeded
 ```
 
-### <a name="remove-the-solution-using-powershell"></a>Ta bort lösningen med PowerShell
+### <a name="remove-the-solution-using-powershell"></a>Remove the solution using PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Kör följande PowerShell-kommandon i mappen som innehåller mallen för att ta bort lösningen och rensa konfigurationen från ditt AKS-kluster.    
+Execute the following PowerShell commands in the folder containing the template to remove the solution and clean up the configuration from your AKS cluster.    
 
 ```powershell
 Connect-AzAccount
@@ -159,11 +159,14 @@ Select-AzSubscription -SubscriptionName <yourSubscriptionName>
 New-AzResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGroupName> -TemplateFile .\OptOutTemplate.json -TemplateParameterFile .\OptOutParam.json
 ```
 
-Konfigurations ändringen kan ta några minuter att slutföra. När det är klart visas ett meddelande som liknar följande som innehåller resultatet:
+The configuration change can take a few minutes to complete. When it's completed, a message similar to the following that includes the result is returned:
 
 ```powershell
 ProvisioningState       : Succeeded
 ```
 
-Om arbets ytan bara har skapats för att stödja övervakning av klustret och den inte längre behövs, måste du ta bort den manuellt. Om du inte är bekant med hur du tar bort en arbets yta, se [ta bort en Azure Log Analytics-arbetsyta med Azure Portal](../../log-analytics/log-analytics-manage-del-workspace.md). Glöm inte att du har kopierat **resurs-ID för arbets ytan** som vi kopierade tidigare i steg 4. du kommer att behöva det. 
+
+## <a name="next-steps"></a>Nästa steg
+
+If the workspace was created only to support monitoring the cluster and it's no longer needed, you have to manually delete it. If you are not familiar with how to delete a workspace, see [Delete an Azure Log Analytics workspace with the Azure portal](../../log-analytics/log-analytics-manage-del-workspace.md). Don't forget about the **Workspace Resource ID** copied earlier in step 4, you're going to need that. 
 

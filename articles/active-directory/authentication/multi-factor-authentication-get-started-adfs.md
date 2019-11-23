@@ -1,28 +1,28 @@
 ---
-title: Tvåstegsverifiering Azure MFA och AD FS - Azure Active Directory
+title: Two-step verification Azure MFA and ADFS - Azure Active Directory
 description: Det här är sidan om Azure Multi-Factor Authentication som beskriver hur du kommer igång med Azure MFA och AD FS.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58cfac56af9074e065431f6adbd44496adc7c7a6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 142b836a4f585f047c0789e3214c27ef9f07599f
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60414524"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381163"
 ---
 # <a name="getting-started-with-azure-multi-factor-authentication-and-active-directory-federation-services"></a>Komma igång med Azure Multi-Factor Authentication och Active Directory Federation Services
 
 <center>
 
-![Azure MFA och AD FS komma igång](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
+![Azure MFA and ADFS getting started](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
 
 Om din organisation har federerat det lokala Active Directory med Azure Active Directory med hjälp av AD FS finns det två Azure Multi-Factor Authentication-alternativ tillgängliga.
 

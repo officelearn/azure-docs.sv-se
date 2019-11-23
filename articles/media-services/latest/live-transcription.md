@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services Live-avskrift | Microsoft Docs
-description: Den här artikeln förklarar vad Azure Media Services Live-avskriften är.
+title: Azure Media Services live transcription | Microsoft Docs
+description: This article explains what the Azure Media Services live transcription is.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,33 +11,33 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 08/27/2019
+ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: 98084b9bb6f19d22c7995d3044bb32ceaa947dc5
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: a85f9f8b9d98f77cf673778f031d8f47f132fbe1
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74040429"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327348"
 ---
-# <a name="live-transcription-preview"></a>Direkt avskrift (för hands version)
+# <a name="live-transcription-preview"></a>Live transcription (preview)
 
-Azure Media service levererar video, ljud och nu text i olika protokoll. När du publicerar din Live Stream med MPEG-streck eller HLS/CMAF, tillsammans med video och ljud, kommer vår tjänst att leverera den inskrivna texten i IMSC 1.1-kompatibla TTML, förpackad i MPEG-4 del 30-fragment (ISO/IEC 14496-30). Om du använder leverans via HLS/TS levereras texten som segmenterad VTT. 
+Azure Media Service delivers video, audio, and now text in different protocols. When you publish your live stream using MPEG-DASH or HLS/CMAF, then along with video and audio, our service will deliver the transcribed text in IMSC1.1 compatible TTML, packaged into MPEG-4 Part 30 (ISO/IEC 14496-30) fragments. If using delivery via HLS/TS, then text is delivered as chunked VTT. 
 
-I den här artikeln beskrivs hur du aktiverar direkt avskrift när du strömmar en Live-händelse med Azure Media Services v3. Innan du fortsätter bör du kontrol lera att du är van att använda Media Services v3 REST-API: er (se [den här självstudien](stream-files-tutorial-with-rest.md) för mer information). Du bör också vara bekant med [Live streaming](live-streaming-overview.md) -konceptet. Vi rekommenderar att du slutför [Stream Live med Media Services](stream-live-tutorial-with-api.md) själv studie kursen). 
+This article describes how to enable live transcription when streaming a Live Event with Azure Media Services v3. Before you proceed, make sure you are familiar with the use of Media Services v3 REST APIs (see [this tutorial](stream-files-tutorial-with-rest.md) for details). You should also be familiar with the [live streaming](live-streaming-overview.md) concept. It is recommended to complete the [Stream live with Media Services](stream-live-tutorial-with-api.md) tutorial. 
 
 > [!NOTE]
-> Direkt avskrift är för närvarande endast tillgängligt som en förhands gransknings funktion i regionen USA, västra 2. Det stöder avskrift av talade ord på engelska till text. API-referensen för den här funktionen finns i det här dokumentet – eftersom det är en för hands version är informationen inte tillgänglig i våra REST-dokument. 
+> Currently, live transcription is only available as a preview feature in the West US 2 region. It supports transcription of spoken words in English to text. The API reference for this feature is in this document – since it is in preview, the details are not available with our REST documents. 
 
-## <a name="creating-the-live-event"></a>Skapa Live-händelsen 
+## <a name="creating-the-live-event"></a>Creating the Live Event 
 
-Om du vill skapa en Live-händelse skickar du åtgärden skicka till 2019-05-01-versionen, till exempel: 
+To create the Live Event, you would send the PUT operation to the 2019-05-01 version, such as: 
 
 ```
 PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/liveEvents/:liveEventName?api-version=2019-05-01-preview&autoStart=true 
 ```
 
-Åtgärden har följande text (där en direkt sändnings händelse skapas med RTMP som inmatnings protokoll). Observera tillägget av en avskrifts egenskap. Det enda tillåtna värdet för språket är en-US. 
+The operation has the following body (where a pass-through Live Event is created with RTMP as the ingest protocol). Note the addition of a transcriptions property. The only allowed value for language is en-US. 
 
 ```
 { 
@@ -87,24 +87,24 @@ PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:r
 } 
 ```
 
-Du bör avsöka status för direkt sändningen tills den hamnar i tillståndet "körs", vilket innebär att du nu kan skicka ett bidrags-RTMP-flöde. Du kan nu följa samma steg som i den här självstudien, till exempel för att kontrol lera förhands gransknings flödet och skapa Live-utdata. 
+You should poll the status of the Live Event until it goes into the “Running” state, which indicates that you can now send a contribution RTMP feed. You can now follow the same steps as in this tutorial, such as checking the preview feed, and creating Live Outputs. 
 
-## <a name="delivery-and-playback"></a>Leverans och uppspelning 
+## <a name="delivery-and-playback"></a>Delivery and playback 
 
-Läs artikeln [Översikt över dynamisk paketering](dynamic-packaging-overview.md#to-prepare-your-source-files-for-delivery) i hur tjänsten använder dynamisk paketering för att leverera video, ljud och nu text i olika protokoll. När du publicerar din Live Stream med MPEG-streck eller HLS/CMAF, tillsammans med video och ljud, kommer vår tjänst att leverera den inskrivna texten i IMSC 1.1-kompatibla TTML, förpackad i MPEG-4 del 30-fragment (ISO/IEC 14496-30). Om du använder leverans via HLS/TS levereras texten som segmenterad VTT. Du kan använda en webb spelare som [Azure Media Player](use-azure-media-player.md) för att spela upp strömmen.  
+Review the [Dynamic packaging overview](dynamic-packaging-overview.md#to-prepare-your-source-files-for-delivery) article of how our service uses dynamic packaging to deliver video, audio, and now text in different protocols. When you publish your live stream using MPEG-DASH or HLS/CMAF, then along with video and audio, our service will deliver the transcribed text in IMSC1.1 compatible TTML, packaged into MPEG-4 Part 30 (ISO/IEC 14496-30) fragments. If using delivery via HLS/TS, then text is delivered as chunked VTT. You can use a web player such as the [Azure Media Player](use-azure-media-player.md) to play the stream.  
 
 > [!NOTE]
->  Om du använder Azure Media Player använder du version 2.3.3 eller senare.
+>  If using Azure Media Player, use version 2.3.3 or later.
 
 ## <a name="known-issues"></a>Kända problem 
 
-I för hands versionen följer de kända problemen med direkt avskriftering 
+At preview, following are the known issues with Live Transcription 
 
-* Funktionen är endast tillgänglig i USA, västra 2.
-* Program måste använda API: erna för för hands versionen som beskrivs i specifikationen [Media Services v3 openapi Specification](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2019-05-01-preview/streamingservice.json) .
-* Det enda språk som stöds är engelska.
-* Med avseende på innehålls skydd stöds endast kryptering med AES-kuvert.
+* The feature is available only in West US 2.
+* Applications need to use the preview APIs, described in the [Media Services v3 OpenAPI Specification](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2019-05-01-preview/streamingservice.json) specification.
+* The only supported language is English.
+* With respect to content protection, only AES envelope encryption is supported.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Översikt över Media Services](media-services-overview.md)
+[Media Services overview](media-services-overview.md)

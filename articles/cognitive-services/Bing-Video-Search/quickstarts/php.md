@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Söka efter videor med REST API för videosökning i Bing och PHP'
+title: 'Quickstart: Search for videos using the REST API and PHP - Bing Video Search'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten för att skicka videosökningsbegäranden till REST API för videosökning i Bing med PHP
 services: cognitive-services
@@ -10,21 +10,21 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: 8ecbba5ef046a284e9b4134f8703580021adb9d8
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 481bc700f86dfd8a28c074134fd5dcc85bb748c4
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500110"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74378619"
 ---
-# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Snabbstart: Söka efter videor med REST API för videosökning i Bing och PHP
+# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Quickstart: Search for videos using the Bing Video Search REST API and PHP
 
-Använd den här snabbstarten för att skicka ditt första anrop till API:et för videosökning i Bing och få ett JSON-svar. Det här enkla JavaScript-programmet skickar en HTTP-videosökfråga till API:et och visar svaret. Även om det här programmet är skrivet i JavaScript och använder Node.js, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabbstarten för att skicka ditt första anrop till API:et för videosökning i Bing och visa ett sökresultat från JSON-svaret. Det här enkla JavaScript-programmet skickar en HTTP-videosökfråga till API:et och visar svaret. Även om det här programmet är skrivet i JavaScript och använder Node.js, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 Exempelkoden skrevs för att fungera med PHP 5.6.
 
-Teknisk information om API:erna finns i [API-referensen](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference).
+Referera till [API-referensen](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference) för teknisk information om API:erna.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * PHP 5.6 eller senare
 

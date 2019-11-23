@@ -1,18 +1,18 @@
 ---
-title: Skapa en Kubernetes Node. js-utvecklings miljö i molnet med VS Code
+title: 'Create a Kubernetes dev space: Visual Studio Code & Node.js'
 services: azure-dev-spaces
 ms.date: 09/26/2018
 ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
-ms.openlocfilehash: 46d15ddef0f6c58902b85304827a6dd5bd635a14
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: HT
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s
+ms.openlocfilehash: 32ff7554ca599b7d50a4c815083b97eda8b4e57e
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280176"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327306"
 ---
-# <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Komma igång med Azure Dev Spaces med Node.js
+# <a name="create-a-kubernetes-dev-space-visual-studio-code-and-nodejs-with-azure-dev-spaces"></a>Create a Kubernetes dev space: Visual Studio Code and Node.js with Azure Dev Spaces
 
 I den här guiden får du lära dig hur du:
 
@@ -21,7 +21,7 @@ I den här guiden får du lära dig hur du:
 - Effektivt utvecklar och testar din kod i en teammiljö.
 
 > [!Note]
-> **Om du får fastna när som** helst kan du läsa avsnittet [fel sökning](troubleshooting.md) .
+> **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section.
 
 ## <a name="install-the-azure-cli"></a>Installera Azure CLI
 Azure Dev Spaces kräver minimal konfiguration av den lokala datorn. Merparten av utvecklarmiljöns konfiguration lagras i molnet och kan delas med andra användare. Börja genom att ladda ned och köra [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -51,7 +51,7 @@ az account set --subscription <subscription ID>
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Skapa ett Kubernetes-kluster som är aktiverat för Azure Dev Spaces
 
-I kommando tolken skapar du resurs gruppen i en [region som stöder Azure dev Spaces][supported-regions].
+At the command prompt, create the resource group in a [region that supports Azure Dev Spaces][supported-regions].
 
 ```cmd
 az group create --name MyResourceGroup --location <region>
@@ -134,17 +134,17 @@ Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890a
 Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 ```
 
-Identifiera den offentliga URL: en för tjänsten i utdata från kommandot `up`. Den avslutas i `.azds.io`. I exemplet ovan är den offentliga URL: en `http://webfrontend.1234567890abcdef1234.eus.azds.io/`.
+Identify the public URL for the service in the output from the `up` command. It ends in `.azds.io`. In the above example, the public URL is `http://webfrontend.1234567890abcdef1234.eus.azds.io/`.
 
-Om du vill se din webbapp öppnar du den offentliga URL: en i en webbläsare. Observera också att `stdout` och `stderr` utdata strömmas till azds-fönstret för *spårnings* terminalen när du interagerar med din webbapp. Du kan också se spårnings information för HTTP-begäranden när de går igenom systemet. Detta gör det enklare för dig att spåra komplexa anrop i flera tjänster under utvecklingen. Instrumentation som lagts till av dev Spaces innehåller den här förfrågan spårningen.
+To see your web app, open the public URL in a browser. Also, notice `stdout` and `stderr` output is streamed to the *azds trace* terminal window as you interact with your web app. You'll also see tracking information for HTTP requests as they go through the system. This makes it easier for you to track complex multi-service calls during development. The instrumentation added by Dev Spaces provides this request tracking.
 
 > [!Note]
-> Förutom den offentliga URL: en kan du använda den alternativa `http://localhost:<portnumber>`-URL: en som visas i konsolens utdata. Om du använder URL: en för localhost kan det verka som att behållaren körs lokalt, men i själva verket körs den i Azure. I Azure dev Spaces används Kubernetes *Port-Forward-* funktioner för att mappa localhost-porten till den behållare som körs i AKS. Detta underlättar interaktion med tjänsten från den lokala datorn.
+> In addition to the public URL, you can use the alternative `http://localhost:<portnumber>` URL that is displayed in the console output. If you use the localhost URL, it may seem like the container is running locally, but actually it is running in Azure. Azure Dev Spaces uses Kubernetes *port-forward* functionality to map the localhost port to the container running in AKS. This facilitates interacting with the service from your local machine.
 
 ### <a name="update-a-content-file"></a>Uppdatera en innehållsfil
 Azure Dev Spaces handlar om mer än att bara få kod att köra i Kubernetes – det handlar om att du snabbt och löpande kan se effekten av dina kodändringar i en Kubernetes-miljö i molnet.
 
-1. Leta upp filen `./public/index.html` och gör en ändring i HTML-koden. Ändra till exempel sidans bakgrunds färg till en nyans av blått [på rad 15](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/public/index.html#L15):
+1. Leta upp filen `./public/index.html` och gör en ändring i HTML-koden. For example, change the page's background color to a shade of blue [on line 15](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/public/index.html#L15):
 
     ```html
     <body style="background-color: #95B9C7; margin-left:10px; margin-right:10px;">
@@ -160,7 +160,7 @@ Vad hände? Ändringar av innehållsfiler som HTML och CSS kräver inte att Node
 
 Du kan komma runt det här problemet genom att lägga till en `viewport`-metatagg:
 1. Öppna filen `./public/index.html`
-1. Lägg till en `viewport` meta-tagg i det befintliga `head`-elementet som börjar [på rad 6](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/public/index.html#L6):
+1. Add a `viewport` meta tag in the existing `head` element that starts [on line 6](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/public/index.html#L6):
 
     ```html
     <head>
@@ -198,7 +198,7 @@ I det här avsnittet ska du använda VS Code för att direkt felsöka våra cont
 ![](media/common/edit-refresh-see.png)
 
 > [!Note]
-> **Om du fastnar** läser du [felsökningsavsnittet](troubleshooting.md) eller skriver en kommentar på den här sidan.
+> **Om du fastnar** du kan när som helst referera till avsnittet [Felsökning](troubleshooting.md) eller lägga upp en kommentar på den här sidan.
 
 ### <a name="initialize-debug-assets-with-the-vs-code-extension"></a>Initiera felsökningstillgångar med VS Code-tillägget
 Du måste först konfigurera kodprojektet så att VS Code kommunicerar med vår utvecklarmiljö i Azure. VS Code-tillägget för Azure Dev Spaces har ett hjälpkommando för att konfigurera felsökningskonfigurationen. 
@@ -224,11 +224,11 @@ Tryck på **F5** för att felsöka koden i Kubernetes.
 På liknande sätt som med `up`-kommandot synkroniseras koden med utvecklingsmiljön när du startar felsökningen, och en container skapas och distribueras till Kubernetes. Den här gången är felsökaren kopplad till fjärrcontainern.
 
 > [!Tip]
-> Statusfältet för VS Code blir orange, vilket indikerar att fel söknings programmet är kopplat. Den visar också en klicknings bara URL, som du kan använda för att snabbt öppna din webbplats.
+> The VS Code status bar will turn orange, indicating that the debugger is attached. It will also display a clickable URL, which you can use to quickly open your site.
 
 ![](media/common/vscode-status-bar-url.png)
 
-Ange en Bryt punkt i en kod fil på Server sidan, till exempel inom `app.get('/api'...` på [rad 13 i `server.js`](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13). 
+Set a breakpoint in a server-side code file, for example within the `app.get('/api'...` on [line 13 of `server.js`](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13). 
 
     ```javascript
     app.get('/api', function (req, res) {
@@ -236,12 +236,12 @@ Ange en Bryt punkt i en kod fil på Server sidan, till exempel inom `app.get('/a
     });
     ```
 
-Uppdatera webb läsar sidan, eller tryck på knappen *Säg den igen* , så bör du trycka på Bryt punkten och gå igenom koden.
+Refresh the browser page, or press the *Say It Again* button, and you should hit the breakpoint and be able to step through code.
 
 Du har fullständig åtkomst till felsökningsinformation precis som när koden körs lokalt, t.ex. anropsstack, lokala variabler, undantagsinformation och så vidare.
 
 ### <a name="edit-code-and-refresh-the-debug-session"></a>Redigera koden och uppdatera felsökningssessionen
-Gör en kod redigering med fel söknings programmet aktiv. ändra till exempel Hello-meddelandet på [rad 13 i `server.js`](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13) igen:
+With the debugger active, make a code edit; for example, modify the hello message on [line 13 of `server.js`](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13) again:
 
 ```javascript
 app.get('/api', function (req, res) {
@@ -249,7 +249,7 @@ app.get('/api', function (req, res) {
 });
 ```
 
-Spara filen och klicka på knappen **starta om** i **rutan fel söknings åtgärder**. 
+Save the file, and in the **Debug actions pane**, click the **Restart** button. 
 
 ![](media/common/debug-action-refresh.png)
 

@@ -1,32 +1,26 @@
 ---
 title: 'Quickstart: Create a blueprint with PowerShell'
 description: In this quickstart, you use Azure Blueprints to create, define, and deploy artifacts using the PowerShell.
-ms.date: 08/21/2019
+ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: 5fdda0a995388a6f0d12d1b8441a257eecc43374
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ed337fa040804159dae3194de1befc43ff2b698f
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217083"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327470"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Quickstart: Define and Assign an Azure Blueprint with PowerShell
 
 När du skapar och tilldelar skisser kan definitionen av vanliga mönster utveckla återanvändbara och snabbt distribuerbara konfigurationer baserade på Resource Manager-mallar, principer, säkerhet med mera. I den här självstudien får du lära dig att använda Azure Blueprint för att utföra några av de vanliga uppgifter som rör generering, publicering och tilldelning av en skiss i din organisation. Du lär dig till exempel att:
 
-> [!div class="checklist"]
-> - Skapa en ny skiss och lägga till olika artefakter som stöds
-> - Göra ändringar i en befintlig skiss som fortfarande har **utkaststatus**
-> - Markera en skiss som redo att tilldelas med **Publicerad**
-> - Tilldela en skiss till en befintlig prenumeration
-> - Kontrollera statusen och förloppet för en tilldelad skiss
-> - Ta bort en skiss som har tilldelats till en prenumeration
+## <a name="prerequisites"></a>Krav
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
-
 If it isn't already installed, follow the instructions in [Add the Az.Blueprint module](./how-to/manage-assignments-ps.md#add-the-azblueprint-module) to install and validate the **Az.Blueprint** module from the PowerShell Gallery.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-blueprint"></a>Skapa en skiss
 
@@ -397,9 +391,7 @@ Remove-AzBlueprintAssignment -Name 'assignMyBlueprint'
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om [livscykeln för en skiss](./concepts/lifecycle.md).
-- Förstå hur du använder [statiska och dynamiska parametrar](./concepts/parameters.md).
-- Lär dig hur du anpassar [sekvensordningen för en skiss](./concepts/sequencing-order.md).
-- Lär dig hur du använder [resurslåsning för en skiss](./concepts/resource-locking.md).
-- Lär dig hur du [uppdaterar befintliga tilldelningar](./how-to/update-existing-assignments.md).
-- Lös problem som kan uppstå vid tilldelningen av en skiss med [allmän felsökning](./troubleshoot/general.md).
+In this quickstart, you've created, assigned, and removed a blueprint with PowerShell. To learn more about Azure Blueprints, continue to the blueprint lifecycle article.
+
+> [!div class="nextstepaction"]
+> [Learn about the blueprint lifecycle](./concepts/lifecycle.md)

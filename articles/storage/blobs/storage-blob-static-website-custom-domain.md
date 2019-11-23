@@ -1,20 +1,20 @@
 ---
-title: 'Självstudie: Aktivera anpassad domän med SSL på en statisk webbplats med hjälp av Azure CDN – Azure Storage'
+title: 'Tutorial: Enable custom domain & SSL for a static website in Azure'
 description: Lär dig hur du konfigurerar en anpassad domän för hantering av en statisk webbplats.
 author: normesta
 ms.service: storage
 ms.topic: tutorial
-ms.date: 05/22/2019
+ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: a65c0e677182eb224f6bfa7ed834740458b97098
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 893ac53dc9f0b6b162c5ec22e478cd15706e50fb
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847000"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327498"
 ---
-# <a name="tutorial-use-azure-cdn-to-enable-a-custom-domain-with-ssl-for-a-static-website"></a>Självstudie: Använda Azure CDN för att aktivera en anpassad domän med SSL för en statisk webbplats
+# <a name="tutorial-enable-custom-domain--ssl-for-a-static-website-in-azure"></a>Tutorial: Enable custom domain & SSL for a static website in Azure
 
 Den här självstudien är del två i en serie. Där lär du dig att aktivera en slutpunkt för anpassad domän med SSL för din statiska webbplats. 
 
@@ -26,9 +26,9 @@ I del två i serien lär du dig hur du:
 > * Skapa en CDN-slutpunkt på slutpunkten för den statisk webbplatsen
 > * Aktivera anpassad domän och SSL
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Innan du börjar med den här självstudien slutför du del ett [Självstudie: Hantera en statisk webbplats på Blob Storage](storage-blob-static-website-host.md). 
+Before you begin this tutorial, complete part one, [Tutorial: Host a static website on Blob Storage](storage-blob-static-website-host.md). 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -36,27 +36,27 @@ Kom igång genom att logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-cdn-endpoint-on-the-static-website-endpoint"></a>Skapa en CDN-slutpunkt på slutpunkten för den statisk webbplatsen
 
-1. Leta upp ditt lagrings konto i Azure Portal och Visa konto översikten.
+1. Locate your storage account in the Azure portal and display the account overview.
 1. Välj **Azure CDN** under menyn **Blob Service** för att konfigurera Azure CDN.
-1. I avsnittet **CDN-profil** anger du en ny eller befintlig CDN-profil. Mer information finns i [ Snabbstart: Skapa en Azure CDN-profil och CDN-slutpunkt](../../cdn/cdn-create-new-endpoint.md).
-1. Ange en pris nivå för CDN-slutpunkten. I den här självstudien används pris nivån **standard Akamai** , eftersom den sprids snabbt, vanligt vis inom några minuter. Andra pris nivåer kan ta längre tid att sprida, men de kan även ge andra fördelar. Mer information finns i [jämföra Azure CDN produkt funktioner](../../cdn/cdn-features.md).
-1. Ange ett namn på CDN-slutpunkten i fältet **namn på CDN-slutpunkt** . CDN-slutpunkten måste vara unik i Azure.
-1. Ange att du är den statiska webbplats slut punkten i fältet **Ursprungligt värdnamn** . Du hittar din statiska webbplats slut punkt genom att navigera till inställningarna för den **statiska webbplatsen** för ditt lagrings konto. Kopiera den primära slut punkten och klistra in den i CDN-konfigurationen, och ta bort protokoll identifieraren (*t. ex.* https).
+1. In the **CDN profile** section, specify a new or existing CDN profile. Mer information finns i [Snabbstart: Skapa en Azure CDN-profil och CDN-slutpunkt](../../cdn/cdn-create-new-endpoint.md).
+1. Specify a pricing tier for the CDN endpoint. This tutorial uses the **Standard Akamai** pricing tier, because it propagates quickly, typically within a few minutes. Other pricing tiers may take longer to propagate, but may also offer other advantages. For more information, see [Compare Azure CDN product features](../../cdn/cdn-features.md).
+1. In the **CDN endpoint name** field, specify a name for your CDN endpoint. The CDN endpoint must be unique across Azure.
+1. Specify your the static website endpoint in the **Origin hostname** field. To find your static website endpoint, navigate to the **Static website** settings for your storage account. Copy the primary endpoint and paste it into the CDN configuration, removing the protocol identifier (*e.g.* , HTTPS).
 
-    Följande bild visar ett exempel på en slut punkts konfiguration:
+    The following image shows an example endpoint configuration:
 
-    ![Skärm bild som visar exempel på CDN-slutpunkts konfiguration](media/storage-blob-static-website-custom-domain/add-cdn-endpoint.png)
+    ![Screenshot showing sample CDN endpoint configuration](media/storage-blob-static-website-custom-domain/add-cdn-endpoint.png)
 
-1. Skapa CDN-slutpunkten och vänta tills den har spridits.
-1. Kontrol lera att CDN-slutpunkten är korrekt konfigurerad genom att klicka på slut punkten för att navigera till dess inställningar. Från CDN-översikten för ditt lagrings konto letar du reda på slut punktens värdnamn och navigerar till slut punkten, som du ser i följande bild. Formatet på CDN-slutpunkten ser ut ungefär `https://staticwebsitesamples.azureedge.net`så här.
+1. Create the CDN endpoint and wait for it to propagate.
+1. To verify that the CDN endpoint is configured correctly, click on the endpoint to navigate to its settings. From the CDN overview for your storage account, locate the endpoint hostname, and navigate to the endpoint, as shown in the following image. The format of your CDN endpoint will be similar to `https://staticwebsitesamples.azureedge.net`.
 
-    ![Skärm bild som visar översikt över CDN-slutpunkt](media/storage-blob-static-website-custom-domain/verify-cdn-endpoint.png)
+    ![Screenshot showing overview of CDN endpoint](media/storage-blob-static-website-custom-domain/verify-cdn-endpoint.png)
 
-    När CDN-slutpunktens spridning är klar visar CDN-slutpunkten innehållet i filen index. html som du tidigare laddade upp till den statiska webbplatsen.
+    Once the CDN endpoint propagation is complete, navigating to the CDN endpoint displays the contents of the index.html file that you previously uploaded to your static website.
 
-1. Om du vill granska ursprungs inställningarna för CDN-slutpunkten navigerar du till **ursprung** under avsnittet **Inställningar** för CDN-slutpunkten. Du ser att fältet **ursprungs typ** är inställt på *anpassat ursprung* och att fältet **Ursprungligt värdnamn** visar din statiska webbplats slut punkt.
+1. To review the origin settings for your CDN endpoint, navigate to **Origin** under the **Settings** section for your CDN endpoint. You will see that the **Origin type** field is set to *Custom Origin* and that the **Origin hostname** field displays your static website endpoint.
 
-    ![Skärm bild som visar ursprungs inställningar för CDN-slutpunkt](media/storage-blob-static-website-custom-domain/verify-cdn-origin.png)
+    ![Screenshot showing Origin settings for CDN endpoint](media/storage-blob-static-website-custom-domain/verify-cdn-origin.png)
 
 ## <a name="enable-custom-domain-and-ssl"></a>Aktivera anpassad domän och SSL
 
@@ -64,19 +64,19 @@ Kom igång genom att logga in på [Azure-portalen](https://portal.azure.com/).
 
     ![Ange CNAME-post för www-underdomänen](media/storage-blob-static-website-custom-domain/subdomain-cname-record.png)
 
-1. I Azure Portal visar du inställningarna för CDN-slutpunkten. Navigera till **anpassade domäner** under **Inställningar** för att konfigurera den anpassade domänen och SSL-certifikatet.
+1. In the Azure portal, display the settings for your CDN endpoint. Navigate to **Custom domains** under **Settings** to configure the custom domain and the SSL certificate.
 1. Välj **Lägg till anpassad domän**, ange ditt domännamn och klicka sedan på **Lägg till**.
-1. Välj den nya anpassade domän mappningen för att etablera ett SSL-certifikat.
-1. Ange **anpassad domän-https** till **på**och klicka sedan på **Spara**. Det kan ta flera timmar att konfigurera din anpassade domän. Portalen visar förloppet som visas i följande bild.
+1. Select the new custom domain mapping to provision an SSL certificate.
+1. Set **Custom Domain HTTPS** to **ON**, then click **Save**. It may take several hours to configure your custom domain. The portal displays progress as shown in the following image.
 
-    ![Skärm bild som visar förloppet för anpassad domän konfiguration](media/storage-blob-static-website-custom-domain/configure-custom-domain-https.png)
+    ![Screenshot showing progress of custom domain configuration](media/storage-blob-static-website-custom-domain/configure-custom-domain-https.png)
 
-1. Testa mappningen av den statiska webbplatsen till din anpassade domän genom att gå till URL: en för din anpassade domän.
+1. Test the mapping of your static website to your custom domain by accessing the URL for your custom domain.
 
-Mer information om hur du aktiverar HTTPS för anpassade domäner finns [i Självstudier: Konfigurera HTTPS på en Azure CDN anpassad domän](../../cdn/cdn-custom-ssl.md).
+For more information about enabling HTTPS for custom domains, see [Tutorial: Configure HTTPS on an Azure CDN custom domain](../../cdn/cdn-custom-ssl.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 I del två av den här självstudien lärde du dig att konfigurera en anpassad domän med SSL i Azure CDN för din statiska webbplats.
 
-Mer information om hur du konfigurerar och använder Azure CDN finns i [Vad är Azure CDN?](../../cdn/cdn-overview.md).
+For more information about configuring and using Azure CDN, see [What is Azure CDN?](../../cdn/cdn-overview.md).

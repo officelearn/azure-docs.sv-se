@@ -1,5 +1,5 @@
 ---
-title: Snabb start`:` använda en hanterad identitet för att komma åt Azure Resource Manager – Azure AD
+title: Quickstart`:` Use a managed identity to access Azure Resource Manager - Azure AD
 description: En snabbstart som steg för steg beskriver hur du använder en systemtilldelad hanterad identitet för en virtuell Linux-dator för att få åtkomst till Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a322a32a2ac0f875d81e9c8400653afb0a99435
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 8ee10a73579e8533cd14ecfeeebab44e726ba16b
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74183440"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326323"
 ---
 # <a name="use-a-linux-vm-system-assigned-managed-identity-to-access-azure-resource-manager"></a>Använda en systemtilldelad hanterad identitet för en virtuell Linux-dator för åtkomst till Azure Resource Manager
 
@@ -52,7 +52,7 @@ Med hjälp av hanterade identiteter för Azure-resurser kan din kod hämta åtko
 
 ## <a name="get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-resource-manager"></a>Hämta en åtkomsttoken med hjälp av den virtuella datorns systemtilldelade hanterade identitet och använd den för att anropa Resource Manager 
 
-För att slutföra de här stegen behöver du en SSH-klient. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/about). Om du behöver hjälp att konfigurera SSH-klientens nycklar läser du [Använda SSH-nycklar med Windows i Azure](../../virtual-machines/linux/ssh-from-windows.md) eller [Så här skapar du säkert ett offentligt och ett privat SSH-nyckelpar för virtuella Linux-datorer i Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
+Om du vill slutföra de här stegen behöver du en SSH-klient. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/about). Om du behöver hjälp att konfigurera SSH-klientens nycklar läser du [Så här använder du SSH-nycklar med Windows i Azure](../../virtual-machines/linux/ssh-from-windows.md) eller [How to create and use an SSH public and private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md) (Skapa och använda SSH-nyckelpar med privata och offentliga nycklar för virtuella Linux-datorer i Azure).
 
 1. I portalen går du till den virtuella Linux-datorn och i **översikten** klickar du på **Anslut**.  
 2. **Anslut** till den virtuella datorn med valfri SSH-klient. 
@@ -65,7 +65,7 @@ För att slutföra de här stegen behöver du en SSH-klient. Om du använder Win
     ```
     
     > [!NOTE]
-    > Värdet för parametern ”resource” måste vara en exakt matchning av vad som förväntas av Azure AD.  Om Resource Manager-resurs-ID: t måste du ta med avslutande snedstreck på URI: n. 
+    > Värdet för parametern ”resource” måste vara en exakt matchning av vad som förväntas av Azure AD.  In the case of the Resource Manager resource ID, you must include the trailing slash on the URI. 
     
     Svaret innehåller den åtkomsttoken som du behöver för att komma åt Azure Resource Manager. 
     
@@ -81,7 +81,7 @@ För att slutföra de här stegen behöver du en SSH-klient. Om du använder Win
     "token_type":"Bearer"} 
     ```
     
-    Du kan använda den här åtkomsttoken för att komma åt Azure Resource Manager, till exempel för att läsa information om den resursgrupp som du tidigare gav den här virtuella datorn åtkomst till. Ersätt värdena för \<PRENUMERATIONs-ID\>, \<resurs grupp\>och \<ÅTKOMSTTOKEN\> med de som du skapade tidigare. 
+    Du kan använda den här åtkomsttoken för att komma åt Azure Resource Manager, till exempel för att läsa information om den resursgrupp som du tidigare gav den här virtuella datorn åtkomst till. Replace the values of \<SUBSCRIPTION ID\>, \<RESOURCE GROUP\>, and \<ACCESS TOKEN\> with the ones you created earlier. 
     
     > [!NOTE]
     > Eftersom URL:en är skiftlägeskänslig måste du använda exakt samma skiftläge som du använde tidigare när du namngav resursgruppen samt versalt ”G” i ”resourceGroup”.  
@@ -101,3 +101,4 @@ I den här snabbstarten har du lärt dig hur du använder en systemtilldelad han
 
 > [!div class="nextstepaction"]
 >[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
+>[Create, list or delete a user-assigned managed identity using Azure PowerShell](how-to-manage-ua-identity-powershell.md)

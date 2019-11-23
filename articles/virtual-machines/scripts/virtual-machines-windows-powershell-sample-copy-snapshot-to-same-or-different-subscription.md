@@ -14,20 +14,20 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/28/2019
 ms.author: ramankum
-ms.openlocfilehash: 13add6614af8d3ad76e820228b748c0084a29876
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 9f61b2a74639b36ebef4c5af627d5da93de1393c
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039804"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326346"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-in-same-subscription-or-different-subscription-with-powershell"></a>Kopiera en ögonblicksbild av en hanterad disk i sammaprenumeration eller en annan prenumeration med PowerShell
 
-Det här skriptet kopierar en ögonblicksbild av en hanterad disk till samma eller en annan prenumeration. Använd det här skriptet för följande scenarier:
+Det här skriptet kopierar en ögonblicksbild av en hanterad disk till samma eller en annan prenumeration. Use this script for the following scenarios:
 
-1. Migrera en ögonblicks bild i Premium Storage (Premium_LRS) till standard lagring (Standard_LRS eller Standard_ZRS) för att minska kostnaderna.
-1. Migrera en ögonblicks bild från lokalt redundant lagring (Premium_LRS Standard_LRS) till zonens redundanta lagring (Standard_ZRS) för att dra nytta av ZRS-lagringens högre tillförlitlighet.
-1. Flytta en ögonblicks bild till en annan prenumeration i samma region för längre kvarhållning.
+1. Migrate a snapshot in Premium storage (Premium_LRS) to Standard storage (Standard_LRS or Standard_ZRS) to reduce your cost.
+1. Migrate a snapshot from locally redundant storage (Premium_LRS, Standard_LRS) to zone redundant storage (Standard_ZRS) to benefit from the higher reliability of ZRS storage.
+1. Move a snapshot to different subscription in the same region for longer retention.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
@@ -46,7 +46,7 @@ Det här skriptet använder följande kommandon för att skapa en ögonblicksbil
 | Kommando | Anteckningar |
 |---|---|
 | [New-AzSnapshotConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzSnapshotConfig) | Skapar konfiguration av ögonblicksbild som används för att skapa ögonblicksbilder. Den innehåller resurs-ID:t för den överordnade ögonblicksbilden och den plats som är samma som för den överordnade ögonblicksbilden.  |
-| [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | Skapar en ögonblicksbild med hjälp av konfiguration av ögonblicksbild, namn på ögonblicksbild och resursgruppens namn som parametrar. |
+| [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) | Skapar en ögonblicksbild med hjälp av konfiguration av ögonblicksbild, namn på ögonblicksbild och resursgruppens namn som parametrar. |
 
 ## <a name="next-steps"></a>Nästa steg
 

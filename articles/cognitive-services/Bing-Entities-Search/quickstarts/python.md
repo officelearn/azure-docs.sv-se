@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skicka en sökbegäran till REST API för entitetssökning i Bing med hjälp av Python'
+title: 'Quickstart: Send a search request to the REST API using Python - Bing Entity Search'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten om du vill skicka en begäran till REST API för entitetssökning i Bing med hjälp av Python och få ett JSON-svar.
 services: cognitive-services
@@ -10,20 +10,20 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: fa306ecd7690085d96f561fcf7e043064013344d
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 52695cca2fe49829705ac2283c9f083ada8ae0b0
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478952"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327094"
 ---
-# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-python"></a>Snabbstart: Skicka en sökbegäran till REST API för entitetssökning i Bing med hjälp av Python
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-python"></a>Quickstart: Send a search request to the Bing Entity Search REST API using Python
 
 Använd den här snabbstarten för att göra ditt första anrop till API för entitetssökning i Bing och visa JSON-svaret. Det här enkla Python-programmet skickar en nyhetssökfråga till API:et och visar svaret. Källkoden till det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py).
 
 Även om det här programmet är skrivet i Python, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Python](https://www.python.org/downloads/) 2.x eller 3.x
 

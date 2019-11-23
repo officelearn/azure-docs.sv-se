@@ -1,387 +1,380 @@
 ---
-title: Ethereum proof-of-Authority Consortium – Azure
-description: Använd Ethereum-lösningen för att distribuera och konfigurera ett Ethereum nätverk i flera medlems konsortier
-services: azure-blockchain
-keywords: ''
-author: CodyBorn
-ms.author: coborn
+title: Deploy Ethereum Proof-of-Authority consortium solution template on Azure
+description: Use the Ethereum Proof-of-Authority Consortium solution to deploy and configure a multi-member consortium Ethereum network on Azure
 ms.date: 04/08/2019
 ms.topic: article
-ms.service: azure-blockchain
-ms.reviewer: brendal
-manager: vamelech
-ms.openlocfilehash: 01b9f7f74077737ea95a56bbe81f440db425bf0c
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.reviewer: coborn
+ms.openlocfilehash: c3e449c1d6ebaf7c6cb2c35dc9f91d55f569447a
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698459"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326177"
 ---
-# <a name="ethereum-proof-of-authority-consortium"></a>Ethereum-proof – of-Authority-konsortiet
+# <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Deploy Ethereum proof-of-authority consortium solution template on Azure
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>Översikt
-[Den här lösningen](https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium) är utformad för att göra det enklare att distribuera, konfigurera och styra Ethereum-nätverk med flera medlems konsortier med minimala kunskaper om Azure och Ethereum.
+[The Ethereum Proof-of-Authority Consortium Azure solution template](https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium) is designed to make it easier to deploy, configure, and govern a multi-member consortium Proof-of-authority Ethereum network with minimal Azure and Ethereum knowledge.
 
-Med en fåtal med indata från användaren och en enkel klicknings distribution via Azure Portal kan varje medlem etablera ett nätverk med hjälp av Microsoft Azure beräknings-, nätverks-och lagrings tjänster världen över. Varje medlems nätverks storlek består av en uppsättning belastningsutjämnade validator-noder som ett program eller en användare kan använda för att skicka Ethereum transaktioner.
+With a handful of user inputs and a single-click deployment through the Azure portal, each member can provision a network footprint, using Microsoft Azure Compute, networking, and storage services across the globe. Each member's network footprint consists of a set of load-balanced validator nodes with which an application or user can interact to submit Ethereum transactions.
 
-## <a name="concepts"></a>Begrepp
+## <a name="concepts"></a>Koncept
 
 ### <a name="terminology"></a>Terminologi
 
--   **Konsensus** – syftet med synkroniseringen av data i det distribuerade nätverket genom validering och skapande av block.
+-   **Consensus** - The act of synchronizing data across the distributed network through block validation and creation.
 
--   **Konsortiet medlem** – en enhet som deltar i samförstånd i blockchain-nätverket.
+-   **Consortium member** - An entity that participates in consensus on the Blockchain network.
 
--   **Admin** – ett Ethereum-konto som används för att hantera deltagande för en specifik konsortiums medlem.
+-   **Admin** - An Ethereum account that is used to manage participation for a given consortium member.
 
--   **Validator** – en dator som är kopplad till ett Ethereum-konto som deltar i samförstånd för en administratörs räkning.
+-   **Validator** - A machine associated with an Ethereum account that participates in consensus on behalf of an Admin.
 
-### <a name="proof-of-authority"></a>Proof-of-Authority
+### <a name="proof-of-authority"></a>Proof-of-authority
 
-För de som är nya för blockchain-communityn är lanseringen av den här lösningen en bra möjlighet att lära sig mer om tekniken på ett enkelt och konfigurerbart sätt i Azure. Proof-of-Work är en Sybil mekanism som utnyttjar beräknings kostnader för att själv reglera nätverket och tillåta rättvis medverkan. Detta fungerar bra i anonyma öppna blockchain-nätverk där konkurrensen för kryptovalutor höjer säkerheten i nätverket. I privata/konsortier-nätverk har den bakomliggande etern dock inget värde. Ett alternativt protokoll, bevis-från-myndighet, är lämpligare för tillåtna nätverk där alla konsensus deltagare är kända och välkända. Utan att behöva utvinnas behöver du mer effektiv bevisning från auktoritet samtidigt som du behåller Byzantine fel tolerans.
+For those of you who are new to the blockchain community, the release of this solution is a great opportunity to learn about the technology in an easy and configurable manner on Azure. Proof-of-work is a Sybil-resistance mechanism that leverages computation costs to self-regulate the network and allow fair participation. This works great in anonymous, open blockchain networks where competition for cryptocurrency promotes security on the network. However, in private/consortium networks the underlying Ether has no value. An alternative protocol, proof-of-authority, is more suitable for permitted networks where all consensus participants are known and reputable. Without the need for mining, Proof-of-authority is more efficient while still retaining Byzantine fault tolerance.
 
-### <a name="consortium-governance"></a>Konsortiets styrning
+### <a name="consortium-governance"></a>Consortium governance
 
-Eftersom bevis på auktoritet förlitar sig på en tillåten lista över nätverks certifikat för att hålla nätverket felfritt, är det viktigt att tillhandahålla en rättvis mekanism för att göra ändringar i behörighets listan. Varje distribution levereras med en uppsättning smarta kontrakt och portaler för styrning av den här listan över tillåtna användare. När en föreslagen ändring når en majoritets röst av konsortiets medlemmar, är ändringen i sitt beslut. På så sätt kan nya konsensus deltagare läggas till eller komprometterade deltagare tas bort på ett transparent sätt som uppmuntrar ett Honest-nätverk.
+Since proof-of-authority relies upon a permitted list of network authorities to keep the network healthy, it's important to provide a fair mechanism to make modifications to this permission list. Each deployment comes with a set of smart-contracts and portal for on-chain governance of this permitted list. Once a proposed change reaches a majority vote by consortium members, the change is enacted. This allows new consensus participants to be added or compromised participants to be removed in a transparent way that encourages an honest network.
 
-### <a name="admin-account"></a>Administratörskonto
+### <a name="admin-account"></a>Admin account
 
-Under distributionen av noderna för proof-of-Authority uppmanas du att ange en admin Ethereum-adress. Du kan använda flera olika metoder för att skapa och skydda det här Ethereum-kontot. När den här adressen har lagts till som en auktoritet i nätverket kan du använda det här kontot för att delta i styrning. Det här administratörs kontot kommer också att användas för att delegera konsensus deltagande till de validerade noder som skapas som en del av den här distributionen. Eftersom endast den offentliga Ethereum-adressen används, har varje administratör flexibiliteten att skydda sina privata nycklar på ett sätt som följer den önskade säkerhets modellen.
+During the deployment of the proof-of-authority nodes, you'll be asked for an Admin Ethereum address. You may use several different mechanisms to generate and secure this Ethereum account. Once this address is added as an authority on the network, you can use this account to participate in governance. This admin account will also be used to delegate consensus participation to the validator nodes that are created as part of this deployment. Since only the public Ethereum address is used, each admin has the flexibility to secure their private keys in a way that follows their wanted security model.
 
-### <a name="validator-node"></a>Validator-nod
+### <a name="validator-node"></a>Validator node
 
-I proof-of-Authority-protokollet tar verifierade noder platsen för traditionella Miner-noder. Varje verifierare har en unik Ethereum-identitet som läggs till i en lista med Smart-kontrakt behörighet. När en verifierare finns i listan kan den delta i processen för att skapa block. Mer information om den här processen finns i paritets dokumentationen om [auktoritets rundan](https://wiki.parity.io/Aura). Varje konsortiums medlem kan etablera två eller fler verifierade noder i fem regioner för GEO-redundans. Validator-noder kommunicerar med andra validator-noder för att komma till enighet om status för den underliggande distribuerade redovisningen.
-För att säkerställa ett rättvist deltagande i nätverket, är varje medlem av konsortiet förbjuden från att använda fler verifierare än den första medlemmen i nätverket (om den första medlemmen distribuerar tre verifierare får varje medlem bara ha upp till tre verifierare).
+In the proof-of-authority protocol, validator nodes take the place of traditional miner nodes. Each validator has a unique Ethereum identity that gets added to a smart-contract permission list. Once a validator is on this list, it can participate in the block creation process. To learn more about this process, see Parity's documentation on [Authority Round consensus](https://wiki.parity.io/Aura). Each consortium member can provision two or more validator nodes across five regions, for geo-redundancy. Validator nodes communicate with other validator nodes to come to consensus on the state of the underlying distributed ledger.
+To ensure fair participation on the network, each consortium member is prohibited from using more validators than the first member on the network (if the first member deploys three validators, each member can only have up to three validators).
 
-### <a name="identity-store"></a>Identitets Arkiv
+### <a name="identity-store"></a>Identity store
 
-Eftersom varje medlem kommer att ha flera verifierare som körs samtidigt och varje nod måste ha en tillåten identitet, är det viktigt att verifierarna kan få en unik Active identitet i nätverket på ett säkert sätt. För att göra det enklare har vi skapat ett identitets lager som distribueras i varje medlems prenumeration som på ett säkert sätt har genererade Ethereum-identiteter. Vid distributionen genererar Orchestration-behållaren en privat Ethereum-nyckel för varje verifierare och lagrar den i Azure Key Vault. Innan paritets-noden startar får den först ett lån på en oanvänd identitet för att se till att identiteten inte hämtas av en annan nod. Identiteten tillhandahålls till klienten som ger den behörighet att börja skapa block. Om den värdbaserade virtuella datorn upplever ett avbrott frigörs identitets lånet, så att en ersättande nod kan återuppta sin identitet i framtiden.
+Since each member will have multiple validator nodes running simultaneously and each node must have a permitted identity, it's important that the validators can safely acquire a unique active identity on the network. To make this easier, we've built an Identity Store that gets deployed in each member's subscription that securely holds the generated Ethereum identities. Upon deployment, the orchestration container will generate an Ethereum private key for each validator and store it in Azure Key Vault. Before the parity node starts up, it first acquires a lease on an unused identity to ensure the identity isn't picked up by another node. The identity is provided to the client which gives it the authority to start creating blocks. If the hosting VM experiences an outage, the identity lease will be released, allowing a replacement node to resume its identity in the future.
 
-### <a name="bootnode-registrar"></a>Bootnode registrator
+### <a name="bootnode-registrar"></a>Bootnode registrar
 
-För att under lätta anslutningen kommer varje medlem att vara värd för en uppsättning anslutnings information på [data-API](#data-api)-slutpunkten. Dessa data innehåller en lista över bootnodes som tillhandahålls som peering-noder för den anslutande medlemmen. Som en del av detta data-API håller vi den här bootnode-listan uppdaterad
+To enable the ease of connectivity, each member will host a set of connection information at the [data API endpoint](#data-api). This data includes a list of bootnodes that are provided as peering nodes for the joining member. As part of this data API, we keep this bootnode list up-to-date
 
-### <a name="bring-your-own-operator"></a>Ta med din egen operatör
+### <a name="bring-your-own-operator"></a>Bring your own operator
 
-En konsortiums medlem kommer ofta att vilja delta i nätverks styrning, men vill inte använda och upprätthålla sin infrastruktur. Till skillnad från traditionella system fungerar en enda operatör över nätverket mot den decentraliserade modellen med blockchain-system. I stället för att anlita en centraliserad mellanhand för att kunna använda ett nätverk kan varje konsortium delegera infrastruktur hantering till operatören om de väljer. På så sätt kan en hybrid modell där varje medlem kan välja att använda sin egen infrastruktur eller delegera drift till en annan partner. Arbets flödet delegerad åtgärd fungerar på följande sätt:
+Often a consortium member will want to participate in network governance but don't want to operate and maintain their infrastructure. Unlike traditional systems, having a single operator across the network works against the decentralized model of blockchain systems. Instead of hiring a centralized intermediary to operate a network, each consortium member can delegate infrastructure management to the operator of their choosing. This allows a hybrid model where each member can choose to operate their own infrastructure or delegate operation to a different partner. The delegated operation workflow works as follows:
 
-1.  **Konsortiet medlem** genererar en Ethereum-adress (innehar privat nyckel)
+1.  **Consortium Member** generates an Ethereum address (holds private key)
 
-2.  **Konsortiet medlem** tillhandahåller en offentlig Ethereum- adress till operatören
+2.  **Consortium Member** provides public Ethereum address to **Operator**
 
-3.  **Operatorn** distribuerar och konfigurerar POA validator-noder med vår Azure Resource Manager-lösning
+3.  **Operator** deploys and configures the PoA validator nodes using our Azure Resource Manager solution
 
-4.  **Operatör** ger RPC-och hanterings slut punkten till **konsortiet medlem**
+4.  **Operator** provides the RPC and management endpoint to **Consortium Member**
 
-5.  **Konsortiets medlem** använder sin privata nyckel för att signera en begäran som accepterar att operatorn validera noder har distribuerats för att delta i deras räkning
+5.  **Consortium Member** uses their private key to sign a request accepting the validator nodes **Operator** has deployed to participate on their behalf
 
 ### <a name="azure-monitor"></a>Azure Monitor
 
-Den här lösningen levereras också med Azure Monitor för att spåra nodens och nätverks statistik. För programutvecklare ger detta insyn i de underliggande blockchain för att spåra block generations statistik. Nätverks operatörer kan använda Azure Monitor för att snabbt upptäcka och förhindra nätverks avbrott genom infrastruktur statistik och frågor som kan loggas. Mer information finns i [tjänst övervakning](#service-monitoring).
+This solution also comes with Azure Monitor to track node and network statistics. For application developers, this provides visibility into the underlying blockchain to track block generation statistics. Network operators can use Azure Monitor to quickly detect and prevent network outages through infrastructure statistics and queryable logs. For more information, see [Service monitoring](#service-monitoring).
 
-### <a name="deployment-architecture"></a>Distributions arkitektur
+### <a name="deployment-architecture"></a>Deployment architecture
 
 #### <a name="description"></a>Beskrivning
 
-Den här lösningen kan distribuera ett enda eller flera regioner som baseras på ett Ethereum konsortium-nätverk med flera medlemmar. Som standard är RPC-och peering-slutpunkterna tillgängliga över offentlig IP för att möjliggöra förenklad anslutning mellan prenumerationer och moln. Vi rekommenderar att du använder [paritets godkännande avtal](https://wiki.parity.io/Permissioning) för åtkomst på program nivå. Vi har även stöd för nätverk som distribuerats bakom VPN, som utnyttjar VNet-gatewayer för anslutningar mellan prenumerationer. De här distributionerna är mer komplexa, så vi rekommenderar att du börjar med den offentliga IP-modellen först.
+This solution can deploy a single or multi-region based multi-member Ethereum consortium network. By default, the RPC and peering endpoints are accessible over public IP to enable simplified connectivity across subscriptions and clouds. We recommend leveraging [Parity's permissioning contracts](https://wiki.parity.io/Permissioning) for application level access-controls. We also support networks deployed behind VPNs, which leverage VNet gateways for cross-subscription connectivity. These deployments are more complex, so it is recommended to start with the public IP model first.
 
-#### <a name="consortium-member-overview"></a>Översikt över konsortiets medlemmar
+#### <a name="consortium-member-overview"></a>Consortium member overview
 
-Varje distribution av konsortiet ingår:
+Each consortium member deployment includes:
 
--   Virtual Machines för att köra PoA-verifierarna
+-   Virtual Machines for running the PoA validators
 
--   Azure Load Balancer för distribution av RPC-, peering-och styrnings DApp-begäranden
+-   Azure Load Balancer for distributing RPC, peering, and Governance DApp requests
 
--   Azure Key Vault för att skydda verifieraren identiteter
+-   Azure Key Vault for securing the validator identities
 
--   Azure Storage för att vara värd för beständig nätverksinformation och koordinera leasing
+-   Azure Storage for hosting persistent network information and coordinating leasing
 
--   Azure Monitor för agg regering av loggar och prestanda statistik
+-   Azure Monitor for aggregating logs and performance statistics
 
--   VNet Gateway (valfritt) för att tillåta VPN-anslutningar över privata virtuella nätverk
+-   VNet Gateway (optional) for allowing VPN connections across private VNets
 
-![distributions arkitektur](./media/ethereum-poa-deployment/deployment-architecture.png)
+![deployment architecture](./media/ethereum-poa-deployment/deployment-architecture.png)
 
-Vi utnyttjar Docker-behållare för tillförlitlighet och modulärhet. Vi använder Azure Container Registry för att vara värd för och hantera versions avbildningar som en del av varje distribution. Behållar avbildningarna består av:
+We leverage Docker containers for reliability and modularity. We use Azure Container Registry to host and serve versioned images as part of each deployment. The container images consist of:
 
 -   Orchestrator
 
-    -   Körs en gång under distributionen
+    -   Runs once during deployment
 
-    -   Genererar identiteter och styrnings avtal
+    -   Generates identities and governance contracts
 
-    -   Lagrar identiteter i identitets arkivet
+    -   Stores identities in Identity Store
 
--   Paritets klient
+-   Parity Client
 
-    -   Lånar identitet från identitets lager
+    -   Leases identity from Identity Store
 
-    -   Identifierar och ansluter till peer-datorer
+    -   Discovers and connects to peers
 
--   EthStats-agent
+-   EthStats Agent
 
-    -   Samlar in lokala loggar och statistik via RPC och push-meddelanden till Azure Monitor
+    -   Collects local logs and stats via RPC and pushes to Azure Monitor
 
--   Styrnings DApp
+-   Governance DApp
 
-    -   Webb gränssnitt för att interagera med styrnings avtal
+    -   Web interface for interacting with Governance contracts
 
 ## <a name="how-to-guides"></a>Instruktionsguider
-### <a name="governance-dapp"></a>Styrnings DApp
+### <a name="governance-dapp"></a>Governance DApp
 
-När det gäller certifikat beviset är decentraliserad styrning. Styrnings DApp är en uppsättning fördistribuerade [smarta kontrakt](https://github.com/Azure-Samples/blockchain/tree/master/ethereum-on-azure/) och ett webb program som används för att styra myndigheterna i nätverket.
-Utfärdarna är indelade i admin identiteter och validator-noder.
-Administratörer har möjlighet att delegera konsensus deltagande till en uppsättning validator-noder. Administratörer kan också rösta andra administratörer i eller ut ur nätverket.
+At the heart of proof-of-authority is decentralized governance. The governance DApp is a set of pre-deployed [smart contracts](https://github.com/Azure-Samples/blockchain/tree/master/ethereum-on-azure/) and a web application that are used to govern the authorities on the network.
+Authorities are broken up into Admin identities and Validator nodes.
+Admins have the power to delegate consensus participation to a set of Validator nodes. Admins also may vote other admins into or out of the network.
 
-![styrnings Dapp](./media/ethereum-poa-deployment/governance-dapp.png)
+![governance dapp](./media/ethereum-poa-deployment/governance-dapp.png)
 
--   **Decentraliserad styrning –** Ändringar i nätverks myndigheterna administreras genom en röst markering genom att välja administratörer.
+-   **Decentralized Governance -** Changes in network authorities are administered through on-chain voting by select administrators.
 
--   **Verifiera delegering –** Myndigheter kan hantera sina verifierade noder som ställs in i varje PoA-distribution.
+-   **Validator Delegation -** Authorities can manage their validator nodes that are set up in each PoA deployment.
 
--   **Gransknings bar ändrings historik-** Varje ändring registreras på blockchain och ger insyn och gransknings möjlighet.
+-   **Auditable Change History -** Each change is recorded on the blockchain providing transparency and auditability.
 
-#### <a name="getting-started-with-governance"></a>Komma igång med styrning
-Om du vill utföra någon typ av transaktioner via styrnings DApp måste du använda en Ethereum plån bok.  Den enklaste metoden är att använda en plån bok i en webbläsare, till exempel [MetaMask](https://metamask.io); men eftersom dessa är smarta kontrakt som distribueras i nätverket kan du också automatisera dina interaktioner till styrnings kontraktet.
+#### <a name="getting-started-with-governance"></a>Getting started with governance
+To perform any kind of transactions through the Governance DApp, you'll need to leverage an Ethereum wallet.  The most straightforward approach is to use an in-browser wallet such as [MetaMask](https://metamask.io); however, because these are smart contracts deployed on the network you may also automate your interactions to the Governance contract.
 
-När du har installerat MetaMask navigerar du till styrnings-DApp i webbläsaren.  Du kan hitta URL: en i bekräftelse meddelandet för distribution eller genom Azure Portal i distributions resultatet.  Om du inte har en plån bok för en webbläsare som har installerats kan du inte utföra några åtgärder. Du kan dock fortfarande läsa administratörs tillstånd.  
+After installing MetaMask, navigate to the Governance DApp in the browser.  You can locate the URL in the deployment confirmation email or through Azure portal in the deployment output.  If you don't have an in-browser wallet installed you'll not be able to perform any actions; however, you still can read the administrator state.  
 
-#### <a name="becoming-an-admin"></a>Bli administratör
-Om du är den första medlem som distribueras i nätverket blir du automatiskt en administratör och dina paritets-noder visas som verifierare.  Om du ansluter till nätverket måste du ha röstat in som administratör med en majoritet (större än 50%) av den befintliga administratörs uppsättningen.  Om du väljer att inte bli administratör kommer dina noder fortfarande att synkroniseras och validera blockchain; de kommer dock inte att delta i processen för att skapa block. Starta röstnings processen och bli administratör genom att klicka på __nominera__ och ange din Ethereum-adress och ditt alias.
+#### <a name="becoming-an-admin"></a>Becoming an admin
+If you're the first member that deployed on the network, then you'll automatically become an Admin and your Parity nodes will be listed as Validators.  If you're joining the network, you'll need to get voted in as an Admin by a majority (greater than 50%) of the existing Admin set.  If you choose not to become an Admin then your nodes will still sync and validate the blockchain; however, they will not participate in the block creation process. To start the voting process to become an Admin, click __Nominate__ and enter your Ethereum address and alias.
 
 ![Nominera](./media/ethereum-poa-deployment/governance-dapp-nominate.png)
 
-#### <a name="candidates"></a>Beds
-Om du väljer fliken __kandidater__ visas den aktuella uppsättningen av kandidat administratörer.  När en kandidat når en majoritet av de aktuella administratörerna kommer kandidaten att bli uppgraderad till en administratör.  Om du vill rösta på en kandidat markerar du raden och klickar på "rösta in" längst upp.  Om du ändrar dig för en röst kan du välja kandidaten och klicka på "återkalla röst".
+#### <a name="candidates"></a>Candidates
+Selecting the __Candidates__ tab will show you the current set of candidate administrators.  Once a Candidate reaches a majority vote by the current Admins, the Candidate will get promoted to an Admin.  To vote on a Candidate, select the row and click "Vote in" at the top.  If you change your mind on a vote, you may select the candidate and click "Rescind vote".
 
-![Beds](./media/ethereum-poa-deployment/governance-dapp-candidates.png)
+![Candidates](./media/ethereum-poa-deployment/governance-dapp-candidates.png)
 
 
-#### <a name="admins"></a>Administratörer
-Fliken __Administratörer__ visar den aktuella uppsättningen administratörer och ger dig möjlighet att rösta mot.  När en administratör har förlorat mer än 50% stöd kommer de att tas bort som administratör i nätverket.  Alla validerade noder som administratören äger förlorar verifierings status och blir transaktions noder i nätverket.  En administratör kan tas bort av valfritt antal orsaker. Det är dock upp till konsortiet att enas om en princip i förväg.
+#### <a name="admins"></a>Admins
+The __Admins__ tab will show the current set of Admins and provide you the ability to vote against.  Once an Admin loses more than 50% support, they'll be removed as an Admin on the network.  Any validator nodes that this Admin owns will lose validator status and become transaction nodes on the network.  An Admin may be removed for any number of reasons; however, it's up to the consortium to agree on a policy in advance.
 
-![Administratörer](./media/ethereum-poa-deployment/governance-dapp-admins.png)
+![Admins](./media/ethereum-poa-deployment/governance-dapp-admins.png)
 
-#### <a name="validators"></a>Verifierare
-Om du väljer fliken verifierare på den vänstra menyn visas de aktuella distribuerade paritets noderna för den här instansen och deras aktuella status (nodtyp).  Varje medlem i konsortiet har en annan uppsättning verifierare i listan, eftersom den här vyn representerar den aktuella distribuerade konsortiet medlem.  Om det här är en nyligen distribuerad instans och du ännu inte har lagt till dina verifierare visas alternativet för att lägga till verifierare.  Om du väljer det här alternativet väljs automatiskt en regionalt balanserad uppsättning paritets noder och tilldelar dem till din verifierings uppsättning.  Om du har distribuerat fler noder än den tillåtna kapaciteten kommer de återstående noderna att bli Transaction-noder i nätverket.
+#### <a name="validators"></a>Validators
+Selecting the __Validators__ tab in the left menu will display the current deployed Parity nodes for this instance and their current status (Node type).  Each consortium member will have a different set of validators in this list, since this view represents the current deployed consortium member.  If this is a newly deployed instance and you haven't yet added your validators, you'll be shown the option to 'Add Validators'.  Selecting this will automatically choose a regionally balanced set of Parity nodes and assign them to your validator set.  If you have deployed more nodes than the allowed capacity, the remaining nodes will become transaction nodes on the network.
 
-Adressen för varje verifierare tilldelas automatiskt via [identitets arkivet](#identity-store) i Azure.  Om en nod kraschar, kommer den att ge sin identitet, vilket gör att en annan nod i distributionen kan ta sin plats.  Detta säkerställer att ditt samförstånds bidrag är högt tillgängligt.
+The address of each validator is automatically assigned via the [identity store](#identity-store) in Azure.  If a node goes down, it will relinquish its identity, allowing another node in your deployment to take its place.  This ensures that your consensus participation is highly available.
 
-![Verifierare](./media/ethereum-poa-deployment/governance-dapp-validators.png)
+![Validators](./media/ethereum-poa-deployment/governance-dapp-validators.png)
 
-#### <a name="consortium-name"></a>Namn på konsortium
-Alla administratörer kan uppdatera namnet på konsortiet, som visas längst upp på sidan.  Välj kugg hjuls ikonen längst upp till vänster för att uppdatera namnet på konsortiet.
+#### <a name="consortium-name"></a>Consortium name
+Any Admin may update the Consortium Name, displayed at the top of the page.  Select the gear icon in the top left to update the Consortium Name.
 
-#### <a name="account-menu"></a>Kontomeny
-I det övre högra hörnet är ditt Ethereum-kontos alias och Identicon.  Om du är administratör kan du uppdatera ditt alias.
+#### <a name="account-menu"></a>Account menu
+In the top-right is your Ethereum account alias and identicon.  If you're an Admin you'll have the ability to update your alias.
 
 ![Konto](./media/ethereum-poa-deployment/governance-dapp-account.png)
 
-### <a name="deploy-ethereum-proof-of-authority"></a>Distribuera Ethereum-proof-of-Authority
+### <a name="deploy-ethereum-proof-of-authority"></a>Deploy Ethereum Proof-of-Authority
 
-Här är ett exempel på ett distributions flöde med flera parter:
+Here's an example of a multi-party deployment flow:
 
-1.  Tre medlemmar varje generera ett Ethereum-konto med MetaMask
+1.  Three members each generate an Ethereum account using MetaMask
 
-2.  *Medlem A* distribuerar Ethereum POA, vilket ger sin Ethereum offentliga adress
+2.  *Member A* deploys Ethereum PoA, providing their Ethereum Public Address
 
-3.  *Medlem A* innehåller konsortiets URL till *medlem B* och *medlem C*
+3.  *Member A* provides the consortium URL to *Member B* and *Member C*
 
-4.  *Medlem B* och *medlem C* -distribution, Ethereum POA, som tillhandahåller sin Ethereum offentliga adress och *medlem A*: s konsortiums-URL
+4.  *Member B* and *Member C* deploy, Ethereum PoA, providing their Ethereum Public Address and *Member A*'s consortium URL
 
-5.  *Medlem A* röster i *medlem B* som administratör
+5.  *Member A* votes in *Member B* as an admin
 
-6.  *Medlem A* och *medlem B* både röst *medlem C* som administratör
+6.  *Member A* and *Member B* both vote *Member C* as an admin
 
-Den här processen kräver en Azure-prenumeration som har stöd för distribution av flera virtuella datorer och hanterade diskar. Om det behövs kan du [skapa ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/) för att börja.
+This process requires an Azure subscription that can support deploying several virtual machines and managed disks. If necessary, [create a free Azure account](https://azure.microsoft.com/free/) to begin.
 
-När en prenumeration har skyddats går du till Azure Portal. Välj ' + ', Marketplace (' Se alla ') och Sök efter Ethereum PoA Consortium.
+Once a subscription is secured, go to Azure portal. Select '+', Marketplace ('See all'), and search for Ethereum PoA Consortium.
 
-I följande avsnitt får du hjälp med att konfigurera den första medlemmens storlek i nätverket. Distributions flödet är uppdelat i fem steg: Grunderna, distributions regioner, nätverks storlek och prestanda, Ethereum-inställningar Azure Monitor.
+The following section will walk you through configuring the first member's footprint in the network. The deployment flow is divided into five steps: Basics, Deployment regions, Network size and performance, Ethereum settings, Azure Monitor.
 
-#### <a name="basics"></a>Grundinställningar
+#### <a name="basics"></a>Grundläggande inställningar
 
-Under **grunderna**anger du värden för standard parametrar för alla distributioner, till exempel prenumeration, resurs grupp och grundläggande egenskaper för virtuella datorer.
+Under **Basics**, specify values for standard parameters for any deployment, such as subscription, resource group and basic virtual machine properties.
 
-En detaljerad beskrivning av varje parameter är följande:
+A detailed description of each parameter follows:
 
 Parameternamn|Beskrivning|Tillåtna värden|Standardvärden
 ---|---|---|---
-Vill du skapa ett nytt nätverk eller ansluta till ett befintligt nätverk?|Skapa ett nytt nätverk eller Anslut till ett befintligt konsortiums nätverk|Skapa ny koppling befintlig|Skapa ny
-E-postadress (valfritt)|Du får ett e-postmeddelande när distributionen är klar med information om distributionen.|Giltig e-postadress|Ej tillämpligt
-Användar namn för virtuell dator|Administratörs användar namn för varje distribuerad virtuell dator (endast alfanumeriska tecken)|1-64 tecken|Ej tillämpligt
-Autentiseringstyp|Metoden för att autentisera till den virtuella datorn.|Lösen ord eller offentlig SSH-nyckel|lösenordsinställning
-Lösen ord (autentiseringstyp = lösen ord)|Lösen ordet för administratörs kontot för var och en av de virtuella datorerna som distribueras.  Lösen ordet måste innehålla 3 av följande: 1 versal bokstav, 1 gemen bokstav, 1 siffra och 1 specialtecken. Även om alla virtuella datorer ursprungligen har samma lösen ord, kan du ändra lösen ordet efter etableringen.|12-72 tecken|Ej tillämpligt
-SSH-nyckel (autentiseringstyp = offentlig nyckel)|Den säkra shell-nyckel som används för fjärrinloggning.||Ej tillämpligt
-Subscription|Den prenumeration som används för att distribuera konsortiets nätverk||Ej tillämpligt
-Resursgrupp|Den resurs grupp som används för att distribuera konsortial nätverket.||Ej tillämpligt
-Location|Azure-regionen för resurs gruppen.||Ej tillämpligt
+Create a new network or join existing network?|Create a new network or join a pre-existing consortium network|Create New Join Existing|Skapa ny
+Email Address (Optional)|You'll receive an email notification when your deployment completes with information about your deployment.|Valid email address|Ej tillämpligt
+VM user name|Administrator username of each deployed VM (alphanumeric characters only)|1-64 characters|Ej tillämpligt
+Autentiseringstyp|The method to authenticate to the virtual machine.|Password or SSH public key|Lösenord
+Password (Authentication type = Password)|The password for the administrator account for each of the virtual machines deployed.  The password must contain 3 of the following: 1 upper case character, 1 lower case character, 1 number, and 1 special character. While all VMs initially have the same password, you can change the password after provisioning.|12-72 characters|Ej tillämpligt
+SSH Key (Authentication type = Public Key)|The secure shell key used for remote login.||Ej tillämpligt
+Prenumeration|The subscription to which to deploy the consortium network||Ej tillämpligt
+Resursgrupp|The resource group to which to deploy the consortium network.||Ej tillämpligt
+Plats|The Azure region for resource group.||Ej tillämpligt
 
-En exempel distribution visas nedan: ![Basic-bladet](./media/ethereum-poa-deployment/basic-blade.png)
+A sample deployment is shown below: ![basic blade](./media/ethereum-poa-deployment/basic-blade.png)
 
-#### <a name="deployment-regions"></a>Distributions regioner
+#### <a name="deployment-regions"></a>Deployment regions
 
-Under distributions regioner anger du indata för antalet regioner som ska distribueras i konsortiet och valet av Azure-regioner baserat på antalet regioner som anges. Användaren kan distribuera högst 5 regioner. Vi rekommenderar att du väljer den första regionen för att matcha resurs gruppens plats från avsnittet med grundläggande information. För utvecklings-eller test nätverk rekommenderas en enda region per medlem. För produktion rekommenderar vi att du distribuerar över två eller flera regioner för hög tillgänglighet.
+Next, under Deployment regions, specify inputs for number of region(s) to deploy the consortium network and selection of Azure regions based on the number of regions given. User can deploy in maximum of 5 regions. We recommend choosing the first region to match the resource group location from Basics section. For development or test networks, a single region per member is recommended. For production, we recommend deploying across two or more regions for high-availability.
 
-En detaljerad beskrivning av varje parameter är följande:
-
-  Parameternamn|Beskrivning|Tillåtna värden|Standardvärden
-  ---|---|---|---
-  Antal regioner|Antal regioner för att distribuera konsortiets nätverk|1, 2, 3, 4, 5|1
-  Första regionen|Första regionen för att distribuera konsortiet nätverk|Alla tillåtna Azure-regioner|Ej tillämpligt
-  Andra regionen|Den andra regionen som används för att distribuera konsortiet nätverk (endast synlig när antalet regioner har valts som 2)|Alla tillåtna Azure-regioner|Ej tillämpligt
-  Tredje regionen|Tredje region för att distribuera konsortiet nätverk (endast synlig när antalet regioner är markerat som 3)|Alla tillåtna Azure-regioner|Ej tillämpligt
-  Fjärde regionen|Fjärde regionen för att distribuera konsortiet nätverk (endast synlig när antalet regioner är markerat som 4)|Alla tillåtna Azure-regioner|Ej tillämpligt
-  Femte regionen|Femte regionen för att distribuera konsortiet nätverk (endast synlig när antalet regioner har valts som 5)|Alla tillåtna Azure-regioner|Ej tillämpligt
-
-En exempel distribution visas nedan: ![distributions regioner](./media/ethereum-poa-deployment/deployment-regions.png)
-
-#### <a name="network-size-and-performance"></a>Nätverks storlek och prestanda
-
-Under "nätverks storlek och prestanda" anger du indata för storleken på konsortiet nätverk, till exempel antal och storlek på validerade noder.
-Lagrings storleken för validator-noden avgör den potentiella storleken på blockchain. Detta kan ändras efter distributionen.
-
-En detaljerad beskrivning av varje parameter är följande:
+A detailed description of each parameter follows:
 
   Parameternamn|Beskrivning|Tillåtna värden|Standardvärden
   ---|---|---|---
-  Antal noder för belastningsutjämnad verifiering|Antalet verifierade noder som ska etableras som en del av nätverket|2-15|2
-  Lagrings prestanda för validator-nod|Vilken typ av hanterad disk som ska användas för att säkerhetskopiera var och en av de distribuerade verifierarna.|Standard SSD eller Premium|Standard SSD
-  Virtuell dator storlek för validator-nod|Den virtuella dator storleken som används för verifierade noder.|Standard A, standard D, standard D-V2, standard F-serien, standard DS och standard FS|Standard D1 v2
+  Number of region(s)|Number of regions to deploy the consortium network|1, 2, 3, 4, 5|1
+  First region|First region to deploy the consortium network|All allowed Azure regions|Ej tillämpligt
+  Second region|Second region to deploy the consortium network (Visible only when number of regions is selected as 2)|All allowed Azure regions|Ej tillämpligt
+  Third region|Third region to deploy the consortium network (Visible only when number of regions is selected as 3)|All allowed Azure regions|Ej tillämpligt
+  Fourth region|Fourth region to deploy the consortium network (Visible only when number of regions is selected as 4)|All allowed Azure regions|Ej tillämpligt
+  Fifth region|Fifth region to deploy the consortium network (Visible only when number of regions is selected as 5)|All allowed Azure regions|Ej tillämpligt
 
-[Pris information om lagring](https://azure.microsoft.com/pricing/details/managed-disks/)
+A sample deployment is shown below: ![deployment regions](./media/ethereum-poa-deployment/deployment-regions.png)
 
-[Pris information om virtuell dator](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
+#### <a name="network-size-and-performance"></a>Network size and performance
 
-Den virtuella datorn och lagrings nivån kommer att påverka nätverks prestanda.  Vi rekommenderar följande SKU: er baserat på önskad kostnads effektivitet:
+Next, under 'Network size and performance' specify inputs for the size of the consortium network, such as number and size of validator nodes.
+The validator node storage size will dictate the potential size of the blockchain. This can be changed after deployment.
 
-  SKU för virtuell dator|Lagrings nivå|Pris|Dataflöde|Svarstid
+A detailed description of each parameter follows:
+
+  Parameternamn|Beskrivning|Tillåtna värden|Standardvärden
+  ---|---|---|---
+  Number of load balanced validator nodes|The number of validator nodes to provision as part of the network|2-15|2
+  Validator node storage performance|The type of managed disk backing each of the deployed validator nodes.|Standard SSD or Premium|Standard SSD
+  Validator node virtual machine size|The virtual machine size used for validator nodes.|Standard A, Standard D, Standard D-v2, Standard F series, Standard DS, and Standard FS|Standard D1 v2
+
+[Storage Pricing Details](https://azure.microsoft.com/pricing/details/managed-disks/)
+
+[Virtual Machine Pricing Details](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
+
+Virtual Machine and Storage Tier will affect network performance.  We recommend the following SKUs based on desired cost-efficiency:
+
+  Virtual Machine SKU|Storage Tier|Pris|Dataflöde|Svarstid
   ---|---|---|---|---
-  F1|Standard SSD|börjar|börjar|högt
-  D2_v3|Standard SSD|medel|medel|medel
-  F16s|Premium SSD|högt|högt|börjar
+  F1|Standard SSD|low|low|high
+  D2_v3|Standard SSD|medium|medium|medium
+  F16s|Premium SSD|high|high|low
 
-En exempel distribution visas nedan: ![nätverks storlek och prestanda](./media/ethereum-poa-deployment/network-size-and-performance.png)
+A sample deployment is shown below: ![network size and performance](./media/ethereum-poa-deployment/network-size-and-performance.png)
 
-#### <a name="ethereum-settings"></a>Ethereum-inställningar
+#### <a name="ethereum-settings"></a>Ethereum settings
 
-Under Inställningar för Ethereum anger du Ethereum konfigurations inställningar, t. ex. nätverks-ID och Ethereum-konto eller Genesis-block.
+Next, under Ethereum settings, specify Ethereum-related configuration settings, like the network ID and Ethereum account password or genesis block.
 
-En detaljerad beskrivning av varje parameter är följande:
+A detailed description of each parameter follows:
 
   Parameternamn|Beskrivning|Tillåtna värden|Standardvärden
   ---|---|---|---
-Konsortiums medlems-ID|Det ID som är kopplat till varje medlem som deltar i konsortiet nätverk som används för att konfigurera IP-adressutrymme för att undvika kollision. Om det gäller ett privat nätverk ska medlems-ID: t vara unikt för olika organisationer i samma nätverk.  Ett unikt medlems-ID krävs även om samma organisation distribuerar till flera regioner. Anteckna värdet för den här parametern eftersom du måste dela den med andra medlemmar för att se till att det inte finns någon kollision.|0-255|Ej tillämpligt
-Nätverks-ID|Nätverks-ID för konsortiet Ethereum-nätverk som ska distribueras.  Varje Ethereum nätverk har sitt eget nätverks-ID, med 1 som ID för det offentliga nätverket.|5 – 999 999 999|10101010
-Admin Ethereum-adress|Ethereum-konto adress som används för deltagande i PoA-styrning.  Vi rekommenderar att du använder MetaMask för att skapa en Ethereum-adress.|42 alfanumeriska tecken som börjar med 0x|Ej tillämpligt
-Avancerade alternativ|Avancerade alternativ för Ethereum-inställningar|Aktivera eller inaktivera|Inaktivera
-Offentlig IP (avancerade alternativ = aktivera)|Distribuerar nätverket bakom en VNet-gateway och tar bort peering-åtkomst. Om det här alternativet väljs måste alla medlemmar använda en VNet-Gateway för att anslutningen ska vara kompatibel.|Offentligt IP privat VNet|Offentlig IP
-Block gas gräns (avancerade alternativ = aktivera)|Nätverkets start Blocks gräns|Alla numeriska|50000000
-Blockera omförslutning av period (SEK)|Den frekvens med vilken tomma block skapas när det inte finns några transaktioner i nätverket. En högre frekvens kommer att ha snabbare slut för and öka lagrings kostnaderna.|Alla numeriska|15
-Transaktions behörighets kontrakt (avancerade alternativ = aktivera)|Bytekod för transaktions behörighets avtal. Begränsar distribution och körning av smarta kontrakt till en lista över tillåtna Ethereum-konton.|Kontraktets bytekod|Ej tillämpligt
+Consortium Member ID|The ID associated with each member participating in the consortium network used to configure IP address spaces to avoid collision. In the case of a private network, Member ID should be unique across different organizations in the same network.  A unique member ID is needed even when the same organization deploys to multiple regions. Make note of the value of this parameter since you'll need to share it with other joining members to ensure there’s no collision.|0-255|Ej tillämpligt
+Network ID|The network ID for the consortium Ethereum network being deployed.  Each Ethereum network has its own Network ID, with 1 being the ID for the public network.|5 - 999,999,999|10101010
+Admin Ethereum Address|Ethereum account address that is used for participating in PoA governance.  We recommend using MetaMask for generating an Ethereum address.|42 alphanumeric characters starting with 0x|Ej tillämpligt
+Advanced Options|Advanced options for Ethereum settings|Enable or Disable|Inaktivera
+Public IP (Advanced Options = Enable)|Deploys the network behind a VNet Gateway and removes peering access. If this option is selected, all members must use a VNet Gateway for the connection to be compatible.|Public IP Private VNet|Offentlig IP-adress
+Block Gas Limit (Advanced Options = Enable)|The starting block gas limit of the network|Any numeric|50000000
+Block Reseal Period (sec)|The frequency at which empty blocks will be created when there are no transactions on the network. A higher frequency will have faster finality but increased storage costs.|Any numeric|15
+Transaction Permission Contract (Advanced Options = Enable)|Bytecode for the Transaction Permissioning contract. Restricts smart contract deployment and execution to a permitted list of Ethereum accounts.|Contract bytecode|Ej tillämpligt
 
-En exempel distribution visas nedan: ![ethereum-inställningar](./media/ethereum-poa-deployment/ethereum-settings.png)
+A sample deployment is shown below: ![ethereum settings](./media/ethereum-poa-deployment/ethereum-settings.png)
 
 #### <a name="monitoring"></a>Övervakning
 
-På bladet övervakning kan du konfigurera en Azure Monitor loggar resurs för nätverket. Övervaknings agenten samlar in och använder användbara mått och loggar från nätverket, vilket ger möjlighet att snabbt kontrol lera nätverkets hälso tillstånd eller fel söknings problem.
+The Monitoring blade allows you to configure an Azure Monitor logs resource for your network. The monitoring agent will collect and surface useful metrics and logs from your network, providing the ability to quickly check the network health or debug issues.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
   Parameternamn|Beskrivning|Tillåtna värden|Standardvärden
   ---|---|---|---
-Övervakning|Alternativ för att aktivera övervakning|Aktivera eller inaktivera|Aktivera
-Ansluta till befintliga Azure Monitor loggar|Skapa en ny Azure Monitor loggar instans eller Anslut till en befintlig instans|Skapa ny eller koppla befintliga|Skapa ny
-Övervaka plats (Anslut till befintliga Azure Monitor loggar = skapa ny)|Den region där den nya Azure Monitor loggar instansen ska distribueras|Alla Azure Monitor loggar regioner|Ej tillämpligt
-Befintligt logganalys-arbetsyte-ID (Anslut till befintliga Azure Monitor loggar = koppling befintlig)|Arbetsyte-ID för den befintliga Azure Monitor loggar instansen||Ej tillämpligt
-Befintlig Log Analytics primär nyckel (Anslut till befintliga Azure Monitor loggar = koppling befintlig)|Den primära nyckel som används för att ansluta till den befintliga Azure Monitor loggar instansen||Ej tillämpligt
+Övervakning|Option to enable Monitoring|Enable or Disable|Aktivera
+Connect to existing Azure Monitor logs|Create a new Azure Monitor logs instance or join an existing instance|Create new or Join existing|Skapa ny
+Monitor Location(Connect to existing Azure Monitor logs= Create new)|The region where the new Azure Monitor logs instance will be deployed|All Azure Monitor logs regions|Ej tillämpligt
+Existing log analytics workspace ID (Connect to existing Azure Monitor logs = Join Existing)|Workspace ID of the existing Azure Monitor logs instance||Ej tillämpligt
+Existing log analytics primary key (Connect to existing Azure Monitor logs = Join Existing)|The primary key used to connect to the existing Azure Monitor logs instance||Ej tillämpligt
 
 
-En exempel distribution visas nedan: ![Azure Monitor](./media/ethereum-poa-deployment/azure-monitor.png)
+A sample deployment is shown below: ![azure monitor](./media/ethereum-poa-deployment/azure-monitor.png)
 
 #### <a name="summary"></a>Sammanfattning
 
-Klicka på sammanfattnings bladet för att granska de indata som angetts och för att köra grundläggande verifiering före distribution. Innan du distribuerar kan du hämta mallen och parametrarna.
+Click through the summary blade to review the inputs specified and to run basic pre-deployment validation. Before deploying you may download the template and parameters.
 
-Granska juridiska och sekretess villkor och klicka på köp för att distribuera. Om distributionen inkluderar VNet-gatewayer tar distributionen upp 45 till 50 minuter.
+Review legal and privacy terms and click 'Purchase' to deploy. If the deployment includes VNet Gateways, the deployment will take up 45 to 50 minutes.
 
-#### <a name="post-deployment"></a>Efter distribution
+#### <a name="post-deployment"></a>Post deployment
 
-##### <a name="deployment-output"></a>Distributions utdata
+##### <a name="deployment-output"></a>Deployment output
 
-När distributionen har slutförts kan du komma åt de nödvändiga parametrarna via bekräftelse meddelandet eller via Azure Portal. I följande parametrar hittar du:
+Once the deployment has completed, you can access the necessary parameters via the confirmation email or through the Azure portal. In these parameters you'll find:
 
--   Ethereum RPC-slutpunkt
+-   Ethereum RPC endpoint
 
--   Instrument panels URL för styrning
+-   Governance Dashboard URL
 
--   Azure Monitor-URL
+-   Azure Monitor URL
 
--   Data-URL
+-   Data URL
 
--   Resurs-ID för VNet-Gateway (valfritt)
+-   VNet Gateway Resource ID (optional)
 
-##### <a name="confirmation-email"></a>Bekräfta e-post
+##### <a name="confirmation-email"></a>Confirmation email
 
-Om du anger en e-postadress ([avsnittet grundläggande](#basics)) skickas ett e-postmeddelande till e-postadressen med utmatnings informationen för distributionen.
+If you provide an email address ([Basics Section](#basics)), an email would be sent to the email address with the deployment output information.
 
-![e-postdistribution](./media/ethereum-poa-deployment/deployment-email.png)
+![deployment email](./media/ethereum-poa-deployment/deployment-email.png)
 
 ##### <a name="portal"></a>Portalen
 
-När distributionen har slutförts och alla resurser har etablerats kan du Visa utdataparametrar i resurs gruppen.
+Once the deployment has completed successfully and all resources have been provisioned you can view the output parameters in your resource group.
 
-1.  Leta upp resurs gruppen i portalen
+1.  Locate your resource group in the portal
 
-2.  Navigera till *distributioner*
+2.  Navigate to *Deployments*
 
-3.  Välj den översta distributionen med samma namn som din resurs grupp
+3.  Select the top deployment with the same name as your resource group
 
-4.  Välj *utdata*
+4.  Select *Outputs*
 
-### <a name="growing-the-consortium"></a>Växande konsortiet
+### <a name="growing-the-consortium"></a>Growing the consortium
 
-Om du vill expandera ditt konsortium måste du först ansluta det fysiska nätverket.
-Det första steget är sömlöst med den offentliga IP-baserade distributionen. Om du distribuerar bakom en VPN-anslutning, se avsnittet [ansluta VNet](#connecting-vnet-gateways) -gatewayen för att göra nätverks anslutningen som en del av den nya medlems distributionen.  När distributionen är klar använder du [styrnings DApp](#governance-dapp) för att bli nätverks administratör.
+To expand your consortium, you must first connect the physical network.
+Using the Public IP-based deployment this first step is seamless. If deploying behind a VPN, see the section [Connecting VNet Gateway](#connecting-vnet-gateways) to do the network connection as part of the new member deployment.  Once your deployment completes use the [Governance DApp](#governance-dapp) to become a network Admin.
 
-#### <a name="new-member-deployment"></a>Ny medlems distribution
+#### <a name="new-member-deployment"></a>New member deployment
 
-1.  Dela följande information med den anslutna medlemmen. Den här informationen finns i e-postmeddelandet för post-Deployment eller i portalen för distribution av utdata.
+1.  Share the following information with the joining member. This information can be found in your post-deployment email or in the portal deployment output.
 
-    -  Data-URL för konsortiet
+    -  Consortium Data Url
 
-    -  Antalet noder som du har distribuerat
+    -  The number of nodes you've deployed
 
-    -  Resurs-ID för VNet-Gateway (om du använder VPN)
+    -  VNet Gateway Resource ID (if using VPN)
 
-2.  Distributions medlemmen bör använda [samma lösning](https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium) när du distribuerar sin nätverks närvaro med följande i åtanke:
+2.  The deploying member should use the [same solution](https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium) when deploying their network presence with keeping the following in mind:
 
-    -  Välj *Anslut befintlig*
+    -  Select *Join Existing*
 
-    -  Välj samma antal validator-noder som resten av medlemmarna i nätverket för att säkerställa en rättvis representation
+    -  Choose the same number of validator nodes as the rest of the  members on the network to ensure fair representation
 
-    -  Använd samma Ethereum-adress som angavs i föregående steg
+    -  Use the same Ethereum address that was provided in the previous  step
 
-    -  Skicka in den angivna *konsortiet data-URL: en* på fliken *Inställningar för Ethereum*
+    -  Pass in the provided *Consortium Data Url* on the *Ethereum  Settings* tab
 
-    -  Om resten av nätverket ligger bakom en VPN väljer du *privat VNet* under avsnittet Avancerat
+    -  If the rest of the network is behind a VPN, select *Private  VNet* under the advanced section
 
-#### <a name="connecting-vnet-gateways"></a>Ansluta VNet-gatewayer
+#### <a name="connecting-vnet-gateways"></a>Connecting VNet gateways
 
-Du kan ignorera det här steget om du har distribuerat med standard inställningarna för offentliga IP-adresser. När det gäller ett privat nätverk är de olika medlemmarna anslutna via VNet Gateway-anslutningar. Innan en medlem kan ansluta till nätverket och se transaktions trafik, måste en befintlig medlem utföra en slutgiltig konfiguration på sin VPN-gateway för att godkänna anslutningen. Det innebär att Ethereum-noderna i den anslutna medlemmen inte körs förrän en anslutning har upprättats. Vi rekommenderar att du skapar redundanta nätverks anslutningar (nät) i konsortiet för att minska risken för en enskild felpunkt.
+You may ignore this step if you've deployed using the default Public IP settings. In the case of a private network, the different members are connected via VNet gateway connections. Before a member can join the network and see transaction traffic, an existing member must do a final configuration on their VPN gateway to accept the connection. This means that the Ethereum nodes of the joining member won't run until a connection is established. It's recommended to create redundant network connections (mesh) into the consortium to reduce chances of a single point of failure.
 
-När den nya medlemmen har distribuerats måste den befintliga medlemmen slutföra den dubbelriktade anslutningen genom att konfigurera en VNet Gateway-anslutning till den nya medlemmen. För att uppnå detta behöver befintlig medlem:
+After the new member deploys, the existing member must complete the bi-directional connection by setting up a VNet gateway connection to the new member. To achieve this, existing member will need:
 
-1.  VNet Gateway-ResourceID för den anslutna medlemmen (se distributions utdata)
+1.  The VNet gateway ResourceID of the connecting member (see deployment output)
 
-2.  Den delade anslutnings nyckeln
+2.  The shared connection key
 
-Den befintliga medlemmen måste köra följande PowerShell-skript för att slutföra anslutningen. Vi rekommenderar att du använder Azure Cloud Shell som finns i det övre högra navigerings fältet i portalen.
+The existing member must run the following PowerShell script to complete the connection. We recommend using Azure Cloud Shell located in the top-right navigation bar in the portal.
 
-![Cloud Shell](./media/ethereum-poa-deployment/cloud-shell.png)
+![cloud shell](./media/ethereum-poa-deployment/cloud-shell.png)
 
 ```Powershell
 $MyGatewayResourceId = "<EXISTING_MEMBER_RESOURCEID>"
@@ -415,25 +408,25 @@ New-AzVirtualNetworkGatewayConnection -Name $ConnectionName -ResourceGroupName $
 
 ### <a name="service-monitoring"></a>Tjänstövervakning
 
-Du kan hitta din Azure Monitor Portal genom att följa länken i \[e-\_postadressen för distribution eller hitta parametern i URL:\_en för\]distributions-URL: en.
+You can locate your Azure Monitor portal either by following the link in the deployment email or locating the parameter in the deployment output \[OMS\_PORTAL\_URL\].
 
-Portalen visar först nätverks statistik och node-översikt på hög nivå.
+The portal will first display high-level network statistics and node overview.
 
-![övervaka kategorier](./media/ethereum-poa-deployment/monitor-categories.png)
+![monitor categories](./media/ethereum-poa-deployment/monitor-categories.png)
 
-Genom att välja **noden översikt** kommer du till en portal för att Visa infrastruktur statistik per nod.
+Selecting **Node Overview** will direct you to a portal to view per-node infrastructure statistics.
 
-![nods statistik](./media/ethereum-poa-deployment/node-stats.png)
+![node stats](./media/ethereum-poa-deployment/node-stats.png)
 
-Om du väljer **nätverks** statistik kommer du att Visa Ethereum Network Statistics.
+Selecting **Network Stats** will direct you to view Ethereum network statistics.
 
-![nätverks statistik](./media/ethereum-poa-deployment/network-stats.png)
+![network stats](./media/ethereum-poa-deployment/network-stats.png)
 
-#### <a name="sample-kusto-queries"></a>Exempel på Kusto-frågor
+#### <a name="sample-kusto-queries"></a>Sample Kusto queries
 
-Bakom dessa instrument paneler är en uppsättning frågor som kan ställas till RAW. Du kan använda dessa obehandlade loggar för att anpassa instrument panelerna, undersöka felen eller aviseringar om tröskeln för konfigurationen. Nedan hittar du en uppsättning exempel frågor som kan köras i loggs öknings verktyget:
+Behind these dashboards is a set of queryable raw logs. You can use these raw logs to customize the dashboards, investigate failures, or setup threshold alerting. Below you'll find a set of example queries that can be ran in the Log Search tool:
 
-##### <a name="lists-blocks-that-have-been-reported-by-more-than-one-validator-useful-to-help-find-chain-forks"></a>Visar en lista över block som har rapporter ATS av fler än en verifierare. Användbart för att hitta kedje delar.
+##### <a name="lists-blocks-that-have-been-reported-by-more-than-one-validator-useful-to-help-find-chain-forks"></a>Lists blocks that have been reported by more than one validator. Useful to help find chain forks.
 
 ```sql
 MinedBlock_CL
@@ -441,7 +434,7 @@ MinedBlock_CL
 | where DistinctMiners > 1
 ```
 
-##### <a name="get-average-peer-count-for-a-specified-validator-node-averaged-over-5-minute-buckets"></a>Få ett genomsnittligt antal peer-datorer för en angiven validator-nod i genomsnitt över 5 minuters buckets.
+##### <a name="get-average-peer-count-for-a-specified-validator-node-averaged-over-5-minute-buckets"></a>Get average peer count for a specified validator node averaged over 5 minute buckets.
 
 ```sql
 let PeerCountRegex = @"Syncing with peers: (\d+) active, (\d+) confirmed, (\d+)";
@@ -453,72 +446,72 @@ ParityLog_CL
 | summarize avg(ActivePeers) by bin(TimeGenerated, 5m)
 ```
 
-### <a name="ssh-access"></a>SSH-åtkomst
+### <a name="ssh-access"></a>SSH access
 
-Av säkerhets skäl nekas åtkomst till SSH-porten av en säkerhets regel för nätverks grupper som standard. För att få åtkomst till de virtuella dator instanserna i Poa-nätverket måste du ändra den här \"regeln för att tillåta\"
+For security reasons, the SSH port access is denied by a network group security rule by default. To access the virtual machine instances in the PoA network, you'll need to change this rule to \"Allow\"
 
-1.  Starta i översikts avsnittet i den distribuerade resurs gruppen från Azure Portal.
+1.  Start in the Overview section of the deployed resource group from Azure portal.
 
-    ![Översikt över SSH](./media/ethereum-poa-deployment/ssh-overview.png)
+    ![ssh overview](./media/ethereum-poa-deployment/ssh-overview.png)
 
-2.  Välj Nätverks säkerhets gruppen för den region i den virtuella dator som du vill komma åt
+2.  Select the Network Security Group for the region of the VM that you are wanting to access
 
-    ![SSH-NSG](./media/ethereum-poa-deployment/ssh-nsg.png)
+    ![ssh nsg](./media/ethereum-poa-deployment/ssh-nsg.png)
 
-3.  \" Välj regeln \"Allow-SSH
+3.  Select the \"allow-ssh\" rule
 
-    ![SSH-Tillåt](./media/ethereum-poa-deployment/ssh-allow.png)
+    ![ssh-allow](./media/ethereum-poa-deployment/ssh-allow.png)
 
-4.  Ändra \"åtgärd\" att tillåta
+4.  Change \"Action\" to Allow
 
-    ![Tillåt att SSH aktive ras](./media/ethereum-poa-deployment/ssh-enable-allow.png)
+    ![ssh enable allow](./media/ethereum-poa-deployment/ssh-enable-allow.png)
 
-5.  Klicka \"på\" Spara (ändringar kan ta några minuter att tillämpa)
+5.  Click \"Save\" (Changes may take a few minutes to apply)
 
-Du kan nu fjärrans luta till de virtuella datorerna för validator-noderna via SSH med ditt tillhandahållna administratörs användar namn och lösen ord/SSH-nyckel.
-SSH-kommandot som ska köras för att komma åt den första validator-noden visas i Utdataparametern för mallen för distribution av\_mallar som\_,\_"\_SSH till\_den första VL-noden REGION1" (för exempel distributionen: SSH-p 4000 poaadmin\@leader4vb.eastus.cloudapp.Azure.com). För att få till gång till ytterligare transaktions noder, ökar du Port numret med ett (till exempel den första Transaction-noden på port 4000).
+You can now remotely connect to the virtual machines for the validator nodes via SSH with your provided admin username and password/SSH key.
+The SSH command to run to access the first validator node is listed in the template deployment output parameter as, 'SSH\_TO\_FIRST\_VL\_NODE\_REGION1' (for the sample deployment: ssh -p 4000 poaadmin\@leader4vb.eastus.cloudapp.azure.com). To get to additional transaction nodes, increment the port number by one (For example, the first transaction node is on port 4000).
 
-Om du har distribuerat till fler än en region ändrar du kommandot ovan till DNS-namnet eller IP-adressen för belastningsutjämnaren i den regionen. Om du vill hitta DNS-namn eller IP-adress för de andra regionerna hittar du resursen med namngivnings konventionen \* \* \* \* \*-lbpip\#-REG och visar dess egenskaper för DNS-namn och IP-adress.
+If you deployed to more than one region, change the above command to the DNS name or IP address of the load balancer in that region. To find the DNS name or IP address of the other regions, find the resource with the naming convention \*\*\*\*\*-lbpip-reg\#, and view its DNS name and IP address properties.
 
-### <a name="azure-traffic-manager-load-balancing"></a>Belastnings utjämning i Azure Traffic Manager
+### <a name="azure-traffic-manager-load-balancing"></a>Azure Traffic Manager load balancing
 
-Azure Traffic Manager kan hjälpa till att minska stillestånds tiden och förbättra svars tiden för PoA-nätverket genom att dirigera inkommande trafik över flera distributioner i olika regioner. Inbyggda hälso kontroller och automatisk omdirigering säkerställer hög tillgänglighet för RPC-slutpunkterna och styrnings DApp. Den här funktionen är användbar om du har distribuerat till flera regioner och är redo för produktion.
+Azure Traffic Manager can help reduce downtime and improve responsiveness of the PoA network by routing incoming traffic across multiple deployments in different regions. Built-in health checks and automatic re-routing help ensure high availability of the RPC endpoints and the Governance DApp. This feature is useful if you have deployed to multiple regions and are production ready.
 
 Med Traffic Manager kan du:
 
--   Förbättra PoA nätverks tillgänglighet med automatisk redundans.
+-   Improve PoA network availability with automatic failover.
 
--   Öka nätverkets svars tid genom att dirigera slutanvändare till Azure-platsen med lägsta nätverks fördröjning.
+-   Increase your networks responsiveness by routing end users to the Azure location with lowest network latency.
 
-Om du väljer att skapa en Traffic Manager-profil kan du använda DNS-namnet på profilen för att komma åt nätverket. När andra medlemmar i konsortiet har lagts till i nätverket kan Traffic Manager också användas för att belastningsutjämna över sina distribuerade verifierare.
+If you decide to create a Traffic Manager profile, you can use the DNS name of the profile to access your network. Once other consortium members have been added to the network, the Traffic Manager can also be used to load balance across their deployed validators.
 
-#### <a name="creating-a-traffic-manager-profile"></a>Skapa en Traffic Manager-profil
+#### <a name="creating-a-traffic-manager-profile"></a>Creating a Traffic Manager profile
 
-Sök efter och välj \"Traffic Manager profil\" när du har \"klickat på\" knappen Skapa en resurs i Azure Portal.
+Search for and select \"Traffic Manager profile\" after clicking the \"Create a resource\" button in the Azure portal.
 
-![Sök efter Azure Traffic Manager](./media/ethereum-poa-deployment/traffic-manager-search.png)
+![search for azure traffic manager](./media/ethereum-poa-deployment/traffic-manager-search.png)
 
-Ge profilen ett unikt namn och välj den resurs grupp som skapades under distributionen av PoA. Klicka på knappen "skapa" för att distribuera.
+Give the profile a unique name and select the Resource Group that was created during the PoA deployment. Click the "Create" button to deploy.
 
-![Skapa Traffic Manager](./media/ethereum-poa-deployment/traffic-manager-create.png)
+![create traffic manager](./media/ethereum-poa-deployment/traffic-manager-create.png)
 
-När den har distribuerats väljer du instansen i resurs gruppen. DNS-namnet som du kan använda för att komma åt Traffic Manager finns på fliken Översikt
+Once it's deployed, then select the instance in the resource group. The DNS name to access the traffic manager can be found in the Overview tab
 
-![Hitta Traffic Manager DNS](./media/ethereum-poa-deployment/traffic-manager-dns.png)
+![Locate traffic manager DNS](./media/ethereum-poa-deployment/traffic-manager-dns.png)
 
-Välj fliken slut punkter och klicka på knappen Lägg till. Ge slut punkten ett unikt namn. Ändra mål resurs typ till offentlig IP-adress. Välj sedan den offentliga IP-adressen för det första\'områdets belastningsutjämnare.
+Select the Endpoints tab and click the Add button. Give the endpoint a unique name. Change the Target resource type to Public IP address. Then select the public IP address of the first region\'s load balancer.
 
-![Routning Traffic Manager](./media/ethereum-poa-deployment/traffic-manager-routing.png)
+![Routing traffic manager](./media/ethereum-poa-deployment/traffic-manager-routing.png)
 
-Upprepa för varje region i det distribuerade nätverket. När slut punkterna har \"statusen aktive rad\" läses de in automatiskt och regions balansen sker i Traffic Managers DNS-namn. Du kan nu använda DNS-namnet i stället för \[parametern för konsortiet\_\_data\] URL i andra steg i dokumentet.
+Repeat for each region in the deployed network. Once the endpoints are in the \"enabled\" status, they'll be automatically load and region balanced at the DNS name of the traffic manager. You can now use this DNS name in place of the \[CONSORTIUM\_DATA\_URL\] parameter in other steps of the document.
 
-### <a name="data-api"></a>Data-API
+### <a name="data-api"></a>Data API
 
-Varje konsortiums medlem är värd för den information som behövs för att andra ska kunna ansluta till nätverket. Den befintliga medlemmen tillhandahåller [CONSORTIUM_DATA_URL] före medlemmens distribution. Vid distributionen hämtar en medlem som ansluter information från JSON-gränssnittet vid följande slut punkt:
+Each consortium member hosts the necessary information for others to connect to the network. The existing member will provide the [CONSORTIUM_DATA_URL] before the member's deployment. Upon deployment, a joining member will retrieve information from the JSON interface at the following endpoint:
 
 `<CONSORTIUM_DATA_URL>/networkinfo`
 
-Svaret innehåller information som är användbar för att ansluta till medlemmar (Genesis-block, validator set kontrakts-ABI, bootnodes) och information som är användbar för den befintliga medlemmen (verifierare adresser). Vi rekommenderar att du använder denna standardisering för att utöka konsortiet över moln leverantörer. Detta API kommer att returnera ett JSON-formaterat svar med följande struktur:
+The response will contain information useful for joining members (Genesis block, Validator Set contract ABI, bootnodes) and information useful to the existing member (validator addresses). We encourage use of this standardization to extend the consortium across cloud providers. This API will return a JSON formatted response with the following structure:
 ```json
 {
   "$id": "",
@@ -627,16 +620,16 @@ Svaret innehåller information som är användbar för att ansluta till medlemma
 }
 
 ```
-## <a name="tutorials"></a>Självstudier
+## <a name="tutorials"></a>Självstudiekurser
 
-### <a name="programmatically-interacting-with-a-smart-contract"></a>Interagera med ett smart kontrakt program mässigt
+### <a name="programmatically-interacting-with-a-smart-contract"></a>Programmatically interacting with a smart contract
 
 > [!WARNING]
-> Skicka aldrig din privata Ethereum-nyckel över nätverket! Se till att varje transaktion signeras lokalt först och att den signerade transaktionen skickas över nätverket.
+> Never send your Ethereum private key over the network! Ensure that each transaction is signed locally first and the signed transaction is sent over the network.
 
-I följande exempel använder vi *ethereumjs-plån boks* tjänsten för att generera en Ethereum-adress, *ethereumjs-TX* för att signera lokalt och *Web3* för att skicka den obehandlade transaktionen till Ethereum RPC-slutpunkten.
+In the following example, we use *ethereumjs-wallet* to generate an Ethereum address, *ethereumjs-tx* to sign locally, and *web3* to send the raw transaction to the Ethereum RPC endpoint.
 
-Vi ska använda det här enkla Hello – världs omsamhället i det här exemplet:
+We'll use this simple Hello-World smart contract for this example:
 
 ```javascript
 pragma solidity ^0.4.11;
@@ -651,19 +644,19 @@ contract postBox {
 }
 ```
 
-I det här exemplet förutsätts att kontraktet redan har distribuerats. Du kan använda *solc* och *Web3* för att distribuera ett kontrakt program mässigt. Installera först följande Node-moduler:
+This example assumes the contract is already deployed. You can use *solc* and *web3* for deploying a contract programmatically. First install the following node modules:
 ```
 sudo npm install web3@0.20.2
 sudo npm install ethereumjs-tx@1.3.6
 sudo npm install ethereumjs-wallet@0.6.1
 ```
-Detta nodeJS-skript kommer att utföra följande:
+This nodeJS script will perform the following:
 
--   Skapa en rå transaktion: postMsg
+-   Construct a raw transaction: postMsg
 
--   Signera transaktionen med den genererade privata nyckeln
+-   Sign the transaction using the generated private key
 
--   Skicka den signerade transaktionen till Ethereum-nätverket
+-   Submit the signed transaction to the Ethereum network
 
 ```javascript
 var ethereumjs = require('ethereumjs-tx')
@@ -706,16 +699,16 @@ web3.eth.getTransactionCount(accountAddress, function (err, nonce) {
  });
 ```
 
-### <a name="deploy-smart-contract-with-truffle"></a>Distribuera Smart kontrakt med Truffle
+### <a name="deploy-smart-contract-with-truffle"></a>Deploy smart contract with Truffle
 
--   Installera nödvändiga bibliotek
+-   Install necessary libraries
 
 ```javascript
 npm init
 
 npm install truffle-hdwallet-provider --save
 ```
--   I Truffle. js lägger du till följande kod för att låsa upp ditt MetaMask-konto och konfigurera PoA-noden som start punkt genom att ange den ledande frasen (MetaMask/Settings/Visa Dirigerings ord)
+-   In truffle.js, add following code to unlock your MetaMask account and configure the PoA node as entry point by providing the mnemonic phrase (MetaMask / Settings / Reveal Seed Words)
 
 ```javascript
 var HDWalletProvider = require("truffle-hdwallet-provider");
@@ -740,65 +733,65 @@ module.exports = {
 
 ```
 
--   Distribuera till PoA-nätverk
+-   Deploy to PoA network
 
 ```javascript
 $ truffle migrate --network poa
 ```
 
-### <a name="debug-smart-contract-with-truffle"></a>Felsöka Smart kontrakt med Truffle
+### <a name="debug-smart-contract-with-truffle"></a>Debug smart contract with Truffle
 
-Truffle har ett lokalt utvecklar nätverk som är tillgängligt för fel sökning av Smart kontrakt. Du hittar den fullständiga självstudien [här](https://truffleframework.com/tutorials/debugging-a-smart-contract).
+Truffle has a local develop network that is available for debugging smart contract. You can find the full tutorial [here](https://truffleframework.com/tutorials/debugging-a-smart-contract).
 
-### <a name="webassembly-wasm-support"></a>WASM-stöd (WebAssembly)
+### <a name="webassembly-wasm-support"></a>WebAssembly (WASM) support
 
-WebAssembly support har redan Aktiver ATS för dig i nyligen distribuerade PoA-nätverk. Det gör det möjligt att utveckla Smart-kontrakt på alla språk som instaplar i en webb sammansättning (Rust, C++C). Se länkarna nedan om du vill ha mer information
+WebAssembly support is already enabled for you on newly deployed PoA networks. It allows for smart-contract development in any language that transpiles to Web-Assembly (Rust, C, C++). See the links below for additional information
 
--   Paritets översikt över WebAssembly –<https://wiki.parity.io/WebAssembly-Home>
+-   Parity Overview of WebAssembly - <https://wiki.parity.io/WebAssembly-Home>
 
--   Självstudie från paritets teknik –<https://github.com/paritytech/pwasm-tutorial>
+-   Tutorial from Parity Tech - <https://github.com/paritytech/pwasm-tutorial>
 
 ## <a name="reference"></a>Referens
 
-### <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+### <a name="faq"></a>FAQ
 
-#### <a name="i-notice-there-are-many-transactions-on-the-network-that-i-didnt-send-where-are-these-coming-from"></a>Jag märker att det finns många transaktioner i nätverket som jag överensstämde\'t skicka. Var kommer de att komma från?
+#### <a name="i-notice-there-are-many-transactions-on-the-network-that-i-didnt-send-where-are-these-coming-from"></a>I notice there are many transactions on the network that I didn\'t send. Where are these coming from?
 
-Det är inte säkert att låsa upp det [personliga API: et](https://web3js.readthedocs.io/en/v1.2.0/web3-eth-personal.html). Robotar lyssnar efter olåsta Ethereum-konton och försöker tömma penning medlen. Roboten förutsätter att dessa konton innehåller verklig och försöker vara det första för att Siphon saldot. Aktivera inte det personliga API: t i nätverket. I stället försignera transaktionerna manuellt med en plån boks gilla som MetaMask eller program mässigt enligt beskrivningen i avsnittet [program mässigt interagerar med ett smart kontrakt](#programmatically-interacting-with-a-smart-contract).
+It is insecure to unlock the [personal API](https://web3js.readthedocs.io/en/v1.2.0/web3-eth-personal.html). Bots listen for unlocked Ethereum accounts and attempt to drain the funds. The bot assumes these accounts contain real-ether and attempt to be the first to siphon the balance. Do not enable the personal API on the network. Instead pre-sign the transactions either manually using a wallet like MetaMask or programmatically as outlined in the section [Programmatically Interacting with a Smart Contract](#programmatically-interacting-with-a-smart-contract).
 
-#### <a name="how-to-ssh-onto-a-vm"></a>Hur ska SSH på en virtuell dator?
+#### <a name="how-to-ssh-onto-a-vm"></a>How to SSH onto a VM?
 
-SSH-porten exponeras inte av säkerhets skäl. Följ [den här guiden för att aktivera SSH-porten](#ssh-access).
+The SSH port is not exposed for security reasons. Follow [this guide to enable the SSH port](#ssh-access).
 
-#### <a name="how-do-i-set-up-an-audit-member-or-transaction-nodes"></a>Hur gör jag för att skapar du en gransknings medlems-eller Transaction-noder?
+#### <a name="how-do-i-set-up-an-audit-member-or-transaction-nodes"></a>How do I set up an audit member or transaction nodes?
 
-Transaction Nodes är en uppsättning paritets klienter som peer-kopplas till nätverket men inte deltar i samförstånd. Dessa noder kan fortfarande användas för att skicka Ethereum-transaktioner och läsa status för smart kontrakt.
-Detta fungerar bra som en mekanism för att tillhandahålla granskning av medlemmar som inte tillhör en instans i nätverket. För att åstadkomma detta följer du bara steg 2 från att utveckla konsortiet.
+Transaction nodes are a set of Parity clients that are peered with the network but are not participating in consensus. These nodes can still be used to submit Ethereum transactions and read the smart contract state.
+This works well as a mechanism for providing auditability to non-authority consortium members on the network. To achieve this simply follow Step 2 from Growing the Consortium.
 
-#### <a name="why-are-metamask-transactions-taking-a-long-time"></a>Varför tar MetaMask-transaktioner längre tid?
+#### <a name="why-are-metamask-transactions-taking-a-long-time"></a>Why are MetaMask transactions taking a long time?
 
-För att säkerställa att transaktioner tas emot i rätt ordning, levereras varje Ethereum-transaktion med en stegvis ökning av nonce. Om du har använt ett konto i MetaMask i ett annat nätverk måste du återställa värdet för nonce. Klicka på inställnings ikonen (3 fält), inställningar, Återställ konto. Transaktions historiken tas bort och nu kan du skicka transaktionen igen.
+To ensure transactions are received in the correct order, each Ethereum transaction comes with an incrementing nonce. If you've used an account in MetaMask on a different network, you'll need to reset the nonce value. Click on the settings icon (3-bars), Settings, Reset Account. The transaction history will be cleared and now you can resubmit the transaction.
 
-#### <a name="do-i-need-to-specify-gas-fee-in-metamask"></a>Måste jag ange en gas avgift i MetaMask?
+#### <a name="do-i-need-to-specify-gas-fee-in-metamask"></a>Do I need to specify gas fee in MetaMask?
 
-Eter är inte ett syfte i proof-of-Authority-konsortiet. Därför behöver du inte ange någon avgift för naturgas när du skickar transaktioner i MetaMask.
+Ether doesn't serve a purpose in proof-of-authority consortium. Hence there is no need to specify gas fee when submitting transactions in MetaMask.
 
-#### <a name="what-should-i-do-if-my-deployment-fails-due-to-failure-to-provision-azure-oms"></a>Vad ska jag göra om min distribution Miss lyckas på grund av att det inte går att etablera Azure OMS?
+#### <a name="what-should-i-do-if-my-deployment-fails-due-to-failure-to-provision-azure-oms"></a>What should I do if my deployment fails due to failure to provision Azure OMS?
 
-Övervakning är en valfri funktion. I vissa sällsynta fall där distributionen Miss lyckas på grund av att det inte går att etablera Azure Monitor resurs kan du distribuera om utan Azure Monitor.
+Monitoring is an optional feature. In some rare cases where your deployment fails because of inability to successfully provision Azure Monitor resource you can redeploy without Azure Monitor.
 
-#### <a name="are-public-ip-deployments-compatible-with-private-network-deployments"></a>Är offentliga IP-distributioner kompatibla med privata nätverks distributioner?
+#### <a name="are-public-ip-deployments-compatible-with-private-network-deployments"></a>Are public IP deployments compatible with private network deployments?
 
-Nej, peering kräver tvåvägs kommunikation så att hela nätverket antingen måste vara offentligt eller privat.
+No, peering requires two-way communication so the entire network must either be public or private.
 
-#### <a name="what-is-the-expected-transaction-throughput-of-proof-of-authority"></a>Vad är det förväntade transaktions flödet för proof-of-Authority?
+#### <a name="what-is-the-expected-transaction-throughput-of-proof-of-authority"></a>What is the expected transaction throughput of Proof-of-Authority?
 
-Transaktions data flödet är mycket beroende av typerna av transaktioner och nätverk sto pol Ogin.  Med enkla transaktioner har vi förvaltat ett genomsnitt på 400 transaktioner per sekund med ett nätverk som distribuerats över flera regioner.
+The transaction throughput will be highly dependent upon the types of transactions and the network topology.  Using simple transactions, we've benchmarked an average of 400 transactions per second with a network deployed across multiple regions.
 
-#### <a name="how-do-i-subscribe-to-smart-contract-events"></a>Hur gör jag för att prenumerera på smarta kontrakt händelser?
+#### <a name="how-do-i-subscribe-to-smart-contract-events"></a>How do I subscribe to smart contract events?
 
-Ethereum proof-of-Authority stöder nu webb-Sockets.  Kontrol lera e-postadressen för distributionen eller distributionen för att hitta webbsocket-URL: en och porten.
+Ethereum Proof-of-Authority now supports web-sockets.  Check your deployment email or deployment output to locate the web-socket URL and port.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kom igång genom att använda Ethereum-lösningen för [proof-of-Authority](https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium) .
+Get started by using the [Ethereum Proof-of-Authority Consortium](https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium) solution.

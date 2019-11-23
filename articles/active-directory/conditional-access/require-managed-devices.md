@@ -1,96 +1,96 @@
 ---
-title: Hur – kräver hanterade enheter för åtkomst till appen molnet med Azure Active Directory villkorlig åtkomst | Microsoft Docs
-description: Lär dig hur du konfigurerar Azure Active Directory (Azure AD) enhetsbaserade principer för villkorlig åtkomst som kräver hanterade enheter för åtkomst till appen i molnet.
+title: Conditional Access require managed device - Azure Active Directory
+description: Learn how to configure Azure Active Directory (Azure AD) device-based Conditional Access policies that require managed devices for cloud app access.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 06/14/2018
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9c99b8390cd43c3f0767123684fe06e0ae74f86
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 31b7aa906cbefc0ffda707a228f2a9d50be351a8
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509374"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74380037"
 ---
-# <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Instruktioner: Kräv att hanterade enheter för åtkomst till molnet appen med villkorlig åtkomst
+# <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>How To: Require managed devices for cloud app access with Conditional Access
 
-I en mobil- och molnorienterade värld, Azure Active Directory (Azure AD) som möjliggör enkel inloggning till appar och tjänster från var som helst. Auktoriserade användare kan komma åt dina appar i molnet från en mängd olika enheter, inklusive mobila och personliga enheter. Men har många miljöer minst några appar som ska bara användas av enheter som uppfyller dina krav för säkerhet och efterlevnad. Dessa enheter är även känd som hanterade enheter. 
+In a mobile-first, cloud-first world, Azure Active Directory (Azure AD) enables single sign-on to apps, and services from anywhere. Authorized users can access your cloud apps from a broad range of devices including mobile and also personal devices. However, many environments have at least a few apps that should only be accessed by devices that meet your standards for security and compliance. These devices are also known as managed devices. 
 
-Den här artikeln förklarar hur du kan konfigurera principer för villkorlig åtkomst som kräver hanterade enheter får åtkomst till vissa molnappar i din miljö. 
+This article explains how you can configure Conditional Access policies that require managed devices to access certain cloud apps in your environment. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Krav på hanterade enheter för cloud app åtkomst ties **Azure AD villkorlig åtkomst** och **Azure AD-enhetshantering** tillsammans. Om du inte är bekant med någon av dessa områden ännu, bör du läsa följande avsnitt kommer först:
+Requiring managed devices for cloud app access ties **Azure AD Conditional Access** and **Azure AD device management** together. If you are not familiar with one of these areas yet, you should read the following topics, first:
 
-- **[Villkorlig åtkomst i Azure Active Directory](../active-directory-conditional-access-azure-portal.md)**  -den här artikeln ger en översikt över villkorlig åtkomst och termer som är relaterade.
-- **[Introduktion till hantering av enheter i Azure Active Directory](../devices/overview.md)**  -den här artikeln får du en överblick över de olika alternativ som du behöver hämta enheter organisationens kontrolleras. 
+- **[Conditional Access in Azure Active Directory](../active-directory-conditional-access-azure-portal.md)** - This article provides you with a conceptual overview of Conditional Access and the related terminology.
+- **[Introduction to device management in Azure Active Directory](../devices/overview.md)** - This article gives you an overview of the various options you have to get devices under organizational control. 
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-Mastering balans mellan säkerhet och produktivitet är en utmaning. Det hjälper dig för att förbättra användarnas produktivitet ökningen av enheter som stöds till dina molnresurser. Å andra sidan vill du förmodligen inte vissa resurser i din miljö för att användas av enheter med en okänd skyddsnivån. För de berörda resurserna bör du kräva att användare kan bara komma åt dem med hjälp av en hanterad enhet. 
+Mastering the balance between security and productivity is a challenge. The proliferation of supported devices to access your cloud resources helps to improve the productivity of your users. On the flip side, you probably don't want certain resources in your environment to be accessed by devices with an unknown protection level. For the affected resources, you should require that users can only access them using a managed device. 
 
-Du kan lösa det här kravet med en enda princip som tilldelar åtkomst med Azure AD villkorlig åtkomst:
+With Azure AD Conditional Access, you can address this requirement with a single policy that grants access:
 
-- Till valda molnappar
-- För valda användare och grupper
-- Kräver en hanterad enhet
+- To selected cloud apps
+- For selected users and groups
+- Requiring a managed device
 
-## <a name="managed-devices"></a>Hanterade enheter  
+## <a name="managed-devices"></a>Managed devices  
 
-Enkelt uttryckt hanterade enheter är enheter som är under *någon typ* för organisationens kontroll. I Azure AD är de nödvändiga komponenterna för en hanterad enhet har registrerats med Azure AD. Registrera en enhet skapas en identitet för enheten i form av ett enhetsobjekt. Det här objektet används av Azure för att spåra statusinformation om en enhet. Som Azure AD-administratör kan använder du redan det här objektet ska visa/dölj (aktivera/inaktivera) tillståndet för en enhet.
+In simple terms, managed devices are devices that are under *some sort* of organizational control. In Azure AD, the prerequisite for a managed device is that it has been registered with Azure AD. Registering a device creates an identity for the device in form of a device object. This object is used by Azure to track status information about a device. As an Azure AD administrator, you can already use this object to toggle (enable/disable) the state of a device.
   
-![Enhetsbaserad villkor](./media/require-managed-devices/32.png)
+![Device-based conditions](./media/require-managed-devices/32.png)
 
-Om du vill ha en enhet har registrerats med Azure AD har du tre alternativ: 
+To get a device registered with Azure AD, you have three options: 
 
-- **Azure AD-registrerade enheter** – om du vill hämta en personlig enhet registrerad med Azure AD
-- **Azure AD-anslutna enheter** – om du vill hämta en organisations Windows 10-enhet som inte är ansluten till en lokal AD-registrerade med Azure AD. 
-- **Azure AD-anslutna hybridenheter** – om du vill hämta en Windows 10 eller stöd äldre enheter som är ansluten till en lokal AD-registrerade med Azure AD.
+- **Azure AD registered devices** - to get a personal device registered with Azure AD
+- **Azure AD joined devices** - to get an organizational Windows 10 device that is not joined to an on-premises AD registered with Azure AD. 
+- **Hybrid Azure AD joined devices** - to get a Windows 10 or supported down-level device that is joined to an on-premises AD registered with Azure AD.
 
-De här tre alternativen beskrivs i artikeln [vad är en enhetsidentitet?](../devices/overview.md)
+These three options are discussed in the article [What is a device identity?](../devices/overview.md)
 
-Om du vill bli en hanterad enhet, en registrerad enhet måste vara antingen en **Hybrid Azure AD-ansluten enhet** eller en **enhet som har markerats som kompatibel**.  
+To become a managed device, a registered device must be either a **Hybrid Azure AD joined device** or a **device that has been marked as compliant**.  
 
-![Enhetsbaserad villkor](./media/require-managed-devices/47.png)
+![Device-based conditions](./media/require-managed-devices/47.png)
  
-## <a name="require-hybrid-azure-ad-joined-devices"></a>Kräv Hybrid Azure AD-anslutna enheter
+## <a name="require-hybrid-azure-ad-joined-devices"></a>Require Hybrid Azure AD joined devices
 
-I princip för villkorlig åtkomst kan du välja **Kräv Hybrid Azure AD-domänansluten enhet** till att de valda molnapparna kan bara användas med en hanterad enhet. 
+In your Conditional Access policy, you can select **Require Hybrid Azure AD joined device** to state that the selected cloud apps can only be accessed using a managed device. 
 
-![Enhetsbaserad villkor](./media/require-managed-devices/10.png)
+![Device-based conditions](./media/require-managed-devices/10.png)
 
-Den här inställningen gäller endast Windows 10 eller äldre enheter, till exempel Windows 7 eller Windows 8 som är anslutna till en lokal AD. Du kan bara registrera enheterna med Azure AD med en Hybrid Azure AD-anslutning, vilket är en [automatiserad process](../devices/hybrid-azuread-join-plan.md) att hämta en Windows 10-enhet som har registrerats. 
+This setting only applies to Windows 10 or down-level devices such as Windows 7 or Windows 8 that are joined to an on-premises AD. You can only register these devices with Azure AD using a Hybrid Azure AD join, which is an [automated process](../devices/hybrid-azuread-join-plan.md) to get a Windows 10 device registered. 
 
-![Enhetsbaserad villkor](./media/require-managed-devices/45.png)
+![Device-based conditions](./media/require-managed-devices/45.png)
 
-Det som gör en Hybrid Azure AD ansluten enhet till en hanterad enhet?  För enheter som är anslutna till en lokal AD, förutsätts att kontrollen över enheterna tillämpas med hanteringslösningar som **System Center Configuration Manager (SCCM)** eller **Grupprincip (GP)** ska hanteras. Eftersom det finns ingen metod för Azure AD för att avgöra om någon av dessa metoder har kopplats till en enhet, kräver en hybrid Azure AD enhet är en relativt svag mekanism för att kräva en hanterad enhet. Det är upp till dig som en administratör att bedöma om de metoder som tillämpas på din lokala domänanslutna enheter är starkt nog för att utgöra en hanterad enhet, om sådana en enhet är även en Hybrid Azure AD enhet.
+What makes a Hybrid Azure AD joined device a managed device?  For devices that are joined to an on-premises AD, it is assumed that the control over these devices is enforced using management solutions such as **System Center Configuration Manager (SCCM)** or **group policy (GP)** to manage them. Because there is no method for Azure AD to determine whether any of these methods has been applied to a device, requiring a hybrid Azure AD joined device is a relatively weak mechanism to require a managed device. It is up to you as an administrator to judge whether the methods that are applied to your on-premises domain-joined devices are strong enough to constitute a managed device if such a device is also a Hybrid Azure AD joined device.
 
-## <a name="require-device-to-be-marked-as-compliant"></a>Kräv att enheten är markerad som kompatibel
+## <a name="require-device-to-be-marked-as-compliant"></a>Require device to be marked as compliant
 
-Alternativet att *kräver en enhet är markerad som kompatibel* är den starkaste formen att begära en hanterad enhet.
+The option to *require a device to be marked as compliant* is the strongest form to request a managed device.
 
-![Enhetsbaserad villkor](./media/require-managed-devices/11.png)
+![Device-based conditions](./media/require-managed-devices/11.png)
 
-Det här alternativet kräver en enhet som ska registreras med Azure AD och är markerad som kompatibel genom att:
+This option requires a device to be registered with Azure AD, and also to be marked as compliant by:
          
 - Intune.
-- Ett tredje parts mobila enheter (MDM) hanteringssystem som hanterar Windows 10-enheter via Azure AD-integrering. Tredje parts MDM-system för enhetstyper operativsystem än Windows 10 stöds inte.
+- A third-party mobile device management (MDM) system that manages Windows 10 devices via Azure AD integration. Third-party MDM systems for device OS types other than Windows 10 are not supported.
  
-![Enhetsbaserad villkor](./media/require-managed-devices/46.png)
+![Device-based conditions](./media/require-managed-devices/46.png)
 
-För en enhet som har markerats som kompatibel kan anta du att: 
+For a device that is marked as compliant, you can assume that: 
 
-- Mobila enheter som anställda använder för att komma åt företagets data ska hanteras
-- Mobila apparna som personalen använder hanteras
-- Företagets information skyddas genom att styra hur anställda får åtkomst till och delar det
-- Enheten och dess program är kompatibla med företagets säkerhetskrav
+- The mobile devices your workforce uses to access company data are managed
+- Mobile apps your workforce uses are managed
+- Your company information is protected by helping to control the way your workforce accesses and shares it
+- The device and its apps are compliant with company security requirements
 
 ## <a name="next-steps"></a>Nästa steg
 
-Innan du konfigurerar principer för enhetsbaserad villkorlig åtkomst i din miljö, bör du ta en titt på de [bästa praxis för villkorlig åtkomst i Azure Active Directory](best-practices.md).
+Before configuring a device-based Conditional Access policy in your environment, you should take a look at the [best practices for Conditional Access in Azure Active Directory](best-practices.md).

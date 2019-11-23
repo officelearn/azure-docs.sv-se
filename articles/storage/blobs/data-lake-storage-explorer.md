@@ -1,39 +1,39 @@
 ---
-title: Använda Azure Storage Explorer för att hantera data i Azure Data Lake Storage Gen2
-description: I den här snabb starten får du lära dig hur du använder Azure Storage Explorer för att skapa en behållare i ett Azure Data Lake Storage Gen2 konto, samt en katalog och en fil. Du får lära dig hur du hämtar filen till din lokala dator och hur du visar hela filen i en katalog.
+title: Use Azure Storage Explorer with Azure Data Lake Storage Gen2
+description: In this quickstart, you learn how to use Azure Storage Explorer to create a container in an Azure Data Lake Storage Gen2 account, as well as a directory and a file. Du får lära dig hur du hämtar filen till din lokala dator och hur du visar hela filen i en katalog.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/19/2019
+ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 95d7a58c8188e8c6633f6be50af608aed437edff
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 53f43945b13a9dae44eba752f935eb34d7aa498b
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991424"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327624"
 ---
-# <a name="use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>Använda Azure Storage Explorer för att hantera data i ett Azure Data Lake Storage Gen2-konto
+# <a name="use-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>Use Azure Storage Explorer with Azure Data Lake Storage Gen2
 
 I den här snabbstarten får du lära dig hur du skapar en katalog och en blob med [Azure Storage Explore](https://azure.microsoft.com/features/storage-explorer/). Du får lära dig hur du hämtar bloben till din lokala dator och hur du visar alla blobar i en katalog. Du får också lära dig hur du skapar en ögonblicksbild av en blob, hanterar åtkomstprinciper för kataloger och skapar en signatur för delad åtkomst.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 För den här snabbstarten krävs att du installerar Azure Storage Explorer. Information om hur du installerar Azure Storage Explorer för Windows, Macintosh och Linux finns i [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
-## <a name="sign-in-to-storage-explorer"></a>Logga in på Storage Explorer
+## <a name="sign-in-to-storage-explorer"></a>Sign in to Storage Explorer
 
 Första gången programmet startas visas fönstret **Microsoft Azure Storage Explorer – anslut**. Storage Explorer erbjuder flera sätt att ansluta till lagringskonton, men för närvarande stöds bara ett sätt för att hantera ACL: er.
 
-|Uppgift|Syfte|
+|Aktivitet|Syfte|
 |---|---|
 |Lägga till ett Azure-konto | Omdirigerar dig till din organisations inloggningssida för att autentisera dig i Azure. Det här är för närvarande den enda autentiseringsmetod som stöds om du vill hantera och ange ACL: er. |
 
-Välj **Lägg till ett Azure-konto** och klicka på **Logga in...** . Följ anvisningarna på skärmen för att logga in på ditt Azure-konto.
+Select **Add an Azure Account** and click **Sign in..** . Follow the on-screen prompts to sign into your Azure account.
 
 ![Fönstret Microsoft Azure Storage Explorer – anslut](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
@@ -45,9 +45,9 @@ När anslutningen är klar läses Azure Storage Explorer in med fliken **Utforsk
 
 Blobar laddas alltid upp till en katalog. På så vis kan du ordna grupper av blobar på samma sätt som du ordnar filer i mappar på datorn.
 
-Om du vill skapa en katalog ska du expandera det lagringskonto som du skapade i föregående steg. Välj **Blob container** (Blobbehållare), högerklicka och välj **Create Blobcontainer** (Skapa blobbehållare). Ange namnet på din behållare. När du är klar trycker du på **RETUR** för att skapa behållaren. När blobkatalogen har skapats visas den i mappen **Blog container** (Blobbehållare) för det valda lagringskontot.
+Om du vill skapa en katalog ska du expandera det lagringskonto som du skapade i föregående steg. Välj **Blob container** (Blobbehållare), högerklicka och välj **Create Blobcontainer** (Skapa blobbehållare). Enter the name for your container. When complete, press **Enter** to create the container. När blobkatalogen har skapats visas den i mappen **Blog container** (Blobbehållare) för det valda lagringskontot.
 
-![Microsoft Azure Storage Explorer – skapa en behållare](media/storage-quickstart-blobs-storage-explorer/creating-a-filesystem.png)
+![Microsoft Azure Storage Explorer - Creating a container](media/storage-quickstart-blobs-storage-explorer/creating-a-filesystem.png)
 
 ## <a name="upload-blobs-to-the-directory"></a>Ladda upp blobar till katalogen
 

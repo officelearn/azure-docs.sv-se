@@ -1,69 +1,69 @@
 ---
-title: Kom igång med certifikatbaserad autentisering – Azure Active Directory
-description: Lär dig att konfigurera certifikatbaserad autentisering i din miljö
+title: Certificate-based authentication - Azure Active Directory
+description: Learn how to configure certificate-based authentication in your environment
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f57d4615fc80df6c5df9ba295288ad71ae12fa23
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8bfe306f089a26258ba9c7a07c54925f4540b44b
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60359083"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74382014"
 ---
-# <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Kom igång med certifikatbaserad autentisering i Azure Active Directory
+# <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Get started with certificate-based authentication in Azure Active Directory
 
-Certifikatbaserad autentisering gör att du ska kunna autentiseras av Azure Active Directory med ett klientcertifikat på en Windows-, Android- eller iOS-enhet när du ansluter din Exchange online-konto:
+Certificate-based authentication enables you to be authenticated by Azure Active Directory with a client certificate on a Windows, Android, or iOS device when connecting your Exchange online account to:
 
-- Mobila Microsoft-program, till exempel Microsoft Outlook och Microsoft Word
-- Exchange ActiveSync (EAS) klienter
+- Microsoft mobile applications such as Microsoft Outlook and Microsoft Word
+- Exchange ActiveSync (EAS) clients
 
-Konfigurerar den här funktionen eliminerar behovet av att ange en kombination av användarnamn och lösenord i vissa e-post och Microsoft Office-program på din mobila enhet.
+Configuring this feature eliminates the need to enter a username and password combination into certain mail and Microsoft Office applications on your mobile device.
 
-Det här avsnittet:
+This topic:
 
-- Ger dig stegen för att konfigurera och använda certifikatbaserad autentisering för användare med klienter i Office 365 Enterprise, företag, utbildning och US Government-planer. Den här funktionen är tillgänglig som förhandsversion i planer för Office 365 Kina, US Government försvar samt amerikanska myndigheter federala myndigheter.
-- Förutsätter att du redan har en [offentlig nyckelinfrastruktur (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) och [AD FS](../hybrid/how-to-connect-fed-whatis.md) konfigurerats.
+- Provides you with the steps to configure and utilize certificate-based authentication for users of tenants in Office 365 Enterprise, Business, Education, and US Government plans. This feature is available in preview in Office 365 China, US Government Defense, and US Government Federal plans.
+- Assumes that you already have a [public key infrastructure (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) and [AD FS](../hybrid/how-to-connect-fed-whatis.md) configured.
 
 ## <a name="requirements"></a>Krav
 
-Följande instruktioner för att konfigurera certifikatbaserad autentisering, måste vara uppfyllda:
+To configure certificate-based authentication, the following statements must be true:
 
-- Certifikatbaserad autentisering (CBA) stöds endast för federerade miljöer för webbläsarprogram eller interna klienter som använder modern autentisering (ADAL). Det enda undantaget är Exchange Active Sync (EAS) för Exchange Online (EXO), som kan användas för federerade och hanterade konton.
-- Rotcertifikatutfärdaren och alla mellanliggande certifikatutfärdare måste konfigureras i Azure Active Directory.
-- Varje certifikatutfärdare måste ha en certifikatet lista över återkallade (certifikat CRL) som kan refereras via en internet-ansluten-URL.
-- Du måste ha minst en certifikatutfärdare som konfigurerats i Azure Active Directory. Du kan hitta relaterade stegen i den [konfigurera certifikatutfärdarna](#step-2-configure-the-certificate-authorities) avsnittet.
-- För Exchange ActiveSync-klienter, måste klientcertifikatet ha användarens dirigerbara e-postadress i Exchange online i huvudnamn eller RFC822 namn-värde i fältet alternativt mottagarnamn. Azure Active Directory mappar RFC822 värdet till attributet proxyadress i katalogen.
-- Klientenheten måste ha åtkomst till minst en certifikatutfärdare som utfärdar certifikat.
-- Ett klientcertifikat för klientautentisering måste har utfärdats till din klient.
+- Certificate-based authentication (CBA) is only supported for Federated environments for browser applications or native clients using modern authentication (ADAL). The one exception is Exchange Active Sync (EAS) for Exchange Online (EXO), which can be used for  federated and managed accounts.
+- The root certificate authority and any intermediate certificate authorities must be configured in Azure Active Directory.
+- Each certificate authority must have a certificate revocation list (CRL) that can be referenced via an internet-facing URL.
+- You must have at least one certificate authority configured in Azure Active Directory. You can find related steps in the [Configure the certificate authorities](#step-2-configure-the-certificate-authorities) section.
+- For Exchange ActiveSync clients, the client certificate must have the user’s routable email address in Exchange online in either the Principal Name or the RFC822 Name value of the Subject Alternative Name field. Azure Active Directory maps the RFC822 value to the Proxy Address attribute in the directory.
+- Your client device must have access to at least one certificate authority that issues client certificates.
+- A client certificate for client authentication must have been issued to your client.
 
-## <a name="step-1-select-your-device-platform"></a>Steg 1: Välj din enhetsplattform
+## <a name="step-1-select-your-device-platform"></a>Step 1: Select your device platform
 
-Som ett första steg för den enhetsplattform som intresserar dig, måste du kontrollera följande:
+As a first step, for the device platform you care about, you need to review the following:
 
-- Stöd för mobila Office-program
-- Krav för specifik implementering
+- The Office mobile applications support
+- The specific implementation requirements
 
-Det finns relaterad information för följande enhetsplattformar:
+The related information exists for the following device platforms:
 
 - [Android](active-directory-certificate-based-authentication-android.md)
 - [iOS](active-directory-certificate-based-authentication-ios.md)
 
-## <a name="step-2-configure-the-certificate-authorities"></a>Steg 2: Konfigurera certifikatutfärdarna
+## <a name="step-2-configure-the-certificate-authorities"></a>Step 2: Configure the certificate authorities
 
-Om du vill konfigurera din certifikatutfärdare i Azure Active Directory, för varje certifikatutfärdare, överför du följande:
+To configure your certificate authorities in Azure Active Directory, for each certificate authority, upload the following:
 
-* Den offentliga delen av certifikatet i *.cer* format
-* URL: er för webbservergrupper på internet som där den listor över återkallade certifikat (CRL) finns
+* The public portion of the certificate, in *.cer* format
+* The internet-facing URLs where the Certificate Revocation Lists (CRLs) reside
 
-Schemat för en certifikatutfärdare ser ut så här:
+The schema for a certificate authority looks as follows:
 
     class TrustedCAsForPasswordlessAuth
     {
@@ -87,30 +87,30 @@ Schemat för en certifikatutfärdare ser ut så här:
         IntermediateAuthority = 1
     }
 
-Konfiguration, kan du använda den [Azure Active Directory PowerShell Version 2](/powershell/azure/install-adv2?view=azureadps-2.0):
+For the configuration, you can use the [Azure Active Directory PowerShell Version 2](/powershell/azure/install-adv2?view=azureadps-2.0):
 
-1. Starta Windows PowerShell med administratörsbehörighet.
-2. Installera Azure AD-Modulversion [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) eller högre.
+1. Start Windows PowerShell with administrator privileges.
+2. Install the Azure AD module version [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) or higher.
 
         Install-Module -Name AzureAD –RequiredVersion 2.0.0.33
 
-Som ett första konfigurationssteg måste du upprätta en anslutning till din klient. När det finns en anslutning till din klient, kan du granska, lägga till, ta bort och ändra de betrodda certifikatutfärdare som har definierats i din katalog.
+As a first configuration step, you need to establish a connection with your tenant. As soon as a connection to your tenant exists, you can review, add, delete, and modify the trusted certificate authorities that are defined in your directory.
 
-### <a name="connect"></a>Anslut
+### <a name="connect"></a>Connect
 
-Om du vill upprätta en anslutning till din klient, använder den [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0) cmdlet:
+To establish a connection with your tenant, use the [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0) cmdlet:
 
     Connect-AzureAD
 
-### <a name="retrieve"></a>Hämta
+### <a name="retrieve"></a>Retrieve
 
-Använd för att hämta de betrodda certifikatutfärdare som har definierats i din katalog, den [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet.
+To retrieve the trusted certificate authorities that are defined in your directory, use the [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet.
 
     Get-AzureADTrustedCertificateAuthority
 
 ### <a name="add"></a>Lägg till
 
-Du kan skapa en betrodd certifikatutfärdare med den [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet och ange den **crlDistributionPoint** attributet ett korrekt värde:
+To create a trusted certificate authority, use the [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet and set the **crlDistributionPoint** attribute to a correct value:
 
     $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]"
     $new_ca=New-Object -TypeName Microsoft.Open.AzureAD.Model.CertificateAuthorityInformation
@@ -121,89 +121,89 @@ Du kan skapa en betrodd certifikatutfärdare med den [New-AzureADTrustedCertific
 
 ### <a name="remove"></a>Ta bort
 
-Ta bort en betrodd certifikatutfärdare med den [Remove-AzureADTrustedCertificateAuthority](/powershell/module/azuread/remove-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet:
+To remove a trusted certificate authority, use the [Remove-AzureADTrustedCertificateAuthority](/powershell/module/azuread/remove-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet:
 
     $c=Get-AzureADTrustedCertificateAuthority
     Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2]
 
 ### <a name="modify"></a>Ändra
 
-Om du vill ändra en betrodd certifikatutfärdare, använder den [Set-AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet:
+To modify a trusted certificate authority, use the [Set-AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet:
 
     $c=Get-AzureADTrustedCertificateAuthority
     $c[0].AuthorityType=1
     Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0]
 
-## <a name="step-3-configure-revocation"></a>Steg 3: Konfigurera återkallade certifikat
+## <a name="step-3-configure-revocation"></a>Step 3: Configure revocation
 
-Om du vill återkalla ett klientcertifikat, Azure Active Directory hämtar listan över återkallade certifikat (CRL) från de webbadresser som laddas upp som en del av information om certifikatutfärdare och cachelagrar den. Senaste publicera tidsstämpel (**ikraftträdandedatum** egenskapen) i listan över återkallade certifikat för att kontrollera listan över återkallade certifikat är fortfarande giltig. Listan över återkallade certifikat refereras med jämna mellanrum för att återkalla certifikat som ingår i listan.
+To revoke a client certificate, Azure Active Directory fetches the certificate revocation list (CRL) from the URLs uploaded as part of certificate authority information and caches it. The last publish timestamp (**Effective Date** property) in the CRL is used to ensure the CRL is still valid. The CRL is periodically referenced to revoke access to certificates that are a part of the list.
 
-Om det krävs en mer direkt återkallade certifikat (till exempel om en användare förlorar en enhet), kan vara ogiltig Autentiseringstoken för användaren. Om du vill göra ogiltig autentiseringstoken, ange den **StsRefreshTokenValidFrom** för den aktuella användaren med hjälp av Windows PowerShell. Du måste uppdatera den **StsRefreshTokenValidFrom** för varje användare som du vill återkalla åtkomst för.
+If a more instant revocation is required (for example, if a user loses a device), the authorization token of the user can be invalidated. To invalidate the authorization token, set the **StsRefreshTokenValidFrom** field for this particular user using Windows PowerShell. You must update the **StsRefreshTokenValidFrom** field for each user you want to revoke access for.
 
-Att säkerställa att återkallas kvarstår måste du ställa in den **ikraftträdandedatum** av listan över återkallade certifikat till ett datum efter värdet som anges med **StsRefreshTokenValidFrom** och se till att det aktuella certifikatet finns i listan över återkallade certifikat.
+To ensure that the revocation persists, you must set the **Effective Date** of the CRL to a date after the value set by **StsRefreshTokenValidFrom** and ensure the certificate in question is in the CRL.
 
-Följande steg beskriver hur du uppdaterar och ogiltigförklara autentiseringstoken genom att ange den **StsRefreshTokenValidFrom** fält.
+The following steps outline the process for updating and invalidating the authorization token by setting the **StsRefreshTokenValidFrom** field.
 
-**Konfigurera återkallade certifikat:**
+**To configure revocation:**
 
-1. Anslut med administratörsautentiseringsuppgifter för MSOL-tjänsten:
+1. Connect with admin credentials to the MSOL service:
 
         $msolcred = get-credential
         connect-msolservice -credential $msolcred
 
-2. Hämta det aktuella StsRefreshTokensValidFrom-värdet för en användare:
+2. Retrieve the current StsRefreshTokensValidFrom value for a user:
 
         $user = Get-MsolUser -UserPrincipalName test@yourdomain.com`
         $user.StsRefreshTokensValidFrom
 
-3. Konfigurera ett nytt StsRefreshTokensValidFrom värde för den användare som motsvarar den aktuella tidsstämpeln:
+3. Configure a new StsRefreshTokensValidFrom value for the user equal to the current timestamp:
 
         Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
 
-Det datum som du anger måste vara i framtiden. Om datumet inte är i framtiden kan den **StsRefreshTokensValidFrom** egenskapen har inte angetts. Om datumet är i framtiden, **StsRefreshTokensValidFrom** anges till den aktuella tiden (inte det datum som anges med kommandot Set-MsolUser).
+The date you set must be in the future. If the date is not in the future, the **StsRefreshTokensValidFrom** property is not set. If the date is in the future, **StsRefreshTokensValidFrom** is set to the current time (not the date indicated by Set-MsolUser command).
 
-## <a name="step-4-test-your-configuration"></a>Steg 4: Testa din konfiguration
+## <a name="step-4-test-your-configuration"></a>Step 4: Test your configuration
 
-### <a name="testing-your-certificate"></a>Testa ditt certifikat
+### <a name="testing-your-certificate"></a>Testing your certificate
 
-Som ett första konfigurationstest, bör du försöka logga in på [Outlook Web Access](https://outlook.office365.com) eller [SharePoint Online](https://microsoft.sharepoint.com) med hjälp av din **på enhetens webbläsare**.
+As a first configuration test, you should try to sign in to [Outlook Web Access](https://outlook.office365.com) or [SharePoint Online](https://microsoft.sharepoint.com) using your **on-device browser**.
 
-Om din inloggning lyckades, sedan vet du att:
+If your sign-in is successful, then you know that:
 
-- Användarcertifikatet har etablerats till testenhet
-- AD FS är korrekt konfigurerad
+- The user certificate has been provisioned to your test device
+- AD FS is configured correctly
 
-### <a name="testing-office-mobile-applications"></a>Testa mobila Office-program
+### <a name="testing-office-mobile-applications"></a>Testing Office mobile applications
 
-**Så här testar certifikatbaserad autentisering på din mobila Office-program:**
+**To test certificate-based authentication on your mobile Office application:**
 
-1. Installera ett mobila Office-program (till exempel OneDrive) på din testenhet.
-3. Starta programmet.
-4. Ange ditt användarnamn och välj sedan användarcertifikatet för som du vill använda.
+1. On your test device, install an Office mobile application (for example, OneDrive).
+3. Launch the application.
+4. Enter your username, and then select the user certificate you want to use.
 
-Du bör vara har loggat in.
+You should be successfully signed in.
 
-### <a name="testing-exchange-activesync-client-applications"></a>Testa Exchange ActiveSync-klientprogram
+### <a name="testing-exchange-activesync-client-applications"></a>Testing Exchange ActiveSync client applications
 
-För att komma åt Exchange ActiveSync (EAS) via certifikatbaserad autentisering, måste det finnas en EAS-profil som innehåller klientcertifikatet till programmet.
+To access Exchange ActiveSync (EAS) via certificate-based authentication, an EAS profile containing the client certificate must be available to the application.
 
-EAS-profil måste innehålla följande information:
+The EAS profile must contain the following information:
 
-- Användarcertifikatet som ska användas för autentisering
+- The user certificate to be used for authentication
 
-- EAS-slutpunkt (t.ex, outlook.office365.com)
+- The EAS endpoint (for example, outlook.office365.com)
 
-EAS-profil kan konfigureras och placeras på enheten via användning av hantering av mobilenheter (MDM), till exempel Intune, eller genom att placera certifikatet manuellt på EAS-profil på enheten.
+An EAS profile can be configured and placed on the device through the utilization of Mobile device management (MDM) such as Intune or by manually placing the certificate in the EAS profile on the device.
 
-### <a name="testing-eas-client-applications-on-android"></a>Testa EAS klientprogram på Android
+### <a name="testing-eas-client-applications-on-android"></a>Testing EAS client applications on Android
 
-**Testa autentisering med datorcertifikat:**
+**To test certificate authentication:**
 
-1. Konfigurera en EAS-profil i programmet som uppfyller kraven i föregående avsnitt.
-2. Öppna programmet och kontrollera att e-post synkroniseras.
+1. Configure an EAS profile in the application that satisfies the requirements in the prior section.
+2. Open the application, and verify that mail is synchronizing.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Ytterligare information om certifikatbaserad autentisering på Android-enheter.](active-directory-certificate-based-authentication-android.md)
+[Additional information about certificate-based authentication on Android devices.](active-directory-certificate-based-authentication-android.md)
 
-[Ytterligare information om certifikatbaserad autentisering på iOS-enheter.](active-directory-certificate-based-authentication-ios.md)
+[Additional information about certificate-based authentication on iOS devices.](active-directory-certificate-based-authentication-ios.md)

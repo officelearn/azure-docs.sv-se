@@ -1,6 +1,6 @@
 ---
-title: Installera lokal datagateway – Azure Logic Apps
-description: Innan du kan komma åt data lokalt från Azure Logic Apps kan du hämta och installera den lokala datagatewayen
+title: Install on-premises data gateway - Azure Logic Apps
+description: Before you can access data on premises from Azure Logic Apps, download and install the on-premises data gateway
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,273 +9,275 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 11/06/2019
-ms.openlocfilehash: ef46fce8609119777ef73cbe189d7a8ace662c91
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: e1e56d18b0874a724849e28092ed46892a1b5519
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076943"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326381"
 ---
-# <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installera lokal datagateway för Azure Logic Apps
+# <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Install on-premises data gateway for Azure Logic Apps
 
-Innan du kan [ansluta till lokala data källor från Azure Logic Apps](../logic-apps/logic-apps-gateway-connection.md)kan du hämta och installera den lokala [datagatewayen](https://aka.ms/on-premises-data-gateway-installer) på en lokal dator. Gatewayen fungerar som en brygga som ger snabb data överföring och kryptering mellan data källor lokalt och dina Logic Apps. Du kan använda samma Gateway-installation med andra moln tjänster, till exempel Power BI, energi automatisering, Power Apps och Azure Analysis Services. Information om hur du använder gatewayen med dessa tjänster finns i följande artiklar:
+Before you can [connect to on-premises data sources from Azure Logic Apps](../logic-apps/logic-apps-gateway-connection.md), download and install the [on-premises data gateway](https://aka.ms/on-premises-data-gateway-installer) on a local computer. The gateway works as a bridge that provides quick data transfer and encryption between data sources on premises and your logic apps. You can use the same gateway installation with other cloud services, such as Power BI, Power Automate, Power Apps, and Azure Analysis Services. For information about how to use the gateway with these services, see these articles:
 
-* [Microsoft Power automatisering av lokal datagateway](/power-automate/gateway-reference)
-* [Microsoft Power BI lokal datagateway](/power-bi/service-gateway-onprem)
-* [Microsoft Power Apps lokal datagateway](/powerapps/maker/canvas-apps/gateway-reference)
-* [Azure Analysis Services lokal datagateway](../analysis-services/analysis-services-gateway.md)
+* [Microsoft Power Automate on-premises data gateway](/power-automate/gateway-reference)
+* [Microsoft Power BI on-premises data gateway](/power-bi/service-gateway-onprem)
+* [Microsoft Power Apps on-premises data gateway](/powerapps/maker/canvas-apps/gateway-reference)
+* [Azure Analysis Services on-premises data gateway](../analysis-services/analysis-services-gateway.md)
 
-Den här artikeln visar hur du hämtar, installerar och konfigurerar din lokala datagateway så att du kan komma åt lokala data källor från Azure Logic Apps. Du kan också lära dig mer om [hur data gatewayen fungerar](#gateway-cloud-service) senare i det här avsnittet. Mer information om gatewayen finns i [Vad är en lokal gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem)?
+This article shows how to download, install, and set up your on-premises data gateway so that you can access on-premises data sources from Azure Logic Apps. You can also learn more about [how the data gateway works](#gateway-cloud-service) later in this topic. For more information about the gateway, see [What is an on-premises gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem)?
 
 <a name="requirements"></a>
 
 ## <a name="prerequisites"></a>Krav
 
-* Ett Azure-konto och prenumeration. Om du inte har ett Azure-konto med en prenumeration kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
+* Ett Azure-konto och prenumeration. If you don't have an Azure account with a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-  * Ditt Azure-konto måste tillhöra en enda [Azure Active Directory (Azure AD)-klient eller-katalog](../active-directory/fundamentals/active-directory-whatis.md#terminology). Du måste använda samma Azure-konto för att installera och administrera gatewayen på den lokala datorn.
+  * Your Azure account must belong to a single [Azure Active Directory (Azure AD) tenant or directory](../active-directory/fundamentals/active-directory-whatis.md#terminology). You must use the same Azure account for installing and administering the gateway on your local computer.
 
-  * Under Gateway-installationen loggar du in med ditt Azure-konto, som länkar din gateway-installation till ditt Azure-konto och bara det kontot. Senare i Azure Portal måste du använda samma Azure-konto och Azure AD-klient när du skapar en Azure gateway-resurs som registrerar och anlitar din gateway-installation. I Azure Logic Apps använder lokala utlösare och åtgärder sedan Gateway-resursen för att ansluta till lokala data källor.
+  * During gateway installation, you sign in with your Azure account, which links your gateway installation to your Azure account and only that account. Later, in the Azure portal, you must use the same Azure account and Azure AD tenant when you create an Azure gateway resource that registers and claims your gateway installation. In Azure Logic Apps, on-premises triggers and actions then use the gateway resource for connecting to on-premises data sources.
 
     > [!NOTE]
-    > Du kan bara länka en gateway-installation och en Azure gateway-resurs till varandra. Du kan inte länka samma Gateway-installation till flera Azure-konton eller Azure gateway-resurser. Ett Azure-konto kan dock länka till flera gateway-installationer och Azure gateway-resurser. I en lokal utlösare eller åtgärd kan du välja bland dina olika Azure-prenumerationer och sedan välja en associerad gateway-resurs.
+    > You can link only one gateway installation and one Azure gateway resource to each other. You can't link the same gateway installation to multiple Azure accounts or Azure gateway resources. However, an Azure account can link to multiple gateway installations and Azure gateway resources. In an on-premises trigger or action, you can select from your various Azure subscriptions, and then select an associated gateway resource.
 
-  * Du måste logga in med antingen ett arbets konto eller skol konto, även kallat ett *organisations* konto, som ser ut som `username@contoso.com`. Du kan inte använda Azure B2B-konton (gäst) eller personliga Microsoft-konton, till exempel @hotmail.com eller @outlook.com.
+  * You need to sign in with either a work account or school account, also known as an *organization* account, which looks like `username@contoso.com`. You can't use Azure B2B (guest) accounts or personal Microsoft accounts, such as @hotmail.com or @outlook.com.
 
     > [!TIP]
-    > Om du har registrerat dig för ett Office 365-erbjudande och inte angav din e-postadress för arbetet kan din adress se ut som `username@domain.onmicrosoft.com`. Ditt konto lagras i en klient i en Azure Active Directory (Azure AD). I de flesta fall är användarens huvud namn (UPN) för ditt Azure AD-konto detsamma som din e-postadress.
+    > If you signed up for an Office 365 offering and didn't provide your work email address, your address might look like `username@domain.onmicrosoft.com`. Your account is stored within a tenant in an Azure Active Directory (Azure AD). In most cases, the User Principal Name (UPN) for your Azure AD account is the same as your email address.
     >
-    > Om du vill använda en [Visual Studio Standard-prenumeration](https://visualstudio.microsoft.com/vs/pricing/) som är länkad till en Microsoft-konto måste du först [skapa en klient i Azure AD](../active-directory/develop/quickstart-create-new-tenant.md) eller använda standard katalogen. Lägg till en användare med ett lösen ord till katalogen och ge sedan användaren åtkomst till din Azure-prenumeration. Sedan kan du logga in under Gateway-installationen med det här användar namnet och lösen ordet.
+    > To use a [Visual Studio Standard subscription](https://visualstudio.microsoft.com/vs/pricing/) that's linked to a Microsoft account, first [create a tenant in Azure AD](../active-directory/develop/quickstart-create-new-tenant.md) or use the default directory. Add a user with a password to the directory, and then give that user access to your Azure subscription. You can then sign in during gateway installation with this username and password.
 
-* Här följer krav för den lokala datorn:
+* Here are requirements for your local computer:
 
-  **Minimi krav**
+  **Minimum requirements**
 
   * .NET Framework 4.7.2
-  * 64-bitars version av Windows 7 eller Windows Server 2008 R2 (eller senare)
+  * 64-bit version of Windows 7 or Windows Server 2008 R2 (or later)
 
-  **Rekommenderade krav**
+  **Recommended requirements**
 
-  * 8 kärnor-CPU
-  * 8 GB minne
-  * 64-bitars version av Windows Server 2012 R2 eller senare
-  * SSD-lagring (Solid-State Drive) för buffring
+  * 8-core CPU
+  * 8 GB memory
+  * 64-bit version of Windows Server 2012 R2 or later
+  * Solid-state drive (SSD) storage for spooling
 
   > [!NOTE]
-  > Gatewayen stöder inte Windows Server Core.
+  > The gateway doesn't support Windows Server Core.
 
-* **Relaterade överväganden**
+* **Related considerations**
 
-  * Du kan bara installera den lokala datagatewayen på en lokal dator, inte en domänkontrollant. Men du behöver inte installera gatewayen på samma dator som data källan. Du behöver bara en gateway för alla dina data källor, så du behöver inte installera gatewayen för varje data källa.
+  * Install the on-premises data gateway only on a local computer, not a domain controller. You don't have to install the gateway on the same computer as your data source. You need only one gateway for all your data sources, so you don't need to install the gateway for each data source.
 
     > [!TIP]
-    > För att minimera svars tiden kan du installera gatewayen så nära som möjligt för din data källa, eller på samma dator, förutsatt att du har behörighet.
+    > To minimize latency, you can install the gateway as close as possible to your data source, or on the same computer, assuming that you have permissions.
 
-  * Installera gatewayen på en dator som finns i ett kabelanslutet nätverk, ansluten till Internet, alltid aktive rad och går inte i ström spar läge. I annat fall kan gatewayen inte köras och prestanda kan bli lidande över ett trådlöst nätverk.
+  * Install the gateway on a computer that's on a wired network, connected to the internet, always turned on, and doesn't go to sleep. Otherwise, the gateway can't run, and performance might suffer over a wireless network.
 
-  * Om du planerar att använda Windows-autentisering kontrollerar du att du installerar gatewayen på en dator som är medlem i samma Active Directory-miljö som dina data källor.
+  * If you plan to use Windows authentication, make sure that you install the gateway on a computer that's a member of the same Active Directory environment as your data sources.
 
-  * Den region som du väljer för din gateway-installation är samma plats som du måste välja när du senare skapar Azure Gateway-resursen för din Logic app. Som standard är den här regionen samma plats som din Azure AD-klient som hanterar ditt Azure-konto. Du kan dock ändra platsen under Gateway-installationen.
+  * The region that you select for your gateway installation is the same location that you must select when you later create the Azure gateway resource for your logic app. By default, this region is the same location as your Azure AD tenant that manages your Azure account. However, you can change the location during gateway installation.
 
-  * Gatewayen har två lägen: standard läge och personligt läge, som endast gäller för Power BI. Du kan inte ha mer än en gateway som körs i samma läge på samma dator.
+  * If you're updating your gateway installation to the latest version, uninstall your current gateway first for a cleaner experience.
 
-  * Azure Logic Apps stöder Läs-och skriv åtgärder via gatewayen. Dessa åtgärder har dock [gränser för deras nytto Last storlek](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations).
+  * The gateway has two modes: standard mode and personal mode, which applies only to Power BI. You can't have more than one gateway running in the same mode on the same computer.
+
+  * Azure Logic Apps supports read and write operations through the gateway. However, these operations have [limits on their payload size](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations).
 
 <a name="install-gateway"></a>
 
 ## <a name="install-data-gateway"></a>Installera datagateway
 
-1. [Hämta och kör installations programmet för gatewayen på en lokal dator](https://aka.ms/on-premises-data-gateway-installer).
+1. [Download and run the gateway installer on a local computer](https://aka.ms/on-premises-data-gateway-installer).
 
-1. När installations programmet har öppnats väljer du **Nästa**.
+1. After the installer opens, select **Next**.
 
-   ![Introduktions skärm för gateway Installer](./media/logic-apps-gateway-install/gateway-intro-screen.png)
+   ![Intro screen for gateway installer](./media/logic-apps-gateway-install/gateway-intro-screen.png)
 
-1. Välj **lokal datagateway (rekommenderas)** , vilket är standard läge och välj sedan **Nästa**.
+1. Select **On-premises data gateway (recommended)** , which is standard mode, and then select **Next**.
 
-   ![Välj körnings läge för datagateway](./media/logic-apps-gateway-install/select-gateway-running-mode.png)
+   ![Select run mode for data gateway](./media/logic-apps-gateway-install/select-gateway-running-mode.png)
 
-1. Granska minimi kraven, behåll standard installations Sök vägen, Godkänn användnings villkoren och välj sedan **Installera**.
+1. Review the minimum requirements, keep the default installation path, accept the terms of use, and then select **Install**.
 
-   ![Granska krav och godkänn användnings villkoren](./media/logic-apps-gateway-install/review-and-accept-terms-of-use.png)
+   ![Review requirements and accept terms of use](./media/logic-apps-gateway-install/review-and-accept-terms-of-use.png)
 
-1. När gatewayen har installerats, ange e-postadressen för ditt Azure-konto och välj sedan **Logga**in, till exempel:
+1. After the gateway successfully installs, provide the email address for your Azure account, and then select **Sign in**, for example:
 
-   ![Logga in med arbets-eller skol konto](./media/logic-apps-gateway-install/sign-in-gateway-install.png)
+   ![Sign in with work or school account](./media/logic-apps-gateway-install/sign-in-gateway-install.png)
 
-   Gateway-installationen kan bara länka till ett Azure-konto.
+   Your gateway installation can link to only one Azure account.
 
-1. Välj **Registrera en ny gateway på den här datorn** > **Nästa**. Det här steget registrerar din gateway-installation med [moln tjänsten Gateway](#gateway-cloud-service).
+1. Select **Register a new gateway on this computer** > **Next**. This step registers your gateway installation with the [gateway cloud service](#gateway-cloud-service).
 
-   ![Registrera gateway på den lokala datorn](./media/logic-apps-gateway-install/register-gateway-local-computer.png)
+   ![Register gateway on local computer](./media/logic-apps-gateway-install/register-gateway-local-computer.png)
 
-1. Ange den här informationen för din gateway-installation:
+1. Provide this information for your gateway installation:
 
-   * Ett Gateway-namn som är unikt för Azure AD-klienten
-   * Återställnings nyckeln, som måste innehålla minst åtta tecken, som du vill använda
-   * Bekräftelse för återställnings nyckeln
+   * A gateway name that's unique across your Azure AD tenant
+   * The recovery key, which must have at least eight characters, that you want to use
+   * Confirmation for your recovery key
 
-   ![Ange information för gateway-installation](./media/logic-apps-gateway-install/gateway-name-recovery-key.png)
+   ![Provide information for gateway installation](./media/logic-apps-gateway-install/gateway-name-recovery-key.png)
 
    > [!IMPORTANT]
-   > Spara och behåll återställnings nyckeln på en säker plats. Du behöver den här nyckeln om du vill ändra plats, flytta, återställa eller ta över en gateway-installation.
+   > Save and keep your recovery key in a safe place. You need this key if you ever want to change the location, move, recover, or take over a gateway installation.
 
-   Observera alternativet att **lägga till i ett befintligt Gateway-kluster**, som du väljer när du installerar ytterligare gatewayer för [scenarier med hög tillgänglighet](#high-availability).
+   Note the option to **Add to an existing gateway cluster**, which you select when you install additional gateways for [high-availability scenarios](#high-availability).
 
-1. Kontrol lera regionen för gateway-moln tjänsten och [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) som används av din gateway-installation. Som standard är den här regionen samma plats som Azure AD-klienten för ditt Azure-konto.
+1. Check the region for the gateway cloud service and [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) that's used by your gateway installation. By default, this region is the same location as the Azure AD tenant for your Azure account.
 
-   ![Bekräfta region för Gateway-tjänsten och Service Bus](./media/logic-apps-gateway-install/confirm-gateway-region.png)
+   ![Confirm region for gateway service and service bus](./media/logic-apps-gateway-install/confirm-gateway-region.png)
 
-1. Om du vill acceptera standard regionen väljer du **Konfigurera**. Men om standard regionen inte är den som är närmast dig kan du ändra regionen.
+1. To accept the default region, select **Configure**. However, if the default region isn't the one that's closest to you, you can change the region.
 
-   *Varför ska du ändra region för din gateway-installation?*
+   *Why change the region for your gateway installation?*
 
-   Om du till exempel vill minska svars tiden kan du ändra din gateways region till samma region som din Logic app. Eller så kan du välja den region som är närmast din lokala data källa. Din *gateway-resurs i Azure* och din Logic-app kan ha olika platser.
+   For example, to reduce latency, you might change your gateway's region to the same region as your logic app. Or, you might select the region closest to your on-premises data source. Your *gateway resource in Azure* and your logic app can have different locations.
 
-   1. Bredvid den aktuella regionen väljer du **ändra region**.
+   1. Next to the current region, select **Change Region**.
 
-      ![Ändra aktuell gateway-region](./media/logic-apps-gateway-install/change-gateway-service-region.png)
+      ![Change the current gateway region](./media/logic-apps-gateway-install/change-gateway-service-region.png)
 
-   1. Öppna listan **Välj region** på nästa sida, Välj den region som du vill använda och välj sedan **Slutför**.
+   1. On the next page, open the **Select Region** list, select the region you want, and select **Done**.
 
-      ![Välj en annan region för Gateway-tjänsten](./media/logic-apps-gateway-install/select-region-gateway-install.png)
+      ![Select another region for gateway service](./media/logic-apps-gateway-install/select-region-gateway-install.png)
 
-1. Granska informationen i det slutliga bekräftelse fönstret. I det här exemplet används samma konto för Logic Apps, Power BI, Power Apps och Power automatisering, så gatewayen är tillgänglig för alla dessa tjänster. När du är klar väljer du **Stäng**.
+1. Review the information in the final confirmation window. This example uses the same account for Logic Apps, Power BI, Power Apps, and Power Automate, so the gateway is available for all these services. When you're ready, select **Close**.
 
-   ![Bekräfta data Gateway-information](./media/logic-apps-gateway-install/finished-gateway-default-location.png)
+   ![Confirm data gateway information](./media/logic-apps-gateway-install/finished-gateway-default-location.png)
 
-1. [Skapa nu Azure-resursen för din gateway-installation](../logic-apps/logic-apps-gateway-connection.md).
+1. Now [create the Azure resource for your gateway installation](../logic-apps/logic-apps-gateway-connection.md).
 
-## <a name="check-or-adjust-communication-settings"></a>Kontrol lera eller justera kommunikations inställningar
+## <a name="check-or-adjust-communication-settings"></a>Check or adjust communication settings
 
-Den lokala datagatewayen är beroende av [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) för moln anslutning och upprättar motsvarande utgående anslutningar till gatewayens associerade Azure-region. Om din arbets miljö kräver att trafiken går via en proxy eller brand vägg för att få åtkomst till Internet, kan denna begränsning förhindra att den lokala datagatewayen ansluter till moln tjänsten för gateway och Azure Service Bus. Gatewayen har flera kommunikations inställningar, som du kan justera. Mer information finns i följande avsnitt:
+The on-premises data gateway depends on [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) for cloud connectivity and establishes the corresponding outbound connections to the gateway's associated Azure region. If your work environment requires that traffic goes through a proxy or firewall to access the internet, this restriction might prevent the on-premises data gateway from connecting to the gateway cloud service and Azure Service Bus. The gateway has several communication settings, which you can adjust. For more information, see these topics:
 
-* [Justera kommunikations inställningarna för den lokala datagatewayen](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication)
-* [Konfigurera proxyinställningar för den lokala datagatewayen](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)
+* [Adjust communication settings for the on-premises data gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication)
+* [Configure proxy settings for the on-premises data gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)
 
 <a name="high-availability"></a>
 
-## <a name="high-availability-support"></a>Stöd för hög tillgänglighet
+## <a name="high-availability-support"></a>High availability support
 
-För att undvika enskilda fel punkter för lokal data åtkomst kan du ha flera gateway-installationer (endast standard läge) med var och en på en annan dator och ange dem som ett kluster eller en grupp. På så sätt kan data begär Anden dirigeras till den andra gatewayen, och så vidare, om den primära gatewayen inte är tillgänglig. Eftersom du bara kan installera en standard-gateway på en dator måste du installera varje ytterligare gateway i klustret på en annan dator. Alla anslutningar som fungerar med den lokala datagatewayen stöder hög tillgänglighet.
+To avoid single points of failure for on-premises data access, you can have multiple gateway installations (standard mode only) with each on a different computer, and set them up as a cluster or group. That way, if the primary gateway is unavailable, data requests are routed to the second gateway, and so on. Because you can install only one standard gateway on a computer, you must install each additional gateway that's in the cluster on a different computer. All the connectors that work with the on-premises data gateway support high availability.
 
-* Du måste redan ha minst en gateway-installation med samma Azure-konto som den primära gatewayen och återställnings nyckeln för den installationen.
+* You must already have at least one gateway installation with the same Azure account as the primary gateway and the recovery key for that installation.
 
-* Din primära Gateway måste köra Gateway-uppdateringen från november 2017 eller senare.
+* Your primary gateway must be running the gateway update from November 2017 or later.
 
-När du har konfigurerat din primära Gateway, väljer du **Lägg till i ett befintligt Gateway-kluster**när du går för att installera en annan gateway, väljer den primära gatewayen, som är den första gatewayen som du har installerat och anger återställnings nyckeln för den gatewayen. Mer information finns i [kluster med hög tillgänglighet för lokal datagateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-install#add-another-gateway-to-create-a-cluster).
+After you set up your primary gateway, when you go to install another gateway, select **Add to an existing gateway cluster**, select the primary gateway, which is the first gateway that you installed, and provide the recovery key for that gateway. For more information, see [High availability clusters for on-premises data gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-install#add-another-gateway-to-create-a-cluster).
 
 <a name="update-gateway-installation"></a>
 
-## <a name="change-location-migrate-restore-or-take-over-existing-gateway"></a>Ändra plats, migrera, återställa eller ta över en befintlig gateway
+## <a name="change-location-migrate-restore-or-take-over-existing-gateway"></a>Change location, migrate, restore, or take over existing gateway
 
-Om du måste ändra gatewayens plats, flytta Gateway-installationen till en ny dator, återställa en skadad gateway eller bli ägare till en befintlig gateway, behöver du återställnings nyckeln som angavs under Gateway-installationen.
+If you must change your gateway's location, move your gateway installation to a new computer, recover a damaged gateway, or take ownership for an existing gateway, you need the recovery key that was provided during gateway installation.
 
-1. Kör installations programmet för gateway på den dator som har den befintliga gatewayen. Om du inte har de senaste Gateway-installations programmet [laddar du ned den senaste Gateway-versionen](https://aka.ms/on-premises-data-gateway-installer).
+1. Run the gateway installer on the computer that has the existing gateway. If you don't have the latest gateway installer, [download the latest gateway version](https://aka.ms/on-premises-data-gateway-installer).
 
    > [!NOTE]
-   > Innan du återställer gatewayen på den dator som har den ursprungliga Gateway-installationen måste du först avinstallera gatewayen på den datorn. Den här åtgärden kopplar från den ursprungliga gatewayen.
-   > Om du tar bort eller tar bort ett Gateway-kluster för en moln tjänst kan du inte återställa klustret.
+   > Before you restore the gateway on the computer that has the original gateway installation, you must first uninstall the gateway on that computer. This action disconnects the original gateway.
+   > If you remove or delete a gateway cluster for any cloud service, you can't restore that cluster.
 
-1. När installations programmet har öppnats loggar du in med samma Azure-konto som användes för att installera gatewayen.
+1. After the installer opens, sign in with the same Azure account that was used to install the gateway.
 
-1. Välj **migrera, Återställ eller överköps en befintlig gateway** > **Nästa**, till exempel:
+1. Select **Migrate, restore, or takeover an existing gateway** > **Next**, for example:
 
-   ![Välj "migrera, Återställ eller överköps en befintlig gateway"](./media/logic-apps-gateway-install/migrate-recover-take-over-gateway.png)
+   ![Select "Migrate, restore, or takeover an existing gateway"](./media/logic-apps-gateway-install/migrate-recover-take-over-gateway.png)
 
-1. Välj bland tillgängliga kluster och gatewayer och ange återställnings nyckeln för den valda gatewayen, till exempel:
+1. Select from the available clusters and gateways, and enter the recovery key for the selected gateway, for example:
 
-   ![Välj Gateway och ange återställnings nyckel](./media/logic-apps-gateway-install/select-existing-gateway.png)
+   ![Select gateway and provide recovery key](./media/logic-apps-gateway-install/select-existing-gateway.png)
 
-1. Om du vill ändra region väljer du **ändra region**och sedan den nya regionen.
+1. To change the region, select **Change Region**, and select the new region.
 
-1. När du är klar väljer du **Konfigurera** så att du kan slutföra uppgiften.
+1. When you're ready, select **Configure** so that you can finish your task.
 
-## <a name="tenant-level-administration"></a>Administration på klient nivå
+## <a name="tenant-level-administration"></a>Tenant-level administration
 
-För att få insyn i alla lokala datagatewayer i en Azure AD-klient kan globala administratörer i den klienten logga in på [Power Platform administrations Center](https://powerplatform.microsoft.com) som innehavaradministratör och välja alternativet **datagatewayer** . Mer information finns i [Administration på klient nivå för den lokala datagatewayen](https://docs.microsoft.com/data-integration/gateway/service-gateway-tenant-level-admin).
+To get visibility into all the on-premises data gateways in an Azure AD tenant, global administrators in that tenant can sign in to the [Power Platform Admin center](https://powerplatform.microsoft.com) as a tenant administrator and select the **Data Gateways** option. For more information, see [Tenant-level administration for the on-premises data gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-tenant-level-admin).
 
 <a name="restart-gateway"></a>
 
-## <a name="restart-gateway"></a>Starta om Gateway
+## <a name="restart-gateway"></a>Restart gateway
 
-Som standard körs Gateway-installationen på den lokala datorn som ett Windows-tjänst konto med namnet "lokal datagateway-tjänst". Gateway-installationen använder dock `NT SERVICE\PBIEgwService` namnet för inloggnings uppgifterna "logga in som" och har behörighet att logga in som en tjänst.
+By default, the gateway installation on your local computer runs as a Windows service account named "On-premises data gateway service". However, the gateway installation uses the `NT SERVICE\PBIEgwService` name for its "Log On As" account credentials and has "Log on as a service" permissions.
 
 > [!NOTE]
-> Ditt Windows-tjänstkonto skiljer sig från det konto som används för att ansluta till lokala data källor och från det Azure-konto som du använder när du loggar in på Cloud Services.
+> Your Windows service account differs from the account used for connecting to on-premises data sources and from the Azure account that you use when you sign in to cloud services.
 
-Precis som med andra Windows-tjänster kan du starta och stoppa gatewayen på olika sätt. Mer information finns i [starta om en lokal datagateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-restart).
+Like any other Windows service, you can start and stop the gateway in various ways. For more information, see [Restart an on-premises data gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-restart).
 
 <a name="gateway-cloud-service"></a>
 
-## <a name="how-the-gateway-works"></a>Så här fungerar gatewayen
+## <a name="how-the-gateway-works"></a>How the gateway works
 
-Användare i din organisation kan komma åt lokala data som de redan har behörighet till. Innan dessa användare kan ansluta till din lokala data källa måste du dock installera och konfigurera en lokal datagateway. Vanligt vis är en administratör den person som installerar och konfigurerar en gateway. De här åtgärderna kan kräva Server administratörs behörighet eller särskild kunskap om dina lokala servrar.
+Users in your organization can access on-premises data for which they already have authorized access. However, before these users can connect to your on-premises data source, you need to install and set up an on-premises data gateway. Usually, an admin is the person who installs and sets up a gateway. These actions might require Server Administrator permissions or special knowledge about your on-premises servers.
 
-Gatewayen underlättar snabb och säker kommunikation bakom – scener-kommunikationen. Den här kommunikationen flödar mellan en användare i molnet, moln tjänsten gateway och den lokala data källan. Gateway-moln tjänsten krypterar och lagrar autentiseringsuppgifter för data källan och gateway-informationen. Tjänsten dirigerar även frågor och resultat mellan användaren, gatewayen och din lokala data källa.
+The gateway facilitates quick and secure communication behind-the-scenes-communication. This communication flows between a user in the cloud, the gateway cloud service, and your on-premises data source. The gateway cloud service encrypts and stores your data source credentials and gateway details. The service also routes queries and their results between the user, the gateway, and your on-premises data source.
 
-Gatewayen fungerar med brand väggar och använder endast utgående anslutningar. All trafik kommer som säker utgående trafik från Gateway-agenten. Gatewayen vidarebefordrar data från lokala källor på krypterade kanaler via [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). Den här Service Bus skapar en kanal mellan gatewayen och den anropande tjänsten, men lagrar inte några data. Alla data som passerar genom gatewayen krypteras.
+The gateway works with firewalls and uses only outbound connections. All traffic originates as secure outbound traffic from the gateway agent. The gateway relays data from on-premises sources on encrypted channels through [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). This service bus creates a channel between the gateway and the calling service, but doesn't store any data. All data that travels through the gateway is encrypted.
 
-![Arkitektur för lokal datagateway](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
+![Architecture for on-premises data gateway](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
 
 > [!NOTE]
-> Beroende på moln tjänsten kan du behöva konfigurera en data källa för gatewayen.
+> Depending on the cloud service, you might need to set up a data source for the gateway.
 
-Dessa steg beskriver vad som händer när du interagerar med ett element som är anslutet till en lokal data Källa:
+These steps describe what happens when you interact with an element that's connected to an on-premises data source:
 
-1. Moln tjänsten skapar en fråga, tillsammans med de krypterade autentiseringsuppgifterna för data källan. Tjänsten skickar sedan frågan och autentiseringsuppgifterna till gateway-kön för bearbetning.
+1. The cloud service creates a query, along with the encrypted credentials for the data source. The service then sends the query and credentials to the gateway queue for processing.
 
-1. Gateway-moln tjänsten analyserar frågan och skickar begäran till Azure Service Bus.
+1. The gateway cloud service analyzes the query and pushes the request to Azure Service Bus.
 
-1. Azure Service Bus skickar väntande begär anden till gatewayen.
+1. Azure Service Bus sends the pending requests to the gateway.
 
-1. Gatewayen hämtar frågan, dekrypterar autentiseringsuppgifterna och ansluter till en eller flera data källor med dessa autentiseringsuppgifter.
+1. The gateway gets the query, decrypts the credentials, and connects to one or more data sources with those credentials.
 
-1. Gatewayen skickar frågan till data källan för körning.
+1. The gateway sends the query to the data source for running.
 
-1. Resultaten skickas från data källan tillbaka till gatewayen och sedan till moln tjänsten Gateway. Gateway-moln tjänsten använder sedan resultaten.
+1. The results are sent from the data source back to the gateway, and then to the gateway cloud service. The gateway cloud service then uses the results.
 
-### <a name="authentication-to-on-premises-data-sources"></a>Autentisering till lokala data källor
+### <a name="authentication-to-on-premises-data-sources"></a>Authentication to on-premises data sources
 
-En lagrad autentiseringsuppgift används för att ansluta från gatewayen till lokala data källor. Oavsett användare använder gatewayen lagrade autentiseringsuppgifter för att ansluta. Det kan finnas autentiserings undantag för vissa tjänster, till exempel DirectQuery och LiveConnect för Analysis Services i Power BI.
+A stored credential is used to connect from the gateway to on-premises data sources. Regardless of the user, the gateway uses the stored credential to connect. There might be authentication exceptions for specific services, such as DirectQuery and LiveConnect for Analysis Services in Power BI.
 
 ### <a name="azure-active-directory-azure-ad"></a>Azure Active Directory (Azure AD)
 
-Microsofts moln tjänster använder [Azure AD](../active-directory/fundamentals/active-directory-whatis.md) för att autentisera användare. En Azure AD-klient innehåller användar namn och säkerhets grupper. Normalt är e-postadressen som du använder för inloggning detsamma som användarens huvud namn (UPN) för ditt konto.
+Microsoft cloud services use [Azure AD](../active-directory/fundamentals/active-directory-whatis.md) to authenticate users. An Azure AD tenant contains usernames and security groups. Typically, the email address that you use for sign-in is the same as the User Principal Name (UPN) for your account.
 
-### <a name="what-is-my-upn"></a>Vad är mitt UPN?
+### <a name="what-is-my-upn"></a>What is my UPN?
 
-Om du inte är en domän administratör kanske du inte känner till ditt UPN. Du hittar UPN för ditt konto genom att köra kommandot `whoami /upn` från din arbets Station. Även om resultatet ser ut som en e-postadress, är resultatet UPN för ditt lokala domän konto.
+If you're not a domain admin, you might not know your UPN. To find the UPN for your account, run the `whoami /upn` command from your workstation. Although the result looks like an email address, the result is the UPN for your local domain account.
 
-### <a name="synchronize-an-on-premises-active-directory-with-azure-ad"></a>Synkronisera en lokal Active Directory med Azure AD
+### <a name="synchronize-an-on-premises-active-directory-with-azure-ad"></a>Synchronize an on-premises Active Directory with Azure AD
 
-UPN för lokala Active Directory-konton och Azure AD-konton måste vara samma. Se därför till att varje lokalt Active Directory konto matchar ditt Azure AD-konto. Moln tjänsterna vet bara om konton i Azure AD. Så du behöver inte lägga till ett konto i din lokala Active Directory. Om kontot inte finns i Azure AD kan du inte använda det kontot.
+The UPN for your on-premises Active Directory accounts and Azure AD accounts must be the same. So, make sure that each on-premises Active Directory account matches your Azure AD account. The cloud services know only about accounts within Azure AD. So, you don't need to add an account to your on-premises Active Directory. If the account doesn't exist in Azure AD, you can't use that account.
 
-Här är några sätt som du kan matcha dina lokala Active Directory-konton med Azure AD.
+Here are ways that you can match your on-premises Active Directory accounts with Azure AD.
 
-* Lägg till konton manuellt i Azure AD.
+* Add accounts manually to Azure AD.
 
-  Skapa ett konto i Azure Portal eller i Microsoft 365 administrations Center. Kontrol lera att konto namnet matchar UPN för det lokala Active Directory kontot.
+  Create an account in the Azure portal or in the Microsoft 365 admin center. Make sure that the account name matches the UPN for the on-premises Active Directory account.
 
-* Synkronisera lokala konton med Azure AD-klienten med hjälp av Azure Active Directory Connect-verktyget.
+* Synchronize local accounts to your Azure AD tenant by using the Azure Active Directory Connect tool.
 
-  Azure AD Connect-verktyget innehåller alternativ för Directory-synkronisering och konfiguration av autentisering. De här alternativen omfattar hash-synkronisering av lösen ord, direktautentisering och Federation. Om du inte är innehavaradministratör eller en lokal domän administratör kan du kontakta IT-administratören för att få Azure AD Connect konfigurerat. Azure AD Connect garanterar att ditt Azure AD UPN matchar ditt lokala Active Directory UPN. Den här matchningen hjälper om du använder Analysis Services Live-anslutningar med Power BI eller funktioner för enkel inloggning (SSO).
+  The Azure AD Connect tool provides options for directory synchronization and authentication setup. These options include password hash sync, pass-through authentication, and federation. If you're not a tenant admin or a local domain admin, contact your IT admin to get Azure AD Connect set up. Azure AD Connect ensures that your Azure AD UPN matches your local Active Directory UPN. This matching helps if you're using Analysis Services live connections with Power BI or single sign-on (SSO) capabilities.
 
   > [!NOTE]
-  > Om du synkroniserar konton med Azure AD Connect-verktyget skapas nya konton i Azure AD-klienten.
+  > Synchronizing accounts with the Azure AD Connect tool creates new accounts in your Azure AD tenant.
 
 <a name="faq"></a>
 
-## <a name="faq-and-troubleshooting"></a>Vanliga frågor och svar
+## <a name="faq-and-troubleshooting"></a>FAQ and troubleshooting
 
-Mer information finns i följande avsnitt:
+For more information, see these topics:
 
 * [Vanliga frågor och svar om lokal datagateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)
-* [Felsöka den lokala datagatewayen](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
-* [Övervaka och optimera Gateway-prestanda](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
+* [Troubleshoot the on-premises data gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
+* [Monitor and optimize gateway performance](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Ansluta till lokala data från Logic Apps](../logic-apps/logic-apps-gateway-connection.md)
-* [Enterprise-integrerings funktioner](../logic-apps/logic-apps-enterprise-integration-overview.md)
+* [Connect to on-premises data from logic apps](../logic-apps/logic-apps-gateway-connection.md)
+* [Enterprise integration features](../logic-apps/logic-apps-enterprise-integration-overview.md)
 * [Anslutningsprogram för Azure Logic Apps](../connectors/apis-list.md)

@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: skapa ett Sök index C# i med .net'
+title: 'Quickstart: Create a search index in C# using .NET'
 titleSuffix: Azure Cognitive Search
-description: Förklarar hur du skapar ett index, läser in data och kör frågor med C# hjälp av och Azure KOGNITIV sökning .NET SDK.
+description: In this C# quickstart, learn how to create an index, load data, and run queries using the Azure Cognitive Search .NET SDK.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,85 +9,85 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 45d24286a511ff60db33e149627932b0768c543b
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 1d8eaea4a6eded769542921851fb0c74a3c9d58b
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112036"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406760"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-index-in-c-using-the-net-sdk"></a>Snabb start: skapa ett Azure Kognitiv sökning- C# index i med .NET SDK
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-c-using-the-net-sdk"></a>Quickstart: Create an Azure Cognitive Search index in C# using the .NET SDK
 > [!div class="op_single_selector"]
 > * [C#](search-get-started-dotnet.md)
-> * [Portal](search-get-started-portal.md)
+> * [Portalen](search-get-started-portal.md)
 > * [PowerShell](search-create-index-rest-api.md)
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 >*
 
-Skapa ett .NET Core C# -konsolprogram som skapar, läser in och skickar frågor till ett Azure kognitiv sökning-index med hjälp av Visual Studio och [Azure kognitiv sökning .NET SDK](https://aka.ms/search-sdk). Den här artikeln beskriver hur du skapar programmet steg för steg. Du kan också [Hämta och köra hela programmet](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/Quickstart).
+Create a .NET Core C# console application that creates, loads, and queries an Azure Cognitive Search index using Visual Studio and the [Azure Cognitive Search .NET SDK](https://aka.ms/search-sdk). This article explains how to create the application step by step. Alternatively, you can [download and run the complete application](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/Quickstart).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 > [!NOTE]
-> Demo koden i den här artikeln använder de synkrona metoderna i Azure Kognitiv sökning .NET SDK för enkelhetens skull. För produktions scenarier rekommenderar vi dock att du använder de asynkrona metoderna i dina egna program för att hålla dem skalbara och tillgängliga. Du kan till exempel använda `CreateAsync` och `DeleteAsync` i stället för `Create` och `Delete`.
+> The demo code in this article uses the synchronous methods of the Azure Cognitive Search .NET SDK for simplicity. However, for production scenarios, we recommend using the asynchronous methods in your own applications to keep them scalable and responsive. For example, you could use `CreateAsync` and `DeleteAsync` instead of `Create` and `Delete`.
 
 ## <a name="prerequisites"></a>Krav
 
-Följande tjänster och verktyg krävs för den här snabb starten.
+The following services and tools are required for this quickstart.
 
-+ [Visual Studio](https://visualstudio.microsoft.com/downloads/), vilken utgåva som helst. Exempel kod och instruktioner har testats i den kostnads fria community-versionen.
++ [Visual Studio](https://visualstudio.microsoft.com/downloads/), any edition. Sample code and instructions were tested on the free Community edition.
 
-+ [Skapa en Azure kognitiv sökning-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnads fri tjänst för den här snabb starten.
++ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart.
 
 <a name="get-service-info"></a>
 
-## <a name="get-a-key-and-url"></a>Hämta en nyckel och URL
+## <a name="get-a-key-and-url"></a>Get a key and URL
 
-Anrop till tjänsten kräver en URL-slutpunkt och en åtkomst nyckel på varje begäran. En Sök tjänst skapas med båda, så om du har lagt till Azure-Kognitiv sökning till din prenumeration följer du dessa steg för att få den information som krävs:
+Calls to the service require a URL endpoint and an access key on every request. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
 
-1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta URL: en på sidan **Översikt över** Sök tjänsten. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
+1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
 
-2. I **inställningar** > **nycklar**får du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
+2. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
-   Hämta även frågans nyckel. Det är en bra idé att utfärda förfrågningar med skrivskyddad åtkomst.
+   Get the query key as well. It's a best practice to issue query requests with read-only access.
 
-![Hämta en HTTP-slutpunkt och åtkomst nyckel](media/search-get-started-postman/get-url-key.png "Hämta en HTTP-slutpunkt och åtkomst nyckel")
+![Get an HTTP endpoint and access key](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
 
-Alla begär Anden kräver en API-nyckel på varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
+All requests require an api-key on every request sent to your service. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
 ## <a name="set-up-your-environment"></a>Konfigurera din miljö
 
-Börja med att öppna Visual Studio och skapa ett nytt konsol program som kan köras på .NET Core.
+Begin by opening Visual Studio and creating a new Console App project that can run on .NET Core.
 
 ### <a name="install-nuget-packages"></a>Installera NuGet-paket
 
-[Azure kognitiv sökning .NET SDK](https://aka.ms/search-sdk) består av ett par klient bibliotek som distribueras som NuGet-paket.
+The [Azure Cognitive Search .NET SDK](https://aka.ms/search-sdk) consists of a few client libraries that are distributed as NuGet packages.
 
-För det här projektet använder du version 9 av `Microsoft.Azure.Search` NuGet-paketet och det senaste `Microsoft.Extensions.Configuration.Json` NuGet-paketet.
+For this project, use version 9 of the `Microsoft.Azure.Search` NuGet package and the latest `Microsoft.Extensions.Configuration.Json` NuGet package.
 
-1. I **verktyg** > **NuGet Package Manager**väljer du **Hantera NuGet-paket för lösning.** ... 
+1. In **Tools** > **NuGet Package Manager**, select **Manage NuGet Packages for Solution...** . 
 
 1. Klicka på **Browse** (Bläddra).
 
-1. Sök efter `Microsoft.Azure.Search` och välj version 9.0.1 eller senare.
+1. Search for `Microsoft.Azure.Search` and select version 9.0.1 or later.
 
-1. Klicka på **Installera** till höger för att lägga till sammansättningen i projektet och lösningen.
+1. Click **Install** on the right to add the assembly to your project and solution.
 
-1. Upprepa för `Microsoft.Extensions.Configuration.Json`, Välj version 2.2.0 eller senare.
+1. Repeat for `Microsoft.Extensions.Configuration.Json`, selecting version 2.2.0 or later.
 
 
-### <a name="add-azure-cognitive-search-service-information"></a>Lägg till information om Azure Kognitiv sökning-tjänsten
+### <a name="add-azure-cognitive-search-service-information"></a>Add Azure Cognitive Search service information
 
-1. I Solution Explorer högerklickar du på projektet och väljer **Lägg till** > **nytt objekt.** ... 
+1. In Solution Explorer, right click on the project and select **Add** > **New Item...** . 
 
-1. I Lägg till nytt objekt söker du efter "JSON" för att returnera en JSON-relaterad lista med objekt typer.
+1. In Add New Item, search for "JSON" to return a JSON-related list of item types.
 
-1. Välj **JSON-fil**, namnge filen "appSettings. JSON" och klicka på **Lägg till**. 
+1. Choose **JSON File**, name the file "appsettings.json", and click **Add**. 
 
-1. Lägg till filen i utmatnings katalogen. Högerklicka på appSettings. JSON och välj **Egenskaper**. I **Kopiera till utdata-katalogen väljer du** **Kopiera om nyare**.
+1. Add the file to your output directory. Right-click appsettings.json and select **Properties**. In **Copy to Output Directory**, select **Copy if newer**.
 
-1. Kopiera följande JSON till din nya JSON-fil. Ersätt Sök tjänst namnet (ditt-SEARCH-SERVICE-NAME) och Admin API-nyckeln (din-ADMIN-API-nyckel) med giltiga värden. Om tjänstens slut punkt är `https://mydemo.search.windows.net`skulle tjänst namnet vara "demonstration".
+1. Copy the following JSON into your new JSON file. Replace the search service name (YOUR-SEARCH-SERVICE-NAME) and admin API key (YOUR-ADMIN-API-KEY) with valid values. If your service endpoint is `https://mydemo.search.windows.net`, the service name would be "mydemo".
 
 ```json
 {
@@ -97,24 +97,24 @@ För det här projektet använder du version 9 av `Microsoft.Azure.Search` NuGet
 }
 ```
 
-### <a name="add-class-method-files-to-your-project"></a>Lägg till klass ". Metod "filer till projektet
+### <a name="add-class-method-files-to-your-project"></a>Add class ".Method" files to your project
 
-När du skriver ut resultat till konsol fönstret måste enskilda fält från hotell-objektet returneras som strängar. Du kan implementera [toString ()](https://docs.microsoft.com/dotnet/api/system.object.tostring?view=netframework-4.8) för att utföra den här uppgiften genom att kopiera den nödvändiga koden till två nya filer.
+When printing results to the console window, individual fields from the Hotel object must be returned as strings. You can implement [ToString()](https://docs.microsoft.com/dotnet/api/system.object.tostring?view=netframework-4.8) to perform this task, copying the necessary code to two new files.
 
-1. Lägg till två tomma klass definitioner i projektet: Address.Methods.cs, Hotel.Methods.cs
+1. Add two empty class definitions to your project: Address.Methods.cs, Hotel.Methods.cs
 
-1. Skriv över standard innehållet i Address.Methods.cs med följande kod, [rader 1-32](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/AzureSearchQuickstart/Address.Methods.cs/#L1-L32).
+1. In Address.Methods.cs, overwrite the default contents with the following code, [lines 1-32](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/AzureSearchQuickstart/Address.Methods.cs/#L1-L32).
 
-1. Kopiera [raderna 1-66](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/AzureSearchQuickstart/Hotel.Methods.cs/#L1-L66)i Hotel.Methods.cs.
+1. In Hotel.Methods.cs, copy [lines 1-66](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/AzureSearchQuickstart/Hotel.Methods.cs/#L1-L66).
 
 
-## <a name="1---create-index"></a>1 – Skapa index
+## <a name="1---create-index"></a>1 - Create index
 
-Hotell indexet består av enkla och komplexa fält där ett enkelt fält är "HotelName" eller "Description", och komplexa fält är en adress med under fält eller en samling med rum. När ett index innehåller komplexa typer isolerar du de komplexa fält definitionerna i separata klasser.
+The hotels index consists of simple and complex fields, where a simple field is "HotelName" or "Description", and complex fields are an address with subfields, or a collection of rooms. When an index includes complex types, isolate the complex field definitions in separate classes.
 
-1. Lägg till två tomma klass definitioner i projektet: Address.cs, Hotel.cs
+1. Add two empty class definitions to your project: Address.cs, Hotel.cs
 
-1. Skriv över standard innehållet i Address.cs med följande kod:
+1. In Address.cs, overwrite the default contents with the following code:
 
     ```csharp
     using System;
@@ -144,7 +144,7 @@ Hotell indexet består av enkla och komplexa fält där ett enkelt fält är "Ho
     }
     ```
 
-1. I Hotel.cs definierar klassen den övergripande strukturen för indexet, inklusive referenser till klassen address.
+1. In Hotel.cs, the class defines the overall structure of the index, including references to the address class.
 
     ```csharp
     namespace AzureSearchQuickstart
@@ -192,18 +192,18 @@ Hotell indexet består av enkla och komplexa fält där ett enkelt fält är "Ho
     }
     ```
 
-    Attributen i fältet avgör hur det används i ett program. Till exempel måste attributet `IsSearchable` tilldelas till alla fält som ska ingå i en full texts ökning. 
+    Attributes on the field determine how it is used in an application. For example, the `IsSearchable` attribute must be assigned to every field that should be included in a full text search. 
     
     > [!NOTE]
-    > I .NET SDK måste fält uttryckligen underskrivas som [`IsSearchable`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.issearchable?view=azure-dotnet), [`IsFilterable`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet), [`IsSortable`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.issortable?view=azure-dotnet)och [`IsFacetable`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfacetable?view=azure-dotnet). Det här beteendet är i motsats till den REST API som implicit aktiverar behörighet baserat på datatyp (till exempel är enkla sträng fält automatiskt sökbara).
+    > In the .NET SDK, fields must be explicitly attributed as [`IsSearchable`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.issearchable?view=azure-dotnet), [`IsFilterable`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet), [`IsSortable`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.issortable?view=azure-dotnet), and [`IsFacetable`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfacetable?view=azure-dotnet). This behavior is in contrast with the REST API which implicitly enables attribution based on data type (for example, simple string fields are automatically searchable).
 
-    Exakt ett fält i indexet av typen `string` måste vara *nyckel* fältet och unikt identifiera varje dokument. I det här schemat är nyckeln `HotelId`.
+    Exactly one field in your index of type `string` must be the *key* field, uniquely identifying each document. In this schema, the key is `HotelId`.
 
-    I det här indexet använder beskrivnings fälten den valfria [`analyzer`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.analyzer?view=azure-dotnet) -egenskapen som anges när du vill åsidosätta standard standard Lucene Analyzer. I fältet `description_fr` används den franska Lucene Analyzer ([FrLucene](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.frlucene?view=azure-dotnet)) eftersom den innehåller fransk text. `description`[använder Microsoft språk analys (Microsoft](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.enmicrosoft?view=azure-dotnet)) som tillval.
+    In this index, the description fields use the optional [`analyzer`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.analyzer?view=azure-dotnet) property, specified when you want to override the default standard Lucene analyzer. The `description_fr` field is using the French Lucene analyzer ([FrLucene](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.frlucene?view=azure-dotnet)) because it stores French text. The `description` is using the optional Microsoft language analyzer ([EnMicrosoft](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.enmicrosoft?view=azure-dotnet)).
 
-1. I Program.cs skapar du en instans av klassen [`SearchServiceClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) för att ansluta till tjänsten med hjälp av värden som lagras i programmets konfigurations fil (appSettings. JSON). 
+1. In Program.cs, create an instance of the [`SearchServiceClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) class to connect to the service, using values that are stored in the application's config file (appsettings.json). 
 
-   `SearchServiceClient` har en [`Indexes`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.indexes?view=azure-dotnet) egenskap som tillhandahåller alla metoder som du behöver för att skapa, Visa, uppdatera eller ta bort Azure kognitiv sökning-index. 
+   `SearchServiceClient` has an [`Indexes`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.indexes?view=azure-dotnet) property, providing all the methods you need to create, list, update, or delete Azure Cognitive Search indexes. 
 
     ```csharp
     using System;
@@ -283,29 +283,29 @@ Hotell indexet består av enkla och komplexa fält där ett enkelt fält är "Ho
     }    
     ```
 
-    Om möjligt kan du dela en enda instans av `SearchServiceClient` i ditt program för att undvika att öppna för många anslutningar. Klass metoder är tråd säkra för att aktivera sådan delning.
+    If possible, share a single instance of `SearchServiceClient` in your application to avoid opening too many connections. Class methods are thread-safe to enable such sharing.
 
-   Klassen har flera konstruktorer. Den som du vill använda har namnet på din söktjänst och ett `SearchCredentials`-objekt som parametrar. `SearchCredentials` omsluter din API-nyckel.
+   The class has several constructors. Den som du vill använda har namnet på din söktjänst och ett `SearchCredentials`-objekt som parametrar. `SearchCredentials` omsluter din API-nyckel.
 
-    I index definitionen är det enklaste sättet att skapa `Field` objekt genom att anropa metoden `FieldBuilder.BuildForType` och skicka en modell klass för typ parametern. En modellklass har egenskaper som mappar till fält i ditt index. Med den här mappningen kan du binda dokument från Sök indexet till instanser av din modell klass.
+    In the index definition, the easiest way to create the `Field` objects is by calling the `FieldBuilder.BuildForType` method, passing a model class for the type parameter. En modellklass har egenskaper som mappar till fält i ditt index. This mapping allows you to bind documents from your search index to instances of your model class.
 
     > [!NOTE]
-    > Även om du inte planerar att använda någon modellklass kan du definiera ditt index genom att skapa `Field`-objekt direkt. Du kan ge namnet på fältet till konstruktorn, tillsammans med datatypen (eller analysverktyget för strängfält). Du kan också ange andra egenskaper, t. ex. `IsSearchable``IsFilterable`, för att ge några.
+    > Även om du inte planerar att använda någon modellklass kan du definiera ditt index genom att skapa `Field`-objekt direkt. Du kan ge namnet på fältet till konstruktorn, tillsammans med datatypen (eller analysverktyget för strängfält). You can also set other properties like `IsSearchable`, `IsFilterable`, to name a few.
     >
 
-1. Tryck på F5 för att skapa appen och skapa indexet. 
+1. Press F5 to build the app and create the index. 
 
-    Om projektet skapas, öppnas ett konsol fönster som skriver status meddelanden till skärmen för att ta bort och skapa indexet. 
+    If the project builds successfully, a console window opens, writing status messages to the screen for deleting and creating the index. 
 
 <a name="load-documents"></a>
 
-## <a name="2---load-documents"></a>2 Läs in dokument
+## <a name="2---load-documents"></a>2 - Load documents
 
-I Azure Kognitiv sökning är dokument data strukturer som båda är indata för indexering och utdata från frågor. Som hämtas från en extern data källa kan dokument indata vara rader i en databas, blobbar i blob-lagring eller JSON-dokument på disk. I det här exemplet ska vi ta en genväg och bädda in JSON-dokument för fyra hotell i själva koden. 
+In Azure Cognitive Search, documents are data structures that are both inputs to indexing and outputs from queries. As obtained from an external data source, document inputs might be rows in a database, blobs in Blob storage, or JSON documents on disk. In this example, we're taking a shortcut and embedding JSON documents for four hotels in the code itself. 
 
-När du överför dokument måste du använda ett [`IndexBatch`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) -objekt. En `IndexBatch` innehåller en samling [`IndexAction`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) objekt, som var och en innehåller ett dokument och en egenskap som talar om för Azure kognitiv sökning vilken åtgärd som ska utföras ([Ladda upp, sammanfoga, ta bort och mergeOrUpload](search-what-is-data-import.md#indexing-actions)).
+When uploading documents, you must use an [`IndexBatch`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) object. An `IndexBatch` contains a collection of [`IndexAction`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) objects, each of which contains a document and a property telling Azure Cognitive Search what action to perform ([upload, merge, delete, and mergeOrUpload](search-what-is-data-import.md#indexing-actions)).
 
-1. I Program.cs skapar du en matris med dokument-och index åtgärder och skickar sedan matrisen till `IndexBatch`. Dokumenten nedan överensstämmer med det hotell-snabb start index som definieras av hotell-och adress klasserna.
+1. In Program.cs, create an array of documents and index actions, and then pass the array to `IndexBatch`. The documents below conform to the hotel-quickstart index, as defined by the hotel and address classes.
 
     ```csharp
     // Upload documents as a batch
@@ -425,13 +425,13 @@ När du överför dokument måste du använda ett [`IndexBatch`](https://docs.mi
     }
     ```
 
-    När du har initierat`IndexBatch`-objektet kan du skicka det till indexet genom att anropa [`Documents.Index`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) på [`SearchIndexClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) -objektet. `Documents` är en egenskap för `SearchIndexClient` som tillhandahåller metoder för att lägga till, ändra, ta bort eller fråga dokument i ditt index.
+    Once you initialize the`IndexBatch` object, you can send it to the index by calling [`Documents.Index`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) on your [`SearchIndexClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) object. `Documents` is a property of `SearchIndexClient` that provides methods for adding, modifying, deleting, or querying documents in your index.
 
-    `try`/`catch` som omger anropet till `Index`-metoden fångar upp indexerings problem, vilket kan inträffa om tjänsten är hårt belastad. I produktions kod kan du fördröja och sedan försöka indexera dokumenten som misslyckades, eller logga och fortsätta som exemplet, eller hantera det på något annat sätt som uppfyller programmets krav på data konsekvens.
+    The `try`/`catch` surrounding the call to the `Index` method catches indexing failures, which might happen if your service is under heavy load. In production code, you could delay and then retry indexing the documents that failed, or log and continue like the sample does, or handle it in some other way that meets your application's data consistency requirements.
 
-    Den 2 sekunderade fördröjningen kompenserar för indexering, som är asynkron, så att alla dokument kan indexeras innan frågorna körs. Att koda i en fördröjning är vanligt vis bara nödvändigt i demonstrationer, tester och exempel program.
+    The 2-second delay compensates for indexing, which is asynchronous, so that all documents can be indexed before the queries are executed. Coding in a delay is typically only necessary in demos, tests, and sample applications.
 
-1. I Program.cs kan du, i största, ta bort kommentarer till raderna för "2-Läs dokument". 
+1. In Program.cs, in main, uncomment the lines for "2 - Load documents". 
 
     ```csharp
     // Uncomment next 3 lines in "2 - Load documents"
@@ -439,23 +439,23 @@ När du överför dokument måste du använda ett [`IndexBatch`](https://docs.mi
     Console.WriteLine("{0}", "Uploading documents...\n");
     UploadDocuments(indexClient);
     ```
-1. Tryck på F5 för att återskapa appen. 
+1. Press F5 to rebuild the app. 
 
-    Om projektet skapas, öppnas ett konsol fönster som skriver status meddelanden, den här gången med ett meddelande om att ladda upp dokument. På sidan för Sök tjänstens **Översikt** på sidan Azure Portal ska hotell-snabb starts indexet nu ha 4 dokument.
+    If the project builds successfully, a console window opens, writing status messages, this time with a message about uploading documents. In the Azure portal, in the search service **Overview** page, the hotels-quickstart index should now have 4 documents.
 
-Mer information om dokument bearbetning finns i ["hur .NET SDK hanterar dokument"](search-howto-dotnet-sdk.md#how-dotnet-handles-documents).
+For more information about document processing, see ["How the .NET SDK handles documents"](search-howto-dotnet-sdk.md#how-dotnet-handles-documents).
 
 ## <a name="3---search-an-index"></a>3 – Söka i ett index
 
-Du kan få frågeresultat så snart det första dokumentet har indexerats, men den faktiska testningen av indexet ska vänta tills alla dokument har indexerats. 
+You can get query results as soon as the first document is indexed, but actual testing of your index should wait until all documents are indexed. 
 
-I det här avsnittet läggs två delar av funktionalitet: fråga efter logik och resultat. För frågor använder du metoden [`Search`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.search?view=azure-dotnet
-) . Den här metoden tar Sök text och andra [parametrar](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters?view=azure-dotnet). 
+This section adds two pieces of functionality: query logic, and results. For queries, use the [`Search`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.search?view=azure-dotnet
+) method. This method takes search text as well as other [parameters](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters?view=azure-dotnet). 
 
-[`DocumentsSearchResult`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1?view=azure-dotnet) -klassen representerar resultatet.
+The [`DocumentsSearchResult`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1?view=azure-dotnet) class represents the results.
 
 
-1. I Program.cs skapar du en WriteDocuments-metod som skriver ut Sök resultat till-konsolen.
+1. In Program.cs, create a WriteDocuments method that prints search results to the console.
 
     ```csharp
     private static void WriteDocuments(DocumentSearchResult<Hotel> searchResults)
@@ -469,7 +469,7 @@ I det här avsnittet läggs två delar av funktionalitet: fråga efter logik och
     }
     ```
 
-1. Skapa en RunQueries-metod för att köra frågor och returnera resultat. Resultaten är hotell objekt. Du kan använda Välj parameter för att ange enskilda fält för ytan. Om ett fält inte ingår i SELECT-parametern kommer dess motsvarande hotell egenskap att vara null.
+1. Create a RunQueries method to execute queries and return results. Results are Hotel objects. You can use the select parameter to surface individual fields. If a field is not included in the select parameter, its corresponding Hotel property will be null.
 
     ```csharp
     private static void RunQueries(ISearchIndexClient indexClient)
@@ -533,34 +533,34 @@ I det här avsnittet läggs två delar av funktionalitet: fråga efter logik och
     }
     ```
 
-    Det finns två [sätt att matcha termer i en fråga](search-query-overview.md#types-of-queries): full texts ökning och filter. En fullständig text Sök fråga söker efter en eller flera termer i `IsSearchable` fält i ditt index. Ett filter är ett booleskt uttryck som utvärderas över `IsFilterable` fält i ett index. Du kan använda full texts ökning och filter tillsammans eller separat.
+    There are two [ways of matching terms in a query](search-query-overview.md#types-of-queries): full-text search, and filters. A full-text search query searches for one or more terms in `IsSearchable` fields in your index. A filter is a boolean expression that is evaluated over `IsFilterable` fields in an index. You can use full-text search and filters together or separately.
 
     Både sökningar och filtreringar utförs med hjälp av metoden `Documents.Search`. En sökfråga kan skickas i parametern `searchText`, medan ett filteruttryck kan skickas i `Filter`-egenskapen för klassen `SearchParameters`. Om du vill filtrera utan sökning skickar du bara `"*"` för `searchText`-parametern. Om du vill söka utan filtrering lämnar du bara `Filter`-egenskapen odefinierad eller väljer att inte skicka den i en `SearchParameters`-instans över huvud taget.
 
-1. I Program.cs, i största, tar du bort kommentaren till raderna för "3-search". 
+1. In Program.cs, in main, uncomment the lines for "3 - Search". 
 
     ```csharp
     // Uncomment next 2 lines in "3 - Search an index"
     Console.WriteLine("{0}", "Searching documents...\n");
     RunQueries(indexClient);
     ```
-1. Lösningen är nu slutförd. Tryck på F5 för att återskapa appen och köra programmet i sin helhet. 
+1. The solution is now finished. Press F5 to rebuild the app and run the program in its entirety. 
 
-    Utdata innehåller samma meddelanden som tidigare, med ytterligare information om frågor och resultat.
+    Output includes the same messages as before, with addition of query information and results.
 
-## <a name="clean-up"></a>Rensa
+## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar med din egen prenumeration är det en bra idé i slutet av ett projekt för att identifiera om du fortfarande behöver de resurser som du har skapat. Resurser som har lämnats igång kostar dig pengar. Du kan ta bort resurser individuellt eller ta bort resurs gruppen för att ta bort hela uppsättningen resurser.
+When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
 
-Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurser** eller **resurs grupper** i det vänstra navigerings fönstret.
+You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
 
-Kom ihåg att du är begränsad till tre index, indexerare och data källor om du använder en kostnads fri tjänst. Du kan ta bort enskilda objekt i portalen för att hålla dig under gränsen. 
+If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den C# här snabb starten har du arbetat genom en serie aktiviteter för att skapa ett index, läsa in det med dokument och köra frågor. I olika steg tog vi genvägar för att förenkla koden för läsbarhet och förståelse. Om du är van vid de grundläggande begreppen rekommenderar vi nästa artikel för en utforskning av alternativa metoder och koncept som kommer att fördjupa dina kunskaper. 
+In this C# quickstart, you worked through a series of tasks to create an index, load it with documents, and run queries. At different stages, we took shortcuts to simplify the code for readability and comprehension. If you are comfortable with the basic concepts, we recommend the next article for an exploration of alternative approaches and concepts that will deepen your knowledge. 
 
-Exempel koden och indexet är expanderade versioner av den här. Nästa exempel lägger till en rums samling, använder olika klasser och åtgärder och tar en närmare titt på hur bearbetningen fungerar.
+The sample code and index are expanded versions of this one. The next sample adds a Rooms collection, uses different classes and actions, and takes a closer look at how processing works.
 
 > [!div class="nextstepaction"]
-> [Utveckla i .NET](search-howto-dotnet-sdk.md)
+> [How to develop in .NET](search-howto-dotnet-sdk.md)

@@ -1,113 +1,80 @@
 ---
-title: Använd en statisk IP-adress med AKS-belastningsutjämnaren (Azure Kubernetes service)
-description: Lär dig hur du skapar och använder en statisk IP-adress med AKS-belastningsutjämnaren (Azure Kubernetes service).
+title: Use a static IP address with the Azure Kubernetes Service (AKS) load balancer
+description: Learn how to create and use a static IP address with the Azure Kubernetes Service (AKS) load balancer.
 services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 11/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 9e32715766734bcbb150d70aeed2dc5b06a4bcbb
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 8457f1c0c5b6107c4b44f6f00236a33f7c67452a
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67614472"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325446"
 ---
-# <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Använda en statisk offentlig IP-adress med belastningsutjämnaren för Azure Kubernetes service (AKS)
+# <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Use a static public IP address with the Azure Kubernetes Service (AKS) load balancer
 
-Som standard är den offentliga IP-adress som tilldelats till en belastnings Utjämnings resurs som skapats av ett AKS-kluster bara giltig för livs längd för resursen. Om du tar bort Kubernetes-tjänsten raderas även den tillhör ande belastningsutjämnaren och IP-adress. Om du vill tilldela en speciell IP-adress eller behålla en IP-adress för omdistribuerade Kubernetes-tjänster kan du skapa och använda en statisk offentlig IP-adress.
+By default, the public IP address assigned to a load balancer resource created by an AKS cluster is only valid for the lifespan of that resource. If you delete the Kubernetes service, the associated load balancer and IP address are also deleted. If you want to assign a specific IP address or retain an IP address for redeployed Kubernetes services, you can create and use a static public IP address.
 
-Den här artikeln visar hur du skapar en statisk offentlig IP-adress och tilldelar den till din Kubernetes-tjänst.
+This article shows you how to create a static public IP address and assign it to your Kubernetes service.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster kan du läsa snabb starten för AKS [med hjälp av Azure CLI][aks-quickstart-cli] eller [Azure Portal][aks-quickstart-portal].
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-Du måste också ha Azure CLI-versionen 2.0.59 eller senare installerad och konfigurerad. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
+You also need the Azure CLI version 2.0.59 or later installed and configured. Kör  `az --version` för att hitta versionen. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-För närvarande stöds endast *Basic IP SKU*. Arbetet pågår för att stödja *standard-IP-resurs-* SKU: n. Mer information finns i [IP-diagramtyper och autentiseringsmetoder i Azure][ip-sku].
+This article covers using a *Standard* SKU IP with a *Standard* SKU load balancer. For more information, see [IP address types and allocation methods in Azure][ip-sku].
 
-## <a name="create-a-static-ip-address"></a>Skapa en statisk IP-adress
+## <a name="create-a-static-ip-address"></a>Create a static IP address
 
-När du skapar en statisk offentlig IP-adress som ska användas med AKS, ska IP-adressresursen skapas i resurs gruppen för **noden** . Om du vill separera resurserna går du till följande avsnitt för att [använda en statisk IP-adress utanför resurs gruppen för noden](#use-a-static-ip-address-outside-of-the-node-resource-group).
-
-Börja med att hämta resurs grupp namnet för noden med kommandot [AZ AKS show][az-aks-show] och Lägg till `--query nodeResourceGroup` Frågeparametern. I följande exempel hämtas resurs gruppen för AKS kluster namnet *myAKSCluster* i resurs grupps namnet *myResourceGroup*:
-
-```azurecli-interactive
-$ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
-
-MC_myResourceGroup_myAKSCluster_eastus
-```
-
-Skapa nu en statisk offentlig IP-adress med kommandot [AZ Network Public IP Create][az-network-public-ip-create] . Ange resurs grupp namnet för noden som hämtades i föregående kommando och ett namn för IP-adressresurs, till exempel *myAKSPublicIP*:
+Create a static public IP address with the [az network public ip create][az-network-public-ip-create] command. The following creates a static IP resource named *myAKSPublicIP* in the *myResourceGroup* resource group:
 
 ```azurecli-interactive
 az network public-ip create \
-    --resource-group MC_myResourceGroup_myAKSCluster_eastus \
+    --resource-group myResourceGroup \
     --name myAKSPublicIP \
+    --sku Standard \
     --allocation-method static
 ```
 
-IP-adressen visas, som du ser i följande komprimerade exempel i utdata:
+> [!NOTE]
+> If you are using a *Basic* SKU load balancer in your AKS cluster, use *Basic* for the *sku* parameter when defining a public IP. Only *Basic* SKU IPs work with the *Basic* SKU load balancer and only *Standard* SKU IPs work with *Standard* SKU load balancers. 
+
+The IP address is displayed, as shown in the following condensed example output:
 
 ```json
 {
   "publicIp": {
-    "dnsSettings": null,
-    "etag": "W/\"6b6fb15c-5281-4f64-b332-8f68f46e1358\"",
-    "id": "/subscriptions/<SubscriptionID>/resourceGroups/MC_myResourceGroup_myAKSCluster_eastus/providers/Microsoft.Network/publicIPAddresses/myAKSPublicIP",
-    "idleTimeoutInMinutes": 4,
+    ...
     "ipAddress": "40.121.183.52",
-    [...]
+    ...
   }
 }
 ```
 
-Du kan senare hämta den offentliga IP-adressen med kommandot [AZ Network Public-IP List][az-network-public-ip-list] . Ange namnet på den resurs grupp för noden och den offentliga IP-adress som du skapade och fråga efter *IP* -adressen som visas i följande exempel:
+You can later get the public IP address using the [az network public-ip list][az-network-public-ip-list] command. Specify the name of the node resource group and public IP address you created, and query for the *ipAddress* as shown in the following example:
 
 ```azurecli-interactive
-$ az network public-ip show --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --query ipAddress --output tsv
+$ az network public-ip show --resource-group myResourceGroup --name myAKSPublicIP --query ipAddress --output tsv
 
 40.121.183.52
 ```
 
-## <a name="create-a-service-using-the-static-ip-address"></a>Skapa en tjänst med hjälp av den statiska IP-adressen
+## <a name="create-a-service-using-the-static-ip-address"></a>Create a service using the static IP address
 
-Om du vill skapa en tjänst med den statiska offentliga IP-adressen `loadBalancerIP` lägger du till egenskapen och värdet för den statiska offentliga IP-adressen i yaml-manifestet. Skapa en fil med `load-balancer-service.yaml` namnet och kopiera i följande yaml. Ange din egen offentliga IP-adress som skapades i föregående steg.
-
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: azure-load-balancer
-spec:
-  loadBalancerIP: 40.121.183.52
-  type: LoadBalancer
-  ports:
-  - port: 80
-  selector:
-    app: azure-load-balancer
-```
-
-Skapa tjänsten och distributionen med `kubectl apply` kommandot.
-
-```console
-kubectl apply -f load-balancer-service.yaml
-```
-
-## <a name="use-a-static-ip-address-outside-of-the-node-resource-group"></a>Använd en statisk IP-adress utanför nodens resurs grupp
-
-Med Kubernetes 1,10 eller senare kan du använda en statisk IP-adress som har skapats utanför resurs gruppen för noden. Tjänstens huvud namn som används av AKS-klustret måste ha delegerade behörigheter till den andra resurs gruppen, vilket visas i följande exempel:
+Before creating a service, ensure the service principal used by the AKS cluster has delegated permissions to the other resource group. Exempel:
 
 ```azurecli-interactive
-az role assignment create\
+az role assignment create \
     --assignee <SP Client ID> \
-    --role "Network Contributor" \
+    --role "Contributor" \
     --scope /subscriptions/<subscription id>/resourceGroups/<resource group name>
 ```
 
-Om du vill använda en IP-adress utanför resurs gruppen för noden lägger du till en anteckning i tjänst definitionen. I följande exempel anges anteckningen till resurs gruppen med namnet *myResourceGroup*. Ange ett eget namn på en resurs grupp:
+To create a *LoadBalancer* service with the static public IP address, add the `loadBalancerIP` property and the value of the static public IP address to the YAML manifest. Create a file named `load-balancer-service.yaml` and copy in the following YAML. Provide your own public IP address created in the previous step. The following example also sets the annotation to the resource group named *myResourceGroup*. Provide your own resource group name.
 
 ```yaml
 apiVersion: v1
@@ -125,15 +92,21 @@ spec:
     app: azure-load-balancer
 ```
 
-## <a name="troubleshoot"></a>Felsöka
+Create the service and deployment with the `kubectl apply` command.
 
-Om den statiska IP-adressen som definierats i *loadBalancerIP* -egenskapen för Kubernetes-tjänst manifestet inte finns eller inte har skapats i resurs gruppen för noden och inga ytterligare delegeringar har kon figurer ATS, Miss lyckas skapandet av tjänsten för belastningsutjämnare. Du kan felsöka genom att granska tjänstens skapande händelser med kommandot [kubectl beskriver][kubectl-describe] . Ange namnet på tjänsten enligt vad som anges i YAML-manifestet, som du ser i följande exempel:
+```console
+kubectl apply -f load-balancer-service.yaml
+```
+
+## <a name="troubleshoot"></a>Felsökning
+
+If the static IP address defined in the *loadBalancerIP* property of the Kubernetes service manifest does not exist, or has not been created in the node resource group and no additional delegations configured, the load balancer service creation fails. To troubleshoot, review the service creation events with the [kubectl describe][kubectl-describe] command. Provide the name of the service as specified in the YAML manifest, as shown in the following example:
 
 ```console
 kubectl describe service azure-load-balancer
 ```
 
-Information om Kubernetes-Tjänsteresursen visas. *Händelserna* i slutet av följande exempel på utdata visar att det *inte gick att hitta ANVÄNDAREns angivna IP-adress*. I dessa scenarier kontrollerar du att du har skapat den statiska offentliga IP-adressen i resurs gruppen för noden och att den IP-adress som anges i Kubernetes-tjänstens manifest är korrekt.
+Information about the Kubernetes service resource is displayed. The *Events* at the end of the following example output indicate that the *user supplied IP Address was not found*. In these scenarios, verify that you have created the static public IP address in the node resource group and that the IP address specified in the Kubernetes service manifest is correct.
 
 ```
 Name:                     azure-load-balancer
@@ -159,7 +132,7 @@ Events:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill ha ytterligare kontroll över nätverks trafiken till dina program kan du i stället [skapa en][aks-ingress-basic]ingångs kontroll. Du kan också [skapa en ingångs kontroll enhet med en statisk offentlig IP-adress][aks-static-ingress].
+For additional control over the network traffic to your applications, you may want to instead [create an ingress controller][aks-ingress-basic]. You can also [create an ingress controller with a static public IP address][aks-static-ingress].
 
 <!-- LINKS - External -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe

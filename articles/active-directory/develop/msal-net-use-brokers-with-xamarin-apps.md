@@ -1,7 +1,7 @@
 ---
-title: Använda Microsoft Authenticator eller Microsoft Intune Företagsportal på Xamarin iOS-och Android-program
+title: Use Microsoft Authenticator or Microsoft Intune Company Portal on Xamarin iOS and Android applications
 titleSuffix: Microsoft identity platform
-description: Lär dig hur du migrerar Xamarin iOS-program som kan använda Microsoft Authenticator från Azure AD Authentication Library för .NET (ADAL.NET) till Microsoft Authentication Library för .NET (MSAL.NET)
+description: Learn how to migrate Xamarin iOS applications that can use Microsoft Authenticator from the Azure AD Authentication Library for .NET (ADAL.NET) to the Microsoft Authentication Library for .NET (MSAL.NET)
 documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
@@ -17,29 +17,29 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e71e9ef72e7b6caaa3894bb30c6e7e9cf762232a
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: bd144f1922456520075c1863ec347e85eb3889db
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802707"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74379864"
 ---
-# <a name="use-microsoft-authenticator-or-microsoft-intune-company-portal-on-xamarin-applications"></a>Använda Microsoft Authenticator eller Microsoft Intune Företagsportal på Xamarin-program
+# <a name="use-microsoft-authenticator-or-microsoft-intune-company-portal-on-xamarin-applications"></a>Use Microsoft Authenticator or Microsoft Intune Company Portal on Xamarin applications
 
-På Android och iOS är-utjämnare som Microsoft Authenticator eller Microsoft Intune Företagsportal aktivera (endast Android):
+On Android and iOS, brokers like Microsoft Authenticator or Microsoft Intune Company Portal enable (Android only):
 
-- Enkel inloggning (SSO). Användarna behöver inte logga in på varje program.
-- Enhets identifiering. Service Broker har åtkomst till enhets certifikatet som skapades på enheten när den var ansluten till arbets platsen.
-- Verifiering av program identifiering. När ett program anropar Broker, skickar den sin omdirigerings-URL och Service Broker verifierar den.
+- Single sign-on (SSO). Your users won't need to sign in to each application.
+- Device identification. The broker accesses the device certificate, which was created on the device when it was workplace joined.
+- Application identification verification. When an application calls the broker, it passes its redirect URL, and the broker verifies it.
 
-Programutvecklare måste använda parametern `WithBroker()` när de anropar `PublicClientApplicationBuilder.CreateApplication`-metoden för att aktivera någon av dessa funktioner. `.WithBroker()` har värdet true som standard. Utvecklare måste också följa stegen här för [iOS](#brokered-authentication-for-ios) -eller [Android](#brokered-authentication-for-android) -program.
+To enable one of these features, application developers need to use the `WithBroker()` parameter when they call the `PublicClientApplicationBuilder.CreateApplication` method. `.WithBroker()` is set to true by default. Developers also need to follow the steps here for [iOS](#brokered-authentication-for-ios) or [Android](#brokered-authentication-for-android) applications.
 
-## <a name="brokered-authentication-for-ios"></a>Brokered Authentication för iOS
+## <a name="brokered-authentication-for-ios"></a>Brokered authentication for iOS
 
-Följ dessa steg för att aktivera din Xamarin. iOS-app för att kommunicera med [Microsoft Authenticator](https://itunes.apple.com/us/app/microsoft-authenticator/id983156458) -appen.
+Follow these steps to enable your Xamarin.iOS app to talk with the [Microsoft Authenticator](https://itunes.apple.com/us/app/microsoft-authenticator/id983156458) app.
 
-### <a name="step-1-enable-broker-support"></a>Steg 1: Aktivera stöd för Broker
-Stöd för Service Broker är aktiverat per PublicClientApplication. Den är inaktive rad som standard. Använd `WithBroker()` parameter (anges till sant som standard) när du skapar PublicClientApplication via PublicClientApplicationBuilder.
+### <a name="step-1-enable-broker-support"></a>Step 1: Enable broker support
+Broker support is enabled on a per-PublicClientApplication basis. It's disabled by default. Use the `WithBroker()` parameter (set to true by default) when you create the PublicClientApplication through the PublicClientApplicationBuilder.
 
 ```CSharp
 var app = PublicClientApplicationBuilder
@@ -49,8 +49,8 @@ var app = PublicClientApplicationBuilder
                 .Build();
 ```
 
-### <a name="step-2-update-appdelegate-to-handle-the-callback"></a>Steg 2: uppdatera AppDelegate för att hantera återanropet
-När Microsoft Authentication Library för .NET (MSAL.NET) anropar Broker, anropar Broker i tur och tillbaka till ditt program via `OpenUrl`-metoden i `AppDelegate`-klassen. Eftersom MSAL väntar på svar från Service Broker måste ditt program samar beta för att anropa MSAL.NET tillbaka. Om du vill aktivera detta samarbete uppdaterar du `AppDelegate.cs`-filen så att den åsidosätter följande metod.
+### <a name="step-2-update-appdelegate-to-handle-the-callback"></a>Step 2: Update AppDelegate to handle the callback
+When the Microsoft Authentication Library for .NET (MSAL.NET) calls the broker, the broker in turn calls back to your application through the `OpenUrl` method of the `AppDelegate` class. Because MSAL waits for the response from the broker, your application needs to cooperate to call MSAL.NET back. To enable this cooperation, update the `AppDelegate.cs` file to override the following method.
 
 ```CSharp
 public override bool OpenUrl(UIApplication app, NSUrl url, 
@@ -72,16 +72,16 @@ public override bool OpenUrl(UIApplication app, NSUrl url,
 }           
 ```
 
-Den här metoden anropas varje gång programmet startas. Den används som en möjlighet att bearbeta svaret från Service Broker och slutföra autentiseringsprocessen som initierats av MSAL.NET.
+This method is invoked every time the application is launched. It's used as an opportunity to process the response from the broker and complete the authentication process initiated by MSAL.NET.
 
-### <a name="step-3-set-a-uiviewcontroller"></a>Steg 3: Ange en UIViewController ()
-Fortfarande i `AppDelegate.cs`måste du ange ett objekt fönster. Normalt, med Xamarin iOS, behöver du inte ange objekt fönstret. Du behöver ett objekt fönster för att kunna skicka och ta emot svar från Service Broker. 
+### <a name="step-3-set-a-uiviewcontroller"></a>Step 3: Set a UIViewController()
+Still in `AppDelegate.cs`, you need to set an object window. Normally, with Xamarin iOS, you don't need to set the object window. To send and receive responses from the broker, you need an object window. 
 
-Det gör du genom att göra två saker. 
-1. I `AppDelegate.cs`anger du `App.RootViewController` till en ny `UIViewController()`. Den här tilldelningen ser till att det finns en UIViewController med anropet till Broker. Om den inte anges korrekt kan du få följande fel meddelande: `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
-1. På AcquireTokenInteractive-anropet använder du `.WithParentActivityOrWindow(App.RootViewController)` och skickar i referensen till objekt fönstret som du kommer att använda.
+To do this, you do two things. 
+1. In `AppDelegate.cs`, set the `App.RootViewController` to a new `UIViewController()`. This assignment makes sure there's a UIViewController with the call to the broker. If it isn't set correctly, you might get this error: `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
+1. On the AcquireTokenInteractive call, use the `.WithParentActivityOrWindow(App.RootViewController)` and pass in the reference to the object window you'll use.
 
-**Exempel:**
+**For example:**
 
 Följande gäller i `App.cs`:
 ```CSharp
@@ -92,26 +92,26 @@ Följande gäller i `AppDelegate.cs`:
    LoadApplication(new App());
    App.RootViewController = new UIViewController();
 ```
-I Hämta token-anrop:
+In the acquire token call:
 ```CSharp
 result = await app.AcquireTokenInteractive(scopes)
              .WithParentActivityOrWindow(App.RootViewController)
              .ExecuteAsync();
 ```
 
-### <a name="step-4-register-a-url-scheme"></a>Steg 4: registrera ett URL-schema
-MSAL.NET använder URL: er för att anropa Service Broker och returnerar sedan Service Broker-svaret tillbaka till din app. Om du vill slutföra den runda resan registrerar du ett URL-schema för din app i `Info.plist`-filen.
+### <a name="step-4-register-a-url-scheme"></a>Step 4: Register a URL scheme
+MSAL.NET uses URLs to invoke the broker and then return the broker response back to your app. To finish the round trip, register a URL scheme for your app in the `Info.plist` file.
 
-`CFBundleURLSchemes` namnet måste innehålla `msauth.` som prefix, följt av din `CFBundleURLName`.
+The `CFBundleURLSchemes` name must include `msauth.` as a prefix, followed by your `CFBundleURLName`.
 
 `$"msauth.(BundleId)"`
 
-**Exempel:**
+**For example:**
 
 `msauth.com.yourcompany.xforms`
 
 > [!NOTE]
-> Detta URL-schema blir en del av omdirigerings-URI: n som används för att unikt identifiera din app när den tar emot svaret från Service Broker.
+> This URL scheme becomes part of the redirect URI that's used to uniquely identify your app when it receives the response from the broker.
 
 ```XML
  <key>CFBundleURLTypes</key>
@@ -129,10 +129,10 @@ MSAL.NET använder URL: er för att anropa Service Broker och returnerar sedan S
     </array>
 ```
 
-### <a name="step-5-add-the-broker-identifier-to-the-lsapplicationqueriesschemes-section"></a>Steg 5: Lägg till Service Broker-identifieraren i avsnittet LSApplicationQueriesSchemes
-MSAL använder `–canOpenURL:` för att kontrol lera om Broker är installerad på enheten. I iOS 9 är Apple låst för vilka scheman ett program kan fråga efter. 
+### <a name="step-5-add-the-broker-identifier-to-the-lsapplicationqueriesschemes-section"></a>Step 5: Add the broker identifier to the LSApplicationQueriesSchemes section
+MSAL uses `–canOpenURL:` to check if the broker is installed on the device. In iOS 9, Apple locked down what schemes an application can query for. 
 
-Lägg till `msauthv2` i avsnittet `LSApplicationQueriesSchemes` i `Info.plist`s filen.
+Add `msauthv2` to the `LSApplicationQueriesSchemes` section of the `Info.plist` file.
 
 ```XML 
 <key>LSApplicationQueriesSchemes</key>
@@ -141,47 +141,49 @@ Lägg till `msauthv2` i avsnittet `LSApplicationQueriesSchemes` i `Info.plist`s 
     </array>
 ```
 
-### <a name="step-6-register-your-redirect-uri-in-the-application-portal"></a>Steg 6: registrera din omdirigerings-URI i program portalen
-Om du använder Service Broker läggs ett extra krav på omdirigerings-URI: n. Omdirigerings-URI: n _måste_ ha följande format:
+### <a name="step-6-register-your-redirect-uri-in-the-application-portal"></a>Step 6: Register your redirect URI in the application portal
+Using the broker adds an extra requirement on your redirect URI. The redirect URI _must_ have the following format:
 ```CSharp
 $"msauth.{BundleId}://auth"
 ```
-**Exempel:**
+**For example:**
 ```CSharp
 public static string redirectUriOnIos = "msauth.com.yourcompany.XForms://auth"; 
 ```
-Observera att omdirigerings-URI: n matchar `CFBundleURLSchemes` namn som du inkluderade i `Info.plist`-filen.
+Notice that the redirect URI matches the `CFBundleURLSchemes` name you included in the `Info.plist` file.
 
-### <a name="step-7-make-sure-the-redirect-uri-is-registered-with-your-app"></a>Steg 7: kontrol lera att omdirigerings-URI: n är registrerad i appen
+### <a name="step-7-make-sure-the-redirect-uri-is-registered-with-your-app"></a>Step 7: Make sure the redirect URI is registered with your app
 
-Den här omdirigerings-URI: n måste registreras på App Registration-portalen (https://portal.azure.com) som en giltig omdirigerings-URI för programmet. 
+This redirect URI needs to be registered on the app registration portal (https://portal.azure.com) as a valid redirect URI for your application. 
 
-Portalen har en ny Experience app Registration-portal som hjälper dig att beräkna den asynkrona svars-URI: n från paket-ID: t.
+The portal has a new experience app registration portal to help you compute the brokered reply URI from the bundle ID.
 
-1. Välj **autentisering** i appens registrering och välj **testa den nya upplevelsen**.
+1. In the app registration, choose **Authentication** and select **Try out the new experience**.
 
-   ![Prova den nya appens registrerings upplevelse](media/msal-net-use-brokers-with-xamarin-apps/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
+   ![Try out the new app registration experience](media/msal-net-use-brokers-with-xamarin-apps/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
 
-1. Välj **Lägg till en plattform**.
+1. Select **Add a platform**.
 
-   ![Lägg till en plattform](media/msal-net-use-brokers-with-xamarin-apps/60799366-4c01ad00-a173-11e9-934f-f02e26c9429e.png)
+   ![Add a platform](media/msal-net-use-brokers-with-xamarin-apps/60799366-4c01ad00-a173-11e9-934f-f02e26c9429e.png)
 
-1. När listan över plattformar stöds väljer du **iOS**.
+1. When the list of platforms is supported, select **iOS**.
 
-   ![Konfigurera iOS](media/msal-net-use-brokers-with-xamarin-apps/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
+   ![Configure iOS](media/msal-net-use-brokers-with-xamarin-apps/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
 
-1. Ange ditt paket-ID enligt begäran och välj sedan **Konfigurera**.
+1. Enter your bundle ID as requested, and then select **Configure**.
 
-   ![Ange paket-ID](media/msal-net-use-brokers-with-xamarin-apps/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
+   ![Enter Bundle ID](media/msal-net-use-brokers-with-xamarin-apps/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
 
-1. Omdirigerings-URI: n beräknas för dig.
+1. The redirect URI is computed for you.
 
-   ![Kopiera omdirigerings-URI](media/msal-net-use-brokers-with-xamarin-apps/60799538-9e42ce00-a173-11e9-860a-015a1840fd19.png)
+   ![Copy redirect URI](media/msal-net-use-brokers-with-xamarin-apps/60799538-9e42ce00-a173-11e9-860a-015a1840fd19.png)
 
-## <a name="brokered-authentication-for-android"></a>Brokered Authentication för Android
+## <a name="brokered-authentication-for-android"></a>Brokered authentication for Android
 
-Service Broker-stödet är inte tillgängligt för Android.
+MSAL.NET only support the Xamarin.iOS platform at the moment. It doesn't yet support brokers for the Xamarin.Android platform.
+
+The MSAL Android native library already supports it. For details see [Brokered auth in Android](https://docs.microsoft.com/azure/active-directory/develop/brokered-auth.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om [universell Windows-plattform-/regionsspecifika överväganden med MSAL.net](msal-net-uwp-considerations.md).
+Learn about [Universal Windows Platform-specific considerations with MSAL.NET](msal-net-uwp-considerations.md).

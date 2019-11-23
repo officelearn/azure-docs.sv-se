@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Sök efter entiteter med Entitetssökning i Bing SDK för python'
+title: 'Quickstart: Search for entities with the SDK for Python - Bing Entity Search'
 titleSuffix: Azure Cognitive Services
-description: Använd den här snabb starten för att söka efter entiteter med Entitetssökning i Bing SDK för python.
+description: Use this quickstart to search for entities with the Bing Entity Search SDK for Python.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,24 +10,24 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: 0a4a4e3ce6f318a693b8ee760a0d892eaecb2c82
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 7720304cc017db86b052cee39ca0430e5c1bf9c2
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479006"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327129"
 ---
 # <a name="quickstart-bing-entity-search-sdk-with-python"></a>Snabbstart: SDK för entitetssökning i Bing med Python
 
-Använd den här snabbstarten om du vill börja söka efter entiteter med SDK för entitetssökning i Bing för Python. Även om entitetssökning i Bing har ett REST API som är kompatibelt med de flesta programmeringsspråk så tillhandahåller SDK:n ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/entity_search_samples.py).
+Använd den här snabbstarten om du vill börja söka efter entiteter med SDK för entitetssökning i Bing för Python. Även om entitetssökning i Bing har ett REST API som är kompatibelt med de flesta programmeringsspråk så är SDK:t ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/entity_search_samples.py).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Python [2.x eller 3.x](https://www.python.org/)
 
 * [SDK för entitetssökning i Bing för Python](https://pypi.org/project/azure-cognitiveservices-search-entitysearch/)
 
-Vi rekommenderar att du använder en virtuell Python-miljö. Du kan installera och initiera den virtuella miljön med venv-modulen. Du kan installera virtuell miljö med:
+Vi rekommenderar att du använder en virtuell Python-miljö. Du kan installera och initiera den virtuella miljön med venv-modulen. You can install virtualenv with:
 
 ```Console
 python -m venv mytestenv
@@ -44,7 +44,7 @@ python -m pip install azure-cognitiveservices-search-entitysearch
 
 ## <a name="create-and-initialize-the-application"></a>Skapa och initiera appen
 
-1. Skapa en ny Python-fil i valfri IDE eller redigeringsprogram och lägg till följande importinstruktioner. 
+1. Skapa en ny Python-fil i valfri IDE eller redigerare och följande importinstruktioner. 
 
     ```python
     from azure.cognitiveservices.search.entitysearch import EntitySearchAPI

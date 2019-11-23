@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Hämta information om bilder med hjälp av REST API för visuell sökning i Bing och Node.js'
+title: 'Quickstart: Get image insights using the REST API and Node.js - Bing Visual Search'
 titleSuffix: Azure Cognitive Services
-description: Ta reda på hur du laddar du upp en bild till API för visuell sökning i Bing och får information om den.
+description: Ta reda på hur du laddar upp en bild till API:et för visuell sökning i Bing och får information om den.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 4/02/2019
 ms.author: scottwhi
-ms.openlocfilehash: 9414bac220d928618b403aa2f7df7748772e0e9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ecfe341fa050e693f919f35c29c8120c687c88f8
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60832616"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383197"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-nodejs"></a>Snabbstart: Hämta information om bilder med hjälp av REST API för visuell sökning i Bing och Node.js
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-nodejs"></a>Quickstart: Get image insights using the Bing Visual Search REST API and Node.js
 
-Använd den här snabbstarten för att skicka ditt första anrop till API för visuell sökning i Bing och visa sökresultaten. Det här enkla JavaScript-programmet laddar upp en bild till API:et och visar den information som returneras om den. Även om det här programmet är skrivet i JavaScript är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabbstarten för att skicka ditt första anrop till API:et för visuell sökning i Bing och visa sökresultaten. Det här enkla JavaScript-programmet laddar upp en bild till API:et och visar den information som returneras om den. Även om det här programmet är skrivet i JavaScript är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-När du laddar upp en lokal avbildning formulärdata måste innehålla den `Content-Disposition` rubrik. Du måste ange dess `name` parameter ”bild” och `filename` parameter kan anges till valfri sträng. Innehållet i formuläret inkludera binära data för avbildningen. Den maximala bildstorlek som du kan ladda upp är 1 MB.
+When uploading a local image, the form data must include the `Content-Disposition` header. You must set its `name` parameter to "image", and the `filename` parameter can be set to any string. The contents of the form include the binary data of the image. Den maximala bildstorlek som du kan ladda upp är 1 MB.
 
 ```
 --boundary_1234-abcd
@@ -32,17 +32,17 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 --boundary_1234-abcd--
 ```
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * [Node.js](https://nodejs.org/en/download/)
-* Begäran-modul för JavaScript. Du kan använda `npm install request` kommando för att installera modulen.
-* Formulärdata-modul. Du kan använda den `npm install form-data` kommando för att installera modulen. 
+* The Request module for JavaScript. You can use `npm install request` command to install the module.
+* The form-data module. You can use the `npm install form-data` command to install the module. 
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## <a name="initialize-the-application"></a>Initiera programmet
 
-1. Skapa en JavaScript-fil i din favorit-IDE eller redigerare och ange följande krav:
+1. Create a JavaScript file in your favorite IDE or editor, and set the following requirements:
 
     ```javascript
     var request = require('request');
@@ -50,7 +50,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
     var fs = require('fs');
     ```
 
-2. Skapa variabler för din API-slutpunkt, prenumerationsnyckel och sökvägen till din avbildning:
+2. Create variables for your API endpoint, subscription key, and the path to your image:
 
     ```javascript
     var baseUri = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch';
@@ -58,7 +58,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
     var imagePath = "path-to-your-image";
     ```
 
-3. Skapa en funktion med namnet `requestCallback()` ska skrivas ut från API:
+3. Create a function named `requestCallback()` to print the response from the API:
 
     ```javascript
     function requestCallback(err, res, body) {
@@ -68,14 +68,14 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
 ## <a name="construct-and-send-the-search-request"></a>Skapa och skicka sökbegäran
 
-1. Skapa en ny **FormData** objekt med hjälp av `FormData()`, och lägger till din sökväg till bild, med hjälp av `fs.createReadStream()`:
+1. Create a new **FormData** object using `FormData()`, and append your image path to it, using `fs.createReadStream()`:
     
     ```javascript
     var form = new FormData();
     form.append("image", fs.createReadStream(imagePath));
     ```
 
-2. Använd begäran-biblioteket för att ladda upp avbildningen, och anropa `requestCallback()` ska skrivas ut. Tänk på att lägga till din prenumerationsnyckel i huvudet för begäran:
+2. Use the request library to upload the image, and call `requestCallback()` to print the response. Be sure to add your subscription key to the request header:
 
     ```javascript
     form.getLength(function(err, length){
@@ -91,4 +91,4 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en enda sida i Visual Search webbapp](../tutorial-bing-visual-search-single-page-app.md)
+> [Build a Visual Search single-page web app](../tutorial-bing-visual-search-single-page-app.md)

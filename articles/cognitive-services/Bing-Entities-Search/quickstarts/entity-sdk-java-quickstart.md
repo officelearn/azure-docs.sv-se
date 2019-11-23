@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Söka efter entiteter med SDK:t Entitetssökning i Bing för Java'
+title: 'Quickstart: Search for entities with the SDK for Java - Bing Entity Search'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten för att söka efter entiteter med SDK:t Entitetssökning i Bing för Java
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: 63312dcbad515f364bd4b66c5541f1db90af85b6
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: f39355613382bd5d02b7ef6918598f38737e850f
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479047"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327142"
 ---
-# <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-java"></a>Snabbstart: Skicka en sökbegäran med SDK:t Entitetssökning i Bing för Java
+# <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-java"></a>Quickstart: Send a search request with the Bing Entity Search SDK for Java
 
 Använd den här snabbstarten om du vill börja söka efter entiteter med SDK:t Entitetssökning i Bing för Java. Även om entitetssökning i Bing har ett REST API som är kompatibelt med de flesta programmeringsspråk så är SDK:t ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingEntitySearch).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/)
 

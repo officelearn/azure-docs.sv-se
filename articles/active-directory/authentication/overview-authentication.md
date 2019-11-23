@@ -1,22 +1,22 @@
 ---
-title: Användarautentisering för Azure Active Directory - Azure Active Directory
+title: Authenticating and securing users - Azure Active Directory
 description: Hur kan jag som Azure AD-administratör skydda användarautentisering och samtidigt minska påverkan för slutanvändarna?
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: overview
-ms.date: 07/11/2018
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2f53243e49cc961f50ef09cf43a7ed174a82a9c
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: ccbb754f03f77ce0571912a5443dc9b18c66b463
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65997273"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381106"
 ---
 # <a name="what-methods-are-available-for-authentication"></a>Vilka metoder är tillgängliga för autentisering?
 
@@ -35,7 +35,7 @@ Ytterligare verifiering kan ges i form av autentiseringsmetoder som:
 
 Självåterställning av lösenord med Azure MFA och Azure AD ger administratörer kontroll över konfiguration, princip, övervakning och rapportering med hjälp av Azure AD och Azure-portalen för att skydda sina organisationer.
 
-## <a name="self-service-password-reset"></a>Självåterställning av lösenord
+## <a name="self-service-password-reset"></a>Återställning av lösenord för självbetjäning
 
 Självåterställning av lösenord ger användarna möjlighet att återställa sina lösenord utan inblandning av administratören, när och var som helst.
 
@@ -44,7 +44,7 @@ Självåterställning av lösenord ger användarna möjlighet att återställa s
 Självåterställning av lösenord inkluderar:
 
 * **Lösenordsändring:** Jag känner till mitt lösenord men jag vill ändra det till något nytt.
-* **Lösenordsåterställning:** Jag kan inte logga in och jag vill återställa lösenordet med hjälp av en eller flera godkända autentiseringsmetoder.
+* **Lösenordsåterställning:** Jag kan inte logga in, och jag vill återställa lösenordet med hjälp av en eller flera godkända autentiseringsmetoder.
 * **Kontoupplåsning:** Jag kan inte logga in eftersom mitt konto är låst, och jag vill låsa upp det med hjälp av en eller flera godkända autentiseringsmetoder.
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
@@ -61,6 +61,6 @@ Nästa steg är att sätta igång och konfigurera självåterställning av löse
 
 Kom igång med självåterställning av lösenord genom att läsa [snabbstartsartikeln om att aktivera SSPR](quickstart-sspr.md).
 
-Läs mer om självåterställning av lösenord i artikeln om [ hur självåterställning av lösenord i Azure AD fungerar](concept-sspr-howitworks.md)
+Mer information om självåterställning av lösenord finns i artikeln om [hur självåterställning av lösenord i Azure AD fungerar](concept-sspr-howitworks.md)
 
-Läs mer om Azure Multi-Factor Authentication i artikeln om [ hur Azure Multi-Factor Authentication fungerar](concept-mfa-howitworks.md)
+Läs mer om Azure Multi-Factor Authentication i artikeln om [hur Azure Multi-Factor Authentication fungerar](concept-mfa-howitworks.md)

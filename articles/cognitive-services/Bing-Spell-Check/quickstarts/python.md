@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Kontrollera stavning med REST API för stavningskontroll i Bing och Python'
+title: 'Quickstart: Check spelling with the REST API and Python - Bing Spell Check'
 titleSuffix: Azure Cognitive Services
 description: Kom igång med REST API för stavningskontroll i Bing för att kontrollera stavning och grammatik.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 09/13/2019
 ms.author: aahi
-ms.openlocfilehash: fef329a46594071b5f1621e9a46140f407eeb415
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 9a75148ab1ca1dae0acb5af8128fe1220fbbe8b3
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996727"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74378816"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-python"></a>Snabbstart: Kontrollera stavning med REST API för stavningskontroll i Bing och Python
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-python"></a>Quickstart: Check spelling with the Bing Spell Check REST API and Python
 
 Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. Det här enkla Python-programmet skickar en begäran till API:et och returnerar en lista över föreslagna korrigeringar. Även om det här programmet är skrivet i Python, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden till det här programmet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Python [3.x](https://www.python.org)
 
@@ -52,7 +52,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
     data = {'text': example_text}
     ```
 
-2. Lägg till parametrarna för begäran. Lägg till din marknads kod `mkt=`efter. Marknads koden är det land som du gör begäran från. Lägg också till ditt stavnings kontroll läge efter `&mode=`. Läget är antingen `proof` (fångar de flesta stavnings-och grammatikfel) `spell` eller (fångar de flesta stavfel men inte lika många grammatiska fel).
+2. Lägg till parametrarna för begäran. Append your market code after `mkt=`. The market code is the country you make the request from. Also, append your spell-check mode after `&mode=`. Mode is either `proof` (catches most spelling/grammar errors) or `spell` (catches most spelling but not as many grammar errors).
 
     ```python
     params = {
@@ -132,5 +132,5 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Skapa en webbapp med en sida](../tutorials/spellcheck.md)
 
-- [Vad är API:et för stavningskontroll i Bing?](../overview.md)
+- [Vad är API för stavningskontroll i Bing?](../overview.md)
 - [API-referens för stavningskontroll i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

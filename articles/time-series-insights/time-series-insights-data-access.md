@@ -1,6 +1,6 @@
 ---
-title: Konfigurera säkerhet för att bevilja data åtkomst – Azure Time Series Insights för hands version | Microsoft Docs
-description: Lär dig hur du konfigurerar säkerhet, behörigheter och hanterar principer för data åtkomst i din Azure Time Series Insights Preview-miljö.
+title: Configure security to grant data access - Azure Time Series Insights Preview | Microsoft Docs
+description: Learn how to configure security, permissions, and manage data access policies in your Azure Time Series Insights Preview environment.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -9,115 +9,125 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 11/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: f49567b8060be2bf2a9ca2b8a1bdee23f58fdd6b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: b79ca1d93baf1941d5de8db0c314f9cd21e51056
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012692"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328132"
 ---
-# <a name="grant-data-access-to-an-environment"></a>Bevilja data åtkomst till en miljö
+# <a name="grant-data-access-to-an-environment"></a>Grant data access to an environment
 
-I den här artikeln beskrivs de två typerna av Azure Time Series Insights för för hands versions åtkomst principer.
+This article discusses the two types of Azure Time Series Insights Preview access policies.
 
-## <a name="sign-in-to-time-series-insights"></a>Logga in på Time Series Insights
+> [!TIP]
+> Read [Authentication and Authorization](time-series-insights-authentication-and-authorization.md) for Azure Active Directory app registration steps.
+
+## <a name="sign-in-to-time-series-insights"></a>Sign in to Time Series Insights
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-1. Leta upp din Time Series Insightss miljö. Ange `Time Series` i **sökrutan.** Välj **tids serie miljö** i Sök resultaten.
+1. Locate your Time Series Insights environment. Enter `Time Series` in the **Search** box. Select **Time Series Environment** in the search results.
 1. Välj Time Series Insights-miljön från listan.
 
 ## <a name="grant-data-access"></a>Bevilja åtkomst till data
 
-Följ dessa steg om du vill bevilja data åtkomst för ett huvud konto för användare.
+Follow these steps to grant data access for a user principal.
 
-1. Välj **data åtkomst principer**och välj sedan **+ Lägg till**.
+1. Select **Data Access Policies**, and then select **+ Add**.
 
-    [![data åtkomst – ett](media/data-access/data-access-one.png)](media/data-access/data-access-one.png#lightbox)
+    [![Select and add a Data Access Policy](media/data-access/data-access-select-add-button.png)](media/data-access/data-access-select-add-button.png#lightbox)
 
-1. Välj **Välj användare**. Sök efter användar namnet eller e-postadressen för att hitta den användare som du vill lägga till. Välj **Välj** för att bekräfta valet.
+1. Choose **Select user**. Search for the user name or email address to locate the user you want to add. Select **Select** to confirm the selection.
 
-    [![Data-access-two](media/data-access/data-access-two.png)](media/data-access/data-access-two.png#lightbox)
+    [![Select a user to add](media/data-access/data-access-select-user-to-confirm.png)](media/data-access/data-access-select-user-to-confirm.png#lightbox)
 
-1. Välj **Välj roll**. Välj lämplig åtkomst roll för användaren:
+1. Choose **Select role**. Choose the appropriate access role for the user:
 
-    * Välj **deltagare** om du vill tillåta att användaren ändrar referens data och delar sparade frågor och perspektiv med andra användare av miljön.
+    * Select **Contributor** if you want to allow the user to change reference data and share saved queries and perspectives with other users of the environment.
 
-    * Annars väljer du **läsare** så att användaren kan fråga efter data i miljön och spara personliga, inte delade, frågor i miljön.
+    * Otherwise, select **Reader** to allow the user to query data in the environment and save personal, not shared, queries in the environment.
 
-   Bekräfta valet av roll genom att klicka på **OK** .
+   Select **OK** to confirm the role choice.
 
-    [![data åtkomst – tre](media/data-access/data-access-three.png)](media/data-access/data-access-three.png#lightbox)
+    [![Confirm the selected role](media/data-access/data-access-select-a-role.png)](media/data-access/data-access-select-a-role.png#lightbox)
 
-1. Välj **OK** på sidan **Välj användar roll** .
+1. Select **OK** on the **Select User Role** page.
 
-    [![Data-access-four](media/data-access/data-access-four.png)](media/data-access/data-access-four.png#lightbox)
+    [![Select OK on the Select User Role page](media/data-access/data-access-confirm-user-and-role.png)](media/data-access/data-access-confirm-user-and-role.png#lightbox)
 
-1. Bekräfta att sidan för **data åtkomst principer** visar användarna och rollerna för varje användare.
+1. Confirm that the **Data Access Policies** page lists the users and the roles for each user.
 
-    [![Data-access-five](media/data-access/data-access-five.png)](media/data-access/data-access-five.png#lightbox)
+    [![Verify the correct users and roles](media/data-access/data-access-verify-and-confirm-assignments.png)](media/data-access/data-access-verify-and-confirm-assignments.png#lightbox)
 
-## <a name="provide-guest-access-from-another-aad-tenant"></a>Ge gäst åtkomst från en annan AAD-klient
+## <a name="provide-guest-access-from-another-azure-ad-tenant"></a>Provide guest access from another Azure AD tenant
 
-`Guest` är inte en hanterings roll. Det är en term som används för ett konto som har bjudits in från en klient till en annan. När gäst kontot har bjudits in till klientens katalog kan samma åtkomst kontroll tillämpas på samma sätt som andra konton. Du kan bevilja hanterings åtkomst till en Time Series Insights miljö genom att använda bladet Access Control (IAM). Du kan också bevilja åtkomst till data i miljön via bladet data åtkomst principer. Mer information om Azure Active Directory (Azure AD) gäst åtkomsten finns [i lägga till Azure Active Directory B2B-samarbets användare i Azure Portal](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
+The `Guest` role isn’t a management role. It’s a term used for an account that’s invited from one tenant to another. After the guest account is invited into the tenant’s directory, it can have the same access control applied to it like any other account. You can grant management access to a Time Series Insights Environment by using the Access Control (IAM) blade. Or you can grant access to the data in the environment through the Data Access Policies blade. For more information on Azure Active Directory (Azure AD) tenant guest access, read [Add Azure Active Directory B2B collaboration users in the Azure portal](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
 
-Följ dessa steg om du vill ge gäst åtkomst till en Time Series Insights miljö till en Azure AD-användare från en annan klient.
+Follow these steps to grant guest access to a Time Series Insights environment to an Azure AD user from another tenant.
 
-1. Välj **data åtkomst principer**och välj sedan **+ Bjud in**.
+1. Select **Data Access Policies**, and then select **+ Invite**.
 
-    [![Data-access-six](media/data-access/data-access-six.png)](media/data-access/data-access-six.png#lightbox)
+    [![Select Data Access Polices, then + Invite](media/data-access/data-access-invite-another-aad-tenant.png)](media/data-access/data-access-invite-another-aad-tenant.png#lightbox)
 
-1. Ange e-postadressen för den användare som du vill bjuda in. Den här e-postadressen måste vara kopplad till Azure AD. Du kan också inkludera ett personligt meddelande med inbjudan.
+1. Enter the email address for the user you want to invite. This email address must be associated with Azure AD. You can optionally include a personal message with the invitation.
 
-    [![Data-access-seven](media/data-access/data-access-seven.png)](media/data-access/data-access-seven.png#lightbox)
+    [![Enter the email address to find the selected user](media/data-access/data-access-invite-guest-by-email.png)](media/data-access/data-access-invite-guest-by-email.png#lightbox)
 
-1. Leta efter den bekräftelse bubbla som visas på skärmen.
+1. Look for the confirmation bubble that appears on the screen.
 
-    [![Data-access-eight](media/data-access/data-access-eight.png)](media/data-access/data-access-eight.png#lightbox)
+    [![Look for the confirmation bubble to appear](media/data-access/data-access-confirmation-bubble.png)](media/data-access/data-access-confirmation-bubble.png#lightbox)
 
-1. Välj **Välj användare**. Sök efter e-postadressen för gäst användaren som du har bjudit in för att hitta den användare som du vill lägga till. **Välj** sedan för att bekräfta valet.
+1. Choose **Select user**. Search for the email address of the guest user you invited to locate the user you want to add. Then, **Select** to confirm the selection.
 
-    [![Data-access-nine](media/data-access/data-access-nine.png)](media/data-access/data-access-nine.png#lightbox)
+    [![Select the user and confirm the selection](media/data-access/data-access-select-invited-person-confirmation.png)](media/data-access/data-access-select-invited-person-confirmation.png#lightbox)
 
-1. Välj **Välj roll**. Välj lämplig åtkomst roll för gäst användaren:
+1. Choose **Select role**. Choose the appropriate access role for the guest user:
 
-    * Välj **deltagare** om du vill tillåta att användaren ändrar referens data och delar sparade frågor och perspektiv med andra användare av miljön.
+    * Select **Contributor** if you want to allow the user to change reference data and share saved queries and perspectives with other users of the environment.
 
-    * Annars väljer du **läsare** så att användaren kan fråga efter data i miljön och spara personliga, inte delade, frågor i miljön.
+    * Otherwise, select **Reader** to allow the user to query data in the environment and save personal, not shared, queries in the environment.
 
-   Bekräfta valet av roll genom att klicka på **OK** .
+   Select **OK** to confirm the role choice.
 
-    [![Data-access-ten](media/data-access/data-access-ten.png)](media/data-access/data-access-ten.png#lightbox)
+    [![Confirm the role choice](media/data-access/data-access-select-ok-and-confirm.png)](media/data-access/data-access-select-ok-and-confirm.png#lightbox)
 
-1. Välj **OK** på sidan **Välj användar roll** .
+1. Select **OK** on the **Select User Role** page.
 
-1. Bekräfta att sidan för **data åtkomst principer** visar gäst användaren och rollerna för varje gäst användare.
+1. Confirm that the **Data Access Policies** page lists the guest user and the roles for each guest user.
 
-    [![Data-access-eleven](media/data-access/data-access-eleven.png)](media/data-access/data-access-eleven.png#lightbox)
+    [![Verify that users and roles are correctly assigned](media/data-access/data-access-confirm-invited-users-and-roles.png)](media/data-access/data-access-confirm-invited-users-and-roles.png#lightbox)
 
-1. Gäst användaren måste nu följa stegen för att få åtkomst till miljön som finns i den Azure-klient som du har bjudit in dem till. Först accepterar de inbjudan som du skickade. Den här inbjudan skickas via e-post till den e-postadress som du använde i steg 5. De väljer **Kom igång** för att acceptera.
+1. Now, the guest user will receive an invitation email at the email address specified above. The guest user will select **Get Started** to confirm their acceptance and connect to Azure Cloud.
 
-    [![Data-access-twelve](media/data-access/data-access-twelve.png)](media/data-access/data-access-twelve.png#lightbox)
+    [![Guest selects Get Started to accept](media/data-access/data-access-email-invitation.png)](media/data-access/data-access-email-invitation.png#lightbox)
 
-1. Sedan godkänner gäst användaren de behörigheter som är associerade med administratörens organisation.
+1. After selecting **Get Started** the guest user will be presented with a permissions box associated with the administrator's organization. Upon granting permission by selecting **Accept**, they will be signed in.
 
-    [![Data-access-thirteen](media/data-access/data-access-thirteen.png)](media/data-access/data-access-thirteen.png#lightbox)
+    [![Guest reviews permissions and accepts](media/data-access/data-access-grant-permission-sign-in.png)](media/data-access/data-access-grant-permission-sign-in.png#lightbox)
 
-1. När gäst användaren är inloggad på e-postadressen som du använde för att bjuda in dem, och de accepterar inbjudan, går de till insights.azure.com. När så är fallet väljer de den avataren bredvid e-postadressen i det övre högra hörnet på skärmen.
+1. The administrator [shares the environment URL](time-series-insights-parameterized-urls.md) with their guest.
 
-    [![data åtkomst – fjorton](media/data-access/data-access-fourteen.png)](media/data-access/data-access-fourteen.png#lightbox)
+1. After the guest user is signed in to the email address you used to invite them, and they accept the invitation, they will be directed to Azure portal. 
 
-1. Sedan väljer gäst användaren din Azure-klient i list rutan Katalog. Den här klienten är den som du har bjudit in dem till.
+1. The guest can now access the shared environment using the environment URL provided by the administrator. They can enter that URL into their web browser for immediate access.
 
-    [![Data-access-fifteen](media/data-access/data-access-fifteen.png)](media/data-access/data-access-fifteen.png#lightbox)
+1. The guest user will see the administrator's tenant by selecting their profile icon in the upper-right corner of the Time Series explorer.
 
-När gäst användaren har valt klienten, ser de Time Series Insightss miljön som du har fått åtkomst till. De har nu alla funktioner som är kopplade till den roll som du angav i **steg 5**.
+    [![Avatar selection on insights.azure.com](media/data-access/data-access-select-tenant-and-instance.png)](media/data-access/data-access-select-tenant-and-instance.png#lightbox)
+
+
+    After the guest user selects the administrator's tenant, they will have the ability to select the shared Time Series Insights environment. 
+    
+    They now have all the capabilities associated with the role that you provided them with in **step 5**.
+
+    [![Guest user selects your Azure tenant from drop-down](media/data-access/data-access-all-capabilities.png)](media/data-access/data-access-all-capabilities.png#lightbox)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig [hur du lägger till en händelse källa för Azure-Event Hubs](./time-series-insights-how-to-add-an-event-source-eventhub.md) i din Time Series Insights-miljö.
+* Learn [how to add an Azure Event Hubs event source](./time-series-insights-how-to-add-an-event-source-eventhub.md) to your Time Series Insights environment.
 
-* Skicka [händelser till händelse källan](./time-series-insights-send-events.md).
+* Send [events to the event source](./time-series-insights-send-events.md).
 
-* Visa [din miljö i Time Series Insights Preview Explorer](./time-series-insights-update-explorer.md).
+* View [your environment in the Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).

@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: kontrol lera stavningen med Stavningskontroll i Bing REST API ochC#'
+title: 'Quickstart: Check spelling with the REST API and C# - Bing Spell Check'
 titleSuffix: Azure Cognitive Services
 description: Kom igång med REST API för stavningskontroll i Bing för att kontrollera stavning och grammatik.
 services: cognitive-services
@@ -10,31 +10,31 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 04/11/2019
 ms.author: aahi
-ms.openlocfilehash: 93b5c395a0d121305c092229d862bf9ecaa4789c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: e51c1220e120d157ea4a413b95a7beb20c950518
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72936067"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74378918"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Snabb start: kontrol lera stavningen med Stavningskontroll i Bing REST API ochC#
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Quickstart: Check spelling with the Bing Spell Check REST API and C#
 
 Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. Det här enkla C#-programmet skickar en begäran till API:et och returnerar en lista över föreslagna korrigeringar. Även om det här programmet är skrivet i C#, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden för det här programmet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs).
 
 ## <a name="prerequisites"></a>Krav
 
-* En version av [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/).
-* Så här installerar du `Newtonsoft.Json` som ett NuGet-paket i Visual Studio:
-    1. I **Solution Explorer**högerklickar du på lösnings filen.
-    1. Välj **Hantera NuGet-paket för lösningen**.
-    1. Sök efter `Newtonsoft.Json` och installera paketet.
+* Any edition of [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/).
+* To install `Newtonsoft.Json` as a NuGet package in Visual studio:
+    1. In **Solution Explorer**, right-click the Solution file.
+    1. Select **Manage NuGet Packages for Solution**.
+    1. Search for `Newtonsoft.Json` and install the package.
 * Om du använder Linux/Mac OS kan det här programmet köras med [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Skapa och initiera ett projekt
 
-1. Skapa en ny konsol lösning med namnet `SpellCheckSample` i Visual Studio. Lägg sedan till följande namnrymder i huvudkodfilen.
+1. Create a new console solution named `SpellCheckSample` in Visual Studio. Lägg sedan till följande namnrymder i huvudkodfilen.
     
     ```csharp
     using System;
@@ -62,7 +62,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
     }
     ```
 
-3. Skapa en variabel för sökparametrarna. Lägg till din marknads kod efter `mkt=`. Marknads koden är det land som du gör begäran från. Lägg också till ditt stavnings kontroll läge efter `&mode=`. Läge är antingen `proof` (fångar de flesta stavnings-och grammatikfel) eller `spell` (fångar upp de flesta stavfel men inte lika många grammatiska fel).
+3. Skapa en variabel för sökparametrarna. Append your market code after `mkt=`. The market code is the country you make the request from. Also, append your spell-check mode after `&mode=`. Mode is either `proof` (catches most spelling/grammar errors) or `spell` (catches most spelling but not as many grammar errors).
     
     ```csharp
     static string params_ = "mkt=en-US&mode=proof";
@@ -83,7 +83,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
     }
     ```
 
-2. Skapa URI: n för din begäran genom att lägga till din värd, sökväg och parametrar.
+2. Create the URI for your request by appending your host, path, and parameters.
     
     ```csharp
     string uri = host + path + params_;

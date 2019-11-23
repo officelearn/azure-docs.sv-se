@@ -1,6 +1,6 @@
 ---
-title: Hantera underhålls meddelanden för virtuella Windows-datorer i Azure
-description: Visa underhålls meddelanden för virtuella Windows-datorer som körs i Azure och starta självbetjänings underhåll.
+title: Handling maintenance notifications for Windows VMs in Azure
+description: View maintenance notifications for Windows virtual machines running in Azure and start self-service maintenance.
 services: virtual-machines-windows
 documentationcenter: ''
 author: shants123
@@ -13,72 +13,72 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 04/30/2019
 ms.author: shants
-ms.openlocfilehash: 6e269e9b21fe16a1d77b4e1f714517f91fa531d4
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: eca32d537f42d68568ef2859a64b60133a17e893
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039200"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328337"
 ---
-# <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Hantera meddelanden för planerat underhåll för virtuella Windows-datorer
+# <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Handling planned maintenance notifications for Windows virtual machines
 
-Azure utför med jämna mellanrum uppdateringar för att förbättra värdinfrastrukturens tillförlitlighet, prestanda och säkerhet för virtuella datorer. Uppdateringar är ändringar som att korrigera värd miljön eller uppgradera och inaktivera maskin vara. En majoritet av dessa uppdateringar utförs utan påverkan på de värdbaserade virtuella datorerna. Det finns dock fall där uppdateringar påverkar:
+Azure utför med jämna mellanrum uppdateringar för att förbättra värdinfrastrukturens tillförlitlighet, prestanda och säkerhet för virtuella datorer. Updates are changes like patching the hosting environment or upgrading and decommissioning hardware. A majority of these updates are performed without any impact to the hosted virtual machines. However, there are cases where updates do have an impact:
 
-- Om underhållet inte kräver en omstart använder Azure migrering på plats för att pausa den virtuella datorn medan värden uppdateras. Dessa underhålls åtgärder som inte är omstartade tillämpas på fel domän av feldomän och förlopp stoppas om eventuella varnings hälso signaler tas emot. 
+- If the maintenance does not require a reboot, Azure uses in-place migration to pause the VM while the host is updated. These non-rebootful maintenance operations are applied fault domain by fault domain, and progress is stopped if any warning health signals are received. 
 
-- Om underhåll kräver en omstart får du ett meddelande om när underhållet planeras. I dessa fall får du ett tidsfönster som normalt är 35 dagar där du kan starta underhållet själv när det passar dig.
-
-
-Planerat underhåll som kräver en omstart är schemalagt i vågor. Varje våg har olika omfång (regioner).
-
-- En våg börjar med ett meddelande till kunderna. Som standard skickas ett meddelande till Prenumerationens ägare och medägare. Du kan lägga till fler mottagare och meddelande alternativ, t. ex. e-post, SMS och Webhooks, till meddelanden med hjälp av Azure [aktivitets logg aviseringar](../../azure-monitor/platform/activity-logs-overview.md).  
-- Vid tidpunkten för meddelandet görs ett *självbetjänings fönster* tillgängligt. Under det här fönstret som vanligt vis är 35 dagar kan du se vilken av dina virtuella datorer som ingår i den här vågen och proaktivt starta underhåll enligt dina egna schemaläggnings behov.
-- Efter självbetjänings fönstret startar en *schemalagd underhålls period* . Vid något tillfälle under det här fönstret schemalägger Azure och tillämpar det nödvändiga underhållet på den virtuella datorn. 
-
-Målet med två Windows är att ge dig tillräckligt med tid för att starta underhållet och starta om den virtuella datorn samtidigt som du vet när Azure startar underhåll automatiskt.
+- If maintenance requires a reboot, you get a notice of when the maintenance is planned. In these cases, you are given a time window that is typically 35 days where you can start the maintenance yourself, when it works for you.
 
 
-Du kan använda Azure Portal, PowerShell, REST API och CLI för att fråga efter underhålls Fönstren för dina virtuella datorer och starta självbetjänings underhållet.
+Planned maintenance that requires a reboot, is scheduled in waves. Each wave has different scope (regions).
+
+- A wave starts with a notification to customers. By default, notifications are sent to the subscription owners. You can add more recipients and messaging options like email, SMS, and Webhooks, to the notifications using Azure [Activity Log Alerts](../../azure-monitor/platform/activity-logs-overview.md).  
+- At the time of the notification, a *self-service window* is made available. During this window that is typically 35 days, you can find which of your virtual machines are included in this wave and proactively start maintenance according to your own scheduling needs.
+- After the self-service window, a *scheduled maintenance window* begins. At some point during this window, Azure schedules and applies the required maintenance to your virtual machine. 
+
+The goal in having two windows is to give you enough time to start maintenance and reboot your virtual machine while knowing when Azure will automatically start maintenance.
+
+
+You can use the Azure portal, PowerShell, REST API, and CLI to query for the maintenance windows for your VMs and start self-service maintenance.
 
   
-## <a name="should-you-start-maintenance-during-the-self-service-window"></a>Bör du starta underhåll under självbetjänings fönstret?  
+## <a name="should-you-start-maintenance-during-the-self-service-window"></a>Should you start maintenance during the self-service window?  
 
-Följande rikt linjer hjälper dig att bestämma om du vill använda den här funktionen och starta underhållet vid din egen tidpunkt.
+The following guidelines should help you decide whether to use this capability and start maintenance at your own time.
 
 > [!NOTE] 
-> Självbetjänings underhåll kanske inte är tillgängligt för alla dina virtuella datorer. Du kan ta reda på om proaktiv omdistribution är tillgängligt för den virtuella datorn genom att leta reda på **Start nu** i underhålls status. Självbetjänings underhåll är för närvarande inte tillgängligt för Cloud Services (webb-och arbets roll) och Service Fabric.
+> Self-service maintenance might not be available for all of your VMs. To determine if proactive redeploy is available for your VM, look for the **Start now** in the maintenance status. Self-service maintenance is currently not available for Cloud Services (Web/Worker Role) and Service Fabric.
 
 
-Självbetjänings underhåll rekommenderas inte för distributioner med hjälp av **tillgänglighets uppsättningar** eftersom dessa är hög tillgängliga-installationer, där endast en uppdaterings domän påverkas vid en bestämd tidpunkt. 
-- Låt Azure utlösa underhållet. För underhåll som kräver omstart bör du vara medveten om att underhållet kommer att vara en uppdaterings domän av en uppdaterings domän, att uppdaterings domänerna inte nödvändigt vis får underhållet sekventiellt, och att det finns en 30 minuters paus mellan uppdaterings domäner. 
-- Om en tillfällig förlust av en del av din kapacitet (1/uppdatering av domän antal) är ett problem, kan det enkelt kompenseras genom att allokera ytterligare instanser under underhålls perioden.
-- För underhåll som inte kräver omstart tillämpas uppdateringar på fel domän nivå.
+Self-service maintenance is not recommended for deployments using **availability sets** since these are highly available setups, where only one update domain is impacted at any given time. 
+- Let Azure trigger the maintenance. For maintenance that requires reboot, be aware that the maintenance will be done update domain by update domain, that the update domains do not necessarily receive the maintenance sequentially, and that there is a 30-minute pause between update domains. 
+- If a temporary loss of some of your capacity (1/update domain count) is a concern, it can easily be compensated for by allocating additional instances during the maintenance period.
+- For maintenance that does not require reboot, updates are applied at the fault domain level.
     
-Använd **inte** självbetjänings underhåll i följande scenarier: 
-- Om du stänger av de virtuella datorerna ofta, antingen manuellt, med DevTest Labs, med automatisk avstängning eller efter ett schema, kan det återställa underhålls statusen och därmed orsaka ytterligare nedtid.
-- På virtuella datorer med korta livs längder som du vet kommer att tas bort innan underhålls vågen är slut. 
-- För arbets belastningar med stor status lagrad på den lokala (tillfälliga) disken som du vill behålla vid uppdateringen. 
-- I de fall där du ändrar storlek på den virtuella datorn ofta, eftersom det kan återställa underhålls statusen.
-- Om du har antagit schemalagda händelser som aktiverar proaktiv redundans eller en korrekt avstängning av arbets belastningen, 15 minuter innan underhålls avstängning påbörjas
+**Don't** use self-service maintenance in the following scenarios: 
+- If you shut down your VMs frequently, either manually, using DevTest Labs, using auto-shutdown, or following a schedule, it could revert the maintenance status and therefore cause additional downtime.
+- On short-lived VMs that you know will be deleted before the end of the maintenance wave. 
+- For workloads with a large state stored in the local (ephemeral) disk that is desired to be maintained upon update. 
+- For cases where you resize your VM often, as it could revert the maintenance status.
+- If you have adopted scheduled events that enable proactive failover or graceful shutdown of your workload, 15 minutes before start of maintenance shutdown
 
-**Använd** självbetjänings underhåll, om du planerar att köra den virtuella datorn utan avbrott under fasen för schemalagt underhåll och ingen av räknarna som anges ovan är tillämpliga. 
+**Use** self-service maintenance, if you are planning to run your VM uninterrupted during the scheduled maintenance phase and none of the counter-indications mentioned above are applicable. 
 
-Det är bäst att använda självbetjänings underhåll i följande fall:
+It is best to use self-service maintenance in the following cases:
 
-- Du måste kommunicera med en exakt underhålls period till din hantering eller till slut kunden. 
-- Du måste slutföra underhållet vid ett visst datum. 
-- Du måste kontrol lera sekvensen av underhåll, till exempel ett program på flera nivåer för att garantera säker återställning.
-- Du behöver mer än 30 minuter återställnings tid för datorer mellan två uppdaterings domäner (UDs). Om du vill kontrol lera tiden mellan uppdaterings domäner måste du aktivera underhåll av virtuella datorer en uppdaterings domän (UD) i taget.
+- You need to communicate an exact maintenance window to your management or end-customer. 
+- You need to complete the maintenance by a given date. 
+- You need to control the sequence of maintenance, for example, multi-tier application to guarantee safe recovery.
+- You need more than 30 minutes of VM recovery time between two update domains (UDs). To control the time between update domains, you must trigger maintenance on your VMs one update domain (UD) at a time.
 
  
 
 [!INCLUDE [virtual-machines-common-maintenance-notifications](../../../includes/virtual-machines-common-maintenance-notifications.md)]
 
-## <a name="check-maintenance-status-using-powershell"></a>Kontrol lera underhålls status med hjälp av PowerShell
+## <a name="check-maintenance-status-using-powershell"></a>Check maintenance status using PowerShell
 
-Du kan också använda Azure PowerShell för att se när virtuella datorer är schemalagda för underhåll. Information om planerat underhåll är tillgängligt från cmdleten [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) när du använder parametern `-status`.
+You can also use Azure Powershell to see when VMs are scheduled for maintenance. Planned maintenance information is available from the [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) cmdlet when you use the `-status` parameter.
  
-Underhålls information returneras endast om underhållet är planerat. Om inget underhåll har schemalagts som påverkar den virtuella datorn returnerar cmdleten ingen underhålls information. 
+Maintenance information is returned only if there is maintenance planned. If no maintenance is scheduled that impacts the VM, the cmdlet does not return any maintenance information. 
 
  
 
@@ -86,26 +86,26 @@ Underhålls information returneras endast om underhållet är planerat. Om inget
 Get-AzVM -ResourceGroupName rgName -Name vmName -Status
 ```
 
-Följande egenskaper returneras under MaintenanceRedeployStatus: 
+The following properties are returned under MaintenanceRedeployStatus: 
 
 | Värde | Beskrivning   |
 |-------|---------------|
-| IsCustomerInitiatedMaintenanceAllowed | Anger om du kan starta underhåll på den virtuella datorn just nu |
-| PreMaintenanceWindowStartTime         | Början av självbetjänings fönstret för underhåll när du kan initiera underhåll på den virtuella datorn |
-| PreMaintenanceWindowEndTime           | Slutet av självbetjänings fönstret för underhåll när du kan initiera underhåll på den virtuella datorn |
-| MaintenanceWindowStartTime            | Början av det underhåll som schemalagts för Azure initierar underhåll på den virtuella datorn |
-| MaintenanceWindowEndTime              | Slutet av den schemalagda underhålls perioden i vilken Azure initierar underhåll på den virtuella datorn |
-| LastOperationResultCode               | Resultatet av det senaste försöket att initiera underhåll på den virtuella datorn |
+| IsCustomerInitiatedMaintenanceAllowed | Indicates whether you can start maintenance on the VM at this time |
+| PreMaintenanceWindowStartTime         | The beginning of the maintenance self-service window when you can initiate maintenance on your VM |
+| PreMaintenanceWindowEndTime           | The end of the maintenance self-service window when you can initiate maintenance on your VM |
+| MaintenanceWindowStartTime            | The beginning of the maintenance scheduled in which Azure initiates maintenance on your VM |
+| MaintenanceWindowEndTime              | The end of the maintenance scheduled window in which Azure initiates maintenance on your VM |
+| LastOperationResultCode               | The result of the last attempt to initiate maintenance on the VM |
 
 
 
-Du kan också hämta underhålls status för alla virtuella datorer i en resurs grupp med hjälp av [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) och inte ange en virtuell dator.
+You can also get the maintenance status for all VMs in a resource group by using [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) and not specifying a VM.
  
 ```powershell
 Get-AzVM -ResourceGroupName rgName -Status
 ```
 
-Följande PowerShell-funktion tar ditt prenumerations-ID och skriver ut en lista över virtuella datorer som är schemalagda för underhåll.
+The following PowerShell function takes your subscription ID and prints out a list of VMs that are scheduled for maintenance.
 
 ```powershell
 
@@ -133,9 +133,9 @@ function MaintenanceIterator
 
 ```
 
-### <a name="start-maintenance-on-your-vm-using-powershell"></a>Starta underhåll på den virtuella datorn med PowerShell
+### <a name="start-maintenance-on-your-vm-using-powershell"></a>Start maintenance on your VM using PowerShell
 
-Med hjälp av informationen från funktionen i föregående avsnitt, påbörjas följande underhåll på en virtuell dator om **IsCustomerInitiatedMaintenanceAllowed** är inställt på True.
+Using information from the function in the previous section, the following starts maintenance on a VM if **IsCustomerInitiatedMaintenanceAllowed** is set to true.
 
 ```powershell
 Restart-AzVM -PerformMaintenance -name $vm.Name -ResourceGroupName $rg.ResourceGroupName 
@@ -143,74 +143,74 @@ Restart-AzVM -PerformMaintenance -name $vm.Name -ResourceGroupName $rg.ResourceG
 
 ## <a name="classic-deployments"></a>Klassiska distributioner
 
-Om du fortfarande har äldre virtuella datorer som har distribuerats med den klassiska distributions modellen kan du använda PowerShell för att fråga efter virtuella datorer och initiera underhåll.
+If you still have legacy VMs that were deployed using the classic deployment model, you can use PowerShell to query for VMs and initiate maintenance.
 
-Om du vill hämta underhålls statusen för en virtuell dator skriver du:
+To get the maintenance status of a VM, type:
 
 ```
 Get-AzureVM -ServiceName <Service name> -Name <VM name>
 ```
 
-Starta underhållet på den klassiska virtuella datorn genom att skriva:
+To start maintenance on your classic VM, type:
 
 ```
 Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 ```
 
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>FAQ
 
 
-**F: Varför måste du starta om mina virtuella datorer nu?**
+**Q: Why do you need to reboot my virtual machines now?**
 
-**A:** Majoriteten av uppdateringar och uppgraderingar av Azure-plattformen påverkar inte den virtuella datorns tillgänglighet, men det finns fall där vi inte kan undvika att starta om virtuella datorer som finns i Azure. Vi har samlat flera ändringar som kräver att vi startar om våra servrar som kommer att leda till att virtuella datorer startas om.
+**A:** While the majority of updates and upgrades to the Azure platform do not impact virtual machine's availability, there are cases where we can't avoid rebooting virtual machines hosted in Azure. We have accumulated several changes that require us to restart our servers that will result in virtual machines reboot.
 
-**F: om jag följer dina rekommendationer för hög tillgänglighet med hjälp av en tillgänglighets uppsättning, är jag säker?**
+**Q: If I follow your recommendations for High Availability by using an Availability Set, am I safe?**
 
-**A:** Virtuella datorer som distribueras i en tillgänglighets uppsättning eller skalnings uppsättningar för virtuella datorer har begreppet uppdaterings domäner (UD). När du utför underhåll följer Azure UD-begränsningen och startar inte om virtuella datorer från olika UD (inom samma tillgänglighets uppsättning).  Azure väntar också i minst 30 minuter innan det flyttas till nästa grupp med virtuella datorer. 
+**A:** Virtual machines deployed in an availability set or virtual machine scale sets have the notion of Update Domains (UD). When performing maintenance, Azure honors the UD constraint and will not reboot virtual machines from different UD (within the same availability set).  Azure also waits for at least 30 minutes before moving to the next group of virtual machines. 
 
-Mer information om hög tillgänglighet finns i [tillgänglighet för virtuella datorer i Azure](availability.MD).
+For more information about high availability, see [Availability for virtual machines in Azure](availability.MD).
 
-**F: Hur gör jag för att få ett meddelande om planerat underhåll?**
+**Q: How do I get notified about planned maintenance?**
 
-**A:** En planerad underhålls våg börjar genom att ange ett schema för en eller flera Azure-regioner. Strax efter skickas ett e-postmeddelande till Prenumerationens ägare (ett e-postmeddelande per prenumeration). Ytterligare kanaler och mottagare för det här meddelandet kan konfigureras med aktivitets logg aviseringar. Om du distribuerar en virtuell dator till en region där planerat underhåll redan har schemalagts, får du inte meddelandet, utan du behöver kontrol lera underhålls statusen för den virtuella datorn.
+**A:** A planned maintenance wave starts by setting a schedule to one or more Azure regions. Soon after, an email notification is sent to the subscription owners (one email per subscription). Additional channels and recipients for this notification could be configured using Activity Log Alerts. In case you deploy a virtual machine to a region where planned maintenance is already scheduled, you will not receive the notification but rather need to check the maintenance state of the VM.
 
-**F: Jag ser inga uppgifter om planerat underhåll i portalen, PowerShell eller CLI. Vad är fel?**
+**Q: I don't see any indication of planned maintenance in the portal, Powershell, or CLI. What is wrong?**
 
-**A:** Information som rör planerat underhåll är bara tillgänglig under en planerad underhålls våg för de virtuella datorer som ska påverkas av den. Om du inte ser några data kan det bero på att underhålls vågen redan har slutförts (eller inte startats) eller att den virtuella datorn redan finns på en uppdaterad Server.
+**A:** Information related to planned maintenance is available during a planned maintenance wave only for the VMs that are going to be impacted by it. In other words, if you see not data, it could be that the maintenance wave has already completed (or not started) or that your virtual machine is already hosted in an updated server.
 
-**F: är det något sätt att veta exakt när min virtuella dator påverkas?**
+**Q: Is there a way to know exactly when my virtual machine will be impacted?**
 
-**A:** När du anger ett schema definierar vi en tids period på flera dagar. Men den exakta ordningsföljden av servrar (och virtuella datorer) i det här fönstret är okänd. Kunder som vill veta exakt hur lång tid det tar för sina virtuella datorer att använda [schemalagda händelser](scheduled-events.md) och frågor från den virtuella datorn och få en 15 minuters avisering innan en virtuell dator startas om.
+**A:** When setting the schedule, we define a time window of several days. However, the exact sequencing of servers (and VMs) within this window is unknown. Customers who would like to know the exact time for their VMs can use [scheduled events](scheduled-events.md) and query from within the virtual machine and receive a 15-minute notification before a VM reboot.
 
-**F: hur lång tid tar det att starta om min virtuella dator?**
+**Q: How long will it take you to reboot my virtual machine?**
 
-**A:**  Beroende på storleken på den virtuella datorn kan det ta upp till flera minuter att starta om i fönstret för självbetjänings underhåll. Under den Azure-initierade omstarten i det schemalagda underhålls fönstret tar det vanligt vis ungefär 25 minuter att starta om. Observera att om du använder Cloud Services (webb-eller arbets roll), Virtual Machine Scale Sets eller tillgänglighets uppsättningar får du 30 minuter mellan varje grupp av virtuella datorer (UD) under den schemalagda underhålls perioden. 
+**A:**  Depending on the size of your VM, reboot may take up to several minutes during the self-service maintenance window. During the Azure initiated reboots in the scheduled maintenance window, the reboot will typically take about 25 minutes. Note that in case you use Cloud Services (Web/Worker Role), Virtual Machine Scale Sets, or availability sets, you will be given 30 minutes between each group of VMs (UD) during the scheduled maintenance window. 
 
-**F: Vad händer med Virtual Machine Scale Sets?**
+**Q: What is the experience in the case of Virtual Machine Scale Sets?**
 
-**A:** Planerat underhåll är nu tillgängligt för Virtual Machine Scale Sets. Instruktioner för hur du startar självbetjänings underhållet hänvisa [till planerat underhåll för VMSS](../../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md) -dokument.
+**A:** Planned maintenance is now available for Virtual Machine Scale Sets. For instructions on how to initiate self-service maintenance refer [planned maintenance for VMSS](../../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md) document.
 
-**F: Vad händer med Cloud Services (webb-och arbets roll) och Service Fabric?**
+**Q: What is the experience in the case of Cloud Services (Web/Worker Role) and Service Fabric?**
 
-**A:** Även om dessa plattformar påverkas av planerat underhåll anses kunder som använder dessa plattformar som säkra att endast virtuella datorer i en enda uppgraderings domän (UD) kommer att påverkas vid en viss tidpunkt. Självbetjänings underhåll är för närvarande inte tillgängligt för Cloud Services (webb-och arbets roll) och Service Fabric.
+**A:** While these platforms are impacted by planned maintenance, customers using these platforms are considered safe given that only VMs in a single Upgrade Domain (UD) will be impacted at any given time. Self-service maintenance is currently not available for Cloud Services (Web/Worker Role) and Service Fabric.
 
-**F: Jag ser ingen underhålls information på mina virtuella datorer. Vad gick fel?**
+**Q: I don’t see any maintenance information on my VMs. What went wrong?**
 
-**A:** Det finns flera orsaker till varför du inte ser någon underhålls information på dina virtuella datorer:
-1.  Du använder en prenumeration som marker ATS som Microsoft Internal.
-2.  De virtuella datorerna är inte schemalagda för underhåll. Det kan vara att underhålls vågen har slutat, avbrutits eller ändrats så att dina virtuella datorer inte längre påverkas av den.
-3.  Du har inte lagt till **underhålls** kolumnen i listvyn för din VM. Vi har lagt till den här kolumnen i standardvyn, men kunder som har konfigurerat för att se kolumner som inte är standard måste manuellt lägga till **underhålls** kolumnen i sin listvy för virtuella datorer.
+**A:** There are several reasons why you’re not seeing any maintenance information on your VMs:
+1.  You are using a subscription marked as Microsoft internal.
+2.  Your VMs are not scheduled for maintenance. It could be that the maintenance wave has ended, canceled, or modified so that your VMs are no longer impacted by it.
+3.  You don’t have the **Maintenance** column added to your VM list view. While we have added this column to the default view, customers who configured to see non-default columns must manually add the **Maintenance** column to their VM list view.
 
-**F: min virtuella dator är schemalagd för underhåll för andra gången. Varför?**
+**Q: My VM is scheduled for maintenance for the second time. Why?**
 
-**A:** Det finns flera användnings fall där du ser den virtuella datorn som är schemalagd för underhåll när du redan har slutfört din underhålls omdistribution:
-1.  Vi har avbrutit underhålls vågen och startat om den med en annan nytto Last. Det kan bero på att vi har upptäckt en felaktig nytto last och att vi bara behöver distribuera ytterligare en nytto Last.
-2.  Den virtuella datorn har *tjänsten lagad* till en annan nod på grund av ett maskin varu fel
-3.  Du har valt att stoppa (frigöra) och starta om den virtuella datorn
-4.  Du har aktiverat **Automatisk avstängning** för den virtuella datorn
+**A:** There are several use cases where you will see your VM scheduled for maintenance after you have already completed your maintenance-redeploy:
+1.  We have canceled the maintenance wave and restarted it with a different payload. It could be that we've detected faulted payload and we simply need to deploy an additional payload.
+2.  Your VM was *service healed* to another node due to a hardware fault
+3.  You have selected to stop (deallocate) and restart the VM
+4.  You have **auto shutdown** turned on for the VM
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du kan registrera dig för underhålls händelser inifrån den virtuella datorn med hjälp av [schemalagda händelser](scheduled-events.md).
+Learn how you can register for maintenance events from within the VM using [Scheduled Events](scheduled-events.md).

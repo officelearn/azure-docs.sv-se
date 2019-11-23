@@ -10,94 +10,105 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/07/2019
+ms.date: 11/15/2019
 ms.author: anavin
-ms.openlocfilehash: 728d32ddb63658d24e932e8eeef4a3f50371ccc3
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 59854d7d46f533510bea97a6845554fc0ce83dbb
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72265044"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328354"
 ---
 # <a name="virtual-network-peering"></a>VNET-peering
 
-Med peering för virtuella nätverk kan du sömlöst ansluta [virtuella](virtual-networks-overview.md)Azure-nätverk. När de virtuella nätverken har peer-kopplats visas de som ett nätverk för anslutningsändamål. Trafiken mellan virtuella datorer i peer-kopplade virtuella nätverk dirigeras via Microsoft-stamnätsinfrastrukturen på nästan samma sätt som trafik dirigeras mellan virtuella datorer i samma virtuella nätverk genom endast *privata* IP-adresser. Azure stöder:
-* VNet-peering – anslutning av virtuella nätverk i samma Azure-region
-* Global VNet-peering – anslutning av virtuella nätverk i olika Azure-regioner
+Virtual network peering enables you to seamlessly connect networks in [Azure Virtual Network](virtual-networks-overview.md). The virtual networks appear as one for connectivity purposes. The traffic between virtual machines uses the Microsoft backbone infrastructure. Like traffic between virtual machines in the same network, traffic is routed through Microsoft's *private* network only.
+
+Azure supports the following types of peering:
+
+* Virtual network peering: Connect virtual networks within the same Azure region.
+* Global virtual network peering: Connecting virtual networks across Azure regions.
 
 Fördelar med att använda VNET-peering (avsett om den är lokal eller global):
 
-* Nätverkstrafiken mellan peer-kopplade virtuella nätverk är privat. Trafiken mellan de virtuella nätverken finns i Microsoft-stamnätverket. Vid kommunikation mellan virtuella nätverk krävs inget offentligt Internet, inga gatewayer eller ingen kryptering.
 * En anslutning med korta svarstider och hög bandbredd mellan resurser i olika virtuella nätverk.
-* Funktionen för att resurser i ett virtuellt nätverk ska kunna kommunicera med resurser i ett annat virtuellt nätverk när de virtuella nätverken är peer-kopplade.
-* Möjlighet att överföra data mellan Azure-prenumerationer, distributionsmodeller och Azure-regioner.
-* Möjligheten att peer-koppla virtuella nätverk som har skapats via Azure Resource Manager eller att peer-koppla ett virtuellt nätverk som har skapats via Resource Manager till ett virtuellt nätverk som har skapats via den klassiska distributionsmodellen. Läs mer i avsnittet [om Azures distributionsmodeller](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+* The ability for resources in one virtual network to communicate with resources in a different virtual network.
+* The ability to transfer data between virtual networks across Azure subscriptions, Azure Active Directory tenants, deployment models, and Azure regions.
+* The ability to peer virtual networks created through the Azure Resource Manager.
+* The ability to peer a virtual network created through Resource Manager to one created through the classic deployment model. Läs mer i avsnittet [om Azures distributionsmodeller](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * Inga driftstopp för resurser i de virtuella nätverken när du skapar peer-kopplingen eller när peer-kopplingen har skapats.
+
+Nätverkstrafiken mellan peer-kopplade virtuella nätverk är privat. Trafiken mellan de virtuella nätverken finns i Microsoft-stamnätverket. Vid kommunikation mellan virtuella nätverk krävs inget offentligt Internet, inga gatewayer eller ingen kryptering.
 
 ## <a name="connectivity"></a>Anslutningsmöjlighet
 
-När virtuella nätverk har peer-kopplats kan resurser i de virtuella nätverken ansluta till resurser it det peer-kopplade virtuella nätverket.
+For peered virtual networks, resources in either virtual network can directly connect with resources in the peered virtual network.
 
 Nätverksfördröjningen mellan virtuella datorer i peer-kopplade virtuella nätverk i samma region är densamma som svarstiden inom ett enda virtuellt nätverk. Nätverkets genomflöde baseras på den bandbredd som tillåts för den virtuella datorn i proportion till dess storlek. Det finns inte några ytterligare begränsning vad gäller bandbredden inom peerkopplingen.
 
 Trafiken mellan virtuella datorer i peer-kopplade virtuella nätverk dirigeras direkt genom Microsoft-stamnätsinfrastrukturen, inte via en gateway eller det offentliga Internet.
 
-Nätverkssäkerhetsgrupper kan användas i något av de virtuella nätverken för att blockera åtkomsten till andra virtuella nätverk eller till undernät om det behövs.
-När du konfigurerar peering i virtuella nätverk, kan du öppna eller stänga av reglerna för nätverkssäkerhetsgrupper mellan virtuella nätverk. Om du väljer att öppna fullständiga anslutningar mellan peer-kopplade virtuella nätverk (vilket är standardalternativet) kan du sedan använda nätverkssäkerhetsgrupper för specifika undernät eller virtuella datorer för att blockera eller neka specifik åtkomst. Mer information om nätverkssäkerhetsgrupper finns i [översikten över nätverkssäkerhet](security-overview.md).
+You can apply network security groups in either virtual network to block access to other virtual networks or subnets.
+When configuring virtual network peering, either open or close the network security group rules between the virtual networks. If you open full connectivity between peered virtual networks, you can apply network security groups to block or deny specific access. Full connectivity is the default option. To learn more about network security groups, see [Security groups](security-overview.md).
 
 ## <a name="service-chaining"></a>Tjänstlänkning
 
-Du kan konfigurera användardefinierade routningstabeller som pekar på virtuella datorer i peer-kopplade virtuella nätverk som IP-adressen för *nästa hopp* eller till virtuella nätverksgatewayer för säker tjänstlänkning. Med säker tjänstlänkning kan du skapa en tjänstlänkning och därigenom dirigera trafik från ett virtuellt nätverk till en virtuell enhet eller virtuella nätverskgatewayer som körs i ett peer-kopplat virtuellt nätverk genom användardefinierade routning.
+Service chaining enables you to direct traffic from one virtual network to a virtual appliance or gateway in a peered network through user-defined routes.
 
-Du kan distribuera nav-och-eker-nätverk där det virtuella navnätverket kan vara värd för infrastrukturkomponenter, t.ex. en virtuell installation eller en VPN-gateway. Alla virtuella ekernätverk kan peer-kopplas till det virtuella navnätverket. Trafiken kan flöda via nätverkets virtuella installationer eller VPN-gatewayer i det virtuella navnätverket. 
+To enable service chaining, configure user-defined routes that point to virtual machines in peered virtual networks as the *next hop* IP address. User-defined routes could also point to virtual network gateways to enable service chaining.
 
-Peering för virtuellt nätverk gör att nästa hopp i den användardefinierade routningen kan vara IP-adressen för en virtuell dator i det peer-kopplade virtuella nätverket eller en VPN-gateway. Du kan dock inte gå mellan virtuella nätverk via en användardefinierad väg som anger en ExpressRoute-gateway som nästa hopp-typ. Mer information om användardefinierade vägar finns i [översikten över användardefinierade vägar](virtual-networks-udr-overview.md#user-defined). Läs informationen om [nätverkstopologi med nav och ekrar](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json) om du vill lära dig hur du skapar en nätverkstopologi med nav och ekrar.
+You can deploy hub-and-spoke networks, where the hub virtual network hosts infrastructure components such as a network virtual appliance or VPN gateway. Alla virtuella ekernätverk kan peer-kopplas till det virtuella navnätverket. Traffic flows through network virtual appliances or VPN gateways in the hub virtual network.
+
+Peering för virtuellt nätverk gör att nästa hopp i den användardefinierade routningen kan vara IP-adressen för en virtuell dator i det peer-kopplade virtuella nätverket eller en VPN-gateway. You can't route between virtual networks with a user-defined route that specifies an Azure ExpressRoute gateway as the next hop type. Mer information om användardefinierade vägar finns i [översikten över användardefinierade vägar](virtual-networks-udr-overview.md#user-defined). To learn how to create a hub and spoke network topology, see [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="gateways-and-on-premises-connectivity"></a>Gateways och lokala anslutningar
 
-Varje virtuellt nätverk, oavsett om det är peer-kopplat med ett annat virtuellt nätverk eller inte, kan fortfarande ha sin egen gateway och använda den för att ansluta till det lokala nätverket. Du kan också konfigurera [VNet-till-VNet-anslutningar](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) genom att använda gateways, även om de virtuella nätverken är peer-kopplade.
+Each virtual network, including a peered virtual network, can have its own gateway. A virtual network can use its gateway to connect to an on-premises network. You can also configure [virtual network-to-virtual network connections](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) by using gateways, even for peered virtual networks.
 
-När båda alternativen för anslutningar mellan virtuella nätverk har konfigurerats flödar trafiken mellan de virtuella nätverken genom peering-konfigurationen (det vill säga genom Azures stamnätverk).
+When you configure both options for virtual network interconnectivity, the traffic between the virtual networks flows through the peering configuration. The traffic uses the Azure backbone.
 
-När virtuella nätverk har peer-kopplats kan du också konfigurera gatewayen i det peer-kopplade virtuella nätverket som en överföringspunkt till det lokala nätverket. I detta fall kan det virtuella nätverket som använder en fjärr-gateway inte ha sin egen gateway. Ett virtuellt nätverk kan bara ha en gateway. Det kan antingen vara en lokal gateway eller en fjärr-gateway (i det peerkopplade virtuella nätverket), som du ser på följande bild:
+You can also configure the gateway in the peered virtual network as a transit point to an on-premises network. In this case, the virtual network that is using a remote gateway can't have its own gateway. A virtual network has only one gateway. The gateway is either a local or remote gateway in the peered virtual network, as shown in the following diagram:
 
-![Överföring vid VNET-peering](./media/virtual-networks-peering-overview/figure04.png)
+![Överföring vid VNET-peering](./media/virtual-networks-peering-overview/local-or-remote-gateway-in-peered-virual-network.png)
 
-Gateway-överföring stöds för både VNet-peering och global VNet-peering. Gateway-överföring mellan virtuella nätverk som skapats via olika distributions modeller (Resource Manager och klassisk) stöds endast om gatewayen finns i det virtuella nätverket (Resource Manager). Mer information om hur du använder en gateway för överföring finns i [Configure a VPN gateway for transit in a virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Konfigurera en VPN-gateway för överföring i peer-kopplade virtuella nätverk).
+Both virtual network peering and global virtual network peering support gateway transit.
 
-När de virtuella nätverken som delar samma Azure ExpressRoute-anslutning är peer-kopplade går trafiken mellan dem genom peering-relationen (dvs. genom Azures stamnätverk). Du kan fortfarande använda lokala gateways i varje virtuellt nätverk för att ansluta till den lokala kretsen. Du kan även använda en delad gateway och konfigurera överföringen för lokala anslutningar.
+Gateway transit between virtual networks created through different deployment models is supported. The gateway must be in the virtual network in the Resource Manager model. Mer information om hur du använder en gateway för överföring finns i [Configure a VPN gateway for transit in a virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Konfigurera en VPN-gateway för överföring i peer-kopplade virtuella nätverk).
+
+When you peer virtual networks that share a single Azure ExpressRoute connection, the traffic between them goes through the peering relationship. That traffic uses the Azure backbone network. Du kan fortfarande använda lokala gateways i varje virtuellt nätverk för att ansluta till den lokala kretsen. Otherwise, you can use a shared gateway and configure transit for on-premises connectivity.
 
 ## <a name="troubleshoot"></a>Felsökning
 
-För att bekräfta peer-kopplingen för virtuella nätverk, kan du [kontrollera effektiva vägar](diagnose-network-routing-problem.md) för ett nätverksgränssnitt i alla undernät i ett virtuellt nätverk. Om peer-koppling för virtuellt nätverk finns har alla undernät i det virtuella nätverket vägar med nästa hopp-typ *VNet-peering* för varje adressutrymme i varje peer-kopplat virtuellt nätverk.
+To confirm that virtual networks are peered, you can check effective routes. Check routes for a network interface in any subnet in a virtual network. Om peer-koppling för virtuellt nätverk finns har alla undernät i det virtuella nätverket vägar med nästa hopp-typ *VNet-peering* för varje adressutrymme i varje peer-kopplat virtuellt nätverk. For more information, see [Diagnose a virtual machine routing problem](diagnose-network-routing-problem.md).
 
-Du kan även felsöka anslutningen till en virtuell dator i ett peer-kopplat virtuellt nätverk med Network Watchers [anslutningskontroll](../network-watcher/network-watcher-connectivity-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Med anslutningskontrollen kan du se hur trafik vidarebefordras från en virtuell källdators nätverksgränssnitt till en virtuell måldators nätverksgränssnitt.
+You can also troubleshoot connectivity to a virtual machine in a peered virtual network using Azure Network Watcher. A connectivity check lets you see how traffic is routed from a source virtual machine's network interface to a destination virtual machine's network interface. For more information, see [Troubleshoot connections with Azure Network Watcher using the Azure portal](../network-watcher/network-watcher-connectivity-portal.md#check-connectivity-to-a-virtual-machine).
 
-Du kan också prova att gå igenom [felsökningsstegen för problem relaterade till VNet-peering](https://support.microsoft.com/help/4486956/troubleshooter-for-virtual-network-peering-issues).
+You can also try the [Troubleshoot virtual network peering issues](virtual-network-troubleshoot-peering-issues.md).
 
-## <a name="requirements-and-constraints"></a>Krav och begränsningar
+## Constraints for peered virtual networks<a name="requirements-and-constraints"></a>
 
 Följande begränsningar gäller endast när virtuella nätverk peerkopplas globalt:
-- Resurser i ett virtuellt nätverk kan inte kommunicera med klient delens IP-adress för en Basic-intern belastningsutjämnare i ett globalt peer-kopplat virtuellt nätverk. Stöd för grundläggande Load Balancer finns bara inom samma region. Stöd för Standard Load Balancer finns för både VNet-peering och global VNet-peering. Tjänster som använder en grundläggande belastningsutjämnare som inte kommer att fungera över global VNet-peering dokumenteras [här.](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)
 
-Läs mer om krav och begränsningar i avsnittet om [krav och begränsningar för peering för virtuella nätverk](virtual-network-manage-peering.md#requirements-and-constraints). Du kan läsa om gränserna för hur många peerkopplingar du kan skapa för ett virtuellt nätverk i [Nätverksbegränsningar för Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
+* Resources in one virtual network can't communicate with the front-end IP address of a Basic Internal Load Balancer (ILB)  in a globally peered virtual network.
+* Some services that use a Basic load balancer don't work over global virtual network peering. For more information, see [What are the constraints related to Global VNet Peering and Load Balancers?](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
+
+For more information, see [Requirements and constraints](virtual-network-manage-peering.md#requirements-and-constraints). To learn more about the supported number of peerings, see [Networking limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## <a name="permissions"></a>Behörigheter
 
-Du kan läsa om behörigheterna som krävs för att skapa peering för ett virtuellt nätverk i [Peeringbehörigheter i virtuella nätverk](virtual-network-manage-peering.md#permissions).
+To learn about permissions required to create a virtual network peering, see [Permissions](virtual-network-manage-peering.md#permissions).
 
 ## <a name="pricing"></a>Prissättning
 
-En nominell avgift tas ut för ingående och utgående trafik som använder en VNET-peeringanslutning. Mer information om prissättning för VNet-Peering och Global VNet-peering finns på [prissättningssidan](https://azure.microsoft.com/pricing/details/virtual-network).
+There's a nominal charge for ingress and egress traffic that uses a virtual network peering connection. For more information, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network).
 
-Gateway-överföring är en peering-egenskap som gör att ett virtuellt nätverk kan använda en VPN/ExpressRoute-gateway i ett peer-kopplat virtuellt nätverk för anslutning mellan lokala platser eller VNet-till-VNet-anslutning. Trafik till gatewayen (ingångs-eller utgångs händelser) i peer-kopplat VNet kommer att debiteras för VNet-peering. Mer information finns i [VPN gateway-avgifter](https://azure.microsoft.com/pricing/details/vpn-gateway/) eller ExpressRoute Gateway-kostnader och [VNet-peering-kostnader.](https://azure.microsoft.com/pricing/details/virtual-network)
+Gateway Transit is a peering property that enables a virtual network to utilize a VPN/ExpressRoute gateway in a peered virtual network. Gateway transit works for both cross premises and network-to-network connectivity. Traffic to the gateway (ingress or egress) in the peered virtual network incurs virtual network peering charges. For more information, see [VPN Gateway pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/) for VPN gateway charges and ExpressRoute Gateway pricing for ExpressRoute gateway charges.
 
 >[!NOTE]
-> En tidigare version av det här dokumentet angav att avgifter för VNet-peering inte skulle gälla med Gateway-överföring. Detta har uppdaterats för att avspegla korrekt pris per prissättnings sida.
+> A previous version of this document stated that virtual network peering charges would not apply with Gateway Transit. It now reflects accurate pricing per the pricing page.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Peering för virtuellt nätverk skapas mellan virtuella nätverk som skapats via samma eller olika distributionsmodeller som finns i samma eller olika prenumerationer. Genomför en självstudiekurs för något av följande scenarier:
+* You can create a peering between two virtual networks. The networks can belong to the same subscription, different deployment models in the same subscription, or different subscriptions. Genomför en självstudiekurs för något av följande scenarier:
 
     |Azure-distributionsmodell             | Prenumeration  |
     |---------                          |---------|
@@ -106,6 +117,6 @@ Gateway-överföring är en peering-egenskap som gör att ett virtuellt nätverk
     |En Resource Manager, en klassisk  |[Samma](create-peering-different-deployment-models.md)|
     |                                   |[Olika](create-peering-different-deployment-models-subscriptions.md)|
 
-* Lär dig hur du skapar en [nätverkstopologi med nav och ekrar](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json).
-* Lär dig mer om alla [peering-inställningar för virtuella nätverk och hur du ändrar dem](virtual-network-manage-peering.md).
-* Få svar på vanliga frågor om VNet Peering och Global VNet Peering via våra [Vanliga frågor och svar om VNet Peering](virtual-networks-faq.md#vnet-peering)
+* To learn how to create a hub and spoke network topology, see [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json).
+* To learn about all virtual network peering settings, see [Create, change, or delete a virtual network peering](virtual-network-manage-peering.md).
+* For answers to common virtual network peering and global virtual network peering questions, see [VNet Peering](virtual-networks-faq.md#vnet-peering).

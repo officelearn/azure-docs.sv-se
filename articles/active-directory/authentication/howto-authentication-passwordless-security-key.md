@@ -1,108 +1,108 @@
 ---
-title: Aktivera lösen ords skydd för inloggning med lösen ord för Azure AD (för hands version) – Azure Active Directory
-description: Aktivera inloggning med lösen ord utan lösen ord till Azure AD med hjälp av säkerhets nycklar för FIDO2 (för hands version)
+title: Passwordless security key sign (preview) - Azure Active Directory
+description: Enable passwordless security key sign-in to Azure AD using FIDO2 security keys (preview)
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50af82e79e7ba8b979ab28a1b3f608ec7e41bfb2
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 9f87f1b2561b65590dfe29d7d2c8d1318e3d35e1
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603432"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381843"
 ---
-# <a name="enable-passwordless-security-key-sign-in-preview"></a>Aktivera lösen ords skydd med lösen ords skydd (för hands version)
+# <a name="enable-passwordless-security-key-sign-in-preview"></a>Enable passwordless security key sign in (preview)
 
-För företag som använder lösen ord idag och har en delad dator miljö, är säkerhets nycklar ett sömlöst sätt för arbetare att autentisera utan att ange användar namn eller lösen ord. Säkerhets nycklar ger förbättrad produktivitet för anställda och har bättre säkerhet.
+For enterprises that use passwords today and have a shared PC environment, security keys provide a seamless way for workers to authenticate without entering a username or password. Security keys provide improved productivity for workers, and have better security.
 
-Det här dokumentet fokuserar på att aktivera säkerhets nyckel baserad lösen ords lös autentisering. I slutet av den här artikeln kan du logga in till webbaserade program med ditt Azure AD-konto med hjälp av en säkerhets nyckel för FIDO2.
+This document focuses on enabling security key based passwordless authentication. At the end of this article, you will be able to sign in to web-based applications with your Azure AD account using a FIDO2 security key.
 
 |     |
 | --- |
-| FIDO2 säkerhets nycklar är en offentlig förhands gransknings funktion i Azure Active Directory. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) versionerna|
+| FIDO2 security keys are a public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 ## <a name="requirements"></a>Krav
 
-- [Azure-Multi-Factor Authentication](howto-mfa-getstarted.md)
-- [Kombinerad för hands version av säkerhets informations registrering](concept-registration-mfa-sspr-combined.md)
-- Kompatibla [säkerhets nycklar för FIDO2](concept-authentication-passwordless.md#fido2-security-keys)
-- Webauthn kräver Windows 10 version 1809 eller högre * *
+- [Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
+- [Combined security information registration preview](concept-registration-mfa-sspr-combined.md)
+- Compatible [FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys)
+- WebAuthN requires Windows 10 version 1809 or higher**
 
-Om du vill använda säkerhets nycklar för att logga in på webbappar och tjänster måste du ha en webbläsare som stöder webauthn-protokollet. Det kan vara Microsoft Edge, Chrome, Firefox och Safari.
+To use security keys for logging in to web apps and services, you must have a browser that supports the WebAuthN protocol. These include Microsoft Edge, Chrome, Firefox, and Safari.
 
-## <a name="prepare-devices-for-preview"></a>Förbereda enheter för för hands version
+## <a name="prepare-devices-for-preview"></a>Prepare devices for preview
 
-Enheter som du ska pilot med måste köra Windows 10 version 1809 eller senare. Den bästa upplevelsen är i Windows 10 version 1903 eller senare.
+Devices that you will be piloting with must be running Windows 10 version 1809 or higher. The best experience is on Windows 10 version 1903 or higher.
 
-## <a name="enable-passwordless-authentication-method"></a>Aktivera autentiseringsmetod för lösen ord
+## <a name="enable-passwordless-authentication-method"></a>Enable passwordless authentication method
 
-### <a name="enable-the-combined-registration-experience"></a>Aktivera kombinerad registrerings upplevelse
+### <a name="enable-the-combined-registration-experience"></a>Enable the combined registration experience
 
-Registrerings funktioner för metoder för lösen ords kryptering förlitar sig på den kombinerade förhands granskningen. Följ anvisningarna i artikeln [Aktivera kombinerad registrering av säkerhets information (för hands version)](howto-registration-mfa-sspr-combined.md)för att aktivera den kombinerade förhands granskningen.
+Registration features for passwordless authentication methods rely on the combined registration preview. Follow the steps in the article [Enable combined security information registration (preview)](howto-registration-mfa-sspr-combined.md), to enable the combined registration preview.
 
-### <a name="enable-fido2-security-key-method"></a>Aktivera FIDO2 säkerhets nyckel metod
+### <a name="enable-fido2-security-key-method"></a>Enable FIDO2 security key method
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Bläddra till **Azure Active Directory** > **säkerhets** > **autentiseringsmetoder** > **principen för autentiserings metoden (för hands version)** .
-1. Under metod **FIDO2 säkerhets nyckel**väljer du följande alternativ:
-   1. **Aktivera** – Ja eller Nej
-   1. **Mål** – alla användare eller Välj användare
-1. **Spara** konfigurationen.
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Browse to **Azure Active Directory** > **Security** > **Authentication methods** > **Authentication method policy (Preview)** .
+1. Under the method **FIDO2 Security Key**, choose the following options:
+   1. **Enable** - Yes or No
+   1. **Target** - All users or Select users
+1. **Save** the configuration.
 
-## <a name="user-registration-and-management-of-fido2-security-keys"></a>Användar registrering och hantering av säkerhets nycklar för FIDO2
+## <a name="user-registration-and-management-of-fido2-security-keys"></a>User registration and management of FIDO2 security keys
 
-1. Bläddra till [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
-1. Logga in om du inte redan gjort det.
-1. Klicka på **säkerhets information**.
-   1. Om användaren redan har minst en registrerad Azure-Multi-Factor Authentication kan de omedelbart registrera en säkerhets nyckel för FIDO2.
-   1. Om de inte har minst en registrerad Azure-Multi-Factor Authentication måste de lägga till en.
-1. Lägg till en säkerhets nyckel för FIDO2 genom att klicka på **Lägg till metod** och välja **säkerhets nyckel**.
-1. Välj **USB-enhet** eller **NFC-enhet**.
-1. Låt nyckeln vara klar och välj **Nästa**.
-1. En ruta visas och ber användaren att skapa/ange en PIN-kod för din säkerhets nyckel och sedan utföra den begärda gesten för nyckeln, antingen bio metrisk eller touch.
-1. Användaren kommer att returneras till den kombinerade registrerings upplevelsen och uppmanas att ange ett beskrivande namn för nyckeln så att användaren kan identifiera vilken av dem som har flera. Klicka på **Nästa**.
-1. Slutför processen genom att klicka på **klar** .
+1. Browse to [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
+1. Sign in if not already.
+1. Click **Security Info**.
+   1. If the user already has at least one Azure Multi-Factor Authentication method registered, they can immediately register a FIDO2 security key.
+   1. If they don’t have at least one Azure Multi-Factor Authentication method registered, they must add one.
+1. Add a FIDO2 Security key by clicking **Add method** and choosing **Security key**.
+1. Choose **USB device** or **NFC device**.
+1. Have your key ready and choose **Next**.
+1. A box will appear and ask the user to create/enter a PIN for your security key, then perform the required gesture for the key, either biometric or touch.
+1. The user will be returned to the combined registration experience and asked to provide a meaningful name for the key so the user can identify which one if they have multiple. Klicka på **Next**.
+1. Click **Done** to complete the process.
 
-## <a name="sign-in-with-passwordless-credential"></a>Logga in med autentiseringsuppgifter för lösen ord
+## <a name="sign-in-with-passwordless-credential"></a>Sign in with passwordless credential
 
-I exemplet nedan har en användare redan har etablerad sin FIDO2-säkerhetsnyckel. Användaren kan välja att logga in på webben med sin FIDO2 säkerhets nyckel i en webbläsare som stöds i Windows 10 version 1809 eller senare.
+In the example below a user has already provisioned their FIDO2 security key. The user can choose to sign in on the web with their FIDO2 security key inside of a supported browser on Windows 10 version 1809 or higher.
 
-![Inloggning av säkerhets nyckel Microsoft Edge](./media/howto-authentication-passwordless-security-key/fido2-windows-10-1903-edge-sign-in.png)
+![Security key sign-in Microsoft Edge](./media/howto-authentication-passwordless-security-key/fido2-windows-10-1903-edge-sign-in.png)
 
-## <a name="troubleshooting-and-feedback"></a>Fel sökning och feedback
+## <a name="troubleshooting-and-feedback"></a>Troubleshooting and feedback
 
-Om du vill dela feedback eller om du får problem med att för hands Visa den här funktionen kan du dela via Windows Feedback Hub-appen.
+If you would like to share feedback or encounter issues while previewing this feature, please share via the Windows Feedback Hub app.
 
-1. Starta **feedback Hub** och se till att du är inloggad.
-1. Skicka feedback under följande kategorisering:
-   1. Kategori: säkerhet och sekretess
-   1. Under kategori: FIDO
-1. För att avbilda loggar använder du alternativet: **återskapa mitt problem**
+1. Launch **Feedback Hub** and make sure you're signed in.
+1. Submit feedback under the following categorization:
+   1. Category: Security and Privacy
+   1. Subcategory: FIDO
+1. To capture logs, use the option: **Recreate my Problem**
 
 ## <a name="known-issues"></a>Kända problem
 
-### <a name="security-key-provisioning"></a>Etablering av säkerhets nyckel
+### <a name="security-key-provisioning"></a>Security key provisioning
 
-Administratörs etablering och avetablering av säkerhets nycklar är inte tillgängligt i den offentliga för hands versionen.
+Administrator provisioning and de-provisioning of security keys is not available in the public preview.
 
-### <a name="upn-changes"></a>UPN-ändringar
+### <a name="upn-changes"></a>UPN changes
 
-Om en användares UPN-ändringar ändras kan du inte längre ändra FIDO2-säkerhetsnycklar för att ändra konto för ändringen. Lösningen är att återställa enheten och användaren måste registrera sina FIDO2-säkerhetsnycklar på nytt.
+If a user’s UPN changes, you can no longer modify FIDO2 security keys to account for the change. The resolution is to reset the device and the user has to re-register their FIDO2 security keys.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[FIDO2 säkerhets nyckel Windows 10-inloggning](howto-authentication-passwordless-security-key-windows.md)
+[FIDO2 security key Windows 10 sign in](howto-authentication-passwordless-security-key-windows.md)
 
-[Aktivera FIDO2-autentisering för lokala resurser](howto-authentication-passwordless-security-key-on-premises.md)
+[Enable FIDO2 authentication to on-premises resources](howto-authentication-passwordless-security-key-on-premises.md)
 
-[Läs mer om enhets registrering](../devices/overview.md)
+[Learn more about device registration](../devices/overview.md)
 
-[Läs mer om Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+[Learn more about Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

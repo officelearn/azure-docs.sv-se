@@ -1,213 +1,213 @@
 ---
-title: Snabbstart – kräver användningsvillkor godkännas före åtkomst till molnappar som skyddas av Azure Active Directory villkorlig åtkomst | Microsoft Docs
-description: I den här snabbstarten får du lära dig hur du kan kräva att dina användningsvillkor accepteras innan åtkomst till valda molnappar som Azure Active Directory villkorlig åtkomst ska beviljas.
+title: Conditional Access require terms of use - Azure Active Directory
+description: In this quickstart, you learn how you can require that your terms of use are accepted before access to selected cloud apps is granted by Azure Active Directory Conditional Access.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: quickstart
-ms.date: 12/14/2018
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba684209b497792cd2f520f6b530168959e62d7f
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 3dd1b4cf554e773f49a15ac5cedcbcc5b3e710b9
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67506909"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74380106"
 ---
-# <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Snabbstart: Kräv användningsvillkor godkännas före åtkomst till molnappar
+# <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Quickstart: Require terms of use to be accepted before accessing cloud apps
 
-Innan du använder vissa molnappar i din miljö, kanske du vill få medgivande från användare i form av accepterar dina användningsvillkor (ToU). Villkorlig åtkomst i Azure Active Directory (Azure AD) ger dig:
+Before accessing certain cloud apps in your environment, you might want to get consent from users in form of accepting your terms of use (ToU). Azure Active Directory (Azure AD) Conditional Access provides you with:
 
-- En enkel metod för att konfigurera villkor för användning
-- Alternativet för att kräva accepterar dina användningsvillkor via principer för villkorlig åtkomst  
+- A simple method to configure ToU
+- The option to require accepting your terms of use through a Conditional Access policy  
 
-Den här snabbstarten visar hur du konfigurerar en [Azure AD villkorlig åtkomstprincip](../active-directory-conditional-access-azure-portal.md) som kräver en ToU ska godkännas för ett valt moln-app i din miljö.
+This quickstart shows how to configure an [Azure AD Conditional Access policy](../active-directory-conditional-access-azure-portal.md) that requires a ToU to be accepted for a selected cloud app in your environment.
 
 ![Skapa princip](./media/require-tou/5555.png)
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-För att slutföra scenariot i den här snabbstarten behöver du:
+To complete the scenario in this quickstart, you need:
 
-- **Åtkomst till en Azure AD Premium-versionen** – Azure AD villkorlig åtkomst är en Azure AD Premium-funktion.
-- **Ett testkonto kallas Isabella Simonsen** – om du inte vet hur du skapar ett testkonto finns [lägga till molnbaserade användare](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
+- **Access to an Azure AD Premium edition** - Azure AD Conditional Access is an Azure AD Premium capability.
+- **A test account called Isabella Simonsen** - If you don't know how to create a test account, see [Add cloud-based users](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
-## <a name="test-your-sign-in"></a>Testa din inloggning
+## <a name="test-your-sign-in"></a>Test your sign-in
 
-Målet med det här steget är att få en bild av inloggning utan en princip för villkorlig åtkomst.
+The goal of this step is to get an impression of the sign-in experience without a Conditional Access policy.
 
-**Så här testar din inloggning:**
+**To test your sign-in:**
 
-1. Logga in på din [Azure-portalen](https://portal.azure.com/) som Isabella Simonsen.
+1. Sign in to your [Azure portal](https://portal.azure.com/) as Isabella Simonsen.
 1. Logga ut.
 
-## <a name="create-your-terms-of-use"></a>Skapa dina användningsvillkor
+## <a name="create-your-terms-of-use"></a>Create your terms of use
 
-Det här avsnittet ger dig stegen för att skapa ett exempel på villkor för användning. När du skapar en ToU kan du välja ett värde för **tvinga med villkorlig åtkomst principmallar**. Att välja **kundpolicy** öppnas dialogrutan för att skapa en ny princip för villkorlig åtkomst så snart din ToU har skapats.
+This section provides you with the steps to create a sample ToU. When you create a ToU, you select a value for **Enforce with Conditional Access policy templates**. Selecting **Custom policy** opens the dialog to create a new Conditional Access policy as soon as your ToU has been created.
 
-**Skapa dina användningsvillkor:**
+**To create your terms of use:**
 
-1. Skapa ett nytt dokument i Microsoft Word.
-1. Typ **min användningsvillkor**, och spara dokumentet på datorn som **mytou.pdf**.
-1. Logga in på din [Azure-portalen](https://portal.azure.com) som global administratör, säkerhetsadministratör eller administratör för villkorsstyrd åtkomst.
-1. I Azure portal, på det vänstra navigeringsfältet, klickar du på **Azure Active Directory**.
+1. In Microsoft Word, create a new document.
+1. Type **My terms of use**, and then save the document on your computer as **mytou.pdf**.
+1. Sign in to your [Azure portal](https://portal.azure.com) as global administrator, security administrator, or a Conditional Access administrator.
+1. In the Azure portal, on the left navbar, click **Azure Active Directory**.
 
    ![Azure Active Directory](./media/require-tou/02.png)
 
-1. På den **Azure Active Directory** sidan den **Security** klickar du på **villkorlig åtkomst**.
+1. On the **Azure Active Directory** page, in the **Security** section, click **Conditional Access**.
 
    ![Villkorlig åtkomst](./media/require-tou/03.png)
 
-1. I den **hantera** klickar du på **användningsvillkoren**.
+1. In the **Manage** section, click **Terms of use**.
 
    ![Användningsvillkor](./media/require-tou/04.png)
 
-1. Klicka på menyn längst upp **nya allmänna**.
+1. In the menu on the top, click **New terms**.
 
    ![Användningsvillkor](./media/require-tou/05.png)
 
-1. På den **nya användningsvillkor** sidan:
+1. On the **New terms of use** page:
 
    ![Användningsvillkor](./media/require-tou/112.png)
 
-   1. I den **namn** textrutan typ **Mina TOU**.
-   1. I den **visningsnamn** textrutan typ **Mina TOU**.
-   1. Ladda upp dina villkor för användning PDF-fil.
-   1. Som **språk**väljer **engelska**.
-   1. Som **kräva att användarna expanderar användningsvillkoren**väljer **på**.
-   1. Som **tvinga med villkorlig åtkomst principmallar**väljer **kundpolicy**.
+   1. In the **Name** textbox, type **My TOU**.
+   1. In the **Display name** textbox, type **My TOU**.
+   1. Upload your terms of use PDF file.
+   1. As **Language**, select **English**.
+   1. As **Require users to expand the terms of use**, select **On**.
+   1. As **Enforce with Conditional Access policy templates**, select **Custom policy**.
    1. Klicka på **Skapa**.
 
-## <a name="create-your-conditional-access-policy"></a>Skapa principer för villkorlig åtkomst
+## <a name="create-your-conditional-access-policy"></a>Create your Conditional Access policy
 
-Det här avsnittet visar hur du skapar du önskad princip för villkorlig åtkomst. Scenariot i den här snabbstarten använder:
+This section shows how to create the required Conditional Access policy. The scenario in this quickstart uses:
 
-- Azure-portalen som platshållare för en molnapp som kräver att dina användningsvillkor godkännas. 
-- Exempelanvändaren att testa principen för villkorlig åtkomst.  
+- The Azure portal as placeholder for a cloud app that requires your ToU to be accepted. 
+- Your sample user to test the Conditional Access policy.  
 
-Ange i din princip:
+In your policy, set:
 
 | Inställning | Värde |
 | --- | --- |
 | Användare och grupper | Isabella Simonsen |
-| Molnappar | Microsoft Azure Management |
-| Bevilja åtkomst | Min TOU |
+| Cloud apps | Microsoft Azure Management |
+| Bevilja åtkomst | My TOU |
 
 ![Skapa princip](./media/require-tou/1234.png)
 
-**Konfigurera principer för villkorlig åtkomst:**
+**To configure your Conditional Access policy:**
 
-1. På den **New** sidan den **namn** textrutan typ **kräver TOU för Isabella**.
+1. On the **New** page, in the **Name** textbox, type **Require TOU for Isabella**.
 
    ![Namn](./media/require-tou/71.png)
 
-1. I den **tilldelning** klickar du på **användare och grupper**.
+1. In the **Assignment** section, click **Users and groups**.
 
    ![Användare och grupper](./media/require-tou/06.png)
 
-1. På den **användare och grupper** sidan:
+1. On the **Users and groups** page:
 
    ![Användare och grupper](./media/require-tou/24.png)
 
-   1. Klicka på **Välj användare och grupper**, och välj sedan **användare och grupper**.
+   1. Click **Select users and groups**, and then select **Users and groups**.
    1. Klicka på **Välj**.
-   1. På den **Välj** väljer **Isabella Simonsen**, och klicka sedan på **Välj**.
-   1. På den **användare och grupper** klickar du på **klar**.
-1. Klicka på **Molnappar**.
+   1. On the **Select** page, select **Isabella Simonsen**, and then click **Select**.
+   1. On the **Users and groups** page, click **Done**.
+1. Click **Cloud apps**.
 
-   ![Molnappar](./media/require-tou/08.png)
+   ![Cloud apps](./media/require-tou/08.png)
 
-1. På den **Molnappar** sidan:
+1. On the **Cloud apps** page:
 
-   ![Välj molnappar](./media/require-tou/26.png)
+   ![Select cloud apps](./media/require-tou/26.png)
 
-   1. Klicka på **Välj appar**.
+   1. Click **Select apps**.
    1. Klicka på **Välj**.
-   1. På den **Välj** väljer **Microsoft Azure Management**, och klicka sedan på **Välj**.
-   1. På den **Molnappar** klickar du på **klar**.
-1. I den **åtkomstkontroller** klickar du på **bevilja**.
+   1. On the **Select** page, select **Microsoft Azure Management**, and then click **Select**.
+   1. On the **Cloud apps** page, click **Done**.
+1. In the **Access controls** section, click **Grant**.
 
-   ![Åtkomstkontroller](./media/require-tou/10.png)
+   ![Access controls](./media/require-tou/10.png)
 
-1. På den **bevilja** sidan:
+1. On the **Grant** page:
 
-   ![Bevilja](./media/require-tou/111.png)
+   ![Grant](./media/require-tou/111.png)
 
-   1. Välj **bevilja åtkomst**.
-   1. Välj **min TOU**.
+   1. Select **Grant access**.
+   1. Select **My TOU**.
    1. Klicka på **Välj**.
-1. I den **aktiverar principen** klickar du på **på**.
+1. In the **Enable policy** section, click **On**.
 
-   ![Aktivera princip](./media/require-tou/18.png)
+   ![Enable policy](./media/require-tou/18.png)
 
 1. Klicka på **Skapa**.
 
-## <a name="evaluate-a-simulated-sign-in"></a>Utvärdera en simulerad inloggning
+## <a name="evaluate-a-simulated-sign-in"></a>Evaluate a simulated sign-in
 
-Nu när du har konfigurerat principer för villkorlig åtkomst kan vill du förmodligen veta om den fungerar som förväntat. Använd villkorlig åtkomst som ett första steg, vad händer om principen för att simulera en inloggning av din testanvändare. Simuleringen uppskattar inloggningens inverkan på dina principer och genererar en simuleringsrapport.  
+Now that you have configured your Conditional Access policy, you probably want to know whether it works as expected. As a first step, use the Conditional Access what if policy tool to simulate a sign-in of your test user. Simuleringen uppskattar inloggningens inverkan på dina principer och genererar en simuleringsrapport.  
 
-Att initiera den **vad händer om** utvärderingsverktyg för principen, Ställ in:
+To initialize the **What If** policy evaluation tool, set:
 
-- **Isabella Simonsen** som användare
-- **Microsoft Azure Management** som appar i molnet
+- **Isabella Simonsen** as user
+- **Microsoft Azure Management** as cloud app
 
-Klicka på **vad händer om** skapar en simuleringsrapport som visar:
+Clicking **What If** creates a simulation report that shows:
 
-- **Kräv TOU för Isabella** under **principer som gäller**
-- **Min TOU** som **bevilja kontroller**.
+- **Require TOU for Isabella** under **Policies that will apply**
+- **My TOU** as **Grant Controls**.
 
-![Vad händer om principen verktyget](./media/require-tou/79.png)
+![What if policy tool](./media/require-tou/79.png)
 
-**Utvärdera din princip för villkorlig åtkomst:**
+**To evaluate your Conditional Access policy:**
 
-1. På den [villkorlig åtkomst – principer](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) i menyn längst upp på sidan klickar du på **vad händer om**.  
+1. On the [Conditional Access - Policies](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) page, in the menu on the top, click **What If**.  
 
-   ![Tänk om](./media/require-tou/14.png)
+   ![What If](./media/require-tou/14.png)
 
-1. Klicka på **användare**väljer **Isabella Simonsen**, och klicka sedan på **Välj**.
+1. Click **Users**, select **Isabella Simonsen**, and then click **Select**.
 
    ![Användare](./media/require-tou/15.png)
 
-1. Att välja en molnapp:
+1. To select a cloud app:
 
-   ![Molnappar](./media/require-tou/16.png)
+   ![Cloud apps](./media/require-tou/16.png)
 
-   1. Klicka på **Molnappar**.
-   1. På den **molnet appsida**, klickar du på **Välj appar**.
+   1. Click **Cloud apps**.
+   1. On the **Cloud apps page**, click **Select apps**.
    1. Klicka på **Välj**.
-   1. På den **Välj** väljer **Microsoft Azure Management**, och klicka sedan på **Välj**.
-   1. På sidan moln appar **klar**.
-1. Klicka på **vad händer om**.
+   1. On the **Select** page, select **Microsoft Azure Management**, and then click **Select**.
+   1. On the cloud apps page, click **Done**.
+1. Click **What If**.
 
-## <a name="test-your-conditional-access-policy"></a>Testa din princip för villkorlig åtkomst
+## <a name="test-your-conditional-access-policy"></a>Test your Conditional Access policy
 
-I det föregående avsnittet har du lärt dig hur att utvärdera en simulerad inloggning. Förutom en simulering, bör du också testa principer för villkorlig åtkomst för att säkerställa att den fungerar som förväntat.
+In the previous section, you have learned how to evaluate a simulated sign-in. In addition to a simulation, you should also test your Conditional Access policy to ensure that it works as expected.
 
-Om du vill testa din princip, försöker logga in på din [Azure-portalen](https://portal.azure.com) med hjälp av din **Isabella Simonsen** testa konto. Du bör se en dialogruta som kräver att du accepterar dina användningsvillkor.
+To test your policy, try to sign-in to your [Azure portal](https://portal.azure.com) using your **Isabella Simonsen** test account. You should see a dialog that requires you to accept your terms of use.
 
 ![Användningsvillkor](./media/require-tou/57.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När den inte längre behövs kan du ta bort testanvändaren och principen för villkorlig åtkomst:
+When no longer needed, delete the test user and the Conditional Access policy:
 
-- Om du inte vet hur du tar bort en Azure AD-användare kan se [ta bort användare från Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
-- Välj din princip för att ta bort principen, och klicka sedan på **ta bort** i verktygsfältet för snabb åtkomst.
+- If you don't know how to delete an Azure AD user, see [Delete users from Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
+- To delete your policy, select your policy, and then click **Delete** in the quick access toolbar.
 
-    ![Multi-Factor Authentication](./media/require-tou/33.png)
+    ![Multifaktorautentisering](./media/require-tou/33.png)
 
-- Om du vill ta bort dina användningsvillkor, markera den och klicka sedan på **ta bort termer** i verktygsfältet högst upp.
+- To delete your terms of use, select it, and then click **Delete terms** in the toolbar on top.
 
-    ![Multi-Factor Authentication](./media/require-tou/29.png)
+    ![Multifaktorautentisering](./media/require-tou/29.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Kräva MFA för specifika appar](app-based-mfa.md)
-> [blockera åtkomst när en risk för session har identifierats](app-sign-in-risk.md)
+> [Require MFA for specific apps](app-based-mfa.md)
+> [Block access when a session risk is detected](app-sign-in-risk.md)

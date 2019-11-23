@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Sök efter videor med REST API för videosökning i Bing och C#'
+title: 'Quickstart: Search for videos using the REST API and C# - Bing Video Search'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten för att skicka videosökningsbegäranden till REST API för videosökning i Bing med C#.
 services: cognitive-services
@@ -10,21 +10,21 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 06/19/2019
 ms.author: aahi
-ms.openlocfilehash: 9ba2027641ef6cc9a86044850e8996f986992bf8
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 4a8f7383a298fdb66456eaadeb99b22478c9f39b
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500191"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383827"
 ---
-# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-c"></a>Snabbstart: Sök efter videor med REST API för videosökning i Bing och C#
+# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-c"></a>Quickstart: Search for videos using the Bing Video Search REST API and C#
 
-Använd den här snabbstarten för att skicka ditt första anrop till API:et för videosökning i Bing och få ett JSON-svar. Det här enkla C#-programmet skickar en HTTP-videosökfråga till API:et och visar svaret. Även om det här programmet är skrivet i C#, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabbstarten för att skicka ditt första anrop till API:et för videosökning i Bing och visa ett sökresultat från JSON-svaret. Det här enkla C#-programmet skickar en HTTP-videosökfråga till API:et och visar svaret. Även om det här programmet är skrivet i C#, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingVideoSearchv7.cs) tillsammans med ytterligare kommentarer om hantering av fel, funktioner och kodanteckningar.
 
-## <a name="prerequisites"></a>Förutsättningar
-* En version av [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/).
+## <a name="prerequisites"></a>Krav
+* Any edition of [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/).
 * [Json.NET](https://www.newtonsoft.com/json) framework, tillgänglig som ett NuGet-paket.
 * Om du använder Linux/Mac OS kan det här programmet köras med [Mono](https://www.mono-project.com/).
 

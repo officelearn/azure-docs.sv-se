@@ -25,14 +25,14 @@ ROPC-flödet (Resource Owner Password Credential) är ett OAuth-standardautentis
 
 I Azure Active Directory B2C (Azure AD B2C) stöds följande alternativ:
 
-- **Ursprunglig klient**: Användar interaktion under autentisering sker när kod körs på en enhet på användar sidan. Enheten kan vara ett mobilt program som körs i ett inbyggt operativ system, till exempel Android och iOS.
-- **Offentligt klient flöde**: Endast användarautentiseringsuppgifter som samlats in av ett program skickas i API-anropet. Autentiseringsuppgifterna för programmet skickas inte.
-- **Lägg till nya anspråk**: Innehållet i ID-token kan ändras för att lägga till nya anspråk.
+- **Inbyggd klient**: användar interaktion under autentisering sker när kod körs på en enhet på användar sidan. Enheten kan vara ett mobilt program som körs i ett inbyggt operativ system, till exempel Android och iOS.
+- **Offentligt klient flöde**: endast användarautentiseringsuppgifter som samlats in av ett program skickas i API-anropet. Autentiseringsuppgifterna för programmet skickas inte.
+- **Lägg till nya anspråk**: innehållet i ID-token kan ändras för att lägga till nya anspråk.
 
 Följande flöden stöds inte:
 
-- **Server-till-Server**: Identitets skydds systemet behöver en tillförlitlig IP-adress som samlas in från anroparen (den interna klienten) som en del av interaktionen. I ett API-anrop på Server sidan används bara serverns IP-adress. Om ett dynamiskt tröskelvärde för misslyckade autentiseringar överskrids, kan identitets skydds systemet identifiera en upprepad IP-adress som en angripare.
-- **Konfidentiellt klient flöde**: Programmets klient-ID är verifierat, men program hemligheten är inte verifierad.
+- **Server-till-Server**: identitets skydds systemet behöver en tillförlitlig IP-adress som samlats in från anroparen (den interna klienten) som en del av interaktionen. I ett API-anrop på Server sidan används bara serverns IP-adress. Om ett dynamiskt tröskelvärde för misslyckade autentiseringar överskrids, kan identitets skydds systemet identifiera en upprepad IP-adress som en angripare.
+- **Konfidentiellt klient flöde**: programmets klient-ID är verifierat, men program hemligheten är inte verifierad.
 
 ##  <a name="create-a-resource-owner-user-flow"></a>Skapa ett användar flöde för resurs ägare
 
@@ -40,7 +40,7 @@ Följande flöden stöds inte:
 2. Om du vill växla till Azure AD B2C klient väljer du katalogen B2C i det övre högra hörnet i portalen.
 3. Klicka på **användar flöden**och välj **nytt användar flöde**.
 4. Klicka på fliken **alla** och välj **Logga in med ROPC**.
-5. Ange ett namn för användar flödet, till exempel *ROPC_Auth*.
+5. Ange ett namn för användar flödet, t. ex. *ROPC_Auth*.
 6. Under **program anspråk**klickar du på **Visa fler**.
 7. Välj de program anspråk som du behöver för ditt program, till exempel visnings namn, e-postadress och identitets leverantör.
 8. Välj **OK** och sedan **Skapa**.
@@ -58,20 +58,20 @@ Följande flöden stöds inte:
 ## <a name="test-the-user-flow"></a>Testa användar flödet
 
 Använd ditt favorit-API utvecklings program för att generera ett API-anrop och granska svaret för att felsöka ditt användar flöde. Skapa ett anrop som detta med informationen i följande tabell som brödtext i POST-begäran:
-- Ersätt *@no__t -1yourtenant. onmicrosoft. com >* med namnet på din B2C-klient.
+- Ersätt *\<yourtenant. onmicrosoft. com >* med namnet på din B2C-klient.
 - Ersätt *\<B2C_1A_ROPC_Auth >* med det fullständiga namnet på din resurs ägar lösen ords princip för autentiseringsuppgifter.
-- Ersätt *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3->* med program-ID: t från registreringen.
+- Ersätt *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3 >* med program-ID: t från registreringen.
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| Nyckel | Value |
+| Nyckel | Värde |
 | --- | ----- |
-| username | leadiocl@outlook.com |
-| password | Passxword1 |
-| grant_type | password |
-| scope | OpenID \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > offline_access |
+| användarnamn | leadiocl@outlook.com |
+| lösenord | Passxword1 |
+| grant_type | lösenord |
+| omfång | OpenID \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > offline_access |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
-| response_type | id_token för token |
+| response_type | token id_token |
 
 *Client_id* är det värde som du tidigare antecknade som program-ID. *Offline_access* är valfritt om du vill ta emot en uppdateringstoken. Det användar namn och lösen ord som du använder måste vara autentiseringsuppgifter från en befintlig användare i Azure AD B2C-klienten.
 
@@ -104,7 +104,7 @@ Skapa ett POST samtal som det som visas här med informationen i följande tabel
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| Nyckel | Value |
+| Nyckel | Värde |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |
@@ -132,7 +132,7 @@ Ett lyckat svar ser ut som i följande exempel:
 }
 ```
 > [!NOTE]
-> När du skapar användare via Graph API måste programmet ha behörigheterna "OpenID", "offline_access" och "Profile" från Microsoft Graph.
+> När du skapar användare via Graph API måste programmet ha behörigheterna "OpenID", "offline_access" och "profil" från Microsoft Graph.
 
 ## <a name="implement-with-your-preferred-native-sdk-or-use-app-auth"></a>Implementera med din önskade inbyggda SDK eller Använd app-auth
 

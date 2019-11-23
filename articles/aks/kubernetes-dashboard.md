@@ -22,7 +22,7 @@ Mer information om instrument panelen för Kubernetes finns i [webb gränssnitts
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-De steg som beskrivs i det här dokumentet förutsätter att du har skapat ett AKS-kluster `kubectl` och har upprättat en anslutning till klustret. Om du behöver skapa ett AKS-kluster kan du läsa [snabb][aks-quickstart]starten för AKS.
+De steg som beskrivs i det här dokumentet förutsätter att du har skapat ett AKS-kluster och har upprättat en `kubectl` anslutning till klustret. Om du behöver skapa ett AKS-kluster kan du läsa [snabb][aks-quickstart]starten för AKS.
 
 Du måste också ha installerat och konfigurerat Azure CLI version 2.0.46 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
 
@@ -34,7 +34,7 @@ Starta Kubernetes-instrumentpanelen med kommandot [AZ AKS Browse][az-aks-browse]
 az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Det här kommandot skapar en proxy mellan utvecklings systemet och Kubernetes-API: et och öppnar en webbläsare till Kubernetes-instrumentpanelen. Om en webbläsare inte öppnas på Kubernetes-instrumentpanelen kopierar du och klistrar in URL-adressen som anges i Azure CLI `http://127.0.0.1:8001`, vanligt vis.
+Det här kommandot skapar en proxy mellan utvecklings systemet och Kubernetes-API: et och öppnar en webbläsare till Kubernetes-instrumentpanelen. Om en webbläsare inte öppnas på Kubernetes-instrumentpanelen kopierar du och klistrar in URL-adressen som anges i Azure CLI, vanligt vis `http://127.0.0.1:8001`.
 
 <!--
 ![The login page of the Kubernetes web dashboard](./media/kubernetes-dashboard/dashboard-login.png)
@@ -119,7 +119,7 @@ Redigera en distribution:
 
 1. Välj **distributioner** på menyn till vänster och välj sedan din *nginx* -distribution.
 1. Välj **Redigera** i det övre högra navigerings fältet.
-1. Leta upp `spec.replica` värdet på rad 20. Om du vill öka antalet repliker för programmet ändrar du värdet från *1* till *3*.
+1. Leta upp `spec.replica` svärdet på rad 20. Om du vill öka antalet repliker för programmet ändrar du värdet från *1* till *3*.
 1. Välj **Uppdatera** när du är klar.
 
 ![Redigera distributionen för att uppdatera antalet repliker](./media/kubernetes-dashboard/edit-deployment.png)

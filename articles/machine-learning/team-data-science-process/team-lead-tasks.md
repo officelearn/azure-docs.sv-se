@@ -49,7 +49,7 @@ I följande självstudie går vi igenom stegen i detalj.
 > [!NOTE] 
 > I den här artikeln används Azure DevOps och en DSVM för att skapa en TDSP-grupp miljö, eftersom det är hur du implementerar TDSP på Microsoft. Om ditt team använder andra kod värdar eller utvecklings plattformar, är grupp ledar aktiviteterna samma, men det kan vara olika att slutföra dem.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här självstudien förutsätter att följande resurser och behörigheter har skapats av din [grupp hanterare](group-manager-tasks.md):
 
@@ -77,7 +77,7 @@ Namnen som anges för databaserna och katalogerna i den här självstudien föru
 - En liten data vetenskaps grupp som inte har flera data vetenskaps team. 
 - En större data vetenskaps grupp med flera data vetenskaps team som ändå vill optimera samarbetet mellan grupper med aktiviteter som till exempel på grupp-nivå – Sprint planering. 
 
-Om teamen väljer att ha sina teambaserade databaser under ett enda grupp projekt, bör teamet skapa lagrings platser med namn som  *\<TeamName > mall* och  *\<TeamName-verktyg för >* . Exempel: *TeamATemplate* och *TeamAUtilities*. 
+Om teamen väljer att ha sina teambaserade databaser under ett enda grupp projekt, bör teamet skapa lagrings platser med namn som *\<TeamName > mall* och *\<TeamName >-verktyg*. Till exempel: *TeamATemplate* och *TeamAUtilities*. 
 
 I alla fall måste grupp ledare låta sina team medlemmar veta vilka mallar för mallar och verktyg som ska ställas in och klonas. Projekt leads bör följa [projektets ledar aktiviteter för ett data vetenskaps team](project-lead-tasks.md) för att skapa projekt databaser, oavsett om de finns under separata projekt eller i ett enda projekt. 
 
@@ -95,7 +95,7 @@ Så här skapar du ett separat projekt för ditt team:
    
    ![Skapa projekt](./media/team-lead-tasks/team-leads-3-create-new-team-2.png)
    
-Sidan projekt **Sammanfattning** öppnas med sidans URL *https\/:/\<Server namn >/\<organisations namn >/\<grupp namn >* .
+Sidan **Sammanfattning** av grup projekt öppnas med sidans URL *https:\//\<Server namn >/\<organisations namn >/\<grupp namn >* .
 
 ### <a name="rename-the-myteam-default-repository-to-teamutilities"></a>Byt namn på standard lagrings platsen för min team till TeamUtilities
 
@@ -140,7 +140,7 @@ För att fylla i dina team databaser med innehållet i gruppen gemensamma databa
    
    ![Välj Importera](./media/team-lead-tasks/import-repo.png)
    
-1. I dialog rutan **Importera en git-lagringsplats** väljer du **git** som **käll typ**och anger URL: en för din grupps gemensamma mall lagrings plats under **klon-URL**. URL: en är *https: \/ @ no__t-2 @ no__t-3server name >/\<organization namn >/_git/\<repository name >* . Exempel: *https: \//dev. Azure. com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
+1. I dialog rutan **Importera en git-lagringsplats** väljer du **git** som **käll typ**och anger URL: en för din grupps gemensamma mall lagrings plats under **klon-URL**. URL: en är *https:\//\<Server namn >/\<organisations namn >/_git/\<databas namn >* . Till exempel: *https:\//dev.Azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
    
 1. Välj **Importera**. Innehållet i din gruppmalls lagrings plats importeras till lagrings platsen för din grupp. 
    
@@ -226,7 +226,7 @@ git push
 ```
 
 > [!NOTE]
-> Om det här är första gången du genomför till en git-lagringsplats kan du behöva konfigurera globala parametrar *User.name* och *User. email* innan `git commit` du kör kommandot. Kör följande två kommandon:
+> Om det här är första gången du genomför till en git-lagringsplats kan du behöva konfigurera globala parametrar *User.name* och *User. email* innan du kör kommandot `git commit`. Kör följande två kommandon:
 > 
 > `git config --global user.name <your name>`
 > 

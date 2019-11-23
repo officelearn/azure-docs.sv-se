@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Sömlös enkel inloggning | Microsoft Docs'
+title: 'Azure AD Connect: sömlös enkel inloggning | Microsoft Docs'
 description: I det här avsnittet beskrivs Azure Active Directory (Azure AD) sömlös enkel inloggning och hur du kan tillhandahålla verklig enkel inloggning för företagets Skriv bords användare i företags nätverket.
 services: active-directory
 keywords: Vad är Azure AD Connect, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, enkel inloggning
@@ -53,8 +53,8 @@ Sömlös SSO kan kombineras med antingen [lösen ordets hash-synkronisering](how
 
 - Inloggnings användar namnet kan antingen vara det lokala standard användar namnet (`userPrincipalName`) eller ett annat attribut som kon figurer ATS i Azure AD Connect (`Alternate ID`). Båda användnings fallen fungerar eftersom sömlös SSO använder `securityIdentifier`-anspråk i Kerberos-biljetten för att leta upp motsvarande användar objekt i Azure AD.
 - Sömlös SSO är en Opportunistic-funktion. Om det Miss lyckas av någon anledning återgår användar inloggningen till sitt normala beteende, d.v.s. användaren måste ange sitt lösen ord på inloggnings sidan.
-- Om ett program (till exempel `https://myapps.microsoft.com/contoso.com`) vidarebefordrar en `domain_hint` (OpenID Connect) eller en `whr` (SAML)-parameter som identifierar klienten, eller `login_hint` parameter-identifierar användaren, i sin inloggnings förfrågan för Azure AD, loggas användarna automatiskt in utan dem Ange användar namn eller lösen ord.
-- Användarna får också en tyst inloggning om ett program (till exempel `https://contoso.sharepoint.com`) skickar inloggnings förfrågningar till Azure ADs slut punkter som har kon figurer ATS som klienter, `https://login.microsoftonline.com/contoso.com/<..>` eller `https://login.microsoftonline.com/<tenant_ID>/<..>` – i stället för Azure ADs vanliga slut punkt, d.v.s. `https://login.microsoftonline.com/common/<...>`.
+- Om ett program (till exempel `https://myapps.microsoft.com/contoso.com`) vidarebefordrar en `domain_hint` (OpenID Connect) eller en `whr` (SAML) parameter som identifierar din klient, eller `login_hint` parameter som identifierar användaren, i sin inloggnings förfrågan för Azure AD, loggas användarna automatiskt in utan att de anger användar namn eller lösen ord.
+- Användarna får också en tyst inloggning om ett program (till exempel `https://contoso.sharepoint.com`) skickar inloggnings begär anden till Azure ADs slut punkter som har kon figurer ATS som klienter, `https://login.microsoftonline.com/contoso.com/<..>` eller `https://login.microsoftonline.com/<tenant_ID>/<..>` – i stället för Azure ADs vanliga slut punkt, d.v.s. `https://login.microsoftonline.com/common/<...>`.
 - Utloggning stöds. Detta gör att användarna kan välja ett annat Azure AD-konto för att logga in med, i stället för att automatiskt logga in med sömlös SSO automatiskt.
 - Office 365 Win32-klienter (Outlook, Word, Excel och andra) med versioner 16.0.8730. xxxx och senare stöds med ett icke-interaktivt flöde. För OneDrive måste du aktivera [funktionen OneDrive-tyst konfiguration](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) för att få en tyst inloggning.
 - Den kan aktive ras via Azure AD Connect.
@@ -63,19 +63,19 @@ Sömlös SSO kan kombineras med antingen [lösen ordets hash-synkronisering](how
 
 | OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Ja @ no__t-0|Ja|Ja|Ja @ no__t-0 @ no__t-1 @ no__t-2|Gäller inte
-|Windows 8.1|Ja @ no__t-0|Gäller inte|Ja|Ja @ no__t-0 @ no__t-1 @ no__t-2|Gäller inte
-|Windows 8|Ja @ no__t-0|Gäller inte|Ja|Ja @ no__t-0 @ no__t-1 @ no__t-2|Gäller inte
-|Windows 7|Ja @ no__t-0|Gäller inte|Ja|Ja @ no__t-0 @ no__t-1 @ no__t-2|Gäller inte
-|Windows Server 2012 R2 eller senare|Ja @ no__t-0 @ no__t-1|Gäller inte|Ja|Ja @ no__t-0 @ no__t-1 @ no__t-2|Gäller inte
-|Mac OS X|Gäller inte|Gäller inte|Ja @ no__t-0 @ no__t-1 @ no__t-2|Ja @ no__t-0 @ no__t-1 @ no__t-2|Ja @ no__t-0 @ no__t-1 @ no__t-2
+|Windows 10|Ja\*|Ja|Ja|Ja\*\*\*|Saknas
+|Windows 8.1|Ja\*|Saknas|Ja|Ja\*\*\*|Saknas
+|Windows 8|Ja\*|Saknas|Ja|Ja\*\*\*|Saknas
+|Windows 7|Ja\*|Saknas|Ja|Ja\*\*\*|Saknas
+|Windows Server 2012 R2 eller senare|Ja\*\*|Saknas|Ja|Ja\*\*\*|Saknas
+|Mac OS X|Saknas|Saknas|Ja\*\*\*|Ja\*\*\*|Ja\*\*\*
 
 
-\*Requires Internet Explorer version 10 eller senare
+\*kräver Internet Explorer version 10 eller senare
 
-\* @ no__t-1Requires Internet Explorer version 10 eller senare. Inaktivera utökat kernelläge
+\*\*kräver Internet Explorer version 10 eller senare. Inaktivera utökat kernelläge
 
-\* @ no__t-1 @ no__t-2Requires [ytterligare konfiguration](how-to-connect-sso-quick-start.md#browser-considerations)
+\*\*\*kräver [ytterligare konfiguration](how-to-connect-sso-quick-start.md#browser-considerations)
 
 >[!NOTE]
 >För Windows 10 rekommenderar vi att du använder [Azure AD Join](../active-directory-azureadjoin-overview.md) för att få en optimal enkel inloggning med Azure AD.

@@ -38,5 +38,5 @@ Azure SQL Database hanterade instans data källor körs i Azure VNet med en priv
 ## <a name="see-also"></a>Se även
 [Ansluta till lokala data källor](analysis-services-gateway.md)   
 [Installera och konfigurera en lokal datagateway](analysis-services-gateway-install.md)   
-[Azure-Virtual Network (VNET)](../virtual-network/virtual-networks-overview.md)   
+[Azure Virtual Network (VNET)](../virtual-network/virtual-networks-overview.md)   
 

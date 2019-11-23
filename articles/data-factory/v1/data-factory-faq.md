@@ -50,10 +50,10 @@ Se avsnittet **Azure Data Factory gränser** i artikeln om [begränsningar, kvot
 Du kan skapa/skapa data fabriker med något av följande verktyg/SDK: er:
 
 * **Visual Studio** Du kan använda Visual Studio för att skapa en Azure-datafabrik. Mer information finns i [bygga din första data pipeline med Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) .
-* **Azure PowerShell** Se [skapa och övervaka Azure Data Factory att använda Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) för självstudier/genom gång för att skapa en data fabrik med hjälp av PowerShell. Mer information om Data Factory-cmdletar finns i referens innehåll för [Data Factory][adf-powershell-reference] -cmdleten i MSDN Library.
+* **Azure PowerShell** Se [skapa och övervaka Azure Data Factory att använda Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) för självstudier/genom gång för att skapa en data fabrik med hjälp av PowerShell. Mer information om Data Factory-cmdletar finns i referens innehåll för [Data Factory-cmdleten][adf-powershell-reference] i MSDN Library.
 * **.NET-klass bibliotek** Du kan skapa data fabriker program mässigt genom att använda Data Factory .NET SDK. Se [skapa, övervaka och hantera data fabriker med hjälp av .NET SDK](data-factory-create-data-factories-programmatically.md) för en genom gång av hur du skapar en data fabrik med hjälp av .NET SDK. Se [Data Factory klass biblioteks referens][msdn-class-library-reference] för en omfattande dokumentation av Data Factory .NET SDK.
 * **REST API** Du kan också använda REST API som exponeras av tjänsten Azure Data Factory för att skapa och distribuera data fabriker. Se [Data Factory REST API Reference][msdn-rest-api-reference] för en omfattande dokumentation av Data Factory REST API.
-* **Azure Resource Manager mall** Se [Självstudier: Bygg din första Azure-datafabrik med hjälp](data-factory-build-your-first-pipeline-using-arm.md) av Azure Resource Manager mall för information.
+* **Azure Resource Manager mall** Se [självstudie: Bygg din första Azure-datafabrik med hjälp av Azure Resource Manager mall](data-factory-build-your-first-pipeline-using-arm.md) för information.
 
 ### <a name="can-i-rename-a-data-factory"></a>Kan jag byta namn på en data fabrik?
 Nej. Precis som andra Azure-resurser kan du inte ändra namnet på en Azure Data Factory.
@@ -70,12 +70,12 @@ Följande tabell innehåller en lista över beräknings miljöer som stöds av D
 | --- | --- |
 | [HDInsight-kluster på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) eller [ditt eget HDInsight-kluster](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [gris](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop streaming](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
-| [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Machine Learning aktiviteter: Batch-körning och uppdaterings resurs](data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Machine Learning-aktiviteter: batchkörning och resursuppdatering](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
 | [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service) [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Lagrad procedur](data-factory-stored-proc-activity.md) |
 
 ### <a name="how-does-azure-data-factory-compare-with-sql-server-integration-services-ssis"></a>Hur jämför Azure Data Factory med SQL Server Integration Services (SSIS)? 
-[Se Azure Data Factory vs. SSIS](https://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) -presentation från någon av våra MVP: er (mest värdefulla tekniker): Reza rad. Några av de senaste ändringarna i Data Factory kanske inte visas i bild däcket. Vi lägger kontinuerligt till fler funktioner till Azure Data Factory. Vi lägger kontinuerligt till fler funktioner till Azure Data Factory. Vi kommer att införliva dessa uppdateringar i jämförelsen av data integrerings tekniker från Microsoft senare i år.   
+Se [Azure Data Factory vs. SSIS](https://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) -presentationen från någon av våra MVP: er (Most Valuable profession ALS): Reza rad. Några av de senaste ändringarna i Data Factory kanske inte visas i bild däcket. Vi lägger kontinuerligt till fler funktioner till Azure Data Factory. Vi lägger kontinuerligt till fler funktioner till Azure Data Factory. Vi kommer att införliva dessa uppdateringar i jämförelsen av data integrerings tekniker från Microsoft senare i år.   
 
 ## <a name="activities---faq"></a>Aktiviteter – vanliga frågor och svar
 ### <a name="what-are-the-different-types-of-activities-you-can-use-in-a-data-factory-pipeline"></a>Vilka är de olika typerna av aktiviteter som du kan använda i en Data Factory pipeline?

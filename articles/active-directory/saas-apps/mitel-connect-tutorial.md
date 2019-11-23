@@ -54,7 +54,7 @@ Om du vill konfigurera integrering av tusentals anslutning till Azure AD måste 
 
 **Gör så här om du vill lägga till en spetsig anslutning från galleriet:**
 
-1. Klicka på **Azure Active Directory** på den vänstra navigeringspanelen på **[Azure Portal](https://portal.azure.com)** .
+1. Klicka på **Azure Active Directory[ på den vänstra navigeringspanelen på ](https://portal.azure.com)** Azure Portal.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -77,7 +77,7 @@ I det här avsnittet ska du konfigurera och testa enkel inloggning med Azure AD 
 Du måste utföra följande steg för att konfigurera och testa enkel inloggning med MiCloud Connect för Azure AD:
 
 1. **[Konfigurera MiCloud Connect för enkel inloggning med Azure AD](#configure-micloud-connect-for-sso-with-azure-ad)** – så att användarna kan använda den här funktionen och konfigurera SSO-inställningar på program sidan.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 3. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 4. **[Skapa en MiCloud Connect-test](#create-a-mitel-micloud-connect-test-user)** för att få en motsvarighet till Britta Simon på ditt MiCloud Connect-konto som är länkat till användarens Azure AD-representation.
 5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
@@ -93,7 +93,7 @@ Om du vill konfigurera MiCloud ansluta med SSO för Azure AD är det enklast att
 
     a. På sidan för att **ansluta** program integrering klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
     b. Klicka på **SAML**i dialog rutan **Välj metod för enkel inloggning** .
 
@@ -165,7 +165,7 @@ I det här avsnittet ska du skapa en test användare med namnet Britta Simon i A
 
     a. I fältet **namn** skriver du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du brittasimon @\<yourcompanydomain\>.\<-tillägg\>.  
+    b. I fältet **användar namn** skriver du brittasimon@\<yourcompanydomain\>.\<-tillägg\>.  
 Till exempel BrittaSimon@contoso.com.
 
     c. Markera kryss rutan **Visa lösen ord** och skriv sedan ned värdet som visas i rutan **lösen ord** .
@@ -184,7 +184,7 @@ I det här avsnittet ska du aktivera Britta Simon för att använda enkel inlogg
 
     ![Länken för att ansluta i program listan](common/all-applications.png)
 
-3. I menyn till vänster klickar du på **användare och grupper**.
+3. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -220,7 +220,7 @@ Skapa en användare på ditt MiCloud Connect-konto med följande information:
 
 I det här avsnittet ska du testa konfigurationen för enkel inloggning med Azure AD via åtkomst panelen.
 
-När du klickar på panelen för att ansluta på åtkomst panelen bör du omdirigeras automatiskt för att logga in på MiCloud Connect-programmet som du konfigurerade som standard i fältet för **inloggnings-URL** . I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på panelen för att ansluta på åtkomst panelen bör du omdirigeras automatiskt för att logga in på MiCloud Connect-programmet som du konfigurerade som standard i fältet för **inloggnings-URL** . Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

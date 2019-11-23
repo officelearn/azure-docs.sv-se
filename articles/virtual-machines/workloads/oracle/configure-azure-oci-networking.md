@@ -31,7 +31,7 @@ Följande bild visar en översikt över sammanlänkningen:
 
 ![Nätverks anslutning mellan moln](media/configure-azure-oci-networking/azure-oci-connect.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Om du vill upprätta en anslutning mellan Azure och OCI måste du ha en aktiv Azure-prenumeration och ett aktivt OCI-innehav.
 
@@ -57,7 +57,7 @@ Följande bild visar en översikt över sammanlänkningen:
 1. Skapa en gateway för dynamisk routning (DRG). Du behöver det när du skapar din FastConnect-krets. Mer information finns i dokumentationen för [Dynamic routing Gateway](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingDRGs.htm) .
 1. Skapa en FastConnect-krets under din Oracle-klient. Mer information finns i Oracle- [dokumentationen](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/azure.htm).
   
-    * Under FastConnect-konfiguration väljer du **Microsoft Azure: ExpressRoute @ no__t-0 som Provider.
+    * Under FastConnect-konfiguration väljer du **Microsoft Azure: ExpressRoute** som Provider.
     * Välj den gateway för dynamisk routning som du etablerade i föregående steg.
     * Välj den bandbredd som ska tillhandahållas. För bästa prestanda måste bandbredden matcha den bandbredd som väljs när du skapar ExpressRoute-kretsen.
     * I **Provider service Key**klistrar du in ExpressRoute-tjänst nyckeln.

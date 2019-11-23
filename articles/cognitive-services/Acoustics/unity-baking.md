@@ -162,7 +162,7 @@ Du kan gå till din scen på ett beräknings kluster i molnet genom att använda
 3. Ange dina autentiseringsuppgifter för Azure i de här fälten när ditt Azure-konto har skapats. Mer information finns i [skapa ett Azure Batch-konto](create-azure-account.md).
 4. Fältet Docker-bildtagg för akustiska verktyg.
 5. Öppnar Azure Portal för att hantera prenumerationer, övervaka användning och Visa fakturerings information.
-6. Anger Azure Batch Compute Node-typ som ska användas för beräkning. Nodtypen måste stödjas av Azure Data Center-platsen. Om du inte är säker lämnar du som **Standard_F8s_v2**.
+6. Anger Azure Batch Compute Node-typ som ska användas för beräkning. Nodtypen måste stödjas av Azure Data Center-platsen. Om du inte är säker låter du som **Standard_F8s_v2**.
 7. Antalet noder som ska användas för beräkningen. Det här värdet påverkar bageri tiden. Den begränsas av din Azure Batch Core-allokering. Standardallokeringen tillåter endast två 8-core-noder eller 1 16-core-nod, men den kan utökas. Mer information om begränsningar för kärn allokering finns i [skapa ett Azure Batch-konto](create-azure-account.md).
 8. Markera den här kryss rutan om du vill konfigurera din Compute-pool för att använda [noder med låg prioritet](https://docs.microsoft.com/azure/batch/batch-low-pri-vms). Compute-noder med låg prioritet har mycket lägre kostnad. Men de är kanske inte alltid tillgängliga eller kan aktive ras när som helst.
 9. Antalet avsökningar för din scen enligt beräkningen på fliken **avsökningar** . Antalet avsökningar bestämmer antalet simuleringar som ska köras i molnet. Du kan inte ange fler noder än vad som finns i avsökningar.
@@ -224,9 +224,9 @@ I vårt exempel test på en dator med 8 kärnor, Intel Xeon E5-1660 @ 3 GHz och 
 Installera och konfigurera Docker på den dator som ska bearbeta simuleringen:
 1. Installera [Docker Desktop](https://www.docker.com/products/docker-desktop).
 2. Öppna Docker-inställningar, gå till **Avancerat**och konfigurera resurserna för minst 8 GB RAM-minne. Ju fler processorer du kan allokera till Docker, desto snabbare kommer bagerien att slutföras.  
-@no__t Docker-inställningar för 0Sample @ no__t-1
+![exempel Docker-inställningar](media/docker-settings.png)
 1. Gå till **delade enheter**och aktivera delning för den enhet som används för bearbetning.  
-0Docker alternativ för delad enhet @ no__t-1 @no__t
+![Docker delade enhets alternativ](media/docker-shared-drives.png)
 
 ### <a name="run-the-local-bake"></a>Kör den lokala bak Sidan
 1. Välj knappen **Förbered lokal inbaka** på fliken **bak** sidan. Välj sedan en mapp där du vill spara indatafilerna och skripten för körning till. Du kan sedan köra hembakat på valfri dator så länge det uppfyller minimi kraven för maskin vara och du installerar Docker genom att kopiera mappen till den datorn.
@@ -238,14 +238,14 @@ Installera och konfigurera Docker på den dator som ska bearbeta simuleringen:
 Följande fyra datafiler skapas under processen. En innehåller simulerings resultatet och medföljer din rubrik. De andra lagrar enhets beroende redigerings data.
 
 Simulerings resultat:
-* *Till gångar/AcousticsData/akustisker @ no__t-1 [SceneName]. ACE. byte*: den här filen är Sök tabellen för körnings miljön. Den innehåller simulerings resultat och voxelized akustiska scen element. Du kan ändra namnet och platsen för filen på fliken **avsökningar** .
+* *Till gångar/AcousticsData/akustisker\_[SceneName]. ACE. byte*: den här filen är Sök tabellen med körnings miljön. Den innehåller simulerings resultat och voxelized akustiska scen element. Du kan ändra namnet och platsen för filen på fliken **avsökningar** .
 
    *Var noga med att inte ta bort simulerings resultat filen. Det går inte att återvinna, förutom genom att inning av scenen.*
 
 Editor-datafiler:
-* *Till gångar/redigerare/[SceneName] \_AcousticsParameters. till gång*: den här filen lagrar de data som du anger i fält i akustiskt användar gränssnitt. Du kan inte ändra namnet och platsen för den här filen.
-* *Till gångar/AcousticsData/redaktör/Acoustics_ [SceneName]. VOX*: den här filen lagrar voxelized akustiska geometri och de material egenskaper som beräknas när du väljer knappen **Beräkna** på fliken **avsökningar** . Du kan ändra namnet och platsen för filen på fliken **avsökningar** .
-* *Till gångar/AcousticsData/redigerare/akustiska @ no__t-1 [SceneName] @no__t -2config. XML*: den här filen lagrar simulerings parametrar som beräknas när du väljer **Beräkna**. Du kan ändra namnet och platsen för filen på fliken **avsökningar** .
+* *Till gångar/redigerare/[SceneName]\_AcousticsParameters. till gång*: den här filen lagrar de data som du anger i fält i akustiskt användar gränssnitt. Du kan inte ändra namnet och platsen för den här filen.
+* *Till gångar/AcousticsData/redigerare/Acoustics_ [SceneName]. VOX*: den här filen lagrar voxelized-akustiska geometrin och de material egenskaper som beräknas när du väljer knappen **Beräkna** på fliken **avsökningar** . Du kan ändra namnet och platsen för filen på fliken **avsökningar** .
+* *Till gångar/AcousticsData/redigerare/akustiska\_[SceneName]\_config. XML*: den här filen lagrar simulerings parametrar som beräknas när du väljer **Beräkna**. Du kan ändra namnet och platsen för filen på fliken **avsökningar** .
 
 ## <a name="set-up-the-acoustics-lookup-table"></a>Konfigurera ljud uppslags tabellen
 Dra Prefab för **projektet akustiskt** från projekt panelen till din scen:

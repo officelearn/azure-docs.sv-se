@@ -126,7 +126,7 @@ Om du vill distribuera en IBM DB2-konfiguration måste du följa dessa steg:
 
 Slutför planerings processen innan du kör distributionen. Planering skapar grunden för att distribuera en konfiguration av DB2 med HADR i Azure. Viktiga element som måste vara en del av planeringen för IMB DB2-LUW (databas delen av SAP-miljön) visas i följande tabell:
 
-| Ämne | Kort beskrivning |
+| Avsnitt | Kort beskrivning |
 | --- | --- |
 | Definiera Azure-resurs grupper | Resurs grupper där du distribuerar VM, VNet, Azure Load Balancer och andra resurser. Kan vara befintlig eller ny. |
 | Definition av virtuellt nätverk/undernät | Där virtuella datorer för IBM DB2 och Azure Load Balancer distribueras. Kan vara befintlig eller nyligen skapad. |
@@ -201,7 +201,7 @@ Konfigurera den primära IBM DB2 LUW-databas instansen:
 
 Gör så här för att konfigurera vänte läges databas servern med hjälp av en SAP homogen system kopierings procedur:
 
-1. Välj **system kopierings** alternativet > **mål system** > **distribuerad** > -**databas instans**.
+1. Välj **system kopierings** alternativet > **mål system** > **distribuerade** > **databas instans**.
 1. Som en kopierings metod väljer du **homogent system** så att du kan använda säkerhets kopiering för att återställa en säkerhets kopia på vänte läges Server instansen.
 1. När du kommer till steget avsluta för att återställa databasen för homogen system kopia avslutar du installations programmet. Återställ databasen från en säkerhets kopia av den primära värden. Alla efterföljande installations faser har redan körts på den primära databas servern.
 1. Konfigurera HADR för IBM DB2.
@@ -483,7 +483,7 @@ För att ansluta till den primära instansen av HADR-konfigurationen måste SAP-
 j2ee/dbhost = db-virt-hostname
 </code></pre>
 
-/sapmnt/\<SID >/Global/DB6/db2cli.ini
+/sapmnt/\<SID>/global/db6/db2cli.ini
 <pre><code>Hostname=db-virt-hostname
 </code></pre>
 
@@ -527,10 +527,10 @@ Du kan använda befintliga NFS-resurser med hög tillgänglighet för transporte
 
 I det här avsnittet beskrivs hur du kan testa installationen av DB2-HADR. *Varje test förutsätter att du är inloggad som användar rot* och att den primära IBM DB2-datorn körs på den virtuella *azibmdb01* -datorn.
 
-Den inledande statusen för alla test fall förklaras här: (crm_mon-r eller CRM-status)
+Den inledande statusen för alla test fall förklaras här: (crm_mon-r-eller CRM-status)
 
 - **CRM-status** är en ögonblicks bild av pacemaker status vid körnings tillfället 
-- **crm_mon-r** är kontinuerlig utmatning av pacemaker-status
+- **crm_mon-r** är kontinuerlig utdata av pacemaker status
 
 <pre><code>2 nodes configured
 5 resources configured
@@ -596,9 +596,9 @@ Migrera tillbaka resursen till *azibmdb01* och avmarkera plats begränsningarna
 crm resource clear msl_<b>Db2_db2ptr_PTR</b>
 </code></pre>
 
-- **CRM-resurs migrera \<res_name > \<värd >:** Skapar plats begränsningar och kan orsaka problem med övertag Ande
-- {0}- **resurs clear \<res_name >** : tar bort plats begränsningar
-- **\<för CRM-resurs rensning res_name >** : rensar alla fel i resursen
+- **\<för att migrera CRM-resurs res_name > \<värd >:** Skapar plats begränsningar och kan orsaka problem med övertag Ande
+- \- **resurs rensa \<res_name >** : rensar plats begränsningar
+- **res_name > för resurs \<rensning i CRM**: tar bort alla fel i resursen
 
 ### <a name="test-the-fencing-agent"></a>Testa avgränsnings agenten
 

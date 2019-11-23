@@ -43,7 +43,7 @@ Retur typen för Azure-funktionen måste vara en giltig `JObject`. (Tänk på at
 | --- | --- | --- | --- |
 | namn  | Namn på aktiviteten i pipelinen  | Sträng | ja |
 | typ  | Typ av aktivitet är ' AzureFunctionActivity ' | Sträng | ja |
-| Länkad tjänst | Den länkade Azure Function-tjänsten för motsvarande Azure-Funktionsapp  | Länkad tjänst referens | ja |
+| länkad tjänst | Den länkade Azure Function-tjänsten för motsvarande Azure-Funktionsapp  | Länkad tjänst referens | ja |
 | Funktions namn  | Namnet på funktionen i Azure-Funktionsapp som den här aktiviteten anropar | Sträng | ja |
 | metod  | REST API metod för funktions anropet | Strängar som stöds: "GET", "POST", "placera"   | ja |
 | sidhuvud  | Huvuden som skickas till begäran. Om du till exempel vill ange språk och typ på en begäran: "huvuden": {"Accept-language": "en-US", "innehålls typ": "Application/JSON"} | Sträng (eller uttryck med resultType för sträng) | Nej |

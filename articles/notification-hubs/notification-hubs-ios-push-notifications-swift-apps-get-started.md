@@ -23,7 +23,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 10/08/2019
 ms.locfileid: "72030655"
 ---
-# <a name="tutorial-push-notifications-to-swift-ios-apps-that-use-the-notification-hubs-rest-api"></a>Självstudier: Push-meddelanden till SWIFT iOS-appar som använder Notification Hubs REST API
+# <a name="tutorial-push-notifications-to-swift-ios-apps-that-use-the-notification-hubs-rest-api"></a>Självstudie: push-meddelanden till SWIFT iOS-appar som använder Notification Hubs REST API
 
 > [!div class="op_single_selector"]
 > * [Objective-C](notification-hubs-ios-apple-push-notification-apns-get-started.md)
@@ -42,7 +42,7 @@ Den här självstudien tar dig igenom följande steg:
 > * Anslut din iOS-app till en Notification Hub.
 > * Testa lösningen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att följa med måste du:
 
@@ -89,7 +89,7 @@ I det här avsnittet ska du bygga den iOS-app som ska ansluta till Notification 
 
 1. Uppdatera **devsettings. plist** för att inkludera följande konfigurations poster genom att använda dina egna värden från den meddelande hubb som du har allokerat:
 
-   | Nyckel                            | type                     | Value                     |
+   | Nyckel                            | Typ                     | Värde                     |
    |--------------------------------| -------------------------| --------------------------|
    | notificationHubKey             | Sträng                   | \<hubKey >                  |
    | notificationHubKeyName         | Sträng                   | \<hubKeyName >              |
@@ -171,7 +171,7 @@ I det här avsnittet ska du bygga den iOS-app som ska ansluta till Notification 
     return true
     ```
 
-    Den här koden hämtar inställnings värden från **devsettings. plist**, ställer in **AppDelegate** -klassen som **UNUserNotificationCenter** -delegaten, begär auktorisering för push-meddelanden och anropar **sedan registerForRemoteNotifications**.
+    Den här koden hämtar inställnings värden från **devsettings. plist**, ställer in **AppDelegate** -klassen som **UNUserNotificationCenter** -delegaten, begär auktorisering för push-meddelanden och anropar sedan **registerForRemoteNotifications**.
 
     För att det ska vara enkelt, stöder koden *endast iOS 10 och senare*. Du kan lägga till stöd för tidigare OS-versioner genom att villkorligt använda respektive API och metoder som vanligt.
 
@@ -285,7 +285,7 @@ SharedAccessSignature sig=<UrlEncodedSignature>&se=<ExpiryEpoch>&skn=<KeyName>&s
 Själva processen omfattar samma sex viktiga steg:  
 
 1. Beräknar förfallo [tiden i UNIX](https://en.wikipedia.org/wiki/Unix_time) -värdes format, vilket innebär hur många sekunder som har förflutit sedan midnatt Coordinated Universal Time, 1 januari 1970.
-1. Formatera **ResourceUrl** som representerar resursen som du försöker få åtkomst till, så att den är i procent kodad och gemen. **ResourceUrl** har formen `'https://<namespace>.servicebus.windows.net/<hubName>'`.
+1. Formatera **ResourceUrl** som representerar resursen som du försöker få åtkomst till, så att den är i procent kodad och gemen. **ResourceUrl** har formuläret `'https://<namespace>.servicebus.windows.net/<hubName>'`.
 1. Förbereder **StringToSign**, som är formaterad som `'<UrlEncodedResourceUrl>\n<ExpiryEpoch>'`.
 1. Data bearbetning och base64-kodning av **signaturen** med hjälp av HMAC-SHA256 hash för **StringToSign** -värdet. Hash-värdet används med **nyckel** delen av **anslutnings strängen** för respektive **auktoriseringsregel**.
 1. Formaterar den base64-kodade **signaturen** så att den är procent kodad.
@@ -297,7 +297,7 @@ I det här Swift-exemplet ska du använda Apples **CommonCrypto** -bibliotek med
 
 Lägga till och konfigurera bryggnings huvudet:
 
-1. I Xcode väljer du **fil** > **ny** > **fil**@no__t-**rubrik fil**. Namnge rubrik filen **BridgingHeader. h**.
+1. I Xcode väljer du **fil** > **ny** > **fil** > **rubrik fil**. Namnge rubrik filen **BridgingHeader. h**.
 
 1. Redigera filen för att importera **CommonHMAC. h**:
 
@@ -317,7 +317,7 @@ Lägga till och konfigurera bryggnings huvudet:
 
    1. Se till att alternativet **Installera mål-C-kompatibilitetsläge** är inställt på **Ja**.
 
-   1. Ange fil Sök vägen `'<ProjectName>/BridgingHeader.h'` i alternativet **mål-C bro huvud** . Detta är fil Sök vägen till vårt bro huvud.
+   1. Ange fil Sök vägen `'<ProjectName>/BridgingHeader.h'` i alternativet **mål-C bryggnings rubrik** . Detta är fil Sök vägen till vårt bro huvud.
 
    Om du inte kan hitta de här alternativen måste du kontrol lera att du har valt vyn **alla** och inte **grundläggande** eller **anpassad**.
 
@@ -410,10 +410,10 @@ Följ de här stegen för att anropa API: erna för **installation** :
 
 1. Konfigurera begärandehuvuden enligt följande:
 
-   | Nyckel           | Value            |
+   | Nyckel           | Värde            |
    | ------------- | ---------------- |
    | Content-Type  | application/json |
-   | Authorization | \<sasToken >       |
+   | Auktorisering | \<sasToken >       |
    | x-ms-version  | 2015-01          |
 
 1. Välj den **kod** knapp som visas längst upp till höger under knappen **Spara** . Begäran bör se ut ungefär som i följande exempel:
@@ -658,12 +658,12 @@ Du kan skicka meddelanden via [REST API](/rest/api/notificationhubs/) med **Post
 
 1. Konfigurera begärandehuvuden enligt följande:
 
-   | Nyckel                            | Value                          |
+   | Nyckel                            | Värde                          |
    | ------------------------------ | ------------------------------ |
    | Content-Type                   | application/json;charset=utf-8 |
-   | Authorization                  | \<sasToken >                     |
+   | Auktorisering                  | \<sasToken >                     |
    | ServiceBusNotification-Format  | mall                       |
-   | Tags                           | "12345"                        |
+   | Taggar                           | "12345"                        |
 
 1. Konfigurera begär ande **texten** så att den använder **RAW-JSON (Application. JSON)** med följande JSON-nytto last:
 

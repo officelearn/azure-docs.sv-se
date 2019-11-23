@@ -26,7 +26,7 @@ Stegen i den här självstudien visar hur du använder API Management (APIM) fö
 + Du kan göra det genom att lägga till, ta bort, byta namn på åtgärderna i APIM-instansen. 
 + Du kan redigera din API:s swagger.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 + [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
 + [Importera och publicera ditt första API](import-and-publish.md)

@@ -44,21 +44,21 @@ Ett undernät måste delegeras till Azure NetApp Files.
     |-----------------------|--------------|------------------|
     |    AD-webbtjänster    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
-    |    DNS                |    53        |    -           |
-    |    ICMPv4             |    Gäller inte       |    Eko svar    |
+    |    DNS                |    53        |    UDP           |
+    |    ICMPv4             |    Saknas       |    Eko svar    |
     |    Paket           |    464       |    TCP           |
-    |    Paket           |    464       |    -           |
+    |    Paket           |    464       |    UDP           |
     |    Paket           |    88        |    TCP           |
-    |    Paket           |    88        |    -           |
-    |    VIA               |    389       |    TCP           |
-    |    VIA               |    389       |    -           |
-    |    VIA               |    3268      |    TCP           |
-    |    NetBIOS-namn       |    138       |    -           |
+    |    Paket           |    88        |    UDP           |
+    |    LDAP               |    389       |    TCP           |
+    |    LDAP               |    389       |    UDP           |
+    |    LDAP               |    3268      |    TCP           |
+    |    NetBIOS-namn       |    138       |    UDP           |
     |    SAM/LSA            |    445       |    TCP           |
-    |    SAM/LSA            |    445       |    -           |
+    |    SAM/LSA            |    445       |    UDP           |
     |    Säkert LDAP        |    636       |    TCP           |
     |    Säkert LDAP        |    3269      |    TCP           |
-    |    W32Time            |    123       |    -           |
+    |    W32Time            |    123       |    UDP           |
 
 * Platstopologi för mål Active Directory Domain Services måste följa bästa praxis, särskilt det virtuella Azure-VNet där Azure NetApp Files distribueras.  
 
@@ -86,9 +86,9 @@ Ett undernät måste delegeras till Azure NetApp Files.
 
     * **Primär DNS**  
         Detta är den DNS som krävs för åtgärderna för att Active Directory domän anslutning och SMB-autentisering. 
-    * **Sekundär DNS**-   
+    * **Secondary DNS**   
         Det här är den sekundära DNS-servern för att säkerställa redundanta namn tjänster. 
-    * **Domänsuffix**  
+    * **Domän**  
         Detta är domän namnet för din Active Directory Domain Services som du vill ansluta till.
     * **Prefix för SMB-server (dator konto)**  
         Detta är namngivnings prefixet för dator kontot i Active Directory som Azure NetApp Files används för att skapa nya konton.
@@ -100,7 +100,7 @@ Ett undernät måste delegeras till Azure NetApp Files.
     * **Sökväg till organisationsenhet**  
         Det här är LDAP-sökvägen för organisationsenheten (OU) där SMB-serverns dator konton kommer att skapas. Det vill säga OU = den andra nivån, OU = första nivån. 
 
-        Om du använder Azure NetApp Files med Azure Active Directory Domain Services, är organisationsenhetens sökväg `OU=AADDC Computers` när du konfigurerar Active Directory för ditt NetApp-konto.
+        Om du använder Azure NetApp Files med Azure Active Directory Domain Services, är sökvägen till organisationsenheten `OU=AADDC Computers` när du konfigurerar Active Directory för ditt NetApp-konto.
         
     * Autentiseringsuppgifter, inklusive ditt **användar namn** och **lösen ord**
 

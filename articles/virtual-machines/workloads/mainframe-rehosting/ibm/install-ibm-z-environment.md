@@ -39,7 +39,7 @@ Mer information finns i [Översikt över zD & T](https://www.ibm.com/support/kno
 
 Den här artikeln visar hur du konfigurerar Z-utveckling och test miljö (zD & T) Enterprise Edition på Azure. Sedan kan du använda webb servern zD & T Enterprise Edition för att skapa och hantera Z-baserade miljöer på Azure.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 > [!NOTE]
 > IBM tillåter att zD & T Enterprise Edition endast installeras i utvecklings-och test miljöer –*inte* produktions miljöer.
@@ -62,11 +62,11 @@ Den här artikeln visar hur du konfigurerar Z-utveckling och test miljö (zD & T
 
 3. Hämta SSH-autentiseringsuppgifterna som visas på bladet **Översikt** på den virtuella datorn via knappen **Anslut** . Välj fliken **SSH** och kopiera SSH-inloggnings kommandot till Urklipp.
 
-4. Logga in på ett [bash-gränssnitt](/azure/cloud-shell/quickstart) från den lokala datorn och klistra in kommandot. Den kommer att vara i formatet **SSH @ no__t-1user-ID @ no__t-2 @ no__t-3 @ no__t-4ip Address @ no__t-5**. När du uppmanas att ange dina autentiseringsuppgifter anger du dem för att upprätta en anslutning till din Hem Katalog.
+4. Logga in på ett [bash-gränssnitt](/azure/cloud-shell/quickstart) från den lokala datorn och klistra in kommandot. Det kommer att vara i formatet **ssh\<användar-id\>\@\<IP-\>** . När du uppmanas att ange dina autentiseringsuppgifter anger du dem för att upprätta en anslutning till din Hem Katalog.
 
 ## <a name="copy-the-installation-file-to-the-server"></a>Kopiera installations filen till servern
 
-Installations filen för webb servern är **ZDT @ no__t-1Install @ no__t-2EE\_V12.0.0.1.tgz**. Den ingår i mediet som tillhandahålls av IBM. Du måste ladda upp den här filen till din virtuella Ubuntu-dator.
+Installations filen för webb servern är **ZDT\_installera\_EE\_v 12.0.0.1. tgz**. Den ingår i mediet som tillhandahålls av IBM. Du måste ladda upp den här filen till din virtuella Ubuntu-dator.
 
 1. På kommando raden anger du följande kommando för att kontrol lera att allt är uppdaterat i den nyligen skapade avbildningen:
 
@@ -91,7 +91,7 @@ Installations filen för webb servern är **ZDT @ no__t-1Install @ no__t-2EE\_V1
 
 ## <a name="install-the-enterprise-edition"></a>Installera Enterprise Edition
 
-1. Gå till ZDT-katalogen och expandera filen ZDT @ no__t-0Install @ no__t-1EE\_V12.0.0.1.tgz med följande kommandon:
+1. Gå till katalogen ZDT och expandera ZDT\_installera\_EE\_V 12.0.0.1. tgz-filen med följande kommandon:
 
     ```
     cd ZDT

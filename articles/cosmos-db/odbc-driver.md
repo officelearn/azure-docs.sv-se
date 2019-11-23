@@ -29,7 +29,7 @@ Det här är här ODBC-drivrutinen kommer in. Med hjälp av ODBC-drivrutinen kan
 
 Låt oss börja med ODBC-drivrutinen.
 
-## <a id="install"></a>Steg 1: Installera Azure Cosmos DB ODBC-drivrutin
+## <a id="install"></a>Steg 1: Installera Azure Cosmos DB ODBC-drivrutinen
 
 1. Hämta drivrutinerna för din miljö:
 
@@ -57,29 +57,29 @@ Låt oss börja med ODBC-drivrutinen.
 1. I den **SDN installationsprogrammet för Azure Cosmos DB ODBC-drivrutinen** Fyll i följande information: 
 
     ![Azure Cosmos DB ODBC-drivrutinen DSN konfigurationsfönstret](./media/odbc-driver/odbc-driver-dsn-setup.png)
-    - **Data källans namn**: Ditt eget namn för ODBC-datakällan. Det här namnet är unikt för ditt Azure Cosmos DB-konto, så ger den namnet på lämpligt sätt om du har flera konton.
-    - **Beskrivning**: En kort beskrivning av data källan.
-    - **Värd**: URI för ditt Azure Cosmos DB-konto. Du kan hämta det från sidan nycklar för Azure Cosmos DB i Azure-portalen, enligt följande skärmbild. 
-    - **Åtkomst nyckel**: Den primära eller sekundära, skrivskyddade eller skrivskyddade nyckeln på sidan Azure Cosmos DB nycklar i Azure Portal som visas i följande skärm bild. Vi rekommenderar att du använder den skrivskyddade nyckeln om DSN används för bearbetning av skrivskyddade och rapportering.
+    - **Namn på datakälla**: egna eget namn för ODBC DSN. Det här namnet är unikt för ditt Azure Cosmos DB-konto, så ger den namnet på lämpligt sätt om du har flera konton.
+    - **Beskrivning av**: en kort beskrivning av datakällan.
+    - **Värden**: URI för Azure Cosmos DB-kontot. Du kan hämta det från sidan nycklar för Azure Cosmos DB i Azure-portalen, enligt följande skärmbild. 
+    - **Få åtkomst till nyckeln**: primär eller sekundär, skrivskyddad eller skrivskyddade nyckeln från Azure Cosmos DB nycklar sidan i Azure portal enligt följande skärmbild. Vi rekommenderar att du använder den skrivskyddade nyckeln om DSN används för bearbetning av skrivskyddade och rapportering.
     ![Sidan för Azure Cosmos DB-nycklar](./media/odbc-driver/odbc-cosmos-account-keys.png)
-    - **Kryptera åtkomst nyckel för**: Välj det bästa alternativet baserat på användare av den här datorn. 
+    - **Kryptera åtkomstnyckel för**: Välj det bästa valet baserat på användare av den här datorn. 
     
 1. Klicka på den **Test** knappen för att kontrollera att du kan ansluta till ditt Azure Cosmos DB-konto. 
 
 1.  Klicka på **avancerade alternativ** och ange följande värden:
-    *  **REST API version**: Välj den [REST API versionen](https://docs.microsoft.com/rest/api/cosmos-db/) för dina åtgärder. Standardvärdet 2015-12-16. Om du har behållare med [stora partitionsnyckel](large-partition-keys.md) och behöver REST API version 2018-12-31:
+    *  **REST API version**: Välj [REST API-versionen](https://docs.microsoft.com/rest/api/cosmos-db/) för dina åtgärder. Standardvärdet 2015-12-16. Om du har behållare med [stora partitionsnyckel](large-partition-keys.md) och behöver REST API version 2018-12-31:
         - Skriv **2018-12-31** för REST API version
         - I **Start** -menyn skriver du "regedit" för att hitta och öppna programmet **Registry Editor** .
-        - I Registereditorn navigerar du till sökvägen: **Computer\HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC. INI**
-        - Skapa en ny under nyckel med samma namn som din DSN, t. ex. "Contoso-kontots ODBC-DSN".
+        - I Registereditorn navigerar du till sökvägen: **dator \ HKEY_LOCAL_MACHINE \software\odbc\odbc. INI**
+        - Skapa en ny under nyckel med samma namn som din DSN, t. ex. "contoso-kontots ODBC-DSN".
         - Gå till under nyckeln "Contoso-konto ODBC-DSN".
         - Högerklicka för att lägga till ett nytt **sträng** värde:
             - Värde namn: **IgnoreSessionToken**
             - Värde data: **1**
-             @ No__t-2Registry Editor-inställningar @ no__t-3
-    - **Fråga konsekvens**: Välj [konsekvens nivå](consistency-levels.md) för dina åtgärder. Standardvärdet är Session.
-    - **Antal återförsök**: Ange hur många försök en åtgärd som ska utföras igen om den första begäran inte slutförs på grund av begränsning av tjänst hastighet.
-    - **Schema fil**: Du har ett antal alternativ här.
+            ![register redigerings inställningarna](./media/odbc-driver/cosmos-odbc-edit-registry.png)
+    - **Fråga konsekvens**: Välj den [konsekvensnivå](consistency-levels.md) för din verksamhet. Standardvärdet är Session.
+    - **Antal återförsök**: Ange hur många gånger att försöka utföra en åtgärd om den första begäran inte slutförs på grund av begränsningar i tjänsten.
+    - **Schemafilen**: du har ett antal alternativ här.
         - Som standard när du lämnar den här posten som den är (tom) genomsöker driv rutinen den första sidan med data för alla behållare för att fastställa schemat för varje behållare. Detta kallas för behållar mappning. Utan en schemafil som definierats, drivrutinen måste utföra genomsökningen för varje drivrutin-session och kan resultera i en högre starttiden för ett program med hjälp av DSN. Vi rekommenderar att du alltid associera en schemafil för en Datakälla.
         - Om du redan har en schema fil (eventuellt en som du har skapat med hjälp av schema redigeraren) kan du klicka på **Bläddra**, navigera till filen, klicka på **Spara**och sedan på **OK**.
         - Om du vill skapa ett nytt schema, klickar du på **OK**, och klicka sedan på **Schemaredigerare** i huvudfönstret. Fortsätt sedan till information om schema redigeraren. När du har skapat den nya schemafilen, Kom ihåg att gå tillbaka till den **avancerade alternativ** fönster för att inkludera den nyligen skapade schemafilen.
@@ -88,7 +88,7 @@ Låt oss börja med ODBC-drivrutinen.
 
     ![Nya Azure Cosmos DB ODBC DSN på fliken användar-DSN](./media/odbc-driver/odbc-driver-user-dsn.png)
 
-## <a id="#container-mapping"></a>Steg 3: Skapa en schema definition med hjälp av container mappnings metoden
+## <a id="#container-mapping"></a>Steg 3: skapa en schema definition med hjälp av container mappnings metoden
 
 Det finns två typer av samplings metoder som du kan använda: **container mappning** eller **tabell avgränsare**. En samplings session kan använda båda metoderna för att sampla, men varje behållare kan bara använda en speciell samplings metod. Stegen nedan skapar ett schema för data i en eller flera behållare med hjälp av behållar mappnings metoden. Den här samplings metoden hämtar data på sidan i en behållare för att fastställa data strukturen. Den införlivar en behållare i en tabell på ODBC-sidan. Den här samplings metoden är effektiv och snabbt när data i en behållare är homogena. Om en behållare innehåller heterogena typ av data rekommenderar vi att du använder [mappnings metoden för tabell-avgränsare](#table-mapping) eftersom den ger en mer robust samplings metod för att fastställa data strukturerna i behållaren. 
 
@@ -109,7 +109,7 @@ Det finns två typer av samplings metoder som du kan använda: **container mappn
 
 1. Om du vill använda det här schemat med en DSN öppnar du **fönstret Azure Cosmos DB ODBC-drivrutin för driv rutins-DSN** (via ODBC-administratören för data källa), klickar på **Avancerade alternativ**och går sedan till det sparade schemat i rutan **schema fil** . Spara en schemafil till en befintlig DSN ändrar DSN-anslutningen till scope till data och struktur som definieras av schemat.
 
-## <a id="table-mapping"></a>Steg 4: Skapa en schema definition med mappnings metoden tabell-avgränsare
+## <a id="table-mapping"></a>Steg 4: Skapa en schemadefinitionen med tabell-avgränsare mappning metod
 
 Det finns två typer av samplings metoder som du kan använda: **container mappning** eller **tabell avgränsare**. En samplings session kan använda båda metoderna för att sampla, men varje behållare kan bara använda en speciell samplings metod. 
 

@@ -23,7 +23,7 @@ ms.locfileid: "72792917"
 
 ### <a name="how-is-azure-cognitive-search-different-from-full-text-search-in-my-dbms"></a>Hur skiljer sig Azure Kognitiv sökning från full texts ökning i mitt DBMS?
 
-Azure Kognitiv sökning stöder flera data källor, [språklig analys för många språk](https://docs.microsoft.com/rest/api/searchservice/language-support), [anpassad analys för intressanta och ovanliga data inmatningar](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search), Sök ranknings kontroller via [bedömnings profiler](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)och användar upplevelse funktioner som typeahead, träff markering och fasett-navigering. Den innehåller också andra funktioner, till exempel synonymer och RTF-frågesyntax, men de är i allmänhet inte särskiljande funktioner.
+Azure Kognitiv sökning stöder flera data källor, [språklig analys för många språk](https://docs.microsoft.com/rest/api/searchservice/language-support), [anpassad analys för intressanta och ovanliga data inmatningar](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search), Sök ranknings kontroller via [bedömnings profiler](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)och funktioner för användar upplevelse, till exempel typeahead, träff markering och fasett-navigering. Den innehåller också andra funktioner, till exempel synonymer och RTF-frågesyntax, men de är i allmänhet inte särskiljande funktioner.
 
 ### <a name="what-is-the-difference-between-azure-cognitive-search-and-elasticsearch"></a>Vad är skillnaden mellan Azure Kognitiv sökning och ElasticSearch?
 
@@ -103,7 +103,7 @@ De flesta kunder väljer dedikerade fält över en samling när den kommer att s
 
 Är din fråga om en funktion eller funktionalitet som saknas? Begär funktionen på [användarens röst webbplats](https://feedback.azure.com/forums/263029-azure-search).
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
  [StackOverflow: Azure Kognitiv sökning](https://stackoverflow.com/questions/tagged/azure-search)   
  [Hur full texts ökning fungerar i Azure Kognitiv sökning](search-lucene-query-architecture.md)  

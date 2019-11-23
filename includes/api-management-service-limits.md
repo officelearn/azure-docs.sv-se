@@ -16,7 +16,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 09/18/2019
 ms.locfileid: "67187746"
 ---
-| Resource | Gräns |
+| Resurs | Gräns |
 | --- | --- |
 | Maximalt antal skalnings enheter | 10 per region<sup>1</sup> |
 | Cachestorlek | 5 GB per enhet<sup>2</sup> |
@@ -38,7 +38,7 @@ ms.locfileid: "67187746"
 <sup>2</sup> Storleken per enhets cacheminne beror på pris nivån. Se [API Management priser](https://azure.microsoft.com/pricing/details/api-management/)för att se pris nivåerna och deras skalnings gränser.<br/>
 <sup>3</sup> Anslutningar i pooler och återanvänds, om de inte uttryckligen stängs av Server delen.<br/>
 <sup>4</sup> Den här gränsen är per enhet för nivåerna Basic, standard och Premium. Developer-nivån är begränsad till 1 024. Den här gränsen gäller inte för förbruknings nivån.<br/> 
-<sup>5</sup> Den här gränsen gäller för nivåerna Basic, standard och Premium. I förbruknings nivån är princip dokument storleken begränsat till 4 KB.<br/>
+<sup>5</sup>gäller den här gränsen för nivåerna Basic, standard och Premium. I förbruknings nivån är princip dokument storleken begränsat till 4 KB.<br/>
 <sup>6</sup> Den här resursen är bara tillgänglig på Premium-nivån.<br/>
 <sup>7</sup> Den här resursen gäller endast för förbruknings nivån.<br/>
 

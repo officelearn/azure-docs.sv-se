@@ -82,7 +82,7 @@ var app = PublicClientApplicationBuilder.Create(clientId)
                                         .Build();
 ```
 
-Det finns ytterligare med*parameter* metoder som anger det överordnade användar gränssnittet, Åsidosätt standard utfärdaren, ange ett klient namn och-version (för telemetri), ange en omdirigerings-URI, ange den http-fabrik som ska användas (för att till exempel hantera proxyservrar anger du telemetri och loggning). Detta är ämnet i följande stycken.
+Det finns ytterligare med*parameter* metoder som anger det överordnade användar gränssnittet, Åsidosätt standard auktoritet, ange ett klient namn och-version (för telemetri), ange en omdirigerings-URI, ange den http-fabrik som ska användas (för att till exempel hantera proxyservrar, ange telemetri och loggning). Detta är ämnet i följande stycken.
 
 ##### <a name="specifying-the-parent-uiwindowactivity"></a>Ange ett överordnat gränssnitt/fönster/aktivitet
 
@@ -216,7 +216,7 @@ Gör följande för att ange objekt fönstret:
 1) I `AppDelegate.cs`anger du `App.RootViewController` till en ny `UIViewController()`. Det ser till att det finns en `UIViewController` med anropet till Broker. Om den inte anges korrekt kan du få följande fel meddelande: `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
 2) På AcquireTokenInteractive-anropet använder du `.WithParentActivityOrWindow(App.RootViewController)` och skickar i referensen till objekt fönstret som du kommer att använda.
 
-**Exempel:**
+**Till exempel:**
 
 Följande gäller i `App.cs`:
 ```CSharp

@@ -45,7 +45,7 @@ Om du vill veta mer om nätverks inställningar för klustret läser du [Konfigu
 
 * Konfigurera Active Directory-och användar namn/grupp namn nedladdningar (om det behövs)
 
-  Om dina nätverks värdar använder Active Directory eller någon annan typ av extern katalog tjänst måste du ändra klustrets konfiguration för katalog tjänster för att konfigurera hur klustret laddar ned användar namn och grupp information. Mer information finns i **kluster** > **katalog tjänster** i guiden kluster konfiguration.
+  Om dina nätverks värdar använder Active Directory eller någon annan typ av extern katalog tjänst måste du ändra klustrets konfiguration för katalog tjänster för att konfigurera hur klustret laddar ned användar namn och grupp information. Mer information finns i **kluster** > **katalog tjänster** i kluster konfigurations guiden.
 
   En AD-server krävs om du vill ha SMB-stöd. Konfigurera AD innan du börjar konfigurera SMB.
 
@@ -58,7 +58,7 @@ Om du vill veta mer om nätverks inställningar för klustret läser du [Konfigu
   Om klustret använder en proxyserver för att komma åt externa adresser följer du dessa steg för att konfigurera den:
 
   1. Definiera proxyservern på sidan **konfigurations** inställningar för proxy
-  1. Använd konfigurationen för proxyservern på sidan **kluster** > **allmän installation** eller sidan core-filer **information** .
+  1. Använd konfigurationen för proxyservern på sidan för **kluster** > **allmänna installations** sidan eller sidan core-filer **information** .
   
   Mer information finns i [använda webb-proxyservrar](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/proxy_overview.html) i guiden kluster konfiguration.
 
@@ -74,9 +74,9 @@ FXT Edge-kluster använder X. 509-certifikat för dessa funktioner:
 
 * För att verifiera Cloud providers Server certifikat
 
-Om du behöver ladda upp certifikat till klustret använder du sidan **kluster** > **certifikat** inställningar. Information finns på sidan [kluster > certifikat](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_certificates.html) i guiden kluster konfiguration.
+Om du behöver ladda upp certifikat till klustret använder du sidan Inställningar för **kluster** > **certifikat** . Information finns på sidan [kluster > certifikat](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_certificates.html) i guiden kluster konfiguration.
 
-Om du vill kryptera kluster hanterings kommunikation använder du sidan **kluster** > **allmänna installations** inställningar för att välja vilket certifikat som ska användas för administration av SSL.
+Om du vill kryptera kluster hanterings kommunikationen använder du sidan **kluster** > **allmänna installations** inställningar för att välja vilket certifikat som ska användas för administration av SSL.
 
 > [!Note] 
 > Åtkomst nycklar för moln tjänster lagras med hjälp av konfigurations sidan **Cloud credentials** . I avsnittet [Lägg till en Core](fxt-add-storage.md#add-a-core-filer) -filer ovan visas ett exempel. Mer information finns i avsnittet [Cloud credentials](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_credentials.html) i guiden för kluster konfiguration. 
@@ -105,7 +105,8 @@ För optimala prestanda konfigurerar du DNS-servern så att den hanterar klientb
 
 Ett kluster vserver visas till vänster och IP-adresser visas i mitten och till höger. Konfigurera varje klient åtkomst punkt med en post och pekare som illustreras.
 
-![Cluster Round-Robin DNS-diagram – detaljerad alternativ text länk följer bild @ no__t-1[detaljerad text Beskrivning](https://azure.github.io/Avere/legacy/Azure-FXT-EdgeFilerDNSconfiguration-alt-text.html)
+![Cluster Round-Robin DNS-diagram-detaljerad alternativ text länk Följ bild](media/fxt-cluster-config/fxt-rrdns-diagram.png) 
+[detaljerad text Beskrivning](https://azure.github.io/Avere/legacy/Azure-FXT-EdgeFilerDNSconfiguration-alt-text.html)
 
 Varje klient riktad IP-adress måste ha ett unikt namn för intern användning av klustret. (I det här diagrammet heter klientens IP-adresser VS1-client-IP-* för tydlighetens skull, men i produktion bör du förmodligen använda något mer koncis, som klient *.)
 
@@ -137,7 +138,7 @@ update add 12.0.0.10.in-addr.arpa. 86400 PTR vs1-client-IP-12.example.com
 
 ### <a name="enable-dns-in-the-cluster"></a>Aktivera DNS i klustret 
 
-Ange den DNS-server som klustret använder på sidan **kluster** >  inställningar för**administrations nätverk** . Inställningarna på sidan är:
+Ange den DNS-server som klustret använder på sidan **kluster** > **administrativa nätverks** inställningar. Inställningarna på sidan är:
 
 * DNS-serveradress
 * DNS-domännamn

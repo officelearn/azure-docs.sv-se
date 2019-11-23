@@ -35,7 +35,7 @@ Inom klassificeringen "vuxen" är flera olika kategorier:
 
 ## <a name="use-the-api"></a>Använda API:et
 
-Du kan identifiera innehåll för vuxna med API för att [analysera avbildning](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) . När du lägger till värdet för `Adult` i **visualFeatures** -FRÅGEPARAMETERN returnerar API tre booleska egenskaper @ no__t-2 @ no__t-3, `isRacyContent` och `isGoryContent` @ no__t-6IN dess JSON-svar. Metoden returnerar också motsvarande egenskaper @ no__t-0 @ no__t-1, `racyScore` och `goreScore` @ no__t-4which representerar förtroende resultat mellan noll och en för varje respektive kategori.
+Du kan identifiera innehåll för vuxna med API för att [analysera avbildning](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) . När du lägger till värdet för `Adult` i **visualFeatures** -Frågeparametern, returnerar API tre booleska egenskaper&mdash;`isAdultContent`, `isRacyContent`och `isGoryContent`&mdash;i dess JSON-svar. Metoden returnerar också motsvarande egenskaper&mdash;`adultScore`, `racyScore`och `goreScore`&mdash;som representerar förtroende poängen mellan noll och en för varje respektive kategori.
 
-- [Snabbstart: Analysera en avbildning (.NET SDK) ](./quickstarts-sdk/csharp-analyze-sdk.md)
-- [Snabbstart: Analysera en bild (REST API)](./quickstarts/csharp-analyze.md)
+- [Snabb start: analysera en avbildning (.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
+- [Snabb start: analysera en avbildning (REST API)](./quickstarts/csharp-analyze.md)

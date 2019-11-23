@@ -18,7 +18,7 @@ ms.locfileid: "73573072"
 
 Den här snabbstarten beskriver hur du skapar en Analysis Services-serverresurs i Azure-prenumerationen med hjälp av portalen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter 
+## <a name="prerequisites"></a>Krav 
 
 * **Azure-prenumeration**: Gå till [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) för att skapa ett konto.
 * **Azure Active Directory**: Prenumerationen måste vara kopplad till en Azure Active Directory-klientorganisation. Och du måste vara inloggad på Azure med ett konto i den Azure Active Directory. Mer information finns i [Autentisering och användarbehörigheter](analysis-services-manage-users.md).
@@ -32,7 +32,7 @@ Den här snabbstarten beskriver hur du skapar en Analysis Services-serverresurs 
 
 1. Klicka på **+ Skapa en resurs** > **Analys** > **Analysis Services**.
 
-    ![Portalen](./media/analysis-services-create-server/aas-create-server-portal.png)
+    ![Portal](./media/analysis-services-create-server/aas-create-server-portal.png)
 
 2. I **Analysis Services** fyller du i de fält som krävs och trycker sedan på **Skapa**.
    

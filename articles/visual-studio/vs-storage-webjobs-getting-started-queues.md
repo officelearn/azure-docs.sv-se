@@ -24,7 +24,7 @@ ms.locfileid: "72298744"
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Översikt
-Den här artikeln beskriver hur du kommer igång med Azure Queue Storage i ett Visual Studio Azure-webbjobb när du har skapat eller refererat till ett Azure Storage-konto med hjälp av dialog rutan **Lägg till anslutna tjänster** i Visual Studio. När du lägger till ett lagrings konto till ett webb jobbs projekt med hjälp av dialog rutan **Lägg till anslutna tjänster** i Visual Studio, installeras rätt Azure Storage NuGet-paket, lämpliga .net-referenser läggs till i projektet och anslutnings strängar för lagrings kontot uppdateras i filen app. config.  
+Den här artikeln beskriver hur du kommer igång med Azure Queue Storage i ett Visual Studio Azure-webbjobb när du har skapat eller refererat till ett Azure Storage-konto med hjälp av dialog rutan **Lägg till anslutna tjänster** i Visual Studio. När du lägger till ett lagrings konto till ett webbjobb-projekt med hjälp av dialog rutan **Lägg till anslutna tjänster** i Visual Studio, installeras rätt Azure Storage NuGet-paket, lämpliga .net-referenser läggs till i projektet och anslutnings strängar för lagrings kontot uppdateras i filen app. config.  
 
 Den här artikeln C# innehåller kod exempel som visar hur du använder Azure WebJobs SDK version 1. x med Azure Queue Storage-tjänsten.
 
@@ -89,9 +89,9 @@ public async static Task ProcessQueueMessageAsyncCancellationToken(
 ## <a name="types-the-queuetrigger-attribute-works-with"></a>Skriver QueueTrigger-attributet fungerar med
 Du kan använda **QueueTrigger** med följande typer:
 
-* **nollängd**
+* **string**
 * En POCO-typ serialiserad som JSON
-* **byte []**
+* **byte[]**
 * **CloudQueueMessage**
 
 ## <a name="polling-algorithm"></a>Avsöknings algoritm
@@ -191,7 +191,7 @@ Mer information finns i [WebJobs reshutdown](http://blog.amitapple.com/post/2014
 Om du vill skriva en funktion som skapar ett nytt Queue meddelande, använder du attributet **Queue** . Som **QueueTrigger**skickar du i könamnet som en sträng, eller så kan du [Ange könamnet dynamiskt](#how-to-set-configuration-options).
 
 ### <a name="string-queue-messages"></a>String Queue-meddelanden
-Följande kod exempel för icke-asynkrona kod skapar ett nytt Queue-meddelande i kön med namnet "outputqueue" med samma innehåll som det Queue meddelande som togs emot i kön med namnet "inputqueue". (För asynkrona funktioner används **IAsyncCollector @ no__t-1T >** som visas senare i det här avsnittet.)
+Följande kod exempel för icke-asynkrona kod skapar ett nytt Queue-meddelande i kön med namnet "outputqueue" med samma innehåll som det Queue meddelande som togs emot i kön med namnet "inputqueue". (För asynkrona funktioner används **IAsyncCollector\<t >** som visas senare i det här avsnittet.)
 
 ```csharp
 public static void CreateQueueMessage(
@@ -217,7 +217,7 @@ public static void CreateQueueMessage(
 SDK: n serialiserar automatiskt objektet till JSON. Ett Queue-meddelande skapas alltid, även om objektet är null.
 
 ### <a name="create-multiple-messages-or-in-async-functions"></a>Skapa flera meddelanden eller i asynkrona funktioner
-Om du vill skapa flera meddelanden ska du använda parameter typen för kön **ICollector @ no__t-1T >** eller **IAsyncCollector @ no__t-3T >** , som du ser i följande exempel.
+Om du vill skapa flera meddelanden ska du ange parameter typen för **ICollector\<t >** eller **IAsyncCollector\<t >** , som du ser i följande exempel.
 
 ```csharp
 public static void CreateQueueMessages(
@@ -327,7 +327,7 @@ Om du behöver göra lite arbete i din funktion innan du binder en blob till ett
 
 * **Stream** (läsning eller skrivning, anges med parametern fileaccess-konstruktor)
 * **TextReader**
-* **Writer**
+* **TextWriter**
 * **sträng** (Läs)
 * **out-sträng** (Write; skapar bara en BLOB om sträng parametern är icke-null när funktionen returnerar)
 * POCO (läsa)
@@ -545,7 +545,7 @@ På instrument panelen för WebJobs-SDK visas de senaste 100 linjerna i konsolen
 
 ![Växla utdata](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
-I ett kontinuerligt webbjobb visas program loggar i/data/Jobs/Continuous/ *{webjobname}* /job_log.txt i webb program fil systemet.
+I ett kontinuerligt webbjobb visas program loggar i/data/Jobs/Continuous/ *{webjobname}* /job_log. txt i webb program fil systemet.
 
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
         [09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!

@@ -36,7 +36,7 @@ När du uppfyller kraven kan du installera Spark & Hive-verktyg för Visual Stud
 
 1. Öppna Visual Studio Code.
 
-2. I meny raden navigerar du till **visa** > -**tillägg**.
+2. I meny raden navigerar du till **visa** > - **tillägg**.
 
 3. I rutan Sök anger du **Spark & Hive**.
 
@@ -50,19 +50,19 @@ När du uppfyller kraven kan du installera Spark & Hive-verktyg för Visual Stud
 
 Följ dessa steg om du vill öppna en arbetsmapp och skapa en fil i Visual Studio Code:
 
-1. Från meny raden navigerar du till **fil** > **Öppna mapp...**  > **C:\HD\HDexample**och välj sedan knappen **Välj mapp** . Mappen visas **i trädvyn till** vänster.
+1. Från meny raden går du till **fil** > **Öppna mapp...**  > **C:\HD\HDexample**och väljer sedan knappen **Välj mapp** . Mappen visas **i trädvyn till** vänster.
 
 2. I **Utforskarvyn** väljer du mappen **HDexample** och väljer sedan ikonen **ny fil** bredvid arbetsmappen:
 
    ![ikon för ny fil i Visual Studio-kod](./media/hdinsight-for-vscode/visual-studio-code-new-file.png)
 
-3. Ge den nya filen namnet med hjälp av antingen `.hql` (Hive-frågor) eller fil tillägget `.py` (Spark-skript). I det här exemplet används **HelloWorld. HQL**.
+3. Namnge den nya filen genom att antingen använda `.hql` (Hive-frågor) eller fil tillägget `.py` (Spark-skript). I det här exemplet används **HelloWorld. HQL**.
 
 ## <a name="set-the-azure-environment"></a>Ange Azure-miljön
 
 För en nationell moln användare följer du de här stegen för att konfigurera Azure-miljön först och använder sedan kommandot **Azure: Sign in** för att logga in på Azure:
 
-1. Gå till **fil** > **Inställningar** > **Inställningar**.
+1. Navigera till **fil** > **Inställningar** > **Inställningar**.
 2. Sök efter följande sträng: **Azure: Cloud**.
 3. Välj det nationella molnet i listan:
 
@@ -82,7 +82,7 @@ Innan du kan skicka skript till dina kluster från Visual Studio Code måste du 
 
 ### <a name="link-azure-hdinsight"></a>Länk: Azure HDInsight
 
-Du kan länka ett vanligt kluster genom att använda ett [Apache Ambari](https://ambari.apache.org/)-hanterat användar namn, eller så kan du länka ett skyddat Hadoop-kluster för företags säkerhet genom att använda ett domän användar namn (t. ex.: `user1@contoso.com`).
+Du kan länka ett vanligt kluster genom att använda ett [Apache Ambari](https://ambari.apache.org/)-hanterat användar namn, eller så kan du länka ett skyddat Hadoop-kluster för Enterprise Security genom att använda ett domän användar namn (t. ex.: `user1@contoso.com`).
 
 1. I meny raden navigerar du till **visa** > **kommando palett...** och anger **Spark/Hive: länka ett kluster**.
 
@@ -111,7 +111,7 @@ Du kan länka ett vanligt kluster genom att använda ett [Apache Ambari](https:/
 
 2. Välj den länkade kluster typen **allmän livy-slutpunkt**.
 
-3. Ange den allmänna livy-slutpunkten. Till exempel: http @ no__t-0//10.172.41.42:18080.
+3. Ange den allmänna livy-slutpunkten. Exempel: http\://10.172.41.42:18080.
 
 4. Välj typ av auktorisering **Basic** eller **none**.  Om du väljer **Basic**:  
     &emsp;a. Ange ditt Ambari-användarnamn; Standardvärdet är **admin**.  
@@ -265,7 +265,7 @@ När du har skickat ett python-jobb visas sändnings loggar i fönstret **utdata
 <a id="triggerlivyconf"></a>**Så här utlöser du livy-konfigurationen**
 
 Metod 1  
-1. I meny raden går du till **fil** > **Inställningar** > **Inställningar**.
+1. I meny raden navigerar du till **fil** > **Inställningar** > **Inställningar**.
 2. I rutan **Sök inställningar** anger du **insändningen av HDInsight-jobb: livy conf**.  
 3. Välj **Redigera i Settings. JSON** för det relevanta Sök resultatet.
 
@@ -282,33 +282,33 @@ Metod 2 skicka en fil och Lägg märke till att mappen. VSCode automatiskt lägg
 
     **Publicera/batches** Brödtext i begäran
 
-    | namn | beskrivning | typ |
+    | namn | description | typ |
     | :- | :- | :- |
-    | Arkiv | Fil som innehåller det program som ska köras | Sökväg (obligatoriskt) |
+    | file | Fil som innehåller det program som ska köras | Sökväg (obligatoriskt) |
     | proxyUser | Användare som ska personifieras när jobbet körs | Sträng |
     | className | Program java/Spark, huvud klass | Sträng |
     | args | Kommando rads argument för programmet | Lista över strängar |
-    | jar v7 | Jar v7 som ska användas i den här sessionen | Lista över strängar | 
+    | jars | Jar v7 som ska användas i den här sessionen | Lista över strängar | 
     | pyFiles | Python-filer som ska användas i den här sessionen | Lista över strängar |
-    | projektfiler | Filer som ska användas i den här sessionen | Lista över strängar |
+    | files | Filer som ska användas i den här sessionen | Lista över strängar |
     | driverMemory | Mängd minne som ska användas för driv rutins processen | Sträng |
-    | driverCores | Antal kärnor som ska användas för driv rutins processen | int |
+    | driverCores | Antal kärnor som ska användas för driv rutins processen | Int |
     | executorMemory | Mängden minne som ska användas per utförar-process | Sträng |
-    | executorCores | Antal kärnor som ska användas för varje utförar | int |
-    | numExecutors | Antal körningar som ska startas för den här sessionen | int |
-    | faxarkiv | Arkiv som ska användas i den här sessionen | Lista över strängar |
+    | executorCores | Antal kärnor som ska användas för varje utförar | Int |
+    | numExecutors | Antal körningar som ska startas för den här sessionen | Int |
+    | archives | Arkiv som ska användas i den här sessionen | Lista över strängar |
     | kö | Namnet på den garn kö som ska skickas till| Sträng |
     | namn | Namnet på den här sessionen | Sträng |
-    | medför | Konfigurations egenskaper för Spark | Karta över nyckel = val |
+    | conf | Konfigurations egenskaper för Spark | Karta över nyckel = val |
 
     Svars text för det skapade batch-objektet.
 
-    | namn | beskrivning | typ |
+    | namn | description | typ |
     | :- | :- | :- |
-    | id | Sessions-ID | int |
+    | id | Sessions-ID | Int |
     | appId | Programmets ID för den här sessionen | Sträng |
     | appInfo | Detaljerad programinformation | Karta över nyckel = val |
-    | kvorumloggen | Logg rader | Lista över strängar |
+    | log | Logg rader | Lista över strängar |
     | state |Batch-tillstånd | Sträng |
 
     > [!NOTE]
@@ -407,7 +407,7 @@ När du skickar ett jobb till ett HDInsight-kluster med hjälp av Data Lake Stor
 
 ## <a name="unlink-cluster"></a>Ta bort länk till kluster
 
-1. I meny raden går du till **visa** > **kommando-palett**och anger **Spark/Hive: ta bort länk till ett kluster**.  
+1. I meny raden går du till **visa** > **Command-paletten**och anger **Spark/Hive: ta bort länk till ett kluster**.  
 
 2. Välj ett kluster att ta bort länken.  
 
@@ -415,7 +415,7 @@ När du skickar ett jobb till ett HDInsight-kluster med hjälp av Data Lake Stor
 
 ## <a name="sign-out"></a>Logga ut  
 
-I meny raden går du till **visa** > **kommando-palett**och anger sedan **Azure: Logga ut**.
+I meny raden går du till **visa** > **Command-paletten**och anger sedan **Azure: Logga ut**.
 
 ## <a name="next-steps"></a>Nästa steg
 

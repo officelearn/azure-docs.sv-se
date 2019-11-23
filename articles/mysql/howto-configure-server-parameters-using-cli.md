@@ -17,7 +17,7 @@ ms.locfileid: "71350326"
 # <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>Anpassa Server konfigurations parametrar med hjälp av Azure CLI
 Du kan visa, Visa och uppdatera konfigurations parametrar för en Azure Database for MySQL-server med hjälp av Azure CLI, kommando rads verktyget för Azure. En del av motor konfigurationerna exponeras på server nivå och kan ändras. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 För att gå igenom den här instruktions guiden behöver du:
 - [En Azure Database for MySQL-Server](quickstart-create-mysql-server-database-using-azure-cli.md)
 - Kommando rads verktyget för [Azure CLI](/cli/azure/install-azure-cli) eller Använd Azure Cloud Shell i webbläsaren.
@@ -34,22 +34,22 @@ För definitionen av var och en av de angivna parametrarna, se referens avsnitte
 ## <a name="show-server-configuration-parameter-details"></a>Visa information om Server konfigurations parameter
 Om du vill visa information om en viss konfigurations parameter för en server kör du kommandot [AZ MySQL Server Configuration show](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-show) .
 
-Det här exemplet visar information om konfigurations parametern **långsam @ no__t-1query @ no__t-2log** för Server **mydemoserver.mysql.Database.Azure.com** under resurs grupp **myresourcegroup.**
+Det här exemplet visar information om den **långsamma\_frågan\_logg** Server konfigurations parameter för Server **mydemoserver.mysql.Database.Azure.com** under resurs grupp **myresourcegroup.**
 ```azurecli-interactive
 az mysql server configuration show --name slow_query_log --resource-group myresourcegroup --server mydemoserver
 ```
 ## <a name="modify-a-server-configuration-parameter-value"></a>Ändra ett parameter värde för Server konfiguration
 Du kan också ändra värdet för en viss server konfigurations parameter, som uppdaterar det underliggande konfiguration svärdet för MySQL Server-motorn. Om du vill uppdatera konfigurationen använder du kommandot [AZ MySQL Server Configuration set](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-set) . 
 
-Uppdatera Server konfigurations parametern **långsam @ no__t-1query @ no__t-2log** för Server **mydemoserver.mysql.Database.Azure.com** under resurs grupp **myresourcegroup.**
+För att uppdatera den **långsamma\_frågan\_logg** Server konfigurations parametern för Server **mydemoserver.mysql.Database.Azure.com** under resurs gruppen **myresourcegroup.**
 ```azurecli-interactive
 az mysql server configuration set --name slow_query_log --resource-group myresourcegroup --server mydemoserver --value ON
 ```
-Om du vill återställa värdet för en konfigurations parameter utelämnar du den valfria parametern `--value` och tjänsten använder standardvärdet. I exemplet ovan skulle det se ut så här:
+Om du vill återställa värdet för en konfigurations parameter utelämnar du den valfria `--value` parametern, och tjänsten använder standardvärdet. I exemplet ovan skulle det se ut så här:
 ```azurecli-interactive
 az mysql server configuration set --name slow_query_log --resource-group myresourcegroup --server mydemoserver
 ```
-Den här koden återställer den **långsamma @ no__t-1query @ no__t-2log-** konfigurationen till standardvärdet **.** 
+Den här koden återställer den **långsamma\_frågan\_logg** konfigurationen till standardvärdet **.** 
 
 ## <a name="working-with-the-time-zone-parameter"></a>Arbeta med parametern tidszon
 
@@ -74,7 +74,7 @@ SELECT name FROM mysql.time_zone_name;
 
 Du kan ange tids zonen för global nivå med hjälp av kommandot [AZ MySQL Server Configuration set](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-set) .
 
-Följande kommando uppdaterar **Time @ no__t-1zone-** serverns konfigurations parameter för Server **mydemoserver.mysql.Database.Azure.com** under resurs grupp **myresourcegroup** till **US/Pacific**.
+Följande kommando uppdaterar **tiden\_zon** serverns konfigurations parameter för Server **mydemoserver.mysql.Database.Azure.com** under resurs grupp **myresourcegroup** till **US/Pacific**.
 
 ```azurecli-interactive
 az mysql server configuration set --name time_zone --resource-group myresourcegroup --server mydemoserver --value "US/Pacific"

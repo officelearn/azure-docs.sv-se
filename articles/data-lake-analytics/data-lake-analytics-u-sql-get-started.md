@@ -25,9 +25,9 @@ U-SQL är ett språk som kombinerar deklarativ SQL med tvingande C# att du kan b
 * Detaljerad information om **språksyntaxen i u-SQL**finns i [språk referens för u-SQL](https://docs.microsoft.com/u-sql/).
 * Information om **design filosofi i u-SQL**finns i Visual Studio-bloggen [Introduktion till U-SQL – ett språk som gör stor data bearbetning lätt](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Innan du går igenom U-SQL-exemplen i det här dokumentet, Läs och slutför [Tutorial: Utveckla U-SQL-skript med hjälp av Data Lake verktyg för Visual Studio @ no__t-0. Den här självstudien förklarar Mechanics med att använda U-SQL med Azure Data Lake verktyg för Visual Studio.
+Innan du går igenom U-SQL-exemplen i det här dokumentet, Läs och fullständig [självstudie: utveckla U-SQL-skript med hjälp av data Lake verktyg för Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). Den här självstudien förklarar Mechanics med att använda U-SQL med Azure Data Lake verktyg för Visual Studio.
 
 ## <a name="your-first-u-sql-script"></a>Skriv ditt första U-SQL-skript
 
@@ -50,20 +50,20 @@ OUTPUT @searchlog
     USING Outputters.Csv();
 ```
 
-Det här skriptet har inga omvandlings steg. Den läser från käll filen med namnet `SearchLog.tsv`, schematizes och skriver rad uppsättningen tillbaka till en fil med namnet SearchLog-first-u-sql. csv.
+Det här skriptet har inga omvandlings steg. Den läser från käll filen med namnet `SearchLog.tsv`, schematizes den och skriver rad uppsättningen tillbaka till en fil med namnet SearchLog-first-u-sql. csv.
 
 Lägg märke till frågetecknet bredvid data typen i fältet `Duration`. Det innebär att fältet `Duration` kan vara null.
 
 ### <a name="key-concepts"></a>Viktiga begrepp
-* **Rad uppsättnings variabler**: Varje frågeuttryck som skapar en rad uppsättning kan tilldelas en variabel. U-SQL följer namngivnings mönstret T-SQL-variabeln (`@searchlog`, till exempel) i skriptet.
+* **Rad uppsättnings variabler**: varje frågeuttryck som skapar en rad uppsättning kan tilldelas till en variabel. U-SQL följer namngivnings mönstret T-SQL-variabeln (till exempel`@searchlog`) i skriptet.
 * Nyckelordet **Extract** läser data från en fil och definierar schemat vid läsning. `Extractors.Tsv` är en inbyggd U-SQL-Extractor för filer med Tabbavgränsade värden. Du kan utveckla anpassade Extraherare.
-* **Utdata** skriver data från en rad uppsättning till en fil. `Outputters.Csv()` är en inbyggd U-SQL-listruta för att skapa en fil med kommaavgränsade värden. Du kan utveckla anpassade utsparatillfiler.
+* **Utdata** skriver data från en rad uppsättning till en fil. `Outputters.Csv()` är en inbyggd U-SQL-utsparatillfil för att skapa en fil med kommaavgränsade värden. Du kan utveckla anpassade utsparatillfiler.
 
 ### <a name="file-paths"></a>Fil Sök vägar
 
 Satserna EXTRACT och OUTPUT använder fil Sök vägar. Fil Sök vägar kan vara absoluta eller relativa:
 
-Följande absoluta fil Sök väg refererar till en fil i ett Data Lake Store med namnet `mystore`:
+Följande absoluta fil Sök väg refererar till en fil i en Data Lake Store med namnet `mystore`:
 
     adl://mystore.azuredatalakestore.net/Samples/Data/SearchLog.tsv
 

@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Identifiera digitalt bläck med hand SKRIFTS tolken REST API och Java'
+title: 'Snabb start: identifiera digitalt bläck med hand SKRIFTS tolken REST API och Java'
 titleSuffix: Azure Cognitive Services
 description: Använd pennan tecknings tolkens API för att börja identifiera digitala penndrag.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 10/07/2019
 ms.locfileid: "71996836"
 ---
-# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Snabbstart: Identifiera digitalt bläck med hand SKRIFTS tolken REST API och Java
+# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Snabb start: identifiera digitalt bläck med hand SKRIFTS tolken REST API och Java
 
 Använd den här snabb starten för att börja använda pennan tecknings tolkens API på digitala penndrag. Det här Java-programmet skickar en API-begäran som innehåller JSON-formaterade penndrag och hämtar svaret.
 
@@ -29,9 +29,9 @@ Normalt anropar du API: et från en digital intecknings app. I den här snabb st
 
 Du hittar käll koden för den här snabb starten på [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- [Java @ no__t-1 Development Kit (JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) eller senare.
+- [Java&trade; Development Kit (JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) eller senare.
 
 - Importera de här biblioteken från maven-lagringsplatsen
     - [JSON i Java](https://mvnrepository.com/artifact/org.json/json) -paket
@@ -55,15 +55,15 @@ Du hittar käll koden för den här snabb starten på [GitHub](https://go.micros
 
 ## <a name="create-a-function-to-send-requests"></a>Skapa en funktion för att skicka begär Anden
 
-1. Skapa en ny funktion som kallas `sendRequest()` som använder variablerna som skapas ovan. Utför sedan följande steg.
+1. Skapa en ny funktion med namnet `sendRequest()` som använder variablerna som skapats ovan. Utför sedan följande steg.
 
-2. Skapa ett `CloseableHttpClient`-objekt som kan skicka begär anden till API: et. Skicka begäran till ett `HttpPut`-begär ande objekt genom att kombinera slut punkten och färg tolknings-URL: en.
+2. Skapa ett `CloseableHttpClient`-objekt som kan skicka begär anden till API: et. Skicka begäran till ett `HttpPut` begär ande objekt genom att kombinera slut punkten och färg tolknings-URL: en.
 
-3. Använd begär ande `setHeader()`-funktionen för att ange `Content-Type`-huvudet till `application/json` och Lägg till din prenumerations nyckel i `Ocp-Apim-Subscription-Key`-huvudet.
+3. Använd begärans `setHeader()` funktion för att ange `Content-Type`s rubriken till `application/json`och Lägg till din prenumerations nyckel i `Ocp-Apim-Subscription-Key`-rubriken.
 
-4. Använd begärans `setEntity()`-funktion till de data som ska skickas.   
+4. Använd begärans `setEntity()` funktion för att skicka de data som ska skickas.   
 
-5. Använd klientens `execute()`-funktion för att skicka begäran och spara den till ett `CloseableHttpResponse`-objekt. 
+5. Använd klientens `execute()` funktion för att skicka begäran och spara den till ett `CloseableHttpResponse`-objekt. 
 
 6. Skapa ett `HttpEntity`-objekt för att lagra svars innehållet. Hämta innehållet med `getEntity()`. Returnera det om svaret inte är tomt.
     
@@ -86,7 +86,7 @@ Skapa en metod som heter `recognizeInk()` för att identifiera Penn strecks data
 
 ## <a name="run-the-application-and-view-the-response"></a>Kör programmet och Visa svaret
 
-Kör appen. Ett lyckat svar returneras i JSON-format. Du kan också hitta JSON-svaret på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-response.json).
+Kör programmet. Ett lyckat svar returneras i JSON-format. Du kan också hitta JSON-svaret på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-response.json).
 
 ## <a name="next-steps"></a>Nästa steg
 

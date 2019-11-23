@@ -48,7 +48,7 @@ När installationen av en anslutning Miss lyckas är rotor saken vanligt vis nå
 
 2.  Om någon av dessa portar inte lyckas kontrollerar du att brand väggen eller backend-proxyn har åtkomst till de nödvändiga domänerna och portarna i, [förbereder din lokala miljö](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
-3.  Öppna en webbläsare (separat flik) och gå till följande webb sida: <https://login.microsoftonline.com>, se till att du kan logga in på sidan.
+3.  Öppna en webbläsare (separat flik) och gå till följande webb sida: <https://login.microsoftonline.com>kontrol lera att du kan logga in på sidan.
 
 ## <a name="verify-machine-and-backend-components-support-for-application-proxy-trust-cert"></a>Verifiera stöd för maskin-och Server dels komponenter för certifikat för programproxy-förtroende
 
@@ -61,7 +61,7 @@ När installationen av en anslutning Miss lyckas är rotor saken vanligt vis nå
 
 **Så här löser du problemet:**
 
-1.  Kontrol lera att datorn har stöd för TLS 1.2 – alla Windows-versioner efter 2012 R2 ska ha stöd för TLS 1,2. Om din anslutnings dator är från en version av 2012 R2 eller tidigare kontrollerar du att följande KB är installerade på datorn: <https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2>
+1.  Kontrol lera att datorn har stöd för TLS 1.2 – alla Windows-versioner efter 2012 R2 ska ha stöd för TLS 1,2. Om din kopplings dator är från en version av 2012 R2 eller tidigare kontrollerar du att följande KB är installerade på datorn: <https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2>
 
 2.  Kontakta nätverks administratören och be om att kontrol lera att backend-proxyn och brand väggen inte blockerar SHA512 för utgående trafik.
 
@@ -71,9 +71,9 @@ När installationen av en anslutning Miss lyckas är rotor saken vanligt vis nå
 
 **Så här kontrollerar du att autentiseringsuppgifterna är korrekta:**
 
-Anslut till <https://login.microsoftonline.com> och Använd samma autentiseringsuppgifter. Kontrol lera att inloggningen har slutförts. Du kan kontrol lera användar rollen genom att gå till **Azure Active Directory** - @ no__t-2 **användare och grupper** - @ No__t-5 **alla användare**. 
+Anslut till <https://login.microsoftonline.com> och Använd samma autentiseringsuppgifter. Kontrol lera att inloggningen har slutförts. Du kan kontrol lera användar rollen genom att gå till **Azure Active Directory** -&gt; **användare och grupper** -&gt; **alla användare**. 
 
 Välj ditt användar konto och sedan "katalog roll" på den resulterande menyn. Kontrol lera att den valda rollen är "program administratör". Om du inte kan komma åt någon av sidorna tillsammans med de här stegen har du inte den roll som krävs.
 
 ## <a name="next-steps"></a>Nästa steg
-[Förstå Azure AD-programproxy-kopplingar](application-proxy-connectors.md)
+[Förstå Azure AD Application Proxy-anslutningar](application-proxy-connectors.md)

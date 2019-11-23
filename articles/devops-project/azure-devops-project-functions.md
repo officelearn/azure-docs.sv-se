@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Distribuera ASP.NET-appar till Azure Functions med Azure DevOps Projects'
+title: 'Självstudie: Distribuera ASP.NET-appar till Azure Functions med Azure DevOps Projects'
 description: Azure DevOps Projects gör det enkelt att komma igång med Azure. Med DevOps Projects kan du distribuera ASP.NET-appen till Azure Functions några enkla steg.
 ms.author: mlearned
 ms.manager: gwallace
@@ -39,7 +39,7 @@ I den här kursen ska du:
 
 För närvarande är de körningar som stöds för functions **.net** och **Node. js**. Vi använder. NET Runtime för den här självstudien för att distribuera till Azure Functions. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Du kan få ett kostnads fritt via [Visual Studio dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)
 
@@ -53,7 +53,7 @@ DevOps Projects skapar en CI/CD-pipeline i Azure Pipelines. Du kan skapa en ny A
 
 1. I rutan Sök skriver du **DevOps Projects**och klickar sedan på **Lägg till**.
 
-   ![DevOps Projects](_img/azure-devops-project-functions/devops-project.png)
+   ![DevOps-projekt](_img/azure-devops-project-functions/devops-project.png)
 
 1. Välj **.NET** och sedan **Nästa**. Under **Välj ett program ramverk**väljer du **ASP.net** och klickar på **Nästa**.
 
@@ -103,7 +103,7 @@ DevOps Projects konfigurerar automatiskt en Azure CI/CD-pipeline i Azure DevOps-
 
 1. Välj **Utlösare**. DevOps Projects skapar automatiskt en CI-utlösare, och varje incheckning till lagringsplatsen startar en ny version. Du kan välja att inkludera eller exkludera grenar från CI-processen.
 
-1. Välj **Kvarhållning**. Beroende på ditt scenario kan du ange principer för att behålla eller ta bort ett visst antal versioner.
+1. Välj **kvarhållning**. Beroende på ditt scenario kan du ange principer för att behålla eller ta bort ett visst antal versioner.
 
 1. Välj bygg-pipelinens namn längst upp i bygg-pipelinen.
 
@@ -123,7 +123,7 @@ DevOps-projekt skapar och konfigurerar de nödvändiga stegen för att automatis
 
 1. På höger sida av ikonen **Släpp** väljer du **Utlösare av kontinuerlig distribution**. Den här versionspipelinen har en aktiverad CD-utlösare som kör en distribution varje gång en ny versionsartefakt är tillgänglig. Du kan även inaktivera utlösaren så att dina distributioner kräver manuell körning.
 
-1. Till höger väljer du alternativet för att **visa versioner** för att visa en historik över versioner.
+1. Till höger väljer du **Visa versioner** för att visa en historik över versioner.
 
 1. Klicka på versionen för att Visa pipelinen. Klicka på valfri miljö för att kontrol lera **sammanfattningen av utgåvor, incheckningar**, associerade **arbets objekt**.
 
@@ -142,13 +142,13 @@ Du är nu redo att samar beta med ett team i din app genom att använda en CI/CD
 
 1. Databasen innehåller redan kod som heter **SampleFunctionApp** baserat på det program språk som du valde i skapande processen. Öppna filen **Application/SampleFunctionApp/Function1. cs** .
 
-1. Välj **Redigera**och gör sedan en ändring av **rad numret 31** . Du kan till exempel uppdatera den till **Hello där! Välkommen till Azure Functions med DevOps Projects @ no__t-0
+1. Välj **Redigera**och gör sedan en ändring av **rad numret 31** . Du kan till exempel uppdatera den till **Hej där! Välkommen till Azure Functions att använda DevOps Projects**
 
 1. Längst upp till höger väljer du **Checka in** och sedan **Checka in** igen för att push-överföra ändringarna.
 
 1. Öppna filen **Application/SampleFunctionApp. test/Function1TestRunner. cs** . 
 
-1. Välj **Redigera**och gör sedan en ändring av **rad nummer 21**. Du kan till exempel uppdatera den till **Hello där! Välkommen till Azure Functions med Azure DevOps Projects @ no__t-0.
+1. Välj **Redigera**och gör sedan en ändring av **rad nummer 21**. Du kan till exempel uppdatera den till **Hej där! Välkommen till Azure Functions att använda Azure DevOps Projects**.
 
      Efter en stund startar en version i Azure DevOps och därefter körs en version för att distribuera ändringarna. Övervaka versionstillståndet med instrumentpanelen för DevOps Projects eller i webbläsaren med din Azure DevOps-organisation.
 

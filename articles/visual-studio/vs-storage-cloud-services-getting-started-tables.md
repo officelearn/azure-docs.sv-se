@@ -28,7 +28,7 @@ Den här artikeln beskriver hur du kommer igång med Azure Table Storage i Visua
 
 Med tjänsten Azure Table Storage kan du lagra stora mängder strukturerade data. Tjänsten är ett NoSQL-datalager som accepterar autentiserade anrop inifrån och utanför Azure-molnet. Azure-tabeller passar utmärkt för att lagra strukturerade, icke-relationella data.
 
-För att komma igång måste du först skapa en tabell i ditt lagrings konto. Vi visar dig hur du skapar en Azure-tabell i kod och hur du utför grundläggande tabell-och entitets åtgärder, till exempel att lägga till, ändra, läsa och läsa tabell enheter. Exemplen skrivs i C @ no__t-0-kod och använder [Microsoft Azure Storage klient bibliotek för .net](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+För att komma igång måste du först skapa en tabell i ditt lagrings konto. Vi visar dig hur du skapar en Azure-tabell i kod och hur du utför grundläggande tabell-och entitets åtgärder, till exempel att lägga till, ändra, läsa och läsa tabell enheter. Exemplen skrivs i C\# kod och använder [Microsoft Azure Storage klient bibliotek för .net](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 **Obs:** Några av de API: er som utför anrop till Azure Storage är asynkrona. Se [asynkron programmering med async och await](https://msdn.microsoft.com/library/hh191443.aspx) för mer information. Koden nedan förutsätter att asynkrona programmerings metoder används.
 

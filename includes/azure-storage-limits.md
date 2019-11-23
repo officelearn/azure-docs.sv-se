@@ -17,7 +17,7 @@ ms.locfileid: "72023074"
 ---
 I följande tabell beskrivs standard gränserna för Azures allmänna-syfte v1-, v2-och Blob Storage-konton. Den *inkommande* gränsen refererar till alla data från begär Anden som skickas till ett lagrings konto. *Utgående* gräns avser alla data från svar som tas emot från ett lagrings konto.
 
-| Resource | Standardgräns |
+| Resurs | Standardgräns |
 | --- | --- |
 | Antal lagrings konton per region per prenumeration, inklusive både standard-och Premium konton | 250 |
 | Maximal kapacitet för lagrings konto | 2 PiB för USA och Europa och 500 TiB för alla andra regioner (inklusive Storbritannien)<sup>1</sup>|
@@ -41,5 +41,5 @@ I följande tabell beskrivs standard gränserna för Azures allmänna-syfte v1-,
 
 Om ditt programs behov överskrider skalbarhets målen för ett enda lagrings konto kan du bygga ditt program för att använda flera lagrings konton. Du kan sedan partitionera dina data objekt över dessa lagrings konton. Mer information om volym priser finns i [Azure Storage priser](https://azure.microsoft.com/pricing/details/storage/).
 
-Alla lagrings konton körs på en planad nätverkstopologi och stöder de skalbarhets-och prestanda mål som beskrivs i den här artikeln, oavsett när de skapades. Mer information om Azure Storage platt nätverks arkitektur och om skalbarhet finns i [Microsoft Azure Storage: En moln lagrings tjänst med hög tillgänglighet med stark konsekvens @ no__t-0.
+Alla lagrings konton körs på en planad nätverkstopologi och stöder de skalbarhets-och prestanda mål som beskrivs i den här artikeln, oavsett när de skapades. Mer information om Azure Storage platt nätverks arkitektur och om skalbarhet finns i [Microsoft Azure Storage: en moln lagrings tjänst med hög tillgänglighet med stark konsekvens](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
 

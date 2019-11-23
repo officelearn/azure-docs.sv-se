@@ -27,10 +27,10 @@ ms.locfileid: "72388855"
 > [!NOTE]
 > Visual Studio App Center stöder utveckling av slutpunkt till slutpunkt-tjänster och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda tjänsterna för att **bygga**, **testa** och **distribuera** för att skapa en pipeline för kontinuerlig integrering och leverans. När appen har distribuerats kan utvecklarna övervaka status och användning av appen med hjälp av tjänsterna **Analys** och **Diagnostik**, och kommunicera med användarna via **Push**-tjänsten. Utvecklare kan också dra nytta av **Auth** för att autentisera sina användare och tjänsten **Data** för att spara och synkronisera appdata i molnet.
 >
-> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
+> Om du vill integrera molntjänster i ditt mobilprogram kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) i dag.
 
 ## <a name="overview"></a>Översikt
-I den här självstudien beskrivs funktionen offline-synkronisering i Azure Mobile Apps för Cordova. Offline-synkronisering ger slutanvändare möjlighet att interagera med en mobilapp @ no__t-0viewing, lägga till eller ändra data @ no__t-1even när det inte finns någon nätverks anslutning. Ändringarna lagras i en lokal databas.  När enheten är online igen synkroniseras dessa ändringar med fjärrtjänsten.
+I den här självstudien beskrivs funktionen offline-synkronisering i Azure Mobile Apps för Cordova. Offline-synkronisering innebär att slutanvändare kan interagera med en mobilapp&mdash;att visa, lägga till eller ändra data&mdash;även om det inte finns någon nätverks anslutning. Ändringarna lagras i en lokal databas.  När enheten är online igen synkroniseras dessa ändringar med fjärrtjänsten.
 
 Den här självstudien baseras på Cordova snabb starts lösning för Mobile Apps som du skapar när du är klar med självstudien [Snabb start för Apache Cordova]. I den här självstudien uppdaterar du snabb starts lösningen för att lägga till offline-funktioner i Azure Mobile Apps.  Vi markerar också den offline-/regionsspecifika koden i appen.
 
@@ -72,9 +72,9 @@ Koden för offlinesynkronisering måste läggas till i appen. Offline-synkronise
         // Get the sync context from the client
         syncContext = client.getSyncContext();
 
-    Föregående kod lägger till i den lokala lagringen och definierar en lokal tabell som matchar de kolumn värden som används i Azures Server del. (Du behöver inte inkludera alla kolumn värden i den här koden.)  Fältet `version` underhålls av mobil Server delen och används för konflikt lösning.
+    Föregående kod lägger till i den lokala lagringen och definierar en lokal tabell som matchar de kolumn värden som används i Azures Server del. (Du behöver inte inkludera alla kolumn värden i den här koden.)  `version`-fältet underhålls av mobil Server delen och används för konflikt lösning.
 
-    Du får en referens till Sync-kontexten genom att anropa **getSyncContext**. Den synkroniserade kontexten hjälper till att bevara tabell relationer genom att spåra och överföra ändringar i alla tabeller som en klient app har ändrat när `.push()` anropas.
+    Du får en referens till Sync-kontexten genom att anropa **getSyncContext**. Den synkroniserade kontexten hjälper till att bevara tabell relationer genom att spåra och överföra ändringar i alla tabeller som en klient program har ändrat när `.push()` anropas.
 
 3. Uppdatera programmets URL till appens URL för mobilapp.
 
@@ -169,7 +169,7 @@ I det här avsnittet ändrar du klient projektet för att simulera ett offline-s
 
         client = new WindowsAzure.MobileServiceClient('http://yourmobileapp.azurewebsites.net-fail');
 
-2. Uppdatera CSP-`<meta>`-elementet med samma ogiltiga URL i index. html.
+2. Uppdatera CSP `<meta>`-elementet med samma ogiltiga URL i index. html.
 
         <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: http://yourmobileapp.azurewebsites.net-fail; style-src 'self'; media-src *">
 
@@ -186,7 +186,7 @@ I det här avsnittet ändrar du klient projektet för att simulera ett offline-s
 I det här avsnittet ansluter du appen till den mobila Server delen, som simulerar appen som kommer tillbaka till ett online-tillstånd. När du loggar in synkroniseras data till din mobil Server del.
 
 1. Öppna index. js igen och Återställ programmets URL.
-2. Öppna index. html igen och korrigera programmets URL i CSP-`<meta>`-elementet.
+2. Öppna index. html igen och korrigera programmets URL i CSP `<meta>`-elementet.
 3. Återskapa och kör klient programmet. Appen försöker synkronisera med den mobila appens Server del efter inloggningen. Kontrol lera att inga undantag loggas i fel söknings konsolen.
 4. Valfritt Visa uppdaterade data med antingen SQL Server Object Explorer eller ett REST-verktyg som Fiddler. Observera att data har synkroniserats mellan server dels databasen och det lokala arkivet.
 

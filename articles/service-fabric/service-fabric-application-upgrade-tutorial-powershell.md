@@ -40,7 +40,7 @@ Med Service Fabric övervakade rullande uppgraderingar kan program administratö
 Bygg och publicera programmet genom att högerklicka på programprojektet, **VisualObjectsApplication** och välja kommandot **publicera** .  Mer information finns i [självstudier för Service Fabric program uppgradering](service-fabric-application-upgrade-tutorial.md).  Du kan också använda PowerShell för att distribuera ditt program.
 
 > [!NOTE]
-> Innan något av Service Fabric-kommandona kan användas i PowerShell måste du först ansluta till klustret med hjälp av cmdleten `Connect-ServiceFabricCluster`. På samma sätt antas det att klustret redan har kon figurer ATS på den lokala datorn. Se artikeln om hur [du konfigurerar din Service Fabric utvecklings miljö](service-fabric-get-started.md).
+> Innan något av Service Fabric-kommandona kan användas i PowerShell måste du först ansluta till klustret med hjälp av `Connect-ServiceFabricCluster`-cmdleten. På samma sätt antas det att klustret redan har kon figurer ATS på den lokala datorn. Se artikeln om hur [du konfigurerar din Service Fabric utvecklings miljö](service-fabric-get-started.md).
 > 
 > 
 
@@ -51,7 +51,7 @@ Nu kan du använda [Service Fabric Explorer för att Visa klustret och programme
 ## <a name="step-2-update-the-visual-objects-sample"></a>Steg 2: uppdatera det visuella objekt exemplet
 Du kanske märker att de visuella objekten inte roterar med den version som distribuerades i steg 1. Vi ska uppgradera det här programmet till ett ställe där de visuella objekten också roterar.
 
-Välj VisualObjects. ActorService-projektet i VisualObjects-lösningen och öppna StatefulVisualObjectActor.cs-filen. I den filen navigerar du till metoden `MoveObject`, kommentera ut `this.State.Move()` och ta bort kommentar @no__t 2. Den här ändringen roterar objekten när tjänsten har uppgraderats.
+Välj VisualObjects. ActorService-projektet i VisualObjects-lösningen och öppna StatefulVisualObjectActor.cs-filen. I den filen navigerar du till metoden `MoveObject`, kommentera ut `this.State.Move()`och ta bort kommentaren `this.State.Move(true)`. Den här ändringen roterar objekten när tjänsten har uppgraderats.
 
 Vi måste också uppdatera filen *ServiceManifest. XML* (under PackageRoot) för projektet **VisualObjects. ActorService**. Uppdatera *CodePackage* och tjänst versionen till 2,0 och motsvarande rader i filen *ServiceManifest. XML* .
 Du kan använda alternativet Visual Studio *Edit manifest Files* när du har högerklickat på lösningen för att göra manifest filen ändringar.
@@ -94,7 +94,7 @@ Programmet är nu byggt och redo att uppgraderas. Om du öppnar ett PowerShell-f
 
 Programpaketet lagras under följande relativa sökväg där du okomprimerade Service Fabric SDK- *Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug*. Du bör hitta mappen "paket" i katalogen där programpaketet lagras. Kontrol lera tidsstämplarna för att se till att det är den senaste versionen (du kan behöva ändra Sök vägarna på lämpligt sätt också).
 
-Nu ska vi kopiera det uppdaterade programpaketet till Service Fabric avbildnings arkiv (där programpaketen lagras av Service Fabric). Parametern *ApplicationPackagePathInImageStore* informerar Service Fabric var programpaketet kan hittas. Vi har lagt till det uppdaterade programmet i "VisualObjects @ no__t-0V2" med följande kommando (du kan behöva ändra Sök vägarna igen på lämpligt sätt).
+Nu ska vi kopiera det uppdaterade programpaketet till Service Fabric avbildnings arkiv (där programpaketen lagras av Service Fabric). Parametern *ApplicationPackagePathInImageStore* informerar Service Fabric var programpaketet kan hittas. Vi har lagt till det uppdaterade programmet i "VisualObjects\_v2" med följande kommando (du kan behöva ändra Sök vägarna igen på lämpligt sätt).
 
 ```powershell
 Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug\Package -ApplicationPackagePathInImageStore "VisualObjects\_V2"

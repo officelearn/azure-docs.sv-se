@@ -36,7 +36,7 @@ Azure HDInsight-kluster har utformats för en speciell typ av beräknings använ
 
 I följande tabell visas de olika metoder som kan användas för att skapa ett HDInsight-kluster.
 
-|**Verktyg**|**Webbläsare baserad**|**Kommando rad**|**REST API**|**SDK**|
+|**Verktyg**|**Webbläsare baserad**|**Kommando rad**|**REST-API**|**SDK**|
 |---|---|---|---|---|
 |[Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md)|X||||
 |[Azure Data Factory](../hdinsight-hadoop-create-linux-clusters-adf.md)|X|X|X|X|

@@ -120,15 +120,15 @@ Du måste först skapa de virtuella datorerna för det här klustret. Därefter 
 
 Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , som endast gäller nod 1, **[2]** – endast tillämpligt på nod 2, **[3]** – gäller endast nod 3.
 
-1. **[A]** namn matchning för värdnamn
+1. **[A]**  Konfigurera matcha värdnamn
 
-   Du kan antingen använda en DNS-server eller ändra/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
+   Du kan använda en DNS-server, eller så kan du ändra i/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
    Ersätt IP-adress och värdnamn i följande kommandon
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
 
-   Infoga följande rader i/etc/hosts. Ändra IP-adress och värdnamn för att matcha din miljö
+   Infoga följande rader till/etc/hosts. Ändra IP-adressen och värdnamnet till matchar din miljö
 
    <pre><code># IP addresses of the Gluster nodes
    <b>10.0.0.40 glust-0</b>

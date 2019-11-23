@@ -97,7 +97,7 @@ DDoS Protection standard exponerar avancerad telemetri via [Azure Monitor](/azur
 
 ##### <a name="ddos-mitigation-policies"></a>Principer för DDoS-minskning
 
-I Azure Portal väljer du **övervaka**  > **mått**. I fönstret **mått** väljer du resurs grupp, väljer en resurs typ för **offentlig IP-adress**och väljer din offentliga Azure-IP-adress. DDoS mått visas i fönstret **tillgängliga mått** .
+I Azure Portal väljer du **övervaka** > **mått**. I fönstret **mått** väljer du resurs grupp, väljer en resurs typ för **offentlig IP-adress**och väljer din offentliga Azure-IP-adress. DDoS mått visas i fönstret **tillgängliga mått** .
 
 DDoS Protection standard tillämpar tre automatiskt justerade begränsnings principer (TCP-SYN, TCP och UDP) för varje offentlig IP-adress för den skyddade resursen i det virtuella nätverk där DDoS är aktiverat. Du kan visa princip tröskelvärdena genom att välja måttet **inkommande paket för att utlösa DDoS-minskning**.
 
@@ -235,7 +235,7 @@ I den här arkitekturen är DDoS Protection standard aktiverat i det virtuella n
 
 #### <a name="paas-web-application"></a>PaaS-webbprogram
 
-Den här referens arkitekturen visar körning av ett Azure App Service program i en enda region. Den här arkitekturen visar en uppsättning beprövade metoder för ett webb program som använder [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/)  and [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/).
+Den här referens arkitekturen visar körning av ett Azure App Service program i en enda region. Den här arkitekturen visar en uppsättning beprövade metoder för ett webb program som använder [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/) och [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/).
 En vänte region har kon figurer ATS för failover-scenarier.
 
 ![Diagram över referens arkitekturen för ett PaaS-webbprogram](./media/ddos-best-practices/image11.png)

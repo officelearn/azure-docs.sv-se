@@ -21,12 +21,12 @@ ms.locfileid: "67187334"
 **Standard SSD Managed disks**
 [!INCLUDE [disk-storage-standard-ssd-sizes](disk-storage-standard-ssd-sizes.md)]
 
-**Premium SSD Managed disks: Begränsningar per disk**
+**Premium SSD Managed disks: begränsningar per disk**
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
-**Premium SSD Managed disks: Gränser per virtuell dator**
+**Premium SSD Managed disks: gränser per virtuell dator**
 
-| Resource | Standardgräns |
+| Resurs | Standardgräns |
 | --- | --- |
 | Maximalt antal IOPS per virtuell dator |80 000 IOPS med GS5 VM |
 | Maximalt data flöde per virtuell dator |2 000 MB/s med GS5 VM |

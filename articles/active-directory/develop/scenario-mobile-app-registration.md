@@ -76,7 +76,7 @@ Om du föredrar att konfigurera omdirigerings-URI: n manuellt kan du göra det v
 
 ### <a name="username-password"></a>Användar namn lösen ord
 
-Om din app endast använder användar namn/lösen ord, behöver du inte registrera en omdirigerings-URI för programmet. Det här flödet gör en tur och retur till Microsoft Identity Platform v 2.0-slutpunkten och programmet kommer inte att anropas tillbaka på någon specifik URI. Du måste dock uttrycka att ditt program är ett offentligt klient program. Den här konfigurationen uppnås genom att gå till avsnittet **Authentication** för ditt program. i underavsnittet **Avancerade inställningar** väljer du **Ja**för frågan **behandla programmet som en offentlig klient** (i **standard klient typ** stycke)
+Om din app endast använder användar namn/lösen ord, behöver du inte registrera en omdirigerings-URI för programmet. Det här flödet gör en tur och retur till Microsoft Identity Platform v 2.0-slutpunkten och programmet kommer inte att anropas tillbaka på någon specifik URI. Du måste dock uttrycka att ditt program är ett offentligt klient program. Den här konfigurationen uppnås genom att gå till avsnittet **Authentication** för ditt program. i underavsnittet **Avancerade inställningar** väljer du **Ja**för frågan **behandla programmet som en offentlig klient** (i stycket **standard klient typ** )
 
 ## <a name="api-permissions"></a>API-behörigheter
 

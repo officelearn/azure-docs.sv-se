@@ -610,7 +610,7 @@ I samband med den här versionen stöds följande webbläsare: Chrome, Firefox, 
   + Prestanda för `read_parquet` har förbättrats avsevärt när de kördes i Spark.
   + Ett problem har åtgärd ATS där `column_type_builder` misslyckades om det skulle finnas en enstaka kolumn med tvetydiga datum format.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 + **Förhands gransknings funktion**
   + Logg-och utdatafilen är nu tillgängliga för att köra informations sidor. Filerna strömmar uppdateringar i real tid när växling vid förhands visning är aktive rad.
   + Möjligheten att ange kvot på en arbets ytans nivå släpps i för hands versionen. AmlCompute kvoter tilldelas på prenumerations nivå, men nu kan du distribuera den kvoten mellan arbets ytor och tilldela den till en rättvis delning och styrning. Klicka bara på bladet **användning och kvoter** i det vänstra navigerings fältet på din arbets yta och välj fliken **Konfigurera kvoter** . Observera att du måste vara prenumerations administratör för att kunna ange kvoter på arbets ytans nivå eftersom detta är en kors arbets yta reparation.
@@ -977,7 +977,7 @@ Vi har återställt en ändring som förbättrade prestanda, eftersom det orsaka
 
 ## <a name="2019-05-06"></a>2019-05-06
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 I Azure Portal kan du nu:
 + Skapa och kör automatiserade ML-experiment 
@@ -1096,7 +1096,7 @@ Obs! data prepare för prepare installation kommer inte längre att installeras 
 
 ## <a name="2019-04-15"></a>2019-04-15
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
   + Nu kan du skicka om ett befintligt skript som körs på ett befintligt fjärrberäknings kluster. 
   + Nu kan du köra en publicerad pipeline med nya parametrar på fliken pipeliner. 
   + Körnings informationen stöder nu ett nytt visnings program för Snapshot-filen. Du kan visa en ögonblicks bild av katalogen när du skickade en speciell körning. Du kan också hämta den antecknings bok som har skickats för att starta körningen.
@@ -1191,7 +1191,7 @@ Obs! data prepare för prepare installation kommer inte längre att installeras 
 + **Fel korrigeringar och förbättringar**
   + Vi har lagt till stöd Azure Machine Learning pipelines för att ställa in source_directory_data_store-egenskapen till ett önskat data lager (till exempel en blob-lagring) på [RunConfigurations](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) som anges i [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). Som standard använder Azure File Store som lagrings data lager, som kan köra begränsnings problem när ett stort antal steg körs samtidigt.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 + **Nya funktioner**
   + Ny dra och släpp tabell redigerings miljö för rapporter. Användare kan dra en kolumn från en källa till tabell området där en förhands granskning av tabellen kommer att visas. Kolumnerna kan ordnas om.
@@ -1416,7 +1416,7 @@ Läs mer om Data Prep SDK genom att läsa [referera till docs](https://aka.ms/da
 
 ## <a name="2018-11-05"></a>2018-11-05
 
-### <a name="azure-portal"></a>Azure Portal 
+### <a name="azure-portal"></a>Azure portal 
 Azure Portal för Azure Machine Learning har följande uppdateringar:
   * En ny **Pipelines** fliken för publicerade pipelines.
   * Stöd har lagts till för att bifoga ett befintligt HDInsight-kluster som en beräkningsmål.

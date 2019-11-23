@@ -28,11 +28,11 @@ ms.locfileid: "72024948"
 > I den här artikeln distribueras en app till App Service i Linux. Om du vill distribuera en app till App Service i _Windows_ kan du läsa [Skapa en Node.js- och MongoDB-app i Azure](../app-service-web-tutorial-nodejs-mongodb-app.md).
 >
 
-Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här självstudien visar hur du skapar en Node.js-app, ansluter den lokalt till en MongoDB-databas och sedan distribuerar den till en databas i Azure Cosmos DB:s API för MongoDB. När du är klar har du ett MEAN-program (MongoDB, Express, AngularJS och Node.js) som körs i App Service på Linux. För enkelhetens skull använder exempelprogrammet [MEAN.js-webbramverket](https://meanjs.org/).
+Med [App Service on Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst. Den här självstudien visar hur du skapar en Node.js-app, ansluter den lokalt till en MongoDB-databas och sedan distribuerar den till en databas i Azure Cosmos DB:s API för MongoDB. När du är klar har du ett MEAN-program (MongoDB, Express, AngularJS och Node.js) som körs i App Service på Linux. För enkelhetens skull använder exempelprogrammet [MEAN.js-webbramverket](https://meanjs.org/).
 
 ![MEAN.js-app som körs i Azure App Service](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * skapa en databas med Azure Cosmos DB:s API för MongoDB
@@ -44,9 +44,9 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-För att slutföra den här självstudien behöver du:
+För att slutföra den här kursen behöver du:
 
 1. [Installera Git](https://git-scm.com/)
 2. [Installera Node.js v6.0 eller senare och NPM](https://nodejs.org/)
@@ -113,7 +113,7 @@ MEAN.js-exempelprogrammet lagrar användardata i databasen. Om du lyckas skapa e
 
 ![MEAN.js ansluter till MongoDB](./media/tutorial-nodejs-mongodb-app/mongodb-connect-success.png)
 
-Välj **Administratör > Hantera artiklar** för att lägga till några artiklar.
+Välj **Admin > Manage Articles** (Administratör > Hantera artiklar) för att lägga till några artiklar.
 
 Du kan när som helst stoppa Node.js genom att trycka på `Ctrl+C` i terminalen.
 
@@ -131,7 +131,7 @@ I det här steget skapar du ett databaskonto med hjälp av Azure Cosmos DB:s API
 
 Skapa ett Cosmos DB-konto i Cloud Shell med kommandot [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create).
 
-I följande kommando ersätter du ett unikt Cosmos DB namn för plats hållaren *\<cosmosdb-name >* . Det här namnet används som en del av Cosmos DB-slutpunkten `https://<cosmosdb-name>.documents.azure.com/`, så namnet måste vara unikt för alla Cosmos DB-konton i Azure. Namnet får endast innehålla gemener, siffror och bindestreck och måste vara mellan 3 och 50 tecken långt.
+I följande kommando ersätter du ett unikt Cosmos DB namn för > plats hållaren *\<cosmosdb-Name* . Det här namnet används som en del av Cosmos DB-slutpunkten `https://<cosmosdb-name>.documents.azure.com/`, så namnet måste vara unikt för alla Cosmos DB-konton i Azure. Namnet får endast innehålla gemener, siffror och bindestreck och måste vara mellan 3 och 50 tecken långt.
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB
@@ -188,7 +188,7 @@ Kopiera värdet för `primaryMasterKey`. Du behöver den här informationen i n�
 
 I din lokala MEAN.js-lagringsplats skapar du en fil som heter _local-production.js_ i mappen _config/env/_ . _.gitignore_ konfigureras för att hålla filen utanför lagringsplatsen.
 
-Kopiera följande kod till den. Se till att ersätta de två plats hållarna *\<cosmosdb-name >* med namnet på din Cosmos DB databas och ersätt plats hållaren *\<primary-master-Key >* med den nyckel som du kopierade i föregående steg.
+Kopiera följande kod till den. Se till att ersätta de två *\<cosmosdb-namn >* plats hållarna med namnet på din Cosmos DB databas och ersätt plats hållaren *\<primär huvud nyckel >* med den nyckel som du kopierade i föregående steg.
 
 ```javascript
 module.exports = {
@@ -216,7 +216,7 @@ I ett lokalt terminalfönster kör du följande kommando för att använda anslu
 NODE_ENV=production node server.js
 ```
 
-`NODE_ENV=production` ställer in miljövariabeln som uppmanar Node.js att köra i produktionsmiljön.  `node server.js` startar Node.js-servern med `server.js` i roten för lagringsplatsen. Så här läses Node.js-programmet in i Azure.
+`NODE_ENV=production` ställer in miljövariabeln som anvisar Node.js att köra i produktionsmiljön.  `node server.js` startar Node.js-servern med `server.js` i roten för lagringsplatsen. Så här läses Node.js-programmet in i Azure.
 
 När appen är inläst ska du kontrollera att den körs i produktionsmiljön:
 
@@ -235,7 +235,7 @@ Gå till `http://localhost:8443` i en webbläsare. Klicka på alternativet för 
 
 I terminalen stoppar du Node.js genom att skriva `Ctrl+C`.
 
-## <a name="deploy-app-to-azure"></a>Distribuera app till Azure
+## <a name="deploy-app-to-azure"></a>Distribuera appen till Azure
 
 I det här steget distribuerar du ditt Node.js-program till Azure App Service.
 
@@ -259,7 +259,7 @@ Som standard håller MEAN.js-projektet _config/env/local-production.js_ utanför
 
 Om du vill konfigurera appinställningar använder du kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell.
 
-I följande exempel konfigureras appinställningen `MONGODB_URI` i Azure-appen. Ersätt plats hållarna *\<APP-name >* , *\<cosmosdb-name >* och *\<primary-Master-Key >* .
+I följande exempel konfigureras appinställningen `MONGODB_URI` i Azure-appen. Ersätt *\<app-name >* , *\<cosmosdb-name >* och *\<primär huvud nyckel >* plats hållare.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb-name>:<primary-master-key>@<cosmosdb-name>.documents.azure.com:10250/mean?ssl=true"
@@ -315,13 +315,13 @@ Bläddra till den distribuerade appen i webbläsaren.
 http://<app-name>.azurewebsites.net
 ```
 
-Klicka på alternativet för att **registrera** på den översta menyn och skapa en låtsasanvändare.
+Klicka på **Sign Up** (Registrera) på den översta menyn och skapa en låtsasanvändare.
 
 Om du lyckas och appen loggar in automatiskt till den skapade användaren har din MEAN.js-app i Azure anslutning till Azure Cosmos DB:s API för MongoDB.
 
 ![MEAN.js-app som körs i Azure App Service](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
-Välj **Administratör > Hantera artiklar** för att lägga till några artiklar.
+Välj **Admin > Manage Articles** (Administratör > Hantera artiklar) för att lägga till några artiklar.
 
 **Grattis!** Du kör en datadriven Node.js-app i Azure App Service i Linux.
 
@@ -333,7 +333,7 @@ I det här steget ändrar du datamodellen `article` och publicerar din ändring 
 
 I din lokala MEAN.js-katalog öppnar du _modules/articles/server/models/article.server.model.js_.
 
-I `ArticleSchema` lägger du till `String` en typ som heter `comment`. När du är klar bör schemakoden se ut så här:
+I `ArticleSchema` lägger du till `String`-typ med namnet `comment`. När du är klar bör schemakoden se ut så här:
 
 ```javascript
 let ArticleSchema = new Schema({
@@ -483,10 +483,10 @@ Vad du lärt dig:
 > * strömma loggar från Azure till terminalen
 > * hantera appen i Azure-portalen.
 
-Gå vidare till nästa självstudie för att läsa hur du mappar ett anpassat DNS-namn till din app.
+Gå vidare till nästa självstudie där du får lära dig att mappa ett anpassat DNS-namn till appen.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Mappa ett anpassat DNS-namn till din app @ no__t-0
+> [Självstudie: mappa ett anpassat DNS-namn till din app](../app-service-web-tutorial-custom-domain.md)
 
 Eller kolla ut andra resurser:
 

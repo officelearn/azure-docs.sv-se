@@ -23,7 +23,7 @@ Den här artikeln innehåller rekommendationer för data lagring i Azure HDInsig
 
 Katalog strukturen för den lokala Apache Hadoop fil systemet (HDFS) kan återskapas i Azure Storage eller Azure Data Lake Storage. Du kan sedan på ett säkert sätt ta bort HDInsight-kluster som används för beräkning utan att förlora användar data. Båda tjänsterna kan användas både som standard fil system och ytterligare fil system för ett HDInsight-kluster. HDInsight-klustret och lagrings kontot måste finnas i samma region.
 
-### <a name="azure-storage"></a>Azure Storage
+### <a name="azure-storage"></a>Azure-lagring
 
 HDInsight-kluster kan använda BLOB-behållaren i Azure Storage som antingen standard fil systemet eller ett ytterligare fil system. Lagrings kontot på standard nivån stöds för användning med HDInsight-kluster. Premier-nivån stöds inte. Standardcontainern lagrar klusterspecifik information, till exempel jobbhistorik och loggar. Delning av en BLOB-behållare som standard fil system för flera kluster stöds inte.
 
@@ -96,7 +96,7 @@ ADLS gen 2 bygger på [Azure Blob Storage](../../storage/blobs/storage-blobs-in
 
 En grundläggande funktion i Data Lake Storage Gen2 är att lägga till ett [hierarkiskt namn område](../../storage/data-lake-storage/namespace.md) till Blob Storage-tjänsten, som organiserar objekt/filer i en hierarki med kataloger för att utföra data åtkomst. Den hierarkiska strukturen aktiverar åtgärder som att byta namn på eller ta bort en katalog för att vara enkla atomiska metadata-åtgärder i katalogen i stället för att räkna upp och bearbeta alla objekt som delar namn prefixet för katalogen.
 
-Tidigare var molnbaserad analys en kompromiss i områden med prestanda, hantering och säkerhet. De viktigaste funktionerna i Azure Data Lake Storage (ADLS) Gen2 är följande:
+Tidigare hade molnbaserad analys att angripa i delar av prestanda, hantering och säkerhet. De viktigaste funktionerna i Azure Data Lake Storage (ADLS) Gen2 är följande:
 
 - **Hadoop-kompatibel åtkomst**: Azure Data Lake Storage Gen2 gör att du kan hantera och komma åt data precis som med en [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Den nya [driv rutinen ABFS](../../storage/data-lake-storage/abfs-driver.md) finns i alla Apache Hadoop miljöer som ingår i [Azure HDInsight](../index.yml). Med den här driv rutinen kan du komma åt data som lagras i Data Lake Storage Gen2.
 
@@ -163,7 +163,7 @@ HDInsight har som standard fullständig åtkomst till data i de Azure Storage ko
     |storage_container_name|Den behållare i lagrings kontot som du vill begränsa åtkomsten till.|
     |example_file_path|Sökvägen till en fil som överförs till behållaren.|
 
-2. SASToken.py-filen innehåller behörigheter för `ContainerPermissions.READ + ContainerPermissions.LIST` och kan justeras baserat på användnings fall.
+2. SASToken.py-filen innehåller `ContainerPermissions.READ + ContainerPermissions.LIST` behörigheter och kan justeras baserat på användnings fall.
 
 3. Kör skriptet på följande sätt: `python SASToken.py`
 
@@ -183,7 +183,7 @@ HDInsight har som standard fullständig åtkomst till data i de Azure Storage ko
 
 Det finns tre viktiga saker att komma ihåg om användningen av SAS-token i Azure:
 
-1. När SAS-token skapas med behörigheterna Läs + lista kommer användare som har åtkomst till BLOB-behållaren med den SAS-token inte att kunna skriva och ta bort data. Användare som har åtkomst till BLOB-behållaren med den SAS-token och försöker utföra en Skriv-eller borttagnings åtgärd, kommer att få ett meddelande som `"This request is not authorized to perform this operation"`.
+1. När SAS-token skapas med behörigheterna Läs + lista kommer användare som har åtkomst till BLOB-behållaren med den SAS-token inte att kunna skriva och ta bort data. Användare som har åtkomst till BLOB-behållaren med den SAS-token och försöker utföra en Skriv-eller borttagnings åtgärd, får ett meddelande som `"This request is not authorized to perform this operation"`.
 
 2. När SAS-token genereras med `READ + LIST + WRITE` behörigheter (för att begränsa `DELETE`), kommandon som `hadoop fs -put` första skrivning till en `\_COPYING\_`-fil och försöker sedan byta namn på filen. Denna HDFS-åtgärd mappar till en `copy+delete` för WASB. Eftersom den `DELETE` behörigheten inte angavs skulle "placering" inte utföras. Åtgärden `\_COPYING\_` är en Hadoop-funktion som är avsedd att ge en viss samtidighets kontroll. Det finns för närvarande inget sätt att begränsa bara åtgärden "ta bort" utan att påverka "Skriv"-åtgärder.
 

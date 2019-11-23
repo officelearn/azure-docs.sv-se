@@ -21,7 +21,7 @@ ms.locfileid: "71672899"
 
 I det här dokumentet får du lära dig hur du dirigerar och skapar U-SQL-jobb med hjälp av SQL Server integration service (SSIS). 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [Azure Feature Pack för integrations tjänster](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017#scenario-managing-data-in-the-cloud) tillhandahåller [Azure Data Lake Analytics aktivitet](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017) och [Azure Data Lake Analytics anslutnings hanteraren](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager?view=sql-server-2017) som hjälper till att ansluta till Azure Data Lake Analytics-tjänsten. Kontrol lera att du använder den här uppgiften för att installera:
 
@@ -46,7 +46,7 @@ För enkel underhåll och kod hantering är det bara att använda korta U-SQL-sk
 
 ![Redigera infogade U-SQL-skript i SSIS-aktiviteten](./media/data-lake-analytics-schedule-jobs-ssis/edit-inline-usql-script-in-ssis.png)
 
-Relaterad artikel: [Så här skickar du parameter till lagrade procedurer](#scenario-6-pass-parameters-to-u-sql-script)
+Relaterad artikel: [så här skickar du parameter till lagrade procedurer](#scenario-6-pass-parameters-to-u-sql-script)
 
 ## <a name="scenario-2-use-u-sql-files-in-azure-data-lake-store"></a>Scenario 2 – Använd U-SQL-filer i Azure Data Lake Store
 
@@ -81,7 +81,7 @@ I SSIS-paketets designvy lägger du till en **Azure Data Lake Store fil system a
 
     ![Konfigurera behållare för förgrunds slingor](./media/data-lake-analytics-schedule-jobs-ssis/configure-foreach-loop-container-collection.png)
 
-4. På sidan **variabel mappningar** lägger du till en användardefinierad variabel för att hämta fil namnet för varje U-SQL-fil. Ange **indexet** till 0 för att hämta fil namnet. I det här exemplet definierar du en variabel som kallas `User::FileName`. Den här variabeln används för att dynamiskt hämta U-SQL skript fil anslutning och ange U-SQL-jobbnamn i Azure Data Lake Analytics aktiviteten.
+4. På sidan **variabel mappningar** lägger du till en användardefinierad variabel för att hämta fil namnet för varje U-SQL-fil. Ange **indexet** till 0 för att hämta fil namnet. I det här exemplet definierar du en variabel som heter `User::FileName`. Den här variabeln används för att dynamiskt hämta U-SQL skript fil anslutning och ange U-SQL-jobbnamn i Azure Data Lake Analytics aktiviteten.
 
     ![Konfigurera en upprepnings behållare för att hämta fil namn](./media/data-lake-analytics-schedule-jobs-ssis/configure-foreach-loop-container-variable-mapping.png)
 
@@ -93,7 +93,7 @@ I SSIS-paketets designvy lägger du till en **Azure Data Lake Store fil system a
     
     Så här skapar du den här fil anslutningen:
 
-   1. Välj **\<New anslutning... >** i FileConnection-inställningen.
+   1. Välj **\<ny anslutning... >** i FileConnection-inställningen.
    2. Ange **användnings typ** till en **befintlig fil**och ange **filen** till en befintlig fils sökväg.
 
        ![Konfigurera behållare för förgrunds slingor](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
@@ -119,7 +119,7 @@ I SSIS-paketets designvy lägger du till en **Azure Data Lake Store fil system a
 
 Du kan använda U-SQL-filer i Azure Blob Storage med hjälp av **Azure Blob Download Task** i Azure Feature Pack. Med den här metoden kan du använda skripten i molnet.
 
-Stegen liknar [Scenario 2: Använd U-SQL-filer i Azure Data Lake Store @ no__t-0. Ändra åtgärden Azure Data Lake Store fil system till Azure Blob Download. [Läs mer om hämtnings uppgiften för Azure Blob](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
+Stegen påminner om [Scenario 2: Använd U-SQL-filer i Azure Data Lake Store](#scenario-2-use-u-sql-files-in-azure-data-lake-store). Ändra åtgärden Azure Data Lake Store fil system till Azure Blob Download. [Läs mer om hämtnings uppgiften för Azure Blob](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
 
 Kontroll flödet ser ut så här.
 

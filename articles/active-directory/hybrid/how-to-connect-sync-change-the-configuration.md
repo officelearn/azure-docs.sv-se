@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect synkronisering: Gör en konfigurations ändring i Azure AD Connect Sync | Microsoft Docs'
+title: 'Azure AD Connect synkronisering: gör en konfigurations ändring i Azure AD Connect synkronisering | Microsoft Docs'
 description: Vägleder dig genom hur du gör en ändring i konfigurationen i Azure AD Connect Sync.
 services: active-directory
 documentationcenter: ''
@@ -23,7 +23,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 09/29/2019
 ms.locfileid: "71672957"
 ---
-# <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect synkronisering: Gör en ändring i standard konfigurationen
+# <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect synkronisering: ändra standard konfigurationen
 Syftet med den här artikeln är att hjälpa dig att göra ändringar i standard konfigurationen i Azure Active Directory (Azure AD) Connect-synkronisering. Den innehåller steg för några vanliga scenarier. Med den här kunskapen bör du kunna göra enkla ändringar i din egen konfiguration utifrån dina egna affärs regler.
 
 > [!WARNING]
@@ -33,7 +33,7 @@ Syftet med den här artikeln är att hjälpa dig att göra ändringar i standard
 
 ## <a name="synchronization-rules-editor"></a>Redigerare för regler för synkronisering
 Redigeraren för regler för synkronisering används för att se och ändra standard konfigurationen. Du hittar den på **Start** -menyn under gruppen **Azure AD Connect** .  
-![Start-menyn med regel redigeraren för synkronisering @ no__t-1
+![Start-menyn med redigeraren för Synkroniseringsregel](./media/how-to-connect-sync-change-the-configuration/startmenu2.png)
 
 När du öppnar Redigeraren visas standard reglerna som är färdiga.
 
@@ -52,27 +52,27 @@ Längst ned finns knappar för att agera på en vald Synkroniseringsregel. **Red
 De vanligaste ändringarna är för attributets flöden. Data i käll katalogen kanske inte är samma som i Azure AD. I exemplet i det här avsnittet ser du till att namnet på en användare alltid är i *rätt fall*.
 
 ### <a name="disable-the-scheduler"></a>Inaktivera Scheduler
-[Scheduler](how-to-connect-sync-feature-scheduler.md) körs var 30: e minut som standard. Kontrol lera att det inte startar när du gör ändringar och felsöka dina nya regler. Om du vill inaktivera Scheduler tillfälligt startar du PowerShell och kör `Set-ADSyncScheduler -SyncCycleEnabled $false`.
+[Scheduler](how-to-connect-sync-feature-scheduler.md) körs var 30: e minut som standard. Kontrol lera att det inte startar när du gör ändringar och felsöka dina nya regler. Starta PowerShell och kör `Set-ADSyncScheduler -SyncCycleEnabled $false`för att tillfälligt inaktivera Scheduler.
 
 ![Inaktivera Scheduler](./media/how-to-connect-sync-change-the-configuration/schedulerdisable.png)  
 
 ### <a name="create-the-rule"></a>Skapa regeln
 1. Klicka på **Lägg till ny regel**.
 2. På sidan **Beskrivning** anger du följande:  
-   ![Inbound regel filtrering @ no__t-1  
-   * **Namn på**: Ge regeln ett beskrivande namn.
-   * **Beskrivning**: Ge någon annan information så att någon annan kan förstå vad regeln gäller.
-   * **Anslutet system**: Det här är det system där objektet kan hittas. I det här fallet väljer du **Active Directory koppling**.
-   * **Ansluten system-/metaversum-objekt typ**: Välj **användare** respektive **person**.
-   * **Länktyp**: Ändra värdet till **Join**.
+   ![inkommande regel filtrering](./media/how-to-connect-sync-change-the-configuration/description2.png)  
+   * **Namn**: ge regeln ett beskrivande namn.
+   * **Beskrivning**: ge en förklaring så att någon annan kan förstå vad regeln gäller.
+   * **Anslutet system**: det här är det system där objektet kan hittas. I det här fallet väljer du **Active Directory koppling**.
+   * **Ansluten system-metaversum objekt typ**: Välj **användare** respektive **person**.
+   * **Länktyp**: ändra värdet till **Join**.
    * **Prioritet**: Ange ett värde som är unikt i systemet. Ett lägre numeriskt värde anger högre prioritet.
-   * **Tagg**: Lämna detta tomt. Endast färdiga regler från Microsoft ska ha den här rutan ifylld med ett värde.
+   * **Tag**: lämna tomt. Endast färdiga regler från Microsoft ska ha den här rutan ifylld med ett värde.
 3. På sidan **omfångs filter** anger du **givenName ISNOTNULL**.  
-   ![Inbound regel omfångs filter @ no__t-1  
+   omfångs filter för ![inkommande regel](./media/how-to-connect-sync-change-the-configuration/scopingfilter.png)  
    Det här avsnittet används för att definiera vilka objekt som regeln ska gälla. Om det lämnas tomt gäller regeln för alla användar objekt. Det kan dock omfatta konferens rum, tjänst konton och andra användar objekt som inte är personer.
 4. Lämna fältet tomt på sidan **Anslut regler** .
 5. På sidan **omvandlingar** ändrar du **FlowType** till **Expression**. För **målattribut**väljer du **givenName**. Och för **källa**anger du **PCase ([givenName])** .
-   ![Inbound regel omvandlingar @ no__t-1  
+   ![inkommande regel omvandlingar](./media/how-to-connect-sync-change-the-configuration/transformations.png)  
    Synkroniseringsmotorn är Skift läges känslig för både funktions namnet och namnet på attributet. Om du anger något fel visas en varning när du lägger till regeln. Du kan spara och fortsätta, men du måste öppna och korrigera regeln igen.
 6. Klicka på **Lägg till** för att spara regeln.
 
@@ -91,7 +91,7 @@ Med den här nya ändringen vill du se till att den fungerar som förväntat och
    1. Välj **kopplingar** överst. Identifiera den koppling som du ändrade i föregående avsnitt (i det här fallet Active Directory Domain Services) och markera den. 
    2. För **åtgärder**väljer du **Kör**.
    3. Välj **fullständig synkronisering**och välj sedan **OK**.
-   ![Full Sync @ no__t-1  
+   ![fullständig synkronisering](./media/how-to-connect-sync-change-the-configuration/fullsync.png)  
    Objekten har nu uppdaterats i metaversum. Verifiera ändringarna genom att titta på objektet i metaversum.
 
 **För hands version och fullständig synkronisering på ett enskilt objekt**  
@@ -100,7 +100,7 @@ Med den här nya ändringen vill du se till att den fungerar som förväntat och
    2. Välj **search Connector-utrymme**. 
    3. Använd **omfång** för att hitta ett objekt som du vill använda för att testa ändringen. Markera objektet och klicka på **Förhandsgranska**. 
    4. På den nya skärmen väljer du **Förhandsgranskning av incheckning**.  
-   ![Commit Preview @ no__t-1  
+   ![bekräfta förhands granskning](./media/how-to-connect-sync-change-the-configuration/commitpreview.png)  
    Ändringen allokeras nu till metaversum.
 
 **Visa objektet i metaversum**  
@@ -111,7 +111,7 @@ Med den här nya ändringen vill du se till att den fungerar som förväntat och
 ![Metaversumsökning](./media/how-to-connect-sync-change-the-configuration/mvsearch.png)  
 
 ### <a name="enable-the-scheduler"></a>Aktivera Scheduler
-Om allt är som förväntat kan du aktivera Scheduler igen. Från PowerShell kör du `Set-ADSyncScheduler -SyncCycleEnabled $true`.
+Om allt är som förväntat kan du aktivera Scheduler igen. Kör `Set-ADSyncScheduler -SyncCycleEnabled $true`från PowerShell.
 
 ## <a name="other-common-attribute-flow-changes"></a>Andra vanliga ändringar i attributändringar
 I föregående avsnitt beskrivs hur du gör ändringar i ett attribut flöde. I det här avsnittet finns ytterligare exempel. Stegen för att skapa en Synkroniseringsregel är förkortad, men du kan hitta de fullständiga stegen i föregående avsnitt.
@@ -127,11 +127,11 @@ Gör så här om du vill skapa en regel med andra attribut flöden:
 1. Öppna **Redigeraren för Synkroniseringsregel** från **Start** -menyn.
 2. Med **inkommande** fortfarande valt till vänster klickar du på knappen **Lägg till ny regel** .
 3. Ge regeln ett namn och en beskrivning. Välj den lokala Active Directory-instansen och relevanta objekt typer. I **Länktyp**väljer du **Anslut**. För **prioritet**väljer du ett tal som inte används av en annan regel. De färdiga reglerna börjar med 100, så värdet 50 kan användas i det här exemplet.
-  ![Attribute Flow 2 @ no__t-1
+  ![Attribute Flow 2](./media/how-to-connect-sync-change-the-configuration/attributeflowjp2.png)
 4. Lämna **omfångs filter** tomt. (Det vill säga det ska gälla för alla användar objekt i skogen.)
 5. Lämna **kopplings regler** tomma. (Det innebär att du kan använda den färdiga regeln som hanterar alla kopplingar.)
 6. I **transformeringar**skapar du följande flöden:  
-  ![Attribute Flow 3 @ no__t-1
+  ![Attribute Flow 3](./media/how-to-connect-sync-change-the-configuration/attributeflowjp3.png)
 7. Klicka på **Lägg till** för att spara regeln.
 8. Gå till **Synchronization Service Manager**. På **kopplingar**väljer du den koppling där du lade till regeln. Välj **Kör**och välj sedan **fullständig synkronisering**. En fullständig synkronisering beräknar om alla objekt med de aktuella reglerna.
 
@@ -167,12 +167,12 @@ I det här Fabrikam-scenariot har vi realiserat att några av de attribut som vi
 ![Felaktiga attribut för tillägg](./media/how-to-connect-sync-change-the-configuration/badextensionattribute.png)
 
 1. Skapa en ny regel för inkommande synkronisering och fyll i beskrivningen.
-  ![Descriptions @ no__t-1
+  ![beskrivningar](./media/how-to-connect-sync-change-the-configuration/syncruledescription.png)
 2. Skapa attribut flöden med **uttryck** för **FlowType** och med **AuthoritativeNull** för **källa**. Litteral **AuthoritativeNull** anger att värdet ska vara tomt i metaversum, även om en regel för lägre prioritet försöker fylla i värdet.
-  ![Transformation för tilläggs-attribut @ no__t-1
+  ![omvandling för tilläggets attribut](./media/how-to-connect-sync-change-the-configuration/syncruletransformations.png)
 3. Spara synkroniseringsregeln. Starta **synkroniseringstjänsten**, hitta anslutningen, Välj **Kör**och välj sedan **fullständig synkronisering**. Det här steget beräknar om alla attribut flöden.
 4. Kontrol lera att de avsedda ändringarna ska exporteras genom att söka i anslutnings utrymmet.
-  ![Staged Delete @ no__t-1
+  ![mellanlagrad borttagning](./media/how-to-connect-sync-change-the-configuration/deletetobeexported.png)
 
 ## <a name="create-rules-with-powershell"></a>Skapa regler med PowerShell
 Användning av regel redigeraren för synkronisering fungerar bra om du bara har några ändringar att göra. Om du behöver göra många ändringar kan PowerShell vara ett bättre alternativ. Vissa avancerade funktioner är bara tillgängliga med PowerShell.
@@ -186,7 +186,7 @@ De färdiga Sync-reglerna börjar med prioritet svärdet 100. Om du har många s
 Du kan instruera den Synkroniseringsmotorn som du vill att ytterligare regler ska infogas före de färdiga reglerna. Följ dessa steg för att få det här problemet:
 
 1. Markera den första synkroniseringsregeln (**i från AD-User Join**) i redigeraren för regler för synkronisering och välj **Exportera**. Kopiera värdet för SR-identifieraren.  
-![PowerShell före ändring @ no__t-1  
+![PowerShell innan du ändrar](./media/how-to-connect-sync-change-the-configuration/powershell1.png)  
 2. Skapa den nya synkroniseringsregeln. Du kan använda redigeraren för synkronisering av regler för att skapa den. Exportera regeln till ett PowerShell-skript.
 3. I egenskapen **PrecedenceBefore**infogar du ID-värdet från regeln som är inaktuell. Ange **prioriteten** till **0**. Kontrol lera att attributet Identifier är unikt och att du inte använder ett GUID från en annan regel. Kontrol lera också att egenskapen **ImmutableTag** inte har angetts. Den här egenskapen ska endast anges för en regel som inte är i regel.
 4. Spara PowerShell-skriptet och kör det. Resultatet är att den anpassade regeln tilldelas prioritet svärdet 100 och alla andra regler som inte ingår i rutan ökar.  
@@ -202,7 +202,7 @@ Azure AD Connect stöder synkronisering av attributet **UserType** för **använ
 
 Som standard är attributet UserType inte aktiverat för synkronisering eftersom det inte finns något motsvarande UserType-attribut i lokala Active Directory. Du måste aktivera synkronisering manuellt. Innan du gör detta måste du anteckna följande beteende som tillämpas av Azure AD:
 
-- Azure AD accepterar bara två värden för attributet UserType: **Medlem** och **gäst**.
+- Azure AD accepterar bara två värden för attributet UserType: **medlem** och **gäst**.
 - Om attributet UserType inte är aktiverat för synkronisering i Azure AD Connect skulle Azure AD-användare som har skapats via Directory-synkronisering ha attributet UserType inställt på **medlem**.
 - Azure AD tillåter inte att attributet UserType på befintliga Azure AD-användare ändras av Azure AD Connect. Den kan bara anges när Azure AD-användare skapas.
 
@@ -229,12 +229,12 @@ Stegen för att aktivera synkronisering av UserType-attributet kan sammanfattas 
 >[!NOTE]
 > Resten av det här avsnittet beskriver de här stegen. De beskrivs i kontexten för en Azure AD-distribution med en topologi med en skog och utan anpassade regler för synkronisering. Om du har en topologi för flera skogar, anpassade synkroniseringsinställningar som kon figurer ATS eller har en fristående server, måste du justera stegen enligt detta.
 
-### <a name="step-1-disable-the-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>Steg 1: Inaktivera synkroniseringsschemat och kontrol lera att ingen synkronisering pågår
+### <a name="step-1-disable-the-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>Steg 1: inaktivera synkroniseringsschemat och kontrol lera att ingen synkronisering pågår
 Undvik att exportera oönskade ändringar till Azure AD genom att se till att ingen synkronisering äger rum när du är i mitten av uppdateringen av regler för synkronisering. Så här inaktiverar du den inbyggda Sync Scheduler:
 
  1. Starta en PowerShell-session på Azure AD Connect servern.
  2. Inaktivera schemalagd synkronisering genom att köra cmdleten `Set-ADSyncScheduler -SyncCycleEnabled $false`.
- 3. Öppna Synchronization Service Manager genom att gå till **starta** > **synkroniseringstjänst**.
+ 3. Öppna Synchronization Service Manager genom att gå till **starta** >  **-synkroniseringstjänsten**.
  4. Gå till fliken **åtgärder** och bekräfta att det inte finns någon åtgärd med statusen *pågår*.
 
 ### <a name="step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema"></a>Steg 2: Lägg till källattributet i det lokala AD Connector-schemat
@@ -245,7 +245,7 @@ Alla Azure AD-attribut importeras inte till det lokala AD Connector-utrymmet. S�
  3. I dialog rutan popup går du till fliken **Välj attribut** .
  4. Kontrol lera att källattributet är markerat i attributlistan.
  5. Klicka på **OK** för att spara.
-![Add till det lokala AD Connector-schemat @ no__t-1
+![lägga till källattribut till det lokala AD Connector-schemat](./media/how-to-connect-sync-change-the-configuration/usertype1.png)
 
 ### <a name="step-3-add-the-usertype-to-the-azure-ad-connector-schema"></a>Steg 3: Lägg till UserType i Azure AD Connector-schemat
 Som standard importeras inte attributet UserType till Azure AD Connect utrymmet. Så här lägger du till attributet UserType i listan över importerade attribut:
@@ -258,7 +258,7 @@ Som standard importeras inte attributet UserType till Azure AD Connect utrymmet.
 
 ![Lägg till källattribut till Azure AD Connector-schemat](./media/how-to-connect-sync-change-the-configuration/usertype2.png)
 
-### <a name="step-4-create-an-inbound-synchronization-rule-to-flow-the-attribute-value-from-on-premises-active-directory"></a>Steg 4: Skapa en regel för inkommande synkronisering för att flöda attributvärdet från den lokala Active Directory
+### <a name="step-4-create-an-inbound-synchronization-rule-to-flow-the-attribute-value-from-on-premises-active-directory"></a>Steg 4: skapa en regel för inkommande synkronisering för att flöda attributvärdet från den lokala Active Directory
 Regeln för inkommande synkronisering tillåter att attributvärdet flödar från källattributet från lokala Active Directory till metaversum:
 
 1. Öppna redigeraren för regler för synkronisering genom att gå till **Start** > **Redigerare för synkronisering av regler**.
@@ -266,9 +266,9 @@ Regeln för inkommande synkronisering tillåter att attributvärdet flödar frå
 3. Klicka på knappen **Lägg till ny regel** för att skapa en ny regel för inkommande trafik.
 4. Ange följande konfiguration på fliken **Beskrivning** :
 
-    | Attribut | Value | Information |
+    | Attribut | Värde | Information |
     | --- | --- | --- |
-    | Name | *Ange ett namn* | Till exempel *i från AD – User UserType* |
+    | Namn | *Ange ett namn* | Till exempel *i från AD – User UserType* |
     | Beskrivning | *Ange en beskrivning* |  |
     | Anslutet system | *Välj lokal AD-anslutning* |  |
     | Ansluten system objekt typ | **Användarvänlig** |  |
@@ -278,29 +278,29 @@ Regeln för inkommande synkronisering tillåter att attributvärdet flödar frå
 
 5. Gå till fliken **omfångs filter** och Lägg till en **enda omfångs filter grupp** med följande sats:
 
-    | Attribut | Operator | Value |
+    | Attribut | Operator | Värde |
     | --- | --- | --- |
-    | adminDescription | NOTSTARTWITH | Användare @ no__t-0 |
+    | adminDescription | NOTSTARTWITH | Användar\_ |
 
     Omfångs filtret avgör vilka lokala AD-objekt som den här inkommande synkroniseringsregeln tillämpas på. I det här exemplet använder vi samma omfångs filter som används i den inbyggda synkroniseringsregeln för *AD – användare* , vilket förhindrar att synkroniseringsregeln tillämpas på användar objekt som skapats via funktionen tillbakaskrivning av Azure AD-användare. Du kan behöva justera omfångs filtret enligt din Azure AD Connect-distribution.
 
 6. Gå till fliken **omvandling** och implementera önskad omvandlings regel. Om du till exempel har angett ett oanvänt lokalt AD-attribut (till exempel extensionAttribute1) som källattribut för UserType, kan du implementera ett dirigerat attributarkiv:
 
-    | Flödes typ | Målattribut | Source | Använd en gång | Sammanslagnings typ |
+    | Flödes typ | Target-attribut | Källa | Använd en gång | Sammanslagnings typ |
     | --- | --- | --- | --- | --- |
-    | Direkt | userType | extensionAttribute1 | Avmarkerat | Uppdatera |
+    | Direct | userType | extensionAttribute1 | avmarkerat | Uppdatering |
 
     I ett annat exempel vill du härleda värdet för attributet UserType från andra egenskaper. Till exempel vill du synkronisera alla användare som gäst om deras lokala AD userPrincipalName-attribut slutar med domän delen <em>@partners.fabrikam123.org</em>. Du kan implementera ett uttryck som detta:
 
-    | Flödes typ | Målattribut | Source | Använd en gång | Sammanslagnings typ |
+    | Flödes typ | Target-attribut | Källa | Använd en gång | Sammanslagnings typ |
     | --- | --- | --- | --- | --- |
-    | Uttryck | userType | IIF (IsPresent ([userPrincipalName]), IIF (CBool (InStr (LCase ([userPrincipalName]), "@partners.fabrikam123.org") = 0), "medlem", "gäst"), fel ("UserPrincipalName finns inte för att fastställa UserType")) | Avmarkerat | Uppdatera |
+    | Uttryck | userType | IIF (IsPresent ([userPrincipalName]), IIF (CBool (InStr (LCase ([userPrincipalName]), "@partners.fabrikam123.org") = 0), "medlem", "gäst"), fel ("UserPrincipalName finns inte för att fastställa UserType")) | avmarkerat | Uppdatering |
 
 7. Klicka på **Lägg till** för att skapa regeln för inkommande trafik.
 
 ![Skapa regel för inkommande synkronisering](./media/how-to-connect-sync-change-the-configuration/usertype3.png)
 
-### <a name="step-5-create-an-outbound-synchronization-rule-to-flow-the-attribute-value-to-azure-ad"></a>Steg 5: Skapa en regel för utgående synkronisering för att flöda attributvärdet till Azure AD
+### <a name="step-5-create-an-outbound-synchronization-rule-to-flow-the-attribute-value-to-azure-ad"></a>Steg 5: skapa en regel för utgående synkronisering för att flöda attributvärdet till Azure AD
 Regeln för utgående synkronisering tillåter att attributvärdet flödar från metaversum till UserType-attributet i Azure AD:
 
 1. Gå till redigeraren för regler för synkronisering.
@@ -308,9 +308,9 @@ Regeln för utgående synkronisering tillåter att attributvärdet flödar från
 3. Klicka på knappen **Lägg till ny regel** .
 4. Ange följande konfiguration på fliken **Beskrivning** :
 
-    | Attribut | Value | Information |
+    | Attribut | Värde | Information |
     | ----- | ------ | --- |
-    | Name | *Ange ett namn* | Till exempel *till AAD – User UserType* |
+    | Namn | *Ange ett namn* | Till exempel *till AAD – User UserType* |
     | Beskrivning | *Ange en beskrivning* ||
     | Anslutet system | *Välj AAD-koppling* ||
     | Ansluten system objekt typ | **Användarvänlig** ||
@@ -320,24 +320,24 @@ Regeln för utgående synkronisering tillåter att attributvärdet flödar från
 
 5. Gå till fliken **omfångs filter** och Lägg till en **enda omfångs filter grupp** med två satser:
 
-    | Attribut | Operator | Value |
+    | Attribut | Operator | Värde |
     | --- | --- | --- |
     | sourceObjectType | SKEPPNINGSKVANTITETEN | Användare |
-    | cloudMastered | NOTEQUAL | Sant |
+    | cloudMastered | NOTEQUAL | True |
 
     Omfångs filtret fastställer till vilka Azure AD-objekt denna utgående Synkroniseringsregel ska tillämpas. I det här exemplet använder vi samma omfångs filter från regeln *ut till AD – användarens identitet* utanför box. Det förhindrar att synkroniseringsregeln tillämpas på användar objekt som inte är synkroniserade från lokala Active Directory. Du kan behöva justera omfångs filtret enligt din Azure AD Connect-distribution.
 
 6. Gå till fliken **omvandling** och implementera följande omvandlings regel:
 
-    | Flödes typ | Målattribut | Source | Använd en gång | Sammanslagnings typ |
+    | Flödes typ | Target-attribut | Källa | Använd en gång | Sammanslagnings typ |
     | --- | --- | --- | --- | --- |
-    | Direkt | userType | userType | Avmarkerat | Uppdatera |
+    | Direct | userType | userType | avmarkerat | Uppdatering |
 
 7. Klicka på **Lägg till** för att skapa regeln för utgående trafik.
 
 ![Skapa regel för utgående synkronisering](./media/how-to-connect-sync-change-the-configuration/usertype4.png)
 
-### <a name="step-6-run-a-full-synchronization-cycle"></a>Steg 6: Kör en fullständig synkronisering
+### <a name="step-6-run-a-full-synchronization-cycle"></a>Steg 6: kör en fullständig synkronisering
 I allmänhet krävs en fullständig synkronisering eftersom vi har lagt till nya attribut för både Active Directory-och Azure AD Connector-scheman och infört anpassade regler för synkronisering. Du vill verifiera ändringarna innan du exporterar dem till Azure AD. 
 
 Du kan använda följande steg för att kontrol lera ändringarna samtidigt som du kör stegen som utgör en fullständig synkronisering.
@@ -350,7 +350,7 @@ Du kan använda följande steg för att kontrol lera ändringarna samtidigt som 
    4. Vänta tills åtgärden har slutförts.
 
       > [!NOTE]
-      > Du kan hoppa över en fullständig import av den lokala AD-anslutningen om källattributet redan finns i listan över importerade attribut. Med andra ord behöver du inte göra några ändringar under [Step 2: Lägg till källattributet till det lokala AD Connector-schemat @ no__t-0.
+      > Du kan hoppa över en fullständig import av den lokala AD-anslutningen om källattributet redan finns i listan över importerade attribut. Med andra ord behöver du inte göra några ändringar under [steg 2: Lägg till källattributet till det lokala AD Connector-schemat](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema).
 
 2. Kör en **fullständig import** på **Azure AD-anslutningen**:
 
@@ -389,7 +389,7 @@ Du kan använda följande steg för att kontrol lera ändringarna samtidigt som 
 > [!NOTE]
 > De här stegen omfattar inte fullständig synkronisering och export steg på Azure AD-anslutningen. De här stegen är inte obligatoriska eftersom attributvärdena flödar från lokala Active Directory endast till Azure AD.
 
-### <a name="step-7-re-enable-the-sync-scheduler"></a>Steg 7: Återaktivera synkroniseringen av Schemaläggaren
+### <a name="step-7-re-enable-the-sync-scheduler"></a>Steg 7: återaktivera synkroniseringen av Schemaläggaren
 Återaktivera den inbyggda Sync Scheduler:
 
 1. Starta en PowerShell-session.
@@ -402,5 +402,5 @@ Du kan använda följande steg för att kontrol lera ändringarna samtidigt som 
 
 **Översikts avsnitt**
 
-* [Azure AD Connect-synkronisering: Förstå och anpassa synkronisering](how-to-connect-sync-whatis.md)
+* [Azure AD Connect synkronisering: förstå och anpassa synkronisering](how-to-connect-sync-whatis.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)

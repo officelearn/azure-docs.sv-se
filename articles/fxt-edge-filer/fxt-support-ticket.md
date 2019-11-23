@@ -30,7 +30,7 @@ Använd Azure Portal för att öppna ett support ärende med Microsofts kund ser
     1. Välj din prenumeration. 
     1. Under **tjänst**väljer du **Azure FXT Edge**-filer. Du kan behöva klicka på filter kontrollen **alla tjänster** för att hitta den. 
     1. Ange en **Sammanfattning** och välj **problem typen**. 
-    ![Screenshot för tomt support ärende @ no__t-1 
+    ![skärm bild av tomt support ärende formulär](media/fxt-support-populated.png) 
     1. Fortsätt genom att klicka på **Nästa** . 
 1. På fliken **information** lägger du till mer information om problemet och hur du kontaktar dig. Du kan ladda upp en fil som är relaterad till problemet. 
 1. I **Granska + skapa**, kontrol lera informationen och klicka på knappen **skapa** för att skicka in din begäran.

@@ -95,7 +95,7 @@ Du vill ge åtkomst till din peer, Joe, möjlighet att skapa och hantera support
 
     ![Ny supportbegäran](./media/create-manage-support-requests-using-access-control/new-support-request.png)
 
-8. Om du klickar på alla support förfrågningar visas en lista över de support förfrågningar som skapats för den här prenumerationen ![Case information View @ no__t-1
+8. Om du klickar på "alla support förfrågningar" visas en lista över de support förfrågningar som har skapats för den här prenumerationen ![ärende information Visa](./media/create-manage-support-requests-using-access-control/case-details-view.png)
 
 ## <a name="remove-support-request-access-in-the-azure-portal"></a>Ta bort support begär ande åtkomst i Azure Portal
 

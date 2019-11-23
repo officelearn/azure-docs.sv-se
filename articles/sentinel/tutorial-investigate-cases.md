@@ -21,7 +21,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 10/08/2019
 ms.locfileid: "72024619"
 ---
-# <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Självstudier: Undersök incidenter med Azure Sentinel
+# <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Självstudie: undersöka incidenter med Azure Sentinel
 
 > [!IMPORTANT]
 > Undersöknings diagrammet är för närvarande en offentlig för hands version.
@@ -39,7 +39,7 @@ Den här artikeln beskriver:
 
 En incident kan innehålla flera aviseringar. Det är en agg regering av alla relevanta bevis för en speciell undersökning. En incident skapas baserat på analys regler som du skapade på sidan **analys** . Egenskaperna som rör aviseringarna, till exempel allvarlighets grad och status, anges på incident nivå. När du har informerat Azure Sentinel vet vilka typer av hot du letar efter och hur du hittar dem kan du övervaka identifierade hot genom att undersöka incidenter.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Du kommer bara att kunna undersöka incidenten om du använde enhets mappnings fälten när du konfigurerade din analys regel. Undersöknings diagrammet kräver att den ursprungliga incidenten innehåller entiteter.
 
 ## <a name="how-to-investigate-incidents"></a>Så här undersöker du incidenter
@@ -70,9 +70,9 @@ I undersöknings diagrammet kan analytiker ställa rätt frågor för varje unde
   
 I undersöknings diagrammet får du:
 
-- **Visuell kontext från rå data**: Det aktiva visuella diagrammet visar entitetsrelationer som extraheras automatiskt från rå data. På så sätt kan du enkelt se anslutningar mellan olika data källor.
+- **Visuell kontext från rå data**: Live, Visual Graph visar entitetsrelationer som extraheras automatiskt från rå data. På så sätt kan du enkelt se anslutningar mellan olika data källor.
 
-- **Fullständig identifiering av undersöknings omfång**: Utöka undersöknings omfånget med hjälp av inbyggda utforsknings frågor till ytan hela omfattningen av en överträdelse.
+- **Fullständig identifiering av undersöknings omfång**: utöka din undersöknings omfattning med hjälp av inbyggda utforsknings frågor till ytan hela omfattningen av en överträdelse.
 
 - **Inbyggda undersöknings steg**: Använd fördefinierade utforsknings alternativ för att se till att du ställer rätt frågor i ett hots ansikte.
 
@@ -97,7 +97,7 @@ Så här använder du undersöknings diagrammet:
 
     ![Visa relaterade aviseringar](media/tutorial-investigate-cases/related-alerts.png)
 
-1. För varje utforsknings fråga kan du välja alternativet för att öppna de råa händelse resultaten och frågan som används i Log Analytics genom att välja **händelser @ no__t-1**.
+1. För varje utforsknings fråga kan du välja alternativet för att öppna de råa händelse resultaten och frågan som används i Log Analytics genom att välja **händelser\>** .
 
 1. För att förstå incidenten ger grafen en parallell tids linje.
 

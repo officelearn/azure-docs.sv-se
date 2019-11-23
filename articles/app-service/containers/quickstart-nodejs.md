@@ -32,9 +32,9 @@ När tillägget har installerats loggar du in på ditt Azure-konto. I aktivitets
 
 ![Logga in på Azure](./media/quickstart-nodejs/sign-in.png)
 
-### <a name="troubleshooting"></a>Felsöka
+### <a name="troubleshooting"></a>Felsökning
 
-Om du ser felet **"det går inte att hitta prenumerationen med namnet [prenumerations-ID]"** kan det bero på att du är bakom en proxyserver och inte kan komma åt Azure-API: et. Konfigurera `HTTP_PROXY`-och `HTTPS_PROXY`-miljövariabler med din proxyinformation i terminalen med hjälp av `export`.
+Om du ser felet **"det går inte att hitta prenumerationen med namnet [prenumerations-ID]"** kan det bero på att du är bakom en proxyserver och inte kan komma åt Azure-API: et. Konfigurera `HTTP_PROXY` och `HTTPS_PROXY` miljövariabler med din proxyinformation i terminalen med hjälp av `export`.
 
 ```sh
 export HTTPS_PROXY=https://username:password@proxy:8080
@@ -67,7 +67,7 @@ Skapa sedan ett Node. js-program som kan distribueras till molnet. Den här snab
 npx express-generator myExpressApp --view pug --git
 ```
 
-@No__t-0-parametrarna anger att generatorn ska använda [pug](https://pugjs.org/api/getting-started.html) (tidigare kallat `jade`) och för att skapa en @no__t 3-fil.
+`--view pug --git` parametrar anger att generatorn ska använda [pug](https://pugjs.org/api/getting-started.html) -mall (tidigare `jade`) och för att skapa en `.gitignore`-fil.
 
 Om du vill installera alla program beroenden går du till den nya mappen och kör `npm install`.
 
@@ -78,13 +78,13 @@ npm install
 
 ### <a name="run-the-application"></a>Köra programmet
 
-Se sedan till att programmet körs. Starta-programmet från terminalen med kommandot `npm start` för att starta-servern.
+Se sedan till att programmet körs. Starta-programmet från terminalen med hjälp av kommandot `npm start` för att starta servern.
 
 ```bash
 npm start
 ```
 
-Öppna webbläsaren och gå till [http://localhost:3000](http://localhost:3000), där du bör se något som liknar detta:
+Öppna din webbläsare och gå till [http://localhost:3000](http://localhost:3000), där du bör se något som liknar detta:
 
 ![Kör Express-program](./media/quickstart-nodejs/express.png)
 
@@ -135,7 +135,7 @@ I **Azure App Service** Explorer väljer du ikonen blå UPPIL för att distribue
 
 När distributionen är klar väljer du **Bläddra webbplats** i prompten för att visa din nyligen distribuerade webbapp.
 
-### <a name="troubleshooting"></a>Felsöka
+### <a name="troubleshooting"></a>Felsökning
 
 Om du ser felet **"du har inte behörighet att visa den här katalogen eller sidan."** , kunde programmet antagligen inte starta korrekt. Gå till nästa avsnitt och Visa loggens utdata för att hitta och åtgärda felet. Om du inte kan åtgärda det, kontakta oss genom att välja knappen **jag körde i ett ärende** nedan. Vi är glada att hjälpa!
 

@@ -228,17 +228,17 @@ Följ stegen i [Konfigurera pacemaker på SUSE Linux Enterprise Server i Azure](
 
 ### <a name="configure-nfs-server"></a>Konfigurera NFS-server
 
-Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , som endast gäller nod 1 eller **[2]** -gäller endast nod 2.
+Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1]** – gäller endast för nod 1 eller **[2]** – gäller endast för nod 2.
 
-1. **[A]** namn matchning för värdnamn
+1. **[A]**  Konfigurera matcha värdnamn
 
-   Du kan antingen använda en DNS-server eller ändra/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
+   Du kan använda en DNS-server, eller så kan du ändra i/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
    Ersätt IP-adress och värdnamn i följande kommandon
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
    
-   Infoga följande rader i/etc/hosts. Ändra IP-adress och värdnamn för att matcha din miljö
+   Infoga följande rader till/etc/hosts. Ändra IP-adressen och värdnamnet till matchar din miljö
    
    <pre><code># IP address of the load balancer frontend configuration for NFS
    <b>10.0.0.4 nw1-nfs</b>

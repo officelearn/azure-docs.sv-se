@@ -28,7 +28,7 @@ ms.locfileid: "72388634"
 > [!NOTE]
 > Visual Studio App Center stöder utveckling av slutpunkt till slutpunkt-tjänster och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda tjänsterna för att **bygga**, **testa** och **distribuera** för att skapa en pipeline för kontinuerlig integrering och leverans. När appen har distribuerats kan utvecklarna övervaka status och användning av appen med hjälp av tjänsterna **Analys** och **Diagnostik**, och kommunicera med användarna via **Push**-tjänsten. Utvecklare kan också dra nytta av **Auth** för att autentisera sina användare och tjänsten **Data** för att spara och synkronisera appdata i molnet.
 >
-> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
+> Om du vill integrera molntjänster i ditt mobilprogram kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) i dag.
 
 ## <a name="overview"></a>Översikt
 
@@ -66,7 +66,7 @@ Du måste skicka in din app till Microsoft Store och sedan konfigurera ditt Serv
 
 ## <a id="update-service"></a>Uppdatera servern för att skicka push-meddelanden
 
-Använd proceduren nedan som matchar din server dels projekt typ @ no__t-0either [.NET-Server](#dotnet) del eller [Node. js-backend](#nodejs).
+Använd proceduren nedan som matchar din server dels projekt typ&mdash;antingen [.NET-Server](#dotnet) del eller [Node. js-backend](#nodejs).
 
 ### <a name="dotnet"></a>.NET-Server dels projekt
 

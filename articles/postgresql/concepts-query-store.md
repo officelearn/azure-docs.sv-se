@@ -29,11 +29,11 @@ Frågearkivet är en valbar funktion, så den är inte aktiv som standard på en
 1. Logga in på Azure Portal och välj Azure Database for PostgreSQL-servern.
 2. Välj **Server parametrar** i avsnittet **Inställningar** på menyn.
 3. Sök efter parametern `pg_qs.query_capture_mode`.
-4. Ange värdet till `TOP` och **Spara**.
+4. Ange värdet `TOP` och **Spara**.
 
 Så här aktiverar du väntande statistik i Frågearkivet: 
 1. Sök efter parametern `pgms_wait_sampling.query_capture_mode`.
-1. Ange värdet till `ALL` och **Spara**.
+1. Ange värdet `ALL` och **Spara**.
 
 
 Du kan också ange dessa parametrar med hjälp av Azure CLI.
@@ -42,7 +42,7 @@ az postgres server configuration set --name pg_qs.query_capture_mode --resource-
 az postgres server configuration set --name pgms_wait_sampling.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value ALL
 ```
 
-Låt upp till 20 minuter innan den första data mängden sparas i azure_sys-databasen.
+Låt upp till 20 minuter innan den första data mängden sparas i azure_sys databasen.
 
 ## <a name="information-in-query-store"></a>Information i Frågearkivet
 Frågearkivet har två butiker:
@@ -91,22 +91,22 @@ När Query Store har Aktiver ATS sparas data i 15-minuters agg regerings fönste
 
 Följande alternativ är tillgängliga för att konfigurera parametrar för Frågearkivet.
 
-| **ProfileServiceApplicationProxy** | **Beskrivning** | **Standard** | **Område**|
+| **Parametern** | **Beskrivning** | **Standard** | **Område**|
 |---|---|---|---|
 | pg_qs.query_capture_mode | Anger vilka instruktioner som spåras. | ingen | ingen, Top, alla |
-| pg_qs. Max _query_text_length | Anger den maximala fråge längden som kan sparas. Längre frågor kommer att trunkeras. | 6000 | 100 – 10 000 |
+| pg_qs.max_query_text_length | Anger den maximala fråge längden som kan sparas. Längre frågor kommer att trunkeras. | 6000 | 100 – 10 000 |
 | pg_qs.retention_period_in_days | Anger kvarhållningsperioden. | 7 | 1 - 30 |
-| pg_qs.track_utility | Anger om verktygs kommandon spåras | För | på, av |
+| pg_qs.track_utility | Anger om verktygs kommandon spåras | på | på, av |
 
 Följande alternativ gäller specifikt för väntande statistik.
 
-| **ProfileServiceApplicationProxy** | **Beskrivning** | **Standard** | **Område**|
+| **Parametern** | **Beskrivning** | **Standard** | **Område**|
 |---|---|---|---|
 | pgms_wait_sampling.query_capture_mode | Anger vilka instruktioner som spåras för väntande statistik. | ingen | ingen, alla|
 | Pgms_wait_sampling.history_period | Ange frekvensen, i millisekunder, vid sampling av väntande händelser. | 100 | 1-600000 |
 
 > [!NOTE] 
-> **pg_qs. query_capture_mode** ersätter **pgms_wait_sampling. query_capture_mode**. Om pg_qs. query_capture_mode är ingen, har inställningen pgms_wait_sampling. query_capture_mode ingen påverkan.
+> **pg_qs. query_capture_mode** ersätter **pgms_wait_sampling. query_capture_mode**. Om pg_qs. query_capture_mode är ingen, har pgms_wait_sampling. query_capture_mode-inställningen ingen påverkan.
 
 
 Använd [Azure Portal](howto-configure-server-parameters-using-portal.md) eller [Azure CLI](howto-configure-server-parameters-using-cli.md) för att hämta eller ange ett annat värde för en parameter.
@@ -121,9 +121,9 @@ Den här vyn returnerar alla data i Frågearkivet. Det finns en rad för varje d
 
 |**Namn**   |**Typ** | **Reference**  | **Beskrivning**|
 |---|---|---|---|
-|runtime_stats_entry_id |bigint | | ID från tabellen runtime_stats_entries|
-|user_id    |OID    |pg_authid. OID  |OID för den användare som körde instruktionen|
-|db_id  |OID    |pg_database. OID    |OID för databasen där instruktionen kördes|
+|runtime_stats_entry_id |bigint | | ID från runtime_stats_entriess tabellen|
+|user_id    |OID    |pg_authid.oid  |OID för den användare som körde instruktionen|
+|db_id  |OID    |pg_database.oid    |OID för databasen där instruktionen kördes|
 |query_id   |bigint  || Intern hash-kod, beräknad från instruktionens parse-träd|
 |query_sql_text |Varchar (10000)  || Text för en representativ instruktion. Olika frågor med samma struktur grupperas tillsammans. den här texten är texten för den första av frågorna i klustret.|
 |plan_id    |bigint |   |ID för planen som motsvarar den här frågan, inte tillgängligt ännu|
@@ -146,15 +146,15 @@ Den här vyn returnerar alla data i Frågearkivet. Det finns en rad för varje d
 |local_blks_written|    bigint  ||  Totalt antal lokala block som skrivits av instruktionen|
 |temp_blks_read |bigint  || Totalt antal temporära block som lästs av instruktionen|
 |temp_blks_written| bigint   || Totalt antal temporära block som skrivits av instruktionen|
-|blk_read_time  |dubbel precision    || Total tid som instruktionen använder för att läsa block, i millisekunder (om track_io_timing har Aktiver ATS, annars noll)|
-|blk_write_time |dubbel precision    || Total tid som instruktionen ägnat åt att skriva block, i millisekunder (om track_io_timing är aktiverat, annars noll)|
+|blk_read_time  |dubbel precision    || Total tid som instruktionen ägnat åt att läsa block, i millisekunder (om track_io_timing är aktive rad, annars noll)|
+|blk_write_time |dubbel precision    || Total tid som instruktionen ägnat åt att skriva block, i millisekunder (om track_io_timing har Aktiver ATS, annars noll)|
     
 ### <a name="query_storequery_texts_view"></a>query_store.query_texts_view
 Den här vyn returnerar text data i Frågearkivet. Det finns en rad för varje distinkt query_text.
 
 |**Namn**|  **Typ**|   **Beskrivning**|
 |---|---|---|
-|query_text_id  |bigint     |ID för query_texts-tabellen|
+|query_text_id  |bigint     |ID för query_textss tabellen|
 |query_sql_text |Varchar (10000)     |Text för en representativ instruktion. Olika frågor med samma struktur grupperas tillsammans. den här texten är texten för den första av frågorna i klustret.|
 
 ### <a name="query_storepgms_wait_sampling_view"></a>query_store.pgms_wait_sampling_view
@@ -162,25 +162,25 @@ Den här vyn returnerar information om väntande händelser i Frågearkivet. Det
 
 |**Namn**|  **Typ**|   **Reference**| **Beskrivning**|
 |---|---|---|---|
-|user_id    |OID    |pg_authid. OID  |OID för den användare som körde instruktionen|
-|db_id  |OID    |pg_database. OID    |OID för databasen där instruktionen kördes|
+|user_id    |OID    |pg_authid.oid  |OID för den användare som körde instruktionen|
+|db_id  |OID    |pg_database.oid    |OID för databasen där instruktionen kördes|
 |query_id   |bigint     ||Intern hash-kod, beräknad från instruktionens parse-träd|
 |event_type |text       ||Den typ av händelse som server delen väntar på|
 |händelse  |text       ||Vänte händelse namnet om Server delen väntar på att stoppas|
 |fjärrproceduranrop  |Integer        ||Antal insamlade händelser|
 
 
-### <a name="functions"></a>Functions
+### <a name="functions"></a>Funktioner
 Query_store. qs_reset () returnerar void
 
-`qs_reset` @ no__t-1discards all statistik som samlats in hittills i Query Store. Den här funktionen kan bara utföras av Server administratörs rollen.
+`qs_reset` ignorerar all statistik som samlats in så långt från Frågearkivet. Den här funktionen kan bara utföras av Server administratörs rollen.
 
-Query_store. staging_data_reset () returnerar void
+Query_store.staging_data_reset() returns void
 
-`staging_data_reset` @ no__t-1discards all statistik som samlas in i minnet av Frågearkivet (det vill säga data i minnet som inte har tömts till databasen). Den här funktionen kan bara utföras av Server administratörs rollen.
+`staging_data_reset` ignorerar all statistik som samlas in i minnet av Frågearkivet (det vill säga data i minnet som inte har tömts till databasen). Den här funktionen kan bara utföras av Server administratörs rollen.
 
 ## <a name="limitations-and-known-issues"></a>Begränsningar och kända problem
-- Om PostgreSQL-servern har parametern default_transaction_read_only på kan Frågearkivet inte samla in data.
+- Om en PostgreSQL-Server har parametern default_transaction_read_only på, kan Query Store inte samla in data.
 - Query Store-funktionen kan avbrytas om den påträffar långa Unicode-frågor (> = 6000 byte).
 - [Läs repliker](concepts-read-replicas.md) replikerar Query Store-data från huvud servern. Det innebär att en Läs repliks Frågearkivet inte tillhandahåller statistik om frågor som körs på Läs repliken.
 

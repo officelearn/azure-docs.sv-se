@@ -33,7 +33,7 @@ För att slutföra den här självstudien behöver du följande objekt:
 
 - Grundläggande förståelse för Kubernetes, git, CI/CD och behållar avbildningar
 
-- Ett [AKS-kluster][aks-quickstart] och `kubectl` som kon figurer ATS med [AKS-autentiseringsuppgifter för kluster][aks-credentials]
+- Ett [AKS-kluster][aks-quickstart] och `kubectl` konfigurerat med [AKS-autentiseringsuppgifter för kluster][aks-credentials]
 
 - Ett [Azure Container Registry-register (ACR)][acr-quickstart], ACR-inloggnings serverns namn och det AKS-kluster som har kon figurer ATS för att [autentisera med ACR-registret][acr-authentication]
 
@@ -52,7 +52,7 @@ I den här artikeln använder du ett exempel på ett Azure-röstnings program so
 > [!NOTE]
 > I Azures exempel Azure-röstning används en Linux-Pod som är schemalagd att köras på en Linux-nod. Det flöde som beskrivs i den här artikeln fungerar också för en Windows Server-Pod som är schemalagd på en Windows Server-nod.
 
-Delar in följande GitHub-lagringsplats för exempel programmet- [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis). Om du vill förgrena lagringsplatsen till ditt eget GitHub-konto väljer du knappen **Fork** (Förgrening) i det övre högra hörnet.
+Delar in följande GitHub-lagringsplats för exempel programmet – [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis). Om du vill förgrena lagringsplatsen till ditt eget GitHub-konto väljer du knappen **Fork** (Förgrening) i det övre högra hörnet.
 
 Klona gaffel till utvecklings systemet. Se till att du använder URL: en för din förgrening vid kloning av denna lagrings platsen:
 
@@ -72,7 +72,7 @@ Om du vill skapa de behållar avbildningar som behövs för exempel programmet a
 docker-compose up -d
 ```
 
-De nödvändiga bas avbildningarna hämtas och program behållarna skapas. Sedan kan du använda kommandot [Docker images][docker-images] för att se den skapade avbildningen. Tre avbildningar har hämtats eller skapats. `azure-vote-front`-avbildningen innehåller programmet och använder `nginx-flask`-avbildningen som bas. @No__t-0-avbildningen används för att starta en Redis-instans:
+De nödvändiga bas avbildningarna hämtas och program behållarna skapas. Sedan kan du använda kommandot [Docker images][docker-images] för att se den skapade avbildningen. Tre avbildningar har hämtats eller skapats. `azure-vote-front`-avbildningen innehåller programmet och använder `nginx-flask`-avbildningen som bas. `redis`-avbildningen används för att starta en Redis-instans:
 
 ```
 $ docker images
@@ -89,7 +89,7 @@ Innan du kan push-överföra en *Azure-röst-front* behållar avbildning till AC
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Använd kommandot [Docker tag][docker-tag] för att tagga avbildningen med ACR-inloggnings serverns namn och versions numret `v1`. Ange ett eget `<acrLoginServer>`-namn som hämtades i föregående steg:
+Använd kommandot [Docker tag][docker-tag] för att tagga avbildningen med ACR-inloggnings Server namnet och ett versions nummer för `v1`. Ange ett eget `<acrLoginServer>` namn som hämtades i föregående steg:
 
 ```console
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
@@ -117,7 +117,7 @@ Använd sedan kommandot [kubectl Apply][kubectl-apply] för att distribuera prog
 kubectl apply -f azure-vote-all-in-one-redis.yaml
 ```
 
-En Kubernetes för belastnings utjämning skapas för att exponera programmet på Internet. Den här processen kan ta ett par minuter. Använd kommandot [kubectl get service][kubectl-get] med argumentet `--watch` för att övervaka förloppet för distributionen av belastningsutjämnaren. När *EXTERNAL-IP*-adressen har ändrats från *pending* (väntar) till en *IP-adress* använder du `Control + C` för att stoppa kubectl-övervakningsprocessen.
+En Kubernetes för belastnings utjämning skapas för att exponera programmet på Internet. Den här processen kan ta ett par minuter. Använd kommandot [kubectl get service][kubectl-get] med argumentet `--watch` för att övervaka förloppet för distributionen av belastnings utjämning. När *EXTERNAL-IP*-adressen har ändrats från *pending* (väntar) till en *IP-adress* använder du `Control + C` för att stoppa kubectl-övervakningsprocessen.
 
 ```console
 $ kubectl get service azure-vote-front --watch
@@ -138,7 +138,7 @@ För att snabbt distribuera Jenkins för användning i den här artikeln kan du 
 > [!WARNING]
 > Det här exempel skriptet är i demonstrations syfte för att snabbt etablera en Jenkins-miljö som körs på en virtuell Azure-dator. Det använder Azures anpassade skript tillägg för att konfigurera en virtuell dator och sedan Visa de autentiseringsuppgifter som krävs. Din *~/.Kube/config* kopieras till den virtuella Jenkins-datorn.
 
-Kör följande kommandon för att ladda ned och köra skriptet. Du bör granska innehållet i alla skript innan du kör det – [https://raw.githubusercontent.com/Azure-Samples/azure-voting-app-redis/master/jenkins-tutorial/deploy-jenkins-vm.sh](https://raw.githubusercontent.com/Azure-Samples/azure-voting-app-redis/master/jenkins-tutorial/deploy-jenkins-vm.sh).
+Kör följande kommandon för att ladda ned och köra skriptet. Du bör granska innehållet i alla skript innan du kör det [https://raw.githubusercontent.com/Azure-Samples/azure-voting-app-redis/master/jenkins-tutorial/deploy-jenkins-vm.sh](https://raw.githubusercontent.com/Azure-Samples/azure-voting-app-redis/master/jenkins-tutorial/deploy-jenkins-vm.sh).
 
 ```console
 curl https://raw.githubusercontent.com/Azure-Samples/azure-voting-app-redis/master/jenkins-tutorial/deploy-jenkins-vm.sh > azure-jenkins.sh
@@ -159,7 +159,7 @@ Enter the following to Unlock Jenkins:
 - Skapa den första administratörsanvändaren. Ange ett användar namn, till exempel *azureuser*, och ange sedan ditt eget säkra lösen ord. Skriv slutligen ett fullständigt namn och e-postadress.
 - Välj **Spara och Slutför**
 - När Jenkins är klar, väljer du **Börja använda Jenkins**
-    - Om en tom sida visas i din webbläsare när du börjar använda Jenkins, starta om Jenkins-tjänsten. För att starta om tjänsten, SSH till den offentliga IP-adressen för din Jenkins-instans och skriv `sudo service jenkins restart`. Uppdatera din webbläsare när tjänsten har startats om.
+    - Om en tom sida visas i din webbläsare när du börjar använda Jenkins, starta om Jenkins-tjänsten. För att starta om tjänsten, SSH till den offentliga IP-adressen för din Jenkins-instans och typ `sudo service jenkins restart`. Uppdatera din webbläsare när tjänsten har startats om.
 - Logga in på Jenkins med det användar namn och lösen ord som du skapade i installations processen.
 
 ## <a name="create-a-jenkins-environment-variable"></a>Skapa en Jenkins-miljö variabel
@@ -230,13 +230,13 @@ Klicka på **OK** och gå tillbaka till Jenkins-portalen.
 På Start sidan i Jenkins-portalen väljer du **nytt objekt** på den vänstra sidan:
 
 1. Ange *Azure-rösta* som jobbnamn. Välj **Freestyle-projekt**och välj sedan **OK**
-1. Under avsnittet **Allmänt** väljer du **GitHub-projekt** och anger din förgrenade lagrings platsen-URL, t. ex *. https: \//GitHub. com/\<your-GitHub-Account @ no__t-5/Azure-röstning-app-Redis*
-1. Under avsnittet **käll kods hantering** väljer du **git**, anger din förgrenade lagrings platsen *. git* -URL, t. ex. *https: \//GitHub. com/\<your-GitHub-Account @ no__t-6/Azure-Voting-app-Redis. git*
+1. Under avsnittet **Allmänt** väljer du **GitHub-projekt** och anger din förgrenade lagrings platsen-URL, t. ex. *https:\//GitHub.com/\<ditt-GitHub-Account\>/Azure-Voting-app-Redis*
+1. Under avsnittet **käll kods hantering** väljer du **git**, anger din förgrenade lagrings platsen *. git* -URL, t. ex. *https:\//GitHub.com/\<ditt GitHub-konto\>/Azure-Voting-app-Redis.git*
 
 1. Under avsnittet **build-utlösare** väljer du **GitHub Hook-utlösare för gitscm polling (-avsökning**
 1. Under **build-miljö**väljer du **Använd hemliga texter eller filer**
 1. Under **bindningar**väljer du **Lägg till** > **användar namn och lösen ord (separerade)**
-   - Ange `ACR_ID` för **variabeln username**och `ACR_PASSWORD` för **lösen ords variabeln**
+   - Ange `ACR_ID` för **variabeln username**och `ACR_PASSWORD` för **variabeln password**
 
      ![Jenkins-bindningar](media/aks-jenkins/bindings.png)
 
@@ -280,7 +280,7 @@ När en lyckad manuell version är klar integrerar du GitHub i Jenkins-versionen
 
 1. Bläddra till din förgrenade GitHub-lagringsplats i en webbläsare.
 1. Välj **Inställningar** och sedan **Webhooks** på vänster sida.
-1. Välj att **lägga till webhook**. För *nytto lastens URL*anger du `http://<publicIp:8080>/github-webhook/`, där `<publicIp>` är IP-adressen för Jenkins-servern. Se till att ta med efterföljande/. Lämna de andra standardvärdena för innehålls typ och Utlös vid *push* -händelser.
+1. Välj att **lägga till webhook**. För *nytto Last-URL: en*anger `http://<publicIp:8080>/github-webhook/`, där `<publicIp>` är IP-adressen för Jenkins-servern. Se till att ta med efterföljande/. Lämna de andra standardvärdena för innehålls typ och Utlös vid *push* -händelser.
 1. Välj **Lägg till webhook**.
 
     ![Skapa en GitHub-webhook för Jenkins](media/aks-jenkins/webhook.png)
@@ -295,7 +295,7 @@ Nu kan du testa hela CI/CD-pipeline. När du push-överför en kod till GitHub s
 1. Den här nya behållar avbildningen skickas till Azure Container Registry.
 1. Ditt program distribueras till Azure Kubernetes service-uppdateringar med den senaste behållar avbildningen från Azure Container Registry-registret.
 
-Öppna det klonade programmet med en kod redigerare på din utvecklings dator. Öppna filen med namnet **config_file. cfg**under */Azure-Vote/Azure-Vote* -katalogen. Uppdatera röst värden i den här filen till något annat än katter och hundar, som du ser i följande exempel:
+Öppna det klonade programmet med en kod redigerare på din utvecklings dator. Öppna filen med namnet **config_file. cfg**under katalogen */Azure-Vote/Azure-Vote* . Uppdatera röst värden i den här filen till något annat än katter och hundar, som du ser i följande exempel:
 
 ```
 # UI Configurations

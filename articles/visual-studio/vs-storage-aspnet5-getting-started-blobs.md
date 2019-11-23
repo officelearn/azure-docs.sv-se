@@ -36,7 +36,7 @@ Några av de Azure Storage API: erna är asynkrona och koden i den här artikeln
 
 För att program mässigt få åtkomst till blobbar i ASP.NET Core-projekt måste du lägga till följande kod om den inte redan finns:
 
-1. Lägg till nödvändiga `using`-uttryck:
+1. Lägg till nödvändiga `using`-satser:
 
     ```cs
     using Microsoft.Extensions.Configuration;
@@ -55,7 +55,7 @@ För att program mässigt få åtkomst till blobbar i ASP.NET Core-projekt måst
         "<access-key>"), true);
     ```
 
-1. Använd ett `CloudBlobClient`-objekt för att hämta en `CloudBlobContainer`-referens till en befintlig behållare i ditt lagrings konto:
+1. Använd ett `CloudBlobClient`-objekt för att hämta en `CloudBlobContainer` referens till en befintlig behållare i ditt lagrings konto:
 
     ```cs
     // Create a blob client.
@@ -91,7 +91,7 @@ await container.SetPermissionsAsync(new BlobContainerPermissions
 
 ## <a name="upload-a-blob-into-a-container"></a>Ladda upp en blob till en container
 
-Om du vill överföra en BLOB-fil till en behållare hämtar du en behållar referens och använder den för att hämta en BLOB-referens. Ladda sedan upp data strömmar till den referensen genom att anropa metoden `UploadFromStreamAsync`. Den här åtgärden skapar blobben om den inte redan finns där, och skriver över en befintlig blob. 
+Om du vill överföra en BLOB-fil till en behållare hämtar du en behållar referens och använder den för att hämta en BLOB-referens. Ladda sedan upp data strömmar till referensen genom att anropa metoden `UploadFromStreamAsync`. Den här åtgärden skapar blobben om den inte redan finns där, och skriver över en befintlig blob. 
 
 ```cs
 // Get a reference to a blob named "myblob".
@@ -107,7 +107,7 @@ using (var fileStream = System.IO.File.OpenRead(@"path\myfile"))
 
 ## <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobarna i en container
 
-Om du vill visa en lista över blobarna i en behållare, hämtar du först en behållar referens och anropar sedan dess `ListBlobsSegmentedAsync`-metod för att hämta blobbar och/eller kataloger i den. För att få åtkomst till den omfattande uppsättningen med egenskaper och metoder för en returnerad `IListBlobItem`, omvandla den till ett `CloudBlockBlob`-, @no__t-eller `CloudBlobDirectory`-objekt. Om du inte känner till BLOB-typen använder du en typ kontroll för att avgöra vilken du vill omvandla den till.
+Om du vill visa en lista över blobarna i en behållare, hämtar du först en behållar referens och anropar sedan dess `ListBlobsSegmentedAsync`-metod för att hämta blobbar och/eller kataloger i den. För att få åtkomst till den omfattande uppsättningen med egenskaper och metoder för en returnerad `IListBlobItem`, omvandla den till ett `CloudBlockBlob`, `CloudPageBlob`eller `CloudBlobDirectory` objekt. Om du inte känner till BLOB-typen använder du en typ kontroll för att avgöra vilken du vill omvandla den till.
 
 ```cs
 BlobContinuationToken token = null;
@@ -145,7 +145,7 @@ Se [snabb start: Ladda upp, ladda ned och lista blobar med .net](../storage/blob
 
 ## <a name="download-a-blob"></a>Ladda ned en blob
 
-Hämta en BLOB genom att först hämta en referens till bloben och anropa sedan metoden `DownloadToStreamAsync`. I följande exempel används metoden `DownloadToStreamAsync` för att överföra BLOB-innehållet till ett Stream-objekt som du sedan kan spara som en lokal fil.
+Hämta en BLOB genom att först hämta en referens till bloben och sedan anropa metoden `DownloadToStreamAsync`. I följande exempel används metoden `DownloadToStreamAsync` för att överföra BLOB-innehållet till ett Stream-objekt som du sedan kan spara som en lokal fil.
 
 ```cs
 // Get a reference to a blob named "photo1.jpg".

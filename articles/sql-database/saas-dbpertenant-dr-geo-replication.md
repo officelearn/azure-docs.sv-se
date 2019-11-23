@@ -91,8 +91,8 @@ Senare i ett separat Repatriation-steg växlar du över katalogen och klient dat
 Innan du påbörjar återställnings processen granskar du det normala hälso tillståndet för programmet.
 1. I webbläsaren öppnar du Wingtip Ticket Events Hub (http://events.wingtip-dpt.&lt; User&gt;. trafficmanager.net – Ersätt &lt;användar&gt; med distributionens användar värde).
     * Rulla längst ned på sidan och Lägg märke till katalog serverns namn och plats i sidfoten. Platsen är den region där du distribuerade appen.
-    *Tips: Hovra musen över platsen för att förstora visningen.* 
-    ![Events Hub-felfritt tillstånd i den ursprungliga regionen](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
+    *Tips: Pekar på platsen för att visa.* 
+    ![Händelser hub felfritt tillstånd i ursprungliga region](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
 
 2. Klicka på Contoso konsert Hall-klienten och öppna dess händelse sida.
     * Lägg märke till klient serverns namn i sidfoten. Platsen kommer att vara samma som katalog serverns plats.

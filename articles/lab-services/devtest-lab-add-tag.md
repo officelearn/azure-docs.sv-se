@@ -32,11 +32,11 @@ Resurser som stöds av taggar är
 * IP-adresser
 * Lastbalanserare
 * Lagringskonton
-* Managed Disks
+* Hanterade diskar
 
 Du kan använda taggar när du [skapar ett labb](devtest-lab-create-lab.md) och senare hanterar dem via bladet Taggar under konfiguration och inställningar.
 
-Varje tagg består av ett **namn**@no__t **-1-värdepar.** Du kan till exempel skapa en tagg med namnet *CostCenter* som har värdet *34543*. En tagg som detta kan hjälpa dig att senare identifiera labb resurser som är fakturerbara i det här avsnittet av din organisation. Du kan välja namn och värden som passar för hur du vill organisera din prenumeration.
+Varje tagg består av ett **namn**/**värdepar** . Du kan till exempel skapa en tagg med namnet *CostCenter* som har värdet *34543*. En tagg som detta kan hjälpa dig att senare identifiera labb resurser som är fakturerbara i det här avsnittet av din organisation. Du kan välja namn och värden som passar för hur du vill organisera din prenumeration.
 
 ## <a name="steps-to-manage-tags-in-an-existing-lab"></a>Steg för att hantera Taggar i ett befintligt labb
 
@@ -48,7 +48,7 @@ Varje tagg består av ett **namn**@no__t **-1-värdepar.** Du kan till exempel s
     ![Knappen konfiguration och principer](./media/devtest-lab-add-tag/devtestlab-config-and-policies.png)
 
 1. Välj **taggar**till vänster under **Hantera**.
-1. Om du vill skapa en ny tagg för det här labbet anger du ett **namn**@no__t **-1 värdepar** och väljer **Spara**. Du kan också välja en befintlig tagg från listan för att visa eller hantera de resurser som är kopplade till den taggen.
+1. Om du vill skapa en ny tagg för det här labbet anger du ett **namn**/**värdepar** och väljer **Spara**. Du kan också välja en befintlig tagg från listan för att visa eller hantera de resurser som är kopplade till den taggen.
 
     ![Hantera Taggar](./media/devtest-lab-add-tag/devtestlab-manage-tags.png)
 

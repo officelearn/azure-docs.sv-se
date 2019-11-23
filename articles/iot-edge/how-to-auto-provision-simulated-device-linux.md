@@ -31,11 +31,11 @@ Den här artikeln visar hur du testar automatisk etablering på en simulerad IoT
 > TPM 2,0 krävs när du använder TPM-attestering med DPS och kan endast användas för att skapa enskilda, inte grupper, registreringar.
 
 > [!TIP]
-> Den här artikeln beskriver hur du testar DPS-etablering med hjälp av en TPM-simulator, men det är mycket som gäller för fysisk TPM-maskinvara som [INFINEON OPTIGA @ no__t-1 TPM](https://catalog.azureiotsolutions.com/details?title=OPTIGA-TPM-SLB-9670-Iridium-Board), en Azure-certifierad för IoT-enhet.
+> I den här artikeln beskrivs hur du testar DPS-etablering med hjälp av en TPM-simulator, men det är mycket som gäller för den fysiska TPM-maskinvaran, till exempel [INFINEON OPTIGA&trade; TPM](https://catalog.azureiotsolutions.com/details?title=OPTIGA-TPM-SLB-9670-Iridium-Board), en Azure-certifierad för IoT-enheter.
 >
 > Om du använder en fysisk enhet kan du gå vidare till avsnittet [Hämta etablerings information från en fysisk enhet](#retrieve-provisioning-information-from-a-physical-device) i den här artikeln.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Windows-utvecklingsdator med [Hyper-V aktiverat](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v). Den här artikeln använder Windows 10 som körs på en dator med Ubuntu Server.
 * En aktiv IoT-hubb.
@@ -65,13 +65,13 @@ Om du får felmeddelanden när du skapar den nya virtuella växeln, kontrollerar
 
 1. Ladda ned en disk image-filen om du vill använda för den virtuella datorn och spara den lokalt. Till exempel [Ubuntu server](https://www.ubuntu.com/download/server). 
 
-2. I Hyper-V Manager igen väljer du **ny** > **virtuell dator** i menyn **åtgärder** .
+2. I Hyper-V Manager igen väljer du **ny** > **virtuell dator** på menyn **åtgärder** .
 
 3. Slutför den **guiden Ny virtuell dator** med följande specifika konfigurationer:
 
-   1. **Ange generation**: Välj **generation 2**. Virtuella datorer i generation 2 har kapslad virtualisering aktiverat, vilket krävs för att köra IoT Edge på en virtuell dator.
-   2. **Konfigurera nätverk**: Ange värdet för **anslutning** till den virtuella växel som du skapade i föregående avsnitt. 
-   3. **Installations alternativ**: Välj **Installera ett operativ system från en startbar avbildnings fil** och bläddra till disk avbildnings filen som du sparade lokalt.
+   1. **Ange Generation**: Välj **Generation 2**. Virtuella datorer i generation 2 har kapslad virtualisering aktiverat, vilket krävs för att köra IoT Edge på en virtuell dator.
+   2. **Konfigurera nätverk**: Ange värdet för **anslutning** till den virtuella växeln som du skapade i föregående avsnitt. 
+   3. **Installationsalternativ**: Välj **installera ett operativsystem från en startbar avbildningsfil** och bläddra till disk image-filen som du sparade lokalt.
 
 4. Klicka på **Slutför** i guiden för att skapa den virtuella datorn.
 
@@ -83,7 +83,7 @@ När den virtuella datorn har skapats öppnar du dess inställningar för att ak
 
 1. Välj den virtuella datorn och öppna dess **Inställningar**.
 
-2. Gå till **Security**. 
+2. Gå till **Security** (Säkerhet). 
 
 3. Avmarkera **aktivera säker Start**.
 
@@ -114,19 +114,19 @@ Bygg ett verktyg som du kan använda för att hämta enhetens **registrerings-ID
    sudo ./tpm_device_provision
    ```
 
-1. Från ett kommando fönster navigerar du till katalogen `azure-iot-sdk-c` och kör TPM-simulatorn. Den lyssnar via en socket på portarna 2321 och 2322. Stäng inte det här kommando fönstret. den här simulatorn måste vara igång.
+1. Från ett kommando fönster navigerar du till `azure-iot-sdk-c` Directory och kör TPM-simulatorn. Den lyssnar via en socket på portarna 2321 och 2322. Stäng inte det här kommando fönstret. den här simulatorn måste vara igång.
 
-   Kör följande kommando från katalogen `azure-iot-sdk-c` för att starta simulatorn:
+   Kör följande kommando från `azure-iot-sdk-c`-katalogen för att starta simulatorn:
 
    ```bash
    ./provisioning_client/deps/utpm/tools/tpm_simulator/Simulator.exe
    ```
 
-1. Med Visual Studio öppnar du lösningen som genererats i `cmake`-katalogen med namnet `azure_iot_sdks.sln` och skapar den med hjälp av kommandot **skapa lösning** på menyn **skapa** .
+1. Med Visual Studio öppnar du lösningen som genererats i `cmake` katalog med namnet `azure_iot_sdks.sln`och skapar den med hjälp av kommandot **build lösning** på menyn **skapa** .
 
 1. I rutan**Solution Explorer** i Visual Studio går du till mappen **Provision (Etablera)\_Verktyg**. Högerklicka på projektet **tpm_device_provision** och markera **Set as Startup Project** (Ange som startprojekt).
 
-1. Kör lösningen med något av **Start** kommandona på **fel söknings** menyn. I fönstret Utdata visas TPM-Simulatorns **registrerings-ID** och **bekräftelse nyckeln**, som du bör kopiera för att använda senare när du skapar en enskild registrering för enheten i du kan stänga det här fönstret (med registrerings-ID och Bekräftelse nyckel), men lämna fönstret för TPM-simulatorn igång.
+1. Kör lösningen med något av **Start** kommandona på **fel söknings** menyn. I fönstret Utdata visas TPM-Simulatorns **registrerings-ID** och **bekräftelse nyckeln**, som du bör kopiera för att använda senare när du skapar en enskild registrering för enheten i du kan stänga det här fönstret (med registrerings-ID och bekräftelse nyckel), men lämna fönstret för TPM-simulatorn igång.
 
 ## <a name="retrieve-provisioning-information-from-a-physical-device"></a>Hämta etablerings information från en fysisk enhet
 
@@ -299,7 +299,7 @@ Lista med moduler.
 iotedge list
 ```
 
-Du kan kontrol lera att den enskilda registrering som du skapade i enhets etablerings tjänsten användes. Navigera till din enhets etablerings tjänst instans i Azure Portal. Öppna registrerings informationen för den enskilda registrering som du har skapat. Observera att statusen för registreringen är tilldelad och att enhets-ID visas. 
+Du kan kontrol lera att den enskilda registrering som du skapade i enhets etablerings tjänsten användes. Navigera till din enhets etablerings tjänst instans i Azure Portal. Öppna registrerings informationen för den enskilda registrering som du har skapat. Observera att statusen för registreringen är **tilldelad** och att enhets-ID visas. 
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -15,7 +15,7 @@ ms.lasthandoff: 10/13/2019
 ms.locfileid: "72299580"
 ---
 # <a name="how-to-deploy-azure-files"></a>Så här distribuerar du Azure Files
-[Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via SMB-protokollet enligt bransch standard. I den här artikeln får du se hur du praktiskt taget distribuerar Azure Files i din organisation.
+[Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via SMB-protokollet som är branschstandard. I den här artikeln får du se hur du praktiskt taget distribuerar Azure Files i din organisation.
 
 Vi rekommenderar starkt att du [planerar att läsa en Azure Files distribution](storage-files-planning.md) innan du följer stegen i den här artikeln.
 
@@ -65,7 +65,7 @@ Följande steg kommer att importera data från en lokal plats till Azure-filresu
 
     Du kan ange flera resurser med ett lagrings konto. Mer information finns i [förbereda CSV-filen för data mängden](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) .
 
-5. Skapa CSV-filen driveset. Driveset CSV-filen listar de diskar som är tillgängliga för den lokala export agenten. Till exempel visar följande driveset CSV-fil `X:`, `Y:` och @no__t 2 enheter som ska användas i det lokala export jobbet:
+5. Skapa CSV-filen driveset. Driveset CSV-filen listar de diskar som är tillgängliga för den lokala export agenten. Till exempel visar följande driveset CSV-fil `X:`, `Y:`och `Z:` enheter som ska användas i det lokala export jobbet:
 
     ```
     DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
@@ -129,7 +129,7 @@ För att ersätta en lokal fil resurs är det bra att Förmontera resurserna på
 > Att montera en Azure-filresurs kräver att du använder lagrings konto nyckeln som lösen ord, och därför rekommenderar vi bara montering i betrodda miljöer. 
 
 ### <a name="windows"></a>Windows
-PowerShell kan användas för att köra monterings kommandot på flera datorer. I följande exempel fylls `$computers` av manuellt, men du kan skapa en lista med datorer som ska monteras automatiskt. Du kan till exempel fylla i den här variabeln med resultat från Active Directory.
+PowerShell kan användas för att köra monterings kommandot på flera datorer. I följande exempel fylls `$computers` manuellt, men du kan skapa en lista med datorer som ska monteras automatiskt. Du kan till exempel fylla i den här variabeln med resultat från Active Directory.
 
 ```powershell
 $computer = "MyComputer1", "MyComputer2", "MyComputer3", "MyComputer4"
@@ -137,7 +137,7 @@ $computer | ForEach-Object { Invoke-Command -ComputerName $_ -ScriptBlock { net 
 ```
 
 ### <a name="linux"></a>Linux
-Ett enkelt bash-skript kombinerat med SSH kan ge samma resultat i följande exempel. Den `$computer`-variabeln lämnas på samma sätt som användaren fyller i:
+Ett enkelt bash-skript kombinerat med SSH kan ge samma resultat i följande exempel. `$computer` variabeln lämnas på samma sätt som användaren fyller i:
 
 ```
 computer = ("MyComputer1" "MyComputer2" "MyComputer3" "MyComputer4")

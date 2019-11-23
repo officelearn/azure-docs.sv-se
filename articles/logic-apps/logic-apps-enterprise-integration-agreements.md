@@ -18,7 +18,7 @@ ms.locfileid: "72680426"
 ---
 # <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Skapa och hantera handels partner avtal i Azure Logic Apps
 
-Ett [handels partner](../logic-apps/logic-apps-enterprise-integration-partners.md)  
+Ett [handels partner](../logic-apps/logic-apps-enterprise-integration-partners.md) 
 *avtal* hjälper organisationer och företag att kommunicera sömlöst med varandra genom att definiera det specifika bransch standard protokoll som ska användas för att utbyta B2B-meddelanden (Business-to-Business). Avtal ger vanliga fördelar, till exempel:
 
 * Gör det möjligt för organisationer att utbyta information med hjälp av välkända format.
@@ -60,12 +60,12 @@ På huvud menyn i Azure väljer du **alla tjänster**. I rutan Sök anger du "in
 
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | **Namn** | Ja | <*avtal – namn* > | Namnet på ditt avtal |
+   | **Namn** | Ja | <*avtal – namn*> | Namnet på ditt avtal |
    | **Avtals typ** | Ja | **AS2**, **X12**eller **EDIFACT** | Protokoll typ för ditt avtal. När du skapar en avtals fil måste innehållet i den filen matcha avtals typen. | |  
-   | **Värd partner** | Ja | <*Host-partner-name* > | Värd partnern representerar den organisation som specificerar avtalet |
-   | **Värd identitet** | Ja | <*Host-partner-id* > | Värd partnerns identifierare |
-   | **Gäst partner** | Ja | <*gäst-partner-name* > | Gäst partnern representerar den organisation som gör affärer med värd partnern |
-   | **Gäst identitet** | Ja | <*gäst-partner-id* > | Gäst partnerns identifierare |
+   | **Värd partner** | Ja | <*Host-partner-name*> | Värd partnern representerar den organisation som specificerar avtalet |
+   | **Värd identitet** | Ja | <*host-partner-identifier*> | Värd partnerns identifierare |
+   | **Gäst partner** | Ja | <*gäst-partner-name*> | Gäst partnern representerar den organisation som gör affärer med värd partnern |
+   | **Gäst identitet** | Ja | <*guest-partner-identifier*> | Gäst partnerns identifierare |
    | **Ta emot inställningar** | Varierar | Varierar | Dessa egenskaper anger hur värd partner tar emot alla inkommande meddelanden från gäst partnern i avtalet. Mer information finns i respektive avtals typ: <p>- [Inställningar för AS2-meddelanden](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Inställningar för EDIFACT-meddelanden](logic-apps-enterprise-integration-edifact.md) <br>- [Inställningar för X12-meddelanden](logic-apps-enterprise-integration-x12.md) |
    | **Skicka inställningar** | Varierar | Varierar | De här egenskaperna anger hur värd partner skickar alla utgående meddelanden till gäst partnern i avtalet. Mer information finns i respektive avtals typ: <p>- [Inställningar för AS2-meddelanden](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Inställningar för EDIFACT-meddelanden](logic-apps-enterprise-integration-edifact.md) <br>- [Inställningar för X12-meddelanden](logic-apps-enterprise-integration-x12.md) |
    |||||

@@ -87,7 +87,7 @@ Du kan också konfigurera andra funktioner i Azure AD.  Dessa krävs inte för a
     |------------|-----------------|
     | **Namn** | Namnet på identitets källan. |
     | **Grundläggande DN för användare** | Grundläggande unikt namn för användare.  För Azure AD använder du: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` exempel: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`.|
-    | **Domän namn** | FDQN för domänen, till exempel example.com. Ange ingen IP-adress i den här text rutan. |
+    | **Domännamn** | FDQN för domänen, till exempel example.com. Ange ingen IP-adress i den här text rutan. |
     | **Domän Ali Aset** | *(valfritt)* Domänens NetBIOS-namn. Lägg till NetBIOS-namnet för Active Directory domän som ett alias för identitets källan om du använder SSPI-autentiseringar. |
     | **Bas-DN för grupper** | Det grundläggande unika namnet för grupper. För Azure AD använder du: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` exempel: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`|
     | **Primär server-URL** | Primär domänkontrollantens LDAP-server för domänen.<br><br>Använd formatet `ldaps://hostname:port`. Porten är vanligt vis 636 för LDAPs-anslutningar. <br><br>Ett certifikat som upprättar förtroende för LDAP-slutpunkten för Active Directory-servern krävs när du använder `ldaps://` i den primära eller sekundära LDAP-URL: en. |

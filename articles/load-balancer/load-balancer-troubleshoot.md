@@ -1,6 +1,6 @@
 ---
 title: Felsök Azure Load Balancer
-description: Learn how to troubleshoot known issues with Azure Load Balancer.
+description: Lär dig hur du felsöker kända problem med Azure Load Balancer.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -24,115 +24,115 @@ ms.locfileid: "74214767"
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
-This page provides troubleshooting information for common Azure Load Balancer questions. When the Load Balancer connectivity is unavailable, the most common symptoms are as follows: 
-- VMs behind the Load Balancer are not responding to health probes 
-- VMs behind the Load Balancer are not responding to the traffic on the configured port
+Den här sidan innehåller felsöknings information för vanliga Azure Load Balancer frågor. När Load Balancer anslutningen inte är tillgänglig är de vanligaste symptomen följande: 
+- Virtuella datorer bakom Load Balancer svarar inte på hälso avsökningar 
+- Virtuella datorer bakom Load Balancer svarar inte på trafiken på den konfigurerade porten
 
-When the external clients to the backend VMs go through the load balancer, the IP address of the clients will be used for the communication. Make sure the IP address of the clients are added into the NSG allow list. 
+När de externa klienterna till de virtuella server dels datorerna går via belastningsutjämnaren, används IP-adressen för klienterna för kommunikationen. Kontrol lera att IP-adressen för klienterna läggs till i listan över tillåtna NSG. 
 
-## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>Symptom: VMs behind the Load Balancer are not responding to health probes
-For the backend servers to participate in the load balancer set, they must pass the probe check. For more information about health probes, see [Understanding Load Balancer Probes](load-balancer-custom-probe-overview.md). 
+## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>Symptom: virtuella datorer bakom Load Balancer svarar inte på hälso avsökningar
+För att backend-servrarna ska delta i belastnings Utjämnings uppsättningen måste de klara avsöknings kontrollen. Mer information om hälso avsökningar finns i [förstå Load Balancer avsökningar](load-balancer-custom-probe-overview.md). 
 
-The Load Balancer backend pool VMs may not be responding to the probes due to any of the following reasons: 
-- Load Balancer backend pool VM is unhealthy 
-- Load Balancer backend pool VM is not listening on the probe port 
-- Firewall, or a network security group is blocking the port on the Load Balancer backend pool VMs 
-- Other misconfigurations in Load Balancer
+Load Balancer de virtuella datorerna i fjärrpoolen kanske inte svarar på avsökningarna på grund av någon av följande orsaker: 
+- Load Balancer backend-poolens VM-pool är inte felfri 
+- Load Balancer VM-adresspoolen lyssnar inte på avsöknings porten 
+- Brand väggen eller en nätverks säkerhets grupp blockerar porten på de virtuella datorerna i Load Balancer backend-poolen 
+- Andra felkonfigurationer i Load Balancer
 
-### <a name="cause-1-load-balancer-backend-pool-vm-is-unhealthy"></a>Cause 1: Load Balancer backend pool VM is unhealthy 
+### <a name="cause-1-load-balancer-backend-pool-vm-is-unhealthy"></a>Orsak 1: den virtuella datorn för Load Balancer backend-poolen är inte felfri 
 
-**Validation and resolution**
+**Verifiering och lösning**
 
-To resolve this issue, log in to the participating VMs, and check if the VM state is healthy, and can respond to **PsPing** or **TCPing** from another VM in the pool. If the VM is unhealthy, or is unable to respond to the probe, you must rectify the issue and get the VM back to a healthy state before it can participate in load balancing.
+Lös problemet genom att logga in på de deltagande virtuella datorerna och kontrol lera om tillståndet för den virtuella datorn är felfritt och kan svara på **PsPing** eller **TCPing** från en annan virtuell dator i poolen. Om den virtuella datorn är ohälsosam eller inte kan svara på avsökningen, måste du åtgärda problemet och återställa den till ett felfritt tillstånd innan den kan ingå i belastnings utjämningen.
 
-### <a name="cause-2-load-balancer-backend-pool-vm-is-not-listening-on-the-probe-port"></a>Cause 2: Load Balancer backend pool VM is not listening on the probe port
-If the VM is healthy, but is not responding to the probe, then one possible reason could be that the probe port is not open on the participating VM, or the VM is not listening on that port.
+### <a name="cause-2-load-balancer-backend-pool-vm-is-not-listening-on-the-probe-port"></a>Orsak 2: den virtuella datorn i Load Balancer backend-poolen lyssnar inte på avsöknings porten
+Om den virtuella datorn är felfri, men inte svarar på avsökningen, kan en möjlig orsak vara att avsöknings porten inte är öppen på den deltagande virtuella datorn eller att den virtuella datorn inte lyssnar på den porten.
 
-**Validation and resolution**
+**Verifiering och lösning**
 
-1. Log in to the backend VM. 
-2. Open a command prompt and run the following command to validate there is an application listening on the probe port:   
-            netstat -an
-3. If the port state is not listed as **LISTENING**, configure the proper port. 
-4. Alternatively, select another port, that is listed as **LISTENING**, and update load balancer configuration accordingly.              
+1. Logga in på den virtuella datorns Server del. 
+2. Öppna en kommando tolk och kör följande kommando för att verifiera att det finns ett program som lyssnar på avsöknings porten:   
+            Netstat-a
+3. Om Port statusen inte visas som **avlyssning**konfigurerar du rätt port. 
+4. Du kan också välja en annan port, som visas som **lyssning**och uppdatera belastnings Utjämnings konfigurationen.              
 
-### <a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>Cause 3: Firewall, or a network security group is blocking the port on the load balancer backend pool VMs  
-If the firewall on the VM is blocking the probe port, or one or more network security groups configured on the subnet or on the VM, is not allowing the probe to reach the port, the VM is unable to respond to the health probe.          
+### <a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>Orsak 3: brand vägg eller en nätverks säkerhets grupp blockerar porten på de virtuella datorerna för belastningsutjämnare i backend-poolen  
+Om brand väggen på den virtuella datorn blockerar avsöknings porten, eller om en eller flera nätverks säkerhets grupper som kon figurer ATS i under nätet eller på den virtuella datorn, inte tillåter avsökningen att kontakta porten, kan den virtuella datorn inte svara på hälso avsökningen.          
 
-**Validation and resolution**
+**Verifiering och lösning**
 
-* If the firewall is enabled, check if it is configured to allow the probe port. If not, configure the firewall to allow traffic on the probe port, and test again. 
-* From the list of network security groups, check if the incoming or outgoing traffic on the probe port has interference. 
-* Also, check if a **Deny All** network security groups rule on the NIC of the VM or the subnet that has a higher priority than the default rule that allows LB probes & traffic (network security groups must allow Load Balancer IP of 168.63.129.16). 
-* If any of these rules are blocking the probe traffic, remove and reconfigure the rules to allow the probe traffic.  
-* Test if the VM has now started responding to the health probes. 
+* Om brand väggen är aktive rad kontrollerar du om den är konfigurerad för att tillåta avsöknings porten. Om inte, konfigurerar du brand väggen så att den tillåter trafik på avsöknings porten och testar igen. 
+* I listan över nätverks säkerhets grupper kontrollerar du om inkommande eller utgående trafik på avsöknings porten har störningar. 
+* Kontrol lera också om regeln **Neka alla** nätverks säkerhets grupper på nätverkskortet för den virtuella datorn eller under nätet som har högre prioritet än standard regeln som tillåter lb-avsökning & trafik (nätverks säkerhets grupper måste tillåta Load Balancer IP för 168.63.129.16). 
+* Om någon av dessa regler blockerar avsöknings trafiken tar du bort och konfigurerar om reglerna för att tillåta avsöknings trafiken.  
+* Testa om den virtuella datorn nu har börjat svara på hälso avsökningarna. 
 
-### <a name="cause-4-other-misconfigurations-in-load-balancer"></a>Cause 4: Other misconfigurations in Load Balancer
-If all the preceding causes seem to be validated and resolved correctly, and the backend VM still does not respond to the health probe, then manually test for connectivity, and collect some traces to understand the connectivity.
+### <a name="cause-4-other-misconfigurations-in-load-balancer"></a>Orsak 4: andra fel konfigurationer i Load Balancer
+Om alla föregående orsaker verkar vara verifierade och lösta korrekt, och backend-datorn fortfarande inte svarar på hälso avsökningen, kan du manuellt testa anslutningen och samla in vissa spår för att förstå anslutningen.
 
-**Validation and resolution**
+**Verifiering och lösning**
 
-* Use **Psping** from one of the other VMs within the VNet to test the probe port response (example: .\psping.exe -t 10.0.0.4:3389) and record results. 
-* Use **TCPing** from one of the other VMs within the VNet to test the probe port response (example: .\tcping.exe 10.0.0.4 3389) and record results. 
-* If no response is received in these ping tests, then
-    - Run a simultaneous Netsh trace on the target backend pool VM and another test VM from the same VNet. Now, run a PsPing test for some time, collect some network traces, and then stop the test. 
-    - Analyze the network capture and see if there are both incoming and outgoing packets related to the ping query. 
-        - If no incoming packets are observed on the backend pool VM, there is potentially a network security groups or UDR mis-configuration blocking the traffic. 
-        - If no outgoing packets are observed on the backend pool VM, the VM needs to be checked for any unrelated issues (for example, Application blocking the probe port). 
-    - Verify if the probe packets are being forced to another destination (possibly via UDR settings) before reaching the load balancer. This can cause the traffic to never reach the backend VM. 
-* Change the probe type (for example, HTTP to TCP), and configure the corresponding port in network security groups ACLs and firewall to validate if the issue is with the configuration of probe response. For more information about health probe configuration, see [Endpoint Load Balancing health probe configuration](https://blogs.msdn.microsoft.com/mast/2016/01/26/endpoint-load-balancing-heath-probe-configuration-details/).
+* Använd **Psping** från någon av de andra virtuella datorerna i det virtuella nätverket för att testa avsöknings portens svar (exempel: .\psping.exe-t 10.0.0.4:3389) och registrera resultat. 
+* Använd **TCPing** från någon av de andra virtuella datorerna i det virtuella nätverket för att testa avsöknings portens svar (exempel: .\tcping.exe 10.0.0.4 3389) och registrera resultat. 
+* Om inget svar tas emot i dessa ping-test,
+    - Kör en samtidig netsh-spårning på mål server delens virtuella dator och en annan virtuell test dator från samma VNet. Kör nu ett PsPing-test under en viss tid, samla in några nätverks spår och stoppa sedan testet. 
+    - Analysera nätverks avbildningen och se om det finns både inkommande och utgående paket relaterade till ping-frågan. 
+        - Om inga inkommande paket observerats på den virtuella backend-poolen, finns det potentiellt nätverks säkerhets grupper eller UDR-konfiguration som blockerar trafiken. 
+        - Om inga utgående paket observeras på den virtuella backend-poolen måste den virtuella datorn kontrol leras för eventuella orelaterade problem (till exempel program som blockerar avsöknings porten). 
+    - Kontrol lera att avsöknings paketen tvingas till ett annat mål (eventuellt via UDR-inställningar) innan belastningsutjämnaren når belastningsutjämnaren. Detta kan orsaka att trafiken aldrig når den virtuella backend-datorn. 
+* Ändra avsöknings typ (till exempel HTTP till TCP) och konfigurera motsvarande port i nätverks säkerhets grupper ACL: er och brand vägg för att kontrol lera om problemet beror på konfigurationen av avsöknings svaret. Mer information om konfiguration av hälso avsökning finns i [konfiguration av hälso avsöknings konfiguration för slut punkts belastning](https://blogs.msdn.microsoft.com/mast/2016/01/26/endpoint-load-balancing-heath-probe-configuration-details/).
 
-## <a name="symptom-vms-behind-load-balancer-are-not-responding-to-traffic-on-the-configured-data-port"></a>Symptom: VMs behind Load Balancer are not responding to traffic on the configured data port
+## <a name="symptom-vms-behind-load-balancer-are-not-responding-to-traffic-on-the-configured-data-port"></a>Symptom: virtuella datorer bakom Load Balancer svarar inte på trafik på den konfigurerade data porten
 
-If a backend pool VM is listed as healthy and responds to the health probes, but is still not participating in the Load Balancing, or is not responding to the data traffic, it may be due to any of the following reasons: 
-* Load Balancer Backend pool VM is not listening on the data port 
-* Network security group is blocking the port on the Load Balancer backend pool VM  
-* Accessing the Load Balancer from the same VM and NIC 
-* Accessing the Internet Load Balancer frontend from the participating Load Balancer backend pool VM 
+Om en virtuell dator i en virtuell dator i listan visas som felfri och svarar på hälso avsökningarna, men fortfarande inte ingår i belastnings utjämningen eller inte svarar på data trafiken, kan det bero på någon av följande orsaker: 
+* Load Balancer VM-adresspoolen lyssnar inte på data porten 
+* Nätverks säkerhets gruppen blockerar porten på den virtuella datorn i Load Balancer backend-poolen  
+* Åtkomst till Load Balancer från samma virtuella dator och NIC 
+* Åtkomst till Internet Load Balancer-frontend från den deltagande Load Balancer backend-poolen VM 
 
-### <a name="cause-1-load-balancer-backend-pool-vm-is-not-listening-on-the-data-port"></a>Cause 1: Load Balancer backend pool VM is not listening on the data port 
-If a VM does not respond to the data traffic, it may be because either the target port is not open on the participating VM, or, the VM is not listening on that port. 
+### <a name="cause-1-load-balancer-backend-pool-vm-is-not-listening-on-the-data-port"></a>Orsak 1: den virtuella datorn i Load Balancer backend-poolen lyssnar inte på data porten 
+Om en virtuell dator inte svarar på data trafiken kan det bero på att mål porten inte är öppen på den deltagande virtuella datorn eller att den virtuella datorn inte lyssnar på den porten. 
 
-**Validation and resolution**
+**Verifiering och lösning**
 
-1. Log in to the backend VM. 
-2. Open a command prompt and run the following command to validate there is an application listening on the data port:  netstat -an 
-3. If the port is not listed with State “LISTENING”, configure the proper listener port 
-4. If the port is marked as Listening, then check the target application on that port for any possible issues.
+1. Logga in på den virtuella datorns Server del. 
+2. Öppna en kommando tolk och kör följande kommando för att verifiera att det finns ett program som lyssnar på data porten:  netstat-a 
+3. Om porten inte finns med i status "lyssning" konfigurerar du rätt lyssnar port 
+4. Om porten är markerad som avlyssning kontrollerar du mål programmet på den porten för eventuella problem.
 
-### <a name="cause-2-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vm"></a>Cause 2: Network security group is blocking the port on the Load Balancer backend pool VM  
+### <a name="cause-2-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vm"></a>Orsak 2: nätverks säkerhets gruppen blockerar porten på den virtuella datorn Load Balancer backend-poolen  
 
-If one or more network security groups configured on the subnet or on the VM, is blocking the source IP or port, then the VM is unable to respond.
+Om en eller flera nätverks säkerhets grupper som kon figurer ATS i under nätet eller på den virtuella datorn blockerar käll-IP eller port, kommer den virtuella datorn inte att svara.
 
-For the public load balancer, the IP address of the Internet clients will be used for communication between the clients and the load balancer backend VMs. Make sure the IP address of the clients are allowed in the backend VM's network security group.
+För den offentliga belastningsutjämnaren kommer IP-adressen för Internet-klienter att användas för kommunikation mellan klienterna och de virtuella datorerna för belastningsutjämnare. Kontrol lera att klientens IP-adress är tillåtna i den virtuella datorns nätverks säkerhets grupp.
 
-1. List the network security groups configured on the backend VM. For more information, see [Manage network security groups](../virtual-network/manage-network-security-group.md)
-1. From the list of network security groups, check if:
-    - the incoming or outgoing traffic on the data port has interference. 
-    - a **Deny All** network security group rule on the NIC of the VM or the subnet that has a higher priority that the default rule that allows Load Balancer probes and traffic (network security groups must allow Load Balancer IP of 168.63.129.16, that is probe port)
-1. If any of the rules are blocking the traffic, remove and reconfigure those rules to allow the data traffic.  
-1. Test if the VM has now started to respond to the health probes.
+1. Lista de nätverks säkerhets grupper som kon figurer ATS på den virtuella datorn. Mer information finns i [Hantera nätverks säkerhets grupper](../virtual-network/manage-network-security-group.md)
+1. I listan över nätverks säkerhets grupper kontrollerar du om:
+    - inkommande eller utgående trafik på data porten har störningar. 
+    - en regel för att **Neka alla** nätverks säkerhets grupper på nätverkskortet för den virtuella datorn eller under nätet som har en högre prioritet som standard regeln som tillåter Load Balancer avsökningar och trafik (nätverks säkerhets grupper måste tillåta Load Balancer IP-adress för 168.63.129.16, som är avsöknings port)
+1. Om någon av reglerna blockerar trafiken tar du bort och konfigurerar om reglerna för att tillåta data trafiken.  
+1. Testa om den virtuella datorn nu har börjat svara på hälso avsökningarna.
 
-### <a name="cause-3-accessing-the-load-balancer-from-the-same-vm-and-network-interface"></a>Cause 3: Accessing the Load Balancer from the same VM and Network interface 
+### <a name="cause-3-accessing-the-load-balancer-from-the-same-vm-and-network-interface"></a>Orsak 3: komma åt Load Balancer från samma virtuella dator och nätverks gränssnitt 
 
-If your application hosted in the backend VM of a Load Balancer is trying to access another application hosted in the same backend VM over the same Network Interface, it is an unsupported scenario and will fail. 
+Om programmet som finns på den virtuella server delen av en Load Balancer försöker få åtkomst till ett annat program som finns i samma server dels dator i samma nätverks gränssnitt, så är det ett scenario som inte stöds och inte fungerar. 
 
-**Resolution** You can resolve this issue via one of the following methods:
-* Configure separate backend pool VMs per application. 
-* Configure the application in dual NIC VMs so each application was using its own Network interface and IP address. 
+**Lösning** Du kan lösa det här problemet via någon av följande metoder:
+* Konfigurera separata VM-pooler per program. 
+* Konfigurera programmet i virtuella datorer med dubbla nätverkskort så att varje program använder sitt eget nätverks gränssnitt och IP-adress. 
 
-### <a name="cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm"></a>Cause 4: Accessing the internal Load Balancer frontend from the participating Load Balancer backend pool VM
+### <a name="cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm"></a>Orsak 4: komma åt den interna Load Balancer-frontend-filen från den deltagande Load Balancer backend-poolen VM
 
-If an internal Load Balancer is configured inside a VNet, and one of the participant backend VMs is trying to access the internal Load Balancer frontend, failures can occur when the flow is mapped to the originating VM. This scenario is not supported. Review [limitations](load-balancer-overview.md#limitations) for a detailed discussion.
+Om ett internt Load Balancer har kon figurer ATS i ett virtuellt nätverk och en av de virtuella datorerna för en deltagar Server försöker komma åt den interna Load Balancer-frontend, kan fel uppstå när flödet mappas till den ursprungliga virtuella datorn. Det här scenariot stöds inte. Granska [begränsningar](load-balancer-overview.md#limitations) för en detaljerad diskussion.
 
-**Resolution** There are several ways to unblock this scenario, including using a proxy. Evaluate Application Gateway or other 3rd party proxies (for example, nginx or haproxy). For more information about Application Gateway, see [Overview of Application Gateway](../application-gateway/application-gateway-introduction.md)
+**Lösning** Det finns flera sätt att avblockera det här scenariot, inklusive att använda en proxy. Utvärdera Application Gateway eller andra tredjeparts-proxyservrar (till exempel nginx eller haproxy). Mer information om Application Gateway finns i [Översikt över Application Gateway](../application-gateway/application-gateway-introduction.md)
 
-## <a name="additional-network-captures"></a>Additional network captures
-If you decide to open a support case, collect the following information for a quicker resolution. Choose a single backend VM to perform the following tests:
-- Use Psping from one of the backend VMs within the VNet to test the probe port response (example: psping 10.0.0.4:3389) and record results. 
-- If no response is received in these ping tests, run a simultaneous Netsh trace on the backend VM and the VNet test VM while you run PsPing then stop the Netsh trace. 
+## <a name="additional-network-captures"></a>Ytterligare nätverks avbildningar
+Om du väljer att öppna ett support ärende samlar du in följande information för en snabbare lösning. Välj en enskild virtuell dator för att utföra följande tester:
+- Använd Psping från en av de virtuella datorerna i det virtuella nätverket för att testa avsöknings portens svar (exempel: Psping 10.0.0.4:3389) och registrera resultat. 
+- Om inget svar tas emot i de här ping-testerna kör du en samtidig netsh-spårning på den virtuella datorns VM och VNet-testets VM medan du kör PsPing och stoppar sedan netsh-spårningen. 
   
 ## <a name="next-steps"></a>Nästa steg
 
-If the preceding steps do not resolve the issue, open a [support ticket](https://azure.microsoft.com/support/options/).
+Om föregående steg inte löser problemet öppnar du ett [support ärende](https://azure.microsoft.com/support/options/).
 

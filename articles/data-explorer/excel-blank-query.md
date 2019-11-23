@@ -18,7 +18,7 @@ ms.locfileid: "70173734"
 
 Azure Datautforskaren innehåller två alternativ för att ansluta till data i Excel: Använd den interna anslutningen eller importera en fråga från Azure Datautforskaren. Den här artikeln visar hur du importerar en fråga från Azure Datautforskaren till Excel för att visualisera data. Lägg till Kusto-fråga som en Excel-datakälla för att utföra ytterligare beräkningar eller visualiseringar av data.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * Ett e-postkonto i organisationen som är medlem i Azure Active Directory, så att du kan ansluta till [azure datautforskaren hjälp kluster](https://dataexplorer.azure.com/clusters/help/databases/Samples) 
@@ -39,7 +39,7 @@ Azure Datautforskaren innehåller två alternativ för att ansluta till data i E
 
 1. Öppna **Microsoft Excel**.
 
-1. På fliken **data** väljer du **Hämta data** > **från andra källor** > **Tom fråga**.
+1. På fliken **data** väljer du **Hämta data** > **från andra källor** > en **Tom fråga**.
 
     ![Hämta data och välj tom fråga](media/excel-blank-query/get-data-blank-query.png)
 

@@ -36,7 +36,7 @@ I den här guiden lär du dig:
 
 Det finns en [serie relaterade självstudier](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials) för att utforska olika SaaS design-och hanterings mönster. Självstudierna bygger vidare på den här inledande distributionen. När du använder självstudierna kan du undersöka de angivna skripten för att se hur de olika SaaS-mönstren implementeras. Skripten visar hur funktionerna i SQL Database fören klar utvecklingen av SaaS-program.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Se till att Azure PowerShell är installerat för att slutföra den här självstudien. Mer information finns i [Kom igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
@@ -110,7 +110,7 @@ Internt i appen får varje klient en SQL-databas distribuerad till en elastisk S
 
 En **Hubbs** sida för centrala händelser innehåller en lista över länkar till klienterna i distributionen.
 
-1. Använd URL: en för att öppna Events-hubben i webbläsaren: http://events.wingtip-dpt.&lt; user&gt;.trafficmanager.net. Ersätt &lt;användar&gt; med distributionens användar värde.
+1. Använd URL: en för att öppna Events-hubben i webbläsaren: http://events.wingtip-dpt.&lt; User&gt;. trafficmanager.net. Ersätt &lt;användar&gt; med distributionens användar värde.
 
     ![Events Hub](media/saas-dbpertenant-get-started-deploy/events-hub.png)
 
@@ -122,7 +122,7 @@ En **Hubbs** sida för centrala händelser innehåller en lista över länkar ti
 
 Wingtip-programmet använder [*Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md) för att kontrol lera distributionen av inkommande begär Anden. URL: en för att komma åt sidan händelser för en viss klient använder följande format:
 
-- http://events.wingtip-dpt.&lt; user&gt;.trafficmanager.net/fabrikamjazzclub
+- http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/fabrikamjazzclub
 
     Delarna i föregående format förklaras i följande tabell.
 
@@ -130,7 +130,7 @@ Wingtip-programmet använder [*Azure Traffic Manager*](../traffic-manager/traff
     | :-------------- | :---------------- |
     | http://events.wingtip-dpt | Händelse delarna i Wingtip-appen.<br /><br /> *-DPT* särskiljer implementeringen av en *databas per klient* för Wingtip-biljetter från andra implementeringar. Exempel är implementeringar av *en enda* app-per-klient ( *-sa*) eller flera *klient databaser* ( *-MT*). |
     | . *&lt;användar&gt;* | *AF1* i exemplet. |
-    | . trafficmanager.net/ | Traffic Manager, bas-URL. |
+    | .trafficmanager.net/ | Traffic Manager, bas-URL. |
     | fabrikamjazzclub | Identifierar klienten som heter Fabrikam jazz klubb. |
     | &nbsp; | &nbsp; |
 
@@ -183,7 +183,7 @@ Om du vill kontrol lera och övervaka bakgrunds jobben använder du följande cm
     - *sp_CpuLoadGenerator* slingor runt en SQL SELECT-instruktion som orsakar hög CPU-belastning. Tidsintervallet mellan problem med SELECT varierar enligt parameter värden för att skapa en kontrollerbar CPU-belastning. Belastnings nivåer och intervall är slumpmässiga för att simulera mer realistiska belastningar.
     - Den här. SQL-filen lagras under *WingtipTenantDB\\dbo\\StoredProcedures\\* .
 
-4. Om `$OneTime = $false` startar belastnings generatorn bakgrunds jobben och fortsätter sedan att köra. Var tionde sekund övervakar den för alla nya klienter som är etablerade. Om du anger `$OneTime = $true` startar LoadGenerator bakgrunds jobben och slutar sedan att köra i förgrunden. Lämna `$OneTime = $false` för den här självstudien.
+4. Om `$OneTime = $false`, startar belastnings generatorn bakgrunds jobben och fortsätter sedan att köra. Var tionde sekund övervakar den för alla nya klienter som är etablerade. Om du anger `$OneTime = $true`startar LoadGenerator bakgrunds jobben och slutar sedan att köra i förgrunden. Lämna `$OneTime = $false`för den här självstudien.
 
    Använd CTRL-C eller stoppa åtgärden Ctrl-Break om du vill stoppa eller starta om belastnings generatorn.
 

@@ -48,7 +48,7 @@ Du måste också ha registrerat din prenumeration för att använda NetApp-resur
      Välj en prenumeration från dina befintliga prenumerationer.
    * **Resursgrupp**   
      Använd en befintlig resursgrupp eller skapa en ny.
-   * **Location**  
+   * **Plats**  
      Välj en region för kontot och dess underordnade resurser.  
 
      ![Nytt NetApp-konto](../media/azure-netapp-files/azure-netapp-files-new-netapp-account.png)

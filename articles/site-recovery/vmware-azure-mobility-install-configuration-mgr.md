@@ -35,9 +35,9 @@ Alternativt kan du automatisera mobilitets tjänst installationen med [Azure Aut
 
 ## <a name="deploy-on-windows-machines"></a>Distribuera på Windows-datorer
 > [!NOTE]
-> Den här artikeln förutsätter att konfigurations serverns IP-adress är 192.168.3.121 och att den säkra nätverks fil resursen är \\ \ ContosoSecureFS\MobilityServiceInstallers.
+> Den här artikeln förutsätter att konfigurations serverns IP-adress är 192.168.3.121 och att den säkra nätverks fil resursen är \\\ContosoSecureFS\MobilityServiceInstallers.
 
-### <a name="prepare-for-deployment"></a>Förbered för distribution
+### <a name="prepare-for-deployment"></a>Förbereda för distribution
 1. Skapa en mapp på nätverks resursen och ge den namnet **MobSvcWindows**.
 2. Logga in på konfigurations servern och öppna en administrativ kommando tolk.
 3. Kör följande kommandon för att skapa en lösen fras fil:
@@ -50,7 +50,7 @@ Alternativt kan du automatisera mobilitets tjänst installationen med [Azure Aut
 
    `cd %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository`
 
-6. Kopiera **Microsoft-ASR @ no__t-1UA @ no__t-2-*versionen*\_Windows @ no__t-5GA @ no__t-6*date*@no__t -8Release. exe** till mappen **MobSvcWindows** på din nätverks resurs.
+6. Kopiera **Microsoft-ASR\_UA\_- *versionen*\_Windows\_GA\_*date*\_release. exe** till mappen **MobSvcWindows** på nätverks resursen.
 7. Kopiera följande kod och spara den som **install. bat** i mappen **MobSvcWindows**
 
    > [!NOTE]
@@ -156,11 +156,11 @@ IF NOT %ERRORLEVEL% EQU 0 (
 ### <a name="create-a-package"></a>Skapa ett paket
 
 1. Logga in på Configuration Manager-konsolen.
-2. Gå till **program bibliotek** > **program hantering** > **paket**.
+2. Gå till **program bibliotek** > **program hantering** > - **paket**.
 3. Högerklicka på **paket**och välj **skapa paket**.
 4. Ange värden för namn, beskrivning, tillverkare, språk och version.
 5. Markera kryss rutan det **här paketet innehåller källfiler** .
-6. Klicka på **Bläddra**och välj den nätverks resurs där installations programmet lagras (\\ \ ContosoSecureFS\MobilityServiceInstaller\MobSvcWindows).
+6. Klicka på **Bläddra**och välj den nätverks resurs där installations programmet lagras (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcWindows).
 
    ![Skärm bild av guiden Skapa paket och program](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package.png)
 
@@ -173,7 +173,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
    | **Parameternamn** | **Värde** |
    |--|--|
    | Namn | Installera Microsoft Azure Mobility Service (Windows) |
-   | Kommandoraden | Installera. bat |
+   | Kommandorad | install.bat |
    | Programmet kan köra | Huruvida en användare är inloggad eller inte |
 
    ![Skärm bild av guiden Skapa paket och program](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties.png)
@@ -187,11 +187,11 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
 ### <a name="deploy-the-package"></a>Distribuera paketet
 1. Högerklicka på ditt paket i Configuration Manager-konsolen och välj **distribuera innehåll**.
-   ![Screenshot för Configuration Manager-konsolen @ no__t-1
+   ![skärm bild av Configuration Manager-konsolen](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
 2. Välj de **[distributions platser](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** som paketen ska kopieras till.
 3. Slutför guiden. Paketet börjar sedan replikeras till de angivna distributions platserna.
 4. När paket distributionen är färdig högerklickar du på paketet och väljer **distribuera**.
-   ![Screenshot för Configuration Manager-konsolen @ no__t-1
+   ![skärm bild av Configuration Manager-konsolen](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
 5. Välj den Windows Server-enhets samling som du skapade i avsnittet förutsättningar som mål samling för distribution.
 
    ![Skärm bild av guiden distribuera program vara](./media/vmware-azure-mobility-install-configuration-mgr/sccm-select-target-collection.png)
@@ -213,9 +213,9 @@ Du kan övervaka distributions förloppet med hjälp av Configuration Manager-ko
 
 ## <a name="deploy-on-linux-machines"></a>Distribuera på Linux-datorer
 > [!NOTE]
-> Den här artikeln förutsätter att konfigurations serverns IP-adress är 192.168.3.121 och att den säkra nätverks fil resursen är \\ \ ContosoSecureFS\MobilityServiceInstallers.
+> Den här artikeln förutsätter att konfigurations serverns IP-adress är 192.168.3.121 och att den säkra nätverks fil resursen är \\\ContosoSecureFS\MobilityServiceInstallers.
 
-### <a name="prepare-for-deployment"></a>Förbered för distribution
+### <a name="prepare-for-deployment"></a>Förbereda för distribution
 1. Skapa en mapp på nätverks resursen och ge den namnet **MobSvcLinux**.
 2. Logga in på konfigurations servern och öppna en administrativ kommando tolk.
 3. Kör följande kommandon för att skapa en lösen fras fil:
@@ -229,12 +229,12 @@ Du kan övervaka distributions förloppet med hjälp av Configuration Manager-ko
    `cd %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository`
 
 6. Kopiera följande filer till mappen **MobSvcLinux** på din nätverks resurs:
-   * Microsoft-ASR @ no__t-0UA @ no__t-1RHEL6-64 * release. tar. gz
-   * Microsoft-ASR @ no__t-0UA @ no__t-1RHEL7-64\*release.tar.gz
-   * Microsoft-ASR @ no__t-0UA @ no__t-1SLES11-SP3-64\*release.tar.gz
-   * Microsoft-ASR @ no__t-0UA @ no__t-1SLES11-SP4-64\*release.tar.gz
-   * Microsoft-ASR @ no__t-0UA @ no__t-1OL6-64\*release.tar.gz
-   * Microsoft-ASR @ no__t-0UA @ no__t-1UBUNTU-14.04-64\*release.tar.gz
+   * Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz
+   * Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz
+   * Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz
+   * Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz
+   * Microsoft-ASR\_UA\*OL6-64\*release.tar.gz
+   * Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release. tar. gz
 
 
 7. Kopiera följande kod och spara den som **install_linux. sh** i mappen **MobSvcLinux**
@@ -378,11 +378,11 @@ cd /tmp
 ### <a name="create-a-package"></a>Skapa ett paket
 
 1. Logga in på Configuration Manager-konsolen.
-2. Gå till **program bibliotek** > **program hantering** > **paket**.
+2. Gå till **program bibliotek** > **program hantering** > - **paket**.
 3. Högerklicka på **paket**och välj **skapa paket**.
 4. Ange värden för namn, beskrivning, tillverkare, språk och version.
 5. Markera kryss rutan det **här paketet innehåller källfiler** .
-6. Klicka på **Bläddra**och välj den nätverks resurs där installations programmet lagras (\\ \ ContosoSecureFS\MobilityServiceInstaller\MobSvcLinux).
+6. Klicka på **Bläddra**och välj den nätverks resurs där installations programmet lagras (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcLinux).
 
    ![Skärm bild av guiden Skapa paket och program](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package-linux.png)
 
@@ -395,13 +395,13 @@ cd /tmp
     | **Parameternamn** | **Värde** |
    |--|--|
    | Namn | Installera Microsoft Azure Mobility Service (Linux) |
-   | Kommandoraden | ./install_linux.sh |
+   | Kommandorad | ./install_linux.sh |
    | Programmet kan köra | Huruvida en användare är inloggad eller inte |
 
    ![Skärm bild av guiden Skapa paket och program](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-linux.png)
 
 9. På nästa sida väljer **du det här programmet kan köras på valfri plattform**.
-   ![Screenshot för guiden Skapa paket och program @ no__t-1
+   ![skärm bild av guiden Skapa paket och program](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-page2-linux.png)
 
 10. Slutför guiden genom att klicka på **Nästa** två gånger.
 
@@ -410,11 +410,11 @@ cd /tmp
 
 ### <a name="deploy-the-package"></a>Distribuera paketet
 1. Högerklicka på ditt paket i Configuration Manager-konsolen och välj **distribuera innehåll**.
-   ![Screenshot för Configuration Manager-konsolen @ no__t-1
+   ![skärm bild av Configuration Manager-konsolen](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
 2. Välj de **[distributions platser](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** som paketen ska kopieras till.
 3. Slutför guiden. Paketet börjar sedan replikeras till de angivna distributions platserna.
 4. När paket distributionen är färdig högerklickar du på paketet och väljer **distribuera**.
-   ![Screenshot för Configuration Manager-konsolen @ no__t-1
+   ![skärm bild av Configuration Manager-konsolen](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
 5. Välj den Linux server-enhets samling som du skapade i avsnittet förutsättningar som mål samling för distribution.
 
    ![Skärm bild av guiden distribuera program vara](./media/vmware-azure-mobility-install-configuration-mgr/sccm-select-target-collection-linux.png)

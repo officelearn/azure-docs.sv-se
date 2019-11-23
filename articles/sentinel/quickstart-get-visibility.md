@@ -22,7 +22,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 10/08/2019
 ms.locfileid: "72023806"
 ---
-# <a name="quickstart-get-started-with-azure-sentinel"></a>Snabbstart: Komma igång med Azure Sentinel
+# <a name="quickstart-get-started-with-azure-sentinel"></a>Snabb start: kom igång med Azure Sentinel
 
 
 
@@ -43,16 +43,16 @@ Om du vill visualisera och få en analys av vad som händer i din miljö kan du 
 
 Huvud delen av översikts sidan ger en överblick över en överskådlig säkerhets status för din arbets yta:
 
-- **Händelser och aviseringar över tid**: Visar antalet händelser och hur många aviseringar som har skapats från dessa händelser. Om du ser en topp som är ovanlig bör du se aviseringar för IT – om det är något ovanligt att det finns en insamling i händelser, men du inte ser aviseringar, kan det vara en risk.
+- **Händelser och aviseringar över tid**: visar antalet händelser och hur många aviseringar som har skapats från dessa händelser. Om du ser en topp som är ovanlig bör du se aviseringar för IT – om det är något ovanligt att det finns en insamling i händelser, men du inte ser aviseringar, kan det vara en risk.
 
-- **Potentiella skadliga händelser**: När trafik identifieras från källor som är kända för att vara skadliga, varnar Azure Sentinel dig på kartan. Om du ser orange är det inkommande trafik: någon försöker komma åt din organisation från en känd skadlig IP-adress. Om du ser utgående (röd) aktivitet innebär det att data från nätverket strömmas ut från din organisation till en känd skadlig IP-adress.
+- **Potentiella skadliga händelser**: när trafik identifieras från källor som är kända för att bli skadlig, varnar Azure Sentinel dig på kartan. Om du ser orange är det inkommande trafik: någon försöker komma åt din organisation från en känd skadlig IP-adress. Om du ser utgående (röd) aktivitet innebär det att data från nätverket strömmas ut från din organisation till en känd skadlig IP-adress.
 
    ![Azure Sentinel-karta](./media/qs-get-visibility/map.png)
 
 
-- **Senaste incidenter**: För att visa dina senaste incidenter, allvarlighets grad och antal aviseringar som är associerade med incidenten. Om du ser som plötslig topp i en speciell typ av avisering, kan det betyda att det finns ett aktivt angrepp som körs för tillfället. Om du till exempel har en plötslig topp på 20 pass-The-hash-händelser från Azure ATP, är det möjligt att någon nu försöker attackera dig.
+- **Senaste incidenter**: om du vill visa dina senaste incidenter, deras allvarlighets grad och antalet aviseringar som är associerade med incidenten. Om du ser som plötslig topp i en speciell typ av avisering, kan det betyda att det finns ett aktivt angrepp som körs för tillfället. Om du till exempel har en plötslig topp på 20 pass-The-hash-händelser från Azure ATP, är det möjligt att någon nu försöker attackera dig.
 
-- **Avvikelser för data källa**: Microsofts data analytiker har skapat modeller som kontinuerligt söker igenom data från dina data källor. Om det inte finns några avvikelser visas inget. Om avvikelser upptäcks bör du ta en djup inblick i dem för att se vad som hände. Klicka till exempel på insamling i Azure-aktivitet. Du kan klicka på **diagrammet** för att se när insamling skedde och sedan filtrera efter aktiviteter som inträffade under den tids perioden för att se vad som orsakade insamling.
+- **Avvikelser i data källan**: Microsofts dataanalytiker skapade modeller som kontinuerligt söker efter avvikelser i data källor. Om det inte finns några avvikelser visas inget. Om avvikelser upptäcks bör du ta en djup inblick i dem för att se vad som hände. Klicka till exempel på insamling i Azure-aktivitet. Du kan klicka på **diagrammet** för att se när insamling skedde och sedan filtrera efter aktiviteter som inträffade under den tids perioden för att se vad som orsakade insamling.
 
    ![Azure Sentinel-karta](./media/qs-get-visibility/anomolies.png)
 
@@ -72,14 +72,14 @@ Inbyggda arbets böcker ger integrerade data från dina anslutna data källor s�
       ![PAL-instrument panel](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-Du kan anpassa arbets böckerna antingen genom att redigera huvud frågan ![button @ no__t-1. Du kan klicka på knappen ![button @ no__t-1 för att gå till [Log Analytics och redigera frågan där](../azure-monitor/log-query/get-started-portal.md), och du kan välja ellipsen (...) och välja **Anpassa panel data**, vilket gör att du kan redigera huvud tids filtret, eller ta bort de enskilda panelerna från arbets boken.
+Du kan anpassa arbets böckerna antingen genom att redigera huvud frågans ![-knapp](./media/qs-get-visibility/edit-query-button.png). Du kan klicka på knappen ![knapp](./media/qs-get-visibility/go-to-la-button.png) för att gå till [Log Analytics för att redigera frågan där](../azure-monitor/log-query/get-started-portal.md), och du kan välja ellipsen (...) och välja **Anpassa panel data**, vilket gör att du kan redigera huvud tids filtret, eller ta bort de enskilda panelerna från arbets boken.
 
-Mer information om hur du arbetar med frågor finns i [Tutorial: Visuella data i Log Analytics @ no__t-0
+Mer information om hur du arbetar med frågor finns i [Självstudier: visuella data i Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 
 ### <a name="add-a-new-tile"></a>Lägg till en ny panel
 
 Om du vill lägga till en ny panel kan du lägga till den i en befintlig arbets bok, antingen en som du skapar eller en inbyggd Azure Sentinel-arbetsbok. 
-1. I Log Analytics skapar du en panel med hjälp av anvisningarna i [Tutorial: Visuella data i Log Analytics @ no__t-0. 
+1. I Log Analytics skapar du en panel med hjälp av anvisningarna i [Självstudier: visuella data i Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md). 
 2. När panelen har skapats väljer du den arbets bok som du vill att panelen ska visas under **PIN-kod**.
 
 ## <a name="create-new-workbooks"></a>Skapa nya arbets böcker
@@ -126,7 +126,7 @@ Om du vill visa alla färdiga identifieringar går du till **analyser** och seda
 
    ![Använd inbyggda identifieringar för att hitta hot med Azure Sentinel](media/tutorial-detect-built-in/view-oob-detections.png)
 
-Mer information om hur du hämtar välkomst identifieringar finns i [Tutorial: Hämta inbyggda-Analytics @ no__t-0.
+Mer information om hur du hämtar välkomst identifieringar finns i [Självstudier: skapa inbyggda analyser](tutorial-detect-threats-built-in.md).
  
 ## <a name="next-steps"></a>Nästa steg
 I den här snabb starten har du lärt dig hur du kommer igång med Azure Sentinel. Fortsätt till självstudien för [att identifiera hot](tutorial-detect-threats-built-in.md).

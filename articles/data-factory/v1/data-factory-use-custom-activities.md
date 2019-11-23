@@ -413,7 +413,7 @@ Här är de steg du utför i det här avsnittet:
 4. Skapa en **pipeline** som använder den anpassade aktiviteten.
 
 > [!NOTE]
-> Skapa **filen. txt** och ladda upp den till en BLOB-behållare om du inte redan har gjort det. Se anvisningarna i föregående avsnitt.
+> Skapa den **fil.txt** och överföra den till en blob-behållare, om du inte redan gjort det. Se anvisningarna i föregående avsnitt.
 
 ### <a name="step-1-create-the-data-factory"></a>Steg 1: skapa data fabriken
 1. När du har loggat in på Azure Portal utför du följande steg:
@@ -434,9 +434,9 @@ Här är de steg du utför i det här avsnittet:
     ![Bladet Datafabrik](media/data-factory-use-custom-activities/data-factory-blade.png)
 
 ### <a name="step-2-create-linked-services"></a>Steg 2: Skapa länkade tjänster
-Länkade tjänster länkar datalager eller Compute Services till en Azure-datafabrik. I det här steget länkar du ditt Azure Storage konto och Azure Batch kontot till din data fabrik.
+Länkade tjänster länkar datalager eller beräkningstjänster till en Azure-datafabrik. I det här steget länkar du ditt Azure Storage konto och Azure Batch kontot till din data fabrik.
 
-#### <a name="create-azure-storage-linked-service"></a>Skapa en länkad Azure Storage-tjänst
+#### <a name="create-azure-storage-linked-service"></a>Skapa en länkad Azure-lagringstjänst
 1. Klicka på panelen **författare och distribution** på bladet **Data Factory** för **CustomActivityFactory**. Du ser Data Factory Editor.
 2. Klicka på **nytt data lager** i kommando fältet och välj **Azure Storage**. Du bör se JSON-skriptet för att skapa en länkad Azure-lagringstjänst i redigeraren.
 
@@ -550,11 +550,11 @@ I det här steget skapar du data uppsättningar som representerar indata och utd
 
    | Sektor | Starttid | Utdatafil |
    |:--- |:--- |:--- |
-   | 1 |2016-11-16T00:00:00 |2016-11-16 -00. txt |
-   | 2 |2016-11-16T01:00:00 |2016-11-16 01. txt |
-   | 3 |2016-11-16T02:00:00 |2016-11-16 -02. txt |
-   | 4 |2016-11-16T03:00:00 |2016-11-16 -03. txt |
-   | 5 |2016-11-16T04:00:00 |2016-11-16 -04. txt |
+   | 1 |2016-11-16T00:00:00 |2016-11-16-00.txt |
+   | 2 |2016-11-16T01:00:00 |2016-11-16-01.txt |
+   | 3 |2016-11-16T02:00:00 |2016-11-16-02.txt |
+   | 4 |2016-11-16T03:00:00 |2016-11-16-03.txt |
+   | 5 |2016-11-16T04:00:00 |2016-11-16-04.txt |
 
     Kom ihåg att alla filer i en mapp är en del av en sektor med de start tider som anges ovan. När den här sektorn bearbetas genomsöker den anpassade aktiviteten igenom varje fil och skapar en rad i utdatafilen med antalet förekomster av Sök termen ("Microsoft"). Om det finns tre filer i indata-mappen finns det tre rader i utdatafilen för varje timme-sektor: 2016-11-16 -00. txt, 2016-11-16:01:00:00. txt osv.
 3. Klicka på **distribuera** i kommando fältet för att distribuera **OutputDataset**.
@@ -699,7 +699,7 @@ Fel sökning består av några grundläggande tekniker:
    Kontrol lera dessutom **system-0. log** för eventuella systemfel meddelanden och undantag.
 4. Inkludera **PDB** -filen i zip-filen så att fel informationen innehåller information som **anrops stack** när ett fel uppstår.
 5. Alla filer i zip-filen för den anpassade aktiviteten måste vara på den **översta nivån** utan undermappar.
-6. Se till att **assemblyName** (MyDotNetActivity. dll), **entryPoint**(MyDotNetActivityNS. MyDotNetActivity), **packageFile** (customactivitycontainer/MyDotNetActivity. zip) och **packageLinkedService** (ska peka till den **allmänna**Azure Blob-lagring som innehåller zip-filen) har angetts till korrekta värden.
+6. Se till att **assemblyName** (MyDotNetActivity. dll), **entryPoint**(MyDotNetActivityNS. MyDotNetActivity), **packageFile** (customactivitycontainer/MyDotNetActivity. zip) och **packageLinkedService** (ska peka på den **allmänna**Azure Blob-lagring som innehåller zip-filen) har angetts till korrekta värden.
 7. Om du har korrigerat ett fel och vill bearbeta sektorn på nytt, högerklickar du på sektorn i **OutputDataset**-bladet och klickar på **Kör**.
 8. Om du ser följande fel använder du Azure Storage-paketet med version > 4.3.0. För att Data Factory service Launcher krävs 4,3-versionen av WindowsAzure. Storage. Se avsnittet [AppDomain-isolering](#appdomain-isolation) för ett arbete – om du måste använda den senare versionen av Azure Storage Assembly.
 

@@ -166,7 +166,7 @@ az container create \
     --subnet aci-subnet
 ```
 
-När den här andra behållar distributionen har slutförts hämtar du dess loggar så att du kan se resultatet av kommandot `wget` som körs:
+När den här andra behållar distributionen har slutförts hämtar du dess loggar så att du kan se resultatet av den `wget` kommandot som körs:
 
 ```azurecli
 az container logs --resource-group myResourceGroup --name commchecker
@@ -186,11 +186,11 @@ Logg resultatet ska visa att `wget` kunde ansluta till och hämta index filen fr
 
 Du kan också distribuera en behållar grupp till ett befintligt virtuellt nätverk med hjälp av en YAML-fil. Om du vill distribuera till ett undernät i ett virtuellt nätverk anger du flera ytterligare egenskaper i YAML:
 
-* `ipAddress`: Inställningarna för IP-adress för behållar gruppen.
-  * `ports`: De portar som ska öppnas, om det finns några.
-  * `protocol`: Protokollet (TCP eller UDP) för den öppnade porten.
-* `networkProfile`: Anger nätverks inställningar som det virtuella nätverket och under nätet för en Azure-resurs.
-  * `id`: Fullständig Resource Manager-resurs-ID för `networkProfile`.
+* `ipAddress`: inställningarna för IP-adress för behållar gruppen.
+  * `ports`: portarna som ska öppnas, om det finns några.
+  * `protocol`: protokollet (TCP eller UDP) för den öppnade porten.
+* `networkProfile`: anger nätverks inställningar som det virtuella nätverket och under nätet för en Azure-resurs.
+  * `id`: det fullständiga Resource Manager-resurs-ID: t för `networkProfile`.
 
 Om du vill distribuera en behållar grupp till ett virtuellt nätverk med en YAML-fil måste du först hämta nätverks profilens ID. Kör kommandot [AZ Network Profile List][az-network-profile-list] och ange namnet på den resurs grupp som innehåller ditt virtuella nätverk och delegerade undernät.
 
@@ -205,7 +205,7 @@ $ az network profile list --resource-group myResourceGroup --query [0].id --outp
 /subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-aci-subnet
 ```
 
-När du har nätverks profil-ID: t kopierar du följande YAML till en ny fil med namnet *VNet-Deploy-ACI. yaml*. Under `networkProfile` ersätter du värdet för `id` med det ID som du precis hämtade och sparar sedan filen. Den här YAML skapar en behållar grupp med namnet *appcontaineryaml* i ditt virtuella nätverk.
+När du har nätverks profil-ID: t kopierar du följande YAML till en ny fil med namnet *VNet-Deploy-ACI. yaml*. Ersätt `id`-värdet med det ID som du precis hämtade under `networkProfile`och spara sedan filen. Den här YAML skapar en behållar grupp med namnet *appcontaineryaml* i ditt virtuella nätverk.
 
 ```YAML
 apiVersion: '2018-09-01'
@@ -271,7 +271,7 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 
 Den inledande för hands versionen av den här funktionen kräver flera ytterligare kommandon för att ta bort de nätverks resurser som du skapade tidigare. Om du använde exempel kommandona i föregående avsnitt i den här artikeln för att skapa ditt virtuella nätverk och undernät kan du använda följande skript för att ta bort dessa nätverks resurser.
 
-Innan du kör skriptet ställer du in variabeln `RES_GROUP` till namnet på den resurs grupp som innehåller det virtuella nätverk och undernät som ska tas bort. Uppdatera namnet på det virtuella nätverket om du inte använde det `aci-vnet`-namn som du föreslog tidigare. Skriptet är formaterat för bash-gränssnittet. Om du föredrar ett annat gränssnitt, t. ex. PowerShell eller kommando tolken, måste du justera variabel tilldelning och-åtkomst på motsvarande sätt.
+Ange `RES_GROUP` variabeln till namnet på den resurs grupp som innehåller det virtuella nätverk och undernät som ska tas bort innan du kör skriptet. Uppdatera namnet på det virtuella nätverket om du inte använde `aci-vnet` namnet som du föreslog tidigare. Skriptet är formaterat för bash-gränssnittet. Om du föredrar ett annat gränssnitt, t. ex. PowerShell eller kommando tolken, måste du justera variabel tilldelning och-åtkomst på motsvarande sätt.
 
 > [!WARNING]
 > Det här skriptet tar bort resurser! Den tar bort det virtuella nätverket och alla undernät som det innehåller. Se till att du inte längre behöver *någon* av resurserna i det virtuella nätverket, inklusive eventuella undernät som den innehåller, innan du kör skriptet. **De här resurserna kan inte återställas när de har**tagits bort.
@@ -292,7 +292,8 @@ az network vnet delete --resource-group $RES_GROUP --name aci-vnet
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill distribuera ett nytt virtuellt nätverk, undernät, nätverks profil och behållar grupp med hjälp av en Resource Manager-mall, se [Create en Azure Container Group med VNet @ no__t-1.
+Om du vill distribuera ett nytt virtuellt nätverk, undernät, nätverks profil och behållar grupp med hjälp av en Resource Manager-mall, se [skapa en Azure Container Group med VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
+).
 
 Flera virtuella nätverks resurser och funktioner beskrivs i den här artikeln, men i korthet. Azure Virtual Network-dokumentationen omfattar följande ämnen:
 

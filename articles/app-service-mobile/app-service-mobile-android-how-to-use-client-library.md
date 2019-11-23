@@ -25,7 +25,7 @@ ms.locfileid: "72388917"
 > [!NOTE]
 > Visual Studio App Center stöder utveckling av slutpunkt till slutpunkt-tjänster och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda tjänsterna för att **bygga**, **testa** och **distribuera** för att skapa en pipeline för kontinuerlig integrering och leverans. När appen har distribuerats kan utvecklarna övervaka status och användning av appen med hjälp av tjänsterna **Analys** och **Diagnostik**, och kommunicera med användarna via **Push**-tjänsten. Utvecklare kan också dra nytta av **Auth** för att autentisera sina användare och tjänsten **Data** för att spara och synkronisera appdata i molnet.
 >
-> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
+> Om du vill integrera molntjänster i ditt mobilprogram kan du registrera dig med [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) i dag.
 
 Den här guiden visar hur du använder Android client SDK för Mobile Apps för att implementera vanliga scenarier, till exempel:
 
@@ -109,9 +109,9 @@ MobileServiceClient mClient = new MobileServiceClient(
     this);                  // Your application Context
 ```
 
-@No__t-0 är antingen en sträng eller ett URL-objekt som pekar på din mobila Server del.  Om du använder Azure App Service som värd för din mobil Server del kontrollerar du att du använder den säkra `https://`-versionen av URL: en.
+`<MobileAppUrl>` är antingen en sträng eller ett URL-objekt som pekar på din mobila Server del.  Om du använder Azure App Service som värd för din mobil Server del kontrollerar du att du använder den säkra `https://`-versionen av URL: en.
 
-Klienten måste också ha åtkomst till aktiviteten eller kontexten – parametern `this` i exemplet.  MobileServiceClient-konstruktionen bör inträffa i metoden `onCreate()` för aktiviteten som refereras i `AndroidManifest.xml`-filen.
+Klienten måste också ha åtkomst till aktiviteten eller kontexten – parametern `this` i exemplet.  MobileServiceClient konstruktion bör ske inom `onCreate()`-metoden för aktiviteten som refereras i `AndroidManifest.xml`s filen.
 
 Som bästa praxis bör du abstrakt server kommunikation i en egen (singleton-Pattern)-klass.  I det här fallet bör du skicka aktiviteten i konstruktorn för att konfigurera tjänsten på lämpligt sätt.  Exempel:
 
@@ -155,7 +155,7 @@ public class AzureServiceAdapter {
 }
 ```
 
-Du kan nu anropa `AzureServiceAdapter.Initialize(this);` i metoden `onCreate()` för din huvud aktivitet.  Andra metoder som behöver åtkomst till klienten använder `AzureServiceAdapter.getInstance();` för att hämta en referens till tjänst kortet.
+Nu kan du anropa `AzureServiceAdapter.Initialize(this);` i `onCreate()`-metoden för din huvud aktivitet.  Andra metoder som behöver åtkomst till klienten använder `AzureServiceAdapter.getInstance();` för att hämta en referens till tjänst kortet.
 
 ## <a name="data-operations"></a>Data åtgärder
 
@@ -208,11 +208,11 @@ En Azure Mobile Apps-backend-tabell definierar fem särskilda fält, som är fyr
 
 * `String id`: postens globalt unika ID.  Vi rekommenderar att du gör ID: t till sträng representationen av ett [UUID][17] -objekt.
 * `DateTimeOffset updatedAt`: datum/tid för den senaste uppdateringen.  UpdatedAt-fältet anges av servern och ska aldrig anges av klient koden.
-* `DateTimeOffset createdAt`: datum/tid då objektet skapades.  CreatedAt-fältet anges av servern och ska aldrig anges av klient koden.
-* `byte[] version`: visas vanligt vis som en sträng, versionen anges också av servern.
-* `boolean deleted`: anger att posten har tagits bort men inte rensats ännu.  Använd inte `deleted` som en egenskap i klassen.
+* `DateTimeOffset createdAt`: det datum/tid då objektet skapades.  CreatedAt-fältet anges av servern och ska aldrig anges av klient koden.
+* `byte[] version`: som vanligt vis visas som en sträng, anges versionen också av servern.
+* `boolean deleted`: anger att posten har tagits bort men ännu inte har rensats.  Använd inte `deleted` som en egenskap i klassen.
 
-Fältet `id` är obligatoriskt.  Fälten `updatedAt` och `version` används för offlinesynkronisering (för stegvis synkronisering respektive konflikt lösning).  Fältet `createdAt` är ett referens fält och används inte av klienten.  Namnen är "över-namnet" i egenskaperna och är inte justerbara.  Du kan dock skapa en mappning mellan ditt objekt och namnet "över-kabel" med hjälp av [Gson][3] -biblioteket.  Exempel:
+Fältet `id` är obligatoriskt.  Fältet `updatedAt` och `version` används för offlinesynkronisering (för stegvis synkronisering och konflikt lösning).  Fältet `createdAt` är ett referens fält och används inte av klienten.  Namnen är "över-namnet" i egenskaperna och är inte justerbara.  Du kan dock skapa en mappning mellan ditt objekt och namnet "över-kabel" med hjälp av [Gson][3] -biblioteket.  Exempel:
 
 ```java
 package com.example.zumoappname;
@@ -298,7 +298,7 @@ MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToD
 Börja med att hämta en tabell referens.  Kör sedan en fråga på tabell referensen.  En fråga är en valfri kombination av:
 
 * En `.where()` [filter-sats](#filtering).
-* En `.orderBy()`- [ordnings sats](#sorting).
+* En `.orderBy()` [ordnings sats](#sorting).
 * En `.select()` [fält markerings sats](#selection).
 * En `.skip()` och `.top()` för [växlade resultat](#paging).
 
@@ -343,7 +343,7 @@ List<ToDoItem> results = MToDoTable
     .get();
 ```
 
-Följande metoder stöder komplexa filter i sträng fält: **startsWith**, **endsWith**, **concat**, **substring**, **indexOf**, **replace**, **toLower**, **toUpper**, **trim**och **length** . I följande exempel filtreras tabell rader där *text* kolumnen börjar med "PRI0".
+Följande metoder stöder komplexa filter i sträng fält: **startsWith**, **endsWith**, **concat**, **substring**, **indexOf**, **replace**, **toLower**, **toUpper**, **trim**och **length**. I följande exempel filtreras tabell rader där *text* kolumnen börjar med "PRI0".
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -492,7 +492,7 @@ Data bindningen omfattar tre komponenter:
 * Skärmens layout
 * Det kort som binder samman de två.
 
-I vår exempel kod returnerar vi data från Mobile Apps SQL Azure tabellen **ToDoItem** till en matris. Den här aktiviteten är ett vanligt mönster för data program.  Databas frågor returnerar ofta en samling rader som klienten får i en lista eller matris. I det här exemplet är matrisen data källan.  Koden anger en skärmlayout som definierar visningen av de data som visas på enheten.  De två är kopplade samman med ett kort, som i den här koden är en utökning av klassen **ArrayAdapter @ no__t-1ToDoItem @ no__t-2** .
+I vår exempel kod returnerar vi data från Mobile Apps SQL Azure tabellen **ToDoItem** till en matris. Den här aktiviteten är ett vanligt mönster för data program.  Databas frågor returnerar ofta en samling rader som klienten får i en lista eller matris. I det här exemplet är matrisen data källan.  Koden anger en skärmlayout som definierar visningen av de data som visas på enheten.  De två är kopplade samman med ett kort, som i den här koden är en utökning av klassen **ArrayAdapter&lt;ToDoItem&gt;** .
 
 #### <a name="layout"></a>Definiera layouten
 
@@ -507,7 +507,7 @@ Layouten definieras av flera kodfragment av XML-kod. Med en befintlig layout rep
     </ListView>
 ```
 
-I föregående kod anger attributet *ListItem* ID för layouten för en enskild rad i listan. Den här koden anger en kryss ruta och dess tillhör ande text och instansieras en gång för varje objekt i listan. Den här layouten visar inte **ID-** fältet och en mer komplex layout anger ytterligare fält i visningen. Den här koden finns i filen **row_list_to_do. XML** .
+I föregående kod anger attributet *ListItem* ID för layouten för en enskild rad i listan. Den här koden anger en kryss ruta och dess tillhör ande text och instansieras en gång för varje objekt i listan. Den här layouten visar inte **ID-** fältet och en mer komplex layout anger ytterligare fält i visningen. Den här koden är i filen **row_list_to_do. XML** .
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -524,7 +524,7 @@ I föregående kod anger attributet *ListItem* ID för layouten för en enskild 
 ```
 
 #### <a name="adapter"></a>Definiera kortet
-Eftersom data källan för vår vy är en matris med **ToDoItem**, underklasserar vi vårt kort från en **ArrayAdapter @ no__t-2ToDoItem @ no__t-3-** klass. Den här underklassen genererar en vy för varje **ToDoItem** med **row_list_to_do** -layouten.  I vår kod definierar vi följande klass som är en utökning av klassen **ArrayAdapter @ no__t-1e @ no__t-2** :
+Eftersom data källan för vår vy är en matris med **ToDoItem**, underklasserar vi vårt kort från en **ArrayAdapter&lt;ToDoItem&gt;** -klass. Den här underklassen genererar en vy för varje **ToDoItem** med hjälp av layouten **row_list_to_do** .  I vår kod definierar vi följande klass som är en utökning av klassen **ArrayAdapter&lt;E&gt;** :
 
 ```java
 public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
@@ -634,7 +634,7 @@ ToDoItem entity = mToDoTable
     .get();
 ```
 
-Den returnerade entiteten matchar de data som infogats i Server dels tabellen, inklusive ID och andra värden (till exempel fälten `createdAt`, `updatedAt` och @no__t 2) i Server delen.
+Den returnerade entiteten matchar de data som infogats i Server dels tabellen, inklusive ID och andra värden (till exempel fälten `createdAt`, `updatedAt`och `version`) i Server delen.
 
 Mobile Apps tabeller kräver en primär nyckel kolumn med namnet **ID**. Den här kolumnen måste vara en sträng. Standardvärdet för ID-kolumnen är ett GUID.  Du kan ange andra unika värden, till exempel e-postadresser eller användar namn. När ett sträng-ID-värde inte anges för en infogad post genererar Server delen ett nytt GUID.
 
@@ -832,7 +832,7 @@ AsyncTask<Void, Void, Void> initializeStore(MobileServiceClient mClient)
 
 ### <a name="obtain-a-reference-to-the-offline-cache-table"></a>Hämta en referens till tabellen offline-cache
 
-För en online-tabell använder du `.getTable()`.  Använd `.getSyncTable()` för en offline-tabell:
+För en online-tabell använder du `.getTable()`.  För en offline-tabell använder du `.getSyncTable()`:
 
 ```java
 MobileServiceSyncTable<ToDoItem> mToDoTable = mClient.getSyncTable("ToDoItem", ToDoItem.class);
@@ -867,7 +867,7 @@ Om ett frågenamn har angetts till `.pull(query, queryname)`-metoden används st
 
 ### <a name="handle-conflicts-during-offline-synchronization"></a>Hantera konflikter under offlinesynkronisering
 
-Om en konflikt uppstår under en `.push()`-åtgärd genereras en `MobileServiceConflictException`.   Det Server-utfärdade objektet är inbäddat i undantaget och kan hämtas av `.getItem()` i undantaget.  Justera push genom att anropa följande objekt på MobileServiceSyncContext-objektet:
+Om en konflikt uppstår under en `.push()` åtgärd genereras en `MobileServiceConflictException`.   Det Server-utfärdade objektet är inbäddat i undantaget och kan hämtas av `.getItem()` i undantaget.  Justera push genom att anropa följande objekt på MobileServiceSyncContext-objektet:
 
 *  `.cancelAndDiscardItem()`
 *  `.cancelAndUpdateItem()`
@@ -955,7 +955,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 }
 ```
 
-Den `GOOGLE_LOGIN_REQUEST_CODE` som definieras i din huvud aktivitet används för metoden `login()` och inom `onActivityResult()`-metoden.  Du kan välja ett unikt nummer, så länge samma nummer används inom metoden `login()` och metoden `onActivityResult()`.  Om du sammanfattar klient koden i ett tjänst kort (som visas tidigare) bör du anropa lämpliga metoder på tjänst kortet.
+`GOOGLE_LOGIN_REQUEST_CODE` som definieras i din huvud aktivitet används för `login()`-metoden och i `onActivityResult()`-metoden.  Du kan välja ett unikt nummer, så länge samma nummer används inom `login()`-metoden och `onActivityResult()`-metoden.  Om du sammanfattar klient koden i ett tjänst kort (som visas tidigare) bör du anropa lämpliga metoder på tjänst kortet.
 
 Du måste också konfigurera projektet för customtabs.  Ange först en omdirigerings-URL.  Lägg till följande kodfragment i `AndroidManifest.xml`:
 
@@ -970,7 +970,7 @@ Du måste också konfigurera projektet för customtabs.  Ange först en omdirige
 </activity>
 ```
 
-Lägg till **redirectUriScheme** i `build.gradle`-filen för programmet:
+Lägg till **redirectUriScheme** i `build.gradle`-filen för ditt program:
 
 ```gradle
 android {
@@ -987,7 +987,7 @@ android {
 }
 ```
 
-Lägg slutligen till `com.android.support:customtabs:28.0.0` i listan över beroenden i filen `build.gradle`:
+Lägg slutligen till `com.android.support:customtabs:28.0.0` i listan beroenden i `build.gradle`-filen:
 
 ```gradle
 dependencies {
@@ -1018,7 +1018,7 @@ Den token som returnerades av Azure App Service autentiseringen och auktoriserin
 
 Du kan också registrera providern för att använda uppdateringstoken.  Det är inte alltid möjligt att uppdatera token.  Ytterligare konfiguration krävs:
 
-* För **Azure Active Directory**konfigurerar du en klient hemlighet för Azure Active Directory-appen.  Ange klient hemligheten i Azure App Service när du konfigurerar Azure Active Directory autentisering.  När du anropar `.login()`, pass `response_type=code id_token` som parameter:
+* För **Azure Active Directory**konfigurerar du en klient hemlighet för Azure Active Directory-appen.  Ange klient hemligheten i Azure App Service när du konfigurerar Azure Active Directory autentisering.  När du anropar `.login()`måste du skicka `response_type=code id_token` som en parameter:
 
     ```java
     HashMap<String, String> parameters = new HashMap<String, String>();
@@ -1042,7 +1042,7 @@ Du kan också registrera providern för att använda uppdateringstoken.  Det är
         parameters);
     ```
 
-* För **Microsoft-konto**väljer du omfånget `wl.offline_access`.
+* För **Microsoft-konto**väljer du `wl.offline_access`s omfång.
 
 Om du vill uppdatera en token, anropa `.refreshUser()`:
 
@@ -1060,7 +1060,7 @@ Den allmänna processen för att logga in med klient flödes autentisering är f
 
 * Konfigurera Azure App Service autentisering och auktorisering på samma sätt som du gör med autentisering av Server flöde.
 * Integrera Authentication provider SDK för autentisering för att skapa en åtkomsttoken.
-* Anropa metoden `.login()` enligt följande (`result` ska vara en `AuthenticationResult`):
+* Anropa `.login()`-metoden enligt följande (`result` ska vara en `AuthenticationResult`):
 
     ```java
     JSONObject payload = new JSONObject();
@@ -1080,11 +1080,11 @@ Den allmänna processen för att logga in med klient flödes autentisering är f
 
 Se det fullständiga kod exemplet i nästa avsnitt.
 
-Ersätt metoden `onSuccess()` med den kod som du vill använda vid en lyckad inloggning.  Strängen `{provider}` är en giltig provider: **AAD** (Azure Active Directory), **Facebook**, **Google**, **MicrosoftAccount**eller **Twitter**.  Om du har implementerat anpassad autentisering kan du också använda taggen för anpassad autentiseringsprovider.
+Ersätt `onSuccess()`-metoden med den kod som du vill använda vid en lyckad inloggning.  `{provider}` strängen är en giltig provider: **AAD** (Azure Active Directory), **Facebook**, **Google**, **MicrosoftAccount**eller **Twitter**.  Om du har implementerat anpassad autentisering kan du också använda taggen för anpassad autentiseringsprovider.
 
 ### <a name="adal"></a>Autentisera användare med Active Directory-autentiseringsbibliotek (ADAL)
 
-Du kan använda Active Directory-autentiseringsbibliotek (ADAL) för att logga användare i ditt program med Azure Active Directory. Att använda en klient flödes inloggning är ofta att föredra att använda `loginAsync()`-metoder eftersom det ger en mer enhetlig känsla och möjliggör ytterligare anpassning.
+Du kan använda Active Directory-autentiseringsbibliotek (ADAL) för att logga användare i ditt program med Azure Active Directory. Att använda en klient flödes inloggning är ofta bättre att använda `loginAsync()` metoder som det ger en mer enhetlig känsla och möjliggör ytterligare anpassning.
 
 1. Konfigurera din server del för mobilappen för AAD-inloggning genom att följa själv studie kursen [konfigurera App Service för Active Directory inloggning][22] . Se till att slutföra det valfria steget när du registrerar ett internt klient program.
 2. Installera ADAL genom att ändra din build. gradle-fil så att den innehåller följande definitioner:
@@ -1117,7 +1117,7 @@ Du kan använda Active Directory-autentiseringsbibliotek (ADAL) för att logga a
     * Ersätt **insert-Authority – här** visas namnet på den klient där du etablerade ditt program. Formatet ska vara https://login.microsoftonline.com/contoso.onmicrosoft.com.
     * Ersätt **insert-Resource-ID – här** med klient-ID: t för Server delen för mobilappen. Du kan hämta klient-ID: t från fliken **Avancerat** under **Azure Active Directory inställningar** i portalen.
     * Ersätt **insert-Client-ID – här** med det klient-ID som du kopierade från det interna klient programmet.
-    * Ersätt **insert-Redirect-URI – här** med platsens */.auth/login/Done* -slutpunkt, med hjälp av https-schemat. Värdet bör likna *https://contoso.azurewebsites.net/.auth/login/done* .
+    * Ersätt **insert-Redirect-URI – här** med platsens */.auth/login/Done* -slutpunkt, med hjälp av https-schemat. Det här värdet bör likna *https://contoso.azurewebsites.net/.auth/login/done* .
 
 ```java
 private AuthenticationContext mContext;
@@ -1194,7 +1194,7 @@ Klient anslutningen är vanligt vis en grundläggande HTTP-anslutning med det un
 
 ### <a name="using-an-alternate-http-library"></a>Använda ett alternativt HTTP-bibliotek
 
-Anropa metoden `.setAndroidHttpClientFactory()` direkt efter att du har skapat klient referensen.  Om du till exempel vill ange tids gräns för anslutning till 60 sekunder (i stället för standard 10 sekunder):
+Anropa metoden `.setAndroidHttpClientFactory()` direkt efter att du har skapat din klient referens.  Om du till exempel vill ange tids gräns för anslutning till 60 sekunder (i stället för standard 10 sekunder):
 
 ```java
 mClient = new MobileServiceClient("https://myappname.azurewebsites.net");
@@ -1281,7 +1281,7 @@ private class CustomHeaderFilter implements ServiceFilter {
 
 ### <a name="conversions"></a>Konfigurera automatisk serialisering
 
-Du kan ange en konverterings strategi som gäller för alla kolumner genom att använda [Gson][3] -API: et. Klient biblioteket för Android använder [Gson][3] bakom bakgrunden för att serialisera Java-objekt till JSON-data innan data skickas till Azure App Service.  I följande kod används metoden **setFieldNamingStrategy ()** för att ställa in strategin. I det här exemplet raderas det inledande (a "m") och sedan visas gemener och versaler för varje fält namn. Den skulle till exempel förvandla "mId" till "ID".  Implementera en konverterings strategi för att minska behovet av att `SerializedName()`-kommentarer på de flesta fälten.
+Du kan ange en konverterings strategi som gäller för alla kolumner genom att använda [Gson][3] -API: et. Klient biblioteket för Android använder [Gson][3] bakom bakgrunden för att serialisera Java-objekt till JSON-data innan data skickas till Azure App Service.  I följande kod används metoden **setFieldNamingStrategy ()** för att ställa in strategin. I det här exemplet raderas det inledande (a "m") och sedan visas gemener och versaler för varje fält namn. Den skulle till exempel förvandla "mId" till "ID".  Implementera en konverterings strategi för att minska behovet av att `SerializedName()` anteckningar på de flesta fälten.
 
 ```java
 FieldNamingStrategy namingStrategy = new FieldNamingStrategy() {

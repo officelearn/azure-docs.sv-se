@@ -39,7 +39,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 För att konfigurera Azure AD-integrering med GTNexus SSO System behöver du följande:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
 * Prenumeration på GTNexus SSO System med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -54,7 +54,7 @@ För att konfigurera integreringen av GTNexus SSO System med Azure AD måste du 
 
 **Lägg till GTNexus SSO System från galleriet genom att utföra följande steg:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -79,7 +79,7 @@ För att konfigurera och testa enkel inloggning för Azure AD med GTNexus SSO Sy
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning för GTNexus SSO System](#configure-gtnexus-sso-system-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa GTNexus SSO System-testanvändare](#create-gtnexus-sso-system-test-user)** – för att ha en motsvarighet för Britta Simon i JGTNexus SSO System som är länkad till en Azure AD-representation av användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
@@ -92,7 +92,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med GTNex
 
 1. I [Azure-portalen](https://portal.azure.com/), på sidan för **GTNexus SSO System**-programintegrering, väljer du **Enkel inloggning**.
 
-    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -106,15 +106,15 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med GTNex
 
     a. Klicka på **Ladda upp metadatafil**.
 
-    ![mallar](common/upload-metadata.png)
+    ![image](common/upload-metadata.png)
 
     b. Klicka på **mappikonen** för att välja metadatafilen och klicka på **Ladda upp**.
 
-    ![mallar](common/browse-upload-metadata.png)
+    ![image](common/browse-upload-metadata.png)
 
     c. När metadatafilen har laddats upp fylls värdena **Identifierare** och **Svars-URL** i automatiskt i textrutan för avsnittet GTNexus SSO System:
 
-    ![mallar](common/idp-intiated.png)
+    ![image](common/idp-intiated.png)
 
     > [!Note]
     > Om värdena **Identifierare** och **Svars-URL** inte fylls i automatiskt fyller du i värdena manuellt enligt dina krav.
@@ -164,7 +164,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
     ![GTNexus SSO System-länken i listan med program](common/all-applications.png)
 
-3. I menyn till vänster väljer du **Användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -186,7 +186,7 @@ I det här avsnittet ska du skapa en användare med namnet Britta Simon i GTNexu
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på GTNexus SSO System-panelen i åtkomstpanelen bör du automatiskt loggas in på GTNexus SSO System som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på GTNexus SSO System-panelen i åtkomstpanelen bör du automatiskt loggas in på GTNexus SSO System som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

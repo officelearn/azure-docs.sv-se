@@ -34,7 +34,7 @@ Den allmänna processen är:
 
 Processen påminner om du vill att Logic app ska utföra en annan åtgärd.
 
-## <a name="create-an-activity-log-alert-administrative"></a>Skapa en aktivitets logg avisering: Administrativ
+## <a name="create-an-activity-log-alert-administrative"></a>Skapa en aktivitets logg avisering: administrativ
 
 1.  I Azure Portal väljer du **skapa en resurs** i det övre vänstra hörnet.
 
@@ -46,7 +46,7 @@ Processen påminner om du vill att Logic app ska utföra en annan åtgärd.
 
 4.  Välj **skapa** för att skapa Logic-appen. Ett popup-meddelande indikerar att Logic-appen har skapats. Välj **Starta resurs** för att öppna **Logic Apps designer**.
 
-5.  Välj utlösaren: **När en HTTP-begäran tas emot**.
+5.  Välj utlösaren: **när en HTTP-begäran tas emot**.
 
     ![Logic app utlöser](media/action-groups-logic-app/logic-app-triggers.png "Logic app-utlösare")
 
@@ -111,7 +111,7 @@ Processen påminner om du vill att Logic app ska utföra en annan åtgärd.
 
 12. Konfigurera Microsoft Teams-åtgärden. **Logic Apps designer** ber dig att autentisera till ditt Office 365-konto. Välj det **Team-ID** och **kanal-ID** som meddelandet ska skickas till.
 
-13. Konfigurera meddelandet med hjälp av en kombination av statisk text och referenser till \<fields @ no__t-1 i det dynamiska innehållet. Kopiera och klistra in följande text i **meddelande** fältet:
+13. Konfigurera meddelandet genom att använda en kombination av statisk text och referenser till \<fält\> i det dynamiska innehållet. Kopiera och klistra in följande text i **meddelande** fältet:
 
     ```text
       Activity Log Alert: <eventSource>
@@ -120,12 +120,12 @@ Processen påminner om du vill att Logic app ska utföra en annan åtgärd.
       resourceId: <resourceId>
     ```
 
-    Sök sedan efter och ersätt \<fields @ no__t-1 med dynamiska innehålls etiketter av samma namn.
+    Sök sedan efter och ersätt \<fält\> med dynamiska innehålls etiketter med samma namn.
 
     > [!NOTE]
     > Det finns två dynamiska fält med namnet **status**. Lägg till båda fälten i meddelandet. Använd fältet i **activityLog** egenskaps påse och ta bort det andra fältet. Håll markören över fältet **status** för att se den fullständigt kvalificerade fält referensen, som visas på följande skärm bild:
 
-    ![Microsoft Teams åtgärd: Publicera ett meddelande @ no__t-0 @ no__t-1Microsoft Teams-åtgärd: Publicera ett meddelande @ no__t-0
+    ![Microsoft Teams åtgärd: publicera ett meddelande](media/action-groups-logic-app/teams-action-post-message.png "Microsoft Teams åtgärd: publicera ett meddelande")
 
 14. Överst i **Logic Apps designer**väljer du **Spara** för att spara din Logic app.
 
@@ -196,7 +196,7 @@ Azure Service Health poster ingår i aktivitets loggen. Processen för att skapa
 
    1. I villkoret **om sant** följer du anvisningarna i steg 11 till 13 i [skapa en aktivitets logg avisering](#create-an-activity-log-alert-administrative) för att lägga till åtgärden Microsoft Teams.
 
-   1. Definiera meddelandet med hjälp av en kombination av HTML och dynamiskt innehåll. Kopiera och klistra in följande innehåll i **meddelande** fältet. Ersätt fälten `[incidentType]`, `[trackingID]`, `[title]` och `[communication]` med dynamiska innehålls etiketter med samma namn:
+   1. Definiera meddelandet med hjälp av en kombination av HTML och dynamiskt innehåll. Kopiera och klistra in följande innehåll i **meddelande** fältet. Ersätt fälten `[incidentType]`, `[trackingID]`, `[title]`och `[communication]` med dynamiska innehålls etiketter med samma namn:
 
        ```html
        <p>
@@ -285,7 +285,7 @@ Processen för att skapa en måtta aviseringar liknar att [skapa en aktivitets l
 
       !["Mått varning True condition post åtgärd"](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "mått avisering True condition post-åtgärd")
 
-  1. I villkoret **om falskt** definierar du en Microsoft Teams-åtgärd för att kommunicera att mått aviseringen inte matchar förväntningarna i Logic app. Ta med JSON-nyttolasten. Observera hur du refererar till det dynamiska `triggerBody`-innehållet i uttrycket `json()`.
+  1. I villkoret **om falskt** definierar du en Microsoft Teams-åtgärd för att kommunicera att mått aviseringen inte matchar förväntningarna i Logic app. Ta med JSON-nyttolasten. Observera hur du refererar till `triggerBody` dynamiskt innehåll i `json()`-uttrycket.
 
       !["Mått varning falsk villkor post åtgärd"](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "mått varning falskt villkor efter åtgärd")
 

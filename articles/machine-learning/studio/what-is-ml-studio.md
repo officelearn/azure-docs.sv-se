@@ -45,7 +45,7 @@ Här är en snabb jämförelse:
 || Machine Learning Studio (klassisk) | Azure Machine Learning |
 |---| --- | --- |
 | Dra och släpp gränssnitt | Ja | Ja – [Azure Machine Learning designer (för hands version)](../service/concept-designer.md) |
-| Olika | Skalbar (10 GB inlärnings data gräns) | Skala med beräknings mål |
+| Experiment | Skalbar (10 GB inlärnings data gräns) | Skala med beräknings mål |
 | Moduler för dra och släpp-gränssnitt | Mycket | Inledande uppsättning populära [moduler](../algorithm-module-reference/module-reference.md)|
 |Inlärnings mål| Patentskyddat beräknings mål, endast CPU-stöd| Stöder Azure Machine Learning Compute (GPU eller CPU) och virtuella notebook-datorer.<br/>([Andra beräkningar som stöds i SDK](../service/concept-compute-target.md#train))|
 |Inferencing Compute-mål| Eget webb tjänst format, inte anpassningsbart |  Azure Kubernetes service och AML Compute <br/>([Andra beräkningar som stöds i SDK](../service/how-to-deploy-and-where.md)) |

@@ -53,7 +53,7 @@ Det här är den här exempel konfigurations-XML: en:
 - Installera OneDrive i per användare-läge. Läs mer i [Installera OneDrive i per dator läge](#install-onedrive-in-per-machine-mode).
 
 >[!NOTE]
->Aktivering av delade datorer kan konfigureras via grupprincip objekt (GPO) eller register inställningar. GRUPPRINCIPOBJEKTet finns i **dator konfiguration @ no__t-1Policies @ no__t-2Administrative templates @ no__t-3Microsoft Office 2016 (maskin) \\Licensing inställningar**
+>Aktivering av delade datorer kan konfigureras via grupprincip objekt (GPO) eller register inställningar. GRUPPRINCIPOBJEKTet finns i **dator konfiguration\\principer\\Administrativa mallar\\Microsoft Office 2016 (dator)\\licens inställningar**
 
 Distributions verktyget för Office innehåller setup. exe. Installera Office genom att köra följande kommando på en kommando rad:
 
@@ -130,7 +130,7 @@ OneDrive installeras vanligt vis per användare. I den här miljön bör den ins
 
 Så här installerar du OneDrive i per dator läge:
 
-1. Börja med att skapa en plats för att mellanlagra OneDrive-installationsprogrammet. En lokal disk-mapp eller [\\ @ no__t-1unc]-platsen (file://unc) är felfri.
+1. Börja med att skapa en plats för att mellanlagra OneDrive-installationsprogrammet. En lokal disk-mapp eller [\\\\UNC]-plats (file://unc) är felfri.
 
 2. Hämta OneDriveSetup. exe till den mellanlagrade platsen med den här länken: <https://aka.ms/OneDriveWVD-Installer>
 

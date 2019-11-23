@@ -32,7 +32,7 @@ Om du har innehåll som uttrycks på ett mindre vanligt språk kan du prova Spr�
 ## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>Attitydanalys, Extrahering av diskussionsämne och identifiering av namngiven entitet
 
 För sentiment-analys, extrahering av nyckel fraser och enhets igenkänning är listan över språk som stöds mer selektiv eftersom analys enheterna är förfinade för att hantera språkliga regler för ytterligare språk. I namngiven enhets igenkänning v2 är stöd för den fullständiga uppsättningen [entitetstyper](how-tos/text-analytics-how-to-entity-linking.md#supported-types-for-named-entity-recognition-v2) för närvarande begränsad till följande språk: 
-* Svenska
+* Engelska
 * Kinesiska – Förenklad
 * Franska
 * Tyska
@@ -55,7 +55,7 @@ Språk stöd är inlednings vis insamlat i för hands version, som är i allmän
 | Kinesiska (traditionell)   |   `zh-hant`   |  ✔ \*\*   |             |                          |                |                    |
 | Danska                |     `da`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
 | Nederländska                 |     `nl`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
-| Svenska               |     `en`      |   ✔ \**   |      ✔      |          ✔ \*\*          |     ✔ \**      |                    |
+| Engelska               |     `en`      |   ✔ \**   |      ✔      |          ✔ \*\*          |     ✔ \**      |                    |
 | Finska               |     `fi`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
 | Franska                |     `fr`      |   ✔ \**   |      ✔      |            ✔             |                |                    |
 | Tyska                |     `de`      |   ✔ \**   |      ✔      |            ✔             |                |                    |

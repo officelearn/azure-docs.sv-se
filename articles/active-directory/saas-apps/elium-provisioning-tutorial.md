@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Konfigurera Elium för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudie: Konfigurera Elium för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
 description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till Elium.
 services: active-directory
 documentationcenter: ''
@@ -22,7 +22,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 10/01/2019
 ms.locfileid: "71709526"
 ---
-# <a name="tutorial-configure-elium-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Elium för automatisk användar etablering
+# <a name="tutorial-configure-elium-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Elium för automatisk användar etablering
 
 Den här självstudien visar hur du konfigurerar Elium och Azure Active Directory (Azure AD) för att automatiskt etablera och avetablera användare eller grupper till Elium.
 
@@ -31,7 +31,7 @@ Den här självstudien visar hur du konfigurerar Elium och Azure Active Director
 >
 > Den här anslutningsappen är för närvarande i förhandsversion. Allmänna användnings villkor för Azure-funktioner i för hands version finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här självstudien förutsätter att du redan har följande krav:
 
@@ -55,7 +55,7 @@ När du tilldelar en användare till Elium måste du välja en giltig, programsp
 
 Innan du konfigurerar Elium för automatisk användar etablering med Azure AD måste du aktivera system för etablering av SCIM (Cross-Domain Identity Management) på Elium. Följ de här stegen:
 
-1. Logga in på Elium och gå till **Mina profil** > **Inställningar**.
+1. Logga in på Elium och gå till **min profil** > **Inställningar**.
 
     ![Meny alternativet Inställningar i Elium](media/Elium-provisioning-tutorial/setting.png)
 
@@ -112,13 +112,13 @@ Följ dessa steg om du vill konfigurera automatisk användar etablering för Eli
 
     ![Automatisk inställning för etablerings läge](common/provisioning-automatic.png)
 
-1. I avsnittet **admin-autentiseringsuppgifter** skriver du **\<tenantURL @ no__t-3/scim/v2** i fältet **klient-URL** . ( **TenantURL** är det värde som hämtades tidigare från administratörs konsolen för Elium.) Skriv också värdet Elium **Secret token** i fältet **hemligt token** . Välj slutligen **Testa anslutning** för att kontrol lera att Azure AD kan ansluta till Elium. Om anslutningen Miss lyckas kontrollerar du att Elium-kontot har administratörs behörighet och försöker igen.
+1. I avsnittet **admin-autentiseringsuppgifter** skriver du **\<tenantURL\>/scim/v2** i fältet **klient-URL** . ( **TenantURL** är det värde som hämtades tidigare från administratörs konsolen för Elium.) Skriv också värdet Elium **Secret token** i fältet **hemligt token** . Välj slutligen **Testa anslutning** för att kontrol lera att Azure AD kan ansluta till Elium. Om anslutningen Miss lyckas kontrollerar du att Elium-kontot har administratörs behörighet och försöker igen.
 
     ![Fälten för klient-URL och hemlig token i admin-autentiseringsuppgifter](common/provisioning-testconnection-tenanturltoken.png)
 
 1. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelandena. Markera sedan kryss rutan **Skicka ett e-postmeddelande när ett fel inträffar** .
 
-    ![E-post för aviseringar](common/provisioning-notification-email.png)
+    ![E-postmeddelande](common/provisioning-notification-email.png)
 
 1. Klicka på **Spara**.
 

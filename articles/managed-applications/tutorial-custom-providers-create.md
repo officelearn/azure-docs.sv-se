@@ -34,11 +34,11 @@ När du har skapat en slut punkt kan du skapa en anpassad Provider för att gene
 
 Egenskap | Krävs | Beskrivning
 ---|---|---
-**Namn** | Ja | Namnet på slut punkts definitionen. Azure exponerar det här namnet via dess API under/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders<br>/resourceProviders/{resourceProviderName}/{endpointDefinitionName}
+**name** | Ja | Namnet på slut punkts definitionen. Azure exponerar det här namnet via dess API under/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders<br>/resourceProviders/{resourceProviderName}/{endpointDefinitionName}
 **routingType** | Nej | Slut punktens kontrakt typ. Om värdet inte anges används "proxy" som standard.
 **Endpoint** | Ja | Slut punkten för att dirigera begär anden till. Den här slut punkten hanterar svaret och eventuella sido effekter i begäran.
 
-Värdet för **slut punkten** är Utlösar-URL: en för Azure Function-appen. Plats hållarna `<yourapp>`, `<funcname>` och @no__t 2 måste ersättas med värden för din skapade Function-app.
+Värdet för **slut punkten** är Utlösar-URL: en för Azure Function-appen. Plats hållarna `<yourapp>`, `<funcname>`och `<functionkey>` måste ersättas med värden för din skapade Function-app.
 
 ## <a name="define-custom-actions-and-resources"></a>Definiera anpassade åtgärder och resurser
 
@@ -132,7 +132,7 @@ Parameter | Krävs | Beskrivning
 
 # <a name="templatetabtemplate"></a>[Mall](#tab/template)
 
-Inget.
+Ingen.
 
 ---
 
@@ -160,8 +160,8 @@ az resource create --is-full-object \
 Parameter | Krävs | Beskrivning
 ---|---|---
 *är-fullständig-objekt* | Ja | Anger om egenskaps-objektet innehåller andra alternativ som plats, taggar, SKU eller abonnemang.
-*identitet* | Ja | Resurs-ID för den anpassade resursen. Detta ID är ett tillägg till resurs-ID för den anpassade providern.
-*egenskaperna* | Ja | Begär ande texten som ska skickas till slut punkten.
+*ID* | Ja | Resurs-ID för den anpassade resursen. Detta ID är ett tillägg till resurs-ID för den anpassade providern.
+*Egenskaper* | Ja | Begär ande texten som ska skickas till slut punkten.
 
 #### <a name="delete-a-custom-resource"></a>Ta bort en anpassad resurs
 
@@ -171,7 +171,7 @@ az resource delete --id /subscriptions/{subscriptionId}/resourceGroups/{resource
 
 Parameter | Krävs | Beskrivning
 ---|---|---
-*identitet* | Ja | Resurs-ID för den anpassade resursen. Detta ID är ett tillägg till resurs-ID för den anpassade providern.
+*ID* | Ja | Resurs-ID för den anpassade resursen. Detta ID är ett tillägg till resurs-ID för den anpassade providern.
 
 #### <a name="retrieve-a-custom-resource"></a>Hämta en anpassad resurs
 
@@ -181,7 +181,7 @@ az resource show --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGr
 
 Parameter | Krävs | Beskrivning
 ---|---|---
-*identitet* | Ja | Resurs-ID för den anpassade resursen. Detta ID är ett tillägg till resurs-ID för den anpassade providern.
+*ID* | Ja | Resurs-ID för den anpassade resursen. Detta ID är ett tillägg till resurs-ID för den anpassade providern.
 
 # <a name="templatetabtemplate"></a>[Mall](#tab/template)
 
@@ -207,7 +207,7 @@ Exempel på en Resource Manager-mall:
 
 Parameter | Krävs | Beskrivning
 ---|---|---
-*resourceTypeName* | Ja | Värdet `name` för **resourceTypes** -egenskapen som definierats i den anpassade providern.
+*resourceTypeName* | Ja | `name`-värdet för **resourceTypes** -egenskapen som definierats i den anpassade providern.
 *resourceProviderName* | Ja | Instans namn för den anpassade providern.
 *customResourceName* | Ja | Namnet på den anpassade resursen.
 

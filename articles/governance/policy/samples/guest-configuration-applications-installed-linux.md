@@ -98,7 +98,7 @@ JSON som definierar reglerna för **deployIfNotExists** -princip definitionen.
 
 **Distributions** delen av regeln överför _installedApplication_ -parametern till gäst konfigurations agenten på den virtuella datorn. Den här konfigurationen gör att agenten kan utföra verifieringarna och rapportera efterlevnaden genom **gransknings** princip definitionen.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure portal
 
 När du har skapat **gransknings** -och **deployIfNotExists** -definitionerna i portalen rekommenderar vi att du grupperar dem till ett [initiativ](../concepts/definition-structure.md#initiatives) för tilldelning.
 

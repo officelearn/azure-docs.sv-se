@@ -20,7 +20,7 @@ Du kan konfigurera [Azure Database for MySQL gransknings loggar](concepts-audit-
 > [!IMPORTANT]
 > Gransknings logg funktionen är för närvarande en för hands version.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att gå igenom den här instruktions guiden behöver du:
 
@@ -30,7 +30,7 @@ För att gå igenom den här instruktions guiden behöver du:
 
 Aktivera och konfigurera gransknings loggning.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. Välj din Azure Database for MySQL-server.
 
@@ -38,32 +38,32 @@ Aktivera och konfigurera gransknings loggning.
     ![Serverparametrar](./media/howto-configure-audit-logs-portal/server-parameters.png)
 
 1. Uppdatera **audit_log_enabled** -parametern till på.
-    ![Enable gransknings loggar @ no__t-1
+    ![aktivera gransknings loggar](./media/howto-configure-audit-logs-portal/audit-log-enabled.png)
 
 1. Välj de [händelse typer](concepts-audit-logs.md#configure-audit-logging) som ska loggas genom att uppdatera **audit_log_events** -parametern.
-    ![Audit log Events @ no__t-1
+    ![Gransknings logg händelser](./media/howto-configure-audit-logs-portal/audit-log-events.png)
 
 1. Lägg till alla MySQL-användare som ska undantas från loggning genom att uppdatera **audit_log_exclude_users** -parametern. Ange användare genom att ange sitt användar namn för MySQL.
-    ![Audit log exclude Users @ no__t-1
+    ![Gransknings logg exkludera användare](./media/howto-configure-audit-logs-portal/audit-log-exclude-users.png)
 
 1. När du har ändrat parametrarna kan du klicka på **Spara**. Eller så kan du **Ignorera** dina ändringar.
-    ![Save @ no__t-1
+    ![Spara](./media/howto-configure-audit-logs-portal/save-parameters.png)
 
 ## <a name="set-up-diagnostic-logs"></a>Konfigurera diagnostikloggar
 
 1. Under avsnittet **övervakning** i sid panelen väljer du **diagnostikinställningar**.
 
-1. Klicka på "+ Lägg till diagnostisk inställning" ![Add diagnostisk inställning @ no__t-1
+1. Klicka på "+ Lägg till diagnostisk inställning" ![lägga till diagnostisk inställning](./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png)
 
 1. Ange ett namn på en diagnostisk inställning.
 
 1. Ange vilka data mottagare som ska skicka gransknings loggarna (lagrings konto, händelsehubben och/eller Log Analytics arbets yta).
 
 1. Välj "MySqlAuditLogs" som logg typ.
-@no__t 0Configure-diagnostik @ no__t-1
+![konfigurera diagnostikinställningar](./media/howto-configure-audit-logs-portal/configure-diagnostic-setting.png)
 
 1. När du har konfigurerat data Sinks att skicka in gransknings loggarna till kan du klicka på **Spara**.
-@no__t 0Save-diagnostik @ no__t-1
+![Spara diagnostisk inställning](./media/howto-configure-audit-logs-portal/save-diagnostic-setting.png)
 
 1. Få åtkomst till gransknings loggarna genom att utforska dem i de data mottagare du konfigurerade. Det kan ta upp till 10 minuter innan loggarna visas.
 

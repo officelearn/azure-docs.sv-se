@@ -15,13 +15,13 @@ ms.locfileid: "72326999"
 ---
 # <a name="from-clause-in-azure-cosmos-db"></a>FROM-sats i Azure Cosmos DB
 
-From (`FROM <from_specification>`)-satsen är valfri, om inte källan filtreras eller projiceras senare i frågan. En fråga som `SELECT * FROM Families` räknar upp över hela `Families`-behållaren. Du kan också använda den särskilda identifierande roten för behållaren i stället för att använda behållar namnet.
+From (`FROM <from_specification>`)-satsen är valfri, om inte källan filtreras eller projiceras senare i frågan. En fråga som `SELECT * FROM Families` räknar upp över hela `Families` containern. Du kan också använda den särskilda identifierande roten för behållaren i stället för att använda behållar namnet.
 
 FROM-satsen framtvingar följande regler per fråga:
 
 * Containern kan vara ett alias, till exempel `SELECT f.id FROM Families AS f` eller bara `SELECT f.id FROM Families f`. Här `f` är aliaset för `Families`. SOM är ett valfritt nyckelord för att [aliasa](sql-query-aliasing.md) identifieraren.  
 
-* Det går inte att binda det ursprungliga käll namnet när det har alias. Till exempel är `SELECT Families.id FROM Families f` syntaktiskt ogiltigt eftersom identifieraren `Families` har fått ett alias och inte kan lösas längre.  
+* Det går inte att binda det ursprungliga käll namnet när det har alias. Till exempel är `SELECT Families.id FROM Families f` syntaktiskt ogiltigt eftersom identifieraren `Families` har fått ett alias och inte längre kan lösas.  
 
 * Alla refererade egenskaper måste vara fullständigt kvalificerade för att undvika tvetydiga bindningar i frånvaro av strikt schema. Till exempel är `SELECT id FROM Families f` syntaktiskt ogiltigt eftersom egenskapen `id` inte är kopplad.
 
@@ -49,59 +49,59 @@ FROM <from_specification>
   
 - `<from_source>`  
   
-  Anger en data källa, med eller utan ett alias. Om alias inte anges kommer det att härledas från `<container_expression>` med följande regler:  
+  Anger en datakälla, med eller utan ett alias. Om alias inte har angetts, kommer den härledas från den `<container_expression>` med hjälp av följande regler:  
   
-  -  Om uttrycket är ett container_name, kommer container_name att användas som ett alias.  
+  -  Om uttrycket är en container_name, kommer container_name att användas som ett alias.  
   
-  -  Om uttrycket är `<container_expression>`, sedan Property_Name, kommer Property_Name att användas som ett alias. Om uttrycket är ett container_name, kommer container_name att användas som ett alias.  
+  -  Om uttrycket är `<container_expression>`, %{Property_Name/ och %{Property_Name/ används som ett alias. Om uttrycket är en container_name, kommer container_name att användas som ett alias.  
   
-- SOM `input_alias`  
+- PRECIS SOM `input_alias`  
   
-  Anger att `input_alias` är en uppsättning värden som returneras av det underliggande behållar uttrycket.  
+  Anger att den `input_alias` är en uppsättning värden som returneras av det underliggande container-uttrycket.  
  
-- `input_alias` i  
+- `input_alias` INDIEN  
   
-  Anger att `input_alias` ska representera den uppsättning värden som erhålls genom att iterera över alla mat ris element i varje matris som returneras av det underliggande behållar uttrycket. Värden som returneras av underliggande container-uttryck som inte är matris ignoreras.  
+  Anger att den `input_alias` bör representerar uppsättningen med värden som hämtas av iterera över alla matriselement av varje matrisen som returneras av det underliggande container-uttrycket. Ett värde som returneras av underliggande container-uttryck som inte är en matris ignoreras.  
   
 - `<container_expression>`  
   
-  Anger det container uttryck som ska användas för att hämta dokumenten.  
+  Anger container-uttrycket som används för att hämta dokument.  
   
 - `ROOT`  
   
-  Anger att dokumentet ska hämtas från standard behållaren som är ansluten.  
+  Anger det dokumentet ska hämtas från standardbehållaren, just nu anslutna.  
   
 - `container_name`  
   
-  Anger att dokumentet ska hämtas från den angivna behållaren. Namnet på behållaren måste matcha namnet på behållaren som för närvarande är ansluten till.  
+  Anger det dokumentet ska hämtas från den angivna behållaren. Namnet på behållaren måste matcha namnet på den behållare som är anslutna till.  
   
 - `input_alias`  
   
-  Anger att dokumentet ska hämtas från den andra källan som definieras av det angivna aliaset.  
+  Anger det dokumentet ska hämtas från den källa som definieras av det angivna aliaset.  
   
 - `<container_expression> '.' property_`  
   
-  Anger att dokumentet ska hämtas genom att komma åt egenskapen `property_name` eller array_index för alla dokument som hämtats av angivet container uttryck.  
+  Anger det dokumentet ska hämtas genom att öppna den `property_name` egenskap eller array_index matriselement för alla dokument som hämtas av angivna behållaren uttryck.  
   
 - `<container_expression> '[' "property_name" | array_index ']'`  
   
-  Anger att dokumentet ska hämtas genom att komma åt egenskapen `property_name` eller array_index för alla dokument som hämtats av angivet container uttryck.  
+  Anger det dokumentet ska hämtas genom att öppna den `property_name` egenskap eller array_index matriselement för alla dokument som hämtas av angivna behållaren uttryck.  
   
 ## <a name="remarks"></a>Kommentarer
   
-Alla alias som anges eller härleds i `<from_source>(`s) måste vara unika. Syntaxen `<container_expression>.`property_name är samma som `<container_expression>' ['"property_name"']'`. Den senare syntaxen kan dock användas om ett egenskaps namn innehåller ett specialtecken som inte är en identifierare.  
+Alla alias har angetts eller härledd i den `<from_source>(`s) måste vara unikt. Syntaxen `<container_expression>.`%{Property_Name/ är samma som `<container_expression>' ['"property_name"']'`. Denna syntax kan dock användas om ett egenskapsnamn innehåller ett icke-ID-tecken.  
   
-### <a name="handling-missing-properties-missing-array-elements-and-undefined-values"></a>Hantera saknade egenskaper, saknade mat ris element och odefinierade värden
+### <a name="handling-missing-properties-missing-array-elements-and-undefined-values"></a>hantera saknade egenskaper, matriselement och odefinierad värden som saknas
   
-Om ett behållar uttryck använder egenskaper eller mat ris element och det värdet inte finns, ignoreras det värdet och bearbetas inte ytterligare.  
+Om ett uttryck för behållaren har åtkomst till egenskaper eller matriselement och att värdet inte finns, ignoreras värdet och inte fortsätta bearbetningen.  
   
-### <a name="container-expression-context-scoping"></a>Kontext omfattning för container uttryck  
+### <a name="container-expression-context-scoping"></a>Behållaren uttryck kontext omfång  
   
-Ett behållar uttryck kan vara behållare-omfattning eller dokument omfattning:  
+Ett uttryck för behållare kan vara behållare omfattar eller dokumentet omfattar:  
   
--   Ett uttryck är container-scopet, om den underliggande källan för behållar uttrycket är antingen ROOT eller `container_name`. Ett sådant uttryck representerar en uppsättning dokument som hämtats från behållaren direkt, och som inte är beroende av bearbetningen av andra behållar uttryck.  
+-   Ett uttryck är container-omfattande, om den underliggande källan för container-uttryck är antingen ROTEN eller `container_name`. Sådana ett uttryck representerar en uppsättning dokument som hämtas från behållaren direkt och är inte beroende av bearbetning av andra behållare-uttryck.  
   
--   Ett uttryck är dokument-omfattning, om den underliggande källan för behållar uttrycket är `input_alias` som introducerades tidigare i frågan. Ett sådant uttryck representerar en uppsättning dokument som hämtas genom att utvärdera behållar uttrycket i omfånget för varje dokument som hör till uppsättningen som är associerad med den behållare som har alias.  Den resulterande uppsättningen är en union av uppsättningar som erhålls genom att utvärdera behållar uttrycket för varje dokument i den underliggande uppsättningen. 
+-   Ett uttryck är dokumentet-omfattande, om den underliggande källan för container-uttryck är `input_alias` introducerade tidigare i frågan. Sådana ett uttryck representerar en uppsättning dokument som hämtas av utvärderingen av behållaren uttryck i omfånget för varje dokument som hör till den uppsättning som är associerade med ett alias-behållaren.  Den resulterande uppsättningen blir en union av uppsättningar som erhålls av utvärderingen av container-uttryck för varje dokument i den underliggande uppsättningen. 
 
 ## <a name="examples"></a>Exempel
 
@@ -147,7 +147,7 @@ Resultaten är:
     ]
 ```
 
-Föregående fråga använde en matris som källa, men du kan också använda ett objekt som källa. Frågan tar alla giltiga, definierade JSON-värden i källan som ska ingå i resultatet. Följande exempel skulle utesluta `Families` som inte har något värde för @no__t 1.
+Föregående fråga använde en matris som källa, men du kan också använda ett objekt som källa. Frågan tar alla giltiga, definierade JSON-värden i källan som ska ingå i resultatet. Följande exempel skulle utesluta `Families` som inte har något `address.state`-värde.
 
 ```sql
     SELECT *
@@ -166,5 +166,5 @@ Resultaten är:
 ## <a name="next-steps"></a>Nästa steg
 
 - [Komma igång](sql-query-getting-started.md)
-- [SELECT-sats](sql-query-select.md)
-- [WHERE-sats](sql-query-where.md)
+- [SELECT-satsen](sql-query-select.md)
+- [WHERE-satsen](sql-query-where.md)

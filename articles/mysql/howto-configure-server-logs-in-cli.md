@@ -17,15 +17,15 @@ ms.locfileid: "72030630"
 # <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Konfigurera och komma åt långsamma Query-loggar med hjälp av Azure CLI
 Du kan hämta Azure Database for MySQL långsamma frågemeddelanden med hjälp av Azure CLI, kommando rads verktyget för Azure.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 För att gå igenom den här instruktions guiden behöver du:
 - [Azure Database for MySQL Server](quickstart-create-mysql-server-database-using-azure-cli.md)
 - [Azure CLI](/cli/azure/install-azure-cli) eller Azure Cloud Shell i webbläsaren
 
 ## <a name="configure-logging"></a>Konfigurera loggning
 Du kan konfigurera servern för att få åtkomst till MySQL-långsamma Query-loggen genom att utföra följande steg:
-1. Aktivera långsam loggning av frågor genom att ställa in parametern **långsam @ no__t-1query @ no__t-2log** på på.
-2. Justera andra parametrar, till exempel **Long @ no__t-1query @ no__t-2time** och **log @ no__t-4slow @ no__t-5admin @ no__t-6statements**.
+1. Aktivera långsam loggning av frågor genom att ställa in den **långsamma\_frågan\_logg** parameter till på.
+2. Justera andra parametrar, till exempel **lång\_fråga\_tid** och **logg\_långsamma\_admin\_-instruktioner**.
 
 Information om hur du ställer in värdet för dessa parametrar via Azure CLI finns i [så här konfigurerar du Server parametrar](howto-configure-server-parameters-using-cli.md).
 
@@ -40,7 +40,7 @@ az mysql server configuration list --resource-group myresourcegroup --server myd
 ## <a name="list-logs-for-azure-database-for-mysql-server"></a>Lista loggar för Azure Database for MySQL Server
 Om du vill visa en lista över tillgängliga långsamma frågemeddelanden för servern kör du kommandot [AZ MySQL server-logs List](/cli/azure/mysql/server-logs#az-mysql-server-logs-list) .
 
-Du kan visa en lista över loggfilerna för Server **mydemoserver.mysql.Database.Azure.com** under resurs gruppen **myresourcegroup**. Dirigera sedan listan över loggfiler till en textfil med namnet **log @ no__t-1files\_list.txt**.
+Du kan visa en lista över loggfilerna för Server **mydemoserver.mysql.Database.Azure.com** under resurs gruppen **myresourcegroup**. Dirigera sedan listan över loggfiler till en textfil med namnet **log\_filer\_List. txt**.
 ```azurecli-interactive
 az mysql server-logs list --resource-group myresourcegroup --server mydemoserver > log_files_list.txt
 ```

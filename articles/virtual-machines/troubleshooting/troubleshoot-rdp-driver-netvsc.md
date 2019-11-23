@@ -54,7 +54,7 @@ Anslut till [serie konsolen, öppna en PowerShell-instans](serial-console-window
 
 2. Hämta lämplig uppdatering till en ny eller befintlig datadisk som är ansluten till en fungerande virtuell dator från samma region:
 
-   - **10.0.14393.594**: [KB4073562 eller en senare](https://support.microsoft.com/help/4073562) uppdatering
+   - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) eller en senare uppdatering
    - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) eller en senare uppdatering
 
 3. Koppla bort verktygs disken från den virtuella datorn och koppla den sedan till den brutna virtuella datorn.
@@ -79,11 +79,11 @@ Anslut till [serie konsolen, öppna en PowerShell-instans](serial-console-window
 
 5. Starta Registereditorn (regedit. exe) på den rädda virtuella datorn.
 
-6. Välj nyckeln **HKEY_LOCAL_MACHINE** och välj sedan **fil** > **läsnings registrerings data** fil på menyn.
+6. Välj **HKEY_LOCAL_MACHINE** nyckel och välj sedan **Arkiv** > **läsa in Hive** på menyn.
 
 7. Leta upp SYSTEM filen i mappen **\Windows\System32\config**
 
-8. Välj **Öppna**, Skriv **BROKENSYSTEM** som namn, expandera nyckeln **HKEY_LOCAL_MACHINE** och leta sedan upp den ytterligare nyckel som heter **BROKENSYSTEM**.
+8. Välj **Öppna**, Skriv **BROKENSYSTEM** som namn, expandera den **HKEY_LOCAL_MACHINE** nyckeln och leta upp den ytterligare nyckel som heter **BROKENSYSTEM**.
 
 9. Gå till följande plats:
 
@@ -97,7 +97,7 @@ Anslut till [serie konsolen, öppna en PowerShell-instans](serial-console-window
 
 12. Hämta lämplig uppdatering:
 
-    - **10.0.14393.594**: [KB4073562 eller en senare](https://support.microsoft.com/help/4073562) uppdatering
+    - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) eller en senare uppdatering
     - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) eller en senare uppdatering
 
 13. Anslut system disken som en datadisk på en räddnings dator där du kan hämta uppdateringen.

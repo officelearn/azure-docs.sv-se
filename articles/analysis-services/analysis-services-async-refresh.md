@@ -101,8 +101,8 @@ Du behöver inte ange parametrar. Standardvärdet används.
 |------------------|-------|--------------|---------|
 | `Type`           | Enum  | Typ av bearbetning som ska utföras. Typerna justeras med kommando typerna TMSL [Refresh](https://docs.microsoft.com/bi-reference/tmsl/refresh-command-tmsl) : full, clearValues, beräkning, dataOnly, Automatic och defragmentering. Det finns inte stöd för att lägga till typen.      |   Autokorrigering      |
 | `CommitMode`     | Enum  | Anger om objekt ska allokeras i batchar eller bara när de är slutförda. Lägena är: standard, transaktionell, partialBatch.  |  transaktions       |
-| `MaxParallelism` | int   | Det här värdet anger det maximala antalet trådar som bearbetnings kommandon ska köras parallellt för. Det här värdet justeras med egenskapen MaxParallelism som kan anges i kommandot TMSL [Sequence](https://docs.microsoft.com/bi-reference/tmsl/sequence-command-tmsl) eller med andra metoder.       | 10        |
-| `RetryCount`     | int   | Anger hur många gånger åtgärden ska försöka utföras innan fel.      |     0    |
+| `MaxParallelism` | Int   | Det här värdet anger det maximala antalet trådar som bearbetnings kommandon ska köras parallellt för. Det här värdet justeras med egenskapen MaxParallelism som kan anges i kommandot TMSL [Sequence](https://docs.microsoft.com/bi-reference/tmsl/sequence-command-tmsl) eller med andra metoder.       | 10        |
+| `RetryCount`     | Int   | Anger hur många gånger åtgärden ska försöka utföras innan fel.      |     0    |
 | `Objects`        | Matris | En matris med objekt som ska bearbetas. Varje-objekt innehåller: "Tabell" när hela tabellen eller "table" och "partition" bearbetas vid bearbetning av en partition. Om inga objekt anges uppdateras hela modellen. |   Bearbeta hela modellen      |
 
 CommitMode är lika med partialBatch. Den används när du gör en första belastning av stora data uppsättningar som kan ta flera timmar. Om uppdaterings åtgärden Miss lyckas efter att du har utfört en eller flera batchar fortsätter de genomförda batcharna att bli allokerade (den kommer inte att återställa genomförda batchar).
@@ -214,6 +214,6 @@ Se [skapa tjänstens huvud namn – Azure Portal](../active-directory/develop/ho
 ## <a name="see-also"></a>Se även
 
 [Exempel](analysis-services-samples.md)   
-[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)   
+[REST-API](https://docs.microsoft.com/rest/api/analysisservices/servers)   
 
 

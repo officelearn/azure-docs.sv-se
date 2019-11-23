@@ -63,7 +63,7 @@ Bekräfta att din Logic app har behörighet att komma åt din Service Bus-namnry
       ![Kopiera Service Bus namn områdets anslutnings sträng](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
 
    > [!TIP]
-   > För att bekräfta att anslutnings strängen är kopplad till Service Bus namn området eller en meddelande enhet, till exempel en kö, söker du i anslutnings strängen för `EntityPath`  parameter. Om du hittar den här parametern är anslutnings strängen för en speciell entitet och är inte rätt sträng som ska användas med din Logic app.
+   > För att bekräfta att anslutnings strängen är kopplad till din Service Bus-namnrymd eller en meddelande enhet, till exempel en kö, söker du efter anslutnings strängen för parametern `EntityPath` . Om du hittar den här parametern är anslutnings strängen för en speciell entitet och är inte rätt sträng som ska användas med din Logic app.
 
 ## <a name="add-service-bus-trigger"></a>Lägg till Service Bus-utlösare
 

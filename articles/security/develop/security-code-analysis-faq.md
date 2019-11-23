@@ -48,7 +48,7 @@ För det mesta är Azure DevOps build-aktiviteterna direkta omslutningar runt ko
 
 Märkbara skillnader:
 
-- Verktygen körs från källmappen i agenten $ (build. SourcesDirectory) eller från% BUILD_SOURCESDIRECTORY%. Ett exempel är C:\Agent @ no__t-0work\1\s.
+- Verktygen körs från källmappen i agenten $ (build. SourcesDirectory) eller från% BUILD_SOURCESDIRECTORY%. Ett exempel är C:\Agent\_work\1\s.
 - Sökvägar i argumenten kan vara relativa till roten i den käll katalog som anges ovan. Sökvägar kan också vara absoluta. Du får absoluta sökvägar antingen genom att använda Azure DevOps build-variabler eller genom att köra en lokal agent med kända distributions platser för lokala resurser.
 - Verktyg tillhandahåller automatiskt en sökväg eller mapp till utdatafilen. Om du anger en utmatnings plats för en build-uppgift ersätts platsen med en sökväg till vår välkända plats för loggar på Build-agenten
 - Vissa ytterligare kommando rads argument har ändrats för vissa verktyg. Ett exempel är tillägg eller borttagning av alternativ som garanterar att inget användar gränssnitt startas.
@@ -63,7 +63,7 @@ Bygg aktiviteter filtrerar vissa användarindata. För den här frågan är det 
 
 ### <a name="where-are-the-output-files-generated-by-the-tools-saved"></a>Var sparas utdatafilerna som genereras av verktygen? 
 
-Bygg aktiviteterna lägger automatiskt till utdata sökvägar till den här välkända platsen på Build-agenten: $ (agent. BuildDirectory) \_sdt \ logs. Eftersom vi är standardiserade på den här platsen har alla team som skapar eller använder kod analys loggar till gång till utdata.
+Bygg aktiviteterna lägger automatiskt till utdata sökvägar till den här välkända platsen på Build-agenten: $ (agent. BuildDirectory)\_sdt\logs. Eftersom vi är standardiserade på den här platsen har alla team som skapar eller använder kod analys loggar till gång till utdata.
 
 ### <a name="can-i-queue-a-build-to-run-these-tasks-on-a-hosted-build-agent"></a>Kan jag köa en build för att köra dessa uppgifter på en värdbaserad build-agent? 
 
@@ -127,7 +127,7 @@ I följande exempel visas hur du döljer filen \<InputPath > \src\JS\lib\angular
 
 Exempel på giltiga undertrycks regler:
 
-- \<InputPath > \src\JS\lib\angular.js – förhindrar filen på den angivna sökvägen
+- \<InputPath > \src\JS\lib\angular.js-förhindrar filen på den angivna sökvägen
 - \src\JS\lib\angular.js
 - \JS\lib\angular.js
 - \lib\angular.js
@@ -170,17 +170,17 @@ Den här typen av autentiseringsuppgifter förlitar sig på en uppsättning inne
 
 En innehålls sökre definieras enligt följande:
 
-- **Namn på**: Det beskrivande Sök förnamnet som ska användas i utdatafilen för autentiseringsuppgifter. Vi rekommenderar att du använder namngivnings konventionen kamel notation för Sök efter namn.
-- **RuleID**: Sök försäkrans ogenomskinliga ID:
+- **Namn**: namnet på den beskrivande sökmotor som ska användas i utdatafilen för autentiseringsuppgifter. Vi rekommenderar att du använder namngivnings konventionen kamel notation för Sök efter namn.
+- **RuleID**: det stabila täckande ID: t för Sök funktionen:
     - En standard sökre för en autentiseringsuppgift-skanner tilldelas ett **RuleID** -värde som CSCAN0010, CSCAN0020 eller CSCAN0030. Den sista siffran är reserverad för att slå samman eller dela upp Sök grupper via reguljära uttryck (regex).
-    - **RuleID** -värdet för en anpassad sökning måste ha ett eget namn område. Exempel är CSCAN-\<Namespace @ no__t-10010, CSCAN-\<Namespace @ no__t-30020 och CSCAN-\<Namespace @ no__t-50030.
+    - **RuleID** -värdet för en anpassad sökning måste ha ett eget namn område. Exempel är CSCAN-\<namn område\>0010, CSCAN-\<namespace\>0020 och CSCAN-\<namespace\>0030.
     - Ett fullständigt kvalificerat Sök namn är kombinationen av ett **RuleID** -värde och ett Sök förnamn. Exempel är CSCAN0010. KeyStoreFiles och CSCAN0020. Base64EncodedCertificate.
-- **ResourceMatchPattern**: Regex för fil namns tillägg att kontrol lera mot Sök funktionen.
-- **ContentSearchPatterns**: En matris med strängar som innehåller regex-instruktioner som ska matchas. Om inga Sök mönster har definierats returneras alla filer som matchar **ResourceMatchPattern** -värdet.
-- **ContentSearchFilters**: En matris med strängar som innehåller regex-instruktioner för att filtrera sökverktygets angivna falska positiva identifieringar.
-- **MatchDetails**: Ett beskrivande meddelande, mildrande instruktioner eller både och som ska läggas till för varje matchning av Sök funktionen.
-- **Rekommendation**: Förslag – fält innehåll för en matchning med hjälp av det för snabb rapport formatet.
-- **Allvarlighets grad**: Ett heltal som visar allvarlighets graden för ett problem. Den högsta allvarlighets graden har värdet 1.
+- **ResourceMatchPattern**: regex för fil namns tillägg för att kontrol lera mot Sök funktionen.
+- **ContentSearchPatterns**: en matris med strängar som innehåller regex-uttryck som ska matchas. Om inga Sök mönster har definierats returneras alla filer som matchar **ResourceMatchPattern** -värdet.
+- **ContentSearchFilters**: en matris med strängar som innehåller regex-instruktioner för att filtrera sökalternativ som är Specific false-identifieringar.
+- **MatchDetails**: ett beskrivande meddelande, mildrande instruktioner eller båda för att läggas till för varje matchning av Sök funktionen.
+- **Rekommendation**: förslag – fält innehåll för en matchning med hjälp av för snabb rapport formatet.
+- **Allvarlighets grad**: ett heltal som visar allvarlighets graden för ett problem. Den högsta allvarlighets graden har värdet 1.
 
   ![XML som visar installations programmet för autentiseringsuppgifter](./media/security-tools/6-credscan-customsearchers.png)
 
@@ -192,7 +192,7 @@ En innehålls sökre definieras enligt följande:
 
 Det fullständiga fel meddelandet:
 
-Fels Projektet har återställts med Microsoft. NetCore. app version *x. x*, men med de aktuella inställningarna används version *y. y. y* i stället. Lös problemet genom att kontrol lera att samma inställningar används för återställning och för efterföljande åtgärder, till exempel build eller Publish. Det här problemet kan vanligt vis uppstå om egenskapen RuntimeIdentifier anges under build eller Publish men inte under återställningen. "
+"Fel: projektet har återställts med Microsoft. NetCore. app version *x.* x, men med de aktuella inställningarna används version *y. y. y* i stället. Lös problemet genom att kontrol lera att samma inställningar används för återställning och för efterföljande åtgärder, till exempel build eller Publish. Det här problemet kan vanligt vis uppstå om egenskapen RuntimeIdentifier anges under build eller Publish men inte under återställningen. "
 
 Eftersom Roslyn-uppgifter körs som en del av kompileringen måste käll trädet på Build-datorn vara i ett build-tillstånd.
 
@@ -202,13 +202,13 @@ Ett steg mellan dina huvud steg för bygge och Roslyn kan ha gjort att käll tr�
 
 Det fullständiga fel meddelandet:
 
-"CSC. exe" avslutades med felkod 1--det går inte att skapa en instans av Analyzer *AAAA* från C: \\*bbbb*. dll: Det gick inte att läsa in filen eller sammansättningen "Microsoft. CodeAnalysis, version =*X. x.* x, Culture = neutral, PublicKeyToken = 31bf3856ad364e35" eller något av dess beroenden. Det går inte att hitta den angivna filen ”.
+"CSC. exe" avslutades med felkod 1--en instans av Analyzer *AAAA* kan inte skapas från C:\\*bbbb*. dll: det gick inte att läsa in filen eller sammansättningen "Microsoft. CodeAnalysis, version =*X. x*. x, Culture = neutral, PublicKeyToken = 31bf3856ad364e35" eller något av dess beroenden. Det går inte att hitta den angivna filen ”.
 
 Se till att din kompilator stöder Roslyn-analyser. Om du kör kommandot **CSC. exe/version** ska du rapportera version svärdet 2,6 eller senare.
 
 Ibland kan en. CSPROJ-fil åsidosätta build-datorns Visual Studio-installation genom att referera till ett paket från Microsoft.Net. compilers. Om du inte tänker använda en angiven version av kompilatorn tar du bort referenser till Microsoft.Net. compilers. Annars kontrollerar du att versionen av det refererade paketet är 2,6 eller senare.
 
-Försök att hämta fel logg Sök vägen, som anges i alternativet **CSC. exe/Errorlog** . Alternativet och sökvägen visas i loggen för build-uppgiften Roslyn-analyser. De kan se ut ungefär som **/Errorlog: F:\ts-Services-123 @ no__t-1work\456\s\Some\Project\Code\Code.CSPROJ.sarif**
+Försök att hämta fel logg Sök vägen, som anges i alternativet **CSC. exe/Errorlog** . Alternativet och sökvägen visas i loggen för build-uppgiften Roslyn-analyser. De kan se ut ungefär som **/Errorlog: f:\ts-services-123\_work\456\s\Some\Project\Code\Code.CSPROJ.sarif**
 
 ##### <a name="the-c-compiler-version-isnt-recent-enough"></a>C# Kompilator versionen är inte tillräckligt aktuell
 
@@ -222,9 +222,9 @@ Roslyn analys verktyg behöver fråga Azure DevOps efter MSBuild-loggen från MS
 
 Om du behöver ytterligare hjälp är Microsoft Security code Analysis-supporten tillgänglig måndag till fredag från 9:00 till 5:00 PM Pacific, normal tid.
 
-  - Onboarding Kontakta de tekniska konto ansvariga för att komma igång.
+  - Onboarding: kontakta dina tekniska konto hanterare för att komma igång.
   
-  - Hjälp E-posta vårt team på [Microsoft Security code Analysis support](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request).
+  - Support: e-posta vårt team på [Microsoft Security code Analysis support](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request).
 
   >[!NOTE] 
   >Du kanske inte har någon avgiftsbelagd support-relation med Microsoft. Eller så kanske du har ett support erbjudande som hindrar dig från att köpa tjänster från Phoenix-katalogen. Om något av dessa villkor är uppfyllt går du till [Start sidan för Support tjänster](https://www.microsoft.com/enterprise/services/support) för mer information.

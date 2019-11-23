@@ -61,7 +61,7 @@ Grundläggande finns två fall av AcquireTokenSilent-fel:
 
 Följande vägledning ger exempel på fel hantering tillsammans med ADAL-metoder: 
 
-- acquireTokenSilentAsync(...)
+- acquireTokenSilentAsync(…)
 - acquireTokenSilentSync(...) 
 - [inaktuell] acquireTokenSilent (...)
 - [inaktuell] acquireTokenByRefreshToken (...) 
@@ -503,7 +503,7 @@ För att utforska vissa ADAL-fel är käll koden i [databasen Azure-ActiveDirect
 
 #### <a name="operating-system-errors"></a>Fel i operativ system
 
-Android OS-fel exponeras via AuthenticationException i ADAL, är identifierade som "SERVER_INVALID_REQUEST" och kan användas mer detaljerad genom fel beskrivningarna. 
+Android OS-fel exponeras genom AuthenticationException i ADAL, är identifierade som "SERVER_INVALID_REQUEST" och kan användas mer detaljerad genom fel beskrivningarna. 
 
 En fullständig lista över vanliga fel och vilka steg du bör vidta när din app eller slutanvändare stöter på dem finns i [ADAL Android-wikin](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki). 
 
@@ -586,7 +586,7 @@ window.Logging = {
 
 Använd avsnittet kommentarer som följer för att ge feedback och hjälpa oss att förfina och forma vårt innehåll.
 
-[@no__t – 1Shows knappen "Logga in med Microsoft"][AAD-Sign-In]][AAD-Sign-In]
+[![visar knappen "Logga in med Microsoft"][AAD-Sign-In]][AAD-Sign-In]
 <!--Reference style links -->
 
 [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md

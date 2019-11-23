@@ -27,10 +27,10 @@ I följande tabell visas minsta rekommenderade bandbredd för en smidig använda
 
 |Arbetsbelastning        |Exempelprogram                                                                                           |Rekommenderad bandbredd|
 |----------------|--------------------------------------------------------------------------------------------------------------|---------------------|
-|Uppgiftsarbetare     |Microsoft Word, Outlook, Excel, Adobe Reader                                                                  |1,5 @ no__t – 0Mbps        |
-|Kontors arbetare   |Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, Photo Viewer                                        |3 @ no__t-0Mbps          |
-|Kunskaps arbetare|Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, Foto visare, Java                                  |5 @ no__t-0Mbps          |
-|Energi arbetare    |Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, Foto visare, Java, CAD/CAM, illustration/publicering|15 @ no__t – 0Mbps         |
+|Uppgiftsarbetare     |Microsoft Word, Outlook, Excel, Adobe Reader                                                                  |1,5&nbsp;Mbit/s        |
+|Kontors arbetare   |Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, Photo Viewer                                        |3&nbsp;Mbit/s          |
+|Kunskaps arbetare|Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, Foto visare, Java                                  |5&nbsp;Mbit/s          |
+|Energi arbetare    |Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, Foto visare, Java, CAD/CAM, illustration/publicering|15&nbsp;Mbit/s         |
 
 >[!NOTE]
 >Dessa rekommendationer gäller oavsett hur många användare som finns i sessionen.

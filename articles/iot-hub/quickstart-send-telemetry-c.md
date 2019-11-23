@@ -59,7 +59,7 @@ I den här snabb starten ska du dock förbereda en utvecklings miljö som använ
 
 1. Ladda ned [cmake build-systemet](https://cmake.org/download/).
 
-    Det är viktigt att Visual Studio-förutsättningarna (Visual Studio och "Skriv bords utveckling med C++" arbets belastning) är installerade på datorn **innan** du startar installationen av @no__t 2. När förutsättningarna är uppfyllda och nedladdningen har verifierats installerar du CMake-byggesystemet.
+    Det är viktigt att Visual Studio-förutsättningarna (Visual Studio och "Skriv bords utveckling med C++" arbets belastning) är installerade på datorn **innan** du påbörjar installationen av `CMake`. När förutsättningarna är uppfyllda och nedladdningen har verifierats installerar du CMake-byggesystemet.
 
 2. Öppna en kommando tolk eller git bash-gränssnittet och navigera till en arbets katalog som du vill klona Azure IoT C SDK till. Kör följande kommando för att klona [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub-lagringsplatsen:
 
@@ -83,7 +83,7 @@ I den här snabb starten ska du dock förbereda en utvecklings miljö som använ
     cmake ..
     ```
 
-    Om `cmake` inte hittar din C++ kompilator kan du få build-fel när du kör kommandot ovan. Om det händer ska du försöka köra det här kommandot i [kommandotolken i Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
+    Om `cmake` inte hittar C++ kompilatorn kan du få build-fel när du kör kommandot ovan. Om det händer ska du försöka köra det här kommandot i [kommandotolken i Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
 
     När bygget är klart ser de sista utdataraderna ut ungefär som följande utdata:
 
@@ -150,7 +150,7 @@ Det simulerade enhetsprogrammet ansluter till en enhetsspecifik slutpunkt på di
     static const char* connectionString = "[device connection string]";
     ```
 
-    Ersätt värdet för konstanten `connectionString` med enhets anslutnings strängen som du antecknade tidigare. Spara dina ändringar i **iothub_convenience_sample.c**.
+    Ersätt värdet för `connectionString` konstant med enhets anslutnings strängen som du antecknade tidigare. Spara dina ändringar i **iothub_convenience_sample.c**.
 
 3. I ett lokalt terminalfönster navigerar du till projektkatalogen *iothub_convenience_sample* i CMake-katalogen som du skapade i Azure IoT C SDK. Ange följande kommando från din arbets katalog:
 

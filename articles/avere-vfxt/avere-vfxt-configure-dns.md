@@ -33,7 +33,7 @@ Tänk på följande när du bestämmer om du vill använda en DNS-Server:
 
 Om du vill distribuera den övergripande belastningen konfigurerar du din DNS-domän så att den använder resursallokering med resursallokering (Round-Robin) för IP-adresser.
 
-## <a name="configuration-details"></a>Konfigurations information
+## <a name="configuration-details"></a>Konfigurationsinformation
 
 När klienter får åtkomst till klustret, balanserar RRDNS automatiskt sina förfrågningar mellan alla tillgängliga gränssnitt.
 
@@ -41,7 +41,8 @@ För optimala prestanda konfigurerar du DNS-servern så att den hanterar klientb
 
 Ett kluster vserver visas till vänster och IP-adresser visas i mitten och till höger. Konfigurera varje klient åtkomst punkt med en post och pekare som illustreras.
 
-![Avere Cluster Round-Robin DNS-diagram @ no__t-1<!--- separate text description file provided  [diagram text description](avere-vfxt-rrdns-alt-text.md) -->
+![AVERT Cluster Round-Robin DNS-diagram](media/avere-vfxt-rrdns-diagram.png) 
+<!--- separate text description file provided  [diagram text description](avere-vfxt-rrdns-alt-text.md) -->
 
 Varje klient riktad IP-adress måste ha ett unikt namn för intern användning av klustret. (I det här diagrammet heter klientens IP-adresser VS1-client-IP-* för tydlighetens skull, men i produktion bör du förmodligen använda något mer koncis, som klient *.)
 
@@ -73,7 +74,7 @@ update add 12.0.0.10.in-addr.arpa. 86400 PTR vs1-client-IP-12.example.com
 
 ## <a name="cluster-dns-settings"></a>Kluster-DNS-inställningar
 
-Ange den DNS-server som vFXT-klustret använder på sidan för**administrativa nätverks** inställningar på **kluster** > . Inställningarna på sidan är:
+Ange den DNS-server som vFXT-klustret använder på sidan **kluster** > **administrativa nätverks** inställningar. Inställningarna på sidan är:
 
 * DNS-serveradress
 * DNS-domännamn

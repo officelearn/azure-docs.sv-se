@@ -51,11 +51,11 @@ För att kunna använda Azure Sentinel måste du först [ansluta till dina säke
 
 ## <a name="workbooks"></a>Arbetsböcker
 
-När du har [anslutit dina data källor](quickstart-onboard.md) till Azure Sentinel kan du övervaka data med hjälp av Azure Sentinel-integrering med Azure Monitor arbets böcker, vilket ger mångsidighet i att skapa anpassade arbets böcker. Även om arbets böcker visas på olika sätt i Azure Sentinel, kan det vara praktiskt att se hur du [skapar interaktiva rapporter med Azure Monitor arbets böcker](../azure-monitor/app/usage-workbooks.md). Med Azure Sentinel kan du skapa anpassade arbets böcker i dina data och även med inbyggda mallar för arbets böcker så att du snabbt kan få insikter om dina data så snart du ansluter en data källa.
+När du har [anslutit data källorna](quickstart-onboard.md) till Azure Sentinel kan du övervaka data med hjälp av Azure Sentinel-integrering med Azure Monitor arbets böcker, vilket ger mångsidighet i att skapa anpassade arbets böcker. Även om arbets böcker visas på olika sätt i Azure Sentinel, kan det vara praktiskt att se hur du [skapar interaktiva rapporter med Azure Monitor arbets böcker](../azure-monitor/app/usage-workbooks.md). Med Azure Sentinel kan du skapa anpassade arbets böcker i dina data och även med inbyggda mallar för arbets böcker så att du snabbt kan få insikter om dina data så snart du ansluter en data källa.
 
 ![Instrumentpaneler](./media/tutorial-monitor-data/access-workbooks.png)
 
-## <a name="analytics"></a>Analytics
+## <a name="analytics"></a>Analys
 
 För att hjälpa dig att minska bruset och minimera antalet aviseringar som du måste granska och undersöka, använder Azure Sentinel [analyser för att korrelera aviseringar till incidenter](tutorial-detect-threats-built-in.md). **Incidenter** är grupper med relaterade aviseringar som tillsammans skapar ett åtgärds möjligt hot som du kan undersöka och lösa. Använd de inbyggda korrelations reglerna som de är, eller Använd dem som start punkt för att skapa en egen. Azure Sentinel tillhandahåller också maskin inlärnings regler som mappar ditt nätverks beteende och letar efter avvikelser i dina resurser. Dessa analyser ansluter punkterna, genom att kombinera aviseringar med låg kvalitet på olika enheter i potentiella säkerhets incidenter med hög kvalitet.
 
@@ -68,7 +68,7 @@ Automatisera dina vanliga uppgifter och [förenkla säkerhets dirigering med spe
 
 Om du till exempel använder ServiceNow Ticket-systemet kan du använda de verktyg som finns för att använda Azure Logic Apps för att automatisera dina arbets flöden och öppna en biljett i ServiceNow varje gång en viss händelse identifieras.
 
-![Spelböcker](./media/tutorial-respond-threats-playbook/logic-app.png)
+![Strategiböcker](./media/tutorial-respond-threats-playbook/logic-app.png)
 
 
 ## <a name="investigation"></a>Undersökning
@@ -78,11 +78,11 @@ I för hands versionen av Azure Sentinel [djupgående undersöknings](tutorial-i
 ![Undersökning](./media/tutorial-investigate-cases/map-timeline.png)
 
 
-## <a name="hunting"></a>Jakt
+## <a name="hunting"></a>Hotjakt
 
 Använd Azure Sentinels [kraftfulla verktyg för jakt och verktyg](hunting.md), baserat på Mitre-ramverket, som gör det möjligt för dig att proaktivt söka efter säkerhetshot i din organisations data källor innan en avisering utlöses. När du har identifierat vilken jakt fråga som ger hög värdes information i möjliga attacker, kan du också skapa anpassade identifierings regler baserat på din fråga och ställa en funktions insikt som aviseringar till dina säkerhets incident svarare. Samtidigt kan du skapa bok märken för intressanta händelser, så att du kan återgå till dem senare, dela dem med andra och gruppera dem med andra korrelerande händelser för att skapa en övertygande incident för undersökning.
 
-![Jakt](./media/overview/hunting.png)
+![Hotjakt](./media/overview/hunting.png)
 
 ## <a name="community"></a>Community
 

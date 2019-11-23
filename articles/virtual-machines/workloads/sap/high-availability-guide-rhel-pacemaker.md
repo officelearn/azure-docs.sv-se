@@ -108,9 +108,9 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
 
    > [!IMPORTANT]
    > Vi rekommenderar följande versioner av Azure stängsel-agenten (eller senare) för att kunderna ska kunna dra nytta av en snabbare redundansväxling, om en resurs slutar att fungera eller om klusternoderna inte kan kommunicera med varandra längre:  
-   > RHEL 7,6: Fence-agents-4.2.1 -11. el7 _ 6,8  
-   > RHEL 7,5: Fence-agents-4.0.11 -86. el7 _ 5,8 tum  
-   > RHEL 7,4: Fence-agents-4.0.11 -66. el7 _ 4.12  
+   > RHEL 7,6: stängsel-agents-4.2.1-11. el7_6.8  
+   > RHEL 7,5: stängsel-agents-4.0.11-86. el7_5.8  
+   > RHEL 7,4: stängsel-agents-4.0.11-66. el7_4 12  
    > Mer information finns i den [virtuella Azure-datorn som körs som en RHEL hög tillgänglighets kluster medlem tar lång tid att begränsas, eller staket/timeout innan den virtuella datorn stängs av](https://access.redhat.com/solutions/3408711).
 
    Kontrol lera versionen av Azure-stängsel-agenten. Vid behov kan du uppdatera den till en version som är lika med eller senare än den som anges ovan.
@@ -265,7 +265,7 @@ sudo pcs property set stonith-timeout=900
 Använd följande kommando för att konfigurera avgränsnings enheten.
 
 > [!NOTE]
-> Alternativet pcmk_host_map krävs endast i kommandot om RHEL-värdnamn och Azure-nodnamn inte är identiska. Se avsnittet fet i kommandot.
+> Alternativet pcmk_host_map krävs bara i kommandot om RHEL värdnamn och Azure-nodnamn inte är identiska. Se avsnittet fet i kommandot.
 
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm login="<b>login ID</b>" passwd="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:10.0.0.6;prod-cl1-1:10.0.0.7"</b> power_timeout=240 pcmk_reboot_timeout=900</code></pre>
 

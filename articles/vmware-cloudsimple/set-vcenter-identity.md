@@ -55,7 +55,7 @@ Använd informationen i följande tabell när du konfigurerar din Active Directo
 |------------|-----------------|
 | **Namn** | Namnet på identitets källan. |
 | **Grundläggande DN för användare** | Grundläggande unikt namn för användare. |
-| **Domän namn** | FDQN för domänen, till exempel example.com. Ange ingen IP-adress i den här text rutan. |
+| **Domännamn** | FDQN för domänen, till exempel example.com. Ange ingen IP-adress i den här text rutan. |
 | **Domän Ali Aset** | Domänens NetBIOS-namn. Lägg till NetBIOS-namnet för Active Directory domän som ett alias för identitets källan om du använder SSPI-autentiseringar. |
 | **Bas-DN för grupper** | Det grundläggande unika namnet för grupper. |
 | **Primär server-URL** | Primär domänkontrollantens LDAP-server för domänen.<br><br>Använd formatet `ldap://hostname:port` eller `ldaps://hostname:port`. Porten är vanligt vis 389 för LDAP-anslutningar och 636 för LDAPs-anslutningar. För att Active Directory distributioner av flera domänkontrollanter är porten vanligt vis 3268 för LDAP och 3269 för LDAPs.<br><br>Ett certifikat som upprättar förtroende för LDAP-slutpunkten för Active Directory-servern krävs när du använder `ldaps://` i den primära eller sekundära LDAP-URL: en. |

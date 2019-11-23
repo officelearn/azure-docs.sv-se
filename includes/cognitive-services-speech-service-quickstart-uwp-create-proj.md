@@ -37,7 +37,7 @@ Starta genom att kontrol lera att du är korrekt konfigurerad i Visual Studio f�
 
 Skapa sedan ditt projekt:
 
-1. I meny raden i Visual Studio väljer du **fil** > **nytt** > -**projekt** för att visa fönstret **skapa ett nytt projekt** .
+1. I meny raden i Visual Studio väljer du **arkiv** > **nytt** > **projekt** för att visa fönstret **skapa ett nytt projekt** .
 
    ![Skapa ett nytt projekt – Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-create-new-project.png)
 
@@ -47,7 +47,7 @@ Skapa sedan ditt projekt:
 
    ![Konfigurera det nya projektet – Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-configure-your-new-project.png)
 
-1. Skriv `helloworld` i **projekt namn**.
+1. Ange `helloworld`i **projekt namn**.
 
 1. I **plats**navigerar du till och väljer eller skapar mappen där du vill spara projektet i.
 
@@ -80,7 +80,7 @@ Tillåt sedan att projektet fångar in ljud indata:
 
 1. Markera rutan för **mikrofonens** funktion.
 
-1. I meny raden väljer du **File** > **Save Package. appxmanifest** för att spara ändringarna.
+1. I meny raden väljer du **arkiv** > **Spara Package. appxmanifest** för att spara ändringarna.
 
 ### <a name="install-the-speech-sdk"></a>Installera Speech SDK
 
@@ -94,7 +94,7 @@ Slutligen installerar du [NuGet-paketet för tal-SDK](https://aka.ms/csspeech/nu
 
 1. I **paket källa**väljer du **NuGet.org**.
 
-1. I **sökrutan anger du @no__t** -1 och väljer sedan det paketet när det visas i Sök resultatet.
+1. I **sökrutan anger du `Microsoft.CognitiveServices.Speech`** och väljer sedan det paketet när det visas i Sök resultatet.
 
    ![Skärmbild av dialogrutan Hantera paket för lösningen](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-05-nuget-install-1.0.0.png)
 

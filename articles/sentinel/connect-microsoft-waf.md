@@ -29,7 +29,7 @@ ms.locfileid: "72029783"
 Du kan strömma loggar från Azure Application gatewayens Microsoft Web Application-brandvägg (WAF). Den här WAF skyddar dina program mot vanliga webb sårbarheter som SQL-inmatning och Cross-Site-skript och gör att du kan anpassa regler för att minska antalet falska positiva identifieringar. Följ dessa anvisningar för att strömma dina Microsoft Web Application Firewall-loggar till Azure Sentinel.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En befintlig Application Gateway-resurs
 
@@ -40,7 +40,7 @@ När din Microsoft Web Application-brandvägg har distribuerats och hämta data 
     
 1. I Azure Sentinel-portalen väljer du **data anslutningar**.
 1. På sidan data anslutningar väljer du panelen **WAF** .
-1. Gå till [Application Gateway resurs](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways) AND välj din WAF.
+1. Gå till [Application Gateway resurs](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways) och välj din WAF.
     1. Välj **diagnostikinställningar**.
     1. Välj **+ Lägg till diagnostisk inställning** under tabellen.
     1. På sidan **diagnostikinställningar** anger du ett **namn** och väljer **Skicka till Log Analytics**.

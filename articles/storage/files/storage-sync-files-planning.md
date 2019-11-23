@@ -145,7 +145,7 @@ Så här visar du resultatet i CSV:
 | ethumbs. db $ | Temporär fil för miniatyrer |
 | ~$\*.\* | Tillfällig Office-fil |
 | \*. tmp | Temporär fil |
-| \*. LACCDB | Lås fil för åtkomst databasen|
+| \*.laccdb | Lås fil för åtkomst databasen|
 | 635D02A9D91C401B97884B82B3BCDAEA.* | Intern Sync-fil|
 | \\system volym information | Mapp som är speciell för volym |
 | $RECYCLE. PLATS| Mapp |
@@ -252,25 +252,25 @@ Azure File Sync är endast tillgängligt i följande regioner:
 | Östra Australien | New South Wales |
 | Australien, sydöstra | Victoria |
 | Södra Brasilien | Sao Paulo (delstat) |
-| Kanada, centrala | Toronto |
-| Östra Kanada | Quebec City |
+| Centrala Kanada | Toronto |
+| Kanada, östra | Quebec City |
 | Indien, centrala | Pune |
 | Centrala USA | Iowa |
-| Östasien | Hong Kong SAR |
-| USA, östra | Virginia |
+| Östasien | Hongkong SAR |
+| Östra USA | Virginia |
 | USA, östra 2 | Virginia |
 | Frankrike, centrala | Paris |
 | Frankrike, södra * | Marseille |
 | Sydkorea, centrala | Seoul |
 | Sydkorea, södra | Busan |
-| Japan, östra | Tokyo, Saitama |
+| Östra Japan | Tokyo, Saitama |
 | Västra Japan | Osaka |
 | USA, norra centrala | Illinois |
-| Norra Europa | Irland |
+| Europa, norra | Irland |
 | Sydafrika, norra | Johannesburg |
 | Södra Afrika, västra * | Kapstaden |
 | Södra centrala USA | Texas |
-| Södra Indien | Chennai |
+| Indien, södra | Chennai |
 | Sydostasien | Singapore |
 | Storbritannien, södra | London |
 | Storbritannien, västra | Cardiff |
@@ -280,8 +280,8 @@ Azure File Sync är endast tillgängligt i följande regioner:
 | Förenade Arabemiraten, norra | Dubai |
 | Förenade Arabemiraten Central * | Abu Dhabi |
 | Europa, västra | Nederländerna |
-| USA, västra centrala | Wyoming |
-| USA, västra | Kalifornien |
+| Västra centrala USA | Wyoming |
+| Västra USA | Kalifornien |
 | Västra USA 2 | Washington |
 
 Azure File Sync stöder endast synkronisering med en Azure-filresurs som är i samma region som tjänsten för synkronisering av lagring.
@@ -301,35 +301,35 @@ För att stödja redundansväxlingen mellan Geo-redundant lagring och Azure File
 | Östra Australien      | Australien, sydöstra|
 | Australien, sydöstra | Östra Australien     |
 | Södra Brasilien        | Södra centrala USA   |
-| Kanada, centrala      | Östra Kanada        |
-| Östra Kanada         | Kanada, centrala     |
-| Indien, centrala       | Södra Indien        |
+| Centrala Kanada      | Kanada, östra        |
+| Kanada, östra         | Centrala Kanada     |
+| Indien, centrala       | Indien, södra        |
 | Centrala USA          | USA, östra 2          |
 | Östasien           | Sydostasien     |
-| USA, östra             | USA, västra            |
+| Östra USA             | Västra USA            |
 | USA, östra 2           | Centrala USA         |
 | Frankrike, centrala      | Frankrike, södra       |
 | Frankrike, södra        | Frankrike, centrala     |
-| Japan, östra          | Västra Japan         |
-| Västra Japan          | Japan, östra         |
+| Östra Japan          | Västra Japan         |
+| Västra Japan          | Östra Japan         |
 | Sydkorea, centrala       | Sydkorea, södra        |
 | Sydkorea, södra         | Sydkorea, centrala      |
-| Norra Europa        | Europa, västra        |
+| Europa, norra        | Europa, västra        |
 | USA, norra centrala    | Södra centrala USA   |
 | Sydafrika, norra  | Sydafrika, västra  |
 | Sydafrika, västra   | Sydafrika, norra |
 | Södra centrala USA    | USA, norra centrala   |
-| Södra Indien         | Indien, centrala      |
+| Indien, södra         | Indien, centrala      |
 | Sydostasien      | Östasien          |
 | Storbritannien, södra            | Storbritannien, västra            |
 | Storbritannien, västra             | Storbritannien, södra           |
 | Arizona (USA-förvaltad region)      | Texas (USA-förvaltad region)       |
 | US Gov, Iowa         | Virginia (USA-förvaltad region)    |
 | Virginia (USA-förvaltad region)      | Texas (USA-förvaltad region)       |
-| Europa, västra         | Norra Europa       |
-| USA, västra centrala     | Västra USA 2          |
-| USA, västra             | USA, östra            |
-| Västra USA 2           | USA, västra centrala    |
+| Europa, västra         | Europa, norra       |
+| Västra centrala USA     | Västra USA 2          |
+| Västra USA             | Östra USA            |
+| Västra USA 2           | Västra centrala USA    |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Uppdateringsprincip för Azure File Sync-agenten
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

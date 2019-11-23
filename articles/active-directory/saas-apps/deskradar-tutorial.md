@@ -63,7 +63,7 @@ Om du vill konfigurera och testa Azure AD SSO med Deskradar, slutför du följan
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera DESKRADAR SSO](#configure-deskradar-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa Deskradar-testanvändare](#create-deskradar-test-user)** – för att ha en motsvarighet för Britta Simon i Deskradar som är länkad till en Azure AD-representation av användaren.
 6. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
@@ -82,18 +82,18 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://YOURDOMAIN.deskradar.cloud`
 
-    b. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://YOURDOMAIN.deskradar.cloud/auth/sso/saml/consume`
+    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://YOURDOMAIN.deskradar.cloud/auth/sso/saml/consume`
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://YOURDOMAIN.deskradar.cloud/auth/sso/saml/login`
+    I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://YOURDOMAIN.deskradar.cloud/auth/sso/saml/login`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Ersätt **YOURDOMAIN** med din Deskradar-instansdomän. Hämta dessa värden genom att kontakta [supportteamet för Deskradar-klienten](mailto:support@deskradar.com). Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Ersätt **YOURDOMAIN** med din Deskradar-instansdomän. Hämta dessa värden genom att kontakta [supportteamet för Deskradar-klienten](mailto:support@deskradar.com). Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 1. Deskradar-programmet förväntar sig SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
 
-    ![mallar](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 1. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** konfigurerar du SAML-tokenattributet på det sätt som visas i bilden ovan och utför följande steg:
 
@@ -116,7 +116,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     f. Klicka på **OK**.
 
-    g. Klicka på **Save** (Spara).
+    g. Klicka på **Spara**.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
@@ -192,7 +192,7 @@ I det här avsnittet skapar du en användare med namnet Britta Simon i Deskradar
 
 ### <a name="test-sso"></a>Testa SSO
 
-När du väljer panelen Deskradar på åtkomst panelen, bör du loggas in automatiskt på den Deskradar som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du väljer panelen Deskradar på åtkomst panelen, bör du loggas in automatiskt på den Deskradar som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

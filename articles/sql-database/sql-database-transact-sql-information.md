@@ -57,7 +57,7 @@ Förutom Transact-SQL-uttryck som är relaterade till de funktioner som inte st�
 - Funktioner: `fn_get_sql`, `fn_virtualfilestats`,`fn_virtualservernodes`
 - Maskin vara: syntax som är relaterad till maskinvarurelaterade Server inställningar: till exempel minne, arbets trådar, processor tillhörighet, spårnings flaggor. Använd tjänst nivåer och beräknings storlekar i stället.
 - `KILL STATS JOB`
-- `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE` och namn på fyra delar
+- `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE`och namn på fyra delar
 - .NET Framework: CLR-integrering med SQL Server
 - Semantisk sökning
 - Autentiseringsuppgifter för Server: Använd [databasens begränsade autentiseringsuppgifter](https://msdn.microsoft.com/library/mt270260.aspx) i stället.

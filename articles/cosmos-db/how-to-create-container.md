@@ -51,7 +51,7 @@ I den här artikeln beskrivs olika sätt att skapa en Azure Cosmos-behållare (s
 
     ![Skärm bild av dialog rutan Azure Cosmos DB-API för MongoDB, Lägg till behållare](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
 
-### <a id="portal-cassandra"></a>API för Cassandra
+### <a id="portal-cassandra"></a>Cassandra-API
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
@@ -116,7 +116,7 @@ För en lista över alla Azure CLI-exempel i alla Azure Cosmos DB API: er, se [S
 * [Skapa en Gremlin-graf med Azure CLI](./scripts/cli/gremlin/create.md)
 * [Skapa en Tabell-API tabell med Azure CLI](./scripts/cli/table/create.md)
 
-## Skapa en behållare med PowerShell<a id="ps-sql"></a>-@no__t-<a id="ps-cassandra"></a>1 <a id="ps-gremlin"><a id="ps-table"></a>
+## Skapa en behållare med PowerShell<a id="ps-sql"> </a><a id="ps-mongodb"><a id="ps-cassandra"></a><a id="ps-gremlin"><a id="ps-table"></a>
 
 Länkarna nedan visar hur du skapar behållar resurser för Azure Cosmos DB med hjälp av PowerShell.
 
@@ -154,7 +154,7 @@ db.runCommand( { shardCollection: "myDatabase.myCollection", key: { myShardKey: 
 > [!Note]
 > MongoDB Wire Protocol förstår inte konceptet för enheter för [programbegäran](request-units.md). Om du vill skapa en ny samling med ett tillhandahållet data flöde på den använder du Azure Portal eller Cosmos DB SDK: er för SQL API.
 
-### <a id="dotnet-cassandra"></a>API för Cassandra
+### <a id="dotnet-cassandra"></a>Cassandra-API
 
 ```csharp
 // Create a Cassandra table with a partition/primary key and provision 1000 RU/s throughput.
@@ -168,5 +168,5 @@ session.Execute(CREATE TABLE myKeySpace.myTable(
 
 * [Partitionering i Azure Cosmos DB](partitioning-overview.md)
 * [Enheter för programbegäran i Azure Cosmos DB](request-units.md)
-* [Etablera data flöde på behållare och databaser](set-throughput.md)
+* [Etablera dataflöde på containrar och databaser](set-throughput.md)
 * [Arbeta med Azure Cosmos-konto](account-overview.md)

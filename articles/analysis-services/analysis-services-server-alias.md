@@ -43,7 +43,7 @@ I det här exemplet skapas ett ASP.NET webb formulär program i Visual Studio. H
 <%@ Page Title="Home Page" Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="FriendlyRedirect._Default" %>
 ```
 
-Händelsen Page_Load i Default.aspx.cs använder metoden Response. write () för att returnera Azure Analysis Services server namnet.
+Händelsen Page_Load i Default.aspx.cs använder metoden Response. write () för att returnera namnet på Azure Analysis Services servern.
 
 ```
 protected void Page_Load(object sender, EventArgs e)

@@ -84,24 +84,24 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<SUBDOMAIN>.freshworks.com/login`
 
-    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<SUBDOMAIN>.freshworks.com/sp/SAML/<MODULE_ID>/metadata`
+    b. I textrutan **Identifierare (entitets-ID)** skriver du en URL med följande mönster: `https://<SUBDOMAIN>.freshworks.com/sp/SAML/<MODULE_ID>/metadata`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL:en och identifieraren. Kontakta [Freshworks client support team](mailto:support@freshworks.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [Freshworks client support team](mailto:support@freshworks.com) för att hämta dessa värden. Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-1. Ändra **signerings** Options enligt ditt krav genom att klicka på **Redigera** Button för att öppna **SAML-signeringscertifikat** dialog.
+1. Om du vill ändra **signerings** alternativen enligt ditt krav, klickar du på **Redigera** knappen för att öppna dialog rutan för **SAML-signerings certifikat** .
 
-     ![mallar](common/edit-certificate.png)
+     ![image](common/edit-certificate.png)
 
      ![Freshworks-konfiguration](./media/freshworks-tutorial/response.png)
 
     a. Välj **signera SAML-svar** som **signerings alternativ**.
 
-    b. Klicka på **Save** (Spara).
+    b. Klicka på **Spara**.
 
 1. I avsnittet **Konfigurera Freshworks** kopierar du lämpliga URL: er baserat på ditt krav.
 
@@ -141,7 +141,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Öppna ett nytt webbläsarfönster och logga in på din Freshworks-företags webbplats som administratör och utför följande steg:
 
-2. På den vänstra sidan av menyn klickar du på **säkerhet** icon och markerar sedan alternativet **enkel inloggning** och väljer **SAML SSO** under **autentiseringsmetoder**.
+2. Klicka på ikonen **säkerhet** på menyn till vänster på menyn och markera sedan alternativet **enkel inloggning** och välj **SAML SSO** under **autentiseringsmetoder**.
 
     ![Freshworks-konfiguration](./media/freshworks-tutorial/configure01.png)
 
@@ -157,7 +157,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     d. Öppna det Base64-kodade certifikatet i anteckningar, kopiera dess innehåll och klistra in det i text rutan **säkerhetscertifikat** .
 
-    e. Klicka på **Save** (Spara).
+    e. Klicka på **Spara**.
 
 ### <a name="create-freshworks-test-user"></a>Skapa Freshworks test användare
 
@@ -167,7 +167,7 @@ I det här avsnittet skapar du en användare som heter B. Simon i Freshworks. Ar
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Freshworks på åtkomst panelen, bör du loggas in automatiskt på den Freshworks som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på panelen Freshworks på åtkomst panelen, bör du loggas in automatiskt på den Freshworks som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

@@ -77,22 +77,22 @@ Azure-anslutaren levereras från och med SAP LaMa 3,0 SP05. Vi rekommenderar att
 1. Öppna bladet Azure Active Directory
 1. Klicka på Appregistreringar
 1. Klicka på Lägg till
-1. Ange ett namn, Välj program typ "webbapp/API", ange en inloggnings-URL (till exempel http: \//localhost) och klicka på skapa
-1. Inloggnings-URL: en används inte och kan vara en giltig URL
+1. Ange ett namn, Välj program typ "webbapp/API", ange en inloggnings-URL (till exempel http:\//localhost) och klicka på skapa
+1. Inloggnings-URL: en används inte och kan vara vilken giltig URL
 1. Välj den nya appen och klicka på nycklar på fliken Inställningar
 1. Ange en beskrivning för en ny nyckel, välj "upphör aldrig" och klicka på Spara
-1. Skriv ned värdet. Den används som lösen ord för tjänstens huvud namn
-1. Anteckna program-ID: t. Den används som användar namn för tjänstens huvud namn
+1. Anteckna värdet. Den används som lösen ord för tjänstens huvud namn
+1. Anteckna programmets ID. Den används som användar namn för tjänstens huvud namn
 
-Tjänstens huvud namn har inte behörighet att komma åt dina Azure-resurser som standard. Du måste ge tjänstens huvud namn behörighet att komma åt dem.
+Tjänstens huvudnamn har inte behörighet att komma åt dina Azure-resurser som standard. Du måste ge tjänstens huvud namn behörighet att komma åt dem.
 
 1. Gå till https://portal.azure.com
 1. Öppna bladet resurs grupper
 1. Välj den resurs grupp som du vill använda
-1. Klicka på åtkomst kontroll (IAM)
+1. Klicka på åtkomstkontroll (IAM)
 1. Klicka på Lägg till roll tilldelning
 1. Välj roll deltagare
-1. Ange namnet på det program som du skapade ovan
+1. Ange namnet på programmet som du skapade ovan
 1. Klicka på Spara
 1. Upprepa steg 3 till 8 för alla resurs grupper som du vill använda i SAP LaMa
 
@@ -123,7 +123,7 @@ Vi rekommenderar att du använder ett separat undernät för alla virtuella dato
 > [!NOTE]
 > Ta om möjligt bort alla tillägg för virtuella datorer eftersom de kan orsaka långa körningar för att koppla från diskar från en virtuell dator.
 
-Se till att User \<hanasid > ADM, \<sapsid > adm och grupp sapsys finns på mål datorn med samma ID och GID eller Använd LDAP. Aktivera och starta NFS-servern på de virtuella datorer som ska användas för att köra SAP NetWeaver (A) SCS.
+Se till att användaren \<hanasid > ADM, \<sapsid > adm och grupp sapsys finns på mål datorn med samma ID och GID eller Använd LDAP. Aktivera och starta NFS-servern på de virtuella datorer som ska användas för att köra SAP NetWeaver (A) SCS.
 
 ### <a name="manual-deployment"></a>Manuell distribution
 
@@ -133,7 +133,7 @@ SAP LaMa kommunicerar med den virtuella datorn med hjälp av SAP-värd agenten. 
 
 Skapa en ny virtuell dator med ett av de operativ system som stöds i SAP NOTE [2343511]. Lägg till ytterligare IP-konfigurationer för SAP-instanserna. Varje instans måste ha minst på IP-adress och måste installeras med ett virtuellt värdnamn.
 
-SAP NetWeaver ASCS-instansen behöver diskar för/sapmnt/\<SAPSID >,/usr/SAP/\<SAPSID >,/usr/SAP/trans och/usr/SAP/\<sapsid > Adm. Det behövs inga ytterligare diskar för program servrarna för SAP-NetWeaver. Allt som är relaterat till SAP-instansen måste lagras i ASCS och exporteras via NFS. Annars är det för närvarande inte möjligt att lägga till ytterligare program servrar med SAP LaMa.
+SAP NetWeaver ASCS-instansen behöver diskar för/sapmnt/\<SAPSID >,/usr/SAP/\<SAPSID >,/usr/SAP/trans och/usr/SAP/\<SAPSID > Adm. Det behövs inga ytterligare diskar för program servrarna för SAP-NetWeaver. Allt som är relaterat till SAP-instansen måste lagras i ASCS och exporteras via NFS. Annars är det för närvarande inte möjligt att lägga till ytterligare program servrar med SAP LaMa.
 
 ![SAP NetWeaver-ASCS på Linux](media/lama/sap-lama-ascs-app-linux.png)
 
@@ -220,7 +220,7 @@ Mallarna har följande parametrar:
 
 * _artifactsLocation: bas-URI, där artefakter som krävs av den här mallen finns. När mallen distribueras med hjälp av de medföljande skripten, används en privat plats i prenumerationen och det här värdet skapas automatiskt. Krävs endast om du inte distribuerar mallen från GitHub.
 
-* _artifactsLocationSasToken: sasToken som krävs för att få åtkomst till _artifactsLocation. När mallen distribueras med hjälp av de medföljande skripten skapas en sasToken automatiskt. Krävs endast om du inte distribuerar mallen från GitHub.
+* _artifactsLocationSasToken: sasToken krävs för att komma åt _artifactsLocation. När mallen distribueras med hjälp av de medföljande skripten skapas en sasToken automatiskt. Krävs endast om du inte distribuerar mallen från GitHub.
 
 ### <a name="sap-hana"></a>SAP HANA
 
@@ -246,7 +246,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h ah1-as
 
 Kör SWPM och Använd *ah1-ASCs* för *värd namnet för ASCs-instansen*.
 
-![Linux @ no__t-1 Linux  
+![Linux][Logo_Linux] Linux  
 Lägg till följande profil parameter i SAP host agent-profilen som finns på/usr/SAP/hostctrl/exe/host_profile. Mer information finns i SAP NOTE [2628497].
 ```
 acosprep/nfs_paths=/home/ah1adm,/usr/sap/trans,/sapmnt/AH1,/usr/sap/AH1
@@ -258,7 +258,7 @@ acosprep/nfs_paths=/home/ah1adm,/usr/sap/trans,/sapmnt/AH1,/usr/sap/AH1
 > Den här funktionen är eller GA ännu. Mer information hittar du i SAP NOTE [2815988] (endast synlig för Preview-kunder).
 Öppna en SAP-incident på komponenten BC-VCM-LVM-HYPERV och begär att ansluta till LaMa Storage adapter för Azure NetApp Files för hands version
 
-ANF tillhandahåller NFS för Azure. I samband med SAP LaMa fören klar skapandet av instanserna av ABAP Central Services (ASCS) och den efterföljande installationen av program servrar. Tidigare var ASCS-instansen att fungera som NFS-server även och parametern acosprep/nfs_paths måste läggas till i host_profile för SAP Hostagent.
+ANF tillhandahåller NFS för Azure. I samband med SAP LaMa fören klar skapandet av instanserna av ABAP Central Services (ASCS) och den efterföljande installationen av program servrar. Tidigare var ASCS-instansen att fungera som NFS-server även och parametern acosprep/nfs_paths måste läggas till i host_profile för SAP-Hostagent.
 
 #### <a name="anf-is-currently-available-in-these-regions"></a>ANF är för närvarande tillgängligt i följande regioner:
 
@@ -289,7 +289,7 @@ I NetApp-kontot anger kapacitets gruppen storlek och typ av diskar för varje po
 
 ![SAP LaMa NetApp-pool skapades ](media/lama/sap-lama-capacitypool-list.png)
 
-NFS-volymerna kan nu definieras. Eftersom det kommer att finnas volymer för flera system i en pool ska du välja ett namn schema som du själv förklarar. Genom att lägga till SID kan du gruppera relaterade volymer tillsammans. Följande monteringar krävs för ASCS och AS-instansen: */sapmnt/\<SID @ no__t-2*, */usr/SAP/\<SID @ no__t-5*och */Home/\<sid @ no__t-8adm*. Du behöver eventuellt */usr/SAP/trans* för den centrala transport katalogen, som minst används av alla system i ett landskap.
+NFS-volymerna kan nu definieras. Eftersom det kommer att finnas volymer för flera system i en pool ska du välja ett namn schema som du själv förklarar. Genom att lägga till SID kan du gruppera relaterade volymer tillsammans. Följande monteringar krävs för ASCS och AS-instansen: */sapmnt/\<sid\>* , */usr/sap/\<sid\>* och */Home/\<sid\>ADM*. Du behöver eventuellt */usr/SAP/trans* för den centrala transport katalogen, som minst används av alla system i ett landskap.
 
 > [!NOTE]
 > Under BETA fasen måste namnet på volymerna vara unika i prenumerationen.
@@ -336,7 +336,7 @@ När installationen är klar måste systemet identifieras i SAP LaMa.
 
 Monterings punkterna bör se ut så här för ASCS och som-instansen:
 
-![SAP LaMa monterings punkter i LaMa ](media/lama/sap-lama-ascs.png) (detta är ett exempel. IP-adresserna och export Sök vägen skiljer sig från de som används tidigare)
+![monterings punkter för SAP LaMa i LaMa ](media/lama/sap-lama-ascs.png) (detta är ett exempel. IP-adresserna och export Sök vägen skiljer sig från de som används tidigare)
 
 
 #### <a name="install-sap-hana"></a>Installera SAP HANA
@@ -371,7 +371,7 @@ Innan du startar SAP Software Provisioning Manager (SWPM) måste du montera IP-a
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h ah1-di-0 -n 255.255.255.128
 ```
 
-Vi rekommenderar att du använder SAP NetWeaver Profile parameter databaser/HDB/hdb_use_ident för att ange den identitet som används för att hitta nyckeln i HDB userstore. Du kan lägga till den här parametern manuellt efter installationen av databas instansen med SWPM eller köra SWPM med
+Vi rekommenderar att du använder SAP NetWeaver Profile parameter databaser/HDB/hdb_use_ident för att ange den identitet som används för att hitta nyckeln i HDB-userstore. Du kan lägga till den här parametern manuellt efter installationen av databas instansen med SWPM eller köra SWPM med
 
 ```bash
 # from https://blogs.sap.com/2015/04/14/sap-hana-client-software-different-ways-to-set-the-connectivity-data/
@@ -432,13 +432,13 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
 
 Använd *AS1-di-0* som *värd namn för Pas-instansen* i dialog rutan *primär program Server instans*.
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 ### <a name="errors-and-warnings-during-discover"></a>Fel och varningar under identifiering
 
 * SELECT-behörighet nekades
-  * Utforskaren [ODBC SQL Server-drivrutin] [SQL Server] SELECT-behörighet nekades för objektet ' log_shipping_primary_databases ', databasen ' msdb ', schema ' dbo '. [SOAPFaultException]  
-  SELECT-behörighet nekades för objektet ' log_shipping_primary_databases ', databasen ' msdb ', schema ' dbo '.
+  * Utforskaren [ODBC SQL Server-drivrutin] [SQL Server] SELECT-behörighet nekades för objektet log_shipping_primary_databases, databasen msdb, schema ' dbo '. [SOAPFaultException]  
+  SELECT-behörighet nekades för objektet log_shipping_primary_databases, databasen msdb, schema ' dbo '.
   * Lösning  
     Kontrol lera att *NT instans\system* har åtkomst till SQL Server. Se SAP NOTE [2562184]
 
@@ -455,7 +455,7 @@ Använd *AS1-di-0* som *värd namn för Pas-instansen* i dialog rutan *primär p
 ### <a name="errors-and-warnings-during-a-system-copy"></a>Fel och varningar under en system kopiering
 
 * Ett fel uppstod när system etablerings steget verifierades
-  * Orsakad av: com. SAP. NW. lm. ACI. Engine. Base. API. util. Exception. HAOperationException anropar/usr/SAP/hostctrl/exe/sapacext-a ShowHanaBackups-m HN1-f 50-h HN1-DB-o Level = 0 @ no__t-0status = 5 @ no__t-1port = 35013 PF =/usr/SAP/hostctrl/exe/host_ profil-R-T dev_lvminfo – u SYSTEM-p Hook-R | /usr/SAP/hostctrl/exe/sapacext-a ShowHanaBackups-m HN1-f 50-h HN1-DB-o Level = 0 @ no__t-2status = 5 @ no__t-3port = 35013 PF =/usr/SAP/hostctrl/exe/host_profile-R-T dev_lvminfo-u SYSTEM-p Hook-R
+  * Orsakad av: com. SAP. NW. lm. ACI. Engine. Base. API. util. Exception. HAOperationException Call '/usr/SAP/hostctrl/exe/sapacext-a ShowHanaBackups-m HN1-f 50-h HN1-DB-o Level = 0\;status = 5\;port = 35013 PF =/usr/SAP/hostctrl/exe/host_profile-R-T dev_lvminfo-u SYSTEM-p Hook-R ' | /usr/SAP/hostctrl/exe/sapacext – a ShowHanaBackups-m HN1-f 50-h HN1-DB-o Level = 0\;status = 5\;port = 35013 PF =/usr/SAP/hostctrl/exe/host_profile-R-T dev_lvminfo-u SYSTEM-p Hook-R
   * Lösning  
     Gör en säkerhets kopia av alla databaser i källan HANA-system
 
@@ -467,21 +467,21 @@ Använd *AS1-di-0* som *värd namn för Pas-instansen* i dialog rutan *primär p
 ### <a name="errors-and-warnings-during-a-system-clone"></a>Fel och varningar under en kloning av systemet
 
 * Ett fel uppstod vid försök att registrera instans agenten i steget *tvångs register och start instans agenten* för program Server eller ASCS
-  * Ett fel uppstod vid försök att registrera instans agenten. (RemoteException: det gick inte att läsa in instans data från profilen \\as1-ASCs \ sapmnt \ AS1 \ SYS \ Profile \ AS1_D00_as1-di-0: det går inte att komma åt profilen \\as1-ASCs \ sapmnt \ AS1 \ SYS \ Profile \ AS1_D00_as1-di-0 ': ingen sådan fil eller katalog. ')
+  * Ett fel uppstod vid försök att registrera instans agenten. (RemoteException: det gick inte att läsa in instans data från profilen\\as1-ascs\sapmnt\AS1\SYS\profile\ AS1_D00_as1-di-0: det går inte att komma åt profilen\\as1-ascs\sapmnt\AS1\SYS\profile\ AS1_D00_as1-di-0: ingen sådan fil eller katalog.)
   * Lösning  
    Kontrol lera att sapmnt-resursen på ASCS/SCS har fullständig åtkomst till SAP_AS1_GlobalAdmin
 
 * Fel i steget *Aktivera start skydd för kloning*
-  * Det gick inte att öppna filen \\as1-ASCs \ sapmnt \ AS1 \ SYS \ Profile \ AS1_D00_as1-di-0 Nmöjlig orsak: ingen sådan fil eller katalog
+  * Det gick inte att öppna filen\\as1-ascs\sapmnt\AS1\SYS\profile\ AS1_D00_as1-di-0, orsak: ingen sådan fil eller katalog
   * Lösning  
     Dator kontot för program servern behöver skriv åtkomst till profilen
 
 ### <a name="errors-and-warnings-during-create-system-replication"></a>Fel och varningar vid skapande av systemreplikering
 
 * Undantag vid klickning på Skapa systemreplikering
-  * Orsakad av: com. SAP. NW. lm. ACI. Engine. Base. API. util. Exception. HAOperationException anropar/usr/SAP/hostctrl/exe/sapacext-a ShowHanaBackups-m HN1-f 50-h HN1-DB-o Level = 0 @ no__t-0status = 5 @ no__t-1port = 35013 PF =/usr/SAP/hostctrl/exe/host_ profil-R-T dev_lvminfo – u SYSTEM-p Hook-R | /usr/SAP/hostctrl/exe/sapacext-a ShowHanaBackups-m HN1-f 50-h HN1-DB-o Level = 0 @ no__t-2status = 5 @ no__t-3port = 35013 PF =/usr/SAP/hostctrl/exe/host_profile-R-T dev_lvminfo-u SYSTEM-p Hook-R
+  * Orsakad av: com. SAP. NW. lm. ACI. Engine. Base. API. util. Exception. HAOperationException Call '/usr/SAP/hostctrl/exe/sapacext-a ShowHanaBackups-m HN1-f 50-h HN1-DB-o Level = 0\;status = 5\;port = 35013 PF =/usr/SAP/hostctrl/exe/host_profile-R-T dev_lvminfo-u SYSTEM-p Hook-R ' | /usr/SAP/hostctrl/exe/sapacext – a ShowHanaBackups-m HN1-f 50-h HN1-DB-o Level = 0\;status = 5\;port = 35013 PF =/usr/SAP/hostctrl/exe/host_profile-R-T dev_lvminfo-u SYSTEM-p Hook-R
   * Lösning  
-    Testa om sapacext kan köras som `<hanasid` > ADM
+    Testa om sapacext kan köras som `<hanasid`> ADM
 
 * Fel när fullständig kopia inte är aktive rad i Storage-steget
   * Ett fel uppstod vid rapportering av ett context Attribute-meddelande för sökvägen IStorageCopyData. storageVolumeCopyList: 1 och Field targetStorageSystemId
@@ -503,7 +503,7 @@ Använd *AS1-di-0* som *värd namn för Pas-instansen* i dialog rutan *primär p
 ### <a name="errors-and-warnings-during-application-server-installation"></a>Fel och varningar vid installation av program Server
 
 * Fel vid körning av SAPinst-steg: getProfileDir
-  * FEL: (senaste fel rapporterat av steget: infångad ESAPinstException i modul-anrop: validator för steg | NW_DI | IND | IND | IND | IND | 0 | 0 | NW_GetSidFromProfiles | IND | IND | IND | IND | getSid | 0 | NW_readProfileDir | IND | IND | IND | IND | readProfile | 0 | getProfileDir rapporterade ett fel: Node \\ \ as1-ascs\sapmnt\AS1\SYS\profile finns inte. Lös problemet genom att starta SAPinst i interaktivt läge
+  * FEL: (senaste fel rapporterat av steget: infångad ESAPinstException i modul-anrop: validator för steg | NW_DI | IND | IND | IND | IND | 0 | 0 | NW_GetSidFromProfiles | IND | IND | IND | IND | getSid | 0 | NW_readProfileDir | IND | IND | IND | IND | readProfile | 0 | getProfileDir rapporterade ett fel: noden \\\as1-ascs\sapmnt\AS1\SYS\profile finns inte. Lös problemet genom att starta SAPinst i interaktivt läge
   * Lösning  
     Kontrol lera att SWPM körs med en användare som har åtkomst till profilen. Den här användaren kan konfigureras i installations guiden för program Server
 
@@ -515,17 +515,17 @@ Använd *AS1-di-0* som *värd namn för Pas-instansen* i dialog rutan *primär p
     Ange profil parametern OS_UNICODE = UC i standard profilen för ditt SAP-system för att undvika det här problemet.
 
 * Fel vid körning av SAPinst-steg: dCheckGivenServer
-  * Fel vid körning av SAPinst-steg: dCheckGivenServer "version =" 1.0 "-fel: (senaste fel rapporterat av steget: \<p > installationen avbröts av användaren. \</p >
+  * Det gick inte att köra SAPinst steg: dCheckGivenServer "version =" 1.0 "-fel: (senaste fel rapporterat av steget: \<p > installationen avbröts av användaren. \</p>
   * Lösning  
     Kontrol lera att SWPM körs med en användare som har åtkomst till profilen. Den här användaren kan konfigureras i installations guiden för program Server
 
 * Fel vid körning av SAPinst-steg: checkClient
-  * Fel vid körning av SAPinst-steg: checkClient "version =" 1.0 "-fel: (senaste fel rapporterat av steget: \<p > installationen avbröts av användaren. \</p >)
+  * Det gick inte att köra SAPinst steg: checkClient "version =" 1.0 "-fel: (senaste fel rapporterat av steget: \<p > installationen avbröts av användaren. \</p>)
   * Lösning  
     Kontrol lera att Microsoft ODBC-drivrutinen för SQL Server är installerad på den virtuella datorn där du vill installera program servern
 
 * Fel vid körning av SAPinst-steg: copyScripts
-  * Senaste fel rapporterat av steget: system anropet misslyckades. INFORMATION: fel 13 (0x0000000d) (behörighet nekas) vid körning av system anropet ' fopenU ' med parametern (\\ \ AS1-ASCs/sapmnt/AS1/SYS/exe/UC/NTAMD64/strdbs. cmd, w), rad (494) i filen (\ bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/implementering/src/ syslib/filesystem/syxxcfstrm2. cpp), stack spårning:  
+  * Senaste fel rapporterat av steget: system anropet misslyckades. INFORMATION: fel 13 (0x0000000d) (behörighet nekas) vid körning av system anropet ' fopenU ' med parametern (\\\ AS1-ASCs/sapmnt/AS1/SYS/exe/UC/NTAMD64/strdbs. cmd, w), rad (494) i filen (\ bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/filesystem/syxxcfstrm2.cpp), stack spårning:  
   CThrThread. cpp: 85: CThrThread:: threadFunction ()  
   CSiServiceSet. cpp: 63: CSiServiceSet:: executeService ()  
   CSiStepExecute. cpp: 913: CSiStepExecute:: Execute ()  
@@ -537,13 +537,13 @@ Använd *AS1-di-0* som *värd namn för Pas-instansen* i dialog rutan *primär p
   syxxcfile. cpp: 233: CSyFileImpl:: OpenStream (ISyFile:: eFileOpenMode)  
   syxxcfstrm. cpp: 29: CSyFileStreamImpl:: CSyFileStreamImpl (CSyFileStream *, iastring, ISyFile:: eFileOpenMode)  
   syxxcfstrm. cpp: 265: CSyFileStreamImpl:: Open ()  
-  syxxcfstrm2. cpp: 58: CSyFileStream2Impl:: CSyFileStream2Impl (const CSyPath & \\ \ AW1-ASCs/sapmnt/AW1/SYS/exe/UC/NTAMD64/strdbs. cmd, 0x4)  
+  syxxcfstrm2. cpp: 58: CSyFileStream2Impl:: CSyFileStream2Impl (const CSyPath & \\\ AW1-ASCs/sapmnt/AW1/SYS/exe/UC/NTAMD64/strdbs. cmd, 0x4)  
   syxxcfstrm2. cpp: 456: CSyFileStream2Impl:: Open ()
   * Lösning  
     Kontrol lera att SWPM körs med en användare som har åtkomst till profilen. Den här användaren kan konfigureras i installations guiden för program Server
 
 * Fel vid körning av SAPinst-steg: askPasswords
-  * Senaste fel rapporterat av steget: system anropet misslyckades. INFORMATION: fel 5 (0x00000005) (åtkomst nekas.) vid körning av system anropet ' NetValidatePasswordPolicy ' med parametern (...), rad (359) i filen (\ bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/implementering/src/syslib/Account/synxcaccmg. cpp), stack spårning:  
+  * Senaste fel rapporterat av steget: system anropet misslyckades. INFORMATION: fel 5 (0x00000005) (åtkomst nekas.) vid körning av system anropet ' NetValidatePasswordPolicy ' med parametern (...), rad (359) i filen (\ bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/account/synxcaccmg.cpp), stack spårning:  
   CThrThread. cpp: 85: CThrThread:: threadFunction ()  
   CSiServiceSet. cpp: 63: CSiServiceSet:: executeService ()  
   CSiStepExecute. cpp: 913: CSiStepExecute:: Execute ()  

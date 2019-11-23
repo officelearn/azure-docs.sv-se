@@ -48,7 +48,7 @@ ms.locfileid: "70101368"
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-Den här guiden är en del av dokumentationen om hur du implementerar och distribuerar SAP-program på Microsoft Azure. Läs planerings- [och implementerings guiden][planning-guide]innan du läser den här guiden. Det här dokumentet beskriver allmänna distributions aspekter av SAP-relaterade DBMS-system på Microsoft Azure virtuella datorer (VM) med hjälp av Azure Infrastructure as a Service (IaaS)-funktioner.
+Den här guiden är en del av dokumentationen om hur du implementerar och distribuerar SAP-program på Microsoft Azure. Läs [planerings-och implementerings guiden][planning-guide]innan du läser den här guiden. Det här dokumentet beskriver allmänna distributions aspekter av SAP-relaterade DBMS-system på Microsoft Azure virtuella datorer (VM) med hjälp av Azure Infrastructure as a Service (IaaS)-funktioner.
 
 Pappret kompletterar SAP-installations dokumentation och SAP-anteckningar, som representerar de primära resurserna för installationer och distributioner av SAP-program på vissa plattformar.
 
@@ -57,14 +57,14 @@ I det här dokumentet introduceras överväganden för att köra SAP-relaterade 
 ## <a name="definitions"></a>Definitioner
 Dessa villkor används i hela dokumentet:
 
-* **IaaS**: Infrastruktur som en tjänst.
-* **PaaS**: Plattform som en tjänst.
-* **SaaS**: Program vara som en tjänst.
-* **SAP-komponent**: Ett enskilt SAP-program som ERP Central Component (ECC), Business Warehouse (BW), Solution Manager eller Enterprise Portal (EP). SAP-komponenter kan baseras på traditionella ABAP-eller Java-tekniker eller i ett icke-NetWeaver program, till exempel företags objekt.
-* **SAP-miljö**: En eller flera SAP-komponenter är logiskt grupperade för att utföra en affärs funktion som utveckling, kvalitets säkring, utbildning, haveri beredskap eller produktion.
-* **SAP-liggande**: Den här termen avser hela SAP-till gångarna i en kunds IT-liggande. SAP-landskapet innehåller alla produktions-och produktions miljöer.
-* **SAP-system**: Kombinationen av ett DBMS-skikt och ett program lager, till exempel ett SAP ERP-utvecklingssystem, ett SAP Business Warehouse-testsystem eller ett SAP CRM-produktionssystem. I Azure-distributioner stöds inte uppdelning av dessa två skikt mellan lokalt och Azure. Det innebär att ett SAP-system antingen distribueras lokalt eller att det distribueras i Azure. Du kan distribuera de olika systemen i ett SAP-landskap i Azure eller lokalt. Du kan till exempel distribuera SAP CRM-utvecklings-och test system i Azure men distribuera SAP CRM-operativsystemet lokalt.
-* **Mellan platser**: Beskriver ett scenario där virtuella datorer distribueras till en Azure-prenumeration som har plats-till-plats-, multisite-, multisite-eller Azure ExpressRoute-anslutning mellan lokala data Center och Azure. I gemensam Azure-dokumentation beskrivs även de här typerna av distributioner som scenarier med olika platser. 
+* **IaaS**: infrastruktur som en tjänst.
+* **PaaS**: plattform som en tjänst.
+* **SaaS**: program vara som en tjänst.
+* **SAP-komponent**: ett enskilt SAP-program som ERP Central Component (ECC), Business WAREHOUSE (BW), Solution Manager eller Enterprise Portal (EP). SAP-komponenter kan baseras på traditionella ABAP-eller Java-tekniker eller i ett icke-NetWeaver program, till exempel företags objekt.
+* **SAP-miljö**: en eller flera SAP-komponenter grupperade logiskt för att utföra en affärs funktion som utveckling, kvalitets säkring, utbildning, haveri beredskap eller produktion.
+* **SAP, liggande**: den här termen avser hela SAP-till gångar i en KUNDs IT-liggande. SAP-landskapet innehåller alla produktions-och produktions miljöer.
+* **SAP-system**: kombinationen av ett DBMS-lager och ett program lager, till exempel ett SAP ERP-utvecklingssystem, ett SAP Business Warehouse-testsystem eller ett SAP CRM-produktionssystem. I Azure-distributioner stöds inte uppdelning av dessa två skikt mellan lokalt och Azure. Det innebär att ett SAP-system antingen distribueras lokalt eller att det distribueras i Azure. Du kan distribuera de olika systemen i ett SAP-landskap i Azure eller lokalt. Du kan till exempel distribuera SAP CRM-utvecklings-och test system i Azure men distribuera SAP CRM-operativsystemet lokalt.
+* **Olika platser**: beskriver ett scenario där virtuella datorer distribueras till en Azure-prenumeration som har plats-till-plats-, multisite-, multisite-eller Azure ExpressRoute-anslutning mellan lokala data Center och Azure. I gemensam Azure-dokumentation beskrivs även de här typerna av distributioner som scenarier med olika platser. 
 
     Orsaken till anslutningen är att utöka lokala domäner, lokala Active Directory och lokalt DNS till Azure. Det lokala landskapet utökas till Azure-till gångar för prenumerationen. Med det här tillägget kan de virtuella datorerna ingå i den lokala domänen. Domän användare av den lokala domänen kan komma åt servrarna och köra tjänster på dessa virtuella datorer, t. ex. DBMS-tjänster. Kommunikation och namn matchning mellan virtuella datorer som distribuerats lokalt och virtuella datorer som distribueras i Azure är möjliga. Det här scenariot är det vanligaste scenariot som används för att distribuera SAP-tillgångar i Azure. Mer information finns i [planering och design för VPN gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design).
 
@@ -78,27 +78,27 @@ Dessa villkor används i hela dokumentet:
 I vissa Microsoft-dokumentation beskrivs olika scenarier i olika platser, särskilt för konfigurationer med hög tillgänglighet för DBMS. Om det gäller SAP-relaterade dokument, låser sig det kors lokala scenariot med plats-till-plats-eller privat [ExpressRoute](https://azure.microsoft.com/services/expressroute/) -anslutning och ett SAP-landskap som distribueras mellan lokalt och Azure.
 
 ## <a name="resources"></a>Resurser
-Det finns andra artiklar tillgängliga på SAP-arbetsbelastningar på Azure. Börja med [SAP-arbetsbelastning på Azure: Kom igång](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started) och välj sedan ditt intresse områden.
+Det finns andra artiklar tillgängliga på SAP-arbetsbelastningar på Azure. Börja med [SAP-arbetsbelastning på Azure: kom igång](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started) och välj sedan ditt intresse områden.
 
 Följande SAP-anteckningar är relaterade till SAP på Azure i förhållande till det utrymme som beskrivs i det här dokumentet.
 
-| Antecknings nummer | Titel |
+| Antecknings nummer | Rubrik |
 | --- | --- |
-| [1928533] |SAP-program på Azure: Produkter och typer av virtuella Azure-datorer som stöds |
-| [2015553] |SAP på Microsoft Azure: Support krav |
+| [1928533] |SAP-program på Azure: produkter och typer av virtuella Azure-datorer som stöds |
+| [2015553] |SAP på Microsoft Azure: stöd för krav |
 | [1999351] |Felsöka utökad Azure-övervakning för SAP |
 | [2178632] |Nyckel övervaknings mått för SAP på Microsoft Azure |
-| [1409604] |Virtualisering i Windows: Förbättrad övervakning |
-| [2191498] |SAP på Linux med Azure: Förbättrad övervakning |
-| [2039619] |SAP-program på Microsoft Azure som använder Oracle-databasen: Produkter och versioner som stöds |
-| [2233094] |DB6: SAP-program på Azure med IBM DB2 för Linux, UNIX och Windows: Ytterligare information |
-| [2243692] |Linux på Microsoft Azure-VM (IaaS): Problem med SAP-licenser |
-| [1984787] |SUSE LINUX Enterprise Server 12: Installations information |
-| [2002167] |Red Hat Enterprise Linux 7. x: Installation och uppgradering |
+| [1409604] |Virtualisering i Windows: förbättrad övervakning |
+| [2191498] |SAP på Linux med Azure: förbättrad övervakning |
+| [2039619] |SAP-program på Microsoft Azure som använder Oracle Database: produkter och versioner som stöds |
+| [2233094] |DB6: SAP-program på Azure med IBM DB2 för Linux, UNIX och Windows: ytterligare information |
+| [2243692] |Linux på Microsoft Azure (IaaS) virtuell dator: SAP-licens problem |
+| [1984787] |SUSE LINUX Enterprise Server 12: installations information |
+| [2002167] |Red Hat Enterprise Linux 7. x: installation och uppgradering |
 | [2069760] |Oracle Linux 7. x SAP-installation och uppgradering |
 | [1597355] |Rekommendation för växlings utrymme för Linux |
-| [2171857] |Oracle Database 12C: Stöd för fil system på Linux |
-| [1114181] |Oracle Database 11g: Stöd för fil system på Linux |
+| [2171857] |Oracle Database 12C: stöd för fil system på Linux |
+| [1114181] |Oracle Database 11g: stöd för fil system på Linux |
 
 
 Information om alla SAP-anteckningar för Linux finns i [SAP community wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes).
@@ -156,7 +156,7 @@ Om ditt IOPS-krav överskrider vad en enskild virtuell hård disk kan tillhandah
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Endast MDADM och Logical Volume Manager (LVM) stöds för att bygga en programvaru-RAID i Linux. Mer information finns i:
+> Endast MDADM och Logical Volume Manager (LVM) stöds för att bygga en programvaru-RAID i Linux. Mer information finns här:
 >
 > - [Konfigurera programvaru-RAID på Linux](https://docs.microsoft.com/azure/virtual-machines/linux/configure-raid) med MDADM
 > - [Konfigurera LVM på en virtuell Linux-dator i Azure](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm) med LVM
@@ -205,7 +205,7 @@ Följande rekommendationer antar dessa I/O-egenskaper för standard-DBMS:
 
 För standard lagring är möjliga cache-typer:
 
-* Inga
+* Ingen
 * Läsa
 * Läsa/Skriva
 
@@ -213,13 +213,13 @@ Om du vill få konsekvent och deterministisk prestanda ställer du in cachelagri
 
 För Premium Storage finns följande alternativ för cachelagring:
 
-* Inga
+* Ingen
 * Läsa
 * Läs/skriv
 * Ingen + Skrivningsaccelerator, som endast gäller för virtuella datorer i Azure M-serien
 * Läs + Skrivningsaccelerator, som endast gäller för virtuella datorer i Azure M-serien
 
-För Premium Storage rekommenderar vi att du använder cachelagring av **utdata för datafiler** i SAP-databasen och väljer **ingen cachelagring för diskarna i logg filen (erna)** .
+För Premium Storage rekommenderar vi att du använder **cachelagring av utdata för datafiler** i SAP-databasen och väljer **ingen cachelagring för diskarna i logg filen (erna)** .
 
 För distributioner i M-serien rekommenderar vi att du använder Azure Skrivningsaccelerator för din DBMS-distribution. Mer information, begränsningar och distribution av Azure Skrivningsaccelerator finns i [aktivera Skrivningsaccelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator).
 
@@ -269,7 +269,7 @@ Den minsta rekommendationen för scenarier med produktions-DBMS med en SAP-arbet
 
 Du kan också distribuera en tredje virtuell dator i en annan Azure-region och använda samma databas metoder för att tillhandahålla en asynkron replik i en annan Azure-region.
 
-Information om hur du konfigurerar Azures tillgänglighets uppsättningar finns i [den här](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets)självstudien.
+Information om hur du konfigurerar Azures tillgänglighets uppsättningar finns i [den här självstudien](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets).
 
 
 

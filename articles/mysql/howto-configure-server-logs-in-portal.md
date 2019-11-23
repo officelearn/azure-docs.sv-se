@@ -17,18 +17,18 @@ ms.locfileid: "71841597"
 
 Du kan konfigurera, lista och ladda ned [Azure Database for MySQL långsamma frågemeddelanden](concepts-server-logs.md) från Azure Portal.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Anvisningarna i den här artikeln kräver att du har [Azure Database for MySQL server](quickstart-create-mysql-server-database-using-azure-portal.md).
 
 ## <a name="configure-logging"></a>Konfigurera loggning
 Konfigurera åtkomst till MySQLs långsamma fråga logg. 
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 2. Välj din Azure Database for MySQL-server.
 
 3. Under avsnittet **övervakning** på sid panelen väljer du **Server loggar**. 
-   ![Screenshot för Server loggar alternativ @ no__t-1
+   ![skärm bild av alternativen för Server loggar](./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png)
 
 4. Om du vill se server parametrarna väljer du **Klicka här för att aktivera loggar och konfigurera logg parametrar**.
 
@@ -62,7 +62,7 @@ När loggningen har påbörjats kan du Visa en lista över tillgängliga långsa
 
 ## <a name="set-up-diagnostic-logs"></a>Konfigurera diagnostikloggar
 
-1. Under avsnittet **övervakning** i sid panelen väljer du **diagnostikinställningar** > **Lägg till diagnostikinställningar**.
+1. Under avsnittet **övervakning** i sid panelen väljer du **diagnostikinställningar** > **lägga till diagnostikinställningar**.
 
    ![Skärm bild av alternativ för diagnostikinställningar](./media/howto-configure-server-logs-in-portal/add-diagnostic-setting.png)
 
@@ -71,10 +71,10 @@ När loggningen har påbörjats kan du Visa en lista över tillgängliga långsa
 1. Ange vilka data mottagare som de långsamma frågarna ska skickas till (lagrings konto, händelsehubben eller Log Analytics arbets yta).
 
 1. Välj **MySqlSlowLogs** som logg typ.
-![Screenshot för konfigurations alternativ för diagnostikinställningar @ no__t-1
+![skärm bild av konfigurations alternativ för diagnostikinställningar](./media/howto-configure-server-logs-in-portal/configure-diagnostic-setting.png)
 
 1. När du har konfigurerat data Sinks att skicka in de långsamma frågeresultaten till väljer du **Spara**.
-![Screenshot för konfigurations alternativ för diagnostiska inställningar, med Spara markerat @ no__t-1
+![skärm bild av konfigurations alternativ för diagnostikinställningar med Spara markerat](./media/howto-configure-server-logs-in-portal/save-diagnostic-setting.png)
 
 1. Få åtkomst till långsamma fråga-loggar genom att utforska dem i de data mottagare du konfigurerade. Det kan ta upp till 10 minuter innan loggarna visas.
 

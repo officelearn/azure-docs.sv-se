@@ -308,19 +308,19 @@ ms.locfileid: "70101327"
 
 
 
-I det här dokumentet omfattar flera olika områden att tänka på när du distribuerar SAP-ASE i Azure IaaS. Som ett villkor för det här dokumentet bör du läsa dokument överväganden [för Azure Virtual Machines DBMS-distribution för SAP](dbms_guide_general.md) -arbetsbelastningar och andra guider i SAP-arbetsbelastningen i [Azure-dokumentationen](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
+I det här dokumentet omfattar flera olika områden att tänka på när du distribuerar SAP-ASE i Azure IaaS. Som ett villkor för det här dokumentet bör du läsa dokument [överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md) och andra guider i [SAP-arbetsbelastningen i Azure-dokumentationen](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
 
 ## <a name="specifics-to-sap-ase-on-windows"></a>Information om SAP-ASE i Windows
 Från och med Microsoft Azure kan du migrera dina befintliga SAP ASE-program till Azure Virtual Machines. Med SAP ASE på en virtuell Azure-dator kan du minska den totala ägande kostnaden för distribution, hantering och underhåll av företags bredd program genom att enkelt migrera programmen till Microsoft Azure. Med SAP ASE på en virtuell Azure-dator kan administratörer och utvecklare fortfarande använda samma utvecklings-och administrations verktyg som finns lokalt.
 
-Service avtal för Azure Virtual Machines hittar du här:<https://azure.microsoft.com/support/legal/sla/virtual-machines>
+Service avtal för Azure Virtual Machines hittar du här: <https://azure.microsoft.com/support/legal/sla/virtual-machines>
 
 Microsoft Azure erbjuder flera olika typer av virtuella datorer som gör att du kan köra minsta SAP-system och lagra upp till stora SAP-system och landskap med tusentals användare. SAP-storlek SAPS nummer för de olika SAP-certifierade VM SKU: er finns i SAP NOTE [1928533].
 
-Instruktioner och rekommendationer angående användningen av Azure Storage, distribution av virtuella SAP-datorer eller SAP-övervakning som görs i [överväganden för Azure Virtual Machines DBMS-distribution för SAP](dbms_guide_general.md) -arbetsbelastningar gäller även för distribution av SAP ASE.
+Instruktioner och rekommendationer angående användningen av Azure Storage, distribution av virtuella SAP-datorer eller SAP-övervakning som görs i [överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md) gäller även för distribution av SAP ASE.
 
 ### <a name="sap-ase-version-support"></a>Versions stöd för SAP ASE
-SAP stöder för närvarande SAP ASE version 16,0 för användning med SAP Business Suite-produkter. Alla uppdateringar för SAP ASE-servern eller JDBC-och ODBC-drivrutinerna som ska användas med SAP Business Suite-produkter tillhandahålls enbart via SAP Service Marketplace på <https://support.sap.com/swdc>:.
+SAP stöder för närvarande SAP ASE version 16,0 för användning med SAP Business Suite-produkter. Alla uppdateringar för SAP ASE-servern eller JDBC-och ODBC-drivrutinerna som ska användas med SAP Business Suite-produkter tillhandahålls enbart via SAP Service Marketplace på: <https://support.sap.com/swdc>.
 
 Hämta inte uppdateringar för SAP ASE-servern eller för JDBC-och ODBC-drivrutinerna direkt från Sybase-webbplatser. Detaljerad information om korrigeringar, som stöds för användning med SAP-produkter lokalt och i Azure Virtual Machines finns i följande SAP-anteckningar:
 
@@ -331,9 +331,9 @@ Allmän information om att köra SAP Business Suite på SAP ASE finns i [SCN](ht
 
 ### <a name="sap-ase-configuration-guidelines-for-sap-related-sap-ase-installations-in-azure-vms"></a>ASE konfigurations rikt linjer för SAP-relaterade SAP ASE-installationer i virtuella Azure-datorer
 #### <a name="structure-of-the-sap-ase-deployment"></a>Struktur för SAP ASE-distributionen
-SAP ASE-körbara filer ska finnas eller installeras i system enheten för den virtuella datorns OS-disk (enhet\)c:. De flesta av SAP ASE-system och tools-databaser har vanligt vis inte hög belastning. Därför kan system-och verktygs databaserna (Master, Model, saptools, sybmgmtdb, sybsystemdb) finnas kvar på C:\ kombinationsenhet. 
+SAP ASE-körbara filer ska finnas eller installeras i system enheten för den virtuella datorns OS-disk (enhet c:\). De flesta av SAP ASE-system och tools-databaser har vanligt vis inte hög belastning. Därför kan system-och verktygs databaserna (Master, Model, saptools, sybmgmtdb, sybsystemdb) finnas kvar på C:\ kombinationsenhet. 
 
-Ett undantag kan vara den temporära databasen, vilket i händelse av en del SAP ERP och alla BW-arbetsbelastningar kan kräva antingen högre data volym eller I/O-åtgärdernas volym. Volymer eller IOPS som inte kan tillhandahållas av den virtuella datorns OS-disk (\)enhet C:.
+Ett undantag kan vara den temporära databasen, vilket i händelse av en del SAP ERP och alla BW-arbetsbelastningar kan kräva antingen högre data volym eller I/O-åtgärdernas volym. Volymer eller IOPS som inte kan tillhandahållas av den virtuella datorns OS-disk (enhet C:\).
 
 Beroende av vilken version av SAPInst/SWPM som används för att installera kan SAP ASE instance-konfigurationen se ut så här:
 
@@ -352,7 +352,7 @@ Den här konfigurationen aktiverar tempdb förbrukar mer utrymme än system enhe
 
 Placera aldrig SAP ASE-enheter på D:\ den virtuella datorns enhet. För SAP-ASE gäller även den här typen av tempdb, även om de objekt som lagras i tempdb endast är temporära.
 
-För data-och transaktions logg fils distributioner har de instruktioner och förslag som gjorts i [överväganden för Azure Virtual Machines DBMS-distribution för SAP](dbms_guide_general.md)-arbetsbelastningar. I händelse av Windows-baserade rekommenderar vi att användningen av Windows Storage Spaces används för att bygga stripe-uppsättningar med tillräckligt IOPS, data flöde och volym.  
+För data-och transaktions logg fils distributioner har de instruktioner och förslag som gjorts i [överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md). I händelse av Windows-baserade rekommenderar vi att användningen av Windows Storage Spaces används för att bygga stripe-uppsättningar med tillräckligt IOPS, data flöde och volym.  
 
 #### <a name="impact-of-database-compression"></a>Påverkan av databas komprimering
 I konfigurationer där I/O-bandbredden kan bli en begränsnings faktor kan varje mått minska IOPS för att öka den arbets belastning som kan köras i ett IaaS-scenario som Azure. Därför rekommenderar vi att du kontrollerar att SAP ASE Compression används innan du laddar upp en befintlig SAP-databas till Azure.
@@ -378,13 +378,13 @@ Precis som med lokala system krävs flera steg för att aktivera alla SAP NetWea
 
 och länkarna som genereras i Transaction DBACockpit ser ut ungefär så här:
 
-> https:\//fullyqualifiedhostname>:44300/SAP/BC/WebDynpro\</SAP/dba_cockpit
+> https:\//\<fullyqualifiedhostname >: 44300/SAP/BC/WebDynpro/SAP/dba_cockpit
 > 
-> http:\//fullyqualifiedhostname>:8000/SAP/BC/WebDynpro\</SAP/dba_cockpit
+> http:\//\<fullyqualifiedhostname >: 8000/SAP/BC/WebDynpro/SAP/dba_cockpit
 > 
 > 
 
-Beroende på hur den virtuella Azure-datorn som är värd för SAP-systemet är ansluten till AD och DNS måste du se till att ICM använder ett fullständigt kvalificerat värdnamn som kan lösas på den dator där du öppnar DBACockpit från. Se SAP NOTE [773830] för att förstå hur ICM fastställer det fullständigt kvalificerade värd namnet baserat på profil parametrar och ange parametern ICM/host_name_full explicit om det behövs.
+Beroende på hur den virtuella Azure-datorn som är värd för SAP-systemet är ansluten till AD och DNS måste du se till att ICM använder ett fullständigt kvalificerat värdnamn som kan lösas på den dator där du öppnar DBACockpit från. Se SAP NOTE [773830] för att förstå hur ICM fastställer det fullständigt kvalificerade värd namnet baserat på profil parametrar och ange parametern ICM/host_name_full uttryckligen vid behov.
 
 Om du har distribuerat den virtuella datorn i ett moln scenario utan anslutning mellan olika platser och Azure måste du definiera en offentlig IP-adress och en domainlabel. Formatet på det offentliga DNS-namnet på den virtuella datorn ser ut så här:
 
@@ -448,7 +448,7 @@ För att öka antalet mål som ska skrivas till finns det två alternativ som ka
 * Skikta säkerhets kopierings mål volymen över flera monterade diskar för att förbättra IOPS-dataflödet på den stripe volymen
 * Skapa en dump-konfiguration på SAP ASE-nivå, som använder mer än en mål katalog för att skriva dumpen till
 
-Att Stripa en disk volym över flera monterade diskar har diskuterats i [överväganden för Azure Virtual Machines DBMS-distribution för SAP](dbms_guide_general.md)-arbetsbelastningar. Mer information om hur du använder flera kataloger i ASE dump-konfiguration finns i dokumentationen om den lagrade proceduren sp_config_dump, som används för att skapa dump-konfigurationen på Sybase- [Infocenter](http://infocenter.sybase.com/help/index.jsp).
+Att Stripa en disk volym över flera monterade diskar har diskuterats i [överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md). Mer information om hur du använder flera kataloger i ASE dump-konfiguration finns i dokumentationen om lagrade procedurer sp_config_dump, som används för att skapa dump-konfigurationen på [Sybase-Infocenter](http://infocenter.sybase.com/help/index.jsp).
 
 ### <a name="disaster-recovery-with-azure-vms"></a>Haveri beredskap med virtuella Azure-datorer
 #### <a name="data-replication-with-sap-sybase-replication-server"></a>Datareplikering med SAP Sybase-Processerver
@@ -461,9 +461,9 @@ SAP ASE-HADR kräver inte ett internt Azure-Load Balancer och har inga beroenden
 ## <a name="specifics-to-sap-ase-on-linux"></a>Information om SAP ASE på Linux
 Från och med Microsoft Azure kan du enkelt migrera dina befintliga SAP ASE-program till Azure Virtual Machines. Med SAP ASE på en virtuell dator kan du minska den totala ägande kostnaden för distribution, hantering och underhåll av företags bredd program genom att enkelt migrera programmen till Microsoft Azure. Med SAP ASE på en virtuell Azure-dator kan administratörer och utvecklare fortfarande använda samma utvecklings-och administrations verktyg som finns lokalt.
 
-För att distribuera virtuella Azure-datorer är det viktigt att känna till den officiella service avtal som finns här:<https://azure.microsoft.com/support/legal/sla>
+För att distribuera virtuella Azure-datorer är det viktigt att känna till den officiella service avtal, som du hittar här: <https://azure.microsoft.com/support/legal/sla>
 
-Information om SAP-storlek och en lista över SAP-certifierade VM SKU: er finns i SAP NOTE [1928533]. Ytterligare dokument för SAP-storlek för Azure virtuella datorer finns här <https://blogs.msdn.com/b/saponsqlserver/archive/2015/06/19/how-to-size-sap-systems-running-on-azure-vms.aspx> och här<https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
+Information om SAP-storlek och en lista över SAP-certifierade VM SKU: er finns i SAP NOTE [1928533]. Ytterligare dokument för SAP-storlek för Azure virtuella datorer finns här <https://blogs.msdn.com/b/saponsqlserver/archive/2015/06/19/how-to-size-sap-systems-running-on-azure-vms.aspx> och här <https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
 
 Instruktioner och rekommendationer angående användningen av Azure Storage, distribution av virtuella SAP-datorer eller SAP-övervakning gäller för distributioner av SAP-ASE tillsammans med SAP-program såsom de anges i de fyra första kapitlen i det här dokumentet.
 
@@ -473,7 +473,7 @@ Följande två SAP-anteckningar innehåller allmän information om ASE i Linux o
 * [1941500]
 
 ### <a name="sap-ase-version-support"></a>Versions stöd för SAP ASE
-SAP stöder för närvarande SAP ASE version 16,0 för användning med SAP Business Suite-produkter. Alla uppdateringar för SAP ASE-servern eller JDBC-och ODBC-drivrutinerna som ska användas med SAP Business Suite-produkter tillhandahålls enbart via SAP Service Marketplace på <https://support.sap.com/swdc>:.
+SAP stöder för närvarande SAP ASE version 16,0 för användning med SAP Business Suite-produkter. Alla uppdateringar för SAP ASE-servern eller JDBC-och ODBC-drivrutinerna som ska användas med SAP Business Suite-produkter tillhandahålls enbart via SAP Service Marketplace på: <https://support.sap.com/swdc>.
 
 För installationer lokalt ska du inte hämta uppdateringar för SAP ASE-servern eller för JDBC-och ODBC-drivrutinerna direkt från Sybase-webbplatser. Detaljerad information om korrigeringar, som stöds för användning med SAP Business Suite-produkter lokalt och i Azure Virtual Machines finns i följande SAP-anteckningar:
 
@@ -505,7 +505,7 @@ Den här konfigurationen aktiverar tempdb förbrukar mer utrymme än system enhe
 
 Placera aldrig SAP ASE-kataloger på/mnt eller/mnt/Resource för den virtuella datorn. För SAP-ASE gäller även den här typen av tempdb, även om de objekt som lagras i tempdb endast är temporära. Eftersom/mnt eller/mnt/Resource är ett standard utrymme för Azure VM temp, som inte är beständigt. Mer information om Azure VM Temp-utrymmet finns i [den här artikeln][virtual-machines-linux-how-to-attach-disk]
 
-För data-och transaktions logg fils distributioner har de instruktioner och förslag som gjorts i [överväganden för Azure Virtual Machines DBMS-distribution för SAP](dbms_guide_general.md)-arbetsbelastningar. I händelse av Linux-baserade distributioner rekommenderas användningen av LVM eller MDADM att använda för att bygga stripe-uppsättningar med tillräckligt IOPS, data flöde och volym. 
+För data-och transaktions logg fils distributioner har de instruktioner och förslag som gjorts i [överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md). I händelse av Linux-baserade distributioner rekommenderas användningen av LVM eller MDADM att använda för att bygga stripe-uppsättningar med tillräckligt IOPS, data flöde och volym. 
 
 #### <a name="impact-of-database-compression"></a>Påverkan av databas komprimering
 I konfigurationer där I/O-bandbredden kan bli en begränsnings faktor kan varje mått minska IOPS för att öka den arbets belastning som kan köras i ett IaaS-scenario som Azure. Därför rekommenderar vi att du kontrollerar att SAP ASE Compression används innan du laddar upp en befintlig SAP-databas till Azure.
@@ -531,13 +531,13 @@ Precis som med lokala system krävs flera steg för att aktivera alla SAP NetWea
 
 länkarna som genereras i Transaction DBACockpit ser ut ungefär så här:
 
-> https:\//fullyqualifiedhostname>:44300/SAP/BC/WebDynpro\</SAP/dba_cockpit
+> https:\//\<fullyqualifiedhostname >: 44300/SAP/BC/WebDynpro/SAP/dba_cockpit
 > 
-> http:\//fullyqualifiedhostname>:8000/SAP/BC/WebDynpro\</SAP/dba_cockpit
+> http:\//\<fullyqualifiedhostname >: 8000/SAP/BC/WebDynpro/SAP/dba_cockpit
 > 
 > 
 
-Beroende på hur den virtuella Azure-datorn som är värd för SAP-systemet är ansluten till AD och DNS måste du se till att ICM använder ett fullständigt kvalificerat värdnamn som kan lösas på den dator där du öppnar DBACockpit från. Se SAP NOTE [773830] för att förstå hur ICM fastställer det fullständigt kvalificerade värd namnet beroende på profil parametrar och ange parametern ICM/host_name_full explicit vid behov.
+Beroende på hur den virtuella Azure-datorn som är värd för SAP-systemet är ansluten till AD och DNS måste du se till att ICM använder ett fullständigt kvalificerat värdnamn som kan lösas på den dator där du öppnar DBACockpit från. Se SAP NOTE [773830] för att förstå hur ICM fastställer det fullständigt kvalificerade värd namnet beroende på profil parametrar och ange parametern ICM/host_name_full uttryckligen vid behov.
 
 Om du har distribuerat den virtuella datorn i ett moln scenario utan anslutning mellan olika platser och Azure måste du definiera en offentlig IP-adress och en domainlabel. Formatet på det offentliga DNS-namnet på den virtuella datorn ser ut så här:
 
@@ -601,7 +601,7 @@ För att öka antalet mål som ska skrivas till finns det två alternativ som ka
 * Skikta säkerhets kopierings mål volymen över flera monterade diskar för att förbättra IOPS-dataflödet på den stripe volymen
 * Skapa en dump-konfiguration på SAP ASE-nivå, som använder mer än en mål katalog för att skriva dumpen till
 
-Att Stripa en disk volym över flera monterade diskar har diskuterats i [överväganden för Azure Virtual Machines DBMS-distribution för SAP](dbms_guide_general.md)-arbetsbelastningar. Mer information om hur du använder flera kataloger i ASE dump-konfiguration finns i dokumentationen om den lagrade proceduren sp_config_dump, som används för att skapa dump-konfigurationen på Sybase- [Infocenter](http://infocenter.sybase.com/help/index.jsp).
+Att Stripa en disk volym över flera monterade diskar har diskuterats i [överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md). Mer information om hur du använder flera kataloger i ASE dump-konfiguration finns i dokumentationen om lagrade procedurer sp_config_dump, som används för att skapa dump-konfigurationen på [Sybase-Infocenter](http://infocenter.sybase.com/help/index.jsp).
 
 ### <a name="disaster-recovery-with-azure-vms"></a>Haveri beredskap med virtuella Azure-datorer
 #### <a name="data-replication-with-sap-sybase-replication-server"></a>Datareplikering med SAP Sybase-Processerver

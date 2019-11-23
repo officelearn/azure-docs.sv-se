@@ -23,7 +23,7 @@ Du kan aktivera en hanterad bot-skydds regel uppsättning för din WAF för att 
 > [!NOTE]
 > Regel uppsättningen för bot-skydd är för närvarande en offentlig för hands version och tillhandahålls med ett service nivå avtal för för hands versionen. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Se [kompletterande användnings villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) versionerna för mer information.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Skapa en grundläggande WAF-princip för Application Gateway genom att följa instruktionerna som beskrivs i [skapa brand Väggs principer för webb program för Application Gateway](create-waf-policy-ag.md).
 

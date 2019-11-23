@@ -30,15 +30,15 @@ Med RBAC kan du använda och skapa roller i din säkerhets åtgärds grupp för 
 
 Det finns tre inbyggda Azure Sentinel-roller.  
 **Alla inbyggda Azure Sentinel-roller ger Läs åtkomst till data i Azure Sentinel-arbetsytan.**
-- **Azure Sentinel-läsare**: En användare som tilldelats rollen har visnings rättigheter till Azure Sentinel. Användaren kan visa incidenter och data, men kan inte göra ändringar.
-- **Azure Sentinel-svarare**: En användare som tilldelats den här rollen kan läsa och utföra åtgärder för incidenter som tilldelning och allvarlighets grad ändringar.
-- **Azure Sentinel-deltagare**: En användare som tilldelats den här rollen kan läsa och utföra åtgärder för incidenter och skapa och ta bort analys regler.
+- **Azure Sentinel Reader**: en användare som tilldelats rollen har visnings rättigheter till Azure Sentinel. Användaren kan visa incidenter och data, men kan inte göra ändringar.
+- **Azure Sentinel-svarare**: en användare som är tilldelad till den här rollen kan läsa och utföra åtgärder på incidenter som tilldelning och allvarlighets grad ändringar.
+- **Azure Sentinel-deltagare**: en användare som tilldelats den här rollen kan läsa och utföra åtgärder för incidenter och skapa och ta bort analys regler.
 
 Förutom Azure Sentinel-dedikerade RBAC-roller finns det Azure och Log Analytics RBAC-roller som kan ge en bredare uppsättning behörigheter som inkluderar åtkomst till din Azure Sentinel-arbetsyta och andra resurser:
 
-- **Azure-roller:** [Ägare](../role-based-access-control/built-in-roles.md#owner), [deltagare](../role-based-access-control/built-in-roles.md#contributor)och [läsare](../role-based-access-control/built-in-roles.md#reader). Azure-roller beviljar åtkomst över alla dina Azure-resurser, inklusive Log Analytics arbets ytor och Azure Sentinel-resurser.
+- **Azure-roller:** [ägare](../role-based-access-control/built-in-roles.md#owner), [deltagare](../role-based-access-control/built-in-roles.md#contributor)och [läsare](../role-based-access-control/built-in-roles.md#reader). Azure-roller beviljar åtkomst över alla dina Azure-resurser, inklusive Log Analytics arbets ytor och Azure Sentinel-resurser.
 
--   **Log Analytics roller:** [Log Analytics läsaren](../role-based-access-control/built-in-roles.md#log-analytics-reader) [Log Analytics Contributor](../role-based-access-control/built-in-roles.md#log-analytics-contributor). Log Analytics roller beviljar åtkomst över alla dina Log Analytics arbets ytor. 
+-   **Log Analytics roller:** [Log Analytics Contributor](../role-based-access-control/built-in-roles.md#log-analytics-contributor), [Log Analytics läsare](../role-based-access-control/built-in-roles.md#log-analytics-reader). Log Analytics roller beviljar åtkomst över alla dina Log Analytics arbets ytor. 
 
 > [!NOTE]
 > Log Analytics roller ger också Läs åtkomst för alla Azure-resurser, men tilldelar bara Skriv behörighet till Log Analytics resurser.
@@ -56,7 +56,7 @@ Till exempel kommer en användare som är tilldelad till rollerna **Azure Sentin
 
 I följande tabell visas roller och tillåtna åtgärder i Azure Sentinel. Ett X visar att åtgärden tillåts för den rollen.
 
-| Role | Skapa och kör spel böcker| Skapa och redigera instrument paneler, analys regler och andra Azure Sentinel-resurser | Hantera incidenter (Stäng, tilldela osv.) | Visa data, incidenter, instrument paneler och andra Azure Sentinel-resurser |
+| Roll | Skapa och kör spel böcker| Skapa och redigera instrument paneler, analys regler och andra Azure Sentinel-resurser | Hantera incidenter (Stäng, tilldela osv.) | Visa data, incidenter, instrument paneler och andra Azure Sentinel-resurser |
 |--- |---|---|---|---|
 | Azure Sentinel-läsare | -- | -- | -- | X |
 | Azure Sentinel-svarare|--|--| X | X |

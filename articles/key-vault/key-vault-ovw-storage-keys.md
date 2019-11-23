@@ -41,11 +41,11 @@ En Azure AD-klient tillhandahåller varje registrerat program med ett [huvud nam
 
 Key Vault är ett Microsoft-program som är förregistrerat i alla Azure AD-klienter. Key Vault registreras under samma program-ID i varje Azure-moln.
 
-| Klienter | I molnet | Program-ID:t |
+| Klienter | Molnet | Program-ID:t |
 | --- | --- | --- |
 | Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
 | Azure AD | Offentlig Azure- | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
-| Övrigt  | Alla | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Annat  | Alla | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
 ## <a name="prerequisites"></a>Krav
 
@@ -69,7 +69,7 @@ az login
 
 Använd kommandot [skapa roll tilldelning](/cli/azure/role/assignment?view=azure-cli-latest) för Azure CLI-AZ för att ge Key Vault åtkomst till ditt lagrings konto. Ange följande parameter värden för kommandot:
 
-- `--role`: överför RBAC-rollen "lagrings kontots nyckel operatörs tjänst roll". Den här rollen begränsar åtkomstscope till ditt lagrings konto. För ett klassiskt lagrings konto skickar du i stället "klassisk lagrings kontots nyckel operatörs tjänst roll".
+- `--role`: "RBAC-rollen" lagrings kontots nyckel operatörs tjänst roll ". Den här rollen begränsar åtkomstscope till ditt lagrings konto. För ett klassiskt lagrings konto skickar du i stället "klassisk lagrings kontots nyckel operatörs tjänst roll".
 - `--assignee-object-id`: skicka värdet "93c27d83-f79b-4cb2-8dd4-4aa716542e74", vilket är objekt-ID: t för Key Vault i det offentliga Azure-molnet. (För att hämta objekt-ID för Key Vault i Azure Government molnet, se [program-ID för tjänstens huvud namn](#service-principal-application-id).)
 - `--scope`: skicka ditt lagrings kontos resurs-ID, vilket är i formatet `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`. Du hittar ditt prenumerations-ID genom att använda kommandot Azure CLI [AZ Account List](/cli/azure/account?view=azure-cli-latest#az-account-list) . Om du vill hitta resurs gruppen för ditt lagrings konto namn och lagrings konto använder du kommandot Azure CLI [AZ Storage Account List](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) .
 
@@ -91,18 +91,18 @@ az keyvault storage add --vault-name <YourKeyVaultName> -n <YourStorageAccountNa
 
 ## <a name="shared-access-signature-tokens"></a>Token för signaturer för delad åtkomst
 
-Du kan också be Key Vault att generera token för signaturer för delad åtkomst. En signatur för delad åtkomst ger delegerad åtkomst till resurser i ditt lagrings konto. Du kan bevilja klienter åtkomst till resurser i ditt lagrings konto utan att dela dina konto nycklar. En signatur för delad åtkomst ger dig ett säkert sätt att dela dina lagrings resurser utan att kompromissa med dina konto nycklar.
+Du kan också be Key Vault att generera token för signaturer för delad åtkomst. En signatur för delad åtkomst ger delegerad åtkomst till resurser i ditt storage-konto. Du kan bevilja klienter åtkomst till resurser i ditt lagrings konto utan att dela dina konto nycklar. En signatur för delad åtkomst ger dig ett säkert sätt att dela dina lagrings resurser utan att kompromissa med dina konto nycklar.
 
 Kommandona i det här avsnittet Slutför följande åtgärder:
 
-- Ange ett konto för signatur för delad åtkomst för delad åtkomst `<YourSASDefinitionName>`. Definitionen anges för ett Key Vault hanterat lagrings konto `<YourStorageAccountName>` i nyckel valvet `<YourKeyVaultName>`.
+- Ange en definition för signatur för delad åtkomst för konto `<YourSASDefinitionName>`. Definitionen anges för ett Key Vault hanterat lagrings konto `<YourStorageAccountName>` i nyckel valvet `<YourKeyVaultName>`.
 - Skapa en signatur-token för delad åtkomst för BLOB-, fil-, tabell-och Queue-tjänster. Token skapas för resurs typ tjänst, behållare och objekt. Token skapas med alla behörigheter, över https, och med de angivna start-och slutdatumen.
 - Ange en definition av signaturen för delad åtkomst för en Key Vault hanterad lagring i valvet. Definitionen har mall-URI: n för signaturen för signaturen för delad åtkomst som skapades. Definitionen har signaturen för delad åtkomst `account` och är giltig i N dagar.
 - Kontrol lera att signaturen för delad åtkomst har sparats i nyckel valvet som en hemlighet.
 
 ### <a name="create-a-shared-access-signature-token"></a>Skapa en token för signatur för delad åtkomst
 
-Skapa en definition av signaturen för delad åtkomst med hjälp av Azure CLI [-AZ Storage Account generate-SAS](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-generate-sas) . Den här åtgärden kräver behörigheterna `storage` och `setsas`.
+Skapa en definition av signaturen för delad åtkomst med hjälp av Azure CLI [-AZ Storage Account generate-SAS](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-generate-sas) . Den här åtgärden kräver `storage`-och `setsas` behörigheter.
 
 
 ```azurecli-interactive
@@ -114,11 +114,11 @@ Kopiera utdata när åtgärden har körts.
 "se=2020-01-01&sp=***"
 ```
 
-De här utdata skickas till parametern `--template-id` i nästa steg.
+De här utdata skickas till `--template-id`-parametern i nästa steg.
 
 ### <a name="generate-a-shared-access-signature-definition"></a>Generera en definition för signatur för delad åtkomst
 
-Använd Azure CLI-AZ för att skapa SAS-definition med hjälp av kommandot för [SAS-definition](/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#az-keyvault-storage-sas-definition-create) i Azure CLI och skicka utdata från föregående steg till parametern `--template-id` för att skapa en definition av en signatur för delad åtkomst.  Du kan ange namnet på ditt val till parametern `-n`.
+Använd Azure CLI-AZ för att skapa ett [SAS-definitions-definition](/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#az-keyvault-storage-sas-definition-create) med hjälp av kommandot för att skicka utdata från föregående steg till parametern `--template-id` för att skapa en definition av en signatur för delad åtkomst.  Du kan ange namnet på ditt val av parametern `-n`.
 
 ```azurecli-interactive
 az keyvault storage sas-definition create --vault-name <YourKeyVaultName> --account-name <YourStorageAccountName> -n <YourSASDefinitionName> --validity-period P2D --sas-type account --template-uri <OutputOfSasTokenCreationStep>
@@ -147,7 +147,7 @@ Du kan nu använda AZ-kommandot för att [Visa hemligheten show](/cli/azure/keyv
 az keyvault secret show --vault-name <YourKeyVaultName> --id <SasDefinitionID>
 ```
 
-Utdata från det här kommandot visar din SAS-definitions sträng som @ no__t-0.
+Utdata från det här kommandot visar din SAS-definitions sträng som`value`.
 
 
 ## <a name="next-steps"></a>Nästa steg

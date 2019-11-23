@@ -24,10 +24,10 @@ Den här artikeln visar hur du kan hitta nyheter, videor och andra objekt genom 
 
 Du kan till exempel hitta nyhets objekt baserat på Sök villkor och låta Twitter publicera dessa objekt som tweets i ditt Twitter-flöde.
 
-Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Om du är nybörjare på Logi Kap par kan du läsa [Vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [Quickstart: Skapa din första Logic app @ no__t-0.
+Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Om du inte har arbetat med Logic Apps läser du [Vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [snabb start: skapa din första Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 Information om anslutningsspecifika teknisk information finns i referens för [Bing-sökning Connector](https://docs.microsoft.com/connectors/bingsearch/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett [Cognitive Services konto](../cognitive-services/cognitive-services-apis-create-account.md)
 
@@ -54,12 +54,12 @@ Eller, om anslutningen redan finns, anger du den information som krävs för utl
 
    I det här exemplet anger du kriterier för att returnera matchande nyhets artiklar från Bing-sökning.
 
-   | Egenskap | Krävs | Value | Beskrivning |
+   | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | Search Query | Ja | <*Sök-ord*> | Ange Sök nyckelorden som du vill använda. |
-   | Market | Ja | <*locale*> | Sök språket. Standardvärdet är "en-US", men du kan välja ett annat värde. |
+   | Search Query | Ja | <*Sök efter ord*> | Ange Sök nyckelorden som du vill använda. |
+   | Marknad | Ja | <*locale*> | Sök språket. Standardvärdet är "en-US", men du kan välja ett annat värde. |
    | Safe Search | Ja | <*search-level*> | Filter nivån för att utesluta vuxna innehåll. Standardvärdet är "måttlig", men du väljer en annan nivå. |
-   | Count | Nej | <*results-count*> | Returnera det angivna antalet resultat. Standardvärdet är 20, men du kan ange ett annat värde. Det faktiska antalet returnerade resultat kan vara mindre än det angivna antalet. |
+   | Antal | Nej | <*results-count*> | Returnera det angivna antalet resultat. Standardvärdet är 20, men du kan ange ett annat värde. Det faktiska antalet returnerade resultat kan vara mindre än det angivna antalet. |
    | Offset | Nej | <*skip-value*> | Antal resultat som ska hoppas över innan resultat returneras |
    |||||
 
@@ -81,7 +81,7 @@ I Azure Logic Apps är en [åtgärd](../logic-apps/logic-apps-overview.md#logic-
 
 1. Öppna din Logic app i Logic App Designer i Azure Portal eller Visual Studio. I det här exemplet används Azure Portal.
 
-2. Under utlösare eller åtgärd väljer du **nytt steg** > **Lägg till en åtgärd**.
+2. Under utlösaren eller åtgärden väljer du **nytt steg** > **lägger till en åtgärd**.
 
    I det här exemplet används den här utlösaren:
 
@@ -105,12 +105,12 @@ Välj den åtgärd du vill använda i listan åtgärder.
 
    I det här exemplet anger du villkoren för att returnera en delmängd av utlösarens resultat.
 
-   | Egenskap | Krävs | Value | Beskrivning |
+   | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | Search Query | Ja | <*Sök-uttryck*> | Ange ett uttryck för att skicka frågor till utlösnings resultaten. Du kan välja bland fälten i listan med dynamiskt innehåll eller skapa ett uttryck med uttrycks verktyget. |
-   | Market | Ja | <*locale*> | Sök språket. Standardvärdet är "en-US", men du kan välja ett annat värde. |
+   | Search Query | Ja | <*Sök uttryck*> | Ange ett uttryck för att skicka frågor till utlösnings resultaten. Du kan välja bland fälten i listan med dynamiskt innehåll eller skapa ett uttryck med uttrycks verktyget. |
+   | Marknad | Ja | <*locale*> | Sök språket. Standardvärdet är "en-US", men du kan välja ett annat värde. |
    | Safe Search | Ja | <*search-level*> | Filter nivån för att utesluta vuxna innehåll. Standardvärdet är "måttlig", men du väljer en annan nivå. |
-   | Count | Nej | <*results-count*> | Returnera det angivna antalet resultat. Standardvärdet är 20, men du kan ange ett annat värde. Det faktiska antalet returnerade resultat kan vara mindre än det angivna antalet. |
+   | Antal | Nej | <*results-count*> | Returnera det angivna antalet resultat. Standardvärdet är 20, men du kan ange ett annat värde. Det faktiska antalet returnerade resultat kan vara mindre än det angivna antalet. |
    | Offset | Nej | <*skip-value*> | Antal resultat som ska hoppas över innan resultat returneras |
    |||||
 
@@ -152,11 +152,11 @@ Välj den åtgärd du vill använda i listan åtgärder.
 
 1. När du uppmanas att ange anslutnings information anger du följande information:
 
-   | Egenskap | Krävs | Value | Beskrivning |
+   | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | Anslutningsnamn | Ja | <-*anslutnings namn*> | Namnet som ska skapas för anslutningen |
+   | Anslutningsnamn | Ja | <*anslutnings namn*> | Namnet som ska skapas för anslutningen |
    | API-version | Ja | <*API-version*> | Som standard är Bing-sökning API-versionen inställd på den aktuella versionen. Du kan välja en tidigare version om det behövs. |
-   | API-nyckel | Ja | <*API-key*> | Den Bing-sökning API-nyckel som du fick tidigare. Om du inte har någon nyckel kan du hämta din [API-nyckel nu](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
+   | API-nyckel | Ja | < *-API-nyckel*> | Den Bing-sökning API-nyckel som du fick tidigare. Om du inte har någon nyckel kan du hämta din [API-nyckel nu](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
    |||||  
 
    Exempel:

@@ -51,7 +51,7 @@ Förbättringar av modeller och algoritmer meddelas om ändringen är större el
 
 Är din fråga om en funktion eller funktionalitet som saknas? Överväg att begära eller rösta på den på vår [UserVoice-webbplats](https://cognitive.uservoice.com/forums/555922-text-analytics).
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
  [StackOverflow: API för textanalys](https://stackoverflow.com/questions/tagged/text-analytics-api)   
  [StackOverflow: Cognitive Services](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

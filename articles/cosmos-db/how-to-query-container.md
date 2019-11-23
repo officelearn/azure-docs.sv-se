@@ -59,9 +59,9 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 
 Du kan hantera parallell frågekörning genom att justera följande parametrar:
 
-- **MaxDegreeOfParallelism**: Anger det högsta antalet samtidiga nätverksanslutningar till containerns partitioner. Om du anger den här egenskapen till -1 hanterar SDK graden av parallellitet. Om  `MaxDegreeOfParallelism` inte har angetts eller har angetts till 0, vilket är standardvärdet, finns det en enda nätverksanslutning till containerns partitioner.
+- **MaxDegreeOfParallelism**: Anger det maximala antalet samtidiga nätverksanslutningar till containerns partitioner. Om du anger den här egenskapen till -1 hanterar SDK graden av parallellitet. Om  `MaxDegreeOfParallelism` inte har angetts eller har angetts till 0, vilket är standardvärdet, finns det en enda nätverksanslutning till containerns partitioner.
 
-- **MaxBufferedItemCount**: Gör en avvägning mellan frågesvarstid och minnesanvändning på klientsidan. Om det här alternativet utelämnas eller anges till -1 hanterar SDK:n antalet objekt som buffras under en parallell frågekörning.
+- **MaxBufferedItemCount**: Avväger frågesvarstid kontra minnesanvändning på klientsidan. Om det här alternativet utelämnas eller anges till -1 hanterar SDK:n antalet objekt som buffras under en parallell frågekörning.
 
 Med samma status för samlingen returnerar en parallell fråga resultat i samma ordning som vid seriell körning. När du utför en fråga över partitioner som inkluderar sorteringsoperatorer (ORDER BY, TOP) utfärdar Azure Cosmos DB SDK frågan parallellt över partitionerna. Den sammanfogar delvis sorterade resultat på klientsidan för att skapa globalt ordnade resultat.
 

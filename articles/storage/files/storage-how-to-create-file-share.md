@@ -95,6 +95,6 @@ Innan du kan använda PowerShell laddar du ned och installerar Azure PowerShell-
 
 Mer information om Azure Files finns på följande länkar.
 
-* [VANLIGA FRÅGOR OCH SVAR](../storage-files-faq.md)
+* [Vanliga frågor och svar](../storage-files-faq.md)
 * [Felsökning i Windows](storage-troubleshoot-windows-file-connection-problems.md)      
 * [Felsökning i Linux](storage-troubleshoot-linux-file-connection-problems.md)   

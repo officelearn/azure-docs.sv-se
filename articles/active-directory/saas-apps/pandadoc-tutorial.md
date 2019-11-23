@@ -84,19 +84,19 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. På den **grundläggande SAML-konfigurationen** section är programmet förkonfigurerat i **IDP** initiated läge och de nödvändiga URL: erna redan har redan fyllts i med Azure. Användaren måste spara konfigurationen genom att klicka på **spara** button.
+1. I avsnittet **grundläggande SAML-konfiguration** är programmet förkonfigurerat i **IDP** initierat läge och de nödvändiga URL: erna redan har redan fyllts i med Azure. Användaren måste spara konfigurationen genom att klicka på knappen **spara** .
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    I rutan **Inloggnings-URL** anger du en URL: `https://app.pandadoc.com/sso-login/`
+    I rutan **Inloggnings-URL** anger du en URL:  `https://app.pandadoc.com/sso-login/`
 
 1. PandaDoc-programmet förväntar sig SAML-intyg i ett särskilt format, vilket innebär att du kan lägga till anpassade mappningar av attribut i konfigurationen för SAML-token. Följande skärm bild visar en lista över standardattribut
 
-    ![mallar](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 1. Utöver ovan förväntar sig PandaDoc-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem efter behov.
 
-    | Namn | Namnområde  |
+    | Namn | Namnrymd  |
     | ---------------| ---------|
     | FirstName | user.givenname |
     | LastName | user.surname |
@@ -151,7 +151,7 @@ I det här avsnittet skapas en användare som heter B. Simon i PandaDoc. PandaDo
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen PandaDoc på åtkomst panelen, bör du loggas in automatiskt på den PandaDoc som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på panelen PandaDoc på åtkomst panelen, bör du loggas in automatiskt på den PandaDoc som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

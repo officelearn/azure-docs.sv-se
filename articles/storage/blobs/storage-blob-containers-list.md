@@ -32,7 +32,7 @@ Om du vill lista behållare i ditt lagrings konto, anropa någon av följande me
 
 Som standard returnerar en List åtgärd upp till 5000 resultat i taget. Om du vill returnera en mindre uppsättning resultat anger du ett värde som inte är noll för parametern `maxresults` när du anropar en av **ListContainerSegmented** -metoderna.
 
-Om ditt lagrings konto innehåller fler än 5000 behållare, eller om du har angett ett värde för `maxresults` så att List åtgärden returnerar en delmängd av behållare i lagrings kontot, Azure Storage returnerar en *fortsättnings-token* med listan över artiklar. En fortsättnings-token är ett ogenomskinligt värde som du kan använda för att hämta nästa uppsättning resultat från Azure Storage.
+Om ditt lagrings konto innehåller fler än 5000 behållare, eller om du har angett ett värde för `maxresults` så att List åtgärden returnerar en delmängd av behållare i lagrings kontot, Azure Storage returnerar en *fortsättnings-token* med listan över behållare. En fortsättnings-token är ett ogenomskinligt värde som du kan använda för att hämta nästa uppsättning resultat från Azure Storage.
 
 I din kod kontrollerar du värdet för fortsättnings-token för att avgöra om det är null. När tilläggs-token är null slutförs uppsättningen av resultat. Om tilläggs-token inte är null anropar du **ListContainersSegmented** eller **ListContainersSegmentedAsync** igen och skickar i fortsättnings-token för att hämta nästa uppsättning resultat, tills den fortsatta token är null.
 
@@ -97,7 +97,7 @@ private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClie
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
-[Lista behållare](/rest/api/storageservices/list-containers2) 
+[Lista behållare](/rest/api/storageservices/list-containers2)
 [räkna upp BLOB-resurser](/rest/api/storageservices/enumerating-blob-resources)

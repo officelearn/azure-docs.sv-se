@@ -62,7 +62,7 @@ IReliableConcurrentQueue<int> queue = await this.StateManager.GetOrAddAsync<IRel
 ### <a name="enqueueasync"></a>EnqueueAsync
 Här följer några kodfragment för att använda EnqueueAsync följt av förväntade utdata.
 
-- *Case 1: Uppgift för enskild kö @ no__t-0
+- *Fall 1: enskild uppgift för att köa*
 
 ```
 using (var txn = this.StateManager.CreateTransaction())
@@ -81,7 +81,7 @@ Anta att aktiviteten har slutförts och att det inte fanns några samtidiga tran
 > 20, 10
 
 
-- *Case 2: Parallell köa uppgift @ no__t-0
+- *Fall 2: parallellt köa uppgift*
 
 ```
 // Parallel Task 1
@@ -110,7 +110,7 @@ Anta att aktiviteterna har slutförts, att aktiviteterna kördes parallellt och 
 Här följer några kodfragment för att använda TryDequeueAsync följt av förväntade utdata. Anta att kön redan är ifylld med följande objekt i kön:
 > 10, 20, 30, 40, 50, 60
 
-- *Case 1: Uppgift för enkel deekö @ no__t-0
+- *Fall 1: enskild avköad uppgift*
 
 ```
 using (var txn = this.StateManager.CreateTransaction())
@@ -125,7 +125,7 @@ using (var txn = this.StateManager.CreateTransaction())
 
 Anta att aktiviteten har slutförts och att det inte fanns några samtidiga transaktioner att ändra kön. Eftersom ingen härledning kan göras om ordningen för objekten i kön kan alla tre objekten vara i kö, i vilken ordning som helst. Kön försöker behålla objekten i den ursprungliga (köade) ordningen, men kan tvingas att ändra ordning på dem på grund av samtidiga åtgärder eller fel.  
 
-- *Case 2: Parallell deekö-aktivitet @ no__t-0
+- *Fall 2: parallell deköa uppgift*
 
 ```
 // Parallel Task 1
@@ -153,7 +153,7 @@ Anta att aktiviteterna har slutförts, att aktiviteterna kördes parallellt och 
 
 Samma objekt visas *inte* i båda listorna. Om dequeue1 har *10*, *30*skulle dequeue2 därför ha *20*, *40*.
 
-- *Case 3: Beställning av ur kö med transaktions avbrott @ no__t-0
+- *Fall 3: beställning av ur kö med transaktions avbrott*
 
 Om du avbryter en transaktion med flygbaserade köer placeras objekten tillbaka i köns huvud. Det går inte att garantera i vilken ordning objekten placeras i köns huvud. Låt oss titta på följande kod:
 
@@ -275,7 +275,7 @@ while(!cancellationToken.IsCancellationRequested)
 ```
 
 ### <a name="best-effort-drain"></a>Dränering med bästa ansträngning
-En dränering av kön kan inte garanteras på grund av data strukturens samtidighet.  Det är möjligt att även om ingen användar åtgärd i kön är i flygning, kan ett visst anrop till TryDequeueAsync inte returnera ett objekt som tidigare har placerats i kö och bekräftats.  Det köade objektet kan komma att bli synligt *för att ta* del av kön, men utan en out-of-band-kommunikations mekanism kan en oberoende konsument inte veta att kön har nått ett stabilt tillstånd även om alla tillverkare har stoppats och inga nya åtgärder för att köa är tillåtna. Därför är tömnings åtgärden det bästa arbetet som implementeras nedan.
+En dränering av kön kan inte garanteras på grund av data strukturens samtidighet.  Det är möjligt att även om ingen användar åtgärd i kön är i flygning, kan ett visst anrop till TryDequeueAsync inte returnera ett objekt som tidigare har placerats i kö och bekräftats.  Det köade objektet kan komma att bli synligt *för att ta* del av kön, men utan en out-of-band-kommunikations mekanism kan en oberoende konsument inte veta att kön har nått ett stabilt tillstånd även om alla tillverkare har stoppats och inga nya åtgärder i kön tillåts. Därför är tömnings åtgärden det bästa arbetet som implementeras nedan.
 
 Användaren bör stoppa alla ytterligare producent-och konsument uppgifter och vänta på att eventuella pågående transaktioner ska genomföras eller avbrytas innan du försöker tömma kön.  Om användaren känner till det förväntade antalet objekt i kön kan de ställa in ett meddelande som signalerar att alla objekt har avplacerats i kö.
 
@@ -313,7 +313,7 @@ do
 } while (ret.HasValue);
 ```
 
-### <a name="peek"></a>Förhandsgranska
+### <a name="peek"></a>Granska
 ReliableConcurrentQueue tillhandahåller inte *TryPeekAsync* -API: et. Användare kan få en Peek-semantik genom att använda en *TryDequeueAsync* och sedan avbryta transaktionen. I det här exemplet bearbetas endast köer om objektets värde är större än *10*.
 
 ```

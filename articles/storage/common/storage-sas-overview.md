@@ -42,7 +42,7 @@ Azure Storage stöder tre typer av signaturer för delad åtkomst:
 En signatur för delad åtkomst kan ha ett av två formulär:
 
 - **Ad hoc SAS:** När du skapar en ad hoc SAS, anges start tiden, förfallo tiden och behörigheterna för SAS-URI: n (eller underförstådd, om start tiden utelämnas). Alla typer av SAS kan vara ad hoc SAS.
-- **Tjänstens SAS med lagrad åtkomst princip:** En lagrad åtkomst princip definieras på en resurs behållare, som kan vara en BLOB-behållare, tabell, kö eller fil resurs. Den lagrade åtkomst principen kan användas för att hantera begränsningar för en eller flera signaturer för delad åtkomst för en tjänst. När du associerar en tjänst-SAS med en lagrad åtkomst princip ärver SAS begränsningarna @ no__t-0the start tid, förfallo tid och behörigheter @ no__t-1defined för den lagrade åtkomst principen.
+- **Tjänstens SAS med lagrad åtkomst princip:** En lagrad åtkomst princip definieras på en resurs behållare, som kan vara en BLOB-behållare, tabell, kö eller fil resurs. Den lagrade åtkomst principen kan användas för att hantera begränsningar för en eller flera signaturer för delad åtkomst för en tjänst. När du associerar en tjänst-SAS med en lagrad åtkomst princip ärver SAS begränsningarna&mdash;start tid, förfallo tid och behörigheter&mdash;som definierats för den lagrade åtkomst principen.
 
 > [!NOTE]
 > En användar Delegerings-SAS eller en konto säkerhets Association måste vara ad hoc SAS. Lagrade åtkomst principer stöds inte för användar Delegerings-SAS eller kontots SAS.

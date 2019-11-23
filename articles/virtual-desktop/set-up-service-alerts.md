@@ -14,7 +14,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 09/30/2019
 ms.locfileid: "71676438"
 ---
-# <a name="tutorial-set-up-service-alerts"></a>Självstudier: Konfigurera tjänstaviseringar
+# <a name="tutorial-set-up-service-alerts"></a>Självstudie: Konfigurera tjänst aviseringar
 
 Du kan använda Azure Service Health för att övervaka tjänst problem och hälso rekommendationer för virtuella Windows-datorer. Azure Service Health kan meddela dig om olika typer av aviseringar (t. ex. e-post eller SMS), hjälpa dig att förstå resultatet av ett problem och hålla dig uppdaterad när problemet löses. Azure Service Health kan också hjälpa dig att minska stillestånds tiden och förbereda för planerat underhåll och ändringar som kan påverka tillgängligheten för dina resurser.
 
@@ -25,11 +25,11 @@ I den här kursen får du lära du dig att:
 
 Mer information om Azure Service Health finns i [Azure Health-dokumentationen](https://docs.microsoft.com/azure/service-health/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- [Självstudier: Skapa en klient i Windows Virtual Desktop @ no__t-0
-- [Självstudier: Skapa tjänstens huvud namn och roll tilldelningar med PowerShell @ no__t-0
-- [Självstudier: Skapa en värdbaserad pool med Azure Marketplace @ no__t-0
+- [Självstudie: skapa en klient i Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory)
+- [Självstudie: skapa tjänstens huvud namn och roll tilldelningar med PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-service-principal-role-powershell)
+- [Självstudie: skapa en värdbaserad pool med Azure Marketplace](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-azure-marketplace)
 
 ## <a name="create-service-alerts"></a>Skapa tjänst aviseringar
 
@@ -48,7 +48,7 @@ Vi rekommenderar att du skapar tjänst aviseringar för följande typer av häls
 
 Konfigurera tjänst aviseringar:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Välj **service Health.**
 3. Följ anvisningarna i [skapa aktivitets logg aviseringar på tjänst aviseringar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log-service-notifications?toc=%2Fazure%2Fservice-health%2Ftoc.json#alert-and-new-action-group-using-azure-portal) för att konfigurera aviseringar och meddelanden.
 

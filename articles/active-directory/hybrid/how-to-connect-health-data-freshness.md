@@ -47,7 +47,7 @@ Följande tabell mappar tjänst typer till motsvarande obligatoriska data typer:
 | AD DS | Azure AD Connect Health AD DS Insights Service | Utför syntetiska tester, samla in information om topologi, metadata för replikering |  -Lägger till-TopologyInfo-JSON <br /> -Common-TestData-JSON (skapar test resultaten)   | 
 |  | Azure AD Connect Health AD DS Monitoring Service | Samla in tillägg – vissa prestanda räknare, ETW-spår, filer | – Prestanda räknare  <br /> -Common-TestData-JSON (laddar upp test resultaten)  |
 | AD FS | Azure AD Connect Health AD FS Diagnostics Service | Utför syntetiska tester | TestResult (skapar test resultaten) | 
-| | Azure AD Connect Health AD FS Insights Service  | Samla in användnings statistik i ADFS | ADFS-UsageMetrics |
+| | Azure AD Connect Health AD FS Insights Service  | Samla in användnings statistik i ADFS | Adfs-UsageMetrics |
 | | Azure AD Connect Health AD FS Monitoring Service | Samla in ADFS-/regionsspecifika prestanda räknare, ETW-spår, filer | TestResult (överför test resultaten) |
 
 ## <a name="troubleshooting-steps"></a>Felsökningsanvisningar 
@@ -59,7 +59,7 @@ De steg som krävs för att diagnostisera problemet anges nedan. Den första är
 
 * Kontrol lera att de senaste versionerna av agenterna är installerade. Visa [versions historik](reference-connect-health-version-history.md). 
 * Kontrol lera att Azure AD Connect Health agents-tjänsterna **körs** på datorn. Till exempel bör Connect Health för AD FS ha tre tjänster.
-  ![Verify Azure AD Connect Health @ no__t-1
+  ![verifiera Azure AD Connect Health](./media/how-to-connect-health-agent-install/install5.png)
 
 * Se till att gå över och uppfylla [avsnittet krav](how-to-connect-health-agent-install.md#requirements).
 * Använd [test anslutnings verktyget](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) för att identifiera anslutnings problem.

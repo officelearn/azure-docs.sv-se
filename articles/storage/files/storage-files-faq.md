@@ -132,7 +132,7 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
   * tummes. db
   * ehthumbs. db
   * ~$\*.\*
-  * \*. LACCDB
+  * \*.laccdb
   * \*. tmp
   * 635D02A9D91C401B97884B82B3BCDAEA.\*
 

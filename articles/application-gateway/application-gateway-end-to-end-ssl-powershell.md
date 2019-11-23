@@ -167,7 +167,7 @@ Alla konfigurations objekt anges innan du skapar programgatewayen. Följande ste
    > [!NOTE]
    > Standard avsökningen hämtar den offentliga nyckeln från *standard* -SSL-bindningen på backend-IP-adressen och jämför det offentliga nyckel värde som den tar emot till det offentliga nyckel värde som du anger här. 
    > 
-   > Om du använder värdhuvuden och Servernamnindikator (SNI) på Server sidan kanske den hämtade offentliga nyckeln inte är den avsedda platsen som trafikflöden ska skickas till. Om du är osäker kan du besöka https://127.0.0.1/ på backend-servrarna för att bekräfta vilket certifikat som används för *standard* -SSL-bindningen. Använd den offentliga nyckeln från denna begäran i det här avsnittet. Om du använder värd-och SNI på HTTPS-bindningar och du inte får något svar och certifikat från en begär ande webbläsare för att https://127.0.0.1/ på backend-servrarna, måste du konfigurera en standard-SSL-bindning. Om du inte gör det går det inte att söka efter avsökningar och Server delen är inte vit listas.
+   > Om du använder värdhuvuden och Servernamnindikator (SNI) på Server sidan kanske den hämtade offentliga nyckeln inte är den avsedda platsen som trafikflöden ska skickas till. Om du är osäker kan du besöka https://127.0.0.1/ på backend-servrarna för att bekräfta vilket certifikat som används för *standard* -SSL-bindningen. Använd den offentliga nyckeln från denna begäran i det här avsnittet. Om du använder värd-och SNI på HTTPS-bindningar och du inte får något svar och certifikat från en manuell webbläsare för att https://127.0.0.1/ på backend-servrarna, måste du konfigurera en standard-SSL-bindning. Om du inte gör det går det inte att söka efter avsökningar och Server delen är inte vit listas.
 
    ```powershell
    $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'allowlistcert1' -CertificateFile C:\cert.cer
@@ -200,7 +200,7 @@ Alla konfigurations objekt anges innan du skapar programgatewayen. Följande ste
    $rule = New-AzApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
    ```
 
-10. Konfigurera programgatewayens instansstorlek. De tillgängliga storlekarna är **standard @ no__t-1Small**, **standard @ no__t-3Medium**och **standard @ no__t-5Large**.  För kapacitet är de tillgängliga värdena **1** till och med **10**.
+10. Konfigurera programgatewayens instansstorlek. De tillgängliga storlekarna är **standard\_små**, **standard\_Medium**och **standard\_stora**.  För kapacitet är de tillgängliga värdena **1** till och med **10**.
 
     ```powershell
     $sku = New-AzApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
@@ -217,7 +217,7 @@ Alla konfigurations objekt anges innan du skapar programgatewayen. Följande ste
     - **TLSV1_1**
     - **TLSV1_2**
     
-    I följande exempel anges den lägsta protokoll versionen som **TLSv1_2** och aktiverar **TLS @ no__t-2ECDHE @ no__t-3ECDSA @ no__t-4WITH @ no__t-5AES @ no__t-6128 @ no__t-7GCM @ no__t**-8SHA256, **TLS @ no__t-10ECDHE @ no__t-11ECDSA @ no__t-12WITH @ No __t-13AES @ no__t-14256 @ no__t-15GCM @ no__t-16SHA384**och **TLS @ NO__T-18RSA @ NO__T-19WITH @ NO__T-20AES @ no__t-21128 @ NO__T-22GCM @ no__t-** 23SHA256.
+    I följande exempel anges den lägsta protokoll versionen till **TLSv1_2** och aktiverar **TLS\_ECDHE\_ECDSA\_med\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_med\_aes\_256\_GCM\_SHA384**och **TLS\_RSA\_med\_AES\_128\_GCM\_SHA256 med AES** .
 
     ```powershell
     $SSLPolicy = New-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -PolicyType Custom
@@ -310,7 +310,7 @@ Föregående steg tog dig genom att skapa ett program med end-to-end-SSL och ina
    $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
 
-2. Definiera en SSL-princip. I följande exempel är **tlsv 1.0** och **tlsv 1.1** inaktiverade och cipher-sviterna **TLS @ no__t-3ECDHE @ no__t-4ECDSA @ no__t-5WITH @ no__t-6AES @ no__t-7128 @ no__t-8GCM @ no__t-9SHA256**, **TLS @ no__t-11ECDHE @ no__t-12ECDSA @ no__ t-13WITH @ no__t-14AES @ no__t-15256 @ no__t-16GCM @ no__t-17SHA384**och **TLS @ NO__T-19RSA @ NO__T-20WITH @ NO__T-21AES @ no__t-22128 @ NO__T-23GCM @ no__t-** 24SHA256 är de enda tillåtna.
+2. Definiera en SSL-princip. I följande exempel är **tlsv 1.0** och **tlsv 1.1** inaktiverade och CHIFFERSVITER- **TLS\_ECDHE\_ECDSA\_med\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_med\_AES\_256\_GCM\_SHA384**och TLS\_**RSA\_med\_AES\_128\_GCM\_SHA256** är de enda tillåtna.
 
    ```powershell
    Set-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw

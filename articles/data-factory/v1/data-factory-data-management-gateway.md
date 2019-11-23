@@ -72,14 +72,14 @@ Här är data flödet på hög nivå för och en sammanfattning av stegen för a
 * Du måste **använda gatewayen** även om data lagret finns i molnet på en **virtuell Azure IaaS-dator**.
 
 ## <a name="installation"></a>Installation
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Krav
 * De **operativ system** versioner som stöds är Windows 7, Windows 8/8.1, Windows 10, windows Server 2008 R2, windows Server 2012, windows Server 2012 R2. Det finns för närvarande inte stöd för installation av data Management Gateway på en domänkontrollant.
 * .NET Framework 4.5.1 eller senare krävs. Om du installerar Gateway på en dator med Windows 7 installerar du .NET Framework 4,5 eller senare. Mer information finns i [.NET Framework system krav](https://msdn.microsoft.com/library/8z6watww.aspx) .
 * Den rekommenderade **konfigurationen** för gateway-datorn är minst 2 GHz, 4 kärnor, 8 GB RAM och 80 GB disk.
 * Om värddatorn försätts i vilo läge svarar inte gatewayen på data begär Anden. Konfigurera därför ett lämpligt **energi schema** på datorn innan du installerar gatewayen. Om datorn är konfigurerad för vilo läge, visas ett meddelande i Gateway-installationen.
 * Du måste vara administratör på datorn för att installera och konfigurera data Management Gateway. Du kan lägga till ytterligare användare i den lokala Windows-gruppen för **Data Management Gateway-användare** . Medlemmarna i den här gruppen kan använda **Data Management Gateway Configuration Manager** verktyget för att konfigurera gatewayen.
 
-Eftersom kopierings aktiviteten körs på en speciell frekvens, följer resursanvändningen (CPU, minne) på datorn även samma mönster med hög belastnings tider. Resursutnyttjande beror också på mängden data som flyttas. När flera kopierings jobb pågår, ser du att resursanvändningen går upp under hög belastnings tider.
+Eftersom kopierings aktiviteten körs på en speciell frekvens, följer resursanvändningen (CPU, minne) på datorn även samma mönster med hög belastnings tider. Resursutnyttjande beror också kraftigt på mängden data som flyttas. När flera kopierings jobb pågår, ser du att resursanvändningen går upp under hög belastnings tider.
 
 ### <a name="installation-options"></a>Installations alternativ
 Data Management Gateway kan installeras på följande sätt:
@@ -98,7 +98,7 @@ Data Management Gateway kan installeras på följande sätt:
 4. Välj ett **språk** på **välkomst** sidan och klicka på **Nästa**.
 5. **Godkänn** licens avtalet för slutanvändare och klicka på **Nästa**.
 6. Välj **mapp** för att installera gatewayen och klicka på **Nästa**.
-7. På sidan **klar att installera** klickar du på **Installera**.
+7. På den **redo att installera** klickar du på **installera**.
 8. Klicka på **Slutför** för att slutföra installationen.
 9. Hämta nyckeln från Azure Portal. Se nästa avsnitt för steg-för-steg-instruktioner.
 10. Utför följande steg på sidan **Registrera Gateway** i **Data Management Gateway Configuration Manager** som körs på datorn:
@@ -144,8 +144,8 @@ På företags brand Väggs nivå måste du konfigurera följande domäner och ut
 | Domän namn | Portar | Beskrivning |
 | --- | --- | --- |
 | *.servicebus.windows.net |443 |Används för kommunikation med Server dels tjänst för data flyttning |
-| *. core.windows.net |443 |Används för mellanlagrad kopia med Azure Blob (om det kon figurer ATS)|
-| *. frontend.clouddatahub.net |443 |Används för kommunikation med Server dels tjänst för data flyttning |
+| *.core.windows.net |443 |Används för mellanlagrad kopia med Azure Blob (om det kon figurer ATS)|
+| *.frontend.clouddatahub.net |443 |Används för kommunikation med Server dels tjänst för data flyttning |
 | *.servicebus.windows.net |9350-9354, 5671 |Valfritt Service Bus Relay via TCP som används av guiden Kopiera |
 
 På Windows brand Väggs nivå är dessa utgående portar normalt aktiverade. Om inte kan du konfigurera domänerna och portarna på samma sätt på gateway-datorn.
@@ -369,7 +369,7 @@ Namn | Namnet på den logiska gatewayen och noder som är associerade med gatewa
 Status | Status för den logiska gatewayen och gateway-noderna. Exempel: online/offline/begränsat/osv. Information om dessa statusar finns i avsnittet om [Gateway-status](#gateway-status) .
 Version | Visar versionen för den logiska gatewayen och varje gateway-nod. Versionen av den logiska gatewayen fastställs baserat på den version av majoriteten av noderna i gruppen. Om det finns noder med olika versioner i installations programmet för den logiska gatewayen fungerar bara noderna med samma versions nummer som den logiska gatewayen. Andra är i begränsat läge och måste uppdateras manuellt (endast om automatisk uppdatering Miss lyckas).
 Tillgängligt minne | Tillgängligt minne på en gateway-nod. Det här värdet är en nära real tids ögonblicks bild.
-PROCESSOR användning | CPU-användning för en gateway-nod. Det här värdet är en nära real tids ögonblicks bild.
+CPU-användning | CPU-användning för en gateway-nod. Det här värdet är en nära real tids ögonblicks bild.
 Nätverk (in/ut) | Nätverks användning för en gateway-nod. Det här värdet är en nära real tids ögonblicks bild.
 Samtidiga jobb (som körs/begränsas) | Antal jobb eller aktiviteter som körs på varje nod. Det här värdet är en nära real tids ögonblicks bild. Gränsen visar maximalt antal samtidiga jobb för varje nod. Det här värdet definieras baserat på datorns storlek. Du kan öka gränsen för att skala upp samtidiga jobb körningar i avancerade scenarier, där processor/minne/nätverk används, men att aktiviteterna är tids gräns. Den här funktionen är även tillgänglig med en gateway med en nod (även om funktionen skalbarhets-och tillgänglighet inte är aktive rad).
 Roll | Det finns två typer av roller i en gateway-dispatcher och Worker med flera noder. Alla noder är arbetare, vilket innebär att de kan användas för att köra jobb. Det finns bara en dispatcher-nod som används för att hämta aktiviteter/jobb från moln tjänster och skicka dem till olika arbetsnoder (inklusive sig själv).
@@ -382,7 +382,7 @@ Följande tabell innehåller möjliga status värden för en **Gateway-nod**:
 Status  | Kommentarer/scenarier
 :------- | :------------------
 Online | Noden är ansluten till Data Factory tjänsten.
-Anslutningen | Noden är offline.
+Offline | Noden är offline.
 Fortsätter | Noden uppdateras automatiskt.
 Begränsad | På grund av anslutnings problem. Kan bero på problem med HTTP-port 8050, problem med Service Bus-anslutning eller utfärdande av autentiseringsuppgifter.
 Inaktivera | Noden har en annan konfiguration än konfigurationen av andra majoritets noder.<br/><br/> En nod kan vara inaktiv när den inte kan ansluta till andra noder.
@@ -393,7 +393,7 @@ Status | Kommentarer
 :----- | :-------
 Behöver registrering | Ingen nod har ännu registrerats till denna logiska Gateway
 Online | Gateway-noderna är online
-Anslutningen | Ingen nod i online-status.
+Offline | Ingen nod i online-status.
 Begränsad | Alla noder i denna gateway är inte i felfritt tillstånd. Den här statusen är en varning om att en nod kan vara nere! <br/><br/>Det kan bero på ett problem med synkronisering av autentiseringsuppgifter på dispatcher/Worker-noden.
 
 ## <a name="scale-up-gateway"></a>Skala upp Gateway

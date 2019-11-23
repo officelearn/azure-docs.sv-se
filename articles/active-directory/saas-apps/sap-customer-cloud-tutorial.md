@@ -84,22 +84,22 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<server name>.crm.ondemand.com`
 
-    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<server name>.crm.ondemand.com`
+    b. I textrutan **Identifierare (entitets-ID)** skriver du en URL med följande mönster: `https://<server name>.crm.ondemand.com`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL:en och identifieraren. Skaffa dess värden genom att kontakta [supportteamet för SAP Cloud for Customer-klienten](https://www.sap.com/about/agreements.sap-cloud-services-customers.html). Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Skaffa dess värden genom att kontakta [supportteamet för SAP Cloud for Customer-klienten](https://www.sap.com/about/agreements.sap-cloud-services-customers.html). Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 1. SAP-moln för kund program förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade attribut mappningar i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på ikonen**Redigera** för att öppna dialogrutan Användarattribut.
 
-    ![mallar](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 1. Gör följande i avsnittet **Användarattribut** i dialogrutan **Användarattribut och anspråk**:
 
     a. Öppna dialogrutan **Hantera användaranspråk** genom att klicka på **redigeringsikonen**.
 
-    ![mallar](./media/sap-customer-cloud-tutorial/tutorial_usermail.png)
+    ![image](./media/sap-customer-cloud-tutorial/tutorial_usermail.png)
 
-    ![mallar](./media/sap-customer-cloud-tutorial/tutorial_usermailedit.png)
+    ![image](./media/sap-customer-cloud-tutorial/tutorial_usermailedit.png)
 
     b. Välj **Transformering** som **källa**.
 
@@ -108,7 +108,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     d. Välj det användarattribut som du vill använda för din implementering i listan **Parameter 1**.
     Om du t.ex. vill använda EmployeeID som unikt användar-ID och du har lagrat attributvärdet i ExtensionAttribute2 väljer du sedan user.extensionattribute2.
 
-    e. Klicka på **Save** (Spara).
+    e. Klicka på **Spara**.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
@@ -152,7 +152,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Öppna ett nytt webbläsarfönster och logga in på ditt SAP-moln för kund företags webbplats som administratör.
 
-2. Från menyn till vänster på menyn klickar du på **identitets leverantörer**  @ no__t-2**företags identitets leverantörer** > **Lägg till** och i popup-fönstret Lägg till identitets leverantörens namn som **Azure AD**, klicka på **Spara** och sedan på **SAML 2,0-konfiguration**.
+2. På menyn till vänster på menyn klickar du på **identitets leverantörer** > **företags identitets leverantörer** > **Lägg till** och i popup-fönstret Lägg till namnet på identitets leverantören som **Azure AD**, klickar du på **Spara** och sedan på **SAML 2,0-konfiguration**.
 
     ![SAP-konfiguration](./media/sap-customer-cloud-tutorial/configure01.png)
 
@@ -172,7 +172,7 @@ Om du vill att Azure AD-användare ska kunna logga in på SAP-molnet för kunden
 
 1. Logga in på SAP Cloud för kunden som en säkerhets administratör.
 
-2. Klicka på **användare & auktoriseringar**  @ no__t-2 **användar hantering** > **Lägg till användare**på menyns vänstra sida.
+2. Klicka på **användare & auktoriseringar** > **användar hantering** > **Lägg till användare**på menyns vänstra sida.
 
     ![SAP-konfiguration](./media/sap-customer-cloud-tutorial/configure03.png)
 
@@ -184,7 +184,7 @@ Om du vill att Azure AD-användare ska kunna logga in på SAP-molnet för kunden
 
     b. I text rutan **efter namn** anger du namnet på användaren som **Simon**.
 
-    c. I text rutan **e-postadress** anger du e-postmeddelandet som `B.Simon@contoso.com`.
+    c. I text rutan **e-postadress** anger du e-postadressen till den användare som `B.Simon@contoso.com`.
 
     d. Ange namnet på den användare som **B. Simon**i text rutan **inloggnings namn** .
 
@@ -196,7 +196,7 @@ Om du vill att Azure AD-användare ska kunna logga in på SAP-molnet för kunden
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på SAP Cloud for Customer-panelen i åtkomstpanelen bör du automatiskt loggas in på SAP Cloud for Customer som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på SAP Cloud for Customer-panelen i åtkomstpanelen bör du automatiskt loggas in på SAP Cloud for Customer som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

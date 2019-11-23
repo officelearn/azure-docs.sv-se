@@ -56,27 +56,27 @@ Om du vill returnera Azure AD Graph API-metadatafilen lägger du till "$metadata
 
 [Azure ad Graph API vanliga frågor](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options#CommonQueries) som visar vanliga frågor som kan användas med Azure AD graf, inklusive frågor som kan användas för att få åtkomst till toppnivå resurser i din katalog och frågor för att utföra åtgärder i din katalog.
 
-@No__t-0 returnerar till exempel företags information för katalogen contoso.com.
+`https://graph.windows.net/contoso.com/tenantDetails?api-version=1.6` returnerar till exempel företags information för katalogen contoso.com.
 
-Eller `https://graph.windows.net/contoso.com/users?api-version=1.6` visar alla användar objekt i katalogen contoso.com.
+Eller `https://graph.windows.net/contoso.com/users?api-version=1.6` visar en lista över alla användar objekt i katalogen contoso.com.
 
 ## <a name="using-the-azure-ad-graph-explorer"></a>Använda Azure AD Graph Explorer
 Du kan använda Azure AD Graph Explorer för Azure AD-Graph API för att fråga katalog data när du skapar programmet.
 
-Följande skärm bild är de utdata som du kan se om du skulle navigera till Azure AD Graph Explorer, logga in och ange `https://graph.windows.net/GraphDir1.OnMicrosoft.com/users?api-version=1.6` om du vill visa alla användare i den inloggade användarens katalog:
+Följande skärm bild är de utdata du ser om du skulle navigera till Azure AD Graph Explorer, logga in och ange `https://graph.windows.net/GraphDir1.OnMicrosoft.com/users?api-version=1.6` för att visa alla användare i den inloggade användarens katalog:
 
 ![Exempel på utdata i Azure AD Graph API Explorer](./media/active-directory-graph-api-quickstart/graph_explorer.png)
 
 **Läs in Azure AD Graph Explorer**: om du vill läsa in verktyget går du till [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/). Klicka på **Logga in** och logga in med dina autentiseringsuppgifter för Azure AD-kontot för att köra Azure AD Graph Explorer mot din klient. Om du kör Azure AD Graph Explorer mot din egen klient måste du eller din administratör godkänna under inloggningen. Om du har en Office 365-prenumeration har du automatiskt en Azure AD-klient. De autentiseringsuppgifter du använder för att logga in på Office 365 är i själva verket Azure AD-konton och du kan använda dessa autentiseringsuppgifter med Azure AD Graph Explorer.
 
-**Kör en fråga**: om du vill köra en fråga skriver du din fråga i text rutan begäran och klickar på **Hämta** eller klicka på **RETUR** -tangenten. Resultaten visas i svars rutan. @No__t-0 visar till exempel alla grupp objekt i den inloggade användarens katalog.
+**Kör en fråga**: om du vill köra en fråga skriver du din fråga i text rutan begäran och klickar på **Hämta** eller klicka på **RETUR** -tangenten. Resultaten visas i svars rutan. `https://graph.windows.net/myorganization/groups?api-version=1.6` visar till exempel alla grupp objekt i den inloggade användarens katalog.
 
 Observera följande funktioner och begränsningar i Azure AD Graph Explorer:
 
 * Funktionen Komplettera automatiskt på resurs uppsättningar. Om du vill se den här funktionen klickar du på text rutan för begäran (där företagets URL visas). Du kan välja en resurs uppsättning i list rutan.
 * Begär ande historik.
 * Stöder adresserings Ali Aset "mig" och "min organisation". Du kan till exempel använda `https://graph.windows.net/me?api-version=1.6` för att returnera användar objektet för den inloggade användaren eller `https://graph.windows.net/myorganization/users?api-version=1.6` för att returnera alla användare i den inloggade användarens katalog.
-* Har stöd för fullständiga CRUD-åtgärder mot din egen katalog med hjälp av `POST`, `GET`, `PATCH` och `DELETE`.
+* Har stöd för fullständiga CRUD-åtgärder mot din egen katalog med hjälp av `POST``GET``PATCH` och `DELETE`.
 * Avsnittet svarshuvuden. Det här avsnittet kan användas för att felsöka problem som inträffar när du kör frågor.
 * Ett JSON-visningsprogram för svaret med utökade och dolda funktioner.
 * Inget stöd för att visa eller ladda upp ett miniatyr foto.
@@ -107,7 +107,7 @@ I exemplet nedan använder du Fiddler webb fel sökning för att skapa en ny sä
    ```
    
    > [!NOTE]
-   > Ersätt din &lt;your åtkomsttoken @ no__t-1 med åtkomsttoken för din Azure AD-katalog.
+   > Ersätt &lt;din åtkomsttoken&gt; med åtkomsttoken för din Azure AD-katalog.
 
 5. I fältet **begär ande text** skriver du följande JSON:
    

@@ -22,7 +22,7 @@ Den här självstudien vägleder dig genom processen för att skapa, konfigurera
 
 ![Våren Boot Application lagrar data i Azure Cosmos DB](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa en Cosmos DB-databas.
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/overview) installerat på din egen dator. 
 * [Git](https://git-scm.com/)

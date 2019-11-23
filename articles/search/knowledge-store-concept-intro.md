@@ -1,7 +1,7 @@
 ---
 title: Introduktion till kunskaps lager (för hands version)
 titleSuffix: Azure Cognitive Search
-description: Skicka berikade dokument till Azure Storage där du kan visa, ändra form på och använda berikade dokument i Azure Kognitiv sökning och i andra program. Den här funktionen finns i offentlig för hands version.
+description: Skicka berikade dokument till Azure Storage där du kan visa, ändra form på och använda berikade dokument i Azure Kognitiv sökning och i andra program. Den här funktionen är en allmänt tillgänglig förhandsversion.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist

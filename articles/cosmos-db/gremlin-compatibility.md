@@ -25,15 +25,15 @@ Azure Cosmos DB diagram motor närmar sig följande steg Specifikation för [Apa
 
 * ***[Gremlin Bytecode](http://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)***  är ett datorspråk med oberoende specifikation för diagrambläddringar. Cosmos DB Graph har inte stöd för det än. Använd ```GremlinClient.SubmitAsync()``` och skicka Traversal som en text sträng.
 
-* ***```property(set, 'xyz', 1)```-*** ange kardinalitet stöds inte idag. Använd ```property(list, 'xyz', 1)``` i stället.
+* ***```property(set, 'xyz', 1)```*** ange kardinalitet stöds inte idag. Använd ```property(list, 'xyz', 1)``` i stället.
 
-* ***```match()```*** tillåter att fråga diagram med hjälp av deklarativ mönster matchning. Den här funktionen är inte tillgänglig.
+* ***```match()```*** tillåter att fråga grafer med deklarativ mönster matchning. Den här funktionen är inte tillgänglig.
 
 * ***Objekt som egenskaper*** för hörn eller kanter stöds inte. Egenskaper kan bara vara primitiva typer eller matriser.
 
 * ***Sortering efter mat ris egenskaper*** ```.order().by(<array property>)``` stöds inte. Sortering stöds endast av primitiva typer.
 
-* ***JSON-typer som inte är primitiva*** stöds inte. Använd ```string```, ```number```-eller ```true``` @ no__t-3 @ no__t-4-typer. ```null```-värden stöds inte. 
+* ***JSON-typer som inte är primitiva*** stöds inte. Använd ```string```, ```number```eller ```true```/```false``` typer. ```null``` värden stöds inte. 
 
 * ***GraphSONv3*** -serialisering är inte tillgänglig idag.
 

@@ -29,7 +29,7 @@ Du klickade på knappen **Välj en resurs**, men ser inte din resurs i resursvä
 
 1. Kontrollera att du har valt rätt resursgrupp.
     > [!WARNING]
-    > För bästa prestanda bör det inte finnas några fördefinierade resurs grupper i list rutan **resurs grupp** för första gången du öppnar Metrics Explorer. Du måste välja minst en grupp innan du kan se några resurser.
+    > För bästa prestanda visas inga förvalda resursgrupper i listrutan **Resursgrupp** när du öppnar Metrics Explorer. Du måste välja minst en grupp innan du kan se några resurser.
 
 ## <a name="chart-shows-no-data"></a>Diagrammet visar inga data
 
@@ -80,22 +80,22 @@ Det här problemet kan inträffa när instrumentpanelen har skapats med ett måt
 ## <a name="chart-shows-dashed-line"></a>Diagrammet visar streckad linje
 
 Azure Metrics-diagram använder streckat linje format för att indikera att det finns ett saknat värde (även kallat "null-värde") mellan två kända tids kornig data punkter. Om du till exempel har valt tids kornig het för 1 minut i tids väljare, men måttet rapporterades som 07:26, 07:27, 07:29 och 07:30 (Observera ett minut intervall mellan andra och tredje data punkter), ansluter en streckad linje till 07:27 och 07:29 och en heldragen linje kommer att ansluta alla andra data punkter. Den streckade linjen hamnar nedåt till noll när måttet använder **Count** och **Sum** -aggregering. För de **AVG**-, **min** -eller **Max** agg regeringar ansluter den streckade linjen två nära kända data punkter. Och om data saknas längst till höger eller längst till vänster i diagrammet expanderas den streckade linjen i riktningen mot datapunkten som saknas.
-  ![metric-avbildning @ no__t-1
+  ![mått bild](./media/metrics-troubleshoot/missing-data-point-line-chart.png)
 
-**Lösning:** Det här beteendet är avsiktligt. Detta är användbart för att identifiera datapunkter som saknas. Linje diagrammet är ett överlägset alternativ för att visualisera trender i mått med hög densitet, men det kan vara svårt att tolka Mät värdena med null-optimerade värden, särskilt när samrelaterade värden med tids kornig het är viktigt. Den streckade linjen gör det enklare att läsa dessa diagram, men om diagrammet fortfarande är svårtolkat bör du överväga att visa måtten i en annan typ av diagram. Ett överdrivet diagram för samma mått visar till exempel tydligt varje tids kornig het genom att bara visualisera en punkt när det finns ett värde och hoppa över data punkten när värdet saknas: ![metric image @ no__t-1
+**Lösning:** Det här beteendet är avsiktligt. Detta är användbart för att identifiera datapunkter som saknas. Linje diagrammet är ett överlägset alternativ för att visualisera trender i mått med hög densitet, men det kan vara svårt att tolka Mät värdena med null-optimerade värden, särskilt när samrelaterade värden med tids kornig het är viktigt. Den streckade linjen gör det enklare att läsa dessa diagram, men om diagrammet fortfarande är svårtolkat bör du överväga att visa måtten i en annan typ av diagram. Ett spridt ritat diagram för samma mått visar tydligt varje tids kornig het genom att bara visualisera en punkt när det finns ett värde och hoppa över data punkten när värdet saknas: ![mått bild](./media/metrics-troubleshoot/missing-data-point-scatter-chart.png)
 
    > [!NOTE]
    > Om du ändå föredrar ett linjediagram för dina mått kan det vara enklare att utvärdera tidskornigheten genom att föra musen över diagrammet så att datapunkten under muspekaren markeras.
 
 ## <a name="chart-shows-unexpected-drop-in-values"></a>Diagrammet visar oväntade Drop-värden
 
-Detta är ofta en feltolkning av diagrammets data. Summor eller antal kan falla när de senaste minuterna visas i diagrammet eftersom Azure inte har fått eller hunnit bearbeta de senaste måttdatapunkterna än. Beroende på tjänst tar det ett par minuter att bearbeta måtten. För diagram som visar ett nyligen tidsintervall med en precision på 1 eller 5 minuter blir en minskning av värdet under de senaste minuterna mer märkbar: ![metric image @ no__t-1
+Detta är ofta en feltolkning av diagrammets data. Summor eller antal kan falla när de senaste minuterna visas i diagrammet eftersom Azure inte har fått eller hunnit bearbeta de senaste måttdatapunkterna än. Beroende på tjänst tar det ett par minuter att bearbeta måtten. För diagram som visar ett nyligen tidsintervall med en precision på 1 eller 5 minuter blir en minskning av värdet under de senaste minuterna mer märkbart: ![mått bild](./media/metrics-troubleshoot/drop-in-values.png)
 
 **Lösning:** Det här beteendet är avsiktligt. Vi tror att det är bäst att visa data så fort de blir tillgängliga även om de är *partiella* eller *ofullständiga*. På så sätt kan du dra viktiga slutsatser snabbare och börja undersöka direkt. Om du till exempel ser delvärdet X för ett mått som visar antalet fel, betyder det att minst X fel inträffade under en viss minut. Du kan börja undersöka problemet direkt, i stället för att vänta och se det exakta antalet fel som inträffade under minuten, vilket kanske inte är så viktigt. Diagrammet uppdateras när vi får hela uppsättningen data, men då kan det också visa nya ofullständiga datapunkter från senare minuter.
 
 ## <a name="cannot-pick-guest-os-namespace-and-metrics"></a>Det går inte att välja namn område och mått för gäst operativ system
 
-Virtuella datorer och skalnings uppsättningar för virtuella datorer har två kategorier av mått: **värden för virtuella dator värden** som samlas in av Azure-värd miljön och **gäst operativ system (klassiska)** mått som samlas in av [övervaknings agenten ](agents-overview.md)körs på dina virtuella datorer. Du installerar övervakningsagenten genom att aktivera [Azure Diagnostics-tillägget](diagnostics-extension-overview.md).
+Virtuella datorer och skalnings uppsättningar för virtuella datorer har två kategorier av mått: **värden för virtuella dator värden** som samlas in av Azure-värd miljön och **gäst operativ system (klassiska)** mått som samlas in av [övervaknings agenten](agents-overview.md) som körs på dina virtuella datorer. Du installerar övervakningsagenten genom att aktivera [Azure Diagnostics-tillägget](diagnostics-extension-overview.md).
 
 Som standard lagras mått för gästoperativsystem i ett Azure Storage-konto, som du väljer från fliken **Diagnostikinställningar** för din resurs. Om inga mått för gästoperativsystem samlas in eller om Metrics Explorer inte kan komma åt dem visas bara namnrymden för **Virtuell värddator**-måttet:
 
@@ -109,7 +109,7 @@ Som standard lagras mått för gästoperativsystem i ett Azure Storage-konto, so
 
 1. Se till att **Microsoft. Insights** Resource provider har [registrerats för din prenumeration](metrics-troubleshoot.md#microsoftinsights-resource-provider-isnt-registered-for-your-subscription).
 
-1. Kontrol lera att lagrings kontot inte skyddas av brand väggen. Azure Portal behöver åtkomst till lagrings kontot för att kunna hämta mått data och rita diagram.
+1. Kontrollera att lagringskontot inte skyddas av brandväggen. Azure Portal behöver åtkomst till lagringskontot för att kunna hämta måttdata och rita diagrammen.
 
 1. Använd [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) för att kontrollera att måtten matas till lagringskontot. Om måtten inte samlas in följer du anvisningarna i [felsökningsguiden för Azure Diagnostics-tillägget](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
 

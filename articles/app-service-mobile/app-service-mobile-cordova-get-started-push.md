@@ -28,7 +28,7 @@ ms.locfileid: "72388872"
 > [!NOTE]
 > Visual Studio App Center stöder utveckling av slutpunkt till slutpunkt-tjänster och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda tjänsterna för att **bygga**, **testa** och **distribuera** för att skapa en pipeline för kontinuerlig integrering och leverans. När appen har distribuerats kan utvecklarna övervaka status och användning av appen med hjälp av tjänsterna **Analys** och **Diagnostik**, och kommunicera med användarna via **Push**-tjänsten. Utvecklare kan också dra nytta av **Auth** för att autentisera sina användare och tjänsten **Data** för att spara och synkronisera appdata i molnet.
 >
-> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
+> Om du vill integrera molntjänster i ditt mobilprogram kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) i dag.
 
 ## <a name="overview"></a>Översikt
 
@@ -75,7 +75,7 @@ Om ditt projekt använder en version av Apache Cordova som är tidigare än vers
 
 #### <a name="install-the-push-plugin"></a>Installera push-plugin-programmet
 
-Apache Cordova-program hanterar inte funktioner för enhet eller nätverk.  Dessa funktioner tillhandahålls av plugin-program som publiceras antingen på [NPM][10] eller på GitHub. @No__t-0-plugin-programmet hanterar nätverks-push-meddelanden.
+Apache Cordova-program hanterar inte funktioner för enhet eller nätverk.  Dessa funktioner tillhandahålls av plugin-program som publiceras antingen på [NPM][10] eller på GitHub. `phonegap-plugin-push`-plugin-programmet hanterar push-meddelanden i nätverket.
 
 Du kan installera push-plugin-programmet på något av följande sätt:
 
@@ -87,7 +87,7 @@ Kör följande kommando:
 
 **I Visual Studio:**
 
-1. Öppna filen `config.xml` i Solution Explorer. Välj sedan **plugin**-program  > **anpassad**. Välj sedan **git** som installations källa.
+1. Öppna `config.xml`-filen i Solution Explorer. Välj sedan **plugin** -program > **anpassad**. Välj sedan **git** som installations källa.
 
 2. Ange `https://github.com/phonegap/phonegap-plugin-push` som källa.
 
@@ -106,7 +106,7 @@ Push-plugin-programmet är nu installerat.
 
 #### <a name="install-the-device-plugin"></a>Installera enhets-plugin-programmet
 
-Följ samma procedur som du använde för att installera push-plugin-programmet. Lägg till enhets-plugin-programmet från huvud-plugin-listan. (Du hittar det genom att välja **plugin**-program  > **kärna**) Du behöver det här plugin-programmet för att hämta plattforms namnet.
+Följ samma procedur som du använde för att installera push-plugin-programmet. Lägg till enhets-plugin-programmet från huvud-plugin-listan. (Du hittar det genom att välja **plugin** -program > **Core**.) Du behöver det här plugin-programmet för att hämta plattforms namnet.
 
 #### <a name="register-your-device-when-the-application-starts"></a>Registrera enheten när programmet startas 
 
@@ -222,8 +222,8 @@ pushRegistration = PushNotification.init({
 
 Innan du kan distribuera programmet till din Android-enhet måste du aktivera USB-felsökning. Utför följande steg på din Android-telefon:
 
-1. Gå till **inställningar**@no__t – 1**om telefonen**. Tryck sedan på **build-numret** tills utvecklarläge är aktiverat (ungefär sju gånger).
-2. I **inställningar** > **alternativ för utvecklare**aktiverar du **USB-felsökning**. Anslut sedan din Android-telefon till din utvecklings dator med en USB-kabel.
+1. Gå till **inställningar** > **om telefonen**. Tryck sedan på **build-numret** tills utvecklarläge är aktiverat (ungefär sju gånger).
+2. I **inställningar** > **alternativen för utvecklare**aktiverar du **USB-felsökning**. Anslut sedan din Android-telefon till din utvecklings dator med en USB-kabel.
 
 Vi har testat detta med en Google Nexus 5X-enhet som kör Android 6,0 (Marshmallow). Men metoderna är gemensamma för alla moderna Android-versioner.
 
@@ -231,7 +231,7 @@ Vi har testat detta med en Google Nexus 5X-enhet som kör Android 6,0 (Marshmall
 
 Push-plugin-programmet använder Android Google Play-tjänster för push-meddelanden.
 
-1. I Visual Studio väljer du **verktyg** > **Android** > **Android SDK Manager**. Expandera sedan mappen **extras** . Markera lämpliga rutor för att se till att var och en av följande SDK: er installeras:
+1. I Visual Studio väljer du **verktyg** > **Android** - > **Android SDK Manager**. Expandera sedan mappen **extras** . Markera lämpliga rutor för att se till att var och en av följande SDK: er installeras:
 
    * Android 2,3 eller högre
    * Google databas revision 27 eller högre
@@ -280,7 +280,7 @@ Se till att du kan bygga appen för iOS. Stegen i installations guiden krävs f�
 
 #### <a name="find-the-id-to-use-as-your-app-id"></a>Hitta det ID som ska användas som app-ID
 
-Innan du registrerar appen för push-meddelanden öppnar du config. xml i Cordova-appen, letar reda på värdet `id` i Widgetläget och kopierar det sedan för senare användning. I följande XML är ID: t `io.cordova.myapp7777777`.
+Innan du registrerar appen för push-meddelanden öppnar du config. xml i Cordova-appen, letar reda på `id`-attributvärdet i elementet widget och kopierar det sedan för senare användning. I följande XML är ID: t `io.cordova.myapp7777777`.
 
 ```xml
 <widget defaultlocale="en-US" id="io.cordova.myapp7777777"

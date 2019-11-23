@@ -58,7 +58,7 @@ Följande bild visar hur det virtuella nätverket trycker på Works. Du kan läg
 
 ## <a name="prerequisites"></a>Krav
 
-Innan du skapar ett virtuellt nätverk trycker du på en bekräftelse av e-post som du har registrerat i förhands granskningen och har en eller flera virtuella datorer som skapats med [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) distributions modell och en partner lösning för att aggregera Tryck på trafik i samma Azure-region. Om du inte har en partner lösning i ditt virtuella nätverk, se [partner lösningar](#virtual-network-tap-partner-solutions) för att distribuera en. Du kan använda samma virtuella nätverk för att aggregera trafik från flera nätverks gränssnitt i samma eller olika prenumerationer. Om de övervakade nätverks gränssnitten finns i olika prenumerationer måste prenumerationerna vara kopplade till samma Azure Active Directory-klient. Dessutom kan de övervakade nätverks gränssnitten och mål slut punkten för att aggregera trafikövervakningen vara i peer-kopplat virtuella nätverk i samma region. Om du använder den här distributions modellen kontrollerar du att [peering av virtuella nätverk](virtual-network-peering-overview.md) är aktiverat innan du konfigurerar det virtuella nätverket.
+Innan du skapar ett virtuellt nätverk trycker du på en bekräftelse som du har registrerat i förhands granskningen och har en eller flera virtuella datorer som skapats med [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) distributions modell och en partner lösning för att aggregera trafiken i samma Azure-region. Om du inte har en partner lösning i ditt virtuella nätverk, se [partner lösningar](#virtual-network-tap-partner-solutions) för att distribuera en. Du kan använda samma virtuella nätverk för att aggregera trafik från flera nätverks gränssnitt i samma eller olika prenumerationer. Om de övervakade nätverks gränssnitten finns i olika prenumerationer måste prenumerationerna vara kopplade till samma Azure Active Directory-klient. Dessutom kan de övervakade nätverks gränssnitten och mål slut punkten för att aggregera trafikövervakningen vara i peer-kopplat virtuella nätverk i samma region. Om du använder den här distributions modellen kontrollerar du att [peering av virtuella nätverk](virtual-network-peering-overview.md) är aktiverat innan du konfigurerar det virtuella nätverket.
 
 ## <a name="permissions"></a>Behörigheter
 
@@ -66,9 +66,9 @@ De konton som du använder för att tillämpa tryck på konfiguration på nätve
 
 | Åtgärd | Namn |
 |---|---|
-| Microsoft. Network/virtualNetworkTaps/* | Krävs för att skapa, uppdatera, läsa och ta bort ett virtuellt nätverk tryck på resurs |
-| Microsoft. Network/networkInterfaces/Read | Krävs för att läsa nätverks gränssnitts resursen där TRYCKNINGen ska konfigureras |
-| Microsoft. Network/tapConfigurations/* | Krävs för att skapa, uppdatera, läsa och ta bort TRYCKNINGs konfigurationen på ett nätverks gränssnitt |
+| Microsoft.Network/virtualNetworkTaps/* | Krävs för att skapa, uppdatera, läsa och ta bort ett virtuellt nätverk tryck på resurs |
+| Microsoft.Network/networkInterfaces/read | Krävs för att läsa nätverks gränssnitts resursen där TRYCKNINGen ska konfigureras |
+| Microsoft.Network/tapConfigurations/* | Krävs för att skapa, uppdatera, läsa och ta bort TRYCKNINGs konfigurationen på ett nätverks gränssnitt |
 
 ## <a name="next-steps"></a>Nästa steg
 

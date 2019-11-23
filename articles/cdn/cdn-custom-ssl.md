@@ -36,7 +36,7 @@ Några viktiga attribut i den anpassade HTTPS-funktionen är:
 
 - Komplett certifikathantering finns tillgänglig: All anskaffning och hantering av certifikat hanteras åt dig. Certifikaten etableras automatiskt och förnyas innan de upphör att gälla, vilket tar bort risken för avbrott i tjänsten på grund av ett certifikat upphör att gälla.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 > [!div class="checklist"]
 > - Aktivera HTTPS-protokollet på din anpassade domän.
 > - Använda ett CDN-hanterat certifikat 
@@ -178,7 +178,7 @@ CNAME-posten ska ha följande format, där *Namn* är namnet på din anpassade d
 
 | Namn            | Typ  | Värde                 |
 |-----------------|-------|-----------------------|
-| < www. contoso. com > | CNAME | contoso.azureedge.net |
+| <www.contoso.com> | CNAME | contoso.azureedge.net |
 
 Mer information om CNAME-poster finns i [Skapa CNAME DNS-posten](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain).
 
@@ -192,7 +192,7 @@ Det tar vanligt vis några timmar att validera automatiskt. Om du inte ser din d
 ### <a name="custom-domain-is-not-mapped-to-your-cdn-endpoint"></a>Den anpassade domänen har inte mappats till CDN-slutpunkten
 
 >[!NOTE]
->Om du använder **Azure CDN från Akamai**bör följande CNAME konfigureras för att aktivera automatisk domän validering. "_acme-Challenge. &lt;custom domän hostname @ no__t-1-> CNAME-> &lt;custom domän hostname&gt;.ak-acme-challenge.azureedge.net"
+>Om du använder **Azure CDN från Akamai**bör följande CNAME konfigureras för att aktivera automatisk domän validering. "_acme-Challenge.&lt;anpassat domän-värdnamn&gt;-> CNAME-> &lt;anpassat domän-värdnamn&gt;. ak-acme-challenge.azureedge.net "
 
 Om posten CNAME innehåller cdnverify-underdomänen följer du resten av anvisningarna i det här steget.
 
@@ -288,7 +288,7 @@ I följande tabell visas åtgärdsförloppet när du inaktiverar HTTPS. När du 
 | 2 Avetablering av certifikat | Tar bort certifikat |
 | 3 Slutfört | Certifikatet har tagits bort |
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor
+## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 1. *Vem är certifikatleverantör och vilken typ av certifikat används?*
 

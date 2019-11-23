@@ -24,7 +24,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 09/30/2019
 ms.locfileid: "71679846"
 ---
-# <a name="accounts--tenant-profiles-android"></a>Konton & klient profiler (Android)
+# <a name="accounts--tenant-profiles-android"></a>Konton och klientorganisationsprofiler (Android)
 
 Den här artikeln innehåller en översikt över vad en `account` finns i Microsoft Identity Platform.
 
@@ -36,7 +36,7 @@ Ett konto i Microsoft Identity Platform består av:
   - En eller flera autentiseringsuppgifter som används för att demonstrera ägarskapet/kontrollen av kontot.
   - En eller flera profiler som består av attribut som:
     - Bild, tilldelat namn, familje namn, titel, kontors plats
-- Ett konto har en källa till en myndighet eller en post i systemet. Det här är systemet där kontot skapas och var de autentiseringsuppgifter som är kopplade till kontot lagras. I datorer med flera innehavare som Microsoft Identity Platform är postsystemet det `tenant` där kontot skapades. Den här klienten kallas även `home tenant`.
+- Ett konto har en källa till en myndighet eller en post i systemet. Det här är systemet där kontot skapas och var de autentiseringsuppgifter som är kopplade till kontot lagras. I datorer med flera innehavare som Microsoft Identity Platform är postsystemet det `tenant` där kontot skapades. Den här klienten kallas även för `home tenant`.
 - Konton i Microsoft Identity Platform har följande post system:
   - Azure Active Directory, inklusive Azure Active Directory B2C.
   - Microsoft-konto (Live).
@@ -53,7 +53,7 @@ Ett konto i Microsoft Identity Platform består av:
 - Eftersom ett konto kan finnas i en eller flera klienter kan ett konto ha fler än en profil.
 
 > [!NOTE]
-> MSAL behandlar Microsoft-konto systemet (Live, MSA) som en annan klient i Microsoft Identity Platform. Klient-ID: t för den Microsoft-konto klienten är: `9188040d-6c67-4c5b-b112-36a304b66dad`
+> MSAL behandlar Microsoft-konto systemet (Live, MSA) som en annan klient i Microsoft Identity Platform. Klient-ID: t för Microsoft-konto klient organisationen är: `9188040d-6c67-4c5b-b112-36a304b66dad`
 
 ## <a name="account-overview-diagram"></a>Diagram över konto översikt
 
@@ -62,7 +62,7 @@ Ett konto i Microsoft Identity Platform består av:
 I diagrammet ovan:
 
 - Kontot `bob@contoso.com` skapas i den lokala Windows Server-Active Directory (ursprungligt lokalt system för Record).
-- Kontot `tom@live.com` skapas i Microsoft-konto klient organisationen.
+- Konto `tom@live.com` skapas i Microsoft-konto klient organisationen.
 - `bob@contoso.com` har åtkomst till minst en resurs i följande Azure Active Directory klienter:
   - contoso.com (moln system för Record-länkad till lokalt system för Record)
   - fabrikam.com
@@ -72,9 +72,9 @@ I diagrammet ovan:
   - contoso.com
   - fabrikam.com
   - En klient profil för `tom@live.com` finns i var och en av dessa klienter.
-- Information om Tom och Bob i andra klient organisationer kan skilja sig från den i posten i systemet. De kan variera beroende på attribut som befattning, kontors plats och så vidare. De kan vara medlemmar i grupper och/eller roller inom varje organisation (Azure Active Directory klient). Vi refererar till den här informationen som en klient profil för bob@contoso.com.
+- Information om Tom och Bob i andra klient organisationer kan skilja sig från den i posten i systemet. De kan variera beroende på attribut som befattning, kontors plats och så vidare. De kan vara medlemmar i grupper och/eller roller inom varje organisation (Azure Active Directory klient). Vi refererar till den här informationen som bob@contoso.com klient profil.
 
-I diagrammet bob@contoso.com och tom@live.com har åtkomst till resurser i olika Azure Active Directory klienter. Mer information finns i [Lägg till Azure Active Directory B2B-samarbets användare i Azure Portal](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
+I diagrammet bob@contoso.com och tom@live.com ha åtkomst till resurser i olika Azure Active Directory klienter. Mer information finns i [Lägg till Azure Active Directory B2B-samarbets användare i Azure Portal](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
 
 ## <a name="accounts-and-single-sign-on-sso"></a>Konton och enkel inloggning (SSO)
 
@@ -87,7 +87,7 @@ MSAL token cache lagrar en *enskild uppdateringstoken* per konto. Uppdaterings-t
 
 MSAL-kontots ID är inte ett konto objekt-ID. Den är inte avsedd att parsas och/eller förlita sig på att förmedla något annat än unikhet i Microsoft Identity Platform.
 
-För att vara kompatibel med Azure AD Authentication Library (ADAL) och för att under lätta migrering från ADAL till MSAL kan MSAL söka efter konton med hjälp av en giltig identifierare för det konto som är tillgängligt i MSAL cache.  Följande kommer till exempel alltid att hämta samma konto objekt för tom@live.com eftersom varje identifierare är giltig:
+För att vara kompatibel med Azure AD Authentication Library (ADAL) och för att under lätta migrering från ADAL till MSAL kan MSAL söka efter konton med hjälp av en giltig identifierare för det konto som är tillgängligt i MSAL cache.  Följande kan till exempel alltid hämta samma konto objekt för tom@live.com eftersom varje identifierare är giltig:
 
 ```java
 // The following would always retrieve the same account object for tom@live.com because each identifier is valid
@@ -104,7 +104,7 @@ Förutom att begära en åtkomsttoken begär MSAL även alltid en ID-token från
 - OpenID
 - profile
 
-ID-token innehåller en lista över anspråk. `Claims` är namn/värde-par om kontot och används för att utföra begäran.
+ID-token innehåller en lista över anspråk. `Claims` är namn/värde-par för kontot och används för att utföra begäran.
 
 Som tidigare nämnts kan varje klient där ett konto finns lagra annan information om kontot, inklusive men inte begränsat till attribut som: befattning, kontors plats och så vidare.
 
@@ -123,10 +123,10 @@ String issuer = account.getClaims().get("iss"); // The tenant specific authority
 ```
 
 > [!TIP]
-> Om du vill se en lista över anspråk som är tillgängliga från objektet konto, referera till [anspråk i en id_token](https://docs.microsoft.com/azure/active-directory/develop/id-tokens#claims-in-an-id_token)
+> Om du vill se en lista över anspråk som är tillgängliga från objektet konto, referera till [anspråk i ett id_token](https://docs.microsoft.com/azure/active-directory/develop/id-tokens#claims-in-an-id_token)
 
 > [!TIP]
-> Om du vill inkludera ytterligare anspråk i din id_token, se den valfria anspråks dokumentationen i [How till: Tillhandahåll valfria anspråk till din Azure AD-App @ no__t-0
+> Om du vill lägga till ytterligare anspråk i id_token kan du läsa mer i dokumentationen för valfria anspråk i [How to: tillhandahålla valfria anspråk till din Azure AD-App](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims)
 
 ### <a name="access-tenant-profile-claims"></a>Åtkomst till klient profil anspråk
 
@@ -145,7 +145,7 @@ multiTenantAccount.getTenantProfiles().get("tenantid for contoso").getClaims().g
 
 Uppdaterade token för ett konto delas inte mellan B2C-principer. Det går därför inte att använda enkel inloggning med token. Detta innebär inte att enkel inloggning inte är möjlig. Det innebär att enkel inloggning måste använda en interaktiv upplevelse där en cookie är tillgänglig för att aktivera enkel inloggning.
 
-Det innebär också att om du hämtar token med olika B2C-principer, innebär det också att de behandlas som separata konton, var och en med sin egen identifierare. Om du vill använda ett konto för att begära en token med hjälp av `acquireTokenSilent`, måste du välja kontot i listan över konton som matchar den princip som du använder med token-begäran. Exempel:
+Det innebär också att om du hämtar token med olika B2C-principer, innebär det också att de behandlas som separata konton, var och en med sin egen identifierare. Om du vill använda ett konto för att begära en token med hjälp av `acquireTokenSilent`måste du välja kontot i listan över konton som matchar den princip som du använder med Tokenbegäran. Exempel:
 
 ```java
 // Get Account For Policy

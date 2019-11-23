@@ -18,7 +18,7 @@ ms.locfileid: "73825323"
 
 I den här snabbstarten får du lära dig att använda [Azure Storage v10 SDK för JavaScript](https://github.com/Azure/azure-sdk-for-js) i Node.js för att ladda upp, hämta, lista, och ta bort blobar och hantera containrar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 

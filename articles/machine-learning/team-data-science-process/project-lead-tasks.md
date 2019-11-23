@@ -1,5 +1,5 @@
 ---
-title: Aktiviteter för projektets lead i team data science-processen
+title: Uppgifter för projektet leda i Team Data Science Process
 description: En detaljerad genom gång av aktiviteterna för ett projekts ledare i en team data vetenskap process-grupp
 author: marktab
 manager: cgronlun
@@ -48,7 +48,7 @@ I den här självstudien förutsätter vi att [grupp chefen](group-manager-tasks
 Om du vill klona lagrings utrymmen och ändra innehåll på din lokala dator eller Data Science Virtual Machine (DSVM), eller konfigurera Azure File Storage och montera den på din DSVM, behöver du också följande:
 
 - En Azure-prenumeration.
-- Git installerat på datorn. Om du använder en DSVM är git förinstallerat. I annat fall, se [bilagan plattform och verktyg](platforms-and-tools.md#appendix).
+- Git installerat på datorn. Om du använder en DSVM är git förinstallerat. Annars läser den [plattformar och verktyg bilaga](platforms-and-tools.md#appendix).
 - Om du vill använda en DSVM skapas och konfigureras Windows-eller Linux-DSVM i Azure. Mer information och anvisningar finns i Data Science Virtual Machine- [dokumentationen](/azure/machine-learning/data-science-virtual-machine/).
 - För en Windows-DSVM är [git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) installerad på datorn. Rulla ned till avsnittet **Ladda ned och installera** i *Readme.MD* -filen och välj det **senaste installations programmet**. Hämta *exe* -installationsprogrammet från installations sidan och kör det. 
 - För en Linux-DSVM, konfigureras en offentlig SSH-nyckel på din DSVM och läggs till i Azure DevOps. Mer information och instruktioner finns i avsnittet **skapa offentlig SSH-nyckel** i [tillägget plattformar och verktyg](platforms-and-tools.md#appendix). 
@@ -57,7 +57,7 @@ Om du vill klona lagrings utrymmen och ändra innehåll på din lokala dator ell
 
 Så här skapar du en projekt databas i teamets **team projekt:**
 
-1. Gå till din grupps projekt **sammanfattnings** sida på *https: \/ @ no__t-3 @ no__t-4server namn >/\<organization namn >/\<team namn >* , till exempel **https: \//dev. Azure. com/DataScienceUnit/mitt team**, och Välj **databaser** i det vänstra navigerings fältet. 
+1. Gå till din grupps projekt **sammanfattnings** sida på *https:\//\<Server namn >/\<organisations namn >/\<grupp namn >* , till exempel **https:\//dev.Azure.com/DataScienceUnit/myTeam**, och välj **databaser** i det vänstra navigerings fältet. 
    
 1. Välj namn på databasen överst på sidan och välj sedan **ny lagrings plats** i list rutan.
    
@@ -83,7 +83,7 @@ För att fylla i ditt projekts lagrings plats med innehållet i team mal len lag
    
    ![Välj Importera](./media/project-lead-tasks/project-leads-5-create-project-repo-4.png)
    
-1. I dialog rutan **Importera en git-lagringsplats** väljer **du git** som **käll typ**och anger URL: en för **TEAMTEMPLATE** -lagringsplatsen under klon- **URL**. URL: en är *https: \/ @ no__t-2 @ no__t-3server namn >/\<organization namn >/\<team namn >/_git/\<team mallens namn på lagrings plats >* . Exempel: **https: \//dev. Azure. com/DataScienceUnit/team/_git/TeamTemplate**. 
+1. I dialog rutan **Importera en git-lagringsplats** väljer **du git** som **käll typ**och anger URL: en för **TEAMTEMPLATE** -lagringsplatsen under klon- **URL**. URL: en är *https:\//\<Server namn >/\<organisations namn >/\<grupp namn >/_git/\<team mal len databas namn >* . Till exempel: **https:\//dev.Azure.com/DataScienceUnit/myTeam/_git/TeamTemplate**. 
    
 1. Välj **Importera**. Innehållet i lagrings platsen för team mal len importeras till projekt lagrings platsen. 
    
@@ -95,6 +95,6 @@ Om du behöver anpassa innehållet i projekt lagrings platsen för att uppfylla 
 
 Här följer länkar till detaljerade beskrivningar av de andra rollerna och uppgifterna som definieras av team data science-processen:
 
-- [Grupp chefs aktiviteter för ett data vetenskaps team](group-manager-tasks.md)
-- [Grupp ledar uppgifter för ett data vetenskaps team](team-lead-tasks.md)
+- [Gruppansvarig uppgifter för team data science](group-manager-tasks.md)
+- [Lead gruppaktiviteter för team data science](team-lead-tasks.md)
 - [Enskilda deltagar uppgifter för ett data vetenskaps team](project-ic-tasks.md)

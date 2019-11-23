@@ -35,7 +35,8 @@ Azure IoT Edge moduler implementeras som behållare, så IoT Edge behöver en be
 <br>
 <center>
 
-![Moby som container runtime @ no__t-1 @ no__t-2
+![Moby som container runtime](./media/support/only-moby-for-production.png)
+</center>
 
 ## <a name="operating-systems"></a>Operativsystem
 Azure IoT Edge körs på de flesta operativ system som kan köra behållare. dock stöds inte alla dessa system. Operativsystem är grupperade i nivåer som representerar supportnivå de kan förvänta sig.
@@ -51,7 +52,8 @@ Värd operativ systemets familj måste alltid matcha den familj av gäst operati
 <br>
 <center>
 
-![Host OS matchar gäst operativ system @ no__t-1 @ no__t-2
+![värd operativ system matchar gäst operativ system](./media/support/edge-on-device.png)
+</center>
 
 ### <a name="tier-1"></a>Nivå 1
 
@@ -101,7 +103,8 @@ Azure IoT Edge kan köras i virtuella datorer. Att använda en virtuell dator so
 <br>
 <center>
 
-![Azure IoT Edge i en virtuell dator @ no__t-1 @ no__t-2
+![Azure IoT Edge i en virtuell dator](./media/support/edge-on-vm.png)
+</center>
 
 ## <a name="minimum-system-requirements"></a>Minsta system krav
 Azure IoT Edge körs bra på enheter så litet som en Raspberry-Pi3 till maskin vara på server nivå. Att välja rätt maskin vara för ditt scenario beror på de arbets belastningar som du vill köra. Att göra det slutliga enhets beslutet kan vara komplicerat. Du kan dock enkelt starta prototyper av en lösning på traditionella bärbara och Station ära datorer.

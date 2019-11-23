@@ -233,7 +233,7 @@ Följ dessa steg om du vill distribuera mallen:
    Om du vill ha mer information om de portar som krävs för SAP HANA kan du läsa kapitel [anslutningarna till klient databaserna](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) i guiden för [SAP HANA klient databaser](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) eller [SAP NOTE 2388694][2388694].
 
 > [!IMPORTANT]
-> Aktivera inte TCP-tidsstämplar på virtuella Azure-datorer som placerats bakom Azure Load Balancer. Om du aktiverar TCP-tidsstämplar kommer hälso avsökningarna att Miss skadas. Ange parametern **net. IPv4. TCP _timestamps** till **0**. Mer information finns i [Load Balancer hälso avsökningar](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> Aktivera inte TCP-tidsstämplar på virtuella Azure-datorer som placerats bakom Azure Load Balancer. Om du aktiverar TCP-tidsstämplar kommer hälso avsökningarna att Miss skadas. Ange parametern **net. IPv4. tcp_timestamps** till **0**. Mer information finns i [Load Balancer hälso avsökningar](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 > Se även SAP anmärkning [2382421](https://launchpad.support.sap.com/#/notes/2382421). 
 
 ## <a name="create-a-pacemaker-cluster"></a>Skapa ett pacemaker-kluster
@@ -584,7 +584,7 @@ I det här avsnittet beskrivs hur du kan testa installationen. Varje test förut
 
 ### <a name="test-the-migration"></a>Testa migreringen
 
-Innan du startar testet kontrollerar du att pacemaker inte har någon misslyckad åtgärd (via crm_mon-r). det finns inga oväntade plats begränsningar (till exempel rester av ett migreringsjobb) och att HANA är Sync-tillstånd, till exempel med SAPHanaSR-showAttr:
+Innan du startar testet kontrollerar du att pacemaker inte har någon misslyckad åtgärd (via crm_mon-r), det finns inga oväntade plats begränsningar (till exempel rester av ett migreringsjobb) och att HANA är Sync-tillstånd, till exempel med SAPHanaSR-showAttr:
 
 <pre><code>hn1-db-0:~ # SAPHanaSR-showAttr
 
@@ -605,7 +605,7 @@ Du kan migrera SAP HANA Master-noden genom att köra följande kommando:
 
 Om du ställer in `AUTOMATED_REGISTER="false"`ska den här sekvensen av kommandon migrera SAP HANA-huvudnoden och gruppen som innehåller den virtuella IP-adressen till HN1-DB-1.
 
-När migreringen är färdig ser crm_mon-r-utdata ut så här
+När migreringen är färdig ser crm_mon r-utdata ut så här
 
 <pre><code>Online: [ hn1-db-0 hn1-db-1 ]
 

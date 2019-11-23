@@ -34,7 +34,7 @@ Som du ser i föregående bild, startar skalnings uppsättnings instanserna vid 
 När du skalar upp en skalnings uppsättning skapas en ny instans. Det nya instans namnet för skalnings uppsättningen är vanligt vis skalnings uppsättningens namn plus nästa instans nummer. I vårt exempel är det BackEnd_5.
 
 ## <a name="map-scale-set-load-balancers-to-node-types-and-scale-sets"></a>Mappa skal uppsättnings belastningsutjämnare till nodtyper och skalnings uppsättningar
-Om du har distribuerat klustret i Azure Portal eller använt exemplet Azure Resource Manager mall visas alla resurser under en resurs grupp. Du kan se belastnings utjämning för varje skalnings uppsättning eller nodtyp. Belastnings Utjämnings namnet har följande format: **lb-&lt;node-typnamn @ no__t-2**. Ett exempel är LB-sfcluster4doc-0, som du ser i följande figur:
+Om du har distribuerat klustret i Azure Portal eller använt exemplet Azure Resource Manager mall visas alla resurser under en resurs grupp. Du kan se belastnings utjämning för varje skalnings uppsättning eller nodtyp. Belastnings Utjämnings namnet har följande format: **lb-&lt;nodnamn&gt;** . Ett exempel är LB-sfcluster4doc-0, som du ser i följande figur:
 
 ![Resurser][Resources]
 
@@ -79,11 +79,11 @@ Följande är egenskaps beskrivningarna:
 | --- | --- | --- | --- |
 | namn | sträng | --- | unikt namn för tillägg |
 | typ | "ServiceFabricLinuxNode" eller "ServiceFabricWindowsNode" | --- | Identifierar OS-Service Fabric som startas |
-| Aktiverat autoupgrademinorversion | Sant eller falskt | --- | Aktivera automatisk uppgradering av SF runtime minor-versioner |
-| Förläggare | Microsoft. Azure. ServiceFabric | --- | namnet på Service Fabric omfattnings utgivaren |
+| autoUpgradeMinorVersion | Sant eller falskt | --- | Aktivera automatisk uppgradering av SF runtime minor-versioner |
+| publisher | Microsoft.Azure.ServiceFabric | --- | namnet på Service Fabric omfattnings utgivaren |
 | clusterEndpont | sträng | --- | URI: PORT till hanterings slut punkt |
 | nodeTypeRef | sträng | --- | namn på nodeType |
-| durabilityLevel | brons, silver, guld, platina | --- | tid som tillåts för att pausa oåterkallelig Azure-infrastruktur |
+| durabilityLevel | bronze, silver, gold, platinum | --- | tid som tillåts för att pausa oåterkallelig Azure-infrastruktur |
 | enableParallelJobs | Sant eller falskt | --- | Aktivera Compute ParallelJobs som ta bort virtuell dator och starta om den virtuella datorn i samma skalnings uppsättning parallellt |
 | nicPrefixOverride | sträng | --- | Undernätsprefixet som "10.0.0.0/24" |
 | commonNames | sträng [] | --- | Vanliga namn på installerade kluster certifikat |

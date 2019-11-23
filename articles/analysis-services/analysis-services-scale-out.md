@@ -107,7 +107,7 @@ Använd **synkroniseringsåtgärden** .
 Retur status koder:
 
 
-|Kod  |Beskrivning  |
+|Programmera  |Beskrivning  |
 |---------|---------|
 |-1     |  Ogiltig       |
 |0     | Replikera        |

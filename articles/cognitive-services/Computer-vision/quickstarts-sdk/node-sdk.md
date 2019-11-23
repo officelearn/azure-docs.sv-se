@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Visuellt innehåll klient bibliotek för Node. js | Microsoft Docs'
+title: 'Snabb start: Visuellt innehåll klient bibliotek för Node. js | Microsoft Docs'
 description: Kom igång med Visuellt innehåll klient biblioteket för Node. js...
 services: cognitive-services
 author: PatrickFarley
@@ -16,7 +16,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 10/06/2019
 ms.locfileid: "71981833"
 ---
-# <a name="quickstart-computer-vision-client-library-for-nodejs"></a>Snabbstart: Visuellt innehåll klient bibliotek för Node. js
+# <a name="quickstart-computer-vision-client-library-for-nodejs"></a>Snabb start: Visuellt innehåll klient bibliotek för Node. js
 
 Kom igång med Visuellt innehåll klient biblioteket för Node. js. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. 
 
@@ -25,9 +25,9 @@ Använd Visuellt innehåll klient bibliotek för Node. js för att:
 * [Analysera en bild](#analyze-an-image)
 * [Skriv ut och handskriven text](#read-printed-and-handwritten-text)
 
-[Referens dokumentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest) | [biblioteks käll kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision) | -[paket (NPM)](https://www.npmjs.com/package/azure-cognitiveservices-computervision) | [exempel](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
+[Referens dokumentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest) | [Library Source Code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision) | [Package (NPM) | -](https://www.npmjs.com/package/azure-cognitiveservices-computervision) [exempel](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Den aktuella versionen av [Node. js](https://nodejs.org/)
@@ -59,7 +59,7 @@ npm init
 
 ### <a name="install-the-client-library"></a>Installera klient biblioteket
 
-Installera `ms-rest-azure`-och `azure-cognitiveservices-computervision`-NPM-paket:
+Installera `ms-rest-azure` och `azure-cognitiveservices-computervision` NPM-paket:
 
 ```console
 npm install azure-cognitiveservices-computervision ms-rest-azure
@@ -73,7 +73,7 @@ Skapa en ny fil, *index. js*och öppna den i en text redigerare. Lägg till föl
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_imports)]
 
-Definiera sedan en funktion `computerVision` och deklarera en asynkron serie med primär funktion och callback-funktion. Du kommer att lägga till snabb starts koden i den primära funktionen och anropa `computerVision` längst ned i skriptet.
+Definiera sedan en Function-`computerVision` och deklarera en asynkron serie med primär funktion och callback-funktion. Du kommer att lägga till snabb starts koden i den primära funktionen och anropa `computerVision` längst ned i skriptet.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_functiondef_begin)]
 
@@ -83,7 +83,7 @@ Definiera sedan en funktion `computerVision` och deklarera en asynkron serie med
 
 Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna i Visuellt innehåll Node. js SDK.
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 | [ComputerVisionClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/computervisionclient?view=azure-node-latest) | Den här klassen krävs för alla Visuellt innehåll-funktioner. Du instansierar det med din prenumerations information och använder den för att utföra de flesta avbildnings åtgärder.|
 |[VisualFeatureTypes](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/visualfeaturetypes?view=azure-node-latest)| Den här uppräkningen definierar de olika typerna av bild analys som kan göras i en standard analys åtgärd. Du anger en uppsättning **VisualFeatureTypes** -värden beroende på dina behov. |
@@ -189,7 +189,7 @@ Följande kod skriver ut de identifierade färgattributen i bilden, till exempel
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_colors)]
 
-Definiera hjälp funktionen `printColorScheme` om du vill skriva ut information om färg schema till-konsolen.
+Definiera hjälp funktionen `printColorScheme` att skriva ut information om färgschemat till-konsolen.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_colors_print)]
 
@@ -205,13 +205,13 @@ Följande kod tolkar data om identifierade landmärken i bilden.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_landmarks)]
 
-Definiera hjälp funktionen `formatRectDomain` om du vill parsa plats data om identifierade landmärken.
+Definiera hjälp funktionen `formatRectDomain` för att parsa plats data om identifierade landmärken.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_landmarks_rect)]
 
 ### <a name="get-the-image-type"></a>Hämta avbildnings typen
 
-Följande kod skriver ut information om den typ av bild @ no__t-0whether som är ClipArt eller linje ritning.
+Följande kod skriver ut information om bildens typ&mdash;om den är ClipArt eller linje teckning.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_imagetype)]
 
@@ -234,11 +234,11 @@ Spara en referens till URL: en för de avbildningar som du vill extrahera text f
 
 ### <a name="call-the-recognize-api"></a>Anropa API: et för igenkänning
 
-Lägg till koden nedan, som anropar funktionen `recognizeText` för de aktuella avbildningarna.
+Lägg till koden nedan, som anropar `recognizeText`-funktionen för de aktuella avbildningarna.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_call)]
 
-Definiera `recognizeText`-funktionen. Detta anropar metoden **recognizeText** på klient objekt, som returnerar ett ÅTGÄRDS-ID och startar en asynkron process för att läsa innehållet i avbildningen. Sedan använder den åtgärds-ID: t för att kontrol lera åtgärden vid en sekunds intervall tills resultatet returneras. Den returnerar sedan de extraherade resultaten.
+Definiera funktionen `recognizeText`. Detta anropar metoden **recognizeText** på klient objekt, som returnerar ett ÅTGÄRDS-ID och startar en asynkron process för att läsa innehållet i avbildningen. Sedan använder den åtgärds-ID: t för att kontrol lera åtgärden vid en sekunds intervall tills resultatet returneras. Den returnerar sedan de extraherade resultaten.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_helper)]
 

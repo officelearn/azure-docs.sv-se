@@ -118,7 +118,7 @@ Nedan finns en guide för att konfigurera en Azure pipelines-lansering som autom
 
     d.  I list rutan Åtgärd väljer du **skapa eller uppdatera resurs grupp**.
 
-    e.  Välj **...** i fältet **mall** . Bläddra till Azure Resource Manager mall skapa via steget **Importera arm-mall** i [skapa en Resource Manager-mall för varje miljö](continuous-integration-deployment.md#create-a-resource-manager-template-for-each-environment). Leta efter den här filen i mappen `<FactoryName>` i grenen `adf_publish`.
+    e.  Välj **...** i fältet **mall** . Bläddra till Azure Resource Manager mall skapa via steget **Importera arm-mall** i [skapa en Resource Manager-mall för varje miljö](continuous-integration-deployment.md#create-a-resource-manager-template-for-each-environment). Leta efter den här filen i mappen `<FactoryName>` i `adf_publish` grenen.
 
     f.  Välj **...** i **fältet mallparametrar.** för att välja parameter filen. Välj rätt fil beroende på om du har skapat en kopia eller om du använder standard filen *ARMTemplateParametersForFactory. JSON*.
 
@@ -176,7 +176,7 @@ Det finns två sätt att hantera hemligheter:
 
 #### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Bevilja behörighet till Azure pipelines-agenten
 
-Azure Key Vault aktiviteten kan Miss lyckas med ett nekat åtkomst fel om rätt behörigheter saknas. Hämta loggarna för versionen och leta upp filen `.ps1` med kommandot för att ge behörighet till Azure pipelines-agenten. Du kan köra kommandot direkt, eller så kan du kopiera ägar-ID: t från filen och lägga till åtkomst principen manuellt i Azure Portal. **Hämta** och **lista** är de lägsta behörigheter som krävs.
+Azure Key Vault aktiviteten kan Miss lyckas med ett nekat åtkomst fel om rätt behörigheter saknas. Hämta loggarna för versionen och leta upp `.ps1`-filen med kommandot för att ge behörighet till Azure pipelines-agenten. Du kan köra kommandot direkt, eller så kan du kopiera ägar-ID: t från filen och lägga till åtkomst principen manuellt i Azure Portal. **Hämta** och **lista** är de lägsta behörigheter som krävs.
 
 ### <a name="update-active-triggers"></a>Uppdatera aktiva utlösare
 
@@ -341,8 +341,8 @@ Här följer några rikt linjer som du kan använda när du skapar filen med anp
       * `=` innebär att det aktuella värdet är standardvärdet för parametern.
       * `-` innebär att inte behålla standardvärdet för parametern.
       * `|` är ett specialfall för hemligheter från Azure Key Vault för anslutnings strängar eller nycklar.
-   * `<name>` är namnet på parametern. Om det är tomt tar det med namnet på egenskapen. Om värdet börjar med ett `-`-värde är namnet förkortat. `AzureStorage1_properties_typeProperties_connectionString` skulle till exempel kortas till `AzureStorage1_connectionString`.
-   * `<stype>` är typ av parameter. Om `<stype>` är tomt är standard typen `string`. Värden som stöds: `string`, `bool`, `number`, `object` och `securestring`.
+   * `<name>` är namnet på parametern. Om det är tomt tar det med namnet på egenskapen. Om värdet börjar med ett `-`-kort, förkortas namnet. `AzureStorage1_properties_typeProperties_connectionString` skulle till exempel kortas till `AzureStorage1_connectionString`.
+   * `<stype>` är typ av parameter. Om `<stype>` är tomt är standard typen `string`. Värden som stöds: `string`, `bool`, `number`, `object`och `securestring`.
 * När du anger en matris i definitions filen anger du att den matchande egenskapen i mallen är en matris. Data Factory itererar igenom alla objekt i matrisen med hjälp av definitionen som anges i matrisens Integration Runtime-objekt. Det andra objektet, en sträng, blir namnet på egenskapen, som används som namn för parametern för varje iteration.
 * Det går inte att ha en definition som är unik för en resurs instans. Alla definitioner gäller för alla resurser av den typen.
 * Som standard är alla säkra strängar, till exempel Key Vault hemligheter och säkra strängar, till exempel anslutnings strängar, nycklar och tokens, parameterstyrda.
@@ -414,22 +414,22 @@ Nedan visas en förklaring av hur ovanstående mall är konstruerad, uppdelad ef
 
 #### <a name="pipelines"></a>Pipelines
     
-* Alla egenskaper i Path-aktiviteterna/typeProperties/waitTimeInSeconds är parameterstyrda. Alla aktiviteter i en pipeline som har en kod nivå egenskap med namnet `waitTimeInSeconds` (till exempel `Wait`-aktivitet) är parameterstyrda som ett tal med ett standard namn. Men det finns inget standardvärde i Resource Manager-mallen. Det är en obligatorisk Indatatyp under distributionen av Resource Manager.
-* På samma sätt har en egenskap som kallas `headers` (till exempel i en `Web`-aktivitet) en parameter med typen `object` (JObject). Det har ett standardvärde, vilket är samma värde som i käll fabriken.
+* Alla egenskaper i Path-aktiviteterna/typeProperties/waitTimeInSeconds är parameterstyrda. Alla aktiviteter i en pipeline som har en kod nivå egenskap med namnet `waitTimeInSeconds` (till exempel `Wait` aktivitet) är parameterstyrda som ett tal med ett standard namn. Men det finns inget standardvärde i Resource Manager-mallen. Det är en obligatorisk Indatatyp under distributionen av Resource Manager.
+* På samma sätt har en egenskap som kallas `headers` (till exempel i en `Web` aktivitet) en parameter med typen `object` (JObject). Det har ett standardvärde, vilket är samma värde som i käll fabriken.
 
 #### <a name="integrationruntimes"></a>IntegrationRuntimes
 
-* Alla egenskaper under sökvägen `typeProperties` är parameterstyrda med respektive standardvärden. Det finns till exempel två egenskaper under **IntegrationRuntimes** typ egenskaper: `computeProperties` och `ssisProperties`. Båda egenskaps typerna skapas med deras respektive standardvärden och typer (objekt).
+* Alla egenskaper under Sök vägs `typeProperties` är parameterstyrda med respektive standardvärden. Det finns till exempel två egenskaper under **IntegrationRuntimes** typ egenskaper: `computeProperties` och `ssisProperties`. Båda egenskaps typerna skapas med deras respektive standardvärden och typer (objekt).
 
 #### <a name="triggers"></a>Utlösare
 
-* Under `typeProperties` är två egenskaper parameterstyrda. Den första är `maxConcurrency`, som har angetts som standardvärde och är av typen`string`. Den har standard parameter namnet `<entityName>_properties_typeProperties_maxConcurrency`.
-* Egenskapen `recurrence` är också parametriserad. Under den här nivån anges alla egenskaper på den nivån som parameterstyrda som strängar, med standardvärden och parameter namn. Ett undantag är egenskapen `interval`, som är parameterstyrda som en siffer typ och med parameter namnet suffixet med `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. På samma sätt är egenskapen `freq` en sträng och är parameterstyrda som en sträng. Men egenskapen `freq` är parameterstyrda utan ett standardvärde. Namnet är kortare och suffixet. Till exempel `<entityName>_freq`.
+* Under `typeProperties`är två egenskaper parameterstyrda. Den första är `maxConcurrency`, som har angetts som standardvärde och är av typen`string`. Den har standard parameter namnet `<entityName>_properties_typeProperties_maxConcurrency`.
+* Egenskapen `recurrence` är också parametriserad. Under den här nivån anges alla egenskaper på den nivån som parameterstyrda som strängar, med standardvärden och parameter namn. Ett undantag är `interval`-egenskapen, som är parameterstyrda som en siffer typ och med parameter namnet suffixet med `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. På samma sätt är egenskapen `freq` en sträng och är parameterstyrda som en sträng. Men egenskapen `freq` är parameterstyrda utan ett standardvärde. Namnet är kortare och suffixet. Till exempel `<entityName>_freq`.
 
 #### <a name="linkedservices"></a>LinkedServices
 
-* Länkade tjänster är unika. Eftersom länkade tjänster och data uppsättningar har en mängd olika typer, kan du ange en typ bestämd anpassning. I det här exemplet tillämpas alla länkade tjänster av typen `AzureDataLakeStore`, en särskild mall, och för alla andra (via \*) används en annan mall.
-* Egenskapen `connectionString` är parameterstyrda som ett `securestring`-värde, det har inget standardvärde och det har ett förkortat parameter namn som har suffix `connectionString`.
+* Länkade tjänster är unika. Eftersom länkade tjänster och data uppsättningar har en mängd olika typer, kan du ange en typ bestämd anpassning. I det här exemplet tillämpas alla länkade tjänster av typen `AzureDataLakeStore`, en särskild mall och för alla andra (via \*) en annan mall tillämpas.
+* Egenskapen `connectionString` är parameterstyrda som ett `securestring` värde, den har inget standardvärde och har ett förkortat parameter namn som är suffixet med `connectionString`.
 * Egenskapen `secretAccessKey` sker som ett `AzureKeyVaultSecret` (till exempel i en `AmazonS3` länkad tjänst). Den är automatiskt parameterstyrda som en Azure Key Vault hemlighet och hämtas från det konfigurerade nyckel valvet. Du kan också Parameterisera själva nyckel valvet.
 
 #### <a name="datasets"></a>Datauppsättningar
@@ -545,7 +545,7 @@ Nedan visas den aktuella standard Parameterisering-mallen. Om du bara behöver l
 }
 ```
 
-Nedan visas ett exempel på hur du lägger till ett enda värde i standard mal len Parameterisering. Vi vill bara lägga till ett befintligt Databricks-Interactive Cluster-ID för en Databricks-länkad tjänst till parameter filen. Observera att filen nedan är samma som ovanstående fil, förutom `existingClusterId` som ingår i fältet egenskaper för `Microsoft.DataFactory/factories/linkedServices`.
+Nedan visas ett exempel på hur du lägger till ett enda värde i standard mal len Parameterisering. Vi vill bara lägga till ett befintligt Databricks-Interactive Cluster-ID för en Databricks-länkad tjänst till parameter filen. Observera att nedanstående fil är samma som ovanstående fil, förutom `existingClusterId` som ingår i `Microsoft.DataFactory/factories/linkedServices`s egenskaps fält.
 
 ```json
 {
@@ -657,11 +657,11 @@ Nedan visas ett exempel på hur du lägger till ett enda värde i standard mal l
 
 Om du har ställt in kontinuerlig integrering och distribution (CI/CD) för dina data fabriker kan du köra begränsningar för Azure Resource Manager mal len när fabriken växer större. Ett exempel på en gräns är det maximala antalet resurser i en Resource Manager-mall. För att kunna hantera stora fabriker, tillsammans med att skapa en fullständig Resource Manager-mall för en fabrik, skapar Data Factory nu länkade Resource Manager-mallar. Med den här funktionen är hela fabriks nytto lasten uppdelad i flera filer så att du inte kan använda gränserna.
 
-Om du har konfigurerat git skapas och sparas de länkade mallarna tillsammans med de fullständiga Resource Manager-mallarna i `adf_publish`-grenen under en ny mapp med namnet `linkedTemplates`.
+Om du har konfigurerat git skapas och sparas de länkade mallarna tillsammans med de fullständiga Resource Manager-mallarna i `adf_publish` grenen under en ny mapp med namnet `linkedTemplates`.
 
 ![Mapp för länkade Resource Manager-mallar](media/continuous-integration-deployment/linked-resource-manager-templates.png)
 
-De länkade Resource Manager-mallarna har vanligt vis en huvud mal len och en uppsättning underordnade mallar som är länkade till huvud servern. Den överordnade mallen kallas `ArmTemplate_master.json`, och underordnade mallar får namnet med mönstret `ArmTemplate_0.json`, `ArmTemplate_1.json` och så vidare. Om du vill använda länkade mallar i stället för den fullständiga Resource Manager-mallen uppdaterar du CI/CD-aktiviteten så att den pekar på `ArmTemplate_master.json` i stället för `ArmTemplateForFactory.json` (fullständig Resource Manager-mall). Resource Manager kräver också att du överför de länkade mallarna till ett lagrings konto så att de kan nås av Azure under distributionen. Mer information finns i [distribuera länkade arm-mallar med VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
+De länkade Resource Manager-mallarna har vanligt vis en huvud mal len och en uppsättning underordnade mallar som är länkade till huvud servern. Den överordnade mallen kallas `ArmTemplate_master.json`och underordnade mallar namnges med mönstret `ArmTemplate_0.json`, `ArmTemplate_1.json`och så vidare. Om du vill använda länkade mallar i stället för den fullständiga Resource Manager-mallen uppdaterar du CI/CD-aktiviteten så att den pekar på `ArmTemplate_master.json` i stället för `ArmTemplateForFactory.json` (fullständig Resource Manager-mall). Resource Manager kräver också att du överför de länkade mallarna till ett lagrings konto så att de kan nås av Azure under distributionen. Mer information finns i [distribuera länkade arm-mallar med VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
 
 Kom ihåg att lägga till Data Factory skript i CI/CD-pipeline innan och efter distributions aktiviteten.
 
@@ -683,9 +683,9 @@ Om du distribuerar en fabrik till produktion och inser att det finns en bugg som
 
 6.  När korrigeringen har verifierats klickar du på **Exportera arm-mall** för att hämta Resource Manager-mallen för snabb korrigering.
 
-7.  Checka in den här versionen manuellt i adf_publish-grenen.
+7.  Checka in den här versionen manuellt i adf_publish grenen.
 
-8.  Om du har konfigurerat din versions pipeline till att automatiskt utlösa baserat på adf_publish-incheckningar startar en ny version automatiskt. Annars måste du köa en version manuellt.
+8.  Om du har konfigurerat din versions pipeline så att den automatiskt utlöses baserat på adf_publish incheckningar, kommer en ny version automatiskt att starta. Annars måste du köa en version manuellt.
 
 9.  Distribuera snabb korrigerings versionen till test-och produktions fabrikerna. Den här versionen innehåller föregående produktions nytto Last plus den åtgärd som gjorts i steg 5.
 

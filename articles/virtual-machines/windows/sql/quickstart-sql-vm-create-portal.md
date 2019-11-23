@@ -43,7 +43,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 1. Välj **Azure SQL** i den vänstra menyn i Azure Portal. Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan *Azure SQL* i sökrutan.
 1. Välj **+ Lägg** till för att öppna **alternativ sidan Välj SQL-distribution** . Du kan visa mer information genom att välja **Visa information** på panelen **SQL Virtual Machines** .
-1. Välj **Kostnadsfri SQL Server-licens: SQL Server 2017-utvecklare på Windows Server 2016 @ no__t-0-bild från List rutan.
+1. Välj den **kostnads fria SQL Server licensen: SQL Server 2017-utvecklare på Windows Server 2016** -avbildningen i list rutan.
 
    ![Nytt sökfönster](./media/quickstart-sql-vm-create-portal/select-sql-2017-vm-image.png)
 
@@ -57,16 +57,16 @@ Ange följande information på fliken **grundläggande** :
 
 1. I avsnittet **projekt information** väljer du din Azure-prenumeration och väljer sedan **Skapa ny** för att skapa en ny resurs grupp. Skriv _SQLVM-RG_ som namn.
 
-   ![Subscription](media/quickstart-sql-vm-create-portal/basics-project-details.png)
+   ![Prenumeration](media/quickstart-sql-vm-create-portal/basics-project-details.png)
 
 1. Under **instans information**:
     1. Skriv _SQLVM_ som namn på den **virtuella datorn**. 
     1. Välj en plats för din **region**. 
     1. I den här snabb starten måste du lämna **tillgänglighets alternativen** inställt på _ingen infrastruktur-redundans krävs_. Om du vill veta mer om tillgänglighets alternativ, se [tillgänglighet](../../windows/availability.md). 
-    1. I listan **avbildning** väljer _du gratis SQL Server licens: SQL Server 2017-utvecklare på Windows Server_2016. 
+    1. I listan **avbildning** väljer du _gratis SQL Server licens: SQL Server 2017-utvecklare på Windows Server 2016_. 
     1. Välj att **ändra storleken** **på den** virtuella datorn och välj **a2 Basic** -erbjudandet. Se till att rensa dina resurser när du är klar med dem för att förhindra eventuella oväntade kostnader. 
 
-   ![Instansinformation](media/quickstart-sql-vm-create-portal/basics-instance-details.png)
+   ![Instans information](media/quickstart-sql-vm-create-portal/basics-instance-details.png)
 
 1. Under **administratörs konto**anger du ett användar namn, till exempel _azureuser_ och ett lösen ord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../../windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 

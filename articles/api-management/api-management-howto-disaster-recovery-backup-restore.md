@@ -35,7 +35,7 @@ Den här guiden visar hur du automatiserar säkerhets kopierings-och återställ
 > Säkerhets kopierings åtgärden fångar inte in församlade loggdata som används i rapporter som visas på bladet analys i Azure Portal.
 
 > [!WARNING]
-> Varje säkerhets kopiering upphör att gälla efter 30 dagar. Om du försöker återställa en säkerhets kopia efter att förfallo perioden på 30 dagar har upphört att gälla, Miss lyckas återställningen med ett `Cannot restore: backup expired`-meddelande.
+> Varje säkerhets kopiering upphör att gälla efter 30 dagar. Om du försöker återställa en säkerhets kopia efter att förfallo perioden på 30 dagar har upphört att gälla, Miss lyckas återställningen med ett `Cannot restore: backup expired` meddelande.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -54,7 +54,7 @@ Alla aktiviteter som du gör på resurser som använder Azure Resource Manager m
 
 ### <a name="create-an-azure-active-directory-application"></a>Skapa ett Azure Active Directory program
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Med prenumerationen som innehåller din API Management tjänst instans navigerar du till fliken **Appregistreringar** i **Azure Active Directory** (Azure Active Directory > Hantera/Appregistreringar).
 
     > [!NOTE]
@@ -69,7 +69,7 @@ Alla aktiviteter som du gör på resurser som använder Azure Resource Manager m
 6. Ange en plats hållares URL som `http://resources` för **omdirigerings-URI: n**, eftersom det är ett obligatoriskt fält, men värdet används inte senare. Klicka i kryss rutan för att spara programmet.
 7. Klicka på **Skapa**.
 
-### <a name="add-an-application"></a>Lägg till ett program
+### <a name="add-an-application"></a>Lägga till ett program
 
 1. När programmet har skapats klickar du på **Inställningar**.
 2. Klicka på **nödvändiga behörigheter**.
@@ -78,7 +78,7 @@ Alla aktiviteter som du gör på resurser som använder Azure Resource Manager m
 5. Välj **Windows** **Azure-Service Management-API**.
 6. Tryck på **Välj**.
 
-    ![Lägg till behörigheter](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
+    ![Lägga till behörigheter](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
 
 7. Klicka på **delegerade behörigheter** bredvid det nyligen tillagda programmet, markera kryss rutan för **åtkomst till Azure Service Management (för hands version)** .
 8. Tryck på **Välj**.
@@ -113,7 +113,7 @@ namespace GetTokenResourceManagerRequests
 }
 ```
 
-Ersätt `{tenant id}`, `{application id}` och `{redirect uri}` med hjälp av följande anvisningar:
+Ersätt `{tenant id}`, `{application id}`och `{redirect uri}` med hjälp av följande anvisningar:
 
 1. Ersätt `{tenant id}` med klient-ID: t för det Azure Active Directory program som du har skapat. Du har åtkomst till ID: t genom att klicka på **Appregistreringar** -> **slut punkter**.
 
@@ -149,8 +149,8 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 vilken
 
--   `subscriptionId`-ID för prenumerationen som innehåller den API Managements tjänst som du försöker säkerhetskopiera
--   `resourceGroupName` – namnet på resurs gruppen för Azure API Management-tjänsten
+-   `subscriptionId`-ID för den prenumeration som innehåller den API Managements tjänst som du försöker säkerhetskopiera
+-   `resourceGroupName` namnet på resurs gruppen för Azure API Management-tjänsten
 -   `serviceName`-namnet på den API Management tjänst som du skapar en säkerhets kopia av angivet vid tidpunkten för skapandet
 -   `api-version`-Ersätt med `2018-06-01-preview`
 
@@ -165,9 +165,9 @@ I bröd texten i begäran anger du namnet på Azure Storage-kontot, åtkomst nyc
 }
 ```
 
-Ange värdet för begär ande rubriken för `Content-Type` till `application/json`.
+Ange värdet för `Content-Type` begär ande rubriken till `application/json`.
 
-Backup är en tids krävande åtgärd som kan ta mer än en minut att slutföra. Om begäran lyckades och säkerhets kopierings processen började visas, får du en `202 Accepted`-svars status kod med ett `Location`-huvud. Gör GET-begäranden till URL: en i `Location`-rubriken för att ta reda på åtgärdens status. När säkerhets kopieringen pågår fortsätter du att ta emot status koden 202. En svars kod på `200 OK` anger att säkerhets kopieringen slutförts.
+Backup är en tids krävande åtgärd som kan ta mer än en minut att slutföra. Om begäran lyckades och säkerhets kopierings processen började visas, får du en `202 Accepted` svars status kod med ett `Location`-huvud. Gör GET-begäranden till URL: en i `Location`s rubriken för att ta reda på åtgärdens status. När säkerhets kopieringen pågår fortsätter du att ta emot status koden 202. Svars koden för `200 OK` visar att säkerhets kopieringen slutförts.
 
 Observera följande begränsningar när du gör en säkerhets kopierings förfrågan:
 
@@ -190,9 +190,9 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 vilken
 
--   `subscriptionId`-ID för prenumerationen som innehåller den API Management tjänst som du återställer en säkerhets kopia till
+-   `subscriptionId`-ID för den prenumeration som innehåller den API Management tjänst som du återställer en säkerhets kopia till
 -   `resourceGroupName`-namnet på den resurs grupp som innehåller Azure API Management-tjänsten som du återställer en säkerhets kopia till
--   `serviceName`-namnet på den API Management tjänst som återställs till angivet när den skapades
+-   `serviceName`-namnet på den API Managements tjänst som återställs till angivet vid skapande tillfället
 -   `api-version`-Ersätt med `2018-06-01-preview`
 
 Ange platsen för säkerhets kopian i bröd texten i begäran. Det innebär att du kan lägga till namnet på Azure Storage-kontot, åtkomst nyckeln, namnet på BLOB-behållaren och namnet på säkerhets kopian:
@@ -206,9 +206,9 @@ Ange platsen för säkerhets kopian i bröd texten i begäran. Det innebär att 
 }
 ```
 
-Ange värdet för begär ande rubriken för `Content-Type` till `application/json`.
+Ange värdet för `Content-Type` begär ande rubriken till `application/json`.
 
-Restore är en tids krävande åtgärd som kan ta upp till 30 minuter att slutföra. Om begäran lyckades och återställnings processen började, får du en `202 Accepted`-svars status kod med ett `Location`-huvud. Gör GET-begäranden till URL: en i `Location`-rubriken för att ta reda på åtgärdens status. När återställningen pågår fortsätter du att ta emot status koden 202. En svars kod på `200 OK` anger att återställningen har slutförts.
+Restore är en tids krävande åtgärd som kan ta upp till 30 minuter att slutföra. Om begäran lyckades och återställnings processen började, får du en `202 Accepted` svars status kod med ett `Location`-huvud. Gör GET-begäranden till URL: en i `Location`s rubriken för att ta reda på åtgärdens status. När återställningen pågår fortsätter du att ta emot status koden 202. Svars koden för `200 OK` visar att återställningen har slutförts.
 
 > [!IMPORTANT]
 > **SKU: n** för den tjänst som återställs till **måste matcha** SKU: n för den säkerhetskopierade tjänsten som återställs.
@@ -226,7 +226,8 @@ Kolla in följande resurser för olika genom gångar av säkerhets kopierings-/�
 
 -   [Replikera Azure API Management-konton](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
 -   [Automatisera API Management-säkerhetskopiering och -återställning med Logic Apps](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps)
--   [Azure API Management: Säkerhetskopiera och återställa konfigurationen @ no__t-0 @ no__t-1_den metod som beskrivs av Stuart stämmer inte överens med den officiella vägledningen, men det är intressant._
+-   [Azure API Management: säkerhets kopiering och återställning av konfigurationen](https://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
+    _metoden som beskrivs av Stuart överensstämmer inte med den officiella vägledningen, men det är intressant._
 
 [backup an api management service]: #step1
 [restore an api management service]: #step2

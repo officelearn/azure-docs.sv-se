@@ -83,11 +83,11 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. På den **grundläggande SAML-konfigurationen** section är programmet förkonfigurerat i **IDP** initiated läge och de nödvändiga URL: erna redan har redan fyllts i med Azure. Användaren måste spara konfigurationen genom att klicka på **spara** button.
+1. I avsnittet **grundläggande SAML-konfiguration** är programmet förkonfigurerat i **IDP** initierat läge och de nödvändiga URL: erna redan har redan fyllts i med Azure. Användaren måste spara konfigurationen genom att klicka på knappen **spara** .
 
 1. SSO-programmet för identifierings förmåner förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på ikonen**Redigera** för att öppna dialogrutan Användarattribut.
 
-    ![mallar](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
     a. Klicka på **Redigera** -ikonen för att öppna dialog rutan **unik användar identifierare (namn-ID)** .
 
@@ -99,7 +99,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     c. I text rutan **omvandling** skriver du **ToUppercase ()** som visas för den raden.
 
-    d. I text rutan **parameter 1** skriver du parametern som `<Name Identifier value>`.
+    d. I text rutan **parameter 1** anger du parametern som `<Name Identifier value>`.
 
     e. Klicka på **Lägg till**.
 
@@ -160,7 +160,7 @@ I det här avsnittet ska du skapa en användare med namnet Britta Simon i INLOGG
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på INLOGGNINGs panelen för identifierings förmåner på åtkomst panelen, bör du loggas in automatiskt till INLOGGNINGen med identifierings förmåner för vilka du ställer in SSO. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på INLOGGNINGs panelen för identifierings förmåner på åtkomst panelen, bör du loggas in automatiskt till INLOGGNINGen med identifierings förmåner för vilka du ställer in SSO. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

@@ -22,7 +22,7 @@ Azure IoT Edge kan göra din IoT-lösning effektivare genom att flytta arbetsbel
 
 Till exempel kan Custom Vision på en IoT Edge-enhet avgöra om det förekommer mer eller mindre trafik än normalt på en motorväg eller huruvida det finns lediga platser på en viss sträcka i ett parkeringshus. Dessa insikter kan delas med en annan tjänst i åtgärdssyfte.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 >
@@ -32,7 +32,8 @@ I den här guiden får du lära dig att:
 
 <center>
 
-![Diagram – själv studie arkitektur, steg och distribuera klassificerare @ no__t-1 @ no__t-2
+![diagram – själv studie arkitektur, Stage och distribution av klassificeraren](./media/tutorial-deploy-custom-vision/custom-vision-architecture.png)
+</center>
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -149,9 +150,9 @@ En lösning är ett logiskt sätt att utveckla och organisera flera moduler för
    | ----- | ----- |
    | Välj mapp | Välj den plats på utvecklingsdatorn där Visual Studio Code ska skapa lösningsfilerna. |
    | Ange ett namn på lösningen | Ange ett beskrivande namn för lösningen, till exempel **CustomVisionSolution**, eller acceptera standardnamnet. |
-   | Välja modulmall | Välj **Python-modul**. |
+   | Välj modulmall | Välj **Python-modul**. |
    | Ange ett modulnamn | Ge modulen namnet **classifier** (klassificerare).<br><br>Det är viktigt att modulnamnet endast innehåller gemener. IoT Edge är skiftlägeskänsligt när det gäller referenser till moduler, och den här lösningen använder ett bibliotek som formaterar alla begäranden som gemener. |
-   | Ange Docker-bildlagringsplats för modulen | En bildlagringsplats innehåller namnet på containerregistret och namnet på containeravbildningen. Containeravbildningen har fyllts i från föregående steg. Ersätt **localhost:5000** med värdet för inloggningsservern från ditt Azure-containerregister. Du kan hämta inloggningsservern från sidan Översikt för ditt containerregister på Azure-portalen.<br><br>Den sista strängen ser ut som **\<registry Name\>.azurecr.io/classifier**. |
+   | Ange Docker-bildlagringsplats för modulen | En bildlagringsplats innehåller namnet på containerregistret och namnet på containeravbildningen. Containeravbildningen har fyllts i från föregående steg. Ersätt **localhost:5000** med värdet för inloggningsservern från ditt Azure-containerregister. Du kan hämta inloggningsservern från sidan Översikt för ditt containerregister på Azure-portalen.<br><br>Den sista strängen ser ut som **\<register namn\>. azurecr.io/classifier**. |
  
    ![Ange lagringsplatsen för Docker-avbildningen](./media/tutorial-deploy-custom-vision/repository.png)
 
@@ -214,7 +215,7 @@ I det här avsnittet lägger du till en ny modul i samma CustomVisionSolution oc
    | Uppmaning | Värde | 
    | ------ | ----- |
    | Välj distributionsmallfil | Välj filen deployment.template.json i mappen CustomVisionSolution. |
-   | Välja modulmall | Välj **Python-modul** |
+   | Välj modulmall | Välj **Python-modul** |
    | Ange ett modulnamn | Ge modulen namnet **cameraCapture** |
    | Ange Docker-bildlagringsplats för modulen | Ersätt **localhost:5000** med värdet för inloggningsservern för ditt Azure-containerregister.<br><br>Den slutgiltiga strängen ser ut så här: **\<registernamn\>.azurecr.io/cameracapture**. |
 

@@ -89,7 +89,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS och SAP HANA Database a
 > [!IMPORTANT]
 > Multi-SID-klustring av SAP ASCS/ERS med Red Hat Linux som gäst operativ system i virtuella Azure-datorer **stöds inte**. Multi-SID-klustring beskriver installationen av flera SAP ASCS/ERS-instanser med olika sid i ett pacemaker-kluster.
 
-### <a name="ascs"></a>En SCS
+### <a name="ascs"></a>(A)SCS
 
 * Konfiguration av klient del
   * IP-10.0.0.7
@@ -262,17 +262,17 @@ Följ stegen i [Konfigurera pacemaker på Red Hat Enterprise Linux i Azure](high
 
 ### <a name="prepare-for-sap-netweaver-installation"></a>Förbered för SAP NetWeaver-installation
 
-Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , som endast gäller nod 1 eller **[2]** -gäller endast nod 2.
+Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1]** – gäller endast för nod 1 eller **[2]** – gäller endast för nod 2.
 
-1. **[A]** namn matchning för värdnamn
+1. **[A]**  Konfigurera matcha värdnamn
 
-   Du kan antingen använda en DNS-server eller ändra/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
+   Du kan använda en DNS-server, eller så kan du ändra i/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
    Ersätt IP-adress och värdnamn i följande kommandon
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
 
-   Infoga följande rader i/etc/hosts. Ändra IP-adress och värdnamn för att matcha din miljö
+   Infoga följande rader till/etc/hosts. Ändra IP-adressen och värdnamnet till matchar din miljö
 
    <pre><code># IP addresses of the GlusterFS nodes
    <b>10.0.0.40 glust-0</b>
@@ -637,13 +637,13 @@ Stegen nedan förutsätter att du installerar program servern på en annan serve
 
 1. Konfigurera värd namns matchning
 
-   Du kan antingen använda en DNS-server eller ändra/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
+   Du kan använda en DNS-server, eller så kan du ändra i/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
    Ersätt IP-adress och värdnamn i följande kommandon
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
 
-   Infoga följande rader i/etc/hosts. Ändra IP-adress och värdnamn för att matcha din miljö
+   Infoga följande rader till/etc/hosts. Ändra IP-adressen och värdnamnet till matchar din miljö
 
    <pre><code># IP addresses of the GlusterFS nodes
    <b>10.0.0.40 glust-0</b>

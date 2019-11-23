@@ -33,7 +33,7 @@ De senaste exempelprogrammen som utför CRUD-åtgärder och andra vanliga åtgä
 * Länkar till uppgifterna i var och en av Java-projektfilerna. 
 * Länkar till det relaterade API-referensinnehållet.
 
-**Förutsättningar**
+**Krav**
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
   
@@ -106,7 +106,7 @@ Så här kör du från kommandoraden:
 | [Skapa en samling med flera partitioner](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java#L103-L155) | [DocumentCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentcollection)<br>[PartitionKeyDefinition](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.partitionkeydefinition)<br>[RequestOptions](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.requestoptions) |
 | [Ta bort en samling](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java#L97-L99) | [DocumentClient.deleteCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclient.deletecollection) |
 
-## <a name="document-examples"></a>Exempel på dokument
+## <a name="document-examples"></a>Dokumentexempel
 [DocumentCrudSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentCrudSamples.java) -filen visar hur du utför följande uppgifter. Information om Azure Cosmos-dokumenten innan du kör följande exempel finns i avsnittet [arbeta med databaser, behållare och objekt](databases-containers-items.md) konceptuell artikel.
 
 | Aktivitet | API-referens |
@@ -121,7 +121,7 @@ Så här kör du från kommandoraden:
 | --- | --- |
 | [Skapa ett index och ange indexeringsprincip](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java#L125-L141) | [Index](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.index)<br>[IndexingPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy) |
 
-Mer information om indexering finns i [Azure Cosmos DB indexeringsprinciper](index-policy.md).
+Mer information om indexering finns i [Azure Cosmos DB-indexeringsprinciper](index-policy.md).
 
 ## <a name="query-examples"></a>Exempelfrågor
 [DocumentQuerySamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentQuerySamples.java) -filen visar hur du utför följande uppgifter. Om du vill veta mer om SQL-frågan i Azure Cosmos DB innan du kör följande exempel kan du läsa artikeln om [SQL-fråge exempel](how-to-sql-query.md) . 
@@ -130,7 +130,7 @@ Mer information om indexering finns i [Azure Cosmos DB indexeringsprinciper](ind
 | Aktivitet | API-referens |
 | --- | --- |
 | [Utföra en enkel dokumentfråga på flera olika partitioner](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentQuerySamples.java#L108-L129) | [DocumentClient.queryDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclient.querydocuments)<br>[FeedOptions.setEnableCrossPartitionQuery](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptions.setenablecrosspartitionquery) |
-| [Sortera efter fråga](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentQuerySamples.java#L132-L154) | [FeedResponse @ no__t-1T >. getQueryIterator](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedresponse.getqueryiterator) |
+| [Sortera efter fråga](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentQuerySamples.java#L132-L154) | [FeedResponse\<T >. getQueryIterator](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedresponse.getqueryiterator) |
 
 Mer information om hur du skriver frågor finns i [SQL query within Azure Cosmos DB](how-to-sql-query.md) (SQL-fråga i Azure Cosmos DB).
 

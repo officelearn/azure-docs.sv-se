@@ -17,7 +17,7 @@ ms.locfileid: "71677009"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Använd Azure IoT Hub Device Provisioning Service automatisk etablering för att registrera MXChip IoT-DevKit med IoT Hub
 
-Den här artikeln beskriver hur du använder Azure IoT Hub Device Provisioning Service [Automatisk etablering](concepts-auto-provisioning.md), för att registrera MXChip IoT-DevKit med Azure IoT Hub. I den här guiden får du lära dig att:
+Den här artikeln beskriver hur du använder Azure IoT Hub Device Provisioning Service [Automatisk etablering](concepts-auto-provisioning.md), för att registrera MXChip IoT-DevKit med Azure IoT Hub. I den här självstudiekursen får du lära du dig att:
 
 * Konfigurera den globala slut punkten för enhets etablerings tjänsten på en enhet.
 * Använd en unik enhets hemlighet (UDS) för att generera ett X. 509-certifikat.
@@ -38,10 +38,10 @@ Utför stegen i den här självstudien genom att först utföra följande uppgif
 
 1. Se till att din IoT-DevKit **inte är ansluten** till din dator. Starta VS Code först och Anslut sedan DevKit till datorn.
 
-1. Klicka `F1` för att öppna kommando-paletten, Skriv **och välj Azure IoT Device Workbench: Öppna exempel...** . Välj sedan **IoT DevKit** som tavla.
+1. Klicka på `F1` för att öppna kommando-paletten, skriv och välj **Azure IoT Device Workbench: öppna exempel.** .. Välj sedan **IoT DevKit** som tavla.
 
 1. På sidan IoT Workbench-exempel hittar du **enhets registrering med DPS** och klickar på **Öppna exempel**. Sedan väljer du standard Sök vägen för att ladda ned exempel koden.
-    ![Open-exempel @ no__t-1
+    ![öppna exempel](media/how-to-connect-mxchip-iot-devkit/open-sample.png)
 
 ## <a name="save-a-unique-device-secret-on-device-security-storage"></a>Spara en unik enhets hemlighet på enhetens säkerhets lagring
 
@@ -56,18 +56,18 @@ En typisk UDS är en sträng på 64 tecken, som visas i följande exempel:
 Så här sparar du en UDS på DevKit:
 
 1. I VS Code, klickar du på statusfältet för att välja COM-porten för DevKit.
-  ![Select COM-port @ no__t-1
+  ![välja COM-port](media/how-to-connect-mxchip-iot-devkit/select-com.png)
 
 1. På DevKit trycker du på **knappen a**, push och släpper knappen **Återställ** och släpper sedan **knappen A**. Din DevKit går in i konfigurations läge.
 
-1. Klicka `F1` för att öppna kommando-paletten, Skriv **och välj Azure IoT Device Workbench: Konfigurera enhets inställningar... > Config unik enhets sträng (UDS)** .
-  ![Configure UDS @ no__t-1
+1. Klicka på `F1` för att öppna kommando-paletten, skriv och välj **Azure IoT enhet Workbench: Konfigurera enhets inställningar... > Konfiguration av unik enhets sträng (UDS)** .
+  ![konfigurera UDS](media/how-to-connect-mxchip-iot-devkit/config-uds.png)
 
 1. Anteckna den genererade UDS-strängen. Du behöver den för att generera X. 509-certifikatet. Tryck sedan på `Enter`.
-  ![Copy UDS @ no__t-1
+  ![kopiera UDS](media/how-to-connect-mxchip-iot-devkit/copy-uds.png)
 
 1. Bekräfta från meddelandet att UDS har kon figurer ATS på STSAFE.
-  @no__t – 0Configure UDS lyckades @ no__t-1
+  ![konfigurera UDS-lyckad](media/how-to-connect-mxchip-iot-devkit/config-uds-success.png)
 
 > [!NOTE]
 > Du kan också konfigurera UDS via seriell port genom att använda verktyg som till exempel SparaTillFil. Följ [konfigurations läget](https://microsoft.github.io/azure-iot-developer-kit/docs/use-configuration-mode/) för att göra det.
@@ -77,38 +77,38 @@ Så här sparar du en UDS på DevKit:
 I enhets kod måste du ange [enhets etablerings slut punkt](/azure/iot-dps/concepts-service#device-provisioning-endpoint) och ID-omfång för att säkerställa klient isoleringen.
 
 1. I Azure Portal väljer du fönstret **Översikt** i enhets etablerings tjänsten och noterar värdena för **Global enhets slut punkt** och **ID-omfång** .
-  @no__t global slut punkt och ID för 0Device-etablerings tjänsten @ no__t-1
+  ![global slut punkt och ID-omfång för enhets etablerings tjänsten](media/how-to-connect-mxchip-iot-devkit/dps-global-endpoint.png)
 
-1. Öppna **DevKitDPS. INO**. Sök och ersätt `[Global Device Endpoint]` och `[ID Scope]` med de värden som du nyss skrev ned.
-  ![Device Provisioning service-slutpunkt @ no__t-1
+1. Öppna **DevKitDPS. INO**. Sök efter och ersätt `[Global Device Endpoint]` och `[ID Scope]` med de värden som du nyss skrev ned.
+  ](media/how-to-connect-mxchip-iot-devkit/endpoint.png) för ![enhets etablerings tjänstens slut punkt
 
-1. Fyll `registrationId`-variabeln i koden. Endast alfanumeriska tecken, gemener och bindestreck med högst 128 tecken tillåts. Notera också värdet.
-  ![Registration-ID @ no__t-1
+1. Fyll `registrationId` variabeln i koden. Endast alfanumeriska tecken, gemener och bindestreck med högst 128 tecken tillåts. Notera också värdet.
+  ![registrerings-ID](media/how-to-connect-mxchip-iot-devkit/registration-id.png)
 
-1. Klicka på `F1`, skriv och välj **Azure IoT Device Workbench: Ladda upp enhets kod**. Den börjar kompilera och laddar upp koden till DevKit.
-  ![Device upload @ no__t-1
+1. Klicka på `F1`, skriv och välj **Azure IoT enhet Workbench: Ladda upp enhets kod**. Den börjar kompilera och laddar upp koden till DevKit.
+  ![enhets uppladdning](media/how-to-connect-mxchip-iot-devkit/device-upload.png)
 
 ## <a name="generate-x509-certificate"></a>Generera X. 509-certifikat
 
 [Mekanismen för attestering](/azure/iot-dps/concepts-device#attestation-mechanism) som används i det här exemplet är X. 509-certifikat. Du måste använda ett verktyg för att generera det.
 
-1. I VS Code, klickar du på `F1`, skriver och väljer **Öppna ny terminal** för att öppna terminalfönstret.
+1. I VS Code, klicka på `F1`, skriv och välj **Öppna ny terminal** för att öppna terminalfönstret.
 
-1. Kör `dps_cert_gen.exe` i `tool`-mappen.
+1. Kör `dps_cert_gen.exe` i `tool` mapp.
 
 1. Ange den kompilerade binära fil platsen som `..\.build\DevKitDPS`. Klistra sedan in **UDS** -och **registrationId** som du precis har nämnt. 
-  ![Generate X. 509 @ no__t-1
+  ![generera X. 509-](media/how-to-connect-mxchip-iot-devkit/gen-x509.png)
 
 1. Ett `.pem` X. 509-certifikat genereras i samma mapp.
-  ![X. 509-fil @ no__t-1
+  ![X. 509-fil](media/how-to-connect-mxchip-iot-devkit/pem-file.png)
 
 ## <a name="create-a-device-enrollment-entry"></a>Skapa en post för enhetsregistrering
 
 1. I Azure Portal öppnar du enhets etablerings tjänsten, navigerar till avsnittet hantera registreringar och klickar på **Lägg till enskild registrering**.
-  ![Add individuell registrering @ no__t-1
+  ![lägga till enskilda registreringar](media/how-to-connect-mxchip-iot-devkit/add-enrollment.png)
 
 1. Klicka på fil ikonen bredvid **primärt Certificate. pem eller. cer-fil** för att överföra `.pem`-filen som genereras.
-  ![Upload. pem @ no__t-1
+  ![Ladda upp. pem](media/how-to-connect-mxchip-iot-devkit/upload-pem.png)
 
 ## <a name="verify-the-devkit-is-registered-with-azure-iot-hub"></a>Kontrol lera att DevKit har registrerats med Azure IoT Hub
 
@@ -119,7 +119,7 @@ Tryck på **återställnings** knappen på din DevKit. Du bör se **DPS Connecte
 1. Vid lyckad registrering skickar enhets etablerings tjänsten IoT Hub-URI, enhets-ID och den krypterade nyckeln tillbaka till enheten.
 1. IoT Hub klient programmet på enheten ansluter till din hubb.
 1. Vid lyckad anslutning till hubben visas enheten i IoT Hub Device Explorer.
-  ![Device registrerad @ no__t-1
+  ![enhet registrerad](./media/how-to-connect-mxchip-iot-devkit/device-registered.png)
 
 ## <a name="problems-and-feedback"></a>Problem och feedback
 

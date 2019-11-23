@@ -148,13 +148,13 @@ När distributionen är klar går du tillbaka till webbläsarfönstret som öppn
 
 ## <a name="manage-your-new-azure-app"></a>Hantera din nya Azure-app
 
-Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att hantera den app som du skapade.
+Gå till <a href="https://portal.azure.com" target="_blank">Azure-portalen</a> för att hantera den app som du skapade.
 
 I den vänstra menyn, klickar du på **App Services** och därefter på namnet på din Azure-app.
 
 ![Portalnavigering till Azure-app](./media/quickstart-python/app-service-list.png)
 
-Du ser din apps översiktssida. Här kan du utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort.
+Nu visas översiktssidan för din app. Här kan du utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort.
 
 ![App Service-sidan på Azure Portal](media/quickstart-python/app-service-detail.png)
 
@@ -165,10 +165,10 @@ Menyn till vänster innehåller olika sidor för att konfigurera appen.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudier: Python-app med PostgreSQL @ no__t-0
+> [Självstudie: python-app med PostgreSQL](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
 > [Konfigurera python-app](how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
-> [Självstudier: Distribuera från privat container-lagringsplats @ no__t-0
+> [Självstudie: Distribuera från privat container-lagringsplats](tutorial-custom-docker-image.md)

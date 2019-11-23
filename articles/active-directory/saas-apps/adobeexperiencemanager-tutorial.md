@@ -39,7 +39,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 För att konfigurera Azure AD-integrering med Adobe Experience Manager behöver du följande:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
 * En Adobe Experience Manager-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -56,7 +56,7 @@ För att konfigurera integreringen av Adobe Experience Manager i Azure AD måste
 
 **Utför följande steg för att lägga till Adobe Experience Manager från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -81,7 +81,7 @@ För att konfigurera och testa enkel inloggning med Azure AD med [Programnamn] b
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning för Adobe Experience Manager](#configure-adobe-experience-manager-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa Adobe Experience Manager-testanvändare](#create-adobe-experience-manager-test-user)** – för att skapa en motsvarighet till Britta Simon i Adobe Experience Manager som är länkad till Azure AD-representationen av användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
@@ -92,9 +92,9 @@ I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen
 
 Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra följande steg:
 
-1. Välj **Enkel inloggning** på sidan för integrering av **Adobe Experience Manager**-programmet på [Azure-portalen](https://portal.azure.com/).
+1. Välj [Enkel inloggning](https://portal.azure.com/) på sidan för integrering av **Adobe Experience Manager**-programmet på **Azure-portalen**.
 
-    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -110,10 +110,10 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
     a. I textrutan **Identifierare** skriver du ett unikt värde som du även definierar på AEM-servern.
 
-    b. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://<AEM Server Url>/saml_login`
+    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<AEM Server Url>/saml_login`
 
     > [!NOTE]
-    > Värdet för svars-URL:en är inte verkligt. Uppdatera värdet för Svars-URL med den faktiska svars-URL:en. Kontakta [Adobe Experience Manager-kundsupporten](https://helpx.adobe.com/support/experience-manager.html) och be om det här värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet för svars-URL:en är inte verkligt. Uppdatera värdet för Svars-URL med den faktiska svars-URL:en. Kontakta [Adobe Experience Manager-kundsupporten](https://helpx.adobe.com/support/experience-manager.html) och be om det här värdet. Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -183,7 +183,7 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
     ![Konfigurera enkel inloggning – knappen Spara](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin4.png)
 
-    a. Ange **/** i rutan **Sökväg**.
+    a. Ange **i rutan /Sökväg**.
 
     b. I rutan **IDP URL** (IDP-URL) anger du värdet för **Inloggnings-URL** som du kopierade från Azure-portalen.
 
@@ -240,7 +240,7 @@ I det här avsnittet ska du göra det möjligt för Britta Simon att använda en
 
     ![Adobe Experience Manager-länken i listan med program](common/all-applications.png)
 
-3. I menyn till vänster väljer du **Användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -264,7 +264,7 @@ Om du vill skapa användare manuellt kontaktar du [Adobe Experience Manager-supp
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen för Adobe Experience Manager på åtkomstpanelen bör du loggas in automatiskt i Adobe Experience Manager-programmet som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på panelen för Adobe Experience Manager på åtkomstpanelen bör du loggas in automatiskt i Adobe Experience Manager-programmet som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

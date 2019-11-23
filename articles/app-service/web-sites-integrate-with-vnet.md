@@ -39,10 +39,10 @@ En app kan bara använda en form av funktionen VNet-integrering i taget. Frågan
 
 | Problem  | Lösning | 
 |----------|----------|
-| Vill komma åt en RFC 1918-adress (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) i samma region | regional VNet-integrering |
+| Vill komma åt en RFC 1918-adress (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) i samma region | Regional VNet-integrering |
 | Vill du komma åt resurser i ett klassiskt VNet eller ett VNet i en annan region | Gateway krävs VNet-integrering |
-| Vill komma åt RFC 1918-slutpunkter över ExpressRoute | regional VNet-integrering |
-| Vill du uppnå resurser över tjänst slut punkter | regional VNet-integrering |
+| Vill komma åt RFC 1918-slutpunkter över ExpressRoute | Regional VNet-integrering |
+| Vill du uppnå resurser över tjänst slut punkter | Regional VNet-integrering |
 
 Ingen av funktionerna gör att du kan komma åt icke-RFC 1918-adresser i ExpressRoute. Om du vill göra det måste du använda en ASE för tillfället.
 
@@ -53,7 +53,7 @@ Oavsett vilken version som används ger VNet-integration din webbapp åtkomst ti
 Funktionen för VNet-integrering:
 
 * kräver en pris plan för standard, Premium eller PremiumV2 
-* stöder TCP och UDP
+* Stöder TCP och UDP
 * fungerar med App Service appar och Function-appar
 
 Det finns vissa saker som VNet-integrering inte stöder, inklusive:
@@ -175,13 +175,13 @@ Om du bara skapar en gateway för användning med App Service VNet-integrering b
 Så här aktiverar du VNet-integrering i appen: 
 
 1. Gå till din app i Azure Portal och öppna appinställningar och välj nätverk > VNet-integrering. Din ASP måste vara en standard-SKU eller bättre för att kunna använda funktionen VNet-integrering. 
- ![VNet integration UI @ no__t-1
+ ![VNet-integrations gränssnitt][1]
 
 1. Välj **Lägg till VNet**. 
- ![Add VNet-integrering @ no__t-1
+ ![lägga till VNet-integrering][2]
 
 1. Välj ditt VNet. 
-  ![Select ditt VNet @ no__t-1
+  ![Välj ditt VNet-][8]
   
 Din app kommer att startas om efter det här sista steget.  
 
@@ -262,7 +262,7 @@ Verktygen **ping**, **nslookup** och **tracert** fungerar inte via konsolen på 
 
     nameresolver.exe hostname [optional: DNS Server]
 
-Du kan använda **nameresolver** för att kontrol lera de värdnamn som appen är beroende av. På så sätt kan du testa om du har något som är mis-konfigurerat med din DNS eller kanske inte har åtkomst till din DNS-server. Du kan se den DNS-server som appen kommer att använda i-konsolen genom att titta på miljövariablerna WEBSITE_DNS_SERVER och WEBSITE_DNS_ALT_SERVER.
+Du kan använda **nameresolver** för att kontrol lera de värdnamn som appen är beroende av. På så sätt kan du testa om du har något som är mis-konfigurerat med din DNS eller kanske inte har åtkomst till din DNS-server. Du kan se den DNS-server som appen kommer att använda i-konsolen genom att titta på miljövariabler WEBSITE_DNS_SERVER och WEBSITE_DNS_ALT_SERVER.
 
 Med nästa verktyg kan du testa TCP-anslutningar till en kombination av värd och port. Det här verktyget kallas **tcpping** och syntaxen är:
 

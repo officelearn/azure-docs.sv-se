@@ -1,5 +1,5 @@
 ---
-title: Aktiviteter för en enskild deltagare i team data science-processen
+title: Uppgifter för en enskild deltagare i Team Data Science Process
 description: En detaljerad genom gång av aktiviteterna för en enskild deltagare i ett data vetenskaps team projekt.
 author: marktab
 manager: cgronlun
@@ -17,7 +17,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 10/10/2019
 ms.locfileid: "72244274"
 ---
-# <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Aktiviteter för en enskild deltagare i team data science-processen
+# <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Uppgifter för en enskild deltagare i Team Data Science Process
 
 Det här avsnittet beskriver de uppgifter som en *enskild deltagare* har slutfört för att skapa ett projekt i [team data science process](overview.md) (TDSP). Målet är att arbeta i en samarbets grupp miljö som är standardiserad på TDSP. TDSP är utformad för att hjälpa till att förbättra samarbetet och team inlärningen. En översikt över personal rollerna och deras associerade uppgifter som hanteras av ett data vetenskaps team som är standardiserade på TDSP finns i [process roller och uppgifter för team data vetenskap](roles-tasks.md).
 
@@ -45,7 +45,7 @@ I den här självstudien förutsätter vi att följande resurser och behörighet
 Om du vill klona databaser och ändra innehåll på din lokala dator eller DSVM, eller montera Azure File Storage till din DSVM, behöver du följande:
 
 - En Azure-prenumeration.
-- Git installerat på datorn. Om du använder en DSVM är git förinstallerat. I annat fall, se [bilagan plattform och verktyg](platforms-and-tools.md#appendix).
+- Git installerat på datorn. Om du använder en DSVM är git förinstallerat. Annars läser den [plattformar och verktyg bilaga](platforms-and-tools.md#appendix).
 - Om du vill använda en DSVM skapas och konfigureras Windows-eller Linux-DSVM i Azure. Mer information och anvisningar finns i Data Science Virtual Machine- [dokumentationen](/azure/machine-learning/data-science-virtual-machine/).
 - För en Windows-DSVM är [git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) installerad på datorn. Rulla ned till avsnittet **Ladda ned och installera** i *Readme.MD* -filen och välj det **senaste installations programmet**. Hämta *exe* -installationsprogrammet från installations sidan och kör det. 
 - För en Linux-DSVM, konfigureras en offentlig SSH-nyckel på din DSVM och läggs till i Azure DevOps. Mer information och instruktioner finns i avsnittet **skapa offentlig SSH-nyckel** i [tillägget plattformar och verktyg](platforms-and-tools.md#appendix). 
@@ -55,7 +55,7 @@ Om du vill klona databaser och ändra innehåll på din lokala dator eller DSVM,
 
 Om du vill arbeta med databaserna lokalt och skicka dina ändringar till det delade teamet och projekt arkiven, kopierar du först eller *klonar* lagrings platsen till din lokala dator. 
 
-1. I Azure DevOps går du till din grupps projekt sammanfattnings sida på *https: \/ @ no__t-2 @ no__t-3server namn >/\<organization namn >/\<team namn >* , till exempel **https: \//dev. Azure. com/DataScienceUnit/min team**.
+1. I Azure DevOps går du till din grupps projekt sammanfattnings sida på *https:\//\<Server namn >/\<organisations namn >/\<grupp namn >* , till exempel **https:\//dev.Azure.com/DataScienceUnit/myTeam**.
    
 1. Välj **databaser** i det vänstra navigerings fönstret och välj den lagrings plats som du vill klona längst upp på sidan.
    
@@ -100,7 +100,7 @@ Om ditt team eller projekt har delade resurser i Azure File Storage monterar du 
 
 Här följer länkar till detaljerade beskrivningar av de andra rollerna och uppgifterna som definieras av team data science-processen:
 
-- [Grupp chefs aktiviteter för ett data vetenskaps team](group-manager-tasks.md)
-- [Grupp ledar uppgifter för ett data vetenskaps team](team-lead-tasks.md)
-- [Projekt ledar uppgifter för ett data vetenskaps team](project-lead-tasks.md)
+- [Gruppansvarig uppgifter för team data science](group-manager-tasks.md)
+- [Lead gruppaktiviteter för team data science](team-lead-tasks.md)
+- [Lead projektaktiviteter för team data science](project-lead-tasks.md)
 

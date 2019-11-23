@@ -127,7 +127,7 @@ I tabellen nedan beskrivs de scenarier och gransknings värden som är tillgäng
 |Granskare som godkänner en begäran om administrativt medgivande       |Åtkomstgranskningar           |UserManagement           |Godkänn alla förfrågningar i affärs flödet          |App-kontext            |För närvarande går det inte att hitta användar kontexten eller app-ID: t som har beviljats administrativt medgivande.           |
 |Granskare som nekar en begäran om administrativt medgivande       |Åtkomstgranskningar           |UserManagement           |Godkänn alla förfrågningar i affärs flödet          |App-kontext            | För närvarande går det inte att hitta användar kontexten för den aktör som nekade en administrativ begäran om godkännande          |
 
-## <a name="faq"></a>FAQ 
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR 
 
 **Jag aktiverade det här arbets flödet, men när du testar funktionen kan du inte se meddelandet "godkännande krävs", så att jag kan begära åtkomst?**
 

@@ -35,10 +35,10 @@ AKS-kluster kan för närvarande skapas med tillgänglighets zoner i följande r
 * Östra USA
 * Frankrike, centrala
 * Östra Japan
-* Norra Europa
+* Europa, norra
 * Sydostasien
 * Storbritannien, södra
-* Västra Europa
+* Europa, västra
 * Västra USA 2
 
 Följande begränsningar gäller när du skapar ett AKS-kluster med hjälp av tillgänglighets zoner:

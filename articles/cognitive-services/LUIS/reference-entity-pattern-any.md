@@ -29,7 +29,7 @@ Mönster. alla entiteter måste markeras i exempel på [mönster](luis-how-to-mo
 
 ## <a name="usage"></a>Användning
 
-Ett klient program som söker efter böcker som baseras på rubrik, mönstret. alla extraherar den fullständiga titeln. En mall som uttryck använder mönster. alla för den här bok sökningen är `Was {BookTitle} written by an American this year[?]`. 
+Ett klient program som söker efter böcker som baseras på rubrik, mönstret. alla extraherar den fullständiga titeln. En mall uttryck med hjälp av mönster. alla för den här bok sökningen är `Was {BookTitle} written by an American this year[?]`. 
 
 I följande tabell har varje rad två versioner av uttryck. Det främsta uttryck är hur LUIS för första gången ser uttryck. Det är inte tydligt var bok rubriken börjar och slutar. Den nedre uttryck använder ett mönster. en entitet för att markera början och slutet av entiteten. 
 
@@ -37,7 +37,7 @@ I följande tabell har varje rad två versioner av uttryck. Det främsta uttryck
 |--|
 |`Was The Man Who Mistook His Wife for a Hat and Other Clinical Tales written by an American this year?`<br><br>Var **det man som feltagit sin fru för en hatt och andra kliniska** visare som skrevs av ett amerikanskt år?|
 |`Was Half Asleep in Frog Pajamas written by an American this year?`<br><br>Var **hälften av ström spar läge i Frog Pajamas** Skrivet av ett amerikanskt år?|
-|`Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?`<br><br>Var @no__t 0The särskilda ledsenhet av citron tårta: Ett nytt @ no__t-0 Skrivet av amerikanskt i år?|
+|`Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?`<br><br>Var **den specifika ledsenhet av citron tårta: en nya** skriven av ett amerikanskt år?|
 |`Was There's A Wocket In My Pocket! written by an American this year?`<br><br>Fanns **det en Wocket i min ficka!** Skrivet av ett amerikanskt år?|
 ||
 

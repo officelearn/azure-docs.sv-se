@@ -54,7 +54,7 @@ Dokumentation – [SQLServer-referens](/powershell/module/sqlserver)
 |[Invoke-ProcessPartition](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processpartition)|Bearbeta en partition.| 
 |[Invoke-ProcessTable](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processtable)|Bearbetar en tabell.|  
 |[Sammanslagning-partition](https://docs.microsoft.com/powershell/module/sqlserver/merge-partition)|Sammanfoga en partition.|  
-|[Restore-Database](https://docs.microsoft.com/powershell/module/sqlserver/restore-asdatabase)|Återställa en Analysis Services databas.| 
+|[Restore-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/restore-asdatabase)|Återställa en Analysis Services databas.| 
   
 
 ## <a name="related-information"></a>Relaterad information

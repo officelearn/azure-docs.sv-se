@@ -41,14 +41,14 @@ Om du väljer **publicera** visas en popup-meny och du kan ange **mål profilen*
 
 ![Publicera ett Service Fabric program][image2]
 
-Nu kan du klicka på **publicera** i dialog rutan. Du kan använda [Service Fabric Explorer för att Visa klustret och programmet](service-fabric-visualizing-your-cluster.md). Programmet för visuella objekt har en webb tjänst som du kan gå till genom att skriva [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/) i webbläsarens Adress fält.  Du bör se 10 flytande visuella objekt som flyttas runt på skärmen.
+Nu kan du klicka på **publicera** i dialog rutan. Du kan använda [Service Fabric Explorer för att Visa klustret och programmet](service-fabric-visualizing-your-cluster.md). Programmet för visuella objekt har en webb tjänst som du kan gå till genom att skriva [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/) i adress fältet i webbläsaren.  Du bör se 10 flytande visuella objekt som flyttas runt på skärmen.
 
-**Obs:** Om du distribuerar till `Cloud.xml`-profil (Azure Service Fabric) bör programmet vara tillgängligt på **http://{ServiceFabricName}. { Region}. cloudapp. Azure. com: 8081/visualobjects/** . Kontrol lera att du har `8081/TCP` konfigurerat i Load Balancer (hitta Load Balancer i samma resurs grupp som Service Fabric-instansen).
+**Obs:** Om du distribuerar till `Cloud.xml` profil (Azure Service Fabric) bör programmet vara tillgängligt på **http://{ServiceFabricName}. { Region}. cloudapp. Azure. com: 8081/visualobjects/** . Kontrol lera att du har `8081/TCP` konfigurerat i Load Balancer (hitta Load Balancer i samma resurs grupp som Service Fabric-instansen).
 
 ## <a name="step-2-update-the-visual-objects-sample"></a>Steg 2: uppdatera det visuella objekt exemplet
 Du kanske märker att de visuella objekten inte roterar med den version som distribuerades i steg 1. Vi ska uppgradera det här programmet till ett ställe där de visuella objekten också roterar.
 
-Välj VisualObjects. ActorService-projektet i VisualObjects-lösningen och öppna **VisualObjectActor.cs** -filen. I den filen går du till metoden `MoveObject`, kommentera ut `visualObject.Move(false)` och ta bort kommentar @no__t 2. Den här kod ändringen roterar objekten när tjänsten har uppgraderats.  **Nu kan du bygga (inte återskapa) lösningen**, som bygger de ändrade projekten. Om du väljer *återskapa alla*måste du uppdatera versionerna för alla projekt.
+Välj VisualObjects. ActorService-projektet i VisualObjects-lösningen och öppna **VisualObjectActor.cs** -filen. I den filen går du till metoden `MoveObject`, kommentera ut `visualObject.Move(false)`och ta bort kommentaren `visualObject.Move(true)`. Den här kod ändringen roterar objekten när tjänsten har uppgraderats.  **Nu kan du bygga (inte återskapa) lösningen**, som bygger de ändrade projekten. Om du väljer *återskapa alla*måste du uppdatera versionerna för alla projekt.
 
 Vi behöver också version av programmet. Om du vill göra versionen ändringar när du högerklickar på **VisualObjects** -projektet kan du använda alternativet Visual Studio **Edit manifest versions** . Om du väljer det här alternativet visas dialog rutan för versions versioner på följande sätt:
 

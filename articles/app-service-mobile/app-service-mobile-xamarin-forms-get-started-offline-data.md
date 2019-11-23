@@ -27,7 +27,7 @@ ms.locfileid: "72388431"
 > [!NOTE]
 > Visual Studio App Center stöder utveckling av slutpunkt till slutpunkt-tjänster och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda tjänsterna för att **bygga**, **testa** och **distribuera** för att skapa en pipeline för kontinuerlig integrering och leverans. När appen har distribuerats kan utvecklarna övervaka status och användning av appen med hjälp av tjänsterna **Analys** och **Diagnostik**, och kommunicera med användarna via **Push**-tjänsten. Utvecklare kan också dra nytta av **Auth** för att autentisera sina användare och tjänsten **Data** för att spara och synkronisera appdata i molnet.
 >
-> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
+> Om du vill integrera molntjänster i ditt mobilprogram kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) i dag.
 
 ## <a name="overview"></a>Översikt
 I den här självstudien beskrivs funktionen offline-synkronisering i Azure Mobile Apps för Xamarin. Forms. Offline-synkronisering ger slutanvändare möjlighet att interagera med en mobilapp – Visa, lägga till eller ändra data, även när det inte finns någon nätverks anslutning. Ändringarna lagras i en lokal databas. När enheten är online igen synkroniseras dessa ändringar med fjärrtjänsten.
@@ -37,7 +37,7 @@ Den här självstudien baseras på Xamarin. Forms snabb starts lösning för Mob
 Mer information om funktionen offline-synkronisering finns i avsnittet [data synkronisering offline i Azure Mobile Apps][2].
 
 ## <a name="enable-offline-sync-functionality-in-the-quickstart-solution"></a>Aktivera funktionen offline-synkronisering i snabb starts lösningen
-Koden för offline-synkronisering ingår i projektet med hjälp av C# Preprocessor-direktiv. När du har definierat symbolen **offline @ no__t-1SYNC @ no__t-2ENABLED** inkluderas dessa kod Sök vägar i versionen. För Windows-appar måste du även installera SQLite-plattformen.
+Koden för offline-synkronisering ingår i projektet med hjälp av C# Preprocessor-direktiv. Om den **\_aktive rad symbolen OFFLINE\_Sync** är definierad, ingår dessa kod Sök vägar i versionen. För Windows-appar måste du även installera SQLite-plattformen.
 
 1. I Visual Studio högerklickar du på lösningen > **Hantera NuGet-paket för lösningen...** och söker efter och installerar paketet **Microsoft. Azure. Mobile. client. SQLiteStore** NuGet för alla projekt i lösningen.
 2. Öppna TodoItemManager.cs-filen från projektet med **portabel** i namnet, som är ett biblioteks projekt för portabel klass, och ta sedan bort kommentaren till följande Preprocessor-direktiv: Solution Explorer
@@ -50,12 +50,12 @@ Koden för offline-synkronisering ingår i projektet med hjälp av C# Preprocess
    * **Universell Windows-plattform** Installera [sqlite för Universal Windows Universal][5].
 
      Även om snabb starten inte innehåller ett universellt Windows-projekt, stöds den universella Windows-plattformen med Xamarin-formulär.
-4. Valfritt I varje Windows-appaket högerklickar du på **referenser** > **Lägg till referens...** , expandera **Windows** -mappen > **tillägg**.
+4. Valfritt I varje Windows-app-projekt högerklickar du på **referenser** > **Lägg till referens...** , expandera **Windows** -mappen > **tillägg**.
     Aktivera rätt **sqlite för Windows** SDK tillsammans med  **C++ Visual 2013-körningen för Windows** SDK.
     SQLite SDK-namnen skiljer sig något med varje Windows-plattform.
 
 ## <a name="review-the-client-sync-code"></a>Granska koden för klientens synkronisering
-Här är en kort översikt över vad som redan ingår i själv studie kursen i `#if OFFLINE_SYNC_ENABLED`-direktiv. Funktionen offline-synkronisering finns i TodoItemManager.cs-projekt filen i biblioteks projekt för portabel klass. En översikt över funktionen finns i [data synkronisering offline i Azure Mobile Apps][2].
+Här är en kort översikt över vad som redan ingår i själv studie kursen i `#if OFFLINE_SYNC_ENABLED` direktiv. Funktionen offline-synkronisering finns i TodoItemManager.cs-projekt filen i biblioteks projekt för portabel klass. En översikt över funktionen finns i [data synkronisering offline i Azure Mobile Apps][2].
 
 * Innan alla tabell åtgärder kan utföras måste det lokala arkivet initieras. Den lokala lagrings databasen initieras i **TodoItemManager** -klassens konstruktor med hjälp av följande kod:
 
@@ -149,7 +149,7 @@ I det här avsnittet ändrar du klient projektet för att simulera ett offline-s
 ## <a name="update-the-client-app-to-reconnect-your-mobile-backend"></a>Uppdatera klient programmet för att återansluta din mobil Server del
 I det här avsnittet ansluter du appen till mobil Server delen, som simulerar att appen kommer tillbaka till ett online-tillstånd. När du utför uppdaterings gesten synkroniseras data till din mobil Server del.
 
-1. Öppna Constants.cs igen. Korrigera `applicationURL` om du vill peka på rätt URL.
+1. Öppna Constants.cs igen. Korrigera `applicationURL` så att den pekar på rätt URL.
 2. Återskapa och kör klient programmet. Appen försöker synkronisera med Server delen för mobilappar när den har startats. Kontrol lera att inga undantag loggas i fel söknings konsolen.
 3. Valfritt Visa uppdaterade data med antingen SQL Server Object Explorer eller ett REST-verktyg som Fiddler eller [Postman][6]. Observera att data har synkroniserats mellan server dels databasen och det lokala arkivet.
 

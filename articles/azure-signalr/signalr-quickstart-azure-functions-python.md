@@ -14,11 +14,11 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 10/01/2019
 ms.locfileid: "71709501"
 ---
-# <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-python"></a>Snabbstart: Skapa ett chattrum med Azure Functions-och SignalR-tjänsten med python
+# <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-python"></a>Snabb start: skapa ett chattrum med Azure Functions-och SignalR-tjänsten med python
 
 Med Azure SignalR Service kan du enkelt lägga till realtidsfunktioner i ditt program. Azure Functions är en serverlös plattform som gör att du kan köra din kod utan att behöva hantera någon infrastruktur. I den här snabbstarten lär du dig hur du använder SignalR Service och Functions för att skapa ett serverlöst realtidschattprogram.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här snabbstarten kan köras på macOS, Windows eller Linux.
 
@@ -74,7 +74,7 @@ Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto
 
 1. I **local.settings.json** klistrar du in anslutningssträngen i värdet för inställningen **AzureSignalRConnectionString**. Spara filen.
 
-1. Python-funktioner ordnas i mappar. I varje mapp finns två filer: *Function. JSON* definierar de bindningar som används i funktionen och *\_ @ no__t-3init @ no__t-4\_.py* är bröd texten i funktionen. Det finns två HTTP-utlösta funktioner i den här funktionsappen:
+1. Python-funktioner ordnas i mappar. I varje mapp finns två filer: *Function. JSON* definierar de bindningar som används i funktionen och *\_\_init\_\_. py* är bröd texten i funktionen. Det finns två HTTP-utlösta funktioner i den här funktionsappen:
 
     - **negotiate** (förhandla) – använder indatabindningen *SignalRConnectionInfo* för att skapa och returnera giltig anslutningsinformation.
     - **messages** (meddelanden) – tar emot ett chattmeddelande i begärandetexten och använder utdatabindningen *SignalR* för att skicka meddelandet till alla anslutna klientprogram.

@@ -65,7 +65,7 @@ I vyn `sys.sql_feature_restrictions` visas alla nyligen definierade funktions be
 
 | Kolumn namn | Datatyp | Beskrivning |
 |-------------|-----------|-------------|
-| Lektion       | nvarchar (128) | Objekt klass som begränsningen gäller |
+| Klass       | nvarchar (128) | Objekt klass som begränsningen gäller |
 | objekt      | nvarchar (256) | Namn på objektet som begränsningen gäller |
 | zoomfunktionen     | nvarchar (128) | Funktion som är begränsad |
 

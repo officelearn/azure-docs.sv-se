@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Avvikelseidentifiering på strömmade data med hjälp av Azure Databricks'
+title: 'Självstudie: avvikelse identifiering vid strömmande data med Azure Databricks'
 titleSuffix: Azure Cognitive Services
 description: 'Använd API: t för avvikelse detektor och Azure Databricks för att övervaka avvikelser i dina data.'
 titlesuffix: Azure Cognitive Services
@@ -18,7 +18,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 10/03/2019
 ms.locfileid: "71837755"
 ---
-# <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Självstudier: Avvikelseidentifiering på strömmade data med hjälp av Azure Databricks
+# <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Självstudie: avvikelse identifiering vid strömmande data med Azure Databricks
 
 [Azure Databricks](https://azure.microsoft.com/services/databricks/) är en snabb, enkel och gemensam Apache Spark-baserad analys tjänst. API: t för avvikelse detektor, som ingår i Azure Cognitive Services, ger ett sätt att övervaka dina tids serie data. Använd den här självstudien för att köra avvikelse identifiering på en data ström i nära real tid med hjälp av Azure Databricks. Du tar in Twitter-data med Azure Event Hubs och importerar dem till Azure Databricks med hjälp av Spark Event Hubs-anslutningen. Sedan använder du API: et för att identifiera avvikelser på strömmade data. 
 
@@ -47,7 +47,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 > [!Note]
 > Den här självstudien kan inte utföras med en kostnads fri utvärderings nyckel för API: t för avvikelse identifiering. Om du vill använda ett kostnadsfritt konto för att skapa Azure Databricks-klustret ska du innan du skapar klustret gå till din profil och ändra prenumerationen till **betala per användning**. Mer information finns i [Kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett [Azure Event Hubs-namnområde](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) och händelsehubben.
 
@@ -63,7 +63,7 @@ Information om hur du skapar ett namn område och händelsehubben finns i [snabb
 
 I det här avsnittet skapar du en Azure Databricks-arbetsyta med hjälp av [Azure Portal](https://portal.azure.com/).
 
-1. Välj **Skapa en resurs** > **Analys** > **Azure Databricks** i Azure-portalen.
+1. Välj **Skapa en resurs** > **Analys** > **Azure Databricks** i Azure Portal.
 
     ![Databricks på Azure-portalen](../media/tutorials/azure-databricks-on-portal.png "Databricks på Azure-portalen")
 
@@ -75,7 +75,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med hjälp av [Azur
     |**Namn på arbetsyta**     | Ange ett namn för Databricks-arbetsytan        |
     |**Prenumeration**     | I listrutan väljer du din Azure-prenumeration.        |
     |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../../../azure-resource-manager/resource-group-overview.md). |
-    |**Location**     | Välj **USA, östra 2** eller någon annan tillgänglig region. Se [vilka Azure-tjänster som är tillgängliga](https://azure.microsoft.com/regions/services/) för regions tillgänglighet.        |
+    |**Plats**     | Välj **USA, östra 2** eller någon annan tillgänglig region. Se [vilka Azure-tjänster som är tillgängliga](https://azure.microsoft.com/regions/services/) för regions tillgänglighet.        |
     |**Prisnivå**     |  Välj mellan **Standard** och **Premium**. Välj inte **utvärderings version**. Mer information om de här nivåerna finns på [prissättningssidan för Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
     Välj **Skapa**.
@@ -98,7 +98,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med hjälp av [Azur
 
    * Ange ett namn för klustret.
    * I den här artikeln skapar du ett kluster med **5,2** Runtime. Välj inte **5,3** Runtime.
-   * Kontrol lera att kryss rutan **Avsluta efter \_ @ no__t-2 minuter av inaktivitet** är markerad. Ange en varaktighet (i minuter) för att avsluta klustret om klustret inte används.
+   * Kontrol lera att kryss rutan **Avsluta efter \_\_ minuter av inaktivitet** är markerad. Ange en varaktighet (i minuter) för att avsluta klustret om klustret inte används.
 
      Välj **Skapa kluster**. 
 4. Det tar flera minuter att skapa klustret. När klustret körs kan du ansluta anteckningsböcker till klustret och köra Spark-jobb.
@@ -153,23 +153,23 @@ På sidan bibliotek väljer du det kluster där du vill använda biblioteket och
 
 I den här självstudien använder du [Azure Cognitive Services avvikelse igenkännings-API: er](../overview.md) för att köra avvikelse identifiering på en ström av tweets i nära real tid. Innan du använder API: erna måste du skapa en avvikelse identifierings resurs på Azure och hämta en åtkomst nyckel för att använda API: erna för avvikelse detektor.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 2. Välj **+ Skapa en resurs**.
 
-3. Under Azure Marketplace väljer du **AI + Machine Learning** > **Se alla** > **Cognitive Services-mer** > **avvikelse detektor**. Eller så kan du använda [den här länken](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) för att gå till dialog rutan **skapa** direkt.
+3. Under Azure Marketplace väljer du **AI + Machine Learning** > **se alla** > **Cognitive Services – mer** > **avvikelse detektor**. Eller så kan du använda [den här länken](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) för att gå till dialog rutan **skapa** direkt.
 
     ![Skapa avvikelse detektor resurs](../media/tutorials/databricks-cognitive-services-anomaly-detector.png "skapa avvikelse detektor resurs")
 
 4. I dialogrutan **Skapa** anger du följande värden:
 
-    |Value |Beskrivning  |
+    |Värde |Beskrivning  |
     |---------|---------|
-    |Name     | Ett namn för avvikelse detektor resursen.        |
-    |Subscription     | Den Azure-prenumeration som resursen ska associeras med.        |
-    |Location     | En Azure-plats.        |
+    |Namn     | Ett namn för avvikelse detektor resursen.        |
+    |Prenumeration     | Den Azure-prenumeration som resursen ska associeras med.        |
+    |Plats     | En Azure-plats.        |
     |Prisnivå     | En pris nivå för tjänsten. Mer information om priser för avvikelse detektor finns på [sidan med priser](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/).        |
-    |Resource group     | Ange om du vill skapa en ny resursgrupp eller välja en befintlig.        |
+    |Resursgrupp     | Ange om du vill skapa en ny resursgrupp eller välja en befintlig.        |
 
 
      Välj **Skapa**.
@@ -544,7 +544,7 @@ display(msgStream)
 Utdata liknar nu följande bild. Observera att datumet i tabellen kan skilja sig från datumet i den här självstudien eftersom data är i real tid.
 ![Läs in data från]Event Hub-(../media/tutorials/load-data-from-eventhub.png "inläsnings data från händelsehubben")
 
-Nu har du strömmat data från Azure Event Hubs till Azure Databricks nästan i realtid med hjälp av Event Hubs-anslutningsappen för Apache Spark. Mer information om hur du använder Event Hubs-anslutningsprogrammet för Apache Spark finns i [dokumentationen till anslutningsprogrammet](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs).
+Nu har du strömmat data från Azure Event Hubs till Azure Databricks nästan i realtid med hjälp av Event Hubs-anslutningsappen för Apache Spark. Mer information om hur du använder Event Hubs-kopplingen för Apache Spark finns i [kopplingsdokumentationen](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs).
 
 
 
@@ -682,7 +682,7 @@ När du är klar med självstudien kan du avsluta klustret. Det gör du genom at
 
 ![Stoppa ett Databricks-kluster](../media/tutorials/terminate-databricks-cluster.png "Stoppa ett Databricks-kluster")
 
-Om du inte avslutar klustret manuellt stoppas det automatiskt, förutsatt att du har markerat kryss rutan **Avsluta efter \_ @ no__t-2 minuter av inaktivitet** när klustret skapades. I dessa fall stoppas klustret automatiskt om det har varit inaktivt under den angivna tiden.
+Om du inte avslutar klustret manuellt stoppas det automatiskt, förutsatt att du har markerat kryss rutan **Avsluta efter \_\_ minuter av inaktivitet** när klustret skapades. I sådana fall stoppas klustret automatiskt om det har varit inaktivt under den angivna tiden.
 
 ## <a name="next-steps"></a>Nästa steg
 

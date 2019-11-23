@@ -48,7 +48,7 @@ Den här funktionen utför följande åtgärder:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
 
-Om du behöver skicka namnet på den skapade ingångs till gången till andra metoder, se till att använda egenskapen `Name` på objektet till gångs objekt som returnerades från `CreateInputAssetAsync`, till exempel inputAsset.Name. 
+Om du behöver skicka namnet på den skapade indatamängden till andra metoder ska du se till att använda egenskapen `Name` på objektet till gångs objekt som returnerades från `CreateInputAssetAsync`, till exempel inputAsset.Name. 
 
 ## <a name="create-an-output-asset-to-store-the-result-of-the-encoding-job"></a>Skapa en utgående till gång för att lagra resultatet av kodnings jobbet
 
@@ -56,9 +56,9 @@ Om du behöver skicka namnet på den skapade ingångs till gången till andra me
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAsset)]
 
-Om du behöver skicka namnet på den skapade utmatnings till gången till andra metoder, se till att använda egenskapen `Name` på objektet till gångs objekt som returnerades från `CreateIOutputAssetAsync`, till exempel outputAsset.Name. 
+Om du behöver skicka namnet på den skapade till gången till andra metoder ska du se till att använda egenskapen `Name` på objektet till gångs objekt som returnerades från `CreateIOutputAssetAsync`, till exempel outputAsset.Name. 
 
-När det gäller den här artikeln skickar du värdet `outputAsset.Name` till funktionerna `SubmitJobAsync` och @no__t 2.
+När det gäller den här artikeln skickar du `outputAsset.Name` värde till `SubmitJobAsync` och `UploadAudioIntoOutputAsset` funktioner.
 
 ## <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>Skapa en transformering och ett jobb som kodar den överförda filen
 
@@ -142,7 +142,7 @@ När ditt kodnings jobb är färdigt innehåller utmatnings till gången de file
 1. Leta upp. ISM-filen i behållaren och klicka på **Redigera BLOB** (i det högra fönstret). 
 1. Redigera. ISM-filen genom att lägga till information om den överförda MP4-filen (AAC-codec) som innehåller beskrivande ljud och trycka på **Spara** när du är färdig.
 
-    För att signalera de beskrivande ljud spåren måste du lägga till parametrarna "hjälpmedel" och "roll" i. ISM-filen. Det är ditt ansvar att ange dessa parametrar korrekt för att signalera ljud spår som ljud beskrivning. Du kan till exempel lägga till `<param name="accessibility" value="description" />` och `<param name="role" value="alternate" />` till. ISM-filen för ett särskilt ljud spår, som du ser i följande exempel.
+    För att signalera de beskrivande ljud spåren måste du lägga till parametrarna "hjälpmedel" och "roll" i. ISM-filen. Det är ditt ansvar att ange dessa parametrar korrekt för att signalera ljud spår som ljud beskrivning. Lägg till exempel till `<param name="accessibility" value="description" />` och `<param name="role" value="alternate" />` till. ISM-filen för ett särskilt ljud spår, som du ser i följande exempel.
  
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

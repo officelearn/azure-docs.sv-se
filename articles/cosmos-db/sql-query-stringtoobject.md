@@ -56,7 +56,7 @@ Här är resultatuppsättningen.
 ```
 
  Följande är exempel på ogiltiga indatatyper.
-Även om de är giltiga i en fråga, kommer de inte att parsas till giltiga objekt. Strängar inom en objekt sträng måste antingen föregås av "{\\" a @ no__t-1 ": \\" Str @ no__t-3 "}" eller det omgivande citatet måste vara Single {"a": "Str"}.
+Även om de är giltiga i en fråga, kommer de inte att parsas till giltiga objekt. Strängar i objekt strängen måste antingen föregås av "{\\" a\\":\\" Str\\"}" eller det omgivande citatet måste vara Single {"a": "Str"}.
 
 Enkla citat tecken som omger egenskaps namnen är inte giltiga JSON.
 

@@ -68,9 +68,9 @@ Tillstånds känsliga mikrotjänster fören klar programdesignerna eftersom de t
 
 Följande diagram illustrerar skillnaderna mellan att utforma ett program som är tillstånds löst och ett tillstånds känsligt. Genom att dra nytta av [Reliable Services](service-fabric-reliable-services-introduction.md) och [Reliable Actors](service-fabric-reliable-actors-introduction.md) programmerings modeller, minskar tillstånds känsliga tjänster program komplexiteten och ger stora data flöden och låg latens.
 
-Här är ett exempel program som använder tillstånds lösa tjänster: ![Application som använder tillstånds lösa tjänster @ no__t-1
+Här är ett exempel program som använder tillstånds lösa tjänster: ![program som använder tillstånds lösa tjänster][Image1]
 
-Här är ett exempel program som använder tillstånds känsliga tjänster: ![Application som använder tillstånds känsliga tjänster @ no__t-1
+Här är ett exempel program som använder tillstånds känsliga tjänster: ![program som använder tillstånds känsliga tjänster][Image2]
 
 ## <a name="next-steps"></a>Nästa steg
 

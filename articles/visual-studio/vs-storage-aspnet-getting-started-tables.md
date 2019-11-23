@@ -71,7 +71,7 @@ Många av exemplen i den här artikeln använder en **TableEntity**-härledd kla
 
 1. I dialog rutan **Lägg till nytt objekt** namnger du klassen **CustomerEntity**.
 
-1. Öppna filen `CustomerEntity.cs` och Lägg till följande **med hjälp av** direktivet:
+1. Öppna `CustomerEntity.cs`-filen och Lägg till följande **med hjälp av** direktivet:
 
     ```csharp
     using Microsoft.WindowsAzure.Storage.Table;
@@ -115,7 +115,7 @@ Följande steg visar hur du skapar en tabell:
     }
     ```
 
-1. I **createTable** -metoden hämtar du ett **CloudStorageAccount** -objekt som representerar lagrings konto informationen. Använd följande kod för att hämta lagrings anslutnings strängen och lagrings konto informationen från Azure-tjänst konfigurationen: (ändra *&lt;storage-Account-name >* till namnet på det Azure Storage-konto som du använder.)
+1. I **createTable** -metoden hämtar du ett **CloudStorageAccount** -objekt som representerar lagrings konto informationen. Använd följande kod för att hämta lagrings anslutnings strängen och lagrings konto informationen från Azure-tjänst konfigurationen: (ändra *&lt;lagrings konto namn >* till namnet på det Azure Storage-konto som du använder.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -150,7 +150,7 @@ Följande steg visar hur du skapar en tabell:
 
 1. I dialog rutan **Lägg till vy** anger du **createTable** som namn på vyn och väljer **Lägg till**.
 
-1. Öppna `CreateTable.cshtml` och ändra det så att det ser ut som i följande kodfragment:
+1. Öppna `CreateTable.cshtml`och ändra det så att det ser ut som i följande kodfragment:
 
     ```csharp
     @{
@@ -162,7 +162,7 @@ Följande steg visar hur du skapar en tabell:
     Creation of @ViewBag.TableName @(ViewBag.Success == true ? "succeeded" : "failed")
     ```
 
-1. Expandera mappen **vyer-> delad** i **Solution Explorer**och öppna `_Layout.cshtml`.
+1. I **Solution Explorer**, expanderar du vyn **vyer-> delad** och öppnar `_Layout.cshtml`.
 
 1. Efter den sista **HTML. ActionLink**lägger du till följande **HTML. ActionLink**:
 
@@ -178,7 +178,7 @@ Följande steg visar hur du skapar en tabell:
 
 ## <a name="add-an-entity-to-a-table"></a>Lägga till en entitet i en tabell
 
-*Entiteter* mappar till C @ no__t-1-objekt med hjälp av en anpassad klass som härletts från **TableEntity**. Om du vill lägga till en entitet i en tabell skapar du en klass som definierar egenskaperna för entiteten. I det här avsnittet får du se hur du definierar en entitets klass som använder kundens förnamn som rad nyckel och efter namn som partitionsnyckel. Tillsammans identifierar en entitets partition och radnyckel entiteten i tabellen unikt. Det går snabbare att fråga entiteter med samma partitionsnyckel än entiteter som har olika partitionsnycklar, men skalbarheten och möjligheten att utföra parallella åtgärder är större med olika partitionsnycklar. För alla egenskaper som ska lagras i tabell tjänsten måste egenskapen vara en offentlig egenskap för en typ som stöds och som visar både inställnings-och hämtnings värden.
+*Entiteter* mappar till C\# objekt genom att använda en anpassad klass som härletts från **TableEntity**. Om du vill lägga till en entitet i en tabell skapar du en klass som definierar egenskaperna för entiteten. I det här avsnittet får du se hur du definierar en entitets klass som använder kundens förnamn som rad nyckel och efter namn som partitionsnyckel. Tillsammans identifierar en entitets partition och radnyckel entiteten i tabellen unikt. Det går snabbare att fråga entiteter med samma partitionsnyckel än entiteter som har olika partitionsnycklar, men skalbarheten och möjligheten att utföra parallella åtgärder är större med olika partitionsnycklar. För alla egenskaper som ska lagras i tabell tjänsten måste egenskapen vara en offentlig egenskap för en typ som stöds och som visar både inställnings-och hämtnings värden.
 Enhets klassen *måste* deklarera en offentlig parameter-mindre konstruktor.
 
 > [!NOTE]
@@ -204,7 +204,7 @@ Enhets klassen *måste* deklarera en offentlig parameter-mindre konstruktor.
     }
     ```
 
-1. I **AddEntity** -metoden hämtar du ett **CloudStorageAccount** -objekt som representerar lagrings konto informationen. Använd följande kod för att hämta lagrings anslutnings strängen och lagrings konto informationen från Azure-tjänst konfigurationen: (ändra *&lt;storage-Account-name >* till namnet på det Azure Storage-konto som du använder.)
+1. I **AddEntity** -metoden hämtar du ett **CloudStorageAccount** -objekt som representerar lagrings konto informationen. Använd följande kod för att hämta lagrings anslutnings strängen och lagrings konto informationen från Azure-tjänst konfigurationen: (ändra *&lt;lagrings konto namn >* till namnet på det Azure Storage-konto som du använder.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -253,7 +253,7 @@ Enhets klassen *måste* deklarera en offentlig parameter-mindre konstruktor.
 
 1. I dialog rutan **Lägg till vy** anger du **AddEntity** som namn på vyn och väljer **Lägg till**.
 
-1. Öppna `AddEntity.cshtml` och ändra det så att det ser ut som i följande kodfragment:
+1. Öppna `AddEntity.cshtml`och ändra det så att det ser ut som i följande kodfragment:
 
     ```csharp
     @{
@@ -264,7 +264,7 @@ Enhets klassen *måste* deklarera en offentlig parameter-mindre konstruktor.
 
     Insert of entity into @ViewBag.TableName @(ViewBag.Result == 204 ? "succeeded" : "failed")
     ```
-1. Expandera mappen **vyer-> delad** i **Solution Explorer**och öppna `_Layout.cshtml`.
+1. I **Solution Explorer**, expanderar du vyn **vyer-> delad** och öppnar `_Layout.cshtml`.
 
 1. Efter den sista **HTML. ActionLink**lägger du till följande **HTML. ActionLink**:
 
@@ -299,7 +299,7 @@ Förutom att kunna [lägga till en entitet i en tabell i taget](#add-an-entity-t
     }
     ```
 
-1. I **AddEntities** -metoden hämtar du ett **CloudStorageAccount** -objekt som representerar lagrings konto informationen. Använd följande kod för att hämta lagrings anslutnings strängen och lagrings konto informationen från Azure-tjänst konfigurationen: (ändra *&lt;storage-Account-name >* till namnet på det Azure Storage-konto som du använder.)
+1. I **AddEntities** -metoden hämtar du ett **CloudStorageAccount** -objekt som representerar lagrings konto informationen. Använd följande kod för att hämta lagrings anslutnings strängen och lagrings konto informationen från Azure-tjänst konfigurationen: (ändra *&lt;lagrings konto namn >* till namnet på det Azure Storage-konto som du använder.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -357,7 +357,7 @@ Förutom att kunna [lägga till en entitet i en tabell i taget](#add-an-entity-t
 
 1. I dialog rutan **Lägg till vy** anger du **AddEntities** som namn på vyn och väljer **Lägg till**.
 
-1. Öppna `AddEntities.cshtml` och ändra det så att det ser ut ungefär så här.
+1. Öppna `AddEntities.cshtml`och ändra det så att det ser ut ungefär så här.
 
     ```csharp
     @model IEnumerable<Microsoft.WindowsAzure.Storage.Table.TableResult>
@@ -384,7 +384,7 @@ Förutom att kunna [lägga till en entitet i en tabell i taget](#add-an-entity-t
     </table>
     ```
 
-1. Expandera mappen **vyer-> delad** i **Solution Explorer**och öppna `_Layout.cshtml`.
+1. I **Solution Explorer**, expanderar du vyn **vyer-> delad** och öppnar `_Layout.cshtml`.
 
 1. Efter den sista **HTML. ActionLink**lägger du till följande **HTML. ActionLink**:
 
@@ -419,7 +419,7 @@ I det här avsnittet beskrivs hur du hämtar en enskild entitet från en tabell 
     }
     ```
 
-1. I **GetSingle** -metoden hämtar du ett **CloudStorageAccount** -objekt som representerar lagrings konto informationen. Använd följande kod för att hämta lagrings anslutnings strängen och lagrings konto informationen från Azure-tjänst konfigurationen: (ändra *&lt;storage-Account-name >* till namnet på det Azure Storage-konto som du använder.)
+1. I **GetSingle** -metoden hämtar du ett **CloudStorageAccount** -objekt som representerar lagrings konto informationen. Använd följande kod för att hämta lagrings anslutnings strängen och lagrings konto informationen från Azure-tjänst konfigurationen: (ändra *&lt;lagrings konto namn >* till namnet på det Azure Storage-konto som du använder.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -438,7 +438,7 @@ I det här avsnittet beskrivs hur du hämtar en enskild entitet från en tabell 
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. Skapa ett Hämta åtgärds objekt som tar ett enhetsobjektet härlett från **TableEntity**. Den första parametern är *partitionKey*och den andra parametern är *rowKey*. Om du använder klassen **CustomerEntity** och data som visas i avsnittet [Lägg till en batch med entiteter i en tabell](#add-a-batch-of-entities-to-a-table), så frågar följande kodfragment tabellen för en **CustomerEntity** -entitet med *partitionKey* -värdet "Smith" och a  *rowKey* värde för "ben":
+1. Skapa ett Hämta åtgärds objekt som tar ett enhetsobjektet härlett från **TableEntity**. Den första parametern är *partitionKey*och den andra parametern är *rowKey*. Om du använder klassen **CustomerEntity** och data som visas i avsnittet [Lägg till en batch med entiteter i en tabell](#add-a-batch-of-entities-to-a-table), så frågar följande kodfragment tabellen för en **CustomerEntity** -entitet med *PartitionKey* -värdet "Svensson" och *rowKey* värdet "ben":
 
     ```csharp
     TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
@@ -460,7 +460,7 @@ I det här avsnittet beskrivs hur du hämtar en enskild entitet från en tabell 
 
 1. I dialog rutan **Lägg till vy** anger du **GetSingle** som namn på vyn och väljer **Lägg till**.
 
-1. Öppna `GetSingle.cshtml` och ändra det så att det ser ut som i följande kodfragment:
+1. Öppna `GetSingle.cshtml`och ändra det så att det ser ut som i följande kodfragment:
 
     ```csharp
     @model Microsoft.WindowsAzure.Storage.Table.TableResult
@@ -486,7 +486,7 @@ I det här avsnittet beskrivs hur du hämtar en enskild entitet från en tabell 
     </table>
     ```
 
-1. Expandera mappen **vyer-> delad** i **Solution Explorer**och öppna `_Layout.cshtml`.
+1. I **Solution Explorer**, expanderar du vyn **vyer-> delad** och öppnar `_Layout.cshtml`.
 
 1. Efter den sista **HTML. ActionLink**lägger du till följande **HTML. ActionLink**:
 
@@ -519,7 +519,7 @@ Som anges i avsnittet [lägga till en entitet i en tabell](#add-an-entity-to-a-t
     }
     ```
 
-1. I **GetPartition** -metoden hämtar du ett **CloudStorageAccount** -objekt som representerar lagrings konto informationen. Använd följande kod för att hämta lagrings anslutnings strängen och lagrings konto informationen från Azure-tjänst konfigurationen: (ändra *&lt;storage-Account-name >* till namnet på det Azure Storage-konto som du använder.)
+1. I **GetPartition** -metoden hämtar du ett **CloudStorageAccount** -objekt som representerar lagrings konto informationen. Använd följande kod för att hämta lagrings anslutnings strängen och lagrings konto informationen från Azure-tjänst konfigurationen: (ändra *&lt;lagrings konto namn >* till namnet på det Azure Storage-konto som du använder.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -569,7 +569,7 @@ Som anges i avsnittet [lägga till en entitet i en tabell](#add-an-entity-to-a-t
 
 1. I dialog rutan **Lägg till vy** anger du **GetPartition** som namn på vyn och väljer **Lägg till**.
 
-1. Öppna `GetPartition.cshtml` och ändra det så att det ser ut som i följande kodfragment:
+1. Öppna `GetPartition.cshtml`och ändra det så att det ser ut som i följande kodfragment:
 
     ```csharp
     @model IEnumerable<StorageAspnet.Models.CustomerEntity>
@@ -596,7 +596,7 @@ Som anges i avsnittet [lägga till en entitet i en tabell](#add-an-entity-to-a-t
     </table>
     ```
 
-1. Expandera mappen **vyer-> delad** i **Solution Explorer**och öppna `_Layout.cshtml`.
+1. I **Solution Explorer**, expanderar du vyn **vyer-> delad** och öppnar `_Layout.cshtml`.
 
 1. Efter den sista **HTML. ActionLink**lägger du till följande **HTML. ActionLink**:
 
@@ -629,7 +629,7 @@ I det här avsnittet beskrivs hur du tar bort en entitet från en tabell.
     }
     ```
 
-1. I **DeleteEntity** -metoden hämtar du ett **CloudStorageAccount** -objekt som representerar lagrings konto informationen. Använd följande kod för att hämta lagrings anslutnings strängen och lagrings konto informationen från Azure-tjänst konfigurationen: (ändra *&lt;storage-Account-name >* till namnet på det Azure Storage-konto som du använder.)
+1. I **DeleteEntity** -metoden hämtar du ett **CloudStorageAccount** -objekt som representerar lagrings konto informationen. Använd följande kod för att hämta lagrings anslutnings strängen och lagrings konto informationen från Azure-tjänst konfigurationen: (ändra *&lt;lagrings konto namn >* till namnet på det Azure Storage-konto som du använder.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -671,7 +671,7 @@ I det här avsnittet beskrivs hur du tar bort en entitet från en tabell.
 
 1. I dialog rutan **Lägg till vy** anger du **DeleteEntity** som namn på vyn och väljer **Lägg till**.
 
-1. Öppna `DeleteEntity.cshtml` och ändra det så att det ser ut som i följande kodfragment:
+1. Öppna `DeleteEntity.cshtml`och ändra det så att det ser ut som i följande kodfragment:
 
     ```csharp
     @model Microsoft.WindowsAzure.Storage.Table.TableResult
@@ -696,7 +696,7 @@ I det här avsnittet beskrivs hur du tar bort en entitet från en tabell.
 
     ```
 
-1. Expandera mappen **vyer-> delad** i **Solution Explorer**och öppna `_Layout.cshtml`.
+1. I **Solution Explorer**, expanderar du vyn **vyer-> delad** och öppnar `_Layout.cshtml`.
 
 1. Efter den sista **HTML. ActionLink**lägger du till följande **HTML. ActionLink**:
 

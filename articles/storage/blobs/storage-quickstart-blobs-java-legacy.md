@@ -27,7 +27,7 @@ Använd Azures Blob Storage klient bibliotek för Java för att:
 * Lista alla blobar i en behållare
 * Ta bort en container
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Azure Storage konto – [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
@@ -87,7 +87,7 @@ Deleting the source, and downloaded files
 Kontrollera att exempelfilen finns i standardkatalogen (*C:\Användare\<användare>\AppData\Local\Temp* för Windows-användare) innan du fortsätter. Kopiera URL:en för bloben från konsolfönstret och klistra in den i en webbläsare om du vill se innehållet i filen i bloblagringen. Om du jämför exempelfilen i katalogen med det innehåll som lagras i bloblagringen märker du att de är likadana.
 
   >[!NOTE]
-  >Du kan också använda ett verktyg som [Azure Storage Explorer](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) för att visa filerna i blobblagringen. Azure Storage Explorer är ett kostnadsfritt verktyg för flera plattformar som gör det möjligt att komma åt information på lagringskontot.
+  >Du kan också använda ett verktyg som [Azure Storage Explorer](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) för att visa filerna i Blob Storage. Azure Storage Explorer är ett kostnadsfritt verktyg för flera plattformar som gör det möjligt att komma åt information på lagringskontot.
 
 När du har kontrollerat filerna trycker du på **Retur**-tangenten för att avsluta demonstrationen och ta bort testfilerna. Nu när du vet vad exemplet gör kan du öppna filen **AzureApp.java** och titta på koden.
 
@@ -155,7 +155,7 @@ blob.uploadFromFile(sourceFile.getAbsolutePath());
 
 Det finns flera metoder för `upload`, exempelvis [upload](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload), [uploadBlock](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadblock), [uploadFullBlob](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadfullblob), [uploadStandardBlobTier](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadstandardblobtier) och [uploadText](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadtext), som du kan använda med Blob Storage. Om du till exempel har en sträng kan du använda metoden `UploadText` i stället för metoden `Upload`.
 
-Blockblobbar kan vara valfri texttyp eller binär fil. Sidblobar används främst för VHD-filer som används för att säkerhetskopiera virtuella IaaS-datorer. Använd tilläggsblobar för loggning, till exempel när du vill skriva till en fil och sedan fortsätta att lägga till mer information. De flesta objekt som lagras i Blob Storage är blockblobar.
+Blockblobar kan vara valfri texttyp eller binär fil. Sidblobar används främst för VHD-filer som backar IaaS-datorer. Använd tilläggsblobar för loggning, till exempel när du vill skriva till en fil och sedan fortsätta att lägga till mer information. De flesta objekt som lagras i Blob Storage är blockblobar.
 
 ### <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobarna i en container
 

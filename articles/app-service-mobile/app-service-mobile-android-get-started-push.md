@@ -28,7 +28,7 @@ ms.locfileid: "72389015"
 > [!NOTE]
 > Visual Studio App Center stöder utveckling av slutpunkt till slutpunkt-tjänster och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda tjänsterna för att **bygga**, **testa** och **distribuera** för att skapa en pipeline för kontinuerlig integrering och leverans. När appen har distribuerats kan utvecklarna övervaka status och användning av appen med hjälp av tjänsterna **Analys** och **Diagnostik**, och kommunicera med användarna via **Push**-tjänsten. Utvecklare kan också dra nytta av **Auth** för att autentisera sina användare och tjänsten **Data** för att spara och synkronisera appdata i molnet.
 >
-> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
+> Om du vill integrera molntjänster i ditt mobilprogram kan du registrera dig med [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) i dag.
 
 ## <a name="overview"></a>Översikt
 
@@ -63,7 +63,7 @@ Du behöver följande:
 
 [!INCLUDE [app-service-mobile-dotnet-backend-configure-push-google](../../includes/app-service-mobile-dotnet-backend-configure-push-google.md)]
 
-## <a name="add-push-notifications-to-your-app"></a>Lägga till push-meddelanden i din app
+## <a name="add-push-notifications-to-your-app"></a>Lägga till push-meddelanden för appen
 
 I det här avsnittet uppdaterar du din klient-Android-app för att hantera push-meddelanden.
 
@@ -94,7 +94,7 @@ Nu när du har slutfört den här självstudien kan du fortsätta med någon av 
 * [Lägg till autentisering i din Android-app](app-service-mobile-android-get-started-users.md).
   Lär dig hur du lägger till autentisering i ToDoList snabb starts projekt på Android med en identitets leverantör som stöds.
 * [Aktivera synkronisering offline för din Android-app](app-service-mobile-android-get-started-offline-data.md).
-  Lär dig hur du lägger till offline-stöd i din app med hjälp av en Mobile Apps Server del. Med offline-synkronisering kan användare interagera med en mobilapp @ no__t-0viewing, lägga till eller ändra data @ no__t-1even när det inte finns någon nätverks anslutning.
+  Lär dig hur du lägger till offline-stöd i din app med hjälp av en Mobile Apps Server del. Med offlinesynkronisering kan användare interagera med en mobilapp&mdash;Visa, lägga till eller ändra data&mdash;även om det inte finns någon nätverks anslutning.
 
 <!-- URLs -->
 [Snabb start för Android]: app-service-mobile-android-get-started.md

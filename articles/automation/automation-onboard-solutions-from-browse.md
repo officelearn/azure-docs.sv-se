@@ -99,7 +99,7 @@ Om du använde Uppdateringshantering-lösningen kanske du vill ta bort följande
 
 * Uppdaterings scheman-varje kommer att ha namn som matchar de uppdaterings distributioner som du har skapat)
 
-* Hybrid Worker-grupper som har skapats för lösningen – var och en får samma namn som machine1. contoso. com _9ceb8108-26c9-4051-b6b3-227600d715c8).
+* Hybrid Worker-grupper som har skapats för lösningen – var och en får samma namn som machine1. contoso. com_9ceb8108-26c9-4051-b6b3-227600d715c8).
 
 Om du använde Starta/stoppa virtuella datorer när de inte används-lösningen kanske du vill ta bort följande objekt som inte längre behövs efter att du har tagit bort lösningen.
 
@@ -109,11 +109,11 @@ Om du använde Starta/stoppa virtuella datorer när de inte används-lösningen 
 
 Alternativt kan du också ta bort länken till arbets ytan från ditt Automation-konto från din Log Analytics-arbetsyta. På arbets ytan väljer du **Automation-konto** under **relaterade resurser**. På sidan Automation-konto väljer du **ta bort länk till konto**.
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 När flera datorer onboardas kan det finnas datorer som visas som **inte kan aktivera**. Det finns olika orsaker till att vissa datorer kanske inte är aktiverade. I följande avsnitt visas möjliga orsaker till **att det inte går att aktivera** tillstånd på en virtuell dator vid försök att publicera.
 
-### <a name="vm-reports-to-a-different-workspace-workspacename--change-configuration-to-use-it-for-enabling"></a>VM-rapporter till en annan arbets yta: "\<workspaceName @ no__t-1".  Ändra konfigurationen så att den används för att aktivera
+### <a name="vm-reports-to-a-different-workspace-workspacename--change-configuration-to-use-it-for-enabling"></a>VM-rapporter till en annan arbets yta:\<workspaceName\>.  Ändra konfigurationen så att den används för att aktivera
 
 **Orsak**: det här felet visar att den virtuella datorn som du försöker publicera rapporter till en annan arbets yta.
 
@@ -151,7 +151,7 @@ När flera datorer onboardas kan det finnas datorer som visas som **inte kan akt
 
 Så här tar du bort en virtuell dator från Uppdateringshantering:
 
-* I arbets ytan Log Analytics tar du bort den virtuella datorn från den sparade sökningen efter omfattnings konfigurationen `MicrosoftDefaultScopeConfig-Updates`. Sparade sökningar hittar du under **Allmänt** på arbets ytan.
+* I arbets ytan Log Analytics tar du bort den virtuella datorn från den sparade sökningen för omfattnings konfigurationen `MicrosoftDefaultScopeConfig-Updates`. Sparade sökningar hittar du under **Allmänt** på arbets ytan.
 * Ta bort [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) eller [Log Analytics agent för Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Nästa steg

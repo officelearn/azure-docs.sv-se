@@ -36,13 +36,13 @@ Letar du efter information om de AADSTS-felkoder som returneras från Azure Acti
 ## <a name="lookup-current-error-code-information"></a>Sök efter aktuell fel kod information
 Felkoder och meddelanden kan komma att ändras.  För den senaste informationen tar du en titt på [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) sidan för att hitta AADSTS fel beskrivningar, korrigeringar och vissa föreslagna lösningar.  
 
-Sök på den numeriska delen av den returnerade felkoden.  Om du till exempel har fått felkoden "AADSTS16000" gör du en sökning i [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) för "16000".  Du kan också länka direkt till ett viss fel genom att lägga till fel kod numret till URL: [https://login.microsoftonline.com/error?code=16000](https://login.microsoftonline.com/error?code=16000)en:.
+Sök på den numeriska delen av den returnerade felkoden.  Om du till exempel har fått felkoden "AADSTS16000" gör du en sökning i [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) för "16000".  Du kan också länka direkt till ett viss fel genom att lägga till fel kod numret i URL: en: [https://login.microsoftonline.com/error?code=16000](https://login.microsoftonline.com/error?code=16000).
 
 ## <a name="aadsts-error-codes"></a>Felkoder för AADSTS
 
 | Fel | Beskrivning |
 |---|---|
-| AADSTS16000 | SelectUserAccount – detta är ett avbrott som orsakas av Azure AD, vilket resulterar i ett användar gränssnitt som gör att användaren kan välja mellan flera giltiga SSO-sessioner. Det här felet är ganska vanligt och kan returneras till programmet om `prompt=none` har angetts. |
+| AADSTS16000 | SelectUserAccount – detta är ett avbrott som orsakas av Azure AD, vilket resulterar i ett användar gränssnitt som gör att användaren kan välja mellan flera giltiga SSO-sessioner. Det här felet är ganska vanligt och kan returneras till programmet om `prompt=none` anges. |
 | AADSTS16001 | UserAccountSelectionInvalid – du ser det här felet om användaren klickar på en panel att sessionen väljer logik har avvisats. När det här felet utlöses kan användaren återställa genom att välja från en uppdaterad lista över paneler/sessioner, eller genom att välja ett annat konto. Det här felet kan inträffa på grund av ett kod fel eller ett konkurrens villkor. |
 | AADSTS16002 | AppSessionSelectionInvalid-det angivna SID-kravet för appen har inte uppfyllts.  |
 | AADSTS16003 | SsoUserAccountNotFoundInResourceTenant – anger att användaren inte uttryckligen har lagts till i klienten. |
@@ -155,10 +155,10 @@ Sök på den numeriska delen av den returnerade felkoden.  Om du till exempel ha
 | AADSTS70003 | UnsupportedGrantType – appen returnerade en beviljande typ som inte stöds. |
 | AADSTS70004 | InvalidRedirectUri – appen returnerade en ogiltig omdirigerings-URI. Adressen för omdirigering som angetts av klienten matchar inte några konfigurerade adresser eller någon adress på godkännandelistan för OIDC. |
 | AADSTS70005 | UnsupportedResponseType – appen returnerade en svars typ som inte stöds på grund av följande orsaker:<ul><li>svars typen token har inte Aktiver ATS för appen</li><li>svarstypen "id_token" kräver OpenID-omfång – innehåller ett OAuth-parametervärde som inte stöds i den kodade wctx</li></ul> |
-| AADSTS70007 | UnsupportedResponseMode – appen returnerade ett värde som `response_mode` inte stöds när en token begärdes.  |
+| AADSTS70007 | UnsupportedResponseMode – appen returnerade ett värde som inte stöds för `response_mode` när en token begärdes.  |
 | AADSTS70008 | ExpiredOrRevokedGrant-uppdateringstoken har gått ut på grund av inaktivitet. Token utfärdades på XXX och var inaktiv under en viss tid. |
 | AADSTS70011 | InvalidScope-definitions området som begärdes av appen är ogiltigt. |
-| AADSTS70012 | MsaServerError-ett Server fel uppstod vid autentisering av en MSA-användare (Consumer). Försök igen. Om den fortfarande inte fungerar, [öppnar du ett support ärende](../fundamentals/active-directory-troubleshooting-support-howto.md) |
+| AADSTS70012 | MsaServerError-ett Server fel uppstod vid autentisering av en MSA-användare (Consumer). Försök igen. Om den fortfarande inte fungerar [öppnar du ett support ärende](../fundamentals/active-directory-troubleshooting-support-howto.md) |
 | AADSTS70016 | AuthorizationPending – fel i OAuth 2,0-enhets flöde. Auktorisering väntar. Enheten försöker att söka efter begäran igen. |
 | AADSTS70018 | BadVerificationCode-ogiltig verifierings kod på grund av att användaren skriver in fel användar kod för enhets kod flödet. Auktorisering är inte godkänd. |
 | AADSTS70019 | CodeExpired-verifierings koden har gått ut. Låt användaren försöka logga in igen. |
@@ -207,7 +207,7 @@ Sök på den numeriska delen av den returnerade felkoden.  Om du till exempel ha
 | AADSTS90043 | NationalCloudAuthCodeRedirection – funktionen är inaktive rad. |
 | AADSTS90051 | InvalidNationalCloudId – den nationella moln identifieraren innehåller ett ogiltigt moln-ID. |
 | AADSTS90055 | TenantThrottlingError – det finns för många inkommande begär Anden. Detta undantag genereras för blockerade klienter. |
-| AADSTS90056 | BadResourceRequest-för att lösa in koden för en åtkomsttoken ska appen skicka en post-begäran till `/token` slut punkten. Innan du gör det måste du också ange en auktoriseringskod och skicka den i post-begäran till `/token` slut punkten. I den här artikeln hittar du en översikt över OAuth 2,0-Authorization Code [https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code)Flow:. Dirigera användaren till `/authorize` slut punkten, vilket kommer att returnera ett authorization_code. Genom att skicka en begäran till `/token` slut punkten får användaren åtkomst-token. Logga in på Azure Portal och kontrol lera **Appregistreringar > slut punkter** för att bekräfta att de två slut punkterna har kon figurer ATS korrekt. |
+| AADSTS90056 | BadResourceRequest-för att lösa in koden för en åtkomsttoken ska appen skicka en POST-begäran till `/token` slut punkten. Innan du gör det måste du också ange en auktoriseringskod och skicka den i POST-begäran till `/token` slut punkten. I den här artikeln hittar du en översikt över OAuth 2,0-auktoriseringskod: [https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code). Dirigera användaren till `/authorize` slut punkten som returnerar ett authorization_code. Genom att skicka en begäran till `/token` slut punkten får användaren åtkomst-token. Logga in på Azure Portal och kontrol lera **Appregistreringar > slut punkter** för att bekräfta att de två slut punkterna har kon figurer ATS korrekt. |
 | AADSTS90072 | PassThroughUserMfaError – det externa kontot som användaren loggar in med inte finns på den klient som de har loggat in på. Det innebär att användaren inte kan uppfylla MFA-kraven för klient organisationen. Kontot måste läggas till som en extern användare i klient organisationen först. Logga ut och logga in med ett annat användar konto för Azure AD. |
 | AADSTS90081 | OrgIdWsFederationMessageInvalid – ett fel uppstod när tjänsten försökte bearbeta ett WS-Federation-meddelande. Meddelandet är inte giltigt. |
 | AADSTS90082 | OrgIdWsFederationNotSupported-den valda autentiseringsmetoden för begäran stöds inte för närvarande. |
@@ -221,8 +221,8 @@ Sök på den numeriska delen av den returnerade felkoden.  Om du till exempel ha
 | AADSTS90093 | GraphUserUnauthorized-Graph returnerade en otillåten felkod för begäran. |
 | AADSTS90094 | AdminConsentRequired-administratörs medgivande krävs. |
 | AADSTS90100 | InvalidRequestParameter-parametern är tom eller ogiltig. |
-| AADSTS901002 | AADSTS901002: Parametern resurs begär ande stöds inte. |
-| AADSTS90101 | InvalidEmailAddress – de angivna data är inte en giltig e-postadress. E-postadressen måste anges i `someone@example.com`formatet. |
+| AADSTS901002 | AADSTS901002: parametern resurs begär ande stöds inte. |
+| AADSTS90101 | InvalidEmailAddress – de angivna data är inte en giltig e-postadress. E-postadressen måste anges i formatet `someone@example.com`. |
 | AADSTS90102 | InvalidUriParameter-värdet måste vara en giltig absolut URI. |
 | AADSTS90107 | InvalidXml-begäran är inte giltig. Se till att dina data inte innehåller ogiltiga tecken.|
 | AADSTS90114 | InvalidExpiryDate – tids stämplingen för Mass-token upphör att gälla. |
@@ -231,10 +231,10 @@ Sök på den numeriska delen av den returnerade felkoden.  Om du till exempel ha
 | AADSTS90120 | InvalidDeviceFlowRequest-begäran har redan auktoriserats eller nekats. |
 | AADSTS90121 | InvalidEmptyRequest-ogiltig tom begäran.|
 | AADSTS90123 | IdentityProviderAccessDenied-token kan inte utfärdas eftersom identiteten eller anspråks utfärdaren nekade begäran. |
-| AADSTS90124 | V1ResourceV2GlobalEndpointNotSupported – resursen stöds inte över `/common` -eller `/consumers` -slut punkterna. Använd den `/organizations` klient-/regionsspecifika slut punkten i stället. |
+| AADSTS90124 | V1ResourceV2GlobalEndpointNotSupported – resursen stöds inte över `/common` eller `/consumers` slut punkter. Använd den `/organizations` eller klient-/regionsspecifika slut punkten i stället. |
 | AADSTS90125 | DebugModeEnrollTenantNotFound – användaren är inte i systemet. Kontrol lera att du har angett användar namnet korrekt. |
 | AADSTS90126 | DebugModeEnrollTenantNotInferred-användar typen stöds inte för den här slut punkten. Systemet kan inte härleda användarens klient organisation från användar namnet. |
-| AADSTS90130 | NonConvergedAppV2GlobalEndpointNotSupported – programmet stöds inte över `/common` -eller `/consumers` -slut punkterna. Använd den `/organizations` klient-/regionsspecifika slut punkten i stället. |
+| AADSTS90130 | NonConvergedAppV2GlobalEndpointNotSupported – programmet stöds inte över `/common` eller `/consumers` slut punkter. Använd den `/organizations` eller klient-/regionsspecifika slut punkten i stället. |
 | AADSTS120000 | PasswordChangeIncorrectCurrentPassword |
 | AADSTS120002 | PasswordChangeInvalidNewPasswordWeak |
 | AADSTS120003 | PasswordChangeInvalidNewPasswordContainsMemberName |
@@ -263,7 +263,7 @@ Sök på den numeriska delen av den returnerade felkoden.  Om du till exempel ha
 | AADSTS220501 | InvalidCrlDownload |
 | AADSTS221000 | DeviceOnlyTokensNotSupportedByResource – resursen har inte kon figurer ATS för att acceptera endast enhets-token. |
 | AADSTS240001 | BulkAADJTokenUnauthorized – användaren har inte behörighet att registrera enheter i Azure AD. |
-| AADSTS240002 | RequiredClaimIsMissing – id_token kan inte användas som `urn:ietf:params:oauth:grant-type:jwt-bearer` beviljande.|
+| AADSTS240002 | RequiredClaimIsMissing-det går inte att använda id_token som `urn:ietf:params:oauth:grant-type:jwt-bearer` bevilja.|
 | AADSTS530032 | BlockedByConditionalAccessOnSecurityPolicy – klient organisationens administratör har konfigurerat en säkerhets princip som blockerar denna begäran. Kontrol lera de säkerhets principer som definierats på klient nivå för att avgöra om din begäran uppfyller princip kraven. |
 | AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest – det gick inte att hitta programmet i katalogen/klient organisationen. Detta kan inträffa om programmet inte har installerats av administratören för klienten eller om någon användare i klient organisationen har godkänt detta. Du kan ha felkonfigurerat ID-värdet för programmet eller skickat autentiseringsbegäran till fel klient. |
 | AADSTS700020 | InteractionRequired – åtkomst beviljande kräver interaktion. |

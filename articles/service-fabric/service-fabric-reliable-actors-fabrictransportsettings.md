@@ -60,7 +60,7 @@ Du kan använda ett [konfigurations paket](service-fabric-application-and-servic
 
 Lägg till en TransportSettings-sektion i filen Settings. xml.
 
-Som standard söker aktörs koden efter SectionName som "&lt;ActorName @ no__t-1TransportSettings". Om detta inte hittas söker den efter SectionName som "TransportSettings".
+Som standard söker aktörs koden efter SectionName som "&lt;ActorName&gt;TransportSettings". Om detta inte hittas söker den efter SectionName som "TransportSettings".
 
   ```xml
   <Section Name="MyActorServiceTransportSettings">
@@ -79,7 +79,7 @@ Som standard söker aktörs koden efter SectionName som "&lt;ActorName @ no__t-1
 
 ### <a name="configure-fabrictransport-settings-for-the-actor-client-assembly"></a>Konfigurera FabricTransport-inställningar för aktörens klient sammansättning
 
-Om klienten inte körs som en del av en tjänst kan du skapa filen "&lt;Client exe-Name&gt;.settings.xml" på samma plats som filen client. exe. Lägg sedan till ett TransportSettings-avsnitt i filen. SectionName ska vara "TransportSettings".
+Om klienten inte körs som en del av en tjänst kan du skapa filen "&lt;client exe Name&gt;. Settings. xml" på samma plats som filen client. exe. Lägg sedan till ett TransportSettings-avsnitt i filen. SectionName ska vara "TransportSettings".
 
   ```xml
   <?xml version="1.0" encoding="utf-8"?>

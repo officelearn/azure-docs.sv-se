@@ -30,7 +30,7 @@ Den här artikeln visar hur du använder Data Factory _läsa in data från Offic
 
 2. På sidan **ny data fabrik** anger du värden för de fält som visas i följande bild:
       
-   ![Sida för ny datafabrik](./media/load-office-365-data/new-azure-data-factory.png)
+   ![Sidan Ny datafabrik](./media/load-office-365-data/new-azure-data-factory.png)
  
     * **Namn**: Ange ett globalt unikt namn för din Azure Data Factory. Om du får felet "Data Factory name *LoadFromOffice365Demo* är inte tillgängligt" anger du ett annat namn på data fabriken. Du kan till exempel använda namnet _**dittnamn**_ **LoadFromOffice365Demo**. Försök att skapa data fabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
     * **Prenumeration**: Välj din Azure-prenumeration där du vill skapa data fabriken. 
@@ -73,7 +73,7 @@ Den här artikeln visar hur du använder Data Factory _läsa in data från Offic
 
     ![Ny länkad Office 365-tjänst](./media/load-office-365-data/new-office-365-linked-service.png)
  
-7. När du har skapat den länkade tjänsten kommer du tillbaka till inställningarna för datauppsättningen. Välj nedpilen bredvid **tabell**för att expandera listan över tillgängliga Office 365-datauppsättningar och välj "BasicDataSet_v0. Message_v0 "i list rutan:
+7. När du har skapat den länkade tjänsten kommer du tillbaka till inställningarna för datauppsättningen. Välj nedpilen bredvid **tabell**för att expandera listan över tillgängliga Office 365-datauppsättningar och välj BasicDataSet_v0. Message_v0 "i list rutan:
 
     ![Konfigurera Office 365 data uppsättnings tabell](./media/load-office-365-data/edit-dataset.png)
 

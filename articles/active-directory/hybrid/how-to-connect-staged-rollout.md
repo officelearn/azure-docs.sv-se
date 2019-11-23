@@ -33,7 +33,7 @@ Dessa funktioner bör beaktas innan du växlar till molnbaserad autentisering.  
 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 -   Du har en Azure AD-klient med federerade domäner.
 

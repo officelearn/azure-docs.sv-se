@@ -37,31 +37,31 @@ Använd [Azure Monitor](../azure-monitor/overview.md)för att utföra mer djupg�
 
 Använd den här tabellen för att avgöra vilka mått som passar bäst för ditt övervaknings scenario. Endast mått för samma enhet kan visas i samma diagram.
 
-|Mått|Mått visnings namn|Enhet|Sammansättnings typ|Beskrivning|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|
 |---|---|---|---|---|
 |CommandPoolJobQueueLength|Kölängd för kommando bassäng|Antal|Medel|Antal jobb i kön för kommando tråds poolen.|
 |CurrentConnections|Anslutning: aktuella anslutningar|Antal|Medel|Aktuellt antal upprättade klient anslutningar.|
 |CurrentUserSessions|Aktuella användarsessioner|Antal|Medel|Aktuellt antal användarsessioner som har upprättats.|
-|mashup_engine_memory_metric|M motor minne|Skickade|Medel|Minnes användning per kombinations motor processer|
+|mashup_engine_memory_metric|M motor minne|Byte|Medel|Minnes användning per kombinations motor processer|
 |mashup_engine_qpu_metric|M-motor QPU|Antal|Medel|QPU användning av kombinations motor processer|
-|memory_metric|Minne|Skickade|Medel|Minnesoptimerade. Intervallet 0-25 GB för S1, 0-50 GB för S2 och 0-100 GB för S4|
+|memory_metric|Minne|Byte|Medel|Minnesoptimerade. Intervallet 0-25 GB för S1, 0-50 GB för S2 och 0-100 GB för S4|
 |memory_thrashing_metric|Nedskräpning för minne|Procent|Medel|Genomsnittligt minne nedskräpning.|
 |CleanerCurrentPrice|Minne: aktuellt pris för renare|Antal|Medel|Aktuellt pris för minne, $/byte/tid, normaliserat till 1000.|
-|CleanerMemoryNonshrinkable|Minne: det går inte att krympa rengörings minnet|Skickade|Medel|Mängden minne, i byte, som inte kan rensas av bakgrunds rensaren.|
-|CleanerMemoryShrinkable|Minne: krympnings utrymme för rensning|Skickade|Medel|Mängden minne i byte som kan rensas av bakgrunds rensaren.|
-|MemoryLimitHard|Minne: minnes gräns hårt|Skickade|Medel|Hård minnes gräns, från konfigurations filen.|
-|MemoryLimitHigh|Minne: minnes gräns hög|Skickade|Medel|Hög minnes gräns, från konfigurations filen.|
-|MemoryLimitLow|Minne: minnes gräns låg|Skickade|Medel|Låg minnes gräns, från konfigurations filen.|
-|MemoryLimitVertiPaq|Minne: minnes gräns VertiPaq|Skickade|Medel|Minnes intern gräns, från konfigurations filen.|
-|MemoryUsage|Minne: minnes användning|Skickade|Medel|Minnes användningen för Server processen som används för att beräkna rengörings minnes priset. Lika med Counter Process\PrivateBytes plus storleken på minnesmappade data, vilket ignorerar vilket minne som har mappats eller allokerats av en minnes intern analys motor (VertiPaq) utöver motorns minnes gräns.|
-|private_bytes_metric|Privata byte |Skickade|Medel|Den totala mängden minne som processerna för Analysis Services motor processen och kombinations programmet har allokerat, inklusive minne som delas med andra processer.|
-|virtual_bytes_metric|Virtuella byte |Skickade|Medel|Den aktuella storleken för det virtuella adress utrymmet som Analysis Services motor process-och kombinations programmets process processer använder.|
-|mashup_engine_private_bytes_metric|M motor privata byte |Skickade|Medel|Den totala mängden minnes kombinations programmets behållar processer har allokerats, inte inklusive minne som delas med andra processer.|
-|mashup_engine_virtual_bytes_metric|Virtuella byte i M-motor |Skickade|Medel|Den aktuella storleken för processerna för kombinations behållare för virtuella adress utrymmen använder.|
-|Kvot|Minne: kvot|Skickade|Medel|Aktuell minnes kvot, i byte. Minnes kvot kallas även för minnes tilldelning eller minnes reservation.|
+|CleanerMemoryNonshrinkable|Minne: det går inte att krympa rengörings minnet|Byte|Medel|Mängden minne, i byte, som inte kan rensas av bakgrunds rensaren.|
+|CleanerMemoryShrinkable|Minne: krympnings utrymme för rensning|Byte|Medel|Mängden minne i byte som kan rensas av bakgrunds rensaren.|
+|MemoryLimitHard|Minne: minnes gräns hårt|Byte|Medel|Hård minnes gräns, från konfigurations filen.|
+|MemoryLimitHigh|Minne: minnes gräns hög|Byte|Medel|Hög minnes gräns, från konfigurations filen.|
+|MemoryLimitLow|Minne: minnes gräns låg|Byte|Medel|Låg minnes gräns, från konfigurations filen.|
+|MemoryLimitVertiPaq|Minne: minnes gräns VertiPaq|Byte|Medel|Minnes intern gräns, från konfigurations filen.|
+|MemoryUsage|Minne: minnes användning|Byte|Medel|Minnes användningen för Server processen som används för att beräkna rengörings minnes priset. Lika med Counter Process\PrivateBytes plus storleken på minnesmappade data, vilket ignorerar vilket minne som har mappats eller allokerats av en minnes intern analys motor (VertiPaq) utöver motorns minnes gräns.|
+|private_bytes_metric|Privata byte |Byte|Medel|Den totala mängden minne som processerna för Analysis Services motor processen och kombinations programmet har allokerat, inklusive minne som delas med andra processer.|
+|virtual_bytes_metric|Virtuella byte |Byte|Medel|Den aktuella storleken för det virtuella adress utrymmet som Analysis Services motor process-och kombinations programmets process processer använder.|
+|mashup_engine_private_bytes_metric|M motor privata byte |Byte|Medel|Den totala mängden minnes kombinations programmets behållar processer har allokerats, inte inklusive minne som delas med andra processer.|
+|mashup_engine_virtual_bytes_metric|Virtuella byte i M-motor |Byte|Medel|Den aktuella storleken för processerna för kombinations behållare för virtuella adress utrymmen använder.|
+|Kvot|Minne: kvot|Byte|Medel|Aktuell minnes kvot, i byte. Minnes kvot kallas även för minnes tilldelning eller minnes reservation.|
 |QuotaBlocked|Minne: kvot blockerad|Antal|Medel|Det aktuella antalet kvot begär Anden som blockeras tills andra minnes kvoter frigjorts.|
-|VertiPaqNonpaged|Minne: VertiPaq som inte är växlat|Skickade|Medel|Byte av minne som är låst i arbets minnet för användning av minnes intern motorn.|
-|VertiPaqPaged|Minne: VertiPaq växlat|Skickade|Medel|Byte av växlings Bart minne som används för minnes intern data.|
+|VertiPaqNonpaged|Minne: VertiPaq som inte är växlat|Byte|Medel|Byte av minne som är låst i arbets minnet för användning av minnes intern motorn.|
+|VertiPaqPaged|Minne: VertiPaq växlat|Byte|Medel|Byte av växlings Bart minne som används för minnes intern data.|
 |ProcessingPoolJobQueueLength|Bearbetar Kölängd för poolen|Antal|Medel|Antal icke-I/O-jobb i kön för bearbetning av trådpoolen.|
 |RowsConvertedPerSec|Bearbetar: rader konverterade per sekund|CountPerSecond|Medel|Antal rader som konverterats under bearbetning.|
 |RowsReadPerSec|Bearbetar: rader lästa per sekund|CountPerSecond|Medel|Antalet rader som läses från alla Relations databaser.|

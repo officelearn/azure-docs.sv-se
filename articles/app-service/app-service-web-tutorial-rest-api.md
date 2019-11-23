@@ -26,7 +26,7 @@ ms.locfileid: "72255164"
 
 Med [Azure App Service](overview.md) får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet. Dessutom har App Service ett inbyggt stöd för [CORS (Cross-Origin Resource Sharing)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) för RESTful-API:er. Den här självstudien visar hur du distribuerar en ASP.NET Core API-app till App Service med CORS-stöd. Du konfigurerar appen med hjälp av kommandoradsverktyg och distribuerar appen med Git. 
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa App Service-resurser med Azure CLI
@@ -39,7 +39,7 @@ Du kan följa stegen i den här självstudien i macOS, Linux och Windows.
 
 ## <a name="prerequisites"></a>Krav
 
-För att slutföra den här självstudien behöver du:
+För att slutföra den här kursen behöver du:
 
 * [Installera Git](https://git-scm.com/).
 * [Installera .NET Core](https://www.microsoft.com/net/core/).
@@ -82,7 +82,7 @@ Du kan när som helst stoppa ASP.NET Core genom att trycka på `Ctrl+C` i termin
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="deploy-app-to-azure"></a>Distribuera app till Azure
+## <a name="deploy-app-to-azure"></a>Distribuera appen till Azure
 
 I det här steget distribuerar du din SQL Database-anslutna .NET Core-app till App Service.
 
@@ -98,7 +98,7 @@ I det här steget distribuerar du din SQL Database-anslutna .NET Core-app till A
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
-### <a name="create-a-web-app"></a>Skapa ett webbprogram
+### <a name="create-a-web-app"></a>Skapa en webbapp
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-dotnetcore-win-no-h.md)] 
 
@@ -158,7 +158,7 @@ Kör exempelappen igen i ditt lokala terminalfönster.
 dotnet run
 ```
 
-Gå till webbläsarappen på `http://localhost:5000`. Öppna fönstret utvecklarverktyg i webbläsaren (`Ctrl` @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 i Chrome för Windows) och granska fliken **konsol** . Du bör nu se fel meddelandet `No 'Access-Control-Allow-Origin' header is present on the requested resource`.
+Gå till webbläsarappen på `http://localhost:5000`. Öppna fönstret utvecklarverktyg i webbläsaren (`Ctrl`+`Shift`+`i` i Chrome för Windows) och granska fliken **konsol** . Du bör nu se fel meddelandet `No 'Access-Control-Allow-Origin' header is present on the requested resource`.
 
 ![CORS-fel i webbläsarklienten](./media/app-service-web-tutorial-rest-api/azure-app-service-cors-error.png)
 

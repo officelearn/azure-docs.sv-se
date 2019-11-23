@@ -1,6 +1,6 @@
 ---
-title: Create an Azure private link service using Azure PowerShell| Microsoft Docs
-description: Learn how to create an Azure private link service using Azure PowerShell
+title: Skapa en Azure Private Link-tjänst med Azure PowerShell | Microsoft Docs
+description: Lär dig hur du skapar en Azure Private Link-tjänst med Azure PowerShell
 services: private-link
 author: asudbring
 ms.service: private-link
@@ -14,16 +14,16 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74229376"
 ---
-# <a name="create-a-private-link-service-using-azure-powershell"></a>Create a Private Link service using Azure PowerShell
-This article shows you how to create a private link service in Azure using Azure PowerShell.
+# <a name="create-a-private-link-service-using-azure-powershell"></a>Skapa en privat länk-tjänst med hjälp av Azure PowerShell
+Den här artikeln visar hur du skapar en privat länk-tjänst i Azure med hjälp av Azure PowerShell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use PowerShell locally, this article requires the latest Azure PowerShell module version. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt kräver den här artikeln den senaste versionen av Azure PowerShell-modulen. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Before you can create your private link, you must create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named *myResourceGroup* in the *WestCentralUS* location:
+Innan du kan skapa en privat länk måste du skapa en resurs grupp med [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). I följande exempel skapas en resurs grupp med namnet *myResourceGroup* på *WestCentralUS* -platsen:
 
 ```azurepowershell
 $location = "westcentralus"
@@ -33,7 +33,7 @@ New-AzResourceGroup `
   -Location $location
 ```
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
-Create a virtual network for your private link with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). The following example creates a virtual network named *myvnet* with subnet for frontend (*frontendSubnet*), backend (*backendSubnet*), private link (*otherSubnet*):
+Skapa ett virtuellt nätverk för din privata länk med [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). I följande exempel skapas ett virtuellt nätverk med namnet *myvnet* med undernät för frontend (*frontendSubnet*), Server del (*backendSubnet*), privat länk (*otherSubnet*):
 
 ```azurepowershell
 $virtualNetworkName = "myvnet"
@@ -62,8 +62,8 @@ $vnet = New-AzVirtualNetwork `
 -AddressPrefix "10.0.0.0/16" `
 -Subnet $frontendSubnet,$backendSubnet,$otherSubnet 
 ```
-## <a name="create-internal-load-balancer"></a>Create Internal Load Balancer
-Create an internal Standard Load Balancer with [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). The following example creates an internal Standard Load Balancer using the frontend IP configuration, probe, rule and backend pool  that you created in the preceding steps:
+## <a name="create-internal-load-balancer"></a>Skapa interna Load Balancer
+Skapa en intern Standard Load Balancer med [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). I följande exempel skapas en intern Standard Load Balancer med klient delens IP-konfiguration, avsökning, regel och backend-pool som du skapade i föregående steg:
 
 ```azurepowershell
 
@@ -79,8 +79,8 @@ $probe = New-AzLoadBalancerProbeConfig -Name 'myHealthProbe' -Protocol Http -Por
 $rule = New-AzLoadBalancerRuleConfig -Name HTTP -FrontendIpConfiguration $frontendIP -BackendAddressPool  $beaddresspool -Probe $probe -Protocol Tcp -FrontendPort 80 -BackendPort 80
 $NRPLB = New-AzLoadBalancer -ResourceGroupName $rgName -Name $lbName -Location $location -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $probe -LoadBalancingRule $rule -Sku Standard 
 ```
-## <a name="create-a-private-link-service"></a>Create a private link service
-Create a private link service with [New-AzPrivateLinkService](/powershell/module/az.network/new-azloadbalancer).  This example creates a private link service named *myPLS* using Standard Load Balancer in resource group named *myResourceGroup*. 
+## <a name="create-a-private-link-service"></a>Skapa en privat länk-tjänst
+Skapa en privat länk-tjänst med [New-AzPrivateLinkService](/powershell/module/az.network/new-azloadbalancer).  I det här exemplet skapas en privat länk tjänst med namnet *myPLS* med standard Load Balancer i resurs gruppen med namnet *myResourceGroup*. 
 ```azurepowershell
 
 $plsIpConfigName = "PLS-ipconfig" 
@@ -102,20 +102,20 @@ $privateLinkService = New-AzPrivateLinkService `
 -IpConfiguration $IPConfig 
 ```
 
-### <a name="get-private-link-service"></a>Get private link service
-Get details about your private link service with [New-AzPrivateLinkService](/powershell/module/az.network/get-azprivatelinkservice) as follows:
+### <a name="get-private-link-service"></a>Hämta privat länk-tjänst
+Hämta information om din privata länk tjänst med [New-AzPrivateLinkService](/powershell/module/az.network/get-azprivatelinkservice) på följande sätt:
 
 ```azurepowershell
 $pls = Get-AzPrivateLinkService -Name $plsName -ResourceGroupName $rgName 
 ```
 
-At this stage, your Private Link Service is successfully created and is ready to receive the traffic. Note that above example is only to demonstrate creating Private Link Service using PowerShell.  We haven't configured the load balancer backend pools or any application on the backend pools to listen to the traffic. If you want to see end to end traffic flows, you can strongly advised to configure your application behind your standard load balancer. 
+I det här skedet har din privata länk tjänst skapats och är redo att ta emot trafiken. Observera att exemplet ovan bara visar hur du skapar en privat länk tjänst med hjälp av PowerShell.  Vi har inte konfigurerat backend-poolerna för belastningsutjämnare eller något program på backend-poolerna för att lyssna på trafiken. Om du vill se trafik flöden från slut punkt till slut punkt kan du starkt uppmanas att konfigurera ditt program bakom din standard belastningsutjämnare. 
 
-Next we will demonstrate how to map this service to a private endpoint in different VNet using PowerShell. Again, the example is limited to creating the Private Endpoint and connecting to Private Link Service created above. You can create Virtual Machines in the Virtual Network to send/receive traffic to the private endpoint for building your scenario. 
+Härnäst ska vi visa hur tjänsten mappas till en privat slut punkt i ett annat virtuellt nätverk med hjälp av PowerShell. Återigen är exemplet begränsat till att skapa den privata slut punkten och ansluta till en privat länk-tjänst som skapats ovan. Du kan skapa Virtual Machines i Virtual Network för att skicka/ta emot trafik till den privata slut punkten för att skapa ditt scenario. 
 
 ## <a name="create-a-private-endpoint"></a>Skapa en privat slutpunkt
 ### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
-Create a virtual network for your private endpoint with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). This example creates a virtual network named *vnetPE* in resource group named *myResourceGroup*:
+Skapa ett virtuellt nätverk för din privata slut punkt med [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). I det här exemplet skapas ett virtuellt nätverk med namnet *vnetPE* i resurs gruppen med namnet *myResourceGroup*:
  
 ```azurepowershell
 $virtualNetworkNamePE = "vnetPE"
@@ -134,8 +134,8 @@ $vnetPE = New-AzVirtualNetwork `
 -Subnet $peSubnet 
 ```
 
-### <a name="create-a-private-endpoint"></a>Create a private endpoint
-Create a private endpoint for consuming private link service created above in your virtual network:
+### <a name="create-a-private-endpoint"></a>Skapa en privat slut punkt
+Skapa en privat slut punkt för att konsumera privat länk tjänst som skapats ovan i det virtuella nätverket:
  
 ```azurepowershell
  
@@ -146,8 +146,8 @@ $plsConnection= New-AzPrivateLinkServiceConnection `
 $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $rgName -Name $peName -Location $location -Subnet $vnetPE.subnets[0] -PrivateLinkServiceConnection $plsConnection -ByManualRequest 
 ```
  
-### <a name="get-private-endpoint"></a>Get private endpoint
-Get the IP address of the private endpoint with `Get-AzPrivateEndpoint` as follows:
+### <a name="get-private-endpoint"></a>Hämta privat slut punkt
+Hämta IP-adressen för den privata slut punkten med `Get-AzPrivateEndpoint` enligt följande:
 
 ```azurepowershell
 # Get Private Endpoint and its IP Address 
@@ -160,8 +160,8 @@ $pe.NetworkInterfaces[0].IpConfigurations[0].PrivateIpAddress
 
 ```
 
-### <a name="approve-the-private-endpoint-connection"></a>Approve the private endpoint connection
-Approve the private end point connection to the private link service with 'Approve-AzPrivateEndpointConnection`.
+### <a name="approve-the-private-endpoint-connection"></a>Godkänn anslutningen till den privata slut punkten
+Godkänn den privata slut punkts anslutningen till den privata länk tjänsten med "Godkänn-AzPrivateEndpointConnection".
 
 ```azurepowershell   
 
@@ -174,5 +174,5 @@ Approve-AzPrivateEndpointConnection -ResourceId $pls.PrivateEndpointConnections[
 ``` 
 
 ## <a name="next-steps"></a>Nästa steg
-- Learn more about [Azure private link](private-link-overview.md)
+- Läs mer om [Azures privata länk](private-link-overview.md)
  

@@ -27,7 +27,7 @@ ms.locfileid: "72388761"
 > [!NOTE]
 > Visual Studio App Center stöder utveckling av slutpunkt till slutpunkt-tjänster och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda tjänsterna för att **bygga**, **testa** och **distribuera** för att skapa en pipeline för kontinuerlig integrering och leverans. När appen har distribuerats kan utvecklarna övervaka status och användning av appen med hjälp av tjänsterna **Analys** och **Diagnostik**, och kommunicera med användarna via **Push**-tjänsten. Utvecklare kan också dra nytta av **Auth** för att autentisera sina användare och tjänsten **Data** för att spara och synkronisera appdata i molnet.
 >
-> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
+> Om du vill integrera molntjänster i ditt mobilprogram kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) i dag.
 
 ## <a name="overview"></a>Översikt
 I den här självstudien beskrivs offline-synkronisering med Mobile Apps funktionen i Azure App Service för iOS. Med offlinesynkronisering kan slutanvändare interagera med en mobilapp för att visa, lägga till eller ändra data, även om de inte har någon nätverks anslutning. Ändringarna lagras i en lokal databas. När enheten är online igen synkroniseras ändringarna med fjärrservern.
@@ -39,7 +39,7 @@ Mer information om funktionen offline-synkronisering finns i [Datasynkronisering
 ## <a name="review-sync"></a>Granska koden för klientens synkronisering
 Det klient projekt som du laddade ned för själv studie kursen [skapa en iOS-app] innehåller redan kod som har stöd för offlinesynkronisering med hjälp av en lokal central data baserad databas. I det här avsnittet sammanfattas vad som redan finns med i självstudie koden. En översikt över funktionen finns i [Datasynkronisering offline i Mobile Apps].
 
-Med funktionen offline-datasynkronisering i Mobile Apps kan slutanvändare interagera med en lokal databas även om nätverket inte är tillgängligt. Om du vill använda dessa funktioner i din app initierar du synkroniseringen av Sync-kontexten för `MSClient` och refererar till ett lokalt Arkiv. Sedan hänvisar du till tabellen via **MSSyncTable** -gränssnittet.
+Med funktionen offline-datasynkronisering i Mobile Apps kan slutanvändare interagera med en lokal databas även om nätverket inte är tillgängligt. Om du vill använda dessa funktioner i din app initierar du synkroniseringen av kontexten för `MSClient` och refererar till ett lokalt lager. Sedan hänvisar du till tabellen via **MSSyncTable** -gränssnittet.
 
 I **QSTodoService. m** (mål-C) eller **ToDoTableViewController. SWIFT** (SWIFT) ser du till att typen av medlems **syncTable** är **MSSyncTable**. Offline-synkronisering använder det här gränssnittet i Sync-tabellen i stället för **MSTable**. När en routningstabell används går alla åtgärder till det lokala arkivet och synkroniseras bara med fjärrservern med explicita push-och pull-åtgärder.
 
@@ -47,7 +47,7 @@ I **QSTodoService. m** (mål-C) eller **ToDoTableViewController. SWIFT** (SWIFT)
 
 Innan alla tabell åtgärder kan utföras måste det lokala arkivet initieras. Här är den relevanta koden:
 
-* **Mål-C**. I metoden **QSTodoService. init** :
+* **Objective-C**. I metoden **QSTodoService. init** :
 
    ```objc
    MSCoreDataStore *store = [[MSCoreDataStore alloc] initWithManagedObjectContext:context];
@@ -61,11 +61,11 @@ Innan alla tabell åtgärder kan utföras måste det lokala arkivet initieras. H
    self.store = MSCoreDataStore(managedObjectContext: managedObjectContext)
    client.syncContext = MSSyncContext(delegate: nil, dataSource: self.store, callback: nil)
    ```
-   Den här metoden skapar en lokal lagrings plats med hjälp av gränssnittet `MSCoreDataStore`, som Mobile Apps SDK tillhandahåller. Alternativt kan du ange ett annat lokalt Arkiv genom att implementera `MSSyncContextDataSource`-protokollet. Den första parametern i **MSSyncContext** används också för att ange en konflikt hanterare. Eftersom vi har passerat `nil`, får vi standard konflikt hanteraren, vilket Miss lyckas vid eventuella konflikter.
+   Den här metoden skapar en lokal lagrings plats med hjälp av `MSCoreDataStore`-gränssnittet, som Mobile Apps SDK tillhandahåller. Alternativt kan du ange ett annat lokalt Arkiv genom att implementera `MSSyncContextDataSource`-protokollet. Den första parametern i **MSSyncContext** används också för att ange en konflikt hanterare. Eftersom vi har slutfört `nil`, får vi standard konflikt hanteraren, vilket Miss lyckas vid eventuella konflikter.
 
 Nu ska vi utföra den faktiska synkroniseringsåtgärden och hämta data från fjärrservern:
 
-* **Mål-C**. `syncData` skickar först nya ändringar och anropar sedan **pullData** för att hämta data från fjärrservern. I sin tur hämtar metoden **pullData** nya data som matchar en fråga:
+* **Objective-C**. `syncData` börjar med att skicka nya ändringar och anropar sedan **pullData** för att hämta data från fjärrservern. I sin tur hämtar metoden **pullData** nya data som matchar en fråga:
 
    ```objc
    -(void)syncData:(QSCompletionBlock)completion
@@ -128,13 +128,13 @@ Nu ska vi utföra den faktiska synkroniseringsåtgärden och hämta data från f
    }
    ```
 
-I mål-C-versionen, i `syncData`, anropar vi först **pushWithCompletion** i Sync-kontexten. Den här metoden är medlem i `MSSyncContext` (och inte i själva tabellen) eftersom den push-överför ändringar i alla tabeller. Endast poster som har ändrats på något sätt lokalt (via CUD-åtgärder) skickas till servern. Sedan anropas **pullData** , som anropar **MSSyncTable. pullWithQuery** för att hämta fjärrdata och lagra dem i den lokala databasen.
+I mål-C-versionen, i `syncData`, anropar vi först **pushWithCompletion** i Sync-kontexten. Den här metoden är en medlem i `MSSyncContext` (och inte själva Sync-tabellen) eftersom den push-överför ändringar i alla tabeller. Endast poster som har ändrats på något sätt lokalt (via CUD-åtgärder) skickas till servern. Sedan anropas **pullData** , som anropar **MSSyncTable. pullWithQuery** för att hämta fjärrdata och lagra dem i den lokala databasen.
 
 Eftersom push-åtgärden inte var absolut nödvändig i Swift-versionen, finns det inget anrop till **pushWithCompletion**. Om det finns ändringar som väntar i synkroniserings kontexten för den tabell som utför en push-åtgärd, utfärdar pull alltid en push-åtgärd först. Men om du har fler än en Sync-tabell är det bäst att uttryckligen anropa push för att se till att allt är konsekvent i relaterade tabeller.
 
-I både mål-C-och SWIFT-versionerna kan du använda metoden **pullWithQuery** för att ange en fråga för att filtrera de poster som du vill hämta. I det här exemplet hämtar frågan alla poster i den fjärranslutna `TodoItem`-tabellen.
+I både mål-C-och SWIFT-versionerna kan du använda metoden **pullWithQuery** för att ange en fråga för att filtrera de poster som du vill hämta. I det här exemplet hämtar frågan alla poster i tabellen Remote `TodoItem`.
 
-Den andra parametern för **pullWithQuery** är ett fråge-ID som används för *stegvis synkronisering*. Med den stegvisa synkroniseringen hämtas endast poster som har ändrats sedan den senaste synkroniseringen, med postens `UpdatedAt`-tidstämpel (kallas `updatedAt` i det lokala arkivet). Frågans ID ska vara en beskrivande sträng som är unik för varje logisk fråga i din app. Om du vill välja bort stegvis synkronisering, pass `nil` som fråge-ID. Den här metoden kan vara ineffektiv, eftersom den hämtar alla poster för varje pull-åtgärd.
+Den andra parametern för **pullWithQuery** är ett fråge-ID som används för *stegvis synkronisering*. Med den stegvisa synkroniseringen hämtas endast poster som har ändrats sedan den senaste synkroniseringen, med hjälp av postens `UpdatedAt` tidstämpel (kallas `updatedAt` i det lokala arkivet). Frågans ID ska vara en beskrivande sträng som är unik för varje logisk fråga i din app. Om du vill välja bort stegvis synkronisering skickar du `nil` som fråge-ID. Den här metoden kan vara ineffektiv, eftersom den hämtar alla poster för varje pull-åtgärd.
 
 Mål-C-appen synkroniseras när du ändrar eller lägger till data, när en användare utför uppdaterings gesten och vid start.
 
@@ -162,27 +162,27 @@ När du använder funktionen offline-synkronisering definierar du de tre system 
 
 **MS_TableOperations**  
 
-![MS_TableOperations-tabellattribut][defining-core-data-tableoperations-entity]
+![MS_TableOperations tabellattribut][defining-core-data-tableoperations-entity]
 
 | Attribut | Typ |
 | --- | --- |
-| id | Heltal 64 |
+| id | Integer 64 |
 | itemId | Sträng |
-| properties | Binära data |
-| Partitionstabell | Sträng |
-| tableKind | Heltal 16 |
+| properties | Binary Data |
+| table | Sträng |
+| tableKind | Integer 16 |
 
 
 **MS_TableOperationErrors**
 
- ![MS_TableOperationErrors-tabellattribut][defining-core-data-tableoperationerrors-entity]
+ ![MS_TableOperationErrors tabellattribut][defining-core-data-tableoperationerrors-entity]
 
 | Attribut | Typ |
 | --- | --- |
 | id |Sträng |
-| operationId |Heltal 64 |
-| properties |Binära data |
-| tableKind |Heltal 16 |
+| operationId |Integer 64 |
+| properties |Binary Data |
+| tableKind |Integer 16 |
 
  **MS_TableConfig**
 
@@ -192,8 +192,8 @@ När du använder funktionen offline-synkronisering definierar du de tre system 
 | --- | --- |
 | id |Sträng |
 | key |Sträng |
-| keyType |Heltal 64 |
-| Partitionstabell |Sträng |
+| KeyType |Integer 64 |
+| table |Sträng |
 | värde |Sträng |
 
 ### <a name="data-table"></a>Data tabell
@@ -202,11 +202,11 @@ När du använder funktionen offline-synkronisering definierar du de tre system 
 
 | Attribut | Typ | Obs! |
 | --- | --- | --- |
-| id | Sträng, markerad som krävs |Primär nyckel i fjärrarkiv |
+| id | String, markeras krävs |Primär nyckel i fjärrarkiv |
 | full | Boolesk | Fältet att göra-objekt |
 | text |Sträng |Fältet att göra-objekt |
-| CreatedAt | Datum | valfritt Mappar till **createdAt** system egenskap |
-| updatedAt | Datum | valfritt Mappar till **updatedAt** system egenskap |
+| createdAt | Date | valfritt Mappar till **createdAt** system egenskap |
+| updatedAt | Date | valfritt Mappar till **updatedAt** system egenskap |
 | version | Sträng | valfritt Används för att identifiera konflikter, mappar till version |
 
 ## <a name="setup-sync"></a>Ändra appens synkroniserings beteende
@@ -214,15 +214,15 @@ I det här avsnittet ändrar du appen så att den inte synkroniseras när appen 
 
 **Mål-C**:
 
-1. I **QSTodoListViewController. m**ändrar du **viewDidLoad** -metoden för att ta bort anropet till `[self refresh]` i slutet av-metoden. Nu synkroniseras inte data med servern när appen startades. I stället synkroniseras den med innehållet i det lokala arkivet.
-2. I **QSTodoService. m**ändrar du definitionen för `addItem` så att den inte synkroniseras när objektet har infogats. Ta bort `self syncData`-blocket och Ersätt det med följande:
+1. I **QSTodoListViewController. m**ändrar du **viewDidLoad** -metoden för att ta bort anropet till `[self refresh]` i slutet av metoden. Nu synkroniseras inte data med servern när appen startades. I stället synkroniseras den med innehållet i det lokala arkivet.
+2. I **QSTodoService. m**ändrar du definitionen för `addItem` så att den inte synkroniseras när objektet har infogats. Ta bort `self syncData` blocket och Ersätt det med följande:
 
    ```objc
    if (completion != nil) {
        dispatch_async(dispatch_get_main_queue(), completion);
    }
    ```
-3. Ändra definitionen för `completeItem` som tidigare nämnts. Ta bort blocket för `self syncData` och Ersätt det med följande:
+3. Ändra definitionen av `completeItem` som tidigare nämnts. Ta bort blocket för `self syncData` och Ersätt det med följande:
    ```objc
    if (completion != nil) {
        dispatch_async(dispatch_get_main_queue(), completion);
@@ -231,7 +231,7 @@ I det här avsnittet ändrar du appen så att den inte synkroniseras när appen 
 
 **Swift**:
 
-I `viewDidLoad`, i **ToDoTableViewController. SWIFT**, kommentera ut de två raderna som visas här, för att stoppa synkroniseringen när appen startas. När detta skrivs uppdaterar inte tjänsten Swift när någon lägger till eller Slutför ett objekt. Den uppdaterar bara tjänsten i appens start.
+I `viewDidLoad`går du till **ToDoTableViewController. SWIFT**och kommenterar de två raderna som visas här, för att stoppa synkroniseringen när appen startas. När detta skrivs uppdaterar inte tjänsten Swift när någon lägger till eller Slutför ett objekt. Den uppdaterar bara tjänsten i appens start.
 
    ```swift
   self.refreshControl?.beginRefreshing()
@@ -243,18 +243,18 @@ I det här avsnittet ansluter du till en ogiltig URL för att simulera ett offli
 
 1. Ändra mobil-app-URL: en i **QSTodoService. m** till en ogiltig URL och kör appen igen:
 
-   **Mål-C**. I QSTodoService. m:
+   **Objective-C**. I QSTodoService. m:
    ```objc
    self.client = [MSClient clientWithApplicationURLString:@"https://sitename.azurewebsites.net.fail"];
    ```
-   **Swift**. I ToDoTableViewController. SWIFT:
+   **Swift**. In ToDoTableViewController.swift:
    ```swift
    let client = MSClient(applicationURLString: "https://sitename.azurewebsites.net.fail")
    ```
 2. Lägg till några att-göra-objekt. Avsluta simulatorn (eller framtvinga stängning av appen) och starta sedan om den. Kontrol lera att ändringarna har sparats.
 
 3. Visa innehållet i den fjärranslutna **TodoItem** -tabellen:
-   * För en Node. js-Server del går du till [Azure Portal](https://portal.azure.com/) och klickar på **enkla tabeller**@no__t **-2 på**Server sidan i Mobile-app.  
+   * För en Node. js-Server del går du till [Azure Portal](https://portal.azure.com/) och klickar på **enkla tabeller** på Server sidan i Mobile-appen > **TodoItem**.  
    * För en .NET-Server del använder du antingen ett SQL-verktyg, till exempel SQL Server Management Studio eller en REST-klient, till exempel Fiddler eller Postman.  
 
 4. Kontrol lera att de nya objekten *inte* har synkroniserats med-servern.
@@ -267,7 +267,7 @@ En rotations ruta visas.
 7. Visa **TodoItem** -data igen. De nya och ändrade att göra-objekten ska nu visas.
 
 ## <a name="summary"></a>Sammanfattning
-För att stödja funktionen offline-synkronisering använde vi gränssnittet `MSSyncTable` och initierade `MSClient.syncContext` med ett lokalt Arkiv. I det här fallet var det lokala arkivet en grundläggande data baserad databas.
+För att stödja funktionen offline-synkronisering använde vi `MSSyncTable`-gränssnittet och initierade `MSClient.syncContext` med ett lokalt Arkiv. I det här fallet var det lokala arkivet en grundläggande data baserad databas.
 
 När du använder ett lokalt huvud data lager måste du definiera flera tabeller med [rätt system egenskaper](#review-core-data).
 
@@ -277,7 +277,7 @@ När vi synkroniserade det lokala arkivet med servern använde vi metoden **MSSy
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 * [Datasynkronisering offline i Mobile Apps]
-* [Cloud Cover: offline-synkronisering i Azure Mobile Services] \(The video är ungefär Mobile Services, men Mobile Apps offlinesynkronisering fungerar på ett liknande sätt. \)
+* [Cloud Cover: offline-synkronisering i Azure Mobile Services] \(videon är om Mobile Services, men Mobile Apps offline-synkronisering fungerar på ett liknande sätt.\)
 
 <!-- URLs. -->
 

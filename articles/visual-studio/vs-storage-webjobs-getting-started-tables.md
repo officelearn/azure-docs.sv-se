@@ -31,7 +31,7 @@ Med tjänsten Azure Table Storage kan du lagra stora mängder strukturerade data
 Några av kodfragmenten visar det **tabellattribut** som används i funktioner som anropas manuellt, det vill säga inte genom att använda ett av utlösarens attribut.
 
 ## <a name="how-to-add-entities-to-a-table"></a>Så här lägger du till entiteter i en tabell
-Om du vill lägga till entiteter i en tabell använder du **Table** -attributet med en **ICollector @ no__t-2T >** eller **IAsyncCollector @ no__t-4T >** parameter där **t** anger schemat för de entiteter som du vill lägga till. Attributet konstruktorn använder en sträng parameter som anger namnet på tabellen.
+Om du vill lägga till entiteter i en tabell använder du **Table** -attributet med en **ICollector\<t >** eller **IAsyncCollector\<t >** parameter där **t** anger schemat för de entiteter som du vill lägga till. Attributet konstruktorn använder en sträng parameter som anger namnet på tabellen.
 
 Följande kod exempel lägger till **person** entiteter i en tabell med namnet *ingress*.
 
@@ -80,7 +80,7 @@ När funktionen slutförs rapporterar sidan med **anrops information** antalet r
 ![Ingångs funktion avslutad](./media/vs-storage-webjobs-getting-started-tables/ingresssuccess.png)
 
 ## <a name="how-to-read-multiple-entities-from-a-table"></a>Läsa flera entiteter från en tabell
-Om du vill läsa en tabell använder du **Table** -attributet med en **IQueryable @ no__t-2T >** parameter där typ **t** härleds från **TableEntity** eller implementerar **ITableEntity**.
+Om du vill läsa en tabell använder du **Table** -attributet med en **IQueryable-\<t >** -parameter där typ **t** härleds från **TableEntity** eller implementerar **ITableEntity**.
 
 Följande kod exempel läser och loggar alla rader från **ingress** -tabellen:
 

@@ -246,7 +246,7 @@ För kritiska SAP-komponenter har du uppnått följande hittills:
 
     Varje SAP Application Server-instans placeras i ett eget Azure Storage-konto. Det går inte att få till gång till ett Azure Storage-konto eftersom det bara finns en virtuell dator med sin SAP Application Server-instans. Tänk dock på att det finns en gräns för antalet Azure Storage-konton i en Azure-prenumeration. För att säkerställa automatisk start av en ASCS/SCS-instans efter den virtuella datorn, ställer du in Autostart-parametern i instansen av ASCS/SCS-instansen som beskrivs i avsnittet [använda Autostart för SAP-instanser][planning-guide-11.5] .
   
-    Mer information finns i [hög tillgänglighet för SAP][planning-guide-11.4.1]-programservrar.
+    Mer information finns i [hög tillgänglighet för SAP-programservrar][planning-guide-11.4.1].
 
     Även om du använder hanterade diskar lagras diskarna i ett Azure Storage-konto och kan vara otillgängliga vid ett lagrings avbrott.
 

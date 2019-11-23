@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Konton och behörigheter | Microsoft Docs'
+title: 'Azure AD Connect: konton och behörigheter | Microsoft Docs'
 description: I det här avsnittet beskrivs de konton som används och har skapats och behörigheter som krävs.
 services: active-directory
 documentationcenter: ''
@@ -24,7 +24,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 10/04/2019
 ms.locfileid: "71960231"
 ---
-# <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Konton och behörigheter
+# <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: konton och behörigheter
 
 ## <a name="accounts-used-for-azure-ad-connect"></a>Konton som används för Azure AD Connect
 
@@ -40,9 +40,9 @@ Azure AD Connect använder 3 konton för att synkronisera information från loka
 
 Förutom dessa tre konton som används för att köra Azure AD Connect behöver du också följande ytterligare konton för att installera Azure AD Connect.  Dessa är:
 
-- **Lokalt administratörs konto**: Den administratör som installerar Azure AD Connect och som har lokal administratörs behörighet på datorn.
+- **Lokalt administratörs konto**: administratören som installerar Azure AD Connect och som har lokal administratörs behörighet på datorn.
 
-- **AD DS Enterprise-administratörskonto**: Används för att skapa "AD DS Connector-kontot" ovan.
+- **AD DS Enterprise-administratörskonto**: används för att skapa "AD DS Connector-kontot" ovan.
 
 - **Azure AD global administratörs konto**: används för att skapa Azure AD Connector-kontot och konfigurera Azure AD.
 
@@ -88,12 +88,12 @@ AD DS-anslutningsprogrammet skapas för läsning och skrivning till Windows Serv
 
 | Behörighet | Används för |
 | --- | --- |
-| <li>Replikera katalog ändringar</li><li>Replikera katalog ändringar alla |Synkronisering av lösenordshash |
+| <li>Replikera katalog ändringar</li><li>Replikera katalog ändringar alla |Hash-synkronisering av lösen ord |
 | Läsa/skriva alla egenskaper användare |Importera och Exchange hybrid |
 | Läsa/skriva alla egenskaper iNetOrgPerson |Importera och Exchange hybrid |
 | Läsa/skriva alla egenskaps grupper |Importera och Exchange hybrid |
 | Läs/Skriv alla egenskaper kontakt |Importera och Exchange hybrid |
-| Återställ lösenord |Förberedelse för att aktivera tillbakaskrivning av lösen ord |
+| Återställa lösenord |Förberedelse för att aktivera tillbakaskrivning av lösen ord |
 
 ### <a name="express-installation-wizard-summary"></a>Guide Sammanfattning för Express installation
 
@@ -103,7 +103,7 @@ Följande är en sammanfattning av sidorna i guiden Express installation, autent
 
 | Guide sida | Insamlade autentiseringsuppgifter | Behörigheter som krävs | Används för |
 | --- | --- | --- | --- |
-| Gäller inte |Användare som kör installations guiden |Administratör för den lokala servern |<li>Skapar det ADSync-tjänstkonto som används för att köra synkroniseringstjänsten. |
+| Saknas |Användare som kör installations guiden |Administratör för den lokala servern |<li>Skapar det ADSync-tjänstkonto som används för att köra synkroniseringstjänsten. |
 | Anslut till Azure AD |Autentiseringsuppgifter för Azure AD-katalog |Global administratörs roll i Azure AD |<li>Aktiverar synkronisering i Azure AD-katalogen.</li>  <li>Skapandet av Azure AD Connector-kontot som används för pågående synkronisering i Azure AD.</li> |
 | Anslut till AD DS |Lokala Active Directory autentiseringsuppgifter |Medlem i gruppen Enterprise administratörer (EA) i Active Directory |<li>Skapar AD DS-anslutningsprogrammet i Active Directory och beviljar behörigheter till det. Det här skapade kontot används för att läsa och skriva katalog information under synkroniseringen.</li> |
 
@@ -120,13 +120,13 @@ Följande är en sammanfattning av sidorna för anpassade installations guider, 
 
 | Guide sida | Insamlade autentiseringsuppgifter | Behörigheter som krävs | Används för |
 | --- | --- | --- | --- |
-| Gäller inte |Användare som kör installations guiden |<li>Administratör för den lokala servern</li><li>Om du använder en fullständig SQL Server måste användaren vara system administratör (SA) i SQL</li> |Som standard skapar det lokala kontot som används som Synkroniseringsmotorn för synkroniseringstjänsten. Kontot skapas bara när administratören inte anger något visst konto. |
+| Saknas |Användare som kör installations guiden |<li>Administratör för den lokala servern</li><li>Om du använder en fullständig SQL Server måste användaren vara system administratör (SA) i SQL</li> |Som standard skapar det lokala kontot som används som Synkroniseringsmotorn för synkroniseringstjänsten. Kontot skapas bara när administratören inte anger något visst konto. |
 | Installera Synchronization Services, tjänst konto alternativ |Autentiseringsuppgifter för AD eller lokalt användar konto |Användare, behörigheter beviljas av installations guiden |Om administratören anger ett konto används det här kontot som tjänst konto för synkroniseringstjänsten. |
 | Anslut till Azure AD |Autentiseringsuppgifter för Azure AD-katalog |Global administratörs roll i Azure AD |<li>Aktiverar synkronisering i Azure AD-katalogen.</li>  <li>Skapandet av Azure AD Connector-kontot som används för pågående synkronisering i Azure AD.</li> |
 | Anslut dina kataloger |Lokala Active Directory autentiseringsuppgifter för varje skog som är ansluten till Azure AD |Behörigheterna beror på vilka funktioner du aktiverar och hur du hittar dem i skapa AD DS-anslutnings kontot |Det här kontot används för att läsa och skriva katalog information under synkroniseringen. |
 | AD FS-servrar |För varje server i listan samlar guiden in autentiseringsuppgifter när inloggnings uppgifterna för användaren som kör guiden inte räcker för att ansluta |Domän administratör |Installation och konfiguration av AD FS server rollen. |
 | Web Application Proxy-servrar |För varje server i listan samlar guiden in autentiseringsuppgifter när inloggnings uppgifterna för användaren som kör guiden inte räcker för att ansluta |Lokal administratör på mål datorn |Installation och konfiguration av WAP-serverrollen. |
-| Autentiseringsuppgifter för proxyförtroende |Autentiseringsuppgifter för Federations tjänst förtroende (de autentiseringsuppgifter som proxyn använder för att registrera ett förtroende certifikat från FS |Domän konto som är en lokal administratör för den AD FS-servern |Första registrering av FS-WAP-förtroende certifikat. |
+| Autentiseringsuppgifter för proxy förtroende |Autentiseringsuppgifter för Federations tjänst förtroende (de autentiseringsuppgifter som proxyn använder för att registrera ett förtroende certifikat från FS |Domän konto som är en lokal administratör för den AD FS-servern |Första registrering av FS-WAP-förtroende certifikat. |
 | Sidan AD FS tjänst konto, "Använd ett domän användar konto alternativ" |Autentiseringsuppgifter för AD-användarkonto |Domän användare |Det användar konto för Azure AD vars autentiseringsuppgifter har angetts används som inloggnings konto för AD FS tjänsten. |
 
 ### <a name="create-the-ad-ds-connector-account"></a>Skapa AD DS-anslutnings kontot
@@ -134,7 +134,7 @@ Följande är en sammanfattning av sidorna för anpassade installations guider, 
 >[!IMPORTANT]
 >En ny PowerShell-modul med namnet ADSyncConfig. psm1 introducerades med build **1.1.880.0** (lanserades i augusti 2018) som innehåller en samling cmdlets som hjälper dig att konfigurera rätt Active Directory behörigheter för Azure AD DS Connector-kontot.
 >
->Mer information finns i [Azure AD Connect: Konfigurera behörighet för AD DS-kopplings konto @ no__t-0
+>Mer information finns i [Azure AD Connect: Konfigurera behörighet för AD DS-kopplings konto](how-to-connect-configure-ad-ds-connector-account.md)
 
 Det konto som du anger på sidan **Anslut dina kataloger** måste finnas i Active Directory före installationen.  Azure AD Connect version 1.1.524.0 och senare har möjlighet att låta guiden Azure AD Connect skapa det **AD DS-administratörskonto** som används för att ansluta till Active Directory.  
 
@@ -145,11 +145,11 @@ Vilka behörigheter du behöver beror på vilka valfria funktioner du aktiverar.
 | Funktion | Behörigheter |
 | --- | --- |
 | ms-DS-ConsistencyGuid-funktion |Skriv behörigheter till attributet ms-DS-ConsistencyGuid dokumenterat i [design koncept – med MS-DS-ConsistencyGuid som sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). | 
-| Synkronisering av lösenordshash |<li>Replikera katalog ändringar</li>  <li>Replikera katalog ändringar alla |
-| Exchange-hybridinstallation |Skriv behörigheter till de attribut som dokumenteras i [Exchange hybrid tillbakaskrivning](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) för användare, grupper och kontakter. |
+| Hash-synkronisering av lösen ord |<li>Replikera katalog ändringar</li>  <li>Replikera katalog ändringar alla |
+| Exchange hybrid distribution |Skriv behörigheter till de attribut som dokumenteras i [Exchange hybrid tillbakaskrivning](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) för användare, grupper och kontakter. |
 | Offentlig Exchange-e-postmapp |Läs behörighet till attributen som dokumenteras i den [offentliga Exchange-e-postmappen](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) för offentliga mappar. | 
 | Tillbakaskrivning av lösenord |Skriv behörigheter till de attribut som dokumenteras i [komma igång med lösen ords hantering](../authentication/howto-sspr-writeback.md) för användare. |
-| Tillbakaskrivning av enhet |Behörigheter som beviljats med ett PowerShell-skript enligt beskrivningen i [tillbakaskrivning av enhet](how-to-connect-device-writeback.md). |
+| Tillbakaskrivning av enheter |Behörigheter som beviljats med ett PowerShell-skript enligt beskrivningen i [tillbakaskrivning av enhet](how-to-connect-device-writeback.md). |
 | Tillbakaskrivning av grupp |Gör att du kan ångra **Office 365-grupper** till en skog med Exchange installerat.  Mer information finns i [tillbakaskrivning av grupp](how-to-connect-preview.md#group-writeback).|
 
 ## <a name="upgrade"></a>Uppgradera
@@ -159,7 +159,7 @@ När du uppgraderar från en version av Azure AD Connect till en ny version beh�
 >Från och med build 1.1.484 introducerade Azure AD Connect ett Regressions fel som kräver sysadmin-behörighet för att uppgradera SQL-databasen.  Denna bugg korrigeras i build-1.1.647.  Om du uppgraderar till den här versionen måste du ha sysadmin-behörighet.  Dbo-behörigheter är inte tillräckliga.  Om du försöker uppgradera Azure AD Connect utan att ha sysadmin-behörighet kommer uppgraderingen att Miss lyckas och Azure AD Connect kommer inte längre att fungera korrekt efteråt.  Microsoft är medveten om detta och arbetar med att åtgärda detta.
 
 
-| Huvudkonto | Behörigheter som krävs | Används för |
+| Viktigaste | Behörigheter som krävs | Används för |
 | --- | --- | --- |
 | Användare som kör installations guiden |Administratör för den lokala servern |Uppdatera binärfiler. |
 | Användare som kör installations guiden |Medlem i ADSyncAdmins |Ändra regler för synkronisering och annan konfiguration. |
@@ -167,7 +167,7 @@ När du uppgraderar från en version av Azure AD Connect till en ny version beh�
 
 ## <a name="more-about-the-created-accounts"></a>Mer om de skapade kontona
 ### <a name="ad-ds-connector-account"></a>AD DS-anslutnings konto
-Om du använder Express inställningar skapas ett konto i Active Directory som används för synkronisering. Det skapade kontot finns i skogs rot domänen i behållaren användare och har sitt namn prefix med **MSOL_** . Kontot skapas med ett långt komplext lösen ord som inte upphör att gälla. Om du har en lösen ords princip i din domän kontrollerar du att det är tillåtet att använda långa och komplexa lösen ord för det här kontot.
+Om du använder Express inställningar skapas ett konto i Active Directory som används för synkronisering. Det skapade kontot finns i skogs rot domänen i behållaren användare och har sitt namn prefixet med **MSOL_** . Kontot skapas med ett långt komplext lösen ord som inte upphör att gälla. Om du har en lösen ords princip i din domän kontrollerar du att det är tillåtet att använda långa och komplexa lösen ord för det här kontot.
 
 ![AD-konto](./media/reference-connect-accounts-permissions/adsyncserviceaccount.png)
 
@@ -180,7 +180,7 @@ Synkroniseringstjänsten kan köras under olika konton. Den kan köras under ett
 | --- | --- | --- |
 | [Virtuellt tjänst konto](#virtual-service-account) | Express och anpassad, 2017 april och senare | Detta är det alternativ som används för alla Express installationer, förutom för installationer på en domänkontrollant. För anpassad är det standard alternativet om inte ett annat alternativ används. |
 | [Grupphanterat tjänst konto](#group-managed-service-account) | Anpassad, 2017 april och senare | Om du använder en fjärran sluten SQL Server rekommenderar vi att du använder ett grupphanterat tjänst konto. |
-| [Användar konto](#user-account) | Express och anpassad, 2017 april och senare | Ett användar konto som föregås av AAD_ skapas bara under installationen när det installeras på Windows Server 2008 och när det installeras på en domänkontrollant. |
+| [Användar konto](#user-account) | Express och anpassad, 2017 april och senare | Ett användar konto som har prefixet AAD_ skapas bara under installationen när det installeras på Windows Server 2008 och när det installeras på en domänkontrollant. |
 | [Användar konto](#user-account) | Express och anpassad, 2017 mars och tidigare | Ett lokalt konto som har prefixet AAD_ skapas under installationen. När du använder anpassad installation kan du ange ett annat konto. |
 
 Om du använder Connect med en version från 2017 mars eller tidigare bör du inte återställa lösen ordet för tjänst kontot eftersom Windows förstör krypterings nycklarna av säkerhets skäl. Du kan inte ändra kontot till något annat konto utan att installera om Azure AD Connect. Om du uppgraderar till en version från 2017 april eller senare, stöds det att ändra lösen ordet för tjänst kontot, men du kan inte ändra det konto som används.
@@ -201,10 +201,10 @@ Mönstret
 - sMSA- [fristående hanterat tjänst konto](https://technet.microsoft.com/library/dd548356.aspx)
 - gMSA- [grupphanterat tjänst konto](https://technet.microsoft.com/library/hh831782.aspx)
 
-| | LocalDB</br>Snabbt | LocalDB/LocalSQL</br>Anpassat | Fjärr-SQL</br>Anpassat |
+| | LocalDB</br>Express | LocalDB/LocalSQL</br>Anpassat | Fjärr-SQL</br>Anpassat |
 | --- | --- | --- | --- |
 | **fristående/arbets grupps dator** | Stöds inte | **VSA**</br>Lokalt konto (2008)</br>Lokalt konto |  Stöds inte |
-| **domänansluten dator** | **VSA**</br>Lokalt konto (2008) | **VSA**</br>Lokalt konto (2008)</br>Lokalt konto</br>Domänkonto</br>sMSA,gMSA | **gMSA**</br>Domänkonto |
+| **domänansluten dator** | **VSA**</br>Lokalt konto (2008) | **VSA**</br>Lokalt konto (2008)</br>Lokalt konto</br>Domän konto</br>sMSA,gMSA | **gMSA**</br>Domän konto |
 | **Domänkontrollant** | **Domän konto** | *gMSA*</br>**Domän konto**</br>sMSA| *gMSA*</br>**Domän konto**|
 
 #### <a name="virtual-service-account"></a>Virtuellt tjänst konto
@@ -225,8 +225,8 @@ Det finns också stöd för att använda ett [fristående hanterat tjänst konto
 
 Den här funktionen kräver Windows Server 2012 eller senare. Om du behöver använda ett äldre operativ system och använda fjärr-SQL måste du använda ett [användar konto](#user-account).
 
-#### <a name="user-account"></a>Användarkonto
-Ett lokalt tjänst konto skapas av installations guiden (om du inte anger vilket konto som ska användas i anpassade inställningar). Kontot har prefixet **AAD_** och används för den faktiska synkroniseringstjänsten som ska köras som. Om du installerar Azure AD Connect på en domänkontrollant skapas kontot i domänen. **AAD_** -tjänstkontot måste finnas i domänen om:
+#### <a name="user-account"></a>Användar konto
+Ett lokalt tjänst konto skapas av installations guiden (om du inte anger vilket konto som ska användas i anpassade inställningar). Kontot har prefix **AAD_** och används för den faktiska synkroniseringstjänsten som ska köras som. Om du installerar Azure AD Connect på en domänkontrollant skapas kontot i domänen. **AAD_** tjänst kontot måste finnas i domänen om:
    - du använder en fjärran sluten server som kör SQL Server
    - du använder en proxy som kräver autentisering
 
@@ -261,7 +261,7 @@ Mer information om hur du hanterar eller återställer lösen ordet för Azure A
 ## <a name="related-documentation"></a>Relaterad dokumentation
 Om du inte läst dokumentationen om [att integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)innehåller följande tabell länkar till närliggande ämnen.
 
-|Avsnitt |Länka|  
+|Avsnitt |Länk|  
 | --- | --- |
 |Ladda ned Azure AD Connect | [Ladda ned Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |Installera med standardinställningar | [Snabbinstallation av Azure AD Connect](how-to-connect-install-express.md)|

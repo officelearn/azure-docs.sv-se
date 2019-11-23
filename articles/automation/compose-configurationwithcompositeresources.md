@@ -33,11 +33,11 @@ Innan du kan tilldela en konfiguration som görs från sammansatta resurser i Az
 1. På sidan **Automation-konto** väljer du **tillstånds konfiguration (DSC)** under **konfigurations hantering**.
 1. På sidan **tillstånds konfiguration (DSC)** klickar du på fliken **konfigurationer** eller **kompilerade konfigurationer** och sedan på **skapa konfiguration** på menyn längst upp på sidan.
 1. I **grundläggande** steg anger du det nya konfigurations namnet (obligatoriskt) och klickar på var som helst på raden i varje sammansatt resurs som du vill inkludera i den nya konfigurationen. Klicka sedan på **Nästa** eller klicka på **käll kods** steget. För följande steg valde vi **PSExecutionPolicy** -och **RenameAndDomainJoin** -sammansatta resurser.
-   @no__t – 0Screenshot av grundläggande steg på sidan Skriv konfiguration @ no__t-1
+   ![skärm bild av grundläggande steg på sidan Skriv konfiguration](./media/compose-configurationwithcompositeresources/compose-configuration-basics.png)
 1. I **käll kods** steget visas hur den sammanställda konfigurationen av de valda sammansatta resurserna ser ut. Du kan se sammanslagningen av alla parametrar och hur de skickas till den sammansatta resursen. När du är färdig med att granska den nya käll koden klickar du på **Nästa** eller klickar på **parameter** steget.
-   ![Screenshot för käll kods steget på sidan Skriv konfiguration @ no__t-1
+   ![skärm bild av käll kods steget på sidan Skriv konfiguration](./media/compose-configurationwithcompositeresources/compose-configuration-sourcecode.png)
 1. I steget **Parameters** visas den parameter som varje sammansatt resurs har visats så att de kan tillhandahållas. Om en parameter har en beskrivning visas den bredvid parameter fältet. Om ett fält är en **PSCredential** typ parameter innehåller List rutan för att konfigurera en lista över **Credential** -objekt i det aktuella Automation-kontot. Det finns även ett alternativ för att **lägga till en autentiseringsuppgift** . När alla obligatoriska parametrar har angetts klickar du på **Spara och kompilera**.
-   ![Screenshot för parameter steget på sidan Skriv konfiguration @ no__t-1
+   ![skärm bild av steget parametrar på sidan Skriv konfiguration](./media/compose-configurationwithcompositeresources/compose-configuration-parameters.png)
 
 När den nya konfigurationen har sparats skickas den för kompilering. Status för Compilation-jobbet kan visas som alla importerade konfigurationer. Mer information finns i [Visa ett Compilation-jobb](automation-dsc-getting-started.md#viewing-a-compilation-job).
 

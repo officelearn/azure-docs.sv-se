@@ -28,7 +28,7 @@ ms.locfileid: "72388523"
 > [!NOTE]
 > Visual Studio App Center stöder utveckling av slutpunkt till slutpunkt-tjänster och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda tjänsterna för att **bygga**, **testa** och **distribuera** för att skapa en pipeline för kontinuerlig integrering och leverans. När appen har distribuerats kan utvecklarna övervaka status och användning av appen med hjälp av tjänsterna **Analys** och **Diagnostik**, och kommunicera med användarna via **Push**-tjänsten. Utvecklare kan också dra nytta av **Auth** för att autentisera sina användare och tjänsten **Data** för att spara och synkronisera appdata i molnet.
 >
-> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
+> Om du vill integrera molntjänster i ditt mobilprogram kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) i dag.
 
 ## <a name="overview"></a>Översikt
 
@@ -86,7 +86,7 @@ Med Server delen som kon figurer ATS med FCM kan du lägga till komponenter och 
 
 #### <a name="implementing-the-firebase-instance-id-service"></a>Implementera Firebase instance ID service
 
-1. Lägg till en ny klass i **Droid** -projektet med namnet `FirebaseRegistrationService` och kontrol lera att följande `using`-satser finns överst i filen:
+1. Lägg till en ny klass i **Droid** -projektet med namnet `FirebaseRegistrationService`och kontrol lera att följande `using`-instruktioner finns överst i filen:
 
     ```csharp
     using System.Threading.Tasks;
@@ -123,13 +123,13 @@ Med Server delen som kon figurer ATS med FCM kan du lägga till komponenter och 
     }
     ```
 
-    Klassen `FirebaseRegistrationService` ansvarar för att skapa säkerhetstoken som ger programmet åtkomst till FCM. Metoden `OnTokenRefresh` anropas när programmet tar emot en registrerings-token från FCM. Metoden hämtar token från egenskapen `FirebaseInstanceId.Instance.Token`, som uppdateras asynkront av FCM. Metoden `OnTokenRefresh` anropas sällan, eftersom token bara uppdateras när programmet installeras eller avinstalleras, när användaren tar bort program data när programmet raderar instans-ID: t eller när säkerheten för token har varit komprometterats. Dessutom kommer FCM instance ID-tjänsten begära att programmet uppdaterar sin token regelbundet, vanligt vis var 6: a månad.
+    Klassen `FirebaseRegistrationService` ansvarar för att skapa säkerhetstoken som ger programmet åtkomst till FCM. Metoden `OnTokenRefresh` anropas när programmet tar emot en registrerings-token från FCM. Metoden hämtar token från egenskapen `FirebaseInstanceId.Instance.Token`, som uppdateras asynkront av FCM. Metoden `OnTokenRefresh` anropas sällan, eftersom token bara uppdateras när programmet installeras eller avinstalleras, när användaren tar bort program data när programmet raderar instans-ID: t eller när säkerheten för token har komprometterats. Dessutom kommer FCM instance ID-tjänsten begära att programmet uppdaterar sin token regelbundet, vanligt vis var 6: a månad.
 
     Metoden `OnTokenRefresh` anropar också metoden `SendRegistrationTokenToAzureNotificationHub` som används för att associera användarens registrerings-token med Azure Notification Hub.
 
 #### <a name="registering-with-the-azure-notification-hub"></a>Registrera med Azure Notification Hub
 
-1. Lägg till en ny klass i **Droid** -projektet med namnet `AzureNotificationHubService` och kontrol lera att följande `using`-satser finns överst i filen:
+1. Lägg till en ny klass i **Droid** -projektet med namnet `AzureNotificationHubService`och kontrol lera att följande `using`-instruktioner finns överst i filen:
 
     ```csharp
     using System;
@@ -168,11 +168,11 @@ Med Server delen som kon figurer ATS med FCM kan du lägga till komponenter och 
     }
     ```
 
-    Metoden `RegisterAsync` skapar en enkel mall för aviserings meddelanden som JSON och registrerar sig för att ta emot mal meddelanden från Notification Hub med hjälp av Firebase-registrerings-token. Detta säkerställer att alla meddelanden som skickas från Azure Notification Hub är riktade mot enheten som representeras av registrerings-token.
+    Metoden `RegisterAsync` skapar en enkel mall för meddelande meddelanden som JSON och registrerar sig för att ta emot mal meddelanden från Notification Hub med hjälp av Firebase-registrerings-token. Detta säkerställer att alla meddelanden som skickas från Azure Notification Hub är riktade mot enheten som representeras av registrerings-token.
 
 #### <a name="displaying-the-contents-of-a-push-notification"></a>Visa innehållet i ett push-meddelande
 
-1. Lägg till en ny klass i **Droid** -projektet med namnet `FirebaseNotificationService` och kontrol lera att följande `using`-satser finns överst i filen:
+1. Lägg till en ny klass i **Droid** -projektet med namnet `FirebaseNotificationService`och kontrol lera att följande `using`-instruktioner finns överst i filen:
 
     ```csharp
     using Android.App;
@@ -225,7 +225,7 @@ Med Server delen som kon figurer ATS med FCM kan du lägga till komponenter och 
     }
     ```
 
-    Metoden `OnMessageReceived`, som anropas när ett program tar emot ett meddelande från FCM, extraherar meddelande innehållet och anropar `SendNotification`-metoden. Med den här metoden konverteras meddelande innehållet till ett lokalt meddelande som startas medan programmet körs, med meddelandet som visas i meddelande fältet.
+    Metoden `OnMessageReceived` som anropas när ett program tar emot ett meddelande från FCM, extraherar meddelande innehållet och anropar `SendNotification`-metoden. Med den här metoden konverteras meddelande innehållet till ett lokalt meddelande som startas medan programmet körs, med meddelandet som visas i meddelande fältet.
 
 Nu är du redo att testa push-meddelanden i appen som körs på en Android-enhet eller emulatorn.
 
@@ -388,7 +388,7 @@ Det här avsnittet används för att köra Xamarin. Forms WinApp-och WinPhone81-
 
     Den här metoden hämtar push-meddelandets kanal och registrerar en mall för att ta emot mal meddelanden från Notification Hub. Ett meddelande i en mall som stöder *messageParam* levereras till den här klienten.
 
-3. I App.xaml.cs uppdaterar du metod definitionen **OnLaunched** Event handler genom att lägga till modifieraren `async`. Lägg sedan till följande kodrad i slutet av-metoden:
+3. I App.xaml.cs uppdaterar du metod definitionen **OnLaunched** Event handler genom att lägga till `async` modifieraren. Lägg sedan till följande kodrad i slutet av-metoden:
 
     ```csharp
     await InitNotificationsAsync();
@@ -419,9 +419,9 @@ Du kan läsa mer om push-meddelanden:
 Du kan också fortsätta till någon av följande Självstudier:
 
 * [Lägg till autentisering i appen](app-service-mobile-xamarin-forms-get-started-users.md)  
-  Läs om hur du autentiserar användare i appen med en identitetsleverantör.
+  Läs om hur du autentiserar användare i appen med en identitetsprovider.
 * [Aktivera offlinesynkronisering av appen](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
-  Läs om hur du lägger till offlinestöd i appen genom en Mobile Apps-serverdel. Med offline-synkronisering kan användare interagera med en mobilapp @ no__t-0viewing, lägga till eller ändra data @ no__t-1even när det inte finns någon nätverks anslutning.
+  Läs om hur du lägger till offlinestöd i appen genom en Mobile Apps-serverdel. Med offlinesynkronisering kan användare interagera med en mobilapp&mdash;Visa, lägga till eller ändra data&mdash;även om det inte finns någon nätverks anslutning.
 
 <!-- Images. -->
 

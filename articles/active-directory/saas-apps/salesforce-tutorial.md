@@ -206,7 +206,7 @@ I det här avsnittet skapas en användare som heter B. Simon i Salesforce. Sales
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Salesforce-panelen i åtkomstpanelen bör du automatiskt loggas in på Salesforce som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på Salesforce-panelen i åtkomstpanelen bör du automatiskt loggas in på Salesforce som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="test-sso-for-salesforce-mobile"></a>Testa SSO för Salesforce (mobil)
 
@@ -228,7 +228,7 @@ När du klickar på Salesforce-panelen i åtkomstpanelen bör du automatiskt log
 
 1. När du har loggat in igen visas programmets start sida.
 
-    ![Salesforce Mobile App @ no__t-1 ![Salesforce Mobile App @ no__t-3
+    ![Salesforce-mobilapp](media/salesforce-tutorial/mobile-app5.png) ![Salesforce-mobilapp](media/salesforce-tutorial/mobile-app6.png)
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

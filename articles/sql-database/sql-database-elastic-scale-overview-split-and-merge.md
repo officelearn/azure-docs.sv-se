@@ -1,6 +1,6 @@
 ---
 title: Flytta data mellan utskalade molndatabaser
-description: 'Förklarar hur du hanterar Shards och flyttar data via en lokal tjänst med hjälp av Elastic Database-API: er.'
+description: Explains how to manipulate shards and move data via a self-hosted service using elastic database APIs.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -11,264 +11,270 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 00f579017ce4dd79e913565ee27698398b5feb38
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8b0db4a1e55b53165e40e176834d66b62926e24b
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823592"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74421551"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Flytta data mellan utskalade molndatabaser
 
-Om du är en program vara som tjänst utvecklare och plötsligt din app är fantastisk efter frågan, måste du anpassa tillväxten. Lägg till fler databaser (Shards). Hur distribuerar du om data till nya databaser utan att störa data integriteten? Använd **verktyget Dela och slå samman** för att flytta data från begränsade databaser till nya databaser.  
+If you are a Software as a Service developer, and suddenly your app undergoes tremendous demand, you need to accommodate the growth. So you add more databases (shards). How do you redistribute the data to the new databases without disrupting the data integrity? Use the **split-merge tool** to move data from constrained databases to the new databases.  
 
-Verktyget Dela och slå samman körs som en Azure-webbtjänst. En administratör eller utvecklare använder verktyget för att flytta shardletar (data från en Shard) mellan olika databaser (Shards). Verktyget använder Shard Map-hantering för att underhålla databasens metadata och säkerställa konsekventa mappningar.
+The split-merge tool runs as an Azure web service. An administrator or developer uses the tool to move shardlets (data from a shard) between different databases (shards). The tool uses shard map management to maintain the service metadata database, and ensure consistent mappings.
 
 ![Översikt][1]
 
 ## <a name="download"></a>Ladda ned
 
-[Microsoft. Azure. SqlDatabase. ElasticScale. service. SplitMerge](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
+[Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
 
 ## <a name="documentation"></a>Dokumentation
 
-1. [Själv studie kurs om Split-sammanslagnings verktyg i Elastic Database](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
-2. [Säkerhets konfiguration för delad sammanslagning](sql-database-elastic-scale-split-merge-security-configuration.md)
-3. [Säkerhets överväganden för delad sammanslagning](sql-database-elastic-scale-split-merge-security-configuration.md)
+1. [Elastic database Split-Merge tool tutorial](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
+2. [Split-Merge security configuration](sql-database-elastic-scale-split-merge-security-configuration.md)
+3. [Split-merge security considerations](sql-database-elastic-scale-split-merge-security-configuration.md)
 4. [Karthantering för shard](sql-database-elastic-scale-shard-map-management.md)
-5. [Migrera befintliga databaser för att skala ut](sql-database-elastic-convert-to-use-elastic-tools.md)
-6. [Elastic Database-verktyg](sql-database-elastic-scale-introduction.md)
-7. [Ord lista för Elastic Database tools](sql-database-elastic-scale-glossary.md)
+5. [Migrate existing databases to scale-out](sql-database-elastic-convert-to-use-elastic-tools.md)
+6. [Elastic database tools](sql-database-elastic-scale-introduction.md)
+7. [Elastic Database tools glossary](sql-database-elastic-scale-glossary.md)
 
-## <a name="why-use-the-split-merge-tool"></a>Varför ska jag använda verktyget Dela/slå samman
+## <a name="why-use-the-split-merge-tool"></a>Why use the split-merge tool
 
-- **Enkelt**
+- **Flexibility**
 
-  Programmen måste sträckas ut flexibelt över gränserna för en enskild Azure SQL DB-databas. Använd verktyget för att flytta data efter behov till nya databaser och behålla integriteten.
+  Applications need to stretch flexibly beyond the limits of a single Azure SQL DB database. Use the tool to move data as needed to new databases while retaining integrity.
 
-- **Dela till tillväxt**
+- **Split to grow**
 
-  Om du vill öka den övergripande kapaciteten för att hantera explosiv tillväxt skapar du ytterligare kapacitet genom att horisontell partitionering data och genom att distribuera dem i stegvisa fler databaser tills kapacitets behoven är uppfyllda. Detta är ett primtal exempel på **delnings** funktionen.
+  To increase overall capacity to handle explosive growth, create additional capacity by sharding the data and by distributing it across incrementally more databases until capacity needs are fulfilled. This is a prime example of the **split** feature.
 
-- **Sammanfoga till Krymp**
+- **Merge to shrink**
 
-  Kapaciteten behöver krympa på grund av säsongs typen för ett företag. Med verktyget kan du skala ned till färre skalnings enheter när verksamheten är långsam. Funktionen merge i tjänsten för delad sammanslagning i elastisk skala täcker detta krav.
+  Capacity needs shrink due to the seasonal nature of a business. The tool lets you scale down to fewer scale units when business slows. The ‘merge’ feature in the Elastic Scale split-merge Service covers this requirement.
 
-- **Hantera hotspots genom att flytta shardletar**
+- **Manage hotspots by moving shardlets**
 
-  Med flera klienter per databas kan fördelningen av shardletar till Shards leda till kapacitets Flask halsar på vissa Shards. Detta kräver omtilldelning av shardletar eller att flytta upptagen shardletar till nya eller mindre använda Shards.
+  With multiple tenants per database, the allocation of shardlets to shards can lead to capacity bottlenecks on some shards. This requires re-allocating shardlets or moving busy shardlets to new or less utilized shards.
 
-## <a name="concepts--key-features"></a>Begrepp & viktiga funktioner
+## <a name="concepts--key-features"></a>Concepts & key features
 
-- **Kund värd tjänster**
+- **Customer-hosted services**
 
-  Delnings sammanslagningen levereras som en kund värd tjänst. Du måste distribuera och vara värd för tjänsten i Microsoft Azure prenumerationen. Paketet som du hämtar från NuGet innehåller en konfigurations mal len som du kan använda för att slutföra informationen för din aktuella distribution. Mer information finns i [självstudierna dela och slå samman](sql-database-elastic-scale-configure-deploy-split-and-merge.md) . Eftersom tjänsten körs i din Azure-prenumeration kan du kontrol lera och konfigurera de flesta säkerhets aspekter av tjänsten. Standard mal len innehåller alternativ för att konfigurera SSL, certifikatbaserad klientautentisering, kryptering för lagrade autentiseringsuppgifter, DoS-skydd och IP-begränsningar. Du hittar mer information om säkerhets aspekterna i följande dokument [delnings-och säkerhets konfiguration för delad sammanslagning](sql-database-elastic-scale-split-merge-security-configuration.md).
+  The split-merge is delivered as a customer-hosted service. You must deploy and host the service in your Microsoft Azure subscription. The package you download from NuGet contains a configuration template to complete with the information for your specific deployment. See the [split-merge tutorial](sql-database-elastic-scale-configure-deploy-split-and-merge.md) for details. Since the service runs in your Azure subscription, you can control and configure most security aspects of the service. The default template includes the options to configure SSL, certificate-based client authentication, encryption for stored credentials, DoS guarding and IP restrictions. You can find more information on the security aspects in the following document [split-merge security configuration](sql-database-elastic-scale-split-merge-security-configuration.md).
 
-  Den distribuerade standard tjänsten körs med en anställd och en webb roll. Varje använder storleken på den virtuella a1-datorn i Azure Cloud Services. Du kan inte ändra de här inställningarna när du distribuerar paketet, men du kan ändra dem efter en lyckad distribution i moln tjänsten som körs (via Azure Portal). Observera att arbets rollen inte får konfigureras för mer än en enskild instans av tekniska skäl.
+  The default deployed service runs with one worker and one web role. Each uses the A1 VM size in Azure Cloud Services. While you cannot modify these settings when deploying the package, you could change them after a successful deployment in the running cloud service, (through the Azure portal). Note that the worker role must not be configured for more than a single instance for technical reasons.
 
-- **Integrering av Shard-karta**
+- **Shard map integration**
 
-  Tjänsten för delad sammanslagning interagerar med Shard-kartan för programmet. När du använder tjänsten för delad sammanslagning för att dela eller slå samman intervall eller för att flytta shardletar mellan Shards, behåller tjänsten automatiskt Shard-mappningen uppdaterad. För att göra det ansluter tjänsten till Shard Map Manager-databasen i programmet och behåller intervall och mappningar som förlopp för delning/sammanfogning/flyttning. Detta säkerställer att Shard-kartan alltid presenterar en uppdaterad vy när delade sammanslagnings åtgärder pågår. Åtgärder för att dela, slå samman och shardlet rörelse implementeras genom att flytta en batch med shardletar från källan Shard till mål-Shard. Under shardlet rörelse åtgärd markeras shardletar som omfattas av den aktuella batchen som offline i Shard-mappningen och är inte tillgängliga för data beroende routnings anslutningar med hjälp av **OpenConnectionForKey** -API: et.
+  The split-merge service interacts with the shard map of the application. When using the split-merge service to split or merge ranges or to move shardlets between shards, the service automatically keeps the shard map up-to-date. To do so, the service connects to the shard map manager database of the application and maintains ranges and mappings as split/merge/move requests progress. This ensures that the shard map always presents an up-to-date view when split-merge operations are going on. Split, merge and shardlet movement operations are implemented by moving a batch of shardlets from the source shard to the target shard. During the shardlet movement operation the shardlets subject to the current batch are marked as offline in the shard map and are unavailable for data-dependent routing connections using the **OpenConnectionForKey** API.
 
-- **Konsekventa shardlet-anslutningar**
+- **Consistent shardlet connections**
 
-  När data förflyttningen påbörjas för en ny batch med shardletar, stoppas alla Shard-mappningar som är beroende av data beroenden till Shard som lagrar shardlet och efterföljande anslutningar från API: erna för Shard-kartor till shardletar blockeras medan data förflyttningen är pågår för att undvika inkonsekvenser. Anslutningar till andra shardletar på samma Shard kommer också att stoppas, men kommer att lyckas igen omedelbart vid nya försök. När gruppen har flyttats markeras shardletar igen för mål Shard och källdata tas bort från källan Shard. Tjänsten genomgår de här stegen för varje batch tills alla shardletar har flyttats. Detta leder till flera stopp åtgärder för anslutningar under hela åtgärden dela/slå samman/flytta.  
+  When data movement starts for a new batch of shardlets, any shard-map provided data-dependent routing connections to the shard storing the shardlet are killed and subsequent connections from the shard map APIs to the shardlets are blocked while the data movement is in progress in order to avoid inconsistencies. Connections to other shardlets on the same shard will also get killed, but will succeed again immediately on retry. Once the batch is moved, the shardlets are marked online again for the target shard and the source data is removed from the source shard. The service goes through these steps for every batch until all shardlets have been moved. This will lead to several connection kill operations during the course of the complete split/merge/move operation.  
 
-- **Hantera shardlet-tillgänglighet**
+- **Managing shardlet availability**
 
-  Att begränsa anslutningen till den aktuella batchen av shardletar enligt beskrivningen ovan begränsar omfånget till en batch med shardletar i taget. Detta föredras över en metod där hela Shard skulle vara offline för alla dess shardletar under en split-eller sammanslagnings åtgärd. En grupps storlek, definierad som antalet distinkta shardletar som ska flyttas i taget, är en konfigurations parameter. Den kan definieras för varje delnings-och sammanslagnings åtgärd beroende på programmets tillgänglighets-och prestanda behov. Observera att intervallet som låses i Shard-kartan kan vara större än den angivna batchstorleken. Detta beror på att tjänsten väljer intervall storlek, så att det faktiska antalet horisontell partitionering-nyckel värden i data ungefär matchar batchstorleken. Detta är viktigt att komma ihåg särskilt för glest fyllda horisontell partitionering-nycklar.
+  Limiting the connection killing to the current batch of shardlets as discussed above restricts the scope of unavailability to one batch of shardlets at a time. This is preferred over an approach where the complete shard would remain offline for all its shardlets during the course of a split or merge operation. The size of a batch, defined as the number of distinct shardlets to move at a time, is a configuration parameter. It can be defined for each split and merge operation depending on the application’s availability and performance needs. Note that the range that is being locked in the shard map may be larger than the batch size specified. This is because the service picks the range size such that the actual number of sharding key values in the data approximately matches the batch size. This is important to remember in particular for sparsely populated sharding keys.
 
-- **Metadata-lagring**
+- **Metadata storage**
 
-  Tjänsten för delad sammanslagning använder en databas för att underhålla dess status och för att spara loggar under bearbetning av begär Anden. Användaren skapar den här databasen i sin prenumeration och tillhandahåller anslutnings strängen för den i konfigurations filen för tjänst distributionen. Administratörer från användarens organisation kan också ansluta till den här databasen för att granska begär ande förloppet och undersöka detaljerad information om potentiella problem.
+  The split-merge service uses a database to maintain its status and to keep logs during request processing. The user creates this database in their subscription and provides the connection string for it in the configuration file for the service deployment. Administrators from the user’s organization can also connect to this database to review request progress and to investigate detailed information regarding potential failures.
 
-- **Horisontell partitionering – medvetenhet**
+- **Sharding-awareness**
 
-  Tjänsten för delad sammanslagning skiljer sig mellan (1) shardade-tabeller, (2) referens tabeller och (3) normala tabeller. Semantiken för en delnings-/sammanfognings-/flyttnings åtgärd beror på vilken typ av tabell som används och definieras enligt följande:
+  The split-merge service differentiates between (1) sharded tables, (2) reference tables, and (3) normal tables. The semantics of a split/merge/move operation depend on the type of the table used and are defined as follows:
 
-  - **Shardade-tabeller**
+  - **Sharded tables**
 
-    Delnings-, sammanfognings-och flyttnings åtgärder flyttar shardletar från källa till mål Shard. När den övergripande begäran har slutförts är dessa shardletar inte längre tillgängliga på källan. Observera att mål tabellerna måste finnas på mål-Shard och får inte innehålla data i mål intervallet före bearbetningen av åtgärden.
+    Split, merge, and move operations move shardlets from source to target shard. After successful completion of the overall request, those shardlets are no longer present on the source. Note that the target tables need to exist on the target shard and must not contain data in the target range prior to processing of the operation.
 
-  - **Referens tabeller**
+  - **Reference tables**
 
-    För referens tabeller kopierar åtgärderna dela, sammanfoga och flytta data från källan till mål-Shard. Observera dock att inga ändringar sker på mål-Shard för en specifik tabell om det redan finns en rad i den här tabellen på målet. Tabellen måste vara tom för att det ska gå att bearbeta en referens tabell kopierings åtgärd.
+    For reference tables, the split, merge and move operations copy the data from the source to the target shard. Note, however, that no changes occur on the target shard for a given table if any row is already present in this table on the target. The table has to be empty for any reference table copy operation to get processed.
 
-  - **Andra tabeller**
+  - **Other Tables**
 
-    Andra tabeller kan finnas antingen på källan eller målet för en delnings-och sammanslagnings åtgärd. Tjänsten för delad sammanslagning ignorerar de här tabellerna för data förflyttning eller kopierings åtgärder. Observera dock att de kan störa dessa åtgärder i händelse av begränsningar.
+    Other tables can be present on either the source or the target of a split and merge operation. The split-merge service disregards these tables for any data movement or copy operations. Note, however, that they can interfere with these operations in case of constraints.
 
-    Informationen om referenser till shardade-tabeller tillhandahålls av `SchemaInfo` API: er på Shard-kartan. Följande exempel illustrerar användningen av dessa API: er på ett angivet Shard Map Manager-objekt:
+    The information on reference vs. sharded tables is provided by the `SchemaInfo` APIs on the shard map. The following example illustrates the use of these APIs on a given shard map manager object:
 
     ```csharp
     // Create the schema annotations
     SchemaInfo schemaInfo = new SchemaInfo();
 
-    // Reference tables
+    // reference tables
     schemaInfo.Add(new ReferenceTableInfo("dbo", "region"));
     schemaInfo.Add(new ReferenceTableInfo("dbo", "nation"));
 
-    // Sharded tables
+    // sharded tables
     schemaInfo.Add(new ShardedTableInfo("dbo", "customer", "C_CUSTKEY"));
     schemaInfo.Add(new ShardedTableInfo("dbo", "orders", "O_CUSTKEY"));
-    // Publish
+
+    // publish
     smm.GetSchemaInfoCollection().Add(Configuration.ShardMapName, schemaInfo);
     ```
 
-    Tabellerna region och nation definieras som referens tabeller och kopieras med åtgärder för att dela/sammanfoga/flytta. "kund" och "order" i sin tur definieras som shardade-tabeller. `C_CUSTKEY` och `O_CUSTKEY` fungera som horisontell partitionering-nyckel.
+    The tables ‘region’ and ‘nation’ are defined as reference tables and will be copied with split/merge/move operations. ‘customer’ and ‘orders’ in turn are defined as sharded tables. `C_CUSTKEY` and `O_CUSTKEY` serve as the sharding key.
 
-- **Referens integritet**
+- **Referential Integrity**
 
-  Tjänsten för delad sammanslagning analyserar beroenden mellan tabeller och använder sekundär nyckel-Primary Key-relationer för att mellanlagra åtgärder för att flytta referens tabeller och shardletar. I allmänhet kopieras referens tabeller först i beroende ordning och sedan kopieras shardletar i varje grupps beroende ordning. Detta är nödvändigt så att sekundär-och Shard-begränsningar på mål-respekteras när nya data kommer in.
+  The split-merge service analyzes dependencies between tables and uses foreign key-primary key relationships to stage the operations for moving reference tables and shardlets. In general, reference tables are copied first in dependency order, then shardlets are copied in order of their dependencies within each batch. This is necessary so that FK-PK constraints on the target shard are honored as the new data arrives.
 
-- **Shard Map-konsekvens och eventuell slut för ande**
+- **Shard Map Consistency and Eventual Completion**
 
-  I närvaro av problem återupptar tjänsten för delad sammanslagning åtgärder efter avbrott och syfte att slutföra pågående begär Anden. Det kan dock finnas återställnings bara situationer, t. ex. När mål-Shard tappas bort eller komprometteras utanför reparationen. Under dessa omständigheter kan vissa shardletar som skulle flyttas fortsätta att finnas på käll-Shard. Tjänsten säkerställer att shardlet-mappningar bara uppdateras när nödvändiga data har kopierats till målet. Shardletar tas bara bort från källan när alla data har kopierats till målet och motsvarande mappningar har uppdaterats. Borttagnings åtgärden sker i bakgrunden medan intervallet redan är online på mål-Shard. Tjänsten för delad sammanslagning garanterar alltid att mappningar som lagras i Shard-kartan är korrekta.
+  In the presence of failures, the split-merge service resumes operations after any outage and aims to complete any in progress requests. However, there may be unrecoverable situations, e.g., when the target shard is lost or compromised beyond repair. Under those circumstances, some shardlets that were supposed to be moved may continue to reside on the source shard. The service ensures that shardlet mappings are only updated after the necessary data has been successfully copied to the target. Shardlets are only deleted on the source once all their data has been copied to the target and the corresponding mappings have been updated successfully. The deletion operation happens in the background while the range is already online on the target shard. The split-merge service always ensures correctness of the mappings stored in the shard map.
 
-## <a name="the-split-merge-user-interface"></a>Användar gränssnittet för delad sammanslagning
+## <a name="the-split-merge-user-interface"></a>The split-merge user interface
 
-Det delade sammanslagnings tjänst paketet innehåller en arbets roll och en webb roll. Webb rollen används för att skicka förfrågningar om att dela kopplingar på ett interaktivt sätt. Huvud komponenterna i användar gränssnittet är följande:
+The split-merge service package includes a worker role and a web role. The web role is used to submit split-merge requests in an interactive way. The main components of the user interface are as follows:
 
-- **Åtgärds typ**
+- **Operation Type**
 
-  Åtgärds typen är en alternativ knapp som styr vilken typ av åtgärd som utförs av tjänsten för den här begäran. Du kan välja mellan scenarierna dela, slå samman och flytta. Du kan också avbryta en tidigare skickad åtgärd. Du kan använda delnings-, sammanfognings-och flyttnings begär Anden för intervall Shard Maps. List Shard Maps stöder bara flytt åtgärder.
+  The operation type is a radio button that controls the kind of operation performed by the service for this request. You can choose between the split, merge and move scenarios. You can also cancel a previously submitted operation. You can use split, merge and move requests for range shard maps. List shard maps only support move operations.
 
-- **Shard-karta**
+- **Shard Map**
 
-  Nästa avsnitt i parametrarna för begäran täcker information om Shard-mappningen och databasen som är värd för din Shard-karta. I synnerhet måste du ange namnet på Azure SQL Database-servern och databasen som är värd för shardmap, autentiseringsuppgifter för att ansluta till Shard Map-databasen och slutligen namnet på Shard-kartan. För närvarande accepterar åtgärden endast en enda uppsättning autentiseringsuppgifter. Autentiseringsuppgifterna måste ha tillräcklig behörighet för att utföra ändringar i Shard-mappningen samt för användar data på Shards.
+  The next section of request parameters covers information about the shard map and the database hosting your shard map. In particular, you need to provide the name of the Azure SQL Database server and database hosting the shardmap, credentials to connect to the shard map database, and finally the name of the shard map. Currently, the operation only accepts a single set of credentials. These credentials need to have sufficient permissions to perform changes to the shard map as well as to the user data on the shards.
 
-- **Käll intervall (dela och slå samman)**
+- **Source Range (split and merge)**
 
-  En delnings-och sammanfognings åtgärd bearbetar ett intervall med hjälp av dess låga och höga nyckel. Om du vill ange en åtgärd med ett obundet högt nyckel värde markerar du kryss rutan "hög nyckel är max" och lämnar fältet för hög nyckel tomt. De intervall nyckel värden som du anger behöver inte exakt matcha en mappning och dess gränser i Shard-kartan. Om du inte anger några intervall gränser på alla tjänster kommer du att härleda det närmaste intervallet åt dig automatiskt. Du kan använda PowerShell-skriptet GetMappings. ps1 för att hämta de aktuella mappningarna i en specifik Shard-karta.
+  A split and merge operation processes a range using its low and high key. To specify an operation with an unbounded high key value, check the “High key is max” check box and leave the high key field empty. The range key values that you specify do not need to precisely match a mapping and its boundaries in your shard map. If you do not specify any range boundaries at all the service will infer the closest range for you automatically. You can use the GetMappings.ps1 PowerShell script to retrieve the current mappings in a given shard map.
 
-- **Beteende för delad källa (dela)**
+- **Split Source Behavior (split)**
 
-  För delnings åtgärder definierar du punkten för att dela käll intervallet. Du gör detta genom att ange horisontell partitionering-nyckeln där du vill att delningen ska ske. Använd alternativ knappen för att ange om du vill att den nedre delen av intervallet (exklusive delnings nyckeln) ska flyttas, eller om du vill att den övre delen ska flyttas (inklusive delnings nyckeln).
+  For split operations, define the point to split the source range. You do this by providing the sharding key where you want the split to occur. Use the radio button specify whether you want the lower part of the range (excluding the split key) to move, or whether you want the upper part to move (including the split key).
 
-- **Shardlet för källa (flytta)**
+- **Source Shardlet (move)**
 
-  Flyttnings åtgärder skiljer sig från delnings-eller sammanslagnings åtgärder eftersom de inte kräver ett intervall för att beskriva källan. En källa för flytt identifieras helt enkelt med det horisontell partitionering-nyckel värde som du planerar att flytta.
+  Move operations are different from split or merge operations as they do not require a range to describe the source. A source for move is simply identified by the sharding key value that you plan to move.
 
-- **Mål Shard (dela)**
+- **Target Shard (split)**
 
-  När du har angett informationen om källan till delnings åtgärden, måste du definiera var du vill att data ska kopieras till genom att ange Azure SQL DB-servern och databas namnet för målet.
+  Once you have provided the information on the source of your split operation, you need to define where you want the data to be copied to by providing the Azure SQL Db server and database name for the target.
 
-- **Mål intervall (sammanslagning)**
+- **Target Range (merge)**
 
-  Sammanfoga åtgärder flytta shardletar till en befintlig Shard. Du kan identifiera den befintliga Shard genom att ange intervall gränserna för det befintliga intervallet som du vill sammanfoga med.
+  Merge operations move shardlets to an existing shard. You identify the existing shard by providing the range boundaries of the existing range that you want to merge with.
 
-- **Batchstorlek**
+- **Batch Size**
 
-  Batchstorleken styr antalet shardletar som försätts i offlineläge vid en tidpunkt under data flytten. Detta är ett heltals värde där du kan använda mindre värden när du är känslig för långa tids perioder för shardletar. Större värden ökar den tid som en specifik shardlet är offline men kan förbättra prestandan.
+  The batch size controls the number of shardlets that will go offline at a time during the data movement. This is an integer value where you can use smaller values when you are sensitive to long periods of downtime for shardlets. Larger values will increase the time that a given shardlet is offline but may improve performance.
 
-- **Åtgärds-ID (Avbryt)**
+- **Operation ID (Cancel)**
 
-  Om du har en pågående åtgärd som inte längre behövs kan du avbryta åtgärden genom att ange dess åtgärds-ID i det här fältet. Du kan hämta åtgärds-ID: t från tabellen status för begäran (se avsnitt 8,1) eller från utdata i webbläsaren där du skickade begäran.
+  If you have an ongoing operation that is no longer needed, you can cancel the operation by providing its operation ID in this field. You can retrieve the operation ID from the request status table (see Section 8.1) or from the output in the web browser where you submitted the request.
 
-## <a name="requirements-and-limitations"></a>Krav och begränsningar
+## <a name="requirements-and-limitations"></a>Requirements and Limitations
 
-Den aktuella implementeringen av tjänsten för delad sammanslagning omfattas av följande krav och begränsningar:
+The current implementation of the split-merge service is subject to the following requirements and limitations:
 
-- Shards måste finnas och registreras i Shard-kartan innan en delnings sammanslagnings åtgärd på dessa Shards kan utföras.
-- Tjänsten skapar inte tabeller eller andra databas objekt automatiskt som en del av dess åtgärder. Det innebär att schemat för alla shardade-tabeller och referens tabeller måste finnas på mål-Shard före alla åtgärder för att dela/slå samman/flytta. Shardade-tabeller måste särskilt vara tomma i intervallet där nya shardletar ska läggas till med åtgärden dela/sammanfoga/flytta. Annars Miss söker åtgärden den inledande konsekvens kontrollen på mål-Shard. Observera också att referens data bara kopieras om referens tabellen är tom och att det inte finns några konsekvens garantier avseende andra samtidiga Skriv åtgärder i referens tabellerna. Vi rekommenderar detta: när du kör delnings-/sammanfognings åtgärder gör inga andra Skriv åtgärder ändringar i referens tabellerna.
-- Tjänsten förlitar sig på rad identitet som upprättats av ett unikt index eller en nyckel som innehåller nyckeln horisontell partitionering för att förbättra prestanda och tillförlitlighet för stora shardletar. Detta gör att tjänsten kan flytta data till en ännu bättre granularitet än bara värdet för horisontell partitionering. Detta bidrar till att minska den maximala mängden logg utrymme och lås som krävs under åtgärden. Överväg att skapa ett unikt index eller en primär nyckel inklusive horisontell partitionering-nyckeln i en specifik tabell om du vill använda tabellen med delnings-/sammanfognings-/flyttnings begär Anden. Av prestanda skäl ska horisontell partitionering-nyckeln vara den inledande kolumnen i nyckeln eller indexet.
-- Under bearbetningen av begär Anden kan vissa shardlet-data finnas både på käll-och mål-Shard. Detta är nödvändigt för att skydda mot haverier under shardlet-flyttningen. Integreringen av Split-Merge med Shard-kartan säkerställer att anslutningar via API: er för data beroende routning med metoden **OpenConnectionForKey** på Shard-kartan inte ser några inkonsekventa mellanliggande tillstånd. Men när du ansluter till käll-eller mål-Shards utan att använda **OpenConnectionForKey** -metoden kan inkonsekventa mellanliggande tillstånd visas när begär Anden om att dela/slå samman/flytta används. De här anslutningarna kan visa delvis eller duplicerade resultat beroende på tids inställningen eller Shard underliggande anslutningen. Den här begränsningen omfattar för närvarande de anslutningar som görs av elastisk skalning multi-Shard-frågor.
-- Metadata-databasen för tjänsten för delad sammanslagning får inte delas mellan olika roller. En roll i den delade sammanslagnings tjänsten som körs vid mellanlagring måste till exempel peka på en annan metadata-databas än produktions rollen.
+- The shards need to exist and be registered in the shard map before a split-merge operation on these shards can be performed.
+- The service does not create tables or any other database objects automatically as part of its operations. This means that the schema for all sharded tables and reference tables needs to exist on the target shard prior to any split/merge/move operation. Sharded tables in particular are required to be empty in the range where new shardlets are to be added by a split/merge/move operation. Otherwise, the operation will fail the initial consistency check on the target shard. Also note that reference data is only copied if the reference table is empty and that there are no consistency guarantees with regard to other concurrent write operations on the reference tables. We recommend this: when running split/merge operations, no other write operations make changes to the reference tables.
+- The service relies on row identity established by a unique index or key that includes the sharding key to improve performance and reliability for large shardlets. This allows the service to move data at an even finer granularity than just the sharding key value. This helps to reduce the maximum amount of log space and locks that are required during the operation. Consider creating a unique index or a primary key including the sharding key on a given table if you want to use that table with split/merge/move requests. For performance reasons, the sharding key should be the leading column in the key or the index.
+- During the course of request processing, some shardlet data may be present both on the source and the target shard. This is necessary to protect against failures during the shardlet movement. The integration of split-merge with the shard map ensures that connections through the data-dependent routing APIs using the **OpenConnectionForKey** method on the shard map do not see any inconsistent intermediate states. However, when connecting to the source or the target shards without using the **OpenConnectionForKey** method, inconsistent intermediate states might be visible when split/merge/move requests are going on. These connections may show partial or duplicate results depending on the timing or the shard underlying the connection. This limitation currently includes the connections made by Elastic Scale Multi-Shard-Queries.
+- The metadata database for the split-merge service must not be shared between different roles. For example, a role of the split-merge service running in staging needs to point to a different metadata database than the production role.
 
 ## <a name="billing"></a>Fakturering
 
-Tjänsten för delad sammanslagning körs som en moln tjänst i din Microsoft Azure prenumeration. Avgifter för moln tjänster gäller därför för din instans av tjänsten. Om du inte ofta utför åtgärderna dela/sammanfoga/flytta rekommenderar vi att du tar bort din moln tjänst för delad sammanslagning. Det sparar kostnader för att köra eller distribuerade moln tjänst instanser. Du kan distribuera om och starta din körbara konfiguration när du behöver utföra delnings-eller sammanslagnings åtgärder.
+The split-merge service runs as a cloud service in your Microsoft Azure subscription. Therefore charges for cloud services apply to your instance of the service. Unless you frequently perform split/merge/move operations, we recommend you delete your split-merge cloud service. That saves costs for running or deployed cloud service instances. You can re-deploy and start your readily runnable configuration whenever you need to perform split or merge operations.
 
 ## <a name="monitoring"></a>Övervakning
 
-### <a name="status-tables"></a>Status tabeller
+### <a name="status-tables"></a>Status tables
 
-Tjänsten för delad sammanslagning innehåller tabellen **RequestStatus** i databasen för metadatalagret för övervakning av slutförda och pågående begär Anden. Tabellen innehåller en rad för varje begäran om delad sammanslagning som har skickats till den här instansen av tjänsten för delad sammanslagning. Den innehåller följande information för varje begäran:
+The split-merge Service provides the **RequestStatus** table in the metadata store database for monitoring of completed and ongoing requests. The table lists a row for each split-merge request that has been submitted to this instance of the split-merge service. It gives the following information for each request:
 
 - **Tidsstämpel**
 
-  Tid och datum då begäran startades.
+  The time and date when the request was started.
 
 - **OperationId**
 
-  Ett GUID som unikt identifierar begäran. Den här begäran kan också användas för att avbryta åtgärden medan den fortfarande pågår.
+  A GUID that uniquely identifies the request. This request can also be used to cancel the operation while it is still ongoing.
 
 - **Status**
 
-  Aktuell status för begäran. För pågående begär Anden visas även den aktuella fasen i vilken begäran är.
+  The current state of the request. For ongoing requests, it also lists the current phase in which the request is.
 
 - **CancelRequest**
 
-  En flagga som anger om begäran har avbrutits.
+  A flag that indicates whether the request has been canceled.
 
-- **Pågår**
+- **Progress**
 
-  En procentuell uppskattning av slut för ande för åtgärden. Värdet 50 anger att åtgärden är cirka 50% slutfört.
+  A percentage estimate of completion for the operation. A value of 50 indicates that the operation is approximately 50% complete.
 
 - **Detaljer**
 
-  Ett XML-värde som innehåller en mer detaljerad förlopps rapport. Förlopps rapporten uppdateras regelbundet när rad uppsättningar kopieras från källa till mål. I händelse av fel eller undantag innehåller den här kolumnen också mer detaljerad information om felet.
+  An XML value that provides a more detailed progress report. The progress report is periodically updated as sets of rows are copied from source to target. In case of failures or exceptions, this column also includes more detailed information about the failure.
 
 ### <a name="azure-diagnostics"></a>Azure Diagnostics
 
-Tjänsten för delad sammanslagning använder Azure-diagnostik som baseras på Azure SDK 2,5 för övervakning och diagnostik. Du styr konfigurationen för diagnostik enligt beskrivningen här: [Aktivera diagnostik i Azure Cloud Services och Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md). Hämtnings paketet innehåller två diagnostiska konfigurationer – en för webb rollen och en för arbets rollen. Den innehåller definitionerna för att logga prestanda räknare, IIS-loggar, Windows-händelseloggen och händelse loggar för att dela sammanslagna program.
+The split-merge service uses Azure Diagnostics based on Azure SDK 2.5 for monitoring and diagnostics. You control the diagnostics configuration as explained here: [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md). The download package includes two diagnostics configurations - one for the web role and one for the worker role. It includes the definitions to log Performance Counters, IIS logs, Windows Event Logs, and split-merge application event logs.
 
-## <a name="deploy-diagnostics"></a>Distribuera diagnostik
+## <a name="deploy-diagnostics"></a>Deploy Diagnostics
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska.
 
-Om du vill aktivera övervakning och diagnostik med diagnostisk konfiguration för webb-och arbets roller som tillhandahålls av NuGet-paketet kör du följande kommandon med hjälp av Azure PowerShell:
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+
+To enable monitoring and diagnostics using the diagnostic configuration for the web and worker roles provided by the NuGet package, run the following commands using Azure PowerShell:
 
 ```powershell
-    $storage_name = "<YourAzureStorageAccount>"
-    $key = "<YourAzureStorageAccountKey"
-    $storageContext = New-AzStorageContext -StorageAccountName $storage_name -StorageAccountKey $key  
-    $config_path = "<YourFilePath>\SplitMergeWebContent.diagnostics.xml"
-    $service_name = "<YourCloudServiceName>"
-    Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWeb"
-    $config_path = "<YourFilePath>\SplitMergeWorkerContent.diagnostics.xml"
-    $service_name = "<YourCloudServiceName>"
-    Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWorker"
+$storageName = "<azureStorageAccount>"
+$key = "<azureStorageAccountKey"
+$storageContext = New-AzStorageContext -StorageAccountName $storageName -StorageAccountKey $key
+$configPath = "<filePath>\SplitMergeWebContent.diagnostics.xml"
+$serviceName = "<cloudServiceName>"
+
+Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext `
+    -DiagnosticsConfigurationPath $configPath -ServiceName $serviceName `
+    -Slot Production -Role "SplitMergeWeb"
+
+Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext `
+    -DiagnosticsConfigurationPath $configPath -ServiceName $serviceName `
+    -Slot Production -Role "SplitMergeWorker"
 ```
 
-Du hittar mer information om hur du konfigurerar och distribuerar diagnostikinställningar här: [Aktivera diagnostik i Azure Cloud Services och Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md).
+You can find more information on how to configure and deploy diagnostics settings here: [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md).
 
-## <a name="retrieve-diagnostics"></a>Hämta diagnostik
+## <a name="retrieve-diagnostics"></a>Retrieve diagnostics
 
-Du kan enkelt komma åt diagnostiken från Visual Studio-Server Explorer i Azure-delen av Server Explorers trädet. Öppna en Visual Studio-instans och klicka på Visa i meny raden och Server Explorer. Klicka på Azure-ikonen för att ansluta till din Azure-prenumeration. Gå sedan till Azure-> Storage-> `<your storage account>`-> tabeller – > WADLogsTable. Mer information finns i [Server Explorer](https://msdn.microsoft.com/library/x603htbk.aspx).
+You can easily access your diagnostics from the Visual Studio Server Explorer in the Azure part of the Server Explorer tree. Open a Visual Studio instance, and in the menu bar click View, and Server Explorer. Click the Azure icon to connect to your Azure subscription. Then navigate to Azure -> Storage -> `<your storage account>` -> Tables -> WADLogsTable. For more information, see [Server Explorer](https://msdn.microsoft.com/library/x603htbk.aspx).
 
 ![WADLogsTable][2]
 
-WADLogsTable som marker ATS i bilden ovan innehåller detaljerade händelser från program loggen för den delade sammanslagnings tjänsten. Observera att standard konfigurationen av det hämtade paketet är riktad mot en produktions distribution. Därför är intervallet för loggar och räknare som hämtas från tjänst instanserna stora (5 minuter). För testning och utveckling sänker du intervallet genom att justera diagnostikinställningar för webbplatsens eller arbets rollens inställningar efter behov. Högerklicka på rollen i Visual Studio-Server Explorer (se ovan) och justera sedan överförings perioden i dialog rutan för konfigurations inställningarna för diagnostik:
+The WADLogsTable highlighted in the figure above contains the detailed events from the split-merge service’s application log. Note that the default configuration of the downloaded package is geared towards a production deployment. Therefore the interval at which logs and counters are pulled from the service instances is large (5 minutes). For test and development, lower the interval by adjusting the diagnostics settings of the web or the worker role to your needs. Right-click on the role in the Visual Studio Server Explorer (see above) and then adjust the Transfer Period in the dialog for the Diagnostics configuration settings:
 
 ![Konfiguration][3]
 
 ## <a name="performance"></a>Prestanda
 
-I allmänhet är bättre prestanda förväntas från de högre, mer presterande tjänst nivåerna i Azure SQL Database. Högre IO-, processor-och minnes tilldelningar för högre tjänst nivåer förbrukar Mass kopierings-och borttagnings åtgärder som används i tjänsten för delad sammanslagning. Av den anledningen ökar du tjänst nivån precis för dessa databaser under en angiven begränsad tids period.
+In general, better performance is to be expected from the higher, more performant service tiers in Azure SQL Database. Higher IO, CPU and memory allocations for the higher service tiers benefit the bulk copy and delete operations that the split-merge service uses. For that reason, increase the service tier just for those databases for a defined, limited period of time.
 
-Tjänsten utför även verifierings frågor som en del av dess normala åtgärder. De här verifierings frågorna söker efter oväntade förekomster av data i mål intervallet och ser till att alla åtgärder för att dela/sammanfoga/flytta startar från ett konsekvent tillstånd. Dessa frågor omfattar alla horisontell partitionering nyckel intervall som definieras av åtgärdens omfattning och batchstorleken som anges som en del av definitionen av begäran. Dessa frågor fungerar bäst när det finns ett index som har horisontell partitionering-nyckeln som den inledande kolumnen.
+The service also performs validation queries as part of its normal operations. These validation queries check for unexpected presence of data in the target range and ensure that any split/merge/move operation starts from a consistent state. These queries all work over sharding key ranges defined by the scope of the operation and the batch size provided as part of the request definition. These queries perform best when an index is present that has the sharding key as the leading column.
 
-Dessutom tillåter en unikhets egenskap med horisontell partitionering-nyckeln som den inledande kolumnen att tjänsten använder en optimerad metod som begränsar resurs förbrukningen i termer av logg utrymme och minne. Den här egenskapen unikhet krävs för att flytta stora data storlekar (vanligt vis över 1 GB).
+In addition, a uniqueness property with the sharding key as the leading column will allow the service to use an optimized approach that limits resource consumption in terms of log space and memory. This uniqueness property is required to move large data sizes (typically above 1GB).
 
-## <a name="how-to-upgrade"></a>Så här uppgraderar du
+## <a name="how-to-upgrade"></a>How to upgrade
 
-1. Följ stegen i [distribuera en tjänst för delad sammanslagning](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
-2. Ändra din moln tjänst konfigurations fil för den delade sammanslagnings distributionen så att den återspeglar de nya konfigurations parametrarna. En ny obligatorisk parameter är information om certifikatet som används för kryptering. Ett enkelt sätt att göra detta är att jämföra den nya konfigurations mal len från nedladdningen mot den befintliga konfigurationen. Se till att du lägger till inställningarna för "DataEncryptionPrimaryCertificateThumbprint" och "DataEncryptionPrimary" för både webb-och arbets rollen.
-3. Innan du distribuerar uppdateringen till Azure måste du kontrol lera att alla aktiviteter som körs har delats för tillfället har avslut ATS. Du kan enkelt göra detta genom att fråga RequestStatus-och PendingWorkflows-tabellerna i databasen för den delade sammanslagningen av metadata för pågående begär Anden.
-4. Uppdatera din befintliga moln tjänst distribution för delad sammanslagning i din Azure-prenumeration med det nya paketet och den uppdaterade tjänst konfigurations filen.
+1. Follow the steps in [Deploy a split-merge service](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
+2. Change your cloud service configuration file for your split-merge deployment to reflect the new configuration parameters. A new required parameter is the information about the certificate used for encryption. An easy way to do this is to compare the new configuration template file from the download against your existing configuration. Make sure you add the settings for “DataEncryptionPrimaryCertificateThumbprint” and “DataEncryptionPrimary” for both the web and the worker role.
+3. Before deploying the update to Azure, ensure that all currently running split-merge operations have finished. You can easily do this by querying the RequestStatus and PendingWorkflows tables in the split-merge metadata database for ongoing requests.
+4. Update your existing cloud service deployment for split-merge in your Azure subscription with the new package and your updated service configuration file.
 
-Du behöver inte tillhandahålla en ny metadata-databas för att dela upp och uppgradera. Den nya versionen kommer automatiskt att uppgradera den befintliga metadata-databasen till den nya versionen.
+You do not need to provision a new metadata database for split-merge to upgrade. The new version will automatically upgrade your existing metadata database to the new version.
 
-## <a name="best-practices--troubleshooting"></a>Metod tips & fel sökning
+## <a name="best-practices--troubleshooting"></a>Best practices & troubleshooting
 
-- Definiera en test klient och utöva de viktigaste åtgärderna för att dela/slå samman/flytta med test klienten över flera Shards. Se till att alla metadata är korrekt definierade i Shard-kartan och att åtgärderna inte bryter mot begränsningar eller sekundär nycklar.
-- Behåll klientens data storlek ovanför den maximala data storleken för den största klienten för att se till att du inte stöter på problem med data storlek. Detta hjälper dig att utvärdera en övre gräns på den tid det tar att flytta en enskild klient organisation.
-- Se till att schemat tillåter borttagningar. Tjänsten för delad sammanslagning kräver möjlighet att ta bort data från käll-Shard när data har kopierats till målet. **Ta bort utlösare** kan till exempel förhindra att tjänsten tar bort data på källan och kan leda till att åtgärder Miss lyckas.
-- Horisontell partitionering-nyckeln bör vara den inledande kolumnen i primär nyckeln eller en unik index definition. Det säkerställer bästa prestanda för delnings-eller sammanfognings frågorna och för den faktiska data flytten och de borttagnings åtgärder som alltid fungerar i horisontell partitionering nyckel intervall.
-- Samordna tjänsten för delnings sammanslagning i regionen och data centret där databaserna finns.
+- Define a test tenant and exercise your most important split/merge/move operations with the test tenant across several shards. Ensure that all metadata is defined correctly in your shard map and that the operations do not violate constraints or foreign keys.
+- Keep the test tenant data size above the maximum data size of your largest tenant to ensure you are not encountering data size related issues. This helps you assess an upper bound on the time it takes to move a single tenant around.
+- Make sure that your schema allows deletions. The split-merge service requires the ability to remove data from the source shard once the data has been successfully copied to the target. For example, **delete triggers** can prevent the service from deleting the data on the source and may cause operations to fail.
+- The sharding key should be the leading column in your primary key or unique index definition. That ensures the best performance for the split or merge validation queries, and for the actual data movement and deletion operations which always operate on sharding key ranges.
+- Collocate your split-merge service in the region and data center where your databases reside.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

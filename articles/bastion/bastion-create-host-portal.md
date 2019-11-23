@@ -1,83 +1,83 @@
 ---
-title: Skapa en Azure skydds-värd | Microsoft Docs
-description: I den här artikeln lär du dig hur du skapar en Azure skydds-värd
+title: Create an Azure Bastion host  | Microsoft Docs
+description: In this article, learn how to create an Azure Bastion host
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 356f8d17dd194c79915600f63683e124cc481b33
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7838e1930a8ccd190c95740a6a8e3dadc68149f0
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498373"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422127"
 ---
-# <a name="create-an-azure-bastion-host"></a>Skapa en Azure skydds-värd
+# <a name="create-an-azure-bastion-host"></a>Create an Azure Bastion host
 
-Den här artikeln visar hur du skapar en Azure skydds-värd. När du etablerar Azure skydds-tjänsten i det virtuella nätverket är den sömlösa RDP/SSH-upplevelsen tillgänglig för alla virtuella datorer i samma virtuella nätverk. Distributionen görs per nätverk, inte per prenumeration/konto eller virtuell dator.
+This article shows you how to create an Azure Bastion host. Once you provision the Azure Bastion service in your virtual network, the seamless RDP/SSH experience is available to all your VMs in the same virtual network. Distributionen görs per nätverk, inte per prenumeration/konto eller virtuell dator.
 
-Du kan skapa en skydds-värd resurs på två sätt:
+There are two ways that you can create a Bastion host resource:
 
-* Skapa en skydds-resurs med hjälp av Azure Portal.
-* Skapa en skydds-resurs i Azure Portal med hjälp av befintliga VM-inställningar.
+* Create a Bastion resource using the Azure portal.
+* Create a Bastion resource in the Azure portal by using existing VM settings.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Skydds finns i följande offentliga Azure-regioner:
+Bastion is available in the following Azure public regions:
 
 [!INCLUDE [available regions](../../includes/bastion-regions-include.md)]
 
-## <a name="createhost"></a>Skapa en skydds-värd
+## <a name="createhost"></a>Create a bastion host
 
-Det här avsnittet hjälper dig att skapa en ny Azure skydds-resurs från Azure Portal.
+This section helps you create a new Azure Bastion resource from the Azure portal.
 
-1. Klicka på **+ skapa en resurs**från start sidan i [Azure Portal](https://portal.azure.com).
+1. On the [Azure portal](https://portal.azure.com) menu or from the **Home** page, select **Create a resource**.
 
-1. På sidan **ny** i fältet *Sök på Marketplace skriver du* **skydds**och klickar sedan på **RETUR** för att komma till Sök resultaten.
+1. On the **New** page, in the *Search the Marketplace* field, type **Bastion**, then click **Enter** to get to the search results.
 
-1. Klicka på **skydds**i resultatet. Kontrol lera att utgivaren är *Microsoft* och att kategorin är *nätverk*.
+1. From the results, click **Bastion**. Make sure the publisher is *Microsoft* and the category is *Networking*.
 
-1. På sidan **skydds** klickar du på **skapa** för att öppna sidan **skapa en skydds** .
+1. On the **Bastion** page, click **Create** to open the **Create a bastion** page.
 
-1. På sidan **skapa en skydds** konfigurerar du en ny skydds-resurs. Ange konfigurations inställningarna för skydds-resursen.
+1. On the **Create a bastion** page, configure a new Bastion resource. Specify the configuration settings for your Bastion resource.
 
-    ![skapa en skydds](./media/bastion-create-host-portal/settings.png)
+    ![create a bastion](./media/bastion-create-host-portal/settings.png)
 
-    * **Prenumeration**: den Azure-prenumeration som du vill använda för att skapa en ny skydds-resurs.
-    * **Resurs grupp**: Azure-resurs gruppen där den nya skydds-resursen ska skapas i. Om du inte har en befintlig resurs grupp kan du skapa en ny.
-    * **Namn**: namnet på den nya skydds-resursen
-    * **Region**: den offentliga Azure-region som resursen ska skapas i.
-    * **Virtuellt nätverk**: det virtuella nätverk där skydds-resursen ska skapas i. Du kan skapa ett nytt virtuellt nätverk i portalen under den här processen, om du inte har eller inte vill använda ett befintligt virtuellt nätverk. Om du använder ett befintligt virtuellt nätverk kontrollerar du att det befintliga virtuella nätverket har tillräckligt med ledigt adress utrymme för att uppfylla skydds-undernätets krav.
-    * **Undernät**: under nätet i det virtuella nätverket som den nya skydds-värd resursen ska distribueras till. Du måste skapa ett undernät med namnet Value **AzureBastionSubnet**. Med det här värdet kan Azure veta vilket undernät som skydds-resurserna ska distribueras till. Detta skiljer sig från ett Gateway-undernät. Du måste använda ett undernät med minst ett/27 eller större undernät (/27,/26 osv.). Skapa **AzureBastionSubnet** utan några routningstabeller eller delegeringar. När du använder nätverks säkerhets grupper på **AzureBastionSubnet**, se [arbeta med NSG: er](bastion-nsg.md).
-    * **Offentlig IP-adress**: den offentliga IP-adressen för den skydds-resurs som RDP/SSH kommer att få åtkomst till (via port 443). Skapa en ny offentlig IP-adress eller Använd en befintlig. Den offentliga IP-adressen måste finnas i samma region som den skydds-resurs som du skapar.
-    * **Namn på offentlig IP-adress**: namnet på den offentliga IP-adressresursen.
-    * **SKU för offentlig IP-adress**: förifyllt som standard till **standard**. Azure skydds använder/stöder bara standard-offentliga IP SKU.
-    * **Tilldelning**: förifyllt som standard till **statisk**.
+    * **Subscription**: The Azure subscription you want to use to create a new Bastion resource.
+    * **Resource Group**: The Azure resource group in which the new Bastion resource will be created in. If you don’t have an existing resource group, you can create a new one.
+    * **Name**: The name of the new Bastion resource
+    * **Region**: The Azure public region that the resource will be created in.
+    * **Virtual network**: The virtual network in which the Bastion resource will be created in. You can create a new virtual network in the portal during this process, in case you don’t have or don’t want to use an existing virtual network. If you are using an existing virtual network, make sure the existing virtual network has enough free address space to accommodate the Bastion subnet requirements.
+    * **Subnet**: The subnet in your virtual network to which the new Bastion host resource will be deployed. You must create a subnet using the name value **AzureBastionSubnet**. This value lets Azure know which subnet to deploy the Bastion resources to. This is different than a Gateway subnet.You must use a subnet of at least a /27 or larger subnet (/27, /26, and so on). Create the **AzureBastionSubnet** without any route tables or delegations. When you use Network Security Groups on the **AzureBastionSubnet**, refer to [Work with NSGs](bastion-nsg.md).
+    * **Public IP address**: The public IP of the Bastion resource on which RDP/SSH will be accessed (over port 443). Create a new public IP, or use an existing one. The public IP address must be in the same region as the Bastion resource you are creating.
+    * **Public IP address name**: The name of the public IP address resource.
+    * **Public IP address SKU**: Prepopulated by default to **Standard**. Azure Bastion uses/supports only the Standard Public IP SKU.
+    * **Assignment**: Prepopulated by default to **Static**.
 
-1. När du är klar med att ange inställningarna klickar du på **Granska + skapa**. Detta validerar värdena. När verifieringen är klar kan du börja skapa processen.
-1. På sidan Skapa en skydds klickar du på **skapa**.
-1. Ett meddelande visas där du vet att distributionen pågår. Statusen visas på den här sidan när resurserna skapas. Det tar ungefär 5 minuter för skydds-resursen att skapas och distribueras.
+1. When you have finished specifying the settings, click **Review + Create**. This validates the values. Once validation passes, you can begin the creation process.
+1. On the Create a bastion page, click **Create**.
+1. You will see a message letting you know that your deployment is underway. Status will display on this page as the resources are created. It takes about 5 mins for the Bastion resource to be created and deployed.
 
-## <a name="createvmset"></a>Skapa en skydds-värd med VM-inställningar
+## <a name="createvmset"></a>Create a bastion host using VM settings
 
-Om du skapar en skydds-värd i portalen genom att använda en befintlig virtuell dator, kommer olika inställningar att automatiskt motsvara den virtuella datorn och/eller det virtuella nätverket.
+If you create a bastion host in the portal by using an existing VM, various settings will automatically default corresponding to your virtual machine and/or virtual network.
 
-1. Öppna [Azure-portalen](https://portal.azure.com). Navigera till den virtuella datorn och klicka sedan på **Anslut**.
+1. Öppna [Azure-portalen](https://portal.azure.com). Go to your virtual machine, then click **Connect**.
 
-   ![Anslut till virtuell dator](./media/bastion-create-host-portal/vmsettings.png)
-1. Klicka på **skydds**på höger marginal list och **Använd sedan skydds**.
+   ![VM Connect](./media/bastion-create-host-portal/vmsettings.png)
+1. On the right sidebar, click **Bastion**, then **Use Bastion**.
 
    ![Bastion](./media/bastion-create-host-portal/vmbastion.png)
-1. På sidan skydds fyller du i följande inställnings fält:
+1. On the Bastion page, fill out the following settings fields:
 
-   * **Namn**: namnet på den skydds-värd som du vill skapa.
-   * **Undernät**: under nätet i det virtuella nätverket som skydds-resursen ska distribueras till. Under nätet måste skapas med namnet **AzureBastionSubnet**. På så sätt kan Azure veta vilket undernät som ska användas för att distribuera skydds-resursen. Detta skiljer sig från ett Gateway-undernät. Klicka på **Hantera under näts konfiguration** för att skapa Azure skydds-undernätet. Vi rekommenderar starkt att du använder minst ett/27 eller större undernät (/27,/26 osv.). Skapa **AzureBastionSubnet** utan några nätverks säkerhets grupper, routningstabeller eller delegeringar. Klicka på **skapa** för att skapa under nätet och fortsätt sedan med nästa inställningar.
-   * **Offentlig IP-adress**: den offentliga IP-adressen för den skydds-resurs som RDP/SSH kommer att få åtkomst till (via port 443). Skapa en ny offentlig IP-adress eller Använd en befintlig. Den offentliga IP-adressen måste finnas i samma region som den skydds-resurs som du skapar.
-   * **Namn på offentlig IP-adress**: namnet på den offentliga IP-adressresursen.
-1. På validerings skärmen klickar du på **skapa**. Vänta tills 5 minuter för att skydds-resursen ska skapas och distribueras.
+   * **Name**: The name of the bastion host you want to create.
+   * **Subnet**: The subnet inside your virtual network to which Bastion resource will be deployed. The subnet must be created with the name **AzureBastionSubnet**. This lets Azure know which subnet to deploy the Bastion resource to. This is different than a Gateway subnet. Click **Manage subnet configuration** to create the Azure Bastion Subnet. We highly recommend that you use at least a /27 or larger subnet (/27, /26, etc.). Create the **AzureBastionSubnet** without any Network Security Groups, route tables, or delegations. Click **Create** to create the subnet, then proceed with the next settings.
+   * **Public IP address**: The public IP of the Bastion resource on which RDP/SSH will be accessed (over port 443). Create a new public IP, or use an existing one. The public IP address must be in the same region as the Bastion resource you are creating.
+   * **Public IP address name**: The name of the public IP address resource.
+1. On the validation screen, click **Create**. Wait for about 5 mins for the Bastion resource to be created and deployed.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs [vanliga frågor och svar om skydds](bastion-faq.md)
+Read the [Bastion FAQ](bastion-faq.md)

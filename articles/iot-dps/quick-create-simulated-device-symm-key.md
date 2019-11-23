@@ -1,5 +1,5 @@
 ---
-title: Snabb start – Använd symmetrisk nyckel för att etablera simulerad enhet till Azure IoT Hub med C
+title: Quickstart - Use symmetric key to provision simulated device to Azure IoT Hub using C
 description: I den här snabbstarten ska du använda SDK för C-enheten för att skapa en simulerad enhet som använder en symmetrisk nyckel med Azure IoT Hub Device Provisioning-tjänsten
 author: wesmc7777
 ms.author: wesmc
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 63446200f66982c1bb2688c2c972f6ddd3b993ed
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 4d1e1ff5312cfb5aa0b2e378a24d5e0db7fb3605
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276535"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423546"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Snabbstart: Etablera en simulerad enhet med symmetriska nycklar
 
@@ -34,7 +34,7 @@ Den här artikeln riktar sig till en Windows-arbetsstation. Du kan dock utföra 
 
 ## <a name="prerequisites"></a>Krav
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 eller senare med arbets belastningen ["Skriv C++bords utveckling med"](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) aktiverat.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 or later with the ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled.
 * Senaste versionen av [Git](https://git-scm.com/download/) installerad.
 
 
@@ -46,7 +46,7 @@ I det här avsnittet förbereder du en utvecklingsmiljö som används för att s
 
 SDK innehåller exempelkod för en simulerad enhet. Den här simulerade enheten försöker etablera under enhetens startsekvens.
 
-1. Ladda ned [cmake build-systemet](https://cmake.org/download/).
+1. Download the [CMake build system](https://cmake.org/download/).
 
     Det är viktigt att förutsättningarna för Visual Studio (Visual Studio och arbetsbelastningen ”Desktop development with C++” (Skrivbordsutveckling med C++)) är installerade på datorn **innan** installationen av `CMake` påbörjas. När förutsättningarna är uppfyllda och nedladdningen har verifierats installerar du CMake-byggesystemet.
 
@@ -92,23 +92,23 @@ SDK innehåller exempelkod för en simulerad enhet. Den här simulerade enheten 
 
 ## <a name="create-a-device-enrollment-entry-in-the-portal"></a>Skapa en post för enhetsregistrering i portalen
 
-1. Logga in på Azure Portal, Välj knappen **alla resurser** i den vänstra menyn och öppna Device Provisioning-tjänsten.
+1. Sign in to the Azure portal, select the **All resources** button on the left-hand menu and open your Device Provisioning service.
 
-2. Välj fliken **Hantera registreringar** och välj sedan knappen **Lägg till individuell registrering** överst. 
+2. Select the **Manage enrollments** tab, and then select the **Add individual enrollment** button at the top. 
 
-3. Ange följande information på panelen **Lägg till registrering** och tryck på knappen **Spara** .
+3. In the **Add Enrollment** panel, enter the following information, and press the **Save** button.
 
    - **Mekanism:** välj **Symmetrisk nyckel** som identitetsattesterings*mekanism*.
 
-   - **Generera nycklar automatiskt**: Markera den här kryss rutan.
+   - **Auto-generate keys**: Check this box.
 
-   - **Registrerings-ID**: Ange ett registrerings-ID för att identifiera registreringen. Använd endast alfanumeriska gemener och bindestreck (”-”). Till exempel **symm-Key-Device-007**.
+   - **Registrerings-ID**: Ange ett registrerings-ID för att identifiera registreringen. Använd endast alfanumeriska gemener och bindestreck (”-”). For example, **symm-key-device-007**.
 
    - **Enhets-ID för IoT Hub:** Ange en enhetsidentifierare. Till exempel **device-007**.
 
      ![Lägga till en enskild registrering för symmetrisk nyckelattestering i portalen](./media/quick-create-simulated-device-symm-key/create-individual-enrollment.png)
 
-4. När du har sparat registreringen genereras **primär nyckeln** och den **sekundära nyckeln** och läggs till i registrerings posten. Registreringen av din symmetriska nyckel visas som **symm-key-device-007** under kolumnen *Registrerings-ID* på fliken *Enskilda registreringar*. 
+4. Once you have saved your enrollment, the **Primary Key** and **Secondary Key** will be generated and added to the enrollment entry. Registreringen av din symmetriska nyckel visas som **symm-key-device-007** under kolumnen *Registrerings-ID* på fliken *Enskilda registreringar*. 
 
     Öppna registreringen och kopiera värdet för din genererade **primärnyckel**.
 
@@ -122,7 +122,7 @@ I det här avsnittet uppdaterar du exempelkoden för att skicka enhetens startse
 
 
 
-1. I Azure Portal väljer du fliken **Översikt** för enhets etablerings tjänsten och noterar värdet för **_ID-omfång_** .
+1. In the Azure portal, select the **Overview** tab for your Device Provisioning service and note the **_ID Scope_** value.
 
     ![Extrahera information om enhetsetableringstjänstens slutpunkt från bladet på portalen](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
@@ -167,7 +167,7 @@ I det här avsnittet uppdaterar du exempelkoden för att skicka enhetens startse
 
 7. Högerklicka på projektet **prov\_dev\_client\_sample** och välj **Set as Startup Project** (Ange som startprojekt). 
 
-8. I Visual Studio-menyn väljer du **Felsökning** > **Starta utan felsökning** för att köra lösningen. I prompten för att återskapa projektet väljer du **Ja**för att återskapa projektet innan det körs.
+8. I Visual Studio-menyn väljer du **Felsökning** > **Starta utan felsökning** för att köra lösningen. In the prompt to rebuild the project, select **Yes**, to rebuild the project before running.
 
     Följande utdata är ett exempel på när den simulerade enheten lyckas med starten och ansluter till etableringstjänstinstansen för att tilldelas en IoT-hubb:
 
@@ -185,22 +185,22 @@ I det här avsnittet uppdaterar du exempelkoden för att skicka enhetens startse
     Press enter key to exit:
     ```
 
-9. I portalen navigerar du till den IoT-hubb som din simulerade enhet har tilldelats och väljer fliken **IoT-enheter** . Vid lyckad etablering av den simulerade till hubben visas dess enhets-ID på bladet **IoT-enheter** med *status* **aktive rad**. Du kan behöva klicka på knappen **Uppdatera** längst upp. 
+9. In the portal, navigate to the IoT hub your simulated device was assigned to and select the **IoT devices** tab. On successful provisioning of the simulated to the hub, its device ID appears on the **IoT Devices** blade, with *STATUS* as **enabled**. You might need to press the **Refresh** button at the top. 
 
     ![Enheten är registrerad på IoT-hubben](./media/quick-create-simulated-device-symm-key/hub-registration.png) 
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du planerar att fortsätta att arbeta med och utforska enhets klient exemplet ska du inte rensa upp resurserna som du skapade i den här snabb starten. Om du inte planerar att fortsätta kan du använda följande steg för att ta bort alla resurser som skapats i den här snabb starten.
+If you plan to continue working on and exploring the device client sample, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart.
 
 1. Stäng utdatafönstret för enhetsklientexemplet på datorn.
-1. Välj **alla resurser** på den vänstra menyn i Azure Portal och välj sedan enhets etablerings tjänsten. Öppna **Hantera registreringar** för din tjänst och välj sedan fliken **enskilda registreringar** . Markera kryss rutan bredvid *registrerings-ID* för den enhet som du har registrerat i den här snabb starten och klicka på knappen **ta bort** högst upp i fönstret. 
-1. Välj **alla resurser** på den vänstra menyn i Azure Portal och välj sedan din IoT Hub. Öppna **IoT-enheter** för navet, markera kryss rutan bredvid *enhets-ID* för enheten som du registrerade i den här snabb starten och tryck sedan på knappen **ta bort** högst upp i fönstret.
+1. From the left-hand menu in the Azure portal, select **All resources** and then select your Device Provisioning service. Open **Manage Enrollments** for your service, and then select the **Individual Enrollments** tab. Select the check box next to the *REGISTRATION ID* of the device you enrolled in this quickstart, and press the **Delete** button at the top of the pane. 
+1. From the left-hand menu in the Azure portal, select **All resources** and then select your IoT hub. Open **IoT devices** for your hub, select the check box next to the *DEVICE ID* of the device you registered in this quickstart, and then press the **Delete** button at the top of the pane.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du skapat en simulerad enhet på Windows-datorn och allokerat den till IoT-hubben med hjälp av symmetrisk nyckel med Azure-IoT Hub Device Provisioning Service på portalen. Om du vill lära dig hur du registrerar enheten program mässigt fortsätter du till snabb starten för program mässig registrering av X. 509-enheter. 
+In this quickstart, you’ve created a simulated device on your Windows machine and provisioned it to your IoT hub using Symmetric key with the Azure IoT Hub Device Provisioning Service on the portal. To learn how to enroll your device programmatically, continue to the quickstart for programmatic enrollment of X.509 devices. 
 
 > [!div class="nextstepaction"]
-> [Azure snabb start – registrera X. 509-enheter till Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509-java.md)
+> [Azure quickstart - Enroll X.509 devices to Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509-java.md)

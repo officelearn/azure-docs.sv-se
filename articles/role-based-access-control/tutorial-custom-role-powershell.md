@@ -1,6 +1,6 @@
 ---
-title: Självstudie – Skapa en anpassad roll för Azure-resurser med Azure PowerShell | Microsoft Docs
-description: Kom igång med att skapa en anpassad roll för Azure-resurser med Azure PowerShell.
+title: Tutorial - Create a custom role for Azure resources using Azure PowerShell
+description: Get started creating a custom role for Azure resources using Azure PowerShell in this tutorial.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: 269bd74aca85ddbc2bafda30542c48f8ab391b32
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 176e465163d92156308eda64c4187467cc10ee15
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66158865"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419748"
 ---
-# <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-powershell"></a>Självstudier: Skapa en anpassad roll för Azure-resurser med Azure PowerShell
+# <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-powershell"></a>Tutorial: Create a custom role for Azure resources using Azure PowerShell
 
 Om de [inbyggda rollerna för Azure-resurser](built-in-roles.md) inte uppfyller organisationens specifika krav, kan du skapa egna anpassade roller. För den här självstudien skapar du en anpassad roll med namnet Reader Support Tickets (Läsare av supportbegäranden) med hjälp av Azure PowerShell. Med den här anpassade rollen kan användare visa allt i en prenumerations hanteringsplan samt öppna supportbegäranden.
 
@@ -36,7 +36,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att kunna genomföra den här kursen behöver du följande:
 

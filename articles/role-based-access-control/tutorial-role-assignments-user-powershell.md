@@ -1,6 +1,6 @@
 ---
-title: Självstudie – Bevilja åtkomst för en användare till Azure-resurser med hjälp av RBAC och Azure PowerShell | Microsoft Docs
-description: Lär dig att bevilja en användare åtkomst till Azure-resurser med hjälp av rollbaserad åtkomstkontroll (RBAC) och Azure PowerShell.
+title: Tutorial - Grant a user access to Azure resources using RBAC and Azure PowerShell
+description: Learn how to grant a user access to Azure resources using role-based access control (RBAC) and Azure PowerShell in this tutorial.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: b9aefc8eae733d9f43d1f5399c1464b40367f09e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: c5570c6b1d2cdd168dbaeb0a91d80a61e171e5d1
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121886"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74418624"
 ---
-# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Självstudier: Bevilja en användare åtkomst till Azure-resurser med hjälp av RBAC och Azure PowerShell
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Tutorial: Grant a user access to Azure resources using RBAC and Azure PowerShell
 
 [Rollbaserad åtkomstkontroll (RBAC)](overview.md) är det du använder för att hantera åtkomst till Azure-resurser. I den här självstudien kommer du at ge en användare åtkomst för att visa allt i en prenumeration och hantera allt innehåll i en resursgrupp med hjälp av Azure PowerShell.
 
@@ -35,7 +35,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att kunna genomföra den här kursen behöver du följande:
 
@@ -46,7 +46,7 @@ För att kunna genomföra den här kursen behöver du följande:
 
 För att skapa åtkomst i RBAC skapar du rolltilldelningar. En rolltilldelning består av tre delar: säkerhetsobjekt, rolldefinition och omfång. Här följer två rolltilldelningar som du utför i den här självstudiekursen:
 
-| Säkerhetsobjekt | Rolldefinition | Scope |
+| Säkerhetsobjekt | Rolldefinition | Omfång |
 | --- | --- | --- |
 | Användare<br>(RBAC-kursanvändare) | [Läsare](built-in-roles.md#reader) | Prenumeration |
 | Användare<br>(RBAC-kursanvändare)| [Deltagare](built-in-roles.md#contributor) | Resursgrupp<br>(rbac-tutorial-resource-user) |
@@ -224,7 +224,7 @@ Om du vill bevilja åtkomst för användaren använder du kommandot [New-AzRoleA
 
 ## <a name="optional-list-access-using-the-azure-portal"></a>(Valfritt) Visa åtkomst med hjälp av Azure Portal
 
-1. Om du vill se rolltilldelningen i Azure-portalen kan du visa **åtkomstkontroll (IAM)**-bladet för prenumerationen.
+1. Om du vill se rolltilldelningen i Azure-portalen kan du visa **åtkomstkontroll (IAM)** -bladet för prenumerationen.
 
     ![Rolltilldelningar för en användare med prenumerationsomfång](./media/tutorial-role-assignments-user-powershell/role-assignments-subscription-user.png)
 
@@ -234,7 +234,7 @@ Om du vill bevilja åtkomst för användaren använder du kommandot [New-AzRoleA
 
 ## <a name="remove-access"></a>Tar bort åtkomst
 
-Ta bort åtkomst för användare, grupper och program med [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) för att ta bort en rolltilldelning.
+Om du vill ta bort åtkomst för användare, grupper och program använder du [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) för att ta bort en rolltilldelning.
 
 1. Använd följande kommando för att ta bort rolltilldelningen Deltagare från användarens resursgruppomfång.
 
@@ -256,7 +256,7 @@ Ta bort åtkomst för användare, grupper och program med [Remove-AzRoleAssignme
 
 Om du vill rensa resurserna som har skapats med den här självstudien kan du ta bort resursgruppen och användaren.
 
-1. Om du vill ta bort resursgruppen använder du kommandot [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
+1. Ta bort resursgruppen med hjälp av kommandot [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 
     ```azurepowershell
     Remove-AzResourceGroup -Name "rbac-tutorial-resource-group"
@@ -268,7 +268,7 @@ Om du vill rensa resurserna som har skapats med den här självstudien kan du ta
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
     ```
     
-1. När du ombeds bekräfta skriver du **Y**. Borttagningen tar några sekunder.
+1. When asked to confirm, type **Y**. It will take a few seconds to delete.
 
 1. Ta bort en användare med hjälp av kommandot [Ta bort AzureADUser](/powershell/module/azuread/remove-azureaduser).
 

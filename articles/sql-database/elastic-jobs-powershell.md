@@ -11,18 +11,18 @@ author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 ms.date: 03/13/2019
-ms.openlocfilehash: e9ef939d46a02b8aa6b0b7f481fec9e30edf53fc
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 74a72df9d8c0bc8a578fea57ab81fb496f8e6add
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839192"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420370"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Skapa en elastisk jobbagent med PowerShell
 
 [Elastiska jobb](sql-database-job-automation-overview.md#elastic-database-jobs-preview) aktiverar körning av ett eller flera Transact-SQL-skript (T-SQL) parallellt över flera databaser.
 
-I den här självstudien får du lära dig de steg som krävs för att köra en fråga över flera databaser:
+In this tutorial, you learn the steps required to run a query across multiple databases:
 
 > [!div class="checklist"]
 > * Skapa en elastiskt jobbagent
@@ -34,299 +34,273 @@ I den här självstudien får du lära dig de steg som krävs för att köra en 
 > * Starta körningen av ett jobb
 > * Övervaka ett jobb
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Den uppgraderade versionen av Elastic Database-jobb har en ny uppsättning PowerShell-cmdlets som kan användas under migreringen. Dessa nya cmdletar överför alla befintliga autentiseringsuppgifter för jobb, mål (inklusive databaser, servrar, anpassade samlingar), jobb utlösare, jobb scheman, jobb innehåll och jobb till en ny elastisk jobb agent.
+The upgraded version of Elastic Database jobs has a new set of PowerShell cmdlets for use during migration. These new cmdlets transfer all of your existing job credentials, targets (including databases, servers, custom collections), job triggers, job schedules, job contents, and jobs over to a new Elastic Job agent.
 
-### <a name="install-the-latest-elastic-jobs-cmdlets"></a>Installera de senaste elastiska jobb-cmdletarna
+### <a name="install-the-latest-elastic-jobs-cmdlets"></a>Install the latest Elastic Jobs cmdlets
 
 Om du inte redan har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-Installera **AZ. SQL** 1.1.1-Preview-modulen för att hämta de senaste elastiska jobb-cmdletarna. Kör följande kommandon i PowerShell med administratörsbehörighet.
+Install the **Az.Sql** module to get the latest Elastic Job cmdlets. Kör följande kommandon i PowerShell med administratörsbehörighet.
 
 ```powershell
-# Installs the latest PackageManagement powershell package which PowershellGet v1.6.5 is dependent on
-Find-Package PackageManagement -RequiredVersion 1.1.7.2 | Install-Package -Force
-
-# Installs the latest PowershellGet module which adds the -AllowPrerelease flag to Install-Module
-Find-Package PowerShellGet -RequiredVersion 1.6.5 | Install-Package -Force
+# installs the latest PackageManagement and PowerShellGet packages
+Find-Package PackageManagement | Install-Package -Force
+Find-Package PowerShellGet | Install-Package -Force
 
 # Restart your powershell session with administrative access
 
-# Places Az.Sql preview cmdlets side by side with existing Az.Sql version
-Install-Module -Name Az.Sql -RequiredVersion 1.1.1-preview -AllowPrerelease
+# Install and import the Az.Sql module, then confirm
+Install-Module -Name Az.Sql
+Import-Module Az.Sql
 
-# Import the Az.Sql module
-Import-Module Az.Sql -RequiredVersion 1.1.1
-
-# Confirm if module successfully imported - if the imported version is 1.1.1, then continue
 Get-Module Az.Sql
 ```
 
-- Förutom **AZ. SQL** 1.1.1-Preview-modulen kräver den här kursen även *SQLServer* PowerShell-modulen. Mer information finns i avsnittet om att [installera SQL Server PowerShell-modulen](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module).
-
+In addition to the **Az.Sql** module, this tutorial also requires the *SqlServer* PowerShell module. Mer information finns i avsnittet om att [installera SQL Server PowerShell-modulen](/sql/powershell/download-sql-server-ps-module).
 
 ## <a name="create-required-resources"></a>Skapa nödvändiga resurser
 
-För att skapa elastiska jobbagenter krävs en databas (S0 eller högre) som kan användas som [jobbdatabas](sql-database-job-automation-overview.md#job-database). 
+För att skapa elastiska jobbagenter krävs en databas (S0 eller högre) som kan användas som [jobbdatabas](sql-database-job-automation-overview.md#job-database).
 
-*Skriptet nedan skapar en ny resurs grupp, server och databas som ska användas som jobb databas. Skriptet nedan skapar också en andra server med två tomma databaser för att köra jobb mot.*
+The script below creates a new resource group, server, and database for use as the Job database. The second script creates a second server with two blank databases to execute jobs against.
 
 Elastiska jobb har inga särskilda krav för namngivningskonventioner, så du kan använda vilken namnkonvention du vill, förutsatt att de uppfyller något av [kraven för Azure](/azure/architecture/best-practices/resource-naming).
 
 ```powershell
-# Sign in to your Azure account
+# sign in to Azure account
 Connect-AzAccount
 
-# Create a resource group
+# create a resource group
 Write-Output "Creating a resource group..."
-$ResourceGroupName = Read-Host "Please enter a resource group name"
-$Location = Read-Host "Please enter an Azure Region"
-$Rg = New-AzResourceGroup -Name $ResourceGroupName -Location $Location
-$Rg
+$resourceGroupName = Read-Host "Please enter a resource group name"
+$location = Read-Host "Please enter an Azure Region"
+$rg = New-AzResourceGroup -Name $resourceGroupName -Location $location
+$rg
 
-# Create a server
+# create a server
 Write-Output "Creating a server..."
-$AgentServerName = Read-Host "Please enter an agent server name"
-$AgentServerName = $AgentServerName + "-" + [guid]::NewGuid()
-$AdminLogin = Read-Host "Please enter the server admin name"
-$AdminPassword = Read-Host "Please enter the server admin password"
-$AdminPasswordSecure = ConvertTo-SecureString -String $AdminPassword -AsPlainText -Force
-$AdminCred = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList $AdminLogin, $AdminPasswordSecure
-$AgentServer = New-AzSqlServer -ResourceGroupName $ResourceGroupName -Location $Location -ServerName $AgentServerName -ServerVersion "12.0" -SqlAdministratorCredentials ($AdminCred)
+$agentServerName = Read-Host "Please enter an agent server name"
+$agentServerName = $agentServerName + "-" + [guid]::NewGuid()
+$adminLogin = Read-Host "Please enter the server admin name"
+$adminPassword = Read-Host "Please enter the server admin password"
+$adminPasswordSecure = ConvertTo-SecureString -String $AdminPassword -AsPlainText -Force
+$adminCred = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList $adminLogin, $adminPasswordSecure
+$agentServer = New-AzSqlServer -ResourceGroupName $resourceGroupName -Location $location `
+    -ServerName $agentServerName -ServerVersion "12.0" -SqlAdministratorCredentials ($adminCred)
 
-# Set server firewall rules to allow all Azure IPs
+# set server firewall rules to allow all Azure IPs
 Write-Output "Creating a server firewall rule..."
-$AgentServer | New-AzSqlServerFirewallRule -AllowAllAzureIPs
-$AgentServer
+$agentServer | New-AzSqlServerFirewallRule -AllowAllAzureIPs
+$agentServer
 
-# Create the job database
+# create the job database
 Write-Output "Creating a blank SQL database to be used as the Job Database..."
-$JobDatabaseName = "JobDatabase"
-$JobDatabase = New-AzSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $AgentServerName -DatabaseName $JobDatabaseName -RequestedServiceObjectiveName "S0"
-$JobDatabase
+$jobDatabaseName = "JobDatabase"
+$jobDatabase = New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $agentServerName -DatabaseName $jobDatabaseName -RequestedServiceObjectiveName "S0"
+$jobDatabase
 ```
 
 ```powershell
-# Create a target server and some sample databases - uses the same admin credential as the agent server just for simplicity
+# create a target server and sample databases - uses the same credentials
 Write-Output "Creating target server..."
-$TargetServerName = Read-Host "Please enter a target server name"
-$TargetServerName = $TargetServerName + "-" + [guid]::NewGuid()
-$TargetServer = New-AzSqlServer -ResourceGroupName $ResourceGroupName -Location $Location -ServerName $TargetServerName -ServerVersion "12.0" -SqlAdministratorCredentials ($AdminCred)
+$targetServerName = Read-Host "Please enter a target server name"
+$targetServerName = $targetServerName + "-" + [guid]::NewGuid()
+$targetServer = New-AzSqlServer -ResourceGroupName $resourceGroupName -Location $location `
+    -ServerName $targetServerName -ServerVersion "12.0" -SqlAdministratorCredentials ($adminCred)
 
-# Set target server firewall rules to allow all Azure IPs
-$TargetServer | New-AzSqlServerFirewallRule -AllowAllAzureIPs
-$TargetServer | New-AzSqlServerFirewallRule -StartIpAddress 0.0.0.0 -EndIpAddress 255.255.255.255 -FirewallRuleName AllowAll
-$TargetServer
+# set target server firewall rules to allow all Azure IPs
+$targetServer | New-AzSqlServerFirewallRule -AllowAllAzureIPs
+$targetServer | New-AzSqlServerFirewallRule -StartIpAddress 0.0.0.0 -EndIpAddress 255.255.255.255 -FirewallRuleName AllowAll
+$targetServer
 
-# Create some sample databases to execute jobs against...
-$Db1 = New-AzSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $TargetServerName -DatabaseName "TargetDb1"
-$Db1
-$Db2 = New-AzSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $TargetServerName -DatabaseName "TargetDb2"
-$Db2
+# create sample databases to execute jobs against
+$db1 = New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $targetServerName -DatabaseName "database1"
+$db1
+$db2 = New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $targetServerName -DatabaseName "database2"
+$db2
 ```
 
-## <a name="enable-the-elastic-jobs-preview-for-your-subscription"></a>Aktivera förhandsversionen för elastiska jobb för din prenumeration
+## <a name="use-elastic-jobs"></a>Use Elastic Jobs
 
-Om du vill använda elastiska jobb registrerar du funktionen i din Azure-prenumeration genom att köra följande kommando. Kör det här kommandot en gång för den prenumeration där du vill etablera den elastiska jobb agenten. Prenumerationer som bara innehåller databaser som är jobb mål behöver inte registreras.
+To use Elastic Jobs, register the feature in your Azure subscription by running the following command. Run this command once for the subscription in which you intend to provision the Elastic Job agent. Subscriptions that only contain databases that are job targets don't need to be registered.
 
 ```powershell
 Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Microsoft.Sql
 ```
 
-## <a name="create-the-elastic-job-agent"></a>Skapa en elastiskt jobbagent
+### <a name="create-the-elastic-job-agent"></a>Skapa en elastiskt jobbagent
 
 En agent för elastiska jobb är en Azure-resurs för att skapa, köra och hantera jobb. Agenten kör jobb baserat på ett schema eller som ett engångsjobb.
 
-Cmdlet: en **New-AzSqlElasticJobAgent** kräver att det redan finns en Azure SQL-databas, så parametrarna *ResourceGroupName*, *servername*och *databasename* måste alla peka på befintliga resurser.
+The **New-AzSqlElasticJobAgent** cmdlet requires an Azure SQL database to already exist, so the *resourceGroupName*, *serverName*, and *databaseName* parameters must all point to existing resources.
 
 ```powershell
 Write-Output "Creating job agent..."
-$AgentName = Read-Host "Please enter a name for your new Elastic Job agent"
-$JobAgent = $JobDatabase | New-AzSqlElasticJobAgent -Name $AgentName
-$JobAgent
+$agentName = Read-Host "Please enter a name for your new Elastic Job agent"
+$jobAgent = $jobDatabase | New-AzSqlElasticJobAgent -Name $agentName
+$jobAgent
 ```
 
-## <a name="create-job-credentials-so-that-jobs-can-execute-scripts-on-its-targets"></a>Skapa autentiseringsuppgifter för jobbet så att det kan köra skript på sina mål
+### <a name="create-the-job-credentials"></a>Create the job credentials
 
-Jobbet använder databasbegränsade autentiseringsuppgifter för att ansluta till måldatabaserna som anges av målgruppen vid körning. Dessa databasbegränsade autentiseringsuppgifter används också för att ansluta till huvuddatabasen för att räkna upp alla databaser i en server eller en elastisk pool när någon av dessa används som medlemstyp för målgruppen.
+Jobs use database scoped credentials to connect to the target databases specified by the target group upon execution and execute scripts. Dessa databasbegränsade autentiseringsuppgifter används också för att ansluta till huvuddatabasen för att räkna upp alla databaser i en server eller en elastisk pool när någon av dessa används som medlemstyp för målgruppen.
 
-Databasbegränsade autentiseringsuppgifter måste skapas i databasen för jobbet.  
-Alla måldatabaser måste ha en inloggning med tillräcklig behörighet för att slutföra jobbet.
+Databasbegränsade autentiseringsuppgifter måste skapas i databasen för jobbet. Alla måldatabaser måste ha en inloggning med tillräcklig behörighet för att slutföra jobbet.
 
 ![Autentiseringsuppgifter för elastiska jobb](media/elastic-jobs-overview/job-credentials.png)
 
-Förutom autentiseringsuppgifterna i avbildningen, observera även tillägget av *beviljandekommando* i följande skript. Dessa behörigheter krävs för skriptet vi valde för det här exempeljobbet. Eftersom exemplet skapar en ny tabell i måldatabaserna, måste varje måldatabas ha rätt behörighet för att köras.
+Förutom autentiseringsuppgifterna i avbildningen, observera även tillägget av **beviljandekommando** i följande skript. Dessa behörigheter krävs för skriptet vi valde för det här exempeljobbet. Because the example creates a new table in the targeted databases, each target db needs the proper permissions to successfully run.
 
 Kör följande skript för att skapa autentiseringsuppgifter för det nödvändiga jobbet (i jobbdatabasen):
 
 ```powershell
-# In the master database (target server)
-# - Create the master user login
-# - Create the master user from master user login
-# - Create the job user login
-$Params = @{
-  'Database' = 'master'
-  'ServerInstance' =  $TargetServer.ServerName + '.database.windows.net'
-  'Username' = $AdminLogin
-  'Password' = $AdminPassword
-  'OutputSqlErrors' = $true
-  'Query' = "CREATE LOGIN masteruser WITH PASSWORD='password!123'"
+# in the master database (target server)
+# create the master user login, master user, and job user login
+$params = @{
+  'database' = 'master'
+  'serverInstance' =  $targetServer.ServerName + '.database.windows.net'
+  'username' = $adminLogin
+  'password' = $adminPassword
+  'outputSqlErrors' = $true
+  'query' = "CREATE LOGIN masteruser WITH PASSWORD='password!123'"
 }
-Invoke-SqlCmd @Params
-$Params.Query = "CREATE USER masteruser FROM LOGIN masteruser"
-Invoke-SqlCmd @Params
-$Params.Query = "CREATE LOGIN jobuser WITH PASSWORD='password!123'"
-Invoke-SqlCmd @Params
+Invoke-SqlCmd @params
+$params.query = "CREATE USER masteruser FROM LOGIN masteruser"
+Invoke-SqlCmd @params
+$params.query = "CREATE LOGIN jobuser WITH PASSWORD='password!123'"
+Invoke-SqlCmd @params
 
-# For each of the target databases
-# - Create the jobuser from jobuser login
-# - Make sure they have the right permissions for successful script execution
-$TargetDatabases = @( $Db1.DatabaseName, $Db2.DatabaseName )
-$CreateJobUserScript =  "CREATE USER jobuser FROM LOGIN jobuser"
-$GrantAlterSchemaScript = "GRANT ALTER ON SCHEMA::dbo TO jobuser"
-$GrantCreateScript = "GRANT CREATE TABLE TO jobuser"
+# for each target database
+# create the jobuser from jobuser login and check permission for script execution
+$targetDatabases = @( $db1.DatabaseName, $Db2.DatabaseName )
+$createJobUserScript =  "CREATE USER jobuser FROM LOGIN jobuser"
+$grantAlterSchemaScript = "GRANT ALTER ON SCHEMA::dbo TO jobuser"
+$grantCreateScript = "GRANT CREATE TABLE TO jobuser"
 
-$TargetDatabases | % {
-  $Params.Database = $_
-
-  $Params.Query = $CreateJobUserScript
-  Invoke-SqlCmd @Params
-
-  $Params.Query = $GrantAlterSchemaScript
-  Invoke-SqlCmd @Params
-
-  $Params.Query = $GrantCreateScript
-  Invoke-SqlCmd @Params
+$targetDatabases | % {
+  $params.database = $_
+  $params.query = $createJobUserScript
+  Invoke-SqlCmd @params
+  $params.query = $grantAlterSchemaScript
+  Invoke-SqlCmd @params
+  $params.query = $grantCreateScript
+  Invoke-SqlCmd @params
 }
 
-# Create job credential in Job database for master user
+# create job credential in Job database for master user
 Write-Output "Creating job credentials..."
-$LoginPasswordSecure = (ConvertTo-SecureString -String "password!123" -AsPlainText -Force)
+$loginPasswordSecure = (ConvertTo-SecureString -String "password!123" -AsPlainText -Force)
 
-$MasterCred = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList "masteruser", $LoginPasswordSecure
-$MasterCred = $JobAgent | New-AzSqlElasticJobCredential -Name "masteruser" -Credential $MasterCred
+$masterCred = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList "masteruser", $loginPasswordSecure
+$masterCred = $jobAgent | New-AzSqlElasticJobCredential -Name "masteruser" -Credential $masterCred
 
-$JobCred = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList "jobuser", $LoginPasswordSecure
-$JobCred = $JobAgent | New-AzSqlElasticJobCredential -Name "jobuser" -Credential $JobCred
+$jobCred = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList "jobuser", $loginPasswordSecure
+$jobCred = $jobAgent | New-AzSqlElasticJobCredential -Name "jobuser" -Credential $jobCred
 ```
 
-## <a name="define-the-target-databases-you-want-to-run-the-job-against"></a>Definiera måldatabaserna som du vill köra jobbet mot
+### <a name="define-the-target-databases-to-run-the-job-against"></a>Define the target databases to run the job against
 
-En [målgrupp](sql-database-job-automation-overview.md#target-group) utgörs av en eller flera databaser som ett jobbsteg ska köras mot. 
+En [målgrupp](sql-database-job-automation-overview.md#target-group) utgörs av en eller flera databaser som ett jobbsteg ska köras mot.
 
-Följande kodavsnitt skapar två målgrupper: *ServerGroup* och *ServerGroupExcludingDb2*. *ServerGroup* har alla databaser som finns på servern vid körningen som mål, och *ServerGroupExcludingDb2* har alla databaser på servern, utom *TargetDb2* som mål:
+The following snippet creates two target groups: *serverGroup*, and *serverGroupExcludingDb2*. *serverGroup* targets all databases that exist on the server at the time of execution, and *serverGroupExcludingDb2* targets all databases on the server, except *targetDb2*:
 
 ```powershell
 Write-Output "Creating test target groups..."
-# Create ServerGroup target group
-$ServerGroup = $JobAgent | New-AzSqlElasticJobTargetGroup -Name 'ServerGroup'
-$ServerGroup | Add-AzSqlElasticJobTarget -ServerName $TargetServerName -RefreshCredentialName $MasterCred.CredentialName
+# create ServerGroup target group
+$serverGroup = $jobAgent | New-AzSqlElasticJobTargetGroup -Name 'ServerGroup'
+$serverGroup | Add-AzSqlElasticJobTarget -ServerName $targetServerName -RefreshCredentialName $masterCred.CredentialName
 
-# Create ServerGroup with an exclusion of Db2
-$ServerGroupExcludingDb2 = $JobAgent | New-AzSqlElasticJobTargetGroup -Name 'ServerGroupExcludingDb2'
-$ServerGroupExcludingDb2 | Add-AzSqlElasticJobTarget -ServerName $TargetServerName -RefreshCredentialName $MasterCred.CredentialName
-$ServerGroupExcludingDb2 | Add-AzSqlElasticJobTarget -ServerName $TargetServerName -Database $Db2.DatabaseName -Exclude
+# create ServerGroup with an exclusion of db2
+$serverGroupExcludingDb2 = $jobAgent | New-AzSqlElasticJobTargetGroup -Name 'ServerGroupExcludingDb2'
+$serverGroupExcludingDb2 | Add-AzSqlElasticJobTarget -ServerName $targetServerName -RefreshCredentialName $masterCred.CredentialName
+$serverGroupExcludingDb2 | Add-AzSqlElasticJobTarget -ServerName $targetServerName -Database $db2.DatabaseName -Exclude
 ```
 
-## <a name="create-a-job"></a>Skapa ett jobb
+### <a name="create-a-job-and-steps"></a>Create a job and steps
+
+This example defines a job and two job steps for the job to run. Det första steget i jobbet (*step1*) skapar en ny tabell (*Step1Table*) i varje databas i målgruppen *ServerGroup*. The second job step (*step2*) creates a new table (*Step2Table*) in every database except for *TargetDb2*, because the target group defined previously specified to exclude it.
 
 ```powershell
-Write-Output "Creating a new job"
-$JobName = "Job1"
-$Job = $JobAgent | New-AzSqlElasticJob -Name $JobName -RunOnce
-$Job
+Write-Output "Creating a new job..."
+$jobName = "Job1"
+$job = $jobAgent | New-AzSqlElasticJob -Name $jobName -RunOnce
+$job
+
+Write-Output "Creating job steps..."
+$sqlText1 = "IF NOT EXISTS (SELECT * FROM sys.tables WHERE object_id = object_id('Step1Table')) CREATE TABLE [dbo].[Step1Table]([TestId] [int] NOT NULL);"
+$sqlText2 = "IF NOT EXISTS (SELECT * FROM sys.tables WHERE object_id = object_id('Step2Table')) CREATE TABLE [dbo].[Step2Table]([TestId] [int] NOT NULL);"
+
+$job | Add-AzSqlElasticJobStep -Name "step1" -TargetGroupName $serverGroup.TargetGroupName -CredentialName $jobCred.CredentialName -CommandText $sqlText1
+$job | Add-AzSqlElasticJobStep -Name "step2" -TargetGroupName $serverGroupExcludingDb2.TargetGroupName -CredentialName $jobCred.CredentialName -CommandText $sqlText2
 ```
 
-## <a name="create-a-job-step"></a>Steg för att skapa ett jobb
-
-Det här exemplet definierar två jobbsteg som jobbet ska köra. Det första steget i jobbet (*step1*) skapar en ny tabell (*Step1Table*) i varje databas i målgruppen *ServerGroup*. Det andra steget i jobbet (*step2*) skapar en ny tabell (*Step2Table*) i varje databas utom för *TargetDb2*, eftersom målgruppen [som definierades tidigare](#define-the-target-databases-you-want-to-run-the-job-against) har angett att den ska undantas.
-
-```powershell
-Write-Output "Creating job steps"
-$SqlText1 = "IF NOT EXISTS (SELECT * FROM sys.tables WHERE object_id = object_id('Step1Table')) CREATE TABLE [dbo].[Step1Table]([TestId] [int] NOT NULL);"
-$SqlText2 = "IF NOT EXISTS (SELECT * FROM sys.tables WHERE object_id = object_id('Step2Table')) CREATE TABLE [dbo].[Step2Table]([TestId] [int] NOT NULL);"
-
-$Job | Add-AzSqlElasticJobStep -Name "step1" -TargetGroupName $ServerGroup.TargetGroupName -CredentialName $JobCred.CredentialName -CommandText $SqlText1
-$Job | Add-AzSqlElasticJobStep -Name "step2" -TargetGroupName $ServerGroupExcludingDb2.TargetGroupName -CredentialName $JobCred.CredentialName -CommandText $SqlText2
-```
-
-
-## <a name="run-the-job"></a>Kör jobbet
+### <a name="run-the-job"></a>Kör jobbet
 
 Kör följande kommando direkt för att starta jobbet:
 
 ```powershell
 Write-Output "Start a new execution of the job..."
-$JobExecution = $Job | Start-AzSqlElasticJob
-$JobExecution
+$jobExecution = $job | Start-AzSqlElasticJob
+$jobExecution
 ```
 
 Efter varje steg som avslutats korrekt bör du se två nya tabeller i TargetDb1 och bara en ny tabell i TargetDb2:
 
-
    ![verifiering av nya tabeller i SSMS](media/elastic-jobs-overview/job-execution-verification.png)
 
+You can also schedule the job to run later. Kör följande kommando för att schemalägga ett jobb så att det körs vid en viss tid:
 
+```powershell
+# run every hour starting from now
+$job | Set-AzSqlElasticJob -IntervalType Hour -IntervalCount 1 -StartTime (Get-Date) -Enable
+```
 
-
-## <a name="monitor-status-of-job-executions"></a>Övervaka status för jobbkörningar
+### <a name="monitor-status-of-job-executions"></a>Övervaka status för jobbkörningar
 
 Följande kodavsnitt hämtar information om jobbkörning:
 
 ```powershell
-# Get the latest 10 executions run
-$JobAgent | Get-AzSqlElasticJobExecution -Count 10
+# get the latest 10 executions run
+$jobAgent | Get-AzSqlElasticJobExecution -Count 10
 
-# Get the job step execution details
-$JobExecution | Get-AzSqlElasticJobStepExecution
+# get the job step execution details
+$jobExecution | Get-AzSqlElasticJobStepExecution
 
-# Get the job target execution details
-$JobExecution | Get-AzSqlElasticJobTargetExecution -Count 2
+# get the job target execution details
+$jobExecution | Get-AzSqlElasticJobTargetExecution -Count 2
 ```
 
-### <a name="job-execution-states"></a>Jobb körnings tillstånd
-
-I följande tabell visas möjliga tillstånd för jobb körning:
+The following table lists the possible job execution states:
 
 |Status|Beskrivning|
 |:---|:---|
-|**Create** | Jobb körningen har precis skapats och pågår ännu inte.|
-|**Pågår** | Jobb körningen pågår just nu.|
-|**WaitingForRetry** | Det gick inte att slutföra åtgärden för jobb körningen och väntar på att försöka igen.|
-|**Lyckades** | Jobb körningen har slutförts.|
-|**SucceededWithSkipped** | Jobb körningen har slutförts men vissa av dess underordnade hoppades över.|
-|**Misslyckades** | Jobb körningen har misslyckats och förbrukat sina återförsök.|
-|**Stängningsåtgärd** | Tids gränsen nåddes för jobb körningen.|
-|**Avbrutet** | Jobb körningen avbröts.|
-|**Överhoppad** | Jobb körningen hoppades över eftersom en annan körning av samma jobb steg redan kördes på samma mål.|
-|**WaitingForChildJobExecutions** | Jobb körningen väntar på att de underordnade körningarna ska slutföras.|
-
-## <a name="schedule-the-job-to-run-later"></a>Schemalägga jobb som ska köras senare
-
-Kör följande kommando för att schemalägga ett jobb så att det körs vid en viss tid:
-
-```powershell
-# Run every hour starting from now
-$Job | Set-AzSqlElasticJob -IntervalType Hour -IntervalCount 1 -StartTime (Get-Date) -Enable
-```
+|**Created** | The job execution was just created and is not yet in progress.|
+|**InProgress** | The job execution is currently in progress.|
+|**WaitingForRetry** | The job execution wasn’t able to complete its action and is waiting to retry.|
+|**Lyckades** | The job execution has completed successfully.|
+|**SucceededWithSkipped** | The job execution has completed successfully, but some of its children were skipped.|
+|**Misslyckades** | The job execution has failed and exhausted its retries.|
+|**TimedOut** | The job execution has timed out.|
+|**Avbrutet** | The job execution was canceled.|
+|**Överhoppad** | The job execution was skipped because another execution of the same job step was already running on the same target.|
+|**WaitingForChildJobExecutions** | The job execution is waiting for its child executions to complete.|
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 Ta bort alla resurser som du har skapat i den här självstudien genom att ta bort resursgruppen.
 
 > [!TIP]
-> Om du planerar att fortsätta arbeta med de här jobben ska du inte rensa upp bland de resurser som skapades i den här artikeln. Om du inte planerar att fortsätta kan du följa stegen nedan för att ta bort alla resurser som har skapats i den här artikeln.
->
+> If you plan to continue to work with these jobs, you do not clean up the resources created in this article.
 
 ```powershell
-Remove-AzResourceGroup -ResourceGroupName $ResourceGroupName
+Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
 ```
-
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien körde du ett Transact-SQL-skript mot en uppsättning databaser.  Du har lärt dig att göra följande:
+I den här självstudien körde du ett Transact-SQL-skript mot en uppsättning databaser. Du har lärt dig att göra följande:
 
 > [!div class="checklist"]
 > * Skapa en elastiskt jobbagent
@@ -339,4 +313,4 @@ I den här självstudien körde du ett Transact-SQL-skript mot en uppsättning d
 > * Övervaka jobbet
 
 > [!div class="nextstepaction"]
->[Hantera elastiska jobb med Transact-SQL](elastic-jobs-tsql.md)
+> [Hantera elastiska jobb med Transact-SQL](elastic-jobs-tsql.md)

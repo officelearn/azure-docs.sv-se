@@ -1,6 +1,6 @@
 ---
-title: Övervaka nätverkskommunikation – självstudie – Azure Portal | Microsoft Docs
-description: Lär dig hur du övervakar nätverkskommunikationen mellan två virtuella datorer med funktionen för anslutningsövervakning i Azure Network Watcher.
+title: Tutorial - Monitor network communication using the Azure portal
+description: In this tutorial, learn how to monitor network communication between two virtual machines with Azure Network Watcher's connection monitor capability.
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 5cac4a46fb35ef955903018028abbe7588c94dc7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 9d01060a966d55d26d7fc308ee352fb79cc73363
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66233895"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419689"
 ---
-# <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Självstudier: Övervaka nätverkskommunikationen mellan två virtuella datorer i Azure-portalen
+# <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Självstudie: Övervaka nätverkskommunikationen mellan två virtuella datorer i Azure Portal
 
 Det kan vara mycket viktigt att kommunikationen mellan en virtuell dator (VM) och en slutpunkt, som en annan virtuell dator, fungerar ordentligt. Ibland görs konfigurationsändringar som kan bryta kommunikationen. I den här guiden får du lära dig att:
 
@@ -35,11 +35,11 @@ Det kan vara mycket viktigt att kommunikationen mellan en virtuell dator (VM) oc
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="sign-in-to-azure"></a>Logga in till Azure
+## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure Portal](https://portal.azure.com).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
-## <a name="create-vms"></a>Skapa VM:ar
+## <a name="create-vms"></a>Skapa virtuella datorer
 
 Skapa två virtuella datorer.
 
@@ -56,7 +56,7 @@ Skapa två virtuella datorer.
     |Lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Prenumeration| Välj din prenumeration.|
     |Resursgrupp| Välj **Skapa ny** och ange **myResourceGroup**.|
-    |Location| Välj **USA, östra**|
+    |Plats| Välj **USA, östra**|
 
 4. Välj en storlek för den virtuella datorn och sedan **Välj**.
 5. Under **Inställningar** väljer du **Tillägg**. Välj **Lägg till tillägg** och välj **Network Watcher Agent for Windows**, så som visas i följande bild:
@@ -77,7 +77,7 @@ Utför stegen i [Skapa den första virtuella datorn](#create-the-first-vm) igen 
 | 3 | Namn                                  | myVm2                                                                   |
 | 3 | Autentiseringstyp                   | Klistra in den offentliga SSH-nyckeln eller välj **Lösenord** och ange ett lösenord. |
 | 3 | Resursgrupp                        | Välj **Använd befintlig** och sedan **myResourceGroup**.                 |
-| 6 | Tillägg                            | **Network Watcher-Agent för Linux**                                             |
+| 6 | Tillägg                            | **Network Watcher Agent for Linux**                                             |
 
 Det tar några minuter att distribuera den virtuella datorn. Vänta tills distributionen av den virtuella datorn är klar innan du fortsätter med nästa steg.
 
@@ -94,7 +94,7 @@ Skapa en anslutningsövervakare för övervakning av kommunikationen via TCP-por
     | Inställning                  | Värde               |
     | ---------                | ---------           |
     | Namn                     | myVm1-myVm2(22)     |
-    | Source                   |                     |
+    | Källa                   |                     |
     | Virtuell dator          | myVm1               |
     | Mål              |                     |
     | Välj en virtuell dator |                     |
@@ -117,7 +117,7 @@ Skapa en anslutningsövervakare för övervakning av kommunikationen via TCP-por
 
     | Objekt                     | Värde                      | Information                                                     |
     | ---------                | ---------                  |--------                                                     |
-    | Status                   | Kan nås                  | Visar om slutpunkten kan nås eller inte.|
+    | Status                   | Nåbar                  | Visar om slutpunkten kan nås eller inte.|
     | GENOMSN. TIDSFÖRDRÖJNING          | Visar anslutningens tidsfördröjning i millisekunder. Anslutningsövervakaren söker av anslutningen var 60:e sekund så att du kan se svarstiderna över tid.                                         |
     | Hopp                     | Anslutningsövervakaren visar hoppen mellan de två slutpunkterna. I det här exemplet ligger anslutningen mellan de två virtuella datorerna i samma virtuella nätverk, så det sker bara ett hopp till IP-adressen 10.0.0.5. Om något befintligt system eller en egen väg dirigerar trafiken mellan de två virtuella datorerna via en VPN-gateway eller en virtuell nätverksenhet visas fler hopp.                                                                                                                         |
     | STATUS                   | En grön bockmarkering vid respektive slutpunkt anger att tillståndet är felfritt.    ||
@@ -149,8 +149,8 @@ Som standard tillåter Azure kommunikation via alla portar mellan virtuella dato
 
     | Inställning                 | Värde          |
     | ---                     | ---            |
-    | Målportsintervall | 22             |
-    | Åtgärd                  | Avvisa           |
+    | Målportintervall | 22             |
+    | Åtgärd                  | Neka           |
     | Prioritet                | 100            |
     | Namn                    | DenySshInbound |
 
@@ -160,7 +160,7 @@ Som standard tillåter Azure kommunikation via alla portar mellan virtuella dato
 
     Du ser ett rött utropstecken i statuskolumnen för nätverksgränssnittet **myvm2529**.
 
-6. Välj 10.0.0.5 om du vill se varför statusen har ändrats. Anslutningsövervakaren informerar dig om att orsaken till kommunikationsfelet är: *Trafiken blockerades på grund av följande regel för nätverkssäkerhetsgrupp: UserRule_DenySshInbound*.
+6. Välj 10.0.0.5 om du vill se varför statusen har ändrats. Anslutningsövervakaren anger att orsaken till kommunikationsfelet är: *Traffic blocked due to the following network security group rule: UserRule_DenySshInbound* (Trafiken blockeras på grund av följande regel för nätverkssäkerhetsgruppen).
 
     Om du inte hade vetat att någon implementerat den säkerhetsregel du skapade i steg 4 så skulle du se att det är den här regeln som orsakar kommunikationsproblemet i anslutningsövervakaren. Då kan du ändra, åsidosätta eller ta bort regeln för att återställa kommunikationen mellan de virtuella datorerna.
 
@@ -168,9 +168,9 @@ Som standard tillåter Azure kommunikation via alla portar mellan virtuella dato
 
 Ta bort resursgruppen, skalningsuppsättningen och alla resurser som den innehåller:
 
-1. Skriv *myResourceGroup* i **sökrutan** överst i portalen. När du ser **myResourceGroup** i sökresultatet väljer du den.
+1. Skriv *myResourceGroup* i rutan **Sök** högst upp i portalen. När du ser **myResourceGroup** i sökresultatet väljer du den.
 2. Välj **Ta bort resursgrupp**.
-3. Skriv *myResourceGroup* där du uppmanas att **skriva resursgruppens namn:** (Skriv resursgruppens namn) och välj **Ta bort**.
+3. Skriv *myResourceGroup* i **SKRIV RESURSGRUPPSNAMNET:** och välj **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 

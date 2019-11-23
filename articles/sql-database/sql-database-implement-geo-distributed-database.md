@@ -1,6 +1,6 @@
 ---
-title: Implementera en geo-distribuerad lösning
-description: Lär dig att konfigurera din Azure SQL-databas och ett program för redundansväxling till en replikerad databas och testa redundans.
+title: Implement a geo-distributed solution
+description: Learn to configure your Azure SQL database and application for failover to a replicated database, and test failover.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,119 +11,136 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 51380d312c778380602c64cac766b050511cf994
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1da977f41add19afa6f84b7e5a3dc99c980ac1cf
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810924"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74421134"
 ---
-# <a name="tutorial-implement-a-geo-distributed-database"></a>Självstudie: implementera en geo-distribuerad databas
+# <a name="tutorial-implement-a-geo-distributed-database"></a>Tutorial: Implement a geo-distributed database
 
-Konfigurera en Azure SQL-databas och ett program för redundansväxling till en fjärrregion och testa ett redundanskluster. Lär dig att:
+Configure an Azure SQL database and application for failover to a remote region and test a failover plan. Lär dig att:
 
 > [!div class="checklist"]
-> - Skapa en [grupp för redundans](sql-database-auto-failover-group.md)
-> - Köra ett Java-program för att fråga en Azure SQL-databas
+> - Create a [failover group](sql-database-auto-failover-group.md)
+> - Run a Java application to query an Azure SQL database
 > - Redundanstest
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska.
 
-Kontrol lera att du har installerat följande objekt för att slutföra självstudien:
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+
+To complete the tutorial, make sure you've installed the following items:
 
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
-- En enda databas i Azure SQL Database. För att skapa en användning,
-  - [Portal](sql-database-single-database-get-started.md)
+- A single database in Azure SQL Database. To create one use,
+  - [Portalen](sql-database-single-database-get-started.md)
   - [CLI](sql-database-cli-samples.md)
   - [PowerShell](sql-database-powershell-samples.md)
 
   > [!NOTE]
-  > I självstudien används exempel databasen *AdventureWorksLT* .
+  > The tutorial uses the *AdventureWorksLT* sample database.
 
-- Java och maven, se [Bygg en app med SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), markera **Java** och välj din miljö och följ sedan stegen.
+- Java and Maven, see [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), highlight **Java** and select your environment, then follow the steps.
 
 > [!IMPORTANT]
-> Se till att konfigurera brand Väggs regler för att använda den offentliga IP-adressen för den dator där du utför stegen i den här självstudien. Brand Väggs regler på databas nivå kommer att replikeras automatiskt till den sekundära servern.
+> Be sure to set up firewall rules to use the public IP address of the computer on which you're performing the steps in this tutorial. Database-level firewall rules will replicate automatically to the secondary server.
 >
-> Mer information finns i skapa en brand [Väggs regel på databas nivå](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) eller för att fastställa vilken IP-adress som används för brand Väggs regeln på server nivå för datorn se [skapa en brand vägg på server nivå](sql-database-server-level-firewall-rule.md).  
+> For information see [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) or to determine the IP address used for the server-level firewall rule for your computer see [Create a server-level firewall](sql-database-server-level-firewall-rule.md).  
 
-## <a name="create-a-failover-group"></a>Skapa en grupp för redundans
+## <a name="create-a-failover-group"></a>Create a failover group
 
-Med hjälp av Azure PowerShell skapar du [Redundansrelationer](sql-database-auto-failover-group.md) mellan en befintlig Azure SQL-Server och en ny Azure SQL-Server i en annan region. Lägg sedan till exempel databasen i gruppen för växling vid fel.
+Using Azure PowerShell, create [failover groups](sql-database-auto-failover-group.md) between an existing Azure SQL server and a new Azure SQL server in another region. Then add the sample database to the failover group.
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 > [!IMPORTANT]
 > [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
 
-Om du vill skapa en grupp för växling vid fel kör du följande skript:
+To create a failover group, run the following script:
 
-   ```powershell
-    # Set variables for your server and database
-    $adminlogin = "<your admin>"
-    $password = "<your password>"
-    $myresourcegroupname = "<your resource group name>"
-    $mylocation = "<your resource group location>"
-    $myservername = "<your existing server name>"
-    $mydatabasename = "<your database name>"
-    $mydrlocation = "<your disaster recovery location>"
-    $mydrservername = "<your disaster recovery server name>"
-    $myfailovergroupname = "<your globally unique failover group name>"
+```powershell
+$admin = "<adminName>"
+$password = "<password>"
+$resourceGroup = "<resourceGroupName>"
+$location = "<resourceGroupLocation>"
+$server = "<serverName>"
+$database = "<databaseName>"
+$drLocation = "<disasterRecoveryLocation>"
+$drServer = "<disasterRecoveryServerName>"
+$failoverGroup = "<globallyUniqueFailoverGroupName>"
 
-    # Create a backup server in the failover region
-    New-AzSqlServer -ResourceGroupName $myresourcegroupname `
-       -ServerName $mydrservername `
-       -Location $mydrlocation `
-       -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
-          -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
+# create a backup server in the failover region
+New-AzSqlServer -ResourceGroupName $resourceGroup -ServerName $drServer `
+    -Location $drLocation -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
+    -ArgumentList $admin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 
-    # Create a failover group between the servers
-    New-AzSqlDatabaseFailoverGroup `
-       –ResourceGroupName $myresourcegroupname `
-       -ServerName $myservername `
-       -PartnerServerName $mydrservername  `
-       –FailoverGroupName $myfailovergroupname `
-       –FailoverPolicy Automatic `
-       -GracePeriodWithDataLossHours 2
+# create a failover group between the servers
+New-AzSqlDatabaseFailoverGroup –ResourceGroupName $resourceGroup -ServerName $server `
+    -PartnerServerName $drServer –FailoverGroupName $failoverGroup –FailoverPolicy Automatic -GracePeriodWithDataLossHours 2
 
-    # Add the database to the failover group
-    Get-AzSqlDatabase `
-       -ResourceGroupName $myresourcegroupname `
-       -ServerName $myservername `
-       -DatabaseName $mydatabasename | `
-     Add-AzSqlDatabaseToFailoverGroup `
-       -ResourceGroupName $myresourcegroupname `
-       -ServerName $myservername `
-       -FailoverGroupName $myfailovergroupname
-   ```
+# add the database to the failover group
+Get-AzSqlDatabase -ResourceGroupName $resourceGroup -ServerName $server -DatabaseName $database | `
+    Add-AzSqlDatabaseToFailoverGroup -ResourceGroupName $resourceGroup -ServerName $server -FailoverGroupName $failoverGroup
+```
 
-Inställningar för geo-replikering kan också ändras i Azure Portal, genom att välja databasen och sedan **inställningar** > **geo-replikering**.
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-![Inställningar för geo-replikering](./media/sql-database-implement-geo-distributed-database/geo-replication.png)
+> [!IMPORTANT]
+> Run `az login` to sign in to Azure.
 
-## <a name="run-the-sample-project"></a>Kör exempelprojektet
+```powershell
+$admin = "<adminName>"
+$password = "<password>"
+$resourceGroup = "<resourceGroupName>"
+$location = "<resourceGroupLocation>"
+$server = "<serverName>"
+$database = "<databaseName>"
+$drLocation = "<disasterRecoveryLocation>" # must be different then $location
+$drServer = "<disasterRecoveryServerName>"
+$failoverGroup = "<globallyUniqueFailoverGroupName>"
 
-1. I-konsolen skapar du ett Maven-projekt med följande kommando:
+# create a backup server in the failover region
+az sql server create --admin-password $password --admin-user $admin `
+    --name $drServer --resource-group $resourceGroup --location $drLocation
+
+# create a failover group between the servers
+az sql failover-group create --name $failoverGroup --partner-server $drServer `
+    --resource-group $resourceGroup --server $server --add-db $database `
+    --failover-policy Automatic --grace-period 2
+```
+
+* * *
+
+Geo-replication settings can also be changed in the Azure portal, by selecting your database, then **Settings** > **Geo-Replication**.
+
+![Geo-replication settings](./media/sql-database-implement-geo-distributed-database/geo-replication.png)
+
+## <a name="run-the-sample-project"></a>Run the sample project
+
+1. In the console, create a Maven project with the following command:
 
    ```bash
    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
    ```
 
-1. Skriv in **Y** och tryck på **RETUR**.
+1. Type **Y** and press **Enter**.
 
-1. Ändra kataloger till det nya projektet.
+1. Change directories to the new project.
 
    ```bash
    cd SqlDbSample
    ```
 
-1. Använd din favorit redigerare och öppna filen *Pom. XML* i projektmappen.
+1. Using your favorite editor, open the *pom.xml* file in your project folder.
 
-1. Lägg till Microsoft JDBC-drivrutinen för SQL Server beroende genom att lägga till följande `dependency`-avsnitt. Beroendet måste klistras in i det större `dependencies` avsnittet.
+1. Add the Microsoft JDBC Driver for SQL Server dependency by adding the following `dependency` section. The dependency must be pasted within the larger `dependencies` section.
 
    ```xml
    <dependency>
@@ -133,7 +150,7 @@ Inställningar för geo-replikering kan också ändras i Azure Portal, genom att
    </dependency>
    ```
 
-1. Ange Java-versionen genom att lägga till avsnittet `properties` efter avsnittet `dependencies`:
+1. Specify the Java version by adding the `properties` section after the `dependencies` section:
 
    ```xml
    <properties>
@@ -142,7 +159,7 @@ Inställningar för geo-replikering kan också ändras i Azure Portal, genom att
    </properties>
    ```
 
-1. Stöd MANIFEST filer genom att lägga till avsnittet `build` efter avsnittet `properties`:
+1. Support manifest files by adding the `build` section after the `properties` section:
 
    ```xml
    <build>
@@ -163,9 +180,9 @@ Inställningar för geo-replikering kan också ändras i Azure Portal, genom att
    </build>
    ```
 
-1. Spara och Stäng filen *Pom. XML* .
+1. Save and close the *pom.xml* file.
 
-1. Öppna filen *app. java* som finns i.. \SqlDbSample\src\main\java\com\sqldbsamples och ersätt innehållet med följande kod:
+1. Open the *App.java* file located in ..\SqlDbSample\src\main\java\com\sqldbsamples and replace the contents with the following code:
 
    ```java
    package com.sqldbsamples;
@@ -271,15 +288,15 @@ Inställningar för geo-replikering kan också ändras i Azure Portal, genom att
    }
    ```
 
-1. Spara och Stäng filen *app. java* .
+1. Save and close the *App.java* file.
 
-1. Kör följande kommando i kommando konsolen:
+1. In the command console, run the following command:
 
    ```bash
    mvn package
    ```
 
-1. Starta programmet som ska köras i ungefär 1 timme tills det stoppas manuellt, så att du kan köra redundanstestning igen.
+1. Start the application that will run for about 1 hour until stopped manually, allowing you time to run the failover test.
 
    ```bash
    mvn -q -e exec:java "-Dexec.mainClass=com.sqldbsamples.App"
@@ -298,47 +315,67 @@ Inställningar för geo-replikering kan också ändras i Azure Portal, genom att
 
 ## <a name="test-failover"></a>Redundanstest
 
-Kör följande skript för att simulera en redundansväxling och observera program resultatet. Observera att det inte går att utföra vissa infogningar och val under migreringen av databasen.
+Run the following scripts to simulate a failover and observe the application results. Notice how some inserts and selects will fail during the database migration.
 
-Du kan också kontrol lera rollen för haveri återställnings servern under testet med följande kommando:
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-   ```powershell
-   (Get-AzSqlDatabaseFailoverGroup `
-      -FailoverGroupName $myfailovergroupname `
-      -ResourceGroupName $myresourcegroupname `
-      -ServerName $mydrservername).ReplicationRole
-   ```
+You can check the role of the disaster recovery server during the test with the following command:
 
-Så här testar du en redundansväxling:
+```powershell
+(Get-AzSqlDatabaseFailoverGroup -FailoverGroupName $failoverGroup `
+    -ResourceGroupName $resourceGroup -ServerName $drServer).ReplicationRole
+```
 
-1. Starta en manuell redundansväxling av gruppen för redundans:
+To test a failover:
 
-   ```powershell
-   Switch-AzSqlDatabaseFailoverGroup `
-      -ResourceGroupName $myresourcegroupname `
-      -ServerName $mydrservername `
-      -FailoverGroupName $myfailovergroupname
-   ```
-
-1. Återställ redundansväxlingen tillbaka till den primära servern:
+1. Start a manual failover of the failover group:
 
    ```powershell
-   Switch-AzSqlDatabaseFailoverGroup `
-      -ResourceGroupName $myresourcegroupname `
-      -ServerName $myservername `
-      -FailoverGroupName $myfailovergroupname
+   Switch-AzSqlDatabaseFailoverGroup -ResourceGroupName $myresourcegroupname `
+    -ServerName $drServer -FailoverGroupName $failoverGroup
    ```
+
+1. Revert failover group back to the primary server:
+
+   ```powershell
+   Switch-AzSqlDatabaseFailoverGroup -ResourceGroupName $resourceGroup `
+    -ServerName $server -FailoverGroupName $failoverGroup
+   ```
+
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+You can check the role of the disaster recovery server during the test with the following command:
+
+```azure-cli
+az sql failover-group show --name $failoverGroup --resource-group $resourceGroup --server $drServer
+```
+
+To test a failover:
+
+1. Start a manual failover of the failover group:
+
+   ```azure-cli
+   az sql failover-group set-primary --name $failoverGroup --resource-group $resourceGroup --server $drServer
+   ```
+
+1. Revert failover group back to the primary server:
+
+   ```azure-cli
+   az sql failover-group set-primary --name $failoverGroup --resource-group $resourceGroup --server $server
+   ```
+
+* * *
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien konfigurerade du en Azure SQL-databas och ett program för redundansväxling till en fjärrregion och testade en schema för växling vid fel. Du har lärt dig att:
+In this tutorial, you configured an Azure SQL database and application for failover to a remote region and tested a failover plan. Du har lärt dig att:
 
 > [!div class="checklist"]
 > - Skapa en redundansgrupp för geo-replikering
-> - Köra ett Java-program för att fråga en Azure SQL-databas
+> - Run a Java application to query an Azure SQL database
 > - Redundanstest
 
-Gå vidare till nästa självstudie om hur du migrerar med DMS.
+Advance to the next tutorial on how to migrate using DMS.
 
 > [!div class="nextstepaction"]
-> [Migrera SQL Server till Azure SQL Database Managed instance med DMS](../dms/tutorial-sql-server-to-managed-instance.md)
+> [Migrate SQL Server to Azure SQL database managed instance using DMS](../dms/tutorial-sql-server-to-managed-instance.md)

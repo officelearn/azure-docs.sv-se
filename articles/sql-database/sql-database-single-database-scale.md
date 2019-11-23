@@ -1,6 +1,6 @@
 ---
-title: Skala enkla databas resurser
-description: Den här artikeln beskriver hur du skalar beräknings-och lagrings resurserna som är tillgängliga för en enskild databas i Azure SQL Database.
+title: Scale single database resources
+description: This article describes how to scale the compute and storage resources available for a single database in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -11,137 +11,130 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/26/2019
-ms.openlocfilehash: 2a16735e65201314328d2315479ccc467b9d555e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8d4917bb8956185e0cb557368fbb0c64343c0ac6
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820986"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422539"
 ---
-# <a name="scale-single-database-resources-in-azure-sql-database"></a>Skala enkla databas resurser i Azure SQL Database
+# <a name="scale-single-database-resources-in-azure-sql-database"></a>Scale single database resources in Azure SQL Database
 
-Den här artikeln beskriver hur du skalar beräknings-och lagrings resurserna som är tillgängliga för en Azure SQL Database i den allokerade beräknings nivån. Alternativt tillhandahåller Server lös beräknings [nivån](sql-database-serverless.md) beräkning av automatisk skalning och räkningar per sekund för beräkning som används.
+This article describes how to scale the compute and storage resources available for an Azure SQL Database in the provisioned compute tier. Alternatively, the [serverless compute tier](sql-database-serverless.md) provides compute auto-scaling and bills per second for compute used.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska.
+## <a name="change-compute-size-vcores-or-dtus"></a>Change compute size (vCores or DTUs)
 
-## <a name="change-compute-size-vcores-or-dtus"></a>Ändra beräknings storlek (virtuella kärnor eller DTU: er)
+After initially picking the number of vCores or DTUs, you can scale a single database up or down dynamically based on actual experience using the [Azure portal](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), the [Azure CLI](/cli/azure/sql/db#az-sql-db-update), or the [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
 
-När du har valt antalet virtuella kärnor eller DTU: er kan du skala upp eller ned en enkel databas dynamiskt baserat på den faktiska upplevelsen med hjälp av [Azure Portal](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update)eller [REST API ](https://docs.microsoft.com/rest/api/sql/databases/update).
-
-Följande video visar dynamiskt ändring av tjänst nivå och beräknings storlek för att öka tillgänglig DTU: er för en enskild databas.
+The following video shows dynamically changing the service tier and compute size to increase available DTUs for a single database.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
->
 
 > [!IMPORTANT]
-> Under vissa omständigheter kan du behöva krympa en databas för att frigöra utrymme som inte används. Mer information finns i [Hantera fil utrymme i Azure SQL Database](sql-database-file-space-management.md).
+> Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
 
-### <a name="impact-of-changing-service-tier-or-rescaling-compute-size"></a>Effekt av att ändra tjänst nivå eller skala om beräknings storlek
+### <a name="impact-of-changing-service-tier-or-rescaling-compute-size"></a>Impact of changing service tier or rescaling compute size
 
-Att ändra tjänst nivå eller beräknings storlek i huvudsak inbegriper tjänsten som utför följande steg:
+Changing the service tier or compute size of mainly involves the service performing the following steps:
 
-1. Skapa en ny beräknings instans för databasen  
+1. Create new compute instance for the database  
 
-    En ny beräknings instans skapas med den begärda tjänst nivån och beräknings storleken. För vissa kombinationer av tjänst nivå och beräknings storlek måste en replik av databasen skapas i den nya beräknings instansen som inbegriper kopiering av data och kan starkt påverka den totala svars tiden. Oavsett, är databasen online under det här steget, och anslutningar fortsätter att dirigeras till databasen i den ursprungliga beräknings instansen.
+    A new compute instance is created with the requested service tier and compute size. For some combinations of service tier and compute size changes, a replica of the database must be created in the new compute instance which involves copying data and can strongly influence the overall latency. Regardless, the database remains online during this step, and connections continue to be directed to the database in the original compute instance.
 
-2. Växla routning av anslutningar till en ny beräknings instans
+2. Switch routing of connections to new compute instance
 
-    Befintliga anslutningar till databasen i den ursprungliga beräknings instansen tas bort. Alla nya anslutningar upprättas till databasen i den nya beräknings instansen. För vissa kombinationer av tjänst nivå och beräknings storlek, kopplas databasfilerna bort och återkopplas under växeln.  Oavsett vilket kan växeln resultera i ett kort avbrott när databasen inte är tillgänglig generellt i mindre än 30 sekunder och ofta i några sekunder. Om det finns tids krävande transaktioner som körs när anslutningar släpps, kan varaktigheten för det här steget ta längre tid för att återställa avbrutna transaktioner. [Accelererad databas återställning](sql-database-accelerated-database-recovery.md) kan minska påverkan från att avbryta tids krävande transaktioner.
+    Existing connections to the database in the original compute instance are dropped. Any new connections are established to the database in the new compute instance. For some combinations of service tier and compute size changes, database files are detached and reattached during the switch.  Regardless, the switch can result in a brief service interruption when the database is unavailable generally for less than 30 seconds and often for only a few seconds. If there are long running transactions running when connections are dropped, the duration of this step may take longer in order to recover aborted transactions. [Accelerated Database Recovery](sql-database-accelerated-database-recovery.md) can reduce the impact from aborting long running transactions.
 
 > [!IMPORTANT]
-> Inga data förloras under något steg i arbets flödet. Kontrol lera att du har implementerat vissa [omprövnings logik](sql-database-connectivity-issues.md) i de program och komponenter som använder Azure SQL Database medan tjänst nivån ändras.
+> No data is lost during any step in the workflow. Make sure that you have implemented some [retry logic](sql-database-connectivity-issues.md) in the applications and components that are using Azure SQL Database while the service tier is changed.
 
-### <a name="latency-of-changing-service-tier-or-rescaling-compute-size"></a>Svars tid för ändring av tjänst nivå eller skalning av beräknings storlek
+### <a name="latency-of-changing-service-tier-or-rescaling-compute-size"></a>Latency of changing service tier or rescaling compute size
 
-Den uppskattade svars tiden för att ändra tjänst nivån eller skala om beräknings storleken för en enskild databas eller elastisk pool är parameterstyrda enligt följande:
+The estimated latency to change the service tier or rescale the compute size of a single database or elastic pool is parameterized as follows:
 
-|Tjänstenivå|Enkel databas,</br>Standard (S0-S1)|Basic elastisk pool,</br>Standard (S2-S12) </br>Hyperskala </br>Generell användning enskild databas eller elastisk pool|Premium-eller Affärskritisk enkel databas eller elastisk pool|
+|Tjänstnivå|Basic single database,</br>Standard (S0-S1)|Basic elastic pool,</br>Standard (S2-S12), </br>Hyperscale, </br>General Purpose single database or elastic pool|Premium or Business Critical single database or elastic pool|
 |:---|:---|:---|:---|
-|**Enkel databas,</br> standard (S0-S1)**|&bull; &nbsp;tidssvars tid för konstant som är oberoende av använt utrymme</br>&bull; &nbsp;vanligt vis mindre än 5 minuter|&bull; &nbsp;svars tid som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull; &nbsp;vanligt vis mindre än 1 minut per GB använt utrymme|&bull; &nbsp;svars tid som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull; &nbsp;vanligt vis mindre än 1 minut per GB använt utrymme|
-|**Basic elastisk pool, </br>standard (S2-S12), </br>storskalig </br>Generell användning enskild databas eller elastisk pool**|&bull; &nbsp;svars tid som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull; &nbsp;vanligt vis mindre än 1 minut per GB använt utrymme|&bull; &nbsp;tidssvars tid för konstant som är oberoende av använt utrymme</br>&bull; &nbsp;vanligt vis mindre än 5 minuter|&bull; &nbsp;svars tid som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull; &nbsp;vanligt vis mindre än 1 minut per GB använt utrymme|
-|**Premium-eller Affärskritisk enkel databas eller elastisk pool**|&bull; &nbsp;svars tid som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull; &nbsp;vanligt vis mindre än 1 minut per GB använt utrymme|&bull; &nbsp;svars tid som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull; &nbsp;vanligt vis mindre än 1 minut per GB använt utrymme|&bull; &nbsp;svars tid som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull; &nbsp;vanligt vis mindre än 1 minut per GB använt utrymme|
+|**Basic single database,</br> Standard (S0-S1)**|&bull; &nbsp;Constant time latency independent of space used</br>&bull; &nbsp;Typically, less than 5 minutes|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|
+|**Basic elastic pool, </br>Standard (S2-S12), </br>Hyperscale, </br>General Purpose single database or elastic pool**|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|&bull; &nbsp;Constant time latency independent of space used</br>&bull; &nbsp;Typically, less than 5 minutes|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|
+|**Premium or Business Critical single database or elastic pool**|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|
 
 > [!TIP]
-> Information om hur du övervakar pågående åtgärder finns i: [Hantera åtgärder med hjälp av SQL REST API](https://docs.microsoft.com/rest/api/sql/operations/list), [Hantera åtgärder med CLI](/cli/azure/sql/db/op), [övervaka åtgärder med hjälp av T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) och dessa två PowerShell-kommandon: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) och [ Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
+> To monitor in-progress operations, see: [Manage operations using the SQL REST API](https://docs.microsoft.com/rest/api/sql/operations/list), [Manage operations using CLI](/cli/azure/sql/db/op), [Monitor operations using T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) and these two PowerShell commands: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) and [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
 
-### <a name="cancelling-service-tier-changes-or-compute-rescaling-operations"></a>Avbryter ändringar av tjänst nivå eller beräkning av omskalning
+### <a name="cancelling-service-tier-changes-or-compute-rescaling-operations"></a>Cancelling service tier changes or compute rescaling operations
 
-En ändring eller skalnings åtgärd för en tjänst nivå kan avbrytas.
+A service tier change or compute rescaling operation can be canceled.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure portal
 
-I bladet databas översikt navigerar du till **meddelanden** och klickar på panelen som visar att det finns en pågående åtgärd:
+In the database overview blade, navigate to **Notifications** and click on the tile indicating there is an ongoing operation:
 
-![Pågående åtgärd](media/sql-database-single-database-scale/ongoing-operations.png)
+![Ongoing operation](media/sql-database-single-database-scale/ongoing-operations.png)
 
-Klicka sedan på knappen **Avbryt den här åtgärden**.
+Next, click on the button labeled **Cancel this operation**.
 
-![Avbryt pågående åtgärd](media/sql-database-single-database-scale/cancel-ongoing-operation.png)
+![Cancel ongoing operation](media/sql-database-single-database-scale/cancel-ongoing-operation.png)
 
 #### <a name="powershell"></a>PowerShell
 
-Ange `$ResourceGroupName`, `$ServerName`och `$DatabaseName`från en PowerShell-kommandotolk och kör sedan följande kommando:
+From a PowerShell command prompt, set the `$resourceGroupName`, `$serverName`, and `$databaseName`, and then run the following command:
 
-```PowerShell
-$OperationName = (az sql db op list --resource-group $ResourceGroupName --server $ServerName --database $DatabaseName --query "[?state=='InProgress'].name" --out tsv)
-if(-not [string]::IsNullOrEmpty($OperationName))
-    {
-        (az sql db op cancel --resource-group $ResourceGroupName --server $ServerName --database $DatabaseName --name $OperationName)
-        "Operation " + $OperationName + " has been canceled"
-    }
-    else
-    {
-        "No service tier change or compute rescaling operation found"
-    }
+```powershell
+$operationName = (az sql db op list --resource-group $resourceGroupName --server $serverName --database $databaseName --query "[?state=='InProgress'].name" --out tsv)
+if (-not [string]::IsNullOrEmpty($operationName)) {
+    (az sql db op cancel --resource-group $resourceGroupName --server $serverName --database $databaseName --name $operationName)
+        "Operation " + $operationName + " has been canceled"
+}
+else {
+    "No service tier change or compute rescaling operation found"
+}
 ```
 
-### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>Ytterligare överväganden vid ändring av tjänst nivå eller skalning av beräknings storlek
+### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>Additional considerations when changing service tier or rescaling compute size
 
-- Om du uppgraderar till en högre tjänst nivå eller beräknings storlek, ökar inte databasens maximala storlek om du inte uttryckligen anger en större storlek (MaxSize).
-- För att nedgradera en databas måste det databas utrymme som används vara mindre än den största tillåtna storleken för mål tjänst nivån och beräknings storleken.
-- Vid nedgradering från **Premium** till **standard** -nivån gäller en extra lagrings kostnad om både (1) databasens Max storlek stöds i mål beräknings storleken och (2) Max storleken överskrider den mängd lagrings storlek som används för mål beräknings storleken. Om t. ex. en P1-databas med en Max storlek på 500 GB är downsized till S3, gäller en extra lagrings kostnad eftersom S3 har stöd för en Max storlek på 1 TB och den inkluderade lagrings mängden är bara 250 GB. Det extra lagrings utrymmet är 500 GB – 250 GB = 250 GB. Prissättning av extra lagrings utrymme finns [SQL Database prissättning](https://azure.microsoft.com/pricing/details/sql-database/). Om den faktiska mängden utrymme som används är mindre än den mängd lagrings mängd som används, kan den här extra kostnaden undvikas genom att max storleken för databasen minskas till den inkluderade mängden.
-- När du uppgraderar en databas med [geo-replikering](sql-database-geo-replication-portal.md) aktive rad uppgraderar du dess sekundära databaser till önskad tjänste nivå och beräknings storlek innan du uppgraderar den primära databasen (allmän vägledning för bästa prestanda). När du uppgraderar till en annan krävs en uppgradering av den sekundära databasen först.
-- Vid nedgradering av en databas med [geo-replikering](sql-database-geo-replication-portal.md) aktiverat, nedgradera dess primära databaser till önskad tjänste nivå och beräknings storlek innan du degraderar den sekundära databasen (allmän vägledning för bästa prestanda). Vid nedgradering till en annan utgåva krävs en nedgradering av den primära databasen först.
-- Erbjudandena för återställningstjänsterna är olika för de olika tjänstnivåerna. Om du nedgraderar nivån **Basic** finns det en lägre kvarhållningsperiod för säkerhets kopior. Se [Azure SQL Database säkerhets kopieringar](sql-database-automated-backups.md).
+- If you are upgrading to a higher service tier or compute size, the database max size does not increase unless you explicitly specify a larger size (maxsize).
+- To downgrade a database, the database used space must be smaller than the maximum allowed size of the target service tier and compute size.
+- When downgrading from **Premium** to the **Standard** tier, an extra storage cost applies if both (1) the max size of the database is supported in the target compute size, and (2) the max size exceeds the included storage amount of the target compute size. For example, if a P1 database with a max size of 500 GB is downsized to S3, then an extra storage cost applies since S3 supports a max size of 1 TB and its included storage amount is only 250 GB. So, the extra storage amount is 500 GB – 250 GB = 250 GB. For pricing of extra storage, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). If the actual amount of space used is less than the included storage amount, then this extra cost can be avoided by reducing the database max size to the included amount.
+- When upgrading a database with [geo-replication](sql-database-geo-replication-portal.md) enabled, upgrade its secondary databases to the desired service tier and compute size before upgrading the primary database (general guidance for best performance). When upgrading to a different, upgrading the secondary database first is required.
+- When downgrading a database with [geo-replication](sql-database-geo-replication-portal.md) enabled, downgrade its primary databases to the desired service tier and compute size before downgrading the secondary database (general guidance for best performance). When downgrading to a different edition, downgrading the primary database first is required.
+- Erbjudandena för återställningstjänsterna är olika för de olika tjänstnivåerna. If you are downgrading to the **Basic** tier, there is a lower backup retention period. See [Azure SQL Database Backups](sql-database-automated-backups.md).
 - De nya egenskaperna för databasen tillämpas inte förrän ändringarna har slutförts.
 
-### <a name="billing-during-compute-rescaling"></a>Fakturering under beräknings omskalning
+### <a name="billing-during-compute-rescaling"></a>Billing during compute rescaling
 
-Du debiteras för varje timme som det finns en databas med den högsta tjänst nivån och den beräknings storlek som tillämpas under den timmen, oavsett användning eller om databasen var aktiv i mindre än en timme. Om du till exempel skapar en enskild databas och tar bort den fem minuter senare, motsvarar din faktura en avgift för en databas timme.
+You are billed for each hour a database exists using the highest service tier + compute size that applied during that hour, regardless of usage or whether the database was active for less than an hour. For example, if you create a single database and delete it five minutes later your bill reflects a charge for one database hour.
 
-## <a name="change-storage-size"></a>Ändra lagrings storlek
+## <a name="change-storage-size"></a>Change storage size
 
 ### <a name="vcore-based-purchasing-model"></a>Köpmodell baserad på virtuell kärna
 
-- Lagrings utrymmet kan allokeras till max storleks gränsen med 1 GB steg. Det minsta konfigurerbara data lagrings utrymmet är 5 GB
-- Lagring för en enskild databas kan tillhandahållas genom att öka eller minska dess Max storlek med [Azure Portal](https://portal.azure.com), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update)eller [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
-- SQL Database automatiskt allokerar 30% av ytterligare lagrings utrymme för loggfilerna och 32 GB per vCore för TempDB, men inte överskrida 384GB. TempDB finns på en ansluten SSD på alla tjänst nivåer.
-- Priset för lagring för en enskild databas är summan av data lagring och logg lagrings mängd multiplicerat med tjänst nivåns lagrings enhets pris. Kostnaden för TempDB ingår i vCore-priset. Mer information om priset för extra lagring finns [SQL Database prissättning](https://azure.microsoft.com/pricing/details/sql-database/).
+- Storage can be provisioned up to the max size limit using 1GB increments. The minimum configurable data storage is 5 GB
+- Storage for a single database can be provisioned by increasing or decreasing its max size using the [Azure portal](https://portal.azure.com), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), the [Azure CLI](/cli/azure/sql/db#az-sql-db-update), or the [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
+- SQL Database automatically allocates 30% of additional storage for the log files and 32GB per vCore for TempDB, but not to exceed 384GB. TempDB is located on an attached SSD in all service tiers.
+- The price of storage for a single database is the sum of data storage and log storage amounts multiplied by the storage unit price of the service tier. The cost of TempDB is included in the vCore price. For details on the price of extra storage, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
-> Under vissa omständigheter kan du behöva krympa en databas för att frigöra utrymme som inte används. Mer information finns i [Hantera fil utrymme i Azure SQL Database](sql-database-file-space-management.md).
+> Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
 
-### <a name="dtu-based-purchasing-model"></a>DTU-baserad inköps modell
+### <a name="dtu-based-purchasing-model"></a>DTU-based purchasing model
 
-- DTU-priset för en enskild databas omfattar en viss mängd lagring utan extra kostnad. Extra lagring utöver den mängd som ingår kan tillhandahållas för ytterligare kostnad upp till den maximala storleks gränsen i steg om 250 GB upp till 1 TB och sedan i steg om 256 GB utöver 1 TB. För inkluderade lagrings mängder och Max storleks gränser, se [enskild databas: lagrings storlekar och beräknings storlekar](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes).
-- Extra lagrings utrymme för en enskild databas kan tillhandahållas genom att öka Max storleken med Azure Portal, [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [POWERSHELL](/powershell/module/az.sql/set-azsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update)eller [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
-- Priset för extra lagring för en enskild databas är det extra lagrings beloppet multiplicerat med det extra lagrings enhets priset för tjänst nivån. Mer information om priset för extra lagring finns [SQL Database prissättning](https://azure.microsoft.com/pricing/details/sql-database/).
+- The DTU price for a single database includes a certain amount of storage at no additional cost. Extra storage beyond the included amount can be provisioned for an additional cost up to the max size limit in increments of 250 GB up to 1 TB, and then in increments of 256 GB beyond 1 TB. For included storage amounts and max size limits, see [Single database: Storage sizes and compute sizes](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes).
+- Extra storage for a single database can be provisioned by increasing its max size using the Azure portal, [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), the [Azure CLI](/cli/azure/sql/db#az-sql-db-update), or the [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
+- The price of extra storage for a single database is the extra storage amount multiplied by the extra storage unit price of the service tier. For details on the price of extra storage, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
-> Under vissa omständigheter kan du behöva krympa en databas för att frigöra utrymme som inte används. Mer information finns i [Hantera fil utrymme i Azure SQL Database](sql-database-file-space-management.md).
+> Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
 
-## <a name="p11-and-p15-constraints-when-max-size-greater-than-1-tb"></a>P11-och p15-begränsningar när Max storleken är större än 1 TB
+## <a name="p11-and-p15-constraints-when-max-size-greater-than-1-tb"></a>P11 and P15 constraints when max size greater than 1 TB
 
-Mer än 1 TB lagrings utrymme på Premium-nivån är för närvarande tillgängligt i alla regioner utom: Kina, östra, Kina, norra, Tyskland, centrala, Tyskland nordöstra, västra centrala USA, US DoD regioner och USA, centrala. I dessa regioner är det maximala lagringsutrymmet på Premium-nivån begränsat till 1 TB. Följande överväganden och begränsningar gäller för p11-och p15-databaser med en maximal storlek som är större än 1 TB:
+More than 1 TB of storage in the Premium tier is currently available in all regions except: China East, China North, Germany Central, Germany Northeast, West Central US, US DoD regions, and US Government Central. I dessa regioner är det maximala lagringsutrymmet på Premium-nivån begränsat till 1 TB. The following considerations and limitations apply to P11 and P15 databases with a maximum size greater than 1 TB:
 
-- Om den maximala storleken för en p11-eller p15-databas någonsin har angetts till ett värde som är större än 1 TB, kan den bara återställas eller kopieras till en p11-eller p15-databas.  Därefter kan databasen skalas om till en annan beräknings storlek förutsatt att mängden utrymme som allokerats vid tidpunkten för skalnings åtgärden inte överskrider max storleks gränsen för den nya beräknings storleken.
-- För aktiva scenarier för geo-replikering:
-  - Konfigurera en relation för geo-replikering: om den primära databasen är p11 eller p15 måste de sekundära (får) också vara p11 eller p15. lägre beräknings storlek avvisas som sekundära eftersom de inte har stöd för mer än 1 TB.
-  - Uppgradera den primära databasen i en geo-replikeringsrelation-relation: om du ändrar den maximala storleken till mer än 1 TB på en primär databas utlöses samma ändring på den sekundära databasen. Båda uppgraderingarna måste lyckas för att ändringen på den primära ska börja gälla. Region begränsningar för mer än 1 TB-alternativet gäller. Om den sekundära finns i en region som inte har stöd för mer än 1 TB, uppgraderas inte den primära.
-- Det går inte att använda import/export-tjänsten för att läsa in p11/p15-databaser med mer än 1 TB. Använd SqlPackage. exe för att [Importera](sql-database-import.md) och [Exportera](sql-database-export.md) data.
+- If the max size for a P11 or P15 database was ever set to a value greater than 1 TB, then can it only be restored or copied to a P11 or P15 database.  Subsequently, the database can be rescaled to a different compute size provided the amount of space allocated at the time of the rescaling operation does not exceed max size limits of the new compute size.
+- For active geo-replication scenarios:
+  - Setting up a geo-replication relationship: If the primary database is P11 or P15, the secondary(ies) must also be P11 or P15; lower compute size are rejected as secondaries since they are not capable of supporting more than 1 TB.
+  - Upgrading the primary database in a geo-replication relationship: Changing the maximum size to more than 1 TB on a primary database triggers the same change on the secondary database. Both upgrades must be successful for the change on the primary to take effect. Region limitations for the more than 1-TB option apply. If the secondary is in a region that does not support more than 1 TB, the primary is not upgraded.
+- Using the Import/Export service for loading P11/P15 databases with more than 1 TB is not supported. Use SqlPackage.exe to [import](sql-database-import.md) and [export](sql-database-export.md) data.
 
 ## <a name="next-steps"></a>Nästa steg
 
-För övergripande resurs gränser, se [SQL Database vCore resurs gränser – enkla databaser](sql-database-vcore-resource-limits-single-databases.md) och [SQL Database DTU-baserade resurs gränser-elastiska pooler](sql-database-dtu-resource-limits-single-databases.md).
+For overall resource limits, see [SQL Database vCore-based resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md) and [SQL Database DTU-based resource limits - elastic pools](sql-database-dtu-resource-limits-single-databases.md).

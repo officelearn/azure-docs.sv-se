@@ -1,6 +1,6 @@
 ---
-title: Uppdatera och hantera en dynamisk grupp regel och Felsök medlemskap – Azure Active Directory | Microsoft Docs
-description: Så här skapar du en regel för grupp medlemskap i Azure Portal kontrollerar du status.
+title: Update and manage a dynamic group rule and troubleshoot membership - Azure Active Directory | Microsoft Docs
+description: How to create a group membership rule in the Azure portal, check status.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -14,79 +14,79 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84290ee3c242b5ccb91bdca8a6b82fc0bf963751
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: c387e2d78adcaebc430073a2a45818c4a0928b9f
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194583"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422364"
 ---
-# <a name="update-a-dynamic-group-to-manage-membership-in-azure-active-directory"></a>Uppdatera en dynamisk grupp för att hantera medlemskap i Azure Active Directory
+# <a name="update-a-dynamic-group-to-manage-membership-in-azure-active-directory"></a>Update a dynamic group to manage membership in Azure Active Directory
 
-I Azure Active Directory (Azure AD) kan du använda regler för att fastställa grupp medlemskap baserat på användar-eller enhets egenskaper. Den här artikeln beskriver hur du konfigurerar en regel för en dynamisk grupp i Azure Portal.
-Dynamiskt medlemskap stöds för säkerhets grupper eller Office 365-grupper. När en grupp medlemskaps regel används utvärderas användar-och enhets attribut för matchningar med medlemskaps regeln. När ett attributändringar ändras för en användare eller enhet bearbetas alla dynamiska grupp regler i organisationen för medlemskaps ändringar. Användare och enheter läggs till eller tas bort om de uppfyller villkoren för en grupp.
+In Azure Active Directory (Azure AD), you can use rules to determine group membership based on user or device properties. This article tells how to set up a rule for a dynamic group in the Azure portal.
+Dynamic membership is supported for security groups or Office 365 groups. When a group membership rule is applied, user and device attributes are evaluated for matches with the membership rule. When an attribute changes for a user or device, all dynamic group rules in the organization are processed for membership changes. Users and devices are added or removed if they meet the conditions for a group.
 
-## <a name="rule-builder-in-the-azure-portal"></a>Regel verktyg i Azure Portal
+## <a name="rule-builder-in-the-azure-portal"></a>Rule builder in the Azure portal
 
-Azure AD tillhandahåller ett regel verktyg för att skapa och uppdatera viktiga regler snabbare. Regel verktyget stöder konstruktion upp till fem uttryck. Regel verktyget gör det lättare att skapa en regel med några enkla uttryck, men den kan inte användas för att återskapa varje regel. Om regel verktyget inte stöder den regel som du vill skapa kan du använda text rutan.
+Azure AD provides a rule builder to create and update your important rules more quickly. The rule builder supports the construction up to five expressions. The rule builder makes it easier to form a rule with a few simple expressions, however, it can't be used to reproduce every rule. If the rule builder doesn't support the rule you want to create, you can use the text box.
 
-Här följer några exempel på avancerade regler eller syntax som vi rekommenderar att du skapar med hjälp av text rutan:
+Here are some examples of advanced rules or syntax for which we recommend that you construct using the text box:
 
-- Regel med fler än fem uttryck
-- Regeln för direkt rapporter
-- Ställer in [operator prioritet](groups-dynamic-membership.md#operator-precedence)
-- [Regler med komplexa uttryck](groups-dynamic-membership.md#rules-with-complex-expressions); till exempel`(user.proxyAddresses -any (_ -contains "contoso"))`
+- Rule with more than five expressions
+- The Direct reports rule
+- Setting [operator precedence](groups-dynamic-membership.md#operator-precedence)
+- [Rules with complex expressions](groups-dynamic-membership.md#rules-with-complex-expressions); for example `(user.proxyAddresses -any (_ -contains "contoso"))`
 
 > [!NOTE]
-> Regel verktyget kanske inte kan visa vissa regler som skapats i text rutan. Ett meddelande kan visas om regel verktyget inte kan visa regeln. Regel verktyget ändrar inte den syntax, validering eller bearbetning av dynamiska grupp regler som stöds på något sätt.
+> The rule builder might not be able to display some rules constructed in the text box. You might see a message when the rule builder is not able to display the rule. The rule builder doesn't change the supported syntax, validation, or processing of dynamic group rules in any way.
 
-![Lägg till medlemskaps regel för en dynamisk grupp](./media/groups-update-rule/update-dynamic-group-rule.png)
+![Add membership rule for a dynamic group](./media/groups-update-rule/update-dynamic-group-rule.png)
 
-Exempel på syntax, stödda egenskaper, operatorer och värden för en medlemskaps regel finns i [regler för dynamiska medlemskap för grupper i Azure Active Directory](groups-dynamic-membership.md).
+For examples of syntax, supported properties, operators, and values for a membership rule, see [Dynamic membership rules for groups in Azure Active Directory](groups-dynamic-membership.md).
 
-## <a name="to-update-a-group-membership-rule"></a>Så här uppdaterar du en grupp medlemskaps regel
+## <a name="to-update-a-group-membership-rule"></a>To update a group membership rule
 
-1. Logga in på [administrations centret för Azure AD](https://aad.portal.azure.com) med ett konto som finns i rollen global administratör, Intune-administratör eller användar administratör i klienten.
-1. Välj **grupper** > **alla grupper**.
-1. Välj en grupp för att öppna dess profil.
-1. På sidan profil för gruppen väljer du regler för **dynamiskt medlemskap**. Regel verktyget stöder upp till fem uttryck. Om du vill lägga till fler än fem uttryck måste du använda text rutan.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is in the Global administrator, Group administrator, Intune administrator, or User administrator role in the tenant.
+1. Select **Groups** > **All groups**.
+1. Select a group to open its profile.
+1. On the profile page for the group, select **Dynamic membership rules**. The rule builder supports up to five expressions. To add more than five expressions, you must use the text box.
 
-   ![Lägg till medlemskaps regel för en dynamisk grupp](./media/groups-update-rule/update-dynamic-group-rule.png)
+   ![Add membership rule for a dynamic group](./media/groups-update-rule/update-dynamic-group-rule.png)
 
-1. För att se de anpassade tilläggs egenskaper som är tillgängliga för medlemskaps regeln:
-   1. Välj **Hämta anpassade tilläggs egenskaper**
-   1. Ange program-ID och välj sedan **Uppdatera egenskaper**.
-1. När du har uppdaterat regeln väljer du **Spara**.
+1. To see the custom extension properties available for your membership rule:
+   1. Select **Get custom extension properties**
+   1. Enter the application ID, and then select **Refresh properties**.
+1. After updating the rule, select **Save**.
 
-Om regeln du angav inte är giltig visas en förklaring av varför regeln inte kunde bearbetas i ett Azure-meddelande i portalen. Läs det noggrant och lär dig hur du åtgärdar regeln.
+If the rule you entered isn't valid, an explanation of why the rule couldn't be processed is displayed in an Azure notification in the portal. Read it carefully to understand how to fix the rule.
 
-## <a name="check-processing-status-for-a-rule"></a>Kontrol lera bearbetnings status för en regel
+## <a name="check-processing-status-for-a-rule"></a>Check processing status for a rule
 
-Du kan se status för medlemskaps bearbetning och senaste uppdaterade datum på **översikts** sidan för gruppen.
+You can see the membership processing status and the last updated date on the **Overview** page for the group.
   
-  ![visning av status för dynamisk grupp](./media/groups-create-rule/group-status.png)
+  ![display of dynamic group status](./media/groups-create-rule/group-status.png)
 
-Följande status meddelanden kan visas för status för **medlemskaps bearbetning** :
+The following status messages can be shown for **Membership processing** status:
 
-- **Utvärdera**:  Grupp ändringen har mottagits och uppdateringarna utvärderas.
-- **Bearbetar**: Uppdateringar bearbetas.
-- **Uppdateringen är klar**: Bearbetningen har slutförts och alla tillämpliga uppdateringar har gjorts.
-- **Bearbetnings fel**:  Det gick inte att slutföra bearbetningen på grund av ett fel när medlemskaps regeln utvärderades.
-- **Uppdateringen**har pausats: Uppdateringar av dynamiska medlemskaps regler har pausats av administratören. MembershipRuleProcessingState är inställd på pausad.
+- **Evaluating**:  The group change has been received and the updates are being evaluated.
+- **Processing**: Updates are being processed.
+- **Update complete**: Processing has completed and all applicable updates have been made.
+- **Processing error**:  Processing couldn't be completed because of an error evaluating the membership rule.
+- **Update paused**: Dynamic membership rule updates have been paused by the administrator. MembershipRuleProcessingState is set to “Paused”.
 
-Följande status meddelanden kan visas för medlemskapets **senast uppdaterade** status:
+The following status messages can be shown for **Membership last updated** status:
 
-- **Datum och tid**: Den senaste gången som medlemskapet uppdaterades.
-- **Pågår**: Uppdateringar pågår just nu.
-- **Okänd**: Det går inte att hämta den senaste uppdaterings tiden. Gruppen kan vara ny.
+- **Date and time**: The last time the membership was updated.
+- **In Progress**: Updates are currently in progress.
+- **Unknown**: The last update time can't be retrieved. The group might be new.
 
-Om ett fel inträffar när medlemskaps regeln för en grupp bearbetas visas en avisering överst på **sidan Översikt** för gruppen. Om inga väntande dynamiska medlemskaps uppdateringar kan bearbetas för alla grupper i klient organisationen för mer än 24 timmar, visas en avisering överst i **alla grupper**.
+If an error occurs while processing the membership rule for a specific group, an alert is shown on the top of the **Overview page** for the group. If no pending dynamic membership updates can be processed for all the groups within the tenant for more then 24 hours, an alert is shown on the top of **All groups**.
 
-![bearbetar aviseringar om fel meddelande](./media/groups-create-rule/processing-error.png)
+![processing error message alerts](./media/groups-create-rule/processing-error.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-De här artiklarna innehåller ytterligare information om hur du arbetar med dynamiska grupper i Azure AD.
+These articles provide additional information on working with dynamic groups in Azure AD.
 
-- En fullständig referens till en dynamisk regel struktur finns i [syntax för dynamisk medlemskaps regel](groups-dynamic-membership.md).
-- [Skapa en statisk medlemskaps grupp och Lägg till medlemmar](../fundamentals/active-directory-groups-create-azure-portal.md).
+- For a complete reference to dynamic rule structure, see [Dynamic membership rule syntax](groups-dynamic-membership.md).
+- [Create a static membership group and add members](../fundamentals/active-directory-groups-create-azure-portal.md).

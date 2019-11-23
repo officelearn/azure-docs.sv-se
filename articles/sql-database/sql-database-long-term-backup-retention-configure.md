@@ -1,6 +1,6 @@
 ---
 title: Hantera långsiktig kvarhållning av säkerhetskopior
-description: Lär dig hur du lagrar automatiska säkerhets kopieringar i SQL Azure lagring och sedan återställer dem
+description: Learn how to store automated backups in the SQL Azure storage and then restore them
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -12,203 +12,197 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 08/21/2019
-ms.openlocfilehash: ea9a1da775a64f8ee405ced52df01d0824836c42
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: a560f4f1399792a7b150b37c3c048ccc0079b98d
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820023"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420799"
 ---
-# <a name="manage-azure-sql-database-long-term-backup-retention"></a>Hantera Azure SQL Database långsiktig kvarhållning av säkerhets kopior
+# <a name="manage-azure-sql-database-long-term-backup-retention"></a>Manage Azure SQL Database long-term backup retention
 
-I Azure SQL Database kan du konfigurera en enskild databas eller en pool med en [långsiktig säkerhets kopierings](sql-database-long-term-retention.md) princip (LTR) för att automatiskt behålla databas säkerhets kopiorna i separata Azure Blob Storage-behållare i upp till 10 år. Du kan sedan återställa en databas med hjälp av de här säkerhets kopiorna med hjälp av Azure Portal eller PowerShell.
-
-> [!IMPORTANT]
-> [Azure SQL Database hanterade instansen](sql-database-managed-instance.md) stöder för närvarande inte långsiktig kvarhållning av säkerhets kopior.
-
-## <a name="use-the-azure-portal-to-manage-long-term-backups"></a>Använd Azure Portal för att hantera långsiktiga säkerhets kopior
-
-I följande avsnitt visar vi hur du använder Azure Portal för att konfigurera långsiktig kvarhållning, Visa säkerhets kopior i långsiktig kvarhållning och återställa säkerhets kopian från långsiktig kvarhållning.
-
-### <a name="configure-long-term-retention-policies"></a>Konfigurera principer för långsiktig kvarhållning
-
-Du kan konfigurera SQL Database att [behålla automatiserade säkerhets kopieringar](sql-database-long-term-retention.md) under en längre tid än kvarhållningsperioden för din tjänst nivå. 
-
-1. I Azure Portal väljer du din SQL-Server och klickar sedan på **hantera säkerhets kopieringar**. På fliken **Konfigurera principer** markerar du *kryss rutan för den databas där du vill ange eller ändra bevarande principer för långsiktig säkerhets kopiering*. Om kryss rutan bredvid databasen inte är markerad gäller inte ändringarna för principen för den databasen.  
-
-   ![hantera säkerhets kopierings länk](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
-
-2. I fönstret **Konfigurera principer** väljer du om du vill behålla en veckovis, månatlig eller årlig säkerhets kopiering och ange kvarhållningsperioden för varje. 
-
-   ![konfigurera principer](./media/sql-database-long-term-retention/ltr-configure-policies.png)
-
-3. När du är klar klickar du på **Använd**.
+In Azure SQL Database, you can configure a single or a pooled database with a [long-term backup retention](sql-database-long-term-retention.md) policy (LTR) to automatically retain the database backups in separate Azure Blob storage containers for up to 10 years. You can then recover a database using these backups using the Azure portal or PowerShell.
 
 > [!IMPORTANT]
-> När du aktiverar en långsiktig bevarande princip för säkerhets kopiering kan det ta upp till sju dagar innan den första säkerhets kopieringen blir synlig och tillgänglig för återställning. Mer information om säkerhets kopierings cadance finns i [långsiktig kvarhållning av säkerhets kopior](sql-database-long-term-retention.md).
+> [Azure SQL database managed instance](sql-database-managed-instance.md) does not currently support long-term backup retention.
 
-### <a name="view-backups-and-restore-from-a-backup-using-azure-portal"></a>Visa säkerhets kopior och återställning från en säkerhets kopia med Azure Portal
+## <a name="using-azure-portal"></a>Använda Azure Portal
 
-Visa säkerhets kopiorna som bevaras för en speciell databas med en LTR-princip och Återställ från dessa säkerhets kopior. 
+The following sections show you how to use the Azure portal to configure the long-term retention, view backups in long-term retention, and restore backup from long-term retention.
 
-1. I Azure Portal väljer du din SQL-Server och klickar sedan på **hantera säkerhets kopieringar**. På fliken **tillgängliga säkerhets kopior** väljer du den databas som du vill se tillgängliga säkerhets kopior för.
+### <a name="configure-long-term-retention-policies"></a>Configure long-term retention policies
 
-   ![Välj databas](./media/sql-database-long-term-retention/ltr-available-backups-select-database.png)
+You can configure SQL Database to [retain automated backups](sql-database-long-term-retention.md) for a period longer than the retention period for your service tier.
 
-3. Granska tillgängliga säkerhets kopior i fönstret **tillgängliga säkerhets kopior** . 
+1. In the Azure portal, select your SQL server and then click **Manage Backups**. On the **Configure policies** tab, select the checkbox for the database on which you want to set or modify long-term backup retention policies. If the checkbox next to the database is not selected, the changes for the policy will not apply to that database.  
 
-   ![Visa säkerhets kopior](./media/sql-database-long-term-retention/ltr-available-backups.png)
+   ![manage backups link](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
 
-4. Välj den säkerhets kopia som du vill återställa från och ange sedan det nya databas namnet.
+2. In the **Configure policies** pane, select if want to retain weekly, monthly or yearly backups and specify the retention period for each.
+
+   ![configure policies](./media/sql-database-long-term-retention/ltr-configure-policies.png)
+
+3. When complete, click **Apply**.
+
+> [!IMPORTANT]
+> When you enable a long-term backup retention policy, it may take up to 7 days for the first backup to become visible and available to restore. For details of the LTR backup cadance, see [long-term backup retention](sql-database-long-term-retention.md).
+
+### <a name="view-backups-and-restore-from-a-backup"></a>View backups and restore from a backup
+
+View the backups that are retained for a specific database with a LTR policy, and restore from those backups.
+
+1. In the Azure portal, select your SQL server and then click **Manage Backups**. On the **Available backups** tab, select the database for which you want to see available backups.
+
+   ![select database](./media/sql-database-long-term-retention/ltr-available-backups-select-database.png)
+
+1. In the **Available backups** pane, review the available backups.
+
+   ![view backups](./media/sql-database-long-term-retention/ltr-available-backups.png)
+
+1. Select the backup from which you want to restore, and then specify the new database name.
 
    ![återställ](./media/sql-database-long-term-retention/ltr-restore.png)
 
-5. Klicka på **OK** för att återställa databasen från säkerhets kopian i Azure SQL Storage till den nya databasen.
+1. Click **OK** to restore your database from the backup in Azure SQL storage to the new database.
 
-6. Klicka på meddelandeikonen i verktygsfältet för att visa återställningsjobbets status.
+1. Klicka på meddelandeikonen i verktygsfältet för att visa återställningsjobbets status.
 
    ![förlopp för återställningsjobb](./media/sql-database-get-started-backup-recovery/restore-job-progress-long-term.png)
 
-5. När återställnings jobbet har slutförts öppnar du sidan **SQL-databaser** för att visa den nyligen återställda databasen.
+1. When the restore job is completed, open the **SQL databases** page to view the newly restored database.
 
 > [!NOTE]
 > Här kan du ansluta till den återställda databasen med hjälp av SQL Server Management Studio för att utföra nödvändiga åtgärder, till exempel [för att extrahera en del data från den återställda databasen och kopiera dem till den befintliga databasen eller för att ta bort den befintliga databasen och byta namn på den återställda databasen till det befintliga databasnamnet](sql-database-recovery-using-backups.md#point-in-time-restore).
->
 
-## <a name="use-powershell-to-manage-long-term-backups"></a>Använd PowerShell för att hantera långsiktiga säkerhets kopieringar
+## <a name="using-powershell"></a>Använda PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska.
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
-Följande avsnitt visar hur du använder PowerShell för att konfigurera långsiktig kvarhållning av säkerhets kopior, Visa säkerhets kopior i Azure SQL-lagring och återställa från en säkerhets kopia i Azure SQL Storage.
+The following sections show you how to use PowerShell to configure the long-term backup retention, view backups in Azure SQL storage, and restore from a backup in Azure SQL storage.
 
+### <a name="rbac-roles-to-manage-long-term-retention"></a>RBAC roles to manage long-term retention
 
-### <a name="rbac-roles-to-manage-long-term-retention"></a>RBAC-roller för att hantera långsiktig kvarhållning
+For **Get-AzSqlDatabaseLongTermRetentionBackup** and **Restore-AzSqlDatabase**, you will need to have one of the following roles:
 
-För **Get-AzSqlDatabaseLongTermRetentionBackup** och **restore-AzSqlDatabase**måste du ha en av följande roller:
+- Subscription Owner role or
+- SQL Server Contributor role or
+- Custom role with the following permissions:
 
-- Prenumerations ägarens roll eller
-- SQL Server deltagar roll eller
-- Anpassad roll med följande behörigheter:
+   Microsoft.Sql/locations/longTermRetentionBackups/read  Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionBackups/read  Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/read
 
-   Microsoft. SQL/locations/longTermRetentionBackups/Read Microsoft. SQL/locations/longTermRetentionServers/longTermRetentionBackups/Read Microsoft. SQL/locations/longTermRetentionServers/longTermRetentionDatabases/ longTermRetentionBackups/läsa
- 
-För **Remove-AzSqlDatabaseLongTermRetentionBackup**måste du ha en av följande roller:
+For **Remove-AzSqlDatabaseLongTermRetentionBackup**, you will need to have one of the following roles:
 
-- Prenumerations ägarens roll eller
-- Anpassad roll med följande behörighet:
+- Subscription Owner role or
+- Custom role with the following permission:
 
-   Microsoft. SQL/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/Delete
-
+   Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
 
 > [!NOTE]
-> Rollen SQL Server Contributor har inte behörighet att ta bort LTR-säkerhetskopieringar.
+> The SQL Server Contributor role does not have permission to delete LTR backups.
 
-RBAC-behörigheter kan beviljas i antingen *prenumerations* -eller *resurs grupps* omfång. Men för att få åtkomst till LTR-säkerhets kopieringar som tillhör en tappad Server måste behörigheten beviljas i *prenumerations* omfånget för den servern.
+RBAC permissions could be granted in either *subscription* or *resource group* scope. However, to access LTR backups that belong to a dropped server, the permission must be granted in the *subscription* scope of that server.
 
+- Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
 
-### <a name="create-an-ltr-policy"></a>Skapa en LTR-princip
+### <a name="create-an-ltr-policy"></a>Create an LTR policy
 
 ```powershell
-# Get the SQL server 
-# $subId = “{subscription-id}”
-# $serverName = “{server-name}”
-# $resourceGroup = “{resource-group-name}” 
-# $dbName = ”{database-name}”
+# get the SQL server
+$subId = "<subscriptionId>"
+$serverName = "<serverName>"
+$resourceGroup = "<resourceGroupName>"
+$dbName = "<databaseName>"
 
 Connect-AzAccount
 Select-AzSubscription -SubscriptionId $subId
 
-# get the server
 $server = Get-AzSqlServer -ServerName $serverName -ResourceGroupName $resourceGroup
 
 # create LTR policy with WeeklyRetention = 12 weeks. MonthlyRetention and YearlyRetention = 0 by default.
-Set-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName -ResourceGroupName $resourceGroup -WeeklyRetention P12W 
+Set-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName `
+    -ResourceGroupName $resourceGroup -WeeklyRetention P12W
 
 # create LTR policy with WeeklyRetention = 12 weeks, YearlyRetention = 5 years and WeekOfYear = 16 (week of April 15). MonthlyRetention = 0 by default.
-Set-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName -ResourceGroupName $resourceGroup -WeeklyRetention P12W -YearlyRetention P5Y -WeekOfYear 16
+Set-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName `
+    -ResourceGroupName $resourceGroup -WeeklyRetention P12W -YearlyRetention P5Y -WeekOfYear 16
 ```
 
-### <a name="view-ltr-policies"></a>Visa LTR-principer
-Det här exemplet visar hur du visar en lista över LTR-principer inom en server
+### <a name="view-ltr-policies"></a>View LTR policies
+
+This example shows how to list the LTR policies within a server
 
 ```powershell
-# Get all LTR policies within a server
-$ltrPolicies = Get-AzSqlDatabase -ResourceGroupName Default-SQL-WestCentralUS -ServerName trgrie-ltr-server | Get-AzSqlDatabaseLongTermRetentionPolicy -Current 
+# get all LTR policies within a server
+$ltrPolicies = Get-AzSqlDatabase -ResourceGroupName Default-SQL-WestCentralUS -ServerName trgrie-ltr-server | `
+    Get-AzSqlDatabaseLongTermRetentionPolicy -Current
 
-# Get the LTR policy of a specific database 
-$ltrPolicies = Get-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName  -ResourceGroupName $resourceGroup -Current
-```
-### <a name="clear-an-ltr-policy"></a>Rensa en LTR-princip
-Det här exemplet visar hur du tar bort en LTR-princip från en databas
-
-```powershell
-Set-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName -ResourceGroupName $resourceGroup -RemovePolicy
+# get the LTR policy of a specific database
+$ltrPolicies = Get-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName `
+    -ResourceGroupName $resourceGroup -Current
 ```
 
-### <a name="view-ltr-backups"></a>Visa LTR-säkerhetskopieringar
+### <a name="clear-an-ltr-policy"></a>Clear an LTR policy
 
-I det här exemplet visas hur du visar en lista över säkerhets kopior på en server. 
+This example shows how to clear an LTR policy from a database
 
 ```powershell
-# List all LTR backups under the current subscription in a specific Azure region 
-# The list includes backups for existing servers and dropped servers grouped by the logical database id.
-# Within each group they are ordered by the timestamp, the earliest backup first.
-# Requires Subscription scope permission
-$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location 
+Set-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName `
+    -ResourceGroupName $resourceGroup -RemovePolicy
+```
 
-# List the LTR backups under a specific resource group in a specific Azure region 
-# The list includes backups from the existing servers only grouped by the logical database id.
-# Within each group they are ordered by the timestamp, the earliest backup first. 
-$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -ResourceGroupName $resourceGroup
+### <a name="view-ltr-backups"></a>View LTR backups
 
-# List the LTR backups under an existing server
-# The list includes backups from the existing servers only grouped by the logical database id.
-# Within each group they are ordered by the timestamp, the earliest backup first. 
-$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -ResourceGroupName $resourceGroup -ServerName $serverName
+This example shows how to list the LTR backups within a server.
 
-# List the LTR backups for a specific database 
-# The backups are ordered by the timestamp, the earliest backup first. 
+```powershell
+# get the list of all LTR backups in a specific Azure region
+# backups are grouped by the logical database id, within each group they are ordered by the timestamp, the earliest backup first
+$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location
+
+# get the list of LTR backups from the Azure region under the named server
+$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName
+
+# get the LTR backups for a specific database from the Azure region under the named server
 $ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName -DatabaseName $dbName
 
-# List LTR backups only from live databases (you have option to choose All/Live/Deleted)
-# The list includes backups for existing servers and dropped servers grouped by the logical database id.
-# Within each group they are ordered by the timestamp, the earliest backup first.  
-# Requires Subscription scope permission
+# list LTR backups only from live databases (you have option to choose All/Live/Deleted)
 $ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -DatabaseState Live
 
-# Only list the latest LTR backup for each database under a server
+# only list the latest LTR backup for each database
 $ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName -OnlyLatestPerDatabase
 ```
 
-### <a name="delete-ltr-backups"></a>Ta bort LTR-säkerhetskopieringar
+### <a name="delete-ltr-backups"></a>Delete LTR backups
 
-Det här exemplet visar hur du tar bort en LTR-säkerhetskopiering från listan över säkerhets kopior.
+This example shows how to delete an LTR backup from the list of backups.
 
 ```powershell
-# Remove the earliest backup from the list of backups
+# remove the earliest backup
 $ltrBackup = $ltrBackups[0]
 Remove-AzSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 ```
-> [!IMPORTANT]
-> Borttagning av LTR-säkerhetskopiering går inte att ångra. Om du vill ta bort en LTR-säkerhetskopiering efter att servern har tagits bort måste du ha behörighet för prenumerations omfång. Du kan ställa in aviseringar om varje borttagning i Azure Monitor genom filtrering för åtgärd, tar bort en säkerhets kopia av långsiktig kvarhållning. Aktivitets loggen innehåller information om vem och när du har gjort begäran. Mer information finns i [skapa aktivitets logg aviseringar](../azure-monitor/platform/alerts-activity-log.md) .
->
 
-### <a name="restore-from-ltr-backups"></a>Återställa från LTR-säkerhetskopieringar
-Det här exemplet visar hur du återställer från en LTR-säkerhetskopiering. Obs! det här gränssnittet ändrades inte, men parametern resurs-ID kräver nu resurs-ID: t för säkerhets kopiering. 
+> [!IMPORTANT]
+> Deleting LTR backup is non-reversible. To delete an LTR backup after the server has been deleted you must have Subscription scope permission. You can set up notifications about each delete in Azure Monitor by filtering for operation ‘Deletes a long term retention backup’. The activity log contains information on who and when made the request. See [Create activity log alerts](../azure-monitor/platform/alerts-activity-log.md) for detailed instructions.
+
+### <a name="restore-from-ltr-backups"></a>Restore from LTR backups
+
+This example shows how to restore from an LTR backup. Note, this interface did not change but the resource id parameter now requires the LTR backup resource id.
 
 ```powershell
-# Restore a specific LTR backup as an P1 database on the server $serverName of the resource group $resourceGroup 
-Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId -ServerName $serverName -ResourceGroupName $resourceGroup -TargetDatabaseName $dbName -ServiceObjectiveName P1
+# restore a specific LTR backup as an P1 database on the server $serverName of the resource group $resourceGroup
+Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId -ServerName $serverName -ResourceGroupName $resourceGroup `
+    -TargetDatabaseName $dbName -ServiceObjectiveName P1
 ```
 
 > [!IMPORTANT]
-> Om du vill återställa från en LTR-säkerhetskopiering när servern har tagits bort, måste du ha behörighet som är begränsad till serverns prenumeration och prenumerationen måste vara aktiv. Du måste också utelämna den valfria-ResourceGroupName-parametern.  
->
+> To restore from an LTR backup after the server has been deleted, you must have permissions scoped to the server's subscription and that subscription must be active. You must also omit the optional -ResourceGroupName parameter.
 
 > [!NOTE]
-> Härifrån kan du ansluta till den återställda databasen med hjälp av SQL Server Management Studio för att utföra nödvändiga åtgärder, till exempel för att extrahera en bit data från den återställda databasen för att kopiera till den befintliga databasen eller ta bort den befintliga databasen och byta namn på den återställda databasen till det befintliga databas namnet. Se tidpunkt [för återställning](sql-database-recovery-using-backups.md#point-in-time-restore).
+> From here, you can connect to the restored database using SQL Server Management Studio to perform needed tasks, such as to extract a bit of data from the restored database to copy into the existing database or to delete the existing database and rename the restored database to the existing database name. See [point in time restore](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 ## <a name="next-steps"></a>Nästa steg
 

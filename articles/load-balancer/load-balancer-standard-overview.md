@@ -1,7 +1,7 @@
 ---
-title: Vad är Azure Standard Load Balancer?
+title: What is Azure Standard Load Balancer?
 titleSuffix: Azure Load Balancer
-description: Med den här utbildnings vägen kan du komma igång med en översikt över Azure Standard Load Balancer-funktioner.
+description: With this learning path, get started with an overview of Azure Standard Load Balancer features.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,207 +14,207 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/21/2019
 ms.author: allensu
-ms.openlocfilehash: ce85c3ab1bf642dc7e9a92f08acdec2bd754d2f9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 36035d844237115361ccb3c1e1bc0dcb91250881
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278036"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423868"
 ---
-# <a name="azure-standard-load-balancer-overview"></a>Översikt över Azure Standard Load Balancer
+# <a name="azure-standard-load-balancer-overview"></a>Azure Standard Load Balancer overview
 
-Med Azure Load Balancer kan du skala dina program och skapa hög tillgänglighet för dina tjänster. Load Balancer kan användas för inkommande och utgående scenarier och ger låg latens, högt data flöde och skalar upp till miljon tals flöden för alla TCP-och UDP-program. 
+Azure Load Balancer allows you to scale your applications and create high availability for your services. Load Balancer can be used for inbound as well as outbound scenarios and provides low latency, high throughput, and scales up to millions of flows for all TCP and UDP applications. 
 
-Den här artikeln fokuserar på Standard Load Balancer.  En mer allmän översikt över Azure Load Balancer finns i [Load Balancer översikt](load-balancer-overview.md) .
+This article is focused on Standard Load Balancer.  For a more general overview for Azure Load Balancer, review [Load Balancer Overview](load-balancer-overview.md) as well.
 
 ## <a name="what-is-standard-load-balancer"></a>Vad är Standard Load Balancer?
 
-Standard Load Balancer är en ny Load Balancer-produkt för alla TCP-och UDP-program med en utökad och mer detaljerad funktions uppsättning med Basic-Load Balancer.  Även om det finns många likheter är det viktigt att bekanta dig med skillnaderna som beskrivs i den här artikeln.
+Standard Load Balancer is a new Load Balancer product for all TCP and UDP applications with an expanded and more granular feature set over Basic Load Balancer.  While there are many similarities, it is important to familiarize yourself with the differences as outlined in this article.
 
-Du kan använda Standard Load Balancer som en offentlig eller intern Load Balancer. Och en virtuell dator kan anslutas till en offentlig och en intern Load Balancer resurs.
+You can use Standard Load Balancer as a public or internal Load Balancer. And a virtual machine can be connected to one public and one internal Load Balancer resource.
 
-Load Balancer resursens funktioner uttrycks alltid som en klient del, en regel, en hälso avsökning och en definition av en server dels pool.  En resurs kan innehålla flera regler. Du kan placera virtuella datorer i backend-poolen genom att ange backend-poolen från den virtuella datorns NIC-resurs.  Den här parametern skickas via nätverks profilen och expanderas när du använder skalnings uppsättningar för virtuella datorer.
+The Load Balancer resource's functions are always expressed as a frontend, a rule, a health probe, and a backend pool definition.  A resource can contain multiple rules. You can place virtual machines into the backend pool by specifying the backend pool from the virtual machine's NIC resource.  This parameter is passed through the network profile and expanded when using virtual machine scale sets.
 
-En viktig aspekt är omfånget för resursens virtuella nätverk.  När Basic Load Balancer finns inom omfånget för en tillgänglighets uppsättning, är en Standard Load Balancer helt integrerad med omfånget för ett virtuellt nätverk och alla virtuella nätverks koncept gäller.
+One key aspect is the scope of the virtual network for the resource.  While Basic Load Balancer exists within the scope of an availability set, a Standard Load Balancer is fully integrated with the scope of a virtual network and all virtual network concepts apply.
 
-Load Balancer-resurser är objekt som du kan använda för att uttrycka hur Azure ska program mera infrastruktur för flera innehavare för att uppnå det scenario som du vill skapa.  Det finns ingen direkt relation mellan Load Balancer resurser och faktisk infrastruktur. När du skapar en Load Balancer skapas inte en instans, kapaciteten är alltid tillgänglig och det finns inga fördröjningar att starta eller skala. 
+Load Balancer resources are objects within which you can express how Azure should program its multi-tenant infrastructure to achieve the scenario you wish to create.  There is no direct relationship between Load Balancer resources and actual infrastructure; creating a Load Balancer doesn't create an instance, capacity is always available, and there are no start-up or scaling delays to consider. 
 
 >[!NOTE]
-> Med Azure har du tillgång till en uppsättning fullständigt hanterade belastningsutjämningslösningar för dina scenarier. Om du letar efter Transport Layer Security (TLS) protokoll avslutning ("SSL-avlastning") eller per HTTP/HTTPS-begäran, program lager bearbetning, se [Vad är Azure Application Gateway](../application-gateway/overview.md). Om du letar efter global belastnings utjämning för DNS, se [Vad är > Traffic Manager](../traffic-manager/traffic-manager-overview.md). Dina scenarier från slut punkt till slut punkt kan dra nytta av att kombinera dessa lösningar.
+> Med Azure har du tillgång till en uppsättning fullständigt hanterade belastningsutjämningslösningar för dina scenarier. If you're looking for Transport Layer Security (TLS) protocol termination ("SSL offload") or per-HTTP/HTTPS request, application-layer processing, see [What is Azure Application Gateway?](../application-gateway/overview.md) If you're looking for global DNS load balancing, see [What is Traffic Manager?](../traffic-manager/traffic-manager-overview.md) Your end-to-end scenarios may benefit from combining these solutions.
 >
-> En alternativ jämförelse för Azure-belastnings utjämning finns i [Översikt över belastnings Utjämnings alternativ i Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
+> For an Azure load-balancing options comparison, see [Overview of load-balancing options in Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
 
-## <a name="why-use-standard-load-balancer"></a>Varför ska jag använda Standard Load Balancer?
+## <a name="why-use-standard-load-balancer"></a>Why use Standard Load Balancer?
 
 Med Standard Load Balancer kan du skala dina program och skapa hög tillgänglighet för småskaliga distributioner till stora och komplexa arkitekturer i flera zoner.
 
-I tabellen nedan hittar du en översikt över skillnaderna mellan Standard Load Balancer och grundläggande Load Balancer:
+Review the table below for an overview of the differences between Standard Load Balancer and Basic Load Balancer:
 
 >[!NOTE]
 > Nya designer bör införa Standard Load Balancer. 
 
 [!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]
 
-Granska [tjänst begränsningar för Load Balancer](https://aka.ms/lblimits), samt [priser](https://aka.ms/lbpricing)och [service avtal](https://aka.ms/lbsla).
+Review [service limits for Load Balancer](https://aka.ms/lblimits), as well as [pricing](https://aka.ms/lbpricing), and [SLA](https://aka.ms/lbsla).
 
 
-### <a name="backend"></a>Backend-pool
+### <a name="backend"></a>Backend pool
 
-Standard Load Balancer backend-pooler expandera till alla virtuella dator resurser i ett virtuellt nätverk.  Den kan innehålla upp till 1000 Server dels instanser.  En server dels instans är en IP-konfiguration, som är en egenskap hos en NIC-resurs.
+Standard Load Balancer backend pools expand to any virtual machine resource in a virtual network.  It can contain up to 1000 backend instances.  A backend instance is an IP configuration, which is a property of a NIC resource.
 
-Backend-poolen kan innehålla fristående virtuella datorer, tillgänglighets uppsättningar eller skalnings uppsättningar för virtuella datorer.  Du kan också blanda resurser i backend-poolen. Du kan kombinera upp till 150 resurser i backend-poolen per Load Balancer resurs.
+The backend pool can contain standalone virtual machines, availability sets, or virtual machine scale sets.  You can also blend resources in the backend pool. You can combine up to 150 resources in the backend pool per Load Balancer resource.
 
-När du överväger att utforma en backend-pool kan du utforma för det minsta antalet enskilda resurser för Server dels poolen för att ytterligare optimera varaktigheten för hanterings åtgärder.  Det finns ingen skillnad i prestanda eller skalning för data planet.
+When considering how to design your backend pool, you can design for the least number of individual backend pool resources to further optimize the duration of management operations.  There is no difference in data plane performance or scale.
 
-### <a name="probes"></a>Hälso avsökningar
+### <a name="probes"></a>Health probes
   
-Standard Load Balancer lägger till stöd för [https Health PROBE](load-balancer-custom-probe-overview.md#httpprobe) (http-avsökning med Transport Layer Security (TLS)) för att övervaka dina https-program korrekt.  
+Standard Load Balancer adds support for [HTTPS health probes](load-balancer-custom-probe-overview.md#httpprobe) (HTTP probe with Transport Layer Security (TLS) wrapper) to accurately monitor your HTTPS applications.  
 
-Dessutom tillåter Standard Load Balancer att alla upprättade TCP-anslutningar fortsätter när hela Server delen [avavsöks](load-balancer-custom-probe-overview.md#probedown). (Grundläggande Load Balancer avslutar alla TCP-anslutningar till alla instanser).
+In addition, when the entire backend pool [probes down](load-balancer-custom-probe-overview.md#probedown), Standard Load Balancer allows all established TCP connections to continue. (Basic Load Balancer will terminate all TCP connections to all instances).
 
-Granska [Load Balancer hälso avsökningar](load-balancer-custom-probe-overview.md) för mer information.
+Review [Load Balancer health probes](load-balancer-custom-probe-overview.md) for details.
 
-### <a name="az"></a>Tillgänglighetszoner
+### <a name="az"></a>Availability Zones
 
 >[!IMPORTANT]
->Granska [Tillgänglighetszoner](../availability-zones/az-overview.md) för närliggande ämnen, inklusive information om regioner.
+>Review [Availability Zones](../availability-zones/az-overview.md) for related topics, including any region specific information.
 
-Standard Load Balancer stöder ytterligare funktioner i regioner där Tillgänglighetszoner är tillgängliga.  Dessa funktioner är stegvisa för alla Standard Load Balancer tillhandahåller.  Tillgänglighetszoner konfigurationer är tillgängliga för offentliga och interna Standard Load Balancer.
+Standard Load Balancer supports additional abilities in regions where Availability Zones are available.  These features are incremental to all Standard Load Balancer provides.  Availability Zones configurations are available for public and internal Standard Load Balancer.
 
-Icke-zonindelade-frontend-klienter blir zoner-redundanta som standard när de distribueras i en region med Tillgänglighetszoner.   En zon-redundant klient del överleva zon haveri och betjänas av dedikerad infrastruktur i alla zoner samtidigt. 
+Non-zonal frontends become zone-redundant by default when deployed in a region with Availability Zones.   A zone-redundant frontend survives zone failure and is served by dedicated infrastructure in all of the zones simultaneously. 
 
-Dessutom kan du garantera en klient del till en speciell zon. En zonindelade-frontend-resurs avbildar med respektive zon och hanteras endast av dedikerad infrastruktur i en enda zon.
+Additionally, you can guarantee a frontend to a specific zone. A zonal frontend shares fate with the respective zone and is served only by dedicated infrastructure in a single zone.
 
-Belastnings utjämning mellan zoner är tillgängligt för backend-poolen och alla virtuella dator resurser i ett VNet kan ingå i en backend-pool.
+Cross-zone load balancing is available for the backend pool, and any virtual machine resource in a vnet can be part of a backend pool.
 
-Granska [detaljerad diskussion om Tillgänglighetszoner relaterade förmågor](load-balancer-standard-availability-zones.md).
+Review [detailed discussion of Availability Zones related abilities](load-balancer-standard-availability-zones.md).
 
-### <a name="diagnostics"></a>Diagnostikprogrammet
+### <a name="diagnostics"></a> Diagnostics
 
-Standard Load Balancer ger flerdimensionella mått via Azure Monitor.  Dessa mått kan filtreras, grupperas och delas upp för en specifik dimension.  De tillhandahåller aktuella och historiska insikter om prestanda och hälsa för din tjänst.  Resource Health stöds också.  Nedan följer en kort översikt över vilka diagnostiker som stöds:
+Standard Load Balancer provides multi-dimensional metrics through Azure Monitor.  These metrics can be filtered, grouped, and broken out for a given dimension.  They provide current and historic insights into performance and health of your service.  Resource Health is also supported.  Following is a brief overview of supported diagnostics:
 
 | Mått | Beskrivning |
 | --- | --- |
-| VIP-tillgänglighet | Standard Load Balancer kontinuerligt informerar data Sök vägen från en region till Load Balancer front-end, hela vägen till SDN-stacken som stöder den virtuella datorn. Så länge som felfria instanser är kvar, följer måtten samma sökväg som programmets belastningsutjämnade trafik. Data Sök vägen som används av dina kunder verifieras också. Måttet är osynligt för ditt program och stör inte andra åtgärder.|
-| DIP-tillgänglighet | Standard Load Balancer använder en distribuerad hälso deklarations tjänst som övervakar din program slut punkts hälsa enligt dina konfigurations inställningar. Det här måttet innehåller en mängd eller per slut punkt filtrerad – Visa varje enskild instans slut punkt i Load Balancer poolen.  Du kan se hur Load Balancer visar hälso tillståndet för programmet som det anges i konfigurationen för hälso avsökningen.
-| SYN paket | Standard Load Balancer avslutar inte TCP-anslutningar eller interagerar med TCP-eller UDP-paketfilter. Flöden och deras hand skakningar är alltid mellan källan och den virtuella dator instansen. För att bättre felsöka dina scenarier med TCP-protokoll kan du använda räknare för SYN paket för att förstå hur många TCP-anslutningsfel som görs. Måttet rapporterar antalet TCP-SYN-paket som tagits emot.|
-| SNAT-anslutningar | Standard Load Balancer rapporterar antalet utgående flöden som är maskerade till den offentliga IP-adressen. SNAT-portar är en exhaustible-resurs. Det här måttet kan ge en indikation på hur mycket ditt program förlitar sig på SNAT för utgående, ursprungliga flöden.  Räknare för lyckade och misslyckade utgående SNAT-flöden rapporteras och kan användas för att felsöka och förstå hälso tillståndet för dina utgående flöden.|
-| Byte räknare | Standard Load Balancer rapporterar de data som bearbetas per front-end.|
-| Paket räknare | Standard Load Balancer rapporterar de paket som bearbetas per klient del.|
+| VIP availability | Standard Load Balancer continuously exercises the data path from within a region to the Load Balancer front-end all the way to the SDN stack that supports your VM. As long as healthy instances remain, the measurement follows the same path as your application's load-balanced traffic. The data path that is used by your customers is also validated. The measurement is invisible to your application and does not interfere with other operations.|
+| DIP availability | Standard Load Balancer uses a distributed health probing service that monitors your application endpoint's health according to your configuration settings. This metric provides an aggregate or per endpoint filtered-view of each individual instance endpoint in the Load Balancer pool.  You can see how Load Balancer views the health of your application as indicated by your health probe configuration.
+| SYN packets | Standard Load Balancer does not terminate TCP connections or interact with TCP or UDP packet flows. Flows and their handshakes are always between the source and the VM instance. To better troubleshoot your TCP protocol scenarios, you can make use of SYN packets counters to understand how many TCP connection attempts are made. The metric reports the number of TCP SYN packets that were received.|
+| SNAT connections | Standard Load Balancer reports the number of outbound flows that are masqueraded to the Public IP address front-end. SNAT ports are an exhaustible resource. This metric can give an indication of how heavily your application is relying on SNAT for outbound originated flows.  Counters for successful and failed outbound SNAT flows are reported and can be used to troubleshoot and understand the health of your outbound flows.|
+| Byte counters | Standard Load Balancer reports the data processed per front-end.|
+| Packet counters | Standard Load Balancer reports the packets processed per front-end.|
 
-Granska [detaljerad diskussion om standard Load Balancer diagnostik](load-balancer-standard-diagnostics.md).
+Review [detailed discussion of Standard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md).
 
-### <a name="haports"></a>HA-portar
+### <a name="haports"></a>HA Ports
 
-Standard Load Balancer stöder en ny typ av regel.  
+Standard Load Balancer supports a new type of rule.  
 
-Du kan konfigurera regler för belastnings utjämning för att göra programmets skalning och vara mycket tillförlitlig. När du använder en belastnings Utjämnings regel för belastnings utjämning ger Standard Load Balancer per flödes belastnings utjämning för varje tillfällig port i en intern Standard Load Balancers IP-adress för klient delen.  Funktionen är användbar för andra scenarier där det är opraktiskt eller olämpligt att ange enskilda portar.
+You can configure load-balancing rules to make your application scale and be highly reliable. When you use an HA Ports load-balancing rule, Standard Load Balancer will provide per flow load balancing on every ephemeral port of an internal Standard Load Balancer's frontend IP address.  The feature is useful for other scenarios where it is impractical or undesirable to specify individual ports.
 
-Med belastnings Utjämnings regeln för en belastnings utjämning kan du skapa aktiva, passiva eller aktiva-aktiva n + 1-scenarier för virtuella nätverks enheter och program, vilket kräver stora intervall av inkommande portar.  En hälso avsökning kan användas för att avgöra vilka Server delar som ska ta emot nya flöden.  Du kan använda en nätverks säkerhets grupp för att emulera ett scenario för port intervall.
+An HA Ports load-balancing rule allows you to create active-passive or active-active n+1 scenarios for Network Virtual Appliances and any application, which requires large ranges of inbound ports.  A health probe can be used to determine which backends should be receiving new flows.  You can use a Network Security Group to emulate a port range scenario.
 
 >[!IMPORTANT]
-> Om du planerar att använda en virtuell nätverks installation kontaktar du leverantören för att få vägledning om huruvida produkten har testats med HA-portar och följer de rikt linjer som gäller för implementeringen. 
+> If you are planning to use a Network Virtual Appliance, check with your vendor for guidance on whether their product has been tested with HA Ports and follow their specific guidance for implementation. 
 
-Granska [detaljerad diskussion om ha-portar](load-balancer-ha-ports-overview.md).
+Review [detailed discussion of HA Ports](load-balancer-ha-ports-overview.md).
 
-### <a name="securebydefault"></a>Skydda som standard
+### <a name="securebydefault"></a>Secure by default
 
-Standard Load Balancer har publicerats fullständigt till det virtuella nätverket.  Det virtuella nätverket är ett privat, stängt nätverk.  Eftersom standard belastnings utjämning och offentliga standard-IP-adresser är utformade för att tillåta att det här virtuella nätverket kan nås från utanför det virtuella nätverket, är dessa resurser som standard stängda om du inte öppnar dem. Det innebär att nätverks säkerhets grupper (NSG: er) nu används för att explicit tillåta och vitlista tillåten trafik.  Du kan skapa hela det virtuella data centret och välja mellan NSG vad och när det ska vara tillgängligt.  Om du inte har en NSG på ett undernät eller ett nätverkskort för den virtuella dator resursen, tillåts inte trafik att komma åt den här resursen.
+Standard Load Balancer is fully onboarded to the virtual network.  The virtual network is a private, closed network.  Because Standard Load Balancers and Standard public IP addresses are designed to allow this virtual network to be accessed from outside of the virtual network, these resources now default to closed unless you open them. This means Network Security Groups (NSGs) are now used to explicitly permit and whitelist allowed traffic.  You can create your entire virtual data center and decide through NSG what and when it should be available.  If you do not have an NSG on a subnet or NIC of your virtual machine resource, traffic is not allowed to reach this resource.
 
-Mer information om NSG: er och hur du tillämpar dem för ditt scenario finns i [nätverks säkerhets grupper](../virtual-network/security-overview.md).
+To learn more about NSGs and how to apply them for your scenario, see [Network Security Groups](../virtual-network/security-overview.md).
 
-### <a name="outbound"></a>Utgående anslutningar
+### <a name="outbound"></a> Outbound connections
 
-Load Balancer stöder inkommande och utgående scenarier.  Standard Load Balancer är avsevärt annorlunda än grundläggande Load Balancer med avseende på utgående anslutningar.
+Load Balancer supports inbound and outbound scenarios.  Standard Load Balancer is significantly different than Basic Load Balancer with respect to outbound connections.
 
-Källan Network Address Translation (SNAT) används för att mappa interna, privata IP-adresser i ditt virtuella nätverk till offentliga IP-adresser på Load Balancer-frontend.
+Source Network Address Translation (SNAT) is used to map internal, private IP addresses on your virtual network to public IP addresses on Load Balancer frontends.
 
-Standard Load Balancer introducerar en ny algoritm för en [mer robust, skalbar och förutsägbar SNAT-algoritm](load-balancer-outbound-connections.md#snat) och aktiverar nya funktioner, tar bort tvetydighet och tvingar fram explicita konfigurationer i stället för sido effekter. De här ändringarna krävs för att nya funktioner ska kunna visas. 
+Standard Load Balancer introduces a new algorithm for a [more robust, scalable, and predictable SNAT algorithm](load-balancer-outbound-connections.md#snat) and enables new abilities, removes ambiguity, and forces explicit configurations rather side effects. These changes are necessary to allow for new features to emerge. 
 
-Det här är de viktiga Tenets som du behöver tänka på när du arbetar med Standard Load Balancer:
+These are the key tenets to remember when working with Standard Load Balancer:
 
-- När en regel slutförs, bevaras Load Balancer resursen.  all programmering av Azure härleds från konfigurationen.
-- När flera klient delar är tillgängliga används alla-frontend och varje klient del multiplicerar antalet tillgängliga SNAT-portar
-- Du kan välja och kontrol lera om du inte vill att en viss klient del ska användas för utgående anslutningar.
-- utgående scenarier är explicita och utgående anslutning finns inte förrän det har angetts.
-- regler för belastnings utjämning härleder hur SNAT programmeras. Belastnings Utjämnings regler är protokoll information. SNAT är protokoll information och konfigurationen bör avspegla detta i stället för att skapa en sido effekt.
+- the completion of a rule drives the Load Balancer resource.  all programming of Azure derives from its configuration.
+- when multiple frontends are available, all frontends are used and each frontend multiplies the number of available SNAT ports
+- you can choose and control if you do not wish for a particular frontend to be used for outbound connections.
+- outbound scenarios are explicit and outbound connectivity does not exist until it has been specified.
+- load-balancing rules infer how SNAT is programmed. Load balancing rules are protocol specific. SNAT is protocol specific and configuration should reflect this rather than create a side effect.
 
 #### <a name="multiple-frontends"></a>Flera klienter
-Om du vill ha fler SNAT-portar eftersom du förväntar dig eller redan har en hög efter frågan för utgående anslutningar, kan du också lägga till en incrementy-port inventering genom att konfigurera ytterligare klient portar, regler och backend-pooler till samma virtuella dator resurser.
+If you want more SNAT ports because you are expecting or are already experiencing a high demand for outbound connections, you can also add incremental SNAT port inventory by configuring additional frontends, rules, and backend pools to the same virtual machine resources.
 
-#### <a name="control-which-frontend-is-used-for-outbound"></a>Styr vilken klient del som används för utgående
-Om du vill begränsa utgående anslutningar till endast härstammar från en särskild IP-adress för klient delen kan du välja att inaktivera utgående SNAT för regeln som uttrycker utgående mappning.
+#### <a name="control-which-frontend-is-used-for-outbound"></a>Control which frontend is used for outbound
+If you want to constrain outbound connections to only originate from a specific frontend IP address, you can optionally disable outbound SNAT on the rule that expresses the outbound mapping.
 
-#### <a name="control-outbound-connectivity"></a>Kontrol lera utgående anslutning
-Standard Load Balancer finns inom kontexten för det virtuella nätverket.  Ett virtuellt nätverk är ett isolerat privat nätverk.  Om det inte finns någon Association med en offentlig IP-adress, tillåts inte offentlig anslutning.  Du kan komma åt [VNet-tjänstens slut punkter](../virtual-network/virtual-network-service-endpoints-overview.md) eftersom de finns inuti och lokalt i det virtuella nätverket.  Om du vill upprätta utgående anslutning till ett mål utanför det virtuella nätverket har du två alternativ:
-- tilldela en offentlig IP-adress för standard-SKU som en offentlig IP-adress på instans nivå till den virtuella dator resursen eller
-- Placera den virtuella dator resursen i backend-poolen för en offentlig Standard Load Balancer.
+#### <a name="control-outbound-connectivity"></a>Control outbound connectivity
+Standard Load Balancer exists within the context of the virtual network.  A virtual network is an isolated, private network.  Unless an association with a public IP address exists, public connectivity is not allowed.  You can reach [VNet Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) because they are inside of and local to your virtual network.  If you want to establish outbound connectivity to a destination outside of your virtual network, you have two options:
+- assign a Standard SKU public IP address as an Instance-Level Public IP address to the virtual machine resource or
+- place the virtual machine resource in the backend pool of a public Standard Load Balancer.
 
-Båda kommer att tillåta utgående anslutningar från det virtuella nätverket till utanför det virtuella nätverket. 
+Both will allow outbound connectivity from the virtual network to outside of the virtual network. 
 
-Om du _bara_ har ett internt standard Load Balancer associerat med den backend-pool där din virtuella dator resurs finns, kan den virtuella datorn bara komma åt virtuella nätverks resurser och virtuella nätverks [slut punkter](../virtual-network/virtual-network-service-endpoints-overview.md).  Du kan följa stegen som beskrivs i föregående stycke för att skapa utgående anslutning.
+If you _only_ have an internal Standard Load Balancer associated with the backend pool in which your virtual machine resource is located, your virtual machine can only reach virtual network resources and [VNet Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).  You can follow the steps described in the preceding paragraph to create outbound connectivity.
 
-Den utgående anslutningen för en virtuell dator resurs som inte är associerad med standard-SKU: er finns kvar som tidigare.
+Outbound connectivity of a virtual machine resource not associated with Standard SKUs remains as before.
 
-Granska [detaljerad diskussion om utgående anslutningar](load-balancer-outbound-connections.md).
+Review [detailed discussion of Outbound Connections](load-balancer-outbound-connections.md).
 
-### <a name="multife"></a>Flera klient delar
-Load Balancer stöder flera regler med flera klient delar.  Standard Load Balancer expanderar detta till utgående scenarier.  Utgående scenarier är i stort sett inversen till en inkommande regel för belastnings utjämning.  Den inkommande belastnings Utjämnings regeln skapar även en koppling för utgående anslutningar. Standard Load Balancer använder alla frontend-klienter som är kopplade till en virtuell dator resurs via en belastnings Utjämnings regel.  Dessutom kan du använda en parameter i belastnings Utjämnings regeln och låta dig utelämna en belastnings Utjämnings regel för utgående anslutningar, vilket gör att du kan välja vissa klient delar, inklusive ingen.
+### <a name="multife"></a>Multiple frontends
+Load Balancer supports multiple rules with multiple frontends.  Standard Load Balancer expands this to outbound scenarios.  Outbound scenarios are essentially the inverse of an inbound load-balancing rule.  The inbound load-balancing rule also creates an associate for outbound connections. Standard Load Balancer uses all frontends associated with a virtual machine resource through a load-balancing rule.  Additionally, a parameter on the load-balancing rule and allows you to suppress a load-balancing rule for the purposes of outbound connectivity, which allows the selection of specific frontends including none.
 
-För jämförelsen väljer Basic Load Balancer en enskild klient del slumpmässigt och det finns ingen möjlighet att styra vilken som har valts.
+For comparison, Basic Load Balancer selects a single frontend at random and there is no ability to control which one was selected.
 
-Granska [detaljerad diskussion om utgående anslutningar](load-balancer-outbound-connections.md).
+Review [detailed discussion of Outbound Connections](load-balancer-outbound-connections.md).
 
-### <a name="operations"></a>Hanterings åtgärder
+### <a name="operations"></a> Management Operations
 
-Standard Load Balancer resurser finns på en helt ny infrastruktur plattform.  Detta möjliggör snabbare hanterings åtgärder för standard-SKU: er och slut för ande tider är vanligt vis mindre än 30 sekunder per standard-SKU-resurs.  Eftersom backend-pooler ökar i storlek ökar även den tid som krävs för ändringar i backend-poolen.
+Standard Load Balancer resources exist on an entirely new infrastructure platform.  This enables faster management operations for Standard SKUs and completion times are typically less than 30 seconds per Standard SKU resource.  As backend pools increase in size, the duration required for backend pool changes also increase.
 
-Du kan ändra Standard Load Balancer resurser och flytta en offentlig standard-IP-adress från en virtuell dator till en annan mycket snabbare.
+You can modify Standard Load Balancer resources and move a Standard public IP address from one virtual machine to another much faster.
 
-## <a name="migration-between-skus"></a>Migrering mellan SKU: er
+## <a name="migration-between-skus"></a>Migration between SKUs
 
-SKU: er är inte föränderligt. Följ stegen i det här avsnittet om du vill flytta från en resurs-SKU till en annan.
-
->[!IMPORTANT]
->Granska det här dokumentet i sin helhet för att förstå skillnaderna mellan SKU: er och ha noggrant undersökt ditt scenario.  Du kan behöva göra ytterligare ändringar för att justera ditt scenario.
-
-### <a name="migrate-from-basic-to-standard-sku"></a>Migrera från Basic till standard-SKU
-
-1. Skapa en ny standard resurs (Load Balancer och offentliga IP-adresser om det behövs). Återskapa reglerna och avsöknings definitionerna.  Om du tidigare använde en TCP-avsökning till 443/TCP bör du överväga att ändra detta avsöknings protokoll till en HTTPS-avsökning och lägga till en sökväg.
-
-2. Skapa nya eller uppdatera befintliga NSG på NIC eller undernät för att vitlista belastnings bal anse rad trafik, avsökning, samt all annan trafik som du vill tillåta.
-
-3. Ta bort de grundläggande SKU-resurserna (Load Balancer och offentliga IP-adresser, efter behov) från alla VM-instanser. Se även till att ta bort alla VM-instanser för en tillgänglighets uppsättning.
-
-4. Koppla alla VM-instanser till de nya standard-SKU-resurserna.
-
-### <a name="migrate-from-standard-to-basic-sku"></a>Migrera från standard till Basic SKU
-
-1. Skapa en ny grundläggande resurs (Load Balancer och offentliga IP-adresser om det behövs). Återskapa reglerna och avsöknings definitionerna.  Ändra en HTTPS-avsökning till en TCP-avsökning till 443/TCP. 
-
-2. Ta bort standard-SKU-resurserna (Load Balancer och offentliga IP-adresser, efter behov) från alla VM-instanser. Se även till att ta bort alla VM-instanser för en tillgänglighets uppsättning.
-
-3. Koppla alla VM-instanser till de nya grundläggande SKU-resurserna.
+SKUs are not mutable. Follow the steps in this section to move from one resource SKU to another.
 
 >[!IMPORTANT]
->
->Det finns begränsningar gällande användningen av Basic-och standard-SKU: er.
->
->HA-portar och diagnostik för standard-SKU: n är bara tillgängliga i standard-SKU: n. Du kan inte migrera från standard-SKU: n till den grundläggande SKU: n och även behålla dessa funktioner.
->
->Både Basic-och standard-SKU: n har ett antal skillnader som beskrivs i den här artikeln.  Se till att du förstår och förbereder dem.
->
->Matchande SKU: er måste användas för Load Balancer och offentliga IP-resurser. Du kan inte ha en blandning av grundläggande SKU-resurser och standard-SKU-resurser. Du kan inte bifoga fristående virtuella datorer, virtuella datorer i en tillgänglighetsuppsättningsresurs eller en virtuell dators skalningsuppsättningsresurser till båda SKU:erna samtidigt.
+>Review this document in its entirety to understand the differences between SKUs and have carefully examined your scenario.  You may need to make additional changes to align your scenario.
 
-## <a name="region-availability"></a>Regional tillgänglighet
+### <a name="migrate-from-basic-to-standard-sku"></a>Migrate from Basic to Standard SKU
 
-Standard Load Balancer är för närvarande tillgänglig i alla offentliga moln regioner.
+1. Create a new Standard resource (Load Balancer and Public IPs, as needed). Recreate your rules and probe definitions.  If you were using a TCP probe to 443/tcp previously, consider changing this probe protocol to an HTTPS probe and add a path.
+
+2. Create new or update existing NSG on NIC or subnet to whitelist load balanced traffic, probe, as well as any other traffic you wish to permit.
+
+3. Remove the Basic SKU resources (Load Balancer and Public IPs, as applicable) from all VM instances. Be sure to also remove all VM instances of an availability set.
+
+4. Attach all VM instances to the new Standard SKU resources.
+
+### <a name="migrate-from-standard-to-basic-sku"></a>Migrate from Standard to Basic SKU
+
+1. Create a new Basic resource (Load Balancer and Public IPs, as needed). Recreate your rules and probe definitions.  Change an HTTPS probe to a TCP probe to 443/tcp. 
+
+2. Remove the Standard SKU resources (Load Balancer and Public IPs, as applicable) from all VM instances. Be sure to also remove all VM instances of an availability set.
+
+3. Attach all VM instances to the new Basic SKU resources.
+
+>[!IMPORTANT]
+>
+>There are limitations regarding use of the Basic and Standard SKUs.
+>
+>HA Ports and Diagnostics of the Standard SKU are only available in the Standard SKU. You can't migrate from the Standard SKU to the Basic SKU and also retain these features.
+>
+>Both Basic and Standard SKU have a number of differences as outlined in this article.  Make sure you understand and prepare for them.
+>
+>Matching SKUs must be used for Load Balancer and Public IP resources. You can't have a mixture of Basic SKU resources and Standard SKU resources. Du kan inte bifoga fristående virtuella datorer, virtuella datorer i en tillgänglighetsuppsättningsresurs eller en virtuell dators skalningsuppsättningsresurser till båda SKU:erna samtidigt.
+
+## <a name="region-availability"></a>Tillgänglighet för regioner
+
+Standard Load Balancer is currently available in all public cloud regions.
 
 ## <a name="sla"></a>SLA
 
-Standard belastnings utjämning är tillgängliga med ett service avtal på 99,99%.  Se [standard load BALANCER SLA](https://aka.ms/lbsla) för mer information.
+Standard Load Balancers are available with a 99.99% SLA.  Review the [Standard Load Balancer SLA](https://aka.ms/lbsla) for details.
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 
 Standard Load Balancer-användning debiteras.
 
@@ -225,28 +225,28 @@ Prisinformation om Standard Load Balancer finns på sidan med [Load Balancer-pri
 
 ## <a name="limitations"></a>Begränsningar
 
-- SKU: er är inte föränderligt. Du kan inte ändra SKU: n för en befintlig resurs.
-- En fristående virtuell dator resurs, tillgänglighets uppsättnings resurs eller en resurs för skalnings uppsättning för virtuell dator kan referera till en SKU, aldrig båda.
-- En Load Balancer regel kan inte omfatta två virtuella nätverk.  Frontend-enheter och deras relaterade Server dels instanser måste finnas i samma virtuella nätverk.  
-- [Flytt av prenumerations åtgärder](../azure-resource-manager/resource-group-move-resources.md) stöds inte för standard-SKU: er och pip-resurser.
-- Webb arbets roller utan ett virtuellt nätverk och andra Microsofts plattforms tjänster kan nås när bara en intern Standard Load Balancer används på grund av en sido effekt från hur för-VNet-tjänster och andra plattforms tjänster fungerar. Du måste inte förlita dig på detta eftersom själva själva tjänsten eller den underliggande plattformen kan ändras utan föregående meddelande. Du måste alltid anta att du behöver skapa [utgående anslutningar](load-balancer-outbound-connections.md) om du vill när du bara använder en intern standard Load Balancer.
-- Load Balancer är en TCP- eller UDP-produkt för belastningsutjämning och portvidarebefordran för dessa specifika IP-protokoll.  Belastningsutjämningsregler och inkommande NAT-regler stöds för TCP och UDP och stöds inte för andra IP-protokoll, inklusive ICMP. Load Balancer avslutar inte, svarar inte på eller på annat sätt interagerar med nyttolasten för ett UDP- eller TCP-flöde. Det är inte en proxy. Lyckad verifiering av anslutningen till en klient del måste ske i band med samma protokoll som används i en belastnings utjämning eller en inkommande NAT-regel (TCP eller UDP) _och_ minst en av dina virtuella datorer måste generera ett svar för en klient för att se ett svar från en klient del.  Om du inte tar emot ett in-band-svar från Load Balancer klient delen indikerar det att inga virtuella datorer kunde svara.  Det går inte att interagera med en Load Balancer klient del utan att en virtuell dator kan svara.  Det här gäller även för utgående anslutningar där [portmaskerings-SNAT](load-balancer-outbound-connections.md#snat) bara stöds för TCP och UDP. Alla andra IP-protokoll, inklusive ICMP, kommer att misslyckas.  Tilldela en offentlig IP-adress på instansnivå som åtgärd.
-- Till skillnad från offentliga belastningsutjämnare som tillhandahåller [utgående anslutningar](load-balancer-outbound-connections.md) vid över gång från privata IP-adresser i det virtuella nätverket till offentliga IP-adresser, översätter inte interna belastningsutjämnare inte utgående, utgående anslutningar till klient delen av en intern Load Balancer som båda finns i privata IP-adressutrymme.  Detta gör det möjligt att använda SNAT-tömning inuti unika interna IP-adressutrymme där ingen översättning krävs.  Sido effekt är att om ett utgående flöde från en virtuell dator i backend-poolen försöker köra ett flöde till klient delen av den interna Load Balancer i vilken pool den finns _och_ som mappas tillbaka till sig själv, kommer båda benen i flödet inte att matcha och flödet kommer att Miss lyckas.  Om flödet inte mappar tillbaka till samma virtuella dator i backend-poolen som skapade flödet till klient delen, lyckas flödet.   När flödet mappar tillbaka till sig själv visas det utgående flödet som härstammar från den virtuella datorn till klient delen och motsvarande inkommande flöde visas som härstammar från den virtuella datorn till sig själv. Från gästoperativsystemets perspektiv matchar inte de inkommande och utgående delarna av samma flöde i den virtuella datorn. TCP-stacken känner inte igen dessa halvor av samma flöde som en del av samma flöde som källan eftersom källan och målet inte matchar.  När flödet mappar till en annan virtuell dator i backend-poolen, matchar de hälften av flödet och den virtuella datorn kan svara på flödet.  Symptomet för det här scenariot är tillfälligt anslutnings-timeout. Det finns flera vanliga lösningar för att på ett tillförlitligt sätt uppnå det här scenariot (ursprungligt flöde från en backend-pool till backend-poolerna respektive interna Load Balancer klient delen) som innehåller antingen infogning av en tredjeparts-Proxy bakom den interna Load Balancer eller [med hjälp av DSR-stil regler](load-balancer-multivip-overview.md).  Du kan använda en offentlig lastbalanserare som åtgärd men det resulterande scenariot har en fallenhet för [SNAT-överbelastning](load-balancer-outbound-connections.md#snat) och bör undvikas om det inte hanteras noggrant.
+- SKUs are not mutable. You may not change the SKU of an existing resource.
+- A standalone virtual machine resource, availability set resource, or virtual machine scale set resource can reference one SKU, never both.
+- A Load Balancer rule cannot span two virtual networks.  Frontends and their related backend instances must be located in the same virtual network.  
+- [Move subscription operations](../azure-resource-manager/resource-group-move-resources.md) are not supported for Standard SKU LB and PIP resources.
+- Web Worker Roles without a VNet and other Microsoft platform services can be accessible when only an internal Standard Load Balancer is used due to a side effect from how pre-VNet services and other platform services function. You must not rely on this as the respective service itself or the underlying platform can change without notice. You must always assume you need to create [outbound connectivity](load-balancer-outbound-connections.md) explicitly if desired when using an internal Standard Load Balancer only.
+- Load Balancer är en TCP- eller UDP-produkt för belastningsutjämning och portvidarebefordran för dessa specifika IP-protokoll.  Belastningsutjämningsregler och inkommande NAT-regler stöds för TCP och UDP och stöds inte för andra IP-protokoll, inklusive ICMP. Load Balancer avslutar inte, svarar inte på eller på annat sätt interagerar med nyttolasten för ett UDP- eller TCP-flöde. Det är inte en proxy. Successful validation of connectivity to a front-end must take place in-band with the same protocol used in a load balancing or inbound NAT rule (TCP or UDP) _and_ at least one of your virtual machines must generate a response for a client to see a response from a front-end.  Not receiving an in-band response from the Load Balancer front-end indicates no virtual machines were able to respond.  It is not possible to interact with a Load Balancer front-end without a virtual machine able to respond.  Det här gäller även för utgående anslutningar där [portmaskerings-SNAT](load-balancer-outbound-connections.md#snat) bara stöds för TCP och UDP. Alla andra IP-protokoll, inklusive ICMP, kommer att misslyckas.  Tilldela en offentlig IP-adress på instansnivå som åtgärd.
+- Unlike public Load Balancers which provide [outbound connections](load-balancer-outbound-connections.md) when transitioning from private IP addresses inside the virtual network to public IP addresses, internal Load Balancers do not translate outbound originated connections to the front-end of an internal Load Balancer as both are in private IP address space.  This avoids potential for SNAT exhaustion inside unique internal IP address space where translation is not required.  The side effect is that if an outbound flow from a VM in the back-end pool attempts a flow to front-end of the internal Load Balancer in which pool it resides _and_ is mapped back to itself, both legs of the flow don't match and the flow will fail.  If the flow did not map back to the same VM in the back-end pool which created the flow to the front-end, the flow will succeed.   When the flow maps back to itself the outbound flow appears to originate from the VM to the front-end and the corresponding inbound flow appears to originate from the VM to itself. Från gästoperativsystemets perspektiv matchar inte de inkommande och utgående delarna av samma flöde i den virtuella datorn. TCP-stacken känner inte igen dessa halvor av samma flöde som en del av samma flöde som källan eftersom källan och målet inte matchar.  When the flow maps to any other VM in the back-end pool, the halves of the flow will match and the VM can successfully respond to the flow.  The symptom for this scenario is intermittent connection timeouts. There are several common workarounds for reliably achieving this scenario (originating flows from a back-end pool to the back-end pools respective internal Load Balancer front-end) which include either insertion of a third-party proxy behind the internal Load Balancer or [using DSR style rules](load-balancer-multivip-overview.md).  Du kan använda en offentlig lastbalanserare som åtgärd men det resulterande scenariot har en fallenhet för [SNAT-överbelastning](load-balancer-outbound-connections.md#snat) och bör undvikas om det inte hanteras noggrant.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om att använda [standard Load Balancer och Tillgänglighetszoner](load-balancer-standard-availability-zones.md).
-- Läs mer om [hälso avsökningar](load-balancer-custom-probe-overview.md).
-- Läs mer om [Tillgänglighetszoner](../availability-zones/az-overview.md).
-- Lär dig mer om [standard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md).
-- Lär dig mer om [flerdimensionella mått som stöds](../azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers) för diagnostik i [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
-- Läs om hur du använder [belastningsutjämnare för utgående anslutningar](load-balancer-outbound-connections.md).
-- Läs mer om [utgående regler](load-balancer-outbound-rules-overview.md).
-- Läs mer om [TCP-återställning vid inaktivitet](load-balancer-tcp-reset.md).
-- Lär dig mer om att [standard Load Balancer med belastnings Utjämnings regler för belastnings utjämning](load-balancer-ha-ports-overview.md).
-- Lär dig mer om att använda [Load Balancer med flera klient](load-balancer-multivip-overview.md)delar.
-- Lär dig mer om [virtuella nätverk](../virtual-network/virtual-networks-overview.md).
-- Läs mer om [nätverks säkerhets grupper](../virtual-network/security-overview.md).
-- Lär dig mer om [tjänst slut punkter för VNet](../virtual-network/virtual-network-service-endpoints-overview.md).
-- Lär dig mer om några av de andra viktiga [nätverksfunktionerna](../networking/networking-overview.md) i Azure.
-- Läs mer om [Load Balancer](load-balancer-overview.md).
+- Learn about using [Standard Load Balancer and Availability Zones](load-balancer-standard-availability-zones.md).
+- Learn about [Health Probes](load-balancer-custom-probe-overview.md).
+- Learn more about [Availability Zones](../availability-zones/az-overview.md).
+- Learn about [Standard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md).
+- Learn about [supported multi-dimensional metrics](../azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers) for diagnostics  in [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
+- Learn about using [Load Balancer for outbound connections](load-balancer-outbound-connections.md).
+- Learn about [Outbound Rules](load-balancer-outbound-rules-overview.md).
+- Learn about [TCP Reset on Idle](load-balancer-tcp-reset.md).
+- Learn about [Standard Load Balancer with HA Ports load balancing rules](load-balancer-ha-ports-overview.md).
+- Learn about using [Load Balancer with Multiple Frontends](load-balancer-multivip-overview.md).
+- Learn about [Virtual Networks](../virtual-network/virtual-networks-overview.md).
+- Learn more about [Network Security Groups](../virtual-network/security-overview.md).
+- Learn about [VNet Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
+- Learn about some of the other key [networking capabilities](../networking/networking-overview.md) in Azure.
+- Learn more about [Load Balancer](load-balancer-overview.md).

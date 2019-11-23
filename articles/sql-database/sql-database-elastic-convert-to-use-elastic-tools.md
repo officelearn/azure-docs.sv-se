@@ -1,6 +1,6 @@
 ---
-title: Migrera befintliga databaser för att skala ut
-description: Konvertera shardade-databaser till att använda Elastic Database-verktyg genom att skapa en Shard Map Manager
+title: Migrate existing databases to scale out | Microsoft Docs
+description: Convert sharded databases to use elastic database tools by creating a shard map manager
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -11,160 +11,165 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 7d4eab7546a488bf2d4ede8f7c71143e823ba493
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c776f4ac09626f0abd1eb754cde391a1c5447627
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823936"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74421219"
 ---
-# <a name="migrate-existing-databases-to-scale-out"></a>Migrera befintliga databaser för att skala ut
-Hantera enkelt dina befintliga utskalade shardade-databaser med hjälp av Azure SQL Database databas verktyg (till exempel [Elastic Database klient bibliotek](sql-database-elastic-database-client-library.md)). Konvertera först en befintlig uppsättning databaser till att använda [Shard Map Manager](sql-database-elastic-scale-shard-map-management.md). 
+# <a name="migrate-existing-databases-to-scale-out"></a>Migrate existing databases to scale out
+
+Easily manage your existing scaled-out sharded databases using Azure SQL Database database tools (such as the [Elastic Database client library](sql-database-elastic-database-client-library.md)). First convert an existing set of databases to use the [shard map manager](sql-database-elastic-scale-shard-map-management.md).
 
 ## <a name="overview"></a>Översikt
-Så här migrerar du en befintlig shardade-databas: 
 
-1. Förbered [Shard Map Manager-databasen](sql-database-elastic-scale-shard-map-management.md).
-2. Skapa Shard-kartan.
-3. Förbered de enskilda Shards.  
-4. Lägg till mappningar i Shard-kartan.
+To migrate an existing sharded database:
 
-Dessa metoder kan implementeras med hjälp av antingen [.NET Framework klient biblioteket](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)eller de PowerShell-skript som finns i [skript för Azure SQL DB-Elastic Database verktyg](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). Exemplen här använder PowerShell-skripten.
+1. Prepare the [shard map manager database](sql-database-elastic-scale-shard-map-management.md).
+2. Create the shard map.
+3. Prepare the individual shards.  
+4. Add mappings to the shard map.
 
-Mer information om ShardMapManager finns i [Shard Map Management](sql-database-elastic-scale-shard-map-management.md). En översikt över de elastiska databas verktygen finns i [Översikt över Elastic Database funktioner](sql-database-elastic-scale-introduction.md).
+These techniques can be implemented using either the [.NET Framework client library](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), or the PowerShell scripts found at [Azure SQL DB - Elastic Database tools scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). The examples here use the PowerShell scripts.
 
-## <a name="prepare-the-shard-map-manager-database"></a>Förbered Shard Map Manager-databasen
-Shard Map Manager är en särskild databas som innehåller data för att hantera utskalade databaser. Du kan använda en befintlig databas eller skapa en ny databas. En databas som fungerar som Shard Map Manager ska inte vara samma databas som en Shard. PowerShell-skriptet skapar inte databasen åt dig. 
+For more information about the ShardMapManager, see [Shard map management](sql-database-elastic-scale-shard-map-management.md). For an overview of the elastic database tools, see [Elastic Database features overview](sql-database-elastic-scale-introduction.md).
 
-## <a name="step-1-create-a-shard-map-manager"></a>Steg 1: skapa en Shard Map Manager
-    # Create a shard map manager. 
-    New-ShardMapManager -UserName '<user_name>' 
-    -Password '<password>' 
-    -SqlServerName '<server_name>' 
-    -SqlDatabaseName '<smm_db_name>' 
-    #<server_name> and <smm_db_name> are the server name and database name 
-    # for the new or existing database that should be used for storing 
-    # tenant-database mapping information.
+## <a name="prepare-the-shard-map-manager-database"></a>Prepare the shard map manager database
 
-### <a name="to-retrieve-the-shard-map-manager"></a>Hämta Shard Map Manager
-När du har skapat den kan du hämta Shard Map Manager med denna cmdlet. Det här steget krävs varje gång du behöver använda ShardMapManager-objektet.
+The shard map manager is a special database that contains the data to manage scaled-out databases. You can use an existing database, or create a new database. A database acting as shard map manager should not be the same database as a shard. The PowerShell script does not create the database for you.
 
-    # Try to get a reference to the Shard Map Manager  
-    $ShardMapManager = Get-ShardMapManager -UserName '<user_name>' 
-    -Password '<password>' 
-    -SqlServerName '<server_name>' 
-    -SqlDatabaseName '<smm_db_name>' 
+## <a name="step-1-create-a-shard-map-manager"></a>Step 1: create a shard map manager
 
+```powershell
+# Create a shard map manager
+New-ShardMapManager -UserName '<user_name>' -Password '<password>' -SqlServerName '<server_name>' -SqlDatabaseName '<smm_db_name>'
+#<server_name> and <smm_db_name> are the server name and database name
+# for the new or existing database that should be used for storing
+# tenant-database mapping information.
+```
 
-## <a name="step-2-create-the-shard-map"></a>Steg 2: skapa Shard-kartan
-Välj den typ av Shard-mappning som ska skapas. Valet beror på databas arkitekturen: 
+### <a name="to-retrieve-the-shard-map-manager"></a>To retrieve the shard map manager
 
-1. Enskild klient per databas (för villkor, se [ord](sql-database-elastic-scale-glossary.md)listan.) 
-2. Flera klienter per databas (två typer):
-   1. List mappning
-   2. Intervall mappning
+After creation, you can retrieve the shard map manager with this cmdlet. This step is needed every time you need to use the ShardMapManager object.
 
-För en modell med en enda klient organisation skapar du en **list mappning** Shard-karta. Modellen med en enskild klient tilldelas en databas per klient. Det här är en effektiv modell för SaaS-utvecklare som fören klar hanteringen.
+```powershell
+# Try to get a reference to the Shard Map Manager  
+$ShardMapManager = Get-ShardMapManager -UserName '<user_name>' -Password '<password>' -SqlServerName '<server_name>' -SqlDatabaseName '<smm_db_name>'
+```
 
-![List mappning][1]
+## <a name="step-2-create-the-shard-map"></a>Step 2: create the shard map
 
-Modellen för flera innehavare tilldelar flera klienter till en enskild databas (och du kan distribuera grupper av klienter i flera databaser). Använd den här modellen när du förväntar dig att varje klient ska ha små data behov. I den här modellen tilldelar du ett antal klienter till en databas med hjälp av **intervall mappning**. 
+Select the type of shard map to create. The choice depends on the database architecture:
 
-![Intervall mappning][2]
+1. Single tenant per database (For terms, see the [glossary](sql-database-elastic-scale-glossary.md).)
+2. Multiple tenants per database (two types):
+   1. List mapping
+   2. Range mapping
 
-Eller så kan du implementera en databas modell med flera klienter med en *list mappning* för att tilldela flera klienter till en enskild databas. Till exempel används DB1 för att lagra information om klient-ID 1 och 5, och DB2 lagrar data för klient 7 och klient 10. 
+For a single-tenant model, create a **list mapping** shard map. The single-tenant model assigns one database per tenant. This is an effective model for SaaS developers as it simplifies management.
 
-![Flera klienter i en enskild databas][3] 
+![List mapping][1]
 
-**Välj något av följande alternativ baserat på ditt val:**
+The multi-tenant model assigns several tenants to an individual database (and you can distribute groups of tenants across multiple databases). Use this model when you expect each tenant to have small data needs. In this model, assign a range of tenants to a database using **range mapping**.
 
-### <a name="option-1-create-a-shard-map-for-a-list-mapping"></a>Alternativ 1: skapa en Shard-karta för en List mappning
-Skapa en Shard-karta med ShardMapManager-objektet. 
+![Range mapping][2]
 
-    # $ShardMapManager is the shard map manager object. 
-    $ShardMap = New-ListShardMap -KeyType $([int]) 
-    -ListShardMapName 'ListShardMap' 
-    -ShardMapManager $ShardMapManager 
+Or you can implement a multi-tenant database model using a *list mapping* to assign multiple tenants to an individual database. For example, DB1 is used to store information about tenant ID 1 and 5, and DB2 stores data for tenant 7 and tenant 10.
 
+![Multiple tenants on single DB][3]
 
-### <a name="option-2-create-a-shard-map-for-a-range-mapping"></a>Alternativ 2: skapa en Shard-karta för en intervall mappning
-För att kunna använda detta mappnings mönster måste klient-ID-värdena vara kontinuerliga intervall och det är acceptabelt att ha luckor i intervallen genom att hoppa över intervallet när databaserna skapas.
+**Based on your choice, choose one of these options:**
 
-    # $ShardMapManager is the shard map manager object 
-    # 'RangeShardMap' is the unique identifier for the range shard map.  
-    $ShardMap = New-RangeShardMap 
-    -KeyType $([int]) 
-    -RangeShardMapName 'RangeShardMap' 
-    -ShardMapManager $ShardMapManager 
+### <a name="option-1-create-a-shard-map-for-a-list-mapping"></a>Option 1: create a shard map for a list mapping
 
-### <a name="option-3-list-mappings-on-an-individual-database"></a>Alternativ 3: lista mappningar i en enskild databas
-När du ställer in det här mönstret måste du också skapa en List karta som visas i steg 2, alternativ 1.
+Create a shard map using the ShardMapManager object.
 
-## <a name="step-3-prepare-individual-shards"></a>Steg 3: förbereda enskilda Shards
-Lägg till varje Shard (databas) till Shard Map Manager. Detta förbereder de enskilda databaserna för lagring av mappnings information. Kör den här metoden på varje Shard.
+```powershell
+# $ShardMapManager is the shard map manager object
+$ShardMap = New-ListShardMap -KeyType $([int]) -ListShardMapName 'ListShardMap' -ShardMapManager $ShardMapManager
+```
 
-    Add-Shard 
-    -ShardMap $ShardMap 
-    -SqlServerName '<shard_server_name>' 
-    -SqlDatabaseName '<shard_database_name>'
-    # The $ShardMap is the shard map created in step 2.
+### <a name="option-2-create-a-shard-map-for-a-range-mapping"></a>Option 2: create a shard map for a range mapping
 
+To utilize this mapping pattern, tenant ID values needs to be continuous ranges, and it is acceptable to have gap in the ranges by skipping the range when creating the databases.
 
-## <a name="step-4-add-mappings"></a>Steg 4: Lägg till mappningar
-Tillägget av mappningar beror på vilken typ av Shard-karta du har skapat. Om du har skapat en List karta lägger du till List mappningar. Om du har skapat en intervall karta lägger du till intervall mappningar.
+```powershell
+# $ShardMapManager is the shard map manager object
+# 'RangeShardMap' is the unique identifier for the range shard map.  
+$ShardMap = New-RangeShardMap -KeyType $([int]) -RangeShardMapName 'RangeShardMap' -ShardMapManager $ShardMapManager
+```
 
-### <a name="option-1-map-the-data-for-a-list-mapping"></a>Alternativ 1: mappa data för en List mappning
-Mappa data genom att lägga till en List mappning för varje klient.  
+### <a name="option-3-list-mappings-on-an-individual-database"></a>Option 3: List mappings on an individual database
 
-    # Create the mappings and associate it with the new shards 
-    Add-ListMapping 
-    -KeyType $([int]) 
-    -ListPoint '<tenant_id>' 
-    -ListShardMap $ShardMap 
-    -SqlServerName '<shard_server_name>' 
-    -SqlDatabaseName '<shard_database_name>' 
+Setting up this pattern also requires creation of a list map as shown in step 2, option 1.
 
-### <a name="option-2-map-the-data-for-a-range-mapping"></a>Alternativ 2: mappa data för en intervall mappning
-Lägg till intervall mappningar för alla klient-ID-intervall – databas associationer:
+## <a name="step-3-prepare-individual-shards"></a>Step 3: Prepare individual shards
 
-    # Create the mappings and associate it with the new shards 
-    Add-RangeMapping 
-    -KeyType $([int]) 
-    -RangeHigh '5' 
-    -RangeLow '1' 
-    -RangeShardMap $ShardMap 
-    -SqlServerName '<shard_server_name>' 
-    -SqlDatabaseName '<shard_database_name>' 
+Add each shard (database) to the shard map manager. This prepares the individual databases for storing mapping information. Execute this method on each shard.
 
+```powershell
+Add-Shard -ShardMap $ShardMap -SqlServerName '<shard_server_name>' -SqlDatabaseName '<shard_database_name>'
+# The $ShardMap is the shard map created in step 2.
+```
 
-### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-an-individual-database"></a>Steg 4 alternativ 3: mappa data för flera klienter i en enskild databas
-Kör Add-ListMapping (alternativ 1) för varje klient. 
+## <a name="step-4-add-mappings"></a>Step 4: Add mappings
 
-## <a name="checking-the-mappings"></a>Kontrollerar mappningarna
-Information om befintliga Shards och mappningar som är associerade med dem kan frågas med hjälp av följande kommandon:  
+The addition of mappings depends on the kind of shard map you created. If you created a list map, you add list mappings. If you created a range map, you add range mappings.
 
-    # List the shards and mappings 
-    Get-Shards -ShardMap $ShardMap 
-    Get-Mappings -ShardMap $ShardMap 
+### <a name="option-1-map-the-data-for-a-list-mapping"></a>Option 1: map the data for a list mapping
+
+Map the data by adding a list mapping for each tenant.  
+
+```powershell
+# Create the mappings and associate it with the new shards
+Add-ListMapping -KeyType $([int]) -ListPoint '<tenant_id>' -ListShardMap $ShardMap -SqlServerName '<shard_server_name>' -SqlDatabaseName '<shard_database_name>'
+```
+
+### <a name="option-2-map-the-data-for-a-range-mapping"></a>Option 2: map the data for a range mapping
+
+Add the range mappings for all the tenant ID range - database associations:
+
+```powershell
+# Create the mappings and associate it with the new shards
+Add-RangeMapping -KeyType $([int]) -RangeHigh '5' -RangeLow '1' -RangeShardMap $ShardMap -SqlServerName '<shard_server_name>' -SqlDatabaseName '<shard_database_name>'
+```
+
+### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-an-individual-database"></a>Step 4 option 3: map the data for multiple tenants on an individual database
+
+For each tenant, run the Add-ListMapping (option 1).
+
+## <a name="checking-the-mappings"></a>Checking the mappings
+
+Information about the existing shards and the mappings associated with them can be queried using following commands:  
+
+```powershell
+# List the shards and mappings
+Get-Shards -ShardMap $ShardMap
+Get-Mappings -ShardMap $ShardMap
+```
 
 ## <a name="summary"></a>Sammanfattning
-När du har slutfört installationen kan du börja använda Elastic Database klient biblioteket. Du kan också använda [data beroende routning](sql-database-elastic-scale-data-dependent-routing.md) och [Shard fråga](sql-database-elastic-scale-multishard-querying.md).
+
+Once you have completed the setup, you can begin to use the Elastic Database client library. You can also use [data-dependent routing](sql-database-elastic-scale-data-dependent-routing.md) and [multi-shard query](sql-database-elastic-scale-multishard-querying.md).
 
 ## <a name="next-steps"></a>Nästa steg
-Hämta PowerShell-skripten från [Azure SQL DB-Elastic Database tools-skript](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
-Verktygen finns också på GitHub: [Azure/Elastic-DB-tools](https://github.com/Azure/elastic-db-tools).
+Get the PowerShell scripts from [Azure SQL DB-Elastic Database tools scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
-Använd verktyget Dela och slå samman för att flytta data till eller från en modell med flera klienter till en enda klient modell. Se [verktyget Dela sammanslagning](sql-database-elastic-scale-get-started.md).
+The tools are also on GitHub: [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools).
+
+Use the split-merge tool to move data to or from a multi-tenant model to a single tenant model. See [Split merge tool](sql-database-elastic-scale-get-started.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
+
 Information om vanliga mönster för dataarkitekturen i SaaS-databasprogram (Software-as-a-Service) med flera klienter finns i [Designmönster för SaaS-program med flera klienter i Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-## <a name="questions-and-feature-requests"></a>Frågor och funktions begär Anden
-Om du har frågor kan du använda [SQL Database forum](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) och för funktions förfrågningar, lägga till dem i [forumet för SQL Database feedback](https://feedback.azure.com/forums/217321-sql-database/).
+## <a name="questions-and-feature-requests"></a>Questions and Feature Requests
+
+For questions, use the [SQL Database forum](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) and for feature requests, add them to the [SQL Database feedback forum](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-convert-to-use-elastic-tools/listmapping.png
 [2]: ./media/sql-database-elastic-convert-to-use-elastic-tools/rangemapping.png
 [3]: ./media/sql-database-elastic-convert-to-use-elastic-tools/multipleonsingledb.png
-

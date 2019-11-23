@@ -1,6 +1,6 @@
 ---
-title: Självstudie – bevilja en användare åtkomst till Azure-resurser med RBAC och Resource Manager-mall | Microsoft Docs
-description: Lär dig att ge en användaråtkomst till Azure-resurser med hjälp av rollbaserad åtkomstkontroll (RBAC) med hjälp av Azure Resource Manager-mall.
+title: Tutorial - Grant a user access to Azure resources using RBAC and Resource Manager template
+description: Learn how to grant a user access to Azure resources using role-based access control (RBAC) by using Azure Resource Manager template in this tutorial.
 services: role-based-access-control,azure-resource-manager
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 05/15/2019
 ms.author: rolyon
-ms.openlocfilehash: edb20221862e6439b3bc574995f4037cbc95f8f9
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: ed143f85b4372348baa1d74b4ec7a7447943a74f
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67668859"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74418484"
 ---
-# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-resource-manager-template"></a>Självstudier: Ge en användaråtkomst till Azure-resurser med RBAC och Resource Manager-mall
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-resource-manager-template"></a>Tutorial: Grant a user access to Azure resources using RBAC and Resource Manager template
 
-[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är metoden som du använder när du hanterar åtkomst till Azure-resurser. I den här självstudien får du skapa en resursgrupp och ge en användarbehörighet att skapa och hantera virtuella datorer i resursgruppen. Den här självstudien fokuserar på processen för att distribuera en Resource Manager-mall för att bevilja åtkomst. Mer information om hur du utvecklar Resource Manager-mallar finns i [Resource Manager-dokumentation](/azure/azure-resource-manager/) och [mallreferensen](/azure/templates/microsoft.authorization/allversions
+[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är det du använder för att hantera åtkomst till Azure-resurser. In this tutorial, you create a resource group and grant a user access to create and manage virtual machines in the resource group. This tutorial focuses on the process of deploying a Resource Manager template to grant the access. For more information on developing Resource Manager templates, see [Resource Manager documentation](/azure/azure-resource-manager/) and the [template reference](/azure/templates/microsoft.authorization/allversions
 ).
 
 I den här guiden får du lära dig att:
@@ -34,17 +34,17 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Om du vill lägga till och ta bort rolltilldelningar, måste du ha:
+To add and remove role assignments, you must have:
 
-* `Microsoft.Authorization/roleAssignments/write` och `Microsoft.Authorization/roleAssignments/delete` behörigheter, till exempel [administratör för användaråtkomst](built-in-roles.md#user-access-administrator) eller [ägare](built-in-roles.md#owner)
+* `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
 
 ## <a name="grant-access"></a>Bevilja åtkomst
 
-Den mall som användes i den här snabbstarten är från [Azures snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-rbac-builtinrole-resourcegroup/). Fler Azure auktorisering relaterade mallar hittar [här](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization).
+The template used in this quickstart is from [Azure quickstart templates](https://azure.microsoft.com/resources/templates/101-rbac-builtinrole-resourcegroup/). More Azure authorization related templates can be found [here](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization).
 
-Om du vill distribuera mallen, Välj **prova** att öppna Azure Cloud shell och klistra in följande PowerShell-skript i fönstret shell. Om du vill klistra in koden, högerklicka på shell-fönstret och välj sedan **klistra in**.
+To deploy the template, select **Try it** to open the Azure Cloud shell, and then paste the following PowerShell script into the shell window. To paste the code, right-click the shell window and then select **Paste**.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
@@ -63,15 +63,15 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ## <a name="validate-the-deployment"></a>Verifiera distributionen
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Öppna resursgruppen som skapades i föregående procedur. Standardnamnet är projektnamnet på med **rg** sist.
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Open the resource group created in the last procedure. The default name is the project name with **rg** appended.
 1. Välj **Åtkomstkontroll (IAM)** från den vänstra menyn.
-1. Välj **rolltilldelningar**. 
-1. I **namn**, ange den e-postadress som du angav i föregående procedur. Du bör se användare med e-postadressen har den **virtuell Datordeltagare** roll.
+1. Välj **Rolltilldelningar**. 
+1. In **Name**, enter the email address you typed in the last procedure. You shall see the user with the email address has the **Virtual Machine Contributor** role.
 
 ## <a name="clean-up"></a>Rensa
 
-Om du vill ta bort resursgruppen som skapades i föregående procedur, Välj **prova** att öppna Azure Cloud shell och klistra in följande PowerShell-skript i fönstret shell.
+To remove the resource group created in the last procedure, select **Try it** to open the Azure Cloud shell, and then paste the following PowerShell script into the shell window.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a same project name you used in the last procedure"
@@ -83,4 +83,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie: Ge en användare åtkomst till Azure-resurser med RBAC och Azure PowerShell](tutorial-role-assignments-user-powershell.md)
+> [Tutorial: Grant a user access to Azure resources using RBAC and Azure PowerShell](tutorial-role-assignments-user-powershell.md)

@@ -1,7 +1,7 @@
 ---
-title: 'Självstudie: Logga flöde för nätverks trafik till och från en virtuell dator – Azure Portal'
+title: Tutorial - Log network traffic flow to and from a VM using the Azure portal
 titleSuffix: Azure Network Watcher
-description: Lär dig hur du loggar nätverkstrafik till och från en virtuell dator med funktionen NSG-flödesloggar i Network Watcher.
+description: In this tutorial, learn how to log network traffic flow to and from a VM using Network Watcher's NSG flow logs capability.
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -18,16 +18,16 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 53cfb2e46b642def12bfc6aea2f35c245e8427aa
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: a5d600e761ce3c3cebbe155c6be7e0f5a377eb32
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277991"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419627"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Självstudier: Logga nätverkstrafik till och från en virtuell dator med hjälp av Azure Portal
 
-Med en nätverkssäkerhetsgrupp (NSG) kan du filtrera inkommande trafik till och utgående trafik från en virtuell dator (VM). Du kan logga nätverkstrafiken som skickas via en NSG med funktionen NSG-flödesloggar i Network Watcher. I den här självstudiekursen får du lära du dig att:
+Med en nätverkssäkerhetsgrupp (NSG) kan du filtrera inkommande trafik till och utgående trafik från en virtuell dator (VM). Du kan logga nätverkstrafiken som skickas via en NSG med funktionen NSG-flödesloggar i Network Watcher. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en virtuell dator med en nätverkssäkerhetsgrupp
@@ -93,31 +93,31 @@ Providern **Microsoft.Insights** krävs för NSG-flödesloggning. Registrera pro
     | Plats       | Välj **USA, östra**                                           |
     | Resursgrupp | Välj **Använd befintlig** och sedan **myResourceGroup**. |
 
-    Det tar ungefär en minut att skapa lagringskontot. Fortsätt inte med de återstående stegen förrän lagringskontot har skapats. Om du använder ett befintligt lagringskonto i stället för att skapa ett nytt väljer du ett lagringskonto där **Alla nätverk** (standard) har valts för **Brandväggar och virtuella nätverk** under **Inställningar** för lagringskontot. I samtliga fall måste lagrings kontot finnas i samma region som NSG. 
+    Det tar ungefär en minut att skapa lagringskontot. Fortsätt inte med de återstående stegen förrän lagringskontot har skapats. Om du använder ett befintligt lagringskonto i stället för att skapa ett nytt väljer du ett lagringskonto där **Alla nätverk** (standard) har valts för **Brandväggar och virtuella nätverk** under **Inställningar** för lagringskontot. In all cases, the storage account must be in the same region as the NSG. 
     
     > [!NOTE]
-    > Även om Microsoft. Insight och Microsoft. Networking-leverantörer stöds för närvarande som [betrodda Microsoft-tjänster för Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services), är NSG Flow-loggar fortfarande inte fullständigt installerade. Om du vill aktivera NSG flödes loggning måste **alla nätverk** väljas enligt ovan.
+    > While Microsoft.Insight and Microsoft.Network providers are currently supported as [trusted Microsoft Services for Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services), NSG Flow logs is still not fully onboarded. To enable NSG Flow logging, **All Networks** must be selected as mentioned above.
     
-4. Välj **Alla tjänster** längst upp till vänster på portalen. Skriv **Network Watcher** i *filterrutan*. När **Network Watcher** visas i sökresultatet väljer du posten.
+4. Välj **Alla tjänster** längst upp till vänster på portalen. Skriv *Network Watcher* i **filterrutan**. När **Network Watcher** visas i sökresultatet väljer du posten.
 5. Välj **NSG-flödesloggar** under **LOGGAR**, som du ser i följande bild:
 
     ![NSG:er](./media/network-watcher-nsg-flow-logging-portal/nsgs.png)
 
 6. Välj nätverkssäkerhetsgruppen **myVm-nsg** i listan med nätverkssäkerhetsgrupper.
 7. Välj **På** under **Flödesloggsinställningar**.
-8. Välj version av flödesloggning. Version 2 innehåller statistik för flödes-session (byte och paket)
+8. Välj version av flödesloggning. Version 2 contains flow-session statistics (Bytes and Packets)
 
-   ![Välj flödes logg version](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
+   ![Select flow Logs version](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
 
 9. Välj lagringskontot som du skapade i steg 3.
    > [!NOTE]
-   > NSG flödes loggar fungerar inte med lagrings konton om:
-   > * Lagrings kontona har en brand vägg aktive rad.
-   > * [Hierarkiskt namn område](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) har Aktiver ATS för lagrings kontona.
-1. Välj **Alla tjänster** längst upp till vänster på portalen. Skriv **Network Watcher** i *filterrutan*. När **Network Watcher** visas i sökresultatet väljer du posten.
+   > NSG Flow Logs do not work with storage accounts if:
+   > * The storage accounts have a firewall enabled.
+   > * The storage accounts have [hierarchical namespace](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) enabled.
+1. Välj **Alla tjänster** längst upp till vänster på portalen. Skriv *Network Watcher* i **filterrutan**. När **Network Watcher** visas i sökresultatet väljer du posten.
 10. Ange **Bevarande (dagar)** till 5 och välj sedan **Spara**.
     > [!IMPORTANT]
-    > För närvarande finns det ett problem där [nätverks säkerhets grupps flödes loggar (NSG)](network-watcher-nsg-flow-logging-overview.md) för Network Watcher inte automatiskt tas bort från Blob Storage utifrån inställningar för bevarande principer. Om du har en befintlig bevarande princip som inte är noll rekommenderar vi att du regelbundet tar bort de lagrings blobbar som håller på att kvarhållas för att undvika kostnader. Mer information om hur du tar bort NSG Flow logg Storage-bloggen finns i [ta bort NSG Flow logg Storage blobs](network-watcher-delete-nsg-flow-log-blobs.md).
+    > Currently, there’s an issue where [network security group (NSG) flow logs](network-watcher-nsg-flow-logging-overview.md) for Network Watcher are not automatically deleted from Blob storage based on retention policy settings. If you have an existing non-zero retention policy, we recommend that you periodically delete the storage blobs that are past their retention period to avoid any incurring charges. For more information about how to delete the NSG flow log storage blog, see [Delete NSG flow log storage blobs](network-watcher-delete-nsg-flow-log-blobs.md).
 
 ## <a name="download-flow-log"></a>Ladda ned flödeslogg
 
@@ -127,10 +127,10 @@ Providern **Microsoft.Insights** krävs för NSG-flödesloggning. Registrera pro
    ![Ladda ned flödesloggar](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
 3. Välj lagringskontot som du konfigurerade i steg 2 i [Aktivera NSG-flödesloggar](#enable-nsg-flow-log).
-4. Under **BLOB service**väljer du **blobbar**och väljer sedan behållaren **Insights-logs-networksecuritygroupflowevent** .
-5. I behållaren navigerar du till mapphierarkin tills du kommer till en PT1H. JSON-fil, som du ser i bilden nedan. Loggfiler skrivs till en mapphierarki som följer följande namngivnings konvention: https://{storageAccountName}. blob. Core. Windows. net/Insights-logs-networksecuritygroupflowevent/resourceId =/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y = {Year}/m = {månad}/d = {Day}/h = {Hour}/m = 00/macAddress = {macAddress}/PT1H.json
+4. Under **Blob service**, select **Blobs**, and then select the **insights-logs-networksecuritygroupflowevent** container.
+5. In the container, navigate the folder hierarchy until you get to a PT1H.json file, as shown in the picture that follows. Log files are written to a folder hierarchy that follows the following naming convention: https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 
-   ![Flödes logg](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
+   ![Flow log](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
 
 6. Välj **...** till höger om PT1H.json-filen och välj **Ladda ned**.
 

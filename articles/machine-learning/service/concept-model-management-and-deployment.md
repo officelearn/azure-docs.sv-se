@@ -1,7 +1,7 @@
 ---
-title: 'MLOps: ML modell hantering'
+title: 'MLOps: ML model management'
 titleSuffix: Azure Machine Learning
-description: 'Lär dig mer om modell hantering med Azure Machine Learning (MLOps). Distribuera, hantera och övervaka dina modeller för att kontinuerligt förbättra dem. '
+description: 'Learn about model management with Azure Machine Learning (MLOps). Deploy, manage, and monitor your models to continuously improve them. '
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,166 +9,160 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: jpe316
 ms.author: jordane
-ms.date: 11/04/2019
+ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 715752072a14a3220d17d0dbda2efd0786a83de4
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 19552747db427bf780a140c15f11bed322d1f867
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74271261"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420082"
 ---
-# <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: modell hantering, distribution och övervakning med Azure Machine Learning
+# <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: model management, deployment, and monitoring with Azure Machine Learning
 
-I den här artikeln får du lära dig hur du använder Azure Machine Learning för att hantera livs cykeln för dina modeller. Azure Machine Learning använder en metod för Machine Learning åtgärder (MLOps) som förbättrar kvaliteten och konsekvensen för dina maskin inlärnings lösningar. 
+In this article, learn about how to use Azure Machine Learning to manage the lifecycle of your models. Azure Machine Learning uses a Machine Learning Operations (MLOps) approach. MLOps improves the quality and consistency of your machine learning solutions. 
 
-Azure Machine Learning tillhandahåller följande MLOps-funktioner:
+Azure Machine Learning provides the following MLOps capabilities:
 
-- **Distribuera ML-projekt från var som helst**
-- **Övervaka ml-program för operativa och ml-relaterade problem** – jämför modell inmatningar mellan utbildning och härledning, utforska modell specifika mått och tillhandahålla övervakning och aviseringar på din ml-infrastruktur.
-- **Samla in de data som krävs för att upprätta en Gransknings logg från slut punkt till slut punkt i ml**, inklusive vem som publicerar modeller, varför ändringar görs och när modeller har distribuerats eller använts i produktionen.
-- **Automatisera livs cykeln från slut punkt till slut punkt med Azure Machine Learning-och Azure-DevOps** för att ofta uppdatera modeller, testa nya modeller och kontinuerligt distribuera nya ml-modeller tillsammans med andra program och tjänster.
+- **Create reproducible ML pipelines**. Pipelines allow you to define repeatable and reusable steps for your data preparation, training, and scoring processes.
+- **Register, package, and deploy models from anywhere** and track associated metadata required to use the model.
+- **Capture the governance data required for capturing the end-to-end ML lifecycle**, including who is publishing models, why changes are being made, and when models were deployed or used in production.
+- **Notify and alert on events in the ML lifecycle** such as experiment completion, model registration, model deployment, and data drift detection.
+- **Monitor ML applications for operational and ML-related issues**. Compare model inputs between training and inference, explore model-specific metrics, and provide monitoring and alerts on your ML infrastructure.
+- **Automate the end-to-end ML lifecycle with Azure Machine Learning and Azure DevOps** to frequently update models, test new models, and continuously roll out new ML models alongside your other applications and services.
 
-Titta på följande video om du vill höra mer om begreppen bakom MLOps och hur de gäller för Azure Machine Learning.
+## <a name="create-reproducible-ml-pipelines"></a>Create reproducible ML pipelines
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GX]
+Use ML pipelines from Azure Machine Learning to stitch together all of the steps involved in your model training process.
 
-## <a name="deploy-ml-projects-from-anywhere"></a>Distribuera ML-projekt från var som helst
+An ML pipeline can contain steps from data preparation to feature extraction to hyperparameter tuning to model evaluation. For more information, see [ML pipelines](concept-ml-pipelines.md).
 
-### <a name="turn-your-training-process-into-a-reproducible-pipeline"></a>Förvandla din utbildnings process till en återare pipeline
-Använd ML-pipelines från Azure Machine Learning för att häfta ihop alla steg som ingår i din modell inlärnings process, från förberedelse av data till funktions extrahering för att justera en modell utvärdering.
+## <a name="register-package-and-deploy-models-from-anywhere"></a>Register, package, and deploy models from anywhere
 
-Mer information finns i [ml pipelines](concept-ml-pipelines.md).
+### <a name="register-and-track-ml-models"></a>Register and track ML models
 
-### <a name="register-and-track-ml-models"></a>Registrera och spåra ML-modeller
-
-Med modell registreringen kan du lagra och version av dina modeller i Azure-molnet i din arbets yta. Med modell registret kan du enkelt organisera och hålla koll på dina utbildade modeller.
-
-> [!TIP]
-> En registrerad modell är en logisk behållare för en eller flera filer som utgör din modell. Om du till exempel har en modell som lagras i flera filer kan du registrera dem som en enskild modell i Azure Machine Learning arbets ytan. Efter registreringen kan du ladda ned eller distribuera den registrerade modellen och ta emot alla filer som har registrerats.
- 
-Registrerade modeller identifieras med namn och version. Varje gång som du registrerar en modell med samma namn som en befintlig ökas registret versionen. Du kan också ange ytterligare metadatataggar under registreringen som kan användas när du söker för modeller. Azure Machine Learning stöder alla modeller som kan läsas in med python-3.5.2 eller högre.
+Model registration allows you to store and version your models in the Azure cloud, in your workspace. The model registry makes it easy to organize and keep track of your trained models.
 
 > [!TIP]
-> Du kan också registrera modeller som har tränats utanför Azure Machine Learning.
+> A registered model is a logical container for one or more files that make up your model. For example, if you have a model that is stored in multiple files, you can register them as a single model in your Azure Machine Learning workspace. After registration, you can then download or deploy the registered model and receive all the files that were registered.
 
-Du kan inte ta bort en registrerad modell som används i en aktiv distribution.
-Mer information finns i avsnittet registrera modell i [Distribuera modeller](how-to-deploy-and-where.md#registermodel).
+Registered models are identified by name and version. Each time you register a model with the same name as an existing one, the registry increments the version. Additional metadata tags can be provided during registration. These tags are then used when searching for a model. Azure Machine Learning supports any model that can be loaded using Python 3.5.2 or higher.
 
-### <a name="package-and-debug-models"></a>Paket-och fel söknings modeller
+> [!TIP]
+> You can also register models trained outside Azure Machine Learning.
 
-Innan du distribuerar en modell till produktion paketeras den i en Docker-avbildning. I de flesta fall sker bild skapande automatiskt i bakgrunden under distributionen. För avancerade scenarier kan du manuellt ange avbildningen.
+You can't delete a registered model that is being used in an active deployment.
+For more information, see the register model section of [Deploy models](how-to-deploy-and-where.md#registermodel).
 
-Om du stöter på problem med distributionen kan du distribuera i din lokala utvecklings miljö för fel sökning och fel sökning.
+### <a name="package-and-debug-models"></a>Package and debug models
 
-Mer information finns i [Distribuera modeller](how-to-deploy-and-where.md#registermodel) och [Felsöka distributioner](how-to-troubleshoot-deployment.md).
+Before deploying a model into production, it is packaged into a Docker image. In most cases, image creation happens automatically in the background during deployment. You can manually specify the image.
 
-### <a name="validate-and-profile-models"></a>Validera och profilera modeller
+If you run into problems with the deployment, you can deploy on your local development environment for troubleshooting and debugging.
 
-Azure Machine Learning kan använda profilering för att fastställa de idealiska processor-och minnes inställningar som ska användas när du distribuerar din modell. Modell valideringen sker som en del av den här processen, med hjälp av data som du anger för profilerings processen.
+For more information, see [Deploy models](how-to-deploy-and-where.md#registermodel) and [Troubleshooting deployments](how-to-troubleshoot-deployment.md).
 
-### <a name="convert-and-optimize-models"></a>Omvandla och optimera modeller
+### <a name="validate-and-profile-models"></a>Validate and profile models
 
-Att konvertera din modell till [Open neurala Network Exchange](https://onnx.ai) (ONNX) kan förbättra prestandan. I genomsnitt kan konvertering till ONNX ge en prestanda ökning på 2 gånger.
+Azure Machine Learning can use profiling to determine the ideal CPU and memory settings to use when deploying your model. Model validation happens as part of this process, using data that you supply for the profiling process.
 
-Mer information om ONNX med Azure Machine Learning finns i artikeln [skapa och påskynda ml-modeller](concept-onnx.md) .
+### <a name="convert-and-optimize-models"></a>Convert and optimize models
 
-### <a name="use-models"></a>Använda modeller
+Converting your model to [Open Neural Network Exchange](https://onnx.ai) (ONNX) may improve performance. On average, converting to ONNX can yield a 2x performance increase.
 
-Utbildade maskin inlärnings modeller kan distribueras som webb tjänster i molnet eller lokalt i din utvecklings miljö. Du kan också distribuera modeller till Azure IoT Edge enheter. Distributioner kan använda CPU-, GPU-eller FPGA (Field-programmerbara grind mat ris) för inferencing. Du kan också använda modeller från Power BI.
+For more information on ONNX with Azure Machine Learning, see the [Create and accelerate ML models](concept-onnx.md) article.
 
-När du använder en modell som en webb tjänst eller IoT Edge enhet kan du ange följande objekt:
+### <a name="use-models"></a>Use models
 
-* Den eller de modeller som används för att räkna upp data som skickas till tjänsten/enheten.
-* Ett Entry-skript. Det här skriptet accepterar begär Anden, använder modeller för att räkna data och returnera ett svar.
-* En Conda miljö fil som beskriver de beroenden som krävs av modell (er) och registrerings skriptet.
-* Ytterligare till gångar, till exempel text, data osv. som krävs av modell (er) och registrerings skript.
+Trained machine learning models are deployed as web services in the cloud or locally. You can also deploy models to Azure IoT Edge devices. Deployments use CPU, GPU, or field-programmable gate arrays (FPGA) for inferencing. You can also use models from Power BI.
 
-Dessa till gångar paketeras i en Docker-avbildning och distribueras som en webb tjänst eller IoT Edge modul.
+When using a model as a web service or IoT Edge device, you provide the following items:
 
-Alternativt kan du använda följande parametrar för att ytterligare finjustera distributionen:
+* The model(s) that are used to score data submitted to the service/device.
+* An entry script. This script accepts requests, uses the model(s) to score the data, and return a response.
+* A conda environment file that describes the dependencies required by the model(s) and entry script.
+* Any additional assets such as text, data, etc. that are required by the model(s) and entry script.
 
-* Aktivera GPU: används för att aktivera GPU-stöd i Docker-avbildningen. Avbildningen måste användas på Microsoft Azure tjänster som Azure Container Instances, Azure Kubernetes service, Azure Machine Learning Compute eller Azure Virtual Machines.
-* Ytterligare Docker-fil steg: en fil som innehåller ytterligare Docker-steg att köra när du skapar Docker-avbildningen.
-* Bas avbildning: en anpassad bild som ska användas som bas avbildning. Om du inte använder en anpassad avbildning tillhandahålls bas avbildningen av Azure Machine Learning.
+You also provide the configuration of the target deployment platform. For example, the VM family type, available memory, and number of cores when deploying to Azure Kubernetes Service.
 
-Du anger också konfigurationen för mål distributions plattformen. Till exempel typ av VM-familj, tillgängligt minne och antal kärnor vid distribution till Azure Kubernetes-tjänsten.
+When the image is created, components required by Azure Machine Learning are also added. For example, assets needed to run the web service and interact with IoT Edge.
 
-När avbildningen skapas, läggs även komponenter som krävs av Azure Machine Learning. Till exempel till gångar som behövs för att köra webb tjänsten och interagera med IoT Edge.
+#### <a name="batch-scoring"></a>Batchbedömning
+Batch scoring is supported through ML pipelines. For more information, see [Batch predictions on big data](how-to-run-batch-predictions.md).
 
-> [!NOTE]
-> Du kan inte ändra eller ändra webb servern eller IoT Edge komponenter som används i Docker-avbildningen. Azure Machine Learning använder en webb Server konfiguration och IoT Edge komponenter som testas och stöds av Microsoft.
+#### <a name="real-time-web-services"></a>Real-time web services
 
-#### <a name="web-service"></a>Webbtjänst
-
-Du kan använda dina modeller i **webb tjänster** med följande beräknings mål:
+You can use your models in **web services** with the following compute targets:
 
 * Azure Container-instans
 * Azure Kubernetes Service
-* Lokal utvecklings miljö
+* Local development environment
 
-Om du vill distribuera modellen som en webb tjänst måste du tillhandahålla följande objekt:
+To deploy the model as a web service, you must provide the following items:
 
-* Modellernas eller ensemblens modell.
-* Beroenden som krävs för att använda modellen. Till exempel ett skript som accepterar begär Anden och anropar-modellen, Conda-beroenden osv.
-* Distributions konfiguration som beskriver hur och var modellen ska distribueras.
+* The model or ensemble of models.
+* Dependencies required to use the model. For example, a script that accepts requests and invokes the model, conda dependencies, etc.
+* Deployment configuration that describes how and where to deploy the model.
 
-Mer information finns i [Distribuera modeller](how-to-deploy-and-where.md).
+For more information, see [Deploy models](how-to-deploy-and-where.md).
 
-#### <a name="iot-edge-devices"></a>IoT Edge enheter
+#### <a name="iot-edge-devices"></a>IoT Edge devices
 
-Du kan använda modeller med IoT-enheter via **Azure IoT Edge moduler**. IoT Edge moduler distribueras till en maskin varu enhet, vilket möjliggör en härledning eller modell beräkning på enheten.
+You can use models with IoT devices through **Azure IoT Edge modules**. IoT Edge modules are deployed to a hardware device, which enables inference, or model scoring, on the device.
 
-Mer information finns i [Distribuera modeller](how-to-deploy-and-where.md).
+For more information, see [Deploy models](how-to-deploy-and-where.md).
 
-### <a name="analytics"></a>Analys
+### <a name="analytics"></a>Analyser
 
-Microsoft Power BI stöder användning av Machine Learning-modeller för data analys. Mer information finns i [Azure Machine Learning integration i Power BI (för hands version)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
-
-
-## <a name="monitor-for-operational--ml-issues"></a>Övervakare för drift & ML-problem
-
-Med övervakning kan du förstå vilka data som skickas till din modell och vilka förutsägelser som returneras.
-
-Den här informationen hjälper dig att förstå hur modellen används. Insamlade indata kan också vara användbara i träna framtida versioner av modellen.
-
-Mer information finns i [så här aktiverar du modell data insamling](how-to-enable-data-collection.md).
+Microsoft Power BI supports using machine learning models for data analytics. For more information, see [Azure Machine Learning integration in Power BI (preview)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
 
-## <a name="audit-trail-of-the-ml-lifecycle"></a>Gransknings historik för ML-livscykel
+## <a name="capture-the-governance-data-required-for-capturing-the-end-to-end-ml-lifecycle"></a>Capture the governance data required for capturing the end-to-end ML lifecycle
 
-Azure ML ger dig möjlighet att spåra gransknings historiken från slut punkt till slut punkt för alla dina ML-tillgångar. Mer specifikt:
+Azure ML gives you the capability to track the end-to-end audit trail of all of your ML assets. Närmare bestämt:
 
-- Azure ML [integreras med git](how-to-set-up-training-targets.md#gitintegration) för att spåra information som lagrings plats/Branch/bekräfta din kod kommer från.
-- Med [Azure ml-datauppsättningar](how-to-create-register-datasets.md) kan du spåra och versions data.
-- I Azure ML-körnings historik lagras en ögonblicks bild av koden, data och beräkning som används för att träna en modell.
-- Azure ML Model-registret fångar alla metadata som är associerade med din modell (vilket experiment tränade den, där den distribueras, om distributionerna är felfria).
+- Azure ML [integrates with Git](how-to-set-up-training-targets.md#gitintegration) to track information on which repository / branch / commit your code came from.
+- [Azure ML Datasets](how-to-create-register-datasets.md) help you track, profile, and version data. 
+- Azure ML Run history stores a snapshot of the code, data, and compute used to train a model.
+- The Azure ML Model Registry captures all of the metadata associated with your model (which experiment trained it, where it is being deployed, if its deployments are healthy).
 
-## <a name="automate-the-ml-lifecycle"></a>Automatisera ML-livscykeln 
+## <a name="notify-automate-and-alert-on-events-in-the-ml-lifecycle"></a>Notify, automate, and alert on events in the ML lifecycle
+Azure ML publishes key events to Azure EventGrid, which can be used to notify and automate on events in the ML lifecycle. For more information, please see [this document](how-to-use-event-grid.md).
 
-Du kan använda GitHub och Azure-pipelines för att skapa en kontinuerlig integrerings process som tågen en modell. När en data expert kontrollerar en ändring i git-lagrings platsen för ett projekt i ett typiskt scenario startar Azure pipelinen en tränings körning. Resultaten av körningen kan sedan kontrol leras för att se prestanda egenskaperna för den tränade modellen. Du kan också skapa en pipeline som distribuerar modellen som en webb tjänst.
+## <a name="monitor-for-operational--ml-issues"></a>Monitor for operational & ML issues
 
-Med [Azure Machine Learning-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml) blir det enklare att arbeta med Azure-pipeliner. Den ger följande förbättringar av Azure-pipeliner:
+Monitoring enables you to understand what data is being sent to your model, and the predictions that it returns.
 
-* Aktiverar val av arbets yta när du definierar en tjänst anslutning.
-* Gör att lanserings pipelines kan utlösas av utbildade modeller som skapats i en utbildnings pipeline.
+This information helps you understand how your model is being used. The collected input data may also be useful in training future versions of the model.
 
-Mer information om hur du använder Azure-pipeliner med Azure Machine Learning finns i artikeln [kontinuerlig integrering och distribution av ml-modeller med Azure pipelines](/azure/devops/pipelines/targets/azure-machine-learning) och [Azure Machine Learning MLOps](https://aka.ms/mlops) -lagringsplatsen.
+For more information, see [How to enable model data collection](how-to-enable-data-collection.md).
+
+
+## <a name="automate-the-ml-lifecycle"></a>Automate the ML lifecycle 
+
+You can use GitHub and Azure Pipelines to create a continuous integration process that trains a model. In a typical scenario, when a Data Scientist checks a change into the Git repo for a project, the Azure Pipeline will start a training run. The results of the run can then be inspected to see the performance characteristics of the trained model. You can also create a pipeline that deploys the model as a web service.
+
+The [Azure Machine Learning extension](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml) makes it easier to work with Azure Pipelines. It provides the following enhancements to Azure Pipelines:
+
+* Enables workspace selection when defining a service connection.
+* Enables release pipelines to be triggered by trained models created in a training pipeline.
+
+For more information on using Azure Pipelines with Azure Machine Learning, see the [Continuous integration and deployment of ML models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning) article and the [Azure Machine Learning MLOps](https://aka.ms/mlops) repository.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer genom att läsa och utforska följande resurser:
+Learn more by reading and exploring the following resources:
 
-+ [Hur & du distribuerar modeller](how-to-deploy-and-where.md) med Azure Machine Learning
++ [How & where to deploy models](how-to-deploy-and-where.md) with Azure Machine Learning
 
-+ [Självstudie: Distribuera en bild klassificerings modell i Aci](tutorial-deploy-models-with-aml.md).
++ [Tutorial: Deploy an image classification model in ACI](tutorial-deploy-models-with-aml.md).
 
-+ [Lagrings platsen för MLOps-exempel från slut punkt till slut punkt](https://github.com/microsoft/MLOps)
++ [End-to-end MLOps examples repo](https://github.com/microsoft/MLOps)
 
-+ [CI/CD med ML-modeller med Azure-pipelines](/azure/devops/pipelines/targets/azure-machine-learning)
++ [CI/CD of ML models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning)
 
-+ Skapa klienter som [använder en distribuerad modell](how-to-consume-web-service.md)
++ Create clients that [consume a deployed model](how-to-consume-web-service.md)
 
 + [Maskininlärning i skala](/azure/architecture/data-guide/big-data/machine-learning-at-scale)
 
-+ [Referens arkitekturer för Azure AI & Best Practices rep](https://github.com/microsoft/AI)
++ [Azure AI reference architectures & best practices rep](https://github.com/microsoft/AI)

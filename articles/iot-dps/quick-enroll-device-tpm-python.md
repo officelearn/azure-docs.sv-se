@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: f241fd7ca4b0385641067f938f0f8136c9f05ba5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ac65758f69fc827e36f734f9dee3117d519dca6a
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229539"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423110"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-python-provisioning-service-sdk"></a>Quickstart: Enroll TPM device to IoT Hub Device Provisioning Service using Python provisioning service SDK
 
@@ -99,21 +99,21 @@ I det här avsnittet visas hur du lägger till etableringsinformationen för TPM
 
 1. Se utdata för att se om registreringen har lyckats.
 
-1. Navigera till etableringstjänsten i Azure Portal. Klicka på **Hantera registreringar**. Observera att TPM-enheten visas under fliken **Enskilda registreringar**, med namnet som `registrationid` skapade tidigare. 
+1. Navigera till etableringstjänsten i Azure Portal. Välj **Hantera registreringar**. Observera att TPM-enheten visas under fliken **Enskilda registreringar**, med namnet som `registrationid` skapade tidigare. 
 
     ![Verifiera lyckad TPM-registrering i portalen](./media/quick-enroll-device-tpm-python/1.png)  
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Om du tänker utforska Java-tjänstexemplet ska du inte rensa resurserna som har skapats i den här snabbstarten. Om du inte planerar att fortsätta kan du använda stegen nedan för att ta bort alla resurser som har skapats i den här snabbstarten.
+If you plan to explore the Java service sample, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart.
 
 1. Stäng utdatafönstret för Python-exemplet på datorn.
 1. Om du har skapat en simulerad TPM-enhet stänger du TPM-simulatorfönstret.
-1. Navigate to your Device Provisioning service in the Azure portal, click **Manage enrollments**, and then select the **Individual Enrollments** tab. Select the *Registration ID* for the enrollment entry you created using this Quickstart, and click the **Delete** button at the top of the blade.  
+1. Navigate to your Device Provisioning service in the Azure portal, select **Manage enrollments**, and then select the **Individual Enrollments** tab. Select the check box next to the *Registration ID* for the enrollment entry you created using this quickstart, and press the **Delete** button at the top of the pane.
 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här snabbstarten har du programmässigt skapat en individuell registreringspost för en TPM-enhet, och eventuellt skapat en TPM-simulerad enhet på datorn och etablerat den på IoT-hubben med hjälp av Azure IoT Hub Device Provisioning-tjänsten. Om du vill ha mer djupgående information om enhetsetablering kan du fortsätta till självstudien om konfiguration av Device Provisioning-tjänsten i Azure-portalen.
+In this quickstart, you’ve programmatically created an individual enrollment entry for a TPM device, and, optionally, created a TPM simulated device on your machine and provisioned it to your IoT hub using the Azure IoT Hub Device Provisioning Service. Om du vill ha mer djupgående information om enhetsetablering kan du fortsätta till självstudien om konfiguration av Device Provisioning-tjänsten i Azure-portalen.
 
 > [!div class="nextstepaction"]
 > [Självstudier om Azure IoT Hub Device Provisioning-tjänsten](./tutorial-set-up-cloud.md)

@@ -1,7 +1,7 @@
 ---
-title: Design av iterativa appar – LUIS
+title: Iterative app design - LUIS
 titleSuffix: Azure Cognitive Services
-description: LUIS lär sig bäst i en iterativ cykel med modell ändringar, uttryck-exempel, publicering och insamling av data från slut punkts frågor.
+description: LUIS learns best in an iterative cycle of model changes, utterance examples, publishing, and gathering data from endpoint queries.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,143 +9,145 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: 12a1f2304e4255eb9abd04ab2e2d0726066dd1e6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c1c1b2df301634a435b610c395a1a58aa5573da3
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487776"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422600"
 ---
-# <a name="authoring-cycles-and-versions"></a>Redigering av cykler och versioner
+# <a name="iterative-app-design-for-luis"></a>Iterative app design for LUIS
 
-LUIS-appen lär sig bäst med en iterativ cykel av:
+A Language Understanding (LUIS) app learns and performs most efficiently with iteration. Here's a typical iteration cycle:
 
-* Skapa ny version
-* redigera app-schema
-    * avsikter med exempel yttranden
-    * poster
-    * funktioner
-* utbilda
-* test
-* publish
-    * testa vid förutsägelse slut punkt för aktiv inlärning
-* samla in data från slut punkts frågor
+* Create new version
+* Edit the LUIS app schema. Det här omfattar:
+    * Intents with example utterances
+    * Entiteter
+    * Funktioner
+* Train, test, and publish
+    * Test at the prediction endpoint for active learning
+* Gather data from endpoint queries
 
 ![Redigeringscykel](./media/luis-concept-app-iteration/iteration.png)
 
-## <a name="building-a-luis-schema"></a>Skapa ett LUIS-schema
+## <a name="building-a-luis-schema"></a>Building a LUIS schema
 
-Appens schema syfte är att definiera vad användaren efterfrågar (avsikten eller avsikten) och vilka delar av frågan som innehåller information (entiteter) som hjälper dig att fastställa svaret. 
+An app's schema defines what the user is asking for (the _intention_ or _intent_ ) and what parts of the intent provide details (called _entities_) that are used to help determine the answer. 
 
-Appens schema måste vara särskilt för app-domänerna för att kunna fastställa ord och fraser som är relevanta och vanliga ord ordning. 
+The app schema must be specific to the app domains to determine words and phrases that are relevant, as well as to determine typical word ordering. 
 
-Exempel yttranden representerar användarindata som appen förväntas få vid körning. 
+Example utterances represent user inputs, such as recognized speech or text, that the app expects at runtime. 
 
-Schemat kräver avsikter och _ska ha_ entiteter. 
+The schema requires intents, and _should have_ entities. 
 
-### <a name="example-schema-of-intents"></a>Exempel på schema för avsikter
+### <a name="example-schema-of-intents"></a>Example schema of intents
 
-Det vanligaste schemat är ett avsikts schema som är ordnat med avsikter. Den här typen av schema är beroende av LUIS för att fastställa en användares avsikt. 
+The most common schema is an intent schema organized with intents. This type of schema uses LUIS to determine a user's intention. 
 
-Den här schema typen kan ha entiteter om den hjälper LUIS att avgöra avsikten. Till exempel hjälper en frakten het (som en beskrivning till en avsikt) LUIS att fastställa en leverans. 
+The intent schema type may have entities if it helps LUIS determine the user's intention. For example, a shipping entity (as a descriptor to an intent) helps LUIS determine a shipping intention. 
 
-### <a name="example-schema-of-entities"></a>Exempel schema för entiteter
+### <a name="example-schema-of-entities"></a>Example schema of entities
 
-Ett entitets schema fokuserar på entiteterna, som är de data som ska extraheras från yttranden. 
+An entity schema focuses on entities, which is the data that is extracted from user utterances. For example, if a user was to say, "I'd like to order three pizzas." There are two entities that would be extracted: _three_ and _pizzas_. These are used to help fulfill the intention, which was to make an order. 
 
-Avsikten med uttryck är mindre eller inte viktigt för klient programmet. 
+For an entity schema, the intention of the utterance is less important to the client application. 
 
-En vanlig metod för att organisera ett enhets schema är att lägga till alla exempel yttranden i ingen avsikt. 
+A common method of organizing an entity schema is to add all example utterances to the **None** intent. 
 
-### <a name="example-of-a-mixed-schema"></a>Exempel på ett blandat schema
+### <a name="example-of-a-mixed-schema"></a>Example of a mixed schema
 
-Det mest kraftfulla och mogna schemat är ett bevarande schema med en fullständig uppsättning entiteter och funktioner. Det här schemat kan inledas antingen som ett avsikts-eller enhets schema och växer för att inkludera koncepten för båda, eftersom klient programmet behöver dessa delar av information. 
+The most powerful and mature schema is an intent schema with a full range of entities and features. This schema can begin as either an intent or entity schema and grow to include concepts of both, as the client application needs those pieces of information. 
 
-## <a name="add-example-utterances-to-intents"></a>Lägg till exempel yttranden till avsikter
+## <a name="add-example-utterances-to-intents"></a>Add example utterances to intents
 
-LUIS behöver några exempel yttranden i varje **avsikt**. Exemplet yttranden kräver tillräckligt många Variations alternativ och ord ordning för att kunna avgöra vilken avsikt som uttryck är avsedd för. 
+LUIS needs a few example utterances in each **intent**. The example utterances need enough variation of word choice and word order to be able to determine which intent the utterance is meant for. 
 
 > [!CAUTION]
-> Lägg inte till exempel yttranden i bulk. Börja med 15 till 30 olika och varierande exempel. 
+> Do not add example utterances in bulk. Start with 15 to 30 specific and varying examples. 
 
-Varje uttryck måste ha alla **data som krävs för att extrahera** utformade och märkta med **entiteter**. 
+Each example utterance needs to have any **required data to extract** designed and labeled with **entities**. 
 
-|Nyckel element|Syfte|
+|Key element|Syfte|
 |--|--|
-|Avsikt|**Klassificera** användar yttranden i en enda avsikt eller åtgärd. Exempel på detta är `BookFlight` och `GetWeather`.|
-|Entitet|**Extrahera** data från uttryck som krävs för att slutföra avsikten. Exempel omfattar datum och tid för resor och plats.|
+|Avsikt|**Classify** user utterances into a single intention, or action. Examples include `BookFlight` and `GetWeather`.|
+|Enhet|**Extract** data from utterance required to complete intention. Examples include date and time of travel, and location.|
 
-Du utformar din LUIS-app för att ignorera yttranden som inte är relevanta för appens domän genom att tilldela uttryck till **ingen** avsikt. 
+A LUIS app can be designed to ignore utterances that aren't relevant to an app's domain by assigning the utterance to the **None** intent.
 
-## <a name="test-and-train-your-app"></a>Testa och träna din app
+## <a name="test-and-train-your-app"></a>Test and train your app
 
-När du har 15 till 30 olika exempel yttranden i varje avsikt, med de obligatoriska enheterna märkta, måste du testa och [träna](luis-how-to-train.md). 
+After you have 15 to 30 different example utterances in each intent, with the required entities labeled, you need to test and [train](luis-how-to-train.md) your LUIS app. 
 
-## <a name="publish-to-a-prediction-endpoint"></a>Publicera till en förutsägelse slut punkt
+## <a name="publish-to-a-prediction-endpoint"></a>Publish to a prediction endpoint
 
-Se till att publicera din app så att den är tillgänglig i de [förutsägelse slut regioner](luis-reference-regions.md) du behöver. 
+The LUIS app must be published so that it's available to you in the list [prediction endpoint regions](luis-reference-regions.md).
 
 ## <a name="test-your-published-app"></a>Testa ditt publicerade program
 
-Du kan testa din publicerade LUIS-app från HTTPS förutsägelse-slutpunkten. Om du testar från förutsägelse slut punkten kan LUIS välja valfri yttranden med låg exakthet för [granskning](luis-how-to-review-endpoint-utterances.md).  
+You can test your published LUIS app from the HTTPS prediction endpoint. Testing from the prediction endpoint allows LUIS to choose any utterances with low-confidence for [review](luis-how-to-review-endpoint-utterances.md).  
 
-## <a name="create-a-new-version-for-each-cycle"></a>Skapa en ny version för varje cykel
+## <a name="create-a-new-version-for-each-cycle"></a>Create a new version for each cycle
 
-Versioner, i LUIS, liknar versioner i traditionell programmering. Varje version är en ögonblicks bild i appens tid. Innan du gör ändringar i appen skapar du en ny version. Det är enklare att gå tillbaka till en äldre version och sedan försöka ta bort intentor och yttranden till ett tidigare tillstånd.
+Each version is a snapshot in time of the LUIS app. Before you make changes to the app, create a new version. It is easier to go back to an older version than to try to remove intents and utterances to a previous state.
 
-Versions-ID: t består av tecken, siffror eller "." och får inte vara längre än 10 tecken.
+The version ID consists of characters, digits or '.' and cannot be longer than 10 characters.
 
-Den första versionen (0,1) är den aktiva standard versionen. 
+The initial version (0.1) is the default active version. 
 
-### <a name="begin-by-cloning-an-existing-version"></a>Börja med att klona en befintlig version
+### <a name="begin-by-cloning-an-existing-version"></a>Begin by cloning an existing version
 
-Klona en befintlig version som ska användas som utgångs punkt för den nya versionen. När du klonar en version blir den nya versionen den **aktiva** versionen. 
+Clone an existing version to use as a starting point for each new version. After you clone a version, the new version becomes the **active** version. 
 
-### <a name="publishing-slots"></a>Publicerings platser
-Du publicerar på antingen stadie-och produktions platserna. Varje plats kan ha en annan version eller samma version. Detta är användbart för att verifiera ändringar innan publicering till produktion, som är tillgängligt för robotar eller andra LUIS-anrops program. 
+### <a name="publishing-slots"></a>Publishing slots
 
-Utbildade versioner är inte automatiskt tillgängliga i appens [slut punkt](luis-glossary.md#endpoint). Du måste [publicera](luis-how-to-publish-app.md) eller publicera om en version för att den ska vara tillgänglig på din app-slutpunkt. Du kan publicera till **mellanlagring** och **produktion**, vilket ger dig två versioner av appen tillgängliga vid slut punkten. Om du behöver fler versioner av appen tillgänglig vid en slut punkt bör du exportera versionen och importera den till en ny app. Den nya appen har ett annat app-ID.
+You can publish to either the stage and/or production slots. Each slot can have a different version or the same version. This is useful for verifying changes before publishing to production, which is available to bots or other LUIS calling apps. 
 
-### <a name="import-and-export-a-version"></a>Importera och exportera en version
-Du kan importera en version på App-nivå. Den versionen blir den aktiva versionen och använder versions-ID: t i egenskapen `versionId` för app-filen. Du kan också importera till en befintlig app på versions nivå. Den nya versionen blir den aktiva versionen. 
+Trained versions aren't automatically available at your LUIS app's [endpoint](luis-glossary.md#endpoint). You must [publish](luis-how-to-publish-app.md) or republish a version in order for it to be available at your LUIS app endpoint. You can publish to **Staging** and **Production**, giving you two versions of the app available at the endpoint. If more versions of the app need to be available at an endpoint, you should export the version and reimport it to a new app. The new app has a different app ID.
 
-Du kan exportera en version på appen eller versions nivån. Den enda skillnaden är att den version som exporter ATS på program nivå är den för närvarande aktiva versionen på versions nivå. du kan välja vilken version du vill exportera på sidan **[Inställningar](luis-how-to-manage-versions.md)** . 
+### <a name="import-and-export-a-version"></a>Import and export a version
 
-Den exporterade filen innehåller inte:
+A version can be imported at the app level. That version becomes the active version and uses the version ID in the `versionId` property of the app file. You can also import into an existing app, at the version level. The new version becomes the active version. 
 
-* information som sparats av datorn eftersom appen omtränas när den har importer ATS
-* deltagar information
+A version can be exported at the app or version level as well. The only difference is that the app-level exported version is the currently active version while at the version level, you can choose any version to export on the **[Settings](luis-how-to-manage-versions.md)** page. 
 
-För att kunna säkerhetskopiera LUIS-appen exporterar du en version från LUIS-portalen.
+The exported file **doesn't** contain:
 
-## <a name="manage-contributor-changes-with-versions-and-apps"></a>Hantera deltagar ändringar med versioner och appar
+* Machine-learned information, because the app is retrained after it's imported
+* Contributor information
 
-LUIS tillhandahåller begreppet deltagare i en app genom att tillhandahålla Azures behörigheter på resurs nivå. Kombinera det här konceptet med versions hantering för att ge riktat samarbete. 
+In order to back up your LUIS app schema, export a version from the [LUIS portal](https://www.luis.ai/applications).
 
-Använd följande tekniker för att hantera deltagar ändringar i din app.
+## <a name="manage-contributor-changes-with-versions-and-contributors"></a>Manage contributor changes with versions and contributors
 
-### <a name="manage-multiple-versions-inside-the-same-app"></a>Hantera flera versioner i samma app
-Börja med [kloning](luis-how-to-manage-versions.md#clone-a-version), från en bas version, för varje författare. 
+LUIS uses the concept of contributors to an app, by providing Azure resource-level permissions. Combine this concept with versioning to provide targeted collaboration. 
 
-Varje författare gör ändringar i sin egen version av appen. När varje författare är nöjd med modellen exporterar du de nya versionerna till JSON-filer.  
+Use the following techniques to manage contributor changes to your app.
 
-Exporterade appar,. JSON-eller. lu-filer kan jämföras med ändringar. Kombinera filerna för att skapa en enda fil i den nya versionen. Ändra egenskapen **versionId** för att ange den nya sammanfogade versionen. Importera den versionen till den ursprungliga appen. 
+### <a name="manage-multiple-versions-inside-the-same-app"></a>Manage multiple versions inside the same app
 
-Med den här metoden kan du ha en aktiv version, en fas version och en publicerad version. Du kan jämföra resultatet av den aktiva versionen med en publicerad version (fas eller produktion) i fönstret för [interaktiv testning](luis-interactive-test.md).
+Begin by [cloning](luis-how-to-manage-versions.md#clone-a-version) from a base version for each author. 
 
-### <a name="manage-multiple-versions-as-apps"></a>Hantera flera versioner som appar
-[Exportera](luis-how-to-manage-versions.md#export-version) bas versionen. Varje författare importerar versionen. Den person som importerar appen är ägaren till versionen. När du är färdig med att ändra appen exporterar du versionen. 
+Each author makes changes to their own version of the app. When the author is satisfied with the model, export the new versions to JSON files.  
 
-Exporterade appar är JSON-formaterade filer som kan jämföras med bas exporten för ändringar. Kombinera filerna för att skapa en enda JSON-fil för den nya versionen. Ändra egenskapen **versionId** i JSON-filen för att ange den nya sammanfogade versionen. Importera den versionen till den ursprungliga appen.
+Exported apps, .json or .lu files, can be compared for changes. Combine the files to create a single file of the new version. Change the `versionId` property to signify the new merged version. Import that version into the original app. 
 
-Läs mer om hur du redigerar bidrag från [medarbetare](luis-how-to-collaborate.md).
+This method allows you to have one active version, one stage version, and one published version. You can compare the results of the active version with a published version (stage or production) in the [interactive testing pane](luis-interactive-test.md).
 
-## <a name="review-endpoint-utterances-to-begin-the-new-authoring-cycle"></a>Granska slut punkts yttranden för att påbörja den nya redigerings cykeln
+### <a name="manage-multiple-versions-as-apps"></a>Manage multiple versions as apps
 
-När du är färdig med en cykel av redigering kan du börja om från början. Börja med att [Granska förutsägelse slut punkt yttranden](luis-how-to-review-endpoint-utterances.md) Luis markerad med låg exakthet. Kontrol lera dessa yttranden för både korrekt förväntad avsikt och korrekt och fullständig extraherad enhet. När du har granskat och accepterat ändringar bör gransknings listan vara tom.  
+[Export](luis-how-to-manage-versions.md#export-version) the base version. Each author imports the version. The person that imports the app is the owner of the version. When they are done modifying the app, export the version. 
+
+Exported apps are JSON-formatted files, which can be compared with the base export for changes. Combine the files to create a single JSON file of the new version. Change the **versionId** property in the JSON to signify the new merged version. Import that version into the original app.
+
+Learn more about authoring contributions from [collaborators](luis-how-to-collaborate.md).
+
+## <a name="review-endpoint-utterances-to-begin-the-new-iterative-cycle"></a>Review endpoint utterances to begin the new iterative cycle
+
+When you are done with an iteration cycle, you can repeat the process. Start with [reviewing prediction endpoint utterances](luis-how-to-review-endpoint-utterances.md) LUIS marked with low-confidence. Check these utterances for both correct predicted intent and correct and complete entity extracted. After you review and accept changes, the review list should be empty.  
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig begrepp om [samarbete](luis-concept-keys.md).
+Learn concepts about [collaboration](luis-concept-keys.md).

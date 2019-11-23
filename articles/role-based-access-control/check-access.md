@@ -1,6 +1,6 @@
 ---
-title: Snabbstart – Visa den åtkomst som en användare har till Azure-resurser | Microsoft Docs
-description: Lär dig hur du visar den åtkomst som en användare eller ett annat säkerhetsobjekt har till Azure-resurser med hjälp av rollbaserad åtkomstkontroll (RBAC) och Azure-portalen.
+title: Quickstart - View the access a user has to Azure resources
+description: In this QuickStart, learn how to view the access a user or other security principal has to Azure resources using role-based access control (RBAC) and the Azure portal.
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f388215b2829066906ee7faf41abb17307bf3fff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b23c10fc2a551b8044b208911dbc048968b06564
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782349"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419616"
 ---
-# <a name="quickstart-view-the-access-a-user-has-to-azure-resources"></a>Snabbstart: Visa den åtkomst som en användare har till Azure-resurser
+# <a name="quickstart-view-the-access-a-user-has-to-azure-resources"></a>Quickstart: View the access a user has to Azure resources
 
 Du kan använda bladet **Åtkomstkontroll (IAM)** i [rollbaserad åtkomstkontroll (RBAC)](overview.md) för att visa den åtkomst som en användare eller ett annat säkerhetsobjekt har till Azure-resurser. Ibland behöver du dock bara snabbt visa åtkomsten för en enskild användare eller ett annat säkerhetsobjekt. Det enklaste sättet att göra det är att använda funktionen **Kontrollera åtkomst** på Azure-portalen.
 
@@ -33,7 +33,7 @@ Du kan använda bladet **Åtkomstkontroll (IAM)** i [rollbaserad åtkomstkontrol
 
 1. Klicka på din prenumeration.
 
-1. Klicka på **Åtkomstkontroll (IAM)**.
+1. Klicka på **Åtkomstkontroll (IAM)** .
 
 1. Klicka på fliken **Kontrollera åtkomst**.
 
@@ -54,4 +54,4 @@ Du kan använda bladet **Åtkomstkontroll (IAM)** i [rollbaserad åtkomstkontrol
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie: Bevilja åtkomst för en användare till Azure-resurser med hjälp av RBAC och Azure-portalen](quickstart-assign-role-user-portal.md)
+> [Tutorial: Grant a user access to Azure resources using RBAC and the Azure portal](quickstart-assign-role-user-portal.md)

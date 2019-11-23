@@ -1,6 +1,6 @@
 ---
-title: Integrering av tillbakaskrivning av lösen ord med Azure AD SSPR – Azure Active Directory
-description: Hämta moln lösen ord som skrivits tillbaka till lokala AD-infratstructure
+title: On-premises password writeback integration with Azure AD SSPR - Azure Active Directory
+description: Get cloud passwords written back to on-premises AD infrastructure
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,161 +11,161 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07069d22d57540c6a16472bc7278821e14f1f18e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 758d7122a991309504c5cac18b9aaf1268808887
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561276"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420654"
 ---
-# <a name="what-is-password-writeback"></a>Vad är tillbakaskrivning av lösen ord?
+# <a name="what-is-password-writeback"></a>What is password writeback?
 
-Att ha ett molnbaserad verktyg för återställning av lösen ord är bra men de flesta företag har fortfarande en lokal katalog där deras användare finns. Hur fungerar Microsoft Support för att hålla traditionell lokal Active Directory (AD) synkroniserad med lösen ords ändringar i molnet? Tillbakaskrivning av lösen ord är en funktion som aktive ras med [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) som gör att lösen ords ändringar i molnet kan skrivas tillbaka till en befintlig lokal katalog i real tid.
+Having a cloud-based password reset utility is great but most companies still have an on-premises directory where their users exist. How does Microsoft support keeping traditional on-premises Active Directory (AD) in sync with password changes in the cloud? Password writeback is a feature enabled with [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) that allows password changes in the cloud to be written back to an existing on-premises directory in real time.
 
-Tillbakaskrivning av lösen ord stöds i miljöer som använder:
+Password writeback is supported in environments that use:
 
 * [Active Directory Federation Services](../hybrid/how-to-connect-fed-management.md)
 * [Synkronisering av lösenordshash](../hybrid/how-to-connect-password-hash-synchronization.md)
 * [Direktautentisering](../hybrid/how-to-connect-pta.md)
 
 > [!WARNING]
-> Tillbakaskrivning av lösen ord slutar att fungera för kunder som använder Azure AD Connect versioner 1.0.8641.0 och äldre när [Azure Access Control Service (ACS) tas ur bruk den 7 November 2018](../develop/active-directory-acs-migration.md). Azure AD Connect-versioner 1.0.8641.0 och äldre kommer inte längre att tillåta tillbakaskrivning av lösen ord vid den tidpunkten eftersom de är beroende av ACS för den funktionen.
+> Password writeback will stop working for customers who are using Azure AD Connect versions 1.0.8641.0 and older when the [Azure Access Control service (ACS) is retired on November 7th, 2018](../develop/active-directory-acs-migration.md). Azure AD Connect versions 1.0.8641.0 and older will no longer allow password writeback at that time because they depend on ACS for that functionality.
 >
-> Om du vill undvika avbrott i tjänsten uppgraderar du från en tidigare version av Azure AD Connect till en nyare version, se artikeln [Azure AD Connect: Uppgradera från en tidigare version till den senaste](../hybrid/how-to-upgrade-previous-version.md)
+> To avoid a disruption in service, upgrade from a previous version of Azure AD Connect to a newer version, see the article [Azure AD Connect: Upgrade from a previous version to the latest](../hybrid/how-to-upgrade-previous-version.md)
 >
 
-Tillbakaskrivning av lösen ord innehåller:
+Password writeback provides:
 
-* **Tillämpning av principer för lokal Active Directory-lösenord**: När en användare återställer sitt lösen ord, kontrol leras det för att se till att det uppfyller din lokala Active Directorys princip innan du genomför den i den katalogen. Den här granskningen innefattar att kontrol lera historik, komplexitet, ålder, lösen ords filter och andra lösen ords begränsningar som du har definierat i lokala Active Directory.
-* **Noll – fördröjning på feedback**: Tillbakaskrivning av lösen ord är en synkron åtgärd. Användarna meddelas omedelbart om lösen ordet inte uppfyllde principen eller inte kunde återställas eller ändras av någon anledning.
-* **Stöder lösen ords ändringar från åtkomst panelen och Office 365**: När de användare som synkroniseras med federerad eller lösen ords hash kommer att ändra sina lösen ord som har förfallit eller som inte har förfallit, skrivs lösen orden tillbaka till din lokala Active Directory
-* **Har stöd för tillbakaskrivning av lösen ord när en administratör återställer dem från Azure Portal**: När en administratör återställer en användares lösen ord i [Azure Portal](https://portal.azure.com), skrivs lösen ordet tillbaka till lokalt om den användaren är federerad eller hash-hashen är synkroniserad. Den här funktionen stöds för närvarande inte i Office Admin-portalen.
-* **Kräver inte några inkommande brand Väggs regler**: Tillbakaskrivning av lösen ord använder ett Azure Service Bus relä som en underliggande kommunikations kanal. All kommunikation har utgående trafik via port 443.
+* **Enforcement of on-premises Active Directory password policies**: When a user resets their password, it is checked to ensure it meets your on-premises Active Directory policy before committing it to that directory. This review includes checking the history, complexity, age, password filters, and any other password restrictions that you have defined in local Active Directory.
+* **Zero-delay feedback**: Password writeback is a synchronous operation. Your users are notified immediately if their password did not meet the policy or could not be reset or changed for any reason.
+* **Supports password changes from the access panel and Office 365**: When federated or password hash synchronized users come to change their expired or non-expired passwords, those passwords are written back to your local Active Directory environment.
+* **Supports password writeback when an admin resets them from the Azure portal**: Whenever an admin resets a user’s password in the [Azure portal](https://portal.azure.com), if that user is federated or password hash synchronized, the password is written back to on-premises. This functionality is currently not supported in the Office admin portal.
+* **Doesn’t require any inbound firewall rules**: Password writeback uses an Azure Service Bus relay as an underlying communication channel. All communication is outbound over port 443.
 
 > [!NOTE]
-> Administratörs konton som finns i skyddade grupper i lokala AD kan användas med tillbakaskrivning av lösen ord. Administratörer kan ändra sitt lösen ord i molnet, men kan inte använda lösen ords återställning för att återställa ett bortglömt lösen ord. Mer information om skyddade grupper finns [i skyddade konton och grupper i Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory).
+> Administrator accounts that exist within protected groups in on-premises AD can be used with password writeback. Administrators can change their password in the cloud but cannot use password reset to reset a forgotten password. For more information about protected groups, see [Protected accounts and groups in Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory).
 
-## <a name="licensing-requirements-for-password-writeback"></a>Licensierings krav för tillbakaskrivning av lösen ord
+## <a name="licensing-requirements-for-password-writeback"></a>Licensing requirements for password writeback
 
-**Lösen ords återställning via självbetjäning/ändring/upplåsning med lokal tillbakaskrivning är en Premium funktion i Azure AD**. Mer information om licensiering finns på webbplatsen för [Azure Active Directory prissättning](https://azure.microsoft.com/pricing/details/active-directory/).
+**Self-Service Password Reset/Change/Unlock with on-premises writeback is a premium feature of Azure AD**. For more information about licensing, see the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
 
-Om du vill använda tillbakaskrivning av lösen ord måste du ha en av följande licenser tilldelade till klienten:
+To use password writeback, you must have one of the following licenses assigned on your tenant:
 
 * Azure AD Premium P1
 * Azure AD Premium P2
-* Enterprise Mobility + Security E3 eller a3
-* Enterprise Mobility + Security E5 eller A5
-* Microsoft 365 E3 eller a3
-* Microsoft 365 E5 eller A5
+* Enterprise Mobility + Security E3 or A3
+* Enterprise Mobility + Security E5 or A5
+* Microsoft 365 E3 or A3
+* Microsoft 365 E5 or A5
 * Microsoft 365 F1
 * Microsoft 365 Business
 
 > [!WARNING]
-> Fristående Office 365-licens planer *stöder inte "självbetjäning för återställning av lösen ord/ändra/Lås upp med lokal tillbakaskrivning"* och kräver att du har en av de föregående planerna för att den här funktionen ska fungera.
+> Standalone Office 365 licensing plans *don't support "Self-Service Password Reset/Change/Unlock with on-premises writeback"* and require that you have one of the preceding plans for this functionality to work.
 
-## <a name="how-password-writeback-works"></a>Så här fungerar tillbakaskrivning av lösen ord
+## <a name="how-password-writeback-works"></a>How password writeback works
 
-När en federerad eller lösenordsskyddad hash-användare försöker återställa eller ändra sitt lösen ord i molnet inträffar följande åtgärder:
+When a federated or password hash synchronized user attempts to reset or change their password in the cloud, the following actions occur:
 
-1. En kontroll utförs för att se vilken typ av lösen ord som användaren har. Om lösen ordet hanteras lokalt:
-   * En kontroll utförs för att se om tillbakaskrivning-tjänsten är igång och körs. Om det är det kan användaren fortsätta.
-   * Om tillbakaskrivning-tjänsten inte är igång, informeras användaren om att lösen ordet inte kan återställas just nu.
-1. Därefter skickar användaren lämpliga autentiseringsalgoritmer och når sidan **Återställ lösen ord** .
-1. Användaren väljer ett nytt lösen ord och bekräftar det.
-1. När användaren väljer **Skicka**krypteras lösen ordet i klartext med en symmetrisk nyckel som skapas under tillbakaskrivning-installationen.
-1. Det krypterade lösen ordet ingår i en nytto last som skickas via en HTTPS-kanal till det klient-/regionsspecifika Service Bus-reläet (som har kon figurer ATS under installationen av tillbakaskrivning). Detta relä skyddas av ett slumpmässigt genererat lösen ord som bara en lokal installation känner till.
-1. När meddelandet når Service Bus aktive ras slut punkten för lösen ords återställning automatiskt och ser att den har en återställnings förfrågan väntar.
-1. Tjänsten söker sedan efter användaren med hjälp av molnets Anchor-attribut. För att sökningen ska lyckas:
+1. A check is performed to see what type of password the user has. If the password is managed on-premises:
+   * A check is performed to see if the writeback service is up and running. If it is, the user can proceed.
+   * If the writeback service is down, the user is informed that their password can't be reset right now.
+1. Next, the user passes the appropriate authentication gates and reaches the **Reset password** page.
+1. The user selects a new password and confirms it.
+1. When the user selects **Submit**, the plaintext password is encrypted with a symmetric key created during the writeback setup process.
+1. The encrypted password is included in a payload that gets sent over an HTTPS channel to your tenant-specific service bus relay (that is set up for you during the writeback setup process). This relay is protected by a randomly generated password that only your on-premises installation knows.
+1. After the message reaches the service bus, the password-reset endpoint automatically wakes up and sees that it has a reset request pending.
+1. The service then looks for the user by using the cloud anchor attribute. For this lookup to succeed:
 
-   * Användarobjektet måste finnas i Active Directory kopplings utrymme.
-   * Användarobjektet måste vara länkat till motsvarande metaversum-objekt (MV).
-   * Objektet User måste vara länkat till motsvarande Azure Active Directory kopplings objekt.
-   * Länken från Active Directory Connector-objektet till MV måste ha synkroniseringsregeln `Microsoft.InfromADUserAccountEnabled.xxx` på länken.
+   * The user object must exist in the Active Directory connector space.
+   * The user object must be linked to the corresponding metaverse (MV) object.
+   * The user object must be linked to the corresponding Azure Active Directory connector object.
+   * The link from the Active Directory connector object to the MV must have the synchronization rule `Microsoft.InfromADUserAccountEnabled.xxx` on the link.
    
-   När anropet kommer från molnet använder Synkroniseringsmotorn attributet **cloudAnchor** för att söka efter Azure Active Directory anslutnings utrymmes objekt. Sedan följer länken tillbaka till MV-objektet och följer sedan länken tillbaka till Active Directory-objektet. Eftersom det kan finnas flera Active Directory objekt (flera skogar) för samma användare, använder Synkroniseringsmotorn-motorn på `Microsoft.InfromADUserAccountEnabled.xxx` länken för att välja rätt.
+   When the call comes in from the cloud, the synchronization engine uses the **cloudAnchor** attribute to look up the Azure Active Directory connector space object. It then follows the link back to the MV object, and then follows the link back to the Active Directory object. Because there can be multiple Active Directory objects (multi-forest) for the same user, the sync engine relies on the `Microsoft.InfromADUserAccountEnabled.xxx` link to pick the correct one.
 
-1. När användar kontot har hittats görs ett försök att återställa lösen ordet direkt i rätt Active Directory skog.
-1. Om åtgärden för lösen ords uppsättning lyckas, uppmanas användaren att lösen ordet har ändrats.
+1. After the user account is found, an attempt to reset the password directly in the appropriate Active Directory forest is made.
+1. If the password set operation is successful, the user is told their password has been changed.
    > [!NOTE]
-   > Om användarens lösen ords-hash synkroniseras med Azure AD med hjälp av hash-synkronisering av lösen ord, finns det en risk att den lokala lösen ords principen är svagare än moln lösen ords principen. I det här fallet tillämpas den lokala principen. Den här principen säkerställer att din lokala princip tillämpas i molnet, oavsett om du använder hash-synkronisering av lösen ord eller Federation för att tillhandahålla enkel inloggning.
+   > If the user's password hash is synchronized to Azure AD by using password hash synchronization, there is a chance that the on-premises password policy is weaker than the cloud password policy. In this case, the on-premises policy is enforced. This policy ensures that your on-premises policy is enforced in the cloud, no matter if you use password hash synchronization or federation to provide single sign-on.
 
-1. Om lösen ords uppsättnings åtgärden Miss lyckas visas ett fel meddelande om att användaren försöker igen. Åtgärden kan inte utföras på grund av följande:
-    * Tjänsten var avstängd.
-    * Det angivna lösen ordet uppfyller inte organisationens principer.
-    * Det gick inte att hitta användaren i den lokala Active Directory.
+1. If the password set operation fails, an error prompts the user to try again. The operation might fail because:
+    * The service was down.
+    * The password they selected did not meet the organization's policies.
+    * Unable to find the user in local Active Directory.
 
-      Fel meddelandena ger vägledning för användarna så att de kan försöka lösa utan att administratören behöver göra något.
+      The error messages provide guidance to users so they can attempt to resolve without administrator intervention.
 
-## <a name="password-writeback-security"></a>Säkerhet för tillbakaskrivning av lösen ord
+## <a name="password-writeback-security"></a>Password writeback security
 
-Tillbakaskrivning av lösen ord är en mycket säker tjänst. För att se till att informationen är skyddad, aktive ras en säkerhets modell med fyra nivåer som beskrivs i följande avsnitt:
+Password writeback is a highly secure service. To ensure your information is protected, a four-tiered security model is enabled as the following describes:
 
-* **Klient-Specific Service-Bus-relä**
-   * När du konfigurerar tjänsten konfigureras klient organisationens Service Bus-relä som skyddas av ett slumpmässigt genererat starkt lösen ord som Microsoft aldrig har åtkomst till.
-* **Låst, kryptografiskt stark kryptering nyckel för lösen ords kryptering**
-   * När Service Bus-reläet har skapats skapas en stark symmetrisk nyckel som används för att kryptera lösen ordet när det kommer över kabeln. Den här nyckeln finns bara i företagets hemliga Arkiv i molnet, som är mycket låst och granskad, precis som andra lösen ord i katalogen.
-* **Bransch standard Transport Layer Security (TLS)**
-   1. När en lösen ords återställning eller ändrings åtgärd utförs i molnet krypteras lösen ordet i klartext med din offentliga nyckel.
-   1. Det krypterade lösen ordet placeras i ett HTTPS-meddelande som skickas via en krypterad kanal med hjälp av Microsoft SSL-certifikat till Service Bus-reläet.
-   1. När meddelandet tas emot i Service Bus-tjänsten aktive ras och autentiseras den lokala agenten med hjälp av det starka lösen ord som genererades tidigare.
-   1. Den lokala agenten hämtar det krypterade meddelandet och dekrypterar det med hjälp av den privata nyckeln.
-   1. Den lokala agenten försöker ange lösen ordet via AD DS SetPassword-API: et. Det här steget är det som tillåter tvång av din Active Directory lokala lösen ords princip (till exempel komplexitet, ålder, historik och filter) i molnet.
-* **Principer för förfallo datum för meddelande**
-   * Om meddelandet finns i Service Bus, eftersom den lokala tjänsten är nere, tids gränsen uppnåddes och tas bort efter några minuter. Timeout och borttagning av meddelandet ökar säkerheten ytterligare.
+* **Tenant-specific service-bus relay**
+   * When you set up the service, a tenant-specific service bus relay is set up that's protected by a randomly generated strong password that Microsoft never has access to.
+* **Locked down, cryptographically strong, password encryption key**
+   * After the service bus relay is created, a strong symmetric key is created that is used to encrypt the password as it comes over the wire. This key only lives in your company's secret store in the cloud, which is heavily locked down and audited, just like any other password in the directory.
+* **Industry standard Transport Layer Security (TLS)**
+   1. When a password reset or change operation occurs in the cloud, the plaintext password is encrypted with your public key.
+   1. The encrypted password is placed into an HTTPS message that is sent over an encrypted channel by using Microsoft SSL certs to your service bus relay.
+   1. After the message arrives in the service bus, your on-premises agent wakes up and authenticates to the service bus by using the strong password that was previously generated.
+   1. The on-premises agent picks up the encrypted message and decrypts it by using the private key.
+   1. The on-premises agent attempts to set the password through the AD DS SetPassword API. This step is what allows enforcement of your Active Directory on-premises password policy (such as the complexity, age, history, and filters) in the cloud.
+* **Message expiration policies**
+   * If the message sits in service bus because your on-premises service is down, it times out and is removed after several minutes. The time-out and removal of the message increases security even further.
 
-### <a name="password-writeback-encryption-details"></a>Krypterings information för tillbakaskrivning av lösen ord
+### <a name="password-writeback-encryption-details"></a>Password writeback encryption details
 
-När en användare har skickat en lösen ords återställning går återställnings förfrågan igenom flera krypterings steg innan den tas emot i din lokala miljö. Dessa krypterings steg säkerställer maximal tillförlitlighet och säkerhet för tjänsten. De beskrivs på följande sätt:
+After a user submits a password reset, the reset request goes through several encryption steps before it arrives in your on-premises environment. These encryption steps ensure maximum service reliability and security. They are described as follows:
 
-* **Steg 1: Lösen ords kryptering med 2048-bitars RSA**-nyckel: När en användare skickar in ett lösen ord som ska skrivas tillbaka till lokalt, krypteras det skickade lösen ordet med en 2048-bitars RSA-nyckel.
-* **Steg 2: Kryptering på paket nivå med AES-GCM**: Hela paketet, lösen ordet plus de metadata som krävs, krypteras med hjälp av AES-GCM. Den här krypteringen förhindrar att någon har direkt åtkomst till den underliggande Service Bus-kanalen från att visa eller manipulera innehållet.
-* **Steg 3: All kommunikation sker över TLS/SSL**: All kommunikation med Service Bus sker i en SSL/TLS-kanal. Den här krypteringen skyddar innehållet från icke-auktoriserade tredje parter.
-* **Automatisk nyckel rulle under var sjätte månad**: Alla nycklar överförs var sjätte månad, eller varje gång en tillbakaskrivning av lösen ord inaktive ras och sedan aktive ras på Azure AD Connect för att säkerställa maximal tjänst säkerhet och säkerhet.
+* **Step 1: Password encryption with 2048-bit RSA Key**: After a user submits a password to be written back to on-premises, the submitted password itself is encrypted with a 2048-bit RSA key.
+* **Step 2: Package-level encryption with AES-GCM**: The entire package, the password plus the required metadata, is encrypted by using AES-GCM. This encryption prevents anyone with direct access to the underlying ServiceBus channel from viewing or tampering with the contents.
+* **Step 3: All communication occurs over TLS/SSL**: All the communication with ServiceBus happens in an SSL/TLS channel. This encryption secures the contents from unauthorized third parties.
+* **Automatic key roll over every six months**: All keys roll over every six months, or every time password writeback is disabled and then re-enabled on Azure AD Connect, to ensure maximum service security and safety.
 
-### <a name="password-writeback-bandwidth-usage"></a>Bandbredds användning för tillbakaskrivning av lösen ord
+### <a name="password-writeback-bandwidth-usage"></a>Password writeback bandwidth usage
 
-Tillbakaskrivning av lösen ord är en tjänst med låg bandbredd som bara skickar förfrågningar tillbaka till den lokala agenten under följande omständigheter:
+Password writeback is a low-bandwidth service that only sends requests back to the on-premises agent under the following circumstances:
 
-* Två meddelanden skickas när funktionen är aktive rad eller inaktive rad via Azure AD Connect.
-* Ett meddelande skickas en gång var femte minut som en tjänst pulsslag så länge som tjänsten körs.
-* Två meddelanden skickas varje gången ett nytt lösen ord skickas:
-   * Det första meddelandet är en begäran att utföra åtgärden.
-   * Det andra meddelandet innehåller resultatet av åtgärden och skickas i följande fall:
-      * Varje gången skickas ett nytt lösen ord under en användares självbetjäning för återställning av lösen ord.
-      * Varje gången ett nytt lösen ord skickas under en ändring av användar lösen ord.
-      * Varje gången skickas ett nytt lösen ord under en administratörs initierad administratör för användar lösen ord (endast från Azures administrations portaler).
+* Two messages are sent when the feature is enabled or disabled through Azure AD Connect.
+* One message is sent once every five minutes as a service heartbeat for as long as the service is running.
+* Two messages are sent each time a new password is submitted:
+   * The first message is a request to perform the operation.
+   * The second message contains the result of the operation, and is sent in the following circumstances:
+      * Each time a new password is submitted during a user self-service password reset.
+      * Each time a new password is submitted during a user password change operation.
+      * Each time a new password is submitted during an admin-initiated user password reset (only from the Azure admin portals).
 
-#### <a name="message-size-and-bandwidth-considerations"></a>Överväganden för meddelande storlek och bandbredd
+#### <a name="message-size-and-bandwidth-considerations"></a>Message size and bandwidth considerations
 
-Storleken på vart och ett av de meddelanden som beskrivs ovan är vanligt vis under 1 KB. Även under extrema inläsningar tar själva tjänsten för lösen ords tillbakaskrivning över några kilobit per sekund i bandbredden. Eftersom varje meddelande skickas i real tid, bara när det krävs av en lösen ords uppdaterings åtgärd och eftersom meddelande storleken är så liten, är bandbredds användningen för tillbakaskrivning för liten för att få en mätbar påverkan.
+The size of each of the message described previously is typically under 1 KB. Even under extreme loads, the password writeback service itself is consuming a few kilobits per second of bandwidth. Because each message is sent in real time, only when required by a password update operation, and because the message size is so small, the bandwidth usage of the writeback capability is too small to have a measurable impact.
 
-## <a name="supported-writeback-operations"></a>Tillbakaskrivning-åtgärder som stöds
+## <a name="supported-writeback-operations"></a>Supported writeback operations
 
-Lösen ord skrivs tillbaka i alla följande situationer:
+Passwords are written back in all the following situations:
 
-* **Slut användar åtgärder som stöds**
-   * Alla åtgärder för frivillig ändring av lösen ord för självbetjäning för användare
-   * Alla självbetjänings åtgärder för att ändra lösen ord för självbetjäning, till exempel förfallo datum för lösen ord
-   * Eventuell återställning av lösen ord för självbetjäning av användare som kommer från [portalen för återställning av lösen ord](https://passwordreset.microsoftonline.com)
-* **Administratörs åtgärder som stöds**
-   * Valfri åtgärd för att ändra lösen ord för självbetjäning för administratörer
-   * Alla administratörs åtgärder för självbetjänings ändringar, till exempel lösen ordets giltighets tid
-   * Administratörs lösen ords återställning via självbetjäning som kommer från [portalen för återställning av lösen ord](https://passwordreset.microsoftonline.com)
-   * En administratör som initierat slut användar lösen ord Återställ från [Azure Portal](https://portal.azure.com)
+* **Supported end-user operations**
+   * Any end-user self-service voluntary change password operation
+   * Any end-user self-service force change password operation, for example, password expiration
+   * Any end-user self-service password reset that originates from the [password reset portal](https://passwordreset.microsoftonline.com)
+* **Supported administrator operations**
+   * Any administrator self-service voluntary change password operation
+   * Any administrator self-service force change password operation, for example, password expiration
+   * Any administrator self-service password reset that originates from the [password reset portal](https://passwordreset.microsoftonline.com)
+   * Any administrator-initiated end-user password reset from the [Azure portal](https://portal.azure.com)
 
-## <a name="unsupported-writeback-operations"></a>Tillbakaskrivning-åtgärder som inte stöds
+## <a name="unsupported-writeback-operations"></a>Unsupported writeback operations
 
-Lösen ord skrivs *inte* tillbaka i någon av följande situationer:
+Passwords are *not* written back in any of the following situations:
 
-* **Slut användar åtgärder som inte stöds**
-   * Alla slutanvändare återställer sina egna lösen ord med hjälp av PowerShell version 1, version 2 eller Azure AD Graph API
-* **Administratörs åtgärder som inte stöds**
-   * All administratörs-initierad återställning av lösen ord för slutanvändare från PowerShell version 1, version 2 eller Azure AD Graph API
-   * En administratör som initierat återställning av lösen ord för slutanvändare från [Microsoft 365 administrations Center](https://admin.microsoft.com)
+* **Unsupported end-user operations**
+   * Any end user resetting their own password by using PowerShell version 1, version 2, or the Azure AD Graph API
+* **Unsupported administrator operations**
+   * Any administrator-initiated end-user password reset from PowerShell version 1, version 2, or the Azure AD Graph API
+   * Any administrator-initiated end-user password reset from the [Microsoft 365 admin center](https://admin.microsoft.com)
 
 > [!WARNING]
-> Användning av kryss rutan "användaren måste byta lösen ord vid nästa inloggning" i lokala Active Directory administrations verktyg som Active Directory användare och datorer eller Active Directory Administrationscenter stöds inte. När du ändrar ett lokalt lösen ord kontrollerar du inte det här alternativet.
+> Use of the checkbox "User must change password at next logon" in on-premises Active Directory administrative tools like Active Directory Users and Computers or the Active Directory Administrative Center is supported as a preview feature of Azure AD Connect. For more information, see the article, [Implement password hash synchronization with Azure AD Connect sync](../hybrid/how-to-connect-password-hash-synchronization.md#public-preview-of-synchronizing-temporary-passwords-and-force-password-on-next-logon).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Aktivera tillbakaskrivning av lösen ord med hjälp av självstudierna: [Aktivera tillbakaskrivning av lösen ord](tutorial-enable-writeback.md)
+Enable password writeback using the Tutorial: [Enabling password writeback](tutorial-enable-writeback.md)

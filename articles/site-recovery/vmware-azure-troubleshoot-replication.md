@@ -1,124 +1,124 @@
 ---
-title: Felsök problem med replikering för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure med hjälp av Azure Site Recovery | Microsoft Docs
-description: Den här artikeln innehåller felsöknings information för vanliga replikeringsfel vid haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure med hjälp av Azure Site Recovery.
+title: Troubleshoot replication issues for disaster recovery of VMware VMs and physical servers to Azure by using Azure Site Recovery | Microsoft Docs
+description: This article provides troubleshooting information for common replication issues during disaster recovery of VMware VMs and physical servers to Azure by using Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
-ms.openlocfilehash: b02e819255db0cdf8b9d241f2ec0d41df7494162
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 7237bb7e0538ba1a9b6333ccb6589efe657a247d
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71844346"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423959"
 ---
-# <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Felsök problem med replikering för virtuella VMware-datorer och fysiska servrar
+# <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Troubleshoot replication issues for VMware VMs and physical servers
 
-Den här artikeln beskriver några vanliga problem och specifika fel som du kan stöta på när du replikerar lokala virtuella VMware-datorer och fysiska servrar till Azure med hjälp av [Site Recovery](site-recovery-overview.md).
+This article describes some common issues and specific errors you might encounter when you replicate on-premises VMware VMs and physical servers to Azure using [Site Recovery](site-recovery-overview.md).
 
-## <a name="step-1-monitor-process-server-health"></a>Steg 1: Övervaka process Server hälsa
+## <a name="step-1-monitor-process-server-health"></a>Step 1: Monitor process server health
 
-Site Recovery använder [processervern](vmware-physical-azure-config-process-server-overview.md#process-server) för att ta emot och optimera replikerade data och skicka dem till Azure.
+Site Recovery uses the [process server](vmware-physical-azure-config-process-server-overview.md#process-server) to receive and optimize replicated data, and send it to Azure.
 
-Vi rekommenderar att du övervakar hälso tillståndet för processervern i portalen för att se till att de är anslutna och fungerar som de ska och att replikeringen fortskrider för käll datorerna som är kopplade till processervern.
+We recommend that you monitor the health of process servers in  portal, to ensure that they are connected and working properly, and that replication is progressing for the source machines associated with the process server.
 
-- [Lär dig mer om](vmware-physical-azure-monitor-process-server.md) övervakning av process servrar.
+- [Learn about](vmware-physical-azure-monitor-process-server.md) monitoring process servers.
 - [Granska metodtips](vmware-physical-azure-troubleshoot-process-server.md#best-practices-for-process-server-deployment)
-- [Felsök](vmware-physical-azure-troubleshoot-process-server.md#check-process-server-health) process Server hälsa.
+- [Troubleshoot](vmware-physical-azure-troubleshoot-process-server.md#check-process-server-health) process server health.
 
-## <a name="step-2-troubleshoot-connectivity-and-replication-issues"></a>Steg 2: Felsök problem med anslutning och replikering
+## <a name="step-2-troubleshoot-connectivity-and-replication-issues"></a>Step 2: Troubleshoot connectivity and replication issues
 
-Inledande och pågående replikeringsfel orsakas ofta av anslutnings problem mellan käll servern och processervern eller mellan processervern och Azure. 
+Initial and ongoing replication failures often are caused by connectivity issues between the source server and the process server or between the process server and Azure. 
 
-Lös problemen genom att [Felsöka anslutningar och replikering](vmware-physical-azure-troubleshoot-process-server.md#check-connectivity-and-replication).
-
-
+To solve these issues, [troubleshoot connectivity and replication](vmware-physical-azure-troubleshoot-process-server.md#check-connectivity-and-replication).
 
 
-## <a name="step-3-troubleshoot-source-machines-that-arent-available-for-replication"></a>Steg 3: Felsöka käll datorer som inte är tillgängliga för replikering
 
-När du försöker välja käll datorn för att aktivera replikering med hjälp av Site Recovery kanske datorn inte är tillgänglig av någon av följande orsaker:
 
-* **Två virtuella datorer med samma instans-UUID**: Om två virtuella datorer under vCenter har samma instans-UUID, visas den första virtuella datorn som identifieras av konfigurations servern i Azure Portal. Lös problemet genom att se till att det inte finns två virtuella datorer med samma instans-UUID. Det här scenariot visas vanligt vis i instanser där en säkerhets kopia av virtuella datorer blir aktiv och är inloggad i våra identifierings poster. Se [Azure Site Recovery VMware-till-Azure: Så här rensar du dubbletter eller inaktuella poster @ no__t-0 för att lösa problemet.
-* **Felaktiga vCenter**-användarautentiseringsuppgifter: Se till att du har lagt till rätt vCenter-autentiseringsuppgifter när du konfigurerade konfigurations servern med hjälp av OVF-mallen eller den enhetliga installationen. Information om hur du kontrollerar de autentiseringsuppgifter som du lade till under installationen finns i [ändra autentiseringsuppgifter för automatisk identifiering](vmware-azure-manage-configuration-server.md#modify-credentials-for-automatic-discovery).
-* **vCenter otillräckliga behörigheter**: Om behörigheterna för åtkomst till vCenter inte har de behörigheter som krävs, kan det hända att det inte går att identifiera virtuella datorer. Kontrol lera att behörigheterna som beskrivs i [förbereda ett konto för automatisk identifiering](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) läggs till i vCenter-användarkontot.
-* **Azure Site Recovery hanterings servrar**: Om den virtuella datorn används som hanterings Server under en eller flera av följande roller – konfigurations servern/Scale-Out processervern/huvud mål servern, kan du inte välja den virtuella datorn från portalen. Hanterings servrar kan inte replikeras.
-* **Redan skyddad/misslyckad över till Azure Site Recovery tjänster**: Om den virtuella datorn redan är skyddad eller misslyckad via Site Recovery är den virtuella datorn inte tillgänglig för att välja skydd i portalen. Se till att den virtuella dator som du söker efter i portalen inte redan skyddas av någon annan användare eller under en annan prenumeration.
-* **vCenter är inte ansluten**: Kontrol lera om vCenter är i anslutet tillstånd. För att verifiera går du till Recovery Services valv > Site Recovery infrastruktur > konfigurations servrar > klickar på respektive konfigurations Server > ett blad öppnas till höger med information om associerade servrar. Kontrol lera om vCenter är ansluten. Om det är i läget "inte ansluten" löser du problemet och [uppdaterar sedan konfigurations servern](vmware-azure-manage-configuration-server.md#refresh-configuration-server) på portalen. Därefter visas den virtuella datorn i portalen.
-* **ESXi**avstängd: Om ESXi-värden som den virtuella datorn finns i är avstängd, visas inte den virtuella datorn eller så går den inte att välja i Azure Portal. Starta ESXi-värden och [Uppdatera konfigurations servern](vmware-azure-manage-configuration-server.md#refresh-configuration-server) på portalen. Därefter visas den virtuella datorn i portalen.
-* **Väntande omstart**: Om det finns en väntande omstart på den virtuella datorn kommer du inte att kunna välja datorn på Azure Portal. Se till att slutföra de väntande omstarts aktiviteterna, [Uppdatera konfigurations servern](vmware-azure-manage-configuration-server.md#refresh-configuration-server). Därefter visas den virtuella datorn i portalen.
-* **IP hittades inte**: Om den virtuella datorn inte har en giltig IP-adress som är kopplad till den, kan du inte välja datorn på Azure Portal. Se till att tilldela en giltig IP-adress till den virtuella datorn och [Uppdatera konfigurations servern](vmware-azure-manage-configuration-server.md#refresh-configuration-server). Därefter visas den virtuella datorn i portalen.
+## <a name="step-3-troubleshoot-source-machines-that-arent-available-for-replication"></a>Step 3: Troubleshoot source machines that aren't available for replication
 
-### <a name="troubleshoot-protected-virtual-machines-greyed-out-in-the-portal"></a>Felsöka skyddade virtuella datorer som är grå i portalen
+When you try to select the source machine to enable replication by using Site Recovery, the machine might not be available for one of the following reasons:
 
-Virtuella datorer som replikeras under Site Recovery är inte tillgängliga i Azure Portal om det finns dubbla poster i systemet. Information om hur du tar bort inaktuella poster och löser problemet finns i [Azure Site Recovery VMware-till-Azure: Så här rensar du dubbletter eller inaktuella poster @ no__t-0.
+* **Two virtual machines with same instance UUID**: If two virtual machines under the vCenter have the same instance UUID, the first virtual machine discovered by the configuration server is shown in the Azure portal. To resolve this issue, ensure that no two virtual machines have the same instance UUID. This scenario is commonly seen in instances where a backup VM becomes active and is logged into our discovery records. Refer to [Azure Site Recovery VMware-to-Azure: How to clean up duplicate or stale entries](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx) to resolve.
+* **Incorrect vCenter user credentials**: Ensure that you added the correct vCenter credentials when you set up the configuration server by using the OVF template or unified setup. To verify the credentials that you added during setup, see [Modify credentials for automatic discovery](vmware-azure-manage-configuration-server.md#modify-credentials-for-automatic-discovery).
+* **vCenter insufficient privileges**: If the permissions provided to access vCenter don't have the required permissions, failure to discover virtual machines might occur. Ensure that the permissions described in [Prepare an account for automatic discovery](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) are added to the vCenter user account.
+* **Azure Site Recovery management servers**: If the virtual machine is used as management server under one or more of the following roles - Configuration server /scale-out process server / Master target server, then you will not be able to choose the virtual machine from portal. Managements servers cannot be replicated.
+* **Already protected/failed over through Azure Site Recovery services**: If the virtual machine is already protected or failed over through Site Recovery, the virtual machine isn't available to select for protection in the portal. Ensure that the virtual machine you're looking for in the portal isn't already protected by any other user or under a different subscription.
+* **vCenter not connected**: Check if vCenter is in connected state. To verify, go to Recovery Services vault > Site Recovery Infrastructure > Configuration Servers > Click on respective configuration server > a blade opens on your right with details of associated servers. Check if vCenter is connected. If it's in a "Not Connected" state, resolve the issue and then [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server) on the portal. After this, virtual machine will be listed on the portal.
+* **ESXi powered off**: If ESXi host under which the virtual machine resides is in powered off state, then virtual machine will not be listed or will not be selectable on the Azure portal. Power on the ESXi host, [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server) on the portal. After this, virtual machine will be listed on the portal.
+* **Pending reboot**: If there is a pending reboot on the virtual machine, then you will not be able to select the machine on Azure portal. Ensure to complete the pending reboot activities, [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server). After this, virtual machine will be listed on the portal.
+* **IP not found**: If the virtual machine doesn't have a valid IP address associated with it, then you will not be able to select the machine on Azure portal. Ensure to assign a valid IP address to the virtual machine, [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server). After this, virtual machine will be listed on the portal.
 
-## <a name="no-crash-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>Ingen kraschad återställnings punkt är tillgänglig för den virtuella datorn under de senaste XXX minuterna
+### <a name="troubleshoot-protected-virtual-machines-greyed-out-in-the-portal"></a>Troubleshoot protected virtual machines greyed out in the portal
 
-Några av de vanligaste problemen visas nedan
+Virtual machines that are replicated under Site Recovery aren't available in the Azure portal if there are duplicate entries in the system. To learn how to delete stale entries and resolve the issue, refer to [Azure Site Recovery VMware-to-Azure: How to clean up duplicate or stale entries](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx).
 
-### <a name="initial-replication-issues-error-78169"></a>Problem med inledande replikering [fel 78169]
+## <a name="no-crash-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>No crash consistent recovery point available for the VM in the last 'XXX' minutes
 
-Över ett ovan garanterar att det inte finns några problem med anslutning, bandbredd eller tidssynkronisering, se till att:
+Some of the most common issues are listed below
 
-- Inga antivirus program blockerar Azure Site Recovery. Läs [mer](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) om undantag från mappar som krävs för Azure Site Recovery.
+### <a name="initial-replication-issues-error-78169"></a>Initial replication issues [error 78169]
 
-### <a name="source-machines-with-high-churn-error-78188"></a>Käll datorer med hög omsättning [fel 78188]
+Over an above ensuring that there are no connectivity, bandwidth or time sync related issues, ensure that:
 
-Möjliga orsaker:
-- Data ändrings hastigheten (skrivna byte/s) på de angivna diskarna i den virtuella datorn är mer än [Azure Site Recovery gränser som stöds](site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) för lagrings konto typen för replikering.
-- Det finns en plötslig ökning i omsättnings takten på grund av vilken hög mängd data som väntar på uppladdning.
+- No anti-virus software is blocking Azure Site Recovery. Learn [more](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) on folder exclusions required for Azure Site Recovery.
 
-Så här löser du problemet:
-- Se till att mål lagrings konto typen (standard eller Premium) har tillhandahållits enligt kravet på omsättnings skatt vid källan.
-- Om du redan replikerar till en Premium-hanterad disk (asrseeddisk-typ) kontrollerar du att storleken på disken stöder den observerade omsättnings takten enligt Site Recovery gränser. Du kan öka storleken på asrseeddisk om det behövs. Följ stegen nedan:
-    - Gå till bladet diskar på den berörda replikerade datorn och kopiera replik diskens namn
-    - Navigera till den här replik hanterade disken
-    - Du kan se en banderoll på bladet översikt som anger att en SAS-webbadress har skapats. Klicka på den här banderollen och Avbryt exporten. Ignorera det här steget om du inte ser banderollen.
-    - Så snart SAS-URL: en har återkallats går du till konfigurations bladet för den hanterade disken och ökar storleken så att ASR stöder den observerade omsättnings takten på käll disken
-- Om den observerade omsättningen är tillfällig väntar du några timmar på att den väntande data uppladdningen ska fångas upp och skapa återställnings punkter.
-- Om disken innehåller icke-kritiska data, t. ex. tillfälliga loggar, test data osv., bör du överväga att flytta dessa data någon annan stans eller helt undanta den här disken från replikeringen
-- Om problemet kvarstår ska du använda Site Recovery [Deployment Planner](site-recovery-deployment-planner.md#overview) för att planera replikeringen.
+### <a name="source-machines-with-high-churn-error-78188"></a>Source machines with high churn [error 78188]
 
-### <a name="source-machines-with-no-heartbeat-error-78174"></a>Käll datorer utan pulsslag [fel 78174]
+Possible Causes:
+- The data change rate (write bytes/sec) on the listed disks of the virtual machine is more than the [Azure Site Recovery supported limits](site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) for the replication target storage account type.
+- There is a sudden spike in the churn rate due to which high amount of data is pending for upload.
 
-Detta inträffar när Azure Site Recovery mobilitets agenten på käll datorn inte kommunicerar med konfigurations servern (CS).
+To resolve the issue:
+- Ensure that the target storage account type (Standard or Premium) is provisioned as per the churn rate requirement at source.
+- If you are already replicating to a Premium managed disk (asrseeddisk type), ensure that the size of the disk supports the observed churn rate as per Site Recovery limits. You can increase the size of the asrseeddisk if required. Follow the below steps:
+    - Navigate to the Disks blade of the impacted replicated machine and copy the replica disk name
+    - Navigate to this replica managed disk
+    - You may see a banner on the Overview blade saying that a SAS URL has been generated. Click on this banner and cancel the export. Ignore this step if you do not see the banner.
+    - As soon as the SAS URL is revoked, go to Configuration blade of the Managed Disk and increase the size so that ASR supports the observed churn rate on source disk
+- If the observed churn is temporary, wait for a few hours for the pending data upload to catch up and to create recovery points.
+- If the disk contains non-critical data like temporary logs, test data etc., consider moving this data elsewhere or completely exclude this disk from replication
+- If the problem continues to persist, use the Site Recovery [deployment planner](site-recovery-deployment-planner.md#overview) to help plan replication.
 
-Lös problemet genom att använda följande steg för att kontrol lera nätverks anslutningen från den virtuella käll datorn till konfigurations servern:
+### <a name="source-machines-with-no-heartbeat-error-78174"></a>Source machines with no heartbeat [error 78174]
 
-1. Kontrol lera att käll datorn körs.
-2. Logga in på käll datorn med ett konto som har administratörs behörighet.
-3. Kontrol lera att följande tjänster körs och starta inte om tjänsterna:
-   - Svagents (InMage Scout VX agent)
+This happens when Azure Site Recovery Mobility agent on the Source Machine is not communicating with the Configuration Server (CS).
+
+To resolve the issue, use the following steps to verify the network connectivity from the source VM to the Config Server:
+
+1. Verify that the Source Machine is running.
+2. Sign in to the Source Machine using an account that has administrator privileges.
+3. Verify that the following services are running and if not restart the services:
+   - Svagents (InMage Scout VX Agent)
    - InMage Scout Application Service
-4. På käll datorn granskar du loggarna på platsen för fel information:
+4. On the Source Machine, examine the logs at the location for error details:
 
        C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
     
-### <a name="process-server-with-no-heartbeat-error-806"></a>Processerver utan pulsslag [fel 806]
-Om det inte finns något pulsslag från processervern (PS) kontrollerar du att:
-1. Den virtuella PS-datorn är igång
-2. Följande loggar finns på PS för fel information:
+### <a name="process-server-with-no-heartbeat-error-806"></a>Process server with no heartbeat [error 806]
+In case there is no heartbeat from the Process Server (PS), check that:
+1. PS VM is up and running
+2. Check following logs on the PS for error details:
 
        C:\ProgramData\ASR\home\svsystems\eventmanager*.log
        and
        C:\ProgramData\ASR\home\svsystems\monitor_protection*.log
 
-### <a name="master-target-server-with-no-heartbeat-error-78022"></a>Huvud mål server utan pulsslag [fel 78022]
+### <a name="master-target-server-with-no-heartbeat-error-78022"></a>Master target server with no heartbeat [error 78022]
 
-Detta inträffar när Azure Site Recovery mobilitets agent på huvud målet inte kommunicerar med konfigurations servern.
+This happens when Azure Site Recovery Mobility agent on the Master Target is not communicating with the Configuration Server.
 
-Lös problemet genom att följa stegen nedan för att kontrol lera tjänst status:
+To resolve the issue, use the following steps to verify the service status:
 
-1. Kontrol lera att den virtuella huvud mål datorn körs.
-2. Logga in på den virtuella huvud mål datorn med ett konto som har administratörs behörighet.
-    - Kontrol lera att svagents-tjänsten körs. Om den körs startar du om tjänsten
-    - Fel information finns i loggarna på platsen:
+1. Verify that the Master Target VM is running.
+2. Sign in to the Master Target VM using an account that has administrator privileges.
+    - Verify that the svagents service is running. If it is running, restart the service
+    - Check the logs at the location for error details:
         
           C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
-3. Om du vill registrera huvud målet med konfigurations servern navigerar du till mappen **%programdata%\ASR\Agent**och kör följande kommando tolk:
+3. To register master target with configuration server, navigate to folder **%PROGRAMDATA%\ASR\Agent**, and run the following on command prompt:
    ```
    cmd
    cdpcli.exe --registermt
@@ -130,66 +130,66 @@ Lös problemet genom att följa stegen nedan för att kontrol lera tjänst statu
    exit
    ```
 
-## <a name="error-id-78144---no-app-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>Fel-ID 78144 – ingen programkonsekvent återställnings punkt är tillgänglig för den virtuella datorn under de senaste XXX minuterna
+## <a name="error-id-78144---no-app-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>Error ID 78144 - No app-consistent recovery point available for the VM in the last 'XXX' minutes
 
-Förbättringar har gjorts i Mobility agent [9,23](vmware-physical-mobility-service-overview.md##from-923-version-onwards) & [9,27](site-recovery-whats-new.md#update-rollup-39) -versioner för att hantera problem med VSS-installation. Se till att du har de senaste versionerna för bästa vägledning om hur du felsöker VSS-fel.
+Enhancements have been made in mobility agent [9.23](vmware-physical-mobility-service-overview.md#from-923-version-onwards) & [9.27](site-recovery-whats-new.md#update-rollup-39) versions to handle VSS installation failure behaviors. Ensure that you are on the latest versions for best guidance on troubleshooting VSS failures.
 
-Några av de vanligaste problemen visas nedan
+Some of the most common issues are listed below
 
-#### <a name="cause-1-known-issue-in-sql-server-20082008-r2"></a>Orsak 1: Känt problem i SQL Server 2008/2008 R2 
-**Så här åtgärdar du** : Det finns ett känt problem med SQL Server 2008/2008 R2. Det går inte att säkerhetskopiera den här KB-artikeln [Azure Site Recovery agent eller annan VSS-säkerhetskopiering som inte är en komponent för en server som är värd för SQL Server 2008](https://support.microsoft.com/help/4504103/non-component-vss-backup-fails-for-server-hosting-sql-server-2008-r2)
+#### <a name="cause-1-known-issue-in-sql-server-20082008-r2"></a>Cause 1: Known issue in SQL server 2008/2008 R2 
+**How to fix** : There is a known issue with SQL server 2008/2008 R2. Please refer this KB article [Azure Site Recovery Agent or other non-component VSS backup fails for a server hosting SQL Server 2008 R2](https://support.microsoft.com/help/4504103/non-component-vss-backup-fails-for-server-hosting-sql-server-2008-r2)
 
-#### <a name="cause-2-azure-site-recovery-jobs-fail-on-servers-hosting-any-version-of-sql-server-instances-with-auto_close-dbs"></a>Orsak 2: Azure Site Recoverys jobb fungerar inte på servrar som är värdar för någon version av SQL Server-instanser med AUTO_CLOSE databaser 
-**Så här åtgärdar du** : Se KB- [artikel](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser) 
-
-
-#### <a name="cause-3-known-issue-in-sql-server-2016-and-2017"></a>Orsak 3: Känt problem i SQL Server 2016 och 2017
-**Så här åtgärdar du** : Se KB- [artikel](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) 
+#### <a name="cause-2-azure-site-recovery-jobs-fail-on-servers-hosting-any-version-of-sql-server-instances-with-auto_close-dbs"></a>Cause 2: Azure Site Recovery jobs fail on servers hosting any version of SQL Server instances with AUTO_CLOSE DBs 
+**How to fix** : Refer Kb [article](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser) 
 
 
-### <a name="more-causes-due-to-vss-related-issues"></a>Fler orsaker till följd av VSS-relaterade problem:
+#### <a name="cause-3-known-issue-in-sql-server-2016-and-2017"></a>Cause 3: Known issue in SQL Server 2016 and 2017
+**How to fix** : Refer Kb [article](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) 
 
-Om du vill felsöka ytterligare kan du kontrol lera filerna på käll datorn för att få en exakt felkod för felet:
+
+### <a name="more-causes-due-to-vss-related-issues"></a>More causes due to VSS related issues:
+
+To troubleshoot further, Check the files on the source machine to get the exact error code for failure:
     
     C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log
 
-Hur hittar du felen i filen?
-Sök efter strängen "vacpError" genom att öppna filen vacp. log i en redigerare
+How to locate the errors in the file?
+Search for the string "vacpError"  by opening the vacp.log file in an editor
         
     Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|
 
-I ovanstående exempel **2147754994** är felkoden som visar dig om felet som visas nedan
+In the above example **2147754994** is the error code that tells you about the failure as shown below
 
-#### <a name="vss-writer-is-not-installed---error-2147221164"></a>VSS-skrivaren är inte installerad-fel 2147221164 
+#### <a name="vss-writer-is-not-installed---error-2147221164"></a>VSS writer is not installed - Error 2147221164 
 
-*Så här åtgärdar du*: Azure Site Recovery använder Microsoft Volume Shadow Copy-tjänsten (VSS) för att skapa en program konsekvens tagg. Den installerar en VSS-Provider för åtgärden att ta ögonblicks bilder av program konsekvens. Den här VSS-providern installeras som en tjänst. Om tjänsten VSS Provider inte är installerad, Miss lyckas skapandet av program konsekvensen med fel-ID 0x80040154 "-klassen har inte registrerats". </br>
-Se [artikeln om fel sökning av VSS Writer-installation](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures) 
+*How to fix*: To generate application consistency tag, Azure Site Recovery uses Microsoft Volume Shadow copy Service (VSS). It installs a VSS Provider for its operation to take app consistency snapshots. This VSS Provider is installed as a service. In case the VSS Provider service is not installed, the application consistency snapshot creation fails with the error id 0x80040154  "Class not registered". </br>
+Refer [article for VSS writer installation troubleshooting](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures) 
 
-#### <a name="vss-writer-is-disabled---error-2147943458"></a>VSS-skrivaren är inaktive rad-fel 2147943458
+#### <a name="vss-writer-is-disabled---error-2147943458"></a>VSS writer is disabled - Error 2147943458
 
-**Så här åtgärdar du**: Azure Site Recovery använder Microsoft Volume Shadow Copy-tjänsten (VSS) för att skapa en program konsekvens tagg. Den installerar en VSS-Provider för åtgärden att ta ögonblicks bilder av program konsekvens. Den här VSS-providern installeras som en tjänst. Om tjänsten VSS Provider är inaktive rad kan inte skapandet av program konsekvens skapas med fel-ID: t "den angivna tjänsten är inaktive rad och kan inte startas (0x80070422)". </br>
+**How to fix**: To generate application consistency tag, Azure Site Recovery uses Microsoft Volume Shadow copy Service (VSS). It installs a VSS Provider for its operation to take app consistency snapshots. This VSS Provider is installed as a service. In case the VSS Provider service is disabled, the application consistency snapshot creation fails with the error id "The specified service is disabled and cannot be started(0x80070422)". </br>
 
-- Om VSS är inaktiverat
-    - Kontrol lera att start typen för tjänsten VSS Provider är inställd på **Automatisk**.
-    - Starta om följande tjänster:
-        - VSS-tjänst
+- If VSS is disabled,
+    - Verify that the startup type of the VSS Provider service is set to **Automatic**.
+    - Restart the following services:
+        - VSS service
         - Azure Site Recovery VSS Provider
-        - VDS-tjänst
+        - VDS service
 
-####  <a name="vss-provider-not_registered---error-2147754756"></a>VSS-PROVIDERns NOT_REGISTERED – fel 2147754756
+####  <a name="vss-provider-not_registered---error-2147754756"></a>VSS PROVIDER NOT_REGISTERED - Error 2147754756
 
-**Så här åtgärdar du**: Azure Site Recovery använder Microsoft Volume Shadow Copy-tjänsten (VSS) för att skapa en program konsekvens tagg. Kontrol lera om tjänsten Azure Site Recovery VSS Provider är installerad eller inte. </br>
+**How to fix**: To generate application consistency tag, Azure Site Recovery uses Microsoft Volume Shadow copy Service (VSS). Check if the Azure Site Recovery  VSS Provider service is installed or not. </br>
 
-- Försök att installera providern med följande kommandon:
-- Avinstallera befintlig provider: C:\Program Files (x86) \Microsoft Azure Site Recovery\agent\InMageVSSProvider_Uninstall.cmd
-- Avinstallera C:\Program Files (x86) \Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd
+- Retry the Provider installation using the following commands:
+- Uninstall existing provider: C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Uninstall.cmd
+- Reinstall: C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd
  
-Kontrol lera att start typen för tjänsten VSS Provider är inställd på **Automatisk**.
-    - Starta om följande tjänster:
-        - VSS-tjänst
+Verify that the startup type of the VSS Provider service is set to **Automatic**.
+    - Restart the following services:
+        - VSS service
         - Azure Site Recovery VSS Provider
-        - VDS-tjänst
+        - VDS service
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du behöver mer hjälp kan du publicera din fråga i [Azure Site Recovery-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). Vi har en aktiv community och en av våra tekniker kan hjälpa dig.
+If you need more help, post your question in the [Azure Site Recovery forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). We have an active community, and one of our engineers can assist you.

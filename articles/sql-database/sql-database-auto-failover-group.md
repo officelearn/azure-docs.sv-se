@@ -1,6 +1,6 @@
 ---
 title: Redundansgrupper
-description: Grupper med automatisk redundans är en SQL Database funktion som gör att du kan hantera replikering och automatisk/samordnad redundansväxling av en grupp databaser på en SQL Database-Server eller alla databaser i en hanterad instans.
+description: Auto-failover groups is a SQL Database feature that allows you to manage replication and automatic / coordinated failover of a group of databases on a SQL Database server or all databases in managed instance.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,382 +11,406 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 11/07/2019
-ms.openlocfilehash: 16fc15a574655f20e3e6e37f164773b41ffe0b78
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 470e9a9c36b6b4ec2e40db5dfc47ae03fb6b5aa8
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839338"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74421382"
 ---
-# <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använd grupper för automatisk redundans för att aktivera transparent och samordnad redundansväxling av flera databaser
+# <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Use auto-failover groups to enable transparent and coordinated failover of multiple databases
 
-Grupper med automatisk redundans är en SQL Database funktion som gör att du kan hantera replikering och redundans för en grupp databaser på en SQL Database-Server eller alla databaser i en hanterad instans till en annan region. Det är en deklarativ abstraktion ovanpå den befintliga funktionen [aktiv geo-replikering](sql-database-active-geo-replication.md) som är utformad för att förenkla distribution och hantering av geo-replikerade databaser i stor skala. Du kan initiera redundans manuellt eller så kan du delegera den till SQL Database tjänst baserat på en användardefinierad princip. Med det senare alternativet kan du automatiskt återställa flera relaterade databaser i en sekundär region efter ett oåterkalleligt fel eller annan oplanerad händelse som resulterar i fullständig eller partiell förlust av SQL Database tjänstens tillgänglighet i den primära regionen. En failover-grupp kan innehålla en eller flera databaser, som vanligt vis används av samma program. Dessutom kan du använda de läsbara sekundära databaserna för att avlasta skrivskyddade arbets belastningar. Eftersom grupper med automatisk redundans omfattar flera databaser, måste dessa databaser konfigureras på den primära servern. Grupper för automatisk redundans stöder replikering av alla databaser i gruppen till endast en sekundär server i en annan region.
+Auto-failover groups is a SQL Database feature that allows you to manage replication and failover of a group of databases on a SQL Database server or all databases in a managed instance to another region. It is a declarative abstraction on top of the existing [active geo-replication](sql-database-active-geo-replication.md) feature, designed to simplify deployment and management of geo-replicated databases at scale. You can initiate failover manually or you can delegate it to the SQL Database service based on a user-defined policy. The latter option allows you to automatically recover multiple related databases in a secondary region after a catastrophic failure or other unplanned event that results in full or partial loss of the SQL Database service’s availability in the primary region. A failover group can include one or multiple databases, typically used by the same application. Additionally, you can use the readable secondary databases to offload read-only query workloads. Because auto-failover groups involve multiple databases, these databases must be configured on the primary server. Auto-failover groups support replication of all databases in the group to only one secondary server in a different region.
 
 > [!NOTE]
-> När du arbetar med enskilda databaser eller databaser på en SQL Database-Server och vill ha flera sekundära servrar i samma eller olika regioner, använder du [aktiv geo-replikering](sql-database-active-geo-replication.md). 
+> When working with single or pooled databases on a SQL Database server and you want multiple secondaries in the same or different regions, use [active geo-replication](sql-database-active-geo-replication.md). 
 
-När du använder grupper för automatisk redundans med automatisk redundansväxling, resulterar alla avbrott som påverkar en eller flera av databaserna i gruppen i automatisk redundans. Detta är vanligt vis incidenter som inte kan begränsas av de inbyggda automatiska hög tillgänglighets åtgärderna. Exempel på utlösare för växling vid fel är en incident som orsakas av att en SQL-klients ring eller kontroll ring stoppas på grund av en minnes läcka för operativ system på flera datornoder, eller att en incident som orsakas av en eller flera klient signaler är nere, eftersom en fel nätverks kabel togs bort under ro utine maskin varu avställning.  Mer information finns i [SQL Database hög tillgänglighet](sql-database-high-availability.md).
+When you are using auto-failover groups with automatic failover policy, any outage that impacts one or several of the databases in the group results in automatic failover. Typically these are incidents that cannot be self-mitigated by the built-in automatic high availability operations. The examples of failover triggers include an incident caused by a SQL tenant ring or control ring being down due to an OS kernel memory leak on several compute nodes, or an incident caused by one or more tenant rings being down because a wrong network cable was cut during routine hardware decommissioning.  For more information, see [SQL Database High Availability](sql-database-high-availability.md).
 
-Dessutom tillhandahåller grupper för automatisk redundans skrivskyddade och skrivskyddade lyssnar slut punkter som förblir oförändrade under redundansväxling. Oavsett om du använder manuell eller automatisk redundans växlar redundans alla sekundära databaser i gruppen till primär. När databasen har redundans har slutförts uppdateras DNS-posten automatiskt för att omdirigera slut punkterna till den nya regionen. För specifika återställnings-och RTO-data, se [Översikt över affärs kontinuitet](sql-database-business-continuity.md).
+In addition, auto-failover groups provide read-write and read-only listener end-points that remain unchanged during failovers. Whether you use manual or automatic failover activation, failover switches all secondary databases in the group to primary. After the database failover is completed, the DNS record is automatically updated to redirect the endpoints to the new region. For the specific RPO and RTO data, see [Overview of Business Continuity](sql-database-business-continuity.md).
 
-När du använder grupper för automatisk redundans med automatisk redundansväxling, resulterar alla avbrott som påverkar databaser i SQL Database-servern eller hanterade instanser i automatisk redundans. Du kan hantera gruppen för automatisk redundans med:
+When you are using auto-failover groups with automatic failover policy, any outage that impacts databases in the SQL Database server or managed instance results in automatic failover. You can manage auto-failover group using:
 
 - [Azure Portal](sql-database-implement-geo-distributed-database.md)
-- [PowerShell: redundans grupp](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
-- [REST API: grupp växling vid fel](https://docs.microsoft.com/rest/api/sql/failovergroups).
+- [PowerShell: Failover Group](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
+- [REST API: Failover group](https://docs.microsoft.com/rest/api/sql/failovergroups).
 
-Efter redundansväxlingen kontrollerar du att autentiseringskrav för servern och databasen har kon figurer ATS på den nya primära servern. Mer information finns i [SQL Database säkerhet efter haveri beredskap](sql-database-geo-replication-security-config.md).
+After failover, ensure the authentication requirements for your server and database are configured on the new primary. For details, see [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md).
 
-För att uppnå verklig affärs kontinuitet är det bara en del av lösningen att lägga till databas redundans mellan data Center. Att återställa ett program (tjänst) från slut punkt till slut punkt efter ett oåterkalleligt haveri kräver återställning av alla komponenter som utgör tjänsten och eventuella beroende tjänster. Exempel på dessa komponenter är klient program varan (till exempel en webbläsare med ett anpassat java script), webb server delar, lagring och DNS. Det är viktigt att alla komponenter är elastiska för samma problem och blir tillgängliga inom RTO (Recovery Time mål) för ditt program. Därför måste du identifiera alla beroende tjänster och förstå de garantier och funktioner som de tillhandahåller. Sedan måste du vidta lämpliga åtgärder för att säkerställa att tjänsten fungerar under redundansväxlingen av de tjänster som den är beroende av. Mer information om hur du skapar lösningar för haveri beredskap finns i [utforma moln lösningar för haveri beredskap med hjälp av aktiv geo-replikering](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
+To achieve real business continuity, adding database redundancy between datacenters is only part of the solution. Recovering an application (service) end-to-end after a catastrophic failure requires recovery of all components that constitute the service and any dependent services. Examples of these components include the client software (for example, a browser with a custom JavaScript), web front ends, storage, and DNS. It is critical that all components are resilient to the same failures and become available within the recovery time objective (RTO) of your application. Therefore, you need to identify all dependent services and understand the guarantees and capabilities they provide. Then, you must take adequate steps to ensure that your service functions during the failover of the services on which it depends. For more information about designing solutions for disaster recovery, see [Designing Cloud Solutions for Disaster Recovery Using active geo-replication](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
-## <a name="auto-failover-group-terminology-and-capabilities"></a>Grupp terminologi och funktioner för automatisk redundans
+## <a name="auto-failover-group-terminology-and-capabilities"></a>Auto-failover group terminology and capabilities
 
-- **Failover-grupp (dim)**
+- **Failover group (FOG)**
 
-  En grupp för växling vid fel är en namngiven grupp databaser som hanteras av en enda SQL Database Server eller inom en enda hanterad instans som kan redundansväxla som en enhet till en annan region, om alla eller vissa primära databaser blir otillgängliga på grund av ett avbrott i den primära regionen. När det skapas för hanterade instanser innehåller en redundans grupp alla användar databaser i instansen och därför kan bara en failover-grupp konfigureras på en instans.
+  A failover group is a named group of databases managed by a single SQL Database server or within a single managed instance that can fail over as a unit to another region in case all or some primary databases become unavailable due to an outage in the primary region. When created for managed instances, a failover group contains all user databases in the instance and therefore only one failover group can be configured on an instance.
   
   > [!IMPORTANT]
-  > Namnet på gruppen för redundans måste vara globalt unikt inom `.database.windows.net`s domänen.
+  > The name of the failover group must be globally unique within the `.database.windows.net` domain.
 
-- **SQL Database servrar**
+- **SQL Database servers**
 
-     Med SQL Database-servrar kan vissa eller alla användar databaser på en enda SQL Database-Server placeras i en grupp för växling vid fel. Dessutom stöder en SQL Database-Server flera grupper för växling vid fel på en enda SQL Database-Server.
+     With SQL Database servers, some or all of the user databases on a single SQL Database server can be placed in a failover group. Also, a SQL Database server supports multiple failover groups on a single SQL Database server.
 
-- **Huvud**
+- **Primary**
 
-  Den SQL Database Server eller hanterad instans som är värd för de primära databaserna i gruppen för växling vid fel.
+  The SQL Database server or managed instance that hosts the primary databases in the failover group.
 
-- **Alternativ**
+- **Secondary**
 
-  Den SQL Database Server eller hanterad instans som är värd för de sekundära databaserna i gruppen för växling vid fel. Den sekundära kan inte finnas i samma region som den primära.
+  The SQL Database server or managed instance that hosts the secondary databases in the failover group. The secondary cannot be in the same region as the primary.
 
-- **Lägga till enskilda databaser i redundans gruppen**
+- **Adding single databases to failover group**
 
-  Du kan skicka flera databaser på samma SQL Database-Server till samma failover-grupp. Om du lägger till en enda databas i gruppen redundans skapas automatiskt en sekundär databas med samma version och beräknings storlek på den sekundära servern.  Du har angett att servern när gruppen för växling vid fel skapades. Om du lägger till en databas som redan har en sekundär databas på den sekundära servern ärvs den geo-replikeringslänken av gruppen. När du lägger till en databas som redan har en sekundär databas i en server som inte är en del av gruppen redundans, skapas en ny sekundär på den sekundära servern.
-  
+  You can put several single databases on the same SQL Database server into the same failover group. If you add a single database to the failover group, it automatically creates a secondary database using the same edition and compute size on secondary server.  You specified that server when the failover group was created. If you add a database that already has a secondary database in the secondary server, that geo-replication link is inherited by the group. When you add a database that already has a secondary database in a server that is not part of the failover group, a new secondary is created in the secondary server.
+
   > [!IMPORTANT]
-  > Kontrol lera att den sekundära servern inte har en databas med samma namn, om det inte är en befintlig sekundär databas. I grupper för växling vid fel för hanterade instanser replikeras alla användar databaser. Du kan inte välja en delmängd av användar databaser för replikering i gruppen redundans.
+  > Make sure that the secondary server doesn't have a database with the same name unless it is an existing secondary database. In failover groups for managed instance all user databases are replicated. You cannot pick a subset of user databases for replication in the failover group.
 
-- **Lägga till databaser i elastisk pool i redundans gruppen**
+- **Adding databases in elastic pool to failover group**
 
-  Du kan publicera alla eller flera databaser i en elastisk pool i samma grupp för redundans. Om den primära databasen finns i en elastisk pool skapas den sekundära automatiskt i den elastiska poolen med samma namn (sekundär pool). Du måste se till att den sekundära servern innehåller en elastisk pool med samma exakta namn och tillräckligt med ledigt utrymme som värd för de sekundära databaserna som ska skapas av gruppen för växling vid fel. Om du lägger till en databas i poolen som redan har en sekundär databas i den sekundära poolen ärvs den geo-replikeringslänken av gruppen. När du lägger till en databas som redan har en sekundär databas i en server som inte är en del av gruppen redundans, skapas en ny sekundär i den sekundära poolen.
+  You can put all or several databases within an elastic pool into the same failover group. If the primary database is in an elastic pool, the secondary is automatically created in the elastic pool with the same name (secondary pool). You must ensure that the secondary server contains an elastic pool with the same exact name and enough free capacity to host the secondary databases that will be created by the failover group. If you add a database in the pool that already has a secondary database in the secondary pool, that geo-replication link is inherited by the group. When you add a database that already has a secondary database in a server that is not part of the failover group, a new secondary is created in the secondary pool.
   
 - **DNS-zon**
 
-  Ett unikt ID som genereras automatiskt när en ny instans skapas. Ett certifikat för flera domäner (SAN) för den här instansen har allokerats för att autentisera klient anslutningarna till en instans i samma DNS-zon. De två hanterade instanserna i samma failover-grupp måste dela DNS-zonen. 
+  A unique ID that is automatically generated when a new instance is created. A multi-domain (SAN) certificate for this instance is provisioned to authenticate the client connections to any instance in the same DNS zone. The two managed instances in the same failover group must share the DNS zone.
   
   > [!NOTE]
-  > Det krävs inget ID för DNS-zon för grupper som skapats för SQL Database-servrar.
+  > A DNS zone ID is not required for failover groups created for SQL Database servers.
 
-- **Läs-och skriv lyssnare för redundans**
+- **Failover group read-write listener**
 
-  En DNS CNAME-post som pekar på den aktuella primära URL: en. Den skapas automatiskt när gruppen för växling vid fel skapas och tillåter att den skrivskyddade SQL-arbetsbelastningen transparent återansluter till den primära databasen när den primära ändringen sker efter redundansväxlingen. När gruppen för växling vid fel skapas på en SQL Database-Server skapas DNS CNAME-posten för lyssnar-URL: en som `<fog-name>.database.windows.net`. När gruppen för växling vid fel skapas på en hanterad instans, skapas DNS CNAME-posten för lyssnare-URL: en som `<fog-name>.zone_id.database.windows.net`.
+  A DNS CNAME record that points to the current primary's URL. It is created automatically when the failover group is created and allows the read-write SQL workload to transparently reconnect to the primary database when the primary changes after failover. When the failover group is created on a SQL Database server, the DNS CNAME record for the listener URL is formed as `<fog-name>.database.windows.net`. When the failover group is created on a managed instance, the DNS CNAME record for the listener URL is formed as `<fog-name>.zone_id.database.windows.net`.
 
-- **Skrivskyddad lyssnare för redundans grupp**
+- **Failover group read-only listener**
 
-  En DNS CNAME-post som pekar på den skrivskyddade lyssnare som pekar på den sekundära URL: en. Den skapas automatiskt när gruppen för växling vid fel skapas och tillåter skrivskyddad SQL-arbetsbelastning att transparent ansluta till den sekundära med de angivna reglerna för belastnings utjämning. När gruppen för växling vid fel skapas på en SQL Database-Server skapas DNS CNAME-posten för lyssnar-URL: en som `<fog-name>.secondary.database.windows.net`. När gruppen för växling vid fel skapas på en hanterad instans, skapas DNS CNAME-posten för lyssnare-URL: en som `<fog-name>.zone_id.secondary.database.windows.net`.
+  A DNS CNAME record formed that points to the read-only listener that points to the secondary's URL. It is created automatically when the failover group is created and allows the read-only SQL workload to transparently connect to the secondary using the specified load-balancing rules. When the failover group is created on a SQL Database server, the DNS CNAME record for the listener URL is formed as `<fog-name>.secondary.database.windows.net`. When the failover group is created on a managed instance, the DNS CNAME record for the listener URL is formed as `<fog-name>.zone_id.secondary.database.windows.net`.
 
-- **Princip för automatisk redundansväxling**
+- **Automatic failover policy**
 
-  Som standard konfigureras en failover-grupp med en princip för automatisk redundansväxling. Den SQL Database tjänsten utlöser redundans när ett fel har upptäckts och Grace-perioden har löpt ut. Systemet måste kontrol lera att avbrottet inte kan begränsas av den inbyggda [infrastrukturen för hög tillgänglighet i SQL Databases tjänsten](sql-database-high-availability.md) på grund av effektens omfattning. Om du vill kontrol lera arbets flödet för redundans från programmet kan du inaktivera automatisk redundans.
+  By default, a failover group is configured with an automatic failover policy. The SQL Database service triggers failover after the failure is detected and the grace period has expired. The system must verify that the outage cannot be mitigated by the built-in [high availability infrastructure of the SQL Database service](sql-database-high-availability.md) due to the scale of the impact. If you want to control the failover workflow from the application, you can turn off automatic failover.
   
   > [!NOTE]
-  > Eftersom verifieringen av skalningen av avbrottet och hur snabbt det kan lösas innebär att de mänskliga åtgärderna i drifts teamet kan utföras, kan respitperioden inte anges under en timme.  Den här begränsningen gäller för alla databaser i gruppen redundans oavsett datasynkroniseringens status. 
+  > Because verification of the scale of the outage and how quickly it can be mitigated involves human actions by the operations team, the grace period cannot be set below one hour.  This  limitation applies to all databases in the failover group regardless of their data synchronization state. 
 
-- **Princip för skrivskyddad redundans**
+- **Read-only failover policy**
 
-  Som standard är redundansväxlingen av den skrivskyddade lyssnaren inaktive rad. Det garanterar att den primära prestandan inte påverkas när den sekundära är offline. Det innebär dock också att skrivskyddade sessioner inte kan ansluta förrän den sekundära återställningen har återställts. Om du inte kan tolerera stillestånds tiden för de skrivskyddade sessionerna och är OK för att tillfälligt använda den primära för både skrivskyddad och Läs-och Skriv trafik på kostnaderna för den potentiella prestanda försämringen av den primära, kan du aktivera redundans för den skrivskyddade lyssnaren genom att konfigurera egenskapen `AllowReadOnlyFailoverToPrimary`. I så fall omdirigeras den skrivskyddade trafiken automatiskt till den primära om den sekundära inte är tillgänglig.
+  By default, the failover of the read-only listener is disabled. It ensures that the performance of the primary is not impacted when the secondary is offline. However, it also means the read-only sessions will not be able to connect until the secondary is recovered. If you cannot tolerate downtime for the read-only sessions and are OK to temporarily use the primary for both read-only and read-write traffic at the expense of the potential performance degradation of the primary, you can enable failover for the read-only listener by configuring the `AllowReadOnlyFailoverToPrimary` property. In that case, the read-only traffic will be automatically redirected to the primary if the secondary is not available.
 
-- **Planerad redundans**
+- **Planned failover**
 
-   Planerad redundans utför fullständig synkronisering mellan primära och sekundära databaser innan sekundära växlar till den primära rollen. Detta garanterar ingen data förlust. Planerad redundans används i följande scenarier:
+   Planned failover performs full synchronization between primary and secondary databases before the secondary switches to the primary role. This guarantees no data loss. Planned failover is used in the following scenarios:
 
-  - Utföra haveri beredskap (DR) i produktion om data förlust inte är acceptabel
-  - Flytta databaserna till en annan region
-  - Returnera databaserna till den primära regionen efter att avbrottet har begränsats (failback).
+  - Perform disaster recovery (DR) drills in production when the data loss is not acceptable
+  - Relocate the databases to a different region
+  - Return the databases to the primary region after the outage has been mitigated (failback).
 
-- **Oplanerad redundansväxling**
+- **Unplanned failover**
 
-   Oplanerad eller framtvingad redundansväxling växlar omedelbart den sekundära till den primära rollen utan någon synkronisering med den primära. Den här åtgärden leder till data förlust. Oplanerad redundansväxling används som en återställnings metod under avbrott när den primära inte är tillgänglig. När den ursprungliga primära servern är online igen återansluter den automatiskt utan att synkronisera och bli en ny sekundär.
+   Unplanned or forced failover immediately switches the secondary to the primary role without any synchronization with the primary. This operation will result in data loss. Unplanned failover is used as a recovery method during outages when the primary is not accessible. When the original primary is back online, it will automatically reconnect without synchronization and become a new secondary.
 
-- **Manuell redundans**
+- **Manual failover**
 
-  Du kan starta redundans manuellt när som helst oavsett konfigurationen för automatisk redundans. Om principen för automatisk redundansväxling inte har kon figurer ATS krävs manuell redundans för att återställa databaser i gruppen redundans till den sekundära. Du kan initiera Tvingad eller läsvänlig redundans (med fullständig datasynkronisering). Den senare kan användas för att flytta den primära till den sekundära regionen. När redundansväxlingen är klar uppdateras DNS-posterna automatiskt för att säkerställa anslutning till den nya primära
+  You can initiate failover manually at any time regardless of the automatic failover configuration. If automatic failover policy is not configured, manual failover is required to recover databases in the failover group to the secondary. You can initiate forced or friendly failover (with full data synchronization). The latter could be used to relocate the primary to the secondary region. When failover is completed, the DNS records are automatically updated to ensure connectivity to the new primary
 
-- **Respitperiod med data förlust**
+- **Grace period with data loss**
 
-  Eftersom de primära och sekundära databaserna synkroniseras med hjälp av asynkron replikering kan redundansväxlingen leda till data förlust. Du kan anpassa principen för automatisk redundans så att den återspeglar programmets tolerans för data förlust. Genom att konfigurera `GracePeriodWithDataLossHours`kan du styra hur lång tid systemet väntar innan redundansväxlingen initieras, vilket kan leda till data förlust.
+  Because the primary and secondary databases are synchronized using asynchronous replication, the failover may result in data loss. You can customize the automatic failover policy to reflect your application’s tolerance to data loss. By configuring `GracePeriodWithDataLossHours`, you can control how long the system waits before initiating the failover that is likely to result data loss.
 
-- **Flera failover-grupper**
+- **Multiple failover groups**
 
-  Du kan konfigurera flera grupper för växling vid fel för samma server par för att kontrol lera skalningen av redundans. Varje grupp växlar över oberoende. Om ditt program för flera klienter använder elastiska pooler kan du använda den här funktionen för att blanda primära och sekundära databaser i varje pool. På så sätt kan du minska effekten av ett avbrott till endast hälften av klienterna.
+  You can configure multiple failover groups for the same pair of servers to control the scale of failovers. Each group fails over independently. If your multi-tenant application uses elastic pools, you can use this capability to mix primary and secondary databases in each pool. This way you can reduce the impact of an outage to only half of the tenants.
 
   > [!NOTE]
-  > Den hanterade instansen stöder inte flera grupper för växling vid fel.
+  > Managed Instance does not support multiple failover groups.
   
 ## <a name="permissions"></a>Behörigheter
-Behörigheter för en failover-grupp hanteras via [rollbaserad åtkomst kontroll (RBAC)](../role-based-access-control/overview.md). Rollen [SQL Server Contributor](../role-based-access-control/built-in-roles.md#sql-server-contributor) har alla behörigheter som krävs för att hantera grupper med fel. 
 
-### <a name="create-failover-group"></a>Skapa redundans grupp
-Om du vill skapa en grupp för växling vid fel behöver du RBAC-skriv åtkomst till både den primära och sekundära servern och till alla databaser i gruppen redundans. För en hanterad instans behöver du RBAC-skriv åtkomst till både den primära och sekundära hanterade instansen, men behörigheterna för enskilda databaser är inte relevanta eftersom det inte går att lägga till eller ta bort enskilda hanterade instans databaser i eller tas bort från en redundansrelation. 
+Permissions for a failover group are managed via [role-based access control (RBAC)](../role-based-access-control/overview.md). The [SQL Server Contributor](../role-based-access-control/built-in-roles.md#sql-server-contributor) role has all the necessary permissions to manage failover groups.
 
-### <a name="update-a-failover-group"></a>Uppdatera en failover-grupp
-Om du vill uppdatera en failover-grupp behöver du RBAC-skriv åtkomst till gruppen redundans och alla databaser på den aktuella primära servern eller den hanterade instansen.  
+### <a name="create-failover-group"></a>Create failover group
 
-### <a name="failover-a-failover-group"></a>Redundansväxla en failover-grupp
-Om du vill redundansväxla en failover-grupp behöver du RBAC-skriv åtkomst till gruppen redundans på den nya primära servern eller den hanterade instansen. 
+To create a failover group, you need RBAC write access to both the primary and secondary servers, and to all databases in the failover group. For a managed instance, you need RBAC write access to both the primary and secondary managed instance, but permissions on individual databases are not relevant since individual managed instance databases cannot be added to or removed from a failover group. 
 
-## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>Bästa metoder för att använda failover-grupper med enkla databaser och elastiska pooler
+### <a name="update-a-failover-group"></a>Update a failover group
 
-Gruppen för automatisk redundans måste konfigureras på den primära SQL Database-servern och ansluta den till den sekundära SQL Database servern i en annan Azure-region. Grupperna kan innehålla alla eller vissa databaser på dessa servrar. Följande diagram illustrerar en typisk konfiguration av ett Geo-redundant moln program med hjälp av flera databaser och gruppen för automatisk redundans.
+To update a failover group, you need RBAC write access to the failover group, and all databases on the current primary server or managed instance.  
 
-![automatisk redundans](./media/sql-database-auto-failover-group/auto-failover-group.png)
+### <a name="failover-a-failover-group"></a>Failover a failover group
+
+To fail over a failover group, you need RBAC write access to the failover group on the new primary server or managed instance.
+
+## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>Best practices of using failover groups with single databases and elastic pools
+
+The auto-failover group must be configured on the primary SQL Database server and will connect it to the secondary SQL Database server in a different Azure region. The groups can include all or some databases in these servers. The following diagram illustrates a typical configuration of a geo-redundant cloud application using multiple databases and auto-failover group.
+
+![auto failover](./media/sql-database-auto-failover-group/auto-failover-group.png)
 
 > [!NOTE]
-> Se [lägga till en enkel databas i en failover-grupp](sql-database-single-database-failover-group-tutorial.md) för en detaljerad steg-för-steg-guide som lägger till en enskild databas i en failover-grupp. 
+> See [Add single database to a failover group](sql-database-single-database-failover-group-tutorial.md) for a detailed step-by-step tutorial adding a single database to a failover group.
 
+When designing a service with business continuity in mind, follow these general guidelines:
 
-När du utformar en tjänst med affärs kontinuitet i åtanke följer du dessa allmänna rikt linjer:
+- **Use one or several failover groups to manage failover of multiple databases**
 
-- **Använd en eller flera grupper för redundans för att hantera redundans för flera databaser**
-
-  En eller flera failover-grupper kan skapas mellan två servrar i olika regioner (primära och sekundära servrar). Varje grupp kan innehålla en eller flera databaser som återställs som en enhet om alla eller vissa primära databaser blir otillgängliga på grund av ett avbrott i den primära regionen. Gruppen redundans skapar geo-Secondary-databas med samma tjänst mål som den primära. Om du lägger till en befintlig Geo-replikeringsrelation i gruppen redundans kontrollerar du att geo-Secondary är konfigurerat med samma tjänste nivå och beräknings storlek som den primära.
+  One or many failover groups can be created between two servers in different regions (primary and secondary servers). Each group can include one or several databases that are recovered as a unit in case all or some primary databases become unavailable due to an outage in the primary region. The failover group creates geo-secondary database with the same service objective as the primary. If you add an existing geo-replication relationship to the failover group, make sure the geo-secondary is configured with the same service tier and compute size as the primary.
   
   > [!IMPORTANT]
-  > Det finns för närvarande inte stöd för att skapa redundansväxla grupper mellan två servrar i olika prenumerationer för enskilda databaser och elastiska pooler. Om du flyttar den primära eller sekundära servern till en annan prenumeration när redundansväxlingen har skapats kan det leda till fel vid redundansväxlingen och andra åtgärder.
+  > Creating failover groups between two servers in different subscriptions is not currently supported for single databases and elastic pools. If you move the primary or secondary server to a different subscription after the failover group has been created, it could result in failures of the failover requests and other operations.
 
-- **Använd Läs-och skriv lyssnare för OLTP-arbetsbelastning**
+- **Use read-write listener for OLTP workload**
 
-  När du utför OLTP-åtgärder ska du använda `<fog-name>.database.windows.net` som server-URL och anslutningarna dirigeras automatiskt till den primära. URL: en ändras inte efter redundansväxlingen. Observera att redundansväxlingen innebär att du uppdaterar DNS-posten så att klient anslutningarna omdirigeras till den nya primära primären först efter det att klient-DNS-cachen har uppdaterats.
+  When performing OLTP operations, use `<fog-name>.database.windows.net` as the server URL and the connections are automatically directed to the primary. This URL does not change after the failover. Note the failover involves updating the DNS record so the client connections are redirected to the new primary only after the client DNS cache is refreshed.
 
-- **Använd skrivskyddad lyssnare för skrivskyddad arbets belastning**
+- **Use read-only listener for read-only workload**
 
-  Om du har en logiskt isolerad skrivskyddad arbets belastning som är tolerant till viss föråldrade data kan du använda den sekundära databasen i programmet. För skrivskyddade sessioner använder du `<fog-name>.secondary.database.windows.net` som server-URL och anslutningen dirigeras automatiskt till den sekundära. Vi rekommenderar också att du anger i anslutnings strängens läsnings avsikt med `ApplicationIntent=ReadOnly`. Om du vill kontrol lera att den skrivskyddade arbets belastningen kan återansluta efter en redundansväxling eller om den sekundära servern kopplas från, måste du konfigurera egenskapen `AllowReadOnlyFailoverToPrimary` för redundansväxlingen. 
+  If you have a logically isolated read-only workload that is tolerant to certain staleness of data, you can use the secondary database in the application. For read-only sessions, use `<fog-name>.secondary.database.windows.net` as the server URL and the connection is automatically directed to the secondary. It is also recommended that you indicate in connection string read intent by using `ApplicationIntent=ReadOnly`. If you want to ensure that the read-only workload can reconnect after failover or in case the secondary server goes offline, make sure to configure the `AllowReadOnlyFailoverToPrimary` property of the failover policy.
 
-- **Förbered dig för prestanda försämring**
+- **Be prepared for perf degradation**
 
-  SQL-redundansprotokollmeddelandet är oberoende av resten av programmet eller andra tjänster som används. Programmet kan vara "blandat" med vissa komponenter i en region och vissa i en annan. Undvik försämringen genom att se till att den redundanta program distributionen i DR-regionen och följer dessa [rikt linjer för nätverks säkerhet](#failover-groups-and-network-security).
+  SQL failover decision is independent from the rest of the application or other services used. The application may be “mixed” with some components in one region and some in another. To avoid the degradation, ensure the redundant application deployment in the DR region and follow these [network security guidelines](#failover-groups-and-network-security).
 
   > [!NOTE]
-  > Programmet i DR-regionen behöver inte använda en annan anslutnings sträng.  
+  > The application in the DR region does not have to use a different connection string.  
 
-- **Förbered för data förlust**
+- **Prepare for data loss**
 
-  Om ett avbrott upptäcks väntar SQL på den period som du angav i `GracePeriodWithDataLossHours`. Standardvärdet är 1 timme. Om du inte kan erbjuda data förlust, se till att ange `GracePeriodWithDataLossHours` till ett tillräckligt stort antal, till exempel 24 timmar. Använd manuell grupp växling vid fel för att återställa från den sekundära till den primära.
+  If an outage is detected, SQL waits for the period you specified by `GracePeriodWithDataLossHours`. The default value is 1 hour. If you cannot afford data loss, make sure to set `GracePeriodWithDataLossHours` to a sufficiently large number, such as 24 hours. Use manual group failover to fail back from the secondary to the primary.
 
   > [!IMPORTANT]
-  > Elastiska pooler med 800 eller färre DTU: er och fler än 250 databaser som använder geo-replikering kan stöta på problem, inklusive längre planerade redundanser och försämrade prestanda.  De här problemen är mer sannolika för Skriv intensiva arbets belastningar när geo-replikeringens slut punkter är mycket åtskilda med geografi eller när flera sekundära slut punkter används för varje databas.  Symptom på de här problemen anges när fördröjningen för geo-replikering ökar med tiden.  Den här fördröjningen kan övervakas med hjälp av [sys. dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).  Om dessa problem inträffar, kan du öka antalet DTU: er eller minska antalet geo-replikerade databaser i samma pool.
+  > Elastic pools with 800 or fewer DTUs and more than 250 databases using geo-replication may encounter issues including longer planned failovers and degraded performance.  These issues are more likely to occur for write intensive workloads, when geo-replication endpoints are widely separated by geography, or when multiple secondary endpoints are used for each database.  Symptoms of these issues are indicated when the geo-replication lag increases over time.  This lag can be monitored using [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).  If these issues occur, then mitigations include increasing the number of pool DTUs, or reducing the number of geo-replicated databases in the same pool.
 
-## <a name="best-practices-of-using-failover-groups-with-managed-instances"></a>Metod tips för att använda failover-grupper med hanterade instanser
+## <a name="best-practices-of-using-failover-groups-with-managed-instances"></a>Best practices of using failover groups with managed instances
 
-Gruppen för automatisk redundans måste konfigureras på den primära instansen och ansluter den till den sekundära instansen i en annan Azure-region.  Alla databaser i instansen kommer att replikeras till den sekundära instansen. 
+The auto-failover group must be configured on the primary instance and will connect it to the secondary instance in a different Azure region.  All databases in the instance will be replicated to the secondary instance.
 
-Följande diagram illustrerar en typisk konfiguration av ett Geo-redundant moln program med hjälp av en hanterad instans och en grupp för automatisk redundans.
+The following diagram illustrates a typical configuration of a geo-redundant cloud application using managed instance and auto-failover group.
 
-![automatisk redundans](./media/sql-database-auto-failover-group/auto-failover-group-mi.png)
+![auto failover](./media/sql-database-auto-failover-group/auto-failover-group-mi.png)
 
 > [!NOTE]
-> Se [Lägg till hanterad instans till en failover-grupp](sql-database-managed-instance-failover-group-tutorial.md) för en detaljerad steg-för-steg-guide som lägger till en hanterad instans för att använda redundans-gruppen. 
+> See [Add managed instance to a failover group](sql-database-managed-instance-failover-group-tutorial.md) for a detailed step-by-step tutorial adding a managed instance to use failover group.
 
-Om programmet använder hanterad instans som datanivå, följer du dessa allmänna rikt linjer när du utformar för affärs kontinuitet:
+If your application uses managed instance as the data tier, follow these general guidelines when designing for business continuity:
 
-- **Skapa den sekundära instansen i samma DNS-zon som den primära instansen**
+- **Create the secondary instance in the same DNS zone as the primary instance**
 
-  För att säkerställa icke-avbruten anslutning till den primära instansen efter redundans måste båda de primära och sekundära instanserna finnas i samma DNS-zon. Det garanterar att samma certifikat för flera domäner (SAN) kan användas för att autentisera klient anslutningarna till någon av de två instanserna i gruppen redundans. När programmet är redo för produktions distribution skapar du en sekundär instans i en annan region och kontrollerar att den delar DNS-zonen med den primära instansen. Du kan göra det genom att ange en `DNS Zone Partner` valfri parameter med hjälp av Azure Portal, PowerShell eller REST API. 
+  To ensure non-interrupted connectivity to the primary instance after failover both the primary and secondary instances must be in the same DNS zone. It will guarantee that the same multi-domain (SAN) certificate can be used to authenticate the client connections to either of the two instances in the failover group. When your application is ready for production deployment, create a secondary instance in a different region and make sure it shares the DNS zone with the primary instance. You can do it by specifying a `DNS Zone Partner` optional parameter using the Azure portal, PowerShell, or the REST API.
 
 > [!IMPORTANT]
-> Första instansen som skapades i under nätet bestämmer DNS-zonen för alla efterföljande instanser i samma undernät. Det innebär att två instanser från samma undernät inte kan tillhöra olika DNS-zoner.   
+> First instance created in the subnet determines DNS zone for all subsequent instances in the same subnet. This means that two instances from the same subnet cannot belong to different DNS zones.
 
-  Mer information om hur du skapar den sekundära instansen i samma DNS-zon som den primära instansen finns i [skapa en sekundär hanterad instans](sql-database-managed-instance-failover-group-tutorial.md#3---create-a-secondary-managed-instance).
+  For more information about creating the secondary instance in the same DNS zone as the primary instance, see [Create a secondary managed instance](sql-database-managed-instance-failover-group-tutorial.md#3---create-a-secondary-managed-instance).
 
-- **Aktivera replikeringstrafik mellan två instanser**
+- **Enable replication traffic between two instances**
 
-  Eftersom varje instans är isolerad i sitt eget VNet måste dubbelriktad trafik mellan dessa virtuella nätverk tillåtas. Se [Azure VPN-gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)
+  Because each instance is isolated in its own VNet, two-directional traffic between these VNets must be allowed. See [Azure VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
-- **Skapa en failover-grupp mellan hanterade instanser i olika prenumerationer**
+- **Create a failover group between managed instances in different subscriptions**
 
-  Du kan skapa en failover-grupp mellan hanterade instanser i två olika prenumerationer. När du använder PowerShell API kan du göra det genom att ange parametern `PartnerSubscriptionId` för den sekundära instansen. När du använder REST API kan varje instans-ID som ingår i `properties.managedInstancePairs`-parametern ha sitt eget subscriptionID. 
+  You can create a failover group between managed instances in two different subscriptions. When using PowerShell API you can do it by  specifying the `PartnerSubscriptionId` parameter for the secondary instance. When using REST API, each instance ID included in the `properties.managedInstancePairs` parameter can have its own subscriptionID.
   
   > [!IMPORTANT]
-  > Azure Portal har inte stöd för redundansväxla grupper över olika prenumerationer.
+  > Azure Portal does not support failover groups across different subscriptions.
 
-  
-- **Konfigurera en failover-grupp för att hantera redundans för hela instansen**
+- **Configure a failover group to manage failover of entire instance**
 
-  Gruppen redundans hanterar redundansväxlingen för alla databaser i instansen. När en grupp skapas blir varje databas i instansen automatiskt geo-replikerad till den sekundära instansen. Du kan inte använda grupper för växling vid fel för att initiera en delvis redundansväxling av en delmängd av databaserna.
+  The failover group will manage the failover of all the databases in the instance. When a group is created, each database in the instance will be automatically geo-replicated to the secondary instance. You cannot use failover groups to initiate a partial failover of a subset of the databases.
 
   > [!IMPORTANT]
-  > Om en databas tas bort från den primära instansen kommer den också att släppas automatiskt på den geo-sekundära instansen.
+  > If a database is removed from the primary instance, it will also be dropped automatically on the geo secondary instance.
 
-- **Använd Läs-och skriv lyssnare för OLTP-arbetsbelastning**
+- **Use read-write listener for OLTP workload**
 
-  När du utför OLTP-åtgärder ska du använda `<fog-name>.zone_id.database.windows.net` som server-URL och anslutningarna dirigeras automatiskt till den primära. URL: en ändras inte efter redundansväxlingen. Redundansväxlingen innebär att du uppdaterar DNS-posten, så att klient anslutningarna omdirigeras till den nya primära primären först efter det att klient-DNS-cachen har uppdaterats. Eftersom den sekundära instansen delar DNS-zonen med den primära, kommer klient programmet att kunna återansluta till den med samma SAN-certifikat.
+  When performing OLTP operations, use `<fog-name>.zone_id.database.windows.net` as the server URL and the connections are automatically directed to the primary. This URL does not change after the failover. The failover involves updating the DNS record, so the client connections are redirected to the new primary only after the client DNS cache is refreshed. Because the secondary instance shares the DNS zone with the primary, the client application will be able to reconnect to it using the same SAN certificate.
 
-- **Anslut direkt till geo-replikerad sekundär för skrivskyddade frågor**
+- **Connect directly to geo-replicated secondary for read-only queries**
 
-  Om du har en logiskt isolerad skrivskyddad arbets belastning som är tolerant till viss föråldrade data kan du använda den sekundära databasen i programmet. Om du vill ansluta direkt till den geo-replikerade sekundära använder du `server.secondary.zone_id.database.windows.net` som server-URL och anslutningen görs direkt till den geo-replikerade sekundära.
+  If you have a logically isolated read-only workload that is tolerant to certain staleness of data, you can use the secondary database in the application. To connect directly to the geo-replicated secondary, use `server.secondary.zone_id.database.windows.net` as the server URL and the connection is made directly to the geo-replicated secondary.
 
   > [!NOTE]
-  > I vissa tjänst nivåer Azure SQL Database stöder användning av [skrivskyddade repliker](sql-database-read-scale-out.md) för att belastningsutjämna skrivskyddade arbets belastningar med en skrivskyddad repliks kapacitet och med hjälp av parametern `ApplicationIntent=ReadOnly` i anslutnings strängen. När du har konfigurerat en geo-replikerad sekundär kan du använda den här funktionen för att ansluta till antingen en skrivskyddad replik på den primära platsen eller på den geo-replikerade platsen.
-  > - Använd `<fog-name>.zone_id.database.windows.net`för att ansluta till en skrivskyddad replik på den primära platsen.
-  > - Använd `<fog-name>.secondary.zone_id.database.windows.net`om du vill ansluta till en skrivskyddad replik på den sekundära platsen.
+  > In certain service tiers, Azure SQL Database supports the use of [read-only replicas](sql-database-read-scale-out.md) to load balance read-only query workloads using the capacity of one read-only replica and using the `ApplicationIntent=ReadOnly` parameter in the connection string. When you have configured a geo-replicated secondary, you can use this capability to connect to either a read-only replica in the primary location or in the geo-replicated location.
+  > - To connect to a read-only replica in the primary location, use `<fog-name>.zone_id.database.windows.net`.
+  > - To connect to a read-only replica in the secondary location, use `<fog-name>.secondary.zone_id.database.windows.net`.
 
-- **Förbered dig för prestanda försämring**
+- **Be prepared for perf degradation**
 
-  SQL-redundansprotokollmeddelandet är oberoende av resten av programmet eller andra tjänster som används. Programmet kan vara "blandat" med vissa komponenter i en region och vissa i en annan. Undvik försämringen genom att se till att den redundanta program distributionen i DR-regionen och följer dessa [rikt linjer för nätverks säkerhet](#failover-groups-and-network-security).
+  SQL failover decision is independent from the rest of the application or other services used. The application may be “mixed” with some components in one region and some in another. To avoid the degradation, ensure the redundant application deployment in the DR region and follow these [network security guidelines](#failover-groups-and-network-security).
 
-- **Förbered för data förlust**
+- **Prepare for data loss**
 
-  Om ett avbrott upptäcks utlöser SQL automatiskt Read-Write-redundans om det inte finns någon data förlust till det bästa av vår kunskap. Annars väntar den för den period som du angav i `GracePeriodWithDataLossHours`. Om du har angett `GracePeriodWithDataLossHours`bör du förbereda för data förlust. I allmänhet prioriterar Azure tillgänglighet under drifts störningar. Om du inte kan erbjuda data förlust, se till att ange GracePeriodWithDataLossHours till ett tillräckligt stort antal, till exempel 24 timmar.
+  If an outage is detected, SQL automatically triggers read-write failover if there is zero data loss to the best of our knowledge. Otherwise, it waits for the period you specified by `GracePeriodWithDataLossHours`. If you specified `GracePeriodWithDataLossHours`, be prepared for data loss. In general, during outages, Azure favors availability. If you cannot afford data loss, make sure to set GracePeriodWithDataLossHours to a sufficiently large number, such as 24 hours.
 
-  DNS-uppdateringen av Läs-och skriv lyssnaren sker omedelbart efter det att redundansväxlingen initierats. Den här åtgärden kommer inte att resultera i data förlust. Processen med att växla databas roller kan dock ta upp till 5 minuter under normala förhållanden. När den är klar är vissa databaser i den nya primära instansen fortfarande skrivskyddade. Om redundansväxlingen initieras med hjälp av PowerShell, är hela åtgärden synkron. Om den initieras med hjälp av Azure Portal, visar användar gränssnittet slut för ande status. Om den är initierad med REST API använder du standard Azure Resource Managers avsöknings funktion för att övervaka slut för ande.
+  The DNS update of the read-write listener will happen immediately after the failover is initiated. This operation will not result in data loss. However, the process of switching database roles can take up to 5 minutes under normal conditions. Until it is completed, some databases in the new primary instance will still be read-only. If failover is initiated using PowerShell, the entire operation is synchronous. If it is initiated using the Azure portal, the UI will indicate completion status. If it is initiated using the REST API, use standard Azure Resource Manager’s polling mechanism to monitor for completion.
 
   > [!IMPORTANT]
-  > Använd manuell gruppredundans för att flytta presidentval tillbaka till den ursprungliga platsen. När det avbrott som orsakade redundansväxlingen minskas kan du flytta dina primära databaser till den ursprungliga platsen. Om du vill göra det ska du initiera den manuella redundansväxlingen av gruppen.
+  > Use manual group failover to move primaries back to the original location. When the outage that caused the failover is mitigated, you can move your primary databases to the original location. To do that you should initiate the manual failover of the group.
 
-- **Bekräfta kända begränsningar för redundans grupper**
+- **Acknowledge known limitations of failover groups**
 
-  Database Rename stöds inte för instanser i redundans gruppen. Du måste tillfälligt ta bort en växlings grupp för att kunna byta namn på en databas.
+  Database rename is not supported for instances in failover group. You will need to temporarily delete failover group to be able to rename a database.
 
-## <a name="failover-groups-and-network-security"></a>Failover-grupper och nätverks säkerhet
+## <a name="failover-groups-and-network-security"></a>Failover groups and network security
 
-För vissa program kräver säkerhets reglerna att nätverks åtkomst till data nivån är begränsad till en viss komponent eller komponenter, till exempel en virtuell dator, webb tjänst osv. Detta krav medför vissa utmaningar för utformning av affärs kontinuitet och användning av failover-grupper. Överväg följande alternativ när du implementerar sådan begränsad åtkomst.
+For some applications the security rules require that the network access to the data tier is restricted to a specific component or components such as a VM, web service etc. This requirement presents some challenges for business continuity design and the use of the failover groups. Consider the following options when implementing such restricted access.
 
-### <a name="using-failover-groups-and-virtual-network-rules"></a>Använda failover-grupper och regler för virtuella nätverk
+### <a name="using-failover-groups-and-virtual-network-rules"></a>Using failover groups and virtual network rules
 
-Om du använder [Virtual Network tjänst slut punkter och regler](sql-database-vnet-service-endpoint-rule-overview.md) för att begränsa åtkomsten till din SQL-databas bör du vara medveten om att varje Virtual Network tjänst slut punkt endast gäller en Azure-region. Slut punkten tillåter inte att andra regioner accepterar kommunikation från under nätet. Därför kan bara de klient program som distribueras i samma region ansluta till den primära databasen. Eftersom redundansväxlingen resulterar i att SQL-klientsessioner dirigeras om till en server i en annan (sekundär) region, kommer dessa sessioner att Miss kopie ras om de härstammar från en klient utanför regionen. Därför går det inte att aktivera den automatiska redundansväxlingen om de deltagande servrarna ingår i Virtual Networks reglerna. Följ dessa steg för att stödja manuell redundans:
+If you are using [Virtual Network service endpoints and rules](sql-database-vnet-service-endpoint-rule-overview.md) to restrict access to your SQL database, be aware that Each Virtual Network service endpoint applies to only one Azure region. The endpoint does not enable other regions to accept communication from the subnet. Therefore, only the client applications deployed in the same region can connect to the primary database. Since the failover results in the SQL client sessions being rerouted to a server in a different (secondary) region, these sessions will fail if originated from a client outside of that region. For that reason, the automatic failover policy cannot be enabled if the participating servers are included in the Virtual Network rules. To support manual failover, follow these steps:
 
-1. Etablera de redundanta kopiorna av klient dels komponenterna för ditt program (webb tjänst, virtuella datorer osv.) i den sekundära regionen
-2. Konfigurera de [virtuella nätverks reglerna](sql-database-vnet-service-endpoint-rule-overview.md) individuellt för primär och sekundär server
-3. Aktivera [redundansväxlingen på klient sidan med en Traffic Manager-konfiguration](sql-database-designing-cloud-solutions-for-disaster-recovery.md#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime)
-4. Starta manuell redundansväxling när avbrottet upptäcks. Det här alternativet är optimerat för de program som kräver konsekvent svars tid mellan frontend-och data nivån och som stöder återställning när det gäller antingen klient delen, data nivån eller båda påverkas av avbrottet.
+1. Provision the redundant copies of the front-end components of your application (web service, virtual machines etc.) in the secondary region
+2. Configure the [virtual network rules](sql-database-vnet-service-endpoint-rule-overview.md) individually for primary and secondary server
+3. Enable the [front-end failover using a Traffic manager configuration](sql-database-designing-cloud-solutions-for-disaster-recovery.md#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime)
+4. Initiate manual failover when the outage is detected. This option is optimized for the applications that require consistent latency between the front-end and the data tier and supports recovery when either front end, data tier or both are impacted by the outage.
 
 > [!NOTE]
-> Om du använder en **skrivskyddad lyssnare** för att belastningsutjämna en skrivskyddad arbets belastning kontrollerar du att arbets belastningen körs i en virtuell dator eller en annan resurs i den sekundära regionen så att den kan ansluta till den sekundära databasen.
+> If you are using the **read-only listener** to load-balance a read-only workload, make sure that this workload is executed in a VM or other resource in the secondary region so it can connect to the secondary database.
 
-### <a name="using-failover-groups-and-sql-database-firewall-rules"></a>Använda failover-grupper och brand Väggs regler för SQL Database
+### <a name="using-failover-groups-and-sql-database-firewall-rules"></a>Using failover groups and SQL database firewall rules
 
-Om din affärs kontinuitets plan kräver redundans med hjälp av grupper med automatisk redundans, kan du begränsa åtkomsten till din SQL-databas med hjälp av traditionella brand Väggs regler.  Följ dessa steg för att stödja automatisk redundans:
+If your business continuity plan requires failover using groups with automatic failover, you can restrict access to your SQL database using the traditional firewall rules. To support automatic failover, follow these steps:
 
-1. [Skapa en offentlig IP-adress](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
-2. [Skapa en offentlig belastningsutjämnare](../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-a-basic-load-balancer) och tilldela den till den offentliga IP-adressen.
-3. [Skapa ett virtuellt nätverk och de virtuella datorerna](../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-back-end-servers) för dina klient dels komponenter
-4. [Skapa en nätverks säkerhets grupp](../virtual-network/security-overview.md) och konfigurera inkommande anslutningar.
-5. Se till att de utgående anslutningarna är öppna för Azure SQL Database med hjälp av SQL [-tjänst tag gen](../virtual-network/security-overview.md#service-tags).
-6. Skapa en [brand Väggs regel för SQL Database](sql-database-firewall-configure.md) för att tillåta inkommande trafik från den offentliga IP-adressen som du skapar i steg 1.
+1. [Create a public IP](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
+2. [Create a public load balancer](../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-a-basic-load-balancer) and assign the public IP to it.
+3. [Create a virtual network and the virtual machines](../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-back-end-servers) for your front-end components
+4. [Create network security group](../virtual-network/security-overview.md) and configure inbound connections.
+5. Ensure that the outbound connections are open to Azure SQL database by using ‘Sql’ [service tag](../virtual-network/security-overview.md#service-tags).
+6. Create a [SQL database firewall rule](sql-database-firewall-configure.md) to allow inbound traffic from the public IP address you create in step 1.
 
-Mer information om hur du konfigurerar utgående åtkomst och vilken IP-adress som ska användas i brand Väggs reglerna finns i [utgående anslutningar för belastningsutjämnare](../load-balancer/load-balancer-outbound-connections.md).
+For more information about on how to configure outbound access and what IP to use in the firewall rules, see [Load balancer outbound connections](../load-balancer/load-balancer-outbound-connections.md).
 
-Konfigurationen ovan ser till att den automatiska redundansväxlingen inte blockerar anslutningar från klient dels komponenterna och förutsätter att programmet kan tolerera den längre fördröjningen mellan klient delen och data nivån.
+The above configuration will ensure that the automatic failover will not block connections from the front-end components and assumes that the application can tolerate the longer latency between the front end and the data tier.
 
 > [!IMPORTANT]
-> För att garantera affärs kontinuitet för regionala avbrott måste du säkerställa geografisk redundans för både klient dels komponenter och databaserna.
+> To guarantee business continuity for regional outages you must ensure geographic redundancy for both front-end components and the databases.
 
-## <a name="enabling-geo-replication-between-managed-instances-and-their-vnets"></a>Aktivera geo-replikering mellan hanterade instanser och deras virtuella nätverk
+## <a name="enabling-geo-replication-between-managed-instances-and-their-vnets"></a>Enabling geo-replication between managed instances and their VNets
 
-När du ställer in en redundans grupp mellan primära och sekundära hanterade instanser i två olika regioner, isoleras varje instans med hjälp av ett oberoende virtuellt nätverk. För att tillåta replikeringstrafik mellan dessa virtuella nätverk, se till att följande krav uppfylls:
+When you set up a failover group between primary and secondary managed instances in two different regions, each instance is isolated using an independent virtual network. To allow replication traffic between these VNets ensure these prerequisites are met:
 
-1. De två hanterade instanserna måste finnas i olika Azure-regioner.
-1. De två hanterade instanserna måste vara samma tjänst nivå och ha samma lagrings storlek. 
-1. Din sekundära hanterade instans måste vara tom (inga användar databaser).
-1. De virtuella nätverk som används av de hanterade instanserna måste anslutas via en [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) eller Express Route. Se till att det inte finns någon brand Väggs regel som blockerar portarna 5022 och 11000-11999 när två virtuella nätverk ansluter till ett lokalt nätverk. Global VNet-peering stöds inte.
-1. De två hanterade instans virtuella nätverk kan inte ha överlappande IP-adresser.
-1. Du måste konfigurera dina nätverks säkerhets grupper (NSG) så att portarna 5022 och intervallet 11000 ~ 12000 är öppna inkommande och utgående för anslutningar från det andra hanterade instansen under nät. Detta är att tillåta replikeringstrafik mellan instanserna
+1. The two managed instances need to be in different Azure regions.
+1. The two managed instances need to be the same service tier, and have the same storage size.
+1. Your secondary managed instance must be empty (no user databases).
+1. The virtual networks used by the managed instances need to be connected through a [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or Express Route. When two virtual networks connect through an on-premises network, ensure there is no firewall rule blocking ports 5022, and 11000-11999. Global VNet Peering is not supported.
+1. The two managed instance VNets cannot have overlapping IP addresses.
+1. You need to set up your Network Security Groups (NSG) such that ports 5022 and the range 11000~12000 are open inbound and outbound for connections from the other managed instanced subnet. This is to allow replication traffic between the instances
 
    > [!IMPORTANT]
-   > Felkonfigurerade NSG säkerhets regler leder till låsta databas kopierings åtgärder.
+   > Misconfigured NSG security rules leads to stuck database copy operations.
 
-7. Den sekundära instansen är konfigurerad med rätt DNS-zon-ID. DNS-zon är en egenskap hos en hanterad instans och ett virtuellt kluster, och dess ID ingår i värd namns adressen. Zon-ID: t genereras som en slumpmässig sträng när den första hanterade instansen skapas i varje VNet och samma ID tilldelas till alla andra instanser i samma undernät. DNS-zonen kan inte ändras när den har tilldelats. Hanterade instanser som ingår i samma redundanskonfiguration måste dela DNS-zonen. Du gör detta genom att skicka den primära instansens zon-ID som värdet för parametern DnsZonePartner när du skapar den sekundära instansen. 
+1. The secondary instance is configured with the correct DNS zone ID. DNS zone is a property of a managed instance and virtual cluster, and its ID is included in the host name address. The zone ID is generated as a random string when the first managed instance is created in each VNet and the same ID is assigned to all other instances in the same subnet. Once assigned, the DNS zone cannot be modified. Managed instances included in the same failover group must share the DNS zone. You accomplish this by passing the primary instance's zone ID as the value of DnsZonePartner parameter when creating the secondary instance. 
 
    > [!NOTE]
-   > En detaljerad själv studie kurs om hur du konfigurerar Redundansrelationer med hanterade instanser finns i [lägga till en hanterad instans i en failover-grupp](sql-database-managed-instance-failover-group-tutorial.md).
+   > For a detailed tutorial on configuring failover groups with managed instance, see [add a managed instance to a failover group](sql-database-managed-instance-failover-group-tutorial.md).
 
-## <a name="upgrading-or-downgrading-a-primary-database"></a>Uppgradera eller nedgradera en primär databas
+## <a name="upgrading-or-downgrading-a-primary-database"></a>Upgrading or downgrading a primary database
 
-Du kan uppgradera eller nedgradera en primär databas till en annan beräknings storlek (inom samma tjänst nivå, inte mellan Generell användning och Affärskritisk) utan att koppla från några sekundära databaser. När du uppgraderar rekommenderar vi att du uppgraderar alla sekundära databaser först och sedan uppgraderar du den primära. Vid nedgradering ändrar du ordningen: nedgradera först den primära databasen och nedgradera sedan alla sekundära databaser. När du uppgraderar eller nedgradera databasen till en annan tjänst nivå tillämpas den här rekommendationen.
+You can upgrade or downgrade a primary database to a different compute size (within the same service tier, not between General Purpose and Business Critical) without disconnecting any secondary databases. When upgrading, we recommend that you upgrade all of the secondary databases first, and then upgrade the primary. When downgrading, reverse the order: downgrade the primary first, and then downgrade all of the secondary databases. When you upgrade or downgrade the database to a different service tier, this recommendation is enforced.
 
-Den här sekvensen rekommenderas särskilt för att undvika problemet där den sekundära vid en lägre SKU blir överbelastad och måste omdirigerings under en uppgraderings-eller degraderings process. Du kan också undvika problemet genom att göra den primära skrivskyddade kostnaden för att påverka alla Läs-och skriv arbets belastningar mot den primära. 
-
-> [!NOTE]
-> Om du har skapat en sekundär databas som en del av konfigurationen av redundanskonfiguration bör du inte nedgradera den sekundära databasen. Detta är för att säkerställa att data nivån har tillräckligt med kapacitet för att bearbeta din normala arbets belastning När redundansväxlingen har Aktiver ATS.
-
-## <a name="preventing-the-loss-of-critical-data"></a>Förhindra förlust av kritiska data
-
-På grund av den höga svars tiden för Wide Area Networks använder kontinuerlig kopiering en metod för asynkron replikering. Asynkron replikering gör att data kan gå förlorade om ett fel uppstår. Vissa program kan dock kräva ingen data förlust. För att skydda dessa viktiga uppdateringar kan en programutvecklare anropa [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) system proceduren direkt efter att transaktionen har genomförts. Om du anropar `sp_wait_for_database_copy_sync` blockeras anrops tråden tills den senaste genomförda transaktionen har överförts till den sekundära databasen. Det väntar dock inte på att överförda transaktioner ska spelas upp och allokeras på den sekundära. `sp_wait_for_database_copy_sync` är begränsad till en bestämd kontinuerlig kopierings länk. Alla användare med anslutnings behörighet till den primära databasen kan anropa den här proceduren.
+This sequence is recommended specifically to avoid the problem where the secondary at a lower SKU gets overloaded and must be re-seeded during an upgrade or downgrade process. You could also avoid the problem by making the primary read-only, at the expense of impacting all read-write workloads against the primary.
 
 > [!NOTE]
-> `sp_wait_for_database_copy_sync` förhindrar data förlust efter redundansväxlingen, men garanterar inte fullständig synkronisering för Läs behörighet. Fördröjningen som orsakas av ett `sp_wait_for_database_copy_sync` procedur anrop kan vara betydande och beror på storleken på transaktions loggen vid tidpunkten för anropet.
+> If you created secondary database as part of the failover group configuration it is not recommended to downgrade the secondary database. This is to ensure your data tier has sufficient capacity to process your regular workload after failover is activated.
 
-## <a name="failover-groups-and-point-in-time-restore"></a>Redundansväxla grupper och återställning av tidpunkt
+## <a name="preventing-the-loss-of-critical-data"></a>Preventing the loss of critical data
 
-Information om hur du använder återställning av punkt-till-tid med failover-grupper finns i [punkt i tids återställning (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore).
+Due to the high latency of wide area networks, continuous copy uses an asynchronous replication mechanism. Asynchronous replication makes some data loss unavoidable if a failure occurs. However, some applications may require no data loss. To protect these critical updates, an application developer can call the [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) system procedure immediately after committing the transaction. Calling `sp_wait_for_database_copy_sync` blocks the calling thread until the last committed transaction has been transmitted to the secondary database. However, it does not wait for the transmitted transactions to be replayed and committed on the secondary. `sp_wait_for_database_copy_sync` is scoped to a specific continuous copy link. Any user with the connection rights to the primary database can call this procedure.
 
-## <a name="programmatically-managing-failover-groups"></a>Hantera failover-grupper program mässigt
+> [!NOTE]
+> `sp_wait_for_database_copy_sync` prevents data loss after failover, but does not guarantee full synchronization for read access. The delay caused by a `sp_wait_for_database_copy_sync` procedure call can be significant and depends on the size of the transaction log at the time of the call.
 
-Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replikering också hanteras program mässigt med hjälp av Azure PowerShell och REST API. I följande tabeller beskrivs en uppsättning kommandon som är tillgängliga. Aktiv geo-replikering innehåller en uppsättning Azure Resource Manager-API: er för hantering, inklusive [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) och [Azure PowerShell-cmdletar](https://docs.microsoft.com/powershell/azure/overview). Dessa API: er kräver användning av resurs grupper och stöd för rollbaserad säkerhet (RBAC). Mer information om hur du implementerar åtkomst roller finns i [Azure Role-Based Access Control](../role-based-access-control/overview.md).
+## <a name="failover-groups-and-point-in-time-restore"></a>Failover groups and point-in-time restore
 
-### <a name="powershell-manage-sql-database-failover-with-single-databases-and-elastic-pools"></a>PowerShell: hantera SQL Database-redundans med enkla databaser och elastiska pooler
+For information about using point-in-time restore with failover groups, see [Point in Time Recovery (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore).
+
+## <a name="programmatically-managing-failover-groups"></a>Programmatically managing failover groups
+
+As discussed previously, auto-failover groups and active geo-replication can also be managed programmatically using Azure PowerShell and the REST API. The following tables describe the set of commands available. Active geo-replication includes a set of Azure Resource Manager APIs for management, including the [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) and [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/overview). These APIs require the use of resource groups and support role-based security (RBAC). For more information on how to implement access roles, see [Azure Role-Based Access Control](../role-based-access-control/overview.md).
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+### <a name="manage-sql-database-failover-with-single-databases-and-elastic-pools"></a>Manage SQL database failover with single databases and elastic pools
 
 | Cmdlet | Beskrivning |
 | --- | --- |
-| [New-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabasefailovergroup) |Det här kommandot skapar en redundans grupp och registrerar den på både primära och sekundära servrar|
-| [Remove-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasefailovergroup) | Tar bort gruppen för redundans från servern och tar bort alla sekundära databaser som ingår i gruppen |
-| [Get-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Hämtar konfigurationen för redundans gruppen |
-| [Set-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |Ändrar konfigurationen för redundans gruppen |
-| [Switch-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/switch-azsqldatabasefailovergroup) | Utlöser redundans för gruppen redundans till den sekundära servern |
-| [Add-AzSqlDatabaseToFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/add-azsqldatabasetofailovergroup)|Lägger till en eller flera databaser i en Azure SQL Database redundans grupp|
-|  | |
+| [New-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) |This command creates a failover group and registers it on both primary and secondary servers|
+| [Remove-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/remove-azsqldatabasefailovergroup) | Removes the failover group from the server and deletes all secondary databases included the group |
+| [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Retrieves the failover group configuration |
+| [Set-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/set-azsqldatabasefailovergroup) |Modifies the configuration of the failover group |
+| [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup) | Triggers failover of the failover group to the secondary server |
+| [Add-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup)|Adds one or more databases to an Azure SQL Database failover group|
+
+### <a name="manage-sql-database-failover-groups-with-managed-instances"></a>Manage SQL database failover groups with managed instances
+
+| Cmdlet | Beskrivning |
+| --- | --- |
+| [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup) |This command creates a failover group and registers it on both primary and secondary servers|
+| [Set-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/set-azsqldatabaseinstancefailovergroup) |Modifies the configuration of the failover group|
+| [Get-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/get-azsqldatabaseinstancefailovergroup) |Retrieves the failover group configuration|
+| [Switch-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) |Triggers failover of the failover group to the secondary server|
+| [Remove-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/remove-azsqldatabaseinstancefailovergroup) | Removes a failover group|
+
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+### <a name="manage-sql-database-failover-with-single-databases-and-elastic-pools"></a>Manage SQL database failover with single databases and elastic pools
+
+| Kommando | Beskrivning |
+| --- | --- |
+| [az sql failover-group create](/cli/azure/sql/failover-group#az-sql-failover-group-create) |This command creates a failover group and registers it on both primary and secondary servers|
+| [az sql failover-group delete](/cli/azure/sql/failover-group#az-sql-failover-group-delete) | Removes the failover group from the server and deletes all secondary databases included the group |
+| [az sql failover-group show](/cli/azure/sql/failover-group#az-sql-failover-group-show) | Retrieves the failover group configuration |
+| [az sql failover-group update](/cli/azure/sql/failover-group#az-sql-failover-group-update) |Modifies the configuration of the failover group and/or adds one or more databases to an Azure SQL Database failover group|
+| [az sql failover-group set-primary](/cli/azure/sql/failover-group#az-sql-failover-group-set-primary) | Triggers failover of the failover group to the secondary server |
+
+### <a name="manage-sql-database-failover-groups-with-managed-instances"></a>Manage SQL database failover groups with managed instances
+
+| Kommando | Beskrivning |
+| --- | --- |
+| [az sql instance-failover-group create](/cli/azure/sql/instance-failover-group#az-sql-instance-failover-group-create) | This command creates a failover group and registers it on both primary and secondary servers|
+| [az sql instance-failover-group update](/cli/azure/sql/instance-failover-group#az-sql-instance-failover-group-update) | Modifies the configuration of the failover group|
+| [az sql instance-failover-group show](/cli/azure/sql/instance-failover-group#az-sql-instance-failover-group-show) | Retrieves the failover group configuration|
+| [az sql instance-failover-group set-primary](/cli/azure/sql/instance-failover-group#az-sql-instance-failover-group-set-primary) | Triggers failover of the failover group to the secondary server|
+| [az sql instance-failover-group delete](/cli/azure/sql/instance-failover-group#az-sql-instance-failover-group-delete) | Removes a failover group |
+
+* * *
 
 > [!IMPORTANT]
-> Ett exempel skript finns i [Konfigurera och redundansväxla en failover-grupp för en enskild databas](scripts/sql-database-add-single-db-to-failover-group-powershell.md).
->
+> For a sample script, see [Configure and failover a failover group for a single database](scripts/sql-database-add-single-db-to-failover-group-powershell.md).
 
-### <a name="powershell-managing-sql-database-failover-groups-with-managed-instances"></a>PowerShell: hantera failover-grupper för SQL-databas med hanterade instanser 
-
-| Cmdlet | Beskrivning |
-| --- | --- |
-| [New-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup) |Det här kommandot skapar en redundans grupp och registrerar den på både primära och sekundära servrar|
-| [Set-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseinstancefailovergroup) |Ändrar konfigurationen för redundans gruppen|
-| [Get-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseinstancefailovergroup) |Hämtar konfigurationen för redundans gruppen|
-| [Switch-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) |Utlöser redundans för gruppen redundans till den sekundära servern|
-| [Remove-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabaseinstancefailovergroup) | Tar bort en failover-grupp|
-|  | |
-
-### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>REST API: hantera SQL Database-redundanskluster med enkla databaser och databaser i pooler
+### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>REST API: Manage SQL database failover groups with single and pooled databases
 
 | API | Beskrivning |
 | --- | --- |
-| [Skapa eller uppdatera redundans grupp](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | Skapar eller uppdaterar en failover-grupp |
-| [Ta bort redundans grupp](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | Tar bort redundans gruppen från servern |
-| [Redundansväxling (planerad)](https://docs.microsoft.com/rest/api/sql/failovergroups/failover) | Växlar över från den aktuella primära servern till den här servern. |
-| [Framtvinga redundans Tillåt data förlust](https://docs.microsoft.com/rest/api/sql/failovergroups/forcefailoverallowdataloss) |Ails över från den aktuella primära servern till den här servern. Den här åtgärden kan leda till data förlust. |
-| [Hämta redundans grupp](https://docs.microsoft.com/rest/api/sql/failovergroups/get) | Hämtar en redundans grupp. |
-| [Visa lista över grupper efter fel per server](https://docs.microsoft.com/rest/api/sql/failovergroups/listbyserver) | Visar en lista över failover-grupper på en server. |
-| [Uppdatera redundans grupp](https://docs.microsoft.com/rest/api/sql/failovergroups/update) | Uppdaterar en failover-grupp. |
-|  | |
+| [Create or Update Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | Creates or updates a failover group |
+| [Delete Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | Removes the failover group from the server |
+| [Failover (Planned)](https://docs.microsoft.com/rest/api/sql/failovergroups/failover) | Fails over from the current primary server to this server. |
+| [Force Failover Allow Data Loss](https://docs.microsoft.com/rest/api/sql/failovergroups/forcefailoverallowdataloss) |ails over from the current primary server to this server. This operation might result in data loss. |
+| [Get Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/get) | Gets a failover group. |
+| [List Failover Groups By Server](https://docs.microsoft.com/rest/api/sql/failovergroups/listbyserver) | Lists the failover groups in a server. |
+| [Update Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/update) | Updates a failover group. |
 
-### <a name="rest-api-manage-failover-groups-with-managed-instances"></a>REST API: hantera Redundansrelationer med hanterade instanser
+### <a name="rest-api-manage-failover-groups-with-managed-instances"></a>REST API: Manage failover groups with Managed Instances
 
 | API | Beskrivning |
 | --- | --- |
-| [Skapa eller uppdatera redundans grupp](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | Skapar eller uppdaterar en failover-grupp |
-| [Ta bort redundans grupp](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | Tar bort redundans gruppen från servern |
-| [Redundansväxling (planerad)](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/failover) | Växlar över från den aktuella primära servern till den här servern. |
-| [Framtvinga redundans Tillåt data förlust](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/forcefailoverallowdataloss) |Ails över från den aktuella primära servern till den här servern. Den här åtgärden kan leda till data förlust. |
-| [Hämta redundans grupp](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) | Hämtar en redundans grupp. |
-| [Visa lista över redundanskluster – lista efter plats](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/listbylocation) | Visar en lista över failover-grupper på en plats. |
+| [Create or Update Failover Group](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | Creates or updates a failover group |
+| [Delete Failover Group](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | Removes the failover group from the server |
+| [Failover (Planned)](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/failover) | Fails over from the current primary server to this server. |
+| [Force Failover Allow Data Loss](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/forcefailoverallowdataloss) |ails over from the current primary server to this server. This operation might result in data loss. |
+| [Get Failover Group](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) | Gets a failover group. |
+| [List Failover Groups - List By Location](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/listbylocation) | Lists the failover groups in a location. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Detaljerade självstudier finns i
-    - [Lägga till en enkel databas i en failover-grupp](sql-database-single-database-failover-group-tutorial.md)
-    - [Lägga till elastisk pool i en redundans grupp](sql-database-elastic-pool-failover-group-tutorial.md)
-    - [Lägga till en hanterad instans i en grupp för redundans](sql-database-managed-instance-failover-group-tutorial.md)
-- Exempel skript finns i:
-  - [Använd PowerShell för att konfigurera aktiv geo-replikering för en enskild databas i Azure SQL Database](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-  - [Använd PowerShell för att konfigurera aktiv geo-replikering för en poolad databas i Azure SQL Database](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
-  - [Använd PowerShell för att lägga till en Azure SQL Database enkel databas i en failover-grupp](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
-- För en översikt över verksamhets kontinuitet och scenarier, se [Översikt över verksamhets kontinuitet](sql-database-business-continuity.md)
-- Mer information om hur du Azure SQL Database automatiserade säkerhets kopieringar finns [SQL Database automatiska säkerhets kopieringar](sql-database-automated-backups.md).
-- Information om hur du använder automatiska säkerhets kopieringar för återställning finns i [återställa en databas från de säkerhets kopior som initieras av tjänsten](sql-database-recovery-using-backups.md).
-- Information om autentiseringskrav för en ny primär server och databas finns i [SQL Database säkerhet efter haveri beredskap](sql-database-geo-replication-security-config.md).
+- For detailed tutorials, see
+    - [Add single database to a failover group](sql-database-single-database-failover-group-tutorial.md)
+    - [Add elastic pool to a failover group](sql-database-elastic-pool-failover-group-tutorial.md)
+    - [Add a managed instance to a failover group](sql-database-managed-instance-failover-group-tutorial.md)
+- For sample scripts, see:
+  - [Use PowerShell to configure active geo-replication for a single database in Azure SQL Database](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
+  - [Use PowerShell to configure active geo-replication for a pooled database in Azure SQL Database](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
+  - [Use PowerShell to add an Azure SQL Database single database to a failover group](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
+- For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
+- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md).
+- To learn about using automated backups for recovery, see [Restore a database from the service-initiated backups](sql-database-recovery-using-backups.md).
+- To learn about authentication requirements for a new primary server and database, see [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md).

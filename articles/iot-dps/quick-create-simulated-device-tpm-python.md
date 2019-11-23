@@ -1,6 +1,6 @@
 ---
-title: Snabb start – etablera en simulerad TPM-enhet till Azure IoT Hub med python
-description: Snabb start – skapa och etablera en simulerad TPM-enhet med Java-enhets-SDK för IoT Hub Device Provisioning Service. Den här snabbstarten använder enskilda registreringar.
+title: Quickstart - Provision simulated TPM device to Azure IoT Hub using Python
+description: Quickstart - Create and provision a simulated TPM device using Java device SDK for IoT Hub Device Provisioning Service. Den här snabbstarten använder enskilda registreringar.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2018
@@ -9,20 +9,20 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 3f77509876190c981704b4a4ad57750a39195ccc
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 9726722a5720ad28bf77ced35ca1d7e57749d1c5
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276355"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423444"
 ---
-# <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Snabb start: skapa och etablera en simulerad TPM-enhet med python-enhets-SDK för IoT Hub Device Provisioning Service
+# <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Quickstart: Create and provision a simulated TPM device using Python device SDK for IoT Hub Device Provisioning Service
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-tpm](../../includes/iot-dps-selector-quick-create-simulated-device-tpm.md)]
 
 Dessa steg visar hur du skapar en simulerad enhet på utvecklingsdatorn som kör Windows OS, kör Windows TPM-simulatorn som [maskinvarusäkerhetsmodul (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) för enheten och använder Python-kodexemplet för att ansluta till denna simulerade enhet med Device Provisioning-tjänsten och IoT-hubben. 
 
-Om du inte känner till processen för automatisk etablering, bör du också gå igenom [Begrepp inom automatisk etablering](concepts-auto-provisioning.md). Se också till att slutföra stegen i [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) (Konfigurera IoT Hub Device Provisioning-tjänsten med Azure Portal) innan du fortsätter. 
+Om du inte känner till processen för automatisk etablering, bör du även gå igenom [Begrepp inom automatisk etablering](concepts-auto-provisioning.md). Se också till att slutföra stegen i [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) (Konfigurera IoT Hub Device Provisioning-tjänsten med Azure Portal) innan du fortsätter. 
 
 Azure IoT Device Provisioning Service stöder två typer av registreringar:
 - [Registreringsgrupper](concepts-service.md#enrollment-group): används för att registrera flera relaterade enheter.
@@ -33,11 +33,11 @@ Den här artikeln visar enskilda registreringar.
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
 > [!NOTE]
-> Den här guiden gäller endast för nu-inaktuella v1 python SDK. Simulerade TPM-enheter stöds ännu inte i v2. Teamet är för närvarande hårt på arbetet och ansluter till v2 för att få till funktion paritet.
+> This guide only applies to the now-deprecated V1 Python SDK. Simulated TPM devices are not yet been supported in V2. The team is currently hard at work bringing V2 to feature parity.
 
 ## <a name="prepare-the-environment"></a>Förbereda miljön 
 
-1. Kontrol lera att du har installerat antingen [Visual studio](https://visualstudio.microsoft.com/vs/) 2015 eller senare, med arbets belastningen " C++Skriv bords utveckling med" aktiverat för Visual Studio-installationen.
+1. Make sure you have installed either [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 or later, with the 'Desktop development with C++' workload enabled for your Visual Studio installation.
 
 1. Hämta och installera [CMake-buildsystemet](https://cmake.org/download/).
 
@@ -63,35 +63,35 @@ Den här artikeln visar enskilda registreringar.
     cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
     ```
 
-1. Använd en separat kommandotolk för att navigera till TPM-simulatormappen och köra [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview)-simulatorn. Klicka på **Tillåt åtkomst**. Den lyssnar via en socket på portarna 2321 och 2322. Stäng inte det här kommando fönstret. Du måste hålla denna simulator igång tills du är klar med snabb starts guiden. 
+1. Använd en separat kommandotolk för att navigera till TPM-simulatormappen och köra [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview)-simulatorn. Klicka på **Tillåt åtkomst**. Den lyssnar via en socket på portarna 2321 och 2322. Do not close this command window; you will need to keep this simulator running until the end of this quickstart guide. 
 
     ```cmd/sh
     .\azure-iot-sdk-python\c\provisioning_client\deps\utpm\tools\tpm_simulator\Simulator.exe
     ```
 
-    ![TPM-simulatorn](./media/python-quick-create-simulated-device/tpm-simulator.png)
+    ![TPM-simulator](./media/python-quick-create-simulated-device/tpm-simulator.png)
 
 
 ## <a name="create-a-device-enrollment-entry"></a>Skapa en post för enhetsregistrering
 
 1. Öppna den lösning som har genererats i mappen *cmake* med namnet `azure_iot_sdks.sln`, och skapa den i Visual Studio.
 
-1. Högerklicka på projektet **tpm_device_provision** och markera **Set as Startup Project** (Ange som startprojekt). Kör lösningen. I fönstret Utdata visas **_bekräftelse nyckeln_** och det **_registrerings-ID_** som krävs för enhets registreringen. Anteckna dessa värden. 
+1. Högerklicka på projektet **tpm_device_provision** och markera **Set as Startup Project** (Ange som startprojekt). Kör lösningen. The output window displays the **_Endorsement key_** and the **_Registration ID_** needed for device enrollment. Anteckna dessa värden. 
 
     ![TPM-installation](./media/python-quick-create-simulated-device/tpm-setup.png)
 
-1. Logga in på Azure Portal, Välj knappen **alla resurser** i den vänstra menyn och öppna Device Provisioning-tjänsten.
+1. Sign in to the Azure portal, select the **All resources** button on the left-hand menu and open your Device Provisioning service.
 
-1. Från menyn enhets etablerings tjänst väljer du **Hantera registreringar**. Välj fliken **enskilda registreringar** och välj knappen **Lägg till individuell registrering** överst. 
+1. From the Device Provisioning Service menu, select **Manage enrollments**. Select **Individual Enrollments** tab and select the **Add individual enrollment** button at the top. 
 
-1. Ange följande information på panelen **Lägg till registrering** :
+1. In the **Add Enrollment** panel, enter the following information:
    - Välj **TPM** som identitet för bestyrkande *mekanism*.
-   - Ange *registrerings-ID* och *bekräftelse nyckel* för din TPM-enhet från de värden som du antecknade tidigare.
+   - Enter the *Registration ID* and *Endorsement key* for your TPM device from the values you noted previously.
    - Välj en IoT hub som är länkad till din etableringstjänst.
    - Du kan även ange följande information:
-       - Ange ett unikt *enhets-ID*. Se till att undvika känsliga data när du namnger din enhet. Om du väljer att inte ange en, används registrerings-ID: t för att identifiera enheten i stället.
+       - Enter a unique *Device ID*. Se till att undvika känsliga data när du namnger din enhet. If you choose not to provide one, the registration ID will be used to identify the device instead.
        - Uppdatera **inledande enhetstvillingstatus** med önskad inledande konfiguration för enheten.
-   - När du är klar trycker du på knappen **Spara** . 
+   - Once complete, press the **Save** button. 
 
      ![Ange information för enhetsregistrering på portalbladet](./media/python-quick-create-simulated-device/enterdevice-enrollment.png)  
 
@@ -100,7 +100,7 @@ Den här artikeln visar enskilda registreringar.
 
 ## <a name="simulate-the-device"></a>Simulera enheten
 
-1. Ladda ned och installera [Python 2.x eller 3.x](https://www.python.org/downloads/). Se till att använda en 32-bitars eller 64-bitars installation beroende på vad som krävs för din konfiguration. Se till att du lägger till Python i de plattformsspecifika miljövariablerna när du uppmanas att göra det under installationen.
+1. Ladda ned och installera [Python 2.x eller 3.x](https://www.python.org/downloads/). Se till att använda en 32-bitars eller 64-bitars installation beroende på vad som krävs för din konfiguration. Se till att du lägger till Python i den plattformsspecifika miljövariabeln när du uppmanas att göra det under installationen.
     - Om du använder Windows OS installerar du [Visual C++ redistributable package](https://www.microsoft.com/download/confirmation.aspx?id=48145) så att du kan använda native-DLL:er från Python.
 
 1. Skapa Python-paketen med hjälp av [de här instruktionerna](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md).
@@ -138,7 +138,7 @@ Den här artikeln visar enskilda registreringar.
 
     ![Lyckad registrering](./media/python-quick-create-simulated-device/registration-success.png)
 
-1. Vid lyckad etablering av den simulerade enheten till IoT-hubben som är länkad till din etablerings tjänst visas enhets-ID på hubbens bladet **IoT-enheter** .
+1. On successful provisioning of your simulated device to the IoT hub linked with your provisioning service, the device ID appears on the hub's **IoT devices** blade.
 
     ![Enheten är registrerad på IoT-hubben](./media/python-quick-create-simulated-device/hubregistration.png) 
 
@@ -147,16 +147,16 @@ Den här artikeln visar enskilda registreringar.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du planerar att fortsätta att arbeta med och utforska enhets klient exemplet ska du inte rensa upp resurserna som du skapade i den här snabb starten. Om du inte planerar att fortsätta kan du använda följande steg för att ta bort alla resurser som skapats i den här snabb starten.
+If you plan to continue working on and exploring the device client sample, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart.
 
 1. Stäng utdatafönstret för enhetsklientexemplet på datorn.
 1. Stäng fönstret för TPM-simulatorn på datorn.
-1. Välj **alla resurser** på den vänstra menyn i Azure Portal och välj sedan enhets etablerings tjänsten. Öppna bladet **Hantera registreringar** för din tjänst och välj sedan fliken **enskilda registreringar** . Markera kryss rutan bredvid *registrerings-ID* för den enhet som du har registrerat i den här snabb starten och klicka på knappen **ta bort** högst upp i fönstret. 
-1. Välj **alla resurser** på den vänstra menyn i Azure Portal och välj sedan din IoT Hub. Öppna bladet **IoT-enheter** för navet, markera kryss rutan bredvid *enhets-ID* för den enhet som du registrerade i den här snabb starten och tryck sedan på knappen **ta bort** högst upp i fönstret.
+1. From the left-hand menu in the Azure portal, select **All resources** and then select your Device Provisioning service. Open the **Manage Enrollments** blade for your service, and then select the **Individual Enrollments** tab. Select the check box next to the *REGISTRATION ID* of the device you enrolled in this quickstart, and press the **Delete** button at the top of the pane. 
+1. From the left-hand menu in the Azure portal, select **All resources** and then select your IoT hub. Open the **IoT devices** blade for your hub, select the check box next to the *DEVICE ID* of the device you registered in this quickstart, and then press the **Delete** button at the top of the pane.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du skapat en TPM-simulerad enhet på datorn och allokerat den till IoT-hubben med hjälp av IoT Hub Device Provisioning Service. Om du vill lära dig hur du registrerar en TPM-enhet program mässigt kan du fortsätta till snabb starten för program registrering av en TPM-enhet. 
+In this quickstart, you’ve created a TPM simulated device on your machine and provisioned it to your IoT hub using the IoT Hub Device Provisioning Service. To learn how to enroll your TPM device programmatically, continue to the quickstart for programmatic enrollment of a TPM device. 
 
 > [!div class="nextstepaction"]
-> [Azure snabb start – registrera TPM-enhet på Azure IoT Hub Device Provisioning Service](quick-enroll-device-tpm-python.md)
+> [Azure quickstart - Enroll TPM device to Azure IoT Hub Device Provisioning Service](quick-enroll-device-tpm-python.md)

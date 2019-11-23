@@ -1,5 +1,5 @@
 ---
-title: 'Azure Virtual WAN: skapa ExpressRoute-anslutningar'
+title: Tutorial - Create ExpressRoute connections using Azure Virtual WAN
 description: I den här självstudien lär du dig att använda Azure Virtual WAN för att skapa ExpressRoute-anslutningar till Azure och lokala miljöer.
 services: virtual-wan
 author: cherylmc
@@ -8,89 +8,89 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 5a394f93c5cc606c26ffa1cc64bf1d61617b05b8
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: f9277fae00471bf67682015e017ae6dfa351ad65
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014928"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422876"
 ---
-# <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Självstudie: skapa en ExpressRoute-Association med Azure Virtual WAN
+# <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Tutorial: Create an ExpressRoute association using Azure Virtual WAN
 
-Den här självstudien visar hur du använder Virtual WAN för att ansluta till dina resurser i Azure över en ExpressRoute-krets. Mer information om virtuella WAN-och virtuella WAN-resurser finns i [Översikt över virtuella WAN-nätverk](virtual-wan-about.md).
+This tutorial shows you how to use Virtual WAN to connect to your resources in Azure over an ExpressRoute circuit. For more information about Virtual WAN and Virtual WAN resources, see the [Virtual WAN Overview](virtual-wan-about.md).
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa ett virtuellt WAN
-> * Skapa en hubb och en gateway
+> * Create a hub and a gateway
 > * Ansluta ett virtuellt nätverk till en hubb
-> * Ansluta en krets till en hubb-Gateway
+> * Connect a circuit to a hub gateway
 > * Testa anslutning
-> * Ändra en gateway-storlek
-> * Annonsera en standard väg
+> * Change a gateway size
+> * Advertise a default route
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Kontrollera att du har uppfyllt följande villkor innan du påbörjar konfigurationen:
 
-* Du har ett virtuellt nätverk som du vill ansluta till. Kontrol lera att inget av under näten i dina lokala nätverk överlappar de virtuella nätverk som du vill ansluta till. Information om hur du skapar ett virtuellt nätverk i Azure Portal finns i [snabb](../virtual-network/quick-create-portal.md)starten.
+* You have a virtual network that you want to connect to. Verify that none of the subnets of your on-premises networks overlap with the virtual networks that you want to connect to. To create a virtual network in the Azure portal, see the [Quickstart](../virtual-network/quick-create-portal.md).
 
-* Det virtuella nätverket har inga virtuella Nätverksgatewayen. Om ditt virtuella nätverk har en gateway (antingen VPN eller ExpressRoute) måste du ta bort alla gatewayer. Den här konfigurationen kräver att virtuella nätverk är anslutna i stället till den virtuella WAN Hub-gatewayen.
+* Your virtual network does not have any virtual network gateways. If your virtual network has a gateway (either VPN or ExpressRoute), you must remove all gateways. This configuration requires that virtual networks are connected instead, to the Virtual WAN hub gateway.
 
-* Hämta ett IP-adressintervall för din hubbregion. Hubben är ett virtuellt nätverk som skapas och används av virtuellt WAN-nätverk. Det adress intervall som du anger för hubben får inte överlappa något av dina befintliga virtuella nätverk som du ansluter till. Det får inte heller överlappa det adressintervall som du ansluter till lokalt. Om du inte känner till IP-adressintervall som finns i din lokala nätverks konfiguration, koordinerar du med någon som kan ge den informationen åt dig.
+* Hämta ett IP-adressintervall för din hubbregion. The hub is a virtual network that is created and used by Virtual WAN. The address range that you specify for the hub cannot overlap with any of your existing virtual networks that you connect to. Det får inte heller överlappa det adressintervall som du ansluter till lokalt. If you are unfamiliar with the IP address ranges located in your on-premises network configuration, coordinate with someone who can provide those details for you.
 
 * Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="openvwan"></a>Skapa ett virtuellt WAN
+## <a name="openvwan"></a>Create a virtual WAN
 
 Öppna en webbläsare, navigera till [Azure Portal](https://portal.azure.com) och logga in med ditt Azure-konto.
 
-1. Gå till den virtuella WAN-sidan. Klicka på **+Skapa en resurs** i portalen. Skriv det **virtuella WAN-nätverket** i sökrutan och välj RETUR.
-2. Välj **virtuellt WAN** från resultaten. På den virtuella WAN-sidan klickar du på **skapa** för att öppna sidan Skapa WAN.
-3. På sidan **skapa WAN** , på fliken **grundläggande** , fyller du i följande fält:
+1. Navigate to the Virtual WAN page. Klicka på **+Skapa en resurs** i portalen. Type **Virtual WAN** into the search box and select Enter.
+2. Select **Virtual WAN** from the results. On the Virtual WAN page, click **Create** to open the Create WAN page.
+3. On the **Create WAN** page, on the **Basics** tab, fill in the following fields:
 
    ![Skapa WAN](./media/virtual-wan-expressroute-portal/createwan.png)
 
    * **Prenumeration** – Välj vilken prenumeration du vill använda.
    * **Resursgrupp** – Skapa ny eller använd befintlig.
-   * **Resurs grupps plats** – Välj en resurs plats i list rutan. Ett WAN är en global resurs och är inte kopplad till en viss region. Du måste dock välja en region för att lättare att hantera och leta upp WAN-resursen som du skapar.
-   * **Namn** – ange det namn som du vill anropa ditt WAN.
-   * **Typ** – Välj **standard**. Du kan inte skapa en ExpressRoute-Gateway med Basic SKU.
-4. När du har fyllt i fälten väljer du **Granska + skapa**.
-5. När verifieringen har godkänts väljer du **skapa** för att skapa det virtuella WAN-nätverket.
+   * **Resource group location** - Choose a resource location from the dropdown. Ett WAN är en global resurs och är inte kopplad till en viss region. Du måste dock välja en region för att lättare att hantera och leta upp WAN-resursen som du skapar.
+   * **Name** - Type the name that you want to call your WAN.
+   * **Type** - Select **Standard**. You can't create an ExpressRoute gateway using the Basic SKU.
+4. After you finish filling out the fields, select **Review +Create**.
+5. Once validation passes, select **Create** to create the virtual WAN.
 
-## <a name="hub"></a>Skapa en virtuell hubb och gateway
+## <a name="hub"></a>Create a virtual hub and gateway
 
-En virtuell hubb är ett virtuellt nätverk som skapas och används av virtuellt WAN. Den kan innehålla olika gatewayer, till exempel VPN-och ExpressRoute. I det här avsnittet ska du skapa en ExpressRoute-Gateway för din virtuella hubb. Du kan antingen skapa gatewayen när du [skapar en ny virtuell hubb](#newhub), eller så kan du skapa en gateway i ett [befintligt nav](#existinghub) genom att redigera den. 
+A virtual hub is a virtual network that is created and used by Virtual WAN. It can contain various gateways, such as VPN and ExpressRoute. In this section, you will create an ExpressRoute gateway for your virtual hub. You can either create the gateway when you [create a new virtual hub](#newhub), or you can create the gateway in an [existing hub](#existinghub) by editing it. 
 
-ExpressRoute-gatewayer har tillhandahållits i enheter om 2 Gbit/s. 1 skalnings enhet = 2 Gbit/s med stöd för upp till 10 skalnings enheter = 20 Gbit/s. Det tar cirka 30 minuter för en virtuell hubb och gateway att helt skapa.
+ExpressRoute gateways are provisioned in units of 2 Gbps. 1 scale unit = 2 Gbps with support up to 10 scale units = 20 Gbps. It takes about 30 minutes for a virtual hub and gateway to fully create.
 
-### <a name="newhub"></a>Så här skapar du en ny virtuell hubb och en gateway
+### <a name="newhub"></a>To create a new virtual hub and a gateway
 
-Skapa en ny virtuell hubb. När du har skapat en hubb debiteras du för hubben, även om du inte kopplar några platser.
+Create a new virtual hub. Once a hub is created, you'll be charged for the hub, even if you don't attach any sites.
 
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-er-hub-include.md)]
 
-### <a name="existinghub"></a>Så här skapar du en gateway i ett befintligt nav
+### <a name="existinghub"></a>To create a gateway in an existing hub
 
-Du kan också skapa en gateway i ett befintligt nav genom att redigera den.
+You can also create a gateway in an existing hub by editing it.
 
-1. Navigera till det virtuella hubb som du vill redigera och markera det.
-2. Markera kryss rutan **Inkludera ExpressRoute Gateway**på sidan **Redigera virtuellt nav** .
-3. Välj **Bekräfta** för att bekräfta ändringarna. Det tar cirka 30 minuter för nav-och nav resurserna att helt skapa.
+1. Navigate to the virtual hub that you want to edit and select it.
+2. On the **Edit virtual hub** page, select the checkbox **Include ExpressRoute gateway**.
+3. Select **Confirm** to confirm your changes. It takes about 30 minutes for the hub and hub resources to fully create.
 
-   ![befintlig hubb](./media/virtual-wan-expressroute-portal/edithub.png "Redigera en hubb")
+   ![existing hub](./media/virtual-wan-expressroute-portal/edithub.png "edit a hub")
 
-### <a name="to-view-a-gateway"></a>Så här visar du en gateway
+### <a name="to-view-a-gateway"></a>To view a gateway
 
-När du har skapat en ExpressRoute-Gateway kan du Visa information om gatewayen. Navigera till hubben, Välj **ExpressRoute**och Visa gatewayen.
+Once you have created an ExpressRoute gateway, you can view gateway details. Navigate to the hub, select **ExpressRoute**, and view the gateway.
 
-![Visa Gateway](./media/virtual-wan-expressroute-portal/viewgw.png "Visa Gateway")
+![View gateway](./media/virtual-wan-expressroute-portal/viewgw.png "view gateway")
 
-## <a name="connectvnet"></a>Anslut ditt VNet till hubben
+## <a name="connectvnet"></a>Connect your VNet to the hub
 
-I det här avsnittet skapar du peering-anslutningen mellan hubben och ett VNet. Upprepa de här stegen för varje virtuellt nätverk du vill ansluta.
+In this section, you create the peering connection between your hub and a VNet. Upprepa de här stegen för varje virtuellt nätverk du vill ansluta.
 
 1. På sidan för det virtuella WAN-nätverket klickar du på **virtuell nätverksanslutning**.
 2. På sidan för virtuell nätverksanslutning klickar du på **+Lägg till anslutning**.
@@ -99,57 +99,57 @@ I det här avsnittet skapar du peering-anslutningen mellan hubben och ett VNet. 
     * **Anslutningsnamn** – Namnge anslutningen.
     * **Hubbar** – Välj den hubb du vill koppla till anslutningen.
     * **Prenumeration** – Kontrollera prenumerationen.
-    * **Virtuellt nätverk** – Välj det virtuella nätverk du vill ansluta till hubben. Det virtuella nätverket kan inte ha en befintlig virtuell nätverksgateway (varken VPN eller ExpressRoute).
+    * **Virtuellt nätverk** – Välj det virtuella nätverk du vill ansluta till hubben. The virtual network cannot have an already existing virtual network gateway (neither VPN, nor ExpressRoute).
 
-## <a name="connectcircuit"></a>Anslut din krets till hubb-gatewayen
+## <a name="connectcircuit"></a>Connect your circuit to the hub gateway
 
-När gatewayen har skapats kan du ansluta en [ExpressRoute-krets](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) till den. Observera att ExpressRoute Premium-kretsar som finns på ExpressRoute-Global Reach-platser som stöds kan ansluta till en virtuell WAN-ExpressRoute-Gateway.
+Once the gateway is created, you can connect an [ExpressRoute circuit](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) to it. Note that ExpressRoute Premium circuits that are in ExpressRoute Global Reach-supported locations can connect to a Virtual WAN ExpressRoute gateway.
 
-### <a name="to-connect-the-circuit-to-the-hub-gateway"></a>Så här ansluter du kretsen till Hub Gateway
+### <a name="to-connect-the-circuit-to-the-hub-gateway"></a>To connect the circuit to the hub gateway
 
-I portalen går du till sidan **virtuell hubb-> anslutning-> ExpressRoute** . Om du har åtkomst till en ExpressRoute-krets visas den krets som du vill använda i listan över kretsar. Om du inte ser några kretsar, men har fått en nyckel för auktorisering och peer-krets, kan du lösa in och ansluta en krets. Se [för att ansluta genom att lösa in en auktoriseringsregel](#authkey).
+In the portal, go to the **Virtual hub -> Connectivity -> ExpressRoute** page. If you have access in your subscription to an ExpressRoute circuit, you will see the circuit you want to use in the list of circuits. If you don’t see any circuits, but have been provided with an authorization key and peer circuit URI, you can redeem and connect a circuit. See [To connect by redeeming an authorization key](#authkey).
 
-1. Välj kretsen.
-2. Välj **Anslut krets (er)** .
+1. Select the circuit.
+2. Select **Connect circuit(s)** .
 
-   ![ansluta kretsar](./media/virtual-wan-expressroute-portal/cktconnect.png "ansluta kretsar")
+   ![connect circuits](./media/virtual-wan-expressroute-portal/cktconnect.png "connect circuits")
 
-### <a name="authkey"></a>Så här ansluter du genom att lösa in en auktoriseringsregel
+### <a name="authkey"></a>To connect by redeeming an authorization key
 
-Använd den autentiseringsregel och den krets-URI du angav för att ansluta.
+Use the authorization key and circuit URI you were provided in order to connect.
 
-1. På sidan ExpressRoute klickar du på **+ Lös in nyckel för autentisering**
+1. On the ExpressRoute page, click **+Redeem authorization key**
 
-   ![löst](./media/virtual-wan-expressroute-portal/redeem.png "löst")
-2. Fyll i värdena på sidan Lös in Authorization Key.
+   ![redeem](./media/virtual-wan-expressroute-portal/redeem.png "redeem")
+2. On the Redeem authorization key page, fill in the values.
 
-   ![Lös in nyckel värden](./media/virtual-wan-expressroute-portal/redeemkey2.png "Lös in nyckel värden")
-3. Välj **Lägg till** för att lägga till nyckeln.
-4. Visa kretsen. En avbruten krets visar bara namnet (utan typ, Provider och annan information) eftersom den finns i en annan prenumeration än användaren.
+   ![redeem key values](./media/virtual-wan-expressroute-portal/redeemkey2.png "redeem key values")
+3. Select **Add** to add the key.
+4. View the circuit. A redeemed circuit only shows the name (without the type, provider and other information) because it is in a different subscription than that of the user.
 
-## <a name="to-test-connectivity"></a>Så här testar du anslutningen
+## <a name="to-test-connectivity"></a>To test connectivity
 
-När krets anslutningen har upprättats visar hubbens anslutnings status "denna hubb", vilket innebär att anslutningen upprättas till Hub ExpressRoute-gatewayen. Vänta ungefär 5 minuter innan du testar anslutningen från en klient bakom din ExpressRoute-krets, till exempel en virtuell dator i det virtuella nätverk som du skapade tidigare.
+After the circuit connection is established, the hub connection status will indicate 'this hub', implying the connection is established to the hub ExpressRoute gateway. Wait approximately 5 minutes before you test connectivity from a client behind your ExpressRoute circuit, for example, a VM in the VNet that you created earlier.
 
-Om du har platser som är anslutna till en virtuell WAN-gateway i samma hubb som ExpressRoute-gatewayen kan du använda dubbelriktad anslutning mellan VPN-och ExpressRoute-slutpunkter. Dynamisk routning (BGP) stöds. ASN för gatewayerna i hubben är fast och kan inte redige ras just nu.
+If you have sites connected to a Virtual WAN VPN gateway in the same hub as the ExpressRoute gateway, you can have bidirectional connectivity between VPN and ExpressRoute end points. Dynamic routing (BGP) is supported. The ASN of the gateways in the hub is fixed and cannot be edited at this time.
 
-## <a name="to-change-the-size-of-a-gateway"></a>Ändra storleken på en gateway
+## <a name="to-change-the-size-of-a-gateway"></a>To change the size of a gateway
 
-Om du vill ändra storleken på din ExpressRoute-Gateway letar du reda på ExpressRoute-gatewayen i hubben och väljer skalnings enheter i list rutan. Spara ändringen. Det tar cirka 30 minuter att uppdatera hubb-gatewayen.
+If you want to change the size of your ExpressRoute gateway, locate the ExpressRoute gateway inside the hub, and select the scale units from the dropdown. Save your change. It will take approximately 30 minutes to update the hub gateway.
 
-![ändra Gateway-storlek](./media/virtual-wan-expressroute-portal/changescale.png "ändra Gateway-storlek")
+![change gateway size](./media/virtual-wan-expressroute-portal/changescale.png "change gateway size")
 
-## <a name="to-advertise-default-route-00000-to-endpoints"></a>Så här annonserar du standard vägen 0.0.0.0/0 till slut punkter
+## <a name="to-advertise-default-route-00000-to-endpoints"></a>To advertise default route 0.0.0.0/0 to endpoints
 
-Om du vill att den virtuella Azure-hubben ska annonsera standard vägen 0.0.0.0/0 till dina ExpressRoute-slutpunkter måste du aktivera spridning av standard väg.
+If you would like the Azure virtual hub to advertise the default route 0.0.0.0/0 to your ExpressRoute end points, you will need to enable 'Propagate default route'.
 
-1. Välj din **krets->...-> Redigera anslutning**.
+1. Select your **Circuit ->…-> Edit connection**.
 
-   ![Redigera anslutning](./media/virtual-wan-expressroute-portal/defaultroute1.png "Redigera anslutning")
+   ![Edit connection](./media/virtual-wan-expressroute-portal/defaultroute1.png "Edit connection")
 
-2. Välj **Aktivera** för att sprida standard vägen.
+2. Select **Enable** to propagate the default route.
 
-   ![Sprid standard väg](./media/virtual-wan-expressroute-portal/defaultroute2.png "Sprid standard väg")
+   ![Propagate default route](./media/virtual-wan-expressroute-portal/defaultroute2.png "Propagate default route")
 
 ## <a name="next-steps"></a>Nästa steg
 

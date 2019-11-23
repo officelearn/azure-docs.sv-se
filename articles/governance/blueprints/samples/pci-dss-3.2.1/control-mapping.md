@@ -1,134 +1,134 @@
 ---
-title: PCI-DSS v 3.2.1 skiss exempel – kontroll mappning
-description: Kontroll mappning av betalnings kortet bransch Data Security Standard v 3.2.1 skiss exempel till Azure Policy och RBAC.
+title: PCI-DSS v3.2.1 blueprint sample - Control mapping
+description: Control mapping of the Payment Card Industry Data Security Standard v3.2.1 blueprint sample to Azure Policy and RBAC.
 ms.date: 06/24/2019
-ms.topic: conceptual
-ms.openlocfilehash: d3e72f923ea3d752d829731d1f741bda090ae9fd
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.topic: sample
+ms.openlocfilehash: 050f138e3235c40e44642b6642394f4800450d91
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037271"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406819"
 ---
-# <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Kontroll mappning för PCI-DSS v 3.2.1-skiss exemplet
+# <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Control mapping of the PCI-DSS v3.2.1 blueprint sample
 
-I följande artikel beskrivs hur du mappar PCI-DSS v 3.2.1-skiss exemplet till PCI-DSS v 3.2.1-kontrollerna. Mer information om kontrollerna finns i [PCI-DSS v 3.2.1](https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf).
+The following article details how the Azure Blueprints PCI-DSS v3.2.1 blueprint sample maps to the PCI-DSS v3.2.1 controls. For more information about the controls, see [PCI-DSS v3.2.1](https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf).
 
-Följande mappningar är till **PCI-DSS v 3.2.1:2018-** kontrollerna. Använd navigeringen till höger om du vill gå direkt till en bestämd kontroll mappning. Många av de mappade kontrollerna implementeras med ett [Azure policy](../../../policy/overview.md) initiativ. Om du vill granska hela initiativet öppnar du **princip** i Azure Portal och väljer sidan **definitioner** . Leta sedan reda på och välj **\[för hands version\] granska PCI v 3.2.1:2018-kontroller och distribuera särskilda VM-tillägg för att ge stöd för det inbyggda princip initiativet för gransknings krav** .
+The following mappings are to the **PCI-DSS v3.2.1:2018** controls. Use the navigation on the right to jump directly to a specific control mapping. Many of the mapped controls are implemented with an [Azure Policy](../../../policy/overview.md) initiative. To review the complete initiative, open **Policy** in the Azure portal and select the **Definitions** page. Then, find and select the **\[Preview\] Audit PCI v3.2.1:2018 controls and deploy specific VM Extensions to support audit requirements** built-in policy initiative.
 
 > [!IMPORTANT]
-> Varje kontroll nedan är kopplad till en eller flera [Azure policy](../../../policy/overview.md) -definitioner. Dessa principer kan hjälpa dig att [utvärdera efterlevnaden](../../../policy/how-to/get-compliance-data.md) av kontrollen. Det finns dock ofta ingen 1:1 eller fullständig matchning mellan en kontroll och en eller flera principer. Som sådan är **kompatibel** i Azure policy endast som avser själva principerna. Detta garanterar inte att du är helt kompatibel med alla krav för en kontroll. Standarden för efterlevnad innehåller dessutom kontroller som inte åtgärdas av några Azure Policy definitioner för tillfället. Därför är regelefterlevnad i Azure Policy bara en partiell vy av din övergripande kompatibilitetsstatus. Kopplingarna mellan kontroller och Azure Policy definitioner för det här skiss exemplet för efterlevnad kan ändras med tiden. Om du vill visa ändrings historiken läser du [inchecknings historiken för GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/pci-dss-3.2.1/control-mapping.md).
+> Each control below is associated with one or more [Azure Policy](../../../policy/overview.md) definitions. These policies may help you [assess compliance](../../../policy/how-to/get-compliance-data.md) with the control; however, there often is not a 1:1 or complete match between a control and one or more policies. As such, **Compliant** in Azure Policy refers only to the policies themselves; this doesn't ensure you're fully compliant with all requirements of a control. In addition, the compliance standard includes controls that aren't addressed by any Azure Policy definitions at this time. Therefore, compliance in Azure Policy is only a partial view of your overall compliance status. The associations between controls and Azure Policy definitions for this compliance blueprint sample may change over time. To view the change history, see the [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/pci-dss-3.2.1/control-mapping.md).
 
-## <a name="132-and-134-boundary-protection"></a>Skydd för 1.3.2 och 1.3.4-gränser
+## <a name="132-and-134-boundary-protection"></a>1.3.2 and 1.3.4 Boundary Protection
 
-Den här skissen hjälper dig att hantera och styra nätverk genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som övervakar nätverks säkerhets grupper med tillåtande regler. Regler som är för tillåtelse kan tillåta oönskad nätverks åtkomst och bör granskas. Den här skissen tilldelar en Azure Policy-definition som övervakar oskyddade slut punkter, program och lagrings konton. Slut punkter och program som inte skyddas av en brand vägg och lagrings konton med obegränsad åtkomst kan ge oavsiktlig åtkomst till information som finns i informations systemet.
+This blueprint helps you manage and control networks by assigning [Azure Policy](../../../policy/overview.md) definitions that monitors network security groups with permissive rules. Rules that are too permissive may allow unintended network access and should be reviewed. This blueprint assigns one Azure Policy definitions that monitor unprotected endpoints, applications, and storage accounts. Endpoints and applications that aren't protected by a firewall, and storage accounts with unrestricted access can allow unintended access to information contained within the information system.
 
-- Granska obegränsad nätverks åtkomst till lagrings konton
-- Åtkomst via slut punkt mot Internet bör vara begränsad
+- Audit unrestricted network access to storage accounts
+- Access through Internet facing endpoint should be restricted
 
-## <a name="34a-41-41g-41h-and-653-cryptographic-protection"></a>3.4. a, 4,1, 4.1. g, 4.1. h och 6.5.3 kryptografiskt skydd
+## <a name="34a-41-41g-41h-and-653-cryptographic-protection"></a>3.4.a, 4.1, 4.1.g, 4.1.h and 6.5.3 Cryptographic Protection
 
-Den här skissen hjälper dig att genomdriva principen med hjälp av kryptografiska kontroller genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som tillämpar vissa kryptografiska kontroller och gransknings användningen av svaga kryptografiska inställningar. Att förstå var dina Azure-resurser kan ha icke-optimala kryptografiska konfigurationer kan hjälpa dig att vidta korrigerande åtgärder för att säkerställa att resurserna konfigureras i enlighet med din informations säkerhets princip. Mer specifikt kräver principerna som tilldelats av den här skissen transparent data kryptering på SQL-databaser. granska saknad kryptering på lagrings konton och variabler för Automation-konto. Det finns också principer för att hantera oskyddade anslutningar till lagrings konton, Function-appar, WebApp, API Apps och Redis Cache och granska okrypterade Service Fabric-kommunikation.
+This blueprint helps you enforce your policy with the use of cryptograph controls by assigning [Azure Policy](../../../policy/overview.md) definitions which enforce specific cryptograph controls and audit use of weak cryptographic settings. Understanding where your Azure resources may have non-optimal cryptographic configurations can help you take corrective actions to ensure resources are configured in accordance with your information security policy. Specifically, the policies assigned by this blueprint require transparent data encryption on SQL databases; audit missing encryption on storage accounts, and automation account variables. There are also policies which address audit insecure connections to storage accounts, Function Apps, WebApp, API Apps, and Redis Cache, and audit unencrypted Service Fabric communication.
 
-- Funktionen App bör enbart vara åtkomliga via HTTPS
-- Webbprogram bör enbart vara åtkomliga via HTTPS
-- API-appen bör bara vara tillgänglig via HTTPS
-- transparent datakryptering på SQL-databaser ska aktive ras
-- Disk kryptering bör tillämpas på virtuella datorer
-- Variabler för Automation-konton ska vara krypterade
-- Endast säkra anslutningar till din Redis Cache ska vara aktiverade
-- Säker överföring till lagrings konton ska vara aktiverat
-- Service Fabric-kluster ska ha egenskapen ClusterProtectionLevel inställd på EncryptAndSign
-- transparent datakryptering på SQL-databaser ska aktive ras
-- Distribuera transparent data kryptering för SQL DB
+- Function App should only be accessible over HTTPS
+- Web Application should only be accessible over HTTPS
+- API App should only be accessible over HTTPS
+- Transparent Data Encryption on SQL databases should be enabled
+- Disk encryption should be applied on virtual machines
+- Automation account variables should be encrypted
+- Only secure connections to your Redis Cache should be enabled
+- Secure transfer to storage accounts should be enabled
+- Service Fabric clusters should have the ClusterProtectionLevel property set to EncryptAndSign
+- Transparent Data Encryption on SQL databases should be enabled
+- Deploy SQL DB transparent data encryption
 
-## <a name="51-62-66-and-1121-vulnerability-scanning-and-system-updates"></a>5,1, 6,2, 6,6 och 11.2.1 sårbarhets-genomsökning och system uppdateringar
+## <a name="51-62-66-and-1121-vulnerability-scanning-and-system-updates"></a>5.1, 6.2, 6.6 and 11.2.1 Vulnerability Scanning and System Updates
 
-Den här skissen hjälper dig att hantera problem med informations systemet genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som övervakar saknade system uppdateringar, sårbarheter för operativ system, sårbarheter i SQL och virtuella dator sårbarheter i Azure Security Center. Azure Security Center tillhandahåller rapporterings funktioner som gör att du kan få inblick i real tid i säkerhets läget för distribuerade Azure-resurser.
+This blueprint helps you manage information system vulnerabilities by assigning [Azure Policy](../../../policy/overview.md) definitions that monitor missing system updates, operating system vulnerabilities, SQL vulnerabilities, and virtual machine vulnerabilities in Azure Security Center. Azure Security Center provides reporting capabilities that enable you to have real-time insight into the security state of deployed Azure resources.
 
-- Övervaka saknade Endpoint Protection i Azure Security Center
-- Distribuera standard Microsoft IaaSAntimalware-tillägget för Windows Server
-- Distribuera hot identifiering på SQL-servrar
-- System uppdateringar bör installeras på dina datorer
-- Säkerhets problem i säkerhets konfiguration på dina datorer bör åtgärdas
-- Säkerhets risker i SQL-databaser bör åtgärdas
-- Säkerhets risker bör åtgärdas av en lösning för sårbarhets bedömning
+- Monitor missing Endpoint Protection in Azure Security Center
+- Deploy default Microsoft IaaSAntimalware extension for Windows Server
+- Deploy Threat Detection on SQL Servers
+- System updates should be installed on your machines
+- Vulnerabilities in security configuration on your machines should be remediated
+- Vulnerabilities on your SQL databases should be remediated
+- Vulnerabilities should be remediated by a Vulnerability Assessment solution
 
-## <a name="711-712-and-713-separation-of-duties"></a>7.1.1. 7.1.2 och 7.1.3 separering av uppgifter
+## <a name="711-712-and-713-separation-of-duties"></a>7.1.1. 7.1.2 and 7.1.3 Separation of Duties
 
-Att ha bara en Azure-prenumerations ägare tillåter inte administrativ redundans. Att ha för många Azure-prenumerationer kan däremot öka risken för intrång via ett komprometterat ägar konto. Den här skissen hjälper dig att underhålla ett lämpligt antal prenumerations ägare i Azure genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som granskar antalet ägare för Azure-prenumerationer. Hantering av prenumerations ägarens behörigheter kan hjälpa dig att implementera lämplig uppdelning av uppgifter.
+Having only one Azure subscription owner doesn't allow for administrative redundancy. Conversely, having too many Azure subscription owners can increase the potential for a breach via a compromised owner account. This blueprint helps you maintain an appropriate number of Azure subscription owners by assigning [Azure Policy](../../../policy/overview.md) definitions which audit the number of owners for Azure subscriptions. Managing subscription owner permissions can help you implement appropriate separation of duties.
 
-- Det bör finnas fler än en ägare som tilldelats din prenumeration
-- Högst 3 ägare bör anges för din prenumeration 
+- There should be more than one owner assigned to your subscription
+- A maximum of 3 owners should be designated for your subscription 
 
-## <a name="32-721-831a-and-831b-management-of-privileged-access-rights"></a>3,2, 7.2.1, 8.3.1. a och 8.3.1. b hantering av privilegierade behörigheter
+## <a name="32-721-831a-and-831b-management-of-privileged-access-rights"></a>3.2, 7.2.1, 8.3.1.a and 8.3.1.b Management of Privileged Access Rights
 
-Den här skissen hjälper dig att begränsa och kontrol lera privilegierade åtkomst rättigheter genom att tilldela [Azure policy](../../../policy/overview.md) definitioner för att granska externa konton med behörigheterna ägare, skriv och/eller Läs och anställda konton med ägar-och/eller Skriv behörighet som inte har Multi-Factor Authentication aktiverat. Azure implementerar rollbaserad åtkomst kontroll (RBAC) för att hantera vem som har åtkomst till Azure-resurser. Att förstå var anpassade RBAC-regler implementeras kan hjälpa dig att kontrol lera behovet och korrekt implementering eftersom anpassade RBAC-regler är fel känsliga. Den här skissen tilldelar också [Azure policy](../../../policy/overview.md) definitioner för att granska användningen av Azure Active Directory autentisering för SQL-servrar. Genom att använda Azure Active Directory-autentisering fören klar hantering av behörigheter och centraliserar identitets hanteringen för databas användare och andra Microsoft  
-Terminal.
+This blueprint helps you restrict and control privileged access rights by assigning [Azure Policy](../../../policy/overview.md) definitions to audit external accounts with owner, write and/or read permissions and employee accounts with owner and/or write permissions that don't have multi-factor authentication enabled. Azure implements role-based access control (RBAC) to manage who has access to Azure resources. Understanding where custom RBAC rules are implement can help you verify need and proper implementation, as custom RBAC rules are error prone. This blueprint also assigns [Azure Policy](../../../policy/overview.md) definitions to audit use of Azure Active Directory authentication for SQL Servers. Using Azure Active Directory authentication simplifies permission management and centralizes identity management of database users and other Microsoft  
+services.
  
-- Externa konton med ägar behörigheter bör tas bort från din prenumeration
+- External accounts with owner permissions should be removed from your subscription
 - Externa konton med skrivbehörigheter bör tas bort från prenumerationen
-- Externa konton med Läs behörighet bör tas bort från din prenumeration
-- MFA ska vara aktiverat på konton med ägar behörigheter för din prenumeration
-- MFA ska vara aktiverade konton med Skriv behörighet för din prenumeration
-- MFA ska vara aktiverat på konton med Läs behörighet för din prenumeration
-- En Azure Active Directory administratör bör tillhandahållas för SQL-servrar
-- Granska användningen av anpassade RBAC-regler
+- External accounts with read permissions should be removed from your subscription
+- MFA should be enabled on accounts with owner permissions on your subscription
+- MFA should be enabled accounts with write permissions on your subscription
+- MFA should be enabled on accounts with read permissions on your subscription
+- An Azure Active Directory administrator should be provisioned for SQL servers
+- Audit usage of custom RBAC rules
 
-## <a name="812-and-815-least-privilege-and-review-of-user-access-rights"></a>8.1.5, lägsta behörighet och granskning av användar behörighet
+## <a name="812-and-815-least-privilege-and-review-of-user-access-rights"></a>8.1.2 and 8.1.5 Least Privilege and Review of User Access Rights
 
-Azure implementerar rollbaserad åtkomst kontroll (RBAC) för att hjälpa dig att hantera vem som har åtkomst till resurser i Azure. Med hjälp av Azure Portal kan du granska vem som har åtkomst till Azure-resurser och deras behörigheter. Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitioner till gransknings konton som ska prioriteras för granskning, inklusive avskrivna konton och externa konton med utökade behörigheter.
+Azure implements role-based access control (RBAC) to helps you manage who has access to resources in Azure. Using the Azure portal, you can review who has access to Azure resources and their permissions. This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions to audit accounts that should be prioritized for review, including depreciated accounts and external accounts with elevated permissions.
 
-- Föråldrade konton bör tas bort från din prenumeration
-- Föråldrade konton med ägar behörigheter bör tas bort från din prenumeration
-- Externa konton med ägar behörigheter bör tas bort från din prenumeration
+- Deprecated accounts should be removed from your subscription
+- Deprecated accounts with owner permissions should be removed from your subscription
+- External accounts with owner permissions should be removed from your subscription
 - Externa konton med skrivbehörigheter bör tas bort från prenumerationen
-- Externa konton med Läs behörighet bör tas bort från din prenumeration
+- External accounts with read permissions should be removed from your subscription
 
-## <a name="813-removal-or-adjustment-of-access-rights"></a>8.1.3 borttagning eller justering av åtkomst rättigheter
+## <a name="813-removal-or-adjustment-of-access-rights"></a>8.1.3 Removal or Adjustment of Access Rights
 
-Azure implementerar rollbaserad åtkomst kontroll (RBAC) för att hjälpa dig att hantera vem som har åtkomst till resurser i Azure. Med hjälp av Azure Active Directory och RBAC kan du uppdatera användar roller för att återspegla organisations ändringar. Vid behov kan konton blockeras från att logga in (eller tas bort), vilket omedelbart tar bort åtkomst behörighet till Azure-resurser. Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitioner till granska avskrivet konto som bör tas bort.
+Azure implements role-based access control (RBAC) to help you manage who has access to resources in Azure. Using Azure Active Directory and RBAC, you can update user roles to reflect organizational changes. When needed, accounts can be blocked from signing in (or removed), which immediately removes access rights to Azure resources. This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions to audit depreciated account that should be considered for removal.
 
-- Föråldrade konton bör tas bort från din prenumeration
-- Föråldrade konton med ägar behörigheter bör tas bort från din prenumeration
+- Deprecated accounts should be removed from your subscription
+- Deprecated accounts with owner permissions should be removed from your subscription
 
-## <a name="823ab-824ab-and-825-password-based-authentication"></a>8.2.3. a, b, 8.2.4. a, b och 8.2.5-baserad autentisering
+## <a name="823ab-824ab-and-825-password-based-authentication"></a>8.2.3.a,b, 8.2.4.a,b and 8.2.5 Password-based Authentication
 
-Den här skissen hjälper dig att använda starka lösen ord genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som granskar virtuella Windows-datorer som inte uppfyller minimi kraven och andra lösen ords krav. Om de virtuella datorerna strider mot principen för lösen ords säkerhet kan du vidta åtgärder för att säkerställa att lösen ord för alla VM-användarkonton är kompatibla med principen.
+This blueprint helps you enforce strong passwords by assigning [Azure Policy](../../../policy/overview.md) definitions that audit Windows VMs that don't enforce minimum strength and other password requirements. Awareness of VMs in violation of the password strength policy helps you take corrective actions to ensure passwords for all VM user accounts are compliant with policy.
 
-- \[för hands version\]: granska virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
-- \[för hands version\]: Distribuera krav för att granska virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
-- \[för hands version\]: granska virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
-- \[för hands version\]: Distribuera krav för att granska virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
-- \[för hands version\]: granska virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
-- \[för hands version\]: Distribuera krav för att granska virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
+- \[Preview\]: Audit Windows VMs that do not have a maximum password age of 70 days
+- \[Preview\]: Deploy requirements to audit Windows VMs that do not have a maximum password age of 70 days
+- \[Preview\]: Audit Windows VMs that do not restrict the minimum password length to 14 characters
+- \[Preview\]: Deploy requirements to audit Windows VMs that do not restrict the minimum password length to 14 characters
+- \[Preview\]: Audit Windows VMs that allow re-use of the previous 24 passwords
+- \[Preview\]: Deploy requirements to audit Windows VMs that allow re-use of the previous 24 passwords
 
-## <a name="103-and-1054-audit-generation"></a>10,3 och 10.5.4 audit generation
+## <a name="103-and-1054-audit-generation"></a>10.3 and 10.5.4 Audit Generation
 
-Den här skissen hjälper dig att se till att system händelser loggas genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som granskar logg inställningar på Azure-resurser.
-Diagnostikloggar ger inblick i åtgärder som utfördes i Azure-resurser. Azure-loggar förlitar sig på synkroniserade interna klockor för att skapa en tidskorrelerad post av händelser mellan resurser.
+This blueprint helps you ensure system events are logged by assigning [Azure Policy](../../../policy/overview.md) definitions that audit log settings on Azure resources.
+Diagnostic logs provide insight into operations that were performed within Azure resources. Azure logs rely on synchronized internal clocks to create a time-correlated record of events across resources.
 
-- Granskning ska aktive ras för avancerade data säkerhets inställningar på SQL Server
+- Auditing should be enabled on advanced data security settings on SQL Server
 - Granska diagnostikinställning
-- Granska gransknings inställningar för SQL Server-nivå
-- Distribuera granskning på SQL-servrar
-- Lagrings konton ska migreras till nya Azure Resource Manager resurser
-- Virtuella datorer ska migreras till nya Azure Resource Manager-resurser
+- Audit SQL server level Auditing settings
+- Deploy Auditing on SQL servers
+- Storage accounts should be migrated to new Azure Resource Manager resources
+- Virtual machines should be migrated to new Azure Resource Manager resources
 
-## <a name="1236-and-1237-information-security"></a>Informations säkerhet för 12.3.6 och 12.3.7
+## <a name="1236-and-1237-information-security"></a>12.3.6 and 12.3.7 Information Security
 
-Den här skissen hjälper dig att hantera och kontrol lera nätverket genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som granskar de acceptabla nätverks platserna och de godkända företags produkter som tillåts för miljön. Dessa kan anpassas efter varje företag genom princip parametrarna i var och en av dessa principer.
+This blueprint helps you manage and control your network by assigning [Azure Policy](../../../policy/overview.md) definitions that audit the acceptable network locations and the approved company products allowed for the environment. These are customizable by each company through the policy parameters within each of these policies.
 
 - Tillåtna platser
-- Tillåtna platser för resurs grupper
+- Allowed locations for resource groups
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har granskat kontroll mappningen av PCI-DSS v 3.2.1-skissen kan du gå till följande artiklar för att lära dig mer om översikten och hur du distribuerar det här exemplet:
+Now that you've reviewed the control mapping of the PCI-DSS v3.2.1 blueprint, visit the following articles to learn about the overview and how to deploy this sample:
 
 > [!div class="nextstepaction"]
-> [PCI-DSS v 3.2.1 skiss – översikt](./index.md)
-> [PCI-DSS v 3.2.1 skiss – distribuera steg](./deploy.md)
+> [PCI-DSS v3.2.1 blueprint - Overview](./index.md)
+> [PCI-DSS v3.2.1 blueprint - Deploy steps](./deploy.md)
 
 Ytterligare artiklar om skisser och hur de används:
 

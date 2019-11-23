@@ -1,29 +1,23 @@
 ---
-title: Hämta information om databas information för för hands versionen av Azure blockchain Workbench
-description: Lär dig hur du hämtar Azure blockchain Workbench Preview-databas och databas server information.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+title: Hämta information om Azure Blockchain Workbench-databas
+description: Learn how to get Azure Blockchain Workbench Preview database and database server information.
 ms.date: 09/05/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: mmercuri
-manager: femila
-ms.openlocfilehash: f4a4eaab9a03aeed27e29eb645b6e22a028b243b
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 2b3190a9d042be8ead1ff3d5ef48d4a2a19e8963
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845071"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74324695"
 ---
-# <a name="get-information-about-your-azure-blockchain-workbench-preview-database"></a>Hämta information om din Azure blockchain Workbench Preview-databas
+# <a name="get-information-about-your-azure-blockchain-workbench-database"></a>Hämta information om din Azure Blockchain Workbench-databas
 
-Den här artikeln visar hur du får detaljerad information om din databas för för hands versionen av Azure blockchain Workbench.
+This article shows how to get detailed information about your Azure Blockchain Workbench Preview database.
 
 ## <a name="overview"></a>Översikt
 
-Information om program, arbetsflöden och smart kontraktskörning kan hämtas med databasvyer i Blockchain Workbench SQL DB. Utvecklare kan använda den här informationen när de använder verktyg som Microsoft Excel, Power BI, Visual Studio och SQL Server Management Studio.
+Information om program, arbetsflöden och smart kontraktskörning kan hämtas med databasvyer i Blockchain Workbench SQL DB. Developers can use this information when using tools such as Microsoft Excel, Power BI, Visual Studio, and SQL Server Management Studio.
 
 Innan en utvecklare kan ansluta till databasen, måste de:
 
@@ -34,7 +28,7 @@ Innan en utvecklare kan ansluta till databasen, måste de:
 
 Så här ansluter du till databasen:
 
-1. Logga in på Azure Portal med ett konto som har **ägar** behörigheter för Azure blockchain Workbench-resurserna.
+1. Sign in to the Azure portal with an account that has **Owner** permissions for the Azure Blockchain Workbench resources.
 2. Välj **Resursgrupper** i det vänstra navigeringsfönstret.
 3. Välj namnet på resursgruppen för din Blockchain Workbench-distribution.
 4. Sortera listan med resurser genom att välja **Typ** och välj sedan din **SQL-server**. Den sorterade listan i nästa skärmdump visar två SQL-databaser, ”master” och en som använder ”lhgn” som **resursprefix**.

@@ -1,135 +1,135 @@
 ---
-title: Distribuera Azure-FarmBeats
-description: Beskriver hur du distribuerar FarmBeats
+title: Deploy Azure FarmBeats
+description: Describes how to deploy FarmBeats
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: acc64486ac8bd15a9abab1f2010ea56b752a1e86
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: ccd8fc293d284150d7318242b71a46a99fec12fa
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927675"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406325"
 ---
 # <a name="deploy-farmbeats"></a>Distribuera FarmBeats
 
-Den här artikeln beskriver hur du konfigurerar Azure-FarmBeats.
+This article describes how to set up Azure FarmBeats.
 
-Azure FarmBeats är en branschspecifika, utöknings bar lösning för data drivna lantbruk som möjliggör sömlös etablering och sensor anslutningar till Azure-molnet, telemetri data insamling och agg regering. Azure FarmBeats har olika sensorer, till exempel kameror, drönare, jord sensorer och hantering av enheter från molnet, som innehåller infrastruktur och tjänster i Azure för IoT Ready-enheter (Sakernas Internet) till en Extendible webb-och mobilapp för att tillhandahålla visualisering, aviseringar och insikter.
+Azure FarmBeats is an industry-specific, extensible solution for data-driven farming that enables seamless provisioning and sensor devices connectivity to Azure cloud, telemetry data collection, and aggregation. Azure FarmBeats has various sensors such as cameras, drones, soil sensors, and management of devices from the cloud, which includes infrastructure and services in Azure for the IoT-ready (Internet of Things) devices to an extendible web and mobile app to provide visualization, alerts, and insights.
 
 > [!NOTE]
-> Azure FarmBeats stöds endast i offentliga moln miljöer. Mer information om moln miljö finns i [Azure](https://azure.microsoft.com/overview/what-is-a-public-cloud/).
+> Azure FarmBeats is supported only in Public Cloud Environments. For more information about cloud environment, see [Azure](https://azure.microsoft.com/overview/what-is-a-public-cloud/).
 
-Azure FarmBeats har följande två komponenter:
+Azure FarmBeats has the following two components:
 
-- **Data** Hub – data Hub är plattforms skiktet i Azure-FarmBeats som gör att du kan bygga, lagra, bearbeta data och rita insikter från befintliga eller nya datapipelines. Detta plattforms lager är användbart för att köra och bygga data pipeliner och-modeller i jordbruket.
+- **Data hub** - Data hub is the platform layer of Azure FarmBeats that lets you build, store, process data and draw insights from existing or new data pipelines. This platform layer is useful to run and build your agriculture data pipelines and models.
 
-- **Accelerator** -Accelerator är lösnings skiktet i Azure-FarmBeats som har ett inbyggt program för att illustrera funktionerna i Azure FarmBeats med hjälp av de i förväg skapade jordbruks modellerna. Med det här lösnings skiktet kan du skapa server grupps gränser och rita insikter från jordbrukets data inom ramen för Server gruppens gräns.
+- **Accelerator** - Accelerator is the solution layer of Azure FarmBeats that has a built-in application to illustrate the capabilities of Azure FarmBeats using the pre-created agriculture models. This solution layer lets you create farm boundaries and draw insights from the agriculture data within the context of the farm boundary.
 
-En snabb distribution av Azure FarmBeats bör ta mindre än en timme. Kostnaderna för data hubben och acceleratorn varierar beroende på användning.
+A quick deployment of Azure FarmBeats should take less than an hour. Costs for the Data hub and Accelerator vary based on usage.
 
-## <a name="deployed-resources"></a>Distribuerade resurser
+## <a name="deployed-resources"></a>Deployed resources
 
-Azure FarmBeats-distributionen skapar nedanstående listade resurser i din prenumeration:
+Azure FarmBeats deployment creates the below listed resources within your subscription:
 
-|Nr  |Resursnamn  |Azure FarmBeats-komponent  |
+|Nr  |Resursnamn  |Azure FarmBeats Component  |
 |---------|---------|---------|
-|1  |       Azure Cosmos DB   |  Data hubb       |
-|2  |    Application Insights      |     Data hubb/Accelerator     |
-|3  |Azure Cache for Redis   |Data hubb   |
-|4  |       Azure-valv    |  Data hubb/Accelerator        |
-|5  |    Time Series Insights       |     Data hubb      |
-|6 |      EventHub-namnområde    |  Data hubb       |
-|7  |    Azure Data Factory V2       |     Data hubb/Accelerator      |
-|8  |Batch-konto    |Data hubb   |
-|9  |       Lagringskonto     |  Data hubb/Accelerator        |
-|10  |    Logikapp        |     Data hubb      |
-|11  |    API-anslutning        |     Data hubb      |
-|12|      App Service      |  Data hubb/Accelerator       |
-|13 |    App Service-plan        |     Data hubb/Accelerator      |
-|14 |Azure Maps konto     |Gas    |
-|15 |       Time Series Insights      |  Data hubb     |
+|1  |       Azure Cosmos DB   |  Data hub       |
+|2  |    Application Insights      |     Data hub/Accelerator     |
+|3  |Azure Cache for Redis   |Data hub   |
+|4  |       Azure KeyVault    |  Data hub/ Accelerator        |
+|5  |    Time Series Insights       |     Data hub      |
+|6 |      EventHub Namespace    |  Data hub       |
+|7  |    Azure Data Factory V2       |     Data hub/ Accelerator      |
+|8  |Batch-konto    |Data hub   |
+|9  |       Lagringskonto     |  Data hub/ Accelerator        |
+|10  |    Logikapp        |     Data hub      |
+|11  |    API connection        |     Data hub      |
+|12|      App service      |  Data hub/Accelerator       |
+|13 |    App service plan        |     Data hub/ Accelerator      |
+|14 |Azure Maps account     |Accelerator    |
+|15 |       Time Series Insights      |  Data hub     |
 
-Azure FarmBeats är tillgängligt för att ladda ned från Azure Marketplace. Du kan komma åt den direkt från Azure Portal.  
+Azure FarmBeats is available for you to download from the Azure Marketplace. You can access it directly from Azure portal.  
 
-## <a name="create-azure-farmbeats-offer-on-marketplace"></a>Skapa ett Azure FarmBeats-erbjudande på Marketplace
+## <a name="create-azure-farmbeats-offer-on-marketplace"></a>Create Azure FarmBeats offer on marketplace
 
-Använd de här stegen för att skapa ett Azure FarmBeats-erbjudande på Marketplace:
+Use these steps to create an Azure FarmBeats offer in the marketplace:
 
-1. Logga in på Azure Portal och välj ditt konto i det övre högra hörnet och växla till den Azure AD-klient där du vill distribuera Microsoft Azure FarmBeats.
-2. Azure-FarmBeats finns på Azure Marketplace. På Marketplace-sidan väljer du på "Hämta nu".
-3. Välj Skapa och ange följande information:
-    - Prenumerations namn.
-    - ett befintligt resurs grupp namn (endast tom resurs grupp) eller skapa en ny resurs grupp för att distribuera Azure-FarmBeats. Anteckna den här resurs gruppen i efterföljande avsnitt.
-4. Den region där du vill installera Azure-FarmBeats. För närvarande FarmBeats följande regioner: centrala USA, Västeuropa, östra USA 2, norra Europa, västra USA, Sydostasien, östra USA, östra Australien, västra USA 2.
+1. Sign-in to the Azure portal and select your account in the top-right corner, and switch to the Azure AD tenant where you want to deploy Microsoft Azure FarmBeats.
+2. Azure FarmBeats is available at Azure Marketplace. On the marketplace page, select on “Get it Now”.
+3. Select Create and enter the following information:
+    - subscription name.
+    - an existing resource group name (empty resource group only) or create a new resource group for deploying Azure FarmBeats. Make a note of this resource group in subsequent sections.
+4. The region you want to install Azure FarmBeats. Currently Azure FarmBeats is supported in the following regions: Central US, West Europe, East US 2, North Europe, West US, Southeast Asia, East US, Australia East, West US 2.
 5. Välj **OK**.
-Sidan Användningsvillkor visas. Granska standard villkoren för Marketplace eller Välj hyperlänken för att granska användnings villkoren.
-6. Välj **Stäng**, sedan kryss rutan "Jag accepterar" och välj sedan **skapa**.
-7. Nu har du signerat licens avtalet (EULA) för Azure FarmBeats på Marketplace.  
-7. Följ nästa steg i den här guiden om du vill fortsätta med distributionen.
+The Terms of use page appears. Review the standard marketplace terms or select the hyperlink to review the Terms of Use.
+6. Select **Close**, then the "I agree" checkbox and then select **Create**.
+7. You have now successfully signed Azure FarmBeats's End-user License agreement (EULA) on the marketplace.  
+7. To continue with the deployment, follow the next steps in this guide.
 
-## <a name="prepare"></a>Förbereda
+## <a name="prepare"></a>Förbered dig
 
-Du behöver följande behörigheter för att distribuera Azure-FarmBeats:
+You need the following permissions for deploying Azure FarmBeats:
 
-- Klient: Läs behörighet
-- Prenumeration: deltagare eller ägare
-- Resurs grupp: ägare
+- Tenant: Read Access
+- Subscription: contributor or owner
+- Resource group: owner
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Innan du påbörjar distributionen måste du se till att du har följande:
+Before initiating the deployment, ensure you've the following:
 
-- Kontroll konto
-- Registrerings program för Azure Active Directory (AD)
+- Sentinel account
+- Azure Active Directory (AD) app registration
 
-## <a name="create-a-sentinel-account"></a>Skapa ett Sentinel-konto    
+## <a name="create-a-sentinel-account"></a>Create a sentinel account    
 
-Ett konto med Sentinel hjälper dig att ladda ned kontroll satellit bilder från sin officiella webbplats till din enhet. Följ de här stegen för att skapa ett kostnads fritt konto:
+An account with sentinel helps you to download the sentinel satellite imagery from their official website to your device. Follow these steps to create a free account:
 
-Gå till https://scihub.copernicus.eu/dhus/#/self-registration. På sidan registrering anger du ett förnamn, efter namn, användar namn, lösen ord och e-postadress.
-En verifierings-e-postadress skickas till den registrerade e-postadressen för bekräftelse. Välj länken och bekräfta. Registrerings processen har slutförts.
+Gå till https://scihub.copernicus.eu/dhus/#/self-registration. In the registration page, provide a first name, last name, username, password, and email.
+A verification email will be sent to the registered email address for confirmation. Select the link and confirm. Your registration process is complete.
 
-## <a name="create-azure-ad-app-registration"></a>Skapa Azure AD-App-registrering
+## <a name="create-azure-ad-app-registration"></a>Create Azure AD app registration
 
-För autentisering och auktorisering på Azure-FarmBeats måste du ha en Azure Active Directory-programregistrering som:
+For authentication and authorization on Azure FarmBeats, you must have an Azure active directory application registration which:
 
-- Fall 1: installations programmet kan skapa automatiskt (förutsatt att du har den behörighet som krävs för klient organisation, prenumeration och resurs grupp).
-- Fall 2: du kan skapa och konfigurera innan du distribuerar Azure-FarmBeats (manuella steg krävs).
+- Case 1: Installer can create automatically (provided you have the required tenant, subscription, and resource group access permissions).
+- Case 2: You can create and configure before deploying Azure FarmBeats (requires manual steps).
 
-**Fall 1**: om du har åtkomst för att skapa en AAD-app-registrering kan du hoppa över det här steget och låta installations programmet skapa appens registrering. Fortsätt till nästa avsnitt: [Förbered indata. JSON-filen](#prepare-input-json-file)
+**Case 1**: : If you have access to create an AAD app registration, you may skip this step and let the installer create the app registration. Please continue to the next section: [Prepare input.json file](#prepare-input-json-file)
 
-Om du redan har en prenumeration kan du flytta den direkt till nästa procedur.
+If you already have a subscription, you can directly moved to the next procedure.
 
-**Fall 2**: den här metoden är det bästa steget när du inte har tillräcklig behörighet för att skapa och konfigurera en Azure AD-App-registrering i din prenumeration. Be administratören att använda det [anpassade skriptet](https://aka.ms/FarmBeatsAADScript), vilket hjälper IT-administratören att automatiskt generera och konfigurera Azure AD-appens registrering på Azure Portal. Som utdata för att köra det här anpassade skriptet med hjälp av PowerShell-miljön måste IT-administratören dela ett Azure Active Directory-klient-ID och lösen ords hemlighet med dig. Anteckna dessa värden.
+**Case 2**: This method is the preferred step when you don't have enough rights to create and configure an Azure AD app registration within your subscription. Request your  admin to use the [custom script](https://aka.ms/FarmBeatsAADScript), which will help IT admin automatically generate and configure the Azure AD app registration on the Azure portal. As an output to running this custom script using PowerShell environment the IT admin needs to share an Azure Active Directory Application Client ID and password secret with you. Make a note of these values.
 
-Använd följande steg för att köra skriptet för Azure AD-program registrering:
+Use the following steps to run the Azure AD application registration script:
 
-1. Hämta [skript](https://aka.ms/FarmBeatsAADScript).
-2. Logga in på Azure Portal och välj din prenumeration och AD-klient.
+1. Download [script](https://aka.ms/FarmBeatsAADScript).
+2. Sign in to Azure portal and select your subscription and AD tenant.
 3. Starta Cloud Shell från det övre navigeringsfältet i Azure Portal.
 
-    ![Taktslag i projekt grupp](./media/prepare-for-deployment/navigation-bar-1.png)
+    ![Project Farm Beats](./media/prepare-for-deployment/navigation-bar-1.png)
 
 
-4. Användare i första gången uppmanas att välja en prenumeration för att skapa ett lagrings konto och Microsoft Azure fil resurs. Välj **Skapa lagring**.
-5. Första gången användaren uppmanas att välja önskad Shell-upplevelse – bash eller PowerShell. Välj PowerShell.
-6. Ladda upp skriptet (från steg 1) till Cloud Shell och Anteckna platsen för den överförda filen.
+4. First-time users will be prompted to select a subscription to create a storage account and Microsoft Azure Files share. Välj **Skapa lagring**.
+5. First time users will be prompted with a choice of preferred shell experience- Bash or PowerShell. Choose PowerShell.
+6. Upload the script (from step 1) to the Cloud Shell and note the location of the uploaded file.
 
     > [!NOTE]
-    > Som standard överförs den till din Hem Katalog.
+    > By default, it is uploaded to your home directory.
 
-    Använd följande skript:
+    Use the following script:
 
     ```azurepowershell-interactive
     ./create_aad_script.ps1
     ```
-7. Anteckna Azure AD-programmets ID och klient hemlighet för att dela med person som distribuerar Azure-FarmBeats.
+7. Make a note of the Azure AD application ID and client secret to share with person deploying Azure FarmBeats.
 
-### <a name="prepare-input-json-file"></a>Förbered indata-JSON-fil
+### <a name="prepare-input-json-file"></a>Prepare Input Json file
 
-Som en del av installationen skapar du en indata. JSON-fil på följande sätt:
+As part of the installation, create an input.json file as follows:
 
 ```json
     {  
@@ -146,46 +146,46 @@ Som en del av installationen skapar du en indata. JSON-fil på följande sätt:
     }
 ```
 
-Den här filen är indatafilen till Azure Cloud Shell och parametrar vars värden används under installationen. Alla parametrar i JSON måste ersättas med lämpliga värden eller tas bort. om det tas bort uppmanas du att installera installations programmet
+This file is your input file to Azure Cloud Shell and parameters whose values are used during the installation. All params in the json needs to be replaced with appropriate values or removed; if removed, installer will prompt you during installation
 
 
-Granska parametrarna innan du förbereder filen.
+Review the parameters before preparing the file.
 
 |Kommando | Beskrivning|
 |--- | ---|
-|sku  | Är ett alternativ för att ladda ned antingen eller båda komponenterna i Azure FarmBeats. Anger vilka komponenter som ska laddas ned. Om du bara vill installera data hubb använder du "onlydatabhub". Om du vill installera data hubb och Accelerator använder du "båda"|
-|subscriptionId | Anger prenumerationen för installation av FarmBeats|
-|datahubResourceGroup| Resurs grupp namn för data Hubbs resurser|
-|location |Plats där du vill skapa resurserna|
-|acceleratorWebsiteName |Unikt URL-prefix för att namnge din data hubb|
-|acceleratorResourceGroup  | Unikt URL-prefix som namnger Accelerator-webbplatsen.|
-|datahubWebsiteName  | UUnique URL-prefix som namn på data nav webbplatsen. |
-|sentinelUsername | användar namn för att logga in på: https://scihub.copernicus.eu/dhus/#/self-registration.|
-|notificationEmailAddress  | E-postadress för att ta emot meddelanden för aviseringar som du konfigurerar i data hubben.|
-|updateIfExists|Valfritt Parameter som ska ingå i indatamängden. JSON endast om du vill uppgradera en befintlig FarmBeats-instans. För uppgradering, annan information t. ex. resurs grupp namn, platser osv. måste vara desamma.|
-|aadAppClientId | [**Valfritt**] Parameter som ska ingå i indatamängden. JSON endast om Azure AD-appen redan finns.  |
-|aadAppClientSecret  | [**Valfritt**] Parameter som ska ingå i indatamängden. JSON endast om Azure AD-appen redan finns.|
+|sku  | Provides a choice to download either or both the components of Azure FarmBeats. Specifies which components to download. To install only Data hub, use “onlydatabhub”. To install Data hub and Accelerator, use “both”|
+|subscriptionId | Specifies the subscription for installing Azure FarmBeats|
+|datahubResourceGroup| Resource group name for Data hub resources|
+|location |Location where you would like to create the resources|
+|acceleratorWebsiteName |Unique URL prefix to name your Data hub|
+|acceleratorResourceGroup  | Unique URL prefix to name your accelerator website.|
+|datahubWebsiteName  | UUnique URL prefix to name your Data hub website. |
+|sentinelUsername | user name to sign into: https://scihub.copernicus.eu/dhus/#/self-registration.|
+|notificationEmailAddress  | Email address to receive the notifications for any alerts that you configure within Data hub.|
+|updateIfExists|[Optional] Parameter to be included within Input.Json only if you want to upgrade an existing Azure FarmBeats instance. For upgrade, other details eg. the resource group names, locations etc. need to be the same.|
+|aadAppClientId | [**Optional**] Parameter to be included within Input.Json only if Azure AD app already exists.  |
+|aadAppClientSecret  | [**Optional**] Parameter to be included within Input.Json only if Azure AD app already exists.|
 
-## <a name="deploy-within-cloud-shell-browser-based-command-line"></a>Distribuera i Cloud Shell webbläsarbaserad kommando rad
+## <a name="deploy-within-cloud-shell-browser-based-command-line"></a>Deploy within Cloud Shell browser-based command line
 
-Som en del av marknads arbets flödet ovan måste du ha skapat en resurs grupp och signerat slut användar licens avtalet, som kan granskas en gång igen som en del av den faktiska distributionen. Distributionen kan göras via Azure Cloud Shell (webbläsarbaserad kommando rad) med hjälp av bash-miljön. Fortsätt till nästa avsnitt för att distribuera via Cloud Shell.
+As part of the marketplace workflow above, you must have created one Resource Group and signed the End-user License Agreement, which can be reviewed once again as part of the actual deployment. The deployment can be done via Azure Cloud Shell (browser-based command line) using Bash environment. Please continue to the next sections to deploy via the Cloud Shell.
 
 > [!NOTE]
-> Inaktiva Cloud Shell sessioner upphör att gälla efter 20 minuter. Försök att slutföra distributionen inom den här tiden.
+> Inactive Cloud Shell sessions expire after 20 minutes. Try to complete the deployment within this time.
 
-1. Logga in på Azure Portal och välj önskad prenumeration och AD-klient.
+1. Sign into Azure portal and select the desired subscription and AD tenant.
 2. Starta Cloud Shell från det övre navigeringsfältet i Azure Portal.
-3. Om du använder Cloud Shell för första gången uppmanas du att välja en prenumeration för att skapa ett lagrings konto och Microsoft Azure fil resurs.
-4. Välj **skapa lagring**.  
+3. If you are using the Cloud Shell for the first time, you will be prompted to select a subscription to create a storage account and Microsoft Azure Files share.
+4. Select **Create Storage**.  
 
-Välj miljön som bash (och inte PowerShell).
+Select the environment as Bash (and not PowerShell).
 
-## <a name="deployment-scenario-1"></a>Distributions scenario 1
+## <a name="deployment-scenario-1"></a>Deployment scenario 1
 
-Installations programmet skapar Azure AD App registreringen (fall 1 ovan)
+Installer creates the Azure AD App Registration (Case 1 above)
 
-1. Kopiera följande mall och ge den namnet inmatad. JSON.  
-Exempel på JSON-ineffekt:
+1. Copy the following template and name it to input.json.  
+Sample JSON input:
 
     ```json
     {  
@@ -202,40 +202,40 @@ Exempel på JSON-ineffekt:
     }
     ```
 
-2. Spara filen och anteckna sökvägen (på den lokala datorn).
-3. Gå till Azure Cloud Shell och när autentiseringen är klar väljer du överför (se ikonen markerad i bilden nedan) och laddar upp indata. JSON-filen för att Cloud Shell lagring.  
+2. Save the file and make a note of the path (on your local computer).
+3. Go to Azure Cloud Shell and after successful authentication, select the upload (see highlighted icon in below image) and upload the input.json file to Cloud Shell storage.  
 
-    ![Taktslag i projekt grupp](./media/prepare-for-deployment/bash-2-1.png)
+    ![Project Farm Beats](./media/prepare-for-deployment/bash-2-1.png)
 
-4. Gå till din Hem Katalog i Cloud Shell. Som standard är det/Home/<username>
-5. Skriv eller klistra in följande kommando i Cloud Shell. Se till att ändra sökvägen till indatamängden. JSON-fil och tryck på RETUR.
+4. Go to your home directory in the cloud shell. By default, it is /home/<username>
+5. Type or paste the following command into the Cloud Shell. Make sure to modify the path to input. Json file and press enter.
 
    ```bash
       wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript && bash farmbeats-installer.sh /home/<username>/input.json
     ```
-     Installations programmet hämtar automatiskt alla beroenden och skapar distributören. Du uppmanas att godkänna licens avtalet för slutanvändare (EULA) för Azure FarmBeats.
+     The installer automatically downloads all dependencies and builds the deployer. You will be prompted to agree to the Azure FarmBeats End-user license agreement (EULA).
 
-     - Ange "Y" om du godkänner och du fortsätter till nästa steg.
-     - Ange "N" om du inte samtycker till villkoren och distributionen kommer att avslutas.
+     - Enter ‘Y’ if you agree and you will proceed to the next step.
+     - Enter ‘N’ if you do not agree to the terms and the deployment will terminate.
 
-6. Sedan uppmanas du att ange en åtkomsttoken för distributionen. Kopiera koden som genereras och logga in på https://microsoft.com/devicelogin med dina Azure-autentiseringsuppgifter.
+6. Then you will be prompted to enter an access token for the deployment. Copy the code generated and login to https://microsoft.com/devicelogin with your Azure credentials.
 
     > [!NOTE]
-    > Token upphör att gälla efter 60 minuter. När den går ut kan du starta om genom att skriva distributions kommandot igen.
+    > The token expires after 60 minutes. When it expires you can restart by typing the deployment command again.
 
-7. När du uppmanas till det anger du ditt kontroll konto lösen ord.
-8. Installations programmet validerar nu och börjar distribuera, vilket kan ta ungefär 20 minuter.
-9. När distributionen har slutförts visas följande utgående länkar:
+7. When prompted, enter your Sentinel account password.
+8. The installer now validates and starts deploying, which can take about 20 minutes.
+9. Once the deployment is successful, you will receive the below output links:
 
- - **Datahubbs-URL**: Swagger-länk för att testa Azure FarmBeats-API: er.
- - **Accelerator-URL**: användar gränssnitt för att utforska Azure FarmBeats Smart Farm-Accelerator.
- - Loggfil för **distributions logg filen**som skapades under distributionen. Den kan användas för fel sökning vid behov.
+ - **Data hub URL**: Swagger link to try Azure FarmBeats APIs.
+ - **Accelerator URL**: User Interface to explore Azure FarmBeats Smart Farm Accelerator.
+ - **Deployer log file**- Log file created during deployment. It can be used for troubleshooting if required.
 
-## <a name="deployment-scenario-2"></a>Distributions scenario 2
+## <a name="deployment-scenario-2"></a>Deployment scenario 2
 
-Befintlig Azure Active Directory app-registrering används för att distribuera (fall 2 ovan)
+Existing Azure Active Directory app registration is used to deploy (Case 2 above)
 
-1. Kopiera JSON-filen nedan, som innehåller Azure Application klient-ID och lösen ord i indata. JSON, och spara den.
+1. Copy the below JSON file, which includes the Azure Application Client ID and password in the input.json, and save it.
 
     ```json
    {
@@ -256,109 +256,109 @@ Befintlig Azure Active Directory app-registrering används för att distribuera 
    }
    ```
 
-Följ resten av stegen:
+Follow the rest of the steps:
 
-2. Anteckna sökvägen till indata-JSON-filen (på den lokala datorn).
-3. Gå till Azure Cloud Shell en gång igen och du har autentiserats, Välj knappen överför (se markerad ikon i bilden nedan) och ladda upp indata. JSON-filen till Cloud Shell lagring.
+2. Make a note of the path to your input.json file (on your local computer).
+3. Go to Azure Cloud Shell once again and you're successfully authenticated, select the upload button (see highlighted icon in below image) and upload the input.json file to Cloud Shell storage.
 
-    ![Taktslag i projekt grupp](./media/prepare-for-deployment/bash-2-1.png)
+    ![Project Farm Beats](./media/prepare-for-deployment/bash-2-1.png)
 
-4. Gå till din Hem Katalog i Cloud Shell. Som standard är det/Home/<username>
-5. Skriv eller klistra in följande kommando i Cloud Shell. Se till att ändra sökvägen till indatamängden. JSON-fil och tryck på RETUR.
+4. Go to your home directory in the cloud shell. By default, it is /home/<username>
+5. Type or paste the following command into the Cloud Shell. Make sure to modify the path to input. Json file and press enter.
 
     ```bash
     wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript && bash farmbeats-installer.sh /home/<username>/input.json
     ```
 
-Följ anvisningarna på skärmen.
+Follow the onscreen instructions.
 
-6. Skriptet hämtar automatiskt alla beroenden och skapar distributören.
-7. Du uppmanas att läsa och godkänna licens avtalet för slutanvändare (EULA) för Azure FarmBeats.
+6. The script automatically downloads all dependencies and builds the deployer.
+7. You will be prompted to read and agree to the Azure FarmBeats End-user license agreement (EULA).
 
-    - Ange "Y" om du godkänner och fortsätter till nästa steg.
-    - Ange "N" om du inte accepterar villkoren och distributionen kommer att avslutas.
+    - Enter 'Y' if you agree and you will continue to the next step.
+    - Enter 'N' if you don't agree to the terms and the deployment will terminate.
 
-8. Du uppmanas att ange en åtkomsttoken för distributionen. Kopiera koden som genereras och logga in för att https://microsoft.com/devicelogin med dina Azure-autentiseringsuppgifter.
-9. Nu kommer installations programmet att validera och börja skapa resurserna, vilket kan ta ungefär 20 minuter. Låt sessionen vara aktiv på Cloud Shell under den här tiden.
-10. När distributionen har slutförts visas följande utgående länkar:
+8. You will be prompted to enter an access token for the deployment. Copy the code generated and sign in to https://microsoft.com/devicelogin with your Azure credentials.
+9. The installer will now validate and start creating the resources, which can take about 20 minutes. Keep the session active on Cloud Shell during this time.
+10. Once the deployment goes through successfully, you will receive the below output links:
 
- - **Datahubbs-URL**: Swagger-länk för att testa FarmBeats-API: er.
- - **Accelerator-URL**: användar gränssnitt för att utforska FarmBeats Smart Farm-Accelerator.
- - **Distributions logg filen**: logg filen skapades under distributionen. Den kan användas för fel sökning vid behov.
+ - **Data hub URL**: Swagger link to try Azure FarmBeats APIs.
+ - **Accelerator URL**: User Interface to explore Azure FarmBeats Accelerator.
+ - **Deployer log file**: Log file created during deployment. It can be used for troubleshooting if required.
 
-Om du stöter på problem kan du läsa [fel sökning](troubleshoot-project-farmbeats.md).
+If you encounter any issues, review [Troubleshoot](troubleshoot-project-farmbeats.md).
 
 
-## <a name="validate-deployment"></a>Verifiera distribution
+## <a name="validate-deployment"></a>Validate deployment
 
-### <a name="data-hub"></a>Data hubb
+### <a name="data-hub"></a>Data hub
 
-När installationen av data hubben är klar får du URL: en för att få åtkomst till Azure FarmBeats-API: er via Swagger-gränssnittet i formatet: https://\<yourdatahub-webbplats-Name >. azurewebsites. net
+Once the data hub installation is complete, you'll receive the URL to access Azure FarmBeats APIs via the Swagger interface in the format: https://\<yourdatahub-website-name>.azurewebsites.net/swagger
 
-1. Om du vill logga in via Swagger kopierar du och klistrar in webb adressen i webbläsaren.
-2. Logga in med Azure Portal autentiseringsuppgifter.
-3. Sanity-test (valfritt)
+1. To sign in via Swagger, copy and paste the URL in the browser.
+2. Sign in with Azure portal credentials.
+3. Sanity test (Optional)
 
-     - Kan logga in på Swagger-portalen med hjälp av länken data hubb, som du fick som utdata till en lyckad distribution.
-     - Utökade typer Hämta API – Välj "testa utsättaren"
-     - Du bör få Server svars koden 200 och inte ett undantag, till exempel 403 "obehörig användare".
+     - Able to successfully sign in to the Swagger portal using the Data hub link, which you received as an output to a successful deployment.
+     - Extended types Get API- Select "Try it out /Execute"
+     - You should receive the server response Code 200 and not an exception such as 403 "unauthorized user".
 
-### <a name="accelerator"></a>Gas
+### <a name="accelerator"></a>Accelerator
 
-När Accelerator-installationen är klar får du URL: en för att komma åt FarmBeats-användar gränssnittet i formatet: https://\<Accelerator-webbplats-Name >. azurewebsites. net
+Once the Accelerator installation is complete, you'll receive the URL to access Azure FarmBeats user-interface in the format: https://\<accelerator-website-name>.azurewebsites.net
 
-1. Om du vill logga in från Accelerator kopierar du och klistrar in webb adressen i webbläsaren.
-2. Logga in med Azure Portal autentiseringsuppgifter.
+1. To sign in from Accelerator, copy and paste the URL in the browser.
+2. Sign in with Azure portal credentials.
 
 ## <a name="upgrade"></a>Uppgradera
 
-Uppgraderings stegen liknar installationen vid första tiden. Följ de här stegen:
+The steps for upgrade are similar to the first-time installation. Följ de här stegen:
 
-1. Logga in på Azure Portal och välj önskad prenumeration och AD-klient.
+1. Sign in to Azure portal and select your desired subscription and AD tenant.
 2. Starta Cloud Shell från det övre navigeringsfältet i Azure Portal.
 
-   ![Taktslag i projekt grupp](./media/prepare-for-deployment/navigation-bar-1.png)
+   ![Project Farm Beats](./media/prepare-for-deployment/navigation-bar-1.png)
 
-3. Välj miljön som "bash" från List rutan till vänster om-gränssnittet.
-4. Gör ändringar i indata. JSON-filen om det behövs och överför till Azure Cloud Shell. Du kan till exempel uppdatera din e-postadress för den avisering som du vill ta emot.
-5. Ladda upp indata. JSON-filen till Azure Cloud Shell.
-6. Skriv eller klistra in följande två kommandon i Cloud Shell. Se till att ändra sökvägen till indata. JSON-filen och tryck på RETUR.
+3. Select the environment as “Bash” from the drop-down from the left of the of shell.
+4. Make changes to your input.json file only if needed and upload to the Azure Cloud Shell. For example, you can update your email address for the notification you want to receive.
+5. Upload the input.json file to Azure Cloud Shell.
+6. Type or paste the following two commands into the Cloud Shell. Make sure to modify the path to input.json file and press enter.
 
     ```bash
     wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript && bash farmbeats-installer.sh /home/<username>/input.json
     ```
-Följ anvisningarna på skärmen:
+Follow the onscreen instructions:
 
-7. Installations programmet efterfrågar automatiskt nödvändiga indata vid körning:
-8. Ange en åtkomsttoken för distribution. Kopiera koden som genereras och logga in för att https://microsoft.com/devicelogin med dina Azure-autentiseringsuppgifter.
-9. Kontroll lösen ord
-10. Installations programmet validerar nu och börjar skapa resurserna, vilket kan ta ungefär 20 minuter.
-11. När distributionen har slutförts visas följande utgående länkar:
- - **Datahubbs-URL**: Swagger-länk för att testa FarmBeats-API: er.
- - **Accelerator-URL**: användar gränssnitt för att utforska FarmBeats Smart Farm-Accelerator.
- - **Distributions logg fil**: sparar loggar under distributionen. Den kan användas för fel sökning.
+7. The Installer automatically prompts the required inputs at run-time:
+8. Enter an access token for deployment. Copy the code generated and sign in to https://microsoft.com/devicelogin with your Azure credentials.
+9. Sentinel password
+10. The installer now validates and starts creating the resources, which can take about 20 minutes.
+11. Once the deployment is successful, you will receive the below output links:
+ - **Data hub URL**: Swagger link to try Azure FarmBeats APIs.
+ - **Accelerator URL**: User interface to explore Azure FarmBeats Accelerator.
+ - **Deployer log file**: saves logs during deployment. It can be used for troubleshooting.
 
 > [!NOTE]
-> Anteckna ovanstående värden för framtida bruk.
+> Make note of the above values for future use.
 
 
 ## <a name="uninstall"></a>Avinstallera
 
-För närvarande har vi inte stöd för automatisk avinstallation av FarmBeats med installations programmet. Ta bort data hubben eller-acceleratorn genom att i Azure Portal ta bort resurs gruppen där dessa komponenter är installerade, eller ta bort resurser manuellt.
+Currently we don't support automated uninstallation of Azure FarmBeats using the installer. To remove the Data hub or  Accelerator, in the Azure portal, delete the resource group in which these components are installed, or delete resources manually.
 
-Om du till exempel har distribuerat data hubb och Accelerator i två olika resurs grupper, tar du bort resurs grupperna enligt följande:
+For example, if you deployed Data hub and Accelerator in two different resource groups, you delete those resource groups as follows:
 
 1. Logga in i Azure-portalen.
-2. Välj ditt konto i det övre högra hörnet och växla till önskad Azure AD-klient där du vill distribuera Microsoft FarmBeats.
+2. Select your account in the top right corner, and switch to the desired Azure AD tenant where you want to deploy Azure FarmBeats.
 
    > [!NOTE]
-   > Data Hub krävs för att Accelerator ska fungera korrekt. Vi rekommenderar inte att du avinstallerar data Hub utan att avinstallera Accelerator.
+   > Data hub is needed for Accelerator to work properly. We don’t recommend uninstalling Data hub without uninstalling Accelerator.
 
-3. Välj resurs grupper och ange namnet på den data hubb eller Accelerator-resurs grupp som du vill ta bort.
-4. Välj resursgruppens namn. Skriv namnet igen för att dubbelklicka och välj Ta bort för att ta bort resurs gruppen och alla dess underliggande resurser.
-5. Du kan också ta bort varje resurs manuellt, vilket inte rekommenderas.
-7. Om du vill ta bort/avinstallera data hubb går du till resurs gruppen direkt på Azure och tar bort resurs gruppen därifrån.
+3. Select Resource Groups, and type in the name of the Data hub or Accelerator resource group that you want to delete.
+4. Välj resursgruppens namn. Type in the name again to double-check, and select Delete to remove the resource group, and all its underlying resources.
+5. Alternatively, you can delete each resource manually, which is not recommended.
+7. To delete/uninstall data hub, go to the Resource group directly on Azure and delete the resource group from there.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har distribuerat Azure-FarmBeats. Nu kan du lära dig hur du [skapar Server grupper](manage-farms.md#create-farms).
+You have deployed Azure FarmBeats. Now, learn how to [create farms](manage-farms.md#create-farms).

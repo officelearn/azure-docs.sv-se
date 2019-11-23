@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Utföra en API för nyhetssökning med Bing News Search SDK för Node.js'
+title: 'Quickstart: Perform a news search using the SDK for Node.js - Bing News Search'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten till att söka efter nyheter med SDK för nyhetssökning i Bing för Node.js och bearbeta sedan svaret.
 services: cognitive-services
@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.date: 06/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: c71d76e93eb1a121163d40fe61dcd5a8546d63f8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 9bbad7685cf7d562189871bb5fa4a56d69287db4
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203342"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383890"
 ---
-# <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-nodejs"></a>Snabbstart: Utföra en nyhetssökning med SDK för nyhetssökning i Bing för Node.js
+# <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-nodejs"></a>Quickstart: Perform a news search with the Bing News Search SDK for Node.js
 
 Använd den här snabbstarten om du vill börja söka efter nyheter med SDK för nyhetssökning i Bing för Node.js. Även om Nyhetssökning i Bing har ett REST API som är kompatibelt med de flesta programmeringsspråk så tillhandahåller SDK:n ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/newsSearch.js).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * [Node.js](https://nodejs.org/en/)
 
@@ -35,7 +35,7 @@ Så här skapar du ett konsolprogram med API för nyhetssökning i Bing:
 
 ## <a name="create-and-initialize-the-application"></a>Skapa och initiera appen
 
-1. Skapa en instans av `CognitiveServicesCredentials`. Skapa variabler för din prenumerationsnyckel och en sökterm.
+1. Skapa en instans av `CognitiveServicesCredentials`. Create variables for your subscription key, and a search term.
 
     ```javascript
     const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;

@@ -1,21 +1,21 @@
 ---
-title: 'Självstudie: komma åt Azure Data Lake Storage Gen2 data med Azure Databricks med Spark | Microsoft Docs'
-description: Den här självstudien visar hur du kör Spark-frågor på ett Azure Databricks-kluster för att komma åt data i ett Azure Data Lake Storage Gen2 lagrings konto.
+title: 'Tutorial: Azure Data Lake Storage Gen2, Azure Databricks & Spark | Microsoft Docs'
+description: This tutorial shows how to run Spark queries on an Azure Databricks cluster to access data in an Azure Data Lake Storage Gen2 storage account.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 03/11/2019
+ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 0607c2b848a486e24654081bd7937cb734394e58
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: bbe936fd572a8e23fb6e7c5da4a4bffef1c8bf7e
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331818"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327526"
 ---
-# <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Självstudie: komma åt Data Lake Storage Gen2 data med Azure Databricks med Spark
+# <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>Tutorial: Azure Data Lake Storage Gen2, Azure Databricks & Spark
 
 Den här självstudien visar hur du ansluter ditt Azure Databricks-kluster till data som lagras i ett Azure-lagringskonto som har Azure Data Lake Storage Gen2 aktiverat. Med den här anslutningen kan du internt köra frågor och analyser från klustret på dina data.
 
@@ -32,22 +32,22 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 * Skapa ett Azure Data Lake Storage Gen2-konto.
 
-  Se [skapa ett Azure Data Lake Storage Gen2-konto](data-lake-storage-quickstart-create-account.md).
+  See [Create an Azure Data Lake Storage Gen2 account](data-lake-storage-quickstart-create-account.md).
 
 * Se till att ditt användarkonto har tilldelats rollen [Storage Blob Data-deltagare](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac).
 
 * Installera AzCopy v10. Läs mer i [Överföra data med AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-* Skapa ett huvudnamn för tjänsten. Se [så här gör du: Använd portalen för att skapa ett Azure AD-program och tjänstens huvud namn som kan komma åt resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+* Skapa ett huvudnamn för tjänsten. See [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
   Det finns några saker som du måste göra när du utför stegen i den här artikeln.
 
-  : heavy_check_mark: när du utför stegen i avsnittet [tilldela programmet till en roll](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) i artikeln, se till att tilldela rollen **Storage BLOB data Contributor** till tjänstens huvud namn.
+  :heavy_check_mark: When performing the steps in the [Assign the application to a role](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) section of the article, make sure to assign the **Storage Blob Data Contributor** role to the service principal.
 
   > [!IMPORTANT]
   > Se till att tilldela rollen i omfånget för Data Lake Storage Gen2-lagringskontot. Du kan tilldela en roll till den överordnade resursgruppen eller prenumerationen, men du får behörighetsrelaterade fel tills de rolltilldelningarna propageras till lagringskontot.
 
-  : heavy_check_mark: när du utför stegen i avsnittet [Hämta värden för signering i](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) artikeln klistrar du in klient-ID, app-ID och lösen ords värden i en textfil. Du kommer att behöva dem snart.
+  :heavy_check_mark: When performing the steps in the [Get values for signing in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) section of the article, paste the tenant ID, app ID, and password values into a text file. Du kommer att behöva dem snart.
 
 ### <a name="download-the-flight-data"></a>Ladda ned flygdata
 
@@ -67,7 +67,7 @@ I det här avsnittet skapar du en Azure Databricks-tjänst i Azure Portal.
 
 1. Välj **Skapa en resurs** > **Analys** > **Azure Databricks** i Azure Portal.
 
-    ![Databricks på Azure-portalen](./media/data-lake-storage-use-databricks-spark/azure-databricks-on-portal.png "Databricks på Azure-portalen")
+    ![Databricks on Azure portal](./media/data-lake-storage-use-databricks-spark/azure-databricks-on-portal.png "Databricks on Azure portal")
 
 2. Ange följande värden under **Azure Databricks-tjänst** för att skapa en Databricks-tjänst:
 
@@ -77,9 +77,9 @@ I det här avsnittet skapar du en Azure Databricks-tjänst i Azure Portal.
     |**Prenumeration**     | I listrutan väljer du din Azure-prenumeration.        |
     |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../../azure-resource-manager/resource-group-overview.md). |
     |**Plats**     | Välj **Västra USA 2**. För andra tillgängliga regioner läser du informationen om [Azure-tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/).       |
-    |**Prisnivå**     |  Välj **standard**.     |
+    |**Prisnivå**     |  Select **Standard**.     |
 
-    ![Skapa en arbetsyta för Azure Databricks](./media/data-lake-storage-use-databricks-spark/create-databricks-workspace.png "Skapa en Azure Databricks-tjänst")
+    ![Create an Azure Databricks workspace](./media/data-lake-storage-use-databricks-spark/create-databricks-workspace.png "Skapa en Azure Databricks-tjänst")
 
 3. Det tar några minuter att skapa kontot. Du kan övervaka åtgärdsstatusen i förloppsindikatorn längst upp.
 
@@ -91,11 +91,11 @@ I det här avsnittet skapar du en Azure Databricks-tjänst i Azure Portal.
 
 2. Du omdirigeras till Azure Databricks-portalen. I portalen väljer du **Kluster**.
 
-    ![Databricks på Azure](./media/data-lake-storage-use-databricks-spark/databricks-on-azure.png "Databricks på Azure")
+    ![Databricks on Azure](./media/data-lake-storage-use-databricks-spark/databricks-on-azure.png "Databricks on Azure")
 
 3. På sidan **Nytt kluster** anger du värdena för att skapa ett kluster.
 
-    ![Skapa Databricks Spark-kluster på Azure](./media/data-lake-storage-use-databricks-spark/create-databricks-spark-cluster.png "Skapa Databricks Spark-kluster på Azure")
+    ![Create Databricks Spark cluster on Azure](./media/data-lake-storage-use-databricks-spark/create-databricks-spark-cluster.png "Create Databricks Spark cluster on Azure")
 
     Fyll i värden för följande fält och godkänn standardvärdena för de andra fälten:
 
@@ -117,7 +117,7 @@ Använd AzCopy till att kopiera data från *.csv*-filen till Data Lake Storage G
    azcopy login
    ```
 
-   Följ anvisningarna som visas i kommando tolkens fönster för att autentisera ditt användar konto.
+   Follow the instructions that appear in the command prompt window to authenticate your user account.
 
 2. Kopiera data från *.csv*-filen med följande kommando.
 
@@ -125,21 +125,21 @@ Använd AzCopy till att kopiera data från *.csv*-filen till Data Lake Storage G
    azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<container-name>/folder1/On_Time.csv
    ```
 
-   * Ersätt värdet för plats hållaren `<csv-folder-path>` med sökvägen till *CSV* -filen.
+   * Replace the `<csv-folder-path>` placeholder value with the path to the *.csv* file.
 
    * Ersätt platshållarvärdet `<storage-account-name>` med namnet på ditt lagringskonto.
 
-   * Ersätt `<container-name>`-plats hållaren med ett namn som du vill ge din behållare.
+   * Replace the `<container-name>` placeholder with any name that you want to give your container.
 
-## <a name="create-a-container-and-mount-it"></a>Skapa en behållare och montera den
+## <a name="create-a-container-and-mount-it"></a>Create a container and mount it
 
-I det här avsnittet ska du skapa en behållare och en mapp i ditt lagrings konto.
+In this section, you'll create a container and a folder in your storage account.
 
 1. Gå till Azure Databricks-tjänsten du skapade i [Azure Portal](https://portal.azure.com) och välj **Starta arbetsyta**.
 
 2. Välj **Arbetsyta** till vänster. I listrutan **Arbetsyta** väljer du **Skapa** > **Anteckningsbok**.
 
-    ![Skapa en anteckningsbok i Databricks](./media/data-lake-storage-use-databricks-spark/databricks-create-notebook.png "Skapa anteckningsbok i Databricks")
+    ![Create a notebook in Databricks](./media/data-lake-storage-use-databricks-spark/databricks-create-notebook.png "Create notebook in Databricks")
 
 3. Ge anteckningsboken ett namn i dialogrutan **Skapa anteckningsbok**. Välj **Python** som språk och välj sedan det Spark-kluster du skapade tidigare.
 
@@ -161,9 +161,9 @@ I det här avsnittet ska du skapa en behållare och en mapp i ditt lagrings kont
     extra_configs = configs)
     ```
 
-18. I det här kodblocket ersätter du platshållarvärdena `appId`, `password`, `tenant` och `storage-account-name` i det här kodblocket med de värden som du hämtade när du slutförde förutsättningarna för den här självstudien. Ersätt värdet för `container-name`-plats hållaren med det namn som du gav till behållaren i föregående steg.
+18. I det här kodblocket ersätter du platshållarvärdena `appId`, `password`, `tenant` och `storage-account-name` i det här kodblocket med de värden som du hämtade när du slutförde förutsättningarna för den här självstudien. Replace the `container-name` placeholder value with the name that you gave to the container on the previous step.
 
-Använd de här värdena för att ersätta de nämnda plats hållarna.
+Use these values to replace the mentioned placeholders.
 
    * `appId` och `password` kommer från den app som du registrerade med Active Directory som en del av skapandet av ett tjänsthuvudnamn.
 
@@ -171,10 +171,10 @@ Använd de här värdena för att ersätta de nämnda plats hållarna.
 
    * `storage-account-name` är namnet på ditt Azure Data Lake Storage Gen2-lagringskonto.
 
-   * Ersätt `container-name`-plats hållaren med ett namn som du vill ge din behållare.
+   * Replace the `container-name` placeholder with any name that you want to give your container.
 
    > [!NOTE]
-   > I en produktions inställning bör du överväga att lagra lösen ordet i Azure Databricks. Lägg sedan till en uppslags nyckel i kod blocket i stället för lösen ordet. När du har slutfört den här snabbstarten kan du läsa artikeln [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) på Azure Databricks-webbplatsen för att se exemplen för den här metoden.
+   > In a production setting, consider storing your password in Azure Databricks. Then, add a look up key to your code block instead of the password. När du har slutfört den här snabbstarten kan du läsa artikeln [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) på Azure Databricks-webbplatsen för att se exemplen för den här metoden.
 
 19. Tryck på **SKIFT + RETUR** för att köra koden i det här blocket.
 
@@ -222,7 +222,7 @@ Därefter kan du börja fråga efter de data du har laddat upp till ditt lagring
 
 Skapa dataramar för dina datakällor med följande skript:
 
-* Ersätt värdet för plats hållaren `<csv-folder-path>` med sökvägen till *CSV* -filen.
+* Replace the `<csv-folder-path>` placeholder value with the path to the *.csv* file.
 
 ```python
 # Copy this into a Cmd cell in your notebook.

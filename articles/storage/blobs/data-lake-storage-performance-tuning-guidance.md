@@ -1,142 +1,142 @@
 ---
-title: Rikt linjer för Azure Data Lake Storage Gen2 prestanda justering | Microsoft Docs
-description: Rikt linjer för Azure Data Lake Storage Gen2 prestanda justering
+title: Optimize Azure Data Lake Storage Gen2 for performance | Microsoft Docs
+description: Azure Data Lake Storage Gen2 Performance Tuning Guidelines
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: b134842303bebdf10efdf388057c8ad7b3be61be
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f1a16228b72d7e0f45048669ade94a0c78d9ac52
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855576"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327947"
 ---
-# <a name="tuning-azure-data-lake-storage-gen2-for-performance"></a>Justera Azure Data Lake Storage Gen2 för prestanda
+# <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Optimize Azure Data Lake Storage Gen2 for performance
 
-Azure Data Lake Storage Gen2 stöder stora data flöden för I/O-intensiva analyser och data förflyttning.  I Data Lake Storage Gen2 använder alla tillgängliga data flöde – mängden data som kan läsas eller skrivas per sekund – är viktigt för att få bästa möjliga prestanda.  Detta uppnås genom att utföra så många läsningar och skrivningar parallellt som möjligt.
+Azure Data Lake Storage Gen2 supports high-throughput for I/O intensive analytics and data movement.  In Data Lake Storage Gen2, using all available throughput – the amount of data that can be read or written per second – is important to get the best performance.  This is achieved by performing as many reads and writes in parallel as possible.
 
-![Data Lake Storage Gen2 prestanda](./media/data-lake-storage-performance-tuning-guidance/throughput.png)
+![Data Lake Storage Gen2 performance](./media/data-lake-storage-performance-tuning-guidance/throughput.png)
 
-Data Lake Storage Gen2 kan skalas för att tillhandahålla nödvändigt data flöde för alla analys scenarier. Som standard ger ett Data Lake Storage Gen2-konto automatiskt tillräckligt med data flöde för att uppfylla behoven hos en bred kategori av användnings fall. För de fall där kunderna får en standard gräns kan Data Lake Storage Gen2 kontot konfigureras för att tillhandahålla mer data flöde genom att kontakta [Azure](https://azure.microsoft.com/support/faq/)-supporten.
+Data Lake Storage Gen2 can scale to provide the necessary throughput for all analytics scenario. By default, a Data Lake Storage Gen2 account provides automatically enough throughput to meet the needs of a broad category of use cases. For the cases where customers run into the default limit, the Data Lake Storage Gen2 account can be configured to provide more throughput by contacting [Azure Support](https://azure.microsoft.com/support/faq/).
 
 ## <a name="data-ingestion"></a>Datainhämtning
 
-När data matas in från ett käll system till Data Lake Storage Gen2, är det viktigt att tänka på att käll maskin vara, käll nätverks maskin vara och nätverks anslutning till Data Lake Storage Gen2 kan vara Flask halsen.  
+When ingesting data from a source system to Data Lake Storage Gen2, it is important to consider that the source hardware, source network hardware, and network connectivity to Data Lake Storage Gen2 can be the bottleneck.  
 
-![Data Lake Storage Gen2 prestanda](./media/data-lake-storage-performance-tuning-guidance/bottleneck.png)
+![Data Lake Storage Gen2 performance](./media/data-lake-storage-performance-tuning-guidance/bottleneck.png)
 
-Det är viktigt att se till att data flytten inte påverkas av dessa faktorer.
+It is important to ensure that the data movement is not affected by these factors.
 
-### <a name="source-hardware"></a>Käll maskin vara
+### <a name="source-hardware"></a>Source hardware
 
-Oavsett om du använder lokala datorer eller virtuella datorer i Azure bör du noga välja lämplig maskin vara. För käll disk maskin vara föredrar du SSD till hård diskar och väljer disk maskin vara med snabbare spindeler. Använd de snabbaste nätverkskorten som är möjliga för käll nätverkets maskin vara.  På Azure rekommenderar vi virtuella Azure D14-datorer som har lämpligt kraftfulla disk-och nätverks maskin vara.
+Whether you are using on-premises machines or VMs in Azure, you should carefully select the appropriate hardware. For Source Disk Hardware, prefer SSDs to HDDs and pick disk hardware with faster spindles. For Source Network Hardware, use the fastest NICs possible.  On Azure, we recommend Azure D14 VMs which have the appropriately powerful disk and networking hardware.
 
-### <a name="network-connectivity-to-data-lake-storage-gen2"></a>Nätverks anslutning till Data Lake Storage Gen2
+### <a name="network-connectivity-to-data-lake-storage-gen2"></a>Network connectivity to Data Lake Storage Gen2
 
-Nätverks anslutningen mellan dina källdata och Data Lake Storage Gen2 kan ibland vara Flask hals. När dina källdata är lokala bör du överväga att använda en särskild länk med [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) . Om dina källdata finns i Azure blir prestanda bäst när data finns i samma Azure-region som Data Lake Storage Gen2-kontot.
+The network connectivity between your source data and Data Lake Storage Gen2 can sometimes be the bottleneck. When your source data is On-Premises, consider using a dedicated link with [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) . If your source data is in Azure, the performance will be best when the data is in the same Azure region as the Data Lake Storage Gen2 account.
 
-### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>Konfigurera data inmatnings verktyg för maximalt parallellisering
+### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>Configure data ingestion tools for maximum parallelization
 
-När du har adresserat käll maskin varan och nätverks anslutningens Flask halsar ovan är du redo att konfigurera dina inmatnings verktyg. I följande tabell sammanfattas viktiga inställningar för flera populära inmatnings verktyg och ger detaljerade prestanda justerings artiklar för dem.  Om du vill veta mer om vilket verktyg som ska användas för ditt scenario kan du gå till den här [artikeln](data-lake-storage-data-scenarios.md).
+Once you have addressed the source hardware and network connectivity bottlenecks above, you are ready to configure your ingestion tools. The following table summarizes the key settings for several popular ingestion tools and provides in-depth performance tuning articles for them.  To learn more about which tool to use for your scenario, visit this [article](data-lake-storage-data-scenarios.md).
 
-| Verktyg               | Inställningar     | Mer information                                                                 |
+| Verktyg               | Inställningar     | More Details                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
 | DistCp            | -m (mapper)   | [Länk](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| parallelCopies    | [Länk](../../data-factory/copy-activity-performance.md)                          |
 | Sqoop           | fs.azure.block.size, -m (mapper)    |   [Länk](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
 
-## <a name="structure-your-data-set"></a>Strukturera din data uppsättning
+## <a name="structure-your-data-set"></a>Structure your data set
 
-När data lagras i Data Lake Storage Gen2 kan fil storleken, antalet filer och mappstrukturen påverka prestandan.  I följande avsnitt beskrivs bästa praxis i dessa områden.  
+When data is stored in Data Lake Storage Gen2, the file size, number of files, and folder structure have an impact on performance.  The following section describes best practices in these areas.  
 
 ### <a name="file-size"></a>Filstorlek
 
-Vanligt vis har analys motorer som HDInsight och Azure Data Lake Analytics en per fil-omkostnader per fil. Om du lagrar dina data som många små filer kan detta påverka prestanda negativt. I allmänhet ordnar du dina data i större filer för att få bättre prestanda (256 MB till 100 GB i storlek). Vissa motorer och program kan ha problem effektivt att bearbeta filer som är större än 100 GB.
+Typically, analytics engines such as HDInsight and Azure Data Lake Analytics have a per-file overhead. If you store your data as many small files, this can negatively affect performance. In general, organize your data into larger sized files for better performance (256MB to 100GB in size). Some engines and applications might have trouble efficiently processing files that are greater than 100GB in size.
 
-Ibland har data pipelines begränsad kontroll över rå data som har många små filer. Vi rekommenderar att du har en "matlagning"-process som genererar större filer som kan användas för underordnade program.
+Sometimes, data pipelines have limited control over the raw data which has lots of small files. It is recommended to have a "cooking" process that generates larger files to use for downstream applications.
 
-### <a name="organizing-time-series-data-in-folders"></a>Organisera Time Series-data i mappar
+### <a name="organizing-time-series-data-in-folders"></a>Organizing time series data in folders
 
-Vid Hive-arbetsbelastningar kan partitions rensning av Time Series-data hjälpa vissa frågor att läsa endast en delmängd av de data som förbättrar prestandan.    
+For Hive workloads, partition pruning of time-series data can help some queries read only a subset of the data which improves performance.    
 
-De pipelines som inhämtar tids serie data, placerar ofta sina filer med ett strukturerat namn för filer och mappar. Nedan visas ett väldigt vanligt exempel som vi ser för data som är strukturerade efter datum:
+Those pipelines that ingest time-series data, often place their files with a very structured naming for files and folders. Below is a very common example we see for data that is structured by date:
 
     \DataSet\YYYY\MM\DD\datafile_YYYY_MM_DD.tsv
 
-Observera att datetime-informationen visas både som mappar och i fil namnet.
+Notice that the datetime information appears both as folders and in the filename.
 
-För datum och tid är följande ett vanligt mönster
+For date and time, the following is a common pattern
 
     \DataSet\YYYY\MM\DD\HH\mm\datafile_YYYY_MM_DD_HH_mm.tsv
 
-Det val du gör med mappen och fil organisationen bör optimeras för större fil storlekar och ett rimligt antal filer i varje mapp.
+Again, the choice you make with the folder and file organization should optimize for the larger file sizes and a reasonable number of files in each folder.
 
-## <a name="optimizing-io-intensive-jobs-on-hadoop-and-spark-workloads-on-hdinsight"></a>Optimera I/O-intensiva jobb på Hadoop-och Spark-arbetsbelastningar på HDInsight
+## <a name="optimizing-io-intensive-jobs-on-hadoop-and-spark-workloads-on-hdinsight"></a>Optimizing I/O intensive jobs on Hadoop and Spark workloads on HDInsight
 
-Jobben omfattas av någon av följande tre kategorier:
+Jobs fall into one of the following three categories:
 
-* **PROCESSOR intensiv.**  Dessa jobb har långa beräknings tider med minimala I/O-tider.  Exempel på detta är maskin inlärning och jobb för naturlig bearbetning av språk.  
-* **Minnes krävande.**  Dessa jobb använder mycket minne.  Exempel är PageRank och analys jobb i real tid.  
-* **I/O-intensiv.**  Dessa jobb ägnar det mesta av tiden att göra I/O.  Ett vanligt exempel är ett kopierings jobb som bara har Läs-och skriv åtgärder.  Andra exempel är data förberedelse jobb som läser mycket data, utför en del datatransformering och skriver sedan tillbaka data till butiken.  
+* **CPU intensive.**  These jobs have long computation times with minimal I/O times.  Examples include machine learning and natural language processing jobs.  
+* **Memory intensive.**  These jobs use lots of memory.  Examples include PageRank and real-time analytics jobs.  
+* **I/O intensive.**  These jobs spend most of their time doing I/O.  A common example is a copy job which does only read and write operations.  Other examples include data preparation jobs that read a lot of data, performs some data transformation, and then writes the data back to the store.  
 
-Följande rikt linjer gäller endast för I/O-intensiva jobb.
+The following guidance is only applicable to I/O intensive jobs.
 
-## <a name="general-considerations"></a>Allmänna överväganden
+## <a name="general-considerations"></a>General considerations
 
-Du kan ha ett jobb som läser eller skriver så mycket som 100 MB i en enda åtgärd, men en buffert av den storleken kan påverka prestandan.
-Optimera prestanda genom att försöka bevara storleken på en I/O-åtgärd mellan 4 MB och 16 MB.
+You can have a job that reads or writes as much as 100MB in a single operation, but a buffer of that size might compromise performance.
+To optimize performance, try to keep the size of an I/O operation between 4MB and 16MB.
 
-### <a name="general-considerations-for-an-hdinsight-cluster"></a>Allmänna överväganden för ett HDInsight-kluster
+### <a name="general-considerations-for-an-hdinsight-cluster"></a>General considerations for an HDInsight cluster
 
-* **HDInsight-versioner.** Använd den senaste versionen av HDInsight för bästa prestanda.
-* **Områdena.** Placera Data Lake Storage Gen2-kontot i samma region som HDInsight-klustret.  
+* **HDInsight versions.** For best performance, use the latest release of HDInsight.
+* **Regions.** Place the Data Lake Storage Gen2 account in the same region as the HDInsight cluster.  
 
-An-HDInsight kluster består av två huvudnoder och vissa arbetsnoder. Varje arbetsnod tillhandahåller ett särskilt antal kärnor och minne, vilket bestäms av VM-typen.  När du kör ett jobb är garn det resurs Negotiator som allokerar tillgängligt minne och kärnor för att skapa behållare.  Varje behållare kör de uppgifter som krävs för att slutföra jobbet.  Behållare körs parallellt för att snabbt bearbeta uppgifter. Prestanda förbättras därför genom att köra så många parallella behållare som möjligt.
+An HDInsight cluster is composed of two head nodes and some worker nodes. Each worker node provides a specific number of cores and memory, which is determined by the VM-type.  When running a job, YARN is the resource negotiator that allocates the available memory and cores to create containers.  Each container runs the tasks needed to complete the job.  Containers run in parallel to process tasks quickly. Therefore, performance is improved by running as many parallel containers as possible.
 
-Det finns tre skikt i ett HDInsight-kluster som kan justeras för att öka antalet behållare och använda alla tillgängliga data flöden.  
+There are three layers within an HDInsight cluster that can be tuned to increase the number of containers and use all available throughput.  
 
-* **Fysiskt lager**
-* **GARN lager**
-* **Arbets belastnings lager**
+* **Physical layer**
+* **YARN layer**
+* **Workload layer**
 
-### <a name="physical-layer"></a>Fysiskt lager
+### <a name="physical-layer"></a>Physical Layer
 
-**Kör kluster med fler noder och/eller större virtuella datorer.**  Ett större kluster gör att du kan köra fler garn behållare som visas på bilden nedan.
+**Run cluster with more nodes and/or larger sized VMs.**  A larger cluster will enable you to run more YARN containers as shown in the picture below.
 
-![Data Lake Storage Gen2 prestanda](./media/data-lake-storage-performance-tuning-guidance/VM.png)
+![Data Lake Storage Gen2 performance](./media/data-lake-storage-performance-tuning-guidance/VM.png)
 
-**Använd virtuella datorer med mer nätverks bandbredd.**  Mängden nätverks bandbredd kan vara en Flask hals om det finns mindre nätverks bandbredd än Data Lake Storage Gen2 data flöde.  Olika virtuella datorer har varierande storlek på nätverks bandbredd.  Välj en VM-typ som har största möjliga nätverks bandbredd.
+**Use VMs with more network bandwidth.**  The amount of network bandwidth can be a bottleneck if there is less network bandwidth than Data Lake Storage Gen2 throughput.  Different VMs will have varying network bandwidth sizes.  Choose a VM-type that has the largest possible network bandwidth.
 
-### <a name="yarn-layer"></a>GARN lager
+### <a name="yarn-layer"></a>YARN Layer
 
-**Använd mindre garn behållare.**  Minska storleken på varje garn behållare för att skapa fler behållare med samma mängd resurser.
+**Use smaller YARN containers.**  Reduce the size of each YARN container to create more containers with the same amount of resources.
 
-![Data Lake Storage Gen2 prestanda](./media/data-lake-storage-performance-tuning-guidance/small-containers.png)
+![Data Lake Storage Gen2 performance](./media/data-lake-storage-performance-tuning-guidance/small-containers.png)
 
-Beroende på din arbets belastning är det alltid en minsta storlek för garn behållare som behövs. Om du väljer för litet en behållare kommer jobben att köras i minnes brist. Vanligt vis får inte garn behållare vara mindre än 1 GB. Det är vanligt att se 3 GB garn behållare. För vissa arbets belastningar kan du behöva större garn behållare.  
+Depending on your workload, there will always be a minimum YARN container size that is needed. If you pick too small a container, your jobs will run into out-of-memory issues. Typically YARN containers should be no smaller than 1GB. It's common to see 3GB YARN containers. For some workloads, you may need larger YARN containers.  
 
-**Öka kärnor per garn behållare.**  Öka antalet kärnor som tilldelas varje behållare för att öka antalet parallella aktiviteter som körs i varje behållare.  Detta fungerar för program som Spark som kör flera uppgifter per behållare.  För program som Hive som kör en enda tråd i varje behållare är det bättre att ha fler behållare snarare än fler kärnor per behållare.
+**Increase cores per YARN container.**  Increase the number of cores allocated to each container to increase the number of parallel tasks that run in each container.  This works for applications like Spark which run multiple tasks per container.  For applications like Hive which run a single thread in each container, it is better to have more containers rather than more cores per container.
 
-### <a name="workload-layer"></a>Arbets belastnings lager
+### <a name="workload-layer"></a>Workload Layer
 
-**Använd alla tillgängliga behållare.**  Ange antalet aktiviteter som ska vara lika med eller större än antalet tillgängliga behållare så att alla resurser används.
+**Use all available containers.**  Set the number of tasks to be equal or larger than the number of available containers so that all resources are utilized.
 
-![Data Lake Storage Gen2 prestanda](./media/data-lake-storage-performance-tuning-guidance/use-containers.png)
+![Data Lake Storage Gen2 performance](./media/data-lake-storage-performance-tuning-guidance/use-containers.png)
 
-**Misslyckade uppgifter är kostsame.** Om varje aktivitet har en stor mängd data som ska bearbetas resulterar det i ett dyrt försök att utföra en aktivitet.  Därför är det bättre att skapa fler uppgifter, som var och en bearbetar en liten mängd data.
+**Failed tasks are costly.** If each task has a large amount of data to process, then failure of a task results in an expensive retry.  Therefore, it is better to create more tasks, each of which processes a small amount of data.
 
-Utöver de allmänna rikt linjerna ovan har varje program olika parametrar som är tillgängliga för att justera för det specifika programmet. I tabellen nedan visas några av parametrarna och länkarna för att komma igång med prestanda justering för varje program.
+In addition to the general guidelines above, each application has different parameters available to tune for that specific application. The table below lists some of the parameters and links to get started with performance tuning for each application.
 
-| Arbetsbelastning | Parameter för att ange aktiviteter |
+| Arbetsbelastning | Parameter to set tasks |
 |----------|------------------------|
-| [Spark på HDInsight](data-lake-storage-performance-tuning-spark.md) | <ul><li>Antal körningar</li><li>Utförar-minne</li><li>Utförar – kärnor</li></ul> |
-| [Hive i HDInsight](data-lake-storage-performance-tuning-hive.md) | <ul><li>hive.tez.container.size</li></ul> |
-| [MapReduce på HDInsight](data-lake-storage-performance-tuning-mapreduce.md) | <ul><li>MapReduce. map. minne</li><li>MapReduce. job. Maps</li><li>MapReduce. minska. minne</li><li>MapReduce. job. minskar</li></ul> |
-| [Storm på HDInsight](data-lake-storage-performance-tuning-storm.md)| <ul><li>Antal arbets processer</li><li>Antal kanalen utförar-instanser</li><li>Antal utförar-instanser för bult </li><li>Antal kanalen-uppgifter</li><li>Antal uppgifter i bult</li></ul>|
+| [Spark on HDInsight](data-lake-storage-performance-tuning-spark.md) | <ul><li>Num-executors</li><li>Executor-memory</li><li>Executor-cores</li></ul> |
+| [Hive on HDInsight](data-lake-storage-performance-tuning-hive.md) | <ul><li>hive.tez.container.size</li></ul> |
+| [MapReduce on HDInsight](data-lake-storage-performance-tuning-mapreduce.md) | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
+| [Storm on HDInsight](data-lake-storage-performance-tuning-storm.md)| <ul><li>Number of worker processes</li><li>Number of spout executor instances</li><li>Number of bolt executor instances </li><li>Number of spout tasks</li><li>Number of bolt tasks</li></ul>|
 
 ## <a name="see-also"></a>Se också
-* [Översikt över Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)
+* [Overview of Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)

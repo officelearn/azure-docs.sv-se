@@ -1,47 +1,47 @@
 ---
-title: Integrering av Azure MFA Server och Active Directory – Azure Active Directory
+title: Azure MFA Server and Active Directory - Azure Active Directory
 description: Hur du integrerar Azure Multi-Factor Authentication-server med Active Directory så att du kan synkronisera katalogerna.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eac6cff0f0f12daaf772549f547aafd670600d61
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: b02d6468ede0d5748409a620a6641109cd523a09
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67536987"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74404232"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Katalogintegrering mellan Azure MFA Server och Active Directory
 
 Använd avsnittet Katalogintegrering i Azure MFA Server om du vill integrera med Active Directory eller en annan LDAP-katalog. Du kan konfigurera attribut för att matcha katalogschemat och ställa in automatisk användarsynkronisering.
 
 > [!IMPORTANT]
-> Från och med den 1 juli 2019 erbjuder Microsoft inte längre MFA Server för nya distributioner. Nya kunder som vill kräva multifaktorautentisering från sina användare ska använda molnbaserade Azure Multi-Factor Authentication. Befintliga kunder som har aktiverat MFA Server före 1 juli kommer att kunna hämta den senaste versionen, framtida uppdateringar och skapa autentiseringsuppgifter för aktivering som vanligt.
+> As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
 
 ## <a name="settings"></a>Inställningar
 
 Som standard konfigureras Azure Multi-Factor Authentication (MFA) Server att importera eller synkronisera användare från Active Directory.  På fliken Katalogintegrering kan du åsidosätta standardbeteendet och binda till en annan LDAP-katalog, en ADAM-katalog eller en särskild Active Directory-domänkontrollant.  Fliken innehåller också inställningar för användning av LDAP-autentisering via proxy eller för LDAP-bindning som ett RADIUS-mål, förautentisering för IIS-autentisering eller primär autentisering för användarportalen.  De enskilda inställningarna beskrivs i följande tabell.
 
-![Redigera LDAP-konfiguration i MFA Server](./media/howto-mfaserver-dir-ad/dirint.png)
+![Edit LDAP configuration in MFA Server](./media/howto-mfaserver-dir-ad/dirint.png)
 
 > [!NOTE]
-> Katalogintegrering är inte säkert att arbeta med kataloger än Active Directory Domain Services.
+> Directory integration is not guaranteed to work with directories other than Active Directory Domain Services.
 
 | Funktion | Beskrivning |
 | --- | --- |
-| Använd Active Directory |Välj alternativet Använd Active Directory om du vill använda Active Directory för import och synkronisering.  Det här är standardinställningen. <br>Obs! Anslut datorn till en domän för Active Directory-integrering ska fungera korrekt, och logga in med ett domänkonto. |
+| Använd Active Directory |Välj alternativet Använd Active Directory om du vill använda Active Directory för import och synkronisering.  Det här är standardinställningen. <br>Obs! För att Active Directory-integreringen ska fungera korrekt ansluter du datorn till en domän och loggar in med ett domänkonto. |
 | Inkludera betrodda domäner |Markera kryssrutan **Inkludera betrodda domäner** om du vill att agenten ska försöka ansluta till domäner som är betrodda av den aktuella domänen, en annan domän i skogen eller domäner som ingår i ett skogsförtroende.  Om du inte ska importera eller synkronisera användare från någon av de betrodda domänerna avmarkerar du kryssrutan för att förbättra prestanda.  Kryssrutan är markerad som standard. |
-| Använd specifik LDAP-konfiguration |Välj alternativet Använd LDAP om du vill använda LDAP-inställningarna som angetts för import och synkronisering. Obs! När du väljer Använd LDAP ändras referenser användargränssnittet från Active Directory till LDAP. |
+| Använd specifik LDAP-konfiguration |Välj alternativet Använd LDAP om du vill använda LDAP-inställningarna som angetts för import och synkronisering. Obs! Om du väljer Använd LDAP ändras referenserna i användargränssnittet från Active Directory till LDAP. |
 | Knappen Redigera |Du kan använda knappen Redigera om du vill redigera de aktuella LDAP-inställningarna. |
-| Använd attributbegränsade frågor |Anger om attributbegränsade frågor ska användas.  Med attributbegränsade frågor kan du göra effektiva katalogsökningar efter kvalificerade poster baserat på posterna i en annan posts attribut.  Azure Multi-Factor Authentication Server använder attributbegränsade frågor för att effektivt fråga användare som är medlemmar i en säkerhetsgrupp.   <br>Obs!  Det finns tillfällen där attributbegränsade frågor stöds, men inte bör användas.  Active Directory kan exempelvis ha problem med attributbegränsade frågor när en säkerhetsgrupp innehåller medlemmar från mer än en domän. I detta fall avmarkerar du kryssrutan. |
+| Använd attributbegränsade frågor |Anger om attributbegränsade frågor ska användas.  Med attributbegränsade frågor kan du göra effektiva katalogsökningar efter kvalificerade poster baserat på posterna i en annan posts attribut.  Azure Multi-Factor Authentication Server använder attributbegränsade frågor för att effektivt fråga användare som är medlemmar i en säkerhetsgrupp.   <br>Obs! Det finns vissa fall där attributbegränsade frågor stöds, men inte bör användas.  Active Directory kan exempelvis ha problem med attributbegränsade frågor när en säkerhetsgrupp innehåller medlemmar från mer än en domän. I detta fall avmarkerar du kryssrutan. |
 
 LDAP-inställningarna beskrivs i följande tabell.
 
@@ -60,27 +60,27 @@ LDAP-inställningarna beskrivs i följande tabell.
 
 Med filter kan du ange villkor för att kvalificera poster när du utför en katalogsökning.  Genom att ange filtret kan du definiera de objekt som du vill synkronisera.  
 
-![Konfigurera directory filtrering i MFA Server](./media/howto-mfaserver-dir-ad/dirint2.png)
+![Configure directory filtering in MFA Server](./media/howto-mfaserver-dir-ad/dirint2.png)
 
 Azure Multi-Factor Authentication har följande tre filteralternativ:
 
-* **Containerfilter** – Ange filtervillkoren som används för att kvalificera behållarposter när en katalogsökning utförs.  För Active Directory och ADAM används oftast (|(objectClass=organizationalUnit)(objectClass=container)).  För andra LDAP-kataloger använder du filtervillkoren som kvalificerar varje typ av containerobjekt, beroende på katalogschemat.  <br>Obs!  Om det lämnas tomt används ((objectClass=organizationalUnit)(objectClass=container)) som standard.
-* **Säkerhetsgruppfilter** – Ange filtervillkoren som används för att kvalificera säkerhetsposter när en katalogsökning utförs.  För Active Directory och ADAM används oftast (&(objectCategory=group)(groupType:1.2.840.113556.1.4.804:=-2147483648)).  För andra LDAP-kataloger använder du filtervillkoren som kvalificerar varje typ av säkerhetsobjekt, beroende på katalogschemat.  <br>Obs!  Om det lämnas tomt används (&(objectCategory=group) (objectCategory=Group)(grouptype:1.2.840.113556.1.4.804:=-2147483648)))) används som standard.
-* **Användarfilter** – Ange filtervillkoren som används för att kvalificera användarposter när en katalogsökning utförs.  För Active Directory och ADAM används oftast (&(objectClass=user)(objectCategory=person)).  För andra LDAP-kataloger använder du (objectClass=inetOrgPerson) eller liknande, beroende på katalogschemat. <br>Obs!  Om det lämnas tomt används (& (objectCategory=person)(objectClass=User)) som standard.
+* **Containerfilter** – Ange filtervillkoren som används för att kvalificera behållarposter när en katalogsökning utförs.  För Active Directory och ADAM används oftast (|(objectClass=organizationalUnit)(objectClass=container)).  För andra LDAP-kataloger använder du filtervillkoren som kvalificerar varje typ av containerobjekt, beroende på katalogschemat.  <br>Obs! Om det lämnas tomt används ((objectClass=organizationalUnit)(objectClass=container)) som standard.
+* **Säkerhetsgruppfilter** – Ange filtervillkoren som används för att kvalificera säkerhetsposter när en katalogsökning utförs.  För Active Directory och ADAM används oftast (&(objectCategory=group)(groupType:1.2.840.113556.1.4.804:=-2147483648)).  För andra LDAP-kataloger använder du filtervillkoren som kvalificerar varje typ av säkerhetsobjekt, beroende på katalogschemat.  <br>Obs! Om det lämnas tomt används (&(objectCategory=group)(groupType:1.2.840.113556.1.4.804:=-2147483648)) som standard.
+* **Användarfilter** – Ange filtervillkoren som används för att kvalificera användarposter när en katalogsökning utförs.  För Active Directory och ADAM används oftast (&(objectClass=user)(objectCategory=person)).  För andra LDAP-kataloger använder du (objectClass=inetOrgPerson) eller liknande, beroende på katalogschemat. <br>Om det lämnas tomt används (&(objectCategory=person)(objectClass=user)) som standard.
 
 ## <a name="attributes"></a>Attribut
 
-Du kan anpassa attributen efter behov för en viss katalog.  På så sätt kan du lägga till anpassade attribut och finjustera synkroniseringen till endast de attribut som du behöver. Använd namnet på attributet som definierats i katalogschemat för värdet för varje attributfält. Följande tabell innehåller ytterligare information om varje funktion.
+Du kan anpassa attributen efter behov för en viss katalog.  På så sätt kan du lägga till anpassade attribut och finjustera synkroniseringen till endast de attribut som du behöver. Use the name of the attribute as defined in the directory schema for the value of each attribute field. Följande tabell innehåller ytterligare information om varje funktion.
 
 Attribut kan anges manuellt och behöver inte matcha ett attribut i attributlistan.
 
-![Anpassa katalogintegreringsattribut i MFA Server](./media/howto-mfaserver-dir-ad/dirint3.png)
+![Customize directory integration attributes in MFA Server](./media/howto-mfaserver-dir-ad/dirint3.png)
 
 | Funktion | Beskrivning |
 | --- | --- |
 | Unik identifierare |Ange attributnamnet för attributet som fungerar som den unika identifieraren för container-, säkerhetsgrupps- och användarposter.  I Active Directory är detta vanligtvis objectGUID. Andra LDAP-implementeringar kan använda entryUUID eller liknande.  Standardvärdet är objectGUID. |
 | Typ av unik identifierare |Välj typen för attributet för unik identifierare.  I Active Directory har objectGUID-attributet typen GUID. Andra LDAP-implementeringar kan använda typen ASCII, bytematris eller Sträng.  Standardvärdet är GUID. <br><br>Det är viktigt att du anger den här typen korrekt eftersom de unika identifierarna används för att referera till synkroniseringsobjekt. Typen av unik identifierare används för att hitta objektet i katalogen.  Om du anger typen till Sträng trots att katalogen lagrar värdet som en bytematris (ByteArray) med ASCII-tecken så fungerar inte synkroniseringen korrekt. |
-| Unikt namn |Ange attributnamnet för attributet som innehåller det unika namnet för varje post.  I Active Directory är detta normalt distinguishedName. Andra LDAP-implementeringar kan använda entryDN eller liknande.  Standardvärdet är distinguishedName. <br><br>Om ett attribut som bara innehåller det unika namnet inte finns några kan annonser sökväg attributet användas.  ”LDAP://\<server\>/”-delen av sökvägen tas bort automatiskt så att bara objektets unika namn är kvar. |
+| Unikt namn |Ange attributnamnet för attributet som innehåller det unika namnet för varje post.  I Active Directory är detta normalt distinguishedName. Andra LDAP-implementeringar kan använda entryDN eller liknande.  Standardvärdet är distinguishedName. <br><br>If an attribute containing just the distinguished name doesn't exist, the ads path attribute may be used.  ”LDAP://\<server\>/”-delen av sökvägen tas bort automatiskt så att bara objektets unika namn är kvar. |
 | Containerns namn |Ange attributnamnet för attributet som innehåller namnet i en containerpost.  Värdet för det här attributet visas i containerhierarkin när du importerar från Active Directory eller lägger till synkroniseringsobjekt.  Standardvärdet är name. <br><br>Om olika containrar använder olika attribut för sina namn använder du semikolon för att avgränsa flera attribut med containernamn.  Det första attributet för containernamn som hittas i ett containerobjekt används för att visa dess namn. |
 | Namn på säkerhetsgrupp |Ange attributnamnet för attributet som innehåller namnet i en säkerhetsgruppspost.  Värdet för det här attributet visas i säkerhetsgruppslistan när du importerar från Active Directory eller lägger till synkroniseringsobjekt.  Standardvärdet är name. |
 | Användarnamn |Ange attributnamnet för attributet som innehåller användarnamnet i en användarpost.  Värdet för det här attributet används som Multi-Factor Auth Server-användarnamnet.  Ett andra attribut kan anges som en reserv till det första.  Det andra attributet används endast om det första attributet inte innehåller ett värde för användaren.  Standardvärdena är userPrincipalName och sAMAccountName. |
@@ -100,12 +100,12 @@ Attribut kan anges manuellt och behöver inte matcha ett attribut i attributlist
 | Fax |Ange attributnamnet för attributet som innehåller faxnumret i en användarpost.  Standardvärdet är facsimileTelephoneNumber. |
 | IP-telefon |Ange attributnamnet för attributet som innehåller IP-telefonnumret i en användarpost.  Standardvärdet är ipPhone. |
 | Anpassat |Ange attributnamnet för attributet som innehåller ett anpassat telefonnummer i en användarpost.  Standardvärdet är tomt. |
-| Anknytning |Ange attributnamnet för attributet som innehåller anknytningsnumret i en användarpost.  Värdet för anknytningsfältet används endast som anknytningen till det primära telefonnumret.  Standardvärdet är tomt. <br><br>Om attributet Anknytning inte anges kan anknytningar tas med som en del av telefonattributet. I så fall lägger du till ”x” före anknytningen så att den tolkas korrekt.  I exempelnumret 555-123-4567 x890 tolkas 555-123-4567 som telefonnumret och 890 som anknytningen. |
+| Tillägg |Ange attributnamnet för attributet som innehåller anknytningsnumret i en användarpost.  Värdet för anknytningsfältet används endast som anknytningen till det primära telefonnumret.  Standardvärdet är tomt. <br><br>Om attributet Anknytning inte anges kan anknytningar tas med som en del av telefonattributet. I så fall lägger du till ”x” före anknytningen så att den tolkas korrekt.  I exempelnumret 555-123-4567 x890 tolkas 555-123-4567 som telefonnumret och 890 som anknytningen. |
 | Knappen Återställ standardvärden |Klicka på **Återställ standardvärden** om du vill återställa standardvärdet för alla attribut.  Standardvärdena bör fungera korrekt med det vanliga Active Directory- eller ADAM-schemat. |
 
-Om du vill redigera attribut klickar du på **Redigera** på fliken Attribut.  När du gör det öppnas ett fönster där du kan redigera attributen. Välj **...** bredvid valfritt attribut så öppnas ett fönster där du kan välja vilka attribut som ska visas.
+To edit attributes, click **Edit** on the Attributes tab.  This brings up a window where you can edit the attributes. Välj **...** bredvid valfritt attribut så öppnas ett fönster där du kan välja vilka attribut som ska visas.
 
-![Redigera directory attributmappning i MFA Server](./media/howto-mfaserver-dir-ad/dirint4.png)
+![Edit directory attribute mapping in MFA Server](./media/howto-mfaserver-dir-ad/dirint4.png)
 
 ## <a name="synchronization"></a>Synkronisering
 
@@ -117,14 +117,14 @@ Tjänsten Multi-Factor Auth ADSync använder DirSync LDAP-servertillägget från
 
 Om LDAP-katalogen har stöd för och är konfigurerad för DirSync fungerar avsökningen av ändringar i användar- och säkerhetsgrupper på samma sätt som med Active Directory.  Om LDAP-katalogen inte stöder DirSync-kontrollen utförs en fullständig synkronisering under varje cykel.
 
-![Synkronisering av katalogobjekt till MFA-servern](./media/howto-mfaserver-dir-ad/dirint5.png)
+![Synchronization of directory objects to MFA Server](./media/howto-mfaserver-dir-ad/dirint5.png)
 
 Följande tabell innehåller ytterligare information om inställningarna på fliken Synkronisering.
 
 | Funktion | Beskrivning |
 | --- | --- |
-| Aktivera synkronisering med Active Directory |Om det här alternativet har valts avsöker tjänsten Multi-Factor Auth Server regelbundet Active Directory för att identifiera ändringar. <br><br>Obs! Minst ett synkroniseringsobjekt måste läggas till och synkronisera nu måste utföras innan Multi-Factor Auth Server-tjänsten börjar bearbeta ändringar. |
-| Synkronisera var |Ange tidsintervallet som Multi-Factor Auth Server-tjänsten ska vänta mellan att göra avsökningar och bearbeta ändringar. <br><br> Obs! Det angivna tidsintervallet är tiden mellan början av varje cykel.  Om tiden för att bearbeta ändringar överskrider intervallet startar tjänsten en ny avsökning direkt. |
+| Aktivera synkronisering med Active Directory |Om det här alternativet har valts avsöker tjänsten Multi-Factor Auth Server regelbundet Active Directory för att identifiera ändringar. <br><br>Obs! Minst ett synkroniseringsobjekt måste läggas till och Synkronisera nu måste köras innan Multi-Factor Auth Server- tjänsten börjar bearbeta ändringar. |
+| Synkronisera var |Ange tidsintervallet som Multi-Factor Auth Server-tjänsten ska vänta mellan att göra avsökningar och bearbeta ändringar. <br><br> Obs! Det angivna intervallet är tiden mellan början av varje cykel.  Om tiden för att bearbeta ändringar överskrider intervallet startar tjänsten en ny avsökning direkt. |
 | Ta bort användare som inte längre finns i Active Directory |Om du väljer det här alternativet bearbetar tjänsten Multi-Factor Auth Server tombstone-objekten för borttagna användare i Active Directory och tar bort relaterade Multi-Factor Auth Server-användare. |
 | Utför alltid en fullständig synkronisering |Om du väljer det här alternativet utför tjänsten Multi-Factor Auth Server alltid en fullständig synkronisering.  Om alternativet är avmarkerat utför tjänsten Multi-Factor Auth Server en inkrementell synkronisering genom att endast fråga efter användare som har ändrats.  Alternativet är avmarkerat som standard. <br><br>Om alternativet är avmarkerat utför Azure MFA Server endast inkrementell synkronisering om katalogen stöder DirSync-kontrollen och om kontobindningen till katalogen har behörighet att köra inkrementella DirSync-frågor.  Om kontot inte har rätt behörighet eller om flera domäner omfattas av synkroniseringen utför Azure MFA Server en fullständig synkronisering. |
 | Kräv administratörsgodkännande om fler än X användare ska inaktiveras eller tas bort |Synkroniseringsobjekt kan konfigureras att inaktivera eller ta bort användare som inte längre är medlemmar i objektets container eller säkerhetsgrupp.  Som ett skydd kan godkännande från en administratör krävas om antalet användare som ska inaktiveras eller tas bort överskrider ett tröskelvärde.  Om det här alternativet har valts krävs godkännande för det angivna tröskelvärdet.  Standardvärdet är 5 och intervallet är 1 till 999. <br><br> Godkännandet börjar med att ett e-postmeddelande skickas till administratören. E-postmeddelandet innehåller anvisningar för att granska och godkänna inaktiveringen och borttagningen av användare.  När användargränssnittet för Multi-Factor Auth Server startas uppmanas administratören att ge sitt godkännande. |
@@ -143,8 +143,8 @@ Med knapparna Flytta upp och Flytta ned kan administratören ändra ordning på 
 > [!TIP]
 > En fullständig synkronisering bör utföras när du har tagit bort synkroniseringsobjekt.  En fullständig synkronisering bör utföras när du har ändrat ordning på synkroniseringsobjekt.  Klicka på **Synkronisera nu** om du vill utföra en fullständig synkronisering.
 
-## <a name="multi-factor-authentication-servers"></a>Multi-Factor Authentication-servrar
+## <a name="multi-factor-authentication-servers"></a>Multi-Factor Authentication servers
 
-Ytterligare Multi-Factor Authentication-servrar kan konfigureras att fungera som en säkerhetskopiering RADIUS-proxy, LDAP-proxy eller för IIS-autentisering. Synkroniseringskonfigurationen delas av alla agenter. Endast en av dessa agenter kan dock ha Multi-Factor Authentication server-tjänsten körs. Den här fliken kan du välja de Multi-Factor Authentication-server som ska aktiveras för synkronisering.
+Additional Multi-Factor Authentication servers may be set up to serve as a backup RADIUS proxy, LDAP proxy, or for IIS Authentication. Synkroniseringskonfigurationen delas av alla agenter. However, only one of these agents may have the Multi-Factor Authentication server service running. This tab allows you to select the Multi-Factor Authentication server that should be enabled for synchronization.
 
-![Relaterade Multi-Factor Authentication-servrar](./media/howto-mfaserver-dir-ad/dirint6.png)
+![Related Multi-Factor Authentication Servers](./media/howto-mfaserver-dir-ad/dirint6.png)

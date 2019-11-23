@@ -1,60 +1,60 @@
 ---
-title: Spark-direktuppspelning i Azure HDInsight
-description: Använda Apache Spark strömmande program i HDInsight Spark-kluster.
-ms.service: hdinsight
+title: Spark Streaming in Azure HDInsight
+description: How to use Apache Spark Streaming applications on HDInsight Spark clusters.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: hdinsightactive
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/11/2019
-ms.openlocfilehash: f990e5eb2761f1743c2731f499ecc341990edf53
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.custom: hdinsightactive
+ms.date: 11/20/2019
+ms.openlocfilehash: 521d72642a27995d096402a4ca0e4af632b0788c
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813990"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406268"
 ---
-# <a name="overview-of-apache-spark-streaming"></a>Översikt över Apache Spark strömning
+# <a name="overview-of-apache-spark-streaming"></a>Overview of Apache Spark Streaming
 
-[Apache Spark](https://spark.apache.org/) Streaming tillhandahåller bearbetning av data strömmar på HDInsight Spark-kluster, med en garanti att alla indata-händelser behandlas exakt en gång, även om ett nodfel inträffar. En spark-dataström är ett långvarigt jobb som tar emot indata från en mängd olika källor, inklusive Azure Event Hubs, ett Azure-IoT Hub, [Apache Kafka](https://kafka.apache.org/), [Apache FLUME](https://flume.apache.org/), Twitter, [ZeroMQ](http://zeromq.org/), RAW TCP-Sockets eller från övervakning av [Apache Hadoop garn](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) -filsystem. Till skillnad från en enda händelse driven process skapar en spark-dataström indata till Time-fönster, till exempel en 2-sekunds sektor, och omvandlar sedan varje batch med data med hjälp av åtgärderna mappa, minska, Anslut och extrahera. Spark-dataströmmen skriver sedan transformerade data till fil system, databaser, instrument paneler och konsolen.
+[Apache Spark](https://spark.apache.org/) Streaming provides data stream processing on HDInsight Spark clusters, with a guarantee that any input event is processed exactly once, even if a node failure occurs. A Spark Stream is a long-running job that receives input data from a wide variety of sources, including Azure Event Hubs, an Azure IoT Hub, [Apache Kafka](https://kafka.apache.org/), [Apache Flume](https://flume.apache.org/), Twitter, [ZeroMQ](http://zeromq.org/), raw TCP sockets, or from monitoring [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) filesystems. Unlike a solely event-driven process, a Spark Stream batches input data into time windows, such as a 2-second slice, and then transforms each batch of data using map, reduce, join, and extract operations. The Spark Stream then writes the transformed data out to filesystems, databases, dashboards, and the console.
 
-![Strömnings bearbetning med HDInsight och Spark streaming](./media/apache-spark-streaming-overview/hdinsight-spark-streaming.png)
+![Stream Processing with HDInsight and Spark Streaming](./media/apache-spark-streaming-overview/hdinsight-spark-streaming.png)
 
-Spark streaming-program måste vänta en bråkdel av en sekund för att samla in varje *mikrobatch* av händelser innan du skickar den batchen för bearbetning. Ett händelse drivet program bearbetar däremot varje händelse omedelbart. Fördröjning av Spark-direktuppspelning är vanligt vis under några sekunder. Fördelarna med mikrobatch-metoden är mer effektiv data behandling och enklare mängd beräkningar.
+Spark Streaming applications must wait a fraction of a second to collect each *micro-batch* of events before sending that batch on for processing. In contrast, an event-driven application processes each event immediately. Spark Streaming latency is typically under a few seconds. The benefits of the micro-batch approach are more efficient data processing and simpler aggregate calculations.
 
-## <a name="introducing-the-dstream"></a>Vi presenterar DStream
+## <a name="introducing-the-dstream"></a>Introducing the DStream
 
-Spark streaming representerar en kontinuerlig ström med inkommande data med hjälp av en *diskretiserade-dataström* som kallas DStream. En DStream kan skapas från ingångs källor som Event Hubs eller Kafka, eller genom att använda transformationer på en annan DStream.
+Spark Streaming represents a continuous stream of incoming data using a *discretized stream* called a DStream. A DStream can be created from input sources such as Event Hubs or Kafka, or by applying transformations on another DStream.
 
-En DStream tillhandahåller ett skikt med abstraktion ovanpå rå händelse data. 
+A DStream provides a layer of abstraction on top of the raw event data.
 
-Börja med en enda händelse, anta en temperatur läsning från en ansluten termostat. När den här händelsen kommer till ditt Spark streaming-program, lagras händelsen på ett tillförlitligt sätt, där den replikeras på flera noder. Den här fel toleransen garanterar att fel på en enskild nod inte leder till att händelsen går förlorad. Spark Core använder en data struktur som distribuerar data över flera noder i klustret, där varje nod i allmänhet behåller sina egna data i minnet för bästa prestanda. Den här data strukturen kallas för en *elastisk distribuerad data uppsättning* (RDD).
+Start with a single event, say a temperature reading from a connected thermostat. When this event arrives at your Spark Streaming application, the event is stored in a reliable way, where it's replicated on multiple nodes. This fault-tolerance ensures that the failure of any single node won't result in the loss of your event. The Spark core uses a data structure that distributes data across multiple nodes in the cluster, where each node generally maintains its own data in-memory for best performance. This data structure is called a *resilient distributed dataset* (RDD).
 
-Varje RDD representerar händelser som samlas in över en användardefinierad tidsram som kallas *batch-intervallet*. När varje batch-intervall förflyter skapas en ny RDD som innehåller alla data från intervallet. Den kontinuerliga uppsättningen RDD samlas in i en DStream. Om batch-intervallet till exempel är en sekund lång, avger DStream en batch varje sekund som innehåller en RDD som innehåller alla data som matas in under den andra. När DStream bearbetas visas temperatur händelsen i någon av dessa batchar. Ett Spark streaming-program bearbetar batcharna som innehåller händelserna och som slutligen agerar på de data som lagras i varje RDD.
+Each RDD represents events collected over a user-defined timeframe called the *batch interval*. As each batch interval elapses, a new RDD is produced that contains all the data from that interval. The continuous set of RDDs are collected into a DStream. For example, if the batch interval is one second long, your DStream emits a batch every second containing one RDD that contains all the data ingested during that second. When processing the DStream, the temperature event appears in one of these batches. A Spark Streaming application processes the batches that contain the events and ultimately acts on the data stored in each RDD.
 
-![Exempel på DStream med temperatur händelser](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-example.png)
+![Example DStream with Temperature Events](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-example.png)
 
-## <a name="structure-of-a-spark-streaming-application"></a>Struktur för ett Spark streaming-program
+## <a name="structure-of-a-spark-streaming-application"></a>Structure of a Spark Streaming application
 
-Ett Spark-strömmande program är ett långvarigt program som tar emot data från inmatnings källor, tillämpar omvandlingar för att bearbeta data och sedan skickar ut data till en eller flera mål. Strukturen för ett Spark streaming-program har en statisk del och en dynamisk del. Den statiska delen definierar var data kommer från, vilken bearbetning som ska utföras på data och var resultatet ska gå. Den dynamiska delen kör programmet oändligt, vilket väntar på en stopp signal.
+A Spark Streaming application is a long-running application that receives data from ingest sources, applies transformations to process the data, and then pushes the data out to one or more destinations. The structure of a Spark Streaming application has a static part and a dynamic part. The static part  defines where the data comes from, what processing to do on the data, and where the results should go. The dynamic part is running  the application indefinitely, waiting for a stop signal.
 
-Till exempel får följande enkla program en rad text över en TCP-socket och räknar antalet gånger som varje ord visas.
+For example, the following simple application  receives a line of text over a TCP socket and counts the number of times each word appears.
 
-### <a name="define-the-application"></a>Definiera programmet
+### <a name="define-the-application"></a>Define the application
 
-Definitionen av program logiken består av fyra steg:
+The application logic definition has four steps:
 
-1. Skapa en StreamingContext.
-2. Skapa en DStream från StreamingContext.
-3. Tillämpa transformeringar på DStream.
-4. Resultatet visas.
+1. Create a StreamingContext.
+2. Create a DStream from the StreamingContext.
+3. Apply transformations to the DStream.
+4. Output the results.
 
-Den här definitionen är statisk och inga data behandlas förrän du kör programmet.
+This definition is static, and no data is processed until you run the application.
 
-#### <a name="create-a-streamingcontext"></a>Skapa en StreamingContext
+#### <a name="create-a-streamingcontext"></a>Create a StreamingContext
 
-Skapa en StreamingContext från SparkContext som pekar på klustret. När du skapar en StreamingContext anger du storleken på batchen på några sekunder, till exempel:  
+Create a StreamingContext from the SparkContext that points to your cluster. When creating a StreamingContext, you specify the size of the batch in seconds, for example:  
 
 ```
 import org.apache.spark._
@@ -63,17 +63,17 @@ import org.apache.spark.streaming._
 val ssc = new StreamingContext(sc, Seconds(1))
 ```
 
-#### <a name="create-a-dstream"></a>Skapa en DStream
+#### <a name="create-a-dstream"></a>Create a DStream
 
-Med StreamingContext-instansen skapar du en indatamängds-DStream för din indatakälla. I det här fallet tittar programmet efter utseendet på nya filer i standard lagrings utrymmet som är kopplat till HDInsight-klustret.
+With the StreamingContext instance, create an input DStream for your input source. In this case, the application is watching for the appearance of new files in the default storage attached to the HDInsight cluster.
 
 ```
 val lines = ssc.textFileStream("/uploads/Test/")
 ```
 
-#### <a name="apply-transformations"></a>Tillämpa transformeringar
+#### <a name="apply-transformations"></a>Apply transformations
 
-Du implementerar bearbetningen genom att tillämpa omvandlingar på DStream. Det här programmet tar emot en rad text i taget från filen, delar upp varje rad i orden och använder sedan ett mönster som minskar ett mönster för att räkna antalet gånger som varje ord visas.
+You implement the processing by applying transformations on the DStream. This application receives one line of text at a time from the file, splits each line into words, and then uses a map-reduce pattern to count the number of times each word appears.
 
 ```
 val words = lines.flatMap(_.split(" "))
@@ -81,9 +81,9 @@ val pairs = words.map(word => (word, 1))
 val wordCounts = pairs.reduceByKey(_ + _)
 ```
 
-#### <a name="output-results"></a>Resultat för utdata
+#### <a name="output-results"></a>Output results
 
-Push-överför omvandlingen till mål systemen genom att använda utmatnings åtgärder. I det här fallet skrivs resultatet av varje körning genom beräkningen i konsolens utdata.
+Push the transformation results out to the destination systems by applying output operations. In this case,  the result of each run through the computation is printed in the console output.
 
 ```
 wordCounts.print()
@@ -91,16 +91,16 @@ wordCounts.print()
 
 ### <a name="run-the-application"></a>Köra programmet
 
-Starta streaming-programmet och kör det tills en avslutnings signal tas emot.
+Start the streaming application and run until a termination signal is received.
 
 ```
 ssc.start()
 ssc.awaitTermination()
 ```
 
-Mer information om Spark Stream-API: et, tillsammans med händelse källor, omvandlingar och utmatnings åtgärder som stöds, finns i [Apache Spark streaming Programming guide](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html).
+For details on the Spark Stream API, along with the event sources, transformations, and output operations it supports, see [Apache Spark Streaming Programming Guide](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html).
 
-Följande exempel program är fristående, så du kan köra det inuti en [Jupyter Notebook](apache-spark-jupyter-notebook-kernels.md). I det här exemplet skapas en modell data källa i klassen DummySource som matar ut värdet för en räknare och den aktuella tiden i millisekunder var femte sekund. Ett nytt StreamingContext-objekt har ett batch-intervall på 30 sekunder. Varje gång en batch skapas, undersöker strömmande program den RDD som produceras, konverterar RDD till en spark-DataFrame och skapar en tillfällig tabell över DataFrame.
+The following sample application is self-contained, so you can run it inside a [Jupyter Notebook](apache-spark-jupyter-notebook-kernels.md). This example creates a mock data source in the class DummySource that outputs the value of a counter and the current time in milliseconds every five seconds. A  new StreamingContext object  has a batch interval of 30 seconds. Every time a batch is created, the streaming application examines the RDD produced, converts the RDD to a Spark DataFrame, and creates a temporary table over the DataFrame.
 
 ```
 class DummySource extends org.apache.spark.streaming.receiver.Receiver[(Int, Long)](org.apache.spark.storage.StorageLevel.MEMORY_AND_DISK_2) {
@@ -139,22 +139,22 @@ stream.foreachRDD { rdd =>
     val _sqlContext = org.apache.spark.sql.SQLContext.getOrCreate(rdd.sparkContext)
     _sqlContext.createDataFrame(rdd).toDF("value", "time")
         .registerTempTable("demo_numbers")
-} 
+}
 
 // Start the stream processing
 ssc.start()
 ```
 
-Vänta i cirka 30 sekunder efter att du startat programmet ovan.  Sedan kan du efter fråga DataFrame med jämna mellanrum för att se den aktuella uppsättningen värden som finns i batchen, till exempel med hjälp av SQL-fr åga:
+Wait for about 30 seconds after starting the application above.  Then, you can query the DataFrame periodically to see the current set of values present in the batch, for example using this SQL query:
 
 ```sql
 %%sql
 SELECT * FROM demo_numbers
 ```
 
-Resultatet ser ut ungefär så här:
+The resulting output looks like the following:
 
-| value | time |
+| värde | time |
 | --- | --- |
 |10 | 1497314465256 |
 |11 | 1497314470272 |
@@ -163,19 +163,19 @@ Resultatet ser ut ungefär så här:
 |14 | 1497314485327 |
 |15 | 1497314490346 |
 
-Det finns sex värden eftersom DummySource skapar ett värde var femte sekund och programmet avger en batch var 30: e sekund.
+There are six values, since the DummySource creates a value every 5 seconds and the application emits a batch every 30 seconds.
 
-## <a name="sliding-windows"></a>Glidande fönster
+## <a name="sliding-windows"></a>Sliding windows
 
-Om du vill utföra aggregerade beräkningar på din DStream under en viss tids period, till exempel för att få en genomsnitts temperatur under de senaste två Sekunderna, kan du använda *glidande fönster* åtgärder som ingår i Spark streaming. Ett glidande fönster har en varaktighet (fönster längd) och det intervall då fönstrets innehåll utvärderas (bild intervallet).
+To perform aggregate calculations on your DStream over some time period, for example to get an average temperature over the last two seconds, you can use the *sliding window* operations included with Spark Streaming. A sliding window has a duration (the window length) and the interval during which the window's contents are evaluated (the slide interval).
 
-Glidande fönster kan överlappa, du kan till exempel definiera ett fönster med en längd på två sekunder, som bilderna var tredje. Det innebär att varje gång du utför en agg regerings beräkning, innehåller fönstret data från den sista och andra av de föregående Fönstren samt eventuella nya data i nästa steg.
+Sliding windows can overlap, for example, you can define a window with a length of two seconds, that slides every one second. This means every time you perform an aggregation calculation, the window will include data from the last one second of the previous window as well as any new data in the next one second.
 
-![Exempel på inledande fönster med temperatur händelser](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-window-01.png)
+![Example Initial Window with Temperature Events](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-window-01.png)
 
-![Exempel fönster med temperatur händelser efter glidning](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-window-02.png)
+![Example Window with Temperature Events After Sliding](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-window-02.png)
 
-I följande exempel uppdateras koden som använder DummySource för att samla in batcharna i ett fönster med en varaktighet på en minut och en en minuts-bild.
+The following example  updates the code that uses the DummySource, to collect the batches into a window with a one-minute duration and a one-minute slide.
 
 ```
 class DummySource extends org.apache.spark.streaming.receiver.Receiver[(Int, Long)](org.apache.spark.storage.StorageLevel.MEMORY_AND_DISK_2) {
@@ -214,15 +214,15 @@ stream.window(org.apache.spark.streaming.Minutes(1)).foreachRDD { rdd =>
     val _sqlContext = org.apache.spark.sql.SQLContext.getOrCreate(rdd.sparkContext)
     _sqlContext.createDataFrame(rdd).toDF("value", "time")
     .registerTempTable("demo_numbers")
-} 
+}
 
 // Start the stream processing
 ssc.start()
 ```
 
-Efter den första minuten finns 12 poster-sex poster från var och en av de två batcharna som samlats in i fönstret.
+After the first minute, there are 12 entries - six entries from each of the two batches collected in the window.
 
-| value | time |
+| värde | time |
 | --- | --- |
 | 1 | 1497316294139 |
 | 2 | 1497316299158
@@ -237,22 +237,22 @@ Efter den första minuten finns 12 poster-sex poster från var och en av de två
 | 11 | 1497316344339
 | 12 | 1497316349361
 
-De glidande fönster funktionerna som är tillgängliga i Spark streaming API inkluderar Window, countByWindow, reduceByWindow och countByValueAndWindow. Mer information om dessa funktioner finns i [transformeringar på DStreams](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html#transformations-on-dstreams).
+The sliding window functions available in the Spark Streaming API include window, countByWindow, reduceByWindow, and countByValueAndWindow. For details on these functions, see [Transformations on DStreams](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html#transformations-on-dstreams).
 
 ## <a name="checkpointing"></a>Kontrollpunkter
 
-För att leverera återhämtnings-och fel tolerans är Spark-direktuppspelning beroende av kontroll punkter för att säkerställa att Stream-bearbetningen kan fortsätta oavbrutet, även om det är fel på noderna. I HDInsight skapar Spark kontroll punkter till varaktig lagring (Azure Storage eller Data Lake Storage). Dessa kontroll punkter lagrar metadata om strömnings programmet, till exempel konfigurationen, de åtgärder som definierats av programmet och eventuella batchar som köade men ännu inte bearbetats. I vissa fall inkluderar kontroll punkterna även att spara data i RDD för att snabbt återskapa statusen för data från vad som finns i RDD som hanteras av Spark.
+To deliver resiliency and fault tolerance, Spark Streaming relies on checkpointing to ensure that stream processing can continue uninterrupted, even in the face of node failures. In HDInsight, Spark creates checkpoints to durable storage (Azure Storage or Data Lake Storage). These checkpoints store the metadata about the streaming application such as the configuration, the operations defined by the application, and any batches that were queued but not yet processed. In some cases, the checkpoints will also include saving the data in the RDDs to more quickly rebuild the state of the data from what is present in the RDDs managed by Spark.
 
-## <a name="deploying-spark-streaming-applications"></a>Distribuera program för Spark-direktuppspelning
+## <a name="deploying-spark-streaming-applications"></a>Deploying Spark Streaming applications
 
-Du skapar vanligt vis ett Spark streaming-program lokalt i en JAR-fil och distribuerar det sedan till Spark på HDInsight genom att kopiera JAR-filen till standard lagringen som är kopplad till ditt HDInsight-kluster. Du kan starta ditt program med de LIVY REST API: er som är tillgängliga från klustret med en POST-åtgärd. Innehållet i inlägget innehåller ett JSON-dokument som ger din JAR-sökväg, namnet på klassen vars huvudsakliga metod definierar och kör Streaming-programmet och eventuellt resurs kraven för jobbet (till exempel antalet körningar, minne och kärnor) och alla konfigurations inställningar som program koden kräver.
+You typically build a Spark Streaming application locally into a JAR file and then deploy it to Spark on HDInsight by copying the JAR file  to the default storage attached to your HDInsight cluster. You can start your application  with the LIVY REST APIs available from your cluster using  a POST operation. The body of the POST includes a JSON document that provides the path to your JAR, the name of the class whose main method defines and runs the streaming application, and optionally the resource requirements of the job (such as the number of executors, memory and cores), and any configuration settings your application code requires.
 
-![Distribuera ett Spark streaming-program](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
+![Deploying a Spark Streaming application](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
 
-Status för alla program kan också kontrol leras med en GET-begäran mot en LIVY-slutpunkt. Slutligen kan du avsluta ett program som körs genom att utfärda en DELETE-begäran mot LIVY-slutpunkten. Mer information om LIVY-API: et finns i [Fjärrjobb med Apache LIVY](apache-spark-livy-rest-interface.md)
+The status of all applications can also be checked with a GET request against a LIVY endpoint. Finally, you can terminate a running application by issuing a DELETE request against the LIVY endpoint. For details on the LIVY API, see [Remote jobs with Apache LIVY](apache-spark-livy-rest-interface.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Skapa ett Apache Spark-kluster i HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md)
-* [Programmerings guide för Apache Spark strömning](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html)
-* [Starta Apache Spark jobb via en fjärr anslutning med Apache LIVY](apache-spark-livy-rest-interface.md)
+* [Apache Spark Streaming Programming Guide](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html)
+* [Launch Apache Spark jobs remotely with Apache LIVY](apache-spark-livy-rest-interface.md)

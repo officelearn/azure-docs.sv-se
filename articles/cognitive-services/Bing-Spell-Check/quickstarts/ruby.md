@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Kontrollera stavning med REST API för stavningskontroll i Bing och Ruby'
+title: 'Quickstart: Check spelling with the REST API and Ruby - Bing Spell Check'
 titleSuffix: Azure Cognitive Services
 description: Kom igång med REST API för stavningskontroll i Bing för att kontrollera stavning och grammatik.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 09/13/2019
 ms.author: aahi
-ms.openlocfilehash: bf038b97335db20349577f754bfa41e1b98ee9b7
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: e80a7bd3b56ccfd13a20c11f845d076271448b76
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996735"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383843"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>Snabbstart: Kontrollera stavning med REST API för stavningskontroll i Bing och Ruby
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>Quickstart: Check spelling with the Bing Spell Check REST API and Ruby
 
 Använd den här snabbstarten för att skicka ditt första anrop till REST API för stavningskontroll i Bing med hjälp av Ruby. Det här enkla programmet skickar en begäran till API:et och returnerar en lista över ord som det inte kände igen följt av föreslagna korrigeringar. Även om det här programmet är skrivet i Ruby, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden till det här programmet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingSpellCheckv7.rb)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) eller senare.
 
@@ -49,7 +49,7 @@ Använd den här snabbstarten för att skicka ditt första anrop till REST API f
 
 ## <a name="send-a-spell-check-request"></a>Skicka en begäran om stavningskontroll
 
-1. Skapa en URI från din värd-URI, sökväg och parametersträng. Ange att frågan ska innehålla den text som du vill stavnings kontrol lera.
+1. Skapa en URI från din värd-URI, sökväg och parametersträng. Set its query to contain the text you want to spell check.
 
    ```ruby
    uri = URI(uri + path + params)
@@ -129,5 +129,5 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Skapa en webbapp med en sida](../tutorials/spellcheck.md)
 
-- [Vad är API:et för stavningskontroll i Bing?](../overview.md)
+- [Vad är API för stavningskontroll i Bing?](../overview.md)
 - [API-referens för stavningskontroll i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

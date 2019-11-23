@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Create a custom policy definition'
 description: In this tutorial, you craft a custom policy definition for Azure Policy to enforce custom business rules on your Azure resources.
-ms.date: 04/23/2019
+ms.date: 11/21/2019
 ms.topic: tutorial
-ms.openlocfilehash: 743e3dea3c6daa7b2e713f2b1d5c1691d60785ec
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: d93f1acb383782de055983ec9ec33ce5576619d1
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74216707"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327413"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Create a custom policy definition
 
@@ -31,6 +31,8 @@ Metoden för att skapa en anpassad princip följer de här stegen:
 > - Fastställa vilken effekt som ska användas
 > - Skapa principdefinitionen
 
+## <a name="prerequisites"></a>Krav
+
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="identify-requirements"></a>Identifiera krav
@@ -50,12 +52,17 @@ Based on the business requirement, the Azure resource to audit with Azure Policy
 
 Det finns många sätt att avgöra egenskaperna för en Azure-resurs. Vi ska titta på var och en för den här självstudien:
 
+- Azure Policy extension for VS Code
 - Mallar för Resurshanteraren
   - Exportera befintlig resurs
   - Skapandeupplevelse
   - Snabbstartsmallar (GitHub)
   - Mallreferensdokument
 - Azure Resource Explorer
+
+### <a name="view-resources-in-vs-code-extension"></a>View resources in VS Code extension
+
+The [VS Code extension](../how-to/extension-for-vscode.md#search-for-and-view-resources) can be used to browse resources in your environment and see the Resource Manager properties on each resource.
 
 ### <a name="resource-manager-templates"></a>Mallar för Resurshanteraren
 
@@ -156,9 +163,14 @@ Vi har identifierat resursegenskapen, men vi behöver mappa egenskapen till ett 
 
 Det finns några olika sätt att avgöra alias för en Azure-resurs. Vi ska titta på var och en för den här självstudien:
 
+- Azure Policy extension for VS Code
 - Azure CLI
 - Azure PowerShell
 - Azure Resource Graph
+
+### <a name="get-aliases-in-vs-code-extension"></a>Get aliases in VS Code extension
+
+The Azure Policy extension for VS Code extension makes it easy to browse your resources and [discover aliases](../how-to/extension-for-vscode.md#discover-aliases-for-resource-properties).
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -188,7 +200,7 @@ Som i Azure CLI visar resultatet ett alias som stöds av lagringskonton med namn
 
 ### <a name="azure-resource-graph"></a>Azure Resource Graph
 
-[Azure Resource Graph](../../resource-graph/overview.md) är en ny tjänst som finns i förhandsversion. Det gör att en annan metod kan hitta egenskaper för Azure-resurser. Här är en exempelfråga för att titta på ett enda lagringskonto med Resource Graph:
+[Azure Resource Graph](../../resource-graph/overview.md) is a new service. Det gör att en annan metod kan hitta egenskaper för Azure-resurser. Här är en exempelfråga för att titta på ett enda lagringskonto med Resource Graph:
 
 ```kusto
 where type=~'microsoft.storage/storageaccounts'
@@ -301,12 +313,11 @@ Här är exempel på utdata från ett lagringskonto för alias:
 }
 ```
 
-Azure Resource Graph (förhandsversion) kan användas via [Cloud Shell](https://shell.azure.com), vilket gör det till ett snabbt och enkelt sätt att utforska egenskaperna för dina resurser.
+Azure Resource Graph can be used through [Cloud Shell](https://shell.azure.com), making it a fast and easy way to explore the properties of your resources.
 
 ## <a name="determine-the-effect-to-use"></a>Fastställa vilken effekt som ska användas
 
-Det är nästan lika viktigt att bestämma vad som ska göras med icke-kompatibla resurser som att bestämma vad som ska utvärderas i första hand. Varje möjligt svar på en icke-kompatibel resurs kallas för en [effekt](../concepts/effects.md).
-Effekten kontrollerar om den icke-kompatibla resursen loggas, blockeras, har bifogade data eller en distribution associerad till sig för att sätta tillbaka resursen i ett kompatibelt tillstånd.
+Det är nästan lika viktigt att bestämma vad som ska göras med icke-kompatibla resurser som att bestämma vad som ska utvärderas i första hand. Varje möjligt svar på en icke-kompatibel resurs kallas för en [effekt](../concepts/effects.md). Effekten kontrollerar om den icke-kompatibla resursen loggas, blockeras, har bifogade data eller en distribution associerad till sig för att sätta tillbaka resursen i ett kompatibelt tillstånd.
 
 I vårt exempel är Neka den effekt som vi vill ha, eftesom vi inte vill ha icke-kompatibla resurser som skapats i vår Azure-miljö. Granskning är ett bra första alternativ för en principeffekt för att avgöra vad effekten av en princip är innan du nekar. Ett sätt att underlätta ändring av effekt per tilldelning är att parameterisera effekten. Se [parametrarna](#parameters) nedan för information om hur.
 

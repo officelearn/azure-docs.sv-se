@@ -1,25 +1,25 @@
 ---
-title: Få förutsägelse med REST-anrop iC#
+title: Get prediction with REST call in C#
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/17/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: 9ab477ffd7001f0f492f63355baaee26827db845
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 2d3a000040ff1b4f6e0ae548b578e8be014dc06a
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74125627"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74414629"
 ---
 ## <a name="prerequisites"></a>Krav
 
-* [.NET Core V 2.2 +](https://dotnet.microsoft.com/download)
+* [.NET Core V2.2+](https://dotnet.microsoft.com/download)
 * [Visual Studio-kod](https://code.visualstudio.com/)
-* Offentlig app-ID: df67dcdb-c37d-46af-88e1-8b97951ca1c2
+* Public app ID: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
 ## <a name="get-luis-key"></a>Hämta LUIS-nyckel
 
@@ -27,20 +27,22 @@ ms.locfileid: "74125627"
 
 ## <a name="get-intent-programmatically"></a>Hämta avsikter programmatiskt
 
-Används C# för att fråga förutsägelse slut punkt Hämta [API](https://aka.ms/luis-apim-v3-prediction) för att hämta förutsägelse resultatet. 
+Use C# (.NET Core) to query the [prediction endpoint](https://aka.ms/luis-apim-v3-prediction) and get a prediction result.
 
-1. Skapa ett nytt konsol program som riktar C# sig mot språket, med ett projekt-och mappnamn med `predict-with-rest`. 
+1. Create a new console application targeting the C# language, with a project and folder name of `predict-with-rest`. 
 
     ```console
     dotnet new console -lang C# -n predict-with-rest
     ```
 
-1. Installera nödvändiga beroenden med följande dotNet CLI-kommandon.
+1. Change to the `predict-with-rest` directory you just created, and install required dependencies with these commands:  
 
     ```console
+    cd predict-with-rest
     dotnet add package System.Net.Http
     ```
-1. Skriv över Program.cs med följande kod:
+
+1. Open `Program.cs` in your favorite IDE or editor. Then overwrite `Program.cs` with the following code:
     
    ```csharp
     using System;
@@ -100,31 +102,31 @@ Används C# för att fråga förutsägelse slut punkt Hämta [API](https://aka.m
 
    ```
 
-1. Ersätt följande värden:
+1. Replace the following values:
 
-    * `YOUR-KEY` med din start nyckel
-    * `YOUR-ENDPOINT` med slut punkten, till exempel `westus2.api.cognitive.microsoft.com`
+    * `YOUR-KEY` with your starter key.
+    * `YOUR-ENDPOINT` with your endpoint. Till exempel `westus2.api.cognitive.microsoft.com`.
 
-1. Skapa konsolprogrammet. 
+1. Build the console application with this command: 
 
     ```console
     dotnet build
     ```
 
-1. Kör konsolprogrammet. Konsolens utdata visar samma JSON som du såg tidigare i webbläsarfönstret.
+1. Kör konsolprogrammet. The console output displays the same JSON that you saw earlier in the browser window.
 
     ```console
     dotnet run
     ```
 
-1. Granska förutsägelse svar i JSON-format:
+1. Review the prediction response, which is returned as JSON:
 
     ```console
     Hit ENTER to exit...
     {'query': 'turn on all lights', 'prediction': {'topIntent': 'HomeAutomation.TurnOn', 'intents': {'HomeAutomation.TurnOn': {'score': 0.5375382}, 'None': {'score': 0.08687421}, 'HomeAutomation.TurnOff': {'score': 0.0207554}}, 'entities': {'HomeAutomation.Operation': ['on'], '$instance': {'HomeAutomation.Operation': [{'type': 'HomeAutomation.Operation', 'text': 'on', 'startIndex': 5, 'length': 2, 'score': 0.724984169, 'modelTypeId': -1, 'modelType': 'Unknown', 'recognitionSources': ['model']}]}}}}
     ```
 
-    JSON-svaret formaterat för läsbarhet: 
+    The JSON response formatted for readability: 
 
     ```JSON
     {
@@ -173,9 +175,9 @@ Används C# för att fråga förutsägelse slut punkt Hämta [API](https://aka.m
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är färdig med den här snabb starten tar du bort filen från fil systemet. 
+When you are finished with this quickstart, delete the file from the file system. 
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lägg till yttranden och träna](../get-started-get-model-rest-apis.md)
+> [Add utterances and train](../get-started-get-model-rest-apis.md)

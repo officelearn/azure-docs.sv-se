@@ -1,40 +1,40 @@
 ---
-title: Skapa en Cognitive Services Textanalys resurs
+title: Create a Cognitive Services Text Analytics resource
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du skapar en Cognitive Services Textanalys-resurs.
+description: Learn how to create a Cognitive Services Text Analytics resource.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 06/26/2019
+ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: 6a9363472e1d5770232ca9a0b151fb309d9c4c75
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: d3b65174f3d161e0b8780a890f297d9d1c812b44
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377413"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383462"
 ---
-## <a name="create-a-cognitive-services-text-analytics-resource"></a>Skapa en Cognitive Services Textanalys resurs
+## <a name="create-a-cognitive-services-text-analytics-resource"></a>Create a Cognitive Services Text Analytics resource
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Välj **skapa en resurs**och gå sedan till **AI + Machine Learning** > **textanalys**.
-   Eller gå till [skapa textanalys](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics).
-1. Ange alla nödvändiga inställningar:
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Select **Create a resource**, and then go to **AI + Machine Learning** > **Text Analytics**.
+   Or, go to [Create Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics).
+1. Enter all the required settings:
 
     |Inställning|Värde|
     |--|--|
-    |Namn|Ange ett namn (2-64 tecken).|
-    |Subscription|Välj lämplig prenumeration.|
-    |Location|Välj en närliggande plats.|
-    |Prisnivå| Ange **S**, standard pris nivån.|
-    |Resource group|Välj en tillgänglig resurs grupp.|
+    |Namn|Enter a name (2-64 characters).|
+    |Prenumeration|Select the appropriate subscription.|
+    |Plats|Select a nearby location.|
+    |Prisnivå| Enter **S**, the standard pricing tier.|
+    |Resursgrupp|Select an available resource group.|
 
-1. Välj **skapa**och vänta tills resursen har skapats. Webbläsaren omdirigeras automatiskt till den nyligen skapade resurs sidan.
-1. Samla in den `endpoint` konfigurerade och en API-nyckel:
+1. Select **Create**, and wait for the resource to be created. Your browser automatically redirects to the newly created resource page.
+1. Collect the configured `endpoint` and an API key:
 
-    |Fliken resurs i portalen|Inställning|Värde|
+    |Resource tab in portal|Inställning|Värde|
     |--|--|--|
-    |**Översikt**|Slutpunkt|Kopiera slut punkten. Det ser ut ungefär `https://northeurope.api.cognitive.microsoft.com/text/analytics/v2.0`som.|
-    |**Nyckel**|API-nyckel|Kopiera en av de två nycklarna. Det är en alfanumerisk sträng på 32 tecken utan blank steg eller bindestreck: <`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`>.|
+    |**Översikt**|Slutpunkt|Copy the endpoint. It appears similar to `https://northeurope.api.cognitive.microsoft.com/text/analytics/v2.0`.|
+    |**Keys**|API Key|Copy one of the two keys. It's a 32-character alphanumeric string with no spaces or dashes: <`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`>.|

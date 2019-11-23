@@ -1,458 +1,458 @@
 ---
-title: Integrera VPN med Azure MFA med hjälp av nätverks princip Server tillägget-Azure Active Directory
-description: Integrera din VPN-infrastruktur med Azure MFA genom att använda nätverks princip Server tillägget för Microsoft Azure.
+title: VPN with Azure MFA using the NPS extension - Azure Active Directory
+description: Integrate your VPN infrastructure with Azure MFA by using the Network Policy Server extension for Microsoft Azure.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdf841738296f0d23bec5d68a0ad1ca0401facfb
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: fa0158b99d10b426efb02ca31cef2bc0053a976f
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812383"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74404693"
 ---
-# <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrera din VPN-infrastruktur med Azure MFA genom att använda nätverks princip Server tillägget för Azure
+# <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrate your VPN infrastructure with Azure MFA by using the Network Policy Server extension for Azure
 
-Nätverks princip Server (NPS)-tillägget för Azure gör det möjligt för organisationer att skydda RADIUS-klientautentisering (Remote Authentication Dial-In User Service) med molnbaserad [Azure Multi-Factor Authentication (MFA)](howto-mfaserver-nps-rdg.md), som innehåller två steg överensstämmelse.
+The Network Policy Server (NPS) extension for Azure allows organizations to safeguard Remote Authentication Dial-In User Service (RADIUS) client authentication using cloud-based [Azure Multi-Factor Authentication (MFA)](howto-mfaserver-nps-rdg.md), which provides two-step verification.
 
-Den här artikeln innehåller instruktioner för att integrera NPS-infrastrukturen med MFA med hjälp av NPS-tillägget för Azure. Den här processen möjliggör säker tvåstegsverifiering för användare som försöker ansluta till nätverket med hjälp av en VPN-anslutning.
+This article provides instructions for integrating NPS infrastructure with MFA by using the NPS extension for Azure. This process enables secure two-step verification for users who attempt to connect to your network by using a VPN.
 
-Nätverks princip-och nätverks åtkomst tjänster ger organisationer möjlighet att:
+Network Policy and Access Services gives organizations the ability to:
 
-* Tilldela en central plats för hantering och kontroll av nätverks begär Anden för att ange:
+* Assign a central location for the management and control of network requests to specify:
 
-  * Vem kan ansluta
+  * Who can connect
 
-  * Vilka tider på dags anslutningar som tillåts
+  * What times of day connections are allowed
 
-  * Varaktigheten för anslutningar
+  * The duration of connections
 
-  * Den säkerhets nivå som klienterna måste använda för att ansluta
+  * The level of security that clients must use to connect
 
-    I stället för att ange principer på varje VPN-eller Fjärrskrivbordsgateway-server gör du det efter att de har en central plats. RADIUS-protokollet används för att tillhandahålla centraliserad autentisering, auktorisering och redovisning (AAA).
+    Rather than specify policies on each VPN or Remote Desktop Gateway server, do so after they're in a central location. The RADIUS protocol is used to provide centralized Authentication, Authorization, and Accounting (AAA).
 
-* Fastställa och tillämpa hälsopolicys för Network Access Protection (NAP) klienten som avgör om enheter har beviljats obegränsad eller begränsad åtkomst till nätverksresurser.
+* Establish and enforce Network Access Protection (NAP) client health policies that determine whether devices are granted unrestricted or restricted access to network resources.
 
-* Tillhandahålla ett sätt att genomdriva autentisering och auktorisering för åtkomst till 802.1 x-kompatibla trådlösa åtkomst punkter och Ethernet-växlar.
-  Mer information finns i [nätverks Policy Server](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top).
+* Provide a way to enforce authentication and authorization for access to 802.1x-capable wireless access points and Ethernet switches.
+  For more information, see [Network Policy Server](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top).
 
-För att förbättra säkerheten och tillhandahålla en hög nivå av efterlevnad kan organisationer integrera NPS med Azure Multi-Factor Authentication för att säkerställa att användarna använder tvåstegsverifiering för att ansluta till den virtuella porten på VPN-servern. För att användare ska beviljas åtkomst måste de ange kombinationen av användar namn och lösen ord och annan information som de kontrollerar. Den här informationen måste vara betrodd och inte lätt att duplicera. Den kan innehålla ett mobiltelefon nummer, ett Landline nummer eller ett program på en mobil enhet.
+To enhance security and provide a high level of compliance, organizations can integrate NPS with Azure Multi-Factor Authentication to ensure that users use two-step verification to connect to the virtual port on the VPN server. For users to be granted access, they must provide their username and password combination and other information that they control. This information must be trusted and not easily duplicated. It can include a cell phone number, a landline number, or an application on a mobile device.
 
-Innan Azure-tillägget är tillgängligt för Azure måste kunder som vill implementera tvåstegsverifiering för integrerade NPS-och MFA-miljöer konfigurera och underhålla en separat MFA-server i en lokal miljö. Den här typen av autentisering erbjuds av Fjärrskrivbordsgateway och Azure Multi-Factor Authentication Server med RADIUS.
+Prior to the availability of the NPS extension for Azure, customers who wanted to implement two-step verification for integrated NPS and MFA environments had to configure and maintain a separate MFA server in an on-premises environment. This type of authentication is offered by Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS.
 
-Med NPS-tillägget för Azure kan organisationer skydda RADIUS-klientautentisering genom att distribuera antingen en lokal baserad MFA-lösning eller en molnbaserad MFA-lösning.
+With the NPS extension for Azure, organizations can secure RADIUS client authentication by deploying either an on-premises based MFA solution or a cloud-based MFA solution.
 
-## <a name="authentication-flow"></a>Autentiseringspaket
+## <a name="authentication-flow"></a>Authentication flow
 
-När användarna ansluter till en virtuell port på en VPN-server måste de först autentiseras med hjälp av olika protokoll. Protokollen gör det möjligt att använda en kombination av användar namn och lösen ord och certifikatbaserad autentiseringsmetoder.
+When users connect to a virtual port on a VPN server, they must first authenticate by using a variety of protocols. The protocols allow the use of a combination of user name and password and certificate-based authentication methods.
 
-Förutom att autentisera och verifiera sin identitet måste användarna ha lämpliga inloggnings behörigheter. I enkla implementeringar är inloggnings behörigheter som tillåter åtkomst inställda direkt på Active Directory användar objekt.
+In addition to authenticating and verifying their identity, users must have the appropriate dial-in permissions. In simple implementations, dial-in permissions that allow access are set directly on the Active Directory user objects.
 
-![Fliken fjärråtkomst i Active Directory användare och datorer användar egenskaper](./media/howto-mfa-nps-extension-vpn/image1.png)
+![Dial-in tab in Active Directory Users and Computers user properties](./media/howto-mfa-nps-extension-vpn/image1.png)
 
-I enkla implementeringar beviljas eller nekar varje VPN-Server åtkomst baserat på principer som definieras på varje lokal VPN-server.
+In simple implementations, each VPN server grants or denies access based on policies that are defined on each local VPN server.
 
-I större och mer skalbara implementeringar centraliseras de principer som beviljar eller nekar VPN-åtkomst på RADIUS-servrar. I dessa fall fungerar VPN-servern som en åtkomst Server (RADIUS-klient) som vidarebefordrar anslutnings begär Anden och konto meddelanden till en RADIUS-server. För att ansluta till den virtuella porten på VPN-servern måste användarna autentiseras och uppfylla de villkor som definieras centralt på RADIUS-servrar.
+In larger and more scalable implementations, the policies that grant or deny VPN access are centralized on RADIUS servers. In these cases, the VPN server acts as an access server (RADIUS client) that forwards connection requests and account messages to a RADIUS server. To connect to the virtual port on the VPN server, users must be authenticated and meet the conditions that are defined centrally on RADIUS servers.
 
-När NPS-tillägget för Azure är integrerat med NPS är ett lyckat resultat för autentiserings flödet enligt följande:
+When the NPS extension for Azure is integrated with the NPS, a successful authentication flow results, as follows:
 
-1. VPN-servern tar emot en autentiseringsbegäran från en VPN-användare som innehåller användar namnet och lösen ordet för att ansluta till en resurs, till exempel en fjärrskrivbordssession.
-2. VPN-servern fungerar som en RADIUS-klient och konverterar begäran till ett meddelande om RADIUS- *åtkomstbegäran* och skickar det (med ett krypterat lösen ord) till RADIUS-servern där NPS-tillägget är installerat.
-3. Kombinationen av användar namn och lösen ord verifieras i Active Directory. Om användar namnet eller lösen ordet är felaktigt skickar RADIUS-servern ett meddelande om *nekad åtkomst* .
-4. Om alla villkor, enligt vad som anges i NPS-anslutningsbegäran och nätverks principer, är uppfyllda (till exempel tid på dag eller grupp medlemskaps begränsningar), utlöser NPS-tillägget en begäran om sekundär autentisering med Azure Multi-Factor Authentication.
-5. Azure Multi-Factor Authentication kommunicerar med Azure Active Directory, hämtar användarens information och utför den sekundära autentiseringen med hjälp av metoden som kon figurer ATS av användaren (mobil telefon, textmeddelande eller mobilapp).
-6. När MFA-utmaningen är klar, skickar Azure Multi-Factor Authentication resultatet till NPS-tillägget.
-7. När anslutnings försöket är både autentiserat och auktoriserat skickas ett meddelande om RADIUS-åtkomstaccepterande till VPN- servern (RADIUS-klienten) när tillägget är installerat.
-8. Användaren beviljas åtkomst till den virtuella porten på VPN-servern och upprättar en krypterad VPN-tunnel.
+1. The VPN server receives an authentication request from a VPN user that includes the username and password for connecting to a resource, such as a Remote Desktop session.
+2. Acting as a RADIUS client, the VPN server converts the request to a RADIUS *Access-Request* message and sends it (with an encrypted password) to the RADIUS server where the NPS extension is installed.
+3. The username and password combination is verified in Active Directory. If either the username or password is incorrect, the RADIUS Server sends an *Access-Reject* message.
+4. If all conditions, as specified in the NPS Connection Request and Network Policies, are met (for example, time of day or group membership restrictions), the NPS extension triggers a request for secondary authentication with Azure Multi-Factor Authentication.
+5. Azure Multi-Factor Authentication communicates with Azure Active Directory, retrieves the user’s details, and performs the secondary authentication by using the method that's configured by the user (cell phone call, text message, or mobile app).
+6. When the MFA challenge is successful, Azure Multi-Factor Authentication communicates the result to the NPS extension.
+7. After the connection attempt is both authenticated and authorized, the NPS where the extension is installed sends a RADIUS *Access-Accept* message to the VPN server (RADIUS client).
+8. The user is granted access to the virtual port on the VPN server and establishes an encrypted VPN tunnel.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Det här avsnittet innehåller information om de förutsättningar som måste slutföras innan du kan integrera MFA med VPN. Innan du börjar måste du ha följande krav på plats:
+This section details the prerequisites that must be completed before you can integrate MFA with the VPN. Before you begin, you must have the following prerequisites in place:
 
-* VPN-infrastruktur
-* Rollen nätverks policy och åtkomst tjänster
-* Azure Multi-Factor Authentication-licens
-* Windows Server-programvara
+* VPN infrastructure
+* Network Policy and Access Services role
+* Azure Multi-Factor Authentication license
+* Windows Server software
 * Bibliotek
-* Azure Active Directory (Azure AD) har synkroniserats med lokal Active Directory
-* ID för Azure Active Directory-GUID
+* Azure Active Directory (Azure AD) synced with on-premises Active Directory
+* Azure Active Directory GUID ID
 
-### <a name="vpn-infrastructure"></a>VPN-infrastruktur
+### <a name="vpn-infrastructure"></a>VPN infrastructure
 
-Den här artikeln förutsätter att du har en fungerande VPN-infrastruktur som använder Microsoft Windows Server 2016 och att VPN-servern för närvarande inte har kon figurer ATS för att vidarebefordra anslutnings begär anden till en RADIUS-server. I artikeln konfigurerar du VPN-infrastrukturen så att den använder en central RADIUS-server.
+This article assumes that you have a working VPN infrastructure that uses Microsoft Windows Server 2016 and that your VPN server is currently not configured to forward connection requests to a RADIUS server. In the article, you configure the VPN infrastructure to use a central RADIUS server.
 
-Om du inte har en fungerande VPN-infrastruktur på plats kan du snabbt skapa en genom att följa rikt linjerna i de olika självstudierna för VPN-installationen som du hittar på Microsoft och tredje parts webbplatser.
+If you do not have a working VPN infrastructure in place, you can quickly create one by following the guidance in numerous VPN setup tutorials that you can find on the Microsoft and third-party sites.
 
-### <a name="the-network-policy-and-access-services-role"></a>Rollen nätverks policy och åtkomst tjänster
+### <a name="the-network-policy-and-access-services-role"></a>The Network Policy and Access Services role
 
-Nätverks princip-och nätverks åtkomst tjänster tillhandahåller funktioner för RADIUS-server och klient. Den här artikeln förutsätter att du har installerat rollen nätverks policy och åtkomst tjänster på en medlems Server eller domänkontrollant i din miljö. I den här guiden konfigurerar du RADIUS för en VPN-konfiguration. Installera rollen nätverks policy och åtkomst tjänster på en annan server *än* VPN-servern.
+Network Policy and Access Services provides the RADIUS server and client functionality. This article assumes that you have installed the Network Policy and Access Services role on a member server or domain controller in your environment. In this guide, you configure RADIUS for a VPN configuration. Install the Network Policy and Access Services role on a server *other than* your VPN server.
 
-Information om hur du installerar roll tjänsten nätverks policy och åtkomst tjänster Windows Server 2012 eller senare finns i [installera en NAP-hälsopolicy Server](https://technet.microsoft.com/library/dd296890.aspx). NAP är inaktuellt i Windows Server 2016. En beskrivning av metod tips för NPS, inklusive rekommendationer för att installera NPS på en domänkontrollant finns i [metod tips för NPS](https://technet.microsoft.com/library/cc771746).
+For information about installing the Network Policy and Access Services role service Windows Server 2012 or later, see [Install a NAP Health Policy Server](https://technet.microsoft.com/library/dd296890.aspx). NAP is deprecated in Windows Server 2016. For a description of best practices for NPS, including the recommendation to install NPS on a domain controller, see [Best practices for NPS](https://technet.microsoft.com/library/cc771746).
 
-### <a name="azure-mfa-license"></a>Azure MFA-licens
+### <a name="azure-mfa-license"></a>Azure MFA License
 
-En licens krävs för Azure Multi-Factor Authentication, och den är tillgänglig via en Azure AD Premium, Enterprise Mobility + Security eller en fristående licens för Multi-Factor Authentication. Användnings licenser för Azure MFA, till exempel per användare eller per autentisering, är inte kompatibla med NPS-tillägget. Mer information finns i [så här hämtar du Azure Multi-Factor Authentication](concept-mfa-licensing.md). I testsyfte kan du använda en utvärderingsprenumeration.
+A license is required for Azure Multi-Factor Authentication, and it is available through an Azure AD Premium, Enterprise Mobility + Security, or a Multi-Factor Authentication stand-alone license. Consumption-based licenses for Azure MFA such as per user or per authentication licenses are not compatible with the NPS extension. For more information, see [How to get Azure Multi-Factor Authentication](concept-mfa-licensing.md). For testing purposes, you can use a trial subscription.
 
-### <a name="windows-server-software"></a>Windows Server-programvara
+### <a name="windows-server-software"></a>Windows Server software
 
-NPS-tillägget kräver Windows Server 2008 R2 SP1 eller senare, med rollen nätverks policy och åtkomst tjänster installerad. Alla steg i den här guiden utfördes med Windows Server 2016.
+The NPS extension requires Windows Server 2008 R2 SP1 or later, with the Network Policy and Access Services role installed. All the steps in this guide were performed with Windows Server 2016.
 
 ### <a name="libraries"></a>Bibliotek
 
-Följande bibliotek installeras automatiskt med NPS-tillägget:
+The following libraries are installed automatically with the NPS extension:
 
--   [Visual C++ Redistributable-paket för visual Studio 2013 (x64)](https://www.microsoft.com/download/details.aspx?id=40784)
--   [Microsoft Azure Active Directory-modul för Windows PowerShell version 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
+-   [Visual C++ Redistributable Packages for Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
+-   [Microsoft Azure Active Directory Module for Windows PowerShell version 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
 
-Om Microsoft Azure Active Directory PowerShell-modulen inte redan finns installeras den med ett konfigurations skript som du kör som en del av installations processen. Du behöver inte installera modulen i förväg om den inte redan är installerad.
+If the Microsoft Azure Active Directory PowerShell Module is not already present, it is installed with a configuration script that you run as part of the setup process. There is no need to install the module ahead of time if it is not already installed.
 
-### <a name="azure-active-directory-synced-with-on-premises-active-directory"></a>Azure Active Directory synkroniseras med lokala Active Directory
+### <a name="azure-active-directory-synced-with-on-premises-active-directory"></a>Azure Active Directory synced with on-premises Active Directory
 
-Om du vill använda NPS-tillägget måste lokala användare synkroniseras med Azure Active Directory och aktive ras för MFA. Den här guiden förutsätter att lokala användare synkroniseras med Azure Active Directory via Azure AD Connect. Instruktioner för att aktivera användare för MFA anges nedan.
+To use the NPS extension, on-premises users must be synced with Azure Active Directory and enabled for MFA. This guide assumes that on-premises users are synced with Azure Active Directory via Azure AD Connect. Instructions for enabling users for MFA are provided below.
 
-Information om Azure AD Connect finns i [integrera dina lokala kataloger med Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
+For information about Azure AD Connect, see [Integrate your on-premises directories with Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 
-### <a name="azure-active-directory-guid-id"></a>ID för Azure Active Directory-GUID
+### <a name="azure-active-directory-guid-id"></a>Azure Active Directory GUID ID
 
-Om du vill installera NPS-tillägget måste du känna till GUID för Azure Active Directory. Instruktioner för att hitta GUID för Azure Active Directory finns i nästa avsnitt.
+To install the NPS extension, you need to know the GUID of the Azure Active Directory. Instructions for finding the GUID of the Azure Active Directory are provided in the next section.
 
-## <a name="configure-radius-for-vpn-connections"></a>Konfigurera RADIUS för VPN-anslutningar
+## <a name="configure-radius-for-vpn-connections"></a>Configure RADIUS for VPN connections
 
-Om du har installerat NPS-rollen på en medlems Server måste du konfigurera den för att autentisera och auktorisera VPN-klienten som begär VPN-anslutningar. 
+If you have installed the NPS role on a member server, you need to configure it to authenticate and authorize the VPN client that requests VPN connections. 
 
-Det här avsnittet förutsätter att du har installerat rollen nätverks policy och åtkomst tjänster men inte har konfigurerat den för användning i din infrastruktur.
+This section assumes that you have installed the Network Policy and Access Services role but have not configured it for use in your infrastructure.
 
 > [!NOTE]
-> Om du redan har en fungerande VPN-server som använder en centraliserad RADIUS-server för autentisering kan du hoppa över det här avsnittet.
+> If you already have a working VPN server that uses a centralized RADIUS server for authentication, you can skip this section.
 >
 
-### <a name="register-server-in-active-directory"></a>Registrera servern i Active Directory
+### <a name="register-server-in-active-directory"></a>Register Server in Active Directory
 
-För att fungera korrekt i det här scenariot måste NPS-servern registreras i Active Directory.
+To function properly in this scenario, the NPS server must be registered in Active Directory.
 
-1. Öppna Serverhanteraren.
+1. Open Server Manager.
 
-2. I Serverhanteraren väljer du **verktyg**och sedan **nätverks princip Server**.
+2. In Server Manager, select **Tools**, and then select **Network Policy Server**.
 
-3. Högerklicka på **NPS (lokal)** i konsolen nätverks princip Server och välj sedan **registrera server i Active Directory**. Välj **OK** två gånger.
+3. In the Network Policy Server console, right-click **NPS (Local)** , and then select **Register server in Active Directory**. Select **OK** two times.
 
-    ![Meny alternativet registrera servern i Active Directory](./media/howto-mfa-nps-extension-vpn/image2.png)
+    ![Register server in Active Directory menu option](./media/howto-mfa-nps-extension-vpn/image2.png)
 
-4. Lämna konsolen öppen för nästa procedur.
+4. Leave the console open for the next procedure.
 
-### <a name="use-wizard-to-configure-the-radius-server"></a>Använd guiden för att konfigurera RADIUS-servern
+### <a name="use-wizard-to-configure-the-radius-server"></a>Use wizard to configure the RADIUS server
 
-Du kan använda ett standard konfigurations alternativ (guide-baserad) eller Avancerat konfigurations alternativ för att konfigurera RADIUS-servern. I det här avsnittet förutsätter vi att du använder det guidebaserade standard konfigurations alternativet.
+You can use a standard (wizard-based) or advanced configuration option to configure the RADIUS server. This section assumes that you're using the wizard-based standard configuration option.
 
-1. I konsolen nätverks princip server väljer du **NPS (lokal)** .
+1. In the Network Policy Server console, select **NPS (Local)** .
 
-2. Under **standard konfiguration**väljer du **RADIUS-server för fjärr anslutningar eller VPN-anslutningar**och väljer sedan **Konfigurera VPN eller fjärr anslutning**.
+2. Under **Standard Configuration**, select **RADIUS Server for Dial-Up or VPN Connections**, and then select **Configure VPN or Dial-Up**.
 
-    ![Konfigurera RADIUS-server för fjärr anslutningar eller VPN-anslutningar](./media/howto-mfa-nps-extension-vpn/image3.png)
+    ![Configure RADIUS Server for Dial-Up or VPN Connections](./media/howto-mfa-nps-extension-vpn/image3.png)
 
-3. I fönstret **Välj anslutning för fjärr anslutning eller virtuellt privat nätverk** väljer du anslutningar för **virtuella privata nätverk**och väljer sedan **Nästa**.
+3. In the **Select Dial-up or Virtual Private Network Connections Type** window, select **Virtual Private Network Connections**, and then select **Next**.
 
-    ![Konfigurera anslutningar för virtuella privata nätverk](./media/howto-mfa-nps-extension-vpn/image4.png)
+    ![Configure Virtual private network connections](./media/howto-mfa-nps-extension-vpn/image4.png)
 
-4. I fönstret **Ange fjärr anslutning eller VPN-Server** väljer du **Lägg till**.
+4. In the **Specify Dial-Up or VPN Server** window, select **Add**.
 
-5. I fönstret **ny RADIUS-klient** anger du ett eget namn, anger det matchade namnet eller IP-adressen för VPN-servern och anger sedan ett delat hemligt lösen ord. Gör det delade hemliga lösen ordet långt och komplicerat. Registrera den eftersom du behöver den i nästa avsnitt.
+5. In the **New RADIUS client** window, provide a friendly name, enter the resolvable name or IP address of the VPN server, and then enter a shared secret password. Make the shared secret password long and complex. Record it, because you'll need it in the next section.
 
-    ![Skapa ett nytt fönster för en RADIUS-klient](./media/howto-mfa-nps-extension-vpn/image5.png)
+    ![Create a New RADIUS client window](./media/howto-mfa-nps-extension-vpn/image5.png)
 
-6. Välj **OK**och välj sedan **Nästa**.
+6. Select **OK**, and then select **Next**.
 
-7. I fönstret **Konfigurera autentiseringsmetoder** godkänner du standard valet (**Microsoft Encrypted Authentication version 2 [MS-CHAPv2])** eller väljer ett annat alternativ och väljer **Nästa**.
+7. In the **Configure Authentication Methods** window, accept the default selection (**Microsoft Encrypted Authentication version 2 [MS-CHAPv2])** or choose another option, and select **Next**.
 
     > [!NOTE]
-    > Om du konfigurerar EAP (Extensible Authentication Protocol) måste du använda antingen Microsoft Challenge-Handshake Authentication Protocol (CHAPv2) eller PEAP (Protected Extensible Authentication Protocol). Ingen annan EAP stöds.
+    > If you configure Extensible Authentication Protocol (EAP), you must use either Microsoft Challenge-Handshake Authentication Protocol (CHAPv2) or Protected Extensible Authentication Protocol (PEAP). No other EAP is supported.
 
-8. I fönstret **Ange användar grupper** väljer du **Lägg till**och väljer sedan en lämplig grupp. Lämna alternativet tomt om det inte finns någon grupp för att bevilja åtkomst till alla användare.
+8. In the **Specify User Groups** window, select **Add**, and then select an appropriate group. If no group exists, leave the selection blank to grant access to all users.
 
-    ![Fönstret Ange användar grupper för att tillåta eller neka åtkomst](./media/howto-mfa-nps-extension-vpn/image7.png)
+    ![Specify User Groups window to allow or deny access](./media/howto-mfa-nps-extension-vpn/image7.png)
 
 9. Välj **Nästa**.
 
-10. I fönstret **Ange IP-filter** väljer du **Nästa**.
+10. In the **Specify IP Filters** window, select **Next**.
 
-11. I fönstret **Ange krypterings inställningar** godkänner du standardinställningarna och väljer sedan **Nästa**.
+11. In the **Specify Encryption Settings** window, accept the default settings, and then select **Next**.
 
-    ![Fönstret Ange krypterings inställningar](./media/howto-mfa-nps-extension-vpn/image8.png)
+    ![The Specify Encryption Settings window](./media/howto-mfa-nps-extension-vpn/image8.png)
 
-12. I fönstret **Ange ett sfärnamn** lämnar du sfär namnet tomt, accepterar standardinställningen och väljer sedan **Nästa**.
+12. In the **Specify a Realm Name** window, leave the realm name blank, accept the default setting, and then select **Next**.
 
-    ![Fönstret Ange ett sfärnamn](./media/howto-mfa-nps-extension-vpn/image9.png)
+    ![The Specify a Realm Name window](./media/howto-mfa-nps-extension-vpn/image9.png)
 
-13. I fönstret **Slutför nya fjärr anslutningar eller virtuella privata nätverk och RADIUS-klienter** väljer du **Slutför**.
+13. In the **Completing New Dial-up or Virtual Private Network Connections and RADIUS clients** window, select **Finish**.
 
-    ![Slutfört konfigurations fönster](./media/howto-mfa-nps-extension-vpn/image10.png)
+    ![Completed configuration window](./media/howto-mfa-nps-extension-vpn/image10.png)
 
-### <a name="verify-the-radius-configuration"></a>Verifiera RADIUS-konfigurationen
+### <a name="verify-the-radius-configuration"></a>Verify the RADIUS configuration
 
-I det här avsnittet beskrivs konfigurationen som du skapade med hjälp av guiden.
+This section details the configuration you created by using the wizard.
 
-1. På nätverks princip servern, i NPS-konsolen (lokal), expanderar du **RADIUS-klienter**och väljer sedan **RADIUS-klienter**.
+1. On the Network Policy Server, in the NPS (local) console, expand **RADIUS Clients**, and then select **RADIUS Clients**.
 
-2. I informations fönstret högerklickar du på RADIUS-klienten som du skapade och väljer sedan **Egenskaper**. Egenskaperna för RADIUS-klienten (VPN-servern) bör vara som de som visas här:
+2. In the details pane, right-click the RADIUS client that you created, and then select **Properties**. The properties of your RADIUS client (the VPN server) should be like those shown here:
 
-    ![Verifiera VPN-egenskaperna och konfigurationen](./media/howto-mfa-nps-extension-vpn/image11.png)
+    ![Verify the VPN properties and configuration](./media/howto-mfa-nps-extension-vpn/image11.png)
 
-3. Välj **Avbryt**.
+3. Select **Cancel**.
 
-4. På nätverks princip servern, i NPS-konsolen (lokal), expanderar du **principer**och väljer sedan **principer för anslutningsbegäran**. Principen för VPN-anslutningar visas på det sätt som visas i följande bild:
+4. On the Network Policy Server, in the NPS (local) console, expand **Policies**, and then select **Connection Request Policies**. The VPN Connections policy is displayed as shown in the following image:
 
-    ![Princip för anslutningsbegäran som visar princip för VPN-anslutning](./media/howto-mfa-nps-extension-vpn/image12.png)
+    ![Connection request policy showing VPN connection policy](./media/howto-mfa-nps-extension-vpn/image12.png)
 
-5. Under **principer**väljer du **nätverks principer**. Du bör se en anslutning för virtuella privata nätverk (VPN) som liknar principen som visas i följande bild:
+5. Under **Policies**, select **Network Policies**. You should see a Virtual Private Network (VPN) Connections policy that resembles the policy shown in the following image:
 
-    ![Nätverks principer som visar princip för anslutningar för virtuella privata nätverk](./media/howto-mfa-nps-extension-vpn/image13.png)
+    ![Network Policies showing Virtual Private Network Connections policy](./media/howto-mfa-nps-extension-vpn/image13.png)
 
-## <a name="configure-your-vpn-server-to-use-radius-authentication"></a>Konfigurera VPN-servern så att den använder RADIUS-autentisering
+## <a name="configure-your-vpn-server-to-use-radius-authentication"></a>Configure your VPN server to use RADIUS authentication
 
-I det här avsnittet konfigurerar du VPN-servern för att använda RADIUS-autentisering. Anvisningarna förutsätter att du har en fungerande konfiguration av en VPN-server men inte har konfigurerat den för att använda RADIUS-autentisering. När du har konfigurerat VPN-servern bekräftar du att konfigurationen fungerar som förväntat.
+In this section, you configure your VPN server to use RADIUS authentication. The instructions assume that you have a working configuration of a VPN server but have not configured it to use RADIUS authentication. After you configure the VPN server, confirm that your configuration is working as expected.
 
 > [!NOTE]
-> Om du redan har en fungerande VPN-serverkonfiguration som använder RADIUS-autentisering kan du hoppa över det här avsnittet.
+> If you already have a working VPN server configuration that uses RADIUS authentication, you can skip this section.
 >
 
-### <a name="configure-authentication-provider"></a>Konfigurera autentiseringsprovider
+### <a name="configure-authentication-provider"></a>Configure authentication provider
 
-1. Öppna Serverhanteraren på VPN-servern.
+1. On the VPN server, open Server Manager.
 
-2. I Serverhanteraren väljer du **verktyg**och sedan **Routning och fjärråtkomst**.
+2. In Server Manager, select **Tools**, and then select **Routing and Remote Access**.
 
-3. I fönstret **Routning och fjärråtkomst** högerklickar du på  **\<Server namn > (lokalt)** och väljer sedan **Egenskaper**.
+3. In the **Routing and Remote Access** window, right-click **\<server name> (local)** , and then select **Properties**.
 
-4. I egenskaps fönstret  **Servernamn>(lokal)väljerdufliken\<** säkerhet.
+4. In the **\<server name> (local) Properties** window, select the **Security** tab.
 
-5. På fliken **säkerhet** under **autentiseringsprovider**väljer du **RADIUS-autentisering**och väljer sedan **Konfigurera**.
+5. On the **Security** tab, under **Authentication provider**, select **RADIUS Authentication**, and then select **Configure**.
 
-    ![Konfigurera Provider för RADIUS-autentisering](./media/howto-mfa-nps-extension-vpn/image15.png)
+    ![Configure RADIUS Authentication provider](./media/howto-mfa-nps-extension-vpn/image15.png)
 
-6. I fönstret **RADIUS-autentisering** väljer du **Lägg till**.
+6. In the **RADIUS Authentication** window, select **Add**.
 
-7. Gör följande i fönstret **Lägg till RADIUS-server** :
+7. In the **Add RADIUS Server** window, do the following:
 
-    a. I rutan **Server namn** anger du namnet eller IP-adressen för RADIUS-servern som du konfigurerade i föregående avsnitt.
+    a. In the **Server name** box, enter the name or IP address of the RADIUS server that you configured in the previous section.
 
-    b. För den **delade hemligheten**väljer du **ändra**och anger sedan det delade hemliga lösen ord som du skapade och registrerade tidigare.
+    b. For the **Shared secret**, select **Change**, and then enter the shared secret password that you created and recorded earlier.
 
-    c. I rutan **tids gräns (sekunder)** anger du ett värde på **30**.  
-    Timeout-värdet är nödvändigt för att tillåta tillräckligt med tid för att slutföra den andra autentiserings faktorn.
+    c. In the **Time-out (seconds)** box, enter a value of **30**.  
+    The timeout value is necessary to allow enough time to complete the second authentication factor.
 
-    ![Fönstret Lägg till RADIUS-server konfigurera timeout](./media/howto-mfa-nps-extension-vpn/image16.png)
+    ![Add RADIUS Server window configuring the Time-out](./media/howto-mfa-nps-extension-vpn/image16.png)
 
 8. Välj **OK**.
 
-### <a name="test-vpn-connectivity"></a>Testa VPN-anslutning
+### <a name="test-vpn-connectivity"></a>Test VPN connectivity
 
-I det här avsnittet bekräftar du att VPN-klienten autentiseras och auktoriseras av RADIUS-servern när du försöker ansluta till den virtuella VPN-porten. Anvisningarna förutsätter att du använder Windows 10 som en VPN-klient.
+In this section, you confirm that the VPN client is authenticated and authorized by the RADIUS server when you attempt to connect to the VPN virtual port. The instructions assume that you are using Windows 10 as a VPN client.
 
 > [!NOTE]
-> Om du redan har konfigurerat en VPN-klient för att ansluta till VPN-servern och har sparat inställningarna kan du hoppa över de steg som är relaterade till att konfigurera och spara ett VPN-anslutningsobjektet.
+> If you already configured a VPN client to connect to the VPN server and have saved the settings, you can skip the steps related to configuring and saving a VPN connection object.
 >
 
-1. På din VPN-klientdator väljer du knappen **Start** och väljer sedan knappen **Inställningar** .
+1. On your VPN client computer, select the **Start** button, and then select the **Settings** button.
 
-2. I fönstret **Windows-inställningar** väljer du **nätverks & Internet**.
+2. In the **Windows Settings** window, select **Network & Internet**.
 
-3. Välj **VPN**.
+3. Select **VPN**.
 
-4. Välj **Lägg till en VPN-anslutning**.
+4. Select **Add a VPN connection**.
 
-5. I rutan **VPN-Provider** i rutan **Lägg till en VPN-anslutning** väljer du **Windows (inbyggt)** , fyller i återstående fält efter behov och väljer sedan **Spara**.
+5. In the **Add a VPN connection** window, in the **VPN provider** box, select **Windows (built-in)** , complete the remaining fields, as appropriate, and then select **Save**.
 
-    ![Fönstret "Lägg till en VPN-anslutning"](./media/howto-mfa-nps-extension-vpn/image17.png)
+    ![The "Add a VPN connection" window](./media/howto-mfa-nps-extension-vpn/image17.png)
 
-6. Gå till **kontroll panelen**och välj nätverks- **och delnings Center**.
+6. Go to **Control Panel**, and then select **Network and Sharing Center**.
 
-7. Välj **ändra inställningar för nätverkskort**.
+7. Select **Change adapter settings**.
 
-    ![Nätverks-och delnings Center – ändra inställningar för nätverkskort](./media/howto-mfa-nps-extension-vpn/image18.png)
+    ![Network and Sharing Center - Change adapter settings](./media/howto-mfa-nps-extension-vpn/image18.png)
 
-8. Högerklicka på VPN-nätverksanslutningen och välj sedan **Egenskaper**.
+8. Right-click the VPN network connection, and then select **Properties**.
 
-9. I fönstret VPN-egenskaper väljer du fliken **säkerhet** .
+9. In the VPN properties window, select the **Security** tab.
 
-10. På fliken **säkerhet** kontrollerar du att endast **Microsoft CHAP version 2 (MS-CHAP v2)** är markerat och väljer sedan **OK**.
+10. On the **Security** tab, ensure that only **Microsoft CHAP Version 2 (MS-CHAP v2)** is selected, and then select **OK**.
 
-    ![Alternativet Tillåt följande protokoll](./media/howto-mfa-nps-extension-vpn/image20.png)
+    ![The "Allow  these protocols" option](./media/howto-mfa-nps-extension-vpn/image20.png)
 
-11. Högerklicka på VPN-anslutningen och välj sedan **Anslut**.
+11. Right-click the VPN connection, and then select **Connect**.
 
-12. I fönstret **Inställningar** väljer du **Anslut**.  
-    En lyckad anslutning visas i säkerhets loggen på RADIUS-servern, som händelse-ID 6272, som du ser här:
+12. In the **Settings** window, select **Connect**.  
+    A successful connection appears in the Security log, on the RADIUS server, as Event ID 6272, as shown here:
 
-    ![Händelse Fönstret Egenskaper visar en lyckad anslutning](./media/howto-mfa-nps-extension-vpn/image21.png)
+    ![Event Properties window showing a successful connection](./media/howto-mfa-nps-extension-vpn/image21.png)
 
-## <a name="troubleshooting-radius"></a>Felsöka RADIUS
+## <a name="troubleshooting-radius"></a>Troubleshooting RADIUS
 
-Anta att VPN-konfigurationen fungerade innan du konfigurerade VPN-servern för att använda en centraliserad RADIUS-server för autentisering och auktorisering. Om konfigurationen fungerade är det troligt att problemet orsakas av en felaktig konfiguration av RADIUS-servern eller att ett ogiltigt användar namn eller lösen ord används. Om du till exempel använder det alternativa UPN-suffixet i användar namnet kan inloggnings försöket Miss lyckas. Använd samma konto namn för bästa möjliga resultat.
+Assume that your VPN configuration was working before you configured the VPN server to use a centralized RADIUS server for authentication and authorization. If the configuration was working, it is likely that the issue is caused by a misconfiguration of the RADIUS server or the use of an invalid username or password. For example, if you use the alternate UPN suffix in the username, the sign-in attempt might fail. Use the same account name for best results.
 
-För att felsöka problemen är det en bra plats att börja med att granska säkerhets händelse loggarna på RADIUS-servern. Om du vill spara tid genom att söka efter händelser kan du använda den rollbaserade nätverks principen och åtkomst servern anpassad vy i Loggboken, som visas här. "Händelse-ID 6273" indikerar händelser där NPS nekade åtkomst till en användare.
+To troubleshoot these issues, an ideal place to start is to examine the Security event logs on the RADIUS server. To save time searching for events, you can use the role-based Network Policy and Access Server custom view in Event Viewer, as shown here. "Event ID 6273" indicates events where the NPS denied access to a user.
 
-![Loggboken som visar NPAS-händelser](./media/howto-mfa-nps-extension-vpn/image22.png)
+![Event Viewer showing NPAS events](./media/howto-mfa-nps-extension-vpn/image22.png)
 
-## <a name="configure-multi-factor-authentication"></a>Konfigurera Multi-Factor Authentication
+## <a name="configure-multi-factor-authentication"></a>Configure Multi-Factor Authentication
 
-Hjälp med att konfigurera användare för Multi-Factor Authentication finns i artiklarna [Planera en molnbaserad Azure Multi-Factor Authentication-distribution](howto-mfa-getstarted.md#create-conditional-access-policy) och [Konfigurera mitt konto för tvåstegsverifiering](../user-help/multi-factor-authentication-end-user-first-time.md)
+For assistance configuring users for Multi-Factor Authentication see the articles [Planning a cloud-based Azure Multi-Factor Authentication deployment](howto-mfa-getstarted.md#create-conditional-access-policy) and [Set up my account for two-step verification](../user-help/multi-factor-authentication-end-user-first-time.md)
 
-## <a name="install-and-configure-the-nps-extension"></a>Installera och konfigurera NPS-tillägget
+## <a name="install-and-configure-the-nps-extension"></a>Install and configure the NPS extension
 
-Det här avsnittet innehåller instruktioner för hur du konfigurerar VPN att använda MFA för klientautentisering med VPN-servern.
+This section provides instructions for configuring VPN to use MFA for client authentication with the VPN server.
 
-När du har installerat och konfigurerat NPS-tillägget krävs all RADIUS-baserad klientautentisering som bearbetas av den här servern för att använda MFA. Om alla VPN-användare inte har registrerats i Azure Multi-Factor Authentication kan du göra något av följande:
+After you install and configure the NPS extension, all RADIUS-based client authentication that is processed by this server is required to use MFA. If all your VPN users are not enrolled in Azure Multi-Factor Authentication, you can do either of the following:
 
-* Konfigurera en annan RADIUS-server för att autentisera användare som inte är konfigurerade att använda MFA.
+* Set up another RADIUS server to authenticate users who are not configured to use MFA.
 
-* Skapa en register post som gör det möjligt för användaren att ange en andra autentiseringsmetod om de registreras i Azure Multi-Factor Authentication.
+* Create a registry entry that allows challenged users to provide a second authentication factor if they are enrolled in Azure Multi-Factor Authentication.
 
-Skapa ett nytt sträng värde med namnet _REQUIRE_USER_MATCH i HKLM\SOFTWARE\Microsoft\AzureMfa_och Ställ in värdet på *True* eller *false*.
+Create a new string value named _REQUIRE_USER_MATCH in HKLM\SOFTWARE\Microsoft\AzureMfa_, and set the value to *True* or *False*.
 
-![Inställningen Kräv användar matchning](./media/howto-mfa-nps-extension-vpn/image34.png)
+![The "Require User Match" setting](./media/howto-mfa-nps-extension-vpn/image34.png)
 
-Om värdet är inställt på *Sant* eller tomt, omfattas alla autentiseringsbegäranden till en MFA-utmaning. Om värdet är false utfärdasMFA-utmaningarna endast till användare som har registrerats i Azure Multi-Factor Authentication. Använd inställningen *falskt* endast vid testning eller i produktions miljöer under en onboarding-period.
+If the value is set to *True* or is blank, all authentication requests are subject to an MFA challenge. If the value is set to *False*, MFA challenges are issued only to users who are enrolled in Azure Multi-Factor Authentication. Use the *False* setting only in testing or in production environments during an onboarding period.
 
-### <a name="obtain-the-azure-active-directory-guid-id"></a>Hämta Azure Active Directory GUID-ID
+### <a name="obtain-the-azure-active-directory-guid-id"></a>Obtain the Azure Active Directory GUID ID
 
-Som en del av konfigurationen av NPS-tillägget måste du ange administratörsautentiseringsuppgifter och ID för din Azure AD-klient. Hämta ID: t genom att göra följande:
+As part of the configuration of the NPS extension, you must supply administrator credentials and the ID of your Azure AD tenant. Obtain the ID by doing the following:
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) som global administratör för Azure-klient.
+1. Sign in to the [Azure portal](https://portal.azure.com) as the global administrator of the Azure tenant.
 
-2. I den vänstra rutan väljer du knappen **Azure Active Directory** .
+2. In the left pane, select the **Azure Active Directory** button.
 
-3. Välj **egenskaper**.
+3. Välj **Egenskaper**.
 
-4. Om du vill kopiera ditt Azure AD-ID väljer du knappen **Kopiera** .
+4. To copy your Azure AD ID, select the **Copy** button.
 
-    ![Azure AD-katalog-ID i Azure Portal](./media/howto-mfa-nps-extension-vpn/image35.png)
+    ![Azure AD Directory ID in the Azure portal](./media/howto-mfa-nps-extension-vpn/image35.png)
 
-### <a name="install-the-nps-extension"></a>Installera NPS-tillägget
+### <a name="install-the-nps-extension"></a>Install the NPS extension
 
-NPS-tillägget måste vara installerat på en server som har rollen nätverks policy och åtkomst tjänster installerad och som fungerar som RADIUS-server i din design. Installera *inte* NPS-tillägget på VPN-servern.
+The NPS extension must be installed on a server that has the Network Policy and Access Services role installed and that functions as the RADIUS server in your design. Do *not* install the NPS extension on your VPN server.
 
-1. Ladda ned NPS-tillägget från [Microsoft Download Center](https://aka.ms/npsmfa).
+1. Download the NPS extension from [Microsoft Download Center](https://aka.ms/npsmfa).
 
-2. Kopiera installations programmets körbara fil (*NpsExtnForAzureMfaInstaller. exe*) till NPS-servern.
+2. Copy the setup executable file (*NpsExtnForAzureMfaInstaller.exe*) to the NPS server.
 
-3. Dubbelklicka på **NpsExtnForAzureMfaInstaller. exe** på NPS-servern och välj **Kör**om du uppmanas att göra det.
+3. On the NPS server, double-click **NpsExtnForAzureMfaInstaller.exe** and, if you are prompted, select **Run**.
 
-4. I fönstret **NPS-tillägg för Azure MFA-installationsprogrammet** granskar du licens villkoren för program vara, markerar kryss rutan **Jag godkänner licens villkoren och** väljer sedan **Installera**.
+4. In the **NPS Extension For Azure MFA Setup** window, review the software license terms, select the **I agree to the license terms and conditions** check box, and then select **Install**.
 
-    ![Fönstret "NPS-tillägg för Azure MFA-installation"](./media/howto-mfa-nps-extension-vpn/image36.png)
+    ![The "NPS Extension for Azure MFA Setup" window](./media/howto-mfa-nps-extension-vpn/image36.png)
 
-5. I fönstret **NPS-tillägg för Azure MFA-installationen** väljer du **Stäng**.  
+5. In the **NPS Extension For Azure MFA Setup** window, select **Close**.  
 
-    ![Bekräftelse fönstret "installationen lyckades"](./media/howto-mfa-nps-extension-vpn/image37.png)
+    ![The "Setup Successful" confirmation window](./media/howto-mfa-nps-extension-vpn/image37.png)
 
-### <a name="configure-certificates-for-use-with-the-nps-extension-by-using-a-powershell-script"></a>Konfigurera certifikat för användning med NPS-tillägget med hjälp av ett PowerShell-skript
+### <a name="configure-certificates-for-use-with-the-nps-extension-by-using-a-powershell-script"></a>Configure certificates for use with the NPS extension by using a PowerShell script
 
-Konfigurera certifikat för användning av NPS-tillägget för att säkerställa säker kommunikation och säkerhet. NPS-komponenterna är ett Windows PowerShell-skript som konfigurerar ett självsignerat certifikat för användning med NPS.
+To ensure secure communications and assurance, configure certificates for use by the NPS extension. The NPS components include a Windows PowerShell script that configures a self-signed certificate for use with NPS.
 
-Skriptet utför följande åtgärder:
+The script performs the following actions:
 
-* Skapar ett självsignerat certifikat.
-* Associerar certifikatets offentliga nyckel till tjänstens huvud namn i Azure AD.
-* Lagrar certifikatet i den lokala datorns Arkiv.
-* Ger nätverks användaren åtkomst till certifikatets privata nyckel.
-* Startar om NPS-tjänsten.
+* Creates a self-signed certificate.
+* Associates the public key of the certificate to the service principal on Azure AD.
+* Stores the certificate in the local machine store.
+* Grants the network user access to the certificate’s private key.
+* Restarts the NPS service.
 
-Om du vill använda dina egna certifikat måste du associera den offentliga nyckeln för ditt certifikat med tjänstens huvud namn i Azure AD och så vidare.
+If you want to use your own certificates, you must associate the public key of your certificate with the service principal on Azure AD, and so on.
 
-Om du vill använda skriptet anger du fil namns tillägget med Azure Active Directory administratörs behörighet och Azure Active Directory klient-ID som du kopierade tidigare. Kör skriptet på varje NPS-server där du installerar NPS-tillägget.
+To use the script, provide the extension with your Azure Active Directory administrative credentials and the Azure Active Directory tenant ID that you copied earlier. Run the script on each NPS server where you install the NPS extension.
 
-1. Kör Windows PowerShell som administratör.
+1. Run Windows PowerShell as an administrator.
 
-2. I PowerShell-kommandotolken skriver du **CD "C:\Program Files\Microsoft\AzureMfa\Config"** och väljer sedan Retur.
+2. At the PowerShell command prompt, enter **cd "c:\Program Files\Microsoft\AzureMfa\Config"** , and then select Enter.
 
-3. I nästa kommando tolk skriver du **.\AzureMfaNpsExtnConfigSetup.ps1**och väljer sedan Retur. Skriptet kontrollerar om Azure AD PowerShell-modulen är installerad. Om den inte är installerad, installerar skriptet modulen åt dig.
+3. At the next command prompt, enter **.\AzureMfaNpsExtnConfigSetup.ps1**, and then select Enter. The script checks to see whether the Azure AD PowerShell module is installed. If it is not installed, the script installs the module for you.
 
-    ![Köra konfigurations skriptet AzureMfsNpsExtnConfigSetup. ps1](./media/howto-mfa-nps-extension-vpn/image38.png)
+    ![Running the AzureMfsNpsExtnConfigSetup.ps1 configuration script](./media/howto-mfa-nps-extension-vpn/image38.png)
 
-    När skriptet har verifierat installationen av PowerShell-modulen visas Azure Active Directory PowerShell-modulens inloggnings fönster.
+    After the script verifies the installation of the PowerShell module, it displays the Azure Active Directory PowerShell module sign-in window.
 
-4. Ange dina autentiseringsuppgifter och lösen ord för Azure AD-administratören och välj sedan **Logga**in.
+4. Enter your Azure AD administrator credentials and password, and then select **Sign in**.
 
-    ![Autentisera till Azure AD PowerShell](./media/howto-mfa-nps-extension-vpn/image39.png)
+    ![Authenticate to Azure AD PowerShell](./media/howto-mfa-nps-extension-vpn/image39.png)
 
-5. I kommando tolken klistrar du in klient-ID: t som du kopierade tidigare och väljer sedan Retur.
+5. At the command prompt, paste the tenant ID that you copied earlier, and then select Enter.
 
-    ![Mata in det Azure AD-katalog-ID som kopierats före](./media/howto-mfa-nps-extension-vpn/image40.png)
+    ![Input the Azure AD Directory ID copied before](./media/howto-mfa-nps-extension-vpn/image40.png)
 
-    Skriptet skapar ett självsignerat certifikat och utför andra ändringar i konfigurationen. Utdata ser ut som i följande bild:
+    The script creates a self-signed certificate and performs other configuration changes. The output is like that in the following image:
 
-    ![PowerShell-fönster som visar självsignerade certifikat](./media/howto-mfa-nps-extension-vpn/image41.png)
+    ![PowerShell window showing Self-signed certificate](./media/howto-mfa-nps-extension-vpn/image41.png)
 
-6. Starta om servern.
+6. Reboot the server.
 
-### <a name="verify-the-configuration"></a>Kontrollera att konfigurationen
+### <a name="verify-the-configuration"></a>Kontrollera konfigurationen
 
-För att verifiera konfigurationen måste du upprätta en ny VPN-anslutning till VPN-servern. När du har angett dina autentiseringsuppgifter för primär autentisering, väntar VPN-anslutningen på att den sekundära autentiseringen ska lyckas innan anslutningen upprättas, som du ser nedan.
+To verify the configuration, you must establish a new VPN connection with the VPN server. After you've successfully entered your credentials for primary authentication, the VPN connection waits for the secondary authentication to succeed before the connection is established, as shown below.
 
-![Windows inställningar VPN-fönstret](./media/howto-mfa-nps-extension-vpn/image42.png)
+![The Windows Settings VPN window](./media/howto-mfa-nps-extension-vpn/image42.png)
 
-Om du har autentiserat dig med den sekundära verifierings metoden som du tidigare har konfigurerat i Azure MFA är du ansluten till resursen. Men om den sekundära autentiseringen Miss lyckas nekas du åtkomst till resursen.
+If you successfully authenticate with the secondary verification method that you previously configured in Azure MFA, you are connected to the resource. However, if the secondary authentication is unsuccessful, you are denied access to the resource.
 
-I följande exempel tillhandahåller Microsoft Authenticator-appen på en Windows Phone den sekundära autentiseringen:
+In the following example, the Microsoft Authenticator app on a Windows Phone provides the secondary authentication:
 
-![Exempel på MFA-prompt på Windows Phone](./media/howto-mfa-nps-extension-vpn/image43.png)
+![Example MFA prompt on Windows Phone](./media/howto-mfa-nps-extension-vpn/image43.png)
 
-När du har autentiserat med hjälp av den sekundära metoden beviljas du åtkomst till den virtuella porten på VPN-servern. Eftersom du behövde använda en sekundär autentiseringsmetod med hjälp av en mobilapp på en betrodd enhet är inloggnings processen säkrare än om den bara använde en kombination av användar namn och lösen ord.
+After you've successfully authenticated by using the secondary method, you are granted access to the virtual port on the VPN server. Because you were required to use a secondary authentication method by using a mobile app on a trusted device, the sign-in process is more secure than if it were using only a username and password combination.
 
-### <a name="view-event-viewer-logs-for-successful-sign-in-events"></a>Visa Loggboken loggar för lyckade inloggnings händelser
+### <a name="view-event-viewer-logs-for-successful-sign-in-events"></a>View Event Viewer logs for successful sign-in events
 
-Om du vill visa lyckade inloggnings händelser i Windows-Loggboken loggar frågar du i Windows säkerhets logg på NPS-servern genom att ange följande PowerShell-kommando:
+To view successful sign-in events in the Windows Event Viewer logs query the Windows Security log, on the NPS server, by entering the following PowerShell command:
 
     `Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL`
 
-![PowerShell-säkerhet Loggboken](./media/howto-mfa-nps-extension-vpn/image44.png)
+![PowerShell security Event Viewer](./media/howto-mfa-nps-extension-vpn/image44.png)
 
-Du kan också Visa säkerhets loggen eller den anpassade vyn nätverks policy och åtkomst tjänster, som du ser här:
+You can also view the security log or the Network Policy and Access Services custom view, as shown here:
 
-![Exempel på nätverks princip Server logg](./media/howto-mfa-nps-extension-vpn/image45.png)
+![Example Network Policy Server log](./media/howto-mfa-nps-extension-vpn/image45.png)
 
-På den server där du installerade NPS-tillägget för Azure Multi-Factor Authentication kan du hitta Loggboken program loggar som är specifika för tillägget på *program-och tjänst Logs\Microsoft\AzureMfa*.
+On the server where you installed the NPS extension for Azure Multi-Factor Authentication, you can find Event Viewer application logs that are specific to the extension at *Application and Services Logs\Microsoft\AzureMfa*.
 
     `Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL`
 
-![Exempel fönstret Loggboken AuthZ-loggar](./media/howto-mfa-nps-extension-vpn/image46.png)
+![Example Event Viewer AuthZ logs pane](./media/howto-mfa-nps-extension-vpn/image46.png)
 
 ## <a name="troubleshooting-guide"></a>Felsökningsguide
 
-Om konfigurationen inte fungerar som förväntat startar du fel sökningen genom att verifiera att användaren är konfigurerad att använda MFA. Få användaren att ansluta till den [Azure-portalen](https://portal.azure.com). Om användaren uppmanas att använda den sekundära autentiseringen och kan autentiseras kan du eliminera en felaktig konfiguration av MFA som ett problem.
+If the configuration is not working as expected, begin troubleshooting by verifying that the user is configured to use MFA. Have the user connect to the [Azure portal](https://portal.azure.com). If the user is prompted for secondary authentication and can successfully authenticate, you can eliminate an incorrect configuration of MFA as an issue.
 
-Om MFA arbetar för användaren granskar du relevanta Loggboken loggar. Loggarna omfattar säkerhets händelsen, gatewayens operativa och Azure Multi-Factor Authentication-loggar som beskrivs i föregående avsnitt.
+If MFA is working for the user, review the relevant Event Viewer logs. The logs include the security event, Gateway operational, and Azure Multi-Factor Authentication logs that are discussed in the previous section.
 
-Ett exempel på en säkerhets logg som visar en misslyckad inloggnings händelse (händelse-ID 6273) visas här:
+An example of a security log that displays a failed sign-in event (event ID 6273) is shown here:
 
-![Säkerhets loggen visar en misslyckad inloggnings händelse](./media/howto-mfa-nps-extension-vpn/image47.png)
+![Security log showing a failed sign-in event](./media/howto-mfa-nps-extension-vpn/image47.png)
 
-En relaterad händelse från Azure Multi-Factor Authentication-loggen visas här:
+A related event from the Azure Multi-Factor Authentication log is shown here:
 
-![Azure Multi-Factor Authentication-loggar](./media/howto-mfa-nps-extension-vpn/image48.png)
+![Azure Multi-Factor Authentication logs](./media/howto-mfa-nps-extension-vpn/image48.png)
 
-Information om hur du utför avancerad fel sökning finns i loggfilerna för NPS-databasfilen där NPS-tjänsten är installerad. Loggfilerna skapas i mappen _%systemroot%\System32\Logs_ som kommaavgränsade textfiler. En beskrivning av loggfilerna finns i [tolka loggfiler för NPS-databasnamn](https://technet.microsoft.com/library/cc771748.aspx).
+To do advanced troubleshooting, consult the NPS database format log files where the NPS service is installed. The log files are created in the _%SystemRoot%\System32\Logs_ folder as comma-delimited text files. For a description of the log files, see [Interpret NPS Database Format Log Files](https://technet.microsoft.com/library/cc771748.aspx).
 
-Posterna i dessa loggfiler är svåra att tolka om du inte exporterar dem till ett kalkyl blad eller en databas. Du kan hitta många Internet Authentication Service (IAS)-verktyg online som hjälper dig att tolka loggfilerna. Utdata från ett sådant nedladdnings Bart [shareware-program](https://www.deepsoftware.com/iasviewer) visas här:
+The entries in these log files are difficult to interpret unless you export them to a spreadsheet or a database. You can find many Internet Authentication Service (IAS) parsing tools online to assist you in interpreting the log files. The output of one such downloadable [shareware application](https://www.deepsoftware.com/iasviewer) is shown here:
 
-![Exempel på shareware-app IAS-parser](./media/howto-mfa-nps-extension-vpn/image49.png)
+![Sample Shareware app IAS parser](./media/howto-mfa-nps-extension-vpn/image49.png)
 
-Om du vill göra ytterligare fel sökning kan du använda en protokoll analys som Wireshark eller [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx). Följande bild från wireshark visar RADIUS-meddelanden mellan VPN-servern och NPS.
+To do additional troubleshooting, you can use a protocol analyzer such as Wireshark or [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx). The following image from Wireshark shows the RADIUS messages between the VPN server and the NPS.
 
-![Microsoft Message Analyzer visar filtrerad trafik](./media/howto-mfa-nps-extension-vpn/image50.png)
+![Microsoft Message Analyzer showing filtered traffic](./media/howto-mfa-nps-extension-vpn/image50.png)
 
-Mer information finns i [integrera din befintliga NPS-infrastruktur med Azure Multi-Factor Authentication](howto-mfa-nps-extension.md).
+For more information, see [Integrate your existing NPS infrastructure with Azure Multi-Factor Authentication](howto-mfa-nps-extension.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Få Azure Multi-Factor Authentication](concept-mfa-licensing.md)
+[Get Azure Multi-Factor Authentication](concept-mfa-licensing.md)
 
 [Fjärrskrivbordsgateway och Azure Multi-Factor Authentication Server med RADIUS](howto-mfaserver-nps-rdg.md)
 

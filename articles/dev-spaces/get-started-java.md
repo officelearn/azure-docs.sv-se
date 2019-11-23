@@ -1,21 +1,21 @@
 ---
-title: Skapa ett Kubernetes dev-utrymme i molnet med Java och VS Code
+title: 'Create a Kubernetes dev space: Visual Studio Code & Java'
 services: azure-dev-spaces
 author: stepro
 ms.author: stephpr
 ms.date: 09/26/2018
 ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 8e5d1c070b3c8320a97ab4345cb8c5c12118d0af
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: HT
+ms.openlocfilehash: 1dc7005ac0d1cb520e4c0452196a2b47665f9b5c
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280233"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325836"
 ---
-# <a name="get-started-on-azure-dev-spaces-with-java"></a>Komma igång med Azure Dev Spaces med Java
+# <a name="create-a-kubernetes-dev-space-visual-studio-code-and-java-with-azure-dev-spaces"></a>Create a Kubernetes dev space: Visual Studio Code and Java with Azure Dev Spaces
 
 I den här guiden får du lära dig hur du:
 
@@ -24,7 +24,7 @@ I den här guiden får du lära dig hur du:
 - Effektivt utvecklar och testar din kod i en teammiljö.
 
 > [!Note]
-> **Om du får fastna när som** helst kan du läsa avsnittet [fel sökning](troubleshooting.md) .
+> **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section.
 
 ## <a name="install-the-azure-cli"></a>Installera Azure CLI
 Azure Dev Spaces kräver minimal konfiguration av den lokala datorn. Merparten av utvecklarmiljöns konfiguration lagras i molnet och kan delas med andra användare. Börja genom att ladda ned och köra [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -54,7 +54,7 @@ az account set --subscription <subscription ID>
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Skapa ett Kubernetes-kluster som är aktiverat för Azure Dev Spaces
 
-I kommando tolken skapar du resurs gruppen i en [region som stöder Azure dev Spaces][supported-regions].
+At the command prompt, create the resource group in a [region that supports Azure Dev Spaces][supported-regions].
 
 ```cmd
 az group create --name MyResourceGroup --location <region>
@@ -139,18 +139,18 @@ Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890a
 Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 ```
 
-Identifiera den offentliga URL: en för tjänsten i utdata från kommandot `up`. Den avslutas i `.azds.io`. I exemplet ovan är den offentliga URL: en `http://webfrontend.1234567890abcdef1234.eus.azds.io/`.
+Identify the public URL for the service in the output from the `up` command. It ends in `.azds.io`. In the above example, the public URL is `http://webfrontend.1234567890abcdef1234.eus.azds.io/`.
 
-Om du vill se din webbapp öppnar du den offentliga URL: en i en webbläsare. Observera också att `stdout` och `stderr` utdata strömmas till azds-fönstret för *spårnings* terminalen när du interagerar med din webbapp. Du kan också se spårnings information för HTTP-begäranden när de går igenom systemet. Detta gör det enklare för dig att spåra komplexa anrop i flera tjänster under utvecklingen. Instrumentation som lagts till av dev Spaces innehåller den här förfrågan spårningen.
+To see your web app, open the public URL in a browser. Also, notice `stdout` and `stderr` output is streamed to the *azds trace* terminal window as you interact with your web app. You'll also see tracking information for HTTP requests as they go through the system. This makes it easier for you to track complex multi-service calls during development. The instrumentation added by Dev Spaces provides this request tracking.
 
 > [!Note]
-> Förutom den offentliga URL: en kan du använda den alternativa `http://localhost:<portnumber>`-URL: en som visas i konsolens utdata. Om du använder localhost-URL:en kan det verka som om containern körs lokalt, men i själva verket körs den i AKS. I Azure dev Spaces används Kubernetes *Port-Forward-* funktioner för att mappa localhost-porten till den behållare som körs i AKS. Detta underlättar interaktion med tjänsten från den lokala datorn.
+> In addition to the public URL, you can use the alternative `http://localhost:<portnumber>` URL that is displayed in the console output. Om du använder localhost-URL:en kan det verka som om containern körs lokalt, men i själva verket körs den i AKS. Azure Dev Spaces uses Kubernetes *port-forward* functionality to map the localhost port to the container running in AKS. This facilitates interacting with the service from your local machine.
 
 ### <a name="update-a-content-file"></a>Uppdatera en innehållsfil
 Azure Dev Spaces handlar om mer än att bara få kod att köra i Kubernetes – det handlar om att du snabbt och löpande kan se effekten av dina kodändringar i en Kubernetes-miljö i molnet.
 
 1. Tryck på `Ctrl+C` (för att stoppa `azds up`) i terminalfönstret.
-1. Öppna `src/main/java/com/ms/sample/webfrontend/Application.java`och redigera hälsnings meddelandet på [rad 19](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19):
+1. Open `src/main/java/com/ms/sample/webfrontend/Application.java`, and edit the greeting message on [line 19](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19):
 
     ```java
     return "Hello from webfrontend in Azure!";
@@ -170,7 +170,7 @@ I det här avsnittet ska du använda VS Code för att direkt felsöka våra cont
 ![](media/common/edit-refresh-see.png)
 
 > [!Note]
-> **Om du fastnar** läser du [felsökningsavsnittet](troubleshooting.md) eller skriver en kommentar på den här sidan.
+> **Om du fastnar** du kan när som helst referera till avsnittet [Felsökning](troubleshooting.md) eller lägga upp en kommentar på den här sidan.
 
 ### <a name="initialize-debug-assets-with-the-vs-code-extension"></a>Initiera felsökningstillgångar med VS Code-tillägget
 Du måste först konfigurera kodprojektet så att VS Code kommunicerar med vår utvecklarmiljö i Azure. VS Code-tillägget för Azure Dev Spaces har ett hjälpkommando för att konfigurera felsökningskonfigurationen. 
@@ -188,7 +188,7 @@ Då läggs felsökningskonfigurationen för Azure Dev Spaces till under mappen `
 ![](media/get-started-java/debug-configuration.png)
 
 > [!Note]
-> Om du inte ser några Azure Dev Spaces-kommandon på kommandopaletten kontrollerar du att du har installerat VS Code-tillägget för Azure Dev Spaces. Se till att arbets ytan du öppnade i VS Code är den mapp som innehåller `azds.yaml`.
+> Om du inte ser några Azure Dev Spaces-kommandon på kommandopaletten kontrollerar du att du har installerat VS Code-tillägget för Azure Dev Spaces. Be sure the workspace you opened in VS Code is the folder that contains `azds.yaml`.
 
 ### <a name="debug-the-container-in-kubernetes"></a>Felsöka containern i Kubernetes
 Tryck på **F5** för att felsöka koden i Kubernetes.
@@ -196,7 +196,7 @@ Tryck på **F5** för att felsöka koden i Kubernetes.
 Precis som med `up`-kommandot, synkroniseras koden med utvecklarmiljön och en container skapas och distribueras till Kubernetes. Men den här gången är felsökaren kopplad till fjärrcontainern.
 
 > [!Tip]
-> Statusfältet för VS Code blir orange, vilket indikerar att fel söknings programmet är kopplat. En klicknings bara URL visas också, som du kan använda för att öppna programmet.
+> The VS Code status bar will turn orange, indicating that the debugger is attached. It will also display a clickable URL, which you can use to open your application.
 
 ![](media/common/vscode-status-bar-url.png)
 
@@ -214,7 +214,7 @@ public String greeting()
 }
 ```
 
-Spara filen och klicka på knappen **starta om** i **rutan fel söknings åtgärder**.
+Save the file, and in the **Debug actions pane**, click the **Restart** button.
 
 ![](media/common/debug-action-refresh.png)
 

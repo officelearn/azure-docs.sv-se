@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Söka efter videor med hjälp av REST API för videosökning i Bing och Node.js'
+title: 'Quickstart: Search for videos using the REST API and Node.js - Bing Video Search'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten för att skicka videosökningsbegäranden till REST API för videosökning i Bing med hjälp av JavaScript.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: 786302b882fbd59932af17ccc6a390fa41b30ac9
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: e9d7aeabceb77597d826d6c76dbdddc625ad45cc
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932963"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383800"
 ---
-# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>Snabbstart: Söka efter videor med hjälp av REST API för videosökning i Bing och Node.js
+# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>Quickstart: Search for videos using the Bing Video Search REST API and Node.js
 
-Använd den här snabbstarten för att skicka ditt första anrop till API:et för videosökning i Bing och visa ett sökresultat från JSON-svaret. Det här enkla JavaScript-programmet skickar en HTTP-videosökfråga till API:et och visar svaret. Även om det här programmet är skrivet i JavaScript och använder Node.js är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingVideoSearchv7.js) tillsammans med ytterligare kommentarer om hantering av fel och kodanteckningar.
+Använd den här snabbstarten för att skicka ditt första anrop till API:et för videosökning i Bing och visa ett sökresultat från JSON-svaret. Det här enkla JavaScript-programmet skickar en HTTP-videosökfråga till API:et och visar svaret. Även om det här programmet är skrivet i JavaScript och använder Node.js, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingVideoSearchv7.js) tillsammans med ytterligare kommentarer om hantering av fel och kodanteckningar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Node.js](https://nodejs.org/en/download/)
 

@@ -1,25 +1,19 @@
 ---
-title: Skapa en Azure blockchain service-medlem – Azure CLI
-description: Skapa en Azure blockchain service-medlem för ett blockchain-konsortium med hjälp av Azure CLI.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+title: Create an Azure Blockchain Service member - Azure CLI
+description: Create an Azure Blockchain Service member for a blockchain consortium using the Azure CLI.
 ms.date: 11/20/2019
 ms.topic: quickstart
-ms.service: azure-blockchain
 ms.reviewer: janders
-manager: femila
-ms.openlocfilehash: 894c6392c302e1be7c57b85f3f923ee1ba5467f6
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
-ms.translationtype: HT
+ms.openlocfilehash: ecfe593e00d0b645ad8b73c6fc2aee23ae4aa2b6
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286932"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325247"
 ---
-# <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-azure-cli"></a>Snabb start: skapa en Azure blockchain-tjänst blockchain-medlem med Azure CLI
+# <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-azure-cli"></a>Quickstart: Create an Azure Blockchain Service blockchain member using Azure CLI
 
-I den här snabb starten distribuerar du en ny blockchain-medlem och konsortiet i Azure blockchain-tjänsten med hjälp av Azure CLI.
+In this quickstart, you deploy a new blockchain member and consortium in Azure Blockchain Service using Azure CLI.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -29,7 +23,7 @@ Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att u
 
 Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell i en separat webbläsarflik genom att gå till [https://shell.azure.com/bash](https://shell.azure.com/bash). Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
-Om du föredrar att installera och använda CLI lokalt kräver den här snabb starten Azure CLI version 2.0.51 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+If you prefer to install and use the CLI locally, this quickstart requires Azure CLI version 2.0.51 or later. Kör `az --version` för att hitta versionen. If you need to install or upgrade, see [install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -43,7 +37,7 @@ az group create \
 
 ## <a name="create-a-blockchain-member"></a>Skapa en blockkedjemedlem
 
-Skapa en blockchain-medlem i Azure blockchain-tjänsten som kör kvorumdisken i ett nytt konsortium. Det finns flera parametrar och egenskaper som du måste skicka. Ersätt exempel parametrarna med dina värden.
+Create a blockchain member in Azure Blockchain Service that runs the Quorum ledger protocol in a new consortium. There are several parameters and properties you need to pass. Replace the example parameters with your values.
 
 ```azurecli-interactive
 az resource create \
@@ -56,21 +50,21 @@ az resource create \
 
 | Parameter | Beskrivning |
 |---------|-------------|
-| **resurs grupp** | Resurs grupp namn där Azure blockchain service-resurser skapas. Använd den resurs grupp som du skapade i föregående avsnitt.
-| **name** | Ett unikt namn som identifierar din Azure blockchain service blockchain-medlem. Namnet används för den offentliga slut punktens adress. Till exempel `myblockchainmember.blockchain.azure.com`.
-| **Plats** | Azure-region där blockchain-medlemmen skapas. Till exempel `westus2`. Välj den plats som är närmast dina användare eller dina andra Azure-program.
-| **Lösenord** | Lösen ordet för medlemmens standard transaktions nod. Använd lösen ordet för grundläggande autentisering vid anslutning till blockchain-medlemmens offentliga standard transaktions nod.
-| **Consortium** | Namnet på konsortiet att ansluta till eller skapa.
-| **consortiumAccountPassword** | Konto lösen ordet för konsortiet kallas även medlems kontots lösen ord. Medlems kontots lösen ord används för att kryptera den privata nyckeln för det Ethereum-konto som skapas för din medlem. Du använder medlems kontot och medlems kontots lösen ord för hantering av konsortier.
-| **skuName** | Nivå typ. Använd S0 för standard och B0 för Basic.
+| **resource-group** | Resource group name where Azure Blockchain Service resources are created. Use the resource group you created in the previous section.
+| **name** | A unique name that identifies your Azure Blockchain Service blockchain member. The name is used for the public endpoint address. Till exempel `myblockchainmember.blockchain.azure.com`.
+| **Plats** | Azure region where the blockchain member is created. Till exempel `westus2`. Välj den plats som är närmast dina användare eller dina andra Azure-program.
+| **password** | The password for the member's default transaction node. Use the password for basic authentication when connecting to blockchain member's default transaction node public endpoint.
+| **consortium** | Name of the consortium to join or create.
+| **consortiumAccountPassword** | The consortium account password is also known as the member account password. The member account password is used to encrypt the private key for the Ethereum account that is created for your member. You use the member account and member account password for consortium management.
+| **skuName** | Tier type. Use S0 for Standard and B0 for Basic.
 
-Det tar cirka 10 minuter att skapa blockchain-medlemmen och de resurser som stöds.
+It takes about 10 minutes to create the blockchain member and supporting resources.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Du kan använda den blockchain-medlem som du skapade för nästa snabb start eller självstudier. När de inte längre behövs kan du ta bort resurserna genom att ta bort `myResourceGroup` resurs gruppen som du skapade i Azure blockchain-tjänsten.
+You can use the blockchain member you created for the next quickstart or tutorial. When no longer needed, you can delete the resources by deleting the `myResourceGroup` resource group you created by the Azure Blockchain Service.
 
-Kör följande kommando för att ta bort resurs gruppen och alla relaterade resurser.
+Run the following command to remove the resource group and all related resources.
 
 ```azurecli-interactive
 az group delete \
@@ -80,7 +74,7 @@ az group delete \
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du distribuerat en Azure blockchain service-medlem och ett nytt konsortium. Prova nästa snabb start för att använda Azure blockchain Development Kit för Ethereum för att ansluta till ett konsortium på Azure blockchain-tjänsten.
+In this quickstart, you deployed an Azure Blockchain Service member and a new consortium. Try the next quickstart to use  Azure Blockchain Development Kit for Ethereum to attach to a consortium on Azure Blockchain Service.
 
 > [!div class="nextstepaction"]
-> [Använd Visual Studio Code för att ansluta till ett Azure blockchain service Consortium-nätverk](connect-vscode.md)
+> [Use Visual Studio Code to connect to an Azure Blockchain Service consortium network](connect-vscode.md)

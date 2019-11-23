@@ -1,6 +1,6 @@
 ---
-title: Hantera åtkomst till Azure-resurser med RBAC och Azure PowerShell | Microsoft Docs
-description: Lär dig hur du hanterar åtkomst till Azure-resurser för användare, grupper och program med rollbaserad åtkomst kontroll (RBAC) och Azure PowerShell. Detta innefattar hur du listar åtkomst, ger åtkomst och tar bort åtkomst.
+title: Manage access to Azure resources using RBAC and Azure PowerShell | Microsoft Docs
+description: Learn how to manage access to Azure resources for users, groups, and applications using role-based access control (RBAC) and Azure PowerShell. Detta innefattar hur du listar åtkomst, ger åtkomst och tar bort åtkomst.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,34 +11,34 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/22/2019
+ms.date: 11/21/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 5de62fd52360511fe660255dc023721a2837fe85
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: c92cf6ae8777a343432d9d54dd7fcbedbb6b210c
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819794"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384002"
 ---
-# <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Hantera åtkomst till Azure-resurser med RBAC och Azure PowerShell
+# <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Manage access to Azure resources using RBAC and Azure PowerShell
 
-[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är det du använder för att hantera åtkomst till Azure-resurser. Den här artikeln beskriver hur du hanterar åtkomst för användare, grupper och program som använder RBAC och Azure PowerShell.
+[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är det du använder för att hantera åtkomst till Azure-resurser. This article describes how you manage access for users, groups, and applications using RBAC and Azure PowerShell.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill hantera åtkomst behöver du något av följande:
+To manage access, you need one of the following:
 
-* [PowerShell i Azure Cloud Shell](/azure/cloud-shell/overview)
+* [PowerShell in Azure Cloud Shell](/azure/cloud-shell/overview)
 * [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="list-roles"></a>Visa roller
 
-### <a name="list-all-available-roles"></a>Visa en lista över alla tillgängliga roller
+### <a name="list-all-available-roles"></a>List all available roles
 
-Om du vill visa en lista över RBAC-roller som är tillgängliga för tilldelning och granska de åtgärder som de beviljar åtkomst till, använder du [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
+To list RBAC roles that are available for assignment and to inspect the operations to which they grant access, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
 ```azurepowershell
 Get-AzRoleDefinition | FT Name, Description
@@ -58,9 +58,9 @@ Automation Operator                               Automation Operators are able 
 ...
 ```
 
-### <a name="list-a-specific-role"></a>Lista en speciell roll
+### <a name="list-a-specific-role"></a>List a specific role
 
-Använd [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition)för att visa en lista med en speciell roll.
+To list a specific role, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
 ```azurepowershell
 Get-AzRoleDefinition <role_name>
@@ -81,11 +81,11 @@ NotDataActions   : {}
 AssignableScopes : {/}
 ```
 
-## <a name="list-a-role-definition"></a>Lista en roll definition
+## <a name="list-a-role-definition"></a>List a role definition
 
-### <a name="list-a-role-definition-in-json-format"></a>Lista en roll definition i JSON-format
+### <a name="list-a-role-definition-in-json-format"></a>List a role definition in JSON format
 
-Om du vill visa en roll definition i JSON-format använder du [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
+To list a role definition in JSON format, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
 ```azurepowershell
 Get-AzRoleDefinition <role_name> | ConvertTo-Json
@@ -117,9 +117,9 @@ PS C:\> Get-AzRoleDefinition "Contributor" | ConvertTo-Json
 }
 ```
 
-### <a name="list-actions-of-a-role"></a>Lista åtgärder för en roll
+### <a name="list-actions-of-a-role"></a>List actions of a role
 
-Om du vill visa en lista över åtgärder för en speciell roll använder du [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
+To list the actions for a specific role, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
 ```azurepowershell
 Get-AzRoleDefinition <role_name> | FL Actions, NotActions
@@ -155,11 +155,11 @@ Microsoft.Network/loadBalancers/backendAddressPools/join/action
 
 ## <a name="list-access"></a>Visar åtkomst
 
-I RBAC, för att lista åtkomst, listas roll tilldelningarna.
+In RBAC, to list access, you list the role assignments.
 
-### <a name="list-all-role-assignments-in-a-subscription"></a>Visa en lista över alla roll tilldelningar i en prenumeration
+### <a name="list-all-role-assignments-in-a-subscription"></a>List all role assignments in a subscription
 
-Det enklaste sättet att hämta en lista över alla roll tilldelningar i den aktuella prenumerationen (inklusive ärvda roll tilldelningar från rot-och hanterings grupper) är att använda [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) utan parametrar.
+The easiest way to get a list of all the role assignments in the current subscription (including inherited role assignments from root and management groups) is to use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) without any parameters.
 
 ```azurepowershell
 Get-AzRoleAssignment
@@ -193,7 +193,7 @@ CanDelegate        : False
 
 ### <a name="list-role-assignments-for-a-user"></a>Visa rolltilldelningar för en användare
 
-Om du vill visa en lista över alla roller som har tilldelats en angiven användare använder du [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
+To list all the roles that are assigned to a specified user, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
 
 ```azurepowershell
 Get-AzRoleAssignment -SignInName <email_or_userprincipalname>
@@ -207,7 +207,7 @@ RoleDefinitionName : BizTalk Contributor
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
 ```
 
-Om du vill visa en lista över alla roller som har tilldelats en angiven användare och de roller som är tilldelade de grupper som användaren tillhör använder du [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
+To list all the roles that are assigned to a specified user and the roles that are assigned to the groups to which the user belongs, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
 
 ```azurepowershell
 Get-AzRoleAssignment -SignInName <email_or_userprincipalname> -ExpandPrincipalGroups
@@ -217,9 +217,9 @@ Get-AzRoleAssignment -SignInName <email_or_userprincipalname> -ExpandPrincipalGr
 Get-AzRoleAssignment -SignInName isabella@example.com -ExpandPrincipalGroups | FL DisplayName, RoleDefinitionName, Scope
 ```
 
-### <a name="list-role-assignments-at-a-resource-group-scope"></a>Lista roll tilldelningar i ett resurs grupps omfång
+### <a name="list-role-assignments-at-a-resource-group-scope"></a>List role assignments at a resource group scope
 
-Om du vill visa en lista över alla roll tilldelningar i ett resurs grupps omfång använder du [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
+To list all role assignments at a resource group scope, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
 
 ```azurepowershell
 Get-AzRoleAssignment -ResourceGroupName <resource_group_name>
@@ -241,9 +241,9 @@ RoleDefinitionName : Virtual Machine Contributor
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
 ```
 
-### <a name="list-role-assignments-at-a-subscription-scope"></a>Lista roll tilldelningar i ett prenumerations omfång
+### <a name="list-role-assignments-at-a-subscription-scope"></a>List role assignments at a subscription scope
 
-Om du vill visa en lista över alla roll tilldelningar i en prenumerations omfattning använder du [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). För att hämta prenumerations-ID kan du hitta det på bladet **prenumerationer** i Azure Portal eller så kan du använda [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription).
+To list all role assignments at a subscription scope, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). To get the subscription ID, you can find it on the **Subscriptions** blade in the Azure portal or you can use [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription).
 
 ```azurepowershell
 Get-AzRoleAssignment -Scope /subscriptions/<subscription_id>
@@ -253,9 +253,9 @@ Get-AzRoleAssignment -Scope /subscriptions/<subscription_id>
 PS C:\> Get-AzRoleAssignment -Scope /subscriptions/00000000-0000-0000-0000-000000000000
 ```
 
-### <a name="list-role-assignments-at-a-management-group-scope"></a>Lista roll tilldelningar i ett hanterings grupps omfång
+### <a name="list-role-assignments-at-a-management-group-scope"></a>List role assignments at a management group scope
 
-Om du vill visa en lista över alla roll tilldelningar i ett hanterings grupps omfång använder du [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). Om du vill hämta ID för hanterings grupp kan du hitta det på bladet **hanterings grupper** i Azure Portal eller så kan du använda [Get-AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup).
+To list all role assignments at a management group scope, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). To get the management group ID, you can find it on the **Management groups** blade in the Azure portal or you can use [Get-AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup).
 
 ```azurepowershell
 Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGroups/<group_id>
@@ -265,45 +265,52 @@ Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGroups/<gr
 PS C:\> Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGroups/marketing-group
 ```
 
-### <a name="list-role-assignments-for-classic-service-administrator-and-co-administrators"></a>Lista roll tilldelningar för klassisk tjänst administratör och medadministratörer
+### <a name="list-role-assignments-for-classic-service-administrator-and-co-administrators"></a>List role assignments for classic service administrator and co-administrators
 
-Använd [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment)för att visa en lista över roll tilldelningar för den klassiska prenumerations administratören och medadministratörerna.
+To list role assignments for the classic subscription administrator and co-administrators, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
 
 ```azurepowershell
 Get-AzRoleAssignment -IncludeClassicAdministrators
+```
+
+## <a name="get-object-ids"></a>Get object IDs
+
+To list, add, or remove role assignments, you might need to specify the unique ID of an object. The ID has the format: `11111111-1111-1111-1111-111111111111`. You can get the ID using the Azure portal or Azure PowerShell.
+
+### <a name="user"></a>Användare
+
+To get the object ID for an Azure AD user, you can use [Get-AzADUser](/powershell/module/az.resources/get-azaduser).
+
+```azurepowershell
+Get-AzADUser -StartsWith <string_in_quotes>
+(Get-AzADUser -DisplayName <name_in_quotes>).id
+```
+
+### <a name="group"></a>Grupp
+
+To get the object ID for an Azure AD group, you can use [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup).
+
+```azurepowershell
+Get-AzADGroup -SearchString <group_name_in_quotes>
+(Get-AzADGroup -DisplayName <group_name_in_quotes>).id
+```
+
+### <a name="application"></a>Program
+
+To get the object ID for an Azure AD service principal (identity used by an application), you can use [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal). For a service principal, use the object ID and **not** the application ID.
+
+```azurepowershell
+Get-AzADServicePrincipal -SearchString <service_name_in_quotes>
+(Get-AzADServicePrincipal -DisplayName <service_name_in_quotes>).id
 ```
 
 ## <a name="grant-access"></a>Bevilja åtkomst
 
 För att skapa åtkomst i RBAC skapar du rolltilldelningar.
 
-### <a name="search-for-object-ids"></a>Sök efter objekt-ID: n
+### <a name="create-a-role-assignment-for-a-user-at-a-resource-group-scope"></a>Create a role assignment for a user at a resource group scope
 
-Om du vill tilldela en roll måste du identifiera både objektet (användare, grupp eller program) och omfånget.
-
-För att hämta prenumerations-ID kan du hitta det på bladet **prenumerationer** i Azure Portal eller så kan du använda [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription).
-
-Använd [Get-AzADUser](/powershell/module/az.resources/get-azaduser)för att hämta objekt-ID för en Azure AD-användare.
-
-```azurepowershell
-Get-AzADUser -StartsWith <string_in_quotes>
-```
-
-Använd [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup)för att hämta objekt-ID för en Azure AD-grupp.
-
-```azurepowershell
-Get-AzADGroup -SearchString <group_name_in_quotes>
-```
-
-Använd [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal)för att hämta objekt-ID för tjänstens huvud namn eller program för Azure AD.
-
-```azurepowershell
-Get-AzADServicePrincipal -SearchString <service_name_in_quotes>
-```
-
-### <a name="create-a-role-assignment-for-a-user-at-a-resource-group-scope"></a>Skapa en roll tilldelning för en användare i ett resurs grupps omfång
-
-Använd [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)för att bevilja åtkomst till en användare i ett resurs grupps omfång.
+To grant access to a user at a resource group scope, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
 
 ```azurepowershell
 New-AzRoleAssignment -SignInName <email_or_userprincipalname> -RoleDefinitionName <role_name> -ResourceGroupName <resource_group_name>
@@ -325,26 +332,26 @@ ObjectType         : User
 CanDelegate        : False
 ```
 
-### <a name="create-a-role-assignment-using-the-unique-role-id"></a>Skapa en roll tilldelning med hjälp av unikt roll-ID
+### <a name="create-a-role-assignment-using-the-unique-role-id"></a>Create a role assignment using the unique role ID
 
-Det finns ett par gånger när ett roll namn kan ändras, till exempel:
+There are a couple of times when a role name might change, for example:
 
-- Du använder din egen anpassade roll och du bestämmer dig för att ändra namnet.
-- Du använder en förhands gransknings roll som har **(förhands granskning)** i namnet. När rollen släpps får rollen ett nytt namn.
+- You are using your own custom role and you decide to change the name.
+- You are using a preview role that has **(Preview)** in the name. When the role is released, the role is renamed.
 
 > [!IMPORTANT]
-> En för hands version tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
+> A preview version is provided without a service level agreement, and it's not recommended for production workloads. Vissa funktioner kanske inte stöds eller kan vara begränsade.
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Även om en roll får ett nytt namn ändras inte roll-ID: t. Om du använder skript eller automatisering för att skapa roll tilldelningar, är det en bra idé att använda det unika roll-ID: t i stället för roll namnet. Därför är skripten mer sannolika om du byter namn på en roll.
+Even if a role is renamed, the role ID does not change. If you are using scripts or automation to create your role assignments, it's a best practice to use the unique role ID instead of the role name. Therefore, if a role is renamed, your scripts are more likely to work.
 
-Om du vill skapa en roll tilldelning med hjälp av det unika roll-ID: t i stället för roll namnet använder du [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
+To create a role assignment using the unique role ID instead of the role name, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
 
 ```azurepowershell
 New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionId <role_id> -ResourceGroupName <resource_group_name>
 ```
 
-I följande exempel tilldelas rollen [virtuell dator deltagare](built-in-roles.md#virtual-machine-contributor) för att *alain@example.com* användare i resurs grupps omfånget *Pharma-Sales* . Om du vill hämta det unika roll-ID: t kan du använda [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) eller se [inbyggda roller för Azure-resurser](built-in-roles.md).
+The following example assigns the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role to *alain\@example.com* user at the *pharma-sales* resource group scope. To get the unique role ID, you can use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) or see [Built-in roles for Azure resources](built-in-roles.md).
 
 ```Example
 PS C:\> New-AzRoleAssignment -ObjectId 44444444-4444-4444-4444-444444444444 -RoleDefinitionId 9980e02c-c2be-4d73-94e8-173b1dc7cf3c -Scope /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
@@ -360,9 +367,9 @@ ObjectType         : User
 CanDelegate        : False
 ```
 
-### <a name="create-a-role-assignment-for-a-group-at-a-resource-scope"></a>Skapa en roll tilldelning för en grupp vid ett resurs omfång
+### <a name="create-a-role-assignment-for-a-group-at-a-resource-scope"></a>Create a role assignment for a group at a resource scope
 
-Om du vill bevilja åtkomst till en grupp vid ett resurs omfång använder du [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
+To grant access to a group at a resource scope, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). For information about how to get the object ID of the group, see [Get object IDs](#get-object-ids).
 
 ```azurepowershell
 New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -ResourceName <resource_name> -ResourceType <resource_type> -ParentResource <parent resource> -ResourceGroupName <resource_group_name>
@@ -391,12 +398,12 @@ ObjectType         : Group
 CanDelegate        : False
 ```
 
-### <a name="create-a-role-assignment-for-an-application-at-a-subscription-scope"></a>Skapa en roll tilldelning för ett program i ett prenumerations omfång
+### <a name="create-a-role-assignment-for-an-application-at-a-subscription-scope"></a>Create a role assignment for an application at a subscription scope
 
-Om du vill bevilja åtkomst till ett program i ett prenumerations omfång använder du [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
+To grant access to an application at a subscription scope, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). For information about how to get the object ID of the application, see [Get object IDs](#get-object-ids).
 
 ```azurepowershell
-New-AzRoleAssignment -ObjectId <application_id> -RoleDefinitionName <role_name> -Scope /subscriptions/<subscription_id>
+New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -Scope /subscriptions/<subscription_id>
 ```
 
 ```Example
@@ -413,9 +420,9 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-### <a name="create-a-role-assignment-for-a-user-at-a-management-group-scope"></a>Skapa en roll tilldelning för en användare i en hanterings grupps omfattning
+### <a name="create-a-role-assignment-for-a-user-at-a-management-group-scope"></a>Create a role assignment for a user at a management group scope
 
-Om du vill bevilja åtkomst till en användare i ett hanterings grupps omfång använder du [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). Om du vill hämta ID för hanterings grupp kan du hitta det på bladet **hanterings grupper** i Azure Portal eller så kan du använda [Get-AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup).
+To grant access to a user at a management group scope, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). To get the management group ID, you can find it on the **Management groups** blade in the Azure portal or you can use [Get-AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup).
 
 ```azurepowershell
 New-AzRoleAssignment -SignInName <email_or_userprincipalname> -RoleDefinitionName <role_name> -Scope /providers/Microsoft.Management/managementGroups/<group_id>
@@ -437,30 +444,30 @@ CanDelegate        : False
 
 ## <a name="remove-access"></a>Tar bort åtkomst
 
-I RBAC för att ta bort åtkomst tar du bort en roll tilldelning genom att använda [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment).
+In RBAC, to remove access, you remove a role assignment by using [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment).
 
-I följande exempel tar vi bort roll tilldelningen för den *virtuella datorn deltagare* från *Alain \@example. com* -användare i resurs gruppen *Pharma-Sales* :
+The following example removes the *Virtual Machine Contributor* role assignment from the *alain\@example.com* user on the *pharma-sales* resource group:
 
 ```Example
 PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales
 ```
 
-I följande exempel tas rollen < role_name > bort från < object_id > i ett prenumerations omfång.
+The following example removes the <role_name> role from <object_id> at a subscription scope.
 
 ```azurepowershell
 Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -Scope /subscriptions/<subscription_id>
 ```
 
-I följande exempel tas rollen < role_name > bort från < object_id > i hanterings gruppens omfång.
+The following example removes the <role_name> role from <object_id> at the management group scope.
 
 ```azurepowershell
 Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -Scope /providers/Microsoft.Management/managementGroups/<group_id>
 ```
 
-Om du får fel meddelandet "den tillhandahållna informationen inte mappas till en roll tilldelning", se till att du även anger `-Scope`-eller `-ResourceGroupName` parametrar. Mer information finns i [FELSÖKA RBAC för Azure-resurser](troubleshooting.md#role-assignments-with-unknown-security-principal).
+If you get the error message: "The provided information does not map to a role assignment", make sure that you also specify the `-Scope` or `-ResourceGroupName` parameters. For more information, see [Troubleshoot RBAC for Azure resources](troubleshooting.md#role-assignments-with-unknown-security-principal).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Självstudie: bevilja en grupp åtkomst till Azure-resurser med RBAC och Azure PowerShell](tutorial-role-assignments-group-powershell.md)
-- [Självstudie: skapa en anpassad roll för Azure-resurser med hjälp av Azure PowerShell](tutorial-custom-role-powershell.md)
-- [Hantera resurser med Azure PowerShell](../azure-resource-manager/manage-resources-powershell.md)
+- [Tutorial: Grant a group access to Azure resources using RBAC and Azure PowerShell](tutorial-role-assignments-group-powershell.md)
+- [Tutorial: Create a custom role for Azure resources using Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Manage resources with Azure PowerShell](../azure-resource-manager/manage-resources-powershell.md)

@@ -1,59 +1,67 @@
 ---
-title: Övervaka och finjustera i Azure Database för PostgreSQL – enskild Server
-description: Den här artikeln beskriver övervakar och justerar funktioner i Azure Database för PostgreSQL – enskild Server.
+title: Monitor and Tune in Azure Database for PostgreSQL - Single Server
+description: This article describes monitoring and tuning features in Azure Database for PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: c69ffb30a37de8e6dc3e15aa1f7dcd6a9311d614
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 799b2b6ee6074472a951e69dec7e9a87056373b4
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274298"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384031"
 ---
-# <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Övervaka och finjustera Azure Database för PostgreSQL – enskild Server
-Övervakning av data om dina servrar kan du felsöka och optimera din arbetsbelastning. Azure Database för PostgreSQL innehåller olika övervakningsalternativ att ge insikter i beteendet för din server.
+# <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Monitor and tune Azure Database for PostgreSQL - Single Server
+Monitoring data about your servers helps you troubleshoot and optimize for your workload. Azure Database for PostgreSQL provides various monitoring options to provide insight into the behavior of your server.
 
 ## <a name="metrics"></a>Mått
-Azure Database för PostgreSQL innehåller olika mått som ger inblick i beteendet för de resurser som stödjer PostgreSQL-servern. Varje mått har genererats med en frekvens för en minut och har upp till 30 dagars historik. Du kan konfigurera aviseringar om måtten. Stegvisa anvisningar finns i [hur du konfigurerar aviseringar](howto-alert-on-metric.md). Andra uppgifter är att skapa automatiska åtgärder, utföra avancerade analyser och arkivering historik. Mer information finns i den [översikt över Azure-mått](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Azure Database for PostgreSQL provides various metrics that give insight into the behavior of the resources supporting the PostgreSQL server. Each metric is emitted at a one-minute frequency, and has up to 30 days of history. You can configure alerts on the metrics. For step by step guidance, see [How to set up alerts](howto-alert-on-metric.md). Other tasks include setting up automated actions, performing advanced analytics, and archiving history. For more information, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-### <a name="list-of-metrics"></a>Lista över mått
-De här måtten är tillgängliga för Azure Database för PostgreSQL:
+### <a name="list-of-metrics"></a>List of metrics
+These metrics are available for Azure Database for PostgreSQL:
 
-|Mått|Metrisk visningsnamn|Enhet|Beskrivning|
+|Mått|Metric Display Name|Enhet|Beskrivning|
 |---|---|---|---|
-|cpu_percent|CPU-procent|Procent|Procentandelen av Processorn som används.|
-|memory_percent|Minne|Procent|Procentandelen minne som används.|
-|io_consumption_percent|IO-procent|Procent|Procentandelen av i/o som används.|
-|storage_percent|Lagringsprocent|Procent|Procentandelen av lagring som används av servern är maximalt.|
-|storage_used|Använt lagringsutrymme|Byte|Mängden lagringsutrymme som används. Lagring som används av tjänsten kan omfatta databasfiler och transaktionsloggar serverloggarna.|
-|storage_limit|Gränsen för lagring|Byte|Det maximala lagringsutrymmet för den här servern.|
-|serverlog_storage_percent|Procent för lagring av Server-loggen|Procent|Procentandelen av server logglagring som används av serverns maximala server log lagring.|
-|serverlog_storage_usage|Server logglagring som används|Byte|Mängden log-serverlagring används.|
-|serverlog_storage_limit|Log storage gränsen|Byte|Det maximala server log lagringsutrymmet för den här servern.|
-|active_connections|Aktiva anslutningar|Count|Antal aktiva anslutningar till servern.|
-|connections_failed|Misslyckade anslutningar|Count|Antal misslyckade anslutningar till servern.|
-|network_bytes_egress|Nätverk ut|Byte|Nätverk ut över aktiva anslutningar.|
-|network_bytes_ingress|Nätverk in|Byte|Nätverk i över aktiva anslutningar.|
-|backup_storage_used|Används för lagring av säkerhetskopior|Byte|Mängden lagring av säkerhetskopior används.|
-|pg_replica_log_delay_in_bytes|Max Lag Across Replicas|Byte|Fördröjning i byte mellan huvudservern och de flesta släpar repliken. Detta mått är tillgängliga på den överordnade servern.|
-|pg_replica_log_delay_in_seconds|Repliken fördröjning|Sekunder|Tid sedan den senaste återupprepas transaktion. Detta mått är tillgängliga för replikservrar.|
+|cpu_percent|CPU percent|Procent|The percentage of CPU in use.|
+|memory_percent|Memory percent|Procent|The percentage of memory in use.|
+|io_consumption_percent|IO percent|Procent|The percentage of IO in use.|
+|storage_percent|Storage percentage|Procent|The percentage of storage used out of the server's maximum.|
+|storage_used|Använt lagringsutrymme|Bytes|The amount of storage in use. The storage used by the service may include the database files, transaction logs, and the server logs.|
+|storage_limit|Storage limit|Bytes|The maximum storage for this server.|
+|serverlog_storage_percent|Server Log storage percent|Procent|The percentage of server log storage used out of the server's maximum server log storage.|
+|serverlog_storage_usage|Server Log storage used|Bytes|The amount of server log storage in use.|
+|serverlog_storage_limit|Server Log storage limit|Bytes|The maximum server log storage for this server.|
+|active_connections|Active Connections|Antal|The number of active connections to the server.|
+|connections_failed|Misslyckade anslutningar|Antal|The number of failed connections to the server.|
+|network_bytes_egress|Nätverk – utgående|Bytes|Network Out across active connections.|
+|network_bytes_ingress|Nätverk – inkommande|Bytes|Network In across active connections.|
+|backup_storage_used|Backup Storage Used|Bytes|The amount of backup storage used.|
+|pg_replica_log_delay_in_bytes|Max Lag Across Replicas|Bytes|The lag in bytes between the master and the most-lagging replica. This metric is available on the master server only.|
+|pg_replica_log_delay_in_seconds|Replica Lag|Sekunder|The time since the last replayed transaction. This metric is available for replica servers only.|
 
 ## <a name="server-logs"></a>Serverloggar
-Du kan aktivera loggning på servern. Dessa loggar finns också tillgängliga via Azure-diagnostikloggar i [Azure Monitor loggar](../azure-monitor/log-query/log-query-overview.md), Händelsehubbar och Storage-konto. Mer information om loggning finns i [serverloggar](concepts-server-logs.md) sidan.
+You can enable logging on your server. These logs are also available through Azure Diagnostic Logs in [Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md), Event Hubs, and Storage Account. To learn more about logging, visit the [server logs](concepts-server-logs.md) page.
 
 ## <a name="query-store"></a>Query Store
-[Query Store](concepts-query-store.md) håller reda på frågan prestanda över tid, inklusive fråga efter körningsstatistik och vänta händelser. Funktionen kvarstår fråga information om körningsprestanda i en databas med namnet **azure_sys** under query_store schemat. Du kan styra insamling och lagring av data via olika configuration rattar.
+[Query Store](concepts-query-store.md) keeps track of query performance over time including query runtime statistics and wait events. The feature persists query runtime performance information in a system database named **azure_sys** under the query_store schema. You can control the collection and storage of data via various configuration knobs.
 
 ## <a name="query-performance-insight"></a>Query Performance Insight
-[Query Performance Insight](concepts-query-performance-insight.md) fungerar tillsammans med Query Store att tillhandahålla visualiseringar som är tillgängliga från Azure-portalen. Dessa diagram kan du identifiera viktiga frågor som påverkas prestanda. Fråga efter prestanda Insightis kan nås från den **Support och felsökning** delen av din Azure Database for PostgreSQL-server portalsidan.
+[Query Performance Insight](concepts-query-performance-insight.md) works in conjunction with Query Store to provide visualizations accessible from the Azure portal. These charts enable you to identify key queries that impact performance. Query Performance Insightis accessible from the **Support + troubleshooting** section of your Azure Database for PostgreSQL server's portal page.
 
 ## <a name="performance-recommendations"></a>Prestandarekommendationer
-Den [Prestandarekommendationer](concepts-performance-recommendations.md) funktionen identifierar möjligheter att förbättra prestanda för arbetsbelastningen. Prestandarekommendationer ger dig rekommendationer för att skapa nya index som kan förbättra prestandan för dina arbetsbelastningar. För att skapa indexrekommendationer beaktar funktionen olika egenskaper i databasen, inklusive dess schema och arbetsbelastningen som rapporterats av Query Store. När du implementerar en rekommendation för prestanda, bör kunderna testa prestanda för att utvärdera effekten av ändringarna. 
+The [Performance Recommendations](concepts-performance-recommendations.md) feature identifies opportunities to improve workload performance. Performance Recommendations provides you with recommendations for creating new indexes that have the potential to improve the performance of your workloads. To produce index recommendations, the feature takes into consideration various database characteristics, including its schema and the workload as reported by Query Store. After implementing any performance recommendation, customers should test performance to evaluate the impact of those changes. 
+
+## <a name="service-health"></a>Service Health
+[Azure Service health](../service-health/overview.md) provides a view of all service health notifications in your subscription. You can set up Service Health alerts to notify you via your preferred communication channels when there are issues or changes that may affect the Azure services and regions you use.
+
+You can view scheduled maintenance events for Azure Database for PostgreSQL - Single Server by using the **planned maintenance** event type. To learn how to create **service health alerts**, visit the [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications.md) article.
+
+> [!IMPORTANT]
+> The planned maintenance notifications is available in preview for EAST US and UK South only.
 
 ## <a name="next-steps"></a>Nästa steg
-- Se [hur du konfigurerar aviseringar](howto-alert-on-metric.md) anvisningar om hur du skapar en avisering på ett mått.
-- Mer information om hur du komma åt och exportera mått med hjälp av Azure portal, REST API eller CLI finns i den [översikt över Azure-mått](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
-- Läs vår blogg på [bästa praxis när du övervakar servern](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-postgresql-monitoring/).
+- See [how to set up alerts](howto-alert-on-metric.md) for guidance on creating an alert on a metric.
+- For more information on how to access and export metrics using the Azure portal, REST API, or CLI, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+- Read our blog on [best practices for monitoring your server](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-postgresql-monitoring/).

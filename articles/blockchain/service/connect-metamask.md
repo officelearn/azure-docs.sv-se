@@ -1,75 +1,69 @@
 ---
-title: Ansluta MetaMask till ett Azure blockchain service-nätverk
-description: Anslut till ett Azure blockchain service-nätverk med MetaMask och distribuera ett smart kontrakt.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+title: Connect MetaMask to an Azure Blockchain Service network
+description: Connect to an Azure Blockchain Service network using MetaMask and deploy a smart contract.
 ms.date: 09/12/2019
 ms.topic: quickstart
-ms.service: azure-blockchain
-ms.reviewer: jackyhsu
-manager: femila
-ms.openlocfilehash: b89e75d406a738fb685bb3294dca8d79a2b9170c
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.reviewer: janders
+ms.openlocfilehash: 8b60f26f1ab5283c7abc5a2f164fbb0c780c92ad
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70966541"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326281"
 ---
-# <a name="quickstart-use-metamask-to-connect-and-deploy-a-smart-contract"></a>Snabbstart: Använda MetaMask för att ansluta och distribuera ett smart kontrakt
+# <a name="quickstart-use-metamask-to-connect-and-deploy-a-smart-contract"></a>Quickstart: Use MetaMask to connect and deploy a smart contract
 
-I den här snabb starten använder du MetaMask för att ansluta till ett Azure blockchain service-nätverk och använder Remix för att distribuera ett smart kontrakt. Metamask är ett webb läsar tillägg som hanterar en eter-plån bok och utför smarta kontrakts åtgärder.
+In this quickstart, you'll use MetaMask to connect to an Azure Blockchain Service network and use Remix to deploy a smart contract. Metamask is a browser extension to manage an Ether wallet and perform smart contract actions.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Slutför [snabb start: Skapa en blockchain-medlem med hjälp](create-member.md) av [Azure Portal eller snabb start: Skapa en Azure blockchain-tjänst blockchain-medlem med Azure CLI](create-member-cli.md)
-* Installera [MetaMask Browser-tillägg](https://metamask.io)
-* Generera en MetaMask [plån bok](https://metamask.zendesk.com/hc/en-us/articles/360015488971-New-to-MetaMask-Learn-How-to-Setup-MetaMask-the-First-Time)
+* Complete [Quickstart: Create a blockchain member using the Azure portal](create-member.md) or [Quickstart: Create an Azure Blockchain Service blockchain member using Azure CLI](create-member-cli.md)
+* Install [MetaMask browser extension](https://metamask.io)
+* Generate a MetaMask [wallet](https://metamask.zendesk.com/hc/en-us/articles/360015488971-New-to-MetaMask-Learn-How-to-Setup-MetaMask-the-First-Time)
 
-## <a name="get-endpoint-address"></a>Hämta slut punkts adress
+## <a name="get-endpoint-address"></a>Get endpoint address
 
-Du behöver Azure blockchain-tjänstens slut punkts adress för att ansluta till blockchain-nätverket. Du kan hitta slut punkts adressen och åtkomst nycklarna i Azure Portal.
+You need the Azure Blockchain Service endpoint address to connect to the blockchain network. You can find the endpoint address and access keys in the Azure portal.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Navigera till din Azure blockchain service-medlem. Välj **Transactions-noder** och noden standard transaktions nod.
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Navigate to your Azure Blockchain Service member. Select **Transaction nodes** and the default transaction node link.
 
-    ![Välj noden standard transaktion](./media/connect-metamask/transaction-nodes.png)
+    ![Select default transaction node](./media/connect-metamask/transaction-nodes.png)
 
-1. Välj **anslutnings strängar > åtkomst nycklar**.
-1. Kopiera slut punkts adressen från **https (åtkomst nyckel 1)** . Du behöver adressen för nästa avsnitt.
+1. Select **Connection strings > Access keys**.
+1. Copy the endpoint address from **HTTPS (Access key 1)** . You need the address for the next section.
 
     ![Anslutningssträng](./media/connect-metamask/connection-string.png)
 
-## <a name="connect-metamask"></a>Anslut MetaMask
+## <a name="connect-metamask"></a>Connect MetaMask
 
-1. Öppna MetaMask browser extension och logga in.
-1. I list rutan nätverk väljer du **anpassad RPC**.
+1. Open MetaMask browser extension and sign in.
+1. In the network dropdown, select  **Custom RPC**.
 
-    ![Anpassat RPC](./media/connect-metamask/custom-rpc.png)
+    ![Custom RPC](./media/connect-metamask/custom-rpc.png)
 
-1. I **nytt nätverk > ny RPC-URL**anger du din slut punkts adress som kopierats från föregående avsnitt.
+1. In **New Network > New RPC URL**, enter your endpoint address copied from the previous section.
 1. Välj **Spara**.
 
-    Om anslutningen lyckades visas det privata nätverket i list rutan nätverk.
+    If connection was successful, the private network is displayed in the network dropdown.
 
-    ![Nytt nätverk](./media/connect-metamask/new-network.png)
+    ![New network](./media/connect-metamask/new-network.png)
 
-## <a name="deploy-smart-contract"></a>Distribuera Smart kontrakt
+## <a name="deploy-smart-contract"></a>Deploy smart contract
 
-Remix är en webbläsarbaserad utvecklings miljö. Med MetaMask och Remix tillsammans kan du distribuera och vidta åtgärder för smarta kontrakt.
+Remix is a browser-based Solidity development environment. Using MetaMask and Remix together, you can deploy and take actions on smart contracts.
 
 1. Öppna webbläsaren och navigera till `https://remix.ethereum.org`.
-1. Välj **ny fil** på fliken **Start** under **fil**.
+1. Select **New file** in the **Home** tab under **File**.
 
-    Ge den nya filen `simple.sol`ett namn.
+    Name the new file `simple.sol`.
 
-    ![Skapa fil](./media/connect-metamask/create-file.png)
+    ![Create file](./media/connect-metamask/create-file.png)
 
     Välj **OK**.
-1. I Remix-redigeraren klistrar du in följande **enkla smarta kontrakt** kod.
+1. In the Remix editor, paste in the following **simple smart contract** code.
 
     ```solidity
     pragma solidity ^0.5.0;
@@ -91,57 +85,57 @@ Remix är en webbläsarbaserad utvecklings miljö. Med MetaMask och Remix tillsa
     }
     ```
 
-    Det **enkla kontraktet** deklarerar en tillstånds variabel med namnet **Saldo**. Två funktioner har definierats. Funktionen **Add** lägger till ett tal att **balansera**. Funktionen **Get** returnerar värdet för **saldot**.
-1. För att kompilera kontraktet väljer du först fönstret halvledare compiler och väljer sedan **compile Simple. sol**. 
+    The **simple contract** declares a state variable named **balance**. There are two functions defined. The **add** function adds a number to **balance**. The **get** function returns the value of **balance**.
+1. To compile the contract, first select the Solidity compiler pane then select the  **Compile simple.sol**. 
 
-    ![Kompileringsfel](./media/connect-metamask/compile.png)
+    ![Compile](./media/connect-metamask/compile.png)
 
-1. Välj rutan **distribuera & körning** och ange sedan att **miljön** ska **injicera Web3** för att ansluta via MetaMask till din blockchain-medlem.
+1. Select the **Deploy & Run** pane then set the **Environment** to **Injected Web3** to connect through MetaMask to your blockchain member.
 
-    ![Fliken kör](./media/connect-metamask/injected-web3.png)
+    ![Run tab](./media/connect-metamask/injected-web3.png)
 
-1. Välj det **enkla** kontraktet och **distribuera**.
+1. Select the **simple** contract then **Deploy**.
 
     ![Distribuera](./media/connect-metamask/deploy.png)
 
 
-1. Ett MetaMask-meddelande visas som varnar dig om otillräckliga medel för att utföra transaktionen.
+1. A MetaMask notification is displayed alerting you of insufficient funds to perform the transaction.
 
-    För ett offentligt blockchain nätverk skulle du behöva betala för transaktions kostnaden. Eftersom det här är ett privat nätverk i ett konsortium kan du ställa in gas priset på noll.
+    For a public blockchain network, you would need Ether to pay for the transaction cost. Since this is a private network in a consortium, you can set gas price to zero.
 
-1.  Välj **gas avgift > redigera > Avancerat**och Ställ in **gas priset** på 0.
+1.  Select **Gas Fee > Edit > Advanced**,  set the **Gas Price** to 0.
 
-    ![Gas pris](./media/connect-metamask/gas-price.png)
+    ![Gas price](./media/connect-metamask/gas-price.png)
 
     Välj **Spara**.
 
-1. Välj **Bekräfta** om du vill distribuera det smarta kontraktet till blockchain.
-1. I avsnittet **distribuerade kontrakt** expanderar du det **enkla** kontraktet.
+1. Select **Confirm** to deploy the smart contract to the blockchain.
+1. In the **Deployed Contracts** section, expand the **simple** contract.
 
-    ![Distribuerat kontrakt](./media/connect-metamask/deployed-contract.png)
+    ![Deployed contract](./media/connect-metamask/deployed-contract.png)
 
-    Det finns två åtgärder för att **lägga till** och **Hämta** kartan till de funktioner som definierats i kontraktet.
+    There are two actions **add** and **get** that map to the functions defined in the contract.
 
-1. Om du vill utföra en **Lägg till** transaktion på blockchain anger du ett nummer som du vill lägga till och väljer **Lägg till**. Du kan få ett fel meddelande om gas uppskattning från Remix. Du skickar transaktionen till en privat blockchain som inte kräver gas. Välj **Skicka transaktion** för att framtvinga transaktionen.
-1. Precis som när du distribuerade kontraktet visas ett MetaMask-meddelande som varnar dig om otillräckliga medel för att genomföra transaktionen.
+1. To perform an **add** transaction on the blockchain, enter a number to add then select **add**. You may get a gas estimation failure message from Remix. You are sending the transaction to a private blockchain that does not require gas. Select **Send Transaction** to force the transaction.
+1. Similar to when you deployed the contract, a MetaMask notification is displayed alerting you of insufficient funds to perform the transaction.
 
-    Eftersom det här är ett privat nätverk i ett konsortium kan vi ställa in gas priset på noll.
+    Since this is a private network in a consortium, we can set gas price to zero.
 
-1.  Välj **gas avgift > redigera > Avancerat**, ange **gas priset** till 0 och välj **Spara**.
-1. Välj **Bekräfta** för att skicka transaktionen till blockchain.
-1. Välj **Hämta** åtgärd. Detta är ett anrop för att fråga Node-data. En transaktion behövs inte.
-1. I fel söknings fönstret för Remix kan du se information om transaktionerna på blockchain.
+1.  Select **Gas Fee > Edit > Advanced**,  set the **Gas Price** to 0, and select **Save**.
+1. Select **Confirm** to send the transaction to the blockchain.
+1. Select **get** action. This is a call to query node data. A transaction isn't needed.
+1. In the debug pane of Remix, you can see details about the transactions on the blockchain.
 
-    ![Fel söknings historik](./media/connect-metamask/debug.png)
+    ![Debug history](./media/connect-metamask/debug.png)
 
-    Du kan se det **enkla** uppdraget att skapa, transaktioner för **enkel. Lägg till**och anropa **enkel. get**.
+    You can see the **simple** contract creation, transaction for **simple.add**, and call to **simple.get**.
 
-1. Du kan också se transaktions historik i MetaMask. Öppna webb läsar tillägget MetaMask.
-1. I avsnittet **Historik** kan du se en logg över det distribuerade kontraktet och transaktionerna.
+1. You can also see transaction history in MetaMask. Open the MetaMask browser extension.
+1. In the **History** section, you can see a log of the deployed contract and transactions.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten använde du MetaMask Browser-tillägget för att ansluta till en Azure blockchain service Transaction-nod, distribuera ett smart kontrakt och skicka en transaktion till blockchain. Testa nästa självstudie för att använda Azure blockchain Development Kit för Ethereum och Truffle för att skapa, bygga, distribuera och köra en smart kontrakts funktion via en transaktion.
+In this quickstart, you used the MetaMask browser extension to connect to an Azure Blockchain Service transaction node, deploy a smart contract, and send a transaction to the blockchain. Try the next tutorial to use Azure Blockchain Development Kit for Ethereum and Truffle to create, build, deploy, and execute a smart contract function via a transaction.
 
 > [!div class="nextstepaction"]
-> [Använd Visual Studio Code för att skapa, bygga och distribuera smarta kontrakt](send-transaction.md)
+> [Use Visual Studio Code to create, build, and deploy smart contracts](send-transaction.md)

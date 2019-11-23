@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Extrahera avbildningsinformation med hjälp av API för bildsökning i Bing och C#'
+title: 'Tutorial: Extract image details with the REST API and C# - Bing Image Search'
 titleSuffix: Azure Cognitive Services
 description: Använd den här artikeln om du vill skapa ett C#-program som extraherar avbildningsinformation med hjälp av API för bildsökning i Bing.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: tutorial
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 995ccc8ffeb436526608803362cc361c74a75316
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e9ba5925ce562e53dbc415d66bbb529c32a725a7
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790039"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327012"
 ---
 # <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>Självstudier: Extrahera avbildningsinformation med hjälp av API för bildsökning i Bing och C#
 
@@ -34,9 +34,9 @@ I den här självstudien beskrivs hur du:
 
 Källkoden till det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingGetSimilarImages.cs).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-* En utgåva av [Visual studio 2017 eller senare](https://visualstudio.microsoft.com/downloads/).
+* Any edition of [Visual studio 2017 or later](https://visualstudio.microsoft.com/downloads/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
@@ -113,4 +113,4 @@ Om det finns identifierbara personer eller platser på bilden returnerar begära
 
 ## <a name="see-also"></a>Se också
 
-* [API-referens för bildsökning i Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Referens för API för bildsökning i Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

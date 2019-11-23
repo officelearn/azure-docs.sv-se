@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skicka en sökbegäran till REST API för Entitetssökning i Bing med Ruby'
+title: 'Quickstart: Send a search request to the REST API using Ruby - Bing Entity Search'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten om du vill skicka en begäran till REST API för entitetssökning i Bing med hjälp av Ruby och få ett JSON-svar.
 services: cognitive-services
@@ -10,20 +10,20 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 08/26/2019
 ms.author: aahi
-ms.openlocfilehash: e892d9917d0cc295236ee5e134348248dd4817a1
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 076fad8c1fc6fdd4bccf07f5eb3223800eddd4a0
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034520"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74323561"
 ---
 # <a name="quickstart-for-bing-entity-search-api-with-ruby"></a>Snabbstart för API för entitetssökning i Bing med Ruby
 
-Använd den här snabbstarten för att göra ditt första anrop till API för entitetssökning i Bing och visa JSON-svaret. Det här enkla Ruby-programmet skickar en nyhetssökfråga till API:et och visar svaret. Källkoden till det här programmet finns [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingEntitySearchv7.rb).
+Använd den här snabbstarten för att göra ditt första anrop till API för entitetssökning i Bing och visa JSON-svaret. Det här enkla Ruby-programmet skickar en nyhetssökfråga till API:et och visar svaret. Källkoden för det här programmet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingEntitySearchv7.rb).
 
 Även om det här programmet är skrivet i Ruby, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) eller senare.
 
@@ -65,7 +65,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
     request['Ocp-Apim-Subscription-Key'] = subscriptionKey
     ```
 
-3. Skicka begäran och skriv ut svaret
+3. Send the request, and print the response
 
     ```ruby
     response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|

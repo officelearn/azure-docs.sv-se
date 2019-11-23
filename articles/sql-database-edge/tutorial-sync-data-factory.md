@@ -1,7 +1,7 @@
 ---
-title: Synkronisera data från Azure SQL Database Edge med Azure Data Factory | Microsoft Docs
-description: Lär dig mer om att synkronisera data mellan Azure SQL Database Edge och Azure Blob Storage
-keywords: SQL Database Edge, synkronisera data från SQL Database Edge, SQL Database Edge Data Factory
+title: Sync data from Azure SQL Database Edge by using Azure Data Factory | Microsoft Docs
+description: Learn about syncing data between Azure SQL Database Edge and Azure Blob storage
+keywords: sql database edge,sync data from sql database edge, sql database edge data factory
 services: sql-database-edge
 ms.service: sql-database-edge
 ms.topic: tutorial
@@ -9,44 +9,44 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 0e75da9516303bb4250b6847a4b381d07b3d7dad
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2bfa65117bf31ad9cb9917fd8a643a0358e02be0
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73501325"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384212"
 ---
-# <a name="tutorial-sync-data-from-sql-database-edge-to-azure-blob-storage-using-azure-data-factory"></a>Självstudie: synkronisera data från SQL Database Edge till Azure Blob Storage med hjälp av Azure Data Factory
+# <a name="tutorial-sync-data-from-sql-database-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>Tutorial: Sync data from SQL Database Edge to Azure Blob storage by using Azure Data Factory
 
-I den här självstudien använder du Azure Data Factory för att stegvis synkronisera data från en tabell i en instans av Azure SQL Database Edge till Azure Blob Storage.
+In this tutorial, you'll use Azure Data Factory to incrementally sync data to Azure Blob storage from a table in an instance of Azure SQL Database Edge.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Om du inte redan har skapat en databas eller tabell i Azure SQL Database Edge-distribution kan du använda någon av följande metoder för att skapa en:
+If you haven't already created a database or table in your Azure SQL Database Edge deployment, use one of these methods to create one:
 
-* Använd [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms/) eller [Azure Data Studio](/sql/azure-data-studio/download/) för att ansluta till SQL Database Edge och köra ett SQL-skript för att skapa databasen och tabellen.
-* Skapa en SQL-databas och-tabell med [SQLCMD](/sql/tools/sqlcmd-utility/) genom att ansluta direkt till SQL Database Edge-modulen. Mer information finns i [ansluta till databas motorn med SQLCMD](/sql/ssms/scripting/sqlcmd-connect-to-the-database-engine/).
-* Använd SQLPackage. exe för att distribuera en dacpac-fil till SQL Database Edge-behållaren. Detta kan automatiseras genom att ange SQLPackage-filuri som en del av den önskade egenskaperna för moduler, eller genom att direkt använda klient verktyget SqlPackage. exe för att distribuera en DACPAC till SQL Database Edge.
+* Use [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms/) or [Azure Data Studio](/sql/azure-data-studio/download/) to connect to SQL Database Edge. Run a SQL script to create the database and table.
+* Create a SQL database and table by using [SQLCMD](/sql/tools/sqlcmd-utility/) by directly connecting to the SQL Database Edge module. For more information, see [Connect to the Database Engine by using sqlcmd](/sql/ssms/scripting/sqlcmd-connect-to-the-database-engine/).
+* Use SQLPackage.exe to deploy a DAC package file to the SQL Database Edge container. You can automate this process by specifying the SqlPackage file URI as part of the module's desired properties configuration. You can also directly use the SqlPackage.exe client tool to deploy a DAC package to SQL Database Edge.
 
-    Information om hur du hämtar sqlpackage finns i [Hämta och installera sqlpackage](/sql/tools/sqlpackage-download/). Följande exempel kommandon för SqlPackage. exe har angetts, men du hittar mer information i SqlPackage-dokumentationen.
+    For information about how to download SqlPackage.exe, see [Download and install sqlpackage](/sql/tools/sqlpackage-download/). Following are some sample commands for SqlPackage.exe. For more information, see the SqlPackage.exe documentation.
 
-    **Skapa DACPAC**:
+    **Create a DAC package**
 
     ```cmd
-    sqlpackage /Action:Extract /SourceConnectionString:"Data Source=<Server_Name>,<port>;Initial Catalog=<DB_name>;User ID=<user>;Password=<password>" /TargetFile:<dacpac_file_name> 
+    sqlpackage /Action:Extract /SourceConnectionString:"Data Source=<Server_Name>,<port>;Initial Catalog=<DB_name>;User ID=<user>;Password=<password>" /TargetFile:<dacpac_file_name>
     ```
 
-    **Använd DACPAC**:
+    **Apply a DAC package**
 
     ```cmd
     sqlpackage /Action:Publish /Sourcefile:<dacpac_file_name> /TargetServerName:<Server_Name>,<port> /TargetDatabaseName:<DB_Name> /TargetUser:<user> /TargetPassword:<password>
     ```
 
-## <a name="create-a-sql-table-and-procedure-to-store-and-update-the-watermark-levels"></a>Skapa en SQL-tabell och procedur för att lagra och uppdatera vatten märkes nivåerna
+## <a name="create-a-sql-table-and-procedure-to-store-and-update-the-watermark-levels"></a>Create a SQL table and procedure to store and update the watermark levels
 
-Tabellen vattenstämpel används för att lagra den sista tidsstämpeln som data redan har synkroniserats med Azure Storage. Den lagrade proceduren Transact-SQL (T-SQL) används för att uppdatera vatten märkes tabellen efter varje synkronisering. 
+A watermark table is used to store the last timestamp up to which data has already been synchronized with Azure Storage. A Transact-SQL (T-SQL) stored procedure is used to update the watermark table after every sync.
 
-Kör följande kommandon på SQL Database Edge-instansen:
+Run these commands on the SQL Database Edge instance:
 
 ```sql
     Create table [dbo].[watermarktable]
@@ -65,161 +65,159 @@ Kör följande kommandon på SQL Database Edge-instansen:
     Go
 ```
 
-## <a name="create-a-data-factory-workflow"></a>Skapa ett arbets flöde för Data Factory
+## <a name="create-a-data-factory-pipeline"></a>Create a Data Factory pipeline
 
-I det här avsnittet skapar du en Azure Data Factory pipeline för att synkronisera data från en tabell inom Azure SQL Database Edge till Azure Blob Storage.
+In this section, you'll create an Azure Data Factory pipeline to sync data to Azure Blob storage from a table in Azure SQL Database Edge.
 
-### <a name="create-data-factory-using-the-data-factory-ui"></a>Skapa Data Factory med hjälp av användar gränssnittet för Data Factory
+### <a name="create-a-data-factory-by-using-the-data-factory-ui"></a>Create a data factory by using the Data Factory UI
 
-Skapa en Data Factory med hjälp av anvisningarna i den här [självstudien](../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory).
+Create a data factory by following the instructions in [this tutorial](../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory).
 
-### <a name="create-a-data-factory-pipeline"></a>Skapa en Data Factory pipeline
+### <a name="create-a-data-factory-pipeline"></a>Create a Data Factory pipeline
 
-1. På sidan **Kom igång** i Data Factory användar gränssnittet väljer du panelen **skapa pipeline** .
+1. On the **Let's get started** page of the Data Factory UI, select **Create pipeline**.
 
-    ![Data Factory – skapa pipeline](media/tutorial-sync-data-factory/data-factory-get-started.png)
+    ![Create a Data Factory pipeline](media/tutorial-sync-data-factory/data-factory-get-started.png)
 
-2. På sidan **Allmänt** i fönstret **Egenskaper** för pipelinen anger du **PeriodicSync** namn.
+2. On the **General** page of the **Properties** window for the pipeline, enter **PeriodicSync** for the name.
 
-3. Lägg till **Lookup** -aktiviteten för att hämta det gamla värdet för vatten märket. I **verktygs lådan aktiviteter**expanderar du **allmänt**och drar & ta bort **söknings** aktiviteten till pipelinens designer-yta. Ändra namnet på aktiviteten till *OldWatermark*.
+3. Add the Lookup activity to get the old watermark value. In the **Activities** pane, expand **General** and drag the **Lookup** activity to the pipeline designer surface. Change the name of the activity to **OldWatermark**.
 
-    ![gammal vattenstämpel-sökning](media/tutorial-sync-data-factory/create-old-watermark-lookup.png)
+    ![Add the old watermark lookup](media/tutorial-sync-data-factory/create-old-watermark-lookup.png)
 
-4. Växla till fliken **Inställningar** och välj **+ nytt** för **käll data uppsättning**. I det här steget skapar du en data uppsättning som representerar data i watermarktable. Den här tabellen innehåller den gamla vattenstämpeln som användes i den tidigare kopieringen.
+4. Switch to the **Settings** tab and select **New** for **Source Dataset**. You'll now create a dataset to represent data in the watermark table. Den här tabellen innehåller den gamla vattenstämpeln som användes i den tidigare kopieringen.
 
-5. I fönstret **ny data uppsättning** väljer du **Azure SQL Server**och väljer **Fortsätt**.  
+5. In the **New Dataset** window, select **Azure SQL Server**, and then select **Continue**.  
 
-6. I fönstret **Ange egenskaper** för data uppsättningen anger du *WatermarkDataset* som namn.
+6. In the **Set properties** window for the dataset, under **Name**, enter **WatermarkDataset**.
 
-7. För **länkad tjänst**väljer du **ny**och utför sedan följande steg:
+7. For **Linked Service**, select **New**, and then complete these steps:
 
-    1. Ange *SQLDBEdgeLinkedService* som **namn**.
+    1. Under **Name**, enter **SQLDBEdgeLinkedService**.
 
-    2. Mata in SQL Database Edge Server-information för **Server namn**.
+    2. Under **Server name**, enter your SQL Database Edge server details.
 
-    3. Ange **databas namnet** från List rutan.
+    3. Select your **Database name** from the list.
 
-    4. Ange ditt **användar namn** och **lösen ord**.
+    4. Enter your **User name** and **Password**.
 
-    5. Om du vill testa anslutningen till SQL Database Edge-instansen väljer du **Testa anslutning**.
+    5. To test the connection to the SQL Database Edge instance, select **Test connection**.
 
     6. Välj **Skapa**.
 
-    ![Skapa länkad tjänst](media/tutorial-sync-data-factory/create-linked-service.png)
+    ![Skapa en länkad tjänst](media/tutorial-sync-data-factory/create-linked-service.png)
 
-    7. Välj **OK**
+    7. Välj **OK**.
 
-8. På fliken **Inställningar** väljer du **Redigera**.
+8. On the **Settings** tab, select **Edit**.
 
-9. På fliken **anslutning** väljer du *[dbo]. [ watermarktable]* för **tabell**. Om du vill förhandsgranska data i tabellen väljer du **Förhandsgranska data**.
+9. On the **Connection** tab, select **[dbo].[watermarktable]** for **Table**. If you want to preview data in the table, select **Preview data**.
 
-10. Växla till pipeline-redigeraren genom att välja fliken pipeline överst eller genom att välja namnet på pipelinen i trädvyn till vänster. I fönstret Egenskaper för **söknings aktiviteten**bekräftar du att **WatermarkDataset** har valts för fältet för **käll data uppsättning** .
+10. Switch to the pipeline editor by selecting the pipeline tab at the top or by selecting the name of the pipeline in the tree view on the left. In the properties window for the Lookup activity, confirm that **WatermarkDataset** is selected in the **Source dataset** list.
 
-11. I verktygs lådan **aktiviteter** expanderar **du allmänt**, drar och släpper en annan **sökning** -aktivitet till pipelinens design yta och anger namnet **NewWatermark** på fliken **Allmänt** i fönstret Egenskaper. Med den här sökningsaktiviteten kopieras det nya vattenstämpelvärdet från tabellen med källdata till målet.
+11. In the **Activities** pane, expand **General** and drag another **Lookup** activity to the pipeline designer surface. Set the name to **NewWatermark** on the **General** tab of the properties window. This Lookup activity gets the new watermark value from the table that contains the source data so it can be copied to the destination.
 
-12. I fönstret Egenskaper för den andra **söknings** aktiviteten växlar du till fliken **Inställningar** och väljer **ny** för att skapa en data uppsättning som pekar på den käll tabell som innehåller det nya värdet för vattenstämpeln.
+12. In the properties window for the second Lookup activity, switch to the **Settings** tab and select **New** to create a dataset to point to the source table that contains the new watermark value.
 
-13. I fönstret **ny data uppsättning** väljer du SQL Database Edge instance och väljer **Fortsätt**.
+13. In the **New Dataset** window, select **SQL Database Edge instance**, and then select **Continue**.
 
-    1. I fönstret **Ange egenskaper** anger du **SourceDataset** som **namn**. Välj *SQLDBEdgeLinkedService* för länkad tjänst.
+    1. In the **Set properties** window, under **Name**, enter **SourceDataset**. Under **Linked service**, select **SQLDBEdgeLinkedService**.
 
-    2. Välj ***den tabell som du vill synkronisera*** för tabellen. Du kan också ange en fråga för den här data uppsättningen, som nämns senare i självstudien. Frågan åsidosätter den tabell som du anger i det här steget.
+    2. Under **Table**, select the table that you want to synchronize. You can also specify a query for this dataset, as described later in this tutorial. The query takes precedence over the table you specify in this step.
 
     3. Välj **OK**.
 
-14. Växla till pipeline-redigeraren genom att välja fliken pipeline överst eller genom att välja namnet på pipelinen i trädvyn till vänster. I egenskapsfönstret för **sökningsaktiviteten** bekräftar du att **SourceDataset** är valt för fältet **Source Dataset** (Källdatauppsättning).
+14. Switch to the pipeline editor by selecting the pipeline tab at the top or by selecting the name of the pipeline in the tree view on the left. In the properties window for the Lookup activity, confirm that **SourceDataset** is selected in the **Source dataset** list.
 
-15. Välj **fråga** för fältet **Använd fråga** och ange följande fråga efter uppdatering av tabell namn i frågan: du väljer bara det maximala värdet för tidsstämpel från tabellen. Kontrol lera att du också har markerat **enbart första raden**.
+15. Select **Query** under **Use query**. Update the table name in the following query and then enter the query. You're selecting only the maximum value of `timestamp` from the table. Be sure to select **First row only**.
 
     ```sql
     select MAX(timestamp) as NewWatermarkvalue from [TableName]
     ```
 
-    ![Välj fråga](media/tutorial-sync-data-factory/select-query-data-factory.png)
+    ![select query](media/tutorial-sync-data-factory/select-query-data-factory.png)
 
-16. I verktygs lådan **aktiviteter** expanderar du **Flytta & Transform**, drar och släpper **kopierings** aktiviteten i aktivitets verktygs lådan och anger namnet till **IncrementalCopy**.
+16. In the **Activities** pane, expand **Move & Transform** and drag the **Copy** activity from the **Activities** pane to the designer surface. Set the name of the activity to **IncrementalCopy**.
 
-17. Anslut båda **uppslags** aktiviteterna till **kopierings** aktiviteten genom att dra den **gröna knappen** som är kopplad till **Sök** aktiviteterna till **kopierings** aktiviteten. Släpp mus knappen när du ser att kant linje färgen för kopierings aktiviteten ändras till blå.
+17. Connect both Lookup activities to the Copy activity by dragging the green button attached to the Lookup activities to the Copy activity. Release the mouse button when you see the border color of the Copy activity change to blue.
 
-18. Välj **kopierings** aktiviteten och bekräfta att du ser egenskaperna för aktiviteten i fönstret **Egenskaper** .
+18. Select the Copy activity and confirm that you see the properties for the activity in the **Properties** window.
 
-19. Växla till fliken **Källa** i fönstret **Egenskaper** och utför följande steg:
+19. Switch to the **Source** tab in the **Properties** window and complete these steps:
 
-    1. Markera **SourceDataset** för fältet för **källdatauppsättning**.
+    1. In the **Source dataset** box, select **SourceDataset**.
 
-    2. Välj **Fråga** i fältet **Använd fråga**.
+    2. Under **Use query**, select **Query**.
 
-    3. Ange SQL-frågan för fältet **fråga** . Exempel fråga nedan
-
-    4. SQL-fr åga:
+    3. Enter the SQL query in the **Query** box. Here's a sample query:
 
     ```sql
     select * from TemperatureSensor where timestamp > '@{activity('OldWaterMark').output.firstRow.WatermarkValue}' and timestamp <= '@{activity('NewWaterMark').output.firstRow.NewWatermarkvalue}'
     ```
 
-20. Växla till fliken **mottagare** och välj **+ ny** för fältet Sink- **datauppsättning** .
+20. On the **Sink** tab, select **New** under **Sink Dataset**.
 
-21. I den här självstudien är mottagar data lagret av typen **Azure Blob Storage**. Välj **Azure Blob Storage**och välj **Fortsätt** i fönstret **ny data uppsättning** .
+21. In this tutorial, the sink data store is an Azure Blob storage data store. Select **Azure Blob storage**, and then select **Continue** in the **New Dataset** window.
 
-22. I fönstret **Välj format** väljer du format typ för dina data och väljer **Fortsätt**.
+22. In the **Select Format** window, select the format of your data, and then select **Continue**.
 
-23. I fönstret **Ange egenskaper** anger du **SinkDataset** som namn. För länkad tjänst väljer du **+ ny**. I det här steget skapar du en anslutning (länkad tjänst) till **Azure Blob Storage**.
+23. In the **Set Properties** window, under **Name**, enter **SinkDataset**. Under **Linked service**, select **New**. You'll now create a connection (a linked service) to your Azure Blob storage.
 
-24. Utför följande steg i fönstret **ny länkad tjänst (Azure Blob Storage)** :
+24. In the **New Linked Service (Azure Blob storage)** window, complete these steps:
 
-    1. Ange *AzureStorageLinkedService* som namn.
+    1. In the **Name** box, enter **AzureStorageLinkedService**.
 
-    2. Välj ditt Azure Storage konto för **lagrings konto namn** med din Azure-prenumeration.
+    2. Under **Storage account name**, select the Azure storage account for your Azure subscription.
 
-    3. Testa **anslutning** och välj sedan **Slutför**.
+    3. Test the connection and then select **Finish**.
 
-25. I fönstret **Ange egenskaper** bekräftar du att *AzureStorageLinkedService* har valts för den **länkade tjänsten**. Välj sedan **skapa** och **OK**.
+25. In the **Set Properties** window, confirm that **AzureStorageLinkedService** is selected under **Linked service**. Select **Create** and **OK**.
 
-26. I fliken **mottagare** väljer du **Redigera**.
+26. On **Sink** tab, select **Edit**.
 
-27. Gå till fliken **anslutning** i *SinkDataset* och utför följande steg:
+27. Go to the **Connection** tab of SinkDataset and complete these steps:
 
-    1. I fältet **fil Sök väg** anger du *asdedatasync/incrementalcopy*, där **adftutorial** är BLOB-containerns namn och **incrementalcopy** är mappnamnet. Skapa containern om den inte finns, eller ställ in den för namnet på en befintlig. Azure Data Factory skapar automatiskt utdatamappen *incrementalcopy* om den inte finns. Du kan också använda knappen **Bläddra** för **Filsökväg** för att navigera till en mapp i en blobcontainer.
+    1. Under **File path**, enter *asdedatasync/incrementalcopy*, where *adftutorial* is the blob container name and *incrementalcopy* is the folder name. Create the container if it doesn't exist, or use the name of an existing one. Azure Data Factory automatically creates the output folder *incrementalcopy* if it doesn't exist. Du kan också använda knappen **Bläddra** för **Filsökväg** för att navigera till en mapp i en blobcontainer.
 
-    2. För **fil** delen av fältet **fil Sök väg** väljer du **Lägg till dynamiskt innehåll [ALT + P]** och *anger @CONCAT(' incremental ', pipeline (). RunId, '. txt ')* i det öppnade fönstret. Välj sedan **Slutför**. Filnamnet genereras dynamiskt med uttrycket. Varje pipelinekörning har ett unikt ID. Kopieringsaktiviteten använder körnings-ID för att generera filnamnet.
+    2. For the **File** part of the **File path**, select **Add dynamic content [Alt+P]** , and then enter **@CONCAT('Incremental-', pipeline().RunId, '.txt')** in the window that opens. Välj **Slutför**. The file name is dynamically generated by the expression. Varje pipelinekörning har ett unikt ID. Kopieringsaktiviteten använder körnings-ID för att generera filnamnet.
 
-28. Växla till **pipeline** -redigeraren genom att välja fliken pipeline överst eller genom att välja namnet på pipelinen i trädvyn till vänster.
+28. Switch to the pipeline editor by selecting the pipeline tab at the top or by selecting the name of the pipeline in the tree view on the left.
 
-29. I verktygslådan **Aktiviteter** expanderar du **Allmänt** och drar och släpper aktiviteten **Lagrad procedur** från verktygslådan **Aktiviteter** till pipelinedesignerytan. **Anslut** gröna utdata (lyckades) från aktiviteten **Kopiera** till den **lagrade proceduraktiviteten**.
+29. In the **Activities** pane, expand **General** and drag the **Stored Procedure** activity from the **Activities** pane to the pipeline designer surface. Connect the green (success) output of the Copy activity to the Stored Procedure activity.
 
-30. Välj **aktivitet för lagrad procedur** i pipeline-designern, ändra dess namn till *SPtoUpdateWatermarkActivity*.
+30. Select **Stored Procedure Activity** in the pipeline designer and change its name to **SPtoUpdateWatermarkActivity**.
 
-31. Växla till fliken **SQL-konto** och välj *SQLDBEdgeLinkedService* för **länkad tjänst**.
+31. Switch to the **SQL Account** tab, and select ***QLDBEdgeLinkedService** under **Linked service**.
 
-32. Växla till fliken **Lagrad procedur** och gör följande:
+32. Switch to the **Stored Procedure** tab and complete these steps:
 
-    1. För **lagrad procedur namn**väljer du *[dbo]. [ usp_write_watermark]* .
+    1. Under **Stored procedure name**, select **[dbo].[usp_write_watermark]** .
 
-    2. Om du vill ange värden för parametrarna för den lagrade proceduren väljer du importera parameter och anger följande värden för parametrarna:
+    2. To specify values for the stored procedure parameters, select **Import parameter** and enter these values for the parameters:
 
     |Namn|Typ|Värde|
     |-----|----|-----|
-    |LastModifiedtime|DateTime|@ {Activity (' NewWaterMark '). output. firstRow. NewWatermarkvalue}|
-    |TableName|Sträng|@ {Activity (' OldWaterMark '). output. firstRow. TableName}|
+    |LastModifiedtime|DateTime|@{activity('NewWaterMark').output.firstRow.NewWatermarkvalue}|
+    |TableName|Sträng|@{activity('OldWaterMark').output.firstRow.TableName}|
 
-33. Verifiera inställningarna för pipelinen genom att välja **Verifiera** i verktygsfältet. Kontrollera att det inte finns några verifieringsfel. Stäng fönstret **validerings rapport för pipeline** genom att välja **>>** .
+33. To validate the pipeline settings, select **Validate** on the toolbar. Kontrollera att det inte finns några verifieringsfel. To close the **Pipeline Validation Report** window, select **>>** .
 
-34. Publicera entiteter (länkade tjänster, datauppsättningar och pipeliner) till Azure Data Factory-tjänsten genom att välja knappen **Publicera alla**. Vänta tills du ser ett meddelande om att publiceringen är klar.
+34. Publish the entities (linked services, datasets, and pipelines) to the Azure Data Factory service by selecting the **Publish All** button. Wait until you see a message confirming that the publish operation has succeeded.
 
-## <a name="trigger-a-pipeline-on-schedule"></a>Utlös en pipeline enligt schema
+## <a name="trigger-a-pipeline-based-on-a-schedule"></a>Trigger a pipeline based on a schedule
 
-1. I verktygsfältet pipeline väljer du **Lägg till utlösare**och sedan **ny/redigera**, Välj **+ ny**.
+1. On the pipeline toolbar, select **Add Trigger**, select **New/Edit**, and then select **New**.
 
-2. Namnge utlösaren med *HourlySync*, Välj **typ** som schema och Ställ in **upprepningen** på varannan timme.
+2. Name your trigger **HourlySync**. Under **Type**, select **Schedule**. Set the **Recurrence** to every 1 hour.
 
 3. Välj **OK**.
 
 4. Välj **Publicera alla**.
 
-5. Välj **utlösare nu**.
+5. Select **Trigger Now**.
 
-6. Växla till fliken **Övervaka** till vänster. Du kan se status för den pipelinekörning som utlöstes av den manuella utlösaren. Klicka på **Uppdatera** om du vill uppdatera listan.
+6. Växla till fliken **Övervaka** till vänster. Du kan se status för den pipelinekörning som utlöstes av den manuella utlösaren. Om du vill uppdatera listan väljer du **Uppdatera**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Azure Data Factory pipelinen i den här självstudien kopierar data från en tabell på SQL Database Edge-instansen till en plats i Azure Blob Storage med Tim frekvens. Om du vill veta mer om hur du använder Data Factory i fler scenarier går du igenom de här [självstudierna](../data-factory/tutorial-copy-data-portal.md).
+The Azure Data Factory pipeline in this tutorial copies data from a table on a SQL Database Edge instance to a location in Azure Blob storage once every hour. To learn about using Data Factory in other scenarios, see these [tutorials](../data-factory/tutorial-copy-data-portal.md).

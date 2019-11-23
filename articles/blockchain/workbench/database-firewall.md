@@ -1,31 +1,25 @@
 ---
-title: Konfigurera SQL DB-brandväggen i Azure Blockchain Workbench
-description: Lär dig hur du konfigurerar Azure blockchain Workbench Preview SQL DB-brandväggen.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+title: Configure Azure Blockchain Workbench database firewall
+description: Learn how to configure the Azure Blockchain Workbench Preview database firewall to allow external clients and applications to connect.
 ms.date: 09/09/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: mmercuri
-manager: femila
-ms.openlocfilehash: 0153065ca0ccd6cf34456d630d7437d5ea7c5b48
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: e6739b7ead9299f020465d3c50ed01826334ca76
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845229"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326008"
 ---
 # <a name="configure-the-azure-blockchain-workbench-database-firewall"></a>Konfigurera brandväggen för Azure Blockchain Workbench-databasen
 
 Den här artikeln beskriver hur du konfigurerar en brandväggsregel via Azure Portal. Brandväggsregler gör att externa klienter eller program kan ansluta till din Azure Blockchain Workbench-databas.
 
-## <a name="connect-to-the-blockchain-workbench-database"></a>Anslut till Blockchain Workbench-databasen
+## <a name="connect-to-the-blockchain-workbench-database"></a>Ansluta till Blockchain Workbench-databasen
 
 Så här ansluter du till databasen där du vill konfigurera en regel:
 
-1. Logga in på Azure Portal med ett konto som har **ägar** behörigheter för Azure blockchain Workbench-resurserna.
+1. Sign in to the Azure portal with an account that has **Owner**     permissions for the Azure Blockchain Workbench resources.
 2. Välj **Resursgrupper** i det vänstra navigeringsfönstret.
 3. Välj namnet på resursgruppen för din Blockchain Workbench-distribution.
 4. Sortera listan med resurser genom att välja **Typ** och välj sedan din **SQL-server**.

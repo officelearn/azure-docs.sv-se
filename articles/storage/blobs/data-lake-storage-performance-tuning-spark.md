@@ -1,115 +1,115 @@
 ---
-title: Azure Data Lake Storage Gen2 Spark prestandajustering riktlinjer | Microsoft Docs
-description: Azure Data Lake Storage Gen2 Spark prestandajustering riktlinjer
+title: 'Tune performance: Spark, HDInsight & Azure Data Lake Storage Gen2 | Microsoft Docs'
+description: Azure Data Lake Storage Gen2 Spark Performance Tuning Guidelines
 services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: feefcf4f9f4448ab2b36c415cb745fd98277eb28
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a70b8112af201a49e7eece8b689e75102ec55880
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939322"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327553"
 ---
-# <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Prestandajusteringsvägledning för Spark på HDInsight och Azure Data Lake Storage Gen2
+# <a name="tune-performance-spark-hdinsight--azure-data-lake-storage-gen2"></a>Tune performance: Spark, HDInsight & Azure Data Lake Storage Gen2
 
-Du måste fundera över hur många appar som körs i klustret när du anpassar prestanda på Spark.  Som standard kan du köra 4 appar samtidigt på HDI-kluster (Obs: standardinställningen kan komma att ändras).  Du kan välja att använda färre appar så att du kan åsidosätta standardinställningarna och använda flera av klustret för dessa appar.  
+When tuning performance on Spark, you need to consider the number of apps that will be running on your cluster.  By default, you can run 4 apps concurrently on your HDI cluster (Note: the default setting is subject to change).  You may decide to use fewer apps so you can override the default settings and use more of the cluster for those apps.  
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-* **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Ett konto med Azure Data Lake Storage Gen2**. Anvisningar för hur du skapar ett finns i [snabbstarten: Skapa ett lagringskonto i Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
-* **Azure HDInsight-kluster** med åtkomst till ett Data Lake Storage Gen2-konto. Se [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2). Kontrollera att du aktivera Fjärrskrivbord för klustret.
-* **Köra Spark-kluster på Data Lake Storage Gen2**.  Mer information finns i [använda HDInsight Spark-kluster för att analysera data i Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-use-with-data-lake-store)
-* **Riktlinjer för Data Lake Storage Gen2 för prestandajustering**.  Allmänna prestanda begrepp, se [Data Lake Storage Gen2 justering Prestandavägledning](data-lake-storage-performance-tuning-guidance.md) 
+* **en Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **An Azure Data Lake Storage Gen2 account**. For instructions on how to create one, see [Quickstart: Create an Azure Data Lake Storage Gen2 storage account](data-lake-storage-quickstart-create-account.md).
+* **Azure HDInsight cluster** with access to a Data Lake Storage Gen2 account. Se [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2). Make sure you enable Remote Desktop for the cluster.
+* **Running Spark cluster on Data Lake Storage Gen2**.  For more information, see [Use HDInsight Spark cluster to analyze data in Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-use-with-data-lake-store)
+* **Performance tuning guidelines on Data Lake Storage Gen2**.  For general performance concepts, see [Data Lake Storage Gen2 Performance Tuning Guidance](data-lake-storage-performance-tuning-guidance.md) 
 
 ## <a name="parameters"></a>Parametrar
 
-När du kör Spark-jobb, är här de viktigaste inställningar som kan anpassas för att öka prestanda på Data Lake Storage Gen2:
+When running Spark jobs, here are the most important settings that can be tuned to increase performance on Data Lake Storage Gen2:
 
-* **NUM executors** -antalet samtidiga aktiviteter som kan utföras.
+* **Num-executors** - The number of concurrent tasks that can be executed.
 
-* **Executor minnet** – mängden minne som allokerats till varje executor.
+* **Executor-memory** - The amount of memory allocated to each executor.
 
-* **Executor kärnor** -antalet kärnor som tilldelas varje executor.                     
+* **Executor-cores** - The number of cores allocated to each executor.                     
 
-**NUM executors** Num executors anger det maximala antalet aktiviteter som kan köras parallellt.  Det faktiska antalet aktiviteter som kan köras parallellt begränsas av minne och CPU-resurser som är tillgängliga i klustret.
+**Num-executors** Num-executors will set the maximum number of tasks that can run in parallel.  The actual number of tasks that can run in parallel is bounded by the memory and CPU resources available in your cluster.
 
-**Executor minnet** mängden minne som allokeras till varje executor.  Det minne som behövs för varje executor är beroende av jobbet.  Minnet som måste vara högre för komplexa åtgärder.  För enkla åtgärder som Läs- och skrivåtgärder blir minneskrav lägre.  Hur mycket minne för varje executor kan ses i Ambari.  Navigera till Spark i Ambari, och visar fliken konfigurationer.  
+**Executor-memory** This is the amount of memory that is being allocated to each executor.  The memory needed for each executor is dependent on the job.  For complex operations, the memory needs to be higher.  For simple operations like read and write, memory requirements will be lower.  The amount of memory for each executor can be viewed in Ambari.  In Ambari, navigate to Spark and view the Configs tab.  
 
-**Executor kärnor** detta anger antalet kärnor som används per executor som avgör hur många parallella trådar som kan köras per executor.  Till exempel om executor kärnor = 2, sedan varje executor kör 2 parallella uppgifter i executor.  Executor-kärnor behövs är beroende av jobbet.  I/o tunga jobb kräver inte en stor mängd minne per aktivitet så att varje executor kan hantera flera parallella uppgifter.
+**Executor-cores** This sets the number of cores used per executor, which determines the number of parallel threads that can be run per executor.  For example, if executor-cores = 2, then each executor can run 2 parallel tasks in the executor.  The executor-cores needed will be dependent on the job.  I/O heavy jobs do not require a large amount of memory per task so each executor can handle more parallel tasks.
 
-Som standard har två virtuella kärnor i YARN definierats för varje fysisk kärna när du kör Spark på HDInsight.  Det här talet ger en bra balans mellan samtidighet och mängden kontext som byter från flera trådar.  
+By default, two virtual YARN cores are defined for each physical core when running Spark on HDInsight.  This number provides a good balance of concurrency and amount of context switching from multiple threads.  
 
-## <a name="guidance"></a>Riktlinjer
+## <a name="guidance"></a>Vägledning
 
-När du kör Spark analytiska arbetsbelastningar för att arbeta med data i Data Lake Storage Gen2, rekommenderar vi att du använder den senaste versionen av HDInsight för att uppnå optimala prestanda med Data Lake Storage Gen2. När jobbet är flera i/o-intensiva, kan vissa parametrar konfigureras för att förbättra prestanda.  Data Lake Storage Gen2 är en mycket skalbar lagring-plattform som kan hantera stora dataflöden.  Om jobbet består främst av Läs- eller skrivåtgärder, kan ökad samtidighet för i/o till och från Data Lake Storage Gen2 öka prestanda.
+While running Spark analytic workloads to work with data in Data Lake Storage Gen2, we recommend that you use the most recent HDInsight version to get the best performance with Data Lake Storage Gen2. When your job is more I/O intensive, then certain parameters can be configured to improve performance.  Data Lake Storage Gen2 is a highly scalable storage platform that can handle high throughput.  If the job mainly consists of read or writes, then increasing concurrency for I/O to and from Data Lake Storage Gen2 could increase performance.
 
-Det finns några Allmänt sätt att öka parallellkörningen för i/o-intensiva jobb.
+There are a few general ways to increase concurrency for I/O intensive jobs.
 
-**Steg 1: Fastställa hur många appar körs i klustret** – du bör känna till hur många appar körs i klustret, inklusive den aktuella artikeln.  Standardvärden för varje Spark utgår ifrån att det finns 4 appar som körs samtidigt.  Därför kommer du bara ha 25% av klustret som är tillgängliga för varje app.  Du kan åsidosätta standardvärdena genom att ändra antalet executors för att få bättre prestanda.  
+**Step 1: Determine how many apps are running on your cluster** – You should know how many apps are running on the cluster including the current one.  The default values for each Spark setting assumes that there are 4 apps running concurrently.  Therefore, you will only have 25% of the cluster available for each app.  To get better performance, you can override the defaults by changing the number of executors.  
 
-**Steg 2: Ange executor minne** – det första du ska ange är executor-minne.  Minnet som är beroende av det jobb som du ska köra.  Du kan öka samtidighet genom att allokera mindre minne per executor.  Om du ser ut från minne-undantag när du kör dina jobb, bör du öka värdet för den här parametern.  Ett alternativ är att få mer minne med hjälp av ett kluster som har större mängder minne eller öka storleken på ditt kluster.  Mer minne kan mer körare som ska användas, vilket innebär att större samtidighet.
+**Step 2: Set executor-memory** – The first thing to set is the executor-memory.  The memory will be dependent on the job that you are going to run.  You can increase concurrency by allocating less memory per executor.  If you see out of memory exceptions when you run your job, then you should increase the value for this parameter.  One alternative is to get more memory by using a cluster that has higher amounts of memory or increasing the size of your cluster.  More memory will enable more executors to be used, which means more concurrency.
 
-**Steg 3: Ange executor kärnor** – för i/o-intensiva arbetsbelastningar som inte har komplexa åtgärder, det är bra att börja med ett stort antal executor-kärnor för att öka antalet parallella uppgifter per executor.  Ställa in executor kärnor 4 är en bra början.   
+**Step 3: Set executor-cores** – For I/O intensive workloads that do not have complex operations, it’s good to start with a high number of executor-cores to increase the number of parallel tasks per executor.  Setting executor-cores to 4 is a good start.   
 
     executor-cores = 4
-Öka antalet executor kärnor ger dig flera parallellitet så att du kan experimentera med olika executor-kärnor.  Du bör minska antalet kärnor per executor för jobb som har mer komplexa åtgärder.  Om executor-kärnor är kan högre än 4, sedan skräpinsamling bli ineffektiva och försämra prestanda.
+Increasing the number of executor-cores will give you more parallelism so you can experiment with different executor-cores.  For jobs that have more complex operations, you should reduce the number of cores per executor.  If executor-cores is set higher than 4, then garbage collection may become inefficient and degrade performance.
 
-**Steg 4: Fastställa YARN minne kluster** – den här informationen är tillgänglig i Ambari.  Gå till YARN och visa fliken konfigurationer.  YARN-minne visas i det här fönstret.  
-Obs När du arbetar i fönstret kan du också se standardstorlek för YARN-behållare.  YARN-behållarens storlek är samma som minne per executor parametern.
+**Step 4: Determine amount of YARN memory in cluster** – This information is available in Ambari.  Navigate to YARN and view the Configs tab.  The YARN memory is displayed in this window.  
+Note while you are in the window, you can also see the default YARN container size.  The YARN container size is the same as memory per executor parameter.
 
     Total YARN memory = nodes * YARN memory per node
-**Steg 5: Beräkna num executors**
+**Step 5: Calculate num-executors**
 
-**Beräkna minne begränsningen** -parametern num executors begränsas genom minne eller CPU.  Minne-begränsningen bestäms av mängden tillgängligt minne i YARN för ditt program.  Du bör ta totalt YARN-minne och delar av executor-minne.  Begränsningen måste vara ta bort skalade för antalet appar så att vi dela med antalet appar.
+**Calculate memory constraint** - The num-executors parameter is constrained either by memory or by CPU.  The memory constraint is determined by the amount of available YARN memory for your application.  You should take total YARN memory and divide that by executor-memory.  The constraint needs to be de-scaled for the number of apps so we divide by the number of apps.
 
     Memory constraint = (total YARN memory / executor memory) / # of apps   
-**Beräkna CPU-begränsning** – The CPU-begränsning beräknas som de totala virtuella kärnor dividerat med antalet kärnor per executor.  Det finns 2 virtuella kärnor för varje fysisk kärna.  Liknar begränsningen minne, har vi att dela med antalet appar.
+**Calculate CPU constraint** - The CPU constraint is calculated as the total virtual cores divided by the number of cores per executor.  There are 2 virtual cores for each physical core.  Similar to the memory constraint, we have to divide by the number of apps.
 
     virtual cores = (nodes in cluster * # of physical cores in node * 2)
     CPU constraint = (total virtual cores / # of cores per executor) / # of apps
-**Ange num executors** – parametern num executors bestäms genom att utföra minimum för den minne och CPU-begränsningen. 
+**Set num-executors** – The num-executors parameter is determined by taking the minimum of the memory constraint and the CPU constraint. 
 
     num-executors = Min (total virtual Cores / # of cores per executor, available YARN memory / executor-memory)   
-Anger ett högre antal num executors öka inte nödvändigtvis prestanda.  Du bör överväga att lägga till fler executors lägger till extra administration för varje ytterligare executor som potentiellt kan försämra prestanda.  NUM executors är bundet klusterresurserna.    
+Setting a higher number of num-executors does not necessarily increase performance.  You should consider that adding more executors will add extra overhead for each additional executor, which can potentially degrade performance.  Num-executors is bounded by the cluster resources.    
 
-## <a name="example-calculation"></a>Exempel-beräkning
+## <a name="example-calculation"></a>Example calculation
 
-Anta att du har ett kluster som består av 8 D4v2 noder med 2 appar, inklusive den som du ska köra.  
+Let’s say you currently have a cluster composed of 8 D4v2 nodes that is running 2 apps including the one you are going to run.  
 
-**Steg 1: Fastställa hur många appar körs i klustret** – du vet att du har 2 appar på ditt kluster, inklusive den som du ska köra.  
+**Step 1: Determine how many apps are running on your cluster** – you know that you have 2 apps on your cluster, including the one you are going to run.  
 
-**Steg 2: Ange executor minne** – det här exemplet vi fastställer att 6 GB executor minne är tillräcklig för i/o-intensiva jobb.  
+**Step 2: Set executor-memory** – for this example, we determine that 6GB of executor-memory will be sufficient for I/O intensive job.  
 
     executor-memory = 6GB
-**Steg 3: Ange executor kärnor** – eftersom det här är ett i/o-intensiva jobb, vi kan ange antalet kärnor för varje executor till 4.  Att ställa in kärnor per executor större än 4 kan orsaka problem för skräpinsamling samling.  
+**Step 3: Set executor-cores** – Since this is an I/O intensive job, we can set the number of cores for each executor to 4.  Setting cores per executor to larger than 4 may cause garbage collection problems.  
 
     executor-cores = 4
-**Steg 4: Fastställa YARN minne kluster** – vi navigerar till Ambari att ta reda på att varje D4v2 har 25 GB minne för YARN.  Eftersom det finns 8 noder är multipliceras det tillgängliga minnet i YARN med 8.
+**Step 4: Determine amount of YARN memory in cluster** – We navigate to Ambari to find out that each D4v2 has 25GB of YARN memory.  Since there are 8 nodes, the available YARN memory is multiplied by 8.
 
     Total YARN memory = nodes * YARN memory* per node
     Total YARN memory = 8 nodes * 25GB = 200GB
-**Steg 5: Beräkna num executors** – parametern num executors bestäms genom att utföra minimum för begränsningen minne och CPU-begränsning dividerat med antal appar som körs på Spark.    
+**Step 5: Calculate num-executors** – The num-executors parameter is determined by taking the minimum of the memory constraint and the CPU constraint divided by the # of apps running on Spark.    
 
-**Beräkna minne begränsningen** – begränsningen minne beräknas som den totala mängden minne för YARN dividerat med minne per executor.
+**Calculate memory constraint** – The memory constraint is calculated as the total YARN memory divided by the memory per executor.
 
     Memory constraint = (total YARN memory / executor memory) / # of apps   
     Memory constraint = (200GB / 6GB) / 2   
     Memory constraint = 16 (rounded)
-**Beräkna CPU-begränsning** – The CPU-begränsning beräknas som de totala yarn-kärnor dividerat med antalet kärnor per executor.
+**Calculate CPU constraint** - The CPU constraint is calculated as the total yarn cores divided by the number of cores per executor.
     
     YARN cores = nodes in cluster * # of cores per node * 2   
     YARN cores = 8 nodes * 8 cores per D14 * 2 = 128
     CPU constraint = (total YARN cores / # of cores per executor) / # of apps
     CPU constraint = (128 / 4) / 2
     CPU constraint = 16
-**Ange num-executors**
+**Set num-executors**
 
     num-executors = Min (memory constraint, CPU constraint)
     num-executors = Min (16, 16)

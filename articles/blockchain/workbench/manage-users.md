@@ -1,121 +1,115 @@
 ---
-title: Hantera användare i Azure Blockchain Workbench
-description: Så här att hantera användare i Azure Blockchain Workbench.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+title: Manage users in Azure Blockchain Workbench
+description: How to manage users in Azure Blockchain Workbench.
 ms.date: 05/09/2019
 ms.topic: article
-ms.service: azure-blockchain
-ms.reviewer: zeyadr
-manager: femila
-ms.openlocfilehash: 15babefda36ba37cf6df7820ac888668e4a502be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.reviewer: brendal
+ms.openlocfilehash: 573ec477a3e75beb91f90da0545fb7d4c0f9bf39
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65509925"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74324715"
 ---
-# <a name="manage-users-in-azure-blockchain-workbench"></a>Hantera användare i Azure Blockchain Workbench
+# <a name="manage-users-in-azure-blockchain-workbench"></a>Manage Users in Azure Blockchain Workbench
 
-Azure Blockchain Workbench omfattar hantering av användare för människor och organisationer som ingår i din consortium.
+Azure Blockchain Workbench includes user management for people and organizations that are part of your consortium.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-En Blockchain Workbench-distribution krävs. Se [Azure Blockchain Workbench distribution](deploy.md) mer information om distribution.
+A Blockchain Workbench deployment is required. See [Azure Blockchain Workbench deployment](deploy.md) for details on deployment.
 
-## <a name="add-azure-ad-users"></a>Lägg till Azure AD-användare
+## <a name="add-azure-ad-users"></a>Add Azure AD users
 
-Azure Blockchain Workbench använder Azure Active Directory (Azure AD) för autentisering, åtkomstkontroll och roller. Användare i Blockchain Workbench Azure AD-klient kan autentisera och använda Blockchain Workbench. Lägga till användare till rollen Administratör program att interagera och utföra åtgärder.
+The Azure Blockchain Workbench uses Azure Active Directory (Azure AD) for authentication, access control, and roles. Users in the Blockchain Workbench Azure AD tenant can authenticate and use Blockchain Workbench. Add users to the Administrator application role to interact and perform actions.
 
-Blockchain Workbench användare måste finnas i Azure AD-klienten innan du kan tilldela dem till program och roller. Använd följande steg för att lägga till användare till Azure AD:
+Blockchain Workbench users need to exist in the Azure AD tenant before you can assign them to applications and roles. To add users to Azure AD, use the following steps:
 
-1.  Logga in på [Azure Portal](https://portal.azure.com).
-2.  Välj ditt konto i det övre högra hörnet och växla till Azure AD-klient som är kopplad till Blockchain Workbench.
-3.  Välj **Azure Active Directory > användare**. Du kan se en lista över användare i din katalog.
-4.  Om du vill lägga till användare i katalogen, Välj **ny användare**. För externa användare, väljer **ny gästanvändare**.
+1.  Logga in på [Azure-portalen](https://portal.azure.com).
+2.  Select your account in the top right corner, and switch to the Azure AD tenant associated to Blockchain Workbench.
+3.  Select **Azure Active Directory > Users**. You see a list of users in your directory.
+4.  To add users to the directory, select **New user**. For external users, select **New guest user**.
 
-    ![Ny användare](./media/manage-users/add-ad-user.png)
+    ![New user](./media/manage-users/add-ad-user.png)
 
-5.  Slutför fälten som krävs för den nya användaren. Välj **Skapa**.
+5.  Complete the required fields for the new user. Välj **Skapa**.
 
-Besök [Azure AD](../../active-directory/fundamentals/add-users-azure-active-directory.md) dokumentationen för mer information om hur du hanterar användare i Azure AD.
+Visit [Azure AD](../../active-directory/fundamentals/add-users-azure-active-directory.md) documentation for more details on how to manage users within Azure AD.
 
-## <a name="manage-blockchain-workbench-administrators"></a>Hantera administratörer Blockchain Workbench
+## <a name="manage-blockchain-workbench-administrators"></a>Manage Blockchain Workbench administrators
 
-När användare har lagts till katalogen, är nästa steg att välja vilka användare som är administratörer Blockchain Workbench. Användare i den **administratör** grupp är associerade med den **program administratörsroll** i Blockchain Workbench. Administratörer kan lägga till eller ta bort användare, tilldela användare till specifika scenarier och skapa nya program.
+Once users have been added to the directory, the next step is to choose which users are Blockchain Workbench administrators. Users in the **Administrator** group are associated with the **Administrator application role** in Blockchain Workbench. Administrators can add or remove users, assign users to specific scenarios, and create new applications.
 
-Lägga till användare till den **administratör** i Azure AD-katalog:
+To add users to the **Administrator** group in the Azure AD directory:
 
-1.  Logga in på [Azure Portal](https://portal.azure.com).
-2.  Kontrollera att du är i Azure AD-klient som är kopplad till Blockchain Workbench genom att välja kontot i det övre högra hörnet.
-3.  Välj **Azure Active Directory > företagsprogram**.
-4.  Välj Azure AD-klientprogram för Blockchain Workbench
+1.  Logga in på [Azure-portalen](https://portal.azure.com).
+2.  Verify you are in the Azure AD tenant associated to Blockchain Workbench by selecting your account in the top-right corner.
+3.  Select **Azure Active Directory >  Enterprise applications**.
+4.  Select the Azure AD client application for Blockchain Workbench
     
-    ![Alla registreringar för enterprise-program](./media/manage-users/select-blockchain-client-app.png)
+    ![All enterprise application registrations](./media/manage-users/select-blockchain-client-app.png)
 
-5.  Välj **användare och grupper > Lägg till användare**.
-6.  I **Lägg till tilldelning**väljer **användare**. Välja eller söka efter den användare som du vill lägga till som administratör. Klicka på **Välj** när du har valt.
+5.  Select **Users and groups > Add user**.
+6.  In **Add Assignment**, select **Users**. Choose or search for the user you want to add as an administrator. Click **Select** when finished choosing.
 
-    ![Lägg till tilldelning](./media/manage-users/add-user-assignment.png)
+    ![Add assignment](./media/manage-users/add-user-assignment.png)
 
-9.  Kontrollera **rollen** är inställd på **administratör**
-10. Välj **Tilldela**. Tillagda användare visas i listan med administratörsrollen tilldelas.
+9.  Verify **Role** is set to **Administrator**
+10. Välj **Tilldela**. The added users are displayed in the list with the administrator role assigned.
 
-    ![Blockchain klienten app-användare](./media/manage-users/blockchain-admin-list.png)
+    ![Blockchain client app users](./media/manage-users/blockchain-admin-list.png)
 
-## <a name="managing-blockchain-workbench-members"></a>Hantera Blockchain Workbench medlemmar
+## <a name="managing-blockchain-workbench-members"></a>Managing Blockchain Workbench members
 
-Använda Blockchain Workbench-programmet för att hantera användare och organisationer som ingår i din consortium. Du kan lägga till eller ta bort användare i program och roller.
+Use the Blockchain Workbench application to manage users and organizations that are part of your consortium. You can add or remove users to applications and roles.
 
-1. [Öppna Blockchain Workbench](deploy.md#blockchain-workbench-web-url) i din webbläsare och logga in som administratör.
+1. [Open the Blockchain Workbench](deploy.md#blockchain-workbench-web-url) in your browser and sign in as an administrator.
 
     ![Blockchain Workbench](./media/manage-users/blockchain-workbench-applications.png)
 
-    Medlemmar läggs till i varje program. Medlemmar kan ha en eller flera programroller att initiera kontrakt eller vidta åtgärder.
+    Members are added to each application. Members can have one or more application roles to initiate contracts or take actions.
 
-2. För att hantera medlemmar för ett program, Välj en panel för programmet i den **program** fönstret.
+2. To manage members for an application, select an application tile in the **Applications** pane.
 
-    Antalet medlemmar som är kopplad till det valda programmet visas i panelen medlemmar.
+    The number of members associated to the selected application is reflected in the members tile.
 
-    ![Välj program](./media/manage-users/blockchain-workbench-select-application.png)
+    ![Select application](./media/manage-users/blockchain-workbench-select-application.png)
 
 
-#### <a name="add-member-to-application"></a>Lägg till medlem till program
+#### <a name="add-member-to-application"></a>Add member to application
 
-1. Välj panelen medlem för att visa en lista över de aktuella medlemmarna.
-2. Välj **lägga till medlemmar**.
+1. Select the member tile to display a list of the current members.
+2. Select **Add members**.
 
-    ![Lägga till medlemmar](./media/manage-users/application-add-members.png)
+    ![Add members](./media/manage-users/application-add-members.png)
 
-3. Sök efter användarens namn.  Endast Azure AD-användare som finns i Blockchain Workbench-klientorganisationen visas. Om användaren inte hittas, måste du [lägga till Azure AD-användare](#add-azure-ad-users).
+3. Search for the user's name.  Endast Azure AD-användare som finns i Blockchain Workbench-klientorganisationen visas. If the user is not found, you need to [Add Azure AD users](#add-azure-ad-users).
 
-    ![Lägga till medlemmar](./media/manage-users/find-user.png)
+    ![Add members](./media/manage-users/find-user.png)
 
-4. Välj en **rollen** från listrutan.
+4. Select a **Role** from the drop-down.
 
-    ![Välj rollmedlemmar](./media/manage-users/application-select-role.png)
+    ![Select role members](./media/manage-users/application-select-role.png)
 
 5. Välj **Lägg till** för att lägga till medlemmen med den tillhörande rollen i programmet.
 
-#### <a name="remove-member-from-application"></a>Ta bort medlem från programmet
+#### <a name="remove-member-from-application"></a>Remove member from application
 
-1. Välj panelen medlem för att visa en lista över de aktuella medlemmarna.
-2. För den användare som du vill ta bort väljer **ta bort** från rollen utskriftsjobb.
+1. Select the member tile to display a list of the current members.
+2. For the user you want to remove, choose **Remove** from the role drop-down.
 
-    ![Ta bort medlem](./media/manage-users/application-remove-member.png)
+    ![Remove member](./media/manage-users/application-remove-member.png)
 
-#### <a name="change-or-add-role"></a>Ändra eller lägga till roll
+#### <a name="change-or-add-role"></a>Change or add role
 
-1. Välj panelen medlem för att visa en lista över de aktuella medlemmarna.
-2. För den användare som du vill ändra, klickar du på listrutan och väljer den nya rollen.
+1. Select the member tile to display a list of the current members.
+2. For the user you want to change, click the drop-down and select the new role.
 
-    ![Ändra roll](./media/manage-users/application-change-role.png)
+    ![Change role](./media/manage-users/application-change-role.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur du hanterar användare för Azure Blockchain Workbench. Fortsätt till nästa artikel om anvisningar om du vill veta hur du skapar en blockchain-program.
+In this how-to article, you have learned how to manage users for Azure Blockchain Workbench. To learn how to create a blockchain application, continue to the next how-to article.
 
 > [!div class="nextstepaction"]
-> [Skapa ett blockchain-program i Azure Blockchain Workbench](create-app.md)
+> [Create a blockchain application in Azure Blockchain Workbench](create-app.md)

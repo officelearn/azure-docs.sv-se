@@ -1,55 +1,55 @@
 ---
-title: Köra Azure Kubernetes service – Textanalys
+title: Run Azure Kubernetes Service - Text Analytics
 titleSuffix: Azure Cognitive Services
-description: Distribuera Textanalys behållar avbildningen till Azure Kubernetes-tjänsten och testa den i en webbläsare.
+description: Deploy the Text Analytics container image to Azure Kubernetes Service, and test it in a web browser.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 09/19/2019
+ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: db1c26805f76b0ca8991a562531b4476b6899d86
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 3264ec5a83277e6bb4befad46cd1337175e911c5
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130077"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383431"
 ---
-# <a name="deploy-a-text-analytics-container-to-azure-kubernetes-service"></a>Distribuera en Textanalys-behållare till Azure Kubernetes-tjänsten
+# <a name="deploy-a-text-analytics-container-to-azure-kubernetes-service"></a>Deploy a Text Analytics container to Azure Kubernetes Service
 
-Lär dig hur du distribuerar Azure Cognitive Services [textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers) container image till Azure Kubernetes service (AKS). Den här proceduren visar hur du skapar en Textanalys resurs, hur du skapar en associerad sentiment-analys avbildning och hur du använder den här dirigeringen av de två från en webbläsare. Genom att använda behållare kan du flytta uppmärksamheten från att hantera infrastrukturen i stället för att fokusera på program utveckling.
+Learn how to deploy the Azure Cognitive Services [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers) container image to Azure Kubernetes Service (AKS). This procedure shows how to create a Text Analytics resource, how to create an associated sentiment analysis image, and how to exercise this orchestration of the two from a browser. Using containers can shift your attention away from managing infrastructure to instead focusing on application development.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Den här proceduren kräver flera verktyg som måste installeras och köras lokalt. Använd inte Azure Cloud Shell. Du behöver följande:
+This procedure requires several tools that must be installed and run locally. Don't use Azure Cloud Shell. You need the following:
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
-* En text redigerare, till exempel [Visual Studio Code](https://code.visualstudio.com/download).
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) installerat.
-* [KUBERNETES CLI](https://kubernetes.io/docs/tasks/tools/install-kubectl/) har installerats.
-* En Azure-resurs med rätt pris nivå. Alla pris nivåer fungerar inte med den här behållaren:
-    * Endast **Azure textanalys** -resurser med F0 eller standard pris nivåer.
-    * **Azure Cognitive Services** -resurs med pris nivån S0.
+* A text editor, for example, [Visual Studio Code](https://code.visualstudio.com/download).
+* The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) installed.
+* The [Kubernetes CLI](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed.
+* An Azure resource with the correct pricing tier. Not all pricing tiers work with this container:
+    * **Azure Text Analytics** resource with F0 or standard pricing tiers only.
+    * **Azure Cognitive Services** resource with the S0 pricing tier.
 
 [!INCLUDE [Create a Cognitive Services Text Analytics resource](../includes/create-text-analytics-resource.md)]
 
 [!INCLUDE [Create a Text Analytics container on Azure Kubernetes Service (AKS)](../../containers/includes/create-aks-resource.md)]
 
-#### <a name="key-phrase-extractiontabkeyphrase"></a>[Extrahering av diskussionsämne](#tab/keyphrase)
+#### <a name="key-phrase-extractiontabkeyphrase"></a>[Key Phrase Extraction](#tab/keyphrase)
 
 [!INCLUDE [Key Phrase Extraction Kubernetes config and deploy steps](../includes/key-phrase-extraction-kubernetes-config-deploy.md)]
 
 [!INCLUDE [Verify the Key Phrase Extraction container instance](../includes/verify-key-phrase-extraction-container.md)]
 
-#### <a name="language-detectiontablanguage"></a>[Språkidentifiering](#tab/language)
+#### <a name="language-detectiontablanguage"></a>[Language Detection](#tab/language)
 
 [!INCLUDE [Language Detection Kubernetes config and deploy steps](../includes/language-detection-kubernetes-config-deploy.md)]
 
 [!INCLUDE [Verify the Language Detection container instance](../includes/verify-language-detection-container.md)]
 
-#### <a name="sentiment-analysistabsentiment"></a>[Attitydanalys](#tab/sentiment)
+#### <a name="sentiment-analysistabsentiment"></a>[Sentiment Analysis](#tab/sentiment)
 
 [!INCLUDE [Sentiment Analysis Kubernetes config and deploy steps](../includes/sentiment-analysis-kubernetes-config-deploy.md)]
 
@@ -59,5 +59,5 @@ Den här proceduren kräver flera verktyg som måste installeras och köras loka
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Använd fler [Cognitive Services behållare](../../cognitive-services-container-support.md)
-* Använd [textanalys anslutna tjänsten](../vs-text-connected-service.md)
+* Use more [Cognitive Services containers](../../cognitive-services-container-support.md)
+* Use the [Text Analytics Connected Service](../vs-text-connected-service.md)

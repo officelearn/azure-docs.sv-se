@@ -1,23 +1,17 @@
 ---
-title: Skapa ett blockchain-program – Azure blockchain Workbench
-description: Själv studie kurs om hur du skapar ett blockchain-program i Azure blockchain Workbench Preview.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+title: Create a blockchain application - Azure Blockchain Workbench
+description: Tutorial on how to create a blockchain application for Azure Blockchain Workbench Preview.
 ms.date: 10/14/2019
 ms.topic: tutorial
-ms.service: azure-blockchain
 ms.reviewer: brendal
-manager: femila
-ms.openlocfilehash: a7d7c68840999772461655090d0213ada0997a7a
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 33a9e9c10c07d0808626353a7edfd505e0f60bc9
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329097"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74324810"
 ---
-# <a name="tutorial-create-a-blockchain-application-in-azure-blockchain-workbench"></a>Självstudie: skapa ett blockchain-program i Azure blockchain Workbench
+# <a name="tutorial-create-a-blockchain-application-for-azure-blockchain-workbench"></a>Tutorial: Create a blockchain application for Azure Blockchain Workbench
 
 Du kan använda Azure Blockchain Workbench för att skapa blockkedjeprogram som representerar arbetsflöden med flera parter som definieras av konfiguration och smart kontaktkod.
 

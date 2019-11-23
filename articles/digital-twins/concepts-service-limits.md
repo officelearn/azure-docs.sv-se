@@ -1,78 +1,78 @@
 ---
-title: Public Preview service-gränser – Azure Digitals-dubbla Microsoft Docs
-description: Lär dig mer om den offentliga för hands versionen av Azures digitala dubbla.
+title: Public preview service limits - Azure Digital Twins | Microsoft Docs
+description: Learn about public preview service, subscription, instance, and rate limits for Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/22/2019
-ms.openlocfilehash: 3cea4fe65e49bfa2d49822d443103ae6cc6ce69f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 11/21/2019
+ms.openlocfilehash: f54311af65d9678b2a51b23a38bab66111a818ca
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014159"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383075"
 ---
 # <a name="public-preview-service-limits"></a>Tjänstbegränsningar för allmän förhandsversion
 
-I den offentliga för hands versionen har Azure Digitals-dubbla, följande tillfälliga prenumeration, instans och hastighets begränsningar.
+During the public preview, Azure Digital Twins has the following temporary subscription, instance, and rate limits.
 
-Dessa begränsningar finns för att förenkla inlärningen av den nya tjänsten och dess många funktioner.
+These constraints exist to help simplify learning about the new service and its many features.
 
 > [!NOTE]
-> Dessa gränser kommer att höjas eller tas bort av allmän tillgänglighet (GA).
+> These limits will be increased or removed by general availability (GA).
 
-## <a name="per-subscription-limits"></a>Begränsningar per prenumeration
+## <a name="per-subscription-limits"></a>Per-subscription limits
 
-Under den offentliga för hands versionen kan varje Azure-prenumeration bara skapa eller köra en Azure Digital-instans i taget.
+During the public preview, each Azure subscription can create or run only one Azure Digital Twins instance at a time.
 
 > [!TIP]
-> Om du tar bort din instans kan du skapa en ny.
+> If you delete your instance, you can create a new one.
 
-## <a name="per-instance-limits"></a>Gränser per instans
+## <a name="per-instance-limits"></a>Per-instance limits
 
-I sin tur kan varje Azure Digitals dubbla instanser ha:
+In turn, each Azure Digital Twins instance can have:
 
-- Exakt en inbäddad **IoTHub** -resurs som skapas automatiskt under tjänst etablering.
-- Exakt en **EventHub** -slutpunkt för händelse typen **DeviceMessage**.
-- Upp till tre **EventHub**-, **Service Bus**-eller **EventGrid** -slutpunkter för händelse typen **SensorChange**, **SpaceChange**, **TopologyOperation**eller **UdfCustom**.
+- Exactly one embedded **IoTHub** resource that's created automatically during service provisioning.
+- Exactly One **EventHub** endpoint for the event type **DeviceMessage**.
+- Up to three **EventHub**, **ServiceBus**, or **EventGrid** endpoints of the event type **SensorChange**, **SpaceChange**, **TopologyOperation**, or **UdfCustom**.
 
 > [!NOTE]
-> Vissa parametrar som vanligt vis definieras i att skapa ovanstående Azure IoT-entiteter krävs inte under den offentliga för hands versionen.
-> - I [referens dokumentationen för Swagger](./how-to-use-swagger.md) finns de senaste API-specifikationerna.
+> Some parameters that are usually defined in creating the above Azure IoT entities are not required during public preview.
+> - Consult the [Swagger reference documentation](./how-to-use-swagger.md) for the most recent API specifications.
 
-## <a name="azure-digital-twins-management-api-limits"></a>Azure Digitals dubbla gränser för hanterings-API
+## <a name="azure-digital-twins-management-api-limits"></a>Azure Digital Twins Management API limits
 
-Gränserna för begär ande frekvens för ditt Azure Digitals hanterings-API är:
+The request rate limits for your Azure Digital Twins Management API are:
 
-- 100 begär Anden per sekund till Azure Digitals hanterings-API.
-- Upp till 1 000 objekt som returneras av en enda Azure Digitals API-fråga för hanterings-API.
+- 100 requests per second to the Azure Digital Twins Management API.
+- Up to 1,000 objects returned by a single Azure Digital Twins Management API query.
 
 > [!IMPORTANT]
-> Om du överskrider gränsen på 1 000-objekt får du ett fel meddelande och måste förenkla frågan.
+> If you exceed the 1,000-object limit, you receive an error and must simplify your query.
 
-## <a name="user-defined-functions-rate-limits"></a>Hastighets begränsningar för användardefinierade funktioner
+## <a name="user-defined-functions-rate-limits"></a>User-defined functions rate limits
 
-Följande gränser anger det totala antalet användardefinierade funktions anrop som gjorts till din Azure Digital-instansen:
+The following limits set the total number of all user-defined function calls made to your Azure Digital Twins instance:
 
-- 400 klient biblioteks anrop per sekund
-- 100 **SendNotification** anrop per sekund
+- 400 client library calls per second
+- 100 **SendNotification** calls per second
 
 > [!NOTE]
-> Följande åtgärder kan orsaka att ytterligare hastighets gränser tillämpas tillfälligt:
-> - Ändringar som gjorts i topologins objekts metadata
-> - Uppdateringar gjorda i användardefinierad funktions definition
-> - Enheter som skickar telemetri för första gången
+> The following actions might cause additional rate limits to be applied temporarily:
+> - Edits made to the topology object metadata
+> - Updates made to the user-defined function definition
+> - Devices that send telemetry for the first time
 
-## <a name="device-telemetry-limits"></a>Enhets telemetri begränsar
+## <a name="device-telemetry-limits"></a>Device telemetry limits
 
-Följande begränsar det totala antalet meddelanden som dina enheter kan skicka till din Azure Digital-instansen:
+The following limits cap the total number of all messages your devices can send to your Azure Digital Twins instance:
 
-- 100 meddelanden per sekund över alla enheter
--   25 meddelanden per sekund per enhet
+- 100 messages per second across all devices
+-   25 messages per second per device
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill prova ett digitalt Azure-exempel kan du gå till [snabb start för att hitta tillgängliga rum](./quickstart-view-occupancy-dotnet.md).
+- To try out an Azure Digital Twins sample, go to [Quickstart to find available rooms](./quickstart-view-occupancy-dotnet.md).

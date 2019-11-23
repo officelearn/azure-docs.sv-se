@@ -1,119 +1,119 @@
 ---
-title: Rikt linjer för prestanda justering Azure Data Lake Storage Gen2 Storm | Microsoft Docs
-description: Rikt linjer för prestanda justering Azure Data Lake Storage Gen2 Storm
+title: 'Tune performance: Storm, HDInsight & Azure Data Lake Storage Gen2 | Microsoft Docs'
+description: Azure Data Lake Storage Gen2 Storm performance tuning guidelines
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 108eeb03c0ed484e40b884372018bbbef686ee62
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 125c583512f6bae34c2dd3c3dd76a1b96a181ac1
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159852"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327906"
 ---
-# <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Prestanda justerings vägledning för storm på HDInsight och Azure Data Lake Storage Gen2
+# <a name="tune-performance-storm-hdinsight--azure-data-lake-storage-gen2"></a>Tune performance: Storm, HDInsight & Azure Data Lake Storage Gen2
 
-Förstå faktorerna som bör övervägas när du justerar prestandan för en Azure Storm-topologi. Det är till exempel viktigt att förstå egenskaperna hos det arbete som utförs av kanaler och bultarna (oavsett om arbetet är I/O eller minnes krävande). Den här artikeln beskriver ett antal rikt linjer för prestanda justering, inklusive fel sökning av vanliga problem.
+Understand the factors that should be considered when you tune the performance of an Azure Storm topology. For example, it's important to understand the characteristics of the work done by the spouts and the bolts (whether the work is I/O or memory intensive). This article covers a range of performance tuning guidelines, including troubleshooting common issues.
 
 ## <a name="prerequisites"></a>Krav
 
 * **en Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Ett Azure Data Lake Storage Gen2 konto**. Anvisningar om hur du skapar ett finns i [snabb start: skapa ett lagrings konto för analys](data-lake-storage-quickstart-create-account.md).
-* **Azure HDInsight-kluster** med åtkomst till ett data Lake Storage Gen2-konto. Se [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2). Se till att aktivera fjärr skrivbord för klustret.
-* **Köra ett Storm-kluster på data Lake Storage Gen2**. Mer information finns i [storm på HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
-* **Rikt linjer för prestanda justering på data Lake Storage Gen2**.  Allmänna prestanda koncept finns i [rikt linjer för data Lake Storage Gen2 prestanda justering](data-lake-storage-performance-tuning-guidance.md).   
+* **An Azure Data Lake Storage Gen2 account**. For instructions on how to create one, see [Quickstart: Create a storage account for analytic](data-lake-storage-quickstart-create-account.md).
+* **Azure HDInsight cluster** with access to a Data Lake Storage Gen2 account. Se [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2). Make sure you enable Remote Desktop for the cluster.
+* **Running a Storm cluster on Data Lake Storage Gen2**. For more information, see [Storm on HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
+* **Performance tuning guidelines on Data Lake Storage Gen2**.  For general performance concepts, see [Data Lake Storage Gen2 Performance Tuning Guidance](data-lake-storage-performance-tuning-guidance.md).   
 
-## <a name="tune-the-parallelism-of-the-topology"></a>Justera topologins parallellitet
+## <a name="tune-the-parallelism-of-the-topology"></a>Tune the parallelism of the topology
 
-Du kanske kan förbättra prestandan genom att öka samtidigheten för I/O till och från Data Lake Storage Gen2. En Storm-topologi har en uppsättning konfigurationer som fastställer parallellitet:
-* Antal arbets processer (arbets tagarna är jämnt fördelade på de virtuella datorerna).
-* Antal kanalen utförar-instanser.
-* Antal bult utförar-instanser.
-* Antal kanalen-uppgifter.
-* Antal bult-aktiviteter.
+You might be able to improve performance by increasing the concurrency of the I/O to and from Data Lake Storage Gen2. A Storm topology has a set of configurations that determine the parallelism:
+* Number of worker processes (the workers are evenly distributed across the VMs).
+* Number of spout executor instances.
+* Number of bolt executor instances.
+* Number of spout tasks.
+* Number of bolt tasks.
 
-Till exempel, i ett kluster med 4 virtuella datorer och 4 arbets processer, 32 kanalen-körningar och 32 kanalen-uppgifter, samt 256 bult-körningar och 512 bult-uppgifter, bör du tänka på följande:
+For example, on a cluster with 4 VMs and 4 worker processes, 32 spout executors and 32 spout tasks, and 256 bolt executors and 512 bolt tasks, consider the following:
 
-Varje ansvarig, som är en arbetsnod, har en enda Worker Java Virtual Machine (JVM)-process. Den här JVM-processen hanterar 4 kanalen-trådar och 64 bult-trådar. I varje tråd körs aktiviteter sekventiellt. Med föregående konfiguration har varje kanalen-tråd 1 uppgift och varje bult-tråd har två uppgifter.
+Each supervisor, which is a worker node, has a single worker Java virtual machine (JVM) process. This JVM process manages 4 spout threads and 64 bolt threads. Within each thread, tasks are run sequentially. With the preceding configuration, each spout thread has 1 task, and each bolt thread has 2 tasks.
 
-I storm är här de olika komponenterna som berörs och hur de påverkar graden av parallellitet som du har:
-* Head-noden (kallas Nimbus i Storm) används för att skicka och hantera jobb. Dessa noder påverkar inte graden av parallellitet.
-* De överordnade noderna. I HDInsight motsvarar detta en arbetsnods Azure VM.
-* Arbets uppgifterna är Storm-processer som körs i de virtuella datorerna. Varje arbets uppgift motsvarar en JVM-instans. Storm distribuerar det antal arbets processer som du anger till arbetsnoderna så jämnt som möjligt.
-* Kanalen-och bult utförar-instanser. Varje utförar-instans motsvarar en tråd som körs i arbets tagarna (JVMs).
-* Storm-aktiviteter. Detta är logiska uppgifter som var och en av dessa trådar körs. Detta påverkar inte graden av parallellitet, så du bör utvärdera om du behöver flera aktiviteter per utförar eller inte.
+In Storm, here are the various components involved, and how they affect the level of parallelism you have:
+* The head node (called Nimbus in Storm) is used to submit and manage jobs. These nodes have no impact on the degree of parallelism.
+* The supervisor nodes. In HDInsight, this corresponds to a worker node Azure VM.
+* The worker tasks are Storm processes running in the VMs. Each worker task corresponds to a JVM instance. Storm distributes the number of worker processes you specify to the worker nodes as evenly as possible.
+* Spout and bolt executor instances. Each executor instance corresponds to a thread running within the workers (JVMs).
+* Storm tasks. These are logical tasks that each of these threads run. This does not change the level of parallelism, so you should evaluate if you need multiple tasks per executor or not.
 
-### <a name="get-the-best-performance-from-data-lake-storage-gen2"></a>Få bästa möjliga prestanda från Data Lake Storage Gen2
+### <a name="get-the-best-performance-from-data-lake-storage-gen2"></a>Get the best performance from Data Lake Storage Gen2
 
-När du arbetar med Data Lake Storage Gen2 får du bästa möjliga prestanda om du gör följande:
-* Slå samman dina små tillägg i större storlekar.
-* Gör så många samtidiga förfrågningar som du kan. Eftersom varje bult-tråd blockerar läsningar, vill du ha någonstans i intervallet 8-12 trådar per kärna. Detta skyddar NÄTVERKSKORTet och den processor som används mycket. En större virtuell dator möjliggör fler samtidiga begär Anden.  
+When working with Data Lake Storage Gen2, you get the best performance if you do the following:
+* Coalesce your small appends into larger sizes.
+* Do as many concurrent requests as you can. Because each bolt thread is doing blocking reads, you want to have somewhere in the range of 8-12 threads per core. This keeps the NIC and the CPU well utilized. A larger VM enables more concurrent requests.  
 
-### <a name="example-topology"></a>Exempel sto pol Ogin
+### <a name="example-topology"></a>Example topology
 
-Vi antar att du har ett 8 Work Node-kluster med en D13v2 Azure VM. Den här virtuella datorn har 8 kärnor, så mellan de 8 arbetsnoderna har du 64 total kärnor.
+Let’s assume you have an 8 worker node cluster with a D13v2 Azure VM. This VM has 8 cores, so among the 8 worker nodes, you have 64 total cores.
 
-Låt oss säga att vi har åtta bult-trådar per kärna. Med 64 kärnor innebär det att vi vill ha 512 totalt utförar-instanser för bult (det vill säga trådar). I det här fallet antar vi att vi börjar med en JVM per virtuell dator och använder i huvudsak tråd samtidigheten i JVM för att uppnå samtidighet. Det innebär att vi behöver 8 arbets uppgifter (en per virtuell Azure-dator) och 512 bult-körningar. Med hänsyn till den här konfigurationen försöker Storm att distribuera arbets tagarna jämnt över arbetsnoderna (även kallade tillsynsmyndigheter), vilket ger varje arbetsnod 1-JVM. Storm försöker nu att distribuera körningarna jämnt mellan supervisor, vilket ger varje ansvarig (det vill säga JVM) 8 trådar var som helst.
+Let’s say we do 8 bolt threads per core. Given 64 cores, that means we want 512 total bolt executor instances (that is, threads). In this case, let’s say we start with one JVM per VM, and mainly use the thread concurrency within the JVM to achieve concurrency. That means we need 8 worker tasks (one per Azure VM), and 512 bolt executors. Given this configuration, Storm tries to distribute the workers evenly across worker nodes (also known as supervisor nodes), giving each worker node 1 JVM. Now within the supervisors, Storm tries to distribute the executors evenly between supervisors, giving each supervisor (that is, JVM) 8 threads each.
 
-## <a name="tune-additional-parameters"></a>Justera ytterligare parametrar
-När du har en grundläggande topologi kan du fundera över om du vill ändra någon av parametrarna:
-* **Antal JVMs per arbets nod.** Om du har en stor data struktur (till exempel en uppslags tabell) som du är värd för i minnet, kräver varje JVM en separat kopia. Du kan också använda data strukturen för många trådar om du har färre JVMs. För bultens I/O gör antalet JVMs inte lika mycket av skillnaden som antalet trådar som har lagts till i JVMs. För enkelhetens skull är det en bra idé att ha en JVM per arbets tagare. Du kan behöva ändra det här värdet, beroende på vad din bult gör eller vilken program bearbetning du behöver.
-* **Antal kanalen-körningar.** Eftersom föregående exempel använder bultar för att skriva till Data Lake Storage Gen2, är antalet kanaler inte direkt relevant för bultens prestanda. Beroende på mängden bearbetning eller I/O-åtgärder i kanalen är det dock en bra idé att justera kanaler för bästa prestanda. Se till att du har tillräckligt många kanaler för att kunna hålla bultarna upptagna. De utgående frekvenserna för kanaler bör matcha bultens data flöde. Den faktiska konfigurationen beror på kanalen.
-* **Antal aktiviteter.** Varje bult körs som en enda tråd. Ytterligare aktiviteter per bult ger ingen ytterligare samtidighet. Den enda tiden de är av förmånen är om din process att bekräfta att tuppeln tar en stor del av din bult-körnings tid. Det är en bra idé att gruppera många tupler i ett större tillägg innan du skickar ett bekräftelse från bulten. I de flesta fall ger flera aktiviteter ingen ytterligare förmån.
-* **Lokal eller blandad gruppering.** När den här inställningen är aktive rad skickas tupler till bultar inom samma arbets process. Detta minskar kommunikation mellan processer och nätverks anrop. Detta rekommenderas för de flesta topologier.
+## <a name="tune-additional-parameters"></a>Tune additional parameters
+After you have the basic topology, you can consider whether you want to tweak any of the parameters:
+* **Number of JVMs per worker node.** If you have a large data structure (for example, a lookup table) that you host in memory, each JVM requires a separate copy. Alternatively, you can use the data structure across many threads if you have fewer JVMs. For the bolt’s I/O, the number of JVMs does not make as much of a difference as the number of threads added across those JVMs. For simplicity, it's a good idea to have one JVM per worker. Depending on what your bolt is doing or what application processing you require, though, you may need to change this number.
+* **Number of spout executors.** Because the preceding example uses bolts for writing to Data Lake Storage Gen2, the number of spouts is not directly relevant to the bolt performance. However, depending on the amount of processing or I/O happening in the spout, it's a good idea to tune the spouts for best performance. Ensure that you have enough spouts to be able to keep the bolts busy. The output rates of the spouts should match the throughput of the bolts. The actual configuration depends on the spout.
+* **Number of tasks.** Each bolt runs as a single thread. Additional tasks per bolt don't provide any additional concurrency. The only time they are of benefit is if your process of acknowledging the tuple takes a large proportion of your bolt execution time. It's a good idea to group many tuples into a larger append before you send an acknowledgement from the bolt. So, in most cases, multiple tasks provide no additional benefit.
+* **Local or shuffle grouping.** When this setting is enabled, tuples are sent to bolts within the same worker process. This reduces inter-process communication and network calls. This is recommended for most topologies.
 
-Det här grundläggande scenariot är en lämplig start punkt. Testa med dina egna data för att justera föregående parametrar för att uppnå optimala prestanda.
+This basic scenario is a good starting point. Test with your own data to tweak the preceding parameters to achieve optimal performance.
 
-## <a name="tune-the-spout"></a>Finjustera kanalen
+## <a name="tune-the-spout"></a>Tune the spout
 
-Du kan ändra följande inställningar för att finjustera kanalen.
+You can modify the following settings to tune the spout.
 
-- **Tupel-timeout: topologi. Message. timeout. sekunder**. Den här inställningen anger hur lång tid ett meddelande tar att slutföra och får bekräftelse innan det betraktas som misslyckat.
+- **Tuple timeout: topology.message.timeout.secs**. This setting determines the amount of time a message takes to complete, and receive acknowledgement, before it is considered failed.
 
-- **Högsta mängd minne per arbets process: Worker. childopts**. Med den här inställningen kan du ange ytterligare kommando rads parametrar för Java-arbetarna. Den vanligaste inställningen här är XmX, som avgör den maximala mängd minne som allokerats till en JVM-heap.
+- **Max memory per worker process: worker.childopts**. This setting lets you specify additional command-line parameters to the Java workers. The most commonly used setting here is XmX, which determines the maximum memory allocated to a JVM’s heap.
 
-- **Max kanalen väntar: topologi. max. kanalen. väntar**. Den här inställningen avgör antalet tupler som kan vara flyg (ännu inte accepterade på alla noder i topologin) per kanalen-tråd när som helst.
+- **Max spout pending: topology.max.spout.pending**. This setting determines the number of tuples that can in be flight (not yet acknowledged at all nodes in the topology) per spout thread at any time.
 
-  En lämplig beräkning är att beräkna storleken på varje tupel. Räkna sedan upp hur mycket minne en kanalen tråd har. Det totala minne som allokerats till en tråd, dividerat med det här värdet, ska ge dig den övre bindningen för den maximala kanalen-parametern som väntar.
+  A good calculation to do is to estimate the size of each of your tuples. Then figure out how much memory one spout thread has. The total memory allocated to a thread, divided by this value, should give you the upper bound for the max spout pending parameter.
 
-Standard Data Lake Storage Gen2 Storm bult har en princip parameter för fileBufferSize (size) som kan användas för att finjustera den här parametern.
+The default Data Lake Storage Gen2 Storm bolt has a size sync policy parameter (fileBufferSize) that can be used to tune this parameter.
 
-I i/O-intensiva topologier är det en bra idé att låta varje bult-tråd skriva till sin egen fil och att ange en fil rotations princip (fileRotationSize). När filen når en viss storlek, töms strömmen automatiskt och en ny fil skrivs till. Den rekommenderade fil storleken för rotation är 1 GB.
+In I/O-intensive topologies, it's a good idea to have each bolt thread write to its own file, and to set a file rotation policy (fileRotationSize). When the file reaches a certain size, the stream is automatically flushed and a new file is written to. The recommended file size for rotation is 1 GB.
 
-## <a name="monitor-your-topology-in-storm"></a>Övervaka din topologi i storm  
-När topologin körs kan du övervaka den i storm-användargränssnittet. Följande är de viktigaste parametrarna för att titta på:
+## <a name="monitor-your-topology-in-storm"></a>Monitor your topology in Storm  
+While your topology is running, you can monitor it in the Storm user interface. Here are the main parameters to look at:
 
-* **Total fördröjning för process körning.** Detta är den genomsnittliga tiden som en tupel tar att genereras av kanalen, bearbetas av blixten och bekräftas.
+* **Total process execution latency.** This is the average time one tuple takes to be emitted by the spout, processed by the bolt, and acknowledged.
 
-* **Total blixt process svars tid.** Detta är den genomsnittliga tiden som tuppeln tar i bulten tills den får en bekräftelse.
+* **Total bolt process latency.** This is the average time spent by the tuple at the bolt until it receives an acknowledgement.
 
-* **Körnings fördröjning för total bult.** Detta är den genomsnittliga tiden som bulten har använt i Execute-metoden.
+* **Total bolt execute latency.** This is the average time spent by the bolt in the execute method.
 
-* **Antal felaktiga försök.** Detta avser antalet tupler som inte kunde bearbetas fullständigt innan tids gränsen uppnåddes.
+* **Number of failures.** This refers to the number of tuples that failed to be fully processed before they timed out.
 
-* **Kapaciteten.** Detta är ett mått på hur upptagen systemet är. Om det här värdet är 1 fungerar bultarna så snabbt som de kan. Om det är mindre än 1 ökar du parallellt. Om det är större än 1 minskar du parallellt.
+* **Capacity.** This is a measure of how busy your system is. If this number is 1, your bolts are working as fast as they can. If it is less than 1, increase the parallelism. If it is greater than 1, reduce the parallelism.
 
-## <a name="troubleshoot-common-problems"></a>Felsök vanliga problem
-Här följer några vanliga fel söknings scenarier.
-* **Tids gränsen har nåtts för många tupler.** Ta reda på var Flask halsen är genom att titta på varje nod i topologin. Den vanligaste orsaken till detta är att bultarna inte kan hålla sig med kanaler. Detta leder till tupler clogging de interna buffertarna medan de väntar på att bearbetas. Överväg att öka timeout-värdet eller minska det högsta antalet kanalen som väntar.
+## <a name="troubleshoot-common-problems"></a>Troubleshoot common problems
+Here are a few common troubleshooting scenarios.
+* **Many tuples are timing out.** Look at each node in the topology to determine where the bottleneck is. The most common reason for this is that the bolts are not able to keep up with the spouts. This leads to tuples clogging the internal buffers while waiting to be processed. Consider increasing the timeout value or decreasing the max spout pending.
 
-* **Det finns en hög total process körnings fördröjning, men en svars tid för låg bult.** I det här fallet är det möjligt att tuplerna inte bekräftas tillräckligt snabbt. Kontrol lera att det finns tillräckligt många bekräftelser. En annan möjlighet är att de väntar i kön för länge innan bultarna börjar bearbeta dem. Minska Max kanalen.
+* **There is a high total process execution latency, but a low bolt process latency.** In this case, it is possible that the tuples are not being acknowledged fast enough. Check that there are a sufficient number of acknowledgers. Another possibility is that they are waiting in the queue for too long before the bolts start processing them. Decrease the max spout pending.
 
-* **Det finns en hög bult-körnings fördröjning.** Det innebär att metoden Execute () för din bult tar för lång tid. Optimera koden eller titta på Skriv storlek och tömnings beteende.
+* **There is a high bolt execute latency.** This means that the execute() method of your bolt is taking too long. Optimize the code, or look at write sizes and flush behavior.
 
-### <a name="data-lake-storage-gen2-throttling"></a>Data Lake Storage Gen2 begränsning
-Om du når gränserna för bandbredden som tillhandahålls av Data Lake Storage Gen2 kan du se aktivitets felen. Kontrol lera aktivitets loggarna för att begränsa fel. Du kan minska parallellheten genom att öka behållarens storlek.    
+### <a name="data-lake-storage-gen2-throttling"></a>Data Lake Storage Gen2 throttling
+If you hit the limits of bandwidth provided by Data Lake Storage Gen2, you might see task failures. Check task logs for throttling errors. You can decrease the parallelism by increasing container size.    
 
-Om du vill kontrol lera om du får en begränsning aktiverar du fel söknings loggning på klient sidan:
+To check if you are getting throttled, enable the debug logging on the client side:
 
-1. I **Ambari** > **Storm** > **config** > **Advanced Storm-Work-log4j**, ändra **&lt;root level = "info"&gt;** till **&lt;rot nivå = "Felsök"&gt;** . Starta om alla noder/tjänster för att konfigurationen ska börja gälla.
-2. Övervaka loggfilerna för Storm-topologin på arbetsnoder (under/var/log/Storm/Worker-Artifacts/&lt;TopologyName&gt;/&lt;port&gt;/Worker.log) för Data Lake Storage Gen2 begränsnings undantag.
+1. In **Ambari** > **Storm** > **Config** > **Advanced storm-worker-log4j**, change **&lt;root level="info"&gt;** to **&lt;root level="debug"&gt;** . Restart all the nodes/service for the configuration to take effect.
+2. Monitor the Storm topology logs on worker nodes (under /var/log/storm/worker-artifacts/&lt;TopologyName&gt;/&lt;port&gt;/worker.log) for Data Lake Storage Gen2 throttling exceptions.
 
 ## <a name="next-steps"></a>Nästa steg
-Ytterligare prestanda justering för Storm kan refereras till i [den här bloggen](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/).
+Additional performance tuning for Storm can be referenced in [this blog](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/).
 
-Ytterligare ett exempel på hur du kör finns i [den här GitHub](https://github.com/hdinsight/storm-performance-automation).
+For an additional example to run, see [this one on GitHub](https://github.com/hdinsight/storm-performance-automation).

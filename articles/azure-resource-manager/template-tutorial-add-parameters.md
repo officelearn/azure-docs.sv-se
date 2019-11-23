@@ -1,48 +1,48 @@
 ---
-title: Självstudie – lägga till parametrar till mallen
-description: Lägg till parametrar till din Azure Resource Manager-mall så att den kan användas igen.
+title: Tutorial - add parameters to template
+description: Add parameters to your Azure Resource Manager template to make it reusable.
 author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7a4d8db57167bc82d13b4d46be1abc3518c340e4
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 28c171dfa067ec9b3eff2e0d7e5d5dd0a0c274c0
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150232"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406075"
 ---
-# <a name="tutorial-add-parameters-to-your-resource-manager-template"></a>Självstudie: lägga till parametrar i Resource Manager-mallen
+# <a name="tutorial-add-parameters-to-your-resource-manager-template"></a>Tutorial: Add parameters to your Resource Manager template
 
-I den [föregående själv studie kursen](template-tutorial-add-resource.md)har du lärt dig hur du lägger till ett lagrings konto i mallen och distribuerar det. I den här självstudien får du lära dig hur du kan förbättra mallen genom att lägga till parametrar. Den här självstudien tar cirka **14 minuter** att slutföra.
+In the [previous tutorial](template-tutorial-add-resource.md), you learned how to add a storage account to the template and deploy it. In this tutorial, you learn how to improve the template by adding parameters. This tutorial takes about **14 minutes** to complete.
 
 ## <a name="prerequisites"></a>Krav
 
-Vi rekommenderar att du slutför [självstudien om resurser](template-tutorial-add-resource.md), men det är inget krav.
+We recommend that you complete the [tutorial about resources](template-tutorial-add-resource.md), but it's not required.
 
-Du måste ha Visual Studio Code med Resource Manager Tools-tillägget och antingen Azure PowerShell eller Azure CLI. Mer information finns i [verktyg för mallar](template-tutorial-create-first-template.md#get-tools).
+You must have Visual Studio Code with the Resource Manager Tools extension, and either Azure PowerShell or Azure CLI. For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-your-template"></a>Granska mallen
+## <a name="review-template"></a>Review template
 
-I slutet av den föregående själv studie kursen hade mallen följande JSON:
+At the end of the previous tutorial, your template had the following JSON:
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json)]
 
-Du kanske har lagt märke till att det finns ett problem med den här mallen. Lagrings konto namnet är hårdkodat. Du kan bara använda den här mallen för att distribuera samma lagrings konto varje gång. Om du vill distribuera ett lagrings konto med ett annat namn måste du skapa en ny mall, vilket uppenbart inte är ett praktiskt sätt att automatisera dina distributioner.
+You may have noticed that there's a problem with this template. The storage account name is hard-coded. You can only use this template to deploy the same storage account every time. To deploy a storage account with a different name, you would have to create a new template, which obviously isn't a practical way to automate your deployments.
 
-## <a name="make-your-template-reusable"></a>Gör så att din mall kan användas igen
+## <a name="make-template-reusable"></a>Make template reusable
 
-Lägg till en parameter som du kan använda för att skicka in ett lagrings konto namn om du vill att mallen ska kunna användas. Den markerade JSON i följande exempel visar vad som har ändrats i mallen. Parametern **storageName** identifieras som en sträng. Max längden är 24 tecken för att förhindra namn som är för långa.
+To make your template reusable, let's add a parameter that you can use to pass in a storage account name. The highlighted JSON in the following example shows what changed in your template. The **storageName** parameter is identified as a string. The max length is set to 24 characters to prevent any names that are too long.
 
-Kopiera hela filen och ersätt din mall med dess innehåll.
+Copy the whole file and replace your template with its contents.
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-name/azuredeploy.json?range=1-26&highlight=4-10,15)]
 
-## <a name="deploy-the-template"></a>Distribuera mallen
+## <a name="deploy-template"></a>Distribuera mallen
 
-Nu ska vi distribuera mallen. I följande exempel distribueras mallen med Azure CLI eller PowerShell. Lägg märke till att du anger namnet på lagrings kontot som ett av värdena i distributions kommandot. För lagrings konto namnet anger du samma namn som du använde i föregående självstudie.
+Let's deploy the template. The following example deploys the template with Azure CLI or PowerShell. Notice that you provide the storage account name as one of the values in the deployment command. For the storage account name, provide the same name you used in the previous tutorial.
 
-Om du inte har skapat resurs gruppen, se [skapa resurs grupp](template-tutorial-create-first-template.md#create-resource-group). Exemplet förutsätter att du har angett **templateFile** -variabeln till sökvägen till mallfilen, som du ser i den [första självstudien](template-tutorial-create-first-template.md#deploy-template).
+If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the **templateFile** variable to the path to the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -66,27 +66,27 @@ az group deployment create \
 
 ---
 
-## <a name="understand-resource-updates"></a>Förstå resurs uppdateringar
+## <a name="understand-resource-updates"></a>Understand resource updates
 
-I föregående avsnitt har du distribuerat ett lagrings konto med samma namn som du skapade tidigare. Du kanske undrar hur resursen påverkas av omdistributionen.
+In the previous section, you deployed a storage account with the same name that you had created earlier. You may be wondering how the resource is affected by the redeployment.
 
-Om resursen redan finns och ingen ändring har identifierats i egenskaperna vidtas ingen åtgärd. Om resursen redan finns och en egenskap har ändrats, uppdateras resursen. Om resursen inte finns skapas den.
+If the resource already exists and no change is detected in the properties, no action is taken. If the resource already exists and a property has changed, the resource is updated. If the resource doesn't exist, it's created.
 
-Det här sättet att hantera uppdateringar innebär att din mall kan innehålla alla resurser du behöver för en Azure-lösning. Du kan på ett säkert sätt distribuera om mallen och se att resurserna ändras eller skapas endast när det behövs. Om du till exempel har lagt till filer till ditt lagrings konto kan du distribuera om lagrings kontot utan att förlora dessa filer.
+This way of handling updates means your template can include all of the resources you need for an Azure solution. You can safely redeploy the template and know that resources are changed or created only when needed. For example, if you have added files to your storage account, you can redeploy the storage account without losing those files.
 
-## <a name="customize-by-environment"></a>Anpassa efter miljö
+## <a name="customize-by-environment"></a>Customize by environment
 
-Med parametrar kan du anpassa distributionen genom att tillhandahålla värden som är skräddarsydda för en viss miljö. Du kan till exempel skicka olika värden baserat på om du distribuerar till en miljö för utveckling, testning och produktion.
+Med parametrar kan du anpassa distributionen genom att tillhandahålla värden som är skräddarsydda för en viss miljö. For example, you can pass different values based on whether you're deploying to an environment for development, test, and production.
 
-Den tidigare mallen har alltid distribuerat ett Standard_LRS lagrings konto. Du kanske vill ha flexibiliteten att distribuera olika SKU: er beroende på miljön. I följande exempel visas ändringarna för att lägga till en parameter för SKU. Kopiera hela filen och klistra in den över din mall.
+The previous template always deployed a Standard_LRS storage account. You might want the flexibility to deploy different SKUs depending on the environment. The following example shows the changes to add a parameter for SKU. Copy the whole file and paste over your template.
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json?range=1-40&highlight=10-23,32)]
 
-**StorageSKU** -parametern har ett standardvärde. Det här värdet används när ett värde inte anges under distributionen. Den innehåller också en lista över tillåtna värden. Värdena matchar de värden som behövs för att skapa ett lagrings konto. Du vill inte att användare av mallen ska skicka in SKU: er som inte fungerar.
+The **storageSKU** parameter has a default value. This value is used when a value isn't specified during the deployment. It also has a list of allowed values. These values match the values that are needed to create a storage account. You don't want users of your template to pass in SKUs that don't work.
 
-## <a name="redeploy-the-template"></a>Distribuera om mallen
+## <a name="redeploy-template"></a>Distribuera om mallen
 
-Du är redo att distribuera igen. Eftersom standard-SKU: n är inställt på **Standard_LRS**, behöver du inte ange ett värde för den parametern.
+You're ready to deploy again. Because the default SKU is set to **Standard_LRS**, you don't need to provide a value for that parameter.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -110,7 +110,7 @@ az group deployment create \
 
 ---
 
-Låt oss distribuera igen för att se hur flexibel din mall är. Den här gången angav SKU-parametern till **Standard_GRS**. Du kan antingen skicka ett nytt namn för att skapa ett annat lagrings konto eller använda samma namn för att uppdatera ditt befintliga lagrings konto. Båda alternativen fungerar.
+To see the flexibility of your template, let's deploy again. This time set the SKU parameter to **Standard_GRS**. You can either pass in a new name to create a different storage account, or use the same name to update your existing storage account. Both options work.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -135,7 +135,7 @@ az group deployment create \
 
 ---
 
-Slutligen ska vi köra ytterligare ett test och se vad som händer när du skickar en SKU som inte är ett av de tillåtna värdena. I det här fallet testar vi scenariot där en användare av mallen tror att **Basic** är en av SKU: erna.
+Finally, let's run one more test and see what happens when you pass in a SKU that isn't one of the allowed values. In this case, we test the scenario where a user of your template thinks **basic** is one of the SKUs.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -160,13 +160,13 @@ az group deployment create \
 
 ---
 
-Kommandot Miss lyckas omedelbart med ett fel meddelande som anger vilka värden som tillåts. Resource Manager identifierar felet innan distributionen startar.
+The command fails immediately with an error message that states which values are allowed. Resource Manager identifies the error before the deployment starts.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du går vidare till nästa självstudie behöver du inte ta bort resurs gruppen.
+If you're moving on to the next tutorial, you don't need to delete the resource group.
 
-Om du stoppar nu kanske du vill rensa de resurser som du har distribuerat genom att ta bort resurs gruppen.
+If you're stopping now, you might want to clean up the resources you deployed by deleting the resource group.
 
 1. Från Azure-portalen väljer du **Resursgrupp** från den vänstra menyn.
 2. Ange resursgruppens namn i fältet **Filtrera efter namn**.
@@ -175,7 +175,7 @@ Om du stoppar nu kanske du vill rensa de resurser som du har distribuerat genom 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har förbättrat mallen som skapades i den [första självstudien](template-tutorial-create-first-template.md) genom att lägga till parametrar. I nästa självstudie får du lära dig mer om mall funktioner.
+You improved the template created in the [first tutorial](template-tutorial-create-first-template.md) by adding parameters. In the next tutorial, you'll learn about template functions.
 
 > [!div class="nextstepaction"]
-> [Lägg till mall funktioner](template-tutorial-add-functions.md)
+> [Add template functions](template-tutorial-add-functions.md)

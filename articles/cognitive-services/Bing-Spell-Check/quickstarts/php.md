@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: kontrol lera stavningen med Stavningskontroll i Bing REST API och PHP'
+title: 'Quickstart: Check spelling with the REST API and PHP - Bing Spell Check'
 titleSuffix: Azure Cognitive Services
-description: Detta enkla PHP-program skickar en begäran till API för stavningskontroll i Bing och returnerar en lista med föreslagna korrigeringar.
+description: This simple PHP application sends a request to the Bing Spell Check API and returns a list of suggested corrections.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 4437297c99e346209cf1f7a8973ea0f6f81894af
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 8c95f0960c098ad56affc641996f1b52681d473e
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74110783"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383854"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-php"></a>Snabb start: kontrol lera stavningen med Stavningskontroll i Bing REST API och PHP
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-php"></a>Quickstart: Check spelling with the Bing Spell Check REST API and PHP
 
-Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. Detta enkla PHP-program skickar en begäran till API: et och returnerar en lista med föreslagna korrigeringar. Även om det här programmet är skrivet i PHP är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. This simple PHP application sends a request to the API and returns a list of suggested corrections. Även om det här programmet är skrivet i PHP är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -136,5 +136,5 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Skapa en webbapp med en sida](../tutorials/spellcheck.md)
 
-- [Vad är API:et för stavningskontroll i Bing?](../overview.md)
+- [Vad är API för stavningskontroll i Bing?](../overview.md)
 - [API-referens för stavningskontroll i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

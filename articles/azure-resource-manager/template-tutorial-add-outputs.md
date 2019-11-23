@@ -1,56 +1,56 @@
 ---
-title: Självstudie – Lägg till utdata i mallen
-description: Lägg till utdata i Azure Resource Manager-mallen för att förenkla syntaxen.
+title: Tutorial - add outputs to template
+description: Add outputs to your Azure Resource Manager template to simplify the syntax.
 author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0d89c1651e6b897da7538432d183a8ac003a51ac
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 654d3f7cbf6362d982549c86e6f54fea1e890cfc
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74148267"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406004"
 ---
-# <a name="tutorial-add-outputs-to-your-resource-manager-template"></a>Självstudie: lägga till utdata i Resource Manager-mallen
+# <a name="tutorial-add-outputs-to-your-resource-manager-template"></a>Tutorial: Add outputs to your Resource Manager template
 
-I den här självstudien får du lära dig hur du returnerar ett värde från mallen. Du använder utdata när du behöver ett värde från en distribuerad resurs. Den här självstudien tar **7 minuter** att slutföra.
+In this tutorial, you learn how to return a value from your template. You use outputs when you need a value from a deployed resource. This tutorial takes **7 minutes** to complete.
 
 ## <a name="prerequisites"></a>Krav
 
-Vi rekommenderar att du slutför [självstudien om variabler](template-tutorial-add-variables.md), men det är inte obligatoriskt.
+We recommend that you complete the [tutorial about variables](template-tutorial-add-variables.md), but it's not required.
 
-Du måste ha Visual Studio Code med Resource Manager Tools-tillägget och antingen Azure PowerShell eller Azure CLI. Mer information finns i [verktyg för mallar](template-tutorial-create-first-template.md#get-tools).
+You must have Visual Studio Code with the Resource Manager Tools extension, and either Azure PowerShell or Azure CLI. For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-your-template"></a>Granska mallen
+## <a name="review-template"></a>Review template
 
-I slutet av den föregående själv studie kursen hade mallen följande JSON:
+At the end of the previous tutorial, your template had the following JSON:
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json)]
 
-Den distribuerar ett lagrings konto, men returnerar inte någon information om lagrings kontot. Du kan behöva avbilda egenskaper från en ny resurs så att de är tillgängliga senare för referens.
+It deploys a storage account, but it doesn't return any information about the storage account. You might need to capture properties from a new resource so they're available later for reference.
 
-## <a name="add-outputs"></a>Lägg till utdata
+## <a name="add-outputs"></a>Add outputs
 
-Du kan använda utdata för att returnera värden från mallen. Det kan till exempel vara användbart att få slut punkter för ditt nya lagrings konto.
+You can use outputs to return values from the template. For example, it might be helpful to get the endpoints for your new storage account.
 
-I följande exempel visas ändringarna i mallen för att lägga till ett utmatnings värde. Kopiera hela filen och ersätt din mall med dess innehåll.
+The following example highlights the change to your template to add an output value. Copy the whole file and replace your template with its contents.
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json?range=1-53&highlight=47-52)]
 
-Det finns några viktiga saker att notera om det utdata som du har lagt till.
+There are some important items to note about the output value you added.
 
-Det returnerade värdets typ är inställt på **objekt**, vilket innebär att det returnerar ett JSON-objekt.
+The type of returned value is set to **object**, which means it returns a JSON object.
 
-Funktionen [Reference](resource-group-template-functions-resource.md#reference) används för att hämta lagrings kontots körnings tillstånd. Om du vill hämta körnings status för en resurs skickar du namnet eller ID: t för en resurs. I det här fallet använder du samma variabel som du använde för att skapa namnet på lagrings kontot.
+It uses the [reference](resource-group-template-functions-resource.md#reference) function to get the runtime state of the storage account. To get the runtime state of a resource, you pass in the name or ID of a resource. In this case, you use the same variable you used to create the name of the storage account.
 
-Slutligen returnerar den egenskapen **blobar** från lagrings kontot
+Finally, it returns the **primaryEndpoints** property from the storage account
 
-## <a name="deploy-the-template"></a>Distribuera mallen
+## <a name="deploy-template"></a>Distribuera mallen
 
-Du är redo att distribuera mallen och titta på det returnerade värdet.
+You're ready to deploy the template and look at the returned value.
 
-Om du inte har skapat resurs gruppen, se [skapa resurs grupp](template-tutorial-create-first-template.md#create-resource-group). Exemplet förutsätter att du har angett **templateFile** -variabeln till sökvägen till mallfilen, som du ser i den [första självstudien](template-tutorial-create-first-template.md#deploy-template).
+If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the **templateFile** variable to the path to the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -75,7 +75,7 @@ az group deployment create \
 
 ---
 
-I utdata för kommandot distribution ser du ett objekt som liknar:
+In the output for the deployment command, you'll see an object similar to:
 
 ```json
 {
@@ -88,41 +88,41 @@ I utdata för kommandot distribution ser du ett objekt som liknar:
 }
 ```
 
-## <a name="review-your-work"></a>Granska ditt arbete
+## <a name="review-your-work"></a>Review your work
 
-Du har gjort en stor del av de senaste sex självstudierna. Vi tar en stund att granska vad du har gjort. Du har skapat en mall med parametrar som är enkla att tillhandahålla. Mallen kan återanvändas i olika miljöer eftersom den tillåter anpassning och dynamiskt skapar nödvändiga värden. Den returnerar också information om det lagrings konto som du kan använda i skriptet.
+You've done a lot in the last six tutorials. Let's take a moment to review what you have done. You created a template with parameters that are easy to provide. The template is reusable in different environments because it allows for customization and dynamically creates needed values. It also returns information about the storage account that you could use in your script.
 
-Nu ska vi titta på resurs gruppen och distributions historiken.
+Now, let's look at the resource group and deployment history.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Välj **resurs grupper**på den vänstra menyn.
-1. Välj den resurs grupp som du har distribuerat till.
-1. Beroende på vilka steg du gjorde bör du ha minst ett och kanske flera lagrings konton i resurs gruppen.
-1. Du bör också ha flera lyckade distributioner som listas i historiken. Välj länken.
+1. From the left menu, select **Resource groups**.
+1. Select the resource group you deployed to.
+1. Depending on the steps you did, you should have at least one and perhaps several storage accounts in the resource group.
+1. You should also have several successful deployments listed in the history. Select that link.
 
-   ![Välj distributioner](./media/template-tutorial-add-outputs/select-deployments.png)
+   ![Select deployments](./media/template-tutorial-add-outputs/select-deployments.png)
 
-1. Du ser alla dina distributioner i historiken. Välj distributionen som kallas **addoutputs**.
+1. You see all of your deployments in the history. Select the deployment called **addoutputs**.
 
-   ![Visa distributions historik](./media/template-tutorial-add-outputs/show-history.png)
+   ![Show deployment history](./media/template-tutorial-add-outputs/show-history.png)
 
-1. Du kan granska indata.
+1. You can review the inputs.
 
-   ![Visa indata](./media/template-tutorial-add-outputs/show-inputs.png)
+   ![Show inputs](./media/template-tutorial-add-outputs/show-inputs.png)
 
-1. Du kan granska utdata.
+1. You can review the outputs.
 
-   ![Visa utdata](./media/template-tutorial-add-outputs/show-outputs.png)
+   ![Show outputs](./media/template-tutorial-add-outputs/show-outputs.png)
 
-1. Du kan granska mallen.
+1. You can review the template.
 
-   ![Visa mall](./media/template-tutorial-add-outputs/show-template.png)
+   ![Show template](./media/template-tutorial-add-outputs/show-template.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du går vidare till nästa självstudie behöver du inte ta bort resurs gruppen.
+If you're moving on to the next tutorial, you don't need to delete the resource group.
 
-Om du stoppar nu kanske du vill rensa de resurser som du har distribuerat genom att ta bort resurs gruppen.
+If you're stopping now, you might want to clean up the resources you deployed by deleting the resource group.
 
 1. Från Azure-portalen väljer du **Resursgrupp** från den vänstra menyn.
 2. Ange resursgruppens namn i fältet **Filtrera efter namn**.
@@ -131,7 +131,7 @@ Om du stoppar nu kanske du vill rensa de resurser som du har distribuerat genom 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lagt till ett retur värde i mallen. I nästa självstudie får du lära dig hur du exporterar en mall och använder delar av den exporterade mallen i mallen.
+In this tutorial, you added a return value to the template. In the next tutorial, you'll learn how to export a template and use parts of that exported template in your template.
 
 > [!div class="nextstepaction"]
-> [Använd exporterad mall](template-tutorial-export-template.md)
+> [Use exported template](template-tutorial-export-template.md)

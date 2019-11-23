@@ -1,6 +1,6 @@
 ---
-title: Definiera en ny Azure IoT Edge enhets typ i Azure IoT Central | Microsoft Docs
-description: Den här självstudien visar dig som ett verktyg för att skapa en ny Azure IoT Edge-enhet i ditt Azure IoT Central-program. Du definierar telemetri, tillstånd, egenskaper och kommandon för din typ.
+title: Define a new Azure IoT Edge device type in Azure IoT Central | Microsoft Docs
+description: This tutorial shows you, as a builder, how to create a new Azure IoT Edge device in your Azure IoT Central application. You define the telemetry, state, properties, and commands for your type.
 author: rangv
 ms.author: rangv
 ms.date: 10/22/2019
@@ -9,105 +9,105 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: c205b4dd4871ed53e32dce72f12cc2dcfb3baf41
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 0a293d74c9e37a6771c5bb246b74bda38db3b7c3
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73893055"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406468"
 ---
-# <a name="tutorial-define-a-new-azure-iot-edge-device-type-in-your-azure-iot-central-application-preview-features"></a>Självstudie: definiera en ny Azure IoT Edge enhets typ i ditt Azure IoT Central-program (för hands versions funktioner)
+# <a name="tutorial-define-a-new-azure-iot-edge-device-type-in-your-azure-iot-central-application-preview-features"></a>Tutorial: Define a new Azure IoT Edge device type in your Azure IoT Central application (preview features)
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-Den här självstudien visar dig som ett verktyg som beskriver hur du använder en mall för att definiera en ny typ av Azure IoT Edge enhet i ditt Azure IoT Central-program. 
+This tutorial shows you, as a builder, how to use a device template to define a new type of Azure IoT Edge device in your Azure IoT Central application. 
 
-[Se den här artikeln](overview-iot-central.md)för att få en översikt över Azure IoT Edge. 
+For an overview, see [What is Azure IoT Central (preview features)?](overview-iot-central.md). 
 
-Azure IoT Edge består av tre komponenter:
-* **IoT Edge moduler** är behållare som kör Azure-tjänster, tjänster från tredje part eller din egen kod. Moduler distribueras till IoT Edge-enheter och körs lokalt på enheterna.
-* **IoT Edge runtime** körs på varje IoT Edge enhet och hanterar de moduler som distribueras till varje enhet.
-* Med ett **moln baserat gränssnitt** kan du fjärrövervaka och hantera IoT Edge enheter. IoT Central är moln gränssnittet.
+IoT Edge is made up of three components:
+* **IoT Edge modules** are containers that run Azure services, partner services, or your own code. Modules are deployed to IoT Edge devices, and run locally on those devices.
+* The **IoT Edge runtime** runs on each IoT Edge device, and manages the modules deployed to each device.
+* A **cloud-based interface** enables you to remotely monitor and manage IoT Edge devices. IoT Central is the cloud interface.
 
-En **Azure IoT Edge** enhet kan vara en gateway-enhet med underordnade enheter som ansluter till Azure IoT Edge enheten. Underordnade enhets anslutnings mönster kommer att diskuteras i den här självstudien.
+An **Azure IoT Edge** device can be a gateway device, with downstream devices connecting into the IoT Edge device. This tutorial shares more information about downstream device connectivity patterns.
 
-En **enhets mall** definierar funktionerna i enheten & IoT Edge moduler. Funktionerna omfattar telemetri som modulen skickar, modul egenskaper och de kommandon som en modul svarar på.
+A **device template** defines the capabilities of your device and IoT Edge modules. Capabilities include telemetry the module sends, module properties, and the commands a module responds to.
 
-I den här självstudien skapar du en enhets mall för **miljö sensor** . En miljö sensors enhet:
+In this tutorial, you create an Environment Sensor device template. An environmental sensor device:
 
-* Skickar telemetri som temperatur.
-* Svarar på skrivbara egenskaper när de uppdateras i molnet, till exempel intervall för att skicka telemetri.
-* Svarar på kommandon som att återställa temperatur.
+* Sends telemetry, such as temperature.
+* Responds to writeable properties when updated in the cloud, such as telemetry send interval.
+* Responds to commands, such as resetting temperature.
 
-I den här självstudien skapar du också en mall för **miljögateway** -enheter. En miljö-gateway-enhet:
+Also in this tutorial, you create an Environment Gateway device template. An environmental gateway device:
 
-* Skickar telemetri som temperatur.
-* Svarar på skrivbara egenskaper när de uppdateras i molnet, till exempel intervall för att skicka telemetri.
-* Svarar på kommandon som att återställa temperatur.
-* Tillåter relationer till andra enhets kapacitets modeller
+* Sends telemetry, such as temperature.
+* Responds to writeable properties when updated in the cloud, such as telemetry send interval.
+* Responds to commands, such as resetting temperature.
+* Allows relationships to other device capability models.
 
 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Skapa en ny Azure IoT Edge enhets enhets mall.
-> * Ladda upp ett distributions manifest.
-> * Skapa funktioner, inklusive telemetri, egenskaper och kommandon för varje modul
-> * Definiera en visualisering för modulen telemetri.
-> * Lägg till relationer till mallar för underordnade enheter
-> * Publicera din enhets mall.
+> * Create a new Azure IoT Edge device device template.
+> * Upload a deployment manifest.
+> * Create capabilities including telemetry, properties, and commands for each module.
+> * Define a visualization for the module telemetry.
+> * Add relationships to downstream device templates.
+> * Publish your device template.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Du behöver ett Azure IoT Central-program för att kunna genomföra den här självstudien. Följ den här snabb starten för att [skapa ett Azure IoT Central-program](quick-deploy-iot-central.md).
+To complete this tutorial, you need to [create an Azure IoT Central application](quick-deploy-iot-central.md).
 
 
-## <a name="downstream-device-relationships-with-gateway--modules"></a>Underordnade enhets relationer med Gateway & moduler
+## <a name="downstream-device-relationships-with-a-gateway-and-modules"></a>Downstream device relationships with a gateway and modules
 
-Underordnade enheter kan ansluta till Azure IoT Edge gateway-enhet via modulen $edgeHub. Den här Azure IoT Edge enheten blir en transparent gateway i det här scenariot
+Downstream devices can connect to an IoT Edge gateway device through the `$edgeHub` module. This IoT Edge device becomes a transparent gateway in this scenario.
 
-![Sidan Central program](./media/tutorial-define-edge-device-type/gateway-transparent.png)
+![Diagram of transparent gateway](./media/tutorial-define-edge-device-type/gateway-transparent.png)
 
-Underordnade enheter kan ansluta till Azure IoT Edge gateway-enhet via en anpassad modul. I scenariot nedan visas underordnade enheter som ansluter via en anpassad Modbus-modul och underordnade enheter kan ansluta till Azure IoT Edge gateway-enhet via $edgeHub-modulen.
+Downstream devices can also connect to an IoT Edge gateway device through a custom module. In the following scenario, downstream devices connect through a Modbus custom module.
 
-![Sidan Central program](./media/tutorial-define-edge-device-type/gateway-module.png)
+![Diagram of custom module connection](./media/tutorial-define-edge-device-type/gateway-module.png)
 
-Underordnade enheter kan ansluta till Azure IoT Edge gateway-enhet via en anpassad modul. I scenariot nedan visas underordnade enheter som ansluter via en anpassad Modbus-modul. 
+The following diagram shows connection to an IoT Edge gateway device through both types of modules (custom and `$edgeHub`).  
 
-![Sidan Central program](./media/tutorial-define-edge-device-type/gateway-module-transparent.png)
+![Diagram of connecting via both connection modules](./media/tutorial-define-edge-device-type/gateway-module-transparent.png)
 
-Underordnade enheter kan ansluta till Azure IoT Edge gateway-enhet via flera anpassade moduler. I scenariot nedan visas underordnade enheter som ansluter via en anpassad modul i Modbus, och underordnade enheter kan ansluta till Azure IoT Edge gateway-enhet via $edgeHub-modulen. 
+Finally, downstream devices can connect to an IoT Edge gateway device through multiple custom modules. The following diagram shows downstream devices connecting through a Modbus custom module, a BLE custom module, and the `$edgeHub` module. 
 
-![Sidan Central program](./media/tutorial-define-edge-device-type/gateway-module2-transparent.png)
+![Diagram of connecting via multiple custom modules](./media/tutorial-define-edge-device-type/gateway-module2-transparent.png)
 
 
 ## <a name="create-a-template"></a>Skapa en mall
 
-Som ett verktyg kan du skapa och redigera Azure IoT Edge enhets mallar i ditt program. När du har publicerat en enhets mall kan du ansluta riktiga enheter som implementerar enhets mal len.
+As a builder, you can create and edit IoT Edge device templates in your application. After you publish a device template, you can connect real devices that implement the device template.
 
-### <a name="select-device-template-type"></a>Välj typ av enhets mal len 
+### <a name="select-device-template-type"></a>Select device template type 
 
-Om du vill lägga till en ny enhets mall i programmet går du till sidan **mallar för enheter** . Det gör du genom att välja fliken **enhets mallar** i det vänstra fönstret.
+To add a new device template to your application, select **Device Templates** on the left pane.
 
-![Sidan Central program](./media/tutorial-define-edge-device-type/edgedevicetemplate.png)
+![Screenshot of Preview Application, with Device Templates highlighted](./media/tutorial-define-edge-device-type/edgedevicetemplate.png)
 
-Klicka på **+ ny** för att börja skapa en ny enhets mall.
+Select **+ New** to start creating a new device template.
 
-![Enhets mallar – ny](./media/tutorial-define-edge-device-type/edgedevicetemplatenew.png)
+![Screenshot of Device templates page, with New highlighted](./media/tutorial-define-edge-device-type/edgedevicetemplatenew.png)
 
-Du kommer att hamna på sidan Val av Malltyp på enheten. Välj **Azure IoT Edge** panel och klicka på **Nästa: knappen anpassa** längst ned
+On the **Select template type** page, select **Azure IoT Edge**, and select **Next: Customize**.
 
-![Val av enhets mallar – Azure IoT Edge](./media/tutorial-define-edge-device-type/selectiotedge.png)
+![Screenshot of Select template type page](./media/tutorial-define-edge-device-type/selectiotedge.png)
 
-### <a name="customize-device-template"></a>Anpassa enhets mal len
+### <a name="customize-device-template"></a>Customize device template
 
-Med Azure IoT Edge kan du distribuera och hantera affärs logik i form av moduler. **Azure IoT Edge moduler** är den minsta beräknings enheten som hanteras av IoT Edge och kan innehålla Azure-tjänster (till exempel Azure Stream Analytics) eller din egen lösnings-specifika kod. För att förstå hur moduler utvecklas, distribueras och bibehålls Läs [IoT Edge moduler](../../iot-edge/iot-edge-modules.md).
+In IoT Edge, you can deploy and manage business logic in the form of modules. IoT Edge modules are the smallest unit of computation managed by IoT Edge, and can contain Azure services (such as Azure Stream Analytics), or your own solution-specific code. To understand how modules are developed, deployed, and maintained, see [IoT Edge modules](../../iot-edge/iot-edge-modules.md).
 
-På en hög nivå är ett distributions manifest en lista över moduler som kon figurer ATS med deras önskade egenskaper. Ett distributions manifest talar om för en IoT Edge enhet (eller en grupp av enheter) vilka moduler som ska installeras och hur de ska konfigureras. Distributions manifest innehåller de önskade egenskaperna för varje modul med dubbla. IoT Edge enheterna rapporterar de rapporterade egenskaperna för varje modul.
+At a high level, a deployment manifest is a list of module twins that are configured with their desired properties. A deployment manifest tells an IoT Edge device (or a group of devices) which modules to install, and how to configure them. Deployment manifests include the desired properties for each module twin. IoT Edge devices report back the reported properties for each module.
 
-Använd Visual Studio Code för att skapa ett distributions manifest. Följ dokumentationen om hur du skapar ett [distributions manifest](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
+Use Visual Studio Code to create a deployment manifest. To learn more, see [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
 
-Här är ett grundläggande distributions manifest med en modul som ett exempel på hur du kan använda den här självstudien. Kopiera nedanstående JSON och spara den som. JSON-fil. 
+Here's a basic deployment manifest, with one module as an example to be used for this tutorial. Copy the following JSON, and save it as a .json file. 
 
    ```JSON
    {
@@ -176,58 +176,53 @@ Här är ett grundläggande distributions manifest med en modul som ett exempel 
    }
    ```
 
-**Ladda upp ett distributions manifest för Azure IoT Edge**
+#### <a name="upload-an-iot-edge-deployment-manifest"></a>Upload an IoT Edge deployment manifest
 
-Klicka på knappen **Bläddra** 
+On the **Customize device** page, under **Upload an Azure IoT Edge deployment manifest**, select **Browse**. 
 
-![Enhets mall – Azure IoT Edge](./media/tutorial-define-edge-device-type/edgedevicetemplateuploadmanifest.png)
+![Screenshot of Customize device page, with Browse highlighted](./media/tutorial-define-edge-device-type/edgedevicetemplateuploadmanifest.png)
 
-Om du planerar att skapa en enhets mal len för Azure IoT Edge Gateway, se till att markera kryss rutan **gateway-enhet med underordnade enheter**
+If you plan to create an IoT Edge Gateway device template, make sure to select **Gateway device with downstream devices**.
 
-![Enhets mall – Azure IoT Edge](./media/tutorial-define-edge-device-type/gateway-upload.png)
+![Screenshot of Customize device page, with Gateway device with downstream devices highlighted](./media/tutorial-define-edge-device-type/gateway-upload.png)
 
-En dialog ruta för val av filer visas. Välj distributions manifest filen och klicka på knappen **Öppna** .
+In the file selection dialog box, select the deployment manifest file, and select **Open**.
 
-Distributions manifest filen val IDE ras mot ett schema. När verifieringen är klar klickar du på knappen **Granska**
+IoT Edge validates the deployment manifest file against a schema. If the validation is successful, select **Review**.
 
-![Enhets mall – Azure IoT Edge](./media/tutorial-define-edge-device-type/deploymentmanifestvalidate.png)
+![Screenshot of Customize device page, with Deployment Manifest and Review highlighted](./media/tutorial-define-edge-device-type/deploymentmanifestvalidate.png)
 
-Nedan visas flödet av en livs cykel för distributions manifest i IoT Central.
+The following flowchart shows a deployment manifest life cycle in IoT Central.
 
-![Enhets mall – Azure IoT Edge](./media/tutorial-define-edge-device-type/dmflow.png)
+![Flowchart of deployment manifest life cycle](./media/tutorial-define-edge-device-type/dmflow.png)
 
-Sidan granska visas med information om distributions manifestet. Lista över moduler från distributions manifestet kommer att visas på sidan Granska. I den här självstudien kommer du att se SimulatedTemperatureSensor-modulen listad. Klicka på knappen **skapa** .
+Next, you'll see a review page, with details of the deployment manifest. This page shows a list of modules from the deployment manifest. In this tutorial, note that the `SimulatedTemperatureSensor` module is listed. Välj **Skapa**.
 
-![Enhets mall – Azure IoT Edge](./media/tutorial-define-edge-device-type/edgedevicetemplatereview.png)
+![Screenshot of Review page, with Module and Create highlighted](./media/tutorial-define-edge-device-type/edgedevicetemplatereview.png)
 
-Om du har valt en gateway-enhet visas den här gransknings Sidan
+If you had selected a gateway device, you see the following review page.
 
-![Enhets mall – Azure IoT Edge](./media/tutorial-define-edge-device-type/gateway-review.png)
+![Screenshot of Review page, with Azure IoT Edge Gateway highlighted](./media/tutorial-define-edge-device-type/gateway-review.png)
 
 
-När du skapar en ny enhets mal len visas en rotations ruta som enhets mal len skapas i IoT Central.
+You create a device template with module capability models. In this tutorial, you create a device template with the `SimulatedTemperatureSensor` module capability model. 
 
-Enhets mal len skapas med funktions modeller för moduler. I den här självstudien får du se SimulatedTemperatureSensor-modulens kapacitets modell skapa. 
+Change title of the device template to **Environment Sensor Device Template**.
 
-Ändra rubrik för enhets mal len till enhets mal len för miljö sensor.
+![Screenshot of device template, with updated title highlighted](./media/tutorial-define-edge-device-type/edgedevicetemplatelanding.png)
 
-![Enhets mall – Azure IoT Edge](./media/tutorial-define-edge-device-type/edgedevicetemplatelanding.png)
+In IoT Edge device, model IoT Plug and Play as follows:
+* Every IoT Edge device template has a device capability model.
+* For every custom module listed in the deployment manifest, a module capability model is generated.
+* A relationship is established between each module capability model and a device capability model.
+* A module capability model implements module interfaces.
+* Each module interface contains telemetry, properties, and commands.
 
-Plug-and-Play för Azure IoT Edge Device-enhet görs enligt följande
-* Varje Azure IoT Edge enhets mal len har en **enhets kapacitets modell**
-* För varje anpassad modul som anges i distributions manifestet skapas en **modul för modul kapacitets modell**
-* En **relation** upprättas mellan varje moduls funktions modell och en enhets kapacitets modell
-* Modulens kapacitets modell implementerar **modulens gränssnitt**
-* Varje modul-gränssnitt innehåller
-   - Telemetri
-   - Egenskaper
-   - Kommandon
+![Diagram of IoT Edge modeling](./media/tutorial-define-edge-device-type/edgemodelling.png)
 
-![Enhets mall – Azure IoT Edge](./media/tutorial-define-edge-device-type/edgemodelling.png)
+#### <a name="add-capabilities-to-a-module-capability-model"></a>Add capabilities to a module capability model
 
-**Lägg till funktioner i modulens kapacitets modell**
-
-Här är ett exempel på utdata från modulen SimulatedTemperatureSensor
+Here is a sample output from the `SimulatedTemperatureSensor` module:
 ```json
 {
 
@@ -244,167 +239,165 @@ Här är ett exempel på utdata från modulen SimulatedTemperatureSensor
 }
 ```
 
-Lägg till funktioner i SimulatedTemperatureSensor-modulen som visar ovanstående JSON. 
+You can add capabilities to the `SimulatedTemperatureSensor` module, which will reflect the preceding output. 
 
-* Klicka på **Hantera** ett gränssnitt för kapacitets modellen SimulatedTemperatureSensor-modul. Klicka på **Lägg till funktion**. 
+1. To manage an interface of the `SimulatedTemperatureSensor` module capability model, select **Manage** > **Add Capability**. 
 
-    ![Enhets mall – Azure IoT Edge](./media/tutorial-define-edge-device-type/edgetemplateaddcapability.png)
+    ![Screenshot of Environment Sensor Template, with Add Capability highlighted](./media/tutorial-define-edge-device-type/edgetemplateaddcapability.png)
   
-* Lägg till datorn som en objekt typ eftersom det är en komplex typ
+1. Add a machine as an object type.
   
-    ![Enhets mall – Azure IoT Edge](./media/tutorial-define-edge-device-type/edgetemplatemachineobject.png)
+    ![Screenshot of Environment Sensor Template Capabilities page, with Schema highlighted](./media/tutorial-define-edge-device-type/edgetemplatemachineobject.png)
 
-    Klicka på **definiera**. I popup-fönstrets modala ändring av objekt namn till dator och skapa egenskaper temperatur, tryck och klicka på **tillämpa**
+1. Select **Define**. In the dialog box that appears, change the object name to **machine**. Create temperature and pressure properties, and select **Apply**.
   
-    ![Enhets mall – Azure IoT Edge](./media/tutorial-define-edge-device-type/edgetemplatemachineattributes.png)
+    ![Screenshot of attributes dialog box, with various options highlighted](./media/tutorial-define-edge-device-type/edgetemplatemachineattributes.png)
   
-* Lägg till omgivande som en objekt typ eftersom det är en komplex typ
+1. Add **ambient** as an object type.
 
-    Klicka på **definiera**. I popup-fönstret för modala ändrings objekt till omgivande och skapa egenskaper temperatur, fuktighet och klicka på **tillämpa**
+1. Select **Define**. In the dialog box that appears, change the object name to **ambient**. Create temperature and humidity properties, and select **Apply**.
   
-    ![Enhets mall – Azure IoT Edge](./media/tutorial-define-edge-device-type/edgetemplateambientattributes.png)
+    ![Screenshot of attributes dialog box, with various options highlighted](./media/tutorial-define-edge-device-type/edgetemplateambientattributes.png)
 
   
-* Lägg till timeCreated som en DateTime-typ och klicka på **Spara**
+1. Add `timeCreated` as a `DateTime` type, and select **Save**.
   
-    ![Enhets mall – Azure IoT Edge](./media/tutorial-define-edge-device-type/edgetemplateallattributes.png)
+    ![Screenshot of Environment Sensor Template, with Save highlighted](./media/tutorial-define-edge-device-type/edgetemplateallattributes.png)
 
 
-### <a name="add-relationships"></a>Lägg till relationer
+### <a name="add-relationships"></a>Add relationships
 
-Om du har valt Azure IoT Edge enhet som en gateway-enhet kan du lägga till underordnade relationer till enhets kapacitets modeller för enheter som du ansluter till gateway-enheten.
+If you selected an IoT Edge device to be a gateway device, you can add downstream relationships to device capability models for devices you want to connect to the gateway device.
   
-  ![Enhets mall – Azure IoT Edge](./media/tutorial-define-edge-device-type/gateway-add-relationship.png)
+  ![Screenshot of Environment Gateway Template, with Add Relationship highlighted](./media/tutorial-define-edge-device-type/gateway-add-relationship.png)
 
-Relationen kan läggas till på en enhet eller i en modul.
+You can add a relationship at a device or at a module.
   
-  ![Enhets mall – Azure IoT Edge](./media/tutorial-define-edge-device-type/gateway-relationship-types.png)
+  ![Screenshot of Environment Gateway Template, with device and module level relationships highlighted](./media/tutorial-define-edge-device-type/gateway-relationship-types.png)
 
 
-Du kan välja en modell för en underordnad enhets kapacitet eller välja asterisken. 
+You can select a downstream device capability model, or you can select the asterisk symbol. 
   
-  ![Enhets mall – Azure IoT Edge](./media/tutorial-define-edge-device-type/gateway-downstream-rel.png)
+  ![Screenshot of Environment Gateway Template, with Target highlighted](./media/tutorial-define-edge-device-type/gateway-downstream-rel.png)
 
-  I den här självstudien väljer vi asterisken vilket innebär att alla underordnade relationer kommer att tillåtas. Klicka på **Spara**
+  For this tutorial, select the asterisk. This option allows any downstream relationship. Välj sedan **Spara**.
 
-  ![Enhets mall – Azure IoT Edge](./media/tutorial-define-edge-device-type/gateway-add-relationship-asterix.png)
+  ![Screenshot of Environment Gateway Template, with Target highlighted](./media/tutorial-define-edge-device-type/gateway-add-relationship-asterix.png)
 
 
-### <a name="add-cloud-properties"></a>Lägg till moln egenskaper
+### <a name="add-cloud-properties"></a>Add cloud properties
 
-En enhets mall kan innehålla moln egenskaper. Moln egenskaper finns bara i IoT Central programmet och skickas aldrig till eller tas emot från en enhet.
+A device template can include cloud properties. Cloud properties only exist in the IoT Central application, and are never sent to, or received from, a device.
 
-1. Välj **moln egenskaper** och sedan **+ Lägg till moln egenskap**. Använd informationen i följande tabell för att lägga till en moln egenskap till din enhets mall.
+1. Select **Cloud Properties** >  **+ Add Cloud Property**. Use the information in the following table to add a cloud property to your device template.
 
-    | Visningsnamn      | Semantisk typ | Schema |
+    | Visningsnamn      | Semantic type | Schema |
     | ----------------- | ------------- | ------ |
-    | Senaste servicedatum | Ingen          | Date   |
-    | Kund namn     | Ingen          | Sträng |
+    | Senaste servicedatum | Inget          | Datum   |
+    | Customer name     | Inget          | Sträng |
 
-2. Välj **Spara** för att spara ändringarna:
-
-  
-    ![Moln egenskaper – Azure IoT Edge](./media/tutorial-define-edge-device-type/edgetemplatecloudproperties.png)
-
-### <a name="add-customizations"></a>Lägg till anpassningar
-
-Använd anpassningar när du behöver ändra ett gränssnitt eller lägga till IoT Central-/regionsspecifika funktioner till en funktion som inte kräver att du har version av enhetens kapacitets modell. Du kan anpassa fält när kapacitets modellen är i ett utkast eller publicerings tillstånd. Du kan bara anpassa fält som inte avbryter gränssnittets kompatibilitet. Du kan till exempel:
-
-- Anpassa visnings namn och enheter för en funktion.
-- Lägg till en standard färg som ska användas när värdet visas i ett diagram.
-- Ange start-, minimi-och max värden för en egenskap.
-
-Du kan inte anpassa funktions namnet eller funktions typen. Klicka på **Spara**
-  
-![Anpassningar – Azure IoT Edge](./media/tutorial-define-edge-device-type/edgetemplatecustomize.png)
-
-
-### <a name="create-views"></a>Skapa vyer
-
-Som ett verktyg kan du anpassa programmet för att visa relevant information om miljö sensor enheten i en operatör. Dina anpassningar gör att operatören kan hantera miljö sensor enheter som är anslutna till programmet. Du kan skapa två typer av vyer för en operator som ska användas för att interagera med enheter:
-
-* Formulär för att visa och redigera egenskaper för enhet och moln.
-* Instrument paneler för att visualisera enheter.
-
-### <a name="configure-a-view-to-visualize-devices"></a>Konfigurera en vy för att visualisera enheter
-
-En instrument panel för enheter låter en operatör visualisera en enhet med hjälp av diagram och mått. Som byggare kan du definiera vilken information som ska visas på en enhetsinstrumentpanel. Du kan definiera flera instrument paneler för enheter. Om du vill skapa en instrument panel för att visualisera telemetri för miljö sensorer väljer du **vyer** och **visualiserar sedan enheten**:
+2. Välj **Spara**.
 
   
-![Vyer – Azure IoT Edge](./media/tutorial-define-edge-device-type/visualizingthedevice.png)
+    ![Screenshot of Environment Sensor Template, with Save highlighted](./media/tutorial-define-edge-device-type/edgetemplatecloudproperties.png)
 
+### <a name="add-customizations"></a>Add customizations
 
-Den omgivande Telemetrin och telemetri av datorer är komplexa objekt, för att skapa diagram gör du följande
+Use customizations to modify an interface, or to add IoT Central-specific features to a capability that doesn't require you to version your device capability model. You can customize fields when the capability model is in a draft or published state. You can only customize fields that don't break interface compatibility. Du kan till exempel:
 
-Dra den omgivande Telemetrin och välj linje diagram. 
+- Customize the display name and units of a capability.
+- Add a default color to use when the value appears on a chart.
+- Specify initial, minimum, and maximum values for a property.
+
+You can't customize the capability name or capability type.
+
+When you're finished customizing, select **Save**.
   
-![Vyer – Azure IoT Edge](./media/tutorial-define-edge-device-type/sensorambientchart.png)
+![Screenshot of Environment Sensor Template Customize page](./media/tutorial-define-edge-device-type/edgetemplatecustomize.png)
 
-Klicka på Konfigurera ikon och välj temperatur och fuktighet för att visualisera data och klicka på knappen **Uppdatera konfiguration** . 
+
+### <a name="create-views"></a>Create views
+
+As a builder, you can customize the application to display relevant information about the environmental sensor device to an operator. Your customizations enable the operator to manage the environmental sensor devices connected to the application. You can create two types of views for an operator to use to interact with devices:
+
+* Forms to view and edit device and cloud properties.
+* Dashboards to visualize devices.
+
+### <a name="configure-a-view-to-visualize-devices"></a>Configure a view to visualize devices
+
+A device dashboard lets an operator visualize a device by using charts and metrics. As a builder, you can define what information appears on a device dashboard. You can define multiple dashboards for devices. To create a dashboard to visualize the environmental sensor telemetry, select **Views** > **Visualizing the Device**:
+
   
-![Vyer – Azure IoT Edge](./media/tutorial-define-edge-device-type/sensorambienttelemetrychart.png)
+![Screenshot of Environment Sensor Template Views page, with Visualizing the Device highlighted](./media/tutorial-define-edge-device-type/visualizingthedevice.png)
 
-Välj **Spara** för att spara vyn:
 
-Du kan lägga till fler paneler som visar andra egenskaper eller telemetri värden. Du kan också lägga till statisk text, länkar och bilder. Om du vill flytta eller ändra storlek på en panel på instrument panelen flyttar du mus pekaren över panelen och drar panelen till en ny plats eller ändrar storlek på den.
+Ambient Telemetry and Machine Telemetry are complex objects. To create charts:
+
+1. Drag **Ambient Telemetry**, and select **Line chart**. 
   
-![Vyer – Azure IoT Edge](./media/tutorial-define-edge-device-type/viewsdashboard.png)
+   ![Screenshot of Environment Sensor Template, with Ambient Telemetry and Line chart highlighted](./media/tutorial-define-edge-device-type/sensorambientchart.png)
 
-### <a name="add-a-device-form"></a>Lägg till ett enhets formulär
-
-Ett enhets formulär låter en operatör redigera skrivbara enhets egenskaper och moln egenskaper. Som ett verktyg kan du definiera flera formulär och välja vilka enhets-och moln egenskaper som ska visas för varje formulär. Du kan också visa skrivskyddade enhets egenskaper i ett formulär.
-
-Skapa ett formulär för att visa och redigera egenskaper för miljö sensorer:
-
-Navigera till **vyer** i **miljö sensor** mal len. Välj panelen **Redigera enhet och moln data** för att lägga till en ny vy.
+1. Select the configure icon. Select **Temperature** and **Humidity** to visualize the data, and select **Update configuration**. 
   
-![Vyer – Azure IoT Edge](./media/tutorial-define-edge-device-type/editingdeviceandclouddata.png)
+   ![Screenshot of Environment Sensor Template, with various options highlighted](./media/tutorial-define-edge-device-type/sensorambienttelemetrychart.png)
 
-Ange formulär namn **Egenskaper för miljö sensor**.
+1. Välj **Spara**.
 
-Dra egenskaperna för **kund namn** och **senaste tjänste datum** molnet till det befintliga avsnittet i formuläret.
+You can add more tiles that show other properties or telemetry values. You can also add static text, links, and images. To move or resize a tile on the dashboard, move the mouse pointer over the tile, and drag the tile to a new location or resize it.
   
-![Vyer – Azure IoT Edge](./media/tutorial-define-edge-device-type/views-properties.png)
+![Screenshot of Environment Sensor Template Dashboard view](./media/tutorial-define-edge-device-type/viewsdashboard.png)
 
-Välj **Spara** för att spara vyn.
+### <a name="add-a-device-form"></a>Add a device form
 
-### <a name="generate-default-views"></a>Generera standardvyer
+A device form lets an operator edit writeable device properties and cloud properties. As a builder, you can define multiple forms and choose which device and cloud properties to show on each form. You can also display read-only device properties on a form.
 
-Det finns inte stöd för att generera standardvyer-funktioner för Azure IoT Edge mallar 
+To create a form to view and edit environmental sensor properties:
 
-## <a name="publish-device-template"></a>Publicera enhets mal len
+1. In the **Environmental Sensor Template**, go to **Views**. Select the **Editing Device and Cloud data** tile to add a new view.
+  
+   ![Screenshot of Environmental Sensor Template Views page, with Editing Device and Cloud data highlighted](./media/tutorial-define-edge-device-type/editingdeviceandclouddata.png)
 
-Innan du kan skapa en simulerad miljö sensor, eller ansluta en riktig miljö sensor, måste du publicera din enhets mall.
+1. Enter the form name **Environmental Sensor properties**.
 
-Så här publicerar du en enhets mal len:
+1. Drag the **Customer name** and **Last service date** cloud properties onto the existing section on the form.
+  
+   ![Screenshot of Environmental Sensor Template Views page, with various options highlighted](./media/tutorial-define-edge-device-type/views-properties.png)
 
-1. Gå till din enhets mall från sidan **enhets mallar** .
+1. Välj **Spara**.
+
+## <a name="publish-a-device-template"></a>Publish a device template
+
+Before you can create a simulated environmental sensor, or connect a real environmental sensor, you need to publish your device template.
+
+To publish a device template:
+
+1. Go to your device template from the **Device Templates** page.
 
 2. Välj **Publicera**.
   
-    ![Vyer – publicera](./media/tutorial-define-edge-device-type/edgetemplatepublish.png)
+    ![Screenshot of Environmental Sensor Template, with Publish highlighted](./media/tutorial-define-edge-device-type/edgetemplatepublish.png)
 
-1. I dialog rutan **publicera en enhets mall** väljer du **publicera**:
+1. In the **Publish a Device Template** dialog box, choose **Publish**.
   
-    ![Vyer – publicera](./media/tutorial-define-edge-device-type/edgepublishtemplate.png)
+    ![Screenshot of Publish a Device Template dialog box, with Publish highlighted](./media/tutorial-define-edge-device-type/edgepublishtemplate.png)
 
-När en enhets mal len har publicerats visas den på sidan **enheter** och i operatorn. I en publicerad enhets mall kan du inte redigera en enhets kapacitets modell utan att skapa en ny version. Du kan dock göra uppdateringar av moln egenskaper, anpassningar och vyer i en publicerad enhets mall utan versions hantering. När du har gjort några ändringar väljer du **publicera** för att skicka ut ändringarna till din operatör.
+After a device template is published, it's visible on the **Devices** page and to the operator. In a published device template, you can't edit a device capability model without creating a new version. However, you can make updates to cloud properties, customizations, and views, in a published device template. These updates don't cause a new version to be created. After you make any changes, select **Publish** to push those changes out to your operator.
   
-![Vyer – publicera](./media/tutorial-define-edge-device-type/publishedtemplate.png)
+![Screenshot of Device templates list of published templates](./media/tutorial-define-edge-device-type/publishedtemplate.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 I den här självstudiekursen lärde du dig att:
 
-* Skapa en ny kant som en mall för löv enheter
-* Generera moduler från ett uppladdat distributions manifest
-* Lägg till telemetri och egenskaper för komplex typ
-* Skapa moln egenskaper.
-* Skapa anpassningar.
-* Definiera en visualisering för enhetens telemetri.
-* Publicera din Edge-enhets mall.
+* Create a new edge as a leaf device template.
+* Generate modules from an uploaded deployment manifest.
+* Add complex type telemetry and properties.
+* Create cloud properties.
+* Create customizations.
+* Define a visualization for the device telemetry.
+* Publish your edge device template.
 
-Nu när du har skapat en enhets mall i ditt Azure IoT Central-program är du det föreslagna nästa steg:
+Now that you've created a device template in your Azure IoT Central application, you can do this next:
 
 > [!div class="nextstepaction"]
-> [Anslut enhet](./tutorial-connect-pnp-device.md)
+> [Connect device](./tutorial-connect-pnp-device.md)

@@ -1,6 +1,6 @@
 ---
-title: Villkorlig åtkomst – kombinerad säkerhets information – Azure Active Directory
-description: Skapa en anpassad princip för villkorlig åtkomst för att kräva en betrodd plats för registrering av säkerhets information
+title: Conditional Access - Combined security information - Azure Active Directory
+description: Create a custom Conditional Access policy to require a trusted location for security info registration
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,44 +11,44 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 771e4e0ecbda4baf1f38aacd1f39397875bbd0dc
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 5864424f003ce9254a6452d8374d78c54516f2bc
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150757"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74322741"
 ---
-# <a name="conditional-access-require-trusted-location-for-mfa-registration"></a>Villkorlig åtkomst: Kräv betrodd plats för MFA-registrering
+# <a name="conditional-access-require-trusted-location-for-mfa-registration"></a>Conditional Access: Require trusted location for MFA registration
 
-Att skydda när och hur användare registrerar sig för Azure Multi-Factor Authentication och återställning av lösen ord för självbetjäning är nu möjligt med användar åtgärder i princip för villkorlig åtkomst. Den här förhands gransknings funktionen är tillgänglig för organisationer som har aktiverat den [kombinerade förhands granskningen](../authentication/concept-registration-mfa-sspr-combined.md). Den här funktionen kan vara aktive rad i organisationer där de vill att användarna ska kunna registrera sig för Azure Multi-Factor Authentication och SSPR från en central plats, till exempel en betrott nätverks plats under en inledande registrering. Mer information om hur du skapar betrodda platser i villkorlig åtkomst finns i artikeln [Vad är plats villkoret i Azure Active Directory villkorlig åtkomst?](../conditional-access/location-condition.md#named-locations)
+Securing when and how users register for Azure Multi-Factor Authentication and self-service password reset is now possible with user actions in Conditional Access policy. This preview feature is available to organizations who have enabled the [combined registration preview](../authentication/concept-registration-mfa-sspr-combined.md). This functionality may be enabled in organizations where they want users to register for Azure Multi-Factor Authentication and SSPR from a central location such as a trusted network location during HR onboarding. For more information about creating trusted locations in Conditional Access, see the article [What is the location condition in Azure Active Directory Conditional Access?](../conditional-access/location-condition.md#named-locations)
 
-## <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Skapa en princip för att kräva registrering från en betrodd plats
+## <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Create a policy to require registration from a trusted location
 
-Följande princip gäller för alla valda användare, som försöker registrera sig med den kombinerade registrerings upplevelsen och blockerar åtkomsten om de inte ansluter från en plats som har marker ATS som ett betrott nätverk.
+The following policy applies to all selected users, who attempt to register using the combined registration experience, and blocks access unless they are connecting from a location marked as trusted network.
 
-1. I **Azure Portal**bläddrar du till **Azure Active Directory** > **villkorlig åtkomst**.
-1. Välj **ny princip**.
-1. I namn anger du ett namn för den här principen. Till exempel **kombinerad säkerhets informations registrering på betrodda nätverk**.
-1. Under **tilldelningar**klickar du på **användare och grupper**och väljer de användare och grupper som du vill att den här principen ska tillämpas på.
+1. In the **Azure portal**, browse to **Azure Active Directory** > **Conditional Access**.
+1. Select **New policy**.
+1. In Name, Enter a Name for this policy. For example, **Combined Security Info Registration on Trusted Networks**.
+1. Under **Assignments**, click **Users and groups**, and select the users and groups you want this policy to apply to.
 
    > [!WARNING]
-   > Användare måste aktive ras för för [hands versionen av den kombinerade registreringen](../authentication/howto-registration-mfa-sspr-combined.md).
+   > Users must be enabled for the [combined registration preview](../authentication/howto-registration-mfa-sspr-combined.md).
 
-1. Under **molnappar eller åtgärder**väljer du **användar åtgärder**, kryss rutan **Registrera säkerhets information (för hands version)** .
-1. Under **villkor** > **platser**.
-   1. Konfigurera **Ja**.
-   1. Ta med **vilken plats som helst**.
-   1. Undanta **alla betrodda platser**.
-   1. Klicka på **Done** på bladet platser.
-   1. Klicka på **färdig** på bladet villkor.
-1. Under **åtkomst kontroller** > **bevilja**.
-   1. Klicka på **blockera åtkomst**.
+1. Under **Cloud apps or actions**, select **User actions**, check **Register security information (preview)** .
+1. Under **Conditions** > **Locations**.
+   1. Configure **Yes**.
+   1. Include **Any location**.
+   1. Exclude **All trusted locations**.
+   1. Click **Done** on the Locations blade.
+   1. Click **Done** on the Conditions blade.
+1. Under **Access controls** > **Grant**.
+   1. Click **Block access**.
    1. Klicka sedan på **Välj**.
-1. Ange **Aktivera princip** till **på**.
-1. Klicka sedan på **Skapa**.
+1. Set **Enable policy** to **On**.
+1. Klicka sedan på **Spara**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Vanliga principer för villkorlig åtkomst](concept-conditional-access-policy-common.md)
+[Conditional Access common policies](concept-conditional-access-policy-common.md)
 
-[Simulera inloggnings beteende med hjälp av What If verktyget för villkorlig åtkomst](troubleshoot-conditional-access-what-if.md)
+[Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)

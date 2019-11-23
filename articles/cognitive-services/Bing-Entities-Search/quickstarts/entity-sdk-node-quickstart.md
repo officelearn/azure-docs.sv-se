@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skicka en sökbegäran med SDK för entitetssökning i Bing för Node.js'
+title: 'Quickstart: Send a search request with the SDK for Node.js - Bing Entity Search'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten för att söka efter entiteter med SDK för entitetssökning i Bing för Node.js
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: 40c9062dba5eb3bbed6ee90bfdb0a74c1d6c11d5
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 86c0507c3796693f29170f6059d7774312c2b3f0
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479035"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74323836"
 ---
-# <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-nodejs"></a>Snabbstart: Skicka en sökbegäran med SDK för entitetssökning i Bing för Node.js
+# <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-nodejs"></a>Quickstart: Send a search request with the Bing Entity Search SDK for Node.js
 
-Använd den här snabbstarten om du vill börja söka efter entiteter med SDK för entitetssökning i Bing för Node.js. Även om entitetssökning i Bing har ett REST API som är kompatibelt med de flesta programmeringsspråk så tillhandahåller SDK:n ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/entitySearch.js).
+Använd den här snabbstarten om du vill börja söka efter entiteter med SDK för entitetssökning i Bing för Node.js. Även om entitetssökning i Bing har ett REST API som är kompatibelt med de flesta programmeringsspråk så är SDK:t ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/entitySearch.js).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Den senaste versionen av [Node.js](https://nodejs.org/en/download/).
 

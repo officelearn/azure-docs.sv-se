@@ -1,6 +1,6 @@
 ---
-title: Så här konfigurerar du en Multi-Factor Authentication-registrerings princip i Azure Active Directory Identity Protection
-description: Lär dig hur du konfigurerar registrerings principen för Azure AD Identity Protection Multi-Factor Authentication.
+title: Configure the MFA registration policy - Azure Active Directory Identity Protection
+description: Learn how to configure the Azure AD Identity Protection multi-factor authentication registration policy.
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
@@ -11,52 +11,52 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc98f645c6b24069e090560a049ccb4fcd03dfec
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 2fa6a4cf184b426355f62117ea51642127eee529
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72887577"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74382134"
 ---
-# <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>Gör så här: Konfigurera registrerings principen för Azure-Multi-Factor Authentication
+# <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>How To: Configure the Azure Multi-Factor Authentication registration policy
 
-Azure AD Identity Protection hjälper dig att hantera distributionen av Azure Multi-Factor Authentication-registrering (MFA) genom att konfigurera en princip för villkorlig åtkomst för att kräva MFA-registrering oavsett vilken modern app för autentisering som du loggar in på.
+Azure AD Identity Protection helps you manage the roll-out of Azure Multi-Factor Authentication (MFA) registration by configuring a Conditional Access policy to require MFA registration no matter what modern authentication app you are signing in to.
 
-## <a name="what-is-the-azure-multi-factor-authentication-registration-policy"></a>Vad är registrerings principen för Azure-Multi-Factor Authentication?
+## <a name="what-is-the-azure-multi-factor-authentication-registration-policy"></a>What is the Azure Multi-Factor Authentication registration policy?
 
-Med Azure Multi-Factor Authentication kan du kontrol lera vem du använder mer än bara ett användar namn och lösen ord. Det innehåller ett andra säkerhets lager för användar inloggningar. För att användarna ska kunna svara på MFA-prompter måste de först registrera sig för Azure Multi-Factor Authentication.
+Azure Multi-Factor Authentication provides a means to verify who you are using more than just a username and password. It provides a second layer of security to user sign-ins. In order for users to be able to respond to MFA prompts, they must first register for Azure Multi-Factor Authentication.
 
-Vi rekommenderar att du kräver Azure Multi-Factor Authentication för användar inloggningar eftersom det:
+We recommend that you require Azure Multi-Factor Authentication for user sign-ins because it:
 
-- Ger stark autentisering via en mängd verifierings alternativ.
-- Spelar upp en viktig roll när du förbereder din organisation för att själv åtgärda problemet med att identifiera risker i identitets skyddet.
+- Delivers strong authentication through a range of verification options.
+- Plays a key role in preparing your organization to self-remediate from risk detections in Identity Protection.
 
-Mer information om Azure Multi-Factor Authentication finns i [Vad är azure Multi-Factor Authentication?](../authentication/howto-mfa-getstarted.md)
+For more information on Azure Multi-Factor Authentication, see [What is Azure Multi-Factor Authentication?](../authentication/howto-mfa-getstarted.md)
 
 ## <a name="policy-configuration"></a>Principkonfiguration
 
 1. Navigera till [Azure-portalen](https://portal.azure.com).
-1. Bläddra till **Azure Active Directory** > **säkerhet** > **identitets skydd** > **MFA registrerings princip**.
-   1. Under **tilldelningar**
-      1. **Användare** – Välj **alla användare** eller **Välj personer och grupper** om du vill begränsa distributionen.
-         1. Du kan också välja att exkludera användare från principen.
-   1. Under **kontroller**
-      1. Se till att kryss rutan **Kräv Azure MFA-registrering** är markerad och välj **Välj**.
-   1. **Tillämpa princip** - **på**
-   1. **Spara**
+1. Browse to **Azure Active Directory** > **Security** > **Identity Protection** > **MFA registration policy**.
+   1. Under **Assignments**
+      1. **Users** - Choose **All users** or **Select individuals and groups** if limiting your rollout.
+         1. Optionally you can choose to exclude users from the policy.
+   1. Under **Controls**
+      1. Ensure the checkbox **Require Azure MFA registration** is checked and choose **Select**.
+   1. **Enforce Policy** - **On**
+   1. **Save**
 
-## <a name="user-experience"></a>Användar upplevelse
+## <a name="user-experience"></a>User experience
 
-Azure Active Directory Identity Protection uppmanas användarna att registrera sig nästa gången de loggar in interaktivt och de har 14 dagar på sig att slutföra registreringen. Under den här 14-dagars perioden kan de kringgå registreringen, men i slutet av perioden måste de registreras innan inloggnings processen kan slutföras.
+Azure Active Directory Identity Protection will prompt your users to register the next time they sign in interactively and they will have 14 days to complete registration. During this 14-day period, they can bypass registration but at the end of the period they will be required to register before they can complete the sign-in process.
 
-En översikt över den relaterade användar upplevelsen finns i:
+For an overview of the related user experience, see:
 
-- [Inloggnings upplevelser med Azure AD Identity Protection](concept-identity-protection-user-experience.md).  
+- [Sign-in experiences with Azure AD Identity Protection](concept-identity-protection-user-experience.md).  
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Aktivera inloggnings-och användar risk principer](howto-identity-protection-configure-risk-policies.md)
+- [Enable sign-in and user risk policies](howto-identity-protection-configure-risk-policies.md)
 
-- [Aktivera återställning av lösen ord för självbetjäning i Azure AD](../authentication/howto-sspr-deployment.md)
+- [Enable Azure AD self-service password reset](../authentication/howto-sspr-deployment.md)
 
-- [Aktivera Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+- [Enable Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

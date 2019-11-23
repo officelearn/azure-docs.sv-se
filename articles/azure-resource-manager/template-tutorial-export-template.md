@@ -1,88 +1,88 @@
 ---
-title: Självstudie – exportera mall från Azure Portal
-description: Lär dig hur du använder en exporterad mall för att slutföra din mall utveckling.
+title: Tutorial - Export template from the Azure portal
+description: Learn how to use an exported template to complete your template development.
 author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6dae5d494ac71ace41586e89de5aab745962cc90
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 6c22a8e2b479ed7d3a225bc649d89f5302d0f536
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74147919"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406019"
 ---
-# <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Självstudie: Använd exporterad mall från Azure Portal
+# <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Tutorial: Use exported template from the Azure portal
 
-I den här själv studie serien har du skapat en mall för att distribuera ett Azure Storage-konto. I de kommande två självstudierna lägger du till en *App Service plan* och en *webbplats*. I stället för att skapa mallar från grunden får du lära dig hur du exporterar mallar från Azure Portal och hur du använder exempel mallar från [Azures snabb starts mallar](https://azure.microsoft.com/resources/templates/). Du anpassar mallarna efter din användning. Den här självstudien fokuserar på att exportera mallar och anpassa resultatet för din mall. Det tar ungefär **14 minuter** att slutföra.
+In this tutorial series, you've created a template to deploy an Azure storage account. In the next two tutorials, you add an *App Service plan* and a *website*. Instead of creating templates from scratch, you learn how to export templates from the Azure portal and how to use sample templates from the [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/). You customize those templates for your use. This tutorial focuses on exporting templates, and customizing the result for your template. It takes about **14 minutes** to complete.
 
 ## <a name="prerequisites"></a>Krav
 
-Vi rekommenderar att du slutför [självstudien om utdata](template-tutorial-add-outputs.md), men det är inte obligatoriskt.
+We recommend that you complete the [tutorial about outputs](template-tutorial-add-outputs.md), but it's not required.
 
-Du måste ha Visual Studio Code med Resource Manager Tools-tillägget och antingen Azure PowerShell eller Azure CLI. Mer information finns i [verktyg för mallar](template-tutorial-create-first-template.md#get-tools).
+You must have Visual Studio Code with the Resource Manager Tools extension, and either Azure PowerShell or Azure CLI. For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-your-template"></a>Granska mallen
+## <a name="review-template"></a>Review template
 
-I slutet av den föregående själv studie kursen hade mallen följande JSON:
+At the end of the previous tutorial, your template had the following JSON:
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json)]
 
-Den här mallen fungerar bra för att distribuera lagrings konton, men du kanske vill lägga till fler resurser i den. Du kan exportera en mall från en befintlig resurs för att snabbt hämta JSON för resursen.
+This template works well for deploying storage accounts, but you might want to add more resources to it. You can export a template from an existing resource to quickly get the JSON for that resource.
 
 ## <a name="create-app-service-plan"></a>Skapa apptjänstplan
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj **Skapa en resurs**.
-1. I **Sök på Marketplace**anger **App Service plan**och väljer sedan **App Service plan**.  Välj inte **App Service plan (klassisk)**
+1. In **Search the Marketplace**, enter **App Service plan**, and then select **App Service plan**.  Don’t select **App Service plan (classic)**
 1. Välj **Skapa**.
-1. Går
+1. Enter:
 
     - **Prenumeration**: Välj din Azure-prenumeration.
-    - **Resurs grupp**: Välj **Skapa ny** och ange sedan ett namn. Ange ett annat resurs grupps namn än det som du har använt i den här själv studie serien.
-    - **Namn**: Ange ett namn för App Service-planen.
-    - **Operativ system**: Välj **Linux**.
-    - **Region**: Välj en Azure-plats. Välj till exempel **USA, centrala**.
-    - **Pris nivå**: om du vill spara kostnader ändrar du SKU till **Basic B1** (under utveckling/testning).
+    - **Resource Group**: Select **Create new** and then specify a name. Provide a different resource group name than the one you have been using in this tutorial series.
+    - **Name**: enter a name for the App service plan.
+    - **Operating System**: select **Linux**.
+    - **Region**: select an Azure location. Välj till exempel **USA, centrala**.
+    - **Pricing tier**: to save costs, change the SKU to **Basic B1** (under Dev/Test).
 
-    ![Exportera mall-Portal för Resource Manager-mall](./media/template-tutorial-export-template/resource-manager-template-export.png)
-1. Välj **Granska och skapa**.
-1. Välj **Skapa**. Det tar en stund att skapa resursen.
+    ![Resource Manager template export template portal](./media/template-tutorial-export-template/resource-manager-template-export.png)
+1. Select **Review and create**.
+1. Välj **Skapa**. It takes a few moments to create the resource.
 
-## <a name="export-the-template"></a>Exportera mallen
+## <a name="export-template"></a>Exportera mall
 
 1. Välj **Gå till resurs**.
 
     ![Gå till resurs](./media/template-tutorial-export-template/resource-manager-template-export-go-to-resource.png)
 
-1. Välj **Exportera mall**.
+1. Select **Export template**.
 
-    ![Exportera mall för Resource Manager-mall](./media/template-tutorial-export-template/resource-manager-template-export-template.png)
+    ![Resource Manager template export template](./media/template-tutorial-export-template/resource-manager-template-export-template.png)
 
-   Funktionen Exportera mall tar det aktuella läget för en resurs och skapar en mall för att distribuera den. Att exportera en mall kan vara ett användbart sätt att snabbt hämta den JSON du behöver för att distribuera en resurs.
+   The export template feature takes the current state of a resource and generates a template to deploy it. Exporting a template can be a helpful way of quickly getting the JSON you need to deploy a resource.
 
-1. Kopiera **Microsoft. Web/Server grupper** -definitionen och parameter definitionen till mallen.
+1. Copy the **Microsoft.Web/serverfarms** definition and the parameter definition to your template.
 
-    ![Exportera mall för mall i Resource Manager-mall](./media/template-tutorial-export-template/resource-manager-template-exported-template.png)
+    ![Resource Manager template export template exported template](./media/template-tutorial-export-template/resource-manager-template-exported-template.png)
 
 > [!IMPORTANT]
-> Normalt är den exporterade mallen mer utförlig än du kanske vill när du skapar en mall. Till exempel har SKU-objektet i den exporterade mallen fem egenskaper. Den här mallen fungerar, men du kan bara använda egenskapen **namn** . Du kan börja med den exporterade mallen och sedan ändra den så att den passar dina behov.
+> Typically, the exported template is more verbose than you might want when creating a template. For example, the SKU object in the exported template has five properties. This template works, but you could just use the **name** property. You can start with the exported template, and then modify it as you like to fit your requirements.
 
-## <a name="revise-the-existing-template"></a>Ändra den befintliga mallen
+## <a name="revise-existing-template"></a>Revise existing template
 
-Den exporterade mallen ger dig merparten av den JSON du behöver, men du måste anpassa den för din mall. Var särskilt uppmärksam på skillnader i parametrar och variabler mellan mallen och den exporterade mallen. Det är självklart att export processen inte känner till de parametrar och variabler som du redan har definierat i mallen.
+The exported template gives you most of the JSON you need, but you need to customize it for your template. Pay particular attention to differences in parameters and variables between your template and the exported template. Obviously, the export process doesn't know the parameters and variables that you've already defined in your template.
 
-I följande exempel visas tilläggen i mallen. Den innehåller den exporterade koden och vissa ändringar. Först ändras namnet på parametern så att det matchar din namngivnings konvention. För det andra använder den plats parametern för platsen för App Service-planen. Tredje, tar den bort **namnet** i **egenskaperna Properties** eftersom det här värdet är redundant med egenskapen **Name** på resurs nivå.
+The following example highlights the additions to your template. It contains the exported code plus some changes. First, it changes the name of the parameter to match your naming convention. Second, it uses your location parameter for the location of the app service plan. Third, it removes the **name** inside the **properties** object because this value is redundant with the **name** property at the resource level.
 
-Kopiera hela filen och ersätt din mall med dess innehåll.
+Copy the whole file and replace your template with its contents.
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/export-template/azuredeploy.json?range=1-77&highlight=28-31,50-69)]
 
-## <a name="deploy-the-template"></a>Distribuera mallen
+## <a name="deploy-template"></a>Distribuera mallen
 
-Använd antingen Azure CLI eller Azure PowerShell för att distribuera en mall.
+Use either Azure CLI or Azure PowerShell to deploy a template.
 
-Om du inte har skapat resurs gruppen, se [skapa resurs grupp](template-tutorial-create-first-template.md#create-resource-group). Exemplet förutsätter att du har angett **templateFile** -variabeln till sökvägen till mallfilen, som du ser i den [första självstudien](template-tutorial-create-first-template.md#deploy-template).
+If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the **templateFile** variable to the path to the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -109,18 +109,18 @@ az group deployment create \
 
 ## <a name="verify-deployment"></a>Verifiera distributionen
 
-Du kan kontrol lera distributionen genom att utforska resurs gruppen från Azure Portal.
+You can verify the deployment by exploring the resource group from the Azure portal.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Välj **resurs grupper**på den vänstra menyn.
-1. Välj den resurs grupp som du har distribuerat till.
-1. Resurs gruppen innehåller ett lagrings konto och en App Service plan.
+1. From the left menu, select **Resource groups**.
+1. Select the resource group you deployed to.
+1. The resource group contains a storage account and an App Service plan.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du går vidare till nästa självstudie behöver du inte ta bort resurs gruppen.
+If you're moving on to the next tutorial, you don't need to delete the resource group.
 
-Om du stoppar nu kanske du vill rensa de resurser som du har distribuerat genom att ta bort resurs gruppen.
+If you're stopping now, you might want to clean up the resources you deployed by deleting the resource group.
 
 1. Från Azure-portalen väljer du **Resursgrupp** från den vänstra menyn.
 2. Ange resursgruppens namn i fältet **Filtrera efter namn**.
@@ -129,7 +129,7 @@ Om du stoppar nu kanske du vill rensa de resurser som du har distribuerat genom 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har lärt dig hur du exporterar en mall från Azure Portal och hur du använder den exporterade mallen för mall utvecklingen. Du kan också använda Azures snabb starts mallar för att förenkla mallarnas utveckling.
+You learned how to export a template from the Azure portal, and how to use the exported template for your template development. You can also use the Azure Quickstart templates to simplify template development.
 
 > [!div class="nextstepaction"]
-> [Använda Azure snabb starts mallar](template-tutorial-quickstart-template.md)
+> [Use Azure Quickstart templates](template-tutorial-quickstart-template.md)

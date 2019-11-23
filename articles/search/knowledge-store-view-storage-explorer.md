@@ -1,65 +1,65 @@
 ---
-title: Visa ett kunskaps lager (för hands version) med Storage Explorer
+title: View a knowledge store (preview) with Storage Explorer
 titleSuffix: Azure Cognitive Search
-description: Visa och analysera Azure Kognitiv sökning kunskaps lager med Azure Portals Storage Explorer. Kunskaps lagret är för närvarande en offentlig för hands version.
+description: View and analyze an Azure Cognitive Search knowledge store with the Azure portal's Storage Explorer. knowledge store is currently in public preview.
 manager: nitinme
-author: lisaleib
-ms.author: v-lilei
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e3ea879a419aa14d3a6693e23f4f120aca8d9d51
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: ca2df05cf20ef51b2d5ca866f22bd9450dd6acaf
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720062"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406559"
 ---
-# <a name="view-a-knowledge-store-with-storage-explorer"></a>Visa ett kunskaps lager med Storage Explorer
+# <a name="view-a-knowledge-store-with-storage-explorer"></a>View a knowledge store with Storage Explorer
 
 > [!IMPORTANT] 
-> Kunskaps lagret är för närvarande en offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [REST API version 2019-05-06-Preview](search-api-preview.md) innehåller för hands versions funktioner. Det finns för närvarande begränsad Portal support och inget stöd för .NET SDK.
+> Knowledge store is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [REST API version 2019-05-06-Preview](search-api-preview.md) provides preview features. There is currently limited portal support, and no .NET SDK support.
 
-I den här artikeln lär du dig hur du kan ansluta till och utforska ett kunskaps lager med hjälp av Storage Explorer i Azure Portal.
+In this article, you'll learn by example how to connect to and explore a knowledge store using Storage Explorer in the Azure portal.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-+ Följ stegen i [skapa ett kunskaps lager i Azure Portal](knowledge-store-create-portal.md) eller [skapa ett Azure kognitiv sökning kunskaps lager genom att använda rest](knowledge-store-create-rest.md) för att skapa det exempel kunskaps arkiv som användes i den här genom gången.
++ Follow the steps in [Create a knowledge store in Azure portal](knowledge-store-create-portal.md) or [Create an Azure Cognitive Search knowledge store by using REST](knowledge-store-create-rest.md) to create the sample knowledge store used in this walkthrough.
 
-+ Du kommer också att behöva namnet på det Azure Storage-konto som du använde för att skapa kunskaps lagret, tillsammans med dess åtkomst nyckel från Azure Portal.
++ You will also need the name of the Azure storage account that you used to create the knowledge store, along with its access key from the Azure portal.
 
-## <a name="view-edit-and-query-a-knowledge-store-in-storage-explorer"></a>Visa, redigera och fråga ett kunskaps lager i Storage Explorer
+## <a name="view-edit-and-query-a-knowledge-store-in-storage-explorer"></a>View, edit, and query a knowledge store in Storage Explorer
 
-1. [Öppna det lagrings konto](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) som du använde för att skapa kunskaps lagret i Azure Portal.
+1. In the Azure portal, [open the Storage account](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) that you used to create the knowledge store.
 
-1. I lagrings kontots vänstra navigerings fönster klickar du på **Storage Explorer**.
+1. In the storage account's left navigation pane, click **Storage Explorer**.
 
-1. Expandera listan **tabeller** om du vill visa en lista över Azure Table-projektioner som skapades när du körde guiden **Importera data** på din hotell gransknings exempel data.
+1. Expand the **TABLES** list to show a list of Azure table projections that were created when you ran the **Import Data** wizard on your hotel reviews sample data.
 
-Välj en tabell för att visa de utförliga data, inklusive nyckel fraser sentiment poäng, latitud data och longitud.
+Select any table to view the enriched data, including key phrases sentiment scores, latitude and longitude location data and more.
 
-   ![Visa tabeller i Storage Explorer](media/knowledge-store-view-storage-explorer/storage-explorer-tables.png "Visa tabeller i Storage Explorer")
+   ![View tables in Storage Explorer](media/knowledge-store-view-storage-explorer/storage-explorer-tables.png "View tables in Storage Explorer")
 
-Om du vill ändra data typen för ett tabell värde eller ändra enskilda värden i tabellen, klickar du på **Redigera**. När du ändrar data typen för en kolumn i en tabell rad, kommer den att tillämpas på alla rader.
+To change the data type for any table value or to change individual values in your table, click **Edit**. When you change the data type for any column in one table row, it will be applied to all rows.
 
-   ![Redigera tabell i Storage Explorer](media/knowledge-store-view-storage-explorer/storage-explorer-edit-table.png "Redigera tabell i Storage Explorer")
+   ![Edit table in Storage Explorer](media/knowledge-store-view-storage-explorer/storage-explorer-edit-table.png "Edit table in Storage Explorer")
 
-Om du vill köra frågor klickar du på **fråga** i kommando fältet och anger dina villkor.  
+To run queries, click **Query** on the command bar and enter your conditions.  
 
-   ![Fråg Bell i Storage Explorer](media/knowledge-store-view-storage-explorer/storage-explorer-query-table.png "Fråg Bell i Storage Explorer")
+   ![Query table in Storage Explorer](media/knowledge-store-view-storage-explorer/storage-explorer-query-table.png "Query table in Storage Explorer")
 
 ## <a name="clean-up"></a>Rensa
 
-När du arbetar med din egen prenumeration är det en bra idé i slutet av ett projekt för att identifiera om du fortfarande behöver de resurser som du har skapat. Resurser som har lämnats igång kostar dig pengar. Du kan ta bort resurser individuellt eller ta bort resurs gruppen för att ta bort hela uppsättningen resurser.
+When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
 
-Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurser** eller **resurs grupper** i det vänstra navigerings fönstret.
+You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
 
-Kom ihåg att du är begränsad till tre index, indexerare och data källor om du använder en kostnads fri tjänst. Du kan ta bort enskilda objekt i portalen för att hålla dig under gränsen.
+If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Anslut det här kunskaps lagret till Power BI för djupare analys eller flytta framåt med kod med hjälp av REST API och Postman för att skapa ett annat kunskaps lager.
+Connect this knowledge store to Power BI for deeper analysis, or move forward with code, using the REST API and Postman to create a different knowledge store.
 
 > [!div class="nextstepaction"]
-> [Ansluta till Power BI](knowledge-store-connect-power-bi.md)
-> [skapa ett kunskaps lager i rest](knowledge-store-howto.md)
+> [Connect with Power BI](knowledge-store-connect-power-bi.md)
+> [Create a knowledge store in REST](knowledge-store-howto.md)

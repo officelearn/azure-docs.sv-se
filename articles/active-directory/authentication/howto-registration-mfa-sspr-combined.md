@@ -1,102 +1,102 @@
 ---
-title: Kom igång med kombinerad registrering för Azure AD SSPR och Multi-Factor Authentication (för hands version) – Azure Active Directory
-description: Aktivera kombinerat Azure AD-Multi-Factor Authentication och registrering av lösen ords återställning via självbetjäning (för hands version)
+title: Get started with combined registration - Azure Active Directory
+description: Enable combined Azure AD Multi-Factor Authentication and self-service password reset registration (preview)
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b610a62e9ca9b964482638c2c0302461996c0bf2
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 075f5112a5ff7d2184a6a42ec531d472974199f3
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71145675"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381321"
 ---
-# <a name="enable-combined-security-information-registration-preview"></a>Aktivera kombinerad säkerhets informations registrering (för hands version)
+# <a name="enable-combined-security-information-registration-preview"></a>Enable combined security information registration (preview)
 
-Innan du aktiverar den nya upplevelsen kan du läsa artikeln [kombinerad säkerhets informations registrering (för hands version)](concept-registration-mfa-sspr-combined.md) för att se till att du förstår funktionerna och effekterna av den här funktionen.
+Before enabling the new experience, review the article [Combined security information registration (preview)](concept-registration-mfa-sspr-combined.md) to ensure you understand the functionality and effects of this feature.
 
-![Kombinerad säkerhets informations registrering förbättrad upplevelse](media/howto-registration-mfa-sspr-combined/combined-security-info-more-required.png)
+![Combined security information registration enhanced experience](media/howto-registration-mfa-sspr-combined/combined-security-info-more-required.png)
 
 |     |
 | --- |
-| Kombinerad säkerhets informations registrering för Azure Multi-Factor Authentication och Azure Active Directory (Azure AD) självbetjäning för återställning av lösen ord är en offentlig förhands gransknings funktion i Azure AD. Mer information om förhandsversioner finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+| Combined security information registration for Azure Multi-Factor Authentication and Azure Active Directory (Azure AD) self-service password reset is a public preview feature of Azure AD. Mer information om förhandsversioner finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
 > [!NOTE]
-> Organisationer som har aktiverat den tidigare förhands granskningen för registrering och hantering av säkerhets information bör utföra stegen nedan för att aktivera den förbättrade för hands versionen. För organisationer som inte har någon växel, den 8 oktober 2019, kommer Microsoft att byta användare av den tidigare för hands versionen för att registrera och hantera säkerhets information till den förbättrade upplevelsen. 
+> Organizations who enabled the previous preview for registering and managing security info should complete the steps below to enable the enhanced preview experience. For organizations who do not make the switch, on October 8, 2019, Microsoft will switch users of the previous preview for registering and managing security info to the enhanced experience. 
 > 
-> Om du inte har aktiverat någon version av för hands versionen kommer din organisation inte att påverkas.
+> If you have not enabled any version of the preview your organization will not be impacted.
 
 ## <a name="enable-combined-registration"></a>Aktivera kombinerad registrering
 
-Utför de här stegen för att aktivera kombinerad registrering:
+Complete these steps to enable combined registration:
 
-1. Logga in på Azure Portal som en användar administratör eller global administratör.
-2. Gå till **Azure Active Directory** > **användar inställningar** > **Hantera inställningar för åtkomst panelens för hands versions funktioner**.
-3. Under **användare kan använda för hands versions funktioner för att registrera och hantera säkerhets information – uppdatera**, välja att aktivera för en **vald** grupp av användare eller för **alla** användare.
+1. Sign in to the Azure portal as a user administrator or global administrator.
+2. Go to **Azure Active Directory** > **User settings** > **Manage settings for access panel preview features**.
+3. Under **Users can use preview features for registering and managing security info - refresh**, choose to enable for a **Selected** group of users or for **All** users.
 
-   ![Aktivera den kombinerade för hands versionen av säkerhets information för alla användare](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
+   ![Enable the combined security info preview experience for All users](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
 
 > [!IMPORTANT]
-> Från och med mars 2019 är Telefonsamtals alternativen inte tillgängliga för att Multi-Factor Authentication och SSPR-användare i kostnads fria/utvärderings versioner av Azure AD-klienter. SMS-meddelanden påverkas inte av den här ändringen. Telefonsamtals alternativen är fortfarande tillgängliga för användare i betalda Azure AD-klienter.
+> Starting in March 2019, the phone call options won't be available to Multi-Factor Authentication and SSPR users in free/trial Azure AD tenants. SMS messages are not affected by this change. The phone call options will still be available to users in paid Azure AD tenants.
 
 > [!NOTE]
-> När du har aktiverat kombinerad registrering kan användare som registrerar eller bekräftar sina telefonnummer eller mobilappar via den nya upplevelsen använda dem för Multi-Factor Authentication och SSPR, om dessa metoder är aktiverade i Multi-Factor Authentication och SSPR rikt. Om du sedan inaktiverar den här funktionen, krävs det att användare som går till den tidigare `https://aka.ms/ssprsetup` registrerings sidan för SSPR måste utföra Multi-Factor Authentication innan de kan komma åt sidan.
+> After you enable combined registration, users who register or confirm their phone number or mobile app through the new experience can use them for Multi-Factor Authentication and SSPR, if those methods are enabled in the Multi-Factor Authentication and SSPR policies. If you then disable this experience, users who go to the previous SSPR registration page at `https://aka.ms/ssprsetup` will be required to perform multi-factor authentication before they can access the page.
 
-Om du har konfigurerat plats till zon tilldelnings lista i Internet Explorer måste följande platser finnas i samma zon:
+If you have configured the Site to Zone Assignment List in Internet Explorer, the following sites have to be in the same zone:
 
 * [https://login.microsoftonline.com](https://login.microsoftonline.com)
 * [https://mysignins.microsoft.com](https://mysignins.microsoft.com)
 * [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com)
 
-## <a name="conditional-access-policies-for-combined-registration"></a>Principer för villkorlig åtkomst för kombinerad registrering
+## <a name="conditional-access-policies-for-combined-registration"></a>Conditional Access policies for combined registration
 
-Att skydda när och hur användare registrerar sig för Azure Multi-Factor Authentication och återställning av lösen ord för självbetjäning är nu möjligt med användar åtgärder i princip för villkorlig åtkomst. Den här förhands gransknings funktionen är tillgänglig för organisationer som har aktiverat den [kombinerade förhands granskningen](../authentication/concept-registration-mfa-sspr-combined.md). Den här funktionen kan vara aktive rad i organisationer där de vill att användarna ska kunna registrera sig för Azure Multi-Factor Authentication och SSPR från en central plats, till exempel en betrott nätverks plats under en inledande registrering. Mer information om hur du skapar betrodda platser i villkorlig åtkomst finns i artikeln [Vad är plats villkoret i Azure Active Directory villkorlig åtkomst?](../conditional-access/location-condition.md#named-locations)
+Securing when and how users register for Azure Multi-Factor Authentication and self-service password reset is now possible with user actions in Conditional Access policy. This preview feature is available to organizations who have enabled the [combined registration preview](../authentication/concept-registration-mfa-sspr-combined.md). This functionality may be enabled in organizations where they want users to register for Azure Multi-Factor Authentication and SSPR from a central location such as a trusted network location during HR onboarding. For more information about creating trusted locations in Conditional Access, see the article [What is the location condition in Azure Active Directory Conditional Access?](../conditional-access/location-condition.md#named-locations)
 
-### <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Skapa en princip för att kräva registrering från en betrodd plats
+### <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Create a policy to require registration from a trusted location
 
-Följande princip gäller för alla valda användare, som försöker registrera sig med den kombinerade registrerings upplevelsen och blockerar åtkomsten om de inte ansluter från en plats som har marker ATS som ett betrott nätverk.
+The following policy applies to all selected users, who attempt to register using the combined registration experience, and blocks access unless they are connecting from a location marked as trusted network.
 
-![Skapa en CA-princip för att kontrol lera registreringen av säkerhets information](media/howto-registration-mfa-sspr-combined/conditional-access-register-security-info.png)
+![Create a CA policy to control security info registration](media/howto-registration-mfa-sspr-combined/conditional-access-register-security-info.png)
 
-1. I **Azure Portal**bläddrar du till **Azure Active Directory** > **villkorlig åtkomst**
+1. In the **Azure portal**, browse to **Azure Active Directory** > **Conditional Access**
 1. Välj **Ny princip**
-1. I namn anger du ett namn för den här principen. Till exempel **kombinerad säkerhets informations registrering på betrodda nätverk**
-1. Under **tilldelningar**klickar du på **användare och grupper**och väljer de användare och grupper som du vill att den här principen ska tillämpas på
+1. In Name, Enter a Name for this policy. For example, **Combined Security Info Registration on Trusted Networks**
+1. Under **Assignments**, click **Users and groups**, and select the users and groups you want this policy to apply to
 
    > [!WARNING]
-   > Användare måste aktive ras för för [hands versionen av den kombinerade registreringen](../authentication/howto-registration-mfa-sspr-combined.md).
+   > Users must be enabled for the [combined registration preview](../authentication/howto-registration-mfa-sspr-combined.md).
 
-1. Under **molnappar eller åtgärder**väljer du **användar åtgärder**, markera **Registrera säkerhets information (förhands granskning)**
-1. Under **villkor** > **platser**
-   1. Konfigurera **Ja**
-   1. Ta med **valfri plats**
-   1. Undanta **alla betrodda platser**
-   1. Klicka på **Done** på bladet platser
-   1. Klicka på **färdig** på bladet villkor
-1. Under **åtkomst kontroller** > **bevilja**
-   1. Klicka på **blockera åtkomst**
-   1. Klicka sedan på **Välj**
-1. Ange att principen ska **aktive ras**
-1. Klicka sedan på **skapa**
+1. Under **Cloud apps or actions**, select **User actions**, check **Register security information (preview)**
+1. Under **Conditions** > **Locations**
+   1. Configure **Yes**
+   1. Include **Any location**
+   1. Exclude **All trusted locations**
+   1. Click **Done** on the Locations blade
+   1. Click **Done** on the Conditions blade
+1. Under **Access controls** > **Grant**
+   1. Click **Block access**
+   1. Then click **Select**
+1. Set **Enable policy** to **On**
+1. Then click **Create**
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Tvinga användare att registrera autentiseringsmetoder igen](howto-mfa-userdevicesettings.md#manage-authentication-methods)
+[Force users to re-register authentication methods](howto-mfa-userdevicesettings.md#manage-authentication-methods)
 
-[Tillgängliga metoder för Multi-Factor Authentication och SSPR](concept-authentication-methods.md)
+[Available methods for Multi-Factor Authentication and SSPR](concept-authentication-methods.md)
 
-[Konfigurera återställning av lösen ord för självbetjäning](howto-sspr-deployment.md)
+[Configure self-service password reset](howto-sspr-deployment.md)
 
-[Konfigurera Azure-Multi-Factor Authentication](howto-mfa-getstarted.md)
+[Configure Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
 
-[Felsöka kombinerad säkerhets informations registrering](howto-registration-mfa-sspr-combined-troubleshoot.md)
+[Troubleshooting combined security info registration](howto-registration-mfa-sspr-combined-troubleshoot.md)
 
-[Vad är plats villkoret i Azure Active Directory villkorlig åtkomst?](../conditional-access/location-condition.md)
+[What is the location condition in Azure Active Directory Conditional Access?](../conditional-access/location-condition.md)

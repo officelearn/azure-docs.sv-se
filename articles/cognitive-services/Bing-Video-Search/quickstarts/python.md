@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Sök efter videor med REST API för videosökning i Bing och Python'
+title: 'Quickstart: Search for videos using the REST API and Python - Bing Video Search'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten för att skicka videosökningsbegäranden till REST API för videosökning i Bing med Python.
 services: cognitive-services
@@ -10,25 +10,25 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: 36d4035913b8e9b7c3e4a12fa208608ffa55151e
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 270117430b997921e0df486b1760db317bcb1611
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500673"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383778"
 ---
-# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-python"></a>Snabbstart: Sök efter videor med REST API för videosökning i Bing och Python
+# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-python"></a>Quickstart: Search for videos using the Bing Video Search REST API and Python
 
-Använd den här snabbstarten för att skicka ditt första anrop till API:et för videosökning i Bing och få ett JSON-svar. Det här enkla Python-programmet skickar en HTTP-videosökfråga till API:et och visar svaret. Även om det här programmet är skrivet i Python, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingVideoSearchv7.py) tillsammans med ytterligare kommentarer om hantering av fel och kodanteckningar.
+Använd den här snabbstarten för att skicka ditt första anrop till API:et för videosökning i Bing och visa ett sökresultat från JSON-svaret. Det här enkla Python-programmet skickar en HTTP-videosökfråga till API:et och visar svaret. Även om det här programmet är skrivet i Python, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingVideoSearchv7.py) tillsammans med ytterligare kommentarer om hantering av fel och kodanteckningar.
 
 Du kan köra det här exemplet som en Jupyter Notebook på [MyBinder](https://mybinder.org) genom att klicka på ikonen för att starta Binder: 
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingVideoSearchAPI.ipynb)
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Python[ 2.x eller 3.x](https://python.org)
+* Python [2.x eller 3.x](https://python.org)
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 

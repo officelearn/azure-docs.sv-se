@@ -1,25 +1,20 @@
 ---
-title: Använd Azure blockchain Workbench-data med en SQL-databas
+title: Query Azure Blockchain Workbench data using SQL Server Management Studio
 description: Lär dig hur du ansluter till SQL Database i Azure Blockchain Workbench från SQL Server Management Studio.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
 ms.date: 11/20/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
-manager: femila
-ms.openlocfilehash: 3a734c09b3a74fbe4165f4de25ce450fd3fbde1d
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
-ms.translationtype: HT
+ms.openlocfilehash: f87d1880c90202fa26b0477e3b4dfbed5965bb82
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286730"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326028"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-sql-server-management-studio"></a>Använda Azure Blockchain Workbench Data med SQL Server Management Studio
 
-Microsoft SQL Server Management Studio ger möjlighet att snabbt skriva och testa frågor mot Azure blockchain Workbench SQL DB. Det här avsnittet innehåller en stegvis genom gång av hur du ansluter till Azure blockchain Workbenchs SQL Database inifrån SQL Server Management Studio.
+Microsoft SQL Server Management Studio provides the ability to rapidly write and test queries against Azure Blockchain Workbench's SQL DB. This section contains a step-by-step walkthrough of how to connect to Azure Blockchain Workbench's SQL Database from within SQL Server Management Studio.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -43,7 +38,7 @@ Microsoft SQL Server Management Studio ger möjlighet att snabbt skriva och test
       ![Lista över databaser](./media/data-sql-management-studio/db-list.png)
 
 5. Om du vill visa data som associeras med någon av databasvyerna kan du automatiskt generera en select-instruktion genom att följa stegen nedan.
-6. Högerklicka på någon av databas vyerna i Object Explorer.
+6. Right-click any of the database views in the Object Explorer.
 7. Välj **Skriptvy som**.
 8. Välj **SELECT to** (SELECT till).
 9. Välj **Nytt frågeredigeringsfönster**.

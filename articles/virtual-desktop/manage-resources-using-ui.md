@@ -1,120 +1,119 @@
 ---
-title: Distribuera hanterings verktyget – Azure
-description: Så här installerar du ett användar gränssnitts verktyg för att hantera Windows-resurser för virtuella skriv bord.
+title: Deploy management tool - Azure
+description: How to install a user interface tool to manage Windows Virtual Desktop resources.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 11/09/2019
 ms.author: helohr
-ms.openlocfilehash: c7ef648dd2610c337bc9146e7a52c04d91907c8e
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: ad0c67cea6a5a9b487cd47aa7c10d10da1438050
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904917"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384288"
 ---
-# <a name="tutorial-deploy-a-management-tool"></a>Självstudie: Distribuera ett hanterings verktyg
+# <a name="tutorial-deploy-a-management-tool"></a>Tutorial: Deploy a management tool
 
-Hanterings verktyget tillhandahåller ett användar gränssnitt för hantering av Microsoft-resurser för virtuella skriv bord. I den här självstudien får du lära dig hur du distribuerar och ansluter till hanterings verktyget.
+The management tool provides a user interface (UI) for managing Microsoft Virtual Desktop resources. In this tutorial, you'll learn how to deploy and connect to the management tool.
 
 >[!NOTE]
->De här anvisningarna gäller för en Windows-konfiguration med en virtuell dator som kan användas med din organisations befintliga processer.
+>These instructions are for a Windows Virtual Desktop-specific configuration that can be used with your organization's existing processes.
 
-## <a name="important-considerations"></a>Viktiga överväganden
+## <a name="important-considerations"></a>Important considerations
 
-Eftersom appen kräver medgivande för att interagera med Windows Virtual Desktop, stöder det här verktyget inte Business-to-Business-scenarier (B2B). Varje Azure Active Directory (AAD)-klient organisations prenumeration måste ha en egen separat distribution av hanterings verktyget.
+Since the app requires consent to interact with Windows Virtual Desktop, this tool doesn't support Business-to-Business (B2B) scenarios. Each Azure Active Directory (AAD) tenant's subscription will need its own separate deployment of the management tool.
 
-Det här hanterings verktyget är ett exempel. Microsoft kommer att tillhandahålla viktiga säkerhets-och kvalitets uppdateringar. [Käll koden finns i GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). Kunder och partner uppmanas att anpassa verktyget så att det passar deras affärs behov.
+This management tool is a sample. Microsoft will provide important security and quality updates. The [source code is available in GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). Customers and partners are encouraged to customize the tool to fit their business needs.
 
-Följande webbläsare är kompatibla med hanterings verktyget:
-- Google Chrome 68 eller senare
-- Microsoft Edge 40,15063 eller senare
-- Mozilla Firefox 52,0 eller senare
-- Safari 10 eller senare (endast macOS)
+To following browsers are compatible with the management tool:
+- Google Chrome 68 or later
+- Microsoft Edge 40.15063 or later
+- Mozilla Firefox 52.0 or later
+- Safari 10 or later (macOS only)
 
-## <a name="what-you-need-to-run-the-azure-resource-manager-template"></a>Vad du behöver för att köra Azure Resource Manager-mallen
+## <a name="what-you-need-to-run-the-azure-resource-manager-template"></a>What you need to run the Azure Resource Manager template
 
-Innan du distribuerar Azure Resource Manager-mallen behöver du en Azure Active Directory användare för att distribuera hanterings gränssnittet. Den här användaren måste:
+Before deploying the Azure Resource Manager template, you'll need an Azure Active Directory user to deploy the management UI. This user must:
 
-- Ha Azure Multi-Factor Authentication (MFA) inaktiverat
-- Har behörighet att skapa resurser i din Azure-prenumeration
-- Har behörighet att skapa ett Azure AD-program. Följ de här stegen för att kontrol lera om användaren har de [behörigheter som krävs](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+- Have Azure Multi-Factor Authentication (MFA) disabled
+- Have permission to create resources in your Azure subscription
+- Have permission to create an Azure AD application. Follow these steps to check if your user has the [required permissions](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
 
-När du har distribuerat Azure Resource Manager-mallen vill du starta hanterings gränssnittet för att verifiera. Den här användaren måste:
-- Ha en roll tilldelning för att visa eller redigera din Windows-klient för virtuella skriv bord
+After deploying the Azure Resource Manager template, you'll want to launch the management UI to validate. This user must:
+- Have a role assignment to view or edit your Windows Virtual Desktop tenant
 
-## <a name="run-the-azure-resource-manager-template-to-provision-the-management-ui"></a>Kör Azure Resource Manager-mallen för att etablera hanterings gränssnittet
+## <a name="run-the-azure-resource-manager-template-to-provision-the-management-ui"></a>Run the Azure Resource Manager template to provision the management UI
 
-Innan du börjar bör du kontrol lera att servern och klientens appar har medgivande genom att besöka [sidan för godkännande av Windows-dator](https://rdweb.wvd.microsoft.com) för den Azure Active Directory (AAD) som visas.
+Before you start, ensure the server and client apps have consent by visiting the [Windows Virtual Desktop Consent Page](https://rdweb.wvd.microsoft.com) for the Azure Active Directory (AAD) represented.
 
-Följ de här anvisningarna för att distribuera Azure-resurs hanterings mal len:
+Follow these instructions to deploy the Azure Resource Management template:
 
-1. Gå till [sidan GitHub Azure RDS – templates](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy).
-2. Distribuera mallen till Azure.
-    - Om du distribuerar i en Enterprise-prenumeration kan du rulla nedåt och välja **distribuera till Azure**. Se [rikt linjer för mallparametrar](#guidance-for-template-parameters).
-    - Om du distribuerar i en prenumeration på Cloud Solution Provider följer du de här anvisningarna för att distribuera till Azure:
-        1. Rulla nedåt och högerklicka på **distribuera till Azure**och välj sedan **Kopiera länk plats**.
-        2. Öppna en text redigerare som anteckningar och klistra in länken där.
-        3. Direkt efter <https://portal.azure.com/> och innan hashtagg (#), anger du ett @-tecken följt av klient domän namnet. Här är ett exempel på formatet: <https://portal.azure.com/@Contoso.onmicrosoft.com#create/>.
-        4. Logga in på Azure Portal som en användare med administratörs-/deltagar behörighet för Cloud Solution Provider-prenumerationen.
-        5. Klistra in länken som du kopierade till text redigeraren i adress fältet.
+1. Go to the [GitHub Azure RDS-Templates page](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy).
+2. Deploy the template to Azure.
+    - If you're deploying in an Enterprise subscription, scroll down and select **Deploy to Azure**. See [Guidance for template parameters](#guidance-for-template-parameters).
+    - If you're deploying in a Cloud Solution Provider subscription, follow these instructions to deploy to Azure:
+        1. Scroll down and right-click **Deploy to Azure**, then select **Copy Link Location**.
+        2. Open a text editor like Notepad and paste the link there.
+        3. Right after <https://portal.azure.com/> and before the hashtag (#), enter an at sign (@) followed by the tenant domain name. Here's an example of the format: <https://portal.azure.com/@Contoso.onmicrosoft.com#create/>.
+        4. Sign in to the Azure portal as a user with Admin/Contributor permissions to the Cloud Solution Provider subscription.
+        5. Paste the link you copied to the text editor into the address bar.
 
-### <a name="guidance-for-template-parameters"></a>Vägledning för mallparametrar
-Så här anger du parametrar för att konfigurera verktyget:
+### <a name="guidance-for-template-parameters"></a>Guidance for template parameters
+Here's how to enter parameters for configuring the tool:
 
-- Detta är URL: en för RD Broker: https:\//rdbroker.wvd.microsoft.com/
-- Detta är resurs-URL: en: https:\//mrs-prod.ame.gbl/mrs-RDInfra-prod
-- Använd dina AAD-autentiseringsuppgifter med MFA inaktiverat för att logga in på Azure. Se [vad du behöver för att köra Azure Resource Manager-mallen](#what-you-need-to-run-the-azure-resource-manager-template).
-- Använd ett unikt namn för programmet som ska registreras i Azure Active Directory för hanterings verktyget. till exempel Apr3UX.
+- For the **isServicePrincipal** parameter, select **false**.
+- For the credentials, enter your Azure Active Directory credentials with multi-factor authentication disabled. These credentials will be the ones you use to sign in to Azure and create the Azure AD application and Azure web app resources. To learn more, see [What you need to run the Azure Resource Manager template](#what-you-need-to-run-the-azure-resource-manager-template).
+- For the **applicationName**, use a unique name for your app that will be registered in your Azure Active Directory. This name will also be used for the web app URL. For example, you can use a name like "Apr3UX."
 
-## <a name="provide-consent-for-the-management-tool"></a>Tillhandahåll medgivande för hanterings verktyget
+## <a name="provide-consent-for-the-management-tool"></a>Provide consent for the management tool
 
-När GitHub Azure Resource Manager-mallen har slutförts hittar du en resurs grupp som innehåller två app Services tillsammans med en app service-plan i Azure Portal.
+After the GitHub Azure Resource Manager template completes, you'll find a resource group containing two app services along with one app service plan in the Azure portal.
 
-Innan du loggar in och använder hanterings verktyget måste du ange ett medgivande för det nya Azure Active Directorys programmet som är associerat med hanterings verktyget. Genom att tillhandahålla medgivande kan du låta hanterings verktyget göra Windows-hantering för virtuella skriv bord åt den användare som är inloggad i verktyget.
+Before you sign in and use the management tool, you'll need to provide consent for the new Azure Active Directory application that is associated with the management tool. By providing consent, you are allowing the management tool to make Windows Virtual Desktop management calls on behalf of the user who's signed into the tool.
 
-![En skärm bild som visar de behörigheter som tillhandahålls när du godkänner användar gränssnitts hanterings verktyget.](media/management-ui-delegated-permissions.png)
+![A screenshot showing the permissions being provided when you consent to the UI management tool.](media/management-ui-delegated-permissions.png)
 
-För att avgöra vilken användare du kan använda för att logga in på verktyget går du till [sidan Azure Active Directory användar inställningar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) och noterar värdet för **användarna kan godkänna att appar får åtkomst till företags data för deras räkning**.
+To determine which user you can use to sign in to the tool, go to your [Azure Active Directory user settings page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) and take note of the value for **Users can consent to apps accessing company data on their behalf**.
 
-![En skärm bild som visar om användarna kan ge tillåtelse till program enbart för användare.](media/management-ui-user-consent-allowed.png)
+![A screenshot showing if users can grant consent to applications for just their user.](media/management-ui-user-consent-allowed.png)
 
-- Om värdet är inställt på **Ja**kan du logga in med ett användar konto i Azure Active Directory och bara ge användaren tillåtelse. Men om du loggar in på hanterings verktyget med en annan användare senare, måste du utföra samma medgivande igen.
-- Om värdet är inställt på **Nej**, måste du logga in som global administratör i Azure Active Directory och ge administratörs tillåtelse för alla användare i katalogen. Inga andra användare får ett medgivande.
+- If the value is set to **Yes**, you can sign in with any user account in the Azure Active Directory and provide consent for that user only. However, if you sign in to the management tool with a different user later, you must perform the same consent again.
+- If the value is set to **No**, you must sign in as a Global Administrator in the Azure Active Directory and provide admin consent for all users in the directory. No other users will face a consent prompt.
 
 
-När du har bestämt vilken användare du ska använda för att ge sitt medgivande följer du de här anvisningarna för att ge ditt medgivande till verktyget:
+Once you decide which user you will use to provide consent, follow these instructions to provide consent to the tool:
 
-1. Gå till dina Azure-resurser, Välj resursen för Azure App tjänster med det namn som du angav i mallen (till exempel Apr3UX) och navigera till den URL som är kopplad till den. till exempel <https://rdmimgmtweb-210520190304.azurewebsites.net>.
-2. Logga in med lämpligt Azure Active Directory användar konto.
-3. Om du har autentiserats med en global administratör kan du nu Markera kryss rutan för **din organisations räkning**. Välj **acceptera** för att ge medgivande.
+1. Go to your Azure resources, select the Azure App Services resource with the name you provided in the template (for example, Apr3UX) and navigate to the URL associated with it; for example,  <https://rdmimgmtweb-210520190304.azurewebsites.net>.
+2. Sign in using the appropriate Azure Active Directory user account.
+3. If you authenticated with a Global Administrator, you can now select the checkbox to **Consent on behalf of your organization**. Select **Accept** to provide consent.
    
-   ![En skärm bild som visar sidan för fullständigt godkännande som användaren eller administratören ser.](media/management-ui-consent-page.png)
+   ![A screenshot showing the full consent page that the user or admin will see.](media/management-ui-consent-page.png)
 
-Nu ska du gå till hanterings verktyget.
+This will now take you to the management tool.
 
-## <a name="use-the-management-tool"></a>Använd hanterings verktyget
+## <a name="use-the-management-tool"></a>Use the management tool
 
-När du har beviljat godkännande för organisationen eller för en viss användare kan du när som helst komma åt hanterings verktyget.
+After providing consent for the organization or for a specified user, you can access the management tool at any time.
 
-Följ dessa instruktioner för att starta verktyget:
+Follow these instructions to launch the tool:
 
-1. Välj resursen Azure App tjänster med det namn som du angav i mallen (till exempel Apr3UX) och navigera till den URL som är kopplad till den. till exempel <https://rdmimgmtweb-210520190304.azurewebsites.net>.
-2. Logga in med dina Windows-autentiseringsuppgifter för virtuella skriv bord.
-3. När du uppmanas att välja en klient grupp väljer du **standard grupp för klient organisation** i list rutan.
-4. När du väljer standard klient grupp visas en meny på höger sida av fönstret. På den här menyn söker du efter namnet på din klient grupp och väljer den.
+1. Select the Azure App Services resource with the name you provided in the template (for example, Apr3UX) and navigate to the URL associated with it; for example,  <https://rdmimgmtweb-210520190304.azurewebsites.net>.
+2. Sign in using your Windows Virtual Desktop credentials.
+3. When prompted to choose a Tenant Group, select **Default Tenant Group** from the drop-down list.
+4. When you select Default Tenant Group, a menu should appear on the right side of your window. On this menu, find the name of your tenant group and select it.
 
 > [!NOTE]
-> Om du har en anpassad klient grupp anger du namnet manuellt i stället för att välja i list rutan.
+> If you have a custom Tenant Group, enter the name manually instead of choosing from the drop-down list.
 
-## <a name="report-issues"></a>Rapportera problem
+## <a name="report-issues"></a>Report issues
 
-Om du stöter på problem med hanterings verktyget eller andra Windows-verktyg för virtuella skriv bord, följer du anvisningarna i [arm-mallar för Fjärrskrivbordstjänster](https://github.com/Azure/RDS-Templates/blob/master/README.md) för att rapportera dem på GitHub.
+If you encounter any issues with the management tool or other Windows Virtual Desktop tools, follow the directions in [ARM Templates for Remote Desktop Services](https://github.com/Azure/RDS-Templates/blob/master/README.md) to report them on GitHub.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du distribuerar och ansluter till hanterings verktyget kan du lära dig hur du använder Azure Service Health för att övervaka tjänst problem och hälso rekommendationer.
+Now that you've learned how to deploy and connect to the management tool, you can learn how to use Azure Service Health to monitor service issues and health advisories.
 
 > [!div class="nextstepaction"]
-> [Själv studie kurs om att konfigurera service varningar](./set-up-service-alerts.md)
+> [Set up service alerts tutorial](./set-up-service-alerts.md)

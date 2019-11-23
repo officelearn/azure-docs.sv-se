@@ -1,119 +1,119 @@
 ---
-title: Kanadas federala PBMM skiss-exempel – distribuera steg
-description: Distribuera steg för det federala PBMM skiss-exemplet, inklusive information om skiss artefakt parameter.
+title: Canada Federal PBMM blueprint sample - Deploy steps
+description: Deploy steps for the Canada Federal PBMM blueprint sample including blueprint artifact parameter details.
 ms.date: 09/05/2019
-ms.topic: conceptual
-ms.openlocfilehash: 788c52ee9a2bf9a0a2c506c2a34d221ff08bd0af
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.topic: sample
+ms.openlocfilehash: 3b140e99e2715e90515759a1720c594817c48147
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038415"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74404704"
 ---
-# <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>Distribuera de federala PBMM-skiss exemplen i Kanada
+# <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>Deploy the Canada Federal PBMM blueprint samples
 
-Följande steg måste vidtas för att distribuera de federala PBMM-skisserna i Kanada:
+To deploy the Canada Federal PBMM blueprint samples, the following steps must be taken:
 
 > [!div class="checklist"]
-> - Skapa en ny skiss från exemplet
-> - Markera din kopia av exemplet som **publicerad**
-> - Tilldela din kopia av skissen till en befintlig prenumeration
+> - Create a new blueprint from the sample
+> - Mark your copy of the sample as **Published**
+> - Assign your copy of the blueprint to an existing subscription
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 
-## <a name="create-blueprint-from-sample"></a>Skapa skiss från exempel
+## <a name="create-blueprint-from-sample"></a>Create blueprint from sample
 
-Börja med att implementera skiss exemplet genom att skapa en ny skiss i din miljö med hjälp av exemplet som ett start verktyg.
+First, implement the blueprint sample by creating a new blueprint in your environment using the sample as a starter.
 
-1. Välj **alla tjänster** och Sök efter och välj **princip** i det vänstra fönstret. Välj **ritningar**på sidan **princip** .
+1. Select **All services** and search for and select **Policy** in the left pane. On the **Policy** page, select **Blueprints**.
 
-1. Från sidan **komma igång** till vänster väljer du knappen **skapa** under _skapa en skiss_.
+1. From the **Getting started** page on the left, select the **Create** button under _Create a blueprint_.
 
-1. Hitta det **federala PBMM** skiss-exemplet under _andra exempel_ och välj **Använd det här exemplet**.
+1. Find the **Canada Federal PBMM** blueprint sample under _Other Samples_ and select **Use this sample**.
 
-1. Ange _grunderna_ för skiss exemplet:
+1. Enter the _Basics_ of the blueprint sample:
 
-   - **Skiss namn**: Ange ett namn för din kopia av skiss exemplet.
-   - **Definitions plats**: Använd ellipsen och välj den hanterings grupp där du vill spara din kopia av exemplet.
+   - **Blueprint name**: Provide a name for your copy of the blueprint sample.
+   - **Definition location**: Use the ellipsis and select the management group to save your copy of the sample to.
 
-1. Välj fliken _artefakter_ överst på sidan eller **Nästa: artefakter** längst ned på sidan.
+1. Select the _Artifacts_ tab at the top of the page or **Next: Artifacts** at the bottom of the page.
 
-1. Granska listan över artefakter som utgör skiss exemplet. Många av artefakterna har parametrar som vi definierar senare. Välj **Spara utkast** när du är klar med att granska skiss exemplet.
+1. Review the list of artifacts that make up the blueprint sample. Many of the artifacts have parameters that we'll define later. Select **Save Draft** when you've finished reviewing the blueprint sample.
 
-## <a name="publish-the-sample-copy"></a>Publicera exempel kopian
+## <a name="publish-the-sample-copy"></a>Publish the sample copy
 
-Din kopia av skiss exemplet har nu skapats i din miljö. Den skapas i **utkast** läge och måste **publiceras** innan den kan tilldelas och distribueras. Kopian av skiss exemplet kan anpassas efter din miljö och behov, men den ändringen kan flytta den bort från standard.
+Your copy of the blueprint sample has now been created in your environment. It's created in **Draft** mode and must be **Published** before it can be assigned and deployed. The copy of the blueprint sample can be customized to your environment and needs, but that modification may move it away from the standard.
 
-1. Välj **alla tjänster** och Sök efter och välj **princip** i det vänstra fönstret. Välj **ritningar**på sidan **princip** .
+1. Select **All services** and search for and select **Policy** in the left pane. On the **Policy** page, select **Blueprints**.
 
-1. Välj sidan **skiss definitioner** till vänster. Använd filtren för att hitta din kopia av skiss exemplet och markera det.
+1. Select the **Blueprint definitions** page on the left. Use the filters to find your copy of the blueprint sample and then select it.
 
-1. Välj **publicera skiss** överst på sidan. På den nya sidan till höger anger du en **version** för din kopia av skiss exemplet. Den här egenskapen är användbar för om du gör en ändring senare. Ange **ändrings anteckningar** som "första versionen som publicerats från det federala PBMM skiss exemplet". Välj sedan **publicera** längst ned på sidan.
+1. Select **Publish blueprint** at the top of the page. In the new page on the right, provide a **Version** for your copy of the blueprint sample. This property is useful for if you make a modification later. Provide **Change notes** such as "First version published from the Canada Federal PBMM blueprint sample." Then select **Publish** at the bottom of the page.
 
-## <a name="assign-the-sample-copy"></a>Tilldela exempel kopian
+## <a name="assign-the-sample-copy"></a>Assign the sample copy
 
-När kopieringen av skiss exemplet har **publicerats**kan den tilldelas en prenumeration i hanterings gruppen som den sparades till. Det här steget är den plats där parametrar tillhandahålls för att göra varje distribution av kopian av skiss exemplet unik.
+Once the copy of the blueprint sample has been successfully **Published**, it can be assigned to a subscription within the management group it was saved to. This step is where parameters are provided to make each deployment of the copy of the blueprint sample unique.
 
-1. Välj **alla tjänster** och Sök efter och välj **princip** i det vänstra fönstret. Välj **ritningar**på sidan **princip** .
+1. Select **All services** and search for and select **Policy** in the left pane. On the **Policy** page, select **Blueprints**.
 
-1. Välj sidan **skiss definitioner** till vänster. Använd filtren för att hitta din kopia av skiss exemplet och markera det.
+1. Select the **Blueprint definitions** page on the left. Use the filters to find your copy of the blueprint sample and then select it.
 
-1. Välj **tilldela skiss** överst på skiss definitions sidan.
+1. Select **Assign blueprint** at the top of the blueprint definition page.
 
-1. Ange parameter värden för skiss tilldelningen:
+1. Provide the parameter values for the blueprint assignment:
 
    - Grundläggande inställningar
 
-     - **Prenumerationer**: Välj en eller flera av de prenumerationer som finns i hanterings gruppen som du sparade din kopia av skiss exemplet till. Om du väljer fler än en prenumeration skapas en tilldelning för varje användning av de angivna parametrarna.
-     - **Tilldelnings namn**: namnet fylls i automatiskt för dig baserat på namnet på skissen.
-       Ändra vid behov eller lämna det som är.
-     - **Plats**: Välj en region som den hanterade identiteten ska skapas i. Azure Blueprint använder den här hanterade identiteten för att distribuera alla artefakter i den tilldelade skissen. Mer information finns i [Hanterade identiteter för Azure-resurser](../../../../active-directory/managed-identities-azure-resources/overview.md).
-     - **Ritnings definitions version**: Välj en **publicerad** version av din kopia av skiss exemplet.
+     - **Subscriptions**: Select one or more of the subscriptions that are in the management group you saved your copy of the blueprint sample to. If you select more than one subscription, an assignment will be created for each using the parameters entered.
+     - **Assignment name**: The name is pre-populated for you based on the name of the blueprint.
+       Change as needed or leave as is.
+     - **Location**: Select a region for the managed identity to be created in. Azure Blueprint använder den här hanterade identiteten för att distribuera alla artefakter i den tilldelade skissen. Mer information finns i [Hanterade identiteter för Azure-resurser](../../../../active-directory/managed-identities-azure-resources/overview.md).
+     - **Blueprint definition version**: Pick a **Published** version of your copy of the blueprint sample.
 
-   - Lås tilldelning
+   - Lock Assignment
 
-     Välj skiss lås inställningen för din miljö. Mer information finns i [Låsa skissresurser](../../concepts/resource-locking.md).
+     Select the blueprint lock setting for your environment. Mer information finns i [Låsa skissresurser](../../concepts/resource-locking.md).
 
    - Hanterad identitet
 
-     Lämna alternativet standard _tilldelade_ hanterade identiteter.
+     Leave the default _system assigned_ managed identity option.
 
-   - Artefakt parametrar
+   - Artifact parameters
 
-     De parametrar som definieras i det här avsnittet gäller för den artefakt som den definieras under. Dessa parametrar är [dynamiska parametrar](../../concepts/parameters.md#dynamic-parameters) eftersom de definieras när skissen tilldelas. En fullständig lista eller artefakt parametrar och deras beskrivningar finns i [tabellen artefakt parametrar](#artifact-parameters-table).
+     The parameters defined in this section apply to the artifact under which it's defined. These parameters are [dynamic parameters](../../concepts/parameters.md#dynamic-parameters) since they're defined during the assignment of the blueprint. For a full list or artifact parameters and their descriptions, see [Artifact parameters table](#artifact-parameters-table).
 
-1. När alla parametrar har angetts väljer du **tilldela** längst ned på sidan. Skiss tilldelningen skapas och artefakt distributionen påbörjas. Distributionen tar ungefär en timme. Du kan kontrol lera statusen för distributionen genom att öppna skiss tilldelningen.
+1. Once all parameters have been entered, select **Assign** at the bottom of the page. The blueprint assignment is created and artifact deployment begins. Deployment takes roughly an hour. To check on the status of deployment, open the blueprint assignment.
 
 > [!WARNING]
-> Tjänsten Azure-ritningar och de inbyggda skiss exemplen är **kostnads fria**. Azure-resurser [priss ätts per produkt](https://azure.microsoft.com/pricing/). Använd [pris kalkylatorn](https://azure.microsoft.com/pricing/calculator/) för att beräkna kostnaden för att köra resurser som distribuerats i skiss exemplet.
+> The Azure Blueprints service and the built-in blueprint samples are **free of cost**. Azure resources are [priced by product](https://azure.microsoft.com/pricing/). Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the cost of running resources deployed by this blueprint sample.
 
-## <a name="artifact-parameters-table"></a>Tabellen artefakt parametrar
+## <a name="artifact-parameters-table"></a>Artifact parameters table
 
-I följande tabell visas en lista över Skissernas artefakt parametrar:
+The following table provides a list of the blueprint artifact parameters:
 
-Artefakt namn|Artefakt typ|Parameternamn|Beskrivning|
+Artifact name|Artifact type|Parameternamn|Beskrivning|
 |-|-|-|-|
-|\[Förhandsversion av\]: distribuerar Log Analytics-agenten för Linux-datorer |Principtilldelning |Log Analytics arbets yta för virtuella Linux-datorer |Mer information finns i [skapa en Log Analytics arbets yta i Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
-|\[Förhandsversion av\]: distribuerar Log Analytics-agenten för Linux-datorer |Principtilldelning |Valfritt: lista över virtuella dator avbildningar som har stöd för Linux-operativsystem som ska läggas till i omfånget |En tom matris kan användas för att indikera inga valfria parametrar: `[]` |
-|\[Förhandsversion av\]: distribuerar Log Analytics-agenten för Windows-datorer |Principtilldelning |Valfritt: lista över virtuella dator avbildningar som har stöd för Windows OS som ska läggas till i omfånget |En tom matris kan användas för att indikera inga valfria parametrar: `[]` |
-|\[Förhandsversion av\]: distribuerar Log Analytics-agenten för Windows-datorer |Principtilldelning |Log Analytics arbets yta för virtuella Windows-datorer |Mer information finns i [skapa en Log Analytics arbets yta i Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
-|\[för hands version\]: granska federala PBMM-kontroller och distribuera särskilda VM-tillägg för att stödja gransknings krav |Principtilldelning |Log Analytics arbetsyte-ID som virtuella datorer ska konfigureras för |Detta är ID (GUID) för Log Analytics arbets ytan som de virtuella datorerna ska konfigureras för. |
-|\[för hands version\]: granska federala PBMM-kontroller och distribuera särskilda VM-tillägg för att stödja gransknings krav |Principtilldelning |Lista över resurs typer som ska ha diagnostiska loggar aktiverade |Lista över resurs typer som ska granskas om diagnostisk logg inställning inte är aktive rad. Du hittar giltiga värden i [Azure Monitor-diagnostiska loggar scheman](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type). |
-|\[för hands version\]: granska federala PBMM-kontroller och distribuera särskilda VM-tillägg för att stödja gransknings krav |Principtilldelning |Administratörs grupp |Grupp. Exempel: `Administrator; myUser1; myUser2` |
-|\[för hands version\]: granska federala PBMM-kontroller och distribuera särskilda VM-tillägg för att stödja gransknings krav |Principtilldelning |Lista över användare som ska ingå i administratörs gruppen för en virtuell Windows-dator |En semikolonavgränsad lista med medlemmar som ska ingå i den lokala gruppen Administratörer. Exempel: `Administrator; myUser1; myUser2` |
-|Distribuera Avancerat skydd på lagrings konton |Principtilldelning |Verkan |Information om princip effekter finns i [förstå Azure policys effekter](../../../policy/concepts/effects.md). |
-|Distribuera granskning på SQL-servrar |Principtilldelning |Värdet i dagar för kvarhållningsperioden (0 anger obegränsad kvarhållning) |Retentions dagar (valfritt, _180_ dagar om inget anges) |
-|Distribuera granskning på SQL-servrar |Principtilldelning |Resurs grupp namn för lagrings konto för SQL Server-granskning |Granskning skriver databas händelser till en Gransknings logg i ditt Azure Storage konto (ett lagrings konto skapas i varje region där ett SQL Server skapas som delas av alla servrar i regionen). Viktigt – för att granskningen ska fungera korrekt tar du inte bort eller byter namn på resurs gruppen eller lagrings kontona. |
-|Distribuera diagnostikinställningar för nätverks säkerhets grupper |Principtilldelning |Prefix för lagrings konto för diagnostik för nätverks säkerhets grupp |Det här prefixet kombineras med nätverks säkerhets gruppens plats för att bilda det skapade lagrings konto namnet. |
-|Distribuera diagnostikinställningar för nätverks säkerhets grupper |Principtilldelning |Resurs grupp namn för lagrings konto för nätverksdiagnostik för nätverks säkerhets grupp (måste finnas) |Resurs gruppen som lagrings kontot skapas i. Resurs gruppen måste redan finnas. |
+|\[Preview\]: Deploy Log Analytics Agent for Linux VMs |Principtilldelning |Log Analytics workspace for Linux VMs |For more information, see [Create a Log Analytics workspace in the Azure portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Preview\]: Deploy Log Analytics Agent for Linux VMs |Principtilldelning |Optional: List of VM images that have supported Linux OS to add to scope |An empty array may be used to indicate no optional parameters: `[]` |
+|\[Preview\]: Deploy Log Analytics Agent for Windows VMs |Principtilldelning |Optional: List of VM images that have supported Windows OS to add to scope |An empty array may be used to indicate no optional parameters: `[]` |
+|\[Preview\]: Deploy Log Analytics Agent for Windows VMs |Principtilldelning |Log Analytics workspace for Windows VMs |For more information, see [Create a Log Analytics workspace in the Azure portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Preview\]: Audit Canada Federal PBMM controls and deploy specific VM Extensions to support audit requirements |Principtilldelning |Log Analytics workspace ID that VMs should be configured for |This is the ID (GUID) of the Log Analytics workspace that the VMs should be configured for. |
+|\[Preview\]: Audit Canada Federal PBMM controls and deploy specific VM Extensions to support audit requirements |Principtilldelning |List of resource types that should have diagnostic logs enabled |List of resource types to audit if diagnostic log setting isn't enabled. Acceptable values can be found at [Azure Monitor diagnostic logs schemas](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type). |
+|\[Preview\]: Audit Canada Federal PBMM controls and deploy specific VM Extensions to support audit requirements |Principtilldelning |Administrators group |Group. Exempel: `Administrator; myUser1; myUser2` |
+|\[Preview\]: Audit Canada Federal PBMM controls and deploy specific VM Extensions to support audit requirements |Principtilldelning |List of users that should be included in Windows VM Administrators group |A semicolon-separated list of members that should be included in the Administrators local group. Exempel: `Administrator; myUser1; myUser2` |
+|Deploy Advanced Threat Protection on Storage Accounts |Principtilldelning |Verkan |Information about policy effects can be found at [Understand Azure Policy Effects](../../../policy/concepts/effects.md). |
+|Deploy Auditing on SQL servers |Principtilldelning |The value in days of the retention period (0 indicates unlimited retention) |Retention days (optional, _180_ days if unspecified) |
+|Deploy Auditing on SQL servers |Principtilldelning |Resource group name for storage account for SQL server auditing |Auditing writes database events to an audit log in your Azure Storage account (a storage account is created in each region where a SQL Server is created that is shared by all servers in that region). Important - for proper operation of Auditing don't delete or rename the resource group or the storage accounts. |
+|Deploy diagnostic settings for Network Security Groups |Principtilldelning |Storage account prefix for network security group diagnostics |This prefix is combined with the network security group location to form the created storage account name. |
+|Deploy diagnostic settings for Network Security Groups |Principtilldelning |Resource group name for storage account for network security group diagnostics (must exist) |The resource group that the storage account is created in. This resource group must already exist. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har granskat stegen för att distribuera Kanadas federala PBMM-exempel kan du gå till följande artiklar om du vill veta mer om översikt och kontroll mappning:
+Now that you've reviewed the steps to deploy the Canada Federal PBMM sample, visit the following articles to learn about the overview and control mapping:
 
 > [!div class="nextstepaction"]
-> [Kanadas federala PBMM-ritningar – översikt](./index.md)
-> [Kanadas federala PBMM-ritningar-kontroll mappning](./control-mapping.md)
+> [Canada Federal PBMM blueprints - Overview](./index.md)
+> [Canada Federal PBMM blueprints - Control mapping](./control-mapping.md)
 
 Ytterligare artiklar om skisser och hur de används:
 

@@ -1,42 +1,36 @@
 ---
-title: Azure blockchain service-versioner, uppdatering, & uppgradering
-description: Översikt över de redovisnings versioner som stöds i Azure blockchain-tjänsten, inklusive principer för system korrigeringar och systemhanterade uppgraderingar och användar hanterade uppgraderingar.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+title: Azure Blockchain Service ledger versions, patching, & upgrade
+description: Overview of the supported ledgers versions in Azure Blockchain Service, including policies regarding systems patching and system-managed and user-managed upgrades.
 ms.date: 11/20/2019
 ms.topic: conceptual
-ms.service: azure-blockchain
 ms.reviewer: janders
-manager: femila
-ms.openlocfilehash: 03eaf86ece191cce7eef6647a582a66495692db2
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
-ms.translationtype: HT
+ms.openlocfilehash: 8d4a77699dd80743acfadd4d72d6d75bc1939b3b
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74284931"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325192"
 ---
-# <a name="supported-azure-blockchain-service-ledger-versions"></a>Versioner som stöds av Azure blockchain service-redovisning
+# <a name="supported-azure-blockchain-service-ledger-versions"></a>Supported Azure Blockchain Service ledger versions
 
-I Azure blockchain service används den Ethereum-baserade [kvorumkonfigurationen](https://www.goquorum.com/developers) för bearbetning av privata transaktioner i en grupp kända deltagare som identifieras som konsortier i Azure blockchain-tjänsten.
+Azure Blockchain Service uses the Ethereum-based [Quorum](https://www.goquorum.com/developers) ledger designed for the processing of private transactions within a group of known participants, identified as a consortium in Azure Blockchain Service.
 
-För närvarande stöder Azure blockchain-tjänsten [kvorumresursens version 2.2.3](https://github.com/jpmorganchase/quorum/releases/tag/v2.2.3) och [Tessera Transaction Manager](https://github.com/jpmorganchase/tessera).
+Currently, Azure Blockchain Service supports [Quorum version 2.2.3](https://github.com/jpmorganchase/quorum/releases/tag/v2.2.3) and [Tessera transaction manager](https://github.com/jpmorganchase/tessera).
 
-## <a name="managing-updates-and-upgrades"></a>Hantera uppdateringar och uppgraderingar
+## <a name="managing-updates-and-upgrades"></a>Managing updates and upgrades
 
-Versions hantering i kvorum görs via en större version, dels och korrigerings version. Om kvorumloggen till exempel är 2.0.1, kommer versions typen att kategoriseras på följande sätt:
+Versioning in Quorum is done through a major, minor, and patch releases. For example, if the Quorum version is 2.0.1, release type would be categorized as follows:
 
-|Större | Mindre  | 9\.0a  |
+|Major | Minor  | Patch  |
 | :--- | :----- | :----- |
 | 2 | 0 | 1 | 
 
-Azure blockchain-tjänsten uppdaterar automatiskt korrigerings versioner av kvorum till befintliga aktiva medlemmar inom 30 dagar från det att de har gjorts tillgängliga från kvorum.
+Azure Blockchain Service automatically updates patch releases of Quorum to existing running members within 30 days of being made available from Quorum.
 
-## <a name="availability-of-new-ledger-versions"></a>Tillgänglighet för nya redovisnings versioner
+## <a name="availability-of-new-ledger-versions"></a>Availability of new ledger versions
 
-Azure blockchain-tjänsten tillhandahåller de senaste högre och lägre versionerna av kvorum-redovisningen inom 60 dagar som är tillgängliga från kvorumdisken. Det finns högst fyra mindre versioner av konsortier som du kan välja mellan när du konfigurerar en ny medlem och konsortiet. Det finns för närvarande inte stöd för att uppgradera från till en större eller mindre version. Om du till exempel kör version 2. x stöds inte en uppgradering till version 3. x för närvarande. Om du kör version 2,2 på samma sätt stöds inte en uppgradering till version 2,3 för närvarande.
+Azure Blockchain Service provides the latest major and minor versions of the Quorum ledger within 60 days of being available from the Quorum manufacturer. A maximum of four minor releases are provided for consortia to choose from when provisioning a new member and consortium. Upgrading from to a major or minor release is currently not supported. For example, if you are running version 2.x, an upgrade to version 3.x is currently not supported. Similarly, if you are running version 2.2, an upgrade to version 2.3 is currently not supported.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Gränser i Azure blockchain-tjänsten](limits.md)
+[Limits in Azure Blockchain Service](limits.md)

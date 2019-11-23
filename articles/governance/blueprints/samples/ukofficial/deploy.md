@@ -1,109 +1,109 @@
 ---
-title: Storbritannien, officiella & Storbritannien NHS-skiss-exempel – distribuera steg
-description: Distribuera steg för de officiella och brittiska NHS-skiss exemplen, inklusive information om skiss artefakt parameter.
+title: UK OFFICIAL & UK NHS blueprint samples - Deploy steps
+description: Deploy steps for the UK OFFICIAL and UK NHS blueprint samples including blueprint artifact parameter details.
 ms.date: 06/26/2019
-ms.topic: conceptual
-ms.openlocfilehash: 1905e5fee894575d5ee85ce1bffb536813d34287
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.topic: sample
+ms.openlocfilehash: 33ac888c0803a743c3e0c63b0de59b58717e1c2e
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037755"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406646"
 ---
-# <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>Distribuera de NHSa skiss exemplen från Storbritannien och Storbritannien
+# <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>Deploy the UK OFFICIAL and UK NHS blueprint samples
 
-Följande steg måste vidtas för att distribuera de NHS i Storbritannien och Storbritannien i Storbritannien:
+To deploy the UK OFFICIAL and UK NHS blueprint samples, the following steps must be taken:
 
 > [!div class="checklist"]
-> - Skapa en ny skiss från exemplet
-> - Markera din kopia av exemplet som **publicerad**
-> - Tilldela din kopia av skissen till en befintlig prenumeration
+> - Create a new blueprint from the sample
+> - Mark your copy of the sample as **Published**
+> - Assign your copy of the blueprint to an existing subscription
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 
-## <a name="create-blueprint-from-sample"></a>Skapa skiss från exempel
+## <a name="create-blueprint-from-sample"></a>Create blueprint from sample
 
-Börja med att implementera skiss exemplet genom att skapa en ny skiss i din miljö med hjälp av exemplet som ett start verktyg.
-
-1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
-
-1. Från sidan **komma igång** till vänster väljer du knappen **skapa** under _skapa en skiss_.
-
-1. Leta upp utkastet **bioNHS** i **Storbritannien** eller Storbritannien under _andra exempel_ och välj **Använd det här exemplet**.
-
-1. Ange _grunderna_ för skiss exemplet:
-
-   - **Skiss namn**: Ange ett namn för din kopia av skiss exemplet.
-   - **Definitions plats**: Använd ellipsen och välj den hanterings grupp där du vill spara din kopia av exemplet.
-
-1. Välj fliken _artefakter_ överst på sidan eller **Nästa: artefakter** längst ned på sidan.
-
-1. Granska listan över artefakter som utgör skiss exemplet. Många av artefakterna har parametrar som vi definierar senare. Välj **Spara utkast** när du är klar med att granska skiss exemplet.
-
-## <a name="publish-the-sample-copy"></a>Publicera exempel kopian
-
-Din kopia av skiss exemplet har nu skapats i din miljö. Den skapas i **utkast** läge och måste **publiceras** innan den kan tilldelas och distribueras. Kopian av skiss exemplet kan anpassas efter din miljö och behov, men den ändringen kan flytta den bort från standard.
+First, implement the blueprint sample by creating a new blueprint in your environment using the sample as a starter.
 
 1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
 
-1. Välj sidan **skiss definitioner** till vänster. Använd filtren för att hitta din kopia av skiss exemplet och markera det.
+1. From the **Getting started** page on the left, select the **Create** button under _Create a blueprint_.
 
-1. Välj **publicera skiss** överst på sidan. På den nya sidan till höger anger du en **version** för din kopia av skiss exemplet. Den här egenskapen är användbar för om du gör en ändring senare. Ange **ändrings anteckningar** , till exempel "första versionen som publicerades från det officiella NHS i Storbritannien eller Storbritannien." Välj sedan **publicera** längst ned på sidan.
+1. Find the **UK OFFICIAL** or **UK NHS** blueprint sample under _Other Samples_ and select **Use this sample**.
 
-## <a name="assign-the-sample-copy"></a>Tilldela exempel kopian
+1. Enter the _Basics_ of the blueprint sample:
 
-När kopieringen av skiss exemplet har **publicerats**kan den tilldelas en prenumeration i hanterings gruppen som den sparades till. Det här steget är den plats där parametrar tillhandahålls för att göra varje distribution av kopian av skiss exemplet unik.
+   - **Blueprint name**: Provide a name for your copy of the blueprint sample.
+   - **Definition location**: Use the ellipsis and select the management group to save your copy of the sample to.
+
+1. Select the _Artifacts_ tab at the top of the page or **Next: Artifacts** at the bottom of the page.
+
+1. Review the list of artifacts that make up the blueprint sample. Many of the artifacts have parameters that we'll define later. Select **Save Draft** when you've finished reviewing the blueprint sample.
+
+## <a name="publish-the-sample-copy"></a>Publish the sample copy
+
+Your copy of the blueprint sample has now been created in your environment. It's created in **Draft** mode and must be **Published** before it can be assigned and deployed. The copy of the blueprint sample can be customized to your environment and needs, but that modification may move it away from the standard.
 
 1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
 
-1. Välj sidan **skiss definitioner** till vänster. Använd filtren för att hitta din kopia av skiss exemplet och markera det.
+1. Select the **Blueprint definitions** page on the left. Use the filters to find your copy of the blueprint sample and then select it.
 
-1. Välj **tilldela skiss** överst på skiss definitions sidan.
+1. Select **Publish blueprint** at the top of the page. In the new page on the right, provide a **Version** for your copy of the blueprint sample. This property is useful for if you make a modification later. Provide **Change notes** such as "First version published from the UK OFFICIAL or UK NHS blueprint sample." Then select **Publish** at the bottom of the page.
 
-1. Ange parameter värden för skiss tilldelningen:
+## <a name="assign-the-sample-copy"></a>Assign the sample copy
+
+Once the copy of the blueprint sample has been successfully **Published**, it can be assigned to a subscription within the management group it was saved to. This step is where parameters are provided to make each deployment of the copy of the blueprint sample unique.
+
+1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
+
+1. Select the **Blueprint definitions** page on the left. Use the filters to find your copy of the blueprint sample and then select it.
+
+1. Select **Assign blueprint** at the top of the blueprint definition page.
+
+1. Provide the parameter values for the blueprint assignment:
 
    - Grundläggande inställningar
 
-     - **Prenumerationer**: Välj en eller flera av de prenumerationer som finns i hanterings gruppen som du sparade din kopia av skiss exemplet till. Om du väljer fler än en prenumeration skapas en tilldelning för varje användning av de angivna parametrarna.
-     - **Tilldelnings namn**: namnet fylls i automatiskt för dig baserat på namnet på skissen.
-       Ändra vid behov eller lämna det som är.
-     - **Plats**: Välj en region som den hanterade identiteten ska skapas i. Azure Blueprint använder den här hanterade identiteten för att distribuera alla artefakter i den tilldelade skissen. Mer information finns i [Hanterade identiteter för Azure-resurser](../../../../active-directory/managed-identities-azure-resources/overview.md).
-     - **Ritnings definitions version**: Välj en **publicerad** version av din kopia av skiss exemplet.
+     - **Subscriptions**: Select one or more of the subscriptions that are in the management group you saved your copy of the blueprint sample to. If you select more than one subscription, an assignment will be created for each using the parameters entered.
+     - **Assignment name**: The name is pre-populated for you based on the name of the blueprint.
+       Change as needed or leave as is.
+     - **Location**: Select a region for the managed identity to be created in. Azure Blueprint använder den här hanterade identiteten för att distribuera alla artefakter i den tilldelade skissen. Mer information finns i [Hanterade identiteter för Azure-resurser](../../../../active-directory/managed-identities-azure-resources/overview.md).
+     - **Blueprint definition version**: Pick a **Published** version of your copy of the blueprint sample.
 
-   - Lås tilldelning
+   - Lock Assignment
 
-     Välj skiss lås inställningen för din miljö. Mer information finns i [Låsa skissresurser](../../concepts/resource-locking.md).
+     Select the blueprint lock setting for your environment. Mer information finns i [Låsa skissresurser](../../concepts/resource-locking.md).
 
    - Hanterad identitet
 
-     Lämna alternativet standard _tilldelade_ hanterade identiteter.
+     Leave the default _system assigned_ managed identity option.
 
-   - Artefakt parametrar
+   - Artifact parameters
 
-     De parametrar som definieras i det här avsnittet gäller för den artefakt som den definieras under. Dessa parametrar är [dynamiska parametrar](../../concepts/parameters.md#dynamic-parameters) eftersom de definieras när skissen tilldelas. En fullständig lista eller artefakt parametrar och deras beskrivningar finns i [tabellen artefakt parametrar](#artifact-parameters-table).
+     The parameters defined in this section apply to the artifact under which it's defined. These parameters are [dynamic parameters](../../concepts/parameters.md#dynamic-parameters) since they're defined during the assignment of the blueprint. For a full list or artifact parameters and their descriptions, see [Artifact parameters table](#artifact-parameters-table).
 
-1. När alla parametrar har angetts väljer du **tilldela** längst ned på sidan. Skiss tilldelningen skapas och artefakt distributionen påbörjas. Distributionen tar ungefär en timme. Du kan kontrol lera statusen för distributionen genom att öppna skiss tilldelningen.
+1. Once all parameters have been entered, select **Assign** at the bottom of the page. The blueprint assignment is created and artifact deployment begins. Deployment takes roughly an hour. To check on the status of deployment, open the blueprint assignment.
 
 > [!WARNING]
-> Tjänsten Azure-ritningar och de inbyggda skiss exemplen är **kostnads fria**. Azure-resurser [priss ätts per produkt](https://azure.microsoft.com/pricing/). Använd [pris kalkylatorn](https://azure.microsoft.com/pricing/calculator/) för att beräkna kostnaden för att köra resurser som distribuerats i skiss exemplet.
+> The Azure Blueprints service and the built-in blueprint samples are **free of cost**. Azure resources are [priced by product](https://azure.microsoft.com/pricing/). Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the cost of running resources deployed by this blueprint sample.
 
-## <a name="artifact-parameters-table"></a>Tabellen artefakt parametrar
+## <a name="artifact-parameters-table"></a>Artifact parameters table
 
-I följande tabell visas en lista över Skissernas artefakt parametrar:
+The following table provides a list of the blueprint artifact parameters:
 
-Artefakt namn|Artefakt typ|Parameternamn|Beskrivning|
+Artifact name|Artifact type|Parameternamn|Beskrivning|
 |-|-|-|-|
-|Skiss initiativ för NHS Storbritannien eller Storbritannien|Principtilldelning |Resurs typer för att granska diagnostikloggar (princip: skiss initiativ för brittisk eller brittisk NHS) |Lista över resurs typer som ska granskas om diagnostisk logg inställning är antecknings aktive rad.  För acceptabla värden, se [tjänster, scheman och kategorier som stöds för Azure Diagnostic-loggar](../../../../azure-monitor/platform/diagnostic-logs-schema.md). |
-|\[Förhandsversion av\]: distribuerar Log Analytics-agenten för Linux-datorer |Principtilldelning |Valfritt: lista över virtuella dator avbildningar som har stöd för Linux-operativsystem som ska läggas till i området (princip: \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer) |Valfritt Standardvärdet är _none_. Mer information finns i [skapa en Log Analytics arbets yta i Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
-|\[Förhandsversion av\]: distribuerar Log Analytics-agenten för Windows-datorer |Principtilldelning |Valfritt: lista över virtuella dator avbildningar som har stöd för Windows OS som ska läggas till i området (princip: \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer) |Valfritt Standardvärdet är _none_. Mer information finns i [skapa en Log Analytics arbets yta i Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|Blueprint initiative for UK OFFICIAL or UK NHS|Principtilldelning |Resource types to audit diagnostic logs (Policy: Blueprint initiative for UK OFFICIAL or UK NHS) |List of resource types to audit if diagnostic log setting is note enabled.  For acceptable values, see [Supported services, schemas, and categories for Azure Diagnostic Logs](../../../../azure-monitor/platform/diagnostic-logs-schema.md). |
+|\[Preview\]: Deploy Log Analytics Agent for Linux VMs |Principtilldelning |Optional: List of VM images that have supported Linux OS to add to scope (Policy: \[Preview\]: Deploy Log Analytics Agent for Linux VMs) |(Optional) Default value is _none_. For more information, see [Create a Log Analytics workspace in the Azure portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Preview\]: Deploy Log Analytics Agent for Windows VMs |Principtilldelning |Optional: List of VM images that have supported Windows OS to add to scope (Policy: \[Preview\]: Deploy Log Analytics Agent for Windows VMs) |(Optional) Default value is _none_. For more information, see [Create a Log Analytics workspace in the Azure portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har granskat stegen för att distribuera NHS-skisserna från Storbritannien och Storbritannien kan du gå till följande artiklar om du vill veta mer om översikt och kontroll mappning:
+Now that you've reviewed the steps to deploy the UK OFFICIAL and UK NHS blueprint samples, visit the following articles to learn about the overview and control mapping:
 
 > [!div class="nextstepaction"]
-> [Officiella och brittiska NHS-ritningar – översikt](./index.md)
-> [Storbritannien och Storbritannien NHS ritningar-kontroll mappning](./control-mapping.md)
+> [UK OFFICIAL and UK NHS blueprints - Overview](./index.md)
+> [UK OFFICIAL and UK NHS blueprints - Control mapping](./control-mapping.md)
 
 Ytterligare artiklar om skisser och hur de används:
 

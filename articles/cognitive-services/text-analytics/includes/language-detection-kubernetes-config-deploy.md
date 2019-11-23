@@ -1,54 +1,54 @@
 ---
-title: Språkidentifiering Kubernetes konfiguration och distribution av steg
+title: Language Detection Kubernetes config and deploy steps
 titleSuffix: Azure Cognitive Services
-description: Språkidentifiering Kubernetes konfiguration och distribution av steg
+description: Language Detection Kubernetes config and deploy steps
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/19/2019
+ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: e3051a72a115e711a99ecd68756967e2cef0cc04
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: c39df1e6af292d3774c6cba62663454bd2d8ad28
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130053"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383440"
 ---
-### <a name="deploy-the-language-detection-container-to-an-aks-cluster"></a>Distribuera Språkidentifiering-behållaren till ett AKS-kluster
+### <a name="deploy-the-language-detection-container-to-an-aks-cluster"></a>Deploy the Language Detection container to an AKS cluster
 
-1. Öppna Azure CLI och logga in på Azure.
+1. Open the Azure CLI, and sign in to Azure.
 
     ```azurecli
     az login
     ```
 
-1. Logga in på AKS-klustret. Ersätt `your-cluster-name` och`your-resource-group` med lämpliga värden.
+1. Sign in to the AKS cluster. Replace `your-cluster-name` and `your-resource-group` with the appropriate values.
 
     ```azurecli
     az aks get-credentials -n your-cluster-name -g -your-resource-group
     ```
 
-    När det här kommandot körs rapporterar det ett meddelande som liknar följande:
+    After this command runs, it reports a message similar to the following:
 
     ```console
     Merged "your-cluster-name" as current context in /home/username/.kube/config
     ```
 
     > [!WARNING]
-    > Om du har flera prenumerationer tillgängliga på ditt Azure-konto och `az aks get-credentials` kommandot returnerar med ett fel, är det ett vanligt problem att du använder fel prenumeration. Ställ in kontexten för Azure CLI-sessionen så att den använder samma prenumeration som du skapade resurserna med och försök igen.
+    > If you have multiple subscriptions available to you on your Azure account and the `az aks get-credentials` command returns with an error, a common problem is that you're using the wrong subscription. Set the context of your Azure CLI session to use the same subscription that you created the resources with and try again.
     > ```azurecli
     >  az account set -s subscription-id
     > ```
 
-1. Öppna valfri text redigerare. I det här exemplet används Visual Studio Code.
+1. Open the text editor of choice. This example uses Visual Studio Code.
 
     ```azurecli
     code .
     ```
 
-1. I text redigeraren skapar du en ny fil med namnet *Language. yaml*och klistrar in följande yaml i den. Se till att ersätta `billing/value` och `apikey/value` med din egen information.
+1. Within the text editor, create a new file named *language.yaml*, and paste the following YAML into it. Be sure to replace `billing/value` and `apikey/value` with your own information.
 
     ```yaml
     apiVersion: apps/v1beta1
@@ -66,6 +66,13 @@ ms.locfileid: "71130053"
             image: mcr.microsoft.com/azure-cognitive-services/language
             ports:
             - containerPort: 5000
+            resources:
+              requests:
+                memory: 2Gi
+                cpu: 1
+              limits:
+                memory: 4Gi
+                cpu: 1
             env:
             - name: EULA
               value: "accept"
@@ -87,39 +94,39 @@ ms.locfileid: "71130053"
         app: language-app
     ```
 
-1. Spara filen och Stäng text redigeraren.
-1. Kör kommandot Kubernetes `apply` med *språk. yaml* -filen som mål:
+1. Save the file, and close the text editor.
+1. Run the Kubernetes `apply` command with the *language.yaml* file as its target:
 
     ```console
-    kuberctl apply -f language.yaml
+    kubectl apply -f language.yaml
     ```
 
-    När kommandot har tillämpat distributions konfigurationen visas ett meddelande som liknar följande utdata:
+    After the command successfully applies the deployment configuration, a message appears similar to the following output:
 
     ```console
     deployment.apps "language" created
     service "language" created
     ```
-1. Kontrol lera att Pod har distribuerats:
+1. Verify that the pod was deployed:
 
     ```console
     kubectl get pods
     ```
 
-    Utdata för körnings status för pod:
+    The output for the running status of the pod:
 
     ```console
     NAME                         READY     STATUS    RESTARTS   AGE
     language-5c9ccdf575-mf6k5   1/1       Running   0          1m
     ```
 
-1. Kontrol lera att tjänsten är tillgänglig och hämta IP-adressen.
+1. Verify that the service is available, and get the IP address.
 
     ```console
     kubectl get services
     ```
 
-    Utdata för *språk* tjänstens körnings status i pod:
+    The output for the running status of the *language* service in the pod:
 
     ```console
     NAME         TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE

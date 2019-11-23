@@ -1,25 +1,19 @@
 ---
-title: Översikt över Azure blockchain Workbench Preview
-description: Översikt över Azure blockchain Workbench Preview och dess funktioner.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+title: Azure Blockchain Workbench Preview overview
+description: Overview of Azure Blockchain Workbench Preview and its capabilities.
 ms.date: 09/05/2019
 ms.topic: overview
-ms.service: azure-blockchain
 ms.reviewer: brendal
-manager: femila
-ms.openlocfilehash: 097185502321c8810214ed737047bdf596d18bdb
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 9c40f95aa1490362b9232ec8d87a199d7a41c731
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844099"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74324554"
 ---
 # <a name="what-is-azure-blockchain-workbench"></a>Vad är Azure Blockchain Workbench?
 
-Azure blockchain Workbench Preview är en samling Azure-tjänster och-funktioner som är utformade för att hjälpa dig att skapa och distribuera blockchain-program för att dela affärs processer och data med andra organisationer. Azure Blockchain Workbench tillhandahåller infrastrukturen för att skapa blockkedjeprogram och gör det möjligt för utvecklarna att fokusera på att skapa affärslogik och smarta kontrakt. Dessutom blir det enklare att skapa blockkedjeprogram genom att integrera flera Azure-tjänster och funktioner så att vanliga utvecklingsuppgifter kan automatiseras.
+Azure Blockchain Workbench Preview is a collection of Azure services and capabilities designed to help you create and deploy blockchain applications to share business processes and data with other organizations. Azure Blockchain Workbench tillhandahåller infrastrukturen för att skapa blockkedjeprogram och gör det möjligt för utvecklarna att fokusera på att skapa affärslogik och smarta kontrakt. Dessutom blir det enklare att skapa blockkedjeprogram genom att integrera flera Azure-tjänster och funktioner så att vanliga utvecklingsuppgifter kan automatiseras.
 
 [!INCLUDE [Preview note](./includes/preview.md)]
 
@@ -49,7 +43,7 @@ Med befintliga blockkedjeprotokoll representeras blockkedjeidentiteterna som en 
 
 ## <a name="synchronize-on-chain-data-with-off-chain-storage"></a>Synkronisera kedjedata med lagring utanför kedjan
 
-Azure Blockchain Workbench gör det lättare att analysera blockkedjehändelser och data genom att automatiskt synkronisera data i blockkedjan med lagring utanför kedjan. I stället för att extrahera data direkt från blockkedjan kan du fråga databassystem utanför kedjan som t.ex. SQL Server. Blockchain-expertis krävs inte för slutanvändare som utför data analys uppgifter.
+Azure Blockchain Workbench gör det lättare att analysera blockkedjehändelser och data genom att automatiskt synkronisera data i blockkedjan med lagring utanför kedjan. I stället för att extrahera data direkt från blockkedjan kan du fråga databassystem utanför kedjan som t.ex. SQL Server. Blockchain expertise is not required for end users who are doing data analysis tasks.
 
 ## <a name="next-steps"></a>Nästa steg
 

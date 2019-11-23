@@ -1,54 +1,54 @@
 ---
-title: Attitydanalys Kubernetes konfiguration och distribution av steg
+title: Sentiment Analysis Kubernetes config and deploy steps
 titleSuffix: Azure Cognitive Services
-description: Attitydanalys Kubernetes konfiguration och distribution av steg
+description: Sentiment Analysis Kubernetes config and deploy steps
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/19/2019
+ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: f1c571e421dccad366abf403de350b07113e04ba
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: bd93773e4d3c5e06bca752612dac6c563a2f5da1
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130034"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383411"
 ---
-### <a name="deploy-the-sentiment-analysis-container-to-an-aks-cluster"></a>Distribuera Attitydanalys-behållaren till ett AKS-kluster
+### <a name="deploy-the-sentiment-analysis-container-to-an-aks-cluster"></a>Deploy the Sentiment Analysis container to an AKS cluster
 
-1. Öppna Azure CLI och logga in på Azure.
+1. Open the Azure CLI, and sign in to Azure.
 
     ```azurecli
     az login
     ```
 
-1. Logga in på AKS-klustret. Ersätt `your-cluster-name` och`your-resource-group` med lämpliga värden.
+1. Sign in to the AKS cluster. Replace `your-cluster-name` and `your-resource-group` with the appropriate values.
 
     ```azurecli
     az aks get-credentials -n your-cluster-name -g -your-resource-group
     ```
 
-    När det här kommandot körs rapporterar det ett meddelande som liknar följande:
+    After this command runs, it reports a message similar to the following:
 
     ```console
     Merged "your-cluster-name" as current context in /home/username/.kube/config
     ```
 
     > [!WARNING]
-    > Om du har flera prenumerationer tillgängliga på ditt Azure-konto och `az aks get-credentials` kommandot returnerar med ett fel, är det ett vanligt problem att du använder fel prenumeration. Ställ in kontexten för Azure CLI-sessionen så att den använder samma prenumeration som du skapade resurserna med och försök igen.
+    > If you have multiple subscriptions available to you on your Azure account and the `az aks get-credentials` command returns with an error, a common problem is that you're using the wrong subscription. Set the context of your Azure CLI session to use the same subscription that you created the resources with and try again.
     > ```azurecli
     >  az account set -s subscription-id
     > ```
 
-1. Öppna valfri text redigerare. I det här exemplet används Visual Studio Code.
+1. Open the text editor of choice. This example uses Visual Studio Code.
 
     ```azurecli
     code .
     ```
 
-1. I text redigeraren skapar du en ny fil med namnet *sentiment. yaml*och klistrar in följande yaml i den. Se till att ersätta `billing/value` och `apikey/value` med din egen information.
+1. Within the text editor, create a new file named *sentiment.yaml*, and paste the following YAML into it. Be sure to replace `billing/value` and `apikey/value` with your own information.
 
     ```yaml
     apiVersion: apps/v1beta1
@@ -66,6 +66,13 @@ ms.locfileid: "71130034"
             image: mcr.microsoft.com/azure-cognitive-services/sentiment
             ports:
             - containerPort: 5000
+            resources:
+              requests:
+                memory: 2Gi
+                cpu: 1
+              limits:
+                memory: 4Gi
+                cpu: 1
             env:
             - name: EULA
               value: "accept"
@@ -87,39 +94,39 @@ ms.locfileid: "71130034"
         app: sentiment-app
     ```
 
-1. Spara filen och Stäng text redigeraren.
-1. Kör Kubernetes `apply` -kommandot med *sentiment. yaml* -filen som mål:
+1. Save the file, and close the text editor.
+1. Run the Kubernetes `apply` command with the *sentiment.yaml* file as its target:
 
     ```console
-    kuberctl apply -f sentiment.yaml
+    kubectl apply -f sentiment.yaml
     ```
 
-    När kommandot har tillämpat distributions konfigurationen visas ett meddelande som liknar följande utdata:
+    After the command successfully applies the deployment configuration, a message appears similar to the following output:
 
     ```console
     deployment.apps "sentiment" created
     service "sentiment" created
     ```
-1. Kontrol lera att Pod har distribuerats:
+1. Verify that the pod was deployed:
 
     ```console
     kubectl get pods
     ```
 
-    Utdata för körnings status för pod:
+    The output for the running status of the pod:
 
     ```console
     NAME                         READY     STATUS    RESTARTS   AGE
     sentiment-5c9ccdf575-mf6k5   1/1       Running   0          1m
     ```
 
-1. Kontrol lera att tjänsten är tillgänglig och hämta IP-adressen.
+1. Verify that the service is available, and get the IP address.
 
     ```console
     kubectl get services
     ```
 
-    Utdata för körnings statusen för *sentiment* -tjänsten i pod:
+    The output for the running status of the *sentiment* service in the pod:
 
     ```console
     NAME         TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE

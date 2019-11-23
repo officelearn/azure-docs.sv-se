@@ -1,38 +1,38 @@
 ---
-title: Konfigurera din miljö för en skissoperatör
-description: Lär dig hur du konfigurerar din Azure-miljö för användning med den inbyggda rollbaserade rollen för rollbaserad åtkomst kontroll (RBAC) för skiss operatören.
+title: Setup your environment for Blueprint Operator
+description: Learn how to configure your Azure environment for use with the Blueprint Operator built-in role-based access control (RBAC) role.
 ms.date: 08/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: f4b999354e31afed56a3a5f5a35a80887292e83f
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 671ac3aaf42bddb3e775baec6838e4c271c4e855
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960388"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406375"
 ---
 # <a name="configure-your-environment-for-a-blueprint-operator"></a>Konfigurera din miljö för en skissoperatör
 
-Hanteringen av dina skiss-och skiss uppgifter kan tilldelas olika team. Det är vanligt att en arkitekt eller styrnings grupp ansvarar för livs cykel hanteringen av dina skiss definitioner medan en drifts grupp ansvarar för att hantera tilldelningar av de centralt kontrollerade skiss definitionerna.
+The management of your blueprint definitions and blueprint assignments can be assigned to different teams. It's common for an architect or governance team to be responsible for the lifecycle management of your blueprint definitions while an operations team is responsible for managing assignments of those centrally controlled blueprint definitions.
 
-Den inbyggda rollbaserad åtkomst kontroll (RBAC) för **skiss operatorn** är särskilt utformad för användning i den här typen av scenario. Rollen kan användas av åtgärder för att hantera tilldelning av organisationens skiss definitioner, men inte möjligheten att ändra dem. Detta kräver en del konfiguration i din Azure-miljö och den här artikeln förklarar de steg som krävs.
+The **Blueprint Operator** built-in role-based access control (RBAC) is designed specifically for use in this type of scenario. The role allows for operations type teams to manage the assignment of the organizations blueprint definitions, but not the ability to modify them. Doing so requires some configuration in your Azure environment and this article explains the necessary steps.
 
-## <a name="grant-permission-to-the-blueprint-operator"></a>Bevilja behörighet till skiss operatören
+## <a name="grant-permission-to-the-blueprint-operator"></a>Grant permission to the Blueprint Operator
 
-Det första steget är att ge **skiss operatörs** rollen till kontot eller säkerhets gruppen (rekommenderas) som ska tilldelas ritningar. Den här åtgärden bör utföras på den högsta nivån i hierarkin för hanterings grupper som omfattar alla hanterings grupper och prenumerationer som drift teamet ska ha behörighet för skiss tilldelning till. Vi rekommenderar att du följer principen om minsta behörighet när du beviljar dessa behörigheter.
+The first step is to grant the **Blueprint Operator** role to the account or security group (recommended) that is going to be assigning blueprints. This action should be done at the highest level in the management group hierarchy that encompasses all of the management groups and subscriptions the operations team should have blueprint assignment access to. It's recommended to follow the principle of least privilege when granting these permissions.
 
-1. Rekommenderas [Skapa en säkerhets grupp och Lägg till medlemmar](../../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)
+1. (Recommended) [Create a security group and add members](../../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)
 
-1. [Lägg till en roll tilldelning](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment) av **skiss operatör** till kontot eller säkerhets gruppen
+1. [Add a role assignment](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment) of **Blueprint Operator** to the account or security group
 
-## <a name="user-assign-managed-identity"></a>Användare – tilldela hanterad identitet
+## <a name="user-assign-managed-identity"></a>User-assign managed identity
 
-En skiss definition kan använda antingen systemtilldelade eller användarspecifika hanterade identiteter. När du använder rollen **skiss operatör** måste du dock konfigurera ritnings definitionen för att använda en hanterad identitet som tilldelats av användare. Dessutom måste kontot eller säkerhets gruppen som tilldelats rollen **skiss operatör** beviljas rollen **hanterad identitets operatör** på den användare som tilldelats den hanterade identiteten. Utan den här behörigheten fungerar inte skiss tilldelningar på grund av otillräckliga behörigheter.
+A blueprint definition can use either system-assigned or user-assigned managed identities. However, when using the **Blueprint Operator** role, the blueprint definition needs to be configured to use a user-assigned managed identity. Additionally, the account or security group being granted the **Blueprint Operator** role needs to be granted the **Managed Identity Operator** role on the user-assigned managed identity. Without this permission, blueprint assignments fail because of lack of permissions.
 
-1. [Skapa en användardefinierad hanterad identitet](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity) för användning av en tilldelad skiss
+1. [Create a user-assigned managed identity](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity) for use by an assigned blueprint
 
-1. [Lägg till en roll tilldelning](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment) av **hanterad identitets operatör** till kontot eller säkerhets gruppen. Omfattningen av roll tilldelningen till den nya användarspecifika hanterade identiteten.
+1. [Add a role assignment](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment) of **Managed Identity Operator** to the account or security group. Scope the role assignment to the new user-assigned managed identity.
 
-1. Som **skiss operatör**tilldelar du [en skiss](../create-blueprint-portal.md#assign-a-blueprint) som använder den nya användarspecifika hanterade identiteten.
+1. As the **Blueprint Operator**, [assign a blueprint](../create-blueprint-portal.md#assign-a-blueprint) that uses the new user-assigned managed identity.
 
 ## <a name="next-steps"></a>Nästa steg
 

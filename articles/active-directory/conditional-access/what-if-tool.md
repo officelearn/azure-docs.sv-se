@@ -1,109 +1,109 @@
 ---
-title: Vad är vad om-verktyget i Azure Active Directory villkorlig åtkomst?
-description: Lär dig hur du kan förstå effekten av principer för villkorlig åtkomst på din miljö.
+title: The Conditional Access What If tool - Azure Active Directory
+description: Learn how you can understand the impact of your Conditional Access policies on your environment.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 11/20/2018
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97d2ec4099045e17b8482fcde313d31720083583
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: a5846934a8ad8455ca375b4bc54fc46d45aba1cd
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67506751"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74379984"
 ---
-# <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>Vad är vad om-verktyget i Azure Active Directory villkorlig åtkomst?
+# <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Troubleshoot using the What If tool in Conditional Access
 
-[Villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md) är en funktion i Azure Active Directory (Azure AD) som ger dig möjlighet att styra hur behöriga användare har åtkomst till dina appar i molnet. Hur vet du vad som händer när principer för villkorlig åtkomst i din miljö? Du kan använda för att besvara den här frågan i **villkorlig åtkomst What If-verktyget**.
+[Conditional Access](../active-directory-conditional-access-azure-portal.md) is a capability of Azure Active Directory (Azure AD) that enables you to control how authorized users access your cloud apps. How do you know what to expect from the Conditional Access policies in your environment? To answer this question, you can use the **Conditional Access What If tool**.
 
-Den här artikeln förklarar hur du kan använda det här verktyget för att testa principer för villkorlig åtkomst.
+This article explains how you can use this tool to test your Conditional Access policies.
 
-## <a name="what-it-is"></a>Vad det är
+## <a name="what-it-is"></a>Vad det innebär
 
-Den **villkorlig åtkomst What If princip verktyget** tillåter dig att förstå effekten av principer för villkorlig åtkomst på din miljö. Med verktyget kan du utvärdera en simulerad användarinloggning i stället för att testa principerna genom att köra många manuella inloggningar. Simuleringen uppskattar inloggningens inverkan på dina principer och genererar en simuleringsrapport. Rapporten visar bara inte tillämpade principer för villkorlig åtkomst utan även [klassiska principer](policy-migration.md#classic-policies) om de finns.    
+The **Conditional Access What If policy tool** allows you to understand the impact of your Conditional Access policies on your environment. Med verktyget kan du utvärdera en simulerad användarinloggning i stället för att testa principerna genom att köra många manuella inloggningar. Simuleringen uppskattar inloggningens inverkan på dina principer och genererar en simuleringsrapport. The report does not only list the applied Conditional Access policies but also [classic policies](policy-migration.md#classic-policies) if they exist.    
 
-Den **vad händer om** verktyget är ett sätt att snabbt avgöra de principer som gäller för en viss användare. Du kan använda informationen, till exempel om du behöver felsöka ett problem.    
+The **What If** tool provides a way to quickly determine the policies that apply to a specific user. You can use the information, for example, if you need to troubleshoot an issue.    
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 
-I den **villkorlig åtkomst What If-verktyget**, måste du först konfigurera inställningarna för inloggning scenario som du vill simulera. Inställningarna omfattar:
+In the **Conditional Access What If tool**, you first need to configure the settings of the sign-in scenario you want to simulate. These settings include:
 
-- Den användare du vill testa 
-- Moln-appar som användaren försöker få åtkomst till
-- Villkor under vilka åtkomst till den konfigurerar molnet appar utförs
+- The user you want to test 
+- The cloud apps the user would attempt to access
+- The conditions under which access to the configures cloud apps is performed
      
-I nästa steg, kan du initiera en simulering kör som utvärderar dina inställningar. Principer som är aktiverade är en del av en utvärdering körs.
+As a next step, you can initiate a simulation run that evaluates your settings. Only policies that are enabled are part of an evaluation run.
 
-När utvärderingen har slutförts, genererar verktyget en rapport över de berörda principerna.
+When the evaluation has finished, the tool generates a report of the affected policies.
 
-## <a name="running-the-tool"></a>Kör verktyget
+## <a name="running-the-tool"></a>Running the tool
 
-Du hittar den **vad händer om** verktyget på den **[villkorlig åtkomst – principer](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** i Azure-portalen.
+You can find the **What If** tool on the **[Conditional Access - Policies](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** page in the Azure portal.
 
-Starta verktyget, i verktygsfältet på listan med principer, klicka på **vad händer om**.
+To start the tool, in the toolbar on top of the list of policies, click **What If**.
 
-![Tänk om](./media/what-if-tool/01.png)
+![What If](./media/what-if-tool/01.png)
 
-Innan du kan köra en utvärdering, måste du konfigurera inställningarna.
+Before you can run an evaluation, you must configure the settings.
 
 ## <a name="settings"></a>Inställningar
 
-Det här avsnittet innehåller information om inställningarna för simuleringen kör.
+This section provides you with information about the settings of simulation run.
 
-![Tänk om](./media/what-if-tool/02.png)
+![What If](./media/what-if-tool/02.png)
 
 ### <a name="user"></a>Användare
 
-Du kan bara välja en användare. Det här är det enda obligatoriska fältet.
+You can only select one user. This is the only required field.
 
-### <a name="cloud-apps"></a>Molnappar
+### <a name="cloud-apps"></a>Cloud apps
 
-Standardvärdet för den här inställningen är **alla molnappar**. Standardinställningen utför en utvärdering av alla tillgängliga principer i din miljö. Du kan begränsa omfattningen för principer som påverkar specifika molnappar.
+The default for this setting is **All cloud apps**. The default setting performs an evaluation of all available policies in your environment. You can narrow down the scope to policies affecting specific cloud apps.
 
 ### <a name="ip-address"></a>IP-adress
 
-IP-adressen är en enskild IPv4-adress för att efterlikna de [platsvillkoret](location-condition.md). Adressen representerar adressen till enheten som används av användaren för att logga in som riktas mot Internet. Du kan kontrollera IP-adressen för en enhet av, till exempel Gå till [vad är Min IP-adress](https://whatismyipaddress.com).    
+The IP address is a single IPv4 address to mimic the [location condition](location-condition.md). The address represents Internet facing address of the device used by your user to sign in. You can verify the IP address of a device by, for example, navigating to [What is my IP address](https://whatismyipaddress.com).    
 
-### <a name="device-platforms"></a>Enhetsplattformar
+### <a name="device-platforms"></a>Device platforms
 
-Den här inställningen imiterar den [enheten plattformar villkor](conditions.md#device-platforms) och representerar motsvarigheten **alla plattformar (inklusive stöds inte)** . 
+This setting mimics the [device platforms condition](conditions.md#device-platforms) and represents the equivalent of **All platforms (including unsupported)** . 
 
-### <a name="client-apps"></a>Klientappar
+### <a name="client-apps"></a>Client apps
 
-Den här inställningen imiterar den [klient apps villkor](conditions.md#client-apps).
-Som standard den här inställningen gör en utvärdering av alla principer som har **webbläsare** eller **mobilappar och skrivbordsklienter** antingen individuellt eller båda har valt. Dessutom upptäcks principer som framtvinga **Exchange ActiveSync (EAS)** . Du kan begränsa den här inställningen genom att välja:
+This setting mimics the [client apps condition](conditions.md#client-apps).
+By default, this setting causes an evaluation of all policies having **Browser** or **Mobile apps and desktop clients** either individually or both selected. It also detects policies that enforce **Exchange ActiveSync (EAS)** . You can narrow this setting down by selecting:
 
-- **Webbläsaren** att utvärdera alla principer som har minst **webbläsare** valda. 
-- **Mobilappar och skrivbordsklienter** att utvärdera alla principer som har minst **mobilappar och skrivbordsklienter** valda. 
+- **Browser** to evaluate all policies having at least **Browser** selected. 
+- **Mobile apps and desktop clients** to evaluate all policies having at least **Mobile apps and desktop clients** selected. 
 
-### <a name="sign-in-risk"></a>Inloggningsrisk
+### <a name="sign-in-risk"></a>Sign-in risk
 
-Den här inställningen imiterar den [inloggningsrisk villkor](conditions.md#sign-in-risk).   
+This setting mimics the [sign-in risk condition](conditions.md#sign-in-risk).   
 
-## <a name="evaluation"></a>Utvärdering 
+## <a name="evaluation"></a>Evaluation 
 
-Du startar en utvärdering genom att klicka på **vad händer om**. Utvärderingsresultat av den ger dig en rapport som består av: 
+You start an evaluation by clicking **What If**. The evaluation result provides you with a report that consists of: 
 
-![Tänk om](./media/what-if-tool/03.png)
+![What If](./media/what-if-tool/03.png)
 
-- Indikerar om klassiska principer finns i din miljö
-- Principer som gäller för dina användare
-- Principer som inte gäller för användaren
+- An indicator whether classic policies exist in your environment
+- Policies that apply to your user
+- Policies that don't apply to your user
 
-Om [klassiska principer](policy-migration.md#classic-policies) finns för de valda molnapparna, visas en indikator för dig. Genom att klicka på indikatorn, omdirigeras du till sidan klassiska principer. På sidan klassiska principer kan du migrera den klassiska principen eller bara inaktivera den. Du kan gå tillbaka till din utvärderingsresultat genom att stänga den här sidan.
+If [classic policies](policy-migration.md#classic-policies) exist for the selected cloud apps, an indicator is presented to you. By clicking the indicator, you are redirected to the classic policies page. On the classic policies page, you can migrate a classic policy or just disable it. You can return to your evaluation result by closing this page.
 
-På listan över principer som gäller för din valda användare, kan du också hitta en lista över [bevilja kontroller](controls.md#grant-controls) och [session](controls.md#session-controls) kontroller som användaren måste uppfylla.
+On the list of policies that apply to your selected user, you can also find a list of [grant controls](controls.md#grant-controls) and [session](controls.md#session-controls) controls your user must satisfy.
 
-I listan med principer som inte gäller för dina användare kan och också hitta orsaker varför dessa principer inte gäller. För varje listad princip representerar orsaken till det första villkoret som inte uppfylldes. En möjlig orsak till en princip som inte tillämpas är en inaktiverad princip, eftersom de ytterligare inte utvärderas.   
+On the list of policies that don't apply to your user, you can and also find the reasons why these policies don't apply. For each listed policy, the reason represents the first condition that was not satisfied. A possible reason for a policy that is not applied is a disabled policy because they are not further evaluated.   
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill veta hur du konfigurerar principer för villkorlig åtkomst finns i [kräver MFA för specifika appar med Azure Active Directory villkorsstyrd åtkomst](app-based-mfa.md).
-- Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö kan du läsa den [bästa praxis för villkorlig åtkomst i Azure Active Directory](best-practices.md). 
-- Om du vill migrera klassiska principer finns i [migrera klassiska principer i Azure portal](policy-migration.md)  
+- If you want to know how to configure a Conditional Access policy, see [Require MFA for specific apps with Azure Active Directory Conditional Access](app-based-mfa.md).
+- If you are ready to configure Conditional Access policies for your environment, see the [best practices for Conditional Access in Azure Active Directory](best-practices.md). 
+- if you want to migrate classic policies, see [Migrate classic policies in the Azure portal](policy-migration.md)  

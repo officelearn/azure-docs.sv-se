@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: hitta tillgängliga rum – Azure Digitals dubbla'
+title: 'Quickstart: Find available rooms - Azure Digital Twins | Microsoft Docs'
 description: I den här snabbstarten kör du två .NET Core-exempelprogram som skickar simulerad telemetri för rörelse och koldioxid till ett utrymme i Azure Digital Twins. Målet är att hitta tillgängliga rum med frisk luft via hanterings-API:er efter beräknad bearbetning i molnet.
 ms.author: alinast
 author: alinamstanciu
@@ -10,12 +10,12 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
 ms.date: 11/12/2019
-ms.openlocfilehash: 44ef646328f5f55d16dfa2d6906b78866292ebd9
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: b150167ca6a808e0da337be4a609a21cd974598a
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123189"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383148"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Snabbstart: Hitta tillgängliga rum med hjälp av Azure Digital Twins
 
@@ -59,7 +59,7 @@ Skapa beläggningsprogrammet med hjälp av följande steg.
     - **Klient**: Ange katalog-ID för din Azure AD-klient, som också beskrevs i föregående avsnitt.
     - **BaseUrl**: URL:en för API för hantering för Digital Twins-instansen har formatet `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Ersätt platshållarna i webbadressen med värden för din instans från föregående avsnitt.
 
-    Spara den uppdaterade filen.
+    Save the updated file.
 
 ## <a name="provision-graph"></a>Etablera graf
 
@@ -76,35 +76,35 @@ En rumslig graf etableras med hjälp av filen [provisionSample.yaml](https://git
 1. Kör `dotnet run ProvisionSample`.
 
     >[!NOTE]
-    >Azure CLI-verktyget Inloggning på enhet används för att autentisera användaren för Azure AD. Användaren måste ange en viss kod för att autentisera med hjälp av [Microsofts inloggningssida](https://microsoft.com/devicelogin). När du har angett koden följer du stegen för att autentisera. Användaren måste autentiseras när verktyget körs.
+    >Azure CLI-verktyget Inloggning på enhet används för att autentisera användaren för Azure AD. Användaren måste ange en viss kod för att autentisera med hjälp av [Microsofts inloggningssida](https://microsoft.com/devicelogin). After the code is entered, follow the steps to authenticate. Användaren måste autentiseras när verktyget körs.
 
     >[!TIP]
     > När du kör det här steget kontrollerar du att variablerna har kopierats om följande felmeddelande visas: `EXIT: Unexpected error: The input is not a valid Base-64 string ...`
 
 1. Etableringssteget kan ta några minuter. En IoT-hubb etableras också i Digital Twins-instansen. Den loopas tills IoT-hubben visar Status=`Running`.
 
-    [![etablera exempel status = kör](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png#lightbox)
+    [![Provision the sample - Status=Running](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png#lightbox)
 
 1. I slutet av körningen kopierar du enhetens `ConnectionString` för användning i exemplet med enhetssimulatorn. Kopiera den sträng som beskrivs i den här bilden.
 
-    [![kopiera anslutnings strängen](media/quickstart-view-occupancy-dotnet/digital-twins-connection-string.png)](media/quickstart-view-occupancy-dotnet/digital-twins-connection-string.png#lightbox)
+    [![Copy the connection string](media/quickstart-view-occupancy-dotnet/digital-twins-connection-string.png)](media/quickstart-view-occupancy-dotnet/digital-twins-connection-string.png#lightbox)
 
     >[!TIP]
     > Du kan visa och ändra ett spatialt diagram med hjälp av [Visningsprogrammet för Azure Digital Twins Graph](https://github.com/Azure/azure-digital-twins-graph-viewer).
 
-Låt konsol fönstret vara öppet för användning igen senare.
+Keep the console window open for use again later.
 
 ## <a name="send-sensor-data"></a>Skicka sensordata
 
-Skapa och kör programmet sensor simulator enhet genom att följa dessa steg.
+Build and run the sensor simulator device application by following these steps.
 
-1. Öppna en ny kommandotolk. Gå till projektet som du laddade ned i mappen `digital-twins-samples-csharp-master`.
+1. Öppna en ny kommandotolk. Go to the project you downloaded in the `digital-twins-samples-csharp-master` folder.
 1. Kör `cd device-connectivity`.
 1. Kör `dotnet restore`.
-1. Redigera [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) för att uppdatera **DeviceConnectionString** med föregående `ConnectionString`. Spara den uppdaterade filen.
+1. Redigera [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) för att uppdatera **DeviceConnectionString** med föregående `ConnectionString`. Save the updated file.
 1. Kör `dotnet run` för att börja skicka sensordata. Du ser dem skickas till Digital Twins enligt följande bild.
 
-     [![enhets anslutning](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png)](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png#lightbox)
+     [![Device Connectivity](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png)](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png#lightbox)
 
 1. Låt den här simulatorn köras så att du kan visa resultat sida vid sida med nästa steg. I det här fönstret visas de simulerade sensordata som skickats till Digital Twins. I nästa steg ställs frågor i realtid för att hitta tillgängliga rum med frisk luft.
 
@@ -115,17 +115,17 @@ Skapa och kör programmet sensor simulator enhet genom att följa dessa steg.
 
 Sensorexemplet simulerar slumpmässiga datavärden för två sensorer. Det är rörelse och koldioxid. Tillgängliga utrymmen med frisk luft definieras i exemplet av ingen närvaro i rummet. De definieras även av en koldioxidnivå på under 1 000. Om villkoret inte uppfylls är utrymmet inte tillgängligt eller så är luftkvaliteten dålig.
 
-1. Öppna kommando tolken som du använde för att köra etablerings steget tidigare.
+1. Open the command prompt you used to run the provisioning step earlier.
 1. Kör `dotnet run GetAvailableAndFreshSpaces`.
 1. Titta på den här kommandotolken och sensordatas kommandotolk sida vid sida.
 
-    Kommando tolken för sensor data skickar simulerade rörelse-och koldioxid data till digitala dubbla sekunder var femte sekund. Den andra kommando tolken läser grafen i real tid för att ta reda på tillgängliga rum med färsk luft baserat på slumpmässiga simulerade data. Den visar ett av dessa villkor i nära realtid baserat på sensordata som skickades senast:
+    The sensor data command prompt sends simulated motion and carbon dioxide data to Digital Twins every five seconds. The other command prompt reads the graph in real time to find out available rooms with fresh air based on random simulated data. Den visar ett av dessa villkor i nära realtid baserat på sensordata som skickades senast:
    - `Room is available and air is fresh`
    - `Room is not available or air quality is poor`
 
-     [![Hämta tillgängliga utrymmen med frisk luft](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png)](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png#lightbox)
+     [![Get available spaces with fresh air](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png)](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png#lightbox)
 
-Om du vill förstå vad som hände i den här snabb starten och vilka API: er som anropades öppnar du [Visual Studio Code](https://code.visualstudio.com/Download) med projektet kod arbets yta i `digital-twins-samples-csharp`. Ange följande kommando:
+To understand what happened in this quickstart and what APIs were called, open [Visual Studio Code](https://code.visualstudio.com/Download) with the code workspace project found in `digital-twins-samples-csharp`. Ange följande kommando:
 
 ```cmd
 <path>\occupancy-quickstart\src>code ..\..\digital-twins-samples.code-workspace
@@ -140,7 +140,7 @@ https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 | Namn | Ersätt med |
 | --- | --- |
 | YOUR_INSTANCE_NAME | Namnet på Digital Twins-instansen |
-| YOUR_LOCATION | Den server region där din instans finns |
+| YOUR_LOCATION | The server region where your instance is hosted |
 
 Eller för att göra det enkelt kan du bläddra till [Digital Twins Swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
 
@@ -154,14 +154,14 @@ Självstudierna visar i detalj hur du:
 Om du vill fortsätta med självstudierna ska du inte rensa resurserna som du skapade i den här snabbstarten. Om du inte planerar att fortsätta tar du bort alla resurser som har skapats i den här snabbstarten.
 
 1. Ta bort mappen som skapades när du laddade ned exempellagringsplatsen.
-1. Välj [Alla resurser](https://portal.azure.com) på menyn på vänster sida av **Azure-portalen**. Välj sedan din Digital Twins-resurs. Välj **Ta bort** överst i fönstret **Alla resurser**.
+1. Välj **Alla resurser** på menyn på vänster sida av [Azure-portalen](https://portal.azure.com). Välj sedan din Digital Twins-resurs. Välj **Ta bort** överst i fönstret **Alla resurser**.
 
     > [!TIP]
-    > Om du tidigare fick problem med att ta bort en digital-datainstans har en tjänst uppdatering distribuerats med korrigeringen. Försök att ta bort instansen igen.
+    > If you previously experienced trouble deleting your Digital Twins instance, a service update has been rolled out with the fix. Försök att ta bort instansen igen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten användes ett enkelt scenario och exempel program för att visa hur digitala enheter kan användas för att hitta rum med lämpliga arbets förhållanden. Djupanalys av det här scenariot finns i den här självstudien:
+This quickstart used a simple scenario and sample applications to show how Digital Twins can be used to find rooms with good working conditions. Djupanalys av det här scenariot finns i den här självstudien:
 
 >[!div class="nextstepaction"]
 >[Självstudie: Distribuera Azure Digital Twins och konfigurera ett spatialt diagram](tutorial-facilities-setup.md)

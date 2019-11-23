@@ -1,21 +1,21 @@
 ---
-title: Ange behörigheter för Data Lake Storage Gen2 med Azure Storage Explorer
+title: 'Azure Storage Explorer: Manage access in Azure Data Lake Storage Gen2'
 description: I dessa anvisningar lär du dig hur du anger behörigheter med Azure Storage Explorer för filer och kataloger på ditt lagringskonto med funktioner för Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
-ms.date: 12/11/2018
+ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 2cc93ad9ae1d9d6d21064a2a80c3d62bf661dabc
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: b34103e521def678acce17e3292e04fca95b5e6e
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992285"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327969"
 ---
-# <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>Ange behörigheter på fil- och katalognivå med hjälp av Azure Storage Explorer med Azure Data Lake Storage Gen2
+# <a name="use-azure-storage-explorer-to-manage-access-in-azure-data-lake-storage-gen2"></a>Use Azure Storage Explorer to manage access in Azure Data Lake Storage Gen2
 
 Filer som lagras i Azure Data Lake Storage Gen2 stöder detaljerade behörigheter och hantering av åtkomstkontrollistor (ACL). Tillsammans kan du, med detaljerade behörigheter och ACL-hantering, hantera åtkomsten till dina data på en mycket detaljerad nivå.
 
@@ -26,13 +26,13 @@ I den här artikeln lär du dig hur du använder Azure Storage Explorer till att
 > * ange behörigheter på katalognivå
 > * lägga till användare eller grupper i en åtkomstkontrollista
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-För att du ska få den bästa beskrivningen av processen behöver du slutföra [snabbstarten för Azure Storage Explorer](data-lake-storage-Explorer.md). Detta säkerställer att ditt lagrings konto kommer att vara i det lämpligaste stadiet (behållare skapat och data som överförs till det).
+För att du ska få den bästa beskrivningen av processen behöver du slutföra [snabbstarten för Azure Storage Explorer](data-lake-storage-Explorer.md). This ensures your storage account will be in the most appropriate state (container created and data uploaded to it).
 
 ## <a name="managing-access"></a>Hantera åtkomst
 
-Du kan ange behörigheter i roten för din behållare. För att göra det måste du vara inloggad på Azure Storage Explorer med ditt enskilda konto med behörighet att göra detta (till skillnad från med en anslutnings sträng). Högerklicka på din behållare och välj **Hantera behörigheter**, så visas dialog rutan **Hantera behörighet** .
+You can set permissions at the root of your container. To do so, you must be logged into Azure Storage Explorer with your individual account with rights to do so (as opposed to with a connection string). Right-click your container and select **Manage Permissions**, bringing up the **Manage Permission** dialog box.
 
 ![Microsoft Azure Storage Explorer – Hantera katalogåtkomst](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
 
@@ -49,11 +49,11 @@ Användaren eller gruppen visas nu i fältet **Användare och grupper:** , där 
 
 Det finns två kategorier av behörigheter du kan tilldela: åtkomst-ACL och standard-ACL.
 
-* **Åtkomst**: Åtkomst-ACL:er kontrollerar åtkomst till ett objekt. Filer och kataloger har båda åtkomst-ACL:er.
+* **Access**: Access ACLs control access to an object. Filer och kataloger har båda åtkomst-ACL:er.
 
-* **Standard**: En mall med ACL:er som är associerade med en katalog som bestämmer åtkomst-ACL:erna för underordnade objekt som skapas under den katalogen. Filer har inte standard-ACL:er.
+* **Default**: A template of ACLs associated with a directory that determines the access ACLs for any child items that are created under that directory. Filer har inte standard-ACL:er.
 
-I båda dessa kategorier finns det tre behörigheter du sedan kan tilldela för filer eller kataloger: **läsa**, **skriva** och **köra**.
+Within both of these categories, there are three permissions you can then assign on files or directories: **Read**, **Write**, and **Execute**.
 
 >[!NOTE]
 > När du gör val här anges inte behörigheter för några befintliga objekt i katalogen. Du måste gå till varje enskilt objekt och ange behörigheterna manuellt, om filen redan finns.

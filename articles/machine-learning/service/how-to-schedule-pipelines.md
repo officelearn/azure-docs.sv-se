@@ -1,36 +1,36 @@
 ---
-title: Schemalägg Azure Machine Learning pipelines
+title: Schedule Azure Machine Learning pipelines
 titleSuffix: Azure Machine Learning
-description: Schemalägg Azure Machine Learning pipelines med hjälp av Azure Machine Learning SDK för python. Med schemalagda pipelines kan du automatisera rutinmässiga, tids krävande uppgifter, till exempel data bearbetning, utbildning och övervakning.
+description: Schedule Azure Machine Learning pipelines using the Azure Machine Learning SDK for Python. Scheduled pipelines allow you to automate routine, time-consuming tasks such as data processing, training, and monitoring.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 11/06/2019
-ms.openlocfilehash: ded95800c482d43fcaf27993869f1e71eee68f47
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.date: 11/12/2019
+ms.openlocfilehash: 76e489f76d29f5fa0b68a743a302668a285a5d90
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73831824"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406517"
 ---
-# <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Schemalägg maskin inlärnings pipeliner med Azure Machine Learning SDK för python
+# <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Schedule machine learning pipelines with Azure Machine Learning SDK for Python
 
-I den här artikeln får du lära dig hur du program mässigt schemalägger en pipeline för att köras på Azure. Du kan välja att skapa ett schema baserat på förfluten tid eller ändringar i fil systemet. Tidsbaserade scheman kan användas för att ta hand om rutin uppgifter, till exempel övervakning av data drift. Ändrings scheman kan användas för att reagera på oregelbundna eller oförutsägbara ändringar, till exempel nya data som laddas upp eller gamla data redige ras. När du har lärt dig hur du skapar scheman får du lära dig hur du hämtar och inaktiverar dem.
+In this article, you'll learn how to programmatically schedule a pipeline to run on Azure. You can choose to create a schedule based on elapsed time or on file-system changes. Time-based schedules can be used to take care of routine tasks, such as monitoring for data drift. Change-based schedules can be used to react to irregular or unpredictable changes, such as new data being uploaded or old data being edited. After learning how to create schedules, you'll learn how to retrieve and deactivate them.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://aka.ms/AMLFree).
+* En Azure-prenumeration. If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLFree).
 
-* En python-miljö där Azure Machine Learning SDK för python är installerat. Mer information finns i [skapa och hantera återanvändbara miljöer för utbildning och distribution med Azure Machine Learning.](how-to-use-environments.md)
+* A Python environment in which the Azure Machine Learning SDK for Python is installed. For more information, see [Create and manage reusable environments for training and deployment with Azure Machine Learning.](how-to-use-environments.md)
 
-* En Machine Learning arbets yta med en publicerad pipeline. Du kan använda en inbyggd pipeline för att [skapa och köra Machine Learning med Azure Machine Learning SDK](how-to-create-your-first-pipeline.md).
+* A Machine Learning workspace with a published pipeline. You can use the one built in [Create and run machine learning pipelines with Azure Machine Learning SDK](how-to-create-your-first-pipeline.md).
 
-## <a name="initialize-the-workspace--get-data"></a>Initiera arbets ytan & Hämta data
+## <a name="initialize-the-workspace--get-data"></a>Initialize the workspace & get data
 
-Om du vill schemalägga en pipeline behöver du en referens till din arbets yta, identifieraren för den publicerade pipelinen och namnet på det experiment som du vill skapa schemat i. Du kan hämta dessa värden med följande kod:
+To schedule a pipeline, you'll need a reference to your workspace, the identifier of your published pipeline, and the name of the experiment in which you wish to create the schedule. You can get these values with the following code:
 
 ```Python
 import azureml.core
@@ -52,15 +52,15 @@ experiment_name = "MyExperiment"
 pipeline_id = "aaaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee" 
 ```
 
-## <a name="create-a-schedule"></a>Skapa ett schema
+## <a name="create-a-schedule"></a>Create a schedule
 
-Om du vill köra en pipeline regelbundet skapar du ett schema. En `Schedule` kopplar en pipeline, ett experiment och en utlösare. Utlösaren kan antingen vara en`ScheduleRecurrence` som beskriver vänte tiden mellan körningar eller en data lagrings Sök väg som anger en katalog som ska bevakas för ändringar. I båda fallen behöver du pipeline-identifieraren och namnet på experimentet som schemat ska skapas i.
+To run a pipeline on a recurring basis, you'll create a schedule. A `Schedule` associates a pipeline, an experiment, and a trigger. The trigger can either be a`ScheduleRecurrence` that describes the wait between runs or a Datastore path that specifies a directory to watch for changes. In either case, you'll need the pipeline identifier and the name of the experiment in which to create the schedule.
 
-### <a name="create-a-time-based-schedule"></a>Skapa ett tidsbaserat schema
+### <a name="create-a-time-based-schedule"></a>Create a time-based schedule
 
-`ScheduleRecurrence`-konstruktorn har ett obligatoriskt `frequency`-argument som måste vara någon av följande strängar: "minut", "timme", "Week" eller "Month". Det kräver också ett heltals `interval` argument som anger hur många av de `frequency` enheterna som ska förflyta mellan schema startar. Valfria argument ger dig mer information om start tider, enligt beskrivningen i [SCHEDULERECURRENCE SDK-dokument](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedulerecurrence?view=azure-ml-py).
+The `ScheduleRecurrence` constructor has a required `frequency` argument that must be one of the following strings: "Minute", "Hour", "Day", "Week", or "Month". It also requires an integer `interval` argument specifying how many of the `frequency` units should elapse between schedule starts. Optional arguments allow you to be more specific about starting times, as detailed in the [ScheduleRecurrence SDK docs](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedulerecurrence?view=azure-ml-py).
 
-Skapa en `Schedule` som börjar köras var 15: e minut:
+Create a `Schedule` that begins a run every 15 minutes:
 
 ```python
 recurrence = ScheduleRecurrence(frequency="Minute", interval=15)
@@ -71,15 +71,15 @@ recurring_schedule = Schedule.create(ws, name="MyRecurringSchedule",
                             recurrence=recurrence)
 ```
 
-### <a name="create-a-change-based-schedule"></a>Skapa ett ändrings baserat schema
+### <a name="create-a-change-based-schedule"></a>Create a change-based schedule
 
-Pipelines som utlöses av fil ändringar kan vara mer effektiva än tidsbaserade scheman. Du kanske till exempel vill utföra ett förbehandlings steg när en fil ändras eller när en ny fil läggs till i en data katalog. Du kan övervaka ändringar i ett data lager eller ändringar i en angiven katalog i data lagret. Om du övervakar en angiven katalog kommer ändringar i under kataloger i den katalogen _inte_ att utlösa någon körning.
+Pipelines that are triggered by file changes may be more efficient than time-based schedules. For instance, you may want to perform a preprocessing step when a file is changed, or when a new file is added to a data directory. You can monitor any changes to a datastore or changes within a specific directory within the datastore. If you monitor a specific directory, changes within subdirectories of that directory will _not_ trigger a run.
 
-Om du vill skapa en fil som är reaktiv `Schedule`måste du ange parametern `datastore` i anropet till [Schedule. Create](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?view=azure-ml-py#create-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-). Om du vill övervaka en mapp anger du argumentet `path_on_datastore`.
+To create a file-reactive `Schedule`, you must set the `datastore` parameter in the call to [Schedule.create](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?view=azure-ml-py#create-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-). To monitor a folder, set the `path_on_datastore` argument.
 
-Med argumentet `polling_interval` kan du ange, i minuter, den frekvens som data lagret är markerat för ändringar.
+The `polling_interval` argument allows you to specify, in minutes, the frequency at which the datastore is checked for changes.
 
-Om pipelinen har konstruerats med en [Datapath](https://docs.microsoft.com/python/api/azureml-core/azureml.data.datapath.datapath?view=azure-ml-py) - [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?view=azure-ml-py)kan du ange variabeln till namnet på den ändrade filen genom att ange argumentet `data_path_parameter_name`.
+If the pipeline was constructed with a [DataPath](https://docs.microsoft.com/python/api/azureml-core/azureml.data.datapath.datapath?view=azure-ml-py) [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?view=azure-ml-py), you can set that variable to the name of the changed file by setting the `data_path_parameter_name` argument.
 
 ```python
 datastore = Datastore(workspace=ws, name="workspaceblobstore")
@@ -88,28 +88,28 @@ reactive_schedule = Schedule.create(ws, name="MyReactiveSchedule", description="
                             pipeline_id=pipeline_id, experiment_name=experiment_name, datastore=datastore, data_path_parameter_name="input_data")
 ```
 
-### <a name="optional-arguments-when-creating-a-schedule"></a>Valfria argument när du skapar ett schema
+### <a name="optional-arguments-when-creating-a-schedule"></a>Optional arguments when creating a schedule
 
-Förutom de argument som beskrivits tidigare kan du ange argumentet `status` till `"Disabled"` för att skapa ett inaktivt schema. Slutligen kan du med `continue_on_step_failure` skicka ett booleskt värde som åsidosätter förloppets standard funktions sätt.
+In addition to the arguments discussed previously, you may set the `status` argument to `"Disabled"` to create an inactive schedule. Finally, the `continue_on_step_failure` allows you to pass a Boolean that will override the pipeline's default failure behavior.
 
-## <a name="view-your-scheduled-pipelines"></a>Visa dina schemalagda pipelines
+## <a name="view-your-scheduled-pipelines"></a>View your scheduled pipelines
 
-Navigera till Azure Machine Learning i webbläsaren. I avsnittet **slut punkter** i navigerings fönstret väljer du pipeline- **slutpunkter**. Då går du till en lista över de pipeliner som publicerats i arbets ytan.
+In your Web browser, navigate to Azure Machine Learning. From the **Endpoints** section of the navigation panel, choose **Pipeline endpoints**. This takes you to a list of the pipelines published in the Workspace.
 
-![Sidan pipeliner i AML](media/how-to-schedule-pipelines/scheduled-pipelines.png)
+![Pipelines page of AML](media/how-to-schedule-pipelines/scheduled-pipelines.png)
 
-På den här sidan kan du se översikts information om alla pipeliner på arbets ytan: namn, beskrivningar, status och så vidare. Gå in genom att klicka i din pipeline. På den resulterande sidan finns det mer information om din pipeline och du kan öka detalj nivån i enskilda körningar.
+In this page you can see summary information about all the pipelines in the Workspace: names, descriptions, status, and so forth. Drill in by clicking in your pipeline. On the resulting page, there are more details about your pipeline and you may drill down into individual runs.
 
-## <a name="deactivate-the-pipeline"></a>Inaktivera pipelinen
+## <a name="deactivate-the-pipeline"></a>Deactivate the pipeline
 
-Om du har ett `Pipeline` som har publicerats, men inte schemalagt, kan du inaktivera det med:
+If you have a `Pipeline` that is published, but not scheduled, you can disable it with:
 
 ```python
 pipeline = PublishedPipeline.get(ws, id=pipeline_id)
 pipeline.disable()
 ```
 
-Om pipelinen är schemalagd måste du först avbryta schemat. Hämta schemats identifierare från portalen eller genom att köra:
+If the pipeline is scheduled, you must cancel the schedule first. Retrieve the schedule's identifier from the portal or by running:
 
 ```python
 ss = Schedule.list(ws)
@@ -117,7 +117,7 @@ for s in ss:
     print(s)
 ```
 
-När du har `schedule_id` du vill inaktivera kör du:
+Once you have the `schedule_id` you wish to disable, run:
 
 ```python
 def stop_by_schedule_id(ws, schedule_id):
@@ -128,16 +128,16 @@ def stop_by_schedule_id(ws, schedule_id):
 stop_by_schedule(ws, schedule_id)
 ```
 
-Om du sedan kör `Schedule.list(ws)` igen bör du hämta en tom lista.
+If you then run `Schedule.list(ws)` again, you should get an empty list.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln använde du Azure Machine Learning SDK för python för att schemalägga en pipeline på två olika sätt. Ett schema återkommer baserat på förfluten Klock tid. Det andra schemat körs om en fil ändras på en angiven `Datastore` eller i en katalog i arkivet. Du såg hur du använder portalen för att undersöka pipelinen och de enskilda körningarna. Slutligen har du lärt dig hur du inaktiverar ett schema så att pipelinen slutar köras.
+In this article, you used the Azure Machine Learning SDK for Python to schedule a pipeline in two different ways. One schedule recurs based on elapsed clock time. The other schedule runs if a file is modified on a specified `Datastore` or within a directory on that store. You saw how to use the portal to examine the pipeline and individual runs. Finally, you learned how to disable a schedule so that the pipeline stops running.
 
 Mer information finns här:
 
 > [!div class="nextstepaction"]
-> [Använd Azure Machine Learning pipelines för batch-Poäng](tutorial-pipeline-batch-scoring-classification.md)
+> [Use Azure Machine Learning Pipelines for batch scoring](tutorial-pipeline-batch-scoring-classification.md)
 
-* Läs mer om [pipelines](concept-ml-pipelines.md)
-* Lär dig mer om att [utforska Azure Machine Learning med Jupyter](samples-notebooks.md)
+* Learn more about [pipelines](concept-ml-pipelines.md)
+* Learn more about [exploring Azure Machine Learning with Jupyter](samples-notebooks.md)

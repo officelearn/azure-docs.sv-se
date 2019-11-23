@@ -1,55 +1,61 @@
 ---
-title: Vad är nytt i QnA Maker-tjänsten?
+title: What's new in QnA Maker service?
 titleSuffix: Azure Cognitive Services
-description: Den här artikeln innehåller nyheter om QnA Maker.
+description: This article contains news about QnA Maker.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 10/14/2019
+ms.date: 11/08/2019
 ms.author: diberry
-ms.openlocfilehash: 0ce44429c7222e4eaa0ef523dadf0fa08723e975
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 94c2f86b6d0a592e53c2ab1f9833bdb045f81583
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72327905"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325875"
 ---
-# <a name="whats-new-in-qna-maker"></a>Vad är nytt i QnA Maker
+# <a name="whats-new-in-qna-maker"></a>What's new in QnA Maker
 
-Läs om vad som är nytt i tjänsten. Dessa objekt kan vara viktig för anteckningar, videor, blogg inlägg och andra typer av information. Skapa ett bok märke för den här sidan för att hålla dig uppdaterad med tjänsten.  
+Learn what's new in the service. These items may release notes, videos, blog posts, and other types of information. Bookmark this page to keep up-to-date with the service.  
 
 ## <a name="release-notes"></a>Viktig information 
 
-Lär dig vad som är nytt med QnA Maker.
+Learn what's new with QnA Maker.
+
+### <a name="november-2019"></a>November 2019
+
+* [US Government cloud support](https://docs.microsoft.com/azure/azure-government/documentation-government-services-aiandcognitiveservices#qna-maker) for QnA Maker
+* [Multi-turn](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/multiturn-conversation) feature in GA
+* [Chit-chat support](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/chit-chat-knowledge-base#language-support) available in tier-1 languages
 
 ### <a name="october-2019"></a>Oktober 2019
 
-* [Ange språket](./how-to/language-knowledge-base.md#select-language-when-creating-first-knowledge-base) för alla kunskaps baser i QNA Maker-tjänsten explicit. 
+* [Explicitly setting the language](./how-to/language-knowledge-base.md#select-language-when-creating-first-knowledge-base) for all knowledge bases in the  QnA Maker service. 
 
 ### <a name="september-2019"></a>September 2019
 
-* Importera och exportera med [XLS-filformat](concepts/data-sources-supported.md) 
+* Import and export with [XLS file format](concepts/data-sources-supported.md) 
 
-### <a name="june-2019"></a>2019 juni
+### <a name="june-2019"></a>Juni 2019
 
-* Förbättrad [rangordnings modell](concepts/knowledge-base.md#ranker-process) för franska, italienska, tyska, spanska, portugisiska
+* Improved [ranker model](concepts/knowledge-base.md#ranker-process) for French, Italian, German, Spanish, Portuguese
 
 ### <a name="april-2019"></a>April 2019
 
-* Stöd för extrahering av webbplats innehåll
-* Stöd för [SharePoint-dokument](how-to/add-sharepoint-datasources.md) från autentiserad åtkomst
+* Support website content extraction
+* [SharePoint document](how-to/add-sharepoint-datasources.md) support from authenticated access
 
 ### <a name="march-2019"></a>Mars 2019
 
-* [Aktiv inlärning](how-to/improve-knowledge-base.md) ger förslag på nya fråge alternativ baserat på riktiga användar frågor
-* Förbättrad [ranknings](concepts/knowledge-base.md#ranker-process) modell för naturliga språk bearbetning (NLP) för engelska 
+* [Active learning](how-to/improve-knowledge-base.md) provides suggestions for new question alternatives based on real user questions
+* Improved natural language processing (NLP) [ranker](concepts/knowledge-base.md#ranker-process) model for English 
 
 > [!div class="nextstepaction"]
 > [Skapa en QnA Maker-tjänst](how-to/set-up-qnamaker-service-azure.md)
 
-## <a name="cognitive-service-updates"></a>Uppdatering av kognitiva tjänster
+## <a name="cognitive-service-updates"></a>Cognitive Service updates
 
-[Azure Update-meddelanden för Cognitive Services](https://azure.microsoft.com/updates/?product=cognitive-services)
+[Azure update announcements for Cognitive Services](https://azure.microsoft.com/updates/?product=cognitive-services)

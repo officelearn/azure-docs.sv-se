@@ -1,53 +1,53 @@
 ---
-title: Installera tal behållare – tal tjänst
+title: Install Speech containers - Speech Service
 titleSuffix: Azure Cognitive Services
-description: Installera och kör tal behållare. Tal till text skickar ljud strömmar till text i real tid som dina program, verktyg eller enheter kan använda eller Visa. Text till tal konverterar inmatad text till mänskligt syntetiskt tal.
+description: Install and run speech containers. Speech-to-text transcribes audio streams to text in real time that your applications, tools, or devices can consume or display. Text-to-speech converts input text into human-like synthesized speech.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/15/2019
+ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: b83ece803a72fe6132c1ba98414e95897a0fcc90
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
-ms.translationtype: HT
+ms.openlocfilehash: 3d9373067c78f1fe0fa0b414886c30f2ed3c1c9f
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304883"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325871"
 ---
-# <a name="install-and-run-speech-service-containers"></a>Installera och kör tal tjänst behållare
+# <a name="install-and-run-speech-service-containers-preview"></a>Install and run Speech Service containers (Preview)
 
-Med behållare kan du köra vissa Speech service-API: er i din egen miljö. Behållare är fantastiska för särskilda säkerhets-och data styrnings krav. I den här artikeln får du lära dig hur du hämtar, installerar och kör en tal behållare.
+Containers enable you to run some of the Speech Service APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a Speech container.
 
-Tal behållare gör det möjligt för kunderna att bygga en tal program arkitektur som är optimerad för både robusta moln funktioner och Edge-plats. Det finns fyra olika behållare tillgängliga. De två standard behållarna är **tal-till-text** och **text till tal**. De två anpassade behållarna är **Custom Speech till text** och **anpassad text till tal**.
+Speech containers enable customers to build a speech application architecture that is optimized for both robust cloud capabilities and edge locality. There are four different containers available. The two standard containers are **Speech-to-text** and **Text-to-speech**. The two custom containers are **Custom Speech-to-text** and **Custom Text-to-speech**.
 
 > [!IMPORTANT]
-> Alla tal behållare erbjuds för närvarande som en del av en [offentlig "gated"-förhands granskning](../cognitive-services-container-support.md#public-gated-preview-container-registry-containerpreviewazurecrio). Ett meddelande kommer att göras när tal behållare förloppet till allmän tillgänglighet (GA).
+> All speech containers are currently offered as part of a [Public "Gated" Preview](../cognitive-services-container-support.md#public-gated-preview-container-registry-containerpreviewazurecrio). An announcement will be made when speech containers progress to General Availability (GA).
 
-| Funktion | Funktioner | Nya |
+| Funktion | Funktioner | Latest |
 |--|--|--|
-| Tal till text | Beskrivar kontinuerliga tal i real tid eller batch-ljudinspelningar i text med mellanliggande resultat. | 2.0.0 |
-| Custom Speech till text | Genom att använda en anpassad modell från [Custom Speech portalen](https://speech.microsoft.com/customspeech), kan du skriva över kontinuerliga tal i real tid eller köra ljud inspelningar i text med mellanliggande resultat. | 2.0.0 |
-| Text till tal | Konverterar text till tal med naturligt ljud med text indata eller SSML (Speech syntes Markup Language). | 1.3.0 |
-| Anpassad text till tal | Med hjälp av en anpassad modell från den [anpassade röst portalen](https://aka.ms/custom-voice-portal)konverteras text till tal med naturligt ljud med text-eller tal syntess språk (SSML). | 1.3.0 |
+| Tal till text | Transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 2.0.0 |
+| Custom Speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 2.0.0 |
+| Text till tal | Converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.3.0 |
+| Custom Text-to-speech | Using a custom model from the [Custom Voice portal](https://aka.ms/custom-voice-portal), converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.3.0 |
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
-Följande krav gäller innan du använder tal behållare:
+The following prerequisites before using Speech containers:
 
 | Krävs | Syfte |
 |--|--|
-| Docker-motor | Du behöver Docker-motorn installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [MacOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/)och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Få en genomgång om grunderna för Docker och behållare finns i den [översikt över Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta behållarna för att ansluta till och skicka faktureringsdata till Azure. <br><br> **I Windows**måste Docker också konfigureras för att stödja Linux-behållare.<br><br> |
-| Bekant med Docker | Du bör ha grundläggande kunskaper om Docker-koncept, t. ex. register, databaser, behållare och behållar avbildningar, samt kunskaper om grundläggande `docker`-kommandon. |
-| Tal resurs | Du måste ha följande för att kunna använda dessa behållare:<br><br>En Azure _tal_ -resurs för att hämta tillhör ande API-nyckel och slut punkts-URI. Båda värdena är tillgängliga på Azure Portalens **tal** översikt och nycklar sidor. Båda krävs för att starta behållaren.<br><br>**{Api_key}** : en av de två tillgängliga resurs nycklarna på sidan **nycklar**<br><br>**{ENDPOINT_URI}** : slut punkten enligt vad som anges på sidan **Översikt** |
+| Docker Engine | You need the Docker Engine installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br> |
+| Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands. |
+| Speech resource | In order to use these containers, you must have:<br><br>An Azure _Speech_ resource to get the associated API key and endpoint URI. Both values are available on the Azure portal's **Speech** Overview and Keys pages. They are both required to start the container.<br><br>**{API_KEY}** : One of the two available resource keys on the **Keys** page<br><br>**{ENDPOINT_URI}** : The endpoint as provided on the **Overview** page |
 
-## <a name="request-access-to-the-container-registry"></a>Begär åtkomst till behållar registret
+## <a name="request-access-to-the-container-registry"></a>Request access to the container registry
 
-Fyll i och skicka [formuläret för begäran om Cognitive Services tal behållare](https://aka.ms/speechcontainerspreview/) för att begära åtkomst till behållaren. 
+Fill out and submit the [Cognitive Services Speech Containers Request form](https://aka.ms/speechcontainerspreview/) to request access to the container. 
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -55,194 +55,194 @@ Fyll i och skicka [formuläret för begäran om Cognitive Services tal behållar
 
 [!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
 
-## <a name="the-host-computer"></a>Värddatorn
+## <a name="the-host-computer"></a>The host computer
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
-### <a name="advanced-vector-extension-support"></a>Stöd för avancerad Vector-tillägg
+### <a name="advanced-vector-extension-support"></a>Advanced Vector Extension support
 
-**Värden** är den dator som kör Docker-behållaren. Värden *måste ha stöd* för [Advanced Vector Extensions](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) (AVX2). Du kan söka efter AVX2-stöd på Linux-värdar med följande kommando:
+The **host** is the computer that runs the docker container. The host *must support* [Advanced Vector Extensions](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) (AVX2). You can check for AVX2 support on Linux hosts with the following command:
 
 ```console
 grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detected
 ```
 > [!WARNING]
-> Värddatorn *krävs* för att stödja AVX2. Containern fungerar *inte* korrekt utan AVX2-stöd.
+> The host computer is *required* to support AVX2. The container *will not* function correctly without AVX2 support.
 
-### <a name="container-requirements-and-recommendations"></a>Behållarkrav och rekommendationer
+### <a name="container-requirements-and-recommendations"></a>Container requirements and recommendations
 
-I följande tabell beskrivs den lägsta och rekommenderade fördelningen av resurser för varje tal behållare.
+The following table describes the minimum and recommended allocation of resources for each Speech container.
 
 # <a name="speech-to-texttabstt"></a>[Tal till text](#tab/stt)
 
-| Container | Minimum | Rekommenderas |
+| Container | Minimum | Rekommenderad |
 |-----------|---------|-------------|
-| Tal till text | 2 kärnor, 2 GB minne | 4 kärnor, 4 GB minne |
+| Tal till text | 2 core, 2-GB memory | 4 core, 4-GB memory |
 
-# <a name="custom-speech-to-texttabcstt"></a>[Custom Speech till text](#tab/cstt)
+# <a name="custom-speech-to-texttabcstt"></a>[Custom Speech-to-text](#tab/cstt)
 
-| Container | Minimum | Rekommenderas |
+| Container | Minimum | Rekommenderad |
 |-----------|---------|-------------|
-| Custom Speech till text | 2 kärnor, 2 GB minne | 4 kärnor, 4 GB minne |
+| Custom Speech-to-text | 2 core, 2-GB memory | 4 core, 4-GB memory |
 
 # <a name="text-to-speechtabtts"></a>[Text till tal](#tab/tts)
 
-| Container | Minimum | Rekommenderas |
+| Container | Minimum | Rekommenderad |
 |-----------|---------|-------------|
-| Text till tal | 1 kärna, 2 GB minne | 2 kärnor, 3 GB minne |
+| Text till tal | 1 core, 2-GB memory | 2 core, 3-GB memory |
 
-# <a name="custom-text-to-speechtabctts"></a>[Anpassad text till tal](#tab/ctts)
+# <a name="custom-text-to-speechtabctts"></a>[Custom Text-to-speech](#tab/ctts)
 
-| Container | Minimum | Rekommenderas |
+| Container | Minimum | Rekommenderad |
 |-----------|---------|-------------|
-| Anpassad text till tal | 1 kärna, 2 GB minne | 2 kärnor, 3 GB minne |
+| Custom Text-to-speech | 1 core, 2-GB memory | 2 core, 3-GB memory |
 
 ***
 
-* Varje kärna måste vara minst 2,6 gigahertz (GHz) eller snabbare.
+* Each core must be at least 2.6 gigahertz (GHz) or faster.
 
-Core och minne motsvarar `--cpus` och `--memory` inställningar som används som en del av `docker run` kommandot.
+Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
 > [!NOTE]
-> Minimum och Recommended baseras på Docker-gränser, *inte* värd datorns resurser. Till exempel används tal-till-text-behållare som minnes karta för en stor språk modell, och *vi rekommenderar* att hela filen passar i minnet, vilket är ytterligare 4-6 GB. Dessutom kan den första körningen av en behållare ta längre tid, eftersom modeller växlas till minnet.
+> The minimum and recommended are based off of Docker limits, *not* the host machine resources. For example, speech-to-text containers memory map portions of a large language model, and it is *recommended* that the entire file fits in memory, which is an additional 4-6 GB. Also, the first run of either container may take longer, since models are being paged into memory.
 
-## <a name="get-the-container-image-with-docker-pull"></a>Hämta behållar avbildningen med `docker pull`
+## <a name="get-the-container-image-with-docker-pull"></a>Get the container image with `docker pull`
 
-Behållar avbildningar för tal finns i följande Container Registry.
+Container images for Speech are available in the following Container Registry.
 
 # <a name="speech-to-texttabstt"></a>[Tal till text](#tab/stt)
 
-| Container | Lagringsplats |
+| Container | Repository |
 |-----------|------------|
 | Tal till text | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest` |
 
-# <a name="custom-speech-to-texttabcstt"></a>[Custom Speech till text](#tab/cstt)
+# <a name="custom-speech-to-texttabcstt"></a>[Custom Speech-to-text](#tab/cstt)
 
-| Container | Lagringsplats |
+| Container | Repository |
 |-----------|------------|
-| Custom Speech till text | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text:latest` |
+| Custom Speech-to-text | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text:latest` |
 
 # <a name="text-to-speechtabtts"></a>[Text till tal](#tab/tts)
 
-| Container | Lagringsplats |
+| Container | Repository |
 |-----------|------------|
 | Text till tal | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest` |
 
-# <a name="custom-text-to-speechtabctts"></a>[Anpassad text till tal](#tab/ctts)
+# <a name="custom-text-to-speechtabctts"></a>[Custom Text-to-speech](#tab/ctts)
 
-| Container | Lagringsplats |
+| Container | Repository |
 |-----------|------------|
-| Anpassad text till tal | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech:latest` |
+| Custom Text-to-speech | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech:latest` |
 
 ***
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-### <a name="docker-pull-for-the-speech-containers"></a>Docker-hämtning för tal behållarna
+### <a name="docker-pull-for-the-speech-containers"></a>Docker pull for the Speech containers
 
 # <a name="speech-to-texttabstt"></a>[Tal till text](#tab/stt)
 
-#### <a name="docker-pull-for-the-speech-to-text-container"></a>Docker-hämtning för den tal-till-text-behållare
+#### <a name="docker-pull-for-the-speech-to-text-container"></a>Docker pull for the Speech-to-text container
 
-Använd [Docker pull](https://docs.docker.com/engine/reference/commandline/pull/) -kommandot för att hämta en behållar avbildning från förhands gransknings registret för behållare.
+Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Container Preview registry.
 
 ```Docker
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest
 ```
 
 > [!IMPORTANT]
-> Taggen `latest` hämtar det `en-US` språket. För ytterligare språk, se [tal-till-text-språk](#speech-to-text-locales).
+> The `latest` tag pulls the `en-US` locale. For additional locales see [Speech-to-text locales](#speech-to-text-locales).
 
-#### <a name="speech-to-text-locales"></a>Tal till text-språk
+#### <a name="speech-to-text-locales"></a>Speech-to-text locales
 
-Alla Taggar, förutom `latest` är i följande format och är Skift läges känsliga:
+All tags, except for `latest` are in the following format and are case-sensitive:
 
 ```
 <major>.<minor>.<patch>-<platform>-<locale>-<prerelease>
 ```
 
-Följande tagg är ett exempel på formatet:
+The following tag is an example of the format:
 
 ```
 2.0.0-amd64-en-us-preview
 ```
 
-För alla språk som stöds av **tal-till-text-** behållaren, se [taggar till text-Taggar](../containers/container-image-tags.md#speech-to-text).
+For all of the supported locales of the **speech-to-text** container, please see [Speech-to-text image tags](../containers/container-image-tags.md#speech-to-text).
 
-# <a name="custom-speech-to-texttabcstt"></a>[Custom Speech till text](#tab/cstt)
+# <a name="custom-speech-to-texttabcstt"></a>[Custom Speech-to-text](#tab/cstt)
 
-#### <a name="docker-pull-for-the-custom-speech-to-text-container"></a>Docker-hämtning för Custom Speech-till-text-behållaren
+#### <a name="docker-pull-for-the-custom-speech-to-text-container"></a>Docker pull for the Custom Speech-to-text container
 
-Använd [Docker pull](https://docs.docker.com/engine/reference/commandline/pull/) -kommandot för att hämta en behållar avbildning från förhands gransknings registret för behållare.
+Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Container Preview registry.
 
 ```Docker
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text:latest
 ```
 
 > [!NOTE]
-> `locale` och `voice` för anpassade tal behållare bestäms av den anpassade modellen som matas in av behållaren.
+> The `locale` and `voice` for custom Speech containers is determined by the custom model ingested by the container.
 
 # <a name="text-to-speechtabtts"></a>[Text till tal](#tab/tts)
 
-#### <a name="docker-pull-for-the-text-to-speech-container"></a>Docker-hämtning för text till tal-behållaren
+#### <a name="docker-pull-for-the-text-to-speech-container"></a>Docker pull for the Text-to-speech container
 
-Använd [Docker pull](https://docs.docker.com/engine/reference/commandline/pull/) -kommandot för att hämta en behållar avbildning från förhands gransknings registret för behållare.
+Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Container Preview registry.
 
 ```Docker
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest
 ```
 
 > [!IMPORTANT]
-> Taggen `latest` hämtar `en-US` språk och `jessarus` röst. För ytterligare språk, se [text till tal-språk](#text-to-speech-locales).
+> The `latest` tag pulls the `en-US` locale and `jessarus` voice. For additional locales see [Text-to-speech locales](#text-to-speech-locales).
 
-#### <a name="text-to-speech-locales"></a>Text till tal-språk
+#### <a name="text-to-speech-locales"></a>Text-to-speech locales
 
-Alla Taggar, förutom `latest` är i följande format och är Skift läges känsliga:
+All tags, except for `latest` are in the following format and are case-sensitive:
 
 ```
 <major>.<minor>.<patch>-<platform>-<locale>-<voice>-<prerelease>
 ```
 
-Följande tagg är ett exempel på formatet:
+The following tag is an example of the format:
 
 ```
 1.3.0-amd64-en-us-jessarus-preview
 ```
 
-För alla språk som stöds och motsvarande röster för **text till tal** -behållaren, se [taggar för text till tal-bilder](../containers/container-image-tags.md#text-to-speech).
+For all of the supported locales and corresponding voices of the **text-to-speech** container, please see [Text-to-speech image tags](../containers/container-image-tags.md#text-to-speech).
 
 > [!IMPORTANT]
-> När du konstruerar ett *standard text-till-tal* -http-post kräver [SSML-](speech-synthesis-markup.md) meddelandet ett `voice`-element med ett `name`-attribut. Värdet är motsvarande behållares nationella inställningar och röst, även kallat ["kort namn"](language-support.md#standard-voices). Till exempel skulle taggen `latest` ha röst namnet `en-US-JessaRUS`.
+> When constructing a *Standard Text-to-speech* HTTP POST, the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) message requires a `voice` element with a `name` attribute. The value is the corresponding container locale and voice, also known as the ["short name"](language-support.md#standard-voices). For example, the `latest` tag would have a voice name of `en-US-JessaRUS`.
 
-# <a name="custom-text-to-speechtabctts"></a>[Anpassad text till tal](#tab/ctts)
+# <a name="custom-text-to-speechtabctts"></a>[Custom Text-to-speech](#tab/ctts)
 
-#### <a name="docker-pull-for-the-custom-text-to-speech-container"></a>Docker-hämtning för den anpassade text till tal-behållaren
+#### <a name="docker-pull-for-the-custom-text-to-speech-container"></a>Docker pull for the Custom Text-to-speech container
 
-Använd [Docker pull](https://docs.docker.com/engine/reference/commandline/pull/) -kommandot för att hämta en behållar avbildning från förhands gransknings registret för behållare.
+Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Container Preview registry.
 
 ```Docker
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech:latest
 ```
 
 > [!NOTE]
-> `locale` och `voice` för anpassade tal behållare bestäms av den anpassade modellen som matas in av behållaren.
+> The `locale` and `voice` for custom Speech containers is determined by the custom model ingested by the container.
 
 ***
 
-## <a name="how-to-use-the-container"></a>Använda behållaren
+## <a name="how-to-use-the-container"></a>How to use the container
 
-När behållaren är på [värddatorn](#the-host-computer) använder du följande process för att arbeta med behållaren.
+Once the container is on the [host computer](#the-host-computer), use the following process to work with the container.
 
-1. [Kör behållaren](#run-the-container-with-docker-run)med de fakturerings inställningar som krävs. Fler [exempel](speech-container-configuration.md#example-docker-run-commands) på `docker run` kommandot är tillgängliga.
-1. [Fråga behållarens förutsägelse slut punkt](#query-the-containers-prediction-endpoint).
+1. [Run the container](#run-the-container-with-docker-run), with the required billing settings. More [examples](speech-container-configuration.md#example-docker-run-commands) of the `docker run` command are available.
+1. [Query the container's prediction endpoint](#query-the-containers-prediction-endpoint).
 
-## <a name="run-the-container-with-docker-run"></a>Kör behållaren med `docker run`
+## <a name="run-the-container-with-docker-run"></a>Run the container with `docker run`
 
-Använd kommandot [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) för att köra behållaren. Information om hur du hämtar `{Endpoint_URI}`-och `{API_Key}`-värden finns i avsnittet om [obligatoriska parametrar](#gathering-required-parameters) . Ytterligare [exempel](speech-container-configuration.md#example-docker-run-commands) på `docker run` kommandot är också tillgängliga.
+Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. Refer to [gathering required parameters](#gathering-required-parameters) for details on how to get the `{Endpoint_URI}` and `{API_Key}` values. Additional [examples](speech-container-configuration.md#example-docker-run-commands) of the `docker run` command are also available.
 
 # <a name="speech-to-texttabstt"></a>[Tal till text](#tab/stt)
 
-Kör följande `docker run`-kommando om du vill köra en *tal-till-text-* behållare.
+To run the *Speech-to-text* container, execute the following `docker run` command.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
@@ -252,35 +252,35 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-Det här kommandot:
+This command:
 
-* Kör en *tal-till-text-* behållare från behållar avbildningen.
-* Allokerar 4 processor kärnor och 4 GB minne.
-* Exponerar TCP-port 5000 och allokerar en pseudo-TTY för behållaren.
-* Tar automatiskt bort behållaren när den har avslut ATS. Behållar avbildningen är fortfarande tillgänglig på värddatorn.
+* Runs a *Speech-to-text* container from the container image.
+* Allocates 4 CPU cores and 4 gigabytes (GB) of memory.
+* Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
+* Automatically removes the container after it exits. The container image is still available on the host computer.
 
-# <a name="custom-speech-to-texttabcstt"></a>[Custom Speech till text](#tab/cstt)
+# <a name="custom-speech-to-texttabcstt"></a>[Custom Speech-to-text](#tab/cstt)
 
-*Custom Speech-till-text-* behållaren är beroende av en anpassad tal modell. Den anpassade modellen måste ha [tränats](how-to-custom-speech-train-model.md) med hjälp av den [anpassade tal portalen](https://speech.microsoft.com/customspeech). Det anpassade tal **modells-ID: t** krävs för att köra behållaren. Du hittar den på sidan **utbildning** i den anpassade tal portalen. Från den anpassade tal portalen navigerar du till sidan **utbildning** och väljer modellen.
+The *Custom Speech-to-text* container relies on a custom speech model. The custom model has to have been [trained](how-to-custom-speech-train-model.md) using the [custom speech portal](https://speech.microsoft.com/customspeech). The custom speech **Model ID** is required to run the container. It can be found on the **Training** page of the custom speech portal. From the custom speech portal, navigate to the **Training** page and select the model.
 <br>
 
-![Inlärnings sidan för anpassat tal](media/custom-speech/custom-speech-model-training.png)
+![Custom speech training page](media/custom-speech/custom-speech-model-training.png)
 
-Hämta **modell-ID: t** som ska användas som argument till parametern `ModelId` i `docker run` kommandot.
+Obtain the **Model ID** to use as the argument to the `ModelId` parameter of the `docker run` command.
 <br>
 
-![Information om anpassad tal modell](media/custom-speech/custom-speech-model-details.png)
+![Custom speech model details](media/custom-speech/custom-speech-model-details.png)
 
-Följande tabell visar de olika `docker run` parametrarna och deras motsvarande beskrivningar:
+The following table represents the various `docker run` parameters and their corresponding descriptions:
 
 | Parameter | Beskrivning |
 |---------|---------|
-| `{VOLUME_MOUNT}` | Värd datorns [volym montering](https://docs.docker.com/storage/volumes/), som docker använder för att bevara den anpassade modellen. Till exempel, *C:\CustomSpeech* där *C-enheten* finns på värddatorn. |
-| `{MODEL_ID}` | Custom Speech **modell-ID: t** från sidan **utbildning** i den anpassade tal portalen. |
-| `{ENDPOINT_URI}` | Slut punkten krävs för mätning och fakturering. Mer information finns i avsnittet om att [samla in obligatoriska parametrar](#gathering-required-parameters). |
-| `{API_KEY}` | API-nyckeln måste anges. Mer information finns i avsnittet om att [samla in obligatoriska parametrar](#gathering-required-parameters). |
+| `{VOLUME_MOUNT}` | The host computer [volume mount](https://docs.docker.com/storage/volumes/), which docker uses to persist the custom model. For example, *C:\CustomSpeech* where the *C drive* is located on the host machine. |
+| `{MODEL_ID}` | The Custom Speech **Model ID** from the **Training** page of the custom speech portal. |
+| `{ENDPOINT_URI}` | The endpoint is required for metering and billing. For more information, see [gathering required parameters](#gathering-required-parameters). |
+| `{API_KEY}` | The API key is required. For more information, see [gathering required parameters](#gathering-required-parameters). |
 
-Kör följande `docker run` kommando för att köra *Custom Speech-till-text-* behållaren:
+To run the *Custom Speech-to-text* container, execute the following `docker run` command:
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
@@ -292,19 +292,19 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-Det här kommandot:
+This command:
 
-* Kör en *Custom Speech-till-text-* behållare från behållar avbildningen.
-* Allokerar 4 processor kärnor och 4 GB minne.
-* Läser in *Custom Speech-till-text-* modellen från monteringen av volym indatakälla, till exempel *C:\CustomSpeech*.
-* Exponerar TCP-port 5000 och allokerar en pseudo-TTY för behållaren.
-* Laddar ned modellen med `ModelId` (om den inte finns på volym monteringen).
-* Om den anpassade modellen tidigare har hämtats ignoreras `ModelId`.
-* Tar automatiskt bort behållaren när den har avslut ATS. Behållar avbildningen är fortfarande tillgänglig på värddatorn.
+* Runs a *Custom Speech-to-text* container from the container image.
+* Allocates 4 CPU cores and 4 gigabytes (GB) of memory.
+* Loads the *Custom Speech-to-Text* model from the volume input mount, for example *C:\CustomSpeech*.
+* Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
+* Downloads the model given the `ModelId` (if not found on the volume mount).
+* If the custom model was previously downloaded, the `ModelId` is ignored.
+* Automatically removes the container after it exits. The container image is still available on the host computer.
 
 # <a name="text-to-speechtabtts"></a>[Text till tal](#tab/tts)
 
-Kör följande `docker run`-kommando om du vill köra en *text till tal* -behållare.
+To run the *Text-to-speech* container, execute the following `docker run` command.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
@@ -314,35 +314,35 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-Det här kommandot:
+This command:
 
-* Kör en *text till tal* -behållare från behållar avbildningen.
-* Allokerar 2 processor kärnor och en gigabyte (GB) minne.
-* Exponerar TCP-port 5000 och allokerar en pseudo-TTY för behållaren.
-* Tar automatiskt bort behållaren när den har avslut ATS. Behållar avbildningen är fortfarande tillgänglig på värddatorn.
+* Runs a *Text-to-speech* container from the container image.
+* Allocates 2 CPU cores and one gigabyte (GB) of memory.
+* Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
+* Automatically removes the container after it exits. The container image is still available on the host computer.
 
-# <a name="custom-text-to-speechtabctts"></a>[Anpassad text till tal](#tab/ctts)
+# <a name="custom-text-to-speechtabctts"></a>[Custom Text-to-speech](#tab/ctts)
 
-Den *anpassade text till tal* -behållaren är beroende av en anpassad röst modell. Den anpassade modellen måste ha [tränats](how-to-custom-voice-create-voice.md) med hjälp av den [anpassade röst portalen](https://aka.ms/custom-voice-portal). ID för anpassad röst **modell** krävs för att köra behållaren. Du hittar den på sidan **utbildning** i den anpassade röst portalen. Från den anpassade röst portalen går du till sidan **utbildning** och väljer modellen.
+The *Custom Text-to-speech* container relies on a custom voice model. The custom model has to have been [trained](how-to-custom-voice-create-voice.md) using the [custom voice portal](https://aka.ms/custom-voice-portal). The custom voice **Model ID** is required to run the container. It can be found on the **Training** page of the custom voice portal. From the custom voice portal, navigate to the **Training** page and select the model.
 <br>
 
-![Sidan anpassad röst utbildning](media/custom-voice/custom-voice-model-training.png)
+![Custom voice training page](media/custom-voice/custom-voice-model-training.png)
 
-Hämta **modell-ID: t** som ska användas som argument till `ModelId`-parametern för kommandot Docker Run.
+Obtain the **Model ID** to use as the argument to the `ModelId` parameter of the docker run command.
 <br>
 
-![Information om anpassad röst modell](media/custom-voice/custom-voice-model-details.png)
+![Custom voice model details](media/custom-voice/custom-voice-model-details.png)
 
-Följande tabell visar de olika `docker run` parametrarna och deras motsvarande beskrivningar:
+The following table represents the various `docker run` parameters and their corresponding descriptions:
 
 | Parameter | Beskrivning |
 |---------|---------|
-| `{VOLUME_MOUNT}` | Värd datorns [volym montering](https://docs.docker.com/storage/volumes/), som docker använder för att bevara den anpassade modellen. Till exempel, *C:\CustomSpeech* där *C-enheten* finns på värddatorn. |
-| `{MODEL_ID}` | Custom Speech **modell-ID: t** från sidan **utbildning** i den anpassade röst portalen. |
-| `{ENDPOINT_URI}` | Slut punkten krävs för mätning och fakturering. Mer information finns i avsnittet om att [samla in obligatoriska parametrar](#gathering-required-parameters). |
-| `{API_KEY}` | API-nyckeln måste anges. Mer information finns i avsnittet om att [samla in obligatoriska parametrar](#gathering-required-parameters). |
+| `{VOLUME_MOUNT}` | The host computer [volume mount](https://docs.docker.com/storage/volumes/), which docker uses to persist the custom model. For example, *C:\CustomSpeech* where the *C drive* is located on the host machine. |
+| `{MODEL_ID}` | The Custom Speech **Model ID** from the **Training** page of the custom voice portal. |
+| `{ENDPOINT_URI}` | The endpoint is required for metering and billing. For more information, see [gathering required parameters](#gathering-required-parameters). |
+| `{API_KEY}` | The API key is required. For more information, see [gathering required parameters](#gathering-required-parameters). |
 
-Kör följande `docker run` kommando om du vill köra en *anpassad text till tal* -behållare:
+To run the *Custom Text-to-speech* container, execute the following `docker run` command:
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
@@ -354,63 +354,63 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-Det här kommandot:
+This command:
 
-* Kör en *anpassad text till tal* -behållare från behållar avbildningen.
-* Allokerar 2 processor kärnor och en gigabyte (GB) minne.
-* Läser in den *anpassade text till tal-* modellen från monteringen av volym indataport, till exempel *C:\CustomVoice*.
-* Exponerar TCP-port 5000 och allokerar en pseudo-TTY för behållaren.
-* Laddar ned modellen med `ModelId` (om den inte finns på volym monteringen).
-* Om den anpassade modellen tidigare har hämtats ignoreras `ModelId`.
-* Tar automatiskt bort behållaren när den har avslut ATS. Behållar avbildningen är fortfarande tillgänglig på värddatorn.
+* Runs a *Custom Text-to-speech* container from the container image.
+* Allocates 2 CPU cores and one gigabyte (GB) of memory.
+* Loads the *Custom Text-to-speech* model from the volume input mount, for example *C:\CustomVoice*.
+* Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
+* Downloads the model given the `ModelId` (if not found on the volume mount).
+* If the custom model was previously downloaded, the `ModelId` is ignored.
+* Automatically removes the container after it exits. The container image is still available on the host computer.
 
 ***
 
 > [!IMPORTANT]
-> Den `Eula`, `Billing`, och `ApiKey` alternativ måste anges för att köra behållaren, i annat fall startar inte behållaren.  Mer information finns i [fakturering](#billing).
+> The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 
-## <a name="query-the-containers-prediction-endpoint"></a>Fråga behållarens förutsägelse slut punkt
+## <a name="query-the-containers-prediction-endpoint"></a>Query the container's prediction endpoint
 
 | Container | Slutpunkt | Protokoll |
 |--|--|--|
 | Tal till text | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` | WS |
-| Custom Speech till text | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` | WS |
+| Custom Speech-to-text | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` | WS |
 | Text till tal | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | HTTP |
-| Anpassad text till tal | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | HTTP |
+| Custom Text-to-speech | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | HTTP |
 
-Mer information om hur du använder WSS-och HTTPS-protokoll finns i [behållar säkerhet](../cognitive-services-container-support.md#azure-cognitive-services-container-security).
+For more information on using WSS and HTTPS protocols, see [container security](../cognitive-services-container-support.md#azure-cognitive-services-container-security).
 
 [!INCLUDE [Query Speech-to-text container endpoint](includes/speech-to-text-container-query-endpoint.md)]
 
-### <a name="text-to-speech-or-custom-text-to-speech"></a>Text till tal eller anpassad text till tal
+### <a name="text-to-speech-or-custom-text-to-speech"></a>Text-to-speech or Custom Text-to-speech
 
 [!INCLUDE [Query Text-to-speech container endpoint](includes/text-to-speech-container-query-endpoint.md)]
 
-### <a name="run-multiple-containers-on-the-same-host"></a>Kör flera behållare på samma värd
+### <a name="run-multiple-containers-on-the-same-host"></a>Run multiple containers on the same host
 
-Om du tänker köra flera behållare med exponerade portar ska du se till att köra varje behållare med en annan exponerad port. Kör till exempel den första behållaren på port 5000 och den andra behållaren på port 5001.
+If you intend to run multiple containers with exposed ports, make sure to run each container with a different exposed port. For example, run the first container on port 5000 and the second container on port 5001.
 
-Du kan ha den här behållaren och en annan Azure Cognitive Services-behållare som körs på värden tillsammans. Du kan också ha flera behållare av samma Cognitive Services-behållare som kör.
+You can have this container and a different Azure Cognitive Services container running on the HOST together. You also can have multiple containers of the same Cognitive Services container running.
 
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
-## <a name="stop-the-container"></a>Stoppa behållaren
+## <a name="stop-the-container"></a>Stop the container
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
-När du startar eller kör behållaren kan det uppstå problem. Använd en utmatnings [montering](speech-container-configuration.md#mount-settings) och aktivera loggning. På så sätt kan behållaren generera loggfiler som kan vara till hjälp vid fel sökning av problem.
+When starting or running the container, you may experience issues. Use an output [mount](speech-container-configuration.md#mount-settings) and enable logging. Doing so will allow the container to generate log files that are helpful when troubleshooting issues.
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
 ## <a name="billing"></a>Fakturering
 
-Tal behållarna skickar fakturerings information till Azure med hjälp av en *tal* resurs på ditt Azure-konto.
+The Speech containers send billing information to Azure, using a *Speech* resource on your Azure account.
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
-Mer information om alternativen finns i [konfigurera behållare](speech-container-configuration.md).
+For more information about these options, see [Configure containers](speech-container-configuration.md).
 
 <!--blogs/samples/video courses -->
 
@@ -418,23 +418,23 @@ Mer information om alternativen finns i [konfigurera behållare](speech-containe
 
 ## <a name="summary"></a>Sammanfattning
 
-I den här artikeln har du lärt dig begrepp och arbets flöde för att ladda ned, installera och köra tal behållare. Sammanfattningsvis:
+In this article, you learned concepts and workflow for downloading, installing, and running Speech containers. Sammanfattning:
 
-* Tal innehåller fyra Linux-behållare för Docker, vilket kapslar olika funktioner:
+* Speech provides four Linux containers for Docker, encapsulating various capabilities:
   * *Tal till text*
-  * *Custom Speech till text*
+  * *Custom Speech-to-text*
   * *Text till tal*
-  * *Anpassad text till tal*
-* Behållar avbildningar hämtas från behållar registret i Azure.
-* Behållaravbildningar som körs i Docker.
-* Du kan använda antingen REST API eller SDK för att anropa åtgärder i tal behållare genom att ange behållarens värd-URI.
-* Du måste ange fakturerings information när du instansierar en behållare.
+  * *Custom Text-to-speech*
+* Container images are downloaded from the container registry in Azure.
+* Container images run in Docker.
+* You can use either the REST API or SDK to call operations in Speech containers by specifying the host URI of the container.
+* You're required to provide billing information when instantiating a container.
 
 > [!IMPORTANT]
->  Cognitive Services-behållare är inte licensierad för att köra inte är ansluten till Azure för att mäta. Kunder måste du aktivera behållarna för att kommunicera faktureringsinformation med tjänsten Avläsning av programvara vid alla tidpunkter. Cognitive Services-behållare Skicka inte kunddata (t.ex. bild eller text som analyseras) till Microsoft.
+>  Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (e.g., the image or text that is being analyzed) to Microsoft.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Granska [Konfigurera behållare](speech-container-configuration.md) för konfigurations inställningar
-* Lär dig hur du [använder tal tjänst behållare med Kubernetes och Helm](speech-container-howto-on-premises.md)
-* Använd fler [Cognitive Services behållare](../cognitive-services-container-support.md)
+* Review [configure containers](speech-container-configuration.md) for configuration settings
+* Learn how to [use Speech Service containers with Kubernetes and Helm](speech-container-howto-on-premises.md)
+* Use more [Cognitive Services containers](../cognitive-services-container-support.md)

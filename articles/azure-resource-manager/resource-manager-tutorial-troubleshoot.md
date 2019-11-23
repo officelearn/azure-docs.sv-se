@@ -1,24 +1,24 @@
 ---
-title: Felsöka distributioner
-description: Lär dig hur du övervakar och felsöker distributioner av Azure Resource Manager mallar. Visar aktivitets loggar och distributions historik.
+title: Felsök distributioner
+description: Learn how to monitor and troubleshoot Azure Resource Manager template deployments. Shows activity logs and deployment history.
 author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: be390b35a69f44aae38bec100deb2d3c07ad6355
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 32f3f55df2b87b35672d811c63a21b956a8a4b52
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149327"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325362"
 ---
-# <a name="tutorial-troubleshoot-resource-manager-template-deployments"></a>Självstudie: Felsöka distributioner av Resource Manager-mallar
+# <a name="tutorial-troubleshoot-resource-manager-template-deployments"></a>Tutorial: Troubleshoot Resource Manager template deployments
 
 Lär dig hur du felsöker fel i Resource Manager-malldistributioner. I den här självstudien konfigurerar du två fel i en mall och lär dig hur du använder aktivitetsloggar och distributionshistoriken för att lösa problemen.
 
 Det finns två typer av fel som rör malldistribution:
 
-- **Valideringsfel** uppstår från scenarier som kan fastställas före distributionen. De innehåller syntaxfel i mallen eller försöker distribuera resurser som skulle överskrida prenumerationskvoterna. 
+- **Valideringsfel** uppstår från scenarier som kan fastställas före distributionen. De innehåller syntaxfel i mallen eller försöker distribuera resurser som skulle överskrida prenumerationskvoterna.
 - **Distributionsfel** uppstår från förhållanden som inträffar under distributionsprocessen. De omfattar försök att få åtkomst till en resurs som distribueras parallellt.
 
 Båda typerna av fel returnerar en felkod som du använder för att felsöka distributionen. Båda typerna av fel visas i aktivitetsloggen. Dock visas valideringsfel inte i distributionshistoriken eftersom distributionen aldrig startades.
@@ -39,7 +39,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 För att kunna följa stegen i den här artikeln behöver du:
 
-- [Visual Studio Code](https://code.visualstudio.com/) med [verktygstillägget för Resource Manager](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](./resource-manager-tools-vs-code.md).
 
 ## <a name="create-a-problematic-template"></a>Skapa en problemmall
 

@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skicka en sökbegäran till REST API för entitetssökning i Bing med hjälp av Node.js'
+title: 'Quickstart: Send a search request to the REST API using Node.js - Bing Entity Search'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten om du vill skicka en begäran till REST API för entitetssökning i Bing med hjälp av C# och få ett JSON-svar.
 services: cognitive-services
@@ -10,20 +10,20 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: e56bf0b3daa38f79e637ece947414b885de3797a
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 48d2b36e35a2e0b41b1202beda9944339dc7530c
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478971"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327119"
 ---
-# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>Snabbstart: Skicka en sökbegäran till REST API för entitetssökning i Bing med hjälp av Node.js
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>Quickstart: Send a search request to the Bing Entity Search REST API using Node.js
 
 Använd den här snabbstarten för att göra ditt första anrop till API för entitetssökning i Bing och visa JSON-svaret. Det här enkla JavaScript-programmet skickar en nyhetssökfråga till API:et och visar svaret. Källkoden till det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingEntitySearchv7.js).
 
 Även om det här programmet är skrivet i JavaScript är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Den senaste versionen av [Node.js](https://nodejs.org/en/download/).
 
@@ -74,7 +74,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
         });
         ```
 
-    3. När en **slut** flagga signaleras, tolkar du JSON och skriver ut den.
+    3. When an **end** flag is signaled, parse the JSON, and print it.
 
         ```javascript
         response.on ('end', function () {

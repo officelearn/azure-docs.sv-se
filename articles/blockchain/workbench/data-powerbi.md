@@ -1,21 +1,15 @@
 ---
 title: Använd Azure Blockchain Workbench-data i Microsoft Power BI
 description: Lär dig hur du läser in och visar SQL DB-data i Azure Blockchain Workbench i Microsoft Power BI.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
 ms.date: 05/09/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: mmercuri
-manager: femila
-ms.openlocfilehash: dcb6729581d5282b32359874eaad22050d0d2048
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e1f160c3563a280548c74ebe84f30bf08945c3f
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510696"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74324797"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-microsoft-power-bi"></a>Använda Azure Blockchain Workbench-data med Microsoft Power BI
 
@@ -23,11 +17,11 @@ Med Microsoft Power BI kan du enkelt generera kraftfulla rapporter från SQL DB-
 
 Den här artikeln beskriver steg för steg hur du ansluter till SQL-databasen i Azure Blockchain Workbench från PowerBI Desktop, skapar en rapport och sedan distribuerar rapporten till powerbi.com.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-* Ladda ned [Power BI Desktop](https://aka.ms/pbidesktopstore).
+* Download [Power BI Desktop](https://aka.ms/pbidesktopstore).
 
-## <a name="connecting-power-bi-to-data-in-azure-blockchain-workbench"></a>Ansluta Power BI till data i Azure Blockchain Workbench
+## <a name="connecting-power-bi-to-data-in-azure-blockchain-workbench"></a>Connecting Power BI to data in Azure Blockchain Workbench
 
 1.  Öppna Power BI Desktop.
 2.  Välj **Hämta data**.
@@ -49,7 +43,7 @@ Den här artikeln beskriver steg för steg hur du ansluter till SQL-databasen i 
 
     ![Navigatör](./media/data-powerbi/navigator.png)
 
-7.  Välj de vyer som du vill ta med. I demonstrationssyfte, inkluderar vi **vwContractAction**, som innehåller information om de åtgärder som har ägt rum på ett kontrakt.
+7.  Välj de vyer som du vill ta med. For demonstration purposes, we include **vwContractAction**, which provides details on the actions that have taken place on a contract.
 
     ![Välja vyer](./media/data-powerbi/select-views.png)
 

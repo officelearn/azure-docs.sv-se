@@ -10,12 +10,12 @@ ms.subservice: luis
 ms.topic: include
 ms.date: 11/05/2019
 ms.author: diberry
-ms.openlocfilehash: b65bf177d98d5b0bcbaf9e9eaf06707b43ed7032
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 47913f86edcf83825254775705e38310f3c2c6b4
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647467"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325895"
 ---
 För att få en LUIS-förutsägelse i en chattrobot eller i ett annat klientprogram, måste du publicera appen på slutpunkten. 
 
@@ -27,8 +27,8 @@ För att få en LUIS-förutsägelse i en chattrobot eller i ett annat klientprog
 
     ![LUIS-publicering till slutpunkt](../media/howto-publish/publish-app-popup.png)
 
-3. Publiceringen är klar när du ser det gröna statusfältet som bekräftar att det är klart längst upp på webbplatsen.
+3. Publishing is complete when you see the status bar at the top of the page confirming success.
 
     ![LUIS-publicering till slutpunkt](../media/howto-publish/publish-endpoint-success.png)
 
-4. Välj länken **åtkomst till slut punkts-URL: er** i meddelandet för att gå till sidan **Azure-resurser** . Slut punkts-URL: erna visas som **exempel fråga**.
+4. Select the **Access your endpoint URLs** link in the notification to go to the **Azure Resources** page. The endpoint URLs are listed as the **Example Query**.

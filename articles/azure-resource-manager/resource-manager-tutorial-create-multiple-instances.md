@@ -5,18 +5,18 @@ author: mumian
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 73d8abcbc6e902855592f4bf3ca0373b8582130d
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: df41094d163b8e3ecb78827df1a52dafab0aec1f
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150432"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326518"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Självstudie: Skapa flera resursinstanser med Resource Manager-mallar
 
 Lär dig hur du upprepar en Azure Resource Manager-mall för att distribuera flera instanser av en Azure-resurs. I den här självstudien ändrar du en mall för att skapa tre lagringskontoinstanser.
 
-![Skapa diagram med Azure Resource Manager flera instanser](./media/resource-manager-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances-diagram.png)
+![Azure Resource Manager creates multiple instances diagram](./media/resource-manager-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances-diagram.png)
 
 Den här självstudien omfattar följande uppgifter:
 
@@ -31,7 +31,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 För att kunna följa stegen i den här artikeln behöver du:
 
-* [Visual Studio Code](https://code.visualstudio.com/) med [verktygstillägget för Resource Manager](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](./resource-manager-tools-vs-code.md).
 
 ## <a name="open-a-quickstart-template"></a>Öppna en snabbstartsmall
 
@@ -49,7 +49,7 @@ För att kunna följa stegen i den här artikeln behöver du:
 
 ## <a name="edit-the-template"></a>Redigera mallen
 
-Den befintliga mallen skapar ett lagringskonto. Du kan anpassa mallen för att skapa tre lagringskonton.  
+Den befintliga mallen skapar ett lagringskonto. Du kan anpassa mallen för att skapa tre lagringskonton.
 
 Från Visual Studio Code gör du följande fyra ändringar:
 

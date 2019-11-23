@@ -1,24 +1,24 @@
 ---
-title: Mall med beroende resurser
+title: Template with dependent resources
 description: Lär dig hur du skapar en Azure Resource Manager-mall med flera resurser samt hur du distribuerar den med hjälp av Azure-portalen
 author: mumian
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3e7d397b097691b79f4f74dfd5aa9079af3a84f9
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: ef26074b0dd6450895c6aa81d5ab8853e652b41e
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149358"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325395"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Självstudie: Skapa Azure Resource Manager-mallar med beroende resurser
 
-Lär dig hur du skapar en Azure Resource Manager-mall för att distribuera flera resurser och konfigurera distributions ordningen. När du har skapat mallen distribuerar du mallen med hjälp av Cloud Shell från Azure-portalen.
+Learn how to create an Azure Resource Manager template to deploy multiple resources and configure the deployment order. När du har skapat mallen distribuerar du mallen med hjälp av Cloud Shell från Azure-portalen.
 
 I den här självstudien skapar du ett lagringskonto, en virtuell dator, ett virtuellt nätverk och några andra beroende resurser. Vissa resurser kan inte distribueras förrän en annan resurs finns. Till exempel kan du inte skapa den virtuella datorn förrän dess lagringskonto och nätverksgränssnitt finns. Du kan definiera den här relationen genom att göra en resurs beroende av de andra resurserna. Resource Manager utvärderar beroenden mellan resurser och distribuerar dem i beroendeordning. När resurserna inte är beroende av varandra distribuerar Resource Manager dem parallellt. Mer information finns på sidan om att [definiera ordningen för distribution av resurser i Azure Resource Manager-mallar](./resource-group-define-dependencies.md).
 
-![distributions ordnings diagram för resurser i Resource Manager-mall](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-dependent-resources-diagram.png)
+![resource manager template dependent resources deployment order diagram](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-dependent-resources-diagram.png)
 
 Den här självstudien omfattar följande uppgifter:
 
@@ -33,7 +33,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 För att kunna följa stegen i den här artikeln behöver du:
 
-* [Visual Studio Code](https://code.visualstudio.com/) med verktygstillägget för Resource Manager.  Se [Installera tillägget](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](./resource-manager-tools-vs-code.md).
 * För att förbättra säkerheten bör du använda ett genererat lösenord för den virtuella datorns administratörskonto. Här är ett exempel för att generera ett lösenord:
 
     ```azurecli-interactive
@@ -84,7 +84,7 @@ När du utforskar mallen i det här avsnittet kan du försöka besvara följande
 3. Expandera den andra resursen. Resurstypen är `Microsoft.Network/publicIPAddresses`. Jämför resursdefinitionen med [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
 
     ![Definition av offentlig IP-adress för Azure Resource Manager-mallar i Visual Studio Code](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
-4. Expandera den fjärde resursen. Resurstypen är `Microsoft.Network/networkInterfaces`:  
+4. Expandera den fjärde resursen. Resurstypen är `Microsoft.Network/networkInterfaces`:
 
     ![Azure Resource Manager-mallar i Visual Studio Code – dependson](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
 
@@ -110,14 +110,14 @@ Genom att ange beroendena distribuerar Resource Manager effektivt lösningen. De
 
 Det finns många metoder för att distribuera mallar.  I den här självstudien använder du Cloud Shell från Azure-portalen.
 
-1. Logga in på [Cloud Shell](https://shell.azure.com). 
+1. Logga in på [Cloud Shell](https://shell.azure.com).
 2. Välj **PowerShell** högst upp till vänster i Cloud Shell och välj sedan **Bekräfta**.  Du använder PowerShell i den här självstudien.
 3. Välj **Ladda upp fil** från Cloud Shell:
 
     ![Azure portal Cloud shell upload file](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-upload-file.png)
 4. Välj den mall som du sparade tidigare i självstudien. Standardnamnet är **azuredeploy.json**.  Om du har en fil med samma namn skrivs den gamla filen över utan något meddelande.
 
-    Alternativt kan du använda kommandona **ls $HOME** och **cat $HOME/azuredeploy.json** för att kontrollera att filerna laddas upp. 
+    Alternativt kan du använda kommandona **ls $HOME** och **cat $HOME/azuredeploy.json** för att kontrollera att filerna laddas upp.
 
 5. Från Cloud Shell kör du följande PowerShell-kommandon. För att förbättra säkerheten bör du använda ett genererat lösenord för den virtuella datorns administratörskonto. Se [Förutsättningar](#prerequisites).
 

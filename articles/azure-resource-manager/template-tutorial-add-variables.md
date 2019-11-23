@@ -1,60 +1,60 @@
 ---
-title: Självstudie – Lägg till variabel till mall
-description: Lägg till variabler i Azure Resource Manager-mallen för att förenkla syntaxen.
+title: Tutorial - add variable to template
+description: Add variables to your Azure Resource Manager template to simplify the syntax.
 author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 9af6b9028dbc5b01c3d0ec9dc41f145e37c31b0e
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 0598da3c060b8a8055ffb045fe4aae60b3806060
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74147974"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406041"
 ---
-# <a name="tutorial-add-variables-to-your-resource-manager-template"></a>Självstudie: Lägg till variabler i Resource Manager-mallen
+# <a name="tutorial-add-variables-to-your-resource-manager-template"></a>Tutorial: Add variables to your Resource Manager template
 
-I den här självstudien får du lära dig hur du lägger till en variabel i mallen. Variabler fören klar dina mallar genom att göra det möjligt att skriva ett uttryck en gång och återanvända det i hela mallen. Den här självstudien tar **7 minuter** att slutföra.
+In this tutorial, you learn how to add a variable to your template. Variables simplify your templates by enabling you to write an expression once and reuse it throughout the template. This tutorial takes **7 minutes** to complete.
 
 ## <a name="prerequisites"></a>Krav
 
-Vi rekommenderar att du slutför [självstudien om functions](template-tutorial-add-functions.md), men det är inte obligatoriskt.
+We recommend that you complete the [tutorial about functions](template-tutorial-add-functions.md), but it's not required.
 
-Du måste ha Visual Studio Code med Resource Manager Tools-tillägget och antingen Azure PowerShell eller Azure CLI. Mer information finns i [verktyg för mallar](template-tutorial-create-first-template.md#get-tools).
+You must have Visual Studio Code with the Resource Manager Tools extension, and either Azure PowerShell or Azure CLI. For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-your-template"></a>Granska mallen
+## <a name="review-template"></a>Review template
 
-I slutet av den föregående själv studie kursen hade mallen följande JSON:
+At the end of the previous tutorial, your template had the following JSON:
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-location/azuredeploy.json)]
 
-Parametern för lagrings konto namnet är svår att använda eftersom du måste ange ett unikt namn. Om du har slutfört de tidigare självstudierna i den här serien är du förmodligen trött på att gissa ett unikt namn. Du löser problemet genom att lägga till en variabel som skapar ett unikt namn för lagrings kontot.
+The parameter for the storage account name is hard-to-use because you have to provide a unique name. If you've completed the earlier tutorials in this series, you're probably tired of guessing a unique name. You solve this problem by adding a variable that constructs a unique name for the storage account.
 
-## <a name="use-variable"></a>Använd variabel
+## <a name="use-variable"></a>Use variable
 
-I följande exempel visas ändringarna för att lägga till en variabel i mallen som skapar ett unikt lagrings konto namn. Kopiera hela filen och ersätt din mall med dess innehåll.
+The following example highlights the changes to add a variable to your template that creates a unique storage account name. Copy the whole file and replace your template with its contents.
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json?range=1-47&highlight=5-9,29-31,36)]
 
-Observera att det innehåller en variabel med namnet **uniqueStorageName**. Den här variabeln använder fyra funktioner för att skapa ett sträng värde.
+Notice that it includes a variable named **uniqueStorageName**. This variable uses four functions to construct a string value.
 
-Du är redan bekant med [parameter](resource-group-template-functions-deployment.md#parameters) funktionen, så vi kommer inte att undersöka den.
+You're already familiar with the [parameters](resource-group-template-functions-deployment.md#parameters) function, so we won't examine it.
 
-Du är också bekant med funktionen [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) . I det här fallet får du egenskapen **ID** i stället för egenskapen **location** , som du ser i den föregående själv studie kursen. Egenskapen **ID** returnerar resurs gruppens fullständiga identifierare, inklusive PRENUMERATIONS-ID och resurs grupps namn.
+You're also familiar with the [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) function. In this case, you get the **id** property instead of the **location** property, as shown in the previous tutorial. The **id** property returns the full identifier of the resource group, including the subscription ID and resource group name.
 
-Funktionen [uniqueString](resource-group-template-functions-string.md#uniquestring) skapar en 13-siffrig hash-värde. Det returnerade värdet bestäms av de parametrar som du skickar i. I den här självstudien använder du resurs gruppens ID som inmatad för hash-värdet. Det innebär att du kan distribuera den här mallen till olika resurs grupper och hämta ett annat unikt sträng värde. Men du får samma värde om du distribuerar till samma resurs grupp.
+The [uniqueString](resource-group-template-functions-string.md#uniquestring) function creates a 13 character hash value. The returned value is determined by the parameters you pass in. For this tutorial, you use the resource group ID as the input for the hash value. That means you could deploy this template to different resource groups and get a different unique string value. However, you get the same value if you deploy to the same resource group.
 
-Funktionen [concat](resource-group-template-functions-string.md#concat) tar värden och kombinerar dem. För den här variabeln tar den strängen från parametern och strängen från uniqueString-funktionen och kombinerar dem till en sträng.
+The [concat](resource-group-template-functions-string.md#concat) function takes values and combines them. For this variable, it takes the string from the parameter and the string from the uniqueString function, and combines them into one string.
 
-Med parametern **storagePrefix** kan du skicka ett prefix som hjälper dig att identifiera lagrings konton. Du kan skapa en egen namngivnings konvention som gör det lättare att identifiera lagrings konton efter distribution från en lång lista med resurser.
+The **storagePrefix** parameter enables you to pass in a prefix that helps you identify storage accounts. You can create your own naming convention that makes it easier to identify storage accounts after deployment from a long list of resources.
 
-Lägg slutligen märke till att lagrings namnet nu är inställt på variabeln i stället för en parameter.
+Finally, notice that the storage name is now set to the variable instead of a parameter.
 
-## <a name="deploy-the-template"></a>Distribuera mallen
+## <a name="deploy-template"></a>Distribuera mallen
 
-Nu ska vi distribuera mallen. Att distribuera den här mallen är enklare än tidigare mallar eftersom du bara anger prefixet för lagrings namnet.
+Let's deploy the template. Deploying this template is easier than the previous templates because you provide just the prefix for the storage name.
 
-Om du inte har skapat resurs gruppen, se [skapa resurs grupp](template-tutorial-create-first-template.md#create-resource-group). Exemplet förutsätter att du har angett **templateFile** -variabeln till sökvägen till mallfilen, som du ser i den [första självstudien](template-tutorial-create-first-template.md#deploy-template).
+If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the **templateFile** variable to the path to the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -79,20 +79,20 @@ az group deployment create \
 
 ---
 
-## <a name="verify-the-deployment"></a>Verifiera distributionen
+## <a name="verify-deployment"></a>Verifiera distributionen
 
-Du kan kontrol lera distributionen genom att utforska resurs gruppen från Azure Portal.
+You can verify the deployment by exploring the resource group from the Azure portal.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Välj **resurs grupper**på den vänstra menyn.
-1. Välj den resurs grupp som du har distribuerat till.
-1. Du ser att en lagrings konto resurs har distribuerats. Namnet på lagrings kontot är **lagrat** plus en sträng med slumpmässiga tecken.
+1. From the left menu, select **Resource groups**.
+1. Select the resource group you deployed to.
+1. You see that a storage account resource has been deployed. The name of the storage account is **store** plus a string of random characters.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du går vidare till nästa självstudie behöver du inte ta bort resurs gruppen.
+If you're moving on to the next tutorial, you don't need to delete the resource group.
 
-Om du stoppar nu kanske du vill rensa de resurser som du har distribuerat genom att ta bort resurs gruppen.
+If you're stopping now, you might want to clean up the resources you deployed by deleting the resource group.
 
 1. Från Azure-portalen väljer du **Resursgrupp** från den vänstra menyn.
 2. Ange resursgruppens namn i fältet **Filtrera efter namn**.
@@ -101,7 +101,7 @@ Om du stoppar nu kanske du vill rensa de resurser som du har distribuerat genom 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lagt till en variabel som skapar ett unikt namn för ett lagrings konto. I nästa självstudie returnerar du ett värde från det distribuerade lagrings kontot.
+In this tutorial, you added a variable that creates a unique name for a storage account. In the next tutorial, you return a value from the deployed storage account.
 
 > [!div class="nextstepaction"]
-> [Lägg till utdata](template-tutorial-add-outputs.md)
+> [Add outputs](template-tutorial-add-outputs.md)

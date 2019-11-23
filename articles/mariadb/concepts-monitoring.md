@@ -1,62 +1,70 @@
 ---
-title: Övervakning i Azure Database for MariaDB
-description: Den här artikeln beskriver måtten för övervakning och aviseringar för Azure Database for MariaDB, inklusive CPU, lagring och anslutnings statistik.
+title: Monitoring in Azure Database for MariaDB
+description: This article describes the metrics for monitoring and alerting for Azure Database for MariaDB, including CPU, storage, and connection statistics.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2f4346dfdb095e849adc65baf0fd31d25d03c4a7
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: e3c25798be8af26c1f5e5c1178395cd1688bb132
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73604068"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74382052"
 ---
-# <a name="monitoring-in-azure-database-for-mariadb"></a>Övervakning i Azure Database for MariaDB
-Genom att övervaka data om dina servrar kan du felsöka och optimera för din arbets belastning. Azure Database for MariaDB tillhandahåller olika mått som ger inblick i serverns beteende.
+# <a name="monitoring-in-azure-database-for-mariadb"></a>Monitoring in Azure Database for MariaDB
+Monitoring data about your servers helps you troubleshoot and optimize for your workload. Azure Database for MariaDB provides various metrics that give insight into the behavior of your server.
 
 ## <a name="metrics"></a>Mått
-Alla Azure-mått har en frekvens på en minut och varje mått ger 30 dagars historik. Du kan konfigurera aviseringar för måtten. Andra uppgifter är att ställa in automatiserade åtgärder, utföra avancerad analys och lagrings historik. Mer information finns i [Översikt över Azure Metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. Other tasks include setting up automated actions, performing advanced analytics, and archiving history. For more information, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-Steg för steg-anvisningar finns i [så här konfigurerar du aviseringar](howto-alert-metric.md).
+For step by step guidance, see [How to set up alerts](howto-alert-metric.md).
 
-### <a name="list-of-metrics"></a>Lista över mått
-De här måtten är tillgängliga för Azure Database for MariaDB:
+### <a name="list-of-metrics"></a>List of metrics
+These metrics are available for Azure Database for MariaDB:
 
-|Mått|Mått visnings namn|Enhet|Beskrivning|
+|Mått|Metric Display Name|Enhet|Beskrivning|
 |---|---|---|---|
-|cpu_percent|CPU-procent|Procent|Procent andelen CPU som används.|
-|memory_percent|Minnes procent|Procent|Procent andelen minne som används.|
-|io_consumption_percent|I/o procent|Procent|Procent andelen av IO som används.|
-|storage_percent|Lagrings procent|Procent|Procent andelen lagring som används av serverns högsta värde.|
-|storage_used|Använt lagringsutrymme|Skickade|Mängden lagring som används. Lagrings utrymmet som används av tjänsten kan omfatta databasfilerna, transaktions loggarna och Server loggarna.|
-|serverlog_storage_percent|Server logg lagrings procent|Procent|Procent andelen Server logg lagring som används av serverns maximala Server logg lagring.|
-|serverlog_storage_usage|Server logg lagring används|Skickade|Mängden Server logg lagring som används.|
-|serverlog_storage_limit|Server logg lagrings gräns|Skickade|Den maximala Server logg lagringen för den här servern.|
-|storage_limit|Lagrings gräns|Skickade|Det maximala lagrings utrymmet för den här servern.|
-|active_connections|Aktiva anslutningar|Antal|Antalet aktiva anslutningar till servern.|
-|connections_failed|Misslyckade anslutningar|Antal|Antalet misslyckade anslutningar till servern.|
-|network_bytes_egress|Nätverk – utgående|Skickade|Nätverk ut över aktiva anslutningar.|
-|network_bytes_ingress|Nätverk – inkommande|Skickade|Nätverk i över aktiva anslutningar.|
+|cpu_percent|CPU percent|Procent|The percentage of CPU in use.|
+|memory_percent|Memory percent|Procent|The percentage of memory in use.|
+|io_consumption_percent|IO percent|Procent|The percentage of IO in use.|
+|storage_percent|Storage percentage|Procent|The percentage of storage used out of the server's maximum.|
+|storage_used|Använt lagringsutrymme|Bytes|The amount of storage in use. The storage used by the service may include the database files, transaction logs, and the server logs.|
+|serverlog_storage_percent|Server Log storage percent|Procent|The percentage of server log storage used out of the server's maximum server log storage.|
+|serverlog_storage_usage|Server Log storage used|Bytes|The amount of server log storage in use.|
+|serverlog_storage_limit|Server Log storage limit|Bytes|The maximum server log storage for this server.|
+|storage_limit|Storage limit|Bytes|The maximum storage for this server.|
+|active_connections|Active Connections|Antal|The number of active connections to the server.|
+|connections_failed|Misslyckade anslutningar|Antal|The number of failed connections to the server.|
+|network_bytes_egress|Nätverk – utgående|Bytes|Network Out across active connections.|
+|network_bytes_ingress|Nätverk – inkommande|Bytes|Network In across active connections.|
 
 ## <a name="server-logs"></a>Serverloggar
 
-Du kan aktivera långsam loggning av frågor på servern. Dessa loggar är också tillgängliga via Azure-diagnostikloggar i Azure Monitor loggar, Event Hubs och lagrings konto. Läs mer om loggning på sidan [Server loggar](concepts-server-logs.md) .
+You can enable slow query logging on your server. These logs are also available through Azure Diagnostic Logs in Azure Monitor logs, Event Hubs, and Storage Account. To learn more about logging, visit the [server logs](concepts-server-logs.md) page.
 
 ## <a name="query-store"></a>Query Store
 
-[Query Store](concepts-query-store.md) håller reda på frågornas prestanda över tid, inklusive körnings statistik för frågor och vänta-händelser. Funktionen fortsätter att köra prestanda information om körningen i **MySQL** -schemat. Du kan styra insamling och lagring av data via olika konfigurations rattar.
+[Query Store](concepts-query-store.md) keeps track of query performance over time including query runtime statistics and wait events. The feature persists query runtime performance information in the **mysql** schema. You can control the collection and storage of data via various configuration knobs.
 
 ## <a name="query-performance-insight"></a>Query Performance Insight
 
-[Query Performance Insight](concepts-query-performance-insight.md) arbetar tillsammans med Query Store för att tillhandahålla visualiseringar som är tillgängliga från Azure Portal. Med de här diagrammen kan du identifiera viktiga frågor som påverkar prestanda. Query Performance Insight är tillgängligt i avsnittet **intelligent prestanda** på Azure Database for MariaDB servers Portal sida.
+[Query Performance Insight](concepts-query-performance-insight.md) works in conjunction with Query Store to provide visualizations accessible from the Azure portal. These charts enable you to identify key queries that impact performance. Query Performance Insight is accessible in the **Intelligent Performance** section of your Azure Database for MariaDB server's portal page.
 
 ## <a name="performance-recommendations"></a>Prestandarekommendationer
 
-Funktionen [prestanda rekommendationer](concepts-performance-recommendations.md) identifierar möjligheter att förbättra arbets Belastningens prestanda. Prestanda rekommendationer ger dig rekommendationer för att skapa nya index som kan förbättra prestandan för dina arbets belastningar. För att skapa index rekommendationer tar funktionen hänsyn till olika databas egenskaper, inklusive schema och arbets belastningen som rapporteras av Frågearkivet. När du har implementerat en prestanda rekommendation bör kunderna testa prestanda för att utvärdera effekten av dessa ändringar.
+The [Performance Recommendations](concepts-performance-recommendations.md) feature identifies opportunities to improve workload performance. Performance Recommendations provides you with recommendations for creating new indexes that have the potential to improve the performance of your workloads. To produce index recommendations, the feature takes into consideration various database characteristics, including its schema and the workload as reported by Query Store. After implementing any performance recommendation, customers should test performance to evaluate the impact of those changes.
+
+## <a name="service-health"></a>Service Health
+[Azure Service health](../service-health/overview.md) provides a view of all service health notifications in your subscription. You can set up Service Health alerts to notify you via your preferred communication channels when there are issues or changes that may affect the Azure services and regions you use.
+
+You can view scheduled maintenance events for Azure Database for MariaDB by using the **planned maintenance** event type. To learn how to create **service health alerts**, visit the [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications.md) article.
+
+> [!IMPORTANT]
+> The planned maintenance notifications is available in preview for EAST US and UK South only.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om hur du får åtkomst till och exporterar mått med hjälp av Azure Portal, REST API eller CLI finns i [Översikt över Azure Metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
-  - Se [hur du ställer in aviseringar](howto-alert-metric.md) för vägledning om hur du skapar en avisering på ett mått.
+- For more information on how to access and export metrics using the Azure portal, REST API, or CLI, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+  - See [How to set up alerts](howto-alert-metric.md) for guidance on creating an alert on a metric.

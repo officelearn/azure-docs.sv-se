@@ -1,53 +1,53 @@
 ---
-title: Felsöka och iterera med Visual Studio Code och .NET Core på Kubernetes med hjälp av Azure dev Spaces (Visual Studio Code)
+title: 'Debug and iterate on Kubernetes: Visual Studio Code & .NET Core'
 services: azure-dev-spaces
 ms.date: 07/08/2019
 ms.topic: quickstart
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 94bab8044ad9221fe9445dfa7c9e6912274bfe2b
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: HT
+ms.openlocfilehash: 278ec0683a7ddb3c41f724e06e8ca291d18e3bad
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279794"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325590"
 ---
-# <a name="quickstart-debug-and-iterate-with-visual-studio-code-and-net-core-on-kubernetes-using-azure-dev-spaces-visual-studio-code"></a>Snabb start: Felsöka och iterera med Visual Studio Code och .NET Core på Kubernetes med hjälp av Azure dev Spaces (Visual Studio Code)
+# <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio-code-and-net-core---azure-dev-spaces"></a>Quickstart: Debug and iterate on Kubernetes: Visual Studio Code and .NET Core - Azure Dev Spaces
 
 I den här guiden får du lära dig hur du:
 
-- Ställer in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
-- Utveckla en iterativ kod i behållare med hjälp av Visual Studio Code.
-- Felsök koden i ditt dev Space från Visual Studio Code.
+- Ställa in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
+- Iteratively develop code in containers using Visual Studio Code.
+- Debug the code in your dev space from Visual Studio Code.
 
-Med Azure dev Spaces kan du också felsöka och iterera med:
-- [Java och Visual Studio Code](quickstart-java.md)
-- [Node. js och Visual Studio Code](quickstart-nodejs.md)
-- [.NET Core och Visual Studio](quickstart-netcore-visualstudio.md)
+Azure Dev Spaces also allows you debug and iterate using:
+- [Java and Visual Studio Code](quickstart-java.md)
+- [Node.js and Visual Studio Code](quickstart-nodejs.md)
+- [.NET Core and Visual Studio](quickstart-netcore-visualstudio.md)
 
 ## <a name="prerequisites"></a>Krav
 
 - En Azure-prenumeration. Om du inte har någon, kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
-- [Visual Studio Code installerat](https://code.visualstudio.com/download).
-- [Azure dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) och [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) tillägg för Visual Studio Code installerat.
+- [Visual Studio Code installed](https://code.visualstudio.com/download).
+- The [Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) and [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) extensions for Visual Studio Code installed.
 - [Azure CLI installerat](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="create-an-azure-kubernetes-service-cluster"></a>Skapa ett Azure Kubernetes service-kluster
+## <a name="create-an-azure-kubernetes-service-cluster"></a>Create an Azure Kubernetes Service cluster
 
-Du måste skapa ett AKS-kluster i en [region som stöds][supported-regions]. Kommandona nedan skapar en resurs grupp med namnet *MyResourceGroup* och ett AKS-kluster som kallas *MyAKS*.
+You need to create an AKS cluster in a [supported region][supported-regions]. The below commands create a resource group called *MyResourceGroup* and an AKS cluster called *MyAKS*.
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
 az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --generate-ssh-keys
 ```
 
-## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Aktivera Azure dev Spaces i ditt AKS-kluster
+## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Enable Azure Dev Spaces on your AKS cluster
 
-Använd kommandot `use-dev-spaces` för att aktivera dev Spaces i ditt AKS-kluster och följa anvisningarna. Kommandot nedan aktiverar dev-utrymmen i *MyAKS* -klustret i gruppen *MyResourceGroup* och skapar ett *standard* dev-utrymme.
+Use the `use-dev-spaces` command to enable Dev Spaces on your AKS cluster and follow the prompts. The below command enables Dev Spaces on the *MyAKS* cluster in the *MyResourceGroup* group and creates a *default* dev space.
 
 > [!NOTE]
-> Kommandot `use-dev-spaces` installerar även Azure dev Spaces CLI om det inte redan är installerat. Det går inte att installera Azure dev Spaces CLI i Azure Cloud Shell.
+> The `use-dev-spaces` command will also install the Azure Dev Spaces CLI if its not already installed. You cannot install the Azure Dev Spaces CLI in the Azure Cloud Shell.
 
 ```cmd
 $ az aks use-dev-spaces -g MyResourceGroup -n MyAKS
@@ -67,93 +67,93 @@ Configuring and selecting dev space 'default'...3s
 Managed Kubernetes cluster 'MyAKS' in resource group 'MyResourceGroup' is ready for development in dev space 'default'. Type `azds prep` to prepare a source directory for use with Azure Dev Spaces and `azds up` to run.
 ```
 
-## <a name="get-sample-application-code"></a>Hämta exempel program kod
+## <a name="get-sample-application-code"></a>Get sample application code
 
-I den här artikeln använder du [exempel programmet Azure dev Spaces](https://github.com/Azure/dev-spaces) för att demonstrera användningen av Azure dev Spaces.
+In this article, you use the [Azure Dev Spaces sample application](https://github.com/Azure/dev-spaces) to demonstrate using Azure Dev Spaces.
 
-Klona programmet från GitHub.
+Clone the application from GitHub.
 
 ```cmd
 git clone https://github.com/Azure/dev-spaces
 ```
 
-## <a name="prepare-the-sample-application-in-visual-studio-code"></a>Förbereda exempel programmet i Visual Studio Code
+## <a name="prepare-the-sample-application-in-visual-studio-code"></a>Prepare the sample application in Visual Studio Code
 
-Öppna Visual Studio Code, klicka på *Arkiv* och *Öppna...* , navigera till katalogen *dev-Spaces/samples/dotnetcore/kom-start/webfrontend* och klicka på *Öppna*.
+Open Visual Studio Code, click *File* then *Open...* , navigate to the *dev-spaces/samples/dotnetcore/getting-started/webfrontend* directory, and click *Open*.
 
-Du har nu öppnat *webfrontend* -projektet i Visual Studio Code. Om du vill köra programmet i ditt dev-utrymme genererar du Docker-och Helm-diagrammets till gångar med tillägget Azure dev Spaces i paletten Command.
+You now have the *webfrontend* project open in Visual Studio Code. To run the application in your dev space, generate the Docker and Helm chart assets using the Azure Dev Spaces extension in the Command Palette.
 
-Öppna kommando paletten i Visual Studio Code genom att klicka på *Visa* och sedan på *kommando-palett*. Börja skriva `Azure Dev Spaces` och klicka på `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`.
+To open the Command Palette in Visual Studio Code, click *View* then *Command Palette*. Begin typing `Azure Dev Spaces` and click on `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`.
 
-![Förbereda konfigurationsfiler för Azure dev Spaces](./media/common/command-palette.png)
+![Prepare configuration files for Azure Dev Spaces](./media/common/command-palette.png)
 
-När Visual Studio Code meddelar dig även att du konfigurerar din offentliga slut punkt väljer du `Yes` för att aktivera en offentlig slut punkt.
+When Visual Studio Code also prompts you to configure your public endpoint, choose `Yes` to enable a public endpoint.
 
-![Välj offentlig slut punkt](media/common/select-public-endpoint.png)
+![Select public endpoint](media/common/select-public-endpoint.png)
 
-Det här kommandot förbereder projektet att köras i Azure dev Spaces genom att generera ett Dockerfile-och Helm-diagram. Den genererar också en *. VSCode* -katalog med fel söknings konfiguration i roten för ditt projekt.
+This command prepares your project to run in Azure Dev Spaces by generating a Dockerfile and Helm chart. It also generates a *.vscode* directory with debugging configuration at the root of your project.
 
-## <a name="build-and-run-code-in-kubernetes-from-visual-studio"></a>Skapa och kör kod i Kubernetes från Visual Studio
+## <a name="build-and-run-code-in-kubernetes-from-visual-studio"></a>Build and run code in Kubernetes from Visual Studio
 
-Klicka på ikonen *Felsök* till vänster och klicka på *.net Core Launch (AZDS)* överst.
+Click on the *Debug* icon on the left and click *.NET Core Launch (AZDS)* at the top.
 
 ![](media/get-started-netcore/debug-configuration.png)
 
-Det här kommandot skapar och kör tjänsten i Azure dev Spaces i fel söknings läge. *Terminalfönstret* längst ned visar Bygg utdata och URL: er för din tjänst som kör Azure dev Spaces. *Fel söknings konsolen* visar loggens utdata.
+This command builds and runs your service in Azure Dev Spaces in debugging mode. The *Terminal* window at the bottom shows the build output and URLs for your service running Azure Dev Spaces. The *Debug Console* shows the log output.
 
 > [!Note]
-> Om du inte ser några Azure dev Spaces-kommandon i *paletten*, kontrol lera att du har installerat [Visual Studio Code-tillägget för Azure dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds). Kontrol lera också att du *har öppnat katalogen dev-Spaces/samples/dotnetcore/Startbok/webfrontend* i Visual Studio Code.
+> If you don't see any Azure Dev Spaces commands in the *Command Palette*, make sure you have installed the [Visual Studio Code extension for Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds). Also verify you opened the *dev-spaces/samples/dotnetcore/getting-started/webfrontend* directory in Visual Studio Code.
 
-Du kan se den tjänst som körs genom att öppna den offentliga URL: en.
+You can see the service running by opening the public URL.
 
-Klicka på *Felsök* och *stoppa* fel sökningen för att stoppa fel söknings programmet.
+Click *Debug* then *Stop Debugging* to stop the debugger.
 
 ## <a name="update-code"></a>Uppdatera kod
 
-Om du vill distribuera en uppdaterad version av tjänsten kan du uppdatera alla filer i projektet och köra *.net Core Launch (AZDS)* igen. Exempel:
+To deploy an updated version of your service, you can update any file in your project and rerun *.NET Core Launch (AZDS)* . Exempel:
 
-1. Om programmet fortfarande körs klickar du på *Felsök* och *stoppar sedan fel sökningen* för att stoppa det.
-1. Uppdatera [rad 22 i `Controllers/HomeController.cs`](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Controllers/HomeController.cs#L22) till:
+1. If your application is still running, click *Debug* then *Stop Debugging* to stop it.
+1. Update [line 22 in `Controllers/HomeController.cs`](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Controllers/HomeController.cs#L22) to:
     
     ```csharp
     ViewData["Message"] = "Your application description page in Azure.";
     ```
 
 1. Spara ändringarna.
-1. Kör *.net Core Launch (AZDS)* igen.
-1. Gå till den tjänst som körs och klicka på *om*.
-1. Observera dina ändringar.
-1. Klicka på *Felsök* och *stoppa fel sökningen* för att stoppa programmet.
+1. Rerun *.NET Core Launch (AZDS)* .
+1. Navigate to your running service and click *About*.
+1. Observe your changes.
+1. Click *Debug* then *Stop Debugging* to stop your application.
 
-## <a name="setting-and-using-breakpoints-for-debugging"></a>Inställning och användning av Bryt punkter för fel sökning
+## <a name="setting-and-using-breakpoints-for-debugging"></a>Setting and using breakpoints for debugging
 
-Starta tjänsten i fel söknings läge med *.net Core Launch (AZDS)* .
+Start your service in debugging mode using *.NET Core Launch (AZDS)* .
 
-Gå tillbaka *till trädvyn genom* att klicka på *Visa* och sedan på *Explorer*. Öppna `Controllers/HomeController.cs` och klicka någonstans på rad 22 för att placera markören där. Ange en Bryt punkt genom att trycka på *F9* eller klicka på *Felsök* och sedan på *Växla Bryt punkt*.
+Navigate back to the *Explorer* view by clicking *View* then *Explorer*. Open `Controllers/HomeController.cs` and click somewhere on line 22 to put your cursor there. To set a breakpoint hit *F9* or click *Debug* then *Toggle Breakpoint*.
 
-Öppna din tjänst i en webbläsare och Observera att inget meddelande visas. Gå tillbaka till Visual Studio Code och Observera att rad 20 är markerad. Den Bryt punkten som du har angett har pausat tjänsten på rad 20. Tryck på *F5* eller klicka på *Felsök* och *Fortsätt*om du vill återuppta tjänsten. Gå tillbaka till webbläsaren och Observera att meddelandet visas nu.
+Open your service in a browser and notice no message is displayed. Return to Visual Studio Code and observe line 20 is highlighted. The breakpoint you set has paused the service at line 20. To resume the service, hit *F5* or click *Debug* then *Continue*. Return to your browser and notice the message is now displayed.
 
-När du kör tjänsten i Kubernetes med en fel sökare ansluten har du fullständig åtkomst till felsöknings information som anrops stack, lokala variabler och undantags information.
+While running your service in Kubernetes with a debugger attached, you have full access to debug information such as the call stack, local variables, and exception information.
 
-Ta bort Bryt punkten genom att placera markören på rad 22 i `Controllers/HomeController.cs` och trycka på *F9*.
+Remove the breakpoint by putting your cursor on line 22 in `Controllers/HomeController.cs` and hitting *F9*.
 
-## <a name="update-code-from-visual-studio-code"></a>Uppdatera kod från Visual Studio Code
+## <a name="update-code-from-visual-studio-code"></a>Update code from Visual Studio Code
 
-När tjänsten körs i fel söknings läge uppdaterar du rad 22 i `Controllers/HomeController.cs`. Exempel:
+While the service is running in debugging mode, update line 22 in `Controllers/HomeController.cs`. Exempel:
 
 ```csharp
 ViewData["Message"] = "Your application description page in Azure while debugging!";
 ```
 
-Spara filen. Klicka på *Felsök* och *starta om fel sökning* eller klicka på knappen *starta om fel sökning* i *verktygsfältet Felsök*.
+Spara filen. Click *Debug* then *Restart Debugging* or in the *Debug toolbar*, click the *Restart Debugging* button.
 
 ![](media/common/debug-action-refresh.png)
 
-Öppna din tjänst i en webbläsare och Observera att det uppdaterade meddelandet visas.
+Open your service in a browser and notice your updated message is displayed.
 
-I stället för att bygga om och omdistribuera en ny behållar avbildning varje tids kods redigering görs, kompilerar Azure dev Spaces stegvis om koden i den befintliga behållaren för att ge en snabbare redigerings-/fel söknings slinga.
+Instead of rebuilding and redeploying a new container image each time code edits are made, Azure Dev Spaces incrementally recompiles code within the existing container to provide a faster edit/debug loop.
 
-## <a name="clean-up-your-azure-resources"></a>Rensa dina Azure-resurser
+## <a name="clean-up-your-azure-resources"></a>Clean up your Azure resources
 
 ```cmd
 az group delete --name MyResourceGroup --yes --no-wait
@@ -161,7 +161,7 @@ az group delete --name MyResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur Azure dev Spaces hjälper dig att utveckla mer komplexa program över flera behållare och hur du kan förenkla samarbets utveckling genom att arbeta med olika versioner eller grenar av koden i olika utrymmen. 
+Learn how Azure Dev Spaces helps you develop more complex applications across multiple containers, and how you can simplify collaborative development by working with different versions or branches of your code in different spaces. 
 
 > [!div class="nextstepaction"]
 > [Arbeta med flera containrar och utveckling i team](multi-service-netcore.md)

@@ -1,7 +1,7 @@
 ---
-title: Planera din app-LUIS
+title: Plan your app - LUIS
 titleSuffix: Azure Cognitive Services
-description: Disponera relevanta appar och entiteter och skapa sedan dina program planer i Language Understanding intelligenta tjänster (LUIS).
+description: Outline relevant app intents and entities, and then create your application plans in Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,52 +9,56 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: b5e5df111b81cb60b6d194be190421bdb5ce2683
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6a155f4c43da03ccdc40d289742918973aa6da7b
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467710"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326779"
 ---
-# <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Planera ditt LUIS-AppData med ämnes domän och data extrahering
+# <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Plan your LUIS app schema with subject domain and data extraction
 
-Ett LUIS app-schema innehåller intentor och entiteter som är relevanta för din ämnes domän. Avsikten klassificerar användarens yttranden och enheterna extraherar data från användaren yttranden. 
+A LUIS app schema contains [intents](luis-glossary.md#intent) and [entities](luis-glossary.md#entity) relevant to your subject [domain](luis-glossary.md#domain). The intents classify user [utterances](luis-glossary.md#utterance), and the entities extract data from the user utterances.
 
-## <a name="identify-your-domain"></a>Identifiera din domän
+## <a name="identify-your-domain"></a>Identify your domain
 
-En LUIS-app är centrerad runt ett domänbaserat ämne.  Du kan till exempel ha en rese-app som utför bokning av biljetter, flygningar, hotell och hyr bilar. En annan app kan ge innehåll som handlar om hur man utövar, spårar lämplighet och ställer in mål. Att identifiera domänen hjälper dig att hitta ord eller fraser som är viktiga för din domän.
+A LUIS app is centered around a subject domain. For example, you may have a travel app that handles booking of tickets, flights, hotels, and rental cars. Another app may provide content related to exercising, tracking fitness efforts and setting goals. Identifying the domain helps you find words or phrases that are relevant to your domain.
 
 > [!TIP]
-> LUIS erbjuder [färdiga domäner](luis-how-to-use-prebuilt-domains.md) för många vanliga scenarier.
-> Kontrol lera om du kan använda en fördefinierad domän som start punkt för din app.
+> LUIS offers [prebuilt domains](luis-how-to-use-prebuilt-domains.md) for many common scenarios. Check to see if you can use a prebuilt domain as a starting point for your app.
 
-## <a name="identify-your-intents"></a>Identifiera dina avsikter
+## <a name="identify-your-intents"></a>Identify your intents
 
-Tänk på vilka [avsikter](luis-concept-intent.md) som är viktiga för programmets uppgift. 
+Think about the [intents](luis-concept-intent.md) that are important to your application's task.
 
-Låt oss ta exemplet på en rese app, med funktioner för att boka en flygning och kontrol lera väder på användarens mål. Du kan definiera `BookFlight` och `GetWeather` avsikter för dessa åtgärder. 
+Let's take the example of a travel app, with functions to book a flight and check the weather at the user's destination. You can define the `BookFlight` and `GetWeather` intents for these actions.
 
-I en mer komplex app med fler funktioner har du fler syften och du bör definiera dem noggrant så att avsikterna inte är för speciella. Till exempel kan `BookFlight` och `BookHotel` behöva vara separata avsikter, men `BookInternationalFlight` och `BookDomesticFlight` kan vara för likartade.
+In a more complex app with more functions, you have more intents, and you should define them carefully so the intents aren't too specific. For example, `BookFlight` and `BookHotel` may need to be separate intents, but `BookInternationalFlight` and `BookDomesticFlight` may be too similar.
 
 > [!NOTE]
-> Vi rekommenderar att du bara använder så många syften som du behöver för att utföra funktionerna i din app. Om du definierar för många avsikter blir det svårare för LUIS att klassificera yttranden korrekt. Om du definierar för få kan de vara så generella att de överlappar varandra.
+> It is a best practice to use only as many intents as you need to perform the functions of your app. If you define too many intents, it becomes harder for LUIS to classify utterances correctly. If you define too few, they may be so general that they overlap.
 
-Om du inte behöver identifiera övergripande användar avsikt lägger du till alla exempel på användar yttranden till ingen avsikt. Om din app växer för att kräva fler avsikter kan du skapa dem senare. 
+If you don't need to identify overall user intention, add all the example user utterances to the `None` intent. If your app grows into needing more intents, you can create them later.
 
-## <a name="create-example-utterances-for-each-intent"></a>Skapa exempel-yttranden för varje avsikt
+## <a name="create-example-utterances-for-each-intent"></a>Create example utterances for each intent
 
-När du har fastställt avsikterna skapar du 15 till 30 exempel yttranden för varje avsikt. För att börja med har du inte färre än det här antalet eller så skapar du för många yttranden för varje avsikt. Varje uttryck bör skilja sig från föregående uttryck. En bra variation i yttranden innehåller övergripande antal ord, Word-val, verb-och skiljetecken. 
+To begin with, avoid creating too many utterances for each intent. Once you have determined the intents, create 15 to 30 example utterances per intent. Each utterance should be different from the previously provided utterances. A good variety in utterances include overall word count, word choice, verb tense, and punctuation.
 
-Granska [yttranden](luis-concept-utterance.md) för mer information.
+For more information, see [understanding good utterances for LUIS apps](luis-concept-utterance.md).
 
-## <a name="identify-your-entities"></a>Identifiera dina entiteter
+## <a name="identify-your-entities"></a>Identify your entities
 
-I exemplet yttranden identifierar du de entiteter som du vill extrahera. Om du vill boka en flygning behöver du information som mål, datum, flyg, biljett kategori och rese klass. Skapa entiteter för dessa data typer och markera sedan [entiteterna](luis-concept-entity-types.md) i exemplet yttranden eftersom de är viktiga för att utföra ett avsikts sätt. 
+In the example utterances, identify the entities you want extracted. To book a flight, you need information like the destination, date, airline, ticket category, and travel class. Create entities for these data types and then mark the [entities](luis-concept-entity-types.md) in the example utterances. Entities are important for accomplishing an intent.
 
-När du bestämmer vilka entiteter som ska användas i appen bör du tänka på att det finns olika typer av entiteter för att fånga relationer mellan olika typer av objekt. [Entiteter i Luis](luis-concept-entity-types.md) ger mer information om de olika typerna.
+When determining which entities to use in your app, keep in mind that there are different types of entities for capturing relationships between object types. [Entities in LUIS](luis-concept-entity-types.md) provides more detail about the different types.
+
+> [!TIP]
+> LUIS offers [prebuilt entities](luis-prebuilt-entities.md) for common, conversational user scenarios. Consider using prebuilt entities as a starting point for your application development.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om den typiska [utvecklings cykeln](luis-concept-app-iteration.md).  
+> [!div class="nextstepaction"]
+> [Learning the LUIS development lifecylce](luis-concept-app-iteration.md)
+

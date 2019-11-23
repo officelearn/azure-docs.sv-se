@@ -1,38 +1,32 @@
 ---
-title: Fel sökning av Azure blockchain Workbench
-description: Felsöka ett för hands versions program för Azure blockchain Workbench.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+title: Azure Blockchain Workbench troubleshooting
+description: How to troubleshoot an Azure Blockchain Workbench Preview application.
 ms.date: 10/14/2019
 ms.topic: article
-ms.service: azure-blockchain
-ms.reviewer: zeyadr
-manager: femila
-ms.openlocfilehash: 3032a81a4411cb162a335189ca65b845f8d6305f
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.reviewer: brendal
+ms.openlocfilehash: ef4bce4dfba77aafa9b86c6877c153534b54636e
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329089"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74324306"
 ---
-# <a name="azure-blockchain-workbench-preview-troubleshooting"></a>Fel sökning för för hands versionen av Azure blockchain Workbench
+# <a name="azure-blockchain-workbench-preview-troubleshooting"></a>Azure Blockchain Workbench Preview troubleshooting
 
-Det finns ett PowerShell-skript som hjälper dig med fel sökning eller support för utvecklare. Skriptet genererar en sammanfattning och samlar in detaljerade loggar för fel sökning. Insamlade loggar omfattar:
+A PowerShell script is available to assist with developer debugging or support. The script generates a summary and collects detailed logs for troubleshooting. Collected logs include:
 
-* Blockchain-nätverk, till exempel Ethereum
-* Blockchain Workbench mikrotjänster
+* Blockchain network, such as Ethereum
+* Blockchain Workbench microservices
 * Application Insights
-* Azure-övervakning (Azure Monitor loggar)
+* Azure Monitoring (Azure Monitor logs)
 
-Du kan använda informationen för att fastställa nästa steg och fastställa rotor saken till problem.
+You can use the information to determine next steps and determine root cause of issues.
 
 [!INCLUDE [Preview note](./includes/preview.md)]
 
-## <a name="troubleshooting-script"></a>Felsöka skript
+## <a name="troubleshooting-script"></a>Troubleshooting script
 
-PowerShell-felsöknings skriptet finns på GitHub. [Ladda ned en zip-fil](https://github.com/Azure-Samples/blockchain/archive/master.zip) eller klona exemplet från GitHub.
+The PowerShell troubleshooting script is available on GitHub. [Ladda ned en zip-fil](https://github.com/Azure-Samples/blockchain/archive/master.zip) eller klona exemplet från GitHub.
 
 ```
 git clone https://github.com/Azure-Samples/blockchain.git
@@ -41,40 +35,40 @@ git clone https://github.com/Azure-Samples/blockchain.git
 ## <a name="run-the-script"></a>Kör skriptet
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
-Kör `collectBlockchainWorkbenchTroubleshooting.ps1`-skriptet för att samla in loggar och skapa en ZIP-fil som innehåller en mapp med felsöknings information. Exempel:
+Run the `collectBlockchainWorkbenchTroubleshooting.ps1` script to collect logs and create a ZIP file containing a folder of troubleshooting information. Exempel:
 
 ``` powershell
 collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>" -ResourceGroupName "workbench-resource-group-name"
 ```
-Skriptet accepterar följande parametrar:
+The script accepts the following parameters:
 
 | Parameter  | Beskrivning | Krävs |
 |---------|---------|----|
-| SubscriptionID | SubscriptionID för att skapa eller hitta alla resurser. | Ja |
-| ResourceGroupName | Namnet på den Azure-resurs grupp där blockchain Workbench har distribuerats. | Ja |
-| OutputDirectory | Sökväg för att skapa utdata. ZIP-fil. Om inget värde anges används den aktuella katalogen som standard. | Nej |
-| LookbackHours | Antal timmar som ska användas vid hämtning av telemetri. Standardvärdet är 24 timmar. Maximalt värde är 90 timmar | Nej |
-| OmsSubscriptionId | Prenumerations-ID där Azure Monitor loggar har distribuerats. Skicka bara den här parametern om Azure Monitors loggarna för blockchain-nätverket distribueras utanför blockchain Workbenchs resurs grupp.| Nej |
-| OmsResourceGroup |Resurs gruppen där Azure Monitor loggar distribueras. Skicka bara den här parametern om Azure Monitors loggarna för blockchain-nätverket distribueras utanför blockchain Workbenchs resurs grupp.| Nej |
-| OmsWorkspaceName | Namnet på Log Analytics arbets ytan. Skicka bara den här parametern om Azure Monitor loggar för blockchain-nätverket har distribuerats utanför Blockchains Workbenchs resurs grupp | Nej |
+| SubscriptionID | SubscriptionID to create or locate all resources. | Ja |
+| ResourceGroupName | Name of the Azure Resource Group where Blockchain Workbench has been deployed. | Ja |
+| OutputDirectory | Path to create the output .ZIP file. If not specified, defaults to the current directory. | Nej |
+| LookbackHours | Number of hours to use when pulling telemetry. Default value is 24 hours. Maximum value is 90 hours | Nej |
+| OmsSubscriptionId | The subscription ID where Azure Monitor logs is deployed. Only pass this parameter if the Azure Monitor logs for the blockchain network is deployed outside of Blockchain Workbench's resource group.| Nej |
+| OmsResourceGroup |The resource group where Azure Monitor logs is deployed. Only pass this parameter if the Azure Monitor logs for the blockchain network is deployed outside of Blockchain Workbench's resource group.| Nej |
+| OmsWorkspaceName | The Log Analytics workspace name. Only pass this parameter if the Azure Monitor logs for the blockchain network is deployed outside of Blockchain Workbench's resource group | Nej |
 
-## <a name="what-is-collected"></a>Vad samlas in?
+## <a name="what-is-collected"></a>What is collected?
 
-ZIP-filen med utdata innehåller följande mappstruktur:
+The output ZIP file contains the following folder structure:
 
-| Mapp eller fil | Beskrivning  |
+| Folder or File | Beskrivning  |
 |---------|---------|
-| \Summary.txt | Sammanfattning av systemet |
-| \Metrics\blockchain | Mått för blockchain |
-| \Metrics\Workbench | Mått om Workbench |
-| \Details\Blockchain | Detaljerade loggar om blockchain |
-| \Details\Workbench | Detaljerade loggar om Workbench |
+| \Summary.txt | Summary of the system |
+| \Metrics\blockchain | Metrics about the blockchain |
+| \Metrics\Workbench | Metrics about the workbench |
+| \Details\Blockchain | Detailed logs about the blockchain |
+| \Details\Workbench | Detailed logs about the workbench |
 
-Sammanfattnings filen ger en ögonblicks bild av det övergripande tillståndet för programmet och tillståndet för programmet. Sammanfattningen innehåller rekommenderade åtgärder, markerar de viktigaste felen och metadata om att köra tjänster.
+The summary file gives you a snapshot of the overall state of the application and health of the application. The summary provides recommended actions, highlights top errors, and metadata about running services.
 
-Mappen **mått** innehåller mått för olika system komponenter över tid. Utdatafilen `\Details\Workbench\apiMetrics.txt` innehåller till exempel en sammanfattning av olika svars koder och svars tider under samlings perioden. Mappen **information** innehåller detaljerade loggar för fel sökning av specifika problem med Workbench eller det underliggande blockchain-nätverket. @No__t-0 innehåller till exempel en lista över de senaste undantagen som har inträffat i systemet, vilket är användbart för fel sökning av fel med smarta kontrakt eller interaktioner med blockchain. 
+The **Metrics** folder contains metrics of various system components over time. For example, the output file `\Details\Workbench\apiMetrics.txt` contains a summary of different response codes, and response times throughout the collection period. The **Details** folder contains detailed logs for troubleshooting specific issues with Workbench or the underlying blockchain network. For example, `\Details\Workbench\Exceptions.csv` contains a list of the most recent exceptions that have occurred in the system, which is useful for troubleshooting errors with smart contracts or interactions with the blockchain. 
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Fel söknings guide för Azure blockchain Workbench Application Insights](https://aka.ms/workbenchtroubleshooting)
+> [Azure Blockchain Workbench Application Insights troubleshooting guide](https://aka.ms/workbenchtroubleshooting)

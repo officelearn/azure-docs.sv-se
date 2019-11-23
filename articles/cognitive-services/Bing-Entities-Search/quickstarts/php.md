@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skicka en sökbegäran till REST API för entitetssökning i Bing med hjälp av PHP'
+title: 'Quickstart: Send a search request to the REST API using PHP - Bing Entity Search'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten om du vill skicka en begäran till REST API för entitetssökning i Bing med hjälp av PHP och få ett JSON-svar.
 services: cognitive-services
@@ -10,20 +10,20 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: 5d57924a22ee097cfe7f492d18b8f84e7e658f41
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 2328313e15fafb3c0f96fdb77f3023afc1e4774f
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478960"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74323587"
 ---
-# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-php"></a>Snabbstart: Skicka en sökbegäran till REST API för entitetssökning i Bing med hjälp av PHP
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-php"></a>Quickstart: Send a search request to the Bing Entity Search REST API using PHP
 
 Använd den här snabbstarten för att göra ditt första anrop till API för entitetssökning i Bing och visa JSON-svaret. Det här enkla PHP-programmet skickar en nyhetssökfråga till API:et och visar svaret. 
 
 Även om det här programmet är skrivet i PHP är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [PHP 5.6.x](https://php.net/downloads.php) eller senare
 
@@ -31,7 +31,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
 
 ## <a name="search-entities"></a>Entitetssökning
 
-Följ dessa steg om du vill köra programmet:
+Följ dessa steg om du vill köra programmet.
 
 1. Skapa ett nytt PHP-projekt i valfri IDE.
 2. Lägg till koden nedan.

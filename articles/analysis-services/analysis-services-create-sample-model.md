@@ -1,5 +1,5 @@
 ---
-title: Självstudie – Lägg till en exempel modell – Azure Analysis Services | Microsoft Docs
+title: Tutorial - Add a sample model- Azure Analysis Services | Microsoft Docs
 description: I den här självstudiekursen lär du dig hur du lägger till en exempelmodell i Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f76ec20da73c778d024feea9df113de9e4aa0fe9
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a72236843c13e139f33a669b54f108e91679c8c6
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73573091"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326584"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>Självstudiekurs: Lägga till en exempelmodell från portalen
 
@@ -43,7 +43,7 @@ Logga in på [portalen](https://portal.azure.com/).
 
     ![Skapa en exempelmodell](./media/analysis-services-create-sample-model/aas-create-sample-new-model.png)
 
-2. I **ny modell** > **väljer du en data källa**, verifierar **exempel data** är markerat och klickar sedan på **Lägg till**.
+2. In **New model** > **Choose a data source**,  verify **Sample data** is selected, and then click **Add**.
 
     ![Välj exempeldata](./media/analysis-services-create-sample-model/aas-create-sample-data.png)
 
@@ -73,6 +73,6 @@ I de här anvisningarna beskrivs det hur du tar bort en modell från en server m
 I den här självstudiekursen har du lärt dig hur du lägger till en grundläggande exempelmodell på din server. Nu när du har en modelldatabas kan du ansluta till den från SQL Server Management Studio och lägga till användarroller. Fortsätt med nästa självstudiekurs om du vill veta mer.
 
 > [!div class="nextstepaction"]
-> [Självstudiekurs: Konfigurera roller för serveradministratör och användare](analysis-services-database-users.md)
+> [Självstudiekurs: Konfigurera roller för serveradministratör och användare](tutorials/analysis-services-tutorial-roles.md)
 
 

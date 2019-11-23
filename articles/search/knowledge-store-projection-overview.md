@@ -1,85 +1,85 @@
 ---
-title: Arbeta med projektioner i ett kunskaps lager (för hands version)
+title: Working with projections in a knowledge store (preview)
 titleSuffix: Azure Cognitive Search
-description: Spara och forma dina berikade data från AI-förloppet till ett kunskaps lager för användning i andra scenarier än fullständig texts ökning. Kunskaps lagret är för närvarande en offentlig för hands version.
+description: Save and shape your enriched data from the AI enrichment indexing pipeline into a knowledge store for use in scenarios other than full text search. Knowledge store is currently in public preview.
 manager: nitinme
 author: vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: bb6af4be232810c1f5d135e459238e2e4f2cd5d8
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: e7ed7eef961e357b8c1e4e59790f9f150c286c61
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720035"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326597"
 ---
-# <a name="working-with-projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Arbeta med projektioner i ett kunskaps lager i Azure Kognitiv sökning
+# <a name="working-with-projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Working with projections in a knowledge store in Azure Cognitive Search
 
 > [!IMPORTANT] 
-> Kunskaps lagret är för närvarande en offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [REST API version 2019-05-06-Preview](search-api-preview.md) innehåller för hands versions funktioner. Det finns för närvarande begränsad Portal support och inget stöd för .NET SDK.
+> Knowledge store is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [REST API version 2019-05-06-Preview](search-api-preview.md) provides preview features. There is currently limited portal support, and no .NET SDK support.
 
-Azure Kognitiv sökning möjliggör innehålls berikning genom inbyggda kognitiva kunskaper och anpassade kunskaper som en del av indexeringen. Du kan lägga till strukturer i dina dokument och göra sökningen mer effektiv. I många fall är de omfattande dokumenten användbara för andra scenarier än Sök, till exempel för kunskaps utvinning.
+Azure Cognitive Search enables content enrichment through built-in cognitive skills and custom skills as part of indexing. Enrichments add structure to your documents and make searching more effective. In many instances, the enriched documents are useful for scenarios other than search, such as for knowledge mining.
 
-Projektioner, en komponent i [kunskaps lager](knowledge-store-concept-intro.md), är vyer av omfattande dokument som kan sparas i fysiska lagrings utrymmen för kunskaps utvinning. Med en projektion kan du "projicera" dina data i en form som överensstämmer med dina behov och bevarar relationer så att verktyg som Power BI kan läsa data utan ytterligare arbete.
+Projections, a component of [knowledge store](knowledge-store-concept-intro.md), are views of enriched documents that can be saved to physical storage for knowledge mining purposes. A projection lets you "project" your data into a shape that aligns with your needs, preserving relationships so that tools like Power BI can read the data with no additional effort.
 
-Projektioner kan vara tabell, med data som lagras i rader och kolumner i Azure Table Storage eller JSON-objekt som lagras i Azure Blob Storage. Du kan definiera flera projektioner av dina data när de är omfattande. Flera projektioner är användbara när du vill att samma data formad annorlunda för enskilda användnings fall.
+Projections can be tabular, with data stored in rows and columns in Azure Table storage, or JSON objects stored in Azure Blob storage. You can define multiple projections of your data as it is being enriched. Multiple projections are useful when you want the same data shaped differently for individual use cases.
 
-Kunskaps lagret stöder tre typer av projektioner:
+The knowledge store supports three types of projections:
 
-+ **Tabeller**: för data som bäst visas som rader och kolumner kan du med tabell projektioner definiera en schematiserade-form eller projektion i Table Storage.
++ **Tables**: For data that's best represented as rows and columns, table projections allow you to define a schematized shape or projection in Table storage.
 
-+ **Objekt**: när du behöver en JSON-representation av dina data och hur de ska berikas, sparas objekt projektion som blobbar.
++ **Objects**: When you need a JSON representation of your data and enrichments, object projections are saved as blobs.
 
-+ **Filer**: när du behöver spara de avbildningar som extraheras från dokumenten kan du spara de normaliserade avbildningarna med fil prognoser.
++ **Files**: When you need to save the images extracted from the documents, file projections allow you to save the normalized images.
 
-Om du vill se projektioner som definierats i sammanhanget steg [för steg hur du kommer igång med kunskaps lager](knowledge-store-howto.md).
+To see projections defined in context, step through [How to get started with knowledge store](knowledge-store-howto.md).
 
-## <a name="projection-groups"></a>Projektions grupper
+## <a name="projection-groups"></a>Projection groups
 
-I vissa fall måste du projicera dina berikade data i olika former för att möta olika mål. I kunskaps lagret kan du definiera flera grupper av projektioner. Projektions grupper har följande nyckel egenskaper för ömsesidig exklusivitet och relateradhet.
+In some cases, you will need to project your enriched data in different shapes to meet different objectives. The knowledge store allows you to define multiple groups of projections. Projection groups have the following key characteristics of mutual exclusivity and relatedness.
 
-### <a name="mutual-exclusivity"></a>Ömsesidigt exklusivitet
+### <a name="mutual-exclusivity"></a>Mutual exclusivity
 
-Allt innehåll som projiceras i en enda grupp är oberoende av data som projiceras i andra projektions grupper.
-Detta oberoende innebär att du kan ha samma data formad annorlunda, men upprepas i varje projektions grupp.
+All content projected into a single group is independent of data projected into other projection groups.
+This independence implies that you can have the same data shaped differently, yet repeated in each projection group.
 
-### <a name="relatedness"></a>Relateradhet
+### <a name="relatedness"></a>Relatedness
 
-Med projektions grupper kan du nu projicera dokumenten över projektions typer samtidigt som du bevarar relationerna mellan projektions typerna. Allt innehåll som projiceras inom en enskild projektions grupp bevarar relationer i data mellan projektions typer. I tabeller baseras relationer på en genererad nyckel och varje underordnad nod behåller en referens till den överordnade noden. Mellan typer (tabeller, objekt och filer) bevaras relationer när en enskild nod projiceras mellan olika typer. Anta till exempel ett scenario där du har ett dokument som innehåller bilder och text. Du kan projicera texten till tabeller eller objekt och bilderna till filer där tabellerna eller objekten har en egenskap som innehåller fil-URL: en.
+Projection groups now allow you to project your documents across projection types while preserving the relationships across projection types. All content projected within a single projection group preserves relationships within the data across projection types. Within tables, relationships are based on a generated key and each child node retains a reference to the parent node. Across types (tables, objects, and files), relationships are preserved when a single node is projected across different types. For example, consider a scenario where you have a document containing images and text. You could project the text to tables or objects and the images to files where the tables or objects have a property containing the file URL.
 
-## <a name="input-shaping"></a>Inmatad form
+## <a name="input-shaping"></a>Input shaping
 
-Att hämta data i rätt form eller struktur är nyckeln till effektiv användning, vara en tabell eller objekt. Möjligheten att forma eller strukturera dina data baserat på hur du planerar åtkomst till och använder det är en viktig funktion som visas som **formaren** -kompetensen i färdigheter.  
+Getting your data in the right shape or structure is key to effective use, be it tables or objects. The ability to shape or structure your data based on how you plan to access and use it is a key capability exposed as the **Shaper** skill within the skillset.  
 
-Projektioner är enklare att definiera när du har ett objekt i det berikande trädet som matchar projektionens schema. Med den uppdaterade [formaren-kunskapen](cognitive-search-skill-shaper.md) kan du skapa ett objekt från olika noder i ditt anriknings träd och överordnade dem under en ny nod. Med **formaren** -kompetensen kan du definiera komplexa typer med kapslade objekt.
+Projections are easier to define when you have an object in the enrichment tree that matches the schema of the projection. The updated [Shaper skill](cognitive-search-skill-shaper.md) allows you to compose an object from different nodes of the enrichment tree and parent them under a new node. The **Shaper** skill allows you to define complex types with nested objects.
 
-När du har definierat en ny form som innehåller alla element som du behöver för att projicera, kan du nu använda den här formen som källa för dina projektioner eller som inmatade i en annan färdighet.
+When you have a new shape defined that contains all the elements you need to project out, you can now use this shape as the source for your projections or as an input to another skill.
 
-## <a name="projection-slicing"></a>Segmentering av projektion
+## <a name="projection-slicing"></a>Projection slicing
 
-När du definierar en projektions grupp kan en enskild nod i ett anriknings träd segmenteras i flera relaterade tabeller eller objekt. Om du lägger till en projektion med en käll Sök väg som är underordnad en befintlig projektion kommer den underordnade noden att bli segmenterad från den överordnade noden och projiceras i den nya relaterade tabellen eller objektet. Med den här metoden kan du definiera en enskild nod i en formaren-färdighet som kan vara källan för alla dina projektioner.
+When defining a projection group, a single node in the enrichment tree can be sliced into multiple related tables or objects. Adding a projection with a source path that is a child of an existing projection will result in the child node being sliced out of the parent node and projected into the new yet related table or object. This technique allows you to define a single node in a shaper skill that can be the source for all of your projections.
 
-## <a name="table-projections"></a>Tabell projektioner
+## <a name="table-projections"></a>Table projections
 
-Eftersom det gör det enklare att importera data, rekommenderar vi tabell prognoser för data utforskning med Power BI. Dessutom tillåter tabell projektioner att ändra kardinalitet mellan tabell relationer. 
+Because it makes importing easier, we recommend table projections for data exploration with Power BI. Additionally, table projections allow for changing the cardinality between table relationships. 
 
-Du kan projicera ett enskilt dokument i ditt index i flera tabeller och bevara relationerna. När du projicerar till flera tabeller, kommer hela formen att projiceras i varje tabell, om inte en underordnad nod är källan till en annan tabell inom samma grupp.
+You can project a single document in your index into multiple tables, preserving the relationships. When projecting to multiple tables, the complete shape will be projected into each table, unless a child node is the source of another table within the same group.
 
-### <a name="defining-a-table-projection"></a>Definiera en tabell projektion
+### <a name="defining-a-table-projection"></a>Defining a table projection
 
-När du definierar en tabell projektion i `knowledgeStore` element i din färdigheter börjar du med att mappa en nod i berikande träd till tabell källan. Den här noden är vanligt vis resultatet av en **formaren** -färdighet som du har lagt till i listan med kunskaper för att skapa en speciell form som du behöver i projektet i tabeller. Den nod du väljer till projekt kan segmenteras till projekt i flera tabeller. Tabell definitionen är en lista över tabeller som du vill projicera.
+When defining a table projection within the `knowledgeStore` element of your skillset, start by mapping a node on the enrichment tree to the table source. Typically this node is the output of a **Shaper** skill that you added to the list of skills to produce a specific shape that you need to project into tables. The node you choose to project can be sliced to project into multiple tables. The tables definition is a list of tables that you want to project.
 
-Varje tabell kräver tre egenskaper:
+Each table requires three properties:
 
-+ tableName: namnet på tabellen i Azure Storage.
++ tableName: The name of the table in Azure Storage.
 
-+ generatedKeyName: kolumn namnet för den nyckel som unikt identifierar den här raden.
++ generatedKeyName: The column name for the key that uniquely identifies this row.
 
-+ Källa: noden från det berikande trädet som du kan använda för att kunna använda. Den här noden är vanligt vis resultatet av en formaren, men det kan vara utdata från någon av färdigheterna.
++ source: The node from the enrichment tree you are sourcing your enrichments from. This node is usually the output of a shaper, but could be the output of any of the skills.
 
-Här är ett exempel på tabell projektioner.
+Here is an example of table projections.
 
 ```json
 {
@@ -112,15 +112,17 @@ Här är ett exempel på tabell projektioner.
 }
 ```
 
-Som det visas i det här exemplet är nyckel fraser och entiteter modellerade i olika tabeller och kommer att innehålla en referens tillbaka till överordnad (MainTable) för varje rad.
+As demonstrated in this example, the key phrases and entities are modeled into different tables and will contain a reference back to the parent (MainTable) for each row.
 
-Följande bild är en referens till den juridiska övningen för [att komma igång med kunskaps lager](knowledge-store-howto.md). I ett scenario där ett ärende har flera åsikter och varje åsikt har berikats genom att identifiera entiteter som finns i det kan du utforma projektionerna som de visas här.
+<!---
+The following illustration is a reference to the Case-law exercise in [How to get started with knowledge store](knowledge-store-howto.md). In a scenario where a case has multiple opinions, and each opinion is enriched by identifying entities contained within it, you could model the projections as shown here.
 
-![Entiteter och relationer i tabeller](media/knowledge-store-projection-overview/TableRelationships.png "Modellerings relationer i tabell projektioner")
+![Entities and relationships in tables](media/knowledge-store-projection-overview/TableRelationships.png "Modeling relationships in table projections")
+--->
 
-## <a name="object-projections"></a>Objekt projektioner
+## <a name="object-projections"></a>Object projections
 
-Objekt projektioner är JSON-representationer av det berikande trädet som kan hämtas från vilken nod som helst. I många fall kan samma **formaren** -kompetens som skapar en tabell projektion användas för att generera en objekt projektion. 
+Object projections are JSON representations of the enrichment tree that can be sourced from any node. In many cases, the same **Shaper** skill that creates a table projection can be used to generate an object projection. 
 
 ```json
 {
@@ -156,15 +158,15 @@ Objekt projektioner är JSON-representationer av det berikande trädet som kan h
 }
 ```
 
-Att skapa en objekt projektion kräver några objektattribut:
+Generating an object projection requires a few object-specific attributes:
 
-+ storageContainer: den behållare där objekten ska sparas
-+ Källa: sökvägen till noden i det berikande trädet som är roten för projektionen
-+ nyckel: en sökväg som representerar en unik nyckel för det objekt som ska lagras. Den kommer att användas för att skapa namnet på blobben i behållaren.
++ storageContainer: The container where the objects will be saved
++ source: The path to the node of the enrichment tree that is the root of the projection
++ key: A path that represents a unique key for the object to be stored. It will be used to create the name of the blob in the container.
 
-## <a name="file-projection"></a>Filprojektion
+## <a name="file-projection"></a>File projection
 
-Filprojektioner liknar objekt projektioner och fungerar bara på den `normalized_images` samlingen. På samma sätt som objekt projektioner, sparas fil prognoser i BLOB-behållaren med ett prefix för det Base64-kodade värdet för dokument-ID: t. Filprojektioner kan inte dela samma behållare som objekt projektioner och måste projiceras i en annan behållare.
+File projections are similar to object projections and only act on the `normalized_images` collection. Similar to object projections, file projections are saved in the blob container with folder prefix of the base64 encoded value of the document ID. File projections cannot share the same container as object projections and need to be projected into a different container.
 
 ```json
 {
@@ -198,23 +200,23 @@ Filprojektioner liknar objekt projektioner och fungerar bara på den `normalized
 }
 ```
 
-## <a name="projection-lifecycle"></a>Projekt livs cykel
+## <a name="projection-lifecycle"></a>Projection lifecycle
 
-Dina projektioner har en livs cykel som är kopplad till data källans källdata. När dina data uppdateras och indexeras om uppdateras dina projektioner med resultaten av de omfattande som säkerställer att dina projektioner är konsekventa med data i data källan. Projektionerna ärver den borttagnings princip som du har konfigurerat för ditt index. Projektioner tas inte bort när indexeraren eller själva Sök tjänsten tas bort.
+Your projections have a lifecycle that is tied to the source data in your data source. As your data is updated and reindexed, your projections are updated with the results of the enrichments ensuring your projections are eventually consistent with the data in your data source. The projections inherit the delete policy you've configured for your index. Projections are not deleted when the indexer or the search service itself is deleted.
 
-## <a name="using-projections"></a>Använda projektioner
+## <a name="using-projections"></a>Using projections
 
-När indexeraren har körts kan du läsa de planerade data i de behållare eller tabeller som du har angett genom projektioner.
+After the indexer is run, you can read the projected data in the containers or tables you specified through projections.
 
-För analys är utforskning i Power BI lika enkelt som att ställa in Azure Table Storage som data källa. Du kan enkelt skapa en uppsättning visualiseringar på dina data med hjälp av relationerna i.
+For analytics, exploration in Power BI is as simple as setting Azure Table storage as the data source. You can easily create a set of visualizations on your data using the relationships within.
 
-Om du behöver använda de utförliga data i en data vetenskaps pipeline kan du också [läsa in data från blobbar i en Pandas-DataFrame](../machine-learning/team-data-science-process/explore-data-blob.md).
+Alternatively, if you need to use the enriched data in a data science pipeline, you could [load the data from blobs into a Pandas DataFrame](../machine-learning/team-data-science-process/explore-data-blob.md).
 
-Slutligen, om du behöver exportera data från kunskaps lagret, Azure Data Factory har kopplingar för att exportera data och landa den i valfri databas. 
+Finally, if you need to export your data from the knowledge store, Azure Data Factory has connectors to export the data and land it in the database of your choice. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I nästa steg ska du skapa ditt första kunskaps lager med hjälp av exempel data och instruktioner.
+As a next step, create your first knowledge store using sample data and instructions.
 
 > [!div class="nextstepaction"]
-> [Så här skapar du ett kunskaps lager](knowledge-store-howto.md).
+> [How to create a knowlege store](knowledge-store-howto.md).

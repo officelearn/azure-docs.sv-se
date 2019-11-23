@@ -1,23 +1,17 @@
 ---
 title: Använda program i Azure Blockchain Workbench
-description: Självstudie om hur du använder program kontrakt i för hands versionen av Azure blockchain Workbench.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+description: Tutorial on how to use application contracts in Azure Blockchain Workbench Preview.
 ms.date: 10/14/2019
 ms.topic: tutorial
-ms.service: azure-blockchain
 ms.reviewer: brendal
-manager: femila
-ms.openlocfilehash: 1dee101ad87776a1c22b719274569df25c4e161d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 5761bf1294691c2d50e0e389fe69ec286df4a06c
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72328958"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74324045"
 ---
-# <a name="tutorial-using-applications-in-azure-blockchain-workbench"></a>Självstudie: använda program i Azure blockchain Workbench
+# <a name="tutorial-using-applications-in-azure-blockchain-workbench"></a>Tutorial: Using applications in Azure Blockchain Workbench
 
 Du kan använda Blockchain Workbench för att skapa och utföra åtgärder med kontrakt. Du kan också visa information om kontrakt, till exempel status och transaktionshistorik.
 
@@ -42,7 +36,7 @@ Du måste logga in som medlem i Blockchain Workbench. Om inga program visas i li
 
 ## <a name="create-new-contract"></a>Skapa nytt kontrakt
 
-Om du vill skapa ett nytt kontrakt måste du vara medlem angiven som en kontrakts **initierare**. Information om hur du definierar programroller och initierare för kontraktet finns i [Arbetsflöden i konfigurationsöversikten](configuration.md#workflows). Information om hur du tilldelar medlemmar till programroller finns i avsnittet om hur du [lägger till en medlem i ett program](manage-users.md#add-member-to-application).
+To create a new contract, you need to be a member specified as a contract **initiator**. Information om hur du definierar programroller och initierare för kontraktet finns i [Arbetsflöden i konfigurationsöversikten](configuration.md#workflows). Information om hur du tilldelar medlemmar till programroller finns i avsnittet om hur du [lägger till en medlem i ett program](manage-users.md#add-member-to-application).
 
 1. I avsnittet för Blockchain Workbench-program väljer du programpanelen som innehåller det kontrakt som du vill skapa. En lista över aktiva kontrakt visas.
 

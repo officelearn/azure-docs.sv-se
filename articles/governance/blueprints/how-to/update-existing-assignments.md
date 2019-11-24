@@ -1,14 +1,14 @@
 ---
 title: Uppdatera en befintlig tilldelning från portalen
-description: Lär dig mer om mekanismen för att uppdatera en befintlig tilldelning från portalen i Azure-ritningar.
-ms.date: 10/25/2018
+description: Lär dig mer om mekanismen för att uppdatera en befintlig skiss tilldelning från portalen i Azure-ritningar.
+ms.date: 11/21/2019
 ms.topic: conceptual
-ms.openlocfilehash: f48f8cfb33a05e2bf8dcbe097d3a9eb3a5ebb9db
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: b4cf03d88103b85bc00dbd815816ead2740f2093
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960363"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406380"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Så här uppdaterar du en befintlig skiss tilldelning
 
@@ -28,7 +28,8 @@ När en skiss tilldelas kan tilldelningen uppdateras. Det finns flera anledninga
 
    ![Uppdatera en befintlig skiss tilldelning](../media/update-existing-assignments/update-assignment.png)
 
-1. Sidan **tilldela skiss** kommer att läsas in i förväg med alla värden från den ursprungliga tilldelningen. Du kan ändra **skiss definitions versionen**, **Lås tilldelnings** status och alla dynamiska parametrar som finns i skiss definitionen. Klicka på **tilldela** när du är klar med ändringarna.
+1. Sidan **tilldela skiss** kommer att läsas in i förväg med alla värden från den ursprungliga tilldelningen.
+   Du kan ändra **skiss definitions versionen**, **Lås tilldelnings** status och alla dynamiska parametrar som finns i skiss definitionen. Klicka på **tilldela** när du är klar med ändringarna.
 
 1. På sidan uppdaterad tilldelnings information, se den nya statusen. I det här exemplet har vi lagt till **låsning** till tilldelningen.
 
@@ -46,7 +47,8 @@ Distributionen av de uppdaterade tilldelningarna följer några viktiga regler. 
   - Om rollen eller rollen som tilldelas av rollen (användare, grupp eller app) ändras, skapas en ny roll tilldelning. Roll tilldelningar som tidigare har distribuerats är kvar på plats.
 - Principtilldelningar
   - Om parametrarna för princip tilldelningen ändras, uppdateras den befintliga tilldelningen.
-  - Om definitionen av princip tilldelningen ändras skapas en ny princip tilldelning. Princip tilldelningar som tidigare har distribuerats är kvar på plats.
+  - Om definitionen av princip tilldelningen ändras skapas en ny princip tilldelning.
+    Princip tilldelningar som tidigare har distribuerats är kvar på plats.
   - Om principen tilldelnings artefakt tas bort från skissen, lämnas distribuerade princip tilldelningar kvar.
 - Azure Resource Manager-mallar
   - Mallen bearbetas via Resource Manager som en **placering**. När varje resurs typ hanterar den här åtgärden på olika sätt kan du läsa igenom dokumentationen för varje resurs som ingår för att fastställa effekten av den här åtgärden när den körs av ritningar.

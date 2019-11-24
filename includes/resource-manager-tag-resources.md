@@ -8,66 +8,66 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: ab55441650085f6ca89f05613fe74dd4ae3cba54
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: b1252c455c2dfad2963f914ee746bcb932e59aa9
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187729"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74451391"
 ---
-1. Om du vill visa taggarna för en resurs eller en resursgrupp, söker du efter befintliga taggar i översikten. Om du inte tidigare har tillämpar taggar är listan tom.
+1. To view the tags for a resource or a resource group, looks for existing tags in the overview. Om du inte tidigare har tillämpar taggar är listan tom.
    
-     ![Visa taggar för resursen eller resursgruppen](./media/resource-manager-tag-resources/view-tags.png)
-1. Om du vill lägga till en tagg, Välj **Klicka här om du vill lägga till taggar**.
+     ![View tags for resource or resource group](./media/resource-manager-tag-resources/view-tags.png)
+1. To add a tag, select **Click here to add tags**.
 
-1. Ange ett namn och värde. Välj **+** att lägga till taggen.
+1. Provide a name and value. Select **+** to add the tag.
    
-     ![Lägg till tagg](./media/resource-manager-tag-resources/add-tag.png)
-1. Fortsätt att lägga till taggar efter behov. Välj **Spara** när du är klar.
+     ![Add tag](./media/resource-manager-tag-resources/add-tag.png)
+1. Continue adding tags as needed. Välj **Spara** när du är klar.
    
-     ![Spara etiketter](./media/resource-manager-tag-resources/save-tags.png)
-1. Taggar visas nu i översikten.
+     ![Save tags](./media/resource-manager-tag-resources/save-tags.png)
+1. The tags are now displayed in the overview.
    
-     ![Visa etiketter](./media/resource-manager-tag-resources/view-new-tags.png)
-1. Om du vill lägga till eller ta bort en tagg, Välj **ändra**.
+     ![Show tags](./media/resource-manager-tag-resources/view-new-tags.png)
+1. To add or delete a tag, select **change**.
    
-1. Välj Papperskorgen om du vill ta bort en tagg. Välj sedan **Spara**.
+1. To delete a tag, select the trash icon. Välj sedan **Spara**.
 
-     ![Ta bort taggen](./media/resource-manager-tag-resources/delete-tag.png)
+     ![Delete tag](./media/resource-manager-tag-resources/delete-tag.png)
 
 
-Massregistrera tilldela taggar till flera resurser:
+To bulk assign tags to multiple resources:
 
-1. Alla listan över resurser, markerar du kryssrutan för de resurser som du vill tilldela taggen.
+1. From any list of resources, select the checkbox for the resources you want to assign the tag.
 
-     ![Välj flera resurser](./media/resource-manager-tag-resources/select-multiple-resources.png)
+     ![Select multiple resources](./media/resource-manager-tag-resources/select-multiple-resources.png)
 
-1. Välj **tilldela taggar**
+1. Select **Assign tags**
 
-     ![Tilldela taggar](./media/resource-manager-tag-resources/assign-tags.png)
+     ![Assign tags](./media/resource-manager-tag-resources/assign-tags.png)
 
-1. När du har varje namn och värde väljer **+** . När du är klar, Välj **tilldela**.
+1. After each name and value, select **+** . When done, select **Assign**.
 
-     ![Välj tilldela](./media/resource-manager-tag-resources/select-assign.png)
+     ![Select assign](./media/resource-manager-tag-resources/select-assign.png)
 
-Visa alla resurser med en tagg:
+To view all resources with a tag:
 
-1. Välj **alla tjänster** och **taggar**.
+1. On the Azure portal menu, select **All services**. Select **General**, then **Tags**.
 
-     ![Sök efter tagg](./media/resource-manager-tag-resources/find-tags.png)
+     ![Find by tag](./media/resource-manager-tag-resources/find-tags-general.png)
 
-1. Välj tagg för att visa resurser.
+1. Select the tag for viewing resources.
 
-     ![Välj tagg](./media/resource-manager-tag-resources/select-tag.png)
+     ![Select tag](./media/resource-manager-tag-resources/select-tag.png)
 
-1. Alla resurserna med taggen visas.
+1. All resources with that tag are displayed.
 
-     ![Visa resurser efter tagg](./media/resource-manager-tag-resources/view-resources-by-tag.png)
+     ![View resources by tag](./media/resource-manager-tag-resources/view-resources-by-tag.png)
 
-1. Fäst vyn på instrumentpanelen för snabb åtkomst.
+1. For quick access, pin the view to the dashboard.
 
      ![Fäst vid instrumentpanelen](./media/resource-manager-tag-resources/pin-to-dashboard.png)
 
-1. Vyn är tillgängligt från instrumentpanelen.
+1. The view is available from the dashboard.
 
-     ![Instrumentpanel](./media/resource-manager-tag-resources/dashboard.png)
+     ![Instrumentpanel](./media/resource-manager-tag-resources/dashboard-with-view.png)

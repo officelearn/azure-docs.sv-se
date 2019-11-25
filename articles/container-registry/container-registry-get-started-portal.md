@@ -1,22 +1,17 @@
 ---
-title: Snabb start – skapa register i portalen – Azure Container Registry
-description: Lär dig snabbt att skapa ett privat Docker-register i Azure Container Registry med Azure Portal.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
+title: Quickstart - Create registry in portal
+description: Quickly learn to create a private Docker registry in Azure Container Registry with the Azure portal.
 ms.topic: quickstart
 ms.date: 01/22/2019
-ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: bcf0874266aa83a4b4b932670557854c4688d400
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: c5e6de0fdb7d0e46fa9be28483fd894289baf1a3
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931631"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455214"
 ---
-# <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Snabb start: skapa ett privat behållar register med hjälp av Azure Portal
+# <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Quickstart: Create a private container registry using the Azure portal
 
 Ett Azure-containerregister är ett privat Docker-register i Azure där du kan lagra och hantera dina privata Docker-containeravbildningar. I den här snabbstarten skapar du ett containerregister med Azure-portalen. Använd sedan Docker-kommandon för att skicka en containeravbildning till registret, och hämta och kör slutligen avbildningen från registret.
 
@@ -38,7 +33,7 @@ Ange värden för **Registernamn** och **Resursgrupp**. Registernamnet måste va
 
 ![Skapa ett containerregister med Azure-portalen][qs-portal-03]
 
-I den här snabbstarten skapar du ett *Basic*-register, vilket är ett kostnadsoptimerat alternativ för utvecklare som lär sig om Azure Container Registry. Mer information om tillgängliga tjänst nivåer finns i [SKU: er för container Registry][container-registry-skus].
+I den här snabbstarten skapar du ett *Basic*-register, vilket är ett kostnadsoptimerat alternativ för utvecklare som lär sig om Azure Container Registry. For details on available service tiers, see [Container registry SKUs][container-registry-skus].
 
 När meddelandet **Distribueringen lyckades** visas väljer du containerregistret i portalen. 
 
@@ -48,7 +43,7 @@ Anteckna **inloggningsserverns** värde. Du använder de här värdena i kommand
 
 ## <a name="log-in-to-registry"></a>Logga in till registret
 
-Innan du skickar och hämtar containeravbildningar måste du logga in på ACR-instansen. Öppna ett kommando gränssnitt i operativ systemet och Använd kommandot [AZ ACR login][az-acr-login] i Azure CLI.
+Innan du skickar och hämtar containeravbildningar måste du logga in på ACR-instansen. Open a command shell in your operating system, and use the [az acr login][az-acr-login] command in the Azure CLI.
 
 ```azurecli
 az acr login --name <acrName>
@@ -62,7 +57,7 @@ Kommandot returnerar `Login Succeeded` när det har slutförts.
 
 Om du vill visa en lista över avbildningarna i registret navigerar du till registret i portalen och väljer **Centrallager**. Välj sedan det lager du skapade med `docker push`.
 
-I det här exemplet väljer vi databasen **Hello-World** och vi kan se bilden med `v1`taggad bild under **taggar**.
+In this example, we select the **hello-world** repository, and we can see the `v1`-tagged image under **TAGS**.
 
 ![Visa lista över containeravbildningar i Azure-portalen][qs-portal-09]
 
@@ -79,7 +74,7 @@ Om du vill rensa dina resurser går du till resursgruppen **myResourceGroup** i 
 I den här snabbstarten skapade du ett Azure Container Registry med Azure-portalen, push-överförde en containeravbildning och hämtade och körde avbildningen från registret. Fortsätt till självstudien om Azure Container Registry om du vill titta närmare på ACR.
 
 > [!div class="nextstepaction"]
-> [Azure Container Registry själv studie kurser][container-registry-tutorial-quick-task]
+> [Azure Container Registry tutorials][container-registry-tutorial-quick-task]
 
 <!-- IMAGES -->
 [qs-portal-01]: ./media/container-registry-get-started-portal/qs-portal-01.png

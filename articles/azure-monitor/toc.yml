@@ -836,8 +836,10 @@
               href: insights/container-insights-update-metrics.md
             - name: Konfiguration av hälsoövervakning
               href: insights/container-insights-health-monitors-config.md
-            - name: Inaktivera övervakning
+            - name: Inaktivera övervakning av AKS
               href: insights/container-insights-optout.md
+            - name: Inaktivera övervakning av Red Hat OpenShift
+              href: insights/container-insights-optout-openshift.md
             - name: Felsökning
               href: insights/container-insights-troubleshoot.md
         - name: Övervakning av Docker- och Windows-containrar

@@ -86,6 +86,8 @@
           href: groups-members-owners-search.md
         - name: Skapa en grupp (Azure-portalen)
           href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Tilldela känslighetsetiketter (förhandsversion)
+          href: groups-assign-sensitivity-labels.md
         - name: Hantera grupper i PowerShell för Graph (v2)
           href: groups-settings-v2-cmdlets.md
         - name: Hantera grupper i PowerShell MSOnline

@@ -4,12 +4,12 @@ ms.date: 10-19-2019
 ms.topic: hub-page
 title: Dokumentation om Speech Service
 description: Kom igång med Speech-tjänsten.
-ms.openlocfilehash: 0a07125764908b661216c20279ab4bdf80ae91ca
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: e9fda2788b28ba882b5c5eb232bfd2ffbc85f049
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580338"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406178"
 ---
 <div id="main" class="v2">    
     <div class="container">
@@ -271,7 +271,7 @@ ms.locfileid: "73580338"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Känna igen tal, avsikter och entiteter</h3>
-                                                    <p>Använda Speech SDK och LUIS för att identifiera tal, avsikter och entiteter.</p>
+                                                    <p>Använda Speech SDK och Language Understanding (LUIS) för att identifiera tal, avsikter och entiteter.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -289,7 +289,7 @@ ms.locfileid: "73580338"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>LUIS-dokumentation</h3>
+                                                    <h3>Dokumentation om Language Understanding (LUIS)</h3>
                                                     <p>Läs mer om Language Understanding-tjänsten (LUIS) och NLP (Natural Language Processing).</p>
                                                 </div>
                                             </div>
@@ -308,7 +308,7 @@ ms.locfileid: "73580338"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>LUIS-portalen</h3>
+                                                    <h3>Language Understanding-portalen (LUIS)</h3>
                                                     <p>Bygg in naturligt språk i appar, robotar och IoT-enheter.</p>
                                                 </div>
                                             </div>

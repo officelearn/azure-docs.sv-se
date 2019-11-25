@@ -34,32 +34,42 @@
           href: connect-macos.md
         - name: Ansluta med iOS-klienten
           href: connect-ios.md
-    - name: Skapa en värdpool med en Azure Resource Manager-mall
-      href: create-host-pools-arm-template.md
-    - name: Skapa en värdpool med PowerShell
-      href: create-host-pools-powershell.md
-    - name: Distribuera en virtuell Windows 7-dator på Windows Virtual Desktop
-      href: deploy-windows-7-virtual-machine.md
-    - name: Använd Windows-licens för Windows Virtual Desktop-sessionsvärdar
+    - name: Skapa en värdpool och sessionsvärdar
+      items:
+        - name: Azure Resource Manager-mall
+          href: create-host-pools-arm-template.md
+        - name: PowerShell
+          href: create-host-pools-powershell.md
+        - name: Distribuera en virtuell Windows 7-dator
+          href: deploy-windows-7-virtual-machine.md
+        - name: Distribuera en GPU-baserad sessionsvärd
+          href: configure-vm-gpu.md
+    - name: Skapa en profilcontainer
+      items:
+        - name: Använda en VM-baserad filresurs
+          href: create-host-pools-user-profile.md
+        - name: Använda Azure NetApp Files
+          href: create-fslogix-profile-container.md
+    - name: Konfigurera inställningar för värdpool
+      items:
+        - name: RDP-egenskaper
+          href: customize-rdp-properties.md
+        - name: Belastningsutjämning för poolindelade värdpooler
+          href: configure-host-pool-load-balancing.md
+    - name: Använda Windows Virtual Desktop-licens
       href: apply-windows-license.md
     - name: Skapa en profilcontainer för en värdpool med hjälp av en filresurs
       href: create-host-pools-user-profile.md
-    - name: Skapa en profilcontainer för en värdpool med hjälp av Azure NetApp Files
-      href: create-fslogix-profile-container.md
-    - name: Konfigurera metoden för belastningsutjämning för Windows Virtual Desktop
-      href: configure-host-pool-load-balancing.md
-    - name: Förbereda och anpassa en VHD-huvudavbildning
-      href: set-up-customize-master-image.md
-    - name: Installera Office på en VHD-huvudavbildning
-      href: install-office-on-wvd-master-image.md
-    - name: Konfigurera GPU för Windows Virtual Desktop
-      href: configure-vm-gpu.md
+    - name: Anpassa avbildning av sessionsvärd
+      items:
+        - name: Konfigurera en VHD-huvudavbildning
+          href: set-up-customize-master-image.md
+        - name: Installera Office på en VHD-huvudavbildning
+          href: install-office-on-wvd-master-image.md
     - name: Skala sessionsvärdar dynamiskt
       href: set-up-scaling-script.md
-    - name: Anpassa feed för Windows Virtual Desktop-användare
+    - name: Anpassa flöde
       href: customize-feed-for-virtual-desktop-users.md
-    - name: Anpassa RDP-egenskaper
-      href: customize-rdp-properties.md
     - name: Distribuera diagnostikverktyget
       href: deploy-diagnostics.md
     - name: Konfigurera MSIX-appbifogning

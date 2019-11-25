@@ -173,11 +173,14 @@
           href: troubleshoot-recovery-disks-linux.md
         - name: Azure Portal
           href: troubleshoot-recovery-disks-portal-linux.md
-- name: Startfel
-  href: boot-error-troubleshoot.md
+- name: Startfel för Linux
+  href: boot-error-troubleshoot-linux.md
   items:
     - name: Grub Rescue
       href: troubleshoot-vm-boot-error.md
+- name: Startfel för Windows
+  href: boot-error-troubleshoot.md
+  items:
     - name: Startdiagnostik
       href: boot-diagnostics.md
     - name: BitLocker-fel

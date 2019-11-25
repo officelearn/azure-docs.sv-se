@@ -1,14 +1,14 @@
 ---
 title: Exempel på skiss för CAF Migration-landningszon – översikt
-description: Översikt och arkitektur för skissexemplet för CAF Migration-landningszonen.
+description: Översikt över och arkitektur för Cloud Adoption Framework (CAF) for Azure Migration-landningszonskissexemplet.
 ms.date: 08/20/2019
 ms.topic: sample
-ms.openlocfilehash: cba1eb6d4761ae8e236f22fa22ff08c129d9637e
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: e007c7af4d788016d74f085ba39b63ee218d6de0
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038468"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74404760"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Översikt över skissexemplet för Microsoft Cloud Adoption Framework for Azure Migration-landningszonen
 
@@ -43,7 +43,7 @@ Mer information finns i [Microsoft Cloud Adoption Framework for Azure – migrer
 Du har läst översikten och arkitekturen för skissexemplet för CAF Migrate-landningszonen.
 
 > [!div class="nextstepaction"]
->  [Skiss för CAF Migration-landningszon – distributionssteg](./deploy.md)
+> [Skiss för CAF Migration-landningszon – distributionssteg](./deploy.md)
 
 Ytterligare artiklar om skisser och hur de används:
 

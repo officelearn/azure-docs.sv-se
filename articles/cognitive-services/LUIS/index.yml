@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Dokumentation om Language Understanding (LUIS)
-summary: Lär dig mer om att använda Language Understanding-tjänsten så att ditt program kan förstå vad en person vill när den använder egna ord.
+summary: Se hur Language Understanding gör så att ditt program kan förstå vad en person vill när denna använder sina egna ord.
 metadata:
   ms.topic: landing-page
-  ms.date: 09/19/2019
+  ms.date: 11/22/2019
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -11,13 +11,13 @@ metadata:
   services: cognitive-services
   title: Dokumentation om Language Understanding Intelligent Service (LUIS)
   titleSuffix: Azure Cognitive Services
-  description: Language Understanding-tjänsten (LUIS) gör så att ditt program kan förstå vad en person vill när den använder egna ord. LUIS använder maskininlärning för att göra det möjligt för utvecklare att skapa program som kan ta emot indata från användaren i naturligt språk och sedan extrahera betydelse.
-  ms.openlocfilehash: 70249b540e53ab8182a25f81d7401697b2b888c1
-  ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+  description: Language Understanding-tjänsten (LUIS) gör så att ditt program kan förstå vad en person vill när denna använder sina egna ord. LUIS använder maskininlärning för att göra det möjligt för utvecklare att skapa program som kan ta emot indata från användaren i naturligt språk och sedan extrahera betydelse.
+  ms.openlocfilehash: 14386a08b92814b16fb007e4dd01cb4bb5238c0a
+  ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/20/2019
-  ms.locfileid: "71155020"
+  ms.lasthandoff: 11/22/2019
+  ms.locfileid: "74406155"
 landingContent:
 - title: Om Language Understanding (LUIS)
   linkLists:
@@ -25,16 +25,18 @@ landingContent:
     links:
     - text: Vad är Language Understanding?
       url: what-is-luis.md
-    - text: Nyheter
-      url: whats-new.md
     - text: LUIS-portalen
       url: https://www.luis.ai
   - linkListType: concept
     links:
     - text: Planera din app
       url: luis-how-plan-your-app.md
-    - text: Appens redigeringscykel
+    - text: Iterativ apputformning
       url: luis-concept-app-iteration.md
+  - linkListType: whats-new
+    links:
+    - text: Nyheter
+      url: whats-new.md
   - linkListType: video
     links:
     - text: 'AI Roadshow: LUIS'
@@ -47,9 +49,9 @@ landingContent:
       url: luis-concept-intent.md
     - text: Entiteter
       url: luis-concept-entity-types.md
-    - text: Exempel på bra yttranden
+    - text: Yttranden
       url: luis-concept-utterance.md
-    - text: Funktioner för fraslistor
+    - text: Funktioner för fraslista
       url: luis-concept-feature.md
   - linkListType: quickstart
     links:
@@ -89,15 +91,15 @@ landingContent:
       url: sdk-python-quickstart-authoring-app.md#train-the-app
   - linkListType: how-to-guide
     links:
-    - text: Versionshantering av appen
+    - text: Versionshantera din app
       url: luis-how-to-manage-versions.md
-    - text: Interaktiv testning
+    - text: Utföra interaktiv testning
       url: luis-interactive-test.md
-    - text: Batch-testning
+    - text: Utföra batch-testning
       url: luis-how-to-batch-test.md
     - text: Träna appen
       url: luis-how-to-train.md
-    - text: Publicera för att använda förutsägelseslutpunkten
+    - text: Slutpunkt för publiceringsförutsägelse
       url: luis-how-to-publish-app.md
 - title: Hämta förutsägelser från slutpunkten
   linkLists:

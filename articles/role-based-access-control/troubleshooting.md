@@ -1,6 +1,6 @@
 ---
-title: Felsöka RBAC för Azure-resurser | Microsoft Docs
-description: Felsök problem med rollbaserad åtkomst kontroll (RBAC) för Azure-resurser.
+title: Troubleshoot RBAC for Azure resources | Microsoft Docs
+description: Troubleshoot issues with role-based access control (RBAC) for Azure resources.
 services: azure-portal
 documentationcenter: na
 author: rolyon
@@ -11,52 +11,56 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 11/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: e8a5b8b5794687f9e3b1707fda4cbe381e277317
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 2351e6a63723156cce646a6a1cdda837b18a8f91
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819763"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456816"
 ---
-# <a name="troubleshoot-rbac-for-azure-resources"></a>Felsöka RBAC för Azure-resurser
+# <a name="troubleshoot-rbac-for-azure-resources"></a>Troubleshoot RBAC for Azure resources
 
-Den här artikeln besvarar vanliga frågor om rollbaserad åtkomst kontroll (RBAC) för Azure-resurser, så att du vet vad som ska förväntas när du använder rollerna i Azure Portal och kan felsöka åtkomst problem.
+This article answers common questions about role-based access control (RBAC) for Azure resources, so that you know what to expect when using the roles in the Azure portal and can troubleshoot access problems.
 
 ## <a name="problems-with-rbac-role-assignments"></a>Problem med RBAC-rolltilldelningar
 
-- Om du inte kan lägga till en roll tilldelning i Azure Portal på **åtkomst kontroll (IAM)** eftersom alternativet **Lägg** till  > **Lägg till roll tilldelning** är inaktiverat eller eftersom du får behörighets felet "klienten med objekt-ID: t har inte behörighet att utföra åtgärden, kontrol lera att du är inloggad med en användare som har tilldelats en roll som har behörigheten `Microsoft.Authorization/roleAssignments/write`, till exempel [ägare](built-in-roles.md#owner) eller [administratör för användar åtkomst](built-in-roles.md#user-access-administrator) i den omfattning som du försöker tilldela rollen.
-- Om du får fel meddelandet "det går inte att skapa fler roll tilldelningar (kod: RoleAssignmentLimitExceeded)" när du försöker tilldela en roll, kan du försöka minska antalet roll tilldelningar genom att tilldela roller till grupper i stället. Azure har stöd för upp till **2000** rolltilldelningar per prenumeration. Den här gränsen för roll tilldelningar är fast och går inte att öka.
+- If you are unable to add a role assignment in the Azure portal on **Access control (IAM)** because the **Add** > **Add role assignment** option is disabled or because you get the permissions error "The client with object id does not have authorization to perform action", check that you are currently signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleAssignments/write` permission such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator) at the scope you are trying to assign the role.
+- If you get the error message "No more role assignments can be created (code: RoleAssignmentLimitExceeded)" when you try to assign a role, try to reduce the number of role assignments by assigning roles to groups instead. Azure har stöd för upp till **2000** rolltilldelningar per prenumeration. This role assignments limit is fixed and cannot be increased.
 
 ## <a name="problems-with-custom-roles"></a>Problem med anpassade roller
 
-- Om du behöver anvisningar för hur du skapar en anpassad roll kan du läsa självstudierna för den anpassade rollen med hjälp av [Azure PowerShell](tutorial-custom-role-powershell.md) eller [Azure CLI](tutorial-custom-role-cli.md).
-- Om du inte kan uppdatera en befintlig anpassad roll kontrollerar du att du är inloggad med en användare som har tilldelats en roll som har behörigheten `Microsoft.Authorization/roleDefinition/write`, till exempel [ägare](built-in-roles.md#owner) eller [administratör för användar åtkomst](built-in-roles.md#user-access-administrator).
-- Om du inte kan ta bort en anpassad roll och få fel meddelandet "det finns befintliga roll tilldelningar som refererar till rollen (kod: RoleDefinitionHasAssignments)", finns det fortfarande roll tilldelningar som använder den anpassade rollen. Ta bort dessa rolltilldelningar och försök att ta bort den anpassade rollen igen.
-- Om du får felmeddelandet ”Det högsta tillåtna antalet rolldefinitioner har överskridits. Inga fler roll definitioner kan skapas (kod: RoleDefinitionLimitExceeded) "när du försöker skapa en ny anpassad roll, tar du bort alla anpassade roller som inte används. Azure har stöd för upp till **5000** anpassade roller i en klient organisation. (För särskilda moln, till exempel Azure Government, Azure Tyskland och Azure Kina 21Vianet är gränsen 2000 anpassade roller.)
-- Om du får ett fel som liknar "klienten har behörighet att utföra åtgärden" Microsoft. Authorization/roleDefinitions/Write "i omfånget '/Subscriptions/{subscriptionId} ', gick det inte att hitta den länkade prenumerationen" när du försöker uppdatera en anpassad roll kontrollerar du om ett eller flera [tilldelnings bara scope](role-definitions.md#assignablescopes) har tagits bort i klienten. Om omfånget har tagits bort ska du skapa en supportbegäran eftersom det inte finns någon självbetjäningslösning tillgänglig just nu.
+- If you need steps for how to create a custom role, see the custom role tutorials using [Azure PowerShell](tutorial-custom-role-powershell.md) or [Azure CLI](tutorial-custom-role-cli.md).
+- If you are unable to update an existing custom role, check that you are currently signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleDefinition/write` permission such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator).
+- If you are unable to delete a custom role and get the error message "There are existing role assignments referencing role (code: RoleDefinitionHasAssignments)", then there are role assignments still using the custom role. Ta bort dessa rolltilldelningar och försök att ta bort den anpassade rollen igen.
+- Om du får felmeddelandet ”Det högsta tillåtna antalet rolldefinitioner har överskridits. No more role definitions can be created (code: RoleDefinitionLimitExceeded)" when you try to create a new custom role, delete any custom roles that aren't being used. Azure supports up to **5000** custom roles in a tenant. (För särskilda moln, till exempel Azure Government, Azure Tyskland och Azure Kina 21Vianet är gränsen 2000 anpassade roller.)
+- If you get an error similar to "The client has permission to perform action 'Microsoft.Authorization/roleDefinitions/write' on scope '/subscriptions/{subscriptionid}', however the linked subscription was not found" when you try to update a custom role, check whether one or more [assignable scopes](role-definitions.md#assignablescopes) have been deleted in the tenant. Om omfånget har tagits bort ska du skapa en supportbegäran eftersom det inte finns någon självbetjäningslösning tillgänglig just nu.
 
 ## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>Återställa RBAC när prenumerationer flyttas mellan klienter
 
-- Om du behöver steg för att överföra en prenumeration till en annan Azure AD-klient läser du [överföra ägarskapet för en Azure-prenumeration till ett annat konto](../billing/billing-subscription-transfer.md).
-- Om du överför en prenumeration till en annan Azure AD-klient tas alla rolltilldelningar bort permanent från den Azure AD-klient som är källan och migreras inte till den Azure AD-klient som är målet. Du måste återskapa rolltilldelningarna i målklienten. Du måste också manuellt återskapa hanterade identiteter för Azure-resurser. Mer information finns i [vanliga frågor och svar och kända problem med hanterade identiteter](../active-directory/managed-identities-azure-resources/known-issues.md).
-- Om du är global administratör i Azure AD och du inte har åtkomst till en prenumeration när den har flyttats mellan klienter, använder du **åtkomst hantering för Azure-resurser** för att tillfälligt [öka åtkomsten](elevate-access-global-admin.md) till prenumerationen.
+- If you need steps for how to transfer a subscription to a different Azure AD tenant, see [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md).
+- Om du överför en prenumeration till en annan Azure AD-klient tas alla rolltilldelningar bort permanent från den Azure AD-klient som är källan och migreras inte till den Azure AD-klient som är målet. Du måste återskapa rolltilldelningarna i målklienten. You also have to manually recreate managed identities for Azure resources. For more information, see [FAQs and known issues with managed identities](../active-directory/managed-identities-azure-resources/known-issues.md).
+- If you are an Azure AD Global Administrator and you don't have access to a subscription after it was moved between tenants, use the **Access management for Azure resources** toggle to temporarily [elevate your access](elevate-access-global-admin.md) to get access to the subscription.
 
 ## <a name="issues-with-service-admins-or-co-admins"></a>Problem med tjänstadministratörer eller medadministratörer
 
-- Om du har problem med tjänst administratören eller medadministratörer kan du läsa [Lägg till eller ändra Azure-prenumerations administratörer](../billing/billing-add-change-azure-subscription-administrator.md) och [klassiska prenumerations administratörs roller, Azure RBAC-roller och Azure AD-administratörskonsolen](rbac-and-directory-admin-roles.md).
+- If you are having issues with Service administrator or Co-administrators, see [Add or change Azure subscription administrators](../billing/billing-add-change-azure-subscription-administrator.md) and [Classic subscription administrator roles, Azure RBAC roles, and Azure AD administrator roles](rbac-and-directory-admin-roles.md).
 
-## <a name="access-denied-or-permission-errors"></a>Åtkomst nekad eller behörighets fel
+## <a name="access-denied-or-permission-errors"></a>Access denied or permission errors
 
-- Om du får behörighets felet "klienten med objekt-ID har inte behörighet att utföra åtgärden över omfattning (kod: AuthorizationFailed)" när du försöker skapa en resurs, kontrollerar du att du är inloggad med en användare som har tilldelats en roll som har Skriv behörighet till resursen i det valda omfånget. Om du vill hantera virtuella datorer i en resursgrupp ska du till exempel ha rollen [Virtuell datordeltagare](built-in-roles.md#virtual-machine-contributor) på den resursgruppen (eller ett överordnat område). En lista med behörigheter för alla inbyggda roller finns i [Inbyggda roller för Azure-resurser](built-in-roles.md).
-- Om du får behörighets fel "du har inte behörighet att skapa en supportbegäran" när du försöker skapa eller uppdatera ett support ärende kontrollerar du att du är inloggad med en användare som har tilldelats en roll som har `Microsoft.Support/supportTickets/write` behörighet , till exempel [deltagare i support ärende](built-in-roles.md#support-request-contributor).
+- If you get the permissions error "The client with object id does not have authorization to perform action over scope (code: AuthorizationFailed)" when you try to create a resource, check that you are currently signed in with a user that is assigned a role that has write permission to the resource at the selected scope. Om du vill hantera virtuella datorer i en resursgrupp ska du till exempel ha rollen [Virtuell datordeltagare](built-in-roles.md#virtual-machine-contributor) på den resursgruppen (eller ett överordnat område). En lista med behörigheter för alla inbyggda roller finns i [Inbyggda roller för Azure-resurser](built-in-roles.md).
+- If you get the permissions error "You don't have permission to create a support request" when you try to create or update a support ticket, check that you are currently signed in with a user that is assigned a role that has the `Microsoft.Support/supportTickets/write` permission, such as [Support Request Contributor](built-in-roles.md#support-request-contributor).
 
-## <a name="role-assignments-with-unknown-security-principal"></a>Roll tilldelningar med okänt säkerhets objekt
+## <a name="role-assignments-with-unknown-security-principal"></a>Role assignments with Unknown security principal
 
-När du listar roll tilldelningarna med hjälp av Azure PowerShell kan du se tilldelningar med en tom `DisplayName` och en `ObjectType` inställd på okänd. [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) returnerar till exempel en roll tilldelning som liknar följande:
+If you assign a role to a security principal (user, group, service principal, or managed identity) and then you later delete that security principal without removing the role assignment, the security principal type for the role assignment will be listed as **Unknown**. The following screenshot shows an example in the Azure portal. The security principal name is listed as **Identity deleted** and **Identity no longer exists**. 
+
+![Web app resource group](./media/troubleshooting/unknown-security-principal.png)
+
+If you list this role assignment using Azure PowerShell, you will see an empty `DisplayName` and an `ObjectType` set to Unknown. For example, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) returns a role assignment that is similar to the following:
 
 ```azurepowershell
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -70,7 +74,7 @@ ObjectType         : Unknown
 CanDelegate        : False
 ```
 
-På samma sätt kan du se tilldelningar med en tom `principalName` när du listar roll tilldelningarna med Azure CLI. Till exempel returnerar [AZ roll tilldelnings lista](/cli/azure/role/assignment#az-role-assignment-list) en roll tilldelning som liknar följande:
+Similarly, if you list this role assignment using Azure CLI, you will see an empty `principalName`. For example, [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) returns a role assignment that is similar to the following:
 
 ```azurecli
 {
@@ -86,11 +90,9 @@ På samma sätt kan du se tilldelningar med en tom `principalName` när du lista
 }
 ```
 
-Roll tilldelningarna sker när du tilldelar en roll till ett säkerhets objekt (användare, grupp, tjänstens huvud namn eller hanterad identitet) och senare tar bort säkerhets objekt. Roll tilldelningarna visas inte i Azure Portal och det är inte ett problem att lämna dem. Men om du vill kan du ta bort roll tilldelningarna.
+It isn't a problem to leave these role assignments, but you can remove them using steps that are similar to other role assignments. For information about how to remove role assignments, see [Azure portal](role-assignments-portal.md#remove-role-assignments), [Azure PowerShell](role-assignments-powershell.md#remove-access), or [Azure CLI](role-assignments-cli.md#remove-access)
 
-Ta bort roll tilldelningarna genom att använda borttagnings kommandona [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) eller [AZ roll tilldelning](/cli/azure/role/assignment#az-role-assignment-delete) .
-
-Om du försöker ta bort roll tilldelningarna med objekt-ID: t och roll definitions namnet i PowerShell och fler än en roll tilldelning matchar dina parametrar visas följande fel meddelande: "den angivna informationen mappas inte till en roll tilldelning". Följande visar ett exempel på fel meddelandet:
+In PowerShell, if you try to remove the role assignments using the object ID and role definition name, and more than one role assignment matches your parameters, you will get the error message: "The provided information does not map to a role assignment". The following shows an example of the error message:
 
 ```Example
 PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor"
@@ -103,87 +105,87 @@ At line:1 char:1
 + FullyQualifiedErrorId : Microsoft.Azure.Commands.Resources.RemoveAzureRoleAssignmentCommand
 ```
 
-Om du får det här fel meddelandet ser du till att du även anger `-Scope`-eller `-ResourceGroupName` parametrar.
+If you get this error message, make sure you also specify the `-Scope` or `-ResourceGroupName` parameters.
 
 ```Example
 PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor" - Scope /subscriptions/11111111-1111-1111-1111-111111111111
 ```
 
-## <a name="rbac-changes-are-not-being-detected"></a>RBAC-ändringar identifieras inte
+## <a name="rbac-changes-are-not-being-detected"></a>RBAC changes are not being detected
 
-Azure Resource Manager cachelagrar ibland konfigurationer och data för att förbättra prestanda. När du skapar eller tar bort roll tilldelningar kan det ta upp till 30 minuter innan ändringarna börjar gälla. Om du använder Azure Portal, Azure PowerShell eller Azure CLI kan du framtvinga en uppdatering av roll tilldelnings ändringarna genom att logga ut och logga in. Om du gör roll tilldelnings ändringar med REST API-anrop kan du framtvinga en uppdatering genom att uppdatera åtkomst-token.
+Azure Resource Manager sometimes caches configurations and data to improve performance. When creating or deleting role assignments, it can take up to 30 minutes for changes to take effect. If you are using the Azure portal, Azure PowerShell, or Azure CLI, you can force a refresh of your role assignment changes by signing out and signing in. If you are making role assignment changes with REST API calls, you can force a refresh by refreshing your access token.
 
-## <a name="web-app-features-that-require-write-access"></a>Webb program funktioner som kräver skriv åtkomst
+## <a name="web-app-features-that-require-write-access"></a>Web app features that require write access
 
-Om du beviljar en användare skrivskyddad åtkomst till en enda webbapp inaktive ras vissa funktioner som du kanske inte förväntar dig. Följande hanterings funktioner kräver **Skriv** åtkomst till en webbapp (antingen deltagare eller ägare) och är inte tillgängliga i alla skrivskyddade scenarier.
+If you grant a user read-only access to a single web app, some features are disabled that you might not expect. The following management capabilities require **write** access to a web app (either Contributor or Owner), and aren't available in any read-only scenario.
 
-* Kommandon (t. ex. Start, stopp osv.)
-* Ändra inställningar som allmän konfiguration, skalnings inställningar, säkerhets kopierings inställningar och övervaknings inställningar
-* Åtkomst till autentiseringsuppgifter för publicering och andra hemligheter som appinställningar och anslutnings strängar
-* Strömmande loggar
-* Konfiguration av diagnostiska loggar
-* Konsol (kommando tolk)
-* Aktiva och nya distributioner (för lokal git-kontinuerlig distribution)
-* Beräknade utgifter
-* Webbtester
-* Virtuellt nätverk (endast synligt för en läsare om ett virtuellt nätverk tidigare har kon figurer ATS av en användare med Skriv behörighet).
+* Commands (like start, stop, etc.)
+* Changing settings like general configuration, scale settings, backup settings, and monitoring settings
+* Accessing publishing credentials and other secrets like app settings and connection strings
+* Streaming logs
+* Diagnostic logs configuration
+* Console (command prompt)
+* Active and recent deployments (for local git continuous deployment)
+* Estimated spend
+* Web tests
+* Virtual network (only visible to a reader if a virtual network has previously been configured by a user with write access).
 
-Om du inte kan komma åt någon av dessa paneler måste du be administratören om deltagar åtkomst till webbappen.
+If you can't access any of these tiles, you need to ask your administrator for Contributor access to the web app.
 
-## <a name="web-app-resources-that-require-write-access"></a>Webb program resurser som kräver skriv åtkomst
+## <a name="web-app-resources-that-require-write-access"></a>Web app resources that require write access
 
-Webbappar är komplicerade genom förekomst av några olika resurser som spelas upp. Här är en typisk resurs grupp med ett par webbplatser:
+Web apps are complicated by the presence of a few different resources that interplay. Here is a typical resource group with a couple of websites:
 
-![Resurs grupp för webb program](./media/troubleshooting/website-resource-model.png)
+![Web app resource group](./media/troubleshooting/website-resource-model.png)
 
-Det innebär att om du beviljar någon åtkomst till webbappen är många av funktionerna på bladet webbplats i Azure Portal inaktiverade.
+As a result, if you grant someone access to just the web app, much of the functionality on the website blade in the Azure portal is disabled.
 
-De här objekten kräver **Skriv** åtkomst till den **App Service plan** som motsvarar din webbplats:  
+These items require **write** access to the **App Service plan** that corresponds to your website:  
 
-* Visa Web Apps pris nivå (kostnads fri eller standard)  
-* Skalnings konfiguration (antal instanser, storlek på virtuell dator, inställningar för automatisk skalning)  
-* Kvoter (lagring, bandbredd, CPU)  
+* Viewing the web app's pricing tier (Free or Standard)  
+* Scale configuration (number of instances, virtual machine size, autoscale settings)  
+* Quotas (storage, bandwidth, CPU)  
 
-De här objekten kräver **Skriv** åtkomst till hela **resurs gruppen** som innehåller din webbplats:  
+These items require **write** access to the whole **Resource group** that contains your website:  
 
-* SSL-certifikat och bindningar (SSL-certifikat kan delas mellan platser i samma resurs grupp och Geo-plats)  
+* SSL Certificates and bindings (SSL certificates can be shared between sites in the same resource group and geo-location)  
 * Varningsregler  
-* Inställningar för autoskalning  
-* Application Insights-komponenter  
-* Webbtester  
+* Autoscale settings  
+* Application insights components  
+* Web tests  
 
-## <a name="virtual-machine-features-that-require-write-access"></a>Funktioner för virtuella datorer som kräver skriv åtkomst
+## <a name="virtual-machine-features-that-require-write-access"></a>Virtual machine features that require write access
 
-På liknande sätt som Web Apps kräver vissa funktioner på bladet virtuell dator skriv åtkomst till den virtuella datorn eller till andra resurser i resurs gruppen.
+Similar to web apps, some features on the virtual machine blade require write access to the virtual machine, or to other resources in the resource group.
 
-Virtuella datorer är relaterade till domän namn, virtuella nätverk, lagrings konton och varnings regler.
+Virtual machines are related to Domain names, virtual networks, storage accounts, and alert rules.
 
-De här objekten kräver **Skriv** åtkomst till den **virtuella datorn**:
+These items require **write** access to the **Virtual machine**:
 
 * Slutpunkter  
 * IP-adresser  
 * Diskar  
 * Tillägg  
 
-Dessa kräver **Skriv** behörighet till både den **virtuella datorn**och **resurs gruppen** (tillsammans med domän namnet) som den finns i:  
+These require **write** access to both the **Virtual machine**, and the **Resource group** (along with the Domain name) that it is in:  
 
 * Tillgänglighetsuppsättning  
-* Belastningsutjämnad uppsättning  
+* Load balanced set  
 * Varningsregler  
 
-Om du inte kan komma åt någon av dessa paneler kan du be administratören om deltagar åtkomst till resurs gruppen.
+If you can't access any of these tiles, ask your administrator for Contributor access to the Resource group.
 
-## <a name="azure-functions-and-write-access"></a>Azure Functions-och skriv åtkomst
+## <a name="azure-functions-and-write-access"></a>Azure Functions and write access
 
-Vissa funktioner i [Azure Functions](../azure-functions/functions-overview.md) kräver skriv åtkomst. Om en användare till exempel har tilldelats rollen [läsare](built-in-roles.md#reader) kan de inte Visa funktionerna i en Function-app. Portalen visar **(ingen åtkomst)** .
+Some features of [Azure Functions](../azure-functions/functions-overview.md) require write access. For example, if a user is assigned the [Reader](built-in-roles.md#reader) role, they will not be able to view the functions within a function app. The portal will display **(No access)** .
 
-![Function-appar ingen åtkomst](./media/troubleshooting/functionapps-noaccess.png)
+![Function apps no access](./media/troubleshooting/functionapps-noaccess.png)
 
-En läsare kan klicka på fliken **plattforms funktioner** och sedan klicka på **alla inställningar** för att visa vissa inställningar som är relaterade till en Function-app (liknar en webbapp), men de kan inte ändra någon av dessa inställningar. Du behöver [deltagar](built-in-roles.md#contributor) rollen för att få åtkomst till dessa funktioner.
+A reader can click the **Platform features** tab and then click **All settings** to view some settings related to a function app (similar to a web app), but they can't modify any of these settings. To access these features, you will need the [Contributor](built-in-roles.md#contributor) role.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Felsöka för gäst användare](role-assignments-external-users.md#troubleshoot)
+- [Troubleshoot for guest users](role-assignments-external-users.md#troubleshoot)
 - [Hantera åtkomst till Azure-resurser med hjälp av RBAC och Azure-portalen](role-assignments-portal.md)
-- [Visa aktivitets loggar för RBAC-ändringar till Azure-resurser](change-history-report.md)
+- [View activity logs for RBAC changes to Azure resources](change-history-report.md)
 

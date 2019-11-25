@@ -1,6 +1,6 @@
 ---
-title: Automatisk distribution för enhetsgrupper – Azure IoT Edge | Microsoft Docs
-description: Använda automatisk distributioner i Azure IoT Edge för att hantera grupper av enheter baserat på delade taggar
+title: Automatic deployment for device groups - Azure IoT Edge | Microsoft Docs
+description: Use automatic deployments in Azure IoT Edge to manage groups of devices based on shared tags
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,127 +8,126 @@ ms.date: 09/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: 376ee74732daf526b31129fa8c93cbaa32350eae
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eb45f2b929c08ce77c83af450726a00dd6af458e
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60318214"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456727"
 ---
-# <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Förstå IoT Edge automatiska distributioner för enskilda enheter eller i stor skala
+# <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Understand IoT Edge automatic deployments for single devices or at scale
 
-Azure IoT Edge-enheter följer en [enhetslivscykeln](../iot-hub/iot-hub-device-management-overview.md) som påminner om andra typer av IoT-enheter:
+Azure IoT Edge devices follow a [device lifecycle](../iot-hub/iot-hub-device-management-overview.md) that is similar to other types of IoT devices:
 
-1. Etablera nya IoT Edge-enheter genom att imaging en enhet med ett operativsystem och installera den [IoT Edge-körningen](iot-edge-runtime.md).
-2. Konfigurera enheter för att köra [IoT Edge-moduler](iot-edge-modules.md), och sedan övervaka deras hälsotillstånd. 
-3. Slutligen, dra tillbaka enheter när de ersätts eller föråldrade.  
+1. Provision new IoT Edge devices by imaging a device with an OS and installing the [IoT Edge runtime](iot-edge-runtime.md).
+2. Configure the devices to run [IoT Edge modules](iot-edge-modules.md), and then monitor their health. 
+3. Finally, retire devices when they are replaced or become obsolete.  
 
-Azure IoT Edge gör det två sätt att konfigurera vilka moduler som ska köras på IoT Edge-enheter: en för utveckling och snabba iterationer på en enskild enhet (används av den här metoden i Azure IoT Edge [självstudier](tutorial-deploy-function.md)), och en för att hantera stora fleets av IoT Edge-enheter. Båda dessa metoder är tillgängliga i Azure-portalen och genom programmering. För att skicka meddelanden till grupper eller ett stort antal enheter, kan du ange vilka enheter som du vill distribuera dina moduler med [taggar](../iot-edge/how-to-deploy-monitor.md#identify-devices-using-tags) i enhetstvillingen. Följande steg tala om en distribution till en enhetsgrupp i delstaten Washington identifieras via egenskapen taggar. 
+Azure IoT Edge provides two ways to configure the modules to run on IoT Edge devices: one for development and fast iterations on a single device (you used this method in the Azure IoT Edge [tutorials](tutorial-deploy-function.md)), and one for managing large fleets of IoT Edge devices. Both of these approaches are available in the Azure portal and programmatically. For targeting groups or a large number of devices, you can specify which devices you'd like to deploy your modules to using [tags](../iot-edge/how-to-deploy-monitor.md#identify-devices-using-tags) in the device twin. The following steps talk about a deployment to a Washington State device group identified through the tags property. 
 
-Den här artikeln fokuserar på konfigurationen och övervakning faser för fjärranläggning av enheter, gemensamt kallas för automatisk IoT Edge-distributioner. Övergripande distributionsstegen är följande: 
+This article focuses on the configuration and monitoring stages for fleets of devices, collectively referred to as IoT Edge automatic deployments. The overall deployment steps are as follows: 
 
-1. En operatör definierar en distribution som beskriver en uppsättning moduler samt målenheter. Varje distribution har ett distribution-manifest som visar den här informationen. 
-2. IoT Hub-tjänsten kommunicerar med alla målriktade enheter att konfigurera dem med de önskade modulerna. 
-3. IoT Hub-tjänsten hämtar status från IoT Edge-enheter och gör dem tillgängliga för operatorn.  En operatör kan exempelvis se när en Edge-enhet inte har konfigurerats felfritt eller om en modul misslyckas under körning. 
-4. Nya IoT Edge-enheter som uppfyller villkor som Sök mål har konfigurerats för distributionen när som helst. Till exempel konfigurerar en distribution som riktar sig mot alla IoT Edge-enheter i delstaten Washington automatiskt en ny IoT Edge-enhet när den har etablerats och läggas till enhetsgrupp i delstaten Washington. 
+1. An operator defines a deployment that describes a set of modules as well as the target devices. Each deployment has a deployment manifest that reflects this information. 
+2. The IoT Hub service communicates with all targeted devices to configure them with the desired modules. 
+3. The IoT Hub service retrieves status from the IoT Edge devices and makes them available to the operator.  For example, an operator can see when an Edge device is not configured successfully or if a module fails during runtime. 
+4. At any time, new IoT Edge devices that meet the targeting conditions are configured for the deployment. For example, a deployment that targets all IoT Edge devices in Washington State automatically configures a new IoT Edge device once it is provisioned and added to the Washington State device group. 
  
-Den här artikeln beskriver varje komponent som ingår i Konfigurera och övervaka en distribution. En genomgång för att skapa och uppdatera en distribution finns i [distribuera och övervaka IoT Edge-moduler i stor skala](how-to-deploy-monitor.md).
+This article describes each component involved in configuring and monitoring a deployment. For a walkthrough of creating and updating a deployment, see [Deploy and monitor IoT Edge modules at scale](how-to-deploy-monitor.md).
 
 ## <a name="deployment"></a>Distribution
 
-En automatisk IoT Edge-distribution tilldelar IoT Edge modulen bilder för att köra som instanser på en riktad uppsättning IoT Edge-enheter. Det fungerar genom att konfigurera ett manifest för IoT Edge-distribution med en lista med moduler med motsvarande initieringsparametrar. En distribution kan tilldelas till en enskild enhet (baserat på enhets-ID) eller till en grupp av enheter (baserat på taggar). När en IoT Edge-enhet tar emot ett manifest för distribution, det hämtar och installerar behållaravbildningarna från respektive container-databaser och konfigurerar dem enlighet med detta. När en distribution har skapats kan kan en operatör övervaka distributionsstatusen om målenheterna är korrekt konfigurerad.
+An IoT Edge automatic deployment assigns IoT Edge module images to run as instances on a targeted set of IoT Edge devices. It works by configuring an IoT Edge deployment manifest to include a list of modules with the corresponding initialization parameters. A deployment can be assigned to a single device (based on Device ID) or to a group of devices (based on tags). Once an IoT Edge device receives a deployment manifest, it downloads and installs the container images from the respective container repositories, and configures them accordingly. Once a deployment is created, an operator can monitor the deployment status to see whether targeted devices are correctly configured.
 
-IoT Edge-enheter kan konfigureras med en distribution. Följande krav måste vara på enheten innan den kan ta emot distributionen:
+Only IoT Edge devices can be configured with a deployment. The following prerequisites must be on the device before it can receive the deployment:
 
-* Det grundläggande operativsystemet
-* Ett system för behållaren, t.ex. Moby eller Docker
-* Etablering av IoT Edge-körningen 
+* The base operating system
+* A container management system, like Moby or Docker
+* Provisioning of the IoT Edge runtime 
 
 ### <a name="deployment-manifest"></a>Distributionsmanifest
 
-Ett manifest för distribution är ett JSON-dokument som beskriver vilka moduler som ska konfigureras på de aktuella IoT Edge-enheterna. Den innehåller konfigurationsmetadata för alla moduler, inklusive de nödvändiga systemmoduler (särskilt IoT Edge-agenten och IoT Edge hub).  
+A deployment manifest is a JSON document that describes the modules to be configured on the targeted IoT Edge devices. It contains the configuration metadata for all the modules, including the required system modules (specifically the IoT Edge agent and IoT Edge hub).  
 
-Av konfigurationsmetadata för varje modul innehåller: 
+The configuration metadata for each module includes: 
 
 * Version 
 * Typ 
-* Status (till exempel igång eller stoppad) 
-* Starta om princip 
-* Bild- och container registry
-* Vägar för data som indata och utdata 
+* Status (for example, running or stopped) 
+* Restart policy 
+* Image and container registry
+* Routes for data input and output 
 
-Om modulen avbildningen lagras i ett privat behållarregister, har IoT Edge-agenten autentiseringsuppgifter för registret. 
+If the module image is stored in a private container registry, the IoT Edge agent holds the registry credentials. 
 
-### <a name="target-condition"></a>Målvillkor
+### <a name="target-condition"></a>Target condition
 
-Målvillkoret utvärderas kontinuerligt under hela livslängden för distributionen. Alla nya enheter som uppfyller kraven ingår och alla befintliga enheter som inte längre gör tas bort. Distributionen återaktiveras om tjänsten identifierar ändringar target villkor. 
+The target condition is continuously evaluated throughout the lifetime of the deployment. Any new devices that meet the requirements are included, and any existing devices that no longer do are removed. The deployment is reactivated if the service detects any target condition change. 
 
-Exempelvis kan du har en distribution A med ett mål villkor tags.environment = 'prod'. När du sätta igång distributionen finns 10 produktionsenheter. Modulerna som har installerats i dessa 10 enheter. IoT Edge-Agentstatus visas som 10 Totalt antal enheter, 10 lyckades, 0 misslyckades och 0 väntar. Nu lägger du till fem fler enheter med tags.environment = 'prod'. Tjänsten identifierar ändringen och IoT Edge-Agentstatus blir 15 totalt antal enheter, 10 lyckades, 0 misslyckades och 5 väntar vid försök att distribuera till fem nya enheter.
+For instance, you have a deployment A with a target condition tags.environment = 'prod'. When you kick off the deployment, there are 10 production devices. The modules are successfully installed in these 10 devices. The IoT Edge Agent Status is shown as 10 total devices, 10 successful responses, 0 failure responses, and 0 pending responses. Now you add five more devices with tags.environment = 'prod'. The service detects the change and the IoT Edge Agent Status becomes 15 total devices, 10 successful responses, 0 failure responses, and 5 pending responses when it tries to deploy to the five new devices.
 
-Använd valfritt booleskt villkor på device twins taggar eller deviceId för att välja målenheter. Om du vill använda villkoret med taggar kan du behöva lägga till ”taggar”:{} avsnittet i enhetstvillingen under samma nivå som egenskaper. [Mer information om taggar i enhetstvilling](../iot-hub/iot-hub-devguide-device-twins.md)
+Use any Boolean condition on device twins tags or deviceId to select the target devices. If you want to use condition with tags, you need to add "tags":{} section in the device twin under the same level as properties. [Learn more about tags in device twin](../iot-hub/iot-hub-devguide-device-twins.md)
 
-Exempel på mål-villkor:
+Target condition examples:
 
-* deviceId = 'linuxprod1'
-* Tags.Environment = 'prod'
-* Tags.Environment = prod och tags.location = 'westus'
-* Tags.Environment = prod eller tags.location = 'westus'
-* Tags.operator = ”John” och tags.environment = prod inte deviceId = 'linuxprod1'
+* deviceId ='linuxprod1'
+* tags.environment ='prod'
+* tags.environment = 'prod' AND tags.location = 'westus'
+* tags.environment = 'prod' OR tags.location = 'westus'
+* tags.operator = 'John' AND tags.environment = 'prod' NOT deviceId = 'linuxprod1'
 
-Här följer några avgränsar när du skapar en Målvillkor:
+Here are some constrains when you construct a target condition:
 
-* Du kan bara skapa en Målvillkor med hjälp av taggar eller deviceId i enhetstvillingen.
-* Dubbla citattecken tillåts inte i någon del av målvillkoret. Använd enkla citattecken.
-* Enkla citattecken representerar värden för målvillkoret. Du måste därför escape enkelt citattecken med ett annat enkelt citattecken om det är en del av namnet på enheten. Till exempel att fokusera på en enhet med namnet `operator'sDevice`, skriva `deviceId='operator''sDevice'`.
-* Siffror, bokstäver och följande tecken är tillåtna i villkoret målvärden: `-:.+%_#*?!(),=@;$`.
+* In device twin, you can only build a target condition using tags or deviceId.
+* Double quotes aren't allowed in any portion of the target condition. Use single quotes.
+* Single quotes represent the values of the target condition. Therefore, you must escape the single quote with another single quote if it's part of the device name. For example, to target a device called `operator'sDevice`, write `deviceId='operator''sDevice'`.
+* Numbers, letters, and the following characters are allowed in target condition values: `-:.+%_#*?!(),=@;$`.
 
 ### <a name="priority"></a>Prioritet
 
-En prioritet definierar om en distribution ska tillämpas på en målenhet i förhållande till andra distributioner. Prioritetsvärdet distribution är ett positivt heltal med större siffra anger högre prioritet. Om en IoT Edge-enhet är målet för fler än en distribution, gäller distributionen med högst prioritet.  Distributioner med lägre prioritet tillämpas inte, och inte heller slås samman de.  Om en enhet har riktats med två eller fler distributioner med samma prioritet gäller senast skapade distributionen (bestäms av tidsstämpeln vid skapande).
+A priority defines whether a deployment should be applied to a targeted device relative to other deployments. A deployment priority is a positive integer, with larger numbers denoting higher priority. If an IoT Edge device is targeted by more than one deployment, the deployment with the highest priority applies.  Deployments with lower priorities are not applied, nor are they merged.  If a device is targeted with two or more deployments with equal priority, the most recently created deployment (determined by the creation timestamp) applies.
 
 ### <a name="labels"></a>Etiketter 
 
-Etiketter är sträng nyckel/värde-par som du kan använda för att filtrera och gruppera distributioner. En distribution kan ha flera etiketter. Etiketter är valfria och göra utan att påverka den faktiska konfigurationen av IoT Edge-enheter. 
+Labels are string key/value pairs that you can use to filter and group of deployments. A deployment may have multiple labels. Labels are optional and do no impact the actual configuration of IoT Edge devices. 
 
 ### <a name="deployment-status"></a>Status för distribution
 
-En distribution kan övervakas för att avgöra om det har tillämpats för alla aktuella IoT Edge-enheten.  En riktad Edge-enhet visas i en eller flera av följande statuskategorier: 
+A deployment can be monitored to determine whether it applied successfully for any targeted IoT Edge device.  A targeted Edge device will appear in one or more of the following status categories: 
 
-* **Target** visar IoT Edge-enheter som matchar den distribution som riktar in sig på villkoret.
-* **Faktiska** visar riktade IoT Edge-enheter som inte omfattas av en annan distribution av högre prioritet.
-* **Felfria** visar IoT Edge-enheter som har rapporterat tillbaka till tjänsten att modulerna som har distribuerats korrekt. 
-* **Defekta** visar IoT Edge enheter har rapporterat tillbaka till tjänsten att en eller moduler har inte distribuerats korrekt. För att undersöka felet, fjärransluta till dessa enheter och visa loggfilerna.
-* **Okänd** visar IoT Edge-enheter som inte rapporterades som vilken status som om den här distributionen. För att undersöka, visa service information och log-filer.
+* **Target** shows the IoT Edge devices that match the Deployment targeting condition.
+* **Actual** shows the targeted IoT Edge devices that are not targeted by another deployment of higher priority.
+* **Healthy** shows the IoT Edge devices that have reported back to the service that the modules have been deployed successfully. 
+* **Unhealthy** shows the IoT Edge devices have reported back to the service that one or modules have not been deployed successfully. To further investigate the error, connect remotely to those devices and view the log files.
+* **Unknown** shows the IoT Edge devices that did not report any status pertaining this deployment. To further investigate, view service info and log files.
 
-## <a name="phased-rollout"></a>Stegvis distribution 
+## <a name="phased-rollout"></a>Phased rollout 
 
-En stegvis distribution är ett övergripande processen där en operatör distribuerar ändringar till en breddat uppsättning IoT Edge-enheter. Målet är att göra ändringar gradvis för att minska risken för att göra många skala större ändringar.  
+A phased rollout is an overall process whereby an operator deploys changes to a broadening set of IoT Edge devices. The goal is to make changes gradually to reduce the risk of making wide scale breaking changes.  
 
-En stegvis distribution körs i följande faser och steg: 
+A phased rollout is executed in the following phases and steps: 
 
-1. Upprätta en testmiljö för IoT Edge-enheter genom att etablera dem och ställa in en enhetstagg twin som `tag.environment='test'`. Testmiljön ska spegla produktionsmiljön som så småningom rikta in distributionen. 
-2. Skapa en distribution, inklusive de önskade moduler och konfigurationer. Sök mål villkoret ska rikta testet miljö för IoT Edge-enhet.   
-3. Verifiera modulkonfigurationen för nya i testmiljön.
-4. Uppdatera distribution för att inkludera en delmängd av produktion IoT Edge-enheter genom att lägga till en ny tagg målobjekt villkoret. Kontrollera också att prioriteten för distributionen är högre än andra distributioner riktat till enheterna 
-5. Kontrollera att distributionen har utförts på den aktuella IoT-enheter genom att granska distributionsstatusen.
-6. Uppdatera distributionen för att rikta in alla återstående produktion IoT Edge-enheter.
+1. Establish a test environment of IoT Edge devices by provisioning them and setting a device twin tag like `tag.environment='test'`. The test environment should mirror the production environment that the deployment will eventually target. 
+2. Create a deployment including the desired modules and configurations. The targeting condition should target the test IoT Edge device environment.   
+3. Validate the new module configuration in the test environment.
+4. Update the deployment to include a subset of production IoT Edge devices by adding a new tag to the targeting condition. Also, ensure that the priority for the deployment is higher than other deployments currently targeted to those devices 
+5. Verify that the deployment succeeded on the targeted IoT Devices by viewing the deployment status.
+6. Update the deployment to target all remaining production IoT Edge devices.
 
-## <a name="rollback"></a>Återställning
+## <a name="rollback"></a>Återtagande
 
-Distributioner kan återkallas om du får fel eller felaktiga konfigurationer.  Eftersom en distribution anger absolut modulkonfigurationen för en IoT Edge-enhet är måste en ytterligare distribution också vara mål på samma enhet med lägre prioritet även om målet är att ta bort alla moduler.  
+Deployments can be rolled back if you receive errors or misconfigurations.  Because a deployment defines the absolute module configuration for an IoT Edge device, an additional deployment must also be targeted to the same device at a lower priority even if the goal is to remove all modules.  
 
-Utföra återställningar i följande ordning: 
+Perform rollbacks in the following sequence: 
 
-1. Bekräfta att en andra distribution också är inriktad på samma enhetsuppsättning. Om målet för återställningen är att ta bort alla moduler måste får den andra distributionen inte innehålla alla moduler. 
-2. Ändra eller ta bort villkorsuttrycket mål för distributionen som du vill återställa så att enheterna som inte längre uppfyller villkoret målobjekt.
-3. Kontrollera att återställningen har utförts genom att granska distributionsstatusen.
-   * Återställas tillbaka distributionen bör inte längre visa status för enheter som har återställts.
-   * Den andra distributionen ska nu innehålla Distributionsstatus för de enheter som har återställts.
+1. Confirm that a second deployment is also targeted at the same device set. If the goal of the rollback is to remove all modules, the second deployment should not include any modules. 
+2. Modify or remove the target condition expression of the deployment you wish to roll back so that the devices no longer meet the targeting condition.
+3. Verify that the rollback succeeded by viewing the deployment status.
+   * The rolled-back deployment should no longer show status for the devices that were rolled back.
+   * The second deployment should now include deployment status for the devices that were rolled back.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Gå igenom stegen för att skapa, uppdatera eller ta bort en distribution i [distribuera och övervaka IoT Edge-moduler i stor skala](how-to-deploy-monitor.md).
-* Mer information om andra IoT Edge-begrepp som den [IoT Edge-körningen](iot-edge-runtime.md) och [IoT Edge-moduler](iot-edge-modules.md).
+* Walk through the steps to create, update, or delete a deployment in [Deploy and monitor IoT Edge modules at scale](how-to-deploy-monitor.md).
+* Learn more about other IoT Edge concepts like the [IoT Edge runtime](iot-edge-runtime.md) and [IoT Edge modules](iot-edge-modules.md).
 

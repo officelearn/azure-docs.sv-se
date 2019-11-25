@@ -1,6 +1,6 @@
 ---
-title: Etablera Linux-enheter automatiskt med DPS-Azure IoT Edge | Microsoft Docs
-description: Använd en simulerad TPM på en Linux VM för att testa Azure Device Provisioning-tjänsten för Azure IoT Edge
+title: Automatically provision Linux devices with DPS - Azure IoT Edge | Microsoft Docs
+description: Use a simulated TPM on a Linux VM to test Azure Device Provisioning Service for Azure IoT Edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,103 +8,102 @@ ms.date: 03/01/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: 228851a0d528bfb222e5aa19880f856424e95ad1
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 292ae570d4f2ddd0c09e667860ee2ba01b9fc6b8
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828130"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74457182"
 ---
-# <a name="create-and-provision-an-iot-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Skapa och etablera en IoT Edge enhet med en virtuell TPM på en virtuell Linux-dator
+# <a name="create-and-provision-an-iot-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Create and provision an IoT Edge device with a virtual TPM on a Linux virtual machine
 
-Azure IoT Edge enheter kan tillhandahållas automatiskt med [enhets etablerings tjänsten](../iot-dps/index.yml). Om du är bekant med processen för automatisk etablering kan du granska den [begrepp inom Automatisk etablering](../iot-dps/concepts-auto-provisioning.md) innan du fortsätter.
+Azure IoT Edge devices can be automatically provisioned using the [Device Provisioning Service](../iot-dps/index.yml). If you're unfamiliar with the process of auto-provisioning, review the [auto-provisioning concepts](../iot-dps/concepts-auto-provisioning.md) before continuing.
 
-Den här artikeln visar hur du testar automatisk etablering på en simulerad IoT Edge enhet med följande steg:
+This article shows you how to test auto-provisioning on a simulated IoT Edge device with the following steps:
 
-* Skapa en Linux-dator (VM) i Hyper-V med en simulerad Trusted Platform Module (TPM) för maskinvara säkerhet.
-* Skapa en instans av IoT Hub enheten Provisioning Service (DPS).
-* Skapa en enskild registrering för enheten
-* Installera IoT Edge-körningen och ansluta enheten till IoT Hub
+* Create a Linux virtual machine (VM) in Hyper-V with a simulated Trusted Platform Module (TPM) for hardware security.
+* Create an instance of IoT Hub Device Provisioning Service (DPS).
+* Create an individual enrollment for the device
+* Install the IoT Edge runtime and connect the device to IoT Hub
 
 > [!NOTE]
-> TPM 2,0 krävs när du använder TPM-attestering med DPS och kan endast användas för att skapa enskilda, inte grupper, registreringar.
+> TPM 2.0 is required when using TPM attestation with DPS and can only be used to create individual, not group, enrollments.
 
 > [!TIP]
-> I den här artikeln beskrivs hur du testar DPS-etablering med hjälp av en TPM-simulator, men det är mycket som gäller för den fysiska TPM-maskinvaran, till exempel [INFINEON OPTIGA&trade; TPM](https://catalog.azureiotsolutions.com/details?title=OPTIGA-TPM-SLB-9670-Iridium-Board), en Azure-certifierad för IoT-enheter.
+> This article describes how to test DPS provisioning using a TPM simulator, but much of it applies to physical TPM hardware such as the [Infineon OPTIGA&trade; TPM](https://catalog.azureiotsolutions.com/details?title=OPTIGA-TPM-SLB-9670-Iridium-Board), an Azure Certified for IoT device.
 >
-> Om du använder en fysisk enhet kan du gå vidare till avsnittet [Hämta etablerings information från en fysisk enhet](#retrieve-provisioning-information-from-a-physical-device) i den här artikeln.
+> If you're using a physical device, you can skip ahead to the [Retrieve provisioning information from a physical device](#retrieve-provisioning-information-from-a-physical-device) section in this article.
 
 ## <a name="prerequisites"></a>Krav
 
-* En Windows-utvecklingsdator med [Hyper-V aktiverat](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v). Den här artikeln använder Windows 10 som körs på en dator med Ubuntu Server.
-* En aktiv IoT-hubb.
-* Om du använder en simulerad TPM, [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 eller senare med arbets belastningen [" C++Skriv bords utveckling med"](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) aktiverat.
+* A Windows development machine with [Hyper-V enabled](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v). This article uses Windows 10 running an Ubuntu Server VM.
+* An active IoT Hub.
+* If using a simulated TPM, [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 or later with the ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled.
 
-## <a name="create-a-linux-virtual-machine-with-a-virtual-tpm"></a>Skapa en Linux-dator med en virtuell TPM
+## <a name="create-a-linux-virtual-machine-with-a-virtual-tpm"></a>Create a Linux virtual machine with a virtual TPM
 
-I det här avsnittet skapar du en ny virtuell Linux-dator på Hyper-V. Du har konfigurerat den här virtuella datorn med en simulerad TPM så att du kan använda den för att testa hur automatisk etablering fungerar med IoT Edge. 
+In this section, you create a new Linux virtual machine on Hyper-V. You configured this virtual machine with a simulated TPM so that you can use it for testing how automatic provisioning works with IoT Edge. 
 
-### <a name="create-a-virtual-switch"></a>Skapa en virtuell växel
+### <a name="create-a-virtual-switch"></a>Create a virtual switch
 
-En virtuell växel kan den virtuella datorn ska ansluta till ett fysiskt nätverk.
+A virtual switch enables your virtual machine to connect to a physical network.
 
-1. Öppna Hyper-V Manager på Windows-datorn. 
+1. Open Hyper-V Manager on your Windows machine. 
 
-2. I den **åtgärder** menyn och välj **hanteraren för virtuella växlar**. 
+2. In the **Actions** menu, select **Virtual Switch Manager**. 
 
-3. Välj en **externa** virtuella växlar och välj sedan **Skapa virtuell växel**. 
+3. Choose an **External** virtual switch, then select **Create Virtual Switch**. 
 
-4. Namnge din nya virtuella växeln, till exempel **EdgeSwitch**. Se till att en typ har angetts till **externt nätverk**och välj sedan **Ok**.
+4. Give your new virtual switch a name, for example **EdgeSwitch**. Make sure that the connection type is set to **External network**, then select **Ok**.
 
-5. Ett popup-fönster varnar dig om att nätverksanslutningen kan avbrytas. Välj **Ja** att fortsätta. 
+5. A pop-up warns you that network connectivity may be disrupted. Select **Yes** to continue. 
 
-Om du får felmeddelanden när du skapar den nya virtuella växeln, kontrollerar du att inga andra växlar använder ethernet-adaptern och att inga andra växlar använder samma namn. 
+If you see errors while creating the new virtual switch, ensure that no other switches are using the ethernet adaptor, and that no other switches use the same name. 
 
 ### <a name="create-virtual-machine"></a>Skapa en virtuell dator
 
-1. Ladda ned en disk image-filen om du vill använda för den virtuella datorn och spara den lokalt. Till exempel [Ubuntu server](https://www.ubuntu.com/download/server). 
+1. Download a disk image file to use for your virtual machine and save it locally. For example, [Ubuntu server](https://www.ubuntu.com/download/server). 
 
-2. I Hyper-V Manager igen väljer du **ny** > **virtuell dator** på menyn **åtgärder** .
+2. In Hyper-V Manager again, select **New** > **Virtual Machine** in the **Actions** menu.
 
-3. Slutför den **guiden Ny virtuell dator** med följande specifika konfigurationer:
+3. Complete the **New Virtual Machine Wizard** with the following specific configurations:
 
-   1. **Ange Generation**: Välj **Generation 2**. Virtuella datorer i generation 2 har kapslad virtualisering aktiverat, vilket krävs för att köra IoT Edge på en virtuell dator.
-   2. **Konfigurera nätverk**: Ange värdet för **anslutning** till den virtuella växeln som du skapade i föregående avsnitt. 
-   3. **Installationsalternativ**: Välj **installera ett operativsystem från en startbar avbildningsfil** och bläddra till disk image-filen som du sparade lokalt.
+   1. **Specify Generation**: Select **Generation 2**. Generation 2 virtual machines have nested virtualization enabled, which is required to run IoT Edge on a virtual machine.
+   2. **Configure Networking**: Set the value of **Connection** to the virtual switch that you created in the previous section. 
+   3. **Installation Options**: Select **Install an operating system from a bootable image file** and browse to the disk image file that you saved locally.
 
-4. Klicka på **Slutför** i guiden för att skapa den virtuella datorn.
+4. Select **Finish** in the wizard to create the virtual machine.
 
-Det kan ta några minuter att skapa den nya virtuella datorn. 
+It may take a few minutes to create the new VM. 
 
-### <a name="enable-virtual-tpm"></a>Aktivera virtuell TPM
+### <a name="enable-virtual-tpm"></a>Enable virtual TPM
 
-När den virtuella datorn har skapats öppnar du dess inställningar för att aktivera den virtuella Trusted Platform Module (TPM) som gör att du kan etablera enheten automatiskt.
+Once your VM is created, open its settings to enable the virtual trusted platform module (TPM) that lets you auto-provision the device.
 
-1. Välj den virtuella datorn och öppna dess **Inställningar**.
+1. Select the virtual machine, then open its **Settings**.
 
 2. Gå till **Security** (Säkerhet). 
 
-3. Avmarkera **aktivera säker Start**.
+3. Uncheck **Enable Secure Boot**.
 
-4. Kontrollera **aktivera Trusted Platform Module**. 
+4. Check **Enable Trusted Platform Module**. 
 
-5. Klicka på **OK**.  
+5. Klicka på **OK**  
 
-### <a name="start-the-virtual-machine-and-collect-tpm-data"></a>Starta den virtuella datorn och samla in data för TPM
+### <a name="start-the-virtual-machine-and-collect-tpm-data"></a>Start the virtual machine and collect TPM data
 
-Bygg ett verktyg som du kan använda för att hämta enhetens **registrerings-ID** och **bekräftelse nyckel**på den virtuella datorn.
+In the virtual machine, build a tool that you can use to retrieve the device's **Registration ID** and **Endorsement key**.
 
-1. Starta den virtuella datorn och Anslut till den.
+1. Start your virtual machine and connect to it.
 
-1. Slutför installations processen genom att följa anvisningarna i den virtuella datorn och starta om datorn.
+1. Follow the prompts within the virtual machine to finish the installation process and reboot the machine.
 
-1. Logga in på den virtuella datorn och följ stegen i [Konfigurera en Linux-utvecklings miljö](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) för att installera och bygga Azure IoT-enhetens SDK för C.
+1. Sign in to your VM, then follow the steps in [Set up a Linux development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) to install and build the Azure IoT device SDK for C.
 
    >[!TIP]
-   >I den här artikeln ska du kopiera till och klistra in från den virtuella datorn, vilket inte är enkelt via anslutnings programmet för Hyper-V Manager. Du kanske vill ansluta till den virtuella datorn via Hyper-V Manager en gång för att hämta dess IP-adress: `ifconfig`. Sedan kan du använda IP-adressen för att ansluta via SSH: `ssh <username>@<ipaddress>`.
+   >In the course of this article, you'll copy to and paste from the virtual machine, which is not easy through the Hyper-V Manager connection application. You may want to connect to the virtual machine through Hyper-V Manager once to retrieve its IP address: `ifconfig`. Then, you can use the IP address to connect through SSH: `ssh <username>@<ipaddress>`.
 
-1. Kör följande kommandon för att skapa SDK-verktyget som hämtar din enhets etablerings information från TPM-simulatorn.
+1. Run the following commands to build the SDK tool that retrieves your device provisioning information from the TPM simulator.
 
    ```bash
    cd azure-iot-sdk-c/cmake
@@ -114,27 +113,27 @@ Bygg ett verktyg som du kan använda för att hämta enhetens **registrerings-ID
    sudo ./tpm_device_provision
    ```
 
-1. Från ett kommando fönster navigerar du till `azure-iot-sdk-c` Directory och kör TPM-simulatorn. Den lyssnar via en socket på portarna 2321 och 2322. Stäng inte det här kommando fönstret. den här simulatorn måste vara igång.
+1. From a command window, navigate to the `azure-iot-sdk-c` directory and run the TPM simulator. Den lyssnar via en socket på portarna 2321 och 2322. Do not close this command window; you will need to keep this simulator running.
 
-   Kör följande kommando från `azure-iot-sdk-c`-katalogen för att starta simulatorn:
+   From the `azure-iot-sdk-c` directory, run the following command to start the simulator:
 
    ```bash
    ./provisioning_client/deps/utpm/tools/tpm_simulator/Simulator.exe
    ```
 
-1. Med Visual Studio öppnar du lösningen som genererats i `cmake` katalog med namnet `azure_iot_sdks.sln`och skapar den med hjälp av kommandot **build lösning** på menyn **skapa** .
+1. Using Visual Studio, open the solution generated in the `cmake` directory named `azure_iot_sdks.sln`, and build it using the **Build solution** command on the **Build** menu.
 
 1. I rutan**Solution Explorer** i Visual Studio går du till mappen **Provision (Etablera)\_Verktyg**. Högerklicka på projektet **tpm_device_provision** och markera **Set as Startup Project** (Ange som startprojekt).
 
-1. Kör lösningen med något av **Start** kommandona på **fel söknings** menyn. I fönstret Utdata visas TPM-Simulatorns **registrerings-ID** och **bekräftelse nyckeln**, som du bör kopiera för att använda senare när du skapar en enskild registrering för enheten i du kan stänga det här fönstret (med registrerings-ID och bekräftelse nyckel), men lämna fönstret för TPM-simulatorn igång.
+1. Run the solution using either of the **Start** commands on the **Debug** menu. The output window displays the TPM simulator's **Registration ID** and the **Endorsement key**, which you should copy for use later when you create an individual enrollment for your device in You can close this window (with Registration ID and Endorsement key), but leave the TPM simulator window running.
 
-## <a name="retrieve-provisioning-information-from-a-physical-device"></a>Hämta etablerings information från en fysisk enhet
+## <a name="retrieve-provisioning-information-from-a-physical-device"></a>Retrieve provisioning information from a physical device
 
-Bygg ett verktyg som du kan använda för att hämta enhetens etablerings information på enheten.
+On your device, build a tool that you can use to retrieve the device's provisioning information.
 
-1. Följ stegen i [Konfigurera en Linux-utvecklings miljö](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) för att installera och bygga Azure IoT-enhetens SDK för C.
+1. Follow the steps in [Set up a Linux development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) to install and build the Azure IoT device SDK for C.
 
-1. Kör följande kommandon för att skapa SDK-verktyget som hämtar din enhets etablerings information från TPM-enheten.
+1. Run the following commands to build the SDK tool that retrieves your device provisioning information from the TPM device.
 
    ```bash
    cd azure-iot-sdk-c/cmake
@@ -144,40 +143,40 @@ Bygg ett verktyg som du kan använda för att hämta enhetens etablerings inform
    sudo ./tpm_device_provision
    ```
 
-1. Kopiera värdena för **registrerings-ID** och **bekräftelse nyckel**. Du kan använda dessa värden för att skapa en enskild registrering för din enhet i DPS.
+1. Copy the values for **Registration ID** and **Endorsement key**. You use these values to create an individual enrollment for your device in DPS.
 
-## <a name="set-up-the-iot-hub-device-provisioning-service"></a>Konfigurera IoT Hub Device Provisioning-tjänsten
+## <a name="set-up-the-iot-hub-device-provisioning-service"></a>Set up the IoT Hub Device Provisioning Service
 
-Skapa en ny instans av IoT Hub Device Provisioning-tjänsten i Azure och länka det till din IoT hub. Du kan följa anvisningarna i [konfigurera IoT Hub-DPS](../iot-dps/quick-setup-auto-provision.md).
+Create a new instance of the IoT Hub Device Provisioning Service in Azure, and link it to your IoT hub. You can follow the instructions in [Set up the IoT Hub DPS](../iot-dps/quick-setup-auto-provision.md).
 
-När du har Device Provisioning-tjänsten körs, kopierar du värdet för **ID-omfång** från översiktssidan. Du kan använda det här värdet när du konfigurerar IoT Edge-körningen. 
+After you have the Device Provisioning Service running, copy the value of **ID Scope** from the overview page. You use this value when you configure the IoT Edge runtime. 
 
-## <a name="create-a-dps-enrollment"></a>Skapa en DPS-registrering
+## <a name="create-a-dps-enrollment"></a>Create a DPS enrollment
 
-Hämta etableringsinformationen från din virtuella dator och använda den för att skapa en enskild registrering i Device Provisioning-tjänsten. 
+Retrieve the provisioning information from your virtual machine, and use that to create an individual enrollment in Device Provisioning Service. 
 
-När du skapar en registrering i DPS har möjlighet att deklarera en **starttillstånd för Enhetstvilling**. I enhetstvillingen, kan du ställa in etiketter att gruppera enheter efter valfritt mått som du behöver i din lösning som region, miljö, plats eller enhet. Dessa taggar som används för att skapa [automatiska distributioner](how-to-deploy-monitor.md). 
+When you create an enrollment in DPS, you have the opportunity to declare an **Initial Device Twin State**. In the device twin, you can set tags to group devices by any metric you need in your solution, like region, environment, location, or device type. These tags are used to create [automatic deployments](how-to-deploy-monitor.md). 
 
-1. I [Azure Portal](https://portal.azure.com)navigerar du till din instans av IoT Hub Device Provisioning service. 
+1. In the [Azure portal](https://portal.azure.com), navigate to your instance of IoT Hub Device Provisioning Service. 
 
-2. Under **inställningar**väljer **hantera registreringar**. 
+2. Under **Settings**, select **Manage enrollments**. 
 
-3. Välj **Lägg till enskild registrering** utför följande steg om du vill konfigurera registreringen:  
+3. Select **Add individual enrollment** then complete the following steps to configure the enrollment:  
 
-   1. För **mekanism**väljer **TPM**. 
+   1. For **Mechanism**, select **TPM**. 
 
-   2. Ange **bekräftelse nyckeln** och **registrerings-ID: t** som du kopierade från den virtuella datorn.
+   2. Provide the **Endorsement key** and **Registration ID** that you copied from your virtual machine.
 
       > [!TIP]
-      > Om du använder en fysisk TPM-enhet måste du bestämma **bekräftelse nyckeln**, som är unik för varje TPM-chip och hämtas från TPM-kretsen som är kopplad till den. Du kan härleda ett unikt **registrerings-ID** för din TPM-enhet genom att till exempel skapa en SHA-256-hash för bekräftelse nyckeln.
+      > If you're using a physical TPM device, you need to determine the **Endorsement key**, which is unique to each TPM chip and is obtained from the TPM chip manufacturer associated with it. You can derive a unique **Registration ID** for your TPM device by, for example, creating an SHA-256 hash of the endorsement key.
 
-   3. Välj **Sant** om du vill deklarera att den virtuella datorn är en IoT Edge enhet. 
+   3. Select **True** to declare that this virtual machine is an IoT Edge device. 
 
-   4. Välj den länkade **IoT Hub** som du vill ansluta enheten till. Du kan välja flera hubbar och enheten tilldelas en av dem enligt den valda allokeringsregeln. 
+   4. Choose the linked **IoT Hub** that you want to connect your device to. You can choose multiple hubs, and the device will be assigned to one of them according to the selected allocation policy. 
 
-   5. Ange ett ID för din enhet om du vill ha. Du kan använda enhets-ID för att rikta en enskild enhet för distribution av principmodul. Om du inte anger något enhets-ID används registrerings-ID: t.
+   5. Provide an ID for your device if you'd like. You can use device IDs to target an individual device for module deployment. If you don't provide a device ID, the registration ID is used.
 
-   6. Lägg till ett visst Taggvärde till den **starttillstånd för Enhetstvilling** om du vill ha. Du kan använda taggar för målgrupper för enheter för distribution av principmodul. Exempel: 
+   6. Add a tag value to the **Initial Device Twin State** if you'd like. You can use tags to target groups of devices for module deployment. Exempel: 
 
       ```json
       {
@@ -192,115 +191,115 @@ När du skapar en registrering i DPS har möjlighet att deklarera en **starttill
 
    7. Välj **Spara**. 
 
-Nu när en registrering finns för den här enheten kan IoT Edge runtime automatiskt etablera enheten under installationen. 
+Now that an enrollment exists for this device, the IoT Edge runtime can automatically provision the device during installation. 
 
-## <a name="install-the-iot-edge-runtime"></a>Installera IoT Edge-körningen
+## <a name="install-the-iot-edge-runtime"></a>Install the IoT Edge runtime
 
-IoT Edge-körningen distribueras på alla IoT Edge-enheter. Dess komponenter körs i behållare och gör att du kan distribuera ytterligare behållare till enheten så att du kan köra kod på gränsen. Installera IoT Edge-körningen på den virtuella datorn. 
+IoT Edge-körningen distribueras på alla IoT Edge-enheter. Its components run in containers, and allow you to deploy additional containers to the device so that you can run code at the edge. Install the IoT Edge runtime on your virtual machine. 
 
-Vet DPS **ID-omfång** och **registrerings-ID** innan du påbörjar den artikel som matchar din enhetstyp. Om du har installerat exempel Ubuntu server, använder den **x64** instruktioner. Se till att konfigurera IoT Edge-körningen för automatisk och manuell och etablering. 
+Know your DPS **ID Scope** and device **Registration ID** before beginning the article that matches your device type. If you installed the example Ubuntu server, use the **x64** instructions. Make sure to configure the IoT Edge runtime for automatic, not manual, provisioning. 
 
-[Installera Azure IoT Edge runtime på Linux](how-to-install-iot-edge-linux.md)
+[Install the Azure IoT Edge runtime on Linux](how-to-install-iot-edge-linux.md)
 
-## <a name="give-iot-edge-access-to-the-tpm"></a>Ge IoT Edge-åtkomst till TPM
+## <a name="give-iot-edge-access-to-the-tpm"></a>Give IoT Edge access to the TPM
 
-För IoT Edge-körningen att automatiskt etablera din enhet, måste den ha åtkomst till TPM. 
+In order for the IoT Edge runtime to automatically provision your device, it needs access to the TPM. 
 
-Du kan ge TPM-åtkomst till IoT Edge-körningen genom att åsidosätta systemd inställningar så att den **iotedge** tjänsten har rotprivilegier. Om du inte vill att upphöja behörighet för tjänsten, kan du också använda följande steg manuellt klientåtkomst TPM. 
+You can give TPM access to the IoT Edge runtime by overriding the systemd settings so that the **iotedge** service has root privileges. If you don't want to elevate the service privileges, you can also use the following steps to manually provide TPM access. 
 
-1. Hitta sökvägen till maskinvara modulen på din enhet och spara den som en lokal variabel. 
+1. Find the file path to the TPM hardware module on your device and save it as a local variable. 
 
    ```bash
    tpm=$(sudo find /sys -name dev -print | fgrep tpm | sed 's/.\{4\}$//')
    ```
 
-2. Skapa en ny regel som ger IoT Edge runtime åtkomst till tpm0. 
+2. Create a new rule that will give the IoT Edge runtime access to tpm0. 
 
    ```bash
    sudo touch /etc/udev/rules.d/tpmaccess.rules
    ```
 
-3. Öppna filen regler. 
+3. Open the rules file. 
 
    ```bash
    sudo nano /etc/udev/rules.d/tpmaccess.rules
    ```
 
-4. Kopiera följande information i regelfilen. 
+4. Copy the following access information into the rules file. 
 
    ```input 
    # allow iotedge access to tpm0
    KERNEL=="tpm0", SUBSYSTEM=="tpm", GROUP="iotedge", MODE="0660"
    ```
 
-5. Spara och stänga filen. 
+5. Save and exit the file. 
 
-6. Utlös udev-systemet för att utvärdera den nya regeln. 
+6. Trigger the udev system to evaluate the new rule. 
 
    ```bash
    /bin/udevadm trigger $tpm
    ```
 
-7. Kontrollera att regeln har tillämpats.
+7. Verify that the rule was successfully applied.
 
    ```bash
    ls -l /dev/tpm0
    ```
 
-   Lyckad utdata ser ut så här:
+   Successful output looks like the following:
 
    ```output
    crw-rw---- 1 root iotedge 10, 224 Jul 20 16:27 /dev/tpm0
    ```
 
-   Om du inte ser att rätt behörigheter har tillämpats, försök att starta om datorn för att uppdatera udev. 
+   If you don't see that the correct permissions have been applied, try rebooting your machine to refresh udev. 
 
-## <a name="restart-the-iot-edge-runtime"></a>Starta om IoT Edge-körningen
+## <a name="restart-the-iot-edge-runtime"></a>Restart the IoT Edge runtime
 
-Starta om IoT Edge-körningen så att det använder alla konfigurationsändringar du gjort på enheten. 
+Restart the IoT Edge runtime so that it picks up all the configuration changes that you made on the device. 
 
    ```bash
    sudo systemctl restart iotedge
    ```
 
-Kontrollera att IoT Edge-körningen körs. 
+Check to see that the IoT Edge runtime is running. 
 
    ```bash
    sudo systemctl status iotedge
    ```
 
-Om du ser etablering fel kan vara det att ändringar i konfigurationen inte har börjat gälla ännu. Försök att starta om IoT Edge-daemon igen. 
+If you see provisioning errors, it may be that the configuration changes haven't taken effect yet. Try restarting the IoT Edge daemon again. 
 
    ```bash
    sudo systemctl daemon-reload
    ```
    
-Eller försök att starta om den virtuella datorn för att se om ändringarna börjar gälla på från början. 
+Or, try restarting your virtual machine to see if the changes take effect on a fresh start. 
 
-## <a name="verify-successful-installation"></a>Verifiera installationen
+## <a name="verify-successful-installation"></a>Verify successful installation
 
-Om körningen har startats, kan du gå till din IoT Hub och visa att den nya enheten etablerades automatiskt. Enheten är nu redo att köra IoT Edge-moduler. 
+If the runtime started successfully, you can go into your IoT Hub and see that your new device was automatically provisioned. Now your device is ready to run IoT Edge modules. 
 
-Kontrollera status för IoT Edge-Daemon.
+Check the status of the IoT Edge Daemon.
 
 ```cmd/sh
 systemctl status iotedge
 ```
 
-Granska loggarna för daemon.
+Examine daemon logs.
 
 ```cmd/sh
 journalctl -u iotedge --no-pager --no-full
 ```
 
-Lista med moduler.
+List running modules.
 
 ```cmd/sh
 iotedge list
 ```
 
-Du kan kontrol lera att den enskilda registrering som du skapade i enhets etablerings tjänsten användes. Navigera till din enhets etablerings tjänst instans i Azure Portal. Öppna registrerings informationen för den enskilda registrering som du har skapat. Observera att statusen för registreringen är **tilldelad** och att enhets-ID visas. 
+You can verify that the individual enrollment that you created in Device Provisioning Service was used. Navigate to your Device Provisioning Service instance in the Azure portal. Open the enrollment details for the individual enrollment that you created. Notice that the status of the enrollment is **assigned** and the device ID is listed. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Registreringen Device Provisioning-tjänsten kan du ange enhets-ID och device twin taggar samtidigt som du etablerar den nya enheten. Du kan använda dessa värden för att rikta enskilda enheter eller grupper av enheter med hjälp av automatisk enheter. Lär dig hur du [distribuera och övervaka IoT Edge-moduler i skala med Azure portal](how-to-deploy-monitor.md) eller [med Azure CLI](how-to-deploy-monitor-cli.md).
+The Device Provisioning Service enrollment process lets you set the device ID and device twin tags at the same time as you provision the new device. You can use those values to target individual devices or groups of devices using automatic device management. Learn how to [Deploy and monitor IoT Edge modules at scale using the Azure portal](how-to-deploy-monitor.md) or [using Azure CLI](how-to-deploy-monitor-cli.md).

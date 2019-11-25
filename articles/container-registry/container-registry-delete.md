@@ -1,51 +1,46 @@
 ---
-title: Ta bort avbildnings resurser i Azure Container Registry
-description: Information om hur du effektivt hanterar register storlek genom att ta bort behållar avbildnings data med hjälp av Azure CLI-kommandon.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
+title: Delete image resources
+description: Details on how to effectively manage registry size by deleting container image data using Azure CLI commands.
 ms.topic: article
 ms.date: 07/31/2019
-ms.author: danlep
-ms.openlocfilehash: d415bef80ed8c96ff6e5df81ae9281ae681a4879
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 8d20bf2be1d472855c3e67dd79ea1725c152e3d2
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300189"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455265"
 ---
-# <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>Ta bort behållar avbildningar i Azure Container Registry med Azure CLI
+# <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>Delete container images in Azure Container Registry using the Azure CLI
 
-För att upprätthålla storleken på ditt Azure Container Registry bör du regelbundet ta bort inaktuella avbildnings data. Vissa behållar avbildningar som distribueras till produktion kan kräva lagring på längre sikt, men andra kan vanligt vis tas bort snabbare. I ett automatiserat build-och test scenario kan du till exempel snabbt fylla i registret med avbildningar som aldrig har distribuerats, och de kan tas bort strax efter att du har slutfört build-och test-passet.
+To maintain the size of your Azure container registry, you should periodically delete stale image data. While some container images deployed into production may require longer-term storage, others can typically be deleted more quickly. For example, in an automated build and test scenario, your registry can quickly fill with images that might never be deployed, and can be purged shortly after completing the build and test pass.
 
-Eftersom du kan ta bort avbildnings data på flera olika sätt är det viktigt att förstå hur varje borttagnings åtgärd påverkar lagrings användningen. Den här artikeln beskriver flera metoder för att ta bort bilddata:
+Because you can delete image data in several different ways, it's important to understand how each delete operation affects storage usage. This article covers several methods for deleting image data:
 
-* Ta bort en [lagrings plats](#delete-repository): Tar bort alla bilder och alla unika lager i lagrings platsen.
-* Ta bort efter [tagg](#delete-by-tag): Tar bort en bild, taggen, alla unika skikt som refereras av bilden och alla andra taggar som är associerade med bilden.
-* Ta bort av [manifest sammandrag](#delete-by-manifest-digest): Tar bort en bild, alla unika skikt som refereras av bilden och alla Taggar som är associerade med bilden.
+* Delete a [repository](#delete-repository): Deletes all images and all unique layers within the repository.
+* Delete by [tag](#delete-by-tag): Deletes an image, the tag, all unique layers referenced by the image, and all other tags associated with the image.
+* Delete by [manifest digest](#delete-by-manifest-digest): Deletes an image, all unique layers referenced by the image, and all tags associated with the image.
 
-Exempel skript tillhandahålls för att automatisera borttagnings åtgärder.
+Sample scripts are provided to help automate delete operations.
 
-En introduktion till dessa begrepp finns i [om register, databaser och avbildningar](container-registry-concepts.md).
+For an introduction to these concepts, see [About registries, repositories, and images](container-registry-concepts.md).
 
-## <a name="delete-repository"></a>Ta bort lagrings plats
+## <a name="delete-repository"></a>Delete repository
 
-Om du tar bort en lagrings plats raderas alla avbildningar i lagrings platsen, inklusive alla Taggar, unika lager och manifest. När du tar bort en lagrings plats återställer du det lagrings utrymme som används av de avbildningar som refererar till unika lager i lagrings platsen.
+Deleting a repository deletes all of the images in the repository, including all tags, unique layers, and manifests. When you delete a repository, you recover the storage space used by the images that reference unique layers in that repository.
 
-Följande Azure CLI-kommando tar bort lagrings platsen "ACR-HelloWorld" och alla Taggar och manifest i lagrings platsen. Om lager som refereras till av de borttagna manifesten inte refereras till av andra bilder i registret, raderas även lager data, vilket återställer lagrings utrymmet.
+The following Azure CLI command deletes the "acr-helloworld" repository and all tags and manifests within the repository. If layers referenced by the deleted manifests are not referenced by any other images in the registry, their layer data is also deleted, recovering the storage space.
 
 ```azurecli
  az acr repository delete --name myregistry --repository acr-helloworld
 ```
 
-## <a name="delete-by-tag"></a>Ta bort efter tagg
+## <a name="delete-by-tag"></a>Delete by tag
 
-Du kan ta bort enskilda avbildningar från en lagrings plats genom att ange databasens namn och tagg i borttagnings åtgärden. När du tar bort med tagg återställer du det lagrings utrymme som används av alla unika lager i avbildningen (lager som inte delas av andra bilder i registret).
+You can delete individual images from a repository by specifying the repository name and tag in the delete operation. When you delete by tag, you recover the storage space used by any unique layers in the image (layers not shared by any other images in the registry).
 
-Om du vill ta bort by-taggen använder du [AZ ACR-lagringsplats ta bort][az-acr-repository-delete] och `--image` anger avbildnings namnet i parametern. Alla skikt som är unika för bilden och alla andra taggar som är associerade med bilden tas bort.
+To delete by tag, use [az acr repository delete][az-acr-repository-delete] and specify the image name in the `--image` parameter. All layers unique to the image, and any other tags associated with the image are deleted.
 
-Du kan till exempel ta bort bilden "ACR-HelloWorld: den senaste" från registret "Registry":
+For example, deleting the "acr-helloworld:latest" image from registry "myregistry":
 
 ```azurecli
 $ az acr repository delete --name myregistry --image acr-helloworld:latest
@@ -54,13 +49,13 @@ Are you sure you want to continue? (y/n): y
 ```
 
 > [!TIP]
-> Borttagning *av tagg* bör inte förväxlas med borttagning av en tagg (avtaggning). Du kan ta bort en tagg med Azure CLI-kommandot [AZ ACR-lagringsplats Avtagga][az-acr-repository-untag]. Inget utrymme frigörs när du Avtagga en avbildning eftersom dess [manifest](container-registry-concepts.md#manifest) -och lager data finns kvar i registret. Endast taggens referens tas bort.
+> Deleting *by tag* shouldn't be confused with deleting a tag (untagging). You can delete a tag with the Azure CLI command [az acr repository untag][az-acr-repository-untag]. No space is freed when you untag an image because its [manifest](container-registry-concepts.md#manifest) and layer data remain in the registry. Only the tag reference itself is deleted.
 
-## <a name="delete-by-manifest-digest"></a>Ta bort av manifest sammandrag
+## <a name="delete-by-manifest-digest"></a>Delete by manifest digest
 
-En [manifest Sammanfattning](container-registry-concepts.md#manifest-digest) kan associeras med en, ingen eller flera taggar. När du tar bort en sammanfattning raderas alla Taggar som manifestet refererar till, som lager data för alla lager som är unika för bilden. Delade lager data tas inte bort.
+A [manifest digest](container-registry-concepts.md#manifest-digest) can be associated with one, none, or multiple tags. When you delete by digest, all tags referenced by the manifest are deleted, as is layer data for any layers unique to the image. Shared layer data is not deleted.
 
-Om du vill ta bort från sammandrag ska du först Visa manifest sammanfattningarna för den lagrings plats som innehåller de avbildningar som du vill ta bort. Exempel:
+To delete by digest, first list the manifest digests for the repository containing the images you wish to delete. Exempel:
 
 ```console
 $ az acr repository show-manifests --name myregistry --repository acr-helloworld
@@ -83,13 +78,13 @@ $ az acr repository show-manifests --name myregistry --repository acr-helloworld
 ]
 ```
 
-Ange sedan den sammanfattning som du vill ta bort i kommandot [AZ ACR databas Delete][az-acr-repository-delete] . Formatet för kommandot är:
+Next, specify the digest you wish to delete in the [az acr repository delete][az-acr-repository-delete] command. Formatet för kommandot är:
 
 ```azurecli
 az acr repository delete --name <acrName> --image <repositoryName>@<digest>
 ```
 
-Om du till exempel vill ta bort det sista manifestet som anges i föregående utdata (med taggen "v2"):
+For example, to delete the last manifest listed in the preceding output (with the tag "v2"):
 
 ```console
 $ az acr repository delete --name myregistry --image acr-helloworld@sha256:3168a21b98836dda7eb7a846b3d735286e09a32b0aa2401773da518e7eba3b57
@@ -97,23 +92,23 @@ This operation will delete the manifest 'sha256:3168a21b98836dda7eb7a846b3d73528
 Are you sure you want to continue? (y/n): y
 ```
 
-`acr-helloworld:v2` Avbildningen tas bort från registret, vilket är alla skikt data som är unika för avbildningen. Om ett manifest är associerat med flera taggar, raderas även alla tillhör ande taggar.
+The `acr-helloworld:v2` image is deleted from the registry, as is any layer data unique to that image. If a manifest is associated with multiple tags, all associated tags are also deleted.
 
-## <a name="delete-digests-by-timestamp"></a>Ta bort sammandrag efter tidsstämpel
+## <a name="delete-digests-by-timestamp"></a>Delete digests by timestamp
 
-Om du vill behålla storleken på en lagrings plats eller ett register kan du regelbundet behöva ta bort manifest sammandrag som är äldre än ett visst datum.
+To maintain the size of a repository or registry, you might need to periodically delete manifest digests older than a certain date.
 
-Följande Azure CLI-kommando visar en lista över alla manifest sammandrag i en lagrings plats som är äldre än en angiven tidsstämpel, i stigande ordning. Ersätt `<acrName>` och`<repositoryName>` med lämpliga värden för din miljö. Tidsstämpeln kan vara ett fullständigt datum/tid-uttryck eller ett datum, som i det här exemplet.
+The following Azure CLI command lists all manifest digest in a repository older than a specified timestamp, in ascending order. Replace `<acrName>` and `<repositoryName>` with values appropriate for your environment. The timestamp could be a full date-time expression or a date, as in this example.
 
 ```azurecli
 az acr repository show-manifests --name <acrName> --repository <repositoryName> \
 --orderby time_asc -o tsv --query "[?timestamp < '2019-04-05'].[digest, timestamp]"
 ```
 
-När du har identifierat inaktuella manifest sammandrag kan du köra följande bash-skript för att ta bort manifest sammandrag som är äldre än en angiven tidsstämpel. Det kräver Azure CLI och **xargs**. Som standard utför skriptet ingen borttagning. Ändra värdet till `true` för att aktivera borttagning av bilder. `ENABLE_DELETE`
+After identifying stale manifest digests, you can run the following Bash script to delete manifest digests older than a specified timestamp. It requires the Azure CLI and **xargs**. By default, the script performs no deletion. Change the `ENABLE_DELETE` value to `true` to enable image deletion.
 
 > [!WARNING]
-> Använd följande exempel skript med varning-borttagna bilddata kan inte ÅTERSTÄLLAs. Om du har system som hämtar bilder av manifest sammandrag (i stället för avbildnings namn) bör du inte köra dessa skript. Om du tar bort manifest sammanfattningarna hindras dessa system från att hämta avbildningarna från registret. Överväg att använda ett unikt taggnings schema i stället för att hämta ett *unikt taggnings* schema, en [rekommenderad metod](container-registry-image-tag-version.md). 
+> Use the following sample script with caution--deleted image data is UNRECOVERABLE. If you have systems that pull images by manifest digest (as opposed to image name), you should not run these scripts. Deleting the manifest digests will prevent those systems from pulling the images from your registry. Instead of pulling by manifest, consider adopting a *unique tagging* scheme, a [recommended best practice](container-registry-image-tag-version.md). 
 
 ```bash
 #!/bin/bash
@@ -146,12 +141,12 @@ else
 fi
 ```
 
-## <a name="delete-untagged-images"></a>Ta bort otaggade bilder
+## <a name="delete-untagged-images"></a>Delete untagged images
 
-Som vi nämnt i avsnittet [manifest Sammanfattning](container-registry-concepts.md#manifest-digest) skickar du en ändrad avbildning med hjälp av en befintlig tagg som avtaggar den tidigare publicerade avbildningen, vilket resulterar i en överbliven (eller "Dangling") bild. Den tidigare publicerade avbildningens manifest – och dess lager data – finns kvar i registret. Tänk på följande händelser:
+As mentioned in the [Manifest digest](container-registry-concepts.md#manifest-digest) section, pushing a modified image using an existing tag **untags** the previously pushed image, resulting in an orphaned (or "dangling") image. The previously pushed image's manifest--and its layer data--remains in the registry. Consider the following sequence of events:
 
-1. Push *-avbildning ACR-HelloWorld* med tagga **senaste**:`docker push myregistry.azurecr.io/acr-helloworld:latest`
-1. Kontrol lera manifest för databasen *ACR-HelloWorld*:
+1. Push image *acr-helloworld* with tag **latest**: `docker push myregistry.azurecr.io/acr-helloworld:latest`
+1. Check manifests for repository *acr-helloworld*:
 
    ```console
    $ az acr repository show-manifests --name myregistry --repository acr-helloworld
@@ -166,9 +161,9 @@ Som vi nämnt i avsnittet [manifest Sammanfattning](container-registry-concepts.
    ]
    ```
 
-1. Ändra *ACR-HelloWorld* Dockerfile
-1. Push *-avbildning ACR-HelloWorld* med tagga **senaste**:`docker push myregistry.azurecr.io/acr-helloworld:latest`
-1. Kontrol lera manifest för databasen *ACR-HelloWorld*:
+1. Modify *acr-helloworld* Dockerfile
+1. Push image *acr-helloworld* with tag **latest**: `docker push myregistry.azurecr.io/acr-helloworld:latest`
+1. Check manifests for repository *acr-helloworld*:
 
    ```console
    $ az acr repository show-manifests --name myregistry --repository acr-helloworld
@@ -188,24 +183,24 @@ Som vi nämnt i avsnittet [manifest Sammanfattning](container-registry-concepts.
    ]
    ```
 
-Som du kan se i resultatet av det sista steget i sekvensen finns det nu ett överblivna manifest vars `"tags"` egenskap är en tom lista. Detta manifest finns fortfarande i registret, tillsammans med alla unika skikt data som det refererar till. **Om du vill ta bort sådana överblivna avbildningar och lager data, måste du ta bort manifest sammandrag**.
+As you can see in the output of the last step in the sequence, there is now an orphaned manifest whose `"tags"` property is an empty list. This manifest still exists within the registry, along with any unique layer data that it references. **To delete such orphaned images and their layer data, you must delete by manifest digest**.
 
-## <a name="delete-all-untagged-images"></a>Ta bort alla otaggade bilder
+## <a name="delete-all-untagged-images"></a>Delete all untagged images
 
-Du kan visa alla otaggade avbildningar i lagrings platsen med hjälp av följande Azure CLI-kommando. Ersätt `<acrName>` och`<repositoryName>` med lämpliga värden för din miljö.
+You can list all untagged images in your repository using the following Azure CLI command. Replace `<acrName>` and `<repositoryName>` with values appropriate for your environment.
 
 ```azurecli
 az acr repository show-manifests --name <acrName> --repository <repositoryName> --query "[?tags[0]==null].digest"
 ```
 
-Med det här kommandot i ett skript kan du ta bort alla otaggade bilder i en lagrings plats.
+Using this command in a script, you can delete all untagged images in a repository.
 
 > [!WARNING]
-> Använd följande exempel skript med varning – borttagna bilddata kan inte ÅTERSTÄLLAs. Om du har system som hämtar bilder av manifest sammandrag (i stället för avbildnings namn) bör du inte köra dessa skript. Om du tar bort otaggade bilder så förhindras dessa system från att hämta avbildningarna från registret. Överväg att använda ett unikt taggnings schema i stället för att hämta ett *unikt taggnings* schema, en [rekommenderad metod](container-registry-image-tag-version.md).
+> Use the following sample scripts with caution--deleted image data is UNRECOVERABLE. If you have systems that pull images by manifest digest (as opposed to image name), you should not run these scripts. Deleting untagged images will prevent those systems from pulling the images from your registry. Instead of pulling by manifest, consider adopting a *unique tagging* scheme, a [recommended best practice](container-registry-image-tag-version.md).
 
-**Azure CLI i bash**
+**Azure CLI in Bash**
 
-Följande bash-skript tar bort alla otaggade bilder från en lagrings plats. Det kräver Azure CLI och **xargs**. Som standard utför skriptet ingen borttagning. Ändra värdet till `true` för att aktivera borttagning av bilder. `ENABLE_DELETE`
+The following Bash script deletes all untagged images from a repository. It requires the Azure CLI and **xargs**. By default, the script performs no deletion. Change the `ENABLE_DELETE` value to `true` to enable image deletion.
 
 ```bash
 #!/bin/bash
@@ -233,9 +228,9 @@ else
 fi
 ```
 
-**Azure CLI i PowerShell**
+**Azure CLI in PowerShell**
 
-Följande PowerShell-skript tar bort alla otaggade bilder från en lagrings plats. Det kräver PowerShell och Azure CLI. Som standard utför skriptet ingen borttagning. Ändra värdet till `$TRUE` för att aktivera borttagning av bilder. `$enableDelete`
+The following PowerShell script deletes all untagged images from a repository. It requires PowerShell and the Azure CLI. By default, the script performs no deletion. Change the `$enableDelete` value to `$TRUE` to enable image deletion.
 
 ```powershell
 # WARNING! This script deletes data!
@@ -262,13 +257,13 @@ if ($enableDelete) {
 
 ## <a name="automatically-purge-tags-and-manifests-preview"></a>Rensa automatiskt taggar och manifest (förhandsversion)
 
-Som ett alternativ till skript för Azure CLI-kommandon kör du en aktivitet på begäran eller en schemalagd ACR för att ta bort alla Taggar som är äldre än en viss varaktighet eller matchar ett angivet namn filter. Mer information finns i [Rensa avbildningar automatiskt från ett Azure Container Registry](container-registry-auto-purge.md).
+As an alternative to scripting Azure CLI commands, run an on-demand or scheduled ACR task to delete all tags that are older than a certain duration or match a specified name filter. For more information, see [Automatically purge images from an Azure container registry](container-registry-auto-purge.md).
 
-Du kan också ange en [bevarande princip](container-registry-retention-policy.md) för varje register för att hantera otaggade manifest. När du aktiverar en bevarande princip, kommer avbildnings manifest i registret som inte har några associerade taggar, och underliggande skikt data, tas bort automatiskt efter en angiven period.
+Optionally set a [retention policy](container-registry-retention-policy.md) for each registry, to manage untagged manifests. When you enable a retention policy, image manifests in the registry that don't have any associated tags, and the underlying layer data, are automatically deleted after a set period.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om avbildnings lagring i Azure Container Registry se [lagring för behållar avbildningar i Azure Container Registry](container-registry-storage.md).
+For more information about image storage in Azure Container Registry see [Container image storage in Azure Container Registry](container-registry-storage.md).
 
 <!-- IMAGES -->
 [manifest-digest]: ./media/container-registry-delete/01-manifest-digest.png

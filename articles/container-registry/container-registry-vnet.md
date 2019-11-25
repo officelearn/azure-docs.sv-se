@@ -1,50 +1,45 @@
 ---
-title: Begränsa åtkomsten till Azure Container Registry med ett virtuellt nätverk
-description: Tillåt endast åtkomst till ett Azure Container Registry från resurser i ett virtuellt Azure-nätverk eller från offentliga IP-adressintervall.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
+title: Restrict access with a virtual network
+description: Allow access to an Azure container registry only from resources in an Azure virtual network or from public IP address ranges.
 ms.topic: article
 ms.date: 07/01/2019
-ms.author: danlep
-ms.openlocfilehash: 5ba5c180def9539c486fb8727a0a78b4f98fa185
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: a6b89b074c25ea0948597ede7e5681b100c7f429
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931324"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74454343"
 ---
-# <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Begränsa åtkomsten till ett Azure Container Registry med hjälp av ett virtuellt Azure-nätverk eller brand Väggs regler
+# <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Restrict access to an Azure container registry using an Azure virtual network or firewall rules
 
-[Azure Virtual Network](../virtual-network/virtual-networks-overview.md) ger säker, privat nätverk för dina Azure-resurser och lokala resurser. Genom att begränsa åtkomsten till ditt privata Azure Container Registry från ett virtuellt Azure-nätverk ser du till att endast resurser i det virtuella nätverket har åtkomst till registret. Du kan också konfigurera brand Väggs regler för att tillåta att registret endast kommer åt från vissa IP-adresser för olika scenarier med olika platser.
+[Azure Virtual Network](../virtual-network/virtual-networks-overview.md) provides secure, private networking for your Azure and on-premises resources. By limiting access to your private Azure container registry from an Azure virtual network, you ensure that only resources in the virtual network access the registry. For cross-premises scenarios, you can also configure firewall rules to allow registry access only from specific IP addresses.
 
-Den här artikeln visar två scenarier för att konfigurera regler för inkommande nätverks åtkomst i ett behållar register: från en virtuell dator som distribueras i ett virtuellt nätverk eller från en virtuell DATORs offentliga IP-adress.
+This article shows two scenarios to configure inbound network access rules on a container registry: from a virtual machine deployed in a virtual network, or from a VM's public IP address.
 
 > [!IMPORTANT]
-> Den här funktionen är för närvarande en för hands version och vissa [begränsningar gäller](#preview-limitations). Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
+> This feature is currently in preview, and some [limitations apply](#preview-limitations). Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
 >
 
-Om du i stället behöver konfigurera åtkomst regler för resurser för att nå ett behållar register från bakom en brand vägg, se [Konfigurera regler för åtkomst till ett Azure Container Registry bakom en brand vägg](container-registry-firewall-access-rules.md).
+If instead you need to set up access rules for resources to reach a container registry from behind a firewall, see [Configure rules to access an Azure container registry behind a firewall](container-registry-firewall-access-rules.md).
 
 
 ## <a name="preview-limitations"></a>Begränsningar för förhandsversion
 
-* Endast ett **Premium** container Registry kan konfigureras med nätverks åtkomst regler. Information om register tjänst nivåer finns i [Azure Container Registry SKU: er](container-registry-skus.md). 
+* Only a **Premium** container registry can be configured with network access rules. For information about registry service tiers, see [Azure Container Registry SKUs](container-registry-skus.md). 
 
-* Endast ett [Azure Kubernetes service-](../aks/intro-kubernetes.md) kluster eller en virtuell Azure- [dator](../virtual-machines/linux/overview.md) kan användas som en värd för att komma åt ett behållar register i ett virtuellt nätverk. *Andra Azure-tjänster, inklusive Azure Container Instances, stöds inte för närvarande.*
+* Only an [Azure Kubernetes Service](../aks/intro-kubernetes.md) cluster or Azure [virtual machine](../virtual-machines/linux/overview.md) can be used as a host to access a container registry in a virtual network. *Other Azure services including Azure Container Instances aren't currently supported.*
 
-* [ACR tasks](container-registry-tasks-overview.md) -åtgärder stöds inte för närvarande i ett behållar register som används i ett virtuellt nätverk.
+* [ACR Tasks](container-registry-tasks-overview.md) operations aren't currently supported in a container registry accessed in a virtual network.
 
-* Varje register stöder högst 100 virtuella nätverks regler.
+* Each registry supports a maximum of 100 virtual network rules.
 
 ## <a name="prerequisites"></a>Krav
 
-* För att kunna använda Azure CLI-stegen i den här artikeln krävs Azure CLI version 2.0.58 eller senare. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli].
+* To use the Azure CLI steps in this article, Azure CLI version 2.0.58 or later is required. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli].
 
-* Om du inte redan har ett behållar register, skapar du ett (Premium-SKU krävs) och push-överför en exempel avbildning som `hello-world` från Docker Hub. Använd till exempel [Azure Portal][quickstart-portal] eller [Azure CLI][quickstart-cli] för att skapa ett register. 
+* If you don't already have a container registry, create one (Premium SKU required) and push a sample image such as `hello-world` from Docker Hub. For example, use the [Azure portal][quickstart-portal] or the [Azure CLI][quickstart-cli] to create a registry. 
 
-* Om du vill begränsa åtkomsten till registret med ett virtuellt nätverk i en annan Azure-prenumeration måste du registrera resurs leverantören för Azure Container Registry i den prenumerationen. Exempel:
+* If you want to restrict registry access using a virtual network in a different Azure subscription, you need to register the resource provider for Azure Container Registry in that subscription. Exempel:
 
   ```azurecli
   az account set --subscription <Name or ID of subscription of virtual network>
@@ -52,33 +47,33 @@ Om du i stället behöver konfigurera åtkomst regler för resurser för att nå
   az provider register --namespace Microsoft.ContainerRegistry
   ``` 
 
-## <a name="about-network-rules-for-a-container-registry"></a>Om nätverks regler för ett behållar register
+## <a name="about-network-rules-for-a-container-registry"></a>About network rules for a container registry
 
-Ett Azure Container Registry som standard accepterar anslutningar via Internet från värdar i ett nätverk. Med ett virtuellt nätverk kan du bara tillåta Azure-resurser, till exempel ett AKS-kluster eller en virtuell Azure-dator för säker åtkomst till registret, utan att korsa en nätverks gräns. Du kan också konfigurera regler för nätverks brand väggen så att de endast tillåter vissa offentliga IP-adressintervall för Internet. 
+An Azure container registry by default accepts connections over the internet from hosts on any network. With a virtual network, you can allow only Azure resources such as an AKS cluster or Azure VM to securely access the registry, without crossing a network boundary. You can also configure network firewall rules to allow only specific public internet IP address ranges. 
 
-Om du vill begränsa åtkomsten till ett register måste du först ändra standard åtgärden för registret så att det nekar alla nätverks anslutningar. Lägg sedan till nätverks åtkomst regler. Klienter som beviljats åtkomst via nätverks reglerna måste fortsätta att [autentisera till behållar registret](https://docs.microsoft.com/azure/container-registry/container-registry-authentication) och ha behörighet att komma åt data.
+To limit access to a registry, first change the default action of the registry so that it denies all network connections. Then, add network access rules. Clients granted access via the network rules must continue to [authenticate to the container registry](https://docs.microsoft.com/azure/container-registry/container-registry-authentication) and be authorized to access the data.
 
-### <a name="service-endpoint-for-subnets"></a>Tjänst slut punkt för undernät
+### <a name="service-endpoint-for-subnets"></a>Service endpoint for subnets
 
-Om du vill tillåta åtkomst från ett undernät i ett virtuellt nätverk måste du lägga till en [tjänst slut punkt](../virtual-network/virtual-network-service-endpoints-overview.md) för Azure Container Registry tjänsten. 
+To allow access from a subnet in a virtual network, you need to add a [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) for the Azure Container Registry service. 
 
-Tjänster för flera innehavare, t. ex. Azure Container Registry, använder en enda uppsättning IP-adresser för alla kunder. En tjänst slut punkt tilldelar en slut punkt för att få åtkomst till ett register. Den här slut punkten ger trafiken en optimal väg till resursen över Azure stamnät nätverket. Identiteterna för det virtuella nätverket och under nätet skickas också med varje begäran.
+Multi-tenant services, like Azure Container Registry, use a single set of IP addresses for all customers. A service endpoint assigns an endpoint to access a registry. This endpoint gives traffic an optimal route to the resource over the Azure backbone network. The identities of the virtual network and the subnet are also transmitted with each request.
 
 ### <a name="firewall-rules"></a>Brandväggsregler
 
-För IP-nätverks regler anger du tillåtna Internet adress intervall med CIDR-notering som *16.17.18.0/24* eller enskilda IP-adresser som *16.17.18.19*. IP-nätverks regler tillåts endast för *offentliga* Internet-IP-adresser. IP-adressintervall som är reserverade för privata nätverk (enligt definitionen i RFC 1918) tillåts inte i IP-regler.
+For IP network rules, provide allowed internet address ranges using CIDR notation such as *16.17.18.0/24* or an individual IP addresses like *16.17.18.19*. IP network rules are only allowed for *public* internet IP addresses. IP address ranges reserved for private networks (as defined in RFC 1918) aren't allowed in IP rules.
 
-## <a name="create-a-docker-enabled-virtual-machine"></a>Skapa en Docker-aktiverad virtuell dator
+## <a name="create-a-docker-enabled-virtual-machine"></a>Create a Docker-enabled virtual machine
 
-I den här artikeln använder du en Docker-aktiverad virtuell Ubuntu-dator för att få åtkomst till ett Azure Container Registry. Om du vill använda Azure Active Directory autentisering i registret installerar du även [Azure CLI][azure-cli] på den virtuella datorn. Hoppa över det här steget om du redan har en virtuell Azure-dator.
+For this article, use a Docker-enabled Ubuntu VM to access an Azure container registry. To use Azure Active Directory authentication to the registry, also install the [Azure CLI][azure-cli] on the VM. If you already have an Azure virtual machine, skip this creation step.
 
-Du kan använda samma resurs grupp för din virtuella dator och behållar registret. Den här installationen fören klar rensningen, men är inte obligatorisk. Om du väljer att skapa en separat resurs grupp för den virtuella datorn och det virtuella nätverket kör du [AZ Group Create][az-group-create]. I följande exempel skapas en resurs grupp med namnet *myResourceGroup* på *westcentralus* -platsen:
+You may use the same resource group for your virtual machine and your container registry. This setup simplifies clean-up at the end but isn't required. If you choose to create a separate resource group for the virtual machine and virtual network, run [az group create][az-group-create]. The following example creates a resource group named *myResourceGroup* in the *westcentralus* location:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
 ```
 
-Distribuera nu en standard virtuell Azure-Ubuntu med [AZ VM Create][az-vm-create]. I följande exempel skapas en virtuell dator med namnet *myDockerVM*:
+Now deploy a default Ubuntu Azure virtual machine with [az vm create][az-vm-create]. The following example creates a VM named *myDockerVM*:
 
 ```azurecli
 az vm create \
@@ -89,23 +84,23 @@ az vm create \
     --generate-ssh-keys
 ```
 
-Det tar några minuter att skapa den virtuella datorn. När kommandot har slutförts noterar du `publicIpAddress` som visas av Azure CLI. Använd den här adressen om du vill göra SSH-anslutningar till den virtuella datorn och eventuellt senare konfigurera brand Väggs regler.
+Det tar några minuter att skapa den virtuella datorn. When the command completes, take note of the `publicIpAddress` displayed by the Azure CLI. Use this address to make SSH connections to the VM, and optionally for later setup of firewall rules.
 
-### <a name="install-docker-on-the-vm"></a>Installera Docker på den virtuella datorn
+### <a name="install-docker-on-the-vm"></a>Install Docker on the VM
 
-När den virtuella datorn har körts skapar du en SSH-anslutning till den virtuella datorn. Ersätt *publicIpAddress* med den offentliga IP-adressen för den virtuella datorn.
+After the VM is running, make an SSH connection to the VM. Replace *publicIpAddress* with the public IP address of your VM.
 
 ```bash
 ssh azureuser@publicIpAddress
 ```
 
-Kör följande kommando för att installera Docker på den virtuella datorn Ubuntu:
+Run the following command to install Docker on the Ubuntu VM:
 
 ```bash
 sudo apt install docker.io -y
 ```
 
-Efter installationen kör du följande kommando för att kontrol lera att Docker körs korrekt på den virtuella datorn:
+After installation, run the following command to verify that Docker is running properly on the VM:
 
 ```bash
 sudo docker run -it hello-world
@@ -121,19 +116,19 @@ This message shows that your installation appears to be working correctly.
 
 ### <a name="install-the-azure-cli"></a>Installera Azure CLI
 
-Följ stegen i [Installera Azure CLI med apt](/cli/azure/install-azure-cli-apt?view=azure-cli-latest) för att installera Azure CLI på den virtuella Ubuntu-datorn. I den här artikeln kontrollerar du att du installerar version 2.0.58 eller senare.
+Follow the steps in [Install Azure CLI with apt](/cli/azure/install-azure-cli-apt?view=azure-cli-latest) to install the Azure CLI on your Ubuntu virtual machine. For this article, ensure that you install version 2.0.58 or later.
 
-Avsluta SSH-anslutningen.
+Exit the SSH connection.
 
-## <a name="allow-access-from-a-virtual-network"></a>Tillåt åtkomst från ett virtuellt nätverk
+## <a name="allow-access-from-a-virtual-network"></a>Allow access from a virtual network
 
-I det här avsnittet konfigurerar du behållar registret för att tillåta åtkomst från ett undernät i ett virtuellt Azure-nätverk. Likvärdiga steg som använder Azure CLI och Azure Portal tillhandahålls.
+In this section, configure your container registry to allow access from a subnet in an Azure virtual network. Equivalent steps using the Azure CLI and Azure portal are provided.
 
-### <a name="allow-access-from-a-virtual-network---cli"></a>Tillåt åtkomst från ett virtuellt nätverk – CLI
+### <a name="allow-access-from-a-virtual-network---cli"></a>Allow access from a virtual network - CLI
 
-#### <a name="add-a-service-endpoint-to-a-subnet"></a>Lägga till en tjänst slut punkt i ett undernät
+#### <a name="add-a-service-endpoint-to-a-subnet"></a>Add a service endpoint to a subnet
 
-När du skapar en virtuell dator skapar Azure som standard ett virtuellt nätverk i samma resurs grupp. Namnet på det virtuella nätverket baseras på namnet på den virtuella datorn. Om du till exempel namnger din virtuella dator *myDockerVM*är det virtuella standard nätverks namnet *myDockerVMVNET*, med ett undernät som heter *myDockerVMSubnet*. Kontrol lera detta i Azure Portal eller genom att använda kommandot [AZ Network VNet List][az-network-vnet-list] :
+When you create a VM, Azure by default creates a virtual network in the same resource group. The name of the virtual network is based on the name of the virtual machine. For example, if you name your virtual machine *myDockerVM*, the default virtual network name is *myDockerVMVNET*, with a subnet named *myDockerVMSubnet*. Verify this in the Azure portal or by using the [az network vnet list][az-network-vnet-list] command:
 
 ```azurecli
 az network vnet list --resource-group myResourceGroup --query "[].{Name: name, Subnet: subnets[0].name}"
@@ -150,7 +145,7 @@ Resultat:
 ]
 ```
 
-Använd kommandot [AZ Network VNet Subnet Update][az-network-vnet-subnet-update] för att lägga till en tjänst slut punkt för **Microsoft. ContainerRegistry** i under nätet. Ersätt namnen på ditt virtuella nätverk och undernät i följande kommando:
+Use the [az network vnet subnet update][az-network-vnet-subnet-update] command to add a **Microsoft.ContainerRegistry** service endpoint to your subnet. Substitute the names of your virtual network and subnet in the following command:
 
 ```azurecli
 az network vnet subnet update \
@@ -160,7 +155,7 @@ az network vnet subnet update \
   --service-endpoints Microsoft.ContainerRegistry
 ```
 
-Använd kommandot [AZ Network VNet Subnet show][az-network-vnet-subnet-show] för att hämta resurs-ID för under nätet. Du behöver detta i ett senare steg för att konfigurera en regel för nätverks åtkomst.
+Use the [az network vnet subnet show][az-network-vnet-subnet-show] command to retrieve the resource ID of the subnet. You need this in a later step to configure a network access rule.
 
 ```azurecli
 az network vnet subnet show \
@@ -177,72 +172,72 @@ Resultat:
 /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myDockerVMVNET/subnets/myDockerVMSubnet
 ```
 
-#### <a name="change-default-network-access-to-registry"></a>Ändra standard nätverks åtkomst till registret
+#### <a name="change-default-network-access-to-registry"></a>Change default network access to registry
 
-Som standard tillåter ett Azure Container Registry anslutningar från värdar i alla nätverk. Om du vill begränsa åtkomsten till ett valt nätverk ändrar du standard åtgärden till neka åtkomst. Ersätt namnet på registret i följande [AZ ACR Update][az-acr-update] -kommando:
+By default, an Azure container registry allows connections from hosts on any network. To limit access to a selected network, change the default action to deny access. Substitute the name of your registry in the following [az acr update][az-acr-update] command:
 
 ```azurecli
 az acr update --name myContainerRegistry --default-action Deny
 ```
 
-#### <a name="add-network-rule-to-registry"></a>Lägg till nätverks regel i registret
+#### <a name="add-network-rule-to-registry"></a>Add network rule to registry
 
-Använd kommandot [AZ ACR Network-Rule Add][az-acr-network-rule-add] för att lägga till en nätverks regel i registret som tillåter åtkomst från den virtuella datorns undernät. Ersätt namnet på behållar registret och resurs-ID: t för under nätet i följande kommando: 
+Use the [az acr network-rule add][az-acr-network-rule-add] command to add a network rule to your registry that allows access from the VM's subnet. Substitute the container registry's name and the resource ID of the subnet in the following command: 
 
  ```azurecli
 az acr network-rule add --name mycontainerregistry --subnet <subnet-resource-id>
 ```
 
-Fortsätt att [Verifiera åtkomst till registret](#verify-access-to-the-registry).
+Continue to [Verify access to the registry](#verify-access-to-the-registry).
 
-### <a name="allow-access-from-a-virtual-network---portal"></a>Tillåt åtkomst från ett virtuellt nätverk – Portal
+### <a name="allow-access-from-a-virtual-network---portal"></a>Allow access from a virtual network - portal
 
-#### <a name="add-service-endpoint-to-subnet"></a>Lägg till tjänst slut punkt i undernät
+#### <a name="add-service-endpoint-to-subnet"></a>Add service endpoint to subnet
 
-När du skapar en virtuell dator skapar Azure som standard ett virtuellt nätverk i samma resurs grupp. Namnet på det virtuella nätverket baseras på namnet på den virtuella datorn. Om du till exempel namnger din virtuella dator *myDockerVM*är det virtuella standard nätverks namnet *myDockerVMVNET*, med ett undernät som heter *myDockerVMSubnet*.
+When you create a VM, Azure by default creates a virtual network in the same resource group. The name of the virtual network is based on the name of the virtual machine. For example, if you name your virtual machine *myDockerVM*, the default virtual network name is *myDockerVMVNET*, with a subnet named *myDockerVMSubnet*.
 
-Så här lägger du till en tjänst slut punkt för Azure Container Registry till ett undernät:
+To add a service endpoint for Azure Container Registry to a subnet:
 
-1. I rutan Sök högst upp i [Azure Portal][azure-portal]anger du *virtuella nätverk*. När **virtuella nätverk** visas i Sök resultaten väljer du det.
-1. I listan över virtuella nätverk väljer du det virtuella nätverk där den virtuella datorn distribueras, till exempel *myDockerVMVNET*.
-1. Under **Inställningar**väljer du **undernät**.
-1. Välj under nätet där den virtuella datorn distribueras, till exempel *myDockerVMSubnet*.
-1. Under **tjänst slut punkter**väljer du **Microsoft. ContainerRegistry**.
+1. In the search box at the top of the [Azure portal][azure-portal], enter *virtual networks*. When **Virtual networks** appear in the search results, select it.
+1. From the list of virtual networks, select the virtual network where your virtual machine is deployed, such as *myDockerVMVNET*.
+1. Under **Settings**, select **Subnets**.
+1. Select the subnet where your virtual machine is deployed, such as *myDockerVMSubnet*.
+1. Under **Service endpoints**, select **Microsoft.ContainerRegistry**.
 1. Välj **Spara**.
 
-![Lägg till tjänst slut punkt i undernät][acr-subnet-service-endpoint] 
+![Add service endpoint to subnet][acr-subnet-service-endpoint] 
 
-#### <a name="configure-network-access-for-registry"></a>Konfigurera nätverks åtkomst för registret
+#### <a name="configure-network-access-for-registry"></a>Configure network access for registry
 
-Som standard tillåter ett Azure Container Registry anslutningar från värdar i alla nätverk. Så här begränsar du åtkomsten till det virtuella nätverket:
+By default, an Azure container registry allows connections from hosts on any network. To limit access to the virtual network:
 
-1. I portalen navigerar du till behållar registret.
-1. Under **Inställningar**väljer du **brand vägg och virtuella nätverk**.
-1. Om du vill neka åtkomst som standard väljer du att tillåta åtkomst från **valda nätverk**. 
-1. Välj **Lägg till befintligt virtuellt nätverk**och välj det virtuella nätverk och undernät som du har konfigurerat med en tjänst slut punkt. Välj **Lägg till**.
+1. In the portal, navigate to your container registry.
+1. Under **Settings**, select **Firewall and virtual networks**.
+1. To deny access by default, choose to allow access from **Selected networks**. 
+1. Select **Add existing virtual network**, and select the virtual network and subnet you configured with a service endpoint. Välj **Lägg till**.
 1. Välj **Spara**.
 
-![Konfigurera virtuellt nätverk för container Registry][acr-vnet-portal]
+![Configure virtual network for container registry][acr-vnet-portal]
 
-Fortsätt att [Verifiera åtkomst till registret](#verify-access-to-the-registry).
+Continue to [Verify access to the registry](#verify-access-to-the-registry).
 
-## <a name="allow-access-from-an-ip-address"></a>Tillåt åtkomst från en IP-adress
+## <a name="allow-access-from-an-ip-address"></a>Allow access from an IP address
 
-I det här avsnittet konfigurerar du behållar registret för att tillåta åtkomst från en speciell IP-adress eller ett särskilt intervall. Likvärdiga steg som använder Azure CLI och Azure Portal tillhandahålls.
+In this section, configure your container registry to allow access from a specific IP address or range. Equivalent steps using the Azure CLI and Azure portal are provided.
 
-### <a name="allow-access-from-an-ip-address---cli"></a>Tillåt åtkomst från en IP-adress – CLI
+### <a name="allow-access-from-an-ip-address---cli"></a>Allow access from an IP address - CLI
 
-#### <a name="change-default-network-access-to-registry"></a>Ändra standard nätverks åtkomst till registret
+#### <a name="change-default-network-access-to-registry"></a>Change default network access to registry
 
-Om du inte redan har gjort det uppdaterar du register konfigurationen för att neka åtkomst som standard. Ersätt namnet på registret i följande [AZ ACR Update][az-acr-update] -kommando:
+If you haven't already done so, update the registry configuration to deny access by default. Substitute the name of your registry in the following [az acr update][az-acr-update] command:
 
 ```azurecli
 az acr update --name myContainerRegistry --default-action Deny
 ```
 
-#### <a name="remove-network-rule-from-registry"></a>Ta bort nätverks regel från registret
+#### <a name="remove-network-rule-from-registry"></a>Remove network rule from registry
 
-Om du tidigare har lagt till en nätverks regel för att tillåta åtkomst från den virtuella datorns undernät, tar du bort under nätets tjänst slut punkt och nätverks regeln. Ersätt behållar registrets namn och resurs-ID för under nätet som du hämtade i ett tidigare steg i kommandot [AZ ACR Network-Rule Remove][az-acr-network-rule-remove] : 
+If you previously added a network rule to allow access from the VM's subnet, remove the subnet's service endpoint and the network rule. Substitute the container registry's name and the resource ID of the subnet you retrieved in an earlier step in the [az acr network-rule remove][az-acr-network-rule-remove] command: 
 
 ```azurecli
 # Remove service endpoint
@@ -258,87 +253,87 @@ az network vnet subnet update \
 az acr network-rule remove --name mycontainerregistry --subnet <subnet-resource-id>
 ```
 
-#### <a name="add-network-rule-to-registry"></a>Lägg till nätverks regel i registret
+#### <a name="add-network-rule-to-registry"></a>Add network rule to registry
 
-Använd kommandot [AZ ACR Network-Rule Add][az-acr-network-rule-add] för att lägga till en nätverks regel i registret som tillåter åtkomst från den virtuella DATORns IP-adress. Ersätt behållar register namnet och den offentliga IP-adressen för den virtuella datorn i följande kommando.
+Use the [az acr network-rule add][az-acr-network-rule-add] command to add a network rule to your registry that allows access from the VM's IP address. Substitute the container registry's name and the public IP address of the VM in the following command.
 
 ```azurecli
 az acr network-rule add --name mycontainerregistry --ip-address <public-IP-address>
 ```
 
-Fortsätt att [Verifiera åtkomst till registret](#verify-access-to-the-registry).
+Continue to [Verify access to the registry](#verify-access-to-the-registry).
 
-### <a name="allow-access-from-an-ip-address---portal"></a>Tillåt åtkomst från en IP-adress – Portal
+### <a name="allow-access-from-an-ip-address---portal"></a>Allow access from an IP address - portal
 
-#### <a name="remove-existing-network-rule-from-registry"></a>Ta bort den befintliga nätverks regeln från registret
+#### <a name="remove-existing-network-rule-from-registry"></a>Remove existing network rule from registry
 
-Om du tidigare har lagt till en nätverks regel för att tillåta åtkomst från den virtuella datorns undernät, tar du bort den befintliga regeln. Hoppa över det här avsnittet om du vill ha åtkomst till registret från en annan virtuell dator.
+If you previously added a network rule to allow access from the VM's subnet, remove the existing rule. Skip this section if you want to access the registry from a different VM.
 
-* Uppdatera under näts inställningarna för att ta bort under nätets tjänst slut punkt för Azure Container Registry. 
+* Update the subnet settings to remove the subnet's service endpoint for Azure Container Registry. 
 
-  1. I [Azure Portal][azure-portal]navigerar du till det virtuella nätverk där den virtuella datorn har distribuerats.
-  1. Under **Inställningar**väljer du **undernät**.
-  1. Välj under nätet där den virtuella datorn ska distribueras.
-  1. Ta bort kryss rutan för **Microsoft. ContainerRegistry**under **tjänst slut punkter**. 
+  1. In the [Azure portal][azure-portal], navigate to the virtual network where your virtual machine is deployed.
+  1. Under **Settings**, select **Subnets**.
+  1. Select the subnet where your virtual machine is deployed.
+  1. Under **Service endpoints**, remove the checkbox for **Microsoft.ContainerRegistry**. 
   1. Välj **Spara**.
 
-* Ta bort nätverks regeln som tillåter under nätet att komma åt registret.
+* Remove the network rule that allows the subnet to access the registry.
 
-  1. I portalen navigerar du till behållar registret.
-  1. Under **Inställningar**väljer du **brand vägg och virtuella nätverk**.
-  1. Under **virtuella nätverk**väljer du namnet på det virtuella nätverket och väljer sedan **ta bort**.
+  1. In the portal, navigate to your container registry.
+  1. Under **Settings**, select **Firewall and virtual networks**.
+  1. Under **Virtual networks**, select the name of the virtual network, and then select **Remove**.
   1. Välj **Spara**.
 
-#### <a name="add-network-rule-to-registry"></a>Lägg till nätverks regel i registret
+#### <a name="add-network-rule-to-registry"></a>Add network rule to registry
 
-1. I portalen navigerar du till behållar registret.
-1. Under **Inställningar**väljer du **brand vägg och virtuella nätverk**.
-1. Om du inte redan har gjort det väljer du att tillåta åtkomst från **valda nätverk**. 
-1. Se till att inget nätverk är markerat under **virtuella nätverk**.
-1. Under **brand vägg**anger du den offentliga IP-adressen för en virtuell dator. Eller ange ett adress intervall i CIDR-notation som innehåller den virtuella datorns IP-adress.
+1. In the portal, navigate to your container registry.
+1. Under **Settings**, select **Firewall and virtual networks**.
+1. If you haven't already done so, choose to allow access from **Selected networks**. 
+1. Under **Virtual networks**, ensure no network is selected.
+1. Under **Firewall**, enter the public IP address of a VM. Or, enter an address range in CIDR notation that contains the VM's IP address.
 1. Välj **Spara**.
 
-![Konfigurera brand Väggs regel för container Registry][acr-vnet-firewall-portal]
+![Configure firewall rule for container registry][acr-vnet-firewall-portal]
 
-Fortsätt att [Verifiera åtkomst till registret](#verify-access-to-the-registry).
+Continue to [Verify access to the registry](#verify-access-to-the-registry).
 
-## <a name="verify-access-to-the-registry"></a>Verifiera åtkomst till registret
+## <a name="verify-access-to-the-registry"></a>Verify access to the registry
 
-Efter några minuter efter att konfigurationen uppdaterats, verifiera att den virtuella datorn har åtkomst till behållar registret. Skapa en SSH-anslutning till den virtuella datorn och kör kommandot [AZ ACR login][az-acr-login] för att logga in i registret. 
+After waiting a few minutes for the configuration to update, verify that the VM can access the container registry. Make an SSH connection to your VM, and run the [az acr login][az-acr-login] command to login to your registry. 
 
 ```bash
 az acr login --name mycontainerregistry
 ```
 
-Du kan utföra register åtgärder som kör `docker pull` för att hämta en exempel avbildning från registret. Ersätt en bild och ett tagg värde som är lämpligt för ditt register, med prefixet för inloggnings Server namnet för registret (alla gemener):
+You can perform registry operations such as run `docker pull` to pull a sample image from the registry. Substitute an image and tag value appropriate for your registry, prefixed with the registry login server name (all lowercase):
 
 ```bash
 docker pull mycontainerregistry.azurecr.io/hello-world:v1
 ``` 
 
-Docker hämtar avbildningen till den virtuella datorn.
+Docker successfully pulls the image to the VM.
 
-Det här exemplet visar att du kan komma åt den privata behållar registret via nätverks åtkomst regeln. Registret kan dock inte nås från en annan inloggnings värd som inte har någon konfigurerad nätverks åtkomst regel. Om du försöker logga in från en annan värd med kommandot `az acr login` eller `docker login`, ser utdata ut ungefär så här:
+This example demonstrates that you can access the private container registry through the network access rule. However, the registry can't be accessed from a different login host that doesn't have a network access rule configured. If you attempt to login from another host using the `az acr login` command or `docker login` command, output is similar to the following:
 
 ```Console
 Error response from daemon: login attempt to https://xxxxxxx.azurecr.io/v2/ failed with status: 403 Forbidden
 ```
 
-## <a name="restore-default-registry-access"></a>Återställ standard register åtkomst
+## <a name="restore-default-registry-access"></a>Restore default registry access
 
-Om du vill återställa registret för att tillåta åtkomst som standard, tar du bort eventuella nätverks regler som är konfigurerade. Ange sedan standard åtgärden för att tillåta åtkomst. Likvärdiga steg som använder Azure CLI och Azure Portal tillhandahålls.
+To restore the registry to allow access by default, remove any network rules that are configured. Then set the default action to allow access. Equivalent steps using the Azure CLI and Azure portal are provided.
 
-### <a name="restore-default-registry-access---cli"></a>Återställ standard register åtkomst-CLI
+### <a name="restore-default-registry-access---cli"></a>Restore default registry access - CLI
 
-#### <a name="remove-network-rules"></a>Ta bort nätverks regler
+#### <a name="remove-network-rules"></a>Remove network rules
 
-Om du vill se en lista över nätverks regler som har kon figurer ATS för registret kör du följande kommando för [AZ ACR Network-Rule List][az-acr-network-rule-list] :
+To see a list of network rules configured for your registry, run the following [az acr network-rule list][az-acr-network-rule-list] command:
 
 ```azurecli
 az acr network-rule list--name mycontainerregistry 
 ```
 
-För varje regel som har kon figurer ATS kör du kommandot [AZ ACR Network-Rule Remove Remove][az-acr-network-rule-remove] för att ta bort den. Exempel:
+For each rule that is configured, run the [az acr network-rule remove][az-acr-network-rule-remove] command to remove it. Exempel:
 
 ```azurecli
 # Remove a rule that allows access for a subnet. Substitute the subnet resource ID.
@@ -355,35 +350,35 @@ az acr network-rule remove \
   --ip-address 23.45.1.0/24
 ```
 
-#### <a name="allow-access"></a>Tillåt åtkomst
+#### <a name="allow-access"></a>Allow access
 
-Ersätt namnet på registret i följande [AZ ACR Update][az-acr-update] -kommando:
+Substitute the name of your registry in the following [az acr update][az-acr-update] command:
 ```azurecli
 az acr update --name myContainerRegistry --default-action Allow
 ```
 
-### <a name="restore-default-registry-access---portal"></a>Återställa standard åtkomst till registret – portalen
+### <a name="restore-default-registry-access---portal"></a>Restore default registry access - portal
 
 
-1. I portalen navigerar du till ditt behållar register och väljer **brand vägg och virtuella nätverk**.
-1. Under **virtuella nätverk**väljer du varje virtuellt nätverk och väljer sedan **ta bort**.
-1. Under **brand vägg**väljer du varje adress intervall och väljer sedan ikonen Ta bort.
-1. Under **Tillåt åtkomst från**väljer du **alla nätverk**. 
+1. In the portal, navigate to your container registry and select **Firewall and virtual networks**.
+1. Under **Virtual networks**, select each virtual network, and then select **Remove**.
+1. Under **Firewall**, select each address range, and then select the Delete icon.
+1. Under **Allow access from**, select **All networks**. 
 1. Välj **Spara**.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du har skapat alla Azure-resurser i samma resurs grupp och inte längre behöver dem, kan du välja att ta bort resurserna med hjälp av ett enda [AZ Group Delete](/cli/azure/group) -kommando:
+If you created all the Azure resources in the same resource group and no longer need them, you can optionally delete the resources by using a single [az group delete](/cli/azure/group) command:
 
 ```azurecli
 az group delete --name myResourceGroup
 ```
 
-Om du vill rensa dina resurser i portalen navigerar du till resurs gruppen myResourceGroup. När resurs gruppen har lästs in klickar du på **ta bort resurs** grupp för att ta bort resurs gruppen och resurserna som lagras där.
+To clean up your resources in the portal, navigate to the myResourceGroup resource group. Once the resource group is loaded, click on **Delete resource group** to remove the resource group and the resources stored there.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Flera virtuella nätverks resurser och funktioner beskrivs i den här artikeln, men i korthet. Azure Virtual Network-dokumentationen omfattar följande ämnen:
+Several virtual network resources and features were discussed in this article, though briefly. The Azure Virtual Network documentation covers these topics extensively:
 
 * [Virtuellt nätverk](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network)
 * [Undernät](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet)

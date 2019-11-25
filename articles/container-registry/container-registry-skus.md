@@ -1,71 +1,66 @@
 ---
-title: 'Azure Container Registry SKU: er'
-description: 'Lär dig mer om funktionerna och begränsningarna i Azure Container Registry för Basic-, standard-och Premium-tjänster (SKU: er).'
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
+title: Service tiers and SKUs
+description: Learn about the features and limits in the Basic, Standard, and Premium service tiers (SKUs) of Azure Container Registry.
 ms.topic: article
 ms.date: 11/05/2019
-ms.author: danlep
-ms.openlocfilehash: 19b1fb78413f82d422779b12227b4a5e2361d813
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 1ebe5339b7523a4463dee45b126244d7ec5b2e4b
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681816"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456281"
 ---
-# <a name="azure-container-registry-skus"></a>Azure Container Registry SKU: er
+# <a name="azure-container-registry-skus"></a>Azure Container Registry SKUs
 
-Azure Container Registry (ACR) finns på flera tjänst nivåer, som kallas SKU: er. Dessa SKU: er tillhandahåller förutsägbar prissättning och flera alternativ för anpassning av kapacitets-och användnings mönstren för ditt privata Docker-register i Azure.
+Azure Container Registry (ACR) is available in multiple service tiers, known as SKUs. These SKUs provide predictable pricing and several options for aligning to the capacity and usage patterns of your private Docker registry in Azure.
 
 | SKU | Beskrivning |
 | --- | ----------- |
-| **Basic** | En kostnadsoptimerad startpunkt för utvecklare som lär sig Azure Container Registry. Grundläggande register har samma programmerings funktioner som standard och Premium (till exempel Azure Active Directory [autentisering](container-registry-authentication.md#individual-login-with-azure-ad), [avbildnings borttagning][container-registry-delete]och [Webhooks][container-registry-webhook]). Den inkluderade lagrings-och avbildnings data flödet är dock lämpligast för lägre användnings scenarier. |
-| **Standard** | Standard register ger samma funktioner som Basic, med ökat lagrings utrymme och avbildnings data flöde. Standard-register bör uppfylla behoven för de flesta produktionsscenarier. |
-| **Premium** | Premium register ger högsta mängd av inkluderad lagring och samtidiga åtgärder, vilket möjliggör stora volymer. Förutom högre bild data flöde lägger Premium till funktioner som [geo-replikering][container-registry-geo-replication] för att hantera ett enda register över flera regioner, [innehålls förtroende](container-registry-content-trust.md) för signering av bildtagg, [brand väggar och virtuella nätverk (för hands version)](container-registry-vnet.md) till begränsa åtkomsten till registret. |
+| **Basic** | En kostnadsoptimerad startpunkt för utvecklare som lär sig Azure Container Registry. Basic registries have the same programmatic capabilities as Standard and Premium (such as Azure Active Directory [authentication integration](container-registry-authentication.md#individual-login-with-azure-ad), [image deletion][container-registry-delete], and [webhooks][container-registry-webhook]). However, the included storage and image throughput are most appropriate for lower usage scenarios. |
+| **Standard** | Standard registries offer the same capabilities as Basic, with increased included storage and image throughput. Standard-register bör uppfylla behoven för de flesta produktionsscenarier. |
+| **Premium** | Premium registries provide the highest amount of included storage and concurrent operations, enabling high-volume scenarios. In addition to higher image throughput, Premium adds features such as [geo-replication][container-registry-geo-replication] for managing a single registry across multiple regions, [content trust](container-registry-content-trust.md) for image tag signing, [firewalls and virtual networks (preview)](container-registry-vnet.md) to restrict access to the registry. |
 
-Alla SKU: er för Basic, standard och Premium tillhandahåller samma programmerings funktioner. De har också all nytta av [image Storage][container-registry-storage] som hanteras helt av Azure. Att välja ett SKU på en högre nivå ger bättre prestanda och skalning. Med flera tjänst nivåer kan du komma igång med Basic och sedan konvertera till standard och Premium allteftersom din användning av registret ökar.
+The Basic, Standard, and Premium SKUs all provide the same programmatic capabilities. They also all benefit from [image storage][container-registry-storage] managed entirely by Azure. Choosing a higher-level SKU provides more performance and scale. With multiple service tiers, you can get started with Basic, then convert to Standard and Premium as your registry usage increases.
 
-## <a name="sku-features-and-limits"></a>SKU-funktioner och begränsningar
+## <a name="sku-features-and-limits"></a>SKU features and limits
 
-I följande tabell beskrivs funktionerna och begränsningarna för tjänst nivåerna Basic, standard och Premium.
+The following table details the features and limits of the Basic, Standard, and Premium service tiers.
 
 [!INCLUDE [container-instances-limits](../../includes/container-registry-limits.md)]
 
-## <a name="changing-skus"></a>Ändra SKU: er
+## <a name="changing-skus"></a>Changing SKUs
 
-Du kan ändra ett registers SKU med Azure CLI eller i Azure Portal. Du kan flytta fritt mellan SKU: er så länge SKU: n som du växlar till har den maximala lagrings kapaciteten som krävs. 
+You can change a registry's SKU with the Azure CLI or in the Azure portal. You can move freely between SKUs as long as the SKU you're switching to has the required maximum storage capacity. 
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Om du vill flytta mellan SKU: er i Azure CLI använder du kommandot [AZ ACR Update][az-acr-update] . Till exempel för att växla till Premium:
+To move between SKUs in the Azure CLI, use the [az acr update][az-acr-update] command. For example, to switch to Premium:
 
 ```azurecli
 az acr update --name myregistry --sku Premium
 ```
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
-I behållarens register **Översikt** i Azure Portal väljer du **Uppdatera**och väljer sedan en ny **SKU** från List rutan SKU.
+In the container registry **Overview** in the Azure portal, select **Update**, then select a new **SKU** from the SKU drop-down.
 
-![Uppdatera container Registry-SKU: n i Azure Portal][update-registry-sku]
+![Update container registry SKU in Azure portal][update-registry-sku]
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 
-Pris information om var och en av Azure Container Registry SKU: er finns i [container Registry prissättning][container-registry-pricing].
+For pricing information on each of the Azure Container Registry SKUs, see [Container Registry pricing][container-registry-pricing].
 
-Mer information om priser för data överföringar finns i [pris information för bandbredd](https://azure.microsoft.com/pricing/details/bandwidth/). 
+For details about pricing for data transfers, see [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/). 
 
 ## <a name="next-steps"></a>Nästa steg
 
-**Azure Container Registrys översikt**
+**Azure Container Registry Roadmap**
 
-Besök [ACR-översikten][acr-roadmap] om GitHub för att hitta information om kommande funktioner i tjänsten.
+Visit the [ACR Roadmap][acr-roadmap] on GitHub to find information about upcoming features in the service.
 
 **Azure Container Registry UserVoice**
 
-Skicka in och rösta på nya funktions förslag i [ACR UserVoice][container-registry-uservoice].
+Submit and vote on new feature suggestions in [ACR UserVoice][container-registry-uservoice].
 
 <!-- IMAGES -->
 [update-registry-sku]: ./media/container-registry-skus/update-registry-sku.png

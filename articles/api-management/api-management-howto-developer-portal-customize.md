@@ -1,6 +1,6 @@
 ---
-title: Komma åt och anpassa den hanterade Developer-portalen – Azure API Management | Microsoft Docs
-description: Lär dig hur du använder den hanterade versionen av Developer-portalen i API Management.
+title: Access and customize the managed developer portal - Azure API Management | Microsoft Docs
+description: Learn how to use the managed version of the developer portal in API Management.
 services: api-management
 documentationcenter: API Management
 author: mikebudzynski
@@ -10,121 +10,124 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 11/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 28ef082d6aac5557998f7b67443d4dafd3a0fb15
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 8629d07830622770c3b30dacdd1fabc8417d7f52
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74285586"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74454417"
 ---
-# <a name="access-and-customize-developer-portal"></a>Komma åt och anpassa Developer-portalen
+# <a name="access-and-customize-developer-portal"></a>Access and customize developer portal
 
-Developer Portal är en automatiskt genererad, helt anpassningsbar webbplats med dokumentationen för dina API: er. Det är där API-konsumenter kan identifiera dina API: er, lära sig hur de används och begära åtkomst.
+Developer portal is an automatically generated, fully customizable website with the documentation of your APIs. It is where API consumers can discover your APIs, learn how to use them, and request access.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Öppna den hanterade versionen av Developer-portalen
-> * Navigera i det administrativa gränssnittet
-> * Anpassa innehållet
-> * Publicera ändringarna
-> * Visa den publicerade portalen
+> * Access the managed version of the developer portal
+> * Navigate its administrative interface
+> * Customize the content
+> * Publish the changes
+> * View the published portal
 
-Du hittar mer information om Developer-portalen i [Översikt över Azure API Management Developer-portalen](api-management-howto-developer-portal.md).
+You can find more details on the developer portal in the [Azure API Management developer portal overview](api-management-howto-developer-portal.md).
 
-![API Management Developer-portalen-admin-läge](media/api-management-howto-developer-portal-customize/cover.png)
+![API Management developer portal - admin mode](media/api-management-howto-developer-portal-customize/cover.png)
 
 ## <a name="prerequisites"></a>Krav
 
 - Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
-- Importera och publicera en Azure API Management-instans. Mer information finns i [Importera och publicera](import-and-publish.md)
+- Import and publish an Azure API Management instance. For more information, see [Import and publish](import-and-publish.md)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="access-the-portal-as-an-administrator"></a>Få åtkomst till portalen som administratör
+## <a name="access-the-portal-as-an-administrator"></a>Access the portal as an administrator
 
-Följ stegen nedan för att få åtkomst till den hanterade versionen av portalen.
+Follow the steps below to access the managed version of the portal.
 
-1. Gå till din API Management tjänst instans i Azure Portal.
-1. Klicka på **Developer Portal** -knappen i det övre navigerings fältet. En ny flik i webbläsaren med en administrativ version av portalen öppnas.
+1. Go to your API Management service instance in the Azure portal.
+1. Click on the **Developer portal** button in the top navigation bar. A new browser tab with an administrative version of the portal will open.
 
-## <a name="understand-the-portals-administrative-interface"></a>Förstå portalens administrativa gränssnitt
+## <a name="understand-the-portals-administrative-interface"></a>Understand the portal's administrative interface
 
-### <a name="default-content"></a>Standard innehåll 
+### <a name="default-content"></a>Default content 
 
-Om du ansluter till portalen för första gången, kommer standard innehållet att tillhandahållas automatiskt i bakgrunden. Standard innehållet har utformats för att presentera portalens funktioner och minimera antalet anpassningar som krävs för att anpassa portalen. Du kan läsa mer om vad som ingår i Portal innehållet i [Översikt över Azure API Management Developer-portalen](api-management-howto-developer-portal.md).
+If you're accessing the portal for the first time, the default content will be automatically provisioned in the background. Default content has been designed to showcase portal's capabilities and minimize the amount of customizations needed to personalize your portal. You can learn more about what is included in the portal content in the [Azure API Management developer portal overview](api-management-howto-developer-portal.md).
 
-### <a name="visual-editor"></a>Visuell redigerare
+### <a name="visual-editor"></a>Visual editor
 
-Du kan anpassa portalens innehåll med den visuella redigeraren. I meny avsnitten till vänster kan du skapa eller ändra sidor, media, layouter, menyer, format eller webbplats inställningar. Med meny alternativen längst ned kan du växla mellan visnings punkter (till exempel mobil eller stationär), Visa elementen i portalen som är synliga för autentiserade eller anonyma användare eller Spara eller ångra åtgärder.
+You can customize the content of the portal with the visual editor. The menu sections on the left let you create or modify pages, media, layouts, menus, styles, or website settings. The menu items on the bottom let you switch between viewports (for example, mobile or desktop), view the elements of the portal visible to authenticated or anonymous users, or save or undo actions.
 
-Du kan lägga till rader på en sida genom att klicka på en blå ikon med ett plus tecken. Widgetar (till exempel text, bilder eller API-listor) kan läggas till genom att trycka på en grå ikon med ett plus tecken. Du kan arrangera om objekt på en sida med dra och släpp-interaktionen. 
+You can add rows to a page by clicking on a blue icon with a plus sign. Widgets (for example, text, images, or APIs list) can be added by pressing a grey icon with a plus sign. You can rearrange items in a page with the drag-and-drop interaction. 
 
-### <a name="layouts-and-pages"></a>Layouter och sidor
+### <a name="layouts-and-pages"></a>Layouts and pages
 
-![Sidor och layouter](media/api-management-howto-developer-portal-customize/pages-layouts.png)
+![Pages and layouts](media/api-management-howto-developer-portal-customize/pages-layouts.png)
 
-Layouter definierar hur sidor visas. I standard innehållet finns det till exempel två layouter – en gäller för start sidan och den andra till alla återstående sidor.
+Layouts define how pages are displayed. For example, in the default content, there are two layouts - one applies to the home page, and the other to all remaining pages.
 
-En layout tillämpas på en sida genom att matcha dess URL-mall till sidans URL. Till exempel används layout med en URL-mall för `/wiki/*` på varje sida med `/wiki/` segment i URL: en: `/wiki/getting-started`, `/wiki/styles`osv.
+A layout gets applied to a page by matching its URL template to the page's URL. For example, layout with a URL template of `/wiki/*` will be applied to every page with the `/wiki/` segment in the URL: `/wiki/getting-started`, `/wiki/styles`, etc.
 
-I bilden ovan markeras innehåll som hör till layouten i blått, medan sidan markeras med rött. Meny avsnitten markeras.
+In the image above, content belonging to the layout is marked in blue, while the page is marked in red. The menu sections are marked respectively.
 
-### <a name="styling-guide"></a>Hand bok
+### <a name="styling-guide"></a>Styling guide
 
-![Hand bok](media/api-management-howto-developer-portal-customize/styling-guide.png)
+![Styling guide](media/api-management-howto-developer-portal-customize/styling-guide.png)
 
-Hand boken är en panel som skapats med designers i åtanke. Det gör det möjligt för att visa och formatera alla visuella element i portalen. Formatet är hierarkiskt-många element ärver egenskaper från andra element. Till exempel använder knapp element färger för text och bakgrund. Om du vill ändra färg på en knapp måste du ändra den ursprungliga varianten av färg.
+Styling guide is a panel created with designers in mind. It allows for overseeing and styling all the visual elements in your portal. The styling is hierarchical - many elements inherit properties from other elements. For example, button elements use colors for text and background. To change a button's color, you need to change the original color variant.
 
-Om du vill redigera en variant klickar du på den och väljer Penn ikonen som visas överst. När du har gjort ändringarna i popup-fönstret stänger du det.
+To edit a variant, click on it and select the pencil icon that appears on top of it. Once you make the changes in the pop-up window, close it.
 
 ### <a name="save-button"></a>Knappen Spara
 
 ![Knappen Spara](media/api-management-howto-developer-portal-customize/save-button.png)
 
-När du gör en ändring i portalen måste du spara den manuellt genom att trycka på knappen **Spara** på menyn längst ned. När du sparar ändringarna överförs det ändrade innehållet automatiskt till din API Management-tjänst.
+Whenever you make a change in the portal, you need to save it manually by pressing the **Save** button in the menu at the bottom. When you save your changes, the modified content is automatically uploaded to your API Management service.
 
-## <a name="customize-the-portals-content"></a>Anpassa portalens innehåll
+## <a name="customize-the-portals-content"></a>Customize the portal's content
 
-Innan du gör din portal tillgänglig för besökarna bör du anpassa det automatiskt genererade innehållet. Rekommenderade ändringar omfattar layouter, format och innehållet på Start sidan.
+Before you make your portal available to the visitors, you should personalize the automatically generated content. Recommended changes include the layouts, styles, and the content of the home page.
 
 > [!NOTE]
-> På grund av integrerings överväganden går det inte att ta bort eller flytta följande sidor under en annan URL: `/404`, `/500`, `/captcha`, `/change-password`, `/config.json`, `/confirm/invitation`, `/confirm-v2/identities/basic/signup`, `/confirm-v2/password`, `/internal-status-0123456789abcdef`, `/publish`, `/signin`, `/signin-sso``/signup`.
+> Due to integration considerations, the following pages can't be removed or moved under a different URL: `/404`, `/500`, `/captcha`, `/change-password`, `/config.json`, `/confirm/invitation`, `/confirm-v2/identities/basic/signup`, `/confirm-v2/password`, `/internal-status-0123456789abcdef`, `/publish`, `/signin`, `/signin-sso`, `/signup`.
 
 ### <a name="home-page"></a>Startsida
 
-Standard **Start** sidan är fylld med innehåll i dummy. Du kan antingen ta bort hela avsnitten med innehållet eller behålla strukturen och justera elementen en i taget. Ersätt den genererade texten och bilderna med dina egna och se till att länkarna pekar på önskade platser.
+The default **Home** page is filled with dummy content. You can either remove the whole sections with the content or keep the structure and adjust the elements one by one. Replace the generated text and images with your own and make sure the links point to desired locations.
 
-### <a name="layouts"></a>Former
+### <a name="layouts"></a>Layouts
 
-Ersätt den automatiskt genererade logo typen i navigerings fältet med din egen bild.
+Replace the automatically generated logo in the navigation bar with your own image.
 
-### <a name="styling"></a>Formatera
+### <a name="styling"></a>Styling
 
-Även om du inte behöver justera några format kan du överväga att justera vissa element. Ändra till exempel den primära färgen så att den matchar ditt märkes färg.
+Although you don't need to adjust any styles, you may consider adjusting particular elements. For example, change the primary color to match your brand's color.
 
-### <a name="customization-example"></a>Exempel på anpassning
+### <a name="customization-example"></a>Customization example
 
-I videon nedan visar vi hur du redigerar innehållet i portalen, anpassar webbplatsens utseende och publicerar ändringarna.
+In the video below we demonstrate how to edit the content of the portal, customize the website's look, and publish the changes.
 
 > [!VIDEO https://www.youtube.com/embed/5mMtUSmfUlw]
 
-## <a name="publish-the-portal"></a>Publicera portalen
+## <a name="publish"> </a>Publish the portal
 
-Om du vill göra din portal och dess senaste ändringar tillgängliga för besökare måste du publicera den.
+To make your portal and its latest changes available to visitors, you need to publish it.
 
-1. Se till att du har sparat ändringarna genom att klicka på ikonen **Spara** .
-1. Klicka på **Publicera webbplats** i avsnittet **åtgärder** på menyn. Den här åtgärden kan ta några minuter.  
-    ![publicera Portal](media/api-management-howto-developer-portal-customize/publish-portal.png)
+1. Make sure you saved your changes by clicking on the **Save** icon.
+1. Click on **Publish website** in the **Operations** section of the menu. Den här åtgärden kan ta några minuter.  
+    ![Publish portal](media/api-management-howto-developer-portal-customize/publish-portal.png)
 
-## <a name="visit-the-published-portal"></a>Besök den publicerade portalen
+> [!NOTE]
+> The portal needs to be republished after API Management service configuration changes, such as assigning a custom domain, updating the identity providers, setting delegation, specifying sign-in and product terms, and more.
 
-När du har publicerat portalen kan du komma åt den på samma URL som administrations panelen, till exempel `https://contoso-api.developer.azure-api.net`. Visa den i en separat webbläsarsession (Incognito/Private bläddringsläge) som extern besökare.
+## <a name="visit-the-published-portal"></a>Visit the published portal
+
+After you publish the portal, you can access it at the same URL as the administrative panel, for example `https://contoso-api.developer.azure-api.net`. View it in a separate browser session (incognito / private browsing mode) as an external visitor.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om Developer-portalen:
+Learn more about the developer portal:
 
-- [Översikt över Azure API Management Developer-portalen](api-management-howto-developer-portal.md)
+- [Azure API Management developer portal overview](api-management-howto-developer-portal.md)

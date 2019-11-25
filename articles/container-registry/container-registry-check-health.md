@@ -1,54 +1,49 @@
 ---
-title: Kontrol lera register hälsan i Azure Container Registry
-description: Lär dig hur du kör ett Quick Diagnostic-kommando för att identifiera vanliga problem när du använder ett Azure Container Registry, inklusive lokal Docker-konfiguration och anslutning till registret
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
+title: Check registry health
+description: Learn how to run a quick diagnostic command to identify common problems when using an Azure container registry, including local Docker configuration and connectivity to the registry
 ms.topic: article
 ms.date: 07/02/2019
-ms.author: danlep
-ms.openlocfilehash: 3511655d220ee85ce6b5744612e5d6fddafbe877
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ea4432c9e92c4a0380517e39678814e2d1cb3bfc
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68309739"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456405"
 ---
-# <a name="check-the-health-of-an-azure-container-registry"></a>Kontrol lera hälso tillståndet för ett Azure Container Registry
+# <a name="check-the-health-of-an-azure-container-registry"></a>Check the health of an Azure container registry
 
-När du använder ett Azure Container Registry kan du ibland stöta på problem. Till exempel kanske du inte kan hämta en behållar avbildning på grund av ett problem med Docker i din lokala miljö. Eller också kan ett nätverks problem förhindra att du ansluter till registret. 
+When using an Azure container registry, you might occasionally encounter problems. For example, you might not be able to pull a container image because of an issue with Docker in your local environment. Or, a network issue might prevent you from connecting to the registry. 
 
-Som ett första diagnostiskt steg kör du kommandot [AZ ACR check-Health][az-acr-check-health] för att få information om hälso tillståndet för miljön och eventuellt till gång till ett mål register. Det här kommandot är tillgängligt i Azure CLI version 2.0.67 eller senare. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli].
+As a first diagnostic step, run the [az acr check-health][az-acr-check-health] command to get information about the health of the environment and optionally access to a target registry. This command is available in Azure CLI version 2.0.67 or later. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli].
 
-## <a name="run-az-acr-check-health"></a>Kör AZ ACR-kontroll – hälsa
+## <a name="run-az-acr-check-health"></a>Run az acr check-health
 
-I exemplen nedan visas olika sätt att köra `az acr check-health` kommandot.
+The follow examples show different ways to run the `az acr check-health` command.
 
 > [!NOTE]
-> Om du kör kommandot i Azure Cloud Shell, kontrol leras inte den lokala miljön. Du kan dock kontrol lera åtkomsten till ett mål register.
+> If you run the command in Azure Cloud Shell, the local environment is not checked. However, you can check the access to a target registry.
 
-### <a name="check-the-environment-only"></a>Kontrol lera endast miljön
+### <a name="check-the-environment-only"></a>Check the environment only
 
-Om du vill kontrol lera den lokala Docker-daemonen, CLI-versionen och Helm-klient konfigurationen kör du kommandot utan ytterligare parametrar:
+To check the local Docker daemon, CLI version, and Helm client configuration, run the command without additional parameters:
 
 ```azurecli
 az acr check-health
 ```
 
-### <a name="check-the-environment-and-a-target-registry"></a>Kontrol lera miljön och ett mål register
+### <a name="check-the-environment-and-a-target-registry"></a>Check the environment and a target registry
 
-Om du vill kontrol lera åtkomsten till ett register och utföra lokala miljö kontroller, måste du skicka namnet på ett mål register. Exempel:
+To check access to a registry as well as perform local environment checks, pass the name of a target registry. Exempel:
 
 ```azurecli
 az acr check-health --name myregistry
 ```
 
-## <a name="error-reporting"></a>Fel rapportering
+## <a name="error-reporting"></a>Error reporting
 
-Kommandot loggar information till standardutdata. Om ett problem upptäcks visas en felkod och en beskrivning. Mer information om koder och möjliga lösningar finns i [fel referensen](container-registry-health-error-reference.md).
+The command logs information to the standard output. If a problem is detected, it provides an error code and description. For more information about the codes and possible solutions, see the [error reference](container-registry-health-error-reference.md).
 
-Som standard stannar kommandot när ett fel påträffas. Du kan också köra kommandot så att det ger utdata för alla hälso kontroller, även om fel har påträffats. Lägg till `--ignore-errors` parametern, som du ser i följande exempel:
+By default, the command stops whenever it finds an error. You can also run the command so that it provides output for all health checks, even if errors are found. Add the `--ignore-errors` parameter, as shown in the following examples:
 
 ```azurecli
 # Check environment only
@@ -79,9 +74,9 @@ Fetch access token for registry 'myregistry.azurecr.io' : OK
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om felkoder som returneras av kommandot [AZ ACR check-Health][az-acr-check-health] finns i [fel referens för hälso kontroll](container-registry-health-error-reference.md).
+For details about error codes returned by the [az acr check-health][az-acr-check-health] command, see the [Health check error reference](container-registry-health-error-reference.md).
 
-Se vanliga frågor och [svar](container-registry-faq.md) om vanliga frågor och andra kända problem med Azure Container Registry.
+See the [FAQ](container-registry-faq.md) for frequently asked questions and other known issues about Azure Container Registry.
 
 
 

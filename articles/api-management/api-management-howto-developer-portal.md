@@ -1,6 +1,6 @@
 ---
-title: Översikt över Azure API Management Developer-portalen – Azure API Management | Microsoft Docs
-description: Lär dig mer om Developer-portalen i API Management.
+title: Overview of Azure API Management developer portal - Azure API Management | Microsoft Docs
+description: Learn about the developer portal in API Management.
 services: api-management
 documentationcenter: API Management
 author: mikebudzynski
@@ -10,112 +10,132 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 11/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 1a8fb8140fd2f58556e4a64bca0f4a052a84c2bb
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 2b69fdd7abefca360433fc9fb090569cba23febe
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74285602"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74454401"
 ---
-# <a name="azure-api-management-developer-portal-overview"></a>Översikt över Azure API Management Developer-portalen
+# <a name="azure-api-management-developer-portal-overview"></a>Azure API Management developer portal overview
 
-Developer Portal är en automatiskt genererad, helt anpassningsbar webbplats med dokumentationen för dina API: er. Det är där API-konsumenter kan identifiera dina API: er, lära sig hur de används, begära åtkomst och testa dem.
+Developer portal is an automatically generated, fully customizable website with the documentation of your APIs. It is where API consumers can discover your APIs, learn how to use them, request access, and try them out.
 
-I den här artikeln beskrivs skillnaderna mellan egna värdbaserade och hanterade versioner av Developer-portalen i API Management. Den förklarar också dess arkitektur och ger svar på vanliga frågor.
+This article describes the differences between self-hosted and managed versions of the developer portal in API Management. It also explains its architecture and provides answers to frequently asked questions.
 
 > [!WARNING]
 >
-> [Lär dig hur du migrerar från för hands versionen till den allmänt tillgängliga versionen](#preview-to-ga) av Developer-portalen.
+> [Learn how to migrate from the preview version to the generally available version](#preview-to-ga) of the developer portal.
 
-![API Management Developer-portalen](media/api-management-howto-developer-portal/cover.png)
+![API Management developer portal](media/api-management-howto-developer-portal/cover.png)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="managed-vs-self-hosted"></a>Hanterade och egen värdbaserade versioner
+## <a name="managed-vs-self-hosted"></a> Managed and self-hosted versions
 
-Du kan bygga din utvecklings Portal på två sätt:
+You can build your developer portal in two ways:
 
-- **Hanterad version** – genom att redigera och anpassa portalen, som är inbyggd i API Management-instansen och är tillgänglig via URL: en `<your-api-management-instance-name>.developer.azure-api.net`. Läs [den här dokumentations artikeln](api-management-howto-developer-portal-customize.md) för att lära dig hur du får åtkomst till och anpassar den hanterade portalen.
-- **Egen värd version** – genom att distribuera och självbetjäning av portalen utanför en API Management-instans. Med den här metoden kan du redigera portalens kodbas och utöka de angivna kärn funktionerna. Du måste också uppgradera portalen till den senaste versionen själv. Mer information och anvisningar finns i GitHub- [lagringsplatsen med käll koden för portalen][1]. [Självstudien för den hanterade versionen](api-management-howto-developer-portal-customize.md) går igenom portalens administrations panel, som också finns i den själv värdbaserade versionen.
+- **Managed version** - by editing and customizing the portal, which is built into your API Management instance and is accessible through the URL `<your-api-management-instance-name>.developer.azure-api.net`. Refer to [this documentation article](api-management-howto-developer-portal-customize.md) to learn how to access and customize the managed portal.
+- **Self-hosted version** - by deploying and self-hosting your portal outside of an API Management instance. This approach allows you to edit the portal's codebase and extend the provided core functionality. You also need to upgrade the portal to the latest version yourself. For details and instructions, refer to the [GitHub repository with the source code of the portal][1]. The [tutorial for the managed version](api-management-howto-developer-portal-customize.md) walks through the portal's administrative panel, which is also featured in the self-hosted version.
 
-## <a name="portal-architectural-concepts"></a>Arkitektur koncept för portalen
+## <a name="portal-architectural-concepts"></a>Portal architectural concepts
 
-Portal komponenterna kan delas upp logiskt i två kategorier: *kod* och *innehåll*.
+The portal components can be logically divided into two categories: *code* and *content*.
 
-*Koden* underhålls i [GitHub-lagringsplatsen][1] och inkluderar:
+*Code* is maintained in [the GitHub repository][1] and includes:
 
-- Widgetar – som representerar visuella element och kombinerar HTML, Java Script, format funktioner, inställningar och innehålls mappning. Exempel är en bild, ett text stycke, ett formulär, en lista över API: er osv.
-- Format definitioner – som anger hur widgetar kan formateras
-- Motor – som genererar statiska webb sidor från Portal innehåll och som är skrivet i Java Script
-- Visuell redigerare – som möjliggör anpassning och redigering i webbläsare
+- Widgets - which represent visual elements and combine HTML, JavaScript, styling ability, settings, and content mapping. Examples are an image, a text paragraph, a form, a list of APIs etc.
+- Styling definitions - which specify how widgets can be styled
+- Engine - which generates static webpages from portal content and is written in JavaScript
+- Visual editor - which allows for in-browser customization and authoring experience
 
-*Innehållet* är uppdelat i två under Kategorier: *portal innehåll* och *API Management innehåll*.
+*Content* is divided into two subcategories: *portal content* and *API Management content*.
 
-*Portal innehållet* är särskilt för portalen och innehåller:
+*Portal content* is specific to the portal and includes:
 
-- Sidor – till exempel landnings sida, API-självstudier, blogg inlägg
-- Media – bilder, animationer och annat filbaserat innehåll
-- Layout – mallar som matchas mot en URL och definierar hur sidor visas
-- Stilar – värden för format definitioner, t. ex. teckensnitt, färger, kant linjer
-- Inställningar – konfiguration, t. ex. favicon, webbplatsens metadata
+- Pages - for example, landing page, API tutorials, blog posts
+- Media - images, animations, and other file-based content
+- Layouts - templates, which are matched against a URL and define how pages are displayed
+- Styles - values for styling definitions, e.g. fonts, colors, borders
+- Settings - configuration, e.g. favicon, website metadata
 
-*Portal innehåll*, förutom media, uttrycks som JSON-dokument.
+*Portal content*, except for media, is expressed as JSON documents.
 
-*API Management innehåll* innehåller entiteter som API: er, åtgärder, produkter, prenumerationer.
+*API Management content* includes entities such as APIs, Operations, Products, Subscriptions.
 
-Portalen baseras på en anpassad förgrening av [Paperbits-ramverket](https://paperbits.io/). De ursprungliga Paperbits-funktionerna har utökats för att tillhandahålla API Management-/regionsspecifika widgetar (t. ex. en lista över API: er, en lista över produkter) och en koppling till API Management tjänsten för att spara och hämta innehåll.
+The portal is based on an adapted fork of the [Paperbits framework](https://paperbits.io/). The original Paperbits functionality has been extended to provide API Management-specific widgets (for example, a list of APIs, a list of Products) and a connector to API Management service for saving and retrieving content.
 
-## <a name="faq"></a>Vanliga frågor och svar
+## <a name="faq"></a> Frequently asked questions
 
-I det här avsnittet svarar vi på vanliga frågor om den nya Developer-portalen, som är av allmän natur. För frågor som är speciella för den självbetjänings versionen, se [wiki-avsnittet i GitHub-lagringsplatsen](https://github.com/Azure/api-management-developer-portal/wiki).
+In this section, we answer common questions about the new developer portal, which are of general nature. For questions specific to the self-hosted version, refer to [the wiki section of the GitHub repository](https://github.com/Azure/api-management-developer-portal/wiki).
 
-### <a name="a-idpreview-to-ga-how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"/> hur kan jag migrera från för hands versionen av portalen?
+### <a name="a-idpreview-to-ga-how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"/> How can I migrate from the preview version of the portal?
 
-Med hjälp av för hands versionen av Developer-portalen etablerade du att förhands gransknings innehållet i API Managements tjänsten. Standard innehållet har ändrats avsevärt i den allmänt tillgängliga versionen för bättre användar upplevelse. Den innehåller också nya widgetar.
+By using the preview version of the developer portal, you provisioned the preview content in your API Management service. The default content has been significantly modified in the generally available version for better user experience. It also includes new widgets.
 
-Om du använder den hanterade versionen återställer du portalens innehåll genom att klicka på **Återställ innehåll** i menyn **åtgärder** . Om du bekräftar åtgärden tas allt innehåll i portalen bort och det nya standard innehållet etableras. Portalens motor har uppdaterats automatiskt i din API Management-tjänst.
+If you're using the managed version, reset the content of the portal by clicking **Reset content** in the **Operations** menu section. Confirming this operation will remove all the content of the portal and provision the new default content. The portal's engine has been automatically updated in your API Management service.
 
-![Återställ Portal innehåll](media/api-management-howto-developer-portal/reset-content.png)
+![Reset portal content](media/api-management-howto-developer-portal/reset-content.png)
 
-Om du använder den själv värdbaserade versionen använder du `scripts/cleanup.bat` och `scripts/generate.bat` från GitHub-lagringsplatsen för att ta bort befintligt innehåll och etablera nytt innehåll. Se till att du uppgraderar din portal kod till den senaste versionen från GitHub-databasen i förväg.
+If you're using the self-hosted version, use the `scripts/cleanup.bat` and `scripts/generate.bat` from the GitHub repository to remove existing content and provision new content. Make sure you upgrade your portal's code to the latest release from the GitHub repository beforehand.
 
-Om du inte vill återställa portalens innehåll kan du överväga att använda nyligen tillgängliga widgetar på alla sidor. Befintliga widgetar har uppdaterats automatiskt till de senaste versionerna.
+If you don't want to reset the content of the portal, you may consider using newly available widgets throughout your pages. Existing widgets have been automatically updated to the latest versions.
 
-Om portalen etablerades efter det allmänna tillgänglighets meddelandet bör den redan ha det nya standard innehållet. Ingen åtgärd krävs från din sida.
+If your portal was provisioned after the general availability announcement, it should already feature the new default content. No action is required from your side.
 
-### <a name="how-can-i-migrate-from-the-old-developer-portal-to-the-new-developer-portal"></a>Hur kan jag migrera från den gamla Developer-portalen till den nya Developer-portalen?
+### <a name="how-can-i-migrate-from-the-old-developer-portal-to-the-new-developer-portal"></a>How can I migrate from the old developer portal to the new developer portal?
 
-Portalerna är inkompatibla och du måste migrera innehållet manuellt.
+Portals are incompatible and you need to migrate the content manually.
 
-### <a name="does-the-new-portal-have-all-the-features-of-the-old-portal"></a>Har den nya portalen alla funktioner i den gamla portalen?
+### <a name="does-the-new-portal-have-all-the-features-of-the-old-portal"></a>Does the new portal have all the features of the old portal?
 
-Den nya Developer-portalen stöder inte *program* och *problem*. Om du har använt *problem* i den gamla portalen och behöver dem i den nya, så publicera en kommentar i [ett dedikerat GitHub-problem](https://github.com/Azure/api-management-developer-portal/issues/122).
+The new developer portal doesn't support *Applications* and *Issues*. If you have used *Issues* in the old portal and need them in the new one, post a comment in [a dedicated GitHub issue](https://github.com/Azure/api-management-developer-portal/issues/122).
 
-### <a name="has-the-old-portal-been-deprecated"></a>Har den gamla portalen föråldrats?
+Authentication with OAuth in the interactive developer console is not yet supported. You can track the progress through [the GitHub issue](https://github.com/Azure/api-management-developer-portal/issues/208).
 
-De gamla portarna för utvecklare och utgivare är nu *äldre* funktioner – de kommer endast att ta emot säkerhets uppdateringar. Nya funktioner kommer endast att implementeras i den nya Developer-portalen.
+### <a name="has-the-old-portal-been-deprecated"></a>Has the old portal been deprecated?
 
-Utfasningen av äldre portaler kommer att meddelas separat. Om du har frågor, rör eller kommentarer kan du höja dem [i ett dedikerat GitHub-problem](https://github.com/Azure/api-management-developer-portal/issues/121).
+The old developer and publisher portals are now *legacy* features - they will be receiving security updates only. Nya funktioner implementeras endast i den nya utvecklarportalen.
 
-### <a name="how-can-i-automate-portal-deployments"></a>Hur kan jag automatisera Portal distributioner?
+Deprecation of the legacy portals will be announced separately. If you have questions, concerns, or comments, raise them [in a dedicated GitHub issue](https://github.com/Azure/api-management-developer-portal/issues/121).
 
-Du kan program mässigt komma åt och hantera Developer portalens innehåll via REST API, oavsett om du använder en hanterad eller en egen version.
+### <a name="how-can-i-automate-portal-deployments"></a>How can I automate portal deployments?
 
-API: et finns dokumenterat i [GitHub-lagringsplatsens wiki-avsnitt][2]. Det kan också användas för att automatisera migrering av Portal innehåll mellan miljöer, till exempel från en test miljö till produktions miljön. Du kan lära dig mer om den här processen [i den här dokumentations artikeln](https://aka.ms/apimdocs/migrateportal) på GitHub.
+You can programmatically access and manage the developer portal's content through the REST API, regardless if you're using a managed or a self-hosted version.
 
-### <a name="does-the-portal-support-azure-resource-manager-templates-andor-is-it-compatible-with-api-management-devops-resource-kit"></a>Stöder portalen Azure Resource Manager mallar och/eller är den kompatibel med API Management DevOps Resource Kit?
+The API is documented in [the GitHub repository's wiki section][2]. It can also be used for automating migrations of portal content between environments - for example from a test environment to the production environment. You can learn more about this process [in this documentation article](https://aka.ms/apimdocs/migrateportal) on GitHub.
 
-Nej.
-
-### <a name="do-i-need-to-enable-additional-vnet-connectivity-for-the-managed-portal-dependencies"></a>Måste jag aktivera ytterligare VNET-anslutning för de hanterade portalernas beroenden?
+### <a name="does-the-portal-support-azure-resource-manager-templates-andor-is-it-compatible-with-api-management-devops-resource-kit"></a>Does the portal support Azure Resource Manager templates and/or is it compatible with API Management DevOps Resource Kit?
 
 Nej.
 
-### <a name="im-getting-a-cors-error-when-using-the-interactive-console-what-should-i-do"></a>Jag får ett CORS-fel när jag använder den interaktiva konsolen. Vad ska jag göra?
+### <a name="do-i-need-to-enable-additional-vnet-connectivity-for-the-new-managed-portal-dependencies"></a>Do I need to enable additional VNet connectivity for the new managed portal dependencies?
 
-Den interaktiva konsolen gör en API-begäran på klient sidan från webbläsaren. Du kan lösa CORS-problemet genom att lägga till [en CORS-princip](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS) på dina API: er. Du kan ange alla parametrar manuellt eller använda jokertecken `*` värden. Exempel:
+In most cases - no.
+
+If your API Management service is in an internal VNet, your developer portal is only accessible from within the network. The management endpoint's host name must resolve to the internal VIP of the service from the machine you use to access the portal's administrative interface. Make sure the management endpoint is registered in the DNS. In case of misconfiguration, you will see an error: `Unable to start the portal. See if settings are specified correctly in the configuration (...)`.
+
+### <a name="i-have-assigned-a-custom-api-management-domain-and-the-published-portal-doesnt-work"></a>I have assigned a custom API Management domain and the published portal doesn't work
+
+After you update the domain, you need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the changes to take effect.
+
+### <a name="i-have-added-an-identity-provider-and-i-cant-see-it-in-the-portal"></a>I have added an identity provider and I can't see it in the portal
+
+After you configure an identity provider (for example, AAD, AAD B2C), you need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the changes to take effect.
+
+### <a name="i-have-set-up-delegation-and-the-portal-doesnt-use-it"></a>I have set up delegation and the portal doesn't use it
+
+After you set up delegation, you need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the changes to take effect.
+
+### <a name="my-other-api-management-configuration-changes-havent-been-propagated-in-the-developer-portal"></a>My other API Management configuration changes haven't been propagated in the developer portal
+
+Most configuration changes (for example, VNet, sign-in and product terms) require [republishing the portal](api-management-howto-developer-portal-customize.md#publish).
+
+### <a name="im-getting-a-cors-error-when-using-the-interactive-console"></a>I'm getting a CORS error when using the interactive console
+
+The interactive console makes a client-side API request from the browser. You can resolve the CORS problem by adding [a CORS policy](api-management-cross-domain-policies.md#CORS) on your API(s). You can specify all the parameters manually or use wildcard `*` values. Exempel:
 
 ```XML
 <cors>
@@ -143,23 +163,63 @@ Den interaktiva konsolen gör en API-begäran på klient sidan från webbläsare
 
 > [!NOTE]
 > 
-> Om du använder CORS-principen i produkt omfånget, i stället för API: erna och ditt API använder prenumerations nyckel autentisering via en rubrik, fungerar inte konsolen.
+> If you apply the CORS policy in the Product scope, instead of the API(s) scope, and your API uses subscription key authentication through a header, your console won't work.
 >
-> Webbläsaren utfärdar automatiskt ett alternativ HTTP-begäran, som inte innehåller något sidhuvud med prenumerations nyckeln. På grund av den saknade prenumerations nyckeln kan API Management inte associera alternativ anropet med en produkt, så det går inte att använda CORS-principen.
+> The browser automatically issues an OPTIONS HTTP request, which doesn’t contain a header with the subscription key. Because of the missing subscription key, API Management can't associate the OPTIONS call with a Product, so it can’t apply the CORS policy.
 >
-> Som en lösning kan du skicka prenumerations nyckeln i en frågeparameter.
+> As a workaround you can pass the subscription key in a query parameter.
+
+### <a name="what-permissions-do-i-need-to-edit-the-developer-portal"></a>What permissions do I need to edit the developer portal?
+
+If you're seeing the `Oops. Something went wrong. Please try again later.` error when you open the portal in the administrative mode, you may be lacking the required permissions (RBAC).
+
+The legacy portals required the permission `Microsoft.ApiManagement/service/getssotoken/action` at the service scope (`/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>`) to allow the user administrator access to the portals. The new portal requires the permission `Microsoft.ApiManagement/service/users/token/action` at the scope `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1`.
+
+You can use the following PowerShell script to create a role with the required permission. Remember to change the `<subscription-id>` parameter. 
+
+```PowerShell
+#New Portals Admin Role 
+Import-Module Az 
+Connect-AzAccount 
+$contributorRole = Get-AzRoleDefinition "API Management Service Contributor" 
+$customRole = $contributorRole 
+$customRole.Id = $null
+$customRole.Name = "APIM New Portal Admin" 
+$customRole.Description = "This role gives the user ability to log in to the new Developer portal as administrator" 
+$customRole.Actions = "Microsoft.ApiManagement/service/users/token/action" 
+$customRole.IsCustom = $true 
+$customRole.AssignableScopes.Clear() 
+$customRole.AssignableScopes.Add('/subscriptions/<subscription-id>') 
+New-AzRoleDefinition -Role $customRole 
+```
+ 
+Once the role is created, it can be granted to any user from the **Access Control (IAM)** section in the Azure portal. Assigning this role to a user will assign the permission at the service scope. The user will be able to generate SAS tokens on behalf of *any* user in the service. At the minimum, this role needs to be assigned to the administrator of the service. The following PowerShell command demonstrates how to assign the role to a user `user1` at the lowest scope to avoid granting unnecessary permissions to the user: 
+
+```PowerShell
+New-AzRoleAssignment -SignInName "user1@contoso.com" -RoleDefinitionName "APIM New Portal Admin" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1" 
+```
+
+After the permissions have been granted to a user, the user must sign out and sign in again to the Azure portal for the new permissions to take effect.
+
+### <a name="im-seeing-the-unable-to-start-the-portal-see-if-settings-are-specified-correctly--error"></a>I'm seeing the `Unable to start the portal. See if settings are specified correctly (...)` error
+
+This error is shown when a `GET` call to `https://<management-endpoint-hostname>/subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.ApiManagement/service/xxx/contentTypes/document/contentItems/configuration?api-version=2018-06-01-preview` fails. The call is issued from the browser by the administrative interface of the portal.
+
+If your API Management service is in a VNet - refer to the VNet connectivity question above.
+
+The call failure may also be caused by an SSL certificate, which is assigned to a custom domain and is not trusted by the browser. As a mitigation, you can remove the management endpoint custom domain - API Management will fall back to the default endpoint with a trusted certificate.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om den nya Developer-portalen:
+Learn more about the new developer portal:
 
-- [Komma åt och anpassa Managed Developer-portalen](api-management-howto-developer-portal-customize.md)
-- [Konfigurera en egen värd version av portalen][2]
+- [Access and customize the managed developer portal](api-management-howto-developer-portal-customize.md)
+- [Set up self-hosted version of the portal][2]
 
-Bläddra bland andra resurser:
+Browse other resources:
 
-- [GitHub-lagringsplats med käll koden][1]
-- [Offentlig översikt över projektet][3]
+- [GitHub repository with the source code][1]
+- [Public roadmap of the project][3]
 
 [1]: https://aka.ms/apimdevportal
 [2]: https://github.com/Azure/api-management-developer-portal/wiki

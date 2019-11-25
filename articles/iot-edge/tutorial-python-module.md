@@ -1,5 +1,5 @@
 ---
-title: Skapa anpassad python-modul – Azure IoT Edge | Microsoft Docs
+title: Create custom Python module - Azure IoT Edge | Microsoft Docs
 description: Den här självstudien visar hur du skapar en IoT Edge-modul med Python-kod och distribuerar den till en gränsenhet.
 services: iot-edge
 author: shizn
@@ -9,19 +9,19 @@ ms.author: xshi
 ms.date: 10/14/2019
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc, seodec18
-ms.openlocfilehash: 99df85800c48585098a9df5bcc35d6b9ce9a8903
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.custom: mvc
+ms.openlocfilehash: 4db5089d940abb2d15fa7ca79bacce425ee30123
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331645"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74457611"
 ---
-# <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>Självstudie: utveckla och distribuera en python IoT Edge-modul för Linux-enheter
+# <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>Tutorial: Develop and deploy a Python IoT Edge module for Linux devices
 
-Använd Visual Studio Code för att utveckla C-kod och distribuera den till en Linux-enhet som kör Azure IoT Edge. 
+Use Visual Studio Code to develop C code and deploy it to a Linux device running Azure IoT Edge. 
 
-Du kan använda Azure IoT Edge-moduler för att distribuera kod som implementerar din affärslogik direkt på dina IoT Edge-enheter. Den här självstudien vägleder dig genom att skapa och distribuera en IoT Edge-modul som filtrerar sensor data på den IoT Edge enhet som du har konfigurerat i snabb starten. I den här guiden får du lära dig att:    
+Du kan använda Azure IoT Edge-moduler för att distribuera kod som implementerar din affärslogik direkt på dina IoT Edge-enheter. This tutorial walks you through creating and deploying an IoT Edge module that filters sensor data on the IoT Edge device that you set up in the quickstart. I den här guiden får du lära dig att:    
 
 > [!div class="checklist"]
 > * använda Visual Studio Code till att skapa en IoT Edge Python-modul
@@ -35,30 +35,30 @@ IoT Edge-modulen du skapar i den här självstudien filtrerar temperaturdata som
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 > [!NOTE]
-> Följande guide gäller för v1 python SDK, som sedan har föråldrats. Vi arbetar för närvarande för att göra den här guiden v2 kompatibel. Se det här utrymmet för uppdateringar.
+> The following guide is for the V1 Python SDK, which has since been deprecated. We are currently working to make this guide V2 compatible. Please watch this space for updates.
 
-## <a name="solution-scope"></a>Lösnings omfång
+## <a name="solution-scope"></a>Solution scope
 
-Den här självstudien visar hur du utvecklar en modul i **python** med **Visual Studio Code**och hur du distribuerar den till en **Linux-enhet**. IoT Edge stöder inte python-moduler för Windows-enheter. 
+This tutorial demonstrates how to develop a module in **Python** using **Visual Studio Code**, and how to deploy it to a **Linux device**. IoT Edge does not support Python modules for Windows devices. 
 
-Använd följande tabell för att förstå alternativen för att utveckla och distribuera python-moduler till Linux: 
+Use the following table to understand your options for developing and deploying Python modules to Linux: 
 
 | Python | Visual Studio-kod | Visual Studio 2017/2019 | 
 | - | ------------------ | ------------------ |
-| **Linux AMD64** | ![Använda VS Code för python-moduler på Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
-| **Linux-ARM32** | ![Använda VS Code för python-moduler på Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
+| **Linux AMD64** | ![Use VS Code for Python modules on Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
+| **Linux ARM32** | ![Use VS Code for Python modules on Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
 
 ## <a name="prerequisites"></a>Krav
 
-Innan du påbörjar den här självstudien bör du ha gått igenom den föregående kursen för att konfigurera din utvecklings miljö för att utveckla Linux-behållare: [utveckla IoT Edge moduler för Linux-enheter](tutorial-develop-for-linux.md). Genom att slutföra någon av de här självstudierna bör du ha följande krav på plats: 
+Before beginning this tutorial, you should have gone through the previous tutorial to set up your development environment for Linux container development: [Develop IoT Edge modules for Linux devices](tutorial-develop-for-linux.md). By completing either of those tutorials, you should have the following prerequisites in place: 
 
 * En [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) på kostnadsfri nivå eller standardnivå i Azure.
-* En [Linux-enhet som kör Azure IoT Edge](quickstart-linux.md)
-* Ett behållar register som [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
-* [Visual Studio-kod](https://code.visualstudio.com/) som kon figurer ATS med [Azure IoT-verktyg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
-* [Docker CE](https://docs.docker.com/install/) konfigurerat för att köra Linux-behållare.
+* A [Linux device running Azure IoT Edge](quickstart-linux.md)
+* A container registry, like [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
+* [Visual Studio Code](https://code.visualstudio.com/) configured with the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+* [Docker CE](https://docs.docker.com/install/) configured to run Linux containers.
 
-Om du vill utveckla en IoT Edge-modul i python installerar du följande ytterligare krav på utvecklings datorn: 
+To develop an IoT Edge module in Python, install the following additional prerequisites on your development machine: 
 
 * [Python-tillägg](https://marketplace.visualstudio.com/items?itemName=ms-python.python) för Visual Studio Code. 
 * [Python](https://www.python.org/downloads/).
@@ -67,12 +67,12 @@ Om du vill utveckla en IoT Edge-modul i python installerar du följande ytterlig
 >[!Note]
 >Se till att din `bin`-mapp finns på sökvägen för din plattform. Vanligtvis `~/.local/` för UNIX och macOS, eller `%APPDATA%\Python` i Windows.
 
-## <a name="create-a-module-project"></a>Skapa ett modul-projekt
+## <a name="create-a-module-project"></a>Create a module project
 Följande steg skapar en IoT Edge Python-modul med Visual Studio Code och Azure IoT-verktygen.
 
 ### <a name="create-a-new-project"></a>Skapa ett nytt projekt
 
-Använd VS-koden för att skapa en python-lösning som du kan bygga ovanpå. 
+Use the VS Code to create a Python solution template that you can build on top of. 
 
 1. I Visual Studio Code väljer du **Visa** > **Terminal** för att öppna den integrerade Visual Studio Code-terminalen.
 
@@ -80,7 +80,7 @@ Använd VS-koden för att skapa en python-lösning som du kan bygga ovanpå.
 
 1. Ange och kör kommandot **Azure: Logga in** på kommandopaletten och följ anvisningarna för att logga in med ditt Azure-konto. Om du redan är inloggad kan du hoppa över det här steget.
 
-1. Skriv och kör kommandot **Azure IoT Edge: New IoT Edge solution** (Ny IoT Edge-lösning) på kommandopaletten. Följ anvisningarna och ange följande information för att skapa din lösning:
+1. Skriv och kör kommandot **Azure IoT Edge: New IoT Edge solution** (Ny IoT Edge-lösning) på kommandopaletten. Follow the prompts and provide the following information to create your solution:
 
    | Fält | Värde |
    | ----- | ----- |
@@ -101,17 +101,17 @@ Miljöfilen lagrar autentiseringsuppgifterna för containerlagringsplatsen och d
 2. Uppdatera fälten med det **användarnamn** och **lösenord** som du kopierade från Azure Container-registret. 
 3. Spara .env-filen. 
 
-### <a name="select-your-target-architecture"></a>Välj din mål arkitektur
+### <a name="select-your-target-architecture"></a>Select your target architecture
 
-För närvarande kan Visual Studio Code utveckla C-moduler för Linux AMD64-och Linux ARM32v7-enheter. Du måste välja vilken arkitektur du vill använda för varje lösning, eftersom behållaren har skapats och körs på olika sätt för varje arkitektur typ. Standardvärdet är Linux AMD64. 
+Currently, Visual Studio Code can develop C modules for Linux AMD64 and Linux ARM32v7 devices. You need to select which architecture you're targeting with each solution, because the container is built and run differently for each architecture type. The default is Linux AMD64. 
 
-1. Öppna paletten kommando och Sök efter **Azure IoT Edge: Ange standard plattform för Edge-lösning**eller Välj gen vägs ikonen i sido fältet längst ned i fönstret. 
+1. Open the command palette and search for **Azure IoT Edge: Set Default Target Platform for Edge Solution**, or select the shortcut icon in the side bar at the bottom of the window. 
 
-2. I paletten kommando väljer du mål arkitekturen i listan med alternativ. I den här självstudien använder vi en virtuell Ubuntu-dator som IoT Edge enhet, så behåller standard- **amd64**. 
+2. In the command palette, select the target architecture from the list of options. For this tutorial, we're using an Ubuntu virtual machine as the IoT Edge device, so will keep the default **amd64**. 
 
 ### <a name="update-the-module-with-custom-code"></a>Uppdatera modulen med anpassad kod
 
-Varje mall innehåller exempel kod, som tar simulerade sensor data från **SimulatedTemperatureSensor** -modulen och dirigerar den till IoT Hub. I det här avsnittet lägger du till kod som expanderar **PythonModule** för att analysera meddelanden innan de skickas. 
+Each template includes sample code, which takes simulated sensor data from the **SimulatedTemperatureSensor** module and routes it to the IoT hub. I det här avsnittet lägger du till kod som expanderar **PythonModule** för att analysera meddelanden innan de skickas. 
 
 1. Öppna **modules** > **PythonModule** > **main.py** i VS Code-utforskaren.
 
@@ -130,7 +130,7 @@ Varje mall innehåller exempel kod, som tar simulerade sensor data från **Simul
     RECEIVED_MESSAGES = 0
     ```
 
-4. Ersätt funktionen **input1_listener** med följande kod:
+4. Replace the **input1_listener** function with the following code:
 
     ```python
         # Define behavior for receiving an input message on input1
@@ -173,7 +173,7 @@ Varje mall innehåller exempel kod, som tar simulerade sensor data från **Simul
                     print ( "Unexpected error in twin_patch_listener: %s" % ex )
     ```
 
-5. Uppdatera **lyssnarna** så att de även lyssnar på dubbla uppdateringar.
+5. Update the **listeners** to also listen twin updates.
 
     ```python
         # Schedule task for C2D Listener
@@ -200,38 +200,38 @@ Varje mall innehåller exempel kod, som tar simulerade sensor data från **Simul
 
 10. Spara filen deployment.template.json.
 
-## <a name="build-and-push-your-module"></a>Bygga och pusha din modul
+## <a name="build-and-push-your-module"></a>Build and push your module
 
-I föregående avsnitt skapade du en IoT Edge-lösning och lagt till kod i PythonModule som filtrerar bort meddelanden där den rapporterade datorns temperatur ligger inom de acceptabla gränserna. Nu behöver du bygga lösningen som en containeravbildning och push-överföra den till ditt containerregister.
+In the previous section, you created an IoT Edge solution and added code to the PythonModule that will filter out messages where the reported machine temperature is within the acceptable limits. Nu behöver du bygga lösningen som en containeravbildning och push-överföra den till ditt containerregister.
 
 1. Öppna den VS Code-integrerade terminalen genom att välja **Visa** > **Terminal**.
 
-1. Logga in på Docker genom att ange följande kommando i terminalen. Logga in med användar namnet, lösen ordet och inloggnings servern från Azure Container Registry. Du kan hämta dessa värden från avsnittet **åtkomst nycklar** i registret i Azure Portal.
+1. Sign in to Docker by entering the following command in the terminal. Sign in with the username, password, and login server from your Azure container registry. You can retrieve these values from the **Access keys** section of your registry in the Azure portal.
      
    ```bash
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
-   Du kan få en säkerhets varning som rekommenderar att du använder `--password-stdin`. Det bästa tillvägagångs sättet rekommenderas för produktions scenarier, men det ligger utanför omfånget för den här självstudien. Mer information finns i [inloggnings referens för Docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) .
+   You may receive a security warning recommending the use of `--password-stdin`. While that best practice is recommended for production scenarios, it's outside the scope of this tutorial. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) reference.
 
 2. Högerklicka på filen **deployment.template.json** och välj **Build and Push IoT Edge solution** (Skapa och skicka IoT Edge-lösning) i VS Code-utforskaren.
 
-   Kommandot build och push startar tre åtgärder. Först skapar den en ny mapp i lösningen som heter **config** och som innehåller det fullständiga distributions manifestet, och bygger ut information i distributions mal len och andra filer i lösningen. För det andra körs `docker build` för att bygga behållar avbildningen baserat på lämpliga Dockerfile för din mål arkitektur. Sedan körs `docker push` för att push-överföra avbildnings lagrings platsen till behållar registret.
+   The build and push command starts three operations. First, it creates a new folder in the solution called **config** that holds the full deployment manifest, built out of information in the deployment template and other solution files. Second, it runs `docker build` to build the container image based on the appropriate dockerfile for your target architecture. Then, it runs `docker push` to push the image repository to your container registry.
 
 
-## <a name="deploy-modules-to-device"></a>Distribuera moduler till enhet
+## <a name="deploy-modules-to-device"></a>Deploy modules to device
 
-Använd Visual Studio Code Explorer och tillägget Azure IoT Tools för att distribuera modulfönstret till din IoT Edge-enhet. Du har redan ett distributions manifest som är för berett för ditt scenario, filen **Deployment. JSON** i mappen config. Allt du behöver göra nu är att välja en enhet som ska ta emot distributionen.
+Use the Visual Studio Code explorer and the Azure IoT Tools extension to deploy the module project to your IoT Edge device. You already have a deployment manifest prepared for your scenario, the **deployment.json** file in the config folder. Allt du behöver göra nu är att välja en enhet som ska ta emot distributionen.
 
-Kontrol lera att din IoT Edges enhet är igång.
+Make sure that your IoT Edge device is up and running.
 
-1. I Visual Studio Code Explorer expanderar du avsnittet **Azure IoT Hub-enheter** för att se din lista över IoT-enheter.
+1. In the Visual Studio Code explorer, expand the **Azure IoT Hub Devices** section to see your list of IoT devices.
 
 2. Högerklicka på namnet för din IoT Edge-enhet och välj sedan **Create Deployment for Single Device** (Skapa distribution för en enskild enhet).
 
 3. Välj filen **deployment.json** i mappen **config** och klicka sedan på **Select Edge Deployment Manifest** (Välj distributionsmanifest för Edge). Använd inte filen deployment.template.json.
 
-4. Klicka på uppdateringsknappen. Du bör se den nya **PythonModule** som körs tillsammans med **SimulatedTemperatureSensor** -modulen och **$edgeAgent** och **$edgeHub**. 
+4. Klicka på uppdateringsknappen. You should see the new **PythonModule** running along with the **SimulatedTemperatureSensor** module and the **$edgeAgent** and **$edgeHub**. 
 
 ## <a name="view-generated-data"></a>Visa genererade data
 
@@ -239,40 +239,40 @@ När du tillämpar distributionsmanifestet till din IoT Edge-enhet samlar IoT Ed
 
 Du kan visa statusen för din IoT Edge-enhet i avsnittet om **Azure IoT Hub-enheter** i Visual Studio Code-utforskaren. Expandera enhetsinformationen så ser du en lista med moduler som distribueras och körs.
 
-1. I Visual Studio Code Explorer högerklickar du på namnet på din IoT Edge enhet och väljer **starta övervakning inbyggd händelse slut punkt**.
+1. In the Visual Studio Code explorer, right-click the name of your IoT Edge device and select **Start Monitoring Built-in Event Endpoint**.
 
-2. Visa meddelanden som kommer till IoT Hub. Det kan ta en stund innan meddelandena anländer, eftersom den IoT Edge enheten måste ta emot sin nya distribution och starta alla moduler. Ändringarna vi gjorde i PythonModule-koden väntar tills datorns temperatur når 25 grader innan meddelanden skickas. Den lägger också till meddelande typ **avisering** till alla meddelanden som når detta temperatur tröskelvärde. 
+2. View the messages arriving at your IoT Hub. It may take a while for the messages to arrive, because the IoT Edge device has to receive its new deployment and start all the modules. Then, the changes we made to the PythonModule code wait until the machine temperature reaches 25 degrees before sending messages. It also adds the message type **Alert** to any messages that reach that temperature threshold. 
 
-## <a name="edit-the-module-twin"></a>Redigera modulens dubbla
+## <a name="edit-the-module-twin"></a>Edit the module twin
 
-Vi använde PythonModule-modulen dubbla i distributions manifestet för att ange temperatur tröskel vid 25 grader. Du kan använda modulen för att ändra funktionen utan att behöva uppdatera modulens kod.
+We used the PythonModule module twin in the deployment manifest to set the temperature threshold at 25 degrees. You can use the module twin to change the functionality without having to update the module code.
 
-1. I Visual Studio Code, expanderar du informationen under IoT Edge enheten för att se de moduler som körs. 
+1. In Visual Studio Code, expand the details under your IoT Edge device to see the running modules. 
 
-2. Högerklicka på **PythonModule** och välj **Redigera modul dubbla**. 
+2. Right-click **PythonModule** and select **Edit module twin**. 
 
-3. Hitta **TemperatureThreshold** i önskade egenskaper. Ändra värdet till en ny temperatur 5 grader till 10 grader högre än den senaste rapporterade temperaturen. 
+3. Find **TemperatureThreshold** in the desired properties. Change its value to a new temperature 5 degrees to 10 degrees higher than the latest reported temperature. 
 
-4. Spara modulens dubbla fil.
+4. Save the module twin file.
 
-5. Högerklicka någonstans i modulens dubbla redigerings fönster och välj **Uppdatera modul dubbla**. 
+5. Right-click anywhere in the module twin editing pane and select **Update module twin**. 
 
-6. Övervaka inkommande meddelanden från enhet till molnet. Du bör se att meddelandena stannar tills det nya temperatur tröskelvärdet har uppnåtts. 
+6. Monitor the incoming device-to-cloud messages. You should see the messages stop until the new temperature threshold is reached. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser 
 
 Om du tänker fortsätta till nästa rekommenderade artikel kan du behålla de resurser och konfigurationer du har skapat och använda dem igen. Du kan även fortsätta att använda samma IoT Edge-enhet som en testenhet. 
 
-Annars kan du ta bort de lokala konfigurationerna och de Azure-resurser som du använde i den här artikeln för att undvika avgifter. 
+Otherwise, you can delete the local configurations and the Azure resources that you used in this article to avoid charges. 
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien skapade du en IoT Edge-modul som innehåller kod för att filtrera rådata som genereras av din IoT Edge-enhet. När du är redo att skapa dina egna moduler kan du lära dig mer om hur du [utvecklar dina egna IoT Edge moduler](module-development.md) eller hur du [utvecklar moduler med Visual Studio Code](how-to-vs-code-develop-module.md). Du kan fortsätta till nästa självstudier för att lära dig hur Azure IoT Edge kan hjälpa dig att distribuera Azure Cloud Services för att bearbeta och analysera data i gränsen.
+I den här självstudien skapade du en IoT Edge-modul som innehåller kod för att filtrera rådata som genereras av din IoT Edge-enhet. When you're ready to build your own modules, you can learn more about [developing your own IoT Edge modules](module-development.md) or how to [develop modules with Visual Studio Code](how-to-vs-code-develop-module.md). You can continue on to the next tutorials to learn how Azure IoT Edge can help you deploy Azure cloud services to process and analyze data at the edge.
 
 > [!div class="nextstepaction"]
 > [Functions](tutorial-deploy-function.md)
 > [Stream Analytics](tutorial-deploy-stream-analytics.md)
 > [Machine Learning](tutorial-deploy-machine-learning.md)
-> [Custom vision service](tutorial-deploy-custom-vision.md)
+> [Custom Vision Service](tutorial-deploy-custom-vision.md)

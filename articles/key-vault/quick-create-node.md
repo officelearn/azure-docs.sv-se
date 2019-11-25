@@ -1,204 +1,267 @@
 ---
-title: Snabb start – ange och hämta en hemlighet från Azure Key Vault med hjälp av en Node-webbapp | Microsoft Docs
-description: I den här snabb starten ställer du in och hämtar en hemlighet från Azure Key Vault med hjälp av en Node-webbapp
-services: key-vault
+title: Quickstart -  Azure Key Vault client library for Node.js (v4)
+description: Learn how to create, retrieve, and delete secrets from an Azure key vault using the Node.js client library
 author: msmbaldwin
-manager: rkarlin
+ms.author: mbaldwin
+ms.date: 10/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.date: 09/03/2010
-ms.author: mbaldwin
-ms.custom: mvc
-ms.openlocfilehash: 02b9c439a932a4b35700871e68bdad7f03451110
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 376a0778e581b17462fb632d7e49f4762f54b83e
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003496"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456748"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>Snabbstart: Ange och hämta en hemlighet från Azure Key Vault med hjälp av en Node-webbapp 
+# <a name="quickstart-azure-key-vault-client-library-for-nodejs-v4"></a>Quickstart: Azure Key Vault client library for Node.js (v4)
 
-Den här snabb starten visar hur du lagrar en hemlighet i Azure Key Vault och hur du hämtar den med hjälp av en webbapp. Key Vault hjälper till att skydda informationen. Om du vill se det hemliga värdet måste du köra den här snabb starten på Azure. I snabbstarten används Node.js och hanterade identiteter för Azure-resurser. Lär dig att:
+Get started with the Azure Key Vault client library for Node.js. Follow the steps below to install the package and try out example code for basic tasks.
 
-* Skapa ett nyckelvalv.
-* Lagra en hemlighet i nyckelvalvet.
-* Hämta en hemlighet från nyckelvalvet.
-* Skapa ett Azure-webbprogram.
-* Aktivera en [hanterad identitet](../active-directory/managed-service-identity/overview.md) för webbappen.
-* Bevilja de behörigheter som krävs för att webbprogrammet ska kunna läsa data från nyckelvalvet.
+Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som används av molnprogram och molntjänster. Use the Key Vault client library for Node.js to:
 
-Innan du fortsätter bör du kontrol lera att du är bekant med de [grundläggande begreppen för Key Vault](basic-concepts.md).
+- Increase security and control over keys and passwords.
+- Create and import encryption keys in minutes.
+- Reduce latency with cloud scale and global redundancy.
+- Simplify and automate tasks for SSL/TLS certificates.
+- Use FIPS 140-2 Level 2 validated HSMs.
 
-> [!NOTE]
-> Key Vault är en central lagringsplats för programmeringsbaserad lagring av hemligheter. Det här kräver att program och användare först autentiseras mot Key Vault, dvs. presenterar en hemlighet. Den här första hemligheten måste roteras med jämna mellanrum för att uppfylla de rekommenderade säkerhetsmetoderna. 
->
-> Med [hanterade tjänstidentiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) får program som körs i Azure en identitet som hanteras automatiskt av Azure. Det här löser *problemet med den första hemligheten* så att användare och program kan följa bästa praxis utan att behöva bekymra sig om roteringen av den första hemligheten.
+[API reference documentation](/javascript/api/overview/azure/key-vault?view=azure-node-latest) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault) | [Package (npm)](https://www.npmjs.com/package/@azure/keyvault-secrets)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* [Node.js](https://nodejs.org/en/)
-* [Git](https://www.git-scm.com/)
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) -2.0.4 eller senare. Den här snabb starten kräver att du kör Azure CLI lokalt. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera CLI kan du läsa [Installera Azure CLI 2.0](https://review.docs.microsoft.com/en-us/cli/azure/install-azure-cli?branch=master&view=azure-cli-latest).
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+- An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Current [Node.js](https://nodejs.org) for your operating system.
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/overview)
 
-## <a name="log-in-to-azure"></a>Logga in på Azure
+This quickstart assumes you are running [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) in a Linux terminal window.
 
-Om du vill logga in i Azure med hjälp av Azure CLI anger du:
+## <a name="setting-up"></a>Setting up
+
+### <a name="install-the-package"></a>Install the package
+
+From the console window, install the Azure Key Vault secrets library for Node.js.
+
+```console
+npm install @azure/keyvault-secrets
+```
+
+For this quickstart, you will need to install the azure.identity package as well:
+
+```console
+npm install @azure/identity
+```
+
+### <a name="create-a-resource-group-and-key-vault"></a>Create a resource group and key vault
+
+This quickstart uses a pre-created Azure key vault. You can create a key vault by following the steps in the [Azure CLI quickstart](quick-create-cli.md), [Azure PowerShell quickstart](quick-create-powershell.md), or [Azure portal quickstart](quick-create-portal.md). Alternatively, you can simply run the Azure CLI commands below.
+
+> [!Important]
+> Each key vault must have a unique name. Replace <your-unique-keyvault-name> with the name of your key vault in the following examples.
 
 ```azurecli
-az login
+az group create --name "myResourceGroup" -l "EastUS"
+
+az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 ```
 
-## <a name="create-a-resource-group"></a>Skapa en resursgrupp
+### <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
 
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az-group-create). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
+The simplest way to authenticate an cloud-based application is with a managed identity; see [Use an App Service managed identity to access Azure Key Vault](managed-identity.md) for details. For the sake of simplicity however, this quickstarts creates a console application. Authenticating a desktop application with Azure requires the use of a service principal and an access control policy.
 
-Välj ett resursgruppnamn och fyll i platshållaren.
-I följande exempel skapas en resurs grupp på platsen USA, östra.
+Create a service principle using the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command:
 
 ```azurecli
-# To list locations: az account list-locations --output table
-az group create --name "<YourResourceGroupName>" --location "East US"
+az ad sp create-for-rbac -n "http://mySP" --sdk-auth
 ```
 
-Den resursgrupp du nyss skapade används i hela den här artikeln.
-
-## <a name="create-a-key-vault"></a>Skapa ett nyckelvalv
-
-Därefter skapar du ett nyckel valv med hjälp av resurs gruppen som du skapade i föregående steg. Även om den här artikeln använder "ContosoKeyVault" som namn måste du använda ett unikt namn. Ange följande information:
-
-* Nyckel valvs namn.
-* Namn på resursgrupp. Namnet måste vara en sträng på 3 till 24 tecken och får endast innehålla 0–9, a–z, A–Z och ett bindestreck (-).
-* Plats: **USA, östra**.
+This operation will return a series of key / value pairs. 
 
 ```azurecli
-az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "East US"
+{
+  "clientId": "7da18cae-779c-41fc-992e-0527854c6583",
+  "clientSecret": "b421b443-1669-4cd7-b5b1-394d5c945002",
+  "subscriptionId": "443e30da-feca-47c4-b68f-1636b75e16b3",
+  "tenantId": "35ad10f1-7799-4766-9acf-f2d946161b77",
+  "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
+  "resourceManagerEndpointUrl": "https://management.azure.com/",
+  "activeDirectoryGraphResourceId": "https://graph.windows.net/",
+  "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
+  "galleryEndpointUrl": "https://gallery.azure.com/",
+  "managementEndpointUrl": "https://management.core.windows.net/"
+}
 ```
 
-Nu är ditt Azure-konto det enda kontot med behörighet att utföra åtgärder i det nya valvet.
+Take note of the clientId and clientSecret, as we will use them in the [Set environmental variable](#set-environmental-variables) step below.
 
-## <a name="add-a-secret-to-the-key-vault"></a>Lägga till en hemlighet i nyckelvalvet
+#### <a name="give-the-service-principal-access-to-your-key-vault"></a>Give the service principal access to your key vault
 
-Vi lägger till en hemlighet för att illustrera hur detta fungerar. Du kan lagra en SQL-anslutningssträng eller annan information som du behöver skydda men göra tillgänglig för ditt program. I den här självstudiekursen kallas lösenordet **AppSecret** och lagrar värdet för **MySecret**.
-
-Skriv följande kommandon för att skapa en hemlighet i nyckelvalvet som kallas **AppSecret**. Den här hemligheten lagrar värdet **MySecret**.
+Create an access policy for your key vault that grants permission to your service principal by passing the clientId to the [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command. Give the service principal get, list, and set permissions for both keys and secrets.
 
 ```azurecli
-az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --value "MySecret"
+az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
 ```
 
-Så här visar du värdet som finns i hemligheten som oformaterad text:
+#### <a name="set-environmental-variables"></a>Set environmental variables
+
+The DefaultAzureCredential method in our application relies on three environmental variables: `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID`. Set these variables to the clientId, clientSecret, and tenantId values you noted in the [Create a service principal](#create-a-service-principal) step using the `export VARNAME=VALUE` format. (This only sets the variables for your current shell and processes created from the shell; to permanently add these variables to your environment, edit your `/etc/environment ` file.) 
+
+You will also need to save your key vault name as an environment variable called `KEY_VAULT_NAME`.
+
+```console
+export AZURE_CLIENT_ID=<your-clientID>
+
+export AZURE_CLIENT_SECRET=<your-clientSecret>
+
+export AZURE_TENANT_ID=<your-tenantId>
+
+export KEY_VAULT_NAME=<your-key-vault-name>
+````
+
+## <a name="object-model"></a>Object model
+
+The Azure Key Vault client library for Node.js allows you to manage keys and related assets such as certificates and secrets. The code samples below will show you how to create a client, set a secret, retrieve a secret, and delete a secret.
+
+The entire console app is available at https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-app.
+
+## <a name="code-examples"></a>Code examples
+
+### <a name="add-directives"></a>Add directives
+
+Add the following directives to the top of your code:
+
+```javascript
+const { DefaultAzureCredential } = require("@azure/identity");
+const { SecretClient } = require("@azure/keyvault-secrets");
+```
+
+### <a name="authenticate-and-create-a-client"></a>Authenticate and create a client
+
+Authenticating to your key vault and creating a key vault client depends on the environmental variables from the [Set environmental variables](#set-environmental-variables) step above, and the [SecretClient constructor](/javascript/api/@azure/keyvault-secrets/secretclient?view=azure-node-latest#secretclient-string--tokencredential--pipelineoptions-). 
+
+The name of your key vault is expanded to the key vault URI, in the format `https://<your-key-vault-name>.vault.azure.net`. 
+
+```javascript
+const keyVaultName = process.env["KEY_VAULT_NAME"];
+const KVUri = "https://" + keyVaultName + ".vault.azure.net";
+
+const credential = new DefaultAzureCredential();
+const client = new SecretClient(KVUri, credential);
+```
+
+### <a name="save-a-secret"></a>Save a secret
+
+Now that your application is authenticated, you can put a secret into your keyvault using the [client.setSecret method](/javascript/api/@azure/keyvault-secrets/secretclient?view=azure-node-latest#setsecret-string--string--setsecretoptions-) This requires a name for the secret -- we're using "mySecret" in this sample.  
+
+```javascript
+await client.setSecret(secretName, secretValue);
+```
+
+You can verify that the secret has been set with the [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) command:
 
 ```azurecli
-az keyvault secret show --name "AppSecret" --vault-name "<YourKeyVaultName>"
+az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 ```
 
-Det här kommandot visar den hemliga informationen, inklusive URI:n. När du har slutfört de här stegen bör du ha en URI till en hemlighet i nyckelvalvet. Anteckna den här informationen. Du behöver den senare.
+### <a name="retrieve-a-secret"></a>Retrieve a secret
 
-## <a name="clone-the-repo"></a>Klona lagringsplatsen
+You can now retrieve the previously set value with the [client.getSecret method](/javascript/api/@azure/keyvault-secrets/secretclient?view=azure-node-latest#getsecret-string--getsecretoptions-).
 
-Klona lagringsplatsen för att skapa en lokal kopia där du kan redigera källan. Kör följande kommando:
+```javascript
+const retrievedSecret = await client.getSecret(secretName);
+ ```
 
+Your secret is now saved as `retrievedSecret.value`.
+
+### <a name="delete-a-secret"></a>Ta bort en hemlighet
+
+Finally, let's delete the secret from your key vault with the [client.beginDeleteSecret method](/javascript/api/@azure/keyvault-secrets/secretclient?view=azure-node-latest#begindeletesecret-string--begindeletesecretoptions-).
+
+```javascript
+await client.beginDeleteSecret(secretName)
 ```
-git clone https://github.com/Azure-Samples/key-vault-node-quickstart.git
-```
 
-## <a name="install-dependencies"></a>Installera beroenden
-
-Kör följande kommandon för att installera beroenden:
-
-```
-cd key-vault-node-quickstart
-npm install
-```
-
-I det här projektet används två Node [-moduler: MS-rest – Azure](https://www.npmjs.com/package/ms-rest-azure) och [Azure-nyckel valv](https://www.npmjs.com/package/azure-keyvault).
-
-## <a name="publish-the-web-app-to-azure"></a>Publicera webbappen i Azure
-
-Skapa en [Azure App Service](https://azure.microsoft.com/services/app-service/) -plan. Du kan lagra flera webbappar i den här planen.
-
-    ```
-    az appservice plan create --name myAppServicePlan --resource-group myResourceGroup
-    ```
-Skapa sedan en webbapp. I följande exempel ersätter `<app_name>` du med ett globalt unikt app-namn (giltiga tecken är a-z, 0-9 och-). Körningen är inställd på NODE|6.9. Om du vill se alla körningar som `az webapp list-runtimes`stöds kör du.
-
-    ```
-    # Bash
-    az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9" --deployment-local-git
-    ```
-När webbappen har skapats visar Azure CLI utdata liknande den i följande exempel:
-
-    ```
-    {
-      "availabilityState": "Normal",
-      "clientAffinityEnabled": true,
-      "clientCertEnabled": false,
-      "cloningInfo": null,
-      "containerSize": 0,
-      "dailyMemoryTimeQuota": 0,
-      "defaultHostName": "<app_name>.azurewebsites.net",
-      "enabled": true,
-      "deploymentLocalGitUrl": "https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git"
-      < JSON data removed for brevity. >
-    }
-    ```
-Bläddra till din nyligen skapade webbapp och se att den fungerar. Ersätt `<app_name>` med ett unikt appnamn.
-
-    ```
-    http://<app name>.azurewebsites.net
-    ```
-Föregående kommando skapar också en git-aktiverad app som gör att du kan distribuera till Azure från din lokala git-lagringsplats. Den lokala git-lagrings platsen har kon figurer ATS med `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`den här URL: en:.
-
-När du har slutfört föregående kommando kan du lägga till en Azure-fjärrdatabas till din lokala git-lagringsplats. Ersätt `<url>` med URL: en för git-lagrings platsen.
-
-    ```
-    git remote add azure <url>
-    ```
-
-## <a name="enable-a-managed-identity-for-the-web-app"></a>Aktivera en hanterad identitet för webbappen
-
-Azure Key Vault är ett sätt att lagra autentiseringsuppgifter samt andra nycklar och hemligheter på ett säkert sätt, men din kod måste autentiseras till Key Vault för att kunna hämta dem. [Hanterade identiteter för Azure-resurser (översikt)](../active-directory/managed-identities-azure-resources/overview.md) löser detta problem på ett enklare sätt genom att ge Azure-tjänsterna en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering, inklusive Key Vault, utan att behöva ha några autentiseringsuppgifter i koden.
-
-Kör kommandot assign-identity för att skapa identiteten för det här programmet:
+You can verify that the secret is gone with the [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) command:
 
 ```azurecli
-az webapp identity assign --name <app_name> --resource-group "<YourResourceGroupName>"
+az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 ```
 
-Det här kommandot fungerar på samma sätt som när du går till portalen och väljer **På** för **Identitet/Systemtilldelad** i egenskaperna för webbprogrammet.
+## <a name="clean-up-resources"></a>Rensa resurser
 
-### <a name="assign-permissions-to-your-application-to-read-secrets-from-key-vault"></a>Tilldela behörigheter till ditt program att läsa hemligheter från Key Vault
-
-Anteckna utdata från föregående kommando. De bör ha formatet:
-        
-        {
-          "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-          "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-          "type": "SystemAssigned"
-        }
-        
-Kör sedan följande kommando med namnet på ditt nyckel valv och värdet för **principalId**:
+When no longer needed, you can use the Azure CLI or Azure PowerShell to remove your key vault and the corresponding  resource group.
 
 ```azurecli
-az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get set
+az group delete -g "myResourceGroup" -l "EastUS" 
 ```
 
-## <a name="deploy-the-node-app-to-azure-and-retrieve-the-secret-value"></a>Distribuera Node-appen till Azure och hämta det hemliga värdet
-
-Kör följande kommando för att distribuera appen till Azure:
-
-```
-git push azure master
+```azurepowershell
+Remove-AzResourceGroup -Name "myResourceGroup"
 ```
 
-När du bläddrar till `https://<app_name>.azurewebsites.net`kan du se det hemliga värdet. Se till att du ersatte namnet `<YourKeyVaultName>` med ditt valv namn.
+## <a name="sample-code"></a>Exempelkod
+
+```javascript
+const { DefaultAzureCredential } = require("@azure/identity");
+const { SecretClient } = require("@azure/keyvault-secrets");
+
+const readline = require('readline');
+
+function askQuestion(query) {
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout,
+    });
+
+    return new Promise(resolve => rl.question(query, ans => {
+        rl.close();
+        resolve(ans);
+    }))
+}
+
+async function main() {
+
+  const keyVaultName = process.env["KEY_VAULT_NAME"];
+  const KVUri = "https://" + keyVaultName + ".vault.azure.net";
+
+  const credential = new DefaultAzureCredential();
+  const client = new SecretClient(KVUri, credential);
+
+  const secretName = "mySecret";
+  var secretValue = await askQuestion("Input the value of your secret > ");
+
+  console.log("Creating a secret in " + keyVaultName + " called '" + secretName + "' with the value '" + secretValue + "` ...");
+  await client.setSecret(secretName, secretValue);
+
+  console.log("Done.");
+
+  console.log("Forgetting your secret.");
+  secretValue = "";
+  console.log("Your secret is '" + secretValue + "'.");
+
+  console.log("Retrieving your secret from " + keyVaultName + ".");
+
+  const retrievedSecret = await client.getSecret(secretName);
+
+  console.log("Your secret is '" + retrievedSecret.value + "'.");
+  console.log("Deleting your secret from " + keyVaultName + " ...");
+
+  await client.beginDeleteSecret(secretName);
+
+  console.log("Done.");
+
+}
+
+main()
+
+```
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten skapade du en Key Vault och sparade en hemlighet. Om du vill veta mer om Key Vault och hur du integrerar den med dina program, Fortsätt till artiklarna nedan.
+In this quickstart you created a key vault, stored a secret, and retrieved that secret. 
 
-- Läs en [Översikt över Azure Key Vault](key-vault-overview.md)
-- Se [Azure Key Vault Developer ' s guide](key-vault-developers-guide.md)
-- Lär dig mer om [nycklar, hemligheter och certifikat](about-keys-secrets-and-certificates.md)
-- Granska [Azure Key Vault bästa praxis](key-vault-best-practices.md)
+To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
+
+- Read an [Overview of Azure Key Vault](key-vault-overview.md)
+- See the [Azure Key Vault developer's guide](key-vault-developers-guide.md)
+- Learn about [keys, secrets, and certificates](about-keys-secrets-and-certificates.md)
+- Review [Azure Key Vault best practices](key-vault-best-practices.md)

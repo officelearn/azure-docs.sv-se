@@ -1,58 +1,58 @@
 ---
-title: Förstå API-autentisering – digitala Azure-dubbla nätverk | Microsoft Docs
-description: 'Lär dig hur du ansluter till och autentiserar med API: er med hjälp av Azure Digitals dubbla.'
+title: Understand API authentication - Azure Digital Twins | Microsoft Docs
+description: Learn how to connect to and authenticate with APIs using Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/30/2019
-ms.openlocfilehash: 6af6a4501ad58fc8e371b895da601d177d872f41
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 11/22/2019
+ms.openlocfilehash: 6c2b0ec5165652e77c92426bb62a30468eef04c2
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013946"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456908"
 ---
-# <a name="connect-to-and-authenticate-with-apis"></a>Ansluta till och autentisera med API: er
+# <a name="connect-to-and-authenticate-with-apis"></a>Connect to and authenticate with APIs
 
-Azure Digitals dubbla använder Azure Active Directory (Azure AD) för att autentisera användare och skydda program. Azure AD stöder autentisering för olika moderna arkitekturer. Alla är baserade på bransch standard protokollen OAuth 2,0 eller OpenID Connect. Dessutom kan utvecklare använda Azure AD för att bygga program med en enda klient och branschspecifika program (LOB). Utvecklare kan också använda Azure AD för att utveckla program med flera klienter.
+Azure Digital Twins uses Azure Active Directory (Azure AD) to authenticate users and protect applications. Azure AD supports authentication for a variety of modern architectures. All of them are based on the industry-standard protocols OAuth 2.0 or OpenID Connect. In addition, developers can use Azure AD to build  single-tenant and line-of-business (LOB) applications. Developers also can use Azure AD to develop [multitenant applications](how-to-multitenant-applications.md).
 
-En översikt över Azure AD finns på [sidan grundläggande](https://docs.microsoft.com/azure/active-directory/fundamentals/) för steg-för-steg-guider, koncept och snabb starter.
+For an overview of Azure AD, visit the [fundamentals page](https://docs.microsoft.com/azure/active-directory/fundamentals/) for step-by-step guides, concepts, and quickstarts.
 
 > [!TIP]
-> Följ [själv studie kursen](tutorial-facilities-setup.md) för att konfigurera och köra en Azure Digitals-exempel-App.
+> Follow the [Tutorial](tutorial-facilities-setup.md) to set up and run an Azure Digital Twins sample app.
 
-För att kunna integrera ett program eller en tjänst med Azure AD måste en utvecklare först registrera programmet med Azure AD. Detaljerade anvisningar och skärm dum par finns i [den här snabb](../active-directory/develop/quickstart-register-app.md)starten.
+För att kunna integrera ett program eller en tjänst med Azure AD måste en utvecklare först registrera programmet med Azure AD. For detailed instructions and screenshots, see [this quickstart](../active-directory/develop/quickstart-register-app.md).
 
-[Fem primära program scenarier](../active-directory/develop/v2-app-types.md) stöds av Azure AD:
+[Five primary application scenarios](../active-directory/develop/v2-app-types.md) are supported by Azure AD:
 
-* SPA (Single-Side Application): en användare måste logga in på ett program med en enda sida som skyddas av Azure AD.
-* Webbläsare till webb program: en användare måste logga in på ett webb program som skyddas av Azure AD.
-* Inbyggt program till webb-API: ett internt program som körs på en telefon, surfplatta eller dator måste autentisera en användare för att få resurser från ett webb-API som skyddas av Azure AD.
-* Webb program till webb-API: ett webb program måste hämta resurser från ett webb-API som skyddas av Azure AD.
-* Daemon-eller serverprogram till webb-API: ett daemon-program eller ett serverprogram utan webb gränssnitt behöver hämta resurser från ett webb-API som skyddas av Azure AD.
+* Single-page application (SPA): A user needs to sign in to a single-page application that's secured by Azure AD.
+* Web browser to web application: A user needs to sign in to a web application that's secured by Azure AD.
+* Native application to web API: A native application that runs on a phone, tablet, or PC needs to authenticate a user to get resources from a web API that's secured by Azure AD.
+* Web application to web API: A web application needs to get resources from a web API secured by Azure AD.
+* Daemon or server application to web API: A daemon application or a server application with no web UI needs to get resources from a web API secured by Azure AD.
 
 > [!IMPORTANT]
-> Azure Digitals dubbla har stöd för båda följande autentiseringspaket:
-> * Det senaste [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)
-> * [ADAL (Azure Active Directory Authentication Library)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)
+> Azure Digital Twins supports both of the following authentication libraries:
+> * The more recent [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)
+> * The [Azure Active Directory Authentication Library (ADAL)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)
 
-## <a name="call-digital-twins-from-a-middle-tier-web-api"></a>Anropa digitala dubblare från ett webb-API på Mittens nivå
+## <a name="call-digital-twins-from-a-middle-tier-web-api"></a>Call Digital Twins from a middle-tier web API
 
-När utvecklare skapar lösningar för Digitals dubbla lösningar, skapar de vanligt vis ett program eller API på mellan nivå. Appen eller API: et anropar sedan den digitala dubbla API: n med underordnade. För att stödja den här standard arkitekturen för webb lösningar, se till att användarna först:
+When developers architect Digital Twins solutions, they typically create a middle-tier application or API. The app or API then calls the Digital Twins API downstream. To support this standard web solution architecture, make sure that users first:
 
-1. Autentisera med program på mellan nivå
+1. Authenticate with the middle-tier application
 
-1. En OAuth 2,0-token för token tas emot under autentisering
+1. An OAuth 2.0 On-Behalf-Of token is acquired during authentication
 
-1. Den hämtade token används sedan för att autentisera med eller anropa API: er som senare kan användas för att använda flödet på uppdrag
+1. The acquired token is then used to authenticate with or call APIs that are further downstream using the On-Behalf-Of flow
 
-Anvisningar om hur du dirigerar ett flöde på väg finns i [OAuth 2,0 på uppdrag av Flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). Du kan också Visa kod exempel i [anrop till ett underordnat webb-API](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof).
+For instructions about how to orchestrate the on-behalf-of flow, see [OAuth 2.0 On-Behalf-Of flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). You also can view code samples in [Calling a downstream web API](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill konfigurera och testa Azure Digitals dubblare med hjälp av OAuth-flödet för implicit beviljande av OAuth 2,0 läser du [Konfigurera PostMan](./how-to-configure-postman.md).
+To configure and test Azure Digital Twins using the OAuth 2.0 implicit grant flow, read [Configure Postman](./how-to-configure-postman.md).
 
-Läs [skapa och hantera roll tilldelningar](./security-create-manage-role-assignments.md)för att lära dig mer om Azure Digitals dubbla säkerheter.
+To learn about Azure Digital Twins security, read [Create and manage role assignments](./security-create-manage-role-assignments.md).

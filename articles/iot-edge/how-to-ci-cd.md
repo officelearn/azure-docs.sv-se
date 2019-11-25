@@ -1,6 +1,6 @@
 ---
-title: Kontinuerlig integrering och kontinuerlig distribution – Azure IoT Edge | Microsoft Docs
-description: Konfigurera kontinuerlig integrering och kontinuerlig distribution – Azure IoT Edge med Azure-DevOps, Azure-pipeline
+title: Continuous integration and continuous deployment - Azure IoT Edge | Microsoft Docs
+description: Set up continuous integration and continuous deployment - Azure IoT Edge with Azure DevOps, Azure Pipelines
 author: shizn
 manager: philmea
 ms.author: xshi
@@ -8,219 +8,218 @@ ms.date: 08/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: 1dc4065540256c8af0856b0e156053f7c2097c1f
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 85f77d1132af63681ee92cfd2bde82a71d8ed999
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755851"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74457237"
 ---
-# <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Kontinuerlig integrering och kontinuerlig distribution till Azure IoT Edge
+# <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Continuous integration and continuous deployment to Azure IoT Edge
 
-Du kan enkelt införa DevOps med dina Azure IoT Edge-program med de inbyggda Azure IoT Edge uppgifterna i Azure-pipelines. Den här artikeln visar hur du kan använda funktionerna för kontinuerlig integrering och kontinuerlig distribution i Azure pipelines för att bygga, testa och distribuera program snabbt och effektivt till din Azure IoT Edge. 
+You can easily adopt DevOps with your Azure IoT Edge applications with the built-in Azure IoT Edge tasks in Azure Pipelines. This article demonstrates how you can use the continuous integration and continuous deployment features of Azure Pipelines to build, test, and deploy applications quickly and efficiently to your Azure IoT Edge. 
 
-![Diagram – CI-och CD-grenar för utveckling och produktion](./media/how-to-ci-cd/cd.png)
+![Diagram - CI and CD branches for development and production](./media/how-to-ci-cd/cd.png)
 
-I den här artikeln får du lära dig hur du använder de inbyggda Azure IoT Edge uppgifterna för Azure pipelines för att skapa två pipeliner för din IoT Edge-lösning. Det finns fyra åtgärder som kan användas i Azure IoT Edge uppgifter.
-   - **Azure IoT Edge-avbildning av modul** tar din IoT Edge lösnings kod och skapar behållar avbildningarna.
-   - **Azure IoT Edge-push module-avbildningar** pushar modul avbildningar till det behållar register som du har angett.
-   - **Azure IoT Edge-generera distributions manifestet** tar en distribution. template. JSON-fil och variablerna och genererar sedan den slutliga IoT Edge distributions manifest filen.
-   - **Azure IoT Edge-Deploy till IoT Edge-enheter** hjälper dig att skapa IoT Edge-distributioner till en eller flera IoT Edge enheter.
+In this article, you learn how to use the built-in Azure IoT Edge tasks for Azure Pipelines to create two pipelines for your IoT Edge solution. There are four actions can be used in the Azure IoT Edge tasks.
+   - **Azure IoT Edge - Build Module images** takes your IoT Edge solution code and builds the container images.
+   - **Azure IoT Edge - Push Module images** pushes module images to the container registry you specified.
+   - **Azure IoT Edge - Generate Deployment Manifest** takes a deployment.template.json file and the variables, then generates the final IoT Edge deployment manifest file.
+   - **Azure IoT Edge - Deploy to IoT Edge devices** helps create IoT Edge deployments to single/multiple IoT Edge devices.
 
 ## <a name="prerequisites"></a>Krav
 
-* En Azure databaser-lagringsplats. Om du inte har någon kan du [skapa en ny git-lagrings platsen i projektet](https://docs.microsoft.com/azure/devops/repos/git/create-new-repo?view=vsts&tabs=new-nav).
-* En IoT Edge lösning har allokerats och skickas till din lagrings plats. Om du vill skapa en ny exempel lösning för att testa den här artikeln följer du stegen i [utveckla och felsöka moduler i Visual Studio Code](how-to-vs-code-develop-module.md) eller [utveckla och felsöka C# moduler i Visual Studio](how-to-visual-studio-develop-csharp-module.md).
-   * Allt du behöver i den här artikeln är mappen Solution som skapats av IoT Edge mallar i antingen Visual Studio Code eller Visual Studio. Du behöver inte bygga, skicka, distribuera eller Felsöka den här koden innan du fortsätter. Du ställer in dessa processer i Azure-pipeliner. 
-   * Om du skapar en ny lösning ska du klona din lagrings plats lokalt först. När du sedan skapar lösningen kan du välja att skapa den direkt i databasmappen. Du kan enkelt bekräfta och skicka de nya filerna därifrån. 
-* Ett behållar register där du kan push-modul avbildningar. Du kan använda [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) eller ett register från en tredje part. 
-* En aktiv [IoT-hubb](../iot-hub/iot-hub-create-through-portal.md) med minst IoT Edge enheter för att testa de separata distributions faserna för test och produktion. Du kan följa snabb starts artiklarna för att skapa en IoT Edge-enhet i [Linux](quickstart-linux.md) eller [Windows](quickstart.md)
+* An Azure Repos repository. If you don't have one, you can [Create a new Git repo in your project](https://docs.microsoft.com/azure/devops/repos/git/create-new-repo?view=vsts&tabs=new-nav).
+* An IoT Edge solution committed and pushed to your repository. If you want to create a new sample solution for testing this article, follow the steps in [Develop and debug modules in Visual Studio Code](how-to-vs-code-develop-module.md) or [Develop and debug C# modules in Visual Studio](how-to-visual-studio-develop-csharp-module.md).
+   * For this article, all you need is the solution folder created by the IoT Edge templates in either Visual Studio Code or Visual Studio. You don't need to build, push, deploy, or debug this code before proceeding. You'll set those processes up in Azure Pipelines. 
+   * If you're creating a new solution, clone your repository locally first. Then, when you create the solution you can choose to create it directly in the repository folder. You can easily commit and push the new files from there. 
+* A container registry where you can push module images. You can use [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) or a third-party registry. 
+* An active [IoT hub](../iot-hub/iot-hub-create-through-portal.md) with at least IoT Edge devices for testing the separate test and production deployment stages. You can follow the quickstart articles to create an IoT Edge device on [Linux](quickstart-linux.md) or [Windows](quickstart.md)
 
 
-Mer information om hur du använder Azure-databaser finns i [dela din kod med Visual Studio och Azure databaser](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts)
+For more information about using Azure Repos, see [Share your code with Visual Studio and Azure Repos](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts)
 
-## <a name="configure-continuous-integration"></a>Konfigurera kontinuerlig integrering
-I det här avsnittet skapar du en ny versions pipeline. Konfigurera pipelinen så att den körs automatiskt när du checkar in eventuella ändringar i exempel IoT Edge lösning och publicera build-loggar.
+## <a name="configure-continuous-integration"></a>Configure continuous integration
+In this section, you create a new build pipeline. Configure the pipeline to run automatically when you check in any changes to the sample IoT Edge solution, and publish build logs.
 
 >[!NOTE]
->I den här artikeln används den visuella designern för Azure DevOps. Innan du följer stegen i det här avsnittet stänger du av förhands gransknings funktionen för den nya YAML-upplevelsen för pipeline. 
->1. I Azure DevOps väljer du din profil ikon och väljer sedan för **hands versions funktioner**.
->2. Sätt igång **nya yaml-pipeline för att skapa pipelinen** . 
+>This article uses the Azure DevOps visual designer. Before you follow the steps in this section, turn off the preview feature for the new YAML pipeline creation experience. 
+>1. In Azure DevOps, select your profile icon then select **Preview features**.
+>2. Turn **New YAML pipeline creation experience** off. 
 >
->Mer information finns i [skapa en pipeline för bygge](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline).
+>For more information, see [Create a build pipeline](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline).
 
-1. Logga in på din Azure DevOps-organisation (**https: \//dev.Azure.com/{Your Organization}/** ) och öppna projektet som innehåller din IoT Edge lösnings lagrings plats.
+1. Sign into your Azure DevOps organization (**https:\//dev.azure.com/{your organization}/** ) and open the project that contains your IoT Edge solution repository.
 
-   I den här artikeln har vi skapat ett lagrings lager med namnet **IoTEdgeRepo**. Databasen innehåller **IoTEdgeSolution** som har koden för en modul med namnet **filtermodule**. 
+   For this article, we created a repository called **IoTEdgeRepo**. That repository contains **IoTEdgeSolution** which has the code for a module named **filtermodule**. 
 
-   ![Öppna ditt DevOps-projekt](./media/how-to-ci-cd/init-project.png)
+   ![Open your DevOps project](./media/how-to-ci-cd/init-project.png)
 
-2. Navigera till Azure-pipeliner i ditt projekt. Öppna fliken **builds** och välj **ny pipeline**. Om du redan har skapat pipelines väljer du knappen **nytt** . Välj sedan **ny versions pipeline**.
+2. Navigate to Azure Pipelines in your project. Open the **Builds** tab and select **New pipeline**. Or, if you already have build pipelines, select the **New** button. Then choose **New build pipeline**.
 
     ![Skapa en ny bygg-pipeline](./media/how-to-ci-cd/add-new-build.png)
 
-3. Följ anvisningarna för att skapa din pipeline. 
+3. Follow the prompts to create your pipeline. 
 
-   1. Ange käll information för den nya bygg pipelinen. Välj **Azure databaser git** som källa och välj sedan projektet, databasen och grenen där din IoT Edge lösnings kod finns. Välj sedan **Fortsätt**. 
+   1. Provide the source information for your new build pipeline. Select **Azure Repos Git** as the source, then select the project, repository, and branch where your IoT Edge solution code is located. Then, select **Continue**. 
 
-      ![Välj din pipeline-källa](./media/how-to-ci-cd/pipeline-source.png)
+      ![Select your pipeline source](./media/how-to-ci-cd/pipeline-source.png)
 
-   2. Välj **tomt jobb** i stället för en mall. 
+   2. Select **Empty job** instead of a template. 
 
-      ![Börja med en tom process](./media/how-to-ci-cd/start-with-empty.png)
+      ![Start with an empty process](./media/how-to-ci-cd/start-with-empty.png)
 
-4. När din pipeline har skapats, kommer du till pipeline-redigeraren. I din pipeline-Beskrivning väljer du rätt agent-pool baserat på din mål plattform: 
+4. Once your pipeline is created, you are taken to the pipeline editor. In your pipeline description, choose the correct agent pool based on your target platform: 
     
-   * Om du vill bygga dina moduler i plattform amd64 för Linux-behållare väljer du **värdbaserad Ubuntu 1604**
+   * If you would like to build your modules in platform amd64 for Linux containers, choose **Hosted Ubuntu 1604**
 
-   * Om du vill skapa moduler i plattforms-amd64 för Windows 1809-behållare måste du konfigurera en lokal [agent i Windows](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts).
+   * If you would like to build your modules in platform amd64 for Windows 1809 containers, you need to [set up self-hosted agent on Windows](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts).
 
-   * Om du vill skapa moduler i plattforms-arm32v7 eller arm64 för Linux-behållare måste du konfigurera en lokal [agent på Linux](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/).
+   * If you would like to build your modules in platform arm32v7 or arm64 for Linux containers, you need to [set up self-hosted agent on Linux](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/).
     
-     ![Konfigurera bygga Gent pool](./media/how-to-ci-cd/configure-env.png)
+     ![Configure build agent pool](./media/how-to-ci-cd/configure-env.png)
 
-5. Din pipeline är förkonfigurerad med ett jobb som kallas **Agent jobb 1**. Välj plus tecknet ( **+** ) om du vill lägga till tre aktiviteter i jobbet: **Azure IoT Edge** två gånger, **Kopiera filer** en gång och **publicera Bygg artefakter** en gång. (Hovra över namnet på varje uppgift för att se knappen **Lägg till** .)
+5. Your pipeline comes preconfigured with a job called **Agent job 1**. Select the plus sign ( **+** ) to add three tasks to the job: **Azure IoT Edge** twice, **Copy Files** once and **Publish Build Artifacts** once. (Hover over the name of each task to see the **Add** button.)
 
-   ![Lägg till Azure IoT Edge uppgift](./media/how-to-ci-cd/add-iot-edge-task.png)
+   ![Add Azure IoT Edge task](./media/how-to-ci-cd/add-iot-edge-task.png)
 
-   När alla fyra aktiviteter läggs till ser ditt Agent jobb ut som i följande exempel:
+   When all four tasks are added, your Agent job looks like the following example:
     
-   ![Tre uppgifter i build-pipeline](./media/how-to-ci-cd/add-tasks.png)
+   ![Three tasks in the build pipeline](./media/how-to-ci-cd/add-tasks.png)
 
-6. Välj den första **Azure IoT Edge** uppgiften för att redigera den. Den här uppgiften skapar alla moduler i lösningen med den mål plattform som du anger.
+6. Select the first **Azure IoT Edge** task to edit it. This task builds all modules in the solution with the target platform that you specify.
 
-   * **Visnings namn**: acceptera standard **avbildningarna för Azure IoT Edge-build-modulen**.
-   * **Åtgärd**: Godkänn standard **avbildningarna för build-modulen**. 
-   * **. template. JSON-fil**: Välj ellipsen ( **...** ) och navigera till filen **Deployment. template. JSON** i lagrings platsen som innehåller din IoT Edge-lösning. 
-   * **Standard plattform**: Välj lämplig plattform för dina moduler baserat på din mål IoT Edge enhet. 
-   * **Utdata**-variabler: variabler för utdata innehåller ett referens namn som du kan använda för att konfigurera fil Sök vägen där din Deployment. JSON-fil kommer att skapas. Ange referens namnet till något som du kan komma ihåg som **Edge**. 
+   * **Display name**: Accept the default **Azure IoT Edge - Build module images**.
+   * **Action**: Accept the default **Build module images**. 
+   * **.template.json file**: Select the ellipsis ( **...** ) and navigate to the **deployment.template.json** file in the repository that contains your IoT Edge solution. 
+   * **Default platform**: Select the appropriate platform for your modules based on your target IoT Edge device. 
+   * **Output variables**: The output variables include a reference name that you can use to configure the file path where your deployment.json file will be generated. Set the reference name to something memorable like **edge**. 
 
-7. Välj den andra **Azure IoT Edge** uppgiften för att redigera den. Den här uppgiften push-överför alla modulblad till det behållar register som du väljer.
+7. Select the second **Azure IoT Edge** task to edit it. This task pushes all module images to the container registry that you select.
 
-   * **Visnings namn**: visnings namnet uppdateras automatiskt när åtgärds fältet ändras. 
-   * **Åtgärd**: Använd List rutan för att välja **push module-avbildningar**. 
-   * **Behållarens register typ**: Välj den typ av behållar register som du använder för att lagra dina modulblad. Formuläret ändras beroende på vilken register typ du väljer. Om du väljer **Azure Container Registry**använder du List rutan för att välja Azure-prenumerationen och namnet på behållar registret. Om du väljer **allmän container Registry**väljer du **ny** för att skapa en anslutning till en register tjänst. 
-   * **. template. JSON-fil**: Välj ellipsen ( **...** ) och navigera till filen **Deployment. template. JSON** i lagrings platsen som innehåller din IoT Edge-lösning. 
-   * **Standard plattform**: Välj samma plattform som de inbyggda modul avbildningarna.
+   * **Display name**: The display name is automatically updated when the action field changes. 
+   * **Action**: Use the dropdown list to select **Push module images**. 
+   * **Container registry type**: Select the type of container registry that you use to store your module images. Depending on which registry type you choose, the form changes. If you choose **Azure Container Registry**, use the dropdown lists to select the Azure subscription and the name of your container registry. If you choose **Generic Container Registry**, select **New** to create a registry service connection. 
+   * **.template.json file**: Select the ellipsis ( **...** ) and navigate to the **deployment.template.json** file in the repository that contains your IoT Edge solution. 
+   * **Default platform**: Select the same platform as your built module images.
 
-   Om du har flera behållar register som ska vara värdar för dina modulblad, måste du duplicera den här uppgiften, välja ett annat behållar register och använda **bypass-modulen** i de avancerade inställningarna för att kringgå avbildningarna som inte är för det aktuella registret.
+   If you have multiple container registries to host your module images, you need to duplicate this task, select different container registry, and use **Bypass module(s)** in the advanced settings to bypass the images which are not for this specific registry.
 
-8. Välj aktiviteten **Kopiera filer** för att redigera den. Använd den här aktiviteten för att kopiera filer till en artefakt uppsamlings katalog.
+8. Select the **Copy Files** task to edit it. Use this task to copy files to the artifact staging directory.
 
-   * **Visnings namn**: kopiera filer till: släpp mapp.
-   * **Innehåll**: Lägg två rader i det här avsnittet `deployment.template.json` och `**/module.json`. Dessa två typer av filer är de indata som genereras för att generera IoT Edge distributions manifestet. Måste kopieras till utsamlings platsen för artefakter och publiceras för versions pipelinen.
-   * **Målmapp**: Lägg variabeln `$(Build.ArtifactStagingDirectory)`. Se [build-variabler](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) för att lära dig mer om beskrivningen.
+   * **Display name**: Copy Files to: Drop folder.
+   * **Contents**: Put two lines in this section, `deployment.template.json` and `**/module.json`. These two types of files are the inputs to generate IoT Edge deployment manifest. Need to be copied to the artifact staging folder and published for release pipeline.
+   * **Target Folder**: Put the variable `$(Build.ArtifactStagingDirectory)`. See [Build variables](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) to learn about the description.
 
-9. Välj aktiviteten **publicera Bygg artefakter** för att redigera den. Tillhandahåll katalog Sök vägen för artefakt mellanlagring till aktiviteten så att sökvägen kan publiceras i en versions pipeline.
+9. Select the **Publish Build Artifacts** task to edit it. Provide artifact staging directory path to the task so that the path can be published to release pipeline.
    
-   * **Visnings namn**: publicera artefakt: släpp.
-   * **Sökväg att publicera**: Lägg variabeln `$(Build.ArtifactStagingDirectory)`. Se [build-variabler](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) för att lära dig mer om beskrivningen.
-   * **Artefakt namn**: drop.
-   * **Artefakt publicerings plats**: Azure-pipeliner.
+   * **Display name**: Publish Artifact: drop.
+   * **Path to publish**: Put the variable `$(Build.ArtifactStagingDirectory)`. See [Build variables](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) to learn about the description.
+   * **Artifact name**: drop.
+   * **Artifact publish location**: Azure Pipelines.
 
 
-10. Öppna fliken **utlösare** och markera kryss rutan för att **aktivera kontinuerlig integrering**. Se till att grenen som innehåller din kod ingår.
+10. Open the **Triggers** tab and check the box to **Enable continuous integration**. Make sure the branch containing your code is included.
 
-    ![Aktivera kontinuerlig integrations utlösare](./media/how-to-ci-cd/configure-trigger.png)
+    ![Turn on continuous integration trigger](./media/how-to-ci-cd/configure-trigger.png)
 
-11. Spara den nya bygg pipelinen med knappen **Spara** .
+11. Save the new build pipeline with **Save** button.
 
-Den här pipelinen har nu kon figurer ATS för att köras automatiskt när du push-överför ny kod till din lagrings platsen. Den senaste aktiviteten, publicering av pipeline-artefakter, utlöser en versions pipeline. Fortsätt till nästa avsnitt för att bygga lanserings pipelinen. 
+This pipeline is now configured to run automatically when you push new code to your repo. The last task, publishing the pipeline artifacts, triggers a release pipeline. Continue to the next section to build the release pipeline. 
 
 ## <a name="configure-continuous-deployment"></a>Konfigurera kontinuerlig distribution
-I det här avsnittet skapar du en versions pipeline som är konfigurerad för att köras automatiskt när din Bygg pipeline tappar ut artefakter och det visar distributions loggar i Azure-pipelines.
+In this section, you create a release pipeline that is configured to run automatically when your build pipeline drops artifacts, and it will show deployment logs in Azure Pipelines.
 
-Skapa en ny pipeline och Lägg till ett nytt stadium 
+Create a new pipeline, and add a new stage 
 
-1. På fliken **utgåvor** väljer du **+ ny pipeline**. Eller, om du redan har versions pipeliner, väljer du knappen **+ ny** och väljer **+ ny versions pipeline**.  
+1. In the **Releases** tab, choose **+ New pipeline**. Or, if you already have release pipelines, choose the **+ New** button and select **+ New release pipeline**.  
 
-    ![Lägg till versions pipeline](./media/how-to-ci-cd/add-release-pipeline.png)
+    ![Add release pipeline](./media/how-to-ci-cd/add-release-pipeline.png)
 
-2. När du uppmanas att välja en mall väljer du att starta med ett **tomt jobb**.
+2. When prompted to select a template, choose to start with an **Empty job**.
 
-    ![Starta med ett tomt jobb](./media/how-to-ci-cd/start-with-empty-job.png)
+    ![Start with an empty job](./media/how-to-ci-cd/start-with-empty-job.png)
 
-3. Din nya versions pipeline initieras med en fas, som kallas **steg 1**. Byt namn på steg 1 till **dev** och behandla den som en test miljö. Vanligt vis har kontinuerliga distributions pipeliner flera steg, inklusive **utveckling**, **mellanlagring** och **Prod**. Du kan skapa mer baserat på din DevOps-praxis. Stäng fönstret steg information när det har bytt namn. 
+3. Your new release pipeline initializes with one stage, called **Stage 1**. Rename Stage 1 to **dev** and treat it as a test environment. Usually, continuous deployment pipelines have multiple stages including **dev**, **staging** and **prod**. You can create more based on your DevOps practice. Close the stage details window once it's renamed. 
 
-4. Länka versionen till de versions artefakter som publiceras av bygg pipelinen. Klicka på **Lägg till** i artefakter.
+4. Link the release to the build artifacts that are published by the build pipeline. Click **Add** in artifacts area.
 
-   ![Lägg till artefakter](./media/how-to-ci-cd/add-artifacts.png)  
+   ![Add artifacts](./media/how-to-ci-cd/add-artifacts.png)  
     
-5. På **sidan Lägg till en artefakt**väljer **du typ av**källtyp. Välj sedan projektet och den build-pipeline som du skapade. Välj sedan **Lägg till**.
+5. In **Add an artifact page**, select source type **Build**. Then, select the project and the build pipeline you created. Välj sedan **Lägg till**.
 
-   ![Lägg till en versions artefakt](./media/how-to-ci-cd/add-an-artifact.png)
+   ![Add a build artifact](./media/how-to-ci-cd/add-an-artifact.png)
 
-6. Öppna artefakt utlösare och välj växla för att aktivera den kontinuerliga distributions utlösaren. Nu skapas en ny version varje gång en ny version är tillgänglig.
+6. Open the artifact triggers and select the toggle to enable the continuous deployment trigger. Now, a new release will be created each time a new build is available.
 
-   ![Konfigurera utlösare för kontinuerlig distribution](./media/how-to-ci-cd/add-a-trigger.png)
+   ![Configure continuous deployment trigger](./media/how-to-ci-cd/add-a-trigger.png)
 
-7. **Dev** -fasen är förkonfigurerad med ett jobb och noll uppgifter. Från pipeline-menyn väljer du **uppgifter** och sedan **dev** -fasen.  Välj jobb-och aktivitets antal för att konfigurera uppgifterna i det här steget.
+7. The **dev** stage is preconfigured with one job and zero tasks. From the pipeline menu, select **Tasks** then choose the **dev** stage.  Select the job and task count to configure the tasks in this stage.
 
-    ![Konfigurera dev-aktiviteter](./media/how-to-ci-cd/view-stage-tasks.png)
+    ![Configure dev tasks](./media/how-to-ci-cd/view-stage-tasks.png)
 
-8. I **dev** -fasen bör du se ett standard **Agent jobb**. Du kan konfigurera information om Agent jobbet, men distributions aktiviteten är plattforms okänslig så att du kan använda antingen **värdbaserade VS2017** eller **värdbaserad Ubuntu 1604** i **agenten** (eller någon annan agent som hanteras av dig själv). 
+8. In the **dev** stage, you should see a default **Agent job**. You can configure details about the agent job, but the deployment task is platform insensitive so you can use either **Hosted VS2017** or **Hosted Ubuntu 1604** in the **Agent pool** (or any other agent managed by yourself). 
 
-9. Välj plus tecknet ( **+** ) för att lägga till två aktiviteter. Sök efter och Lägg till **Azure IoT Edge** två gånger.
+9. Select the plus sign ( **+** ) to add two task. Search for and add **Azure IoT Edge** twice.
 
-    ![Lägg till aktiviteter för dev](./media/how-to-ci-cd/add-task-qa.png)
+    ![Add tasks for dev](./media/how-to-ci-cd/add-task-qa.png)
 
-10. Välj den första **Azure IoT Edge** aktiviteten och konfigurera den med följande värden:
+10. Select the first **Azure IoT Edge** task and configure it with the following values:
 
-    * **Visnings namn**: visnings namnet uppdateras automatiskt när åtgärds fältet ändras. 
-    * **Åtgärd**: Använd List rutan för att välja **generera distributions manifest**. Om du ändrar åtgärd svärdet uppdateras även uppgifts visnings namnet så att det matchar.
-    * **. template. JSON-fil**: Lägg till sökvägen `$(System.DefaultWorkingDirectory)/Drop/drop/deployment.template.json`. Sökvägen publiceras från build-pipeline.
-    * **Standard plattform**: Välj samma värde när du skapar module-avbildningarna.
-    * **Sökväg till utdata**: Lägg till sökvägen `$(System.DefaultWorkingDirectory)/Drop/drop/configs/deployment.json`. Den här sökvägen är den slutliga IoT Edge distributions manifest filen.
+    * **Display name**: The display name is automatically updated when the action field changes. 
+    * **Action**: Use the dropdown list to select **Generate deployment manifest**. Changing the action value also updates the task display name to match.
+    * **.template.json file**: Put the path `$(System.DefaultWorkingDirectory)/Drop/drop/deployment.template.json`. The path is published from build pipeline.
+    * **Default platform**: Choose the same value when building the module images.
+    * **Output path**: Put the path `$(System.DefaultWorkingDirectory)/Drop/drop/configs/deployment.json`. This path is the final IoT Edge deployment manifest file.
 
-    De här konfigurationerna ersätter modulens bild-URL: er i `deployment.template.json`-filen. Med **generera distributions manifestet** kan du också ersätta variablerna med det exakta värdet som du definierade i `deployment.template.json`-filen. I VS/VS Code anger du det faktiska värdet i en `.env`-fil. I Azure-pipeline ställer du in värdet i fliken release-pipeline variabler. flytta till fliken variabler och konfigurera namnet och värdet enligt följande.
+    These configurations helps replace the module image URLs in the `deployment.template.json` file. The **Generate deployment manifest** also helps replace the variables with the exact value you defined in the `deployment.template.json` file. In VS/VS Code, you are specifying the actual value in a `.env` file. In Azure Pipelines, you set the value in Release Pipeline Variables tab. Move to Variables tab and configure the Name and Value as following.
 
-    * **ACR_ADDRESS**: din Azure Container Registry-adress. 
-    * **ACR_PASSWORD**: ditt Azure Container Registry lösen ord.
-    * **ACR_USER**: ditt Azure Container Registry användar namn.
+    * **ACR_ADDRESS**: Your Azure Container Registry address. 
+    * **ACR_PASSWORD**: Your Azure Container Registry password.
+    * **ACR_USER**: Your Azure Container Registry username.
 
-    Om du har andra variabler i projektet kan du ange namn och värde i den här fliken. Det **genererade distributions manifestet** kan bara identifiera variablerna i `${VARIABLE}` smak, se till att du använder dem i dina `*.template.json`-filer.
+    If you have other variables in your project, you can specify the name and value in this tab. The **Generate deployment manifest** can only recognize the variables are in `${VARIABLE}` flavor, make sure you are using this in your `*.template.json` files.
 
-    ![Konfigurera variabler för versions pipeline](./media/how-to-ci-cd/configure-variables.png)
+    ![Configure variables for release pipeline](./media/how-to-ci-cd/configure-variables.png)
 
-10. Välj den andra **Azure IoT Edge** aktiviteten och konfigurera den med följande värden:
+10. Select the second **Azure IoT Edge** task and configure it with the following values:
 
-    * **Visnings namn**: visnings namnet uppdateras automatiskt när åtgärds fältet ändras. 
-    * **Åtgärd**: Använd List rutan för att välja **distribuera till IoT Edge enheter**. Om du ändrar åtgärd svärdet uppdateras även uppgifts visnings namnet så att det matchar.
-    * **Azure-prenumeration**: Välj den prenumeration som innehåller IoT Hub.
-    * **IoT Hub namn**: Välj din IoT Hub. 
-    * **Välj en/flera enhet**: Välj om du vill att versions pipelinen ska distribueras till en enhet eller flera enheter. 
-      * Om du distribuerar till en enda enhet anger du **IoT Edge enhets-ID**. 
-      * Om du distribuerar till flera enheter anger du enhetens **mål villkor**. Mål villkoret är ett filter som matchar en uppsättning IoT Edge enheter i IoT Hub. Om du vill använda enhets koder som villkor måste du uppdatera motsvarande enhets koder med IoT Hub enhets-till-enhet. Uppdatera **IoT Edge distributions-ID** och **IoT Edge distributions prioritet** i de avancerade inställningarna. Mer information om hur du skapar en distribution för flera enheter finns i [förstå IoT Edge automatiska distributioner](module-deployment-monitoring.md).
-    * Expandera avancerade inställningar, Välj **IoT Edge distributions-ID**, och Lägg till variabeln `$(System.TeamProject)-$(Release.EnvironmentName)`. Detta mappar projektet och versions namnet med ditt IoT Edge-distributions-ID.
+    * **Display name**: The display name is automatically updated when the action field changes. 
+    * **Action**: Use the dropdown list to select **Deploy to IoT Edge devices**. Changing the action value also updates the task display name to match.
+    * **Azure subscription**: Select the subscription that contains your IoT Hub.
+    * **IoT Hub name**: Select your IoT hub. 
+    * **Choose single/multiple device**: Choose whether you want the release pipeline to deploy to one device or multiple devices. 
+      * If you deploy to a single device, enter the **IoT Edge device ID**. 
+      * If you are deploying to multiple devices, specify the device **target condition**. The target condition is a filter to match a set of IoT Edge devices in IoT Hub. If you want to use Device Tags as the condition, you need to update your corresponding devices Tags with IoT Hub device twin. Update the **IoT Edge deployment ID** and **IoT Edge deployment priority** in the advanced settings. For more information about creating a deployment for multiple devices, see [Understand IoT Edge automatic deployments](module-deployment-monitoring.md).
+    * Expand Advanced Settings, select **IoT Edge deployment ID**, put the variable `$(System.TeamProject)-$(Release.EnvironmentName)`. This maps the project and release name with your IoT Edge deployment ID.
 
-11. Välj **Spara** för att spara ändringarna i den nya versions pipelinen. Gå tillbaka till vyn pipeline genom att välja **pipeline** på menyn. 
+11. Select **Save** to save your changes to the new release pipeline. Return to the pipeline view by selecting **Pipeline** from the menu. 
     
-## <a name="verify-iot-edge-cicd-with-the-build-and-release-pipelines"></a>Verifiera IoT Edge CI/CD med pipelinen build och release
+## <a name="verify-iot-edge-cicd-with-the-build-and-release-pipelines"></a>Verify IoT Edge CI/CD with the build and release pipelines
 
-Om du vill utlösa ett build-jobb kan du antingen skicka ett genomförande till käll kods databasen eller aktivera det manuellt. I det här avsnittet utlöser du CI/CD-pipeline manuellt för att testa att den fungerar. Kontrol lera sedan att distributionen lyckades.
+To trigger a build job, you can either push a commit to source code repository or manually trigger it. In this section, you manually trigger the CI/CD pipeline to test that it works. Then verify that the deployment succeeds.
 
-1. Navigera till den pipeline för build som du skapade i början av den här artikeln. 
+1. Navigate to the build pipeline that you created at the beginning of this article. 
 
-2. Du kan utlösa ett build-jobb i din build-pipeline genom att välja knappen **kö** som i följande skärm bild.
+2. You can trigger a build job in your build pipeline by selecting the **Queue** button as in following screenshot.
 
-    ![Manuell utlösare](./media/how-to-ci-cd/manual-trigger.png)
+    ![Manual trigger](./media/how-to-ci-cd/manual-trigger.png)
 
-3. Välj build-jobbet för att se hur det fortskrider. Om build-pipeline har slutförts utlöses en version till **dev** -fasen. 
+3. Select the build job to watch its progress. If the build pipeline is completed successfully, it triggers a release to **dev** stage. 
 
-    ![Build-loggar](./media/how-to-ci-cd/build-logs.png)
+    ![Build logs](./media/how-to-ci-cd/build-logs.png)
 
-4. Den framgångs rik **dev** -versionen skapar IoT Edge distribution till mål IoT Edge enheter.
+4. The successful **dev** release creates IoT Edge deployment to target IoT Edge devices.
 
-    ![Släpp till dev](./media/how-to-ci-cd/pending-approval.png)
+    ![Release to dev](./media/how-to-ci-cd/pending-approval.png)
 
-5. Klicka på **dev** Stage för att se versions loggarna.
+5. Click **dev** stage to see release logs.
 
-    ![Versions loggar](./media/how-to-ci-cd/release-logs.png)
+    ![Release logs](./media/how-to-ci-cd/release-logs.png)
 
 
 
 ## <a name="next-steps"></a>Nästa steg
-* IoT Edge DevOps Best Practices-exempel i [Azure DevOps-projekt för IoT Edge](how-to-devops-project.md)
-* Förstå IoT Edge distribution i [förstå IoT Edge distributioner för enskilda enheter eller i stor skala](module-deployment-monitoring.md)
-* Gå igenom stegen för att skapa, uppdatera eller ta bort en distribution i [distribuera och övervaka IoT Edge moduler i stor skala](how-to-deploy-monitor.md).
+* IoT Edge DevOps best practices sample in [Azure DevOps Project for IoT Edge](how-to-devops-project.md)
+* Understand the IoT Edge deployment in [Understand IoT Edge deployments for single devices or at scale](module-deployment-monitoring.md)
+* Walk through the steps to create, update, or delete a deployment in [Deploy and monitor IoT Edge modules at scale](how-to-deploy-monitor.md).

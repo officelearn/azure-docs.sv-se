@@ -1,63 +1,61 @@
 ---
-title: Tagg-och versions avbildningar i Azure Container Registry
-description: Metod tips för taggning och versioner av Docker-behållar avbildningar vid överföring av bilder till och från ett Azure Container Registry
-services: container-registry
+title: Image tag best practices
+description: Best practices for tagging and versioning Docker container images when pushing images to and pulling images from an Azure container registry
 author: stevelasker
-ms.service: container-registry
 ms.topic: article
 ms.date: 07/10/2019
 ms.author: stevelas
-ms.openlocfilehash: 41013fb5831d09d7a4334e94d2b8b39e0cafe4d2
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 2d407f041456ea3856fbeedf98147356eaeb61d6
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931568"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74454996"
 ---
-# <a name="recommendations-for-tagging-and-versioning-container-images"></a>Rekommendationer för taggning och versions behållar avbildningar
+# <a name="recommendations-for-tagging-and-versioning-container-images"></a>Recommendations for tagging and versioning container images
 
-När du distribuerar behållar avbildningar till ett behållar register och sedan distribuerar dem måste du ha en strategi för avbildnings taggning och versions hantering. I den här artikeln beskrivs två metoder och var de passar under livs cykel livs cykeln:
+When pushing deploying container images to a container registry and then deploying them, you need a strategy for image tagging and versioning. This article discusses two approaches and where each fits during the container lifecycle:
 
-* **Stabila Taggar** – taggar som du återanvänder, till exempel för att ange en större eller mindre version, till exempel *mycontainerimage: 1.0*.
-* **Unika Taggar** – en annan tagg för varje bild som du skickar till ett register, till exempel *mycontainerimage: vi abc123*.
+* **Stable tags** - Tags that you reuse, for example, to indicate a major or minor version such as *mycontainerimage:1.0*.
+* **Unique tags** - A different tag for each image you push to a registry, such as *mycontainerimage:abc123*.
 
-## <a name="stable-tags"></a>Stabila Taggar
+## <a name="stable-tags"></a>Stable tags
 
-**Rekommendation**: Använd stabila taggar för att underhålla **bas avbildningar** för dina behållar versioner. Undvik distributioner med stabila taggar, eftersom dessa taggar fortsätter att ta emot uppdateringar och kan leda till inkonsekvenser i produktions miljöer.
+**Recommendation**: Use stable tags to maintain **base images** for your container builds. Avoid deployments with stable tags, because those tags continue to receive updates and can introduce inconsistencies in production environments.
 
-*Stabila Taggar* innebär en utvecklare, eller ett build-system, kan fortsätta att hämta en speciell tagg, vilket fortsätter att hämta uppdateringar. Stabilt innebär inte att innehållet är fryst. Stabilt innebär i stället att avbildningen bör vara stabil för avsikten med den versionen. För att hålla "stabil" kan det vara en service att tillämpa säkerhets korrigeringar eller Ramverks uppdateringar.
+*Stable tags* mean a developer, or a build system, can continue to pull a specific tag, which continues to get updates. Stable doesn’t mean the contents are frozen. Rather, stable implies the image should be stable for the intent of that version. To stay “stable”, it might be serviced to apply security patches or framework updates.
 
 ### <a name="example"></a>Exempel
 
-Ett Ramverks team levereras version 1,0. De vet att de kommer att leverera uppdateringar, inklusive mindre uppdateringar. För att stödja stabila taggar för en specifik och mindre version, har de två uppsättningar av stabila taggar.
+A framework team ships version 1.0. They know they’ll ship updates, including minor updates. To support stable tags for a given major and minor version, they have two sets of stable tags.
 
-* `:1` – en stabil tagg för huvud versionen. `1` representerar den nyaste eller senaste 1. * versionen.
-* `:1.0`– en stabil tagg för version 1,0, så att en utvecklare kan binda till uppdateringar av 1,0 och inte skickas vidare till 1,1 när de släpps.
+* `:1` – a stable tag for the major version. `1` represents the “newest” or “latest” 1.* version.
+* `:1.0`- a stable tag for version 1.0, allowing a developer to bind to updates of 1.0, and not be rolled forward to 1.1 when it is released.
 
-Gruppen använder också taggen `:latest` som pekar på den senaste stabila taggen, oavsett vad den aktuella huvud versionen är.
+The team also uses the `:latest` tag, which points to the latest stable tag, no matter what the current major version is.
 
-När bas avbildnings uppdateringar är tillgängliga, eller någon typ av service version av ramverket, uppdateras bilder med de stabila taggarna till den senaste Digest som representerar den senaste stabila versionen av den versionen.
+When base image updates are available, or any type of servicing release of the framework, images with the stable tags are updated to the newest digest that represents the most current stable release of that version.
 
-I det här fallet betjänas både huvud-och del taggarna kontinuerligt. I ett scenario med en bas avbildning kan avbildningens ägare tillhandahålla tjänst avbildningar.
+In this case, both the major and minor tags are continually being serviced. From a base image scenario, this allows the image owner to provide serviced images.
 
-## <a name="unique-tags"></a>Unika Taggar
+## <a name="unique-tags"></a>Unique tags
 
-**Rekommendation**: Använd unika taggar för **distributioner**, särskilt i en miljö som kan skalas på flera noder. Du vill förmodligen avsiktliga distributioner av en konsekvent version av komponenter. Om din behållare startar om eller om en Orchestrator skalar ut fler instanser, kan dina värdar inte oavsiktligt hämta en nyare version, inkonsekvent med de andra noderna.
+**Recommendation**: Use unique tags for **deployments**, especially in an environment that could scale on multiple nodes. You likely want deliberate deployments of a consistent version of components. If your container restarts or an orchestrator scales out more instances, your hosts won’t accidentally pull a newer version, inconsistent with the other nodes.
 
-Unik taggning innebär bara att varje bild som flyttas till ett register har en unik tagg. Taggar återanvänds inte. Det finns flera mönster som du kan följa för att generera unika taggar, inklusive:
+Unique tagging simply means that every image pushed to a registry has a unique tag. Tags are not reused. There are several patterns you can follow to generate unique tags, including:
 
-* **Datum-** tidstämpel – den här metoden är ganska vanlig, eftersom du tydligt kan se när avbildningen har skapats. Men hur kan du korrelera tillbaka till ditt versions system? Måste du hitta versionen som slutfördes samtidigt? Vilken tidszon är du i? Är alla dina Bygg system kalibrerade för UTC?
-* **Git-incheckning** – den här metoden fungerar tills du har startat stöd för bas avbildnings uppdateringar. Om en bas avbildnings uppdatering sker, kommer ditt build-system att sätta igång med samma git-incheckning som den tidigare versionen. Bas avbildningen har dock nytt innehåll. I allmänhet tillhandahåller en git-incheckning en *halv*stabil tagg.
-* **Manifest Sammanfattning** -varje behållar avbildning som skickas till ett behållar register är associerad med ett manifest som identifieras av en unik SHA-256-hash eller Digest. När det är unikt är sammanfattningen lång, svår att läsa och korrelerad med din build-miljö.
-* **Build-ID** – det här alternativet kan vara bäst eftersom det är troligt vis stegvist, och det gör att du kan korrelera tillbaka till den specifika versionen för att hitta alla artefakter och loggar. Men liksom en manifest sammandrag kan det vara svårt för en mänsklig att läsa.
+* **Date-time stamp** - This approach is fairly common, since you can clearly tell when the image was built. But, how to correlate it back to your build system? Do you have to find the build that was completed at the same time? What time zone are you in? Are all your build systems calibrated to UTC?
+* **Git commit**  – This approach works until you start supporting base image updates. If a base image update happens, your build system  kicks off with the same Git commit as the previous build. However, the base image has new content. In general, a Git commit provides a *semi*-stable tag.
+* **Manifest digest** - Each container image pushed to a container registry is associated with a manifest, identified by a unique SHA-256 hash, or digest. While unique, the digest is long, difficult to read, and uncorrelated with your build environment.
+* **Build ID** - This option may be best since it's likely incremental, and it allows you to correlate back to the specific build to find all the artifacts and logs. However, like a manifest digest, it might be difficult for a human to read.
 
-  Om din organisation har flera build-system, är prefixet med build-systemnamnet en variant av detta alternativ: `<build-system>-<build-id>`. Du kan till exempel särskilja builds från API-teamets Jenkins build-system och webb teamets Azure pipelines build system.
+  If your organization has several build systems, prefixing the tag with the build system name is a variation on this option: `<build-system>-<build-id>`. For example, you could differentiate builds from the API team’s Jenkins build system and the web team's Azure Pipelines build system.
 
 ## <a name="next-steps"></a>Nästa steg
 
-En mer detaljerad beskrivning av begreppen i den här artikeln finns i blogg inlägget [Docker-taggning: metod tips för taggning och versioner av Docker-avbildningar](https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/).
+For a more detailed discussion of the concepts in this article, see the blog post [Docker Tagging: Best practices for tagging and versioning docker images](https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/).
 
-Information om hur du maximerar prestanda och kostnads effektiv användning av Azure Container Registry finns i [metod tips för Azure Container Registry](container-registry-best-practices.md).
+To help maximize the performance and cost-effective use of your Azure container registry, see [Best practices for Azure Container Registry](container-registry-best-practices.md).
 
 <!-- IMAGES -->
 

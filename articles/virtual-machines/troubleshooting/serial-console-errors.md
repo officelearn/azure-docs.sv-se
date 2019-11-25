@@ -1,6 +1,6 @@
 ---
-title: Fel i Azures serie konsol | Microsoft Docs
-description: Vanliga fel i Azures serie konsol
+title: Azure Serial Console errors | Microsoft Docs
+description: Common errors within the Azure Serial Console
 services: virtual-machines
 documentationcenter: ''
 author: asinn826
@@ -14,32 +14,33 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 8/20/2019
 ms.author: alsin
-ms.openlocfilehash: e4596ae2f92e5dfd99dc7c83857e0c9874358fd4
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: fb74fdb74a366f6ab920b7782f6013fd8bab7148
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949708"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74452282"
 ---
-# <a name="common-errors-within-the-azure-serial-console"></a>Vanliga fel i Azures serie konsol
-Det finns en uppsättning kända fel i Azures serie konsol. Det här är en lista över dessa fel och åtgärder för att minska problemen.
+# <a name="common-errors-within-the-azure-serial-console"></a>Common errors within the Azure Serial Console
+There are a set of known errors within the Azure Serial Console. This is a list of those errors and mitigation steps for them.
 
 ## <a name="common-errors"></a>Vanliga fel
 
 Fel                            |   Åtgärd
 :---------------------------------|:--------------------------------------------|
-Det gick inte att hämta inställningarna för startdiagnostik för  *&lt;VMNAME&gt;* . Se till att startdiagnostik har aktiverats för den här virtuella datorn om du vill använda seriekonsolen. fel](./media/virtual-machines-serial-console/virtual-machines-serial-console-boot-diagnostics-error.png) för ![startdiagnostik | Se till att [startdiagnostik](boot-diagnostics.md) är aktiverat på den virtuella datorn eller skalnings uppsättningen för den virtuella datorn. Om du använder en serie konsol på en instans av en skalnings uppsättning för virtuella datorer kontrollerar du att din instans har den senaste modellen.
-Den virtuella datorn är i tillståndet stoppad frigjord. Starta den virtuella datorn och försök Seriell konsol-anslutning. ![Friallokerat fel](./media/virtual-machines-serial-console/virtual-machines-serial-console-deallocating-error.png) | Den virtuella datorn eller den virtuella datorns skalnings uppsättnings instans måste vara i ett startat tillstånd för att få åtkomst till serie konsolen. Starta den virtuella datorn eller den virtuella datorns skalnings uppsättnings instans och försök igen.
-Ett ”förbjuden”-svar påträffades vid åtkomst till den här Virtuella datorns lagringskonto för startdiagnostik. ![Brand Väggs fel för lagrings konto](./media/virtual-machines-serial-console/virtual-machines-serial-console-firewall-error.png)| Se till att startdiagnostik inte har en konto brand vägg. Ett lagringskonto för tillgänglig startdiagnostik är nödvändiga för seriekonsolen ska fungera. Seriell konsol efter design fungerar inte med lagrings kontots brand väggar aktiverade på lagrings kontot för startdiagnostik.
-Du har inte de behörigheter som krävs för att använda den här virtuella datorn i serie konsolen. Kontrollera att du har minst deltagarbehörigheter för virtuell dator.| Åtkomst till serie konsolen kräver att du har åtkomst till deltagar nivå eller mer på den virtuella datorn eller skalnings uppsättningen för virtuella datorer. Mer information finns på [sidan Översikt](serial-console-overview.md).
-Det gick inte att hitta lagrings kontot som används för startdiagnostik på den här virtuella datorn. Kontrol lera att startdiagnostik har Aktiver ATS för den här virtuella datorn, att lagrings kontot inte har tagits bort och att du har åtkomst till det här lagrings kontot. | Dubbelkolla att du inte har tagit bort lagrings kontot för startdiagnostik för din virtuella dator eller skalnings uppsättning för virtuella datorer
-Etableringen av den här virtuella datorn har ännu inte slutförts. Kontrol lera att den virtuella datorn är fullständigt distribuerad och försök att ansluta till serie konsolen igen. | Den virtuella datorn eller skalnings uppsättningen för den virtuella datorn kan fortfarande tillhandahållas. Vänta en stund och försök igen.
-Du har inte de behörigheter som krävs för att skriva till lagrings kontot för startdiagnostik för den här virtuella datorn. Kontrol lera att du har minst behörighet för VM-deltagare på. | Seriell konsol åtkomst kräver åtkomst till deltagar nivå på lagrings kontot för startdiagnostik. Mer information finns på [sidan Översikt](serial-console-overview.md).
-Det går inte att fastställa resursgruppen för startdiagnostiklagringskonto  *&lt;STORAGEACCOUNTNAME&gt;* . Kontrollera att startdiagnostik har aktiverats för den här virtuella datorn och du har åtkomst till det här lagringskontot. | Seriell konsol åtkomst kräver åtkomst till deltagar nivå på lagrings kontot för startdiagnostik. Mer information finns på [sidan Översikt](serial-console-overview.md).
-Web socket är stängd eller kunde inte öppnas. | Du kan behöva lägga till brand Väggs åtkomst till `*.console.azure.com`. En mer detaljerad men längre metod är att tillåta brand Väggs åtkomst till [Microsoft Azure Data Center IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653), som ändras relativt regelbundet.
-Seriell konsol fungerar inte med ett lagrings konto med hjälp av Azure Data Lake Storage Gen2 med hierarkiska namn områden. | Detta är ett känt problem med hierarkiska namn områden. Du kan undvika detta genom att kontrol lera att lagrings kontot för startdiagnostik för den virtuella datorn inte har skapats med hjälp av Azure Data Lake Storage Gen2. Det här alternativet kan bara anges när lagrings kontot skapas. Du kan behöva skapa ett separat lagrings konto för startdiagnostik utan Azure Data Lake Storage Gen2 aktiverat för att undvika det här problemet.
+"Azure Serial Console requires boot diagnostics to be enabled. Click here to configure boot diagnostics for your virtual machine."![Boot diagnostics error](./media/virtual-machines-serial-console/virtual-machines-serial-console-boot-diagnostics-error.png) | Ensure that the VM or virtual machine scale set has [boot diagnostics](boot-diagnostics.md) enabled. If you are using serial console on a virtual machine scale set instance, ensure that your instance has the latest model.
+"Azure Serial Console requires a virtual machine to be running. Use the Start button above to start your virtual machine." ![Deallocated error](./media/virtual-machines-serial-console/virtual-machines-serial-console-deallocating-error.png) | The VM or virtual machine scale set instance must be in a started state to access the serial console (your VM must not be stopped or deallocated). Ensure your VM or virtual machine scale set instance is running and try again.
+"Azure Serial Console is not enabled for this subscription, contact your subscription administrator to enable."![Subscription disabled error](./media/virtual-machines-serial-console/virtual-machines-serial-console-subscription-disabled-error.png) | The Azure Serial Console can be disabled at a subscription level. If you are a subscription administrator, you may [enable and disable the Azure Serial Console](./serial-console-enable-disable.md). If you are not a subscription administrator, you should reach out to your subscription administrator for next steps.
+A "Forbidden" response was encountered when accessing this VM's boot diagnostic storage account. ![Storage account firewall error](./media/virtual-machines-serial-console/virtual-machines-serial-console-firewall-error.png)| Ensure that boot diagnostics doesn't have an account firewall. An accessible boot diagnostic storage account is necessary for the serial console to function. Serial console by design cannot work with storage account firewalls enabled on the boot diagnostics storage account.
+You do not have the required permissions to use this VM with the serial console. Ensure you have at least Virtual Machine Contributor role permissions.| The serial console access requires you to have contributor level access or above on your VM or virtual machine scale set. For more information, see the [overview page](serial-console-overview.md).
+The storage account '' used for boot diagnostics on this VM could not be found. Verify that boot diagnostics is enabled for this VM, this storage account has not been deleted, and you have access to this storage account. | Double check that you have not deleted the boot diagnostics storage account for your VM or virtual machine scale set
+Provisioning for this VM has not yet succeeded. Please ensure the VM is fully deployed and retry the serial console connection. | Your VM or virtual machine scale set may still be provisioning. Wait some time and try again.
+You do not have the required permissions to write to the boot diagnostics storage account for this VM. Please ensure you have at least VM Contributor permissions on ''. | Serial console access requires contributor level access on the boot diagnostics storage account. For more information, see the [overview page](serial-console-overview.md).
+Unable to determine the resource group for the boot diagnostics storage account *&lt;STORAGEACCOUNTNAME&gt;* . Verify that boot diagnostics is enabled for this VM and you have access to this storage account. | Serial console access requires contributor level access on the boot diagnostics storage account. For more information, see the [overview page](serial-console-overview.md).
+Web socket is closed or could not be opened. | You may need to add firewall access to `*.console.azure.com`. A more detailed but longer approach is to allow firewall access to the [Microsoft Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which change fairly regularly.
+Serial console does not work with a storage account using Azure Data Lake Storage Gen2 with hierarchical namespaces. | This is a known issue with hierarchical namespaces. To mitigate, ensure that your VM's boot diagnostics storage account is not created using Azure Data Lake Storage Gen2. This option can only be set upon storage account creation. You may have to create a separate boot diagnostics storage account without Azure Data Lake Storage Gen2 enabled to mitigate this issue.
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [Azures serie konsol för virtuella Linux-datorer](./serial-console-linux.md)
-* Lär dig mer om [Azures serie konsol för virtuella Windows-datorer](./serial-console-windows.md)
+* Learn more about the [Azure Serial Console for Linux VMs](./serial-console-linux.md)
+* Learn more about the [Azure Serial Console for Windows VMs](./serial-console-windows.md)

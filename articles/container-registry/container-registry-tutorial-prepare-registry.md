@@ -1,20 +1,15 @@
 ---
-title: Självstudie – Skapa en geo-replikerad Azure Container Registry
+title: Tutorial - Create geo-replicated registry
 description: Skapa ett Azure-containerregister, konfigurera geo-replikering, förbereda en Docker-avbildning och distribuera den till registret. Del ett av en serie i tre delar.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: tutorial
 ms.date: 04/30/2017
-ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 5a2aedfe93aa27f839c416c27ac028db1e650295
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 70dc664d27fde3b7cf9fe4e5e3a99c041236ac16
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931361"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74454434"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Självstudier: Förbereda ett geo-replikerat Azure Container Registry
 
@@ -66,7 +61,7 @@ I resten av den här självstudien använder vi `<acrName>` som platshållare f�
 > Eftersom Azure-containerregister vanligtvis är långlivade resurser som används av flera containervärdar rekommenderar vi att du skapar ditt register i en egen resursgrupp. När du konfigurerar georeplikerade register och webhooks placeras de här ytterligare resurserna i samma resursgrupp.
 >
 
-## <a name="configure-geo-replication"></a>Konfigurera geo-replikering
+## <a name="configure-geo-replication"></a>Konfigurera georeplikering
 
 Nu när du har ett Premium-register kan du konfigurera geo-replikering. Din webbapp, som du konfigurerar i nästa självstudie för att köras i två regioner, kan då hämta sina containeravbildningar från det närmaste registret.
 
@@ -111,13 +106,13 @@ git clone https://github.com/Azure-Samples/acr-helloworld.git
 cd acr-helloworld
 ```
 
-Om du inte har `git` installerat kan du [Hämta zip-arkivet][acr-helloworld-zip] direkt från GitHub.
+If you don't have `git` installed, you can [download the ZIP archive][acr-helloworld-zip] directly from GitHub.
 
 ## <a name="update-dockerfile"></a>Uppdatera Dockerfile
 
 Den Dockerfile som finns i exemplet visar hur containern är byggd. Den startar från en officiell [aspnetcore][dockerhub-aspnetcore]-avbildning, kopierar programfilerna till containern, installerar beroenden, kompilerar utdata med den officiella [aspnetcore-build][dockerhub-aspnetcore-build]-avbildningen och skapar slutligen en optimerad aspnetcore-avbildning.
 
-[Dockerfile][dockerfile] finns på `./AcrHelloworld/Dockerfile` i den klonade källan.
+The [Dockerfile][dockerfile] is located at `./AcrHelloworld/Dockerfile` in the cloned source.
 
 ```Dockerfile
 FROM microsoft/aspnetcore:2.0 AS base

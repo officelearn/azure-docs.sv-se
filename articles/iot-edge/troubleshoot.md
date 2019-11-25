@@ -1,6 +1,6 @@
 ---
-title: Felsökning – Azure IoT Edge | Microsoft Docs
-description: Använd den här artikeln lär du dig standard diagnostiska färdigheter för Azure IoT Edge, som hämtar Komponentstatus och loggar och lösa vanliga problem
+title: Troubleshoot - Azure IoT Edge | Microsoft Docs
+description: Use this article to learn standard diagnostic skills for Azure IoT Edge, like retrieving component status and logs, and resolve common issues
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,25 +8,24 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: 61c75c011ce25c3c7238ec75cf5ed579e677531f
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: cc05d820a409500e66e2525654954e4dddf48e4b
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091379"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74457258"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Vanliga problem och lösningar för Azure IoT Edge
 
 Om du får problem med att köra Azure IoT Edge i din miljö kan du använda den här artikeln som en guide för felsökning och lösningar.
 
-## <a name="run-the-iotedge-check-command"></a>Kör kommandot iotedge ' check '
+## <a name="run-the-iotedge-check-command"></a>Run the iotedge 'check' command
 
-Ditt första steg när du felsöker IoT Edge bör vara att `check` använda kommandot, som utför en samling konfigurations-och anslutnings test för vanliga problem. Kommandot är tillgängligt i [version 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) och senare. `check`
+Your first step when troubleshooting IoT Edge should be to use the `check` command, which performs a collection of configuration and connectivity tests for common issues. The `check` command is available in [release 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) and later.
 
-Du kan köra `check` kommandot på följande sätt, eller `--help` inkludera flaggan om du vill se en fullständig lista med alternativ:
+You can run the `check` command as follows, or include the `--help` flag to see a complete list of options:
 
-* I Linux:
+* On Linux:
 
   ```bash
   sudo iotedge check
@@ -38,49 +37,49 @@ Du kan köra `check` kommandot på följande sätt, eller `--help` inkludera fla
   iotedge check
   ```
 
-Typerna av kontroller som körs av verktyget kan klassificeras som:
+The types of checks run by the tool can be classified as:
 
-* Konfigurations kontroller: Granskar information som kan förhindra att Edge-enheter ansluter till molnet, inklusive problem med *config. yaml* och behållar motorn.
-* Anslutnings kontroller: Verifierar att IoT Edge runtime kan komma åt portar på värd enheten och alla IoT Edge-komponenter kan ansluta till IoT Hub.
-* Kontroll av produktions beredskap: Söker efter rekommenderade produktions metoder, till exempel tillstånd för certifikat från enhetens certifikat utfärdare och konfiguration av modulens logg fil.
+* Configuration checks: Examines details that could prevent Edge devices from connecting to the cloud, including issues with *config.yaml* and the container engine.
+* Connection checks: Verifies the IoT Edge runtime can access ports on the host device and all the IoT Edge components can connect to the IoT Hub.
+* Production readiness checks: Looks for recommended production best practices, such as the state of device certificate authority (CA) certificates and module log file configuration.
 
-En fullständig lista över diagnostiska kontroller finns i [inbyggda fel söknings funktioner](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md).
+For a complete list of diagnostic checks, see [Built-in troubleshooting functionality](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md).
 
 ## <a name="standard-diagnostic-steps"></a>Standarddiagnostikåtgärder
 
-Om du stöter på ett problem kan du lära dig mer om status för din IoT Edge-enhet genom att granska behållar loggarna och de meddelanden som skickas till och från enheten. Använd kommandona och verktygen i det här avsnittet för att samla in information.
+If you encounter an issue, you can learn more about the state of your IoT Edge device by reviewing the container logs and the messages that pass to and from the device. Använd kommandona och verktygen i det här avsnittet för att samla in information.
 
-### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>Kontrol lera status för IoT Edge Security Manager och dess loggar
+### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>Check the status of the IoT Edge Security Manager and its logs
 
-I Linux:
-- Visa status för IoT Edge-Säkerhetshanteraren:
+On Linux:
+- To view the status of the IoT Edge Security Manager:
 
    ```bash
    sudo systemctl status iotedge
    ```
 
-- Visa loggar av IoT Edge-Säkerhetshanteraren:
+- To view the logs of the IoT Edge Security Manager:
 
     ```bash
     sudo journalctl -u iotedge -f
     ```
 
-- Visa mer detaljerad loggar av IoT Edge-Säkerhetshanteraren:
+- To view more detailed logs of the IoT Edge Security Manager:
 
-   - Redigera inställningar för iotedge-daemon:
+   - Edit the iotedge daemon settings:
 
       ```bash
       sudo systemctl edit iotedge.service
       ```
    
-   - Uppdatera följande rader:
+   - Update the following lines:
     
       ```
       [Service]
       Environment=IOTEDGE_LOG=edgelet=debug
       ```
     
-   - Starta om IoT Edge-Security-Daemon:
+   - Restart the IoT Edge Security Daemon:
     
       ```bash
       sudo systemctl cat iotedge.service
@@ -89,24 +88,24 @@ I Linux:
       ```
 
 I Windows:
-- Visa status för IoT Edge-Säkerhetshanteraren:
+- To view the status of the IoT Edge Security Manager:
 
    ```powershell
    Get-Service iotedge
    ```
 
-- Visa loggar av IoT Edge-Säkerhetshanteraren:
+- To view the logs of the IoT Edge Security Manager:
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
    ```
 
-### <a name="if-the-iot-edge-security-manager-is-not-running-verify-your-yaml-configuration-file"></a>Om IoT Edge Security Manager inte körs, kontrollera din yaml-konfigurationsfil
+### <a name="if-the-iot-edge-security-manager-is-not-running-verify-your-yaml-configuration-file"></a>If the IoT Edge Security Manager is not running, verify your yaml configuration file
 
 > [!WARNING]
-> YAML-filer får inte innehålla tabbar som indrag. Använd 2 blanksteg i stället.
+> YAML files cannot contain tabs as indentation. Use 2 spaces instead.
 
-I Linux:
+On Linux:
 
    ```bash
    sudo nano /etc/iotedge/config.yaml
@@ -118,19 +117,19 @@ I Windows:
    notepad C:\ProgramData\iotedge\config.yaml
    ```
 
-### <a name="check-container-logs-for-issues"></a>Kontrollera behållarloggarna för problem
+### <a name="check-container-logs-for-issues"></a>Check container logs for issues
 
-När IoT Edge Security Daemon körs kan du titta på loggarna för behållarna för att identifiera problem. Börja med dina distribuerade behållare och titta sedan på de behållare som utgör den IoT Edge körningen: edgeAgent och edgeHub. IoT Edge agent loggar ger vanligt vis information om livs cykeln för varje behållare. IoT Edge Hubbs loggar innehåller information om meddelanden och routning. 
+Once the IoT Edge Security Daemon is running, look at the logs of the containers to detect issues. Start with your deployed containers, then look at the containers that make up the IoT Edge runtime: edgeAgent and edgeHub. The IoT Edge agent logs typically provide info on the lifecycle of each container. The IoT Edge hub logs provide info on messaging and routing. 
 
    ```cmd
    iotedge logs <container name>
    ```
 
-### <a name="view-the-messages-going-through-the-iot-edge-hub"></a>Visa meddelanden som går via IoT Edge Hub
+### <a name="view-the-messages-going-through-the-iot-edge-hub"></a>View the messages going through the IoT Edge hub
 
-Du kan visa meddelanden som går via IoT Edge hubben och samla in insikter från utförliga loggar från runtime-behållare. Om du vill aktivera utförliga loggar på de här behållarna ange `RuntimeLogLevel` i konfigurationsfilen yaml. Att öppna filen:
+You can view the messages going through the IoT Edge hub, and gather insights from verbose logs from the runtime containers. To turn on verbose logs on these containers, set `RuntimeLogLevel` in your yaml configuration file. To open the file:
 
-I Linux:
+On Linux:
 
    ```bash
    sudo nano /etc/iotedge/config.yaml
@@ -142,7 +141,7 @@ I Windows:
    notepad C:\ProgramData\iotedge\config.yaml
    ```
 
-Som standard den `agent` elementet kommer att se ut som i följande exempel:
+By default, the `agent` element will look like the following example:
 
    ```yaml
    agent:
@@ -154,7 +153,7 @@ Som standard den `agent` elementet kommer att se ut som i följande exempel:
        auth: {}
    ```
 
-Ersätt `env: {}` med:
+Replace `env: {}` with:
 
    ```yaml
    env:
@@ -162,30 +161,30 @@ Ersätt `env: {}` med:
    ```
 
    > [!WARNING]
-   > YAML-filer får inte innehålla flikar som indrag. Använd 2 blanksteg i stället.
+   > YAML files cannot contain tabs as identation. Use 2 spaces instead.
 
-Spara filen och starta om säkerhetshanteraren IoT Edge.
+Save the file and restart the IoT Edge security manager.
 
-Du kan också kontrollera meddelandena som skickas mellan IoT Hub och IoT Edge-enheterna. Visa dessa meddelanden med hjälp av tillägget [azure IoT Hub Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (tidigare Azure IoT Toolkit-tillägget) för Visual Studio Code. Mer information finns i [praktiskt verktyg när du utvecklar med Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/).
+Du kan också kontrollera meddelandena som skickas mellan IoT Hub och IoT Edge-enheterna. View these messages by using the [Azure IoT Hub Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extension (formerly Azure IoT Toolkit extension) for Visual Studio Code. For more information, see [Handy tool when you develop with Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/).
 
-### <a name="restart-containers"></a>Starta om behållare
-När du undersöker i loggarna och meddelandena information, kan du prova att starta om behållare:
+### <a name="restart-containers"></a>Restart containers
+After investigating the logs and messages for information, you can try restarting containers:
 
 ```
 iotedge restart <container name>
 ```
 
-Starta om körningsbehållarna IoT Edge:
+Restart the IoT Edge runtime containers:
 
 ```
 iotedge restart edgeAgent && iotedge restart edgeHub
 ```
 
-### <a name="restart-the-iot-edge-security-manager"></a>Starta om IoT Edge-säkerhetshanteraren
+### <a name="restart-the-iot-edge-security-manager"></a>Restart the IoT Edge security manager
 
-Om problemet fortfarande beständig lagring, kan du starta om säkerhetshanteraren IoT Edge.
+If issue is still persisting, you can try restarting the IoT Edge security manager.
 
-I Linux:
+On Linux:
 
    ```cmd
    sudo systemctl restart iotedge
@@ -199,11 +198,11 @@ I Windows:
    Start-Service iotedge
    ```
 
-## <a name="iot-edge-agent-stops-after-about-a-minute"></a>IoT Edge agenten stoppas efter en minut
+## <a name="iot-edge-agent-stops-after-about-a-minute"></a>IoT Edge agent stops after about a minute
 
-EdgeAgent-modulen startar och körs för ungefär en minut och stoppas sedan. Loggarna indikerar att IoT Edge-agenten försöker ansluta till IoT Hub över AMQP och försöker sedan ansluta med AMQP över WebSocket. När det Miss lyckas avslutas IoT Edge agenten. 
+The edgeAgent module starts and runs successfully for about a minute, then stops. The logs indicate that the IoT Edge agent attempts to connect to IoT Hub over AMQP, and then attempts to connect using AMQP over WebSocket. When that fails, the IoT Edge agent exits. 
 
-Exempel på edgeAgent-loggar:
+Example edgeAgent logs:
 
 ```output
 2017-11-28 18:46:19 [INF] - Starting module management agent. 
@@ -212,19 +211,19 @@ Exempel på edgeAgent-loggar:
 2017-11-28 18:46:49 [INF] - Edge agent attempting to connect to IoT Hub via AMQP over WebSocket... 
 ```
 
-**Rotor saken**
+**Root cause**
 
-En nätverks konfiguration på värd nätverket hindrar IoT Edge-agenten från att nå nätverket. Agenten försöker ansluta via AMQP (port 5671) först. Om anslutningen misslyckas provar agenten WebSockets (port 443).
+A networking configuration on the host network is preventing the IoT Edge agent from reaching the network. Agenten försöker ansluta via AMQP (port 5671) först. If the connection fails, it tries WebSockets (port 443).
 
 IoT Edge-körningen ställer in ett nätverk för varje modul att kommunicera på. På Linux är nätverket en nätverksbrygga. I Windows använder den NAT. Det här problemet är vanligare på Windows-enheter som använder Windows-containrar som använder NAT-nätverket. 
 
-**Lösning**
+**Resolution**
 
 Kontrollera att det finns en väg till internet för IP-adresserna som är tilldelade till den här nätverksbryggan/NAT-nätverket. Ibland åsidosätter en VPN-konfiguration på värden IoT Edge-nätverket. 
 
-## <a name="iot-edge-hub-fails-to-start"></a>IoT Edge hubben kan inte startas
+## <a name="iot-edge-hub-fails-to-start"></a>IoT Edge hub fails to start
 
-EdgeHub-modulen kan inte startas och skriver ut följande meddelande till loggarna: 
+The edgeHub module fails to start, and prints the following message to the logs: 
 
 ```output
 One or more errors occurred. 
@@ -233,51 +232,51 @@ One or more errors occurred.
 Error starting userland proxy: Bind for 0.0.0.0:443 failed: port is already allocated\"}\n) 
 ```
 
-**Rotor saken**
+**Root cause**
 
-Några andra processer på värddatorn har bundit port 443. IoT Edge Hub mappar portarna 5671 och 443 för användning i Gateway-scenarier. Den här portmappningen misslyckas om någon annan process redan har bundits till porten. 
+Några andra processer på värddatorn har bundit port 443. The IoT Edge hub maps ports 5671 and 443 for use in gateway scenarios. Den här portmappningen misslyckas om någon annan process redan har bundits till porten. 
 
-**Lösning**
+**Resolution**
 
 Hitta och stoppa processen som använder port 443. Den här processen är vanligtvis en webbserver.
 
-## <a name="iot-edge-agent-cant-access-a-modules-image-403"></a>IoT Edge agenten har inte åtkomst till en moduls avbildning (403)
-Det går inte att köra en behållare och edgeAgent-loggarna visar ett 403-fel. 
+## <a name="iot-edge-agent-cant-access-a-modules-image-403"></a>IoT Edge agent can't access a module's image (403)
+A container fails to run, and the edgeAgent logs show a 403 error. 
 
-**Rotor saken**
+**Root cause**
 
-IoT Edge-agenten har inte behörighet att komma åt en moduls avbildning. 
+The Iot Edge agent doesn't have permissions to access a module's image. 
 
-**Lösning**
+**Resolution**
 
-Se till att dina autentiseringsuppgifter för registret har angetts korrekt i ditt manifest för distribution
+Make sure that your registry credentials are correctly specified in your deployment manifest
 
-## <a name="iot-edge-security-daemon-fails-with-an-invalid-hostname"></a>IoT Edge security daemon misslyckas med ett ogiltigt värdnamn
+## <a name="iot-edge-security-daemon-fails-with-an-invalid-hostname"></a>IoT Edge security daemon fails with an invalid hostname
 
-Kommandot `sudo journalctl -u iotedge` misslyckas och skriver ut följande meddelande: 
+The command `sudo journalctl -u iotedge` fails and prints the following message: 
 
 ```output
 Error parsing user input data: invalid hostname. Hostname cannot be empty or greater than 64 characters
 ```
 
-**Rotor saken**
+**Root cause**
 
-IoT Edge-körningen stöder bara värdnamn som är kortare än 64 tecken. Fysiska datorer vanligtvis har inte lång värdnamn, men problemet är vanligare på en virtuell dator. Automatiskt genererade värdnamnen för Windows-datorerna i Azure, i synnerhet tenderar att vara långa. 
+The IoT Edge runtime can only support hostnames that are shorter than 64 characters. Physical machines usually don't have long hostnames, but the issue is more common on a virtual machine. The automatically generated hostnames for Windows virtual machines hosted in Azure, in particular, tend to be long. 
 
-**Lösning**
+**Resolution**
 
-När du ser det här felet kan lösa du det genom att konfigurera DNS-namnet på den virtuella datorn och sedan ange DNS-namn som värdnamnet i installationskommandot.
+When you see this error, you can resolve it by configuring the DNS name of your virtual machine, and then setting the DNS name as the hostname in the setup command.
 
-1. Gå till översiktssidan för den virtuella datorn i Azure-portalen. 
-2. Välj **konfigurera** med DNS-namnet. Om den virtuella datorn redan har ett DNS-namn som har konfigurerats, behöver du inte konfigurera en ny. 
+1. In the Azure portal, navigate to the overview page of your virtual machine. 
+2. Select **configure** under DNS name. If your virtual machine already has a DNS name configured, you don't need to configure a new one. 
 
-   ![Konfigurera DNS-namnet på virtuell dator](./media/troubleshoot/configure-dns.png)
+   ![Configure DNS name of virtual machine](./media/troubleshoot/configure-dns.png)
 
-3. Ange ett värde för **DNS-Namnetiketten** och välj **spara**.
-4. Kopiera nya DNS-namn som ska vara i formatet  **\<DNSnamelabel\>.\< vmlocation\>. cloudapp.azure.com**.
-5. I den virtuella datorn använder du följande kommando du ställer in IoT Edge-körningen med DNS-namn:
+3. Provide a value for **DNS name label** and select **Save**.
+4. Copy the new DNS name, which should be in the format **\<DNSnamelabel\>.\<vmlocation\>.cloudapp.azure.com**.
+5. Inside the virtual machine, use the following command to set up the IoT Edge runtime with your DNS name:
 
-   - I Linux:
+   - On Linux:
 
       ```bash
       sudo nano /etc/iotedge/config.yaml
@@ -289,26 +288,26 @@ När du ser det här felet kan lösa du det genom att konfigurera DNS-namnet på
       notepad C:\ProgramData\iotedge\config.yaml
       ```
 
-## <a name="stability-issues-on-resource-constrained-devices"></a>Stabilitetsproblem på resursen begränsad enheter 
-Du kan stöta på instabilitet begränsad t.ex. för enheter Raspberry Pi, särskilt när det används som en gateway. Symtom är utanför minne-undantag i edge hub-modul, efterföljande enheter kan inte ansluta eller enheten slutar att skicka telemetrimeddelanden efter ett par timmar.
+## <a name="stability-issues-on-resource-constrained-devices"></a>Stability issues on resource constrained devices 
+You may encounter stability problems on constrained devices like the Raspberry Pi, especially when used as a gateway. Symptoms include out of memory exceptions in the edge hub module, downstream devices cannot connect or the device stops sending telemetry messages after a few hours.
 
-**Rotor saken**
+**Root cause**
 
-IoT Edge Hub, som är en del av IoT Edge runtime, är optimerad för prestanda som standard och försöker allokera stora mängder minne. Denna optimering är inte idealiskt för begränsad edge-enheter och kan orsaka stabilitetsproblem med.
+The IoT Edge hub, which is part of the IoT Edge runtime, is optimized for performance by default and attempts to allocate large chunks of memory. This optimization is not ideal for constrained edge devices and can cause stability problems.
 
-**Lösning**
+**Resolution**
 
-För IoT Edge Hub ställer du in en miljö variabel **OptimizeForPerformance** på **falskt**. Det finns två sätt att göra detta:
+For the IoT Edge hub, set an environment variable **OptimizeForPerformance** to **false**. There are two ways to do this:
 
-I Användargränssnittet: 
+In the UI: 
 
-I portalen navigerar du till **enhets information** > **uppsättnings moduler** > **Konfigurera avancerade Edge runtime-inställningar**. Skapa en miljö variabel för Edge Hub-modulen med namnet *OptimizeForPerformance* som har angetts till *false*.
+In the portal, navigate to **Device Details** > **Set Modules** > **Configure advanced Edge Runtime settings**. Create an environment variable for the Edge Hub module called *OptimizeForPerformance* that is set to *false*.
 
-![OptimizeForPerformance inställd på false](./media/troubleshoot/optimizeforperformance-false.png)
+![OptimizeForPerformance set to false](./media/troubleshoot/optimizeforperformance-false.png)
 
 **OR**
 
-I manifestet distribution:
+In the deployment manifest:
 
 ```json
   "edgeHub": {
@@ -323,16 +322,16 @@ I manifestet distribution:
       }
     },
 ```
-## <a name="cant-get-the-iot-edge-daemon-logs-on-windows"></a>Det går inte att hämta IoT Edge daemon loggar på Windows
-Om du får en EventLogException när du använder `Get-WinEvent` på Windows, kontrollerar du din registerposter.
+## <a name="cant-get-the-iot-edge-daemon-logs-on-windows"></a>Can't get the IoT Edge daemon logs on Windows
+If you get an EventLogException when using `Get-WinEvent` on Windows, check your registry entries.
 
-**Rotor saken**
+**Root cause**
 
-Den `Get-WinEvent` PowerShell-kommandot är beroende av en registerpost för att hitta loggarna genom att en specifik `ProviderName`.
+The `Get-WinEvent` PowerShell command relies on a registry entry to be present to find logs by a specific `ProviderName`.
 
-**Lösning**
+**Resolution**
 
-Ange en registerpost för IoT Edge-daemon. Skapa en **iotedge.reg** filen med följande innehåll och importera i Windows-registret genom att dubbelklicka på den eller använda den `reg import iotedge.reg` kommando:
+Set a registry entry for the IoT Edge daemon. Create a **iotedge.reg** file with the following content, and import in to the Windows Registry by double-clicking it or using the `reg import iotedge.reg` command:
 
 ```
 Windows Registry Editor Version 5.00
@@ -343,50 +342,50 @@ Windows Registry Editor Version 5.00
 "TypesSupported"=dword:00000007
 ```
 
-## <a name="iot-edge-module-fails-to-send-a-message-to-the-edgehub-with-404-error"></a>IoT Edge-modulen misslyckas med att skicka ett meddelande till edgeHub med 404-fel
+## <a name="iot-edge-module-fails-to-send-a-message-to-the-edgehub-with-404-error"></a>IoT Edge module fails to send a message to the edgeHub with 404 error
 
-En anpassad IoT Edge-modulen misslyckas med att skicka ett meddelande till edgeHub med 404 `Module not found` fel. IoT Edge-daemon skriver ut följande meddelande till loggarna: 
+A custom IoT Edge module fails to send a message to the edgeHub with a 404 `Module not found` error. The IoT Edge daemon prints the following message to the logs: 
 
 ```output
 Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/adapters/hsm_client_http_edge.c Func:on_edge_hsm_http_recv Line:364 executing HTTP request fails, status=404, response_buffer={"message":"Module not found"}u, 04 ) 
 ```
 
-**Rotor saken**
+**Root cause**
 
-IoT Edge-daemon framtvingar process-ID för alla moduler som ansluter till edgeHub av säkerhetsskäl. Verifierar att alla meddelanden som skickas av en modul hämtas från huvudsakliga process-ID för modulen. Om ett meddelande som skickas av en modul från en annan process-ID än först upprättas, annars avvisar meddelandet med ett 404-fel-meddelande.
+The IoT Edge daemon enforces process identification for all modules connecting to the edgeHub for security reasons. It verifies that all messages being sent by a module come from the main process ID of the module. If a message is being sent by a module from a different process ID than initially established, it will reject the message with a 404 error message.
 
-**Lösning**
+**Resolution**
 
-Från och med version 1.0.7 har alla modulblad behörighet att ansluta. Om det inte går att uppgradera till 1.0.7 utför du följande steg. Mer information finns i [1.0.7 Release ändringsloggen](https://github.com/Azure/iotedge/blob/master/CHANGELOG.md#iotedged-1).
+As of version 1.0.7, all module processes are authorized to connect. If upgrading to 1.0.7 isn't possible, complete the following steps. For more information, see the [1.0.7 release changelog](https://github.com/Azure/iotedge/blob/master/CHANGELOG.md#iotedged-1).
 
-Se till att samma process-ID alltid ska användas av anpassade IoT Edge-modulen skicka meddelanden till edgeHub. Se `ENTRYPOINT` till exempel i stället för `CMD` kommandot i Docker-filen, eftersom `CMD` kommer att leda till ett process-ID för modulen och ett annat process-ID för bash-kommandot som kör huvud programmet `ENTRYPOINT` , leder till ett ID för enskild process.
+Make sure that the same process ID is always used by the custom IoT Edge module to send messages to the edgeHub. For instance, make sure to `ENTRYPOINT` instead of `CMD` command in your Docker file, since `CMD` will lead to one process ID for the module and another process ID for the bash command running the main program whereas `ENTRYPOINT` will lead to a single process ID.
 
 
-## <a name="firewall-and-port-configuration-rules-for-iot-edge-deployment"></a>Brandväggsinställningar och portinställningar konfigurationsregler för IoT Edge-distribution
-Azure IoT Edge tillåter kommunikation från en lokal server till Azure-molnet med IoT Hub protokoll som stöds, se [välja ett kommunikations protokoll](../iot-hub/iot-hub-devguide-protocols.md). För ökad säkerhet är kommunikationskanaler mellan Azure IoT Edge och Azure IoT Hub alltid konfigurerad för att vara utgående. Den här konfigurationen baseras på den [tjänster Assisted Communication mönstret](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/), vilket minimerar risken för angrepp för en skadlig enhet att utforska. Inkommande kommunikation är endast krävs för specifika scenarier där Azure IoT Hub behöver att skicka meddelanden till Azure IoT Edge-enhet. Meddelanden från moln till enhet är skyddade med säkra TLS-kanaler och ytterligare skyddas med X.509-certifikat och moduler för TPM-enhet. Azure IoT Edge Security Manager styr hur den här kommunikationen kan vara etablerade, se [IoT Edge Security Manager](../iot-edge/iot-edge-security-manager.md).
+## <a name="firewall-and-port-configuration-rules-for-iot-edge-deployment"></a>Firewall and Port configuration rules for IoT Edge deployment
+Azure IoT Edge allows communication from an on-premises server to Azure cloud using supported IoT Hub protocols, see [choosing a communication protocol](../iot-hub/iot-hub-devguide-protocols.md). For enhanced security, communication channels between Azure IoT Edge and Azure IoT Hub are always configured to be Outbound. This configuration is based on the [Services Assisted Communication pattern](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/), which minimizes the attack surface for a malicious entity to explore. Inbound communication is only required for specific scenarios where Azure IoT Hub needs to push messages to the Azure IoT Edge device. Cloud-to-device messages are protected using secure TLS channels and can be further secured using X.509 certificates and TPM device modules. The Azure IoT Edge Security Manager governs how this communication can be established, see [IoT Edge Security Manager](../iot-edge/iot-edge-security-manager.md).
 
-IoT Edge innehåller förbättrad konfigurationen för att skydda Azure IoT Edge-körningen och distribuerade moduler, men det är fortfarande beroende av underliggande datorn och nätverket. Därför är det absolut nödvändigt att se till att rätt nätverks-och brand Väggs regler har kon figurer ATS för säker Edge till moln kommunikation. Följande tabell kan användas som en rikt linje när du konfigurerar brand Väggs regler för de underliggande servrarna där Azure IoT Edge runtime finns:
+While IoT Edge provides enhanced configuration for securing Azure IoT Edge runtime and deployed modules, it is still dependent on the underlying machine and network configuration. Hence, it is imperative to ensure proper network and firewall rules are set up for secure edge to cloud communication. The following table can be used as a guideline when configuration firewall rules for the underlying servers where Azure IoT Edge runtime is hosted:
 
-|Protocol|Port|inkommande|Utgående|Riktlinjer|
+|Protokoll|Port|Incoming|Outgoing|Vägledning|
 |--|--|--|--|--|
-|MQTT|8883|BLOCKERADE (standard)|BLOCKERADE (standard)|<ul> <li>Konfigurera utgående (utgående) för att vara öppen när du använder MQTT som kommunikationsprotokoll.<li>1883 för MQTT stöds inte av IoT Edge. <li>Inkommande (inkommande) anslutningar ska blockeras.</ul>|
-|AMQP|5671|BLOCKERADE (standard)|ÖPPEN (standard)|<ul> <li>Standard kommunikationsprotokoll för IoT Edge. <li> Måste konfigureras för att vara öppen om Azure IoT Edge inte är konfigurerad för andra protokoll som stöds eller AMQP är det önskade kommunikationsprotokollet.<li>5672 för AMQP stöds inte av IoT Edge.<li>Blockera den här porten när protokoll som stöds av Azure IoT Edge använder en annan IoT-hubb.<li>Inkommande (inkommande) anslutningar ska blockeras.</ul></ul>|
-|HTTPS|443|BLOCKERADE (standard)|ÖPPEN (standard)|<ul> <li>Konfigurera utgående (utgående) är öppen på 443 för IoT Edge etablering. Den här konfigurationen krävs när du använder manuella skript eller Azure IoT Device Provisioning-tjänsten (DPS). <li>Inkommande (inkommande)-anslutningen ska vara öppen endast för specifika scenarier: <ul> <li>  Om du har en transparent gateway med lövenheter som kan skicka metodbegäranden. I det här fallet behöver inte Port 443 är öppen för externa nätverk att ansluta till IoTHub eller tillhandahålla IoTHub-tjänster via Azure IoT Edge. Därför kan den inkommande regeln begränsas till endast öppna inkommande (inkommande) från det interna nätverket. <li> För klient till enheten (C2D)-scenarier.</ul><li>80 för HTTP stöds inte av IoT Edge.<li>Om icke-HTTP-protokoll (till exempel AMQP eller MQTT) inte kan konfigureras i företaget. meddelanden kan skickas via WebSockets. Port 443 används för WebSocket-kommunikation i så fall.</ul>|
+|MQTT|8883|BLOCKED (Default)|BLOCKED (Default)|<ul> <li>Configure Outgoing (Outbound) to be Open when using MQTT as the communication protocol.<li>1883 for MQTT is not supported by IoT Edge. <li>Incoming (Inbound) connections should be blocked.</ul>|
+|AMQP|5671|BLOCKED (Default)|OPEN (Default)|<ul> <li>Default communication protocol for IoT Edge. <li> Must be configured to be Open if Azure IoT Edge is not configured for other supported protocols or AMQP is the desired communication protocol.<li>5672 for AMQP is not supported by IoT Edge.<li>Block this port when Azure IoT Edge uses a different IoT Hub supported protocol.<li>Incoming (Inbound) connections should be blocked.</ul></ul>|
+|HTTPS|443|BLOCKED (Default)|OPEN (Default)|<ul> <li>Configure Outgoing (Outbound) to be Open on 443 for IoT Edge provisioning. This configuration is required when using manual scripts or Azure IoT Device Provisioning Service (DPS). <li>Incoming (Inbound) connection should be Open only for specific scenarios: <ul> <li>  If you have a transparent gateway with leaf devices that may send method requests. In this case, Port 443 does not need to be open to external networks to connect to IoTHub or provide IoTHub services through Azure IoT Edge. Thus the incoming rule could be restricted to only open Incoming (Inbound) from the internal network. <li> For Client to Device (C2D) scenarios.</ul><li>80 for HTTP is not supported by IoT Edge.<li>If non-HTTP protocols (for example, AMQP or MQTT) cannot be configured in the enterprise; the messages can be sent over WebSockets. Port 443 will be used for WebSocket communication in that case.</ul>|
 
-## <a name="edge-agent-module-continually-reports-empty-config-file-and-no-modules-start-on-the-device"></a>Edge agent module rapporterar kontinuerligt den tomma config-filen och inga moduler startar på enheten
+## <a name="edge-agent-module-continually-reports-empty-config-file-and-no-modules-start-on-the-device"></a>Edge Agent module continually reports 'empty config file' and no modules start on the device
 
-Enheten har problem med att starta moduler som definierats i distributionen. Endast edgeAgent körs men löpande rapportering av Tom config-fil...
+The device has trouble starting modules defined in the deployment. Only the edgeAgent is running but continually reporting 'empty config file...'.
 
-**Rotor saken**
+**Root cause**
 
-Som standard startar IoT Edge moduler i egna isolerade behållar nätverk. Enheten kan ha problem med DNS-namnmatchning i det här privata nätverket.
+By default, IoT Edge starts modules in their own isolated container network. The device may be having trouble with DNS name resolution within this private network.
 
-**Lösning**
+**Resolution**
 
 
-**Alternativ 1: Ange DNS-server i behållar motor inställningar**
+**Option 1: Set DNS server in container engine settings**
 
-Ange DNS-servern för din miljö i behållar motor inställningarna som ska gälla för alla behållar moduler som startas av motorn. Skapa en fil med `daemon.json` namnet ange den DNS-server som ska användas. Exempel:
+Specify the DNS server for your environment in the container engine settings which will apply to all container modules started by the engine. Create a file named `daemon.json` specifying the DNS server to use. Exempel:
 
 ```
 {
@@ -394,27 +393,27 @@ Ange DNS-servern för din miljö i behållar motor inställningarna som ska gäl
 }
 ```
 
-Exemplet ovan anger DNS-servern till en offentligt tillgänglig DNS-tjänst. Om gräns enheten inte kan komma åt den här IP-adressen från dess miljö ersätter du den med den DNS-serveradress som är tillgänglig.
+The above example sets the DNS server to a publicly accessible DNS service. If the edge device cannot access this IP from its environment, replace it with DNS server address that is accessible.
 
-Placera `daemon.json` på rätt plats för din plattform: 
+Place `daemon.json` in the right location for your platform: 
 
-| Plattform | Location |
+| Plattform | Plats |
 | --------- | -------- |
 | Linux | `/etc/docker` |
-| Windows-värd med Windows-behållare | `C:\ProgramData\iotedge-moby\config` |
+| Windows host with Windows containers | `C:\ProgramData\iotedge-moby\config` |
 
-Om platsen redan innehåller `daemon.json` fil, lägger du till **DNS-** nyckeln till den och sparar filen.
+If the location already contains `daemon.json` file, add the **dns** key to it and save the file.
 
-*Starta om behållar motorn för att uppdateringarna ska börja gälla*
+*Restart the container engine for the updates to take effect*
 
 | Plattform | Kommando |
 | --------- | -------- |
 | Linux | `sudo systemctl restart docker` |
-| Windows (admin PowerShell) | `Restart-Service iotedge-moby -Force` |
+| Windows (Admin Powershell) | `Restart-Service iotedge-moby -Force` |
 
-**Alternativ 2: Ange DNS-server i IoT Edge distribution per modul**
+**Option 2: Set DNS server in IoT Edge deployment per module**
 
-Du kan ställa in DNS-servern för varje moduls *createOptions* i IoT Edge distributionen. Exempel:
+You can set DNS server for each module's *createOptions* in the IoT Edge deployment. Exempel:
 
 ```
 "createOptions": {
@@ -426,10 +425,10 @@ Du kan ställa in DNS-servern för varje moduls *createOptions* i IoT Edge distr
 }
 ```
 
-Se till att ange detta för *edgeAgent* -och *edgeHub* -modulerna också. 
+Be sure to set this for the *edgeAgent* and *edgeHub* modules as well. 
 
 ## <a name="next-steps"></a>Nästa steg
-Tror du att du har hittat ett fel i IoT Edge-plattformen? [Skicka in ett ärende](https://github.com/Azure/iotedge/issues) så att vi kan fortsätta att förbättra. 
+Tror du att du har hittat ett fel i IoT Edge-plattformen? [Submit an issue](https://github.com/Azure/iotedge/issues) so that we can continue to improve. 
 
-Om du har fler frågor kan du skapa en [supportförfrågan](https://portal.azure.com/#create/Microsoft.Support) om du behöver hjälp. 
+If you have more questions, create a [Support request](https://portal.azure.com/#create/Microsoft.Support) for help. 
 

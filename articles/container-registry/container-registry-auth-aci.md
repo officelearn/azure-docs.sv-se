@@ -1,39 +1,34 @@
 ---
-title: Åtkomst Azure Container Registry från Container Instances
-description: Lär dig hur du ger åtkomst till avbildningar i ditt privata behållar register från Azure Container Instances med hjälp av ett Azure Active Directory tjänstens huvud namn.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
+title: Access from Container Instances
+description: Learn how to provide access to images in your private container registry from Azure Container Instances by using an Azure Active Directory service principal.
 ms.topic: article
 ms.date: 04/23/2018
-ms.author: danlep
-ms.openlocfilehash: 53cdca72587dafd39abd3f13ad488dcb460bf622
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: b1bc8119c495dea99c6bdc4923db198d041a1e9e
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931659"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456515"
 ---
-# <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Autentisera med Azure Container Registry från Azure Container Instances
+# <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Authenticate with Azure Container Registry from Azure Container Instances
 
-Du kan använda ett Azure Active Directory (Azure AD) tjänstens huvud namn för att ge åtkomst till dina register för privata behållare i Azure Container Registry.
+You can use an Azure Active Directory (Azure AD) service principal to provide access to your private container registries in Azure Container Registry.
 
-I den här artikeln lär du dig hur du skapar och konfigurerar ett Azure AD-tjänstens huvud namn med *pull* -behörighet till registret. Sedan startar du en behållare i Azure Container Instances (ACI) som hämtar avbildningen från ditt privata register med hjälp av tjänstens huvud namn för autentisering.
+In this article, you learn to create and configure an Azure AD service principal with *pull* permissions to your registry. Then, you start a container in Azure Container Instances (ACI) that pulls its image from your private registry, using the service principal for authentication.
 
-## <a name="when-to-use-a-service-principal"></a>När du ska använda ett huvud namn för tjänsten
+## <a name="when-to-use-a-service-principal"></a>When to use a service principal
 
-Du bör använda ett huvud namn för tjänsten för autentisering från ACI i **konsolbaserade scenarier**, t. ex. i program eller tjänster som skapar behållar instanser på ett automatiserat eller på annat sätt obevakat sätt.
+You should use a service principal for authentication from ACI in **headless scenarios**, such as in applications or services that create container instances in an automated or otherwise unattended manner.
 
-Om du till exempel har ett automatiserat skript som körs natt och skapar en [uppgifts baserad behållar instans](../container-instances/container-instances-restart-policy.md) för att bearbeta vissa data, kan den använda ett huvud namn för tjänsten med endast pull-behörighet för att autentisera till registret. Du kan sedan rotera autentiseringsuppgifterna för tjänstens huvud namn eller återkalla åtkomsten helt utan att påverka andra tjänster och program.
+For example, if you have an automated script that runs nightly and creates a [task-based container instance](../container-instances/container-instances-restart-policy.md) to process some data, it can use a service principal with pull-only permissions to authenticate to the registry. You can then rotate the service principal's credentials or revoke its access completely without affecting other services and applications.
 
-Tjänstens huvud namn bör också användas när register [Administratörs användaren](container-registry-authentication.md#admin-account) är inaktive rad.
+Service principals should also be used when the registry [admin user](container-registry-authentication.md#admin-account) is disabled.
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
-## <a name="authenticate-using-the-service-principal"></a>Autentisera med hjälp av tjänstens huvud namn
+## <a name="authenticate-using-the-service-principal"></a>Authenticate using the service principal
 
-Om du vill starta en behållare i Azure Container Instances med ett huvud namn för tjänsten anger du dess ID för `--registry-username`och dess lösen ord för `--registry-password`.
+To launch a container in Azure Container Instances using a service principal, specify its ID for `--registry-username`, and its password for `--registry-password`.
 
 ```azurecli-interactive
 az container create \
@@ -47,17 +42,17 @@ az container create \
 
 ## <a name="sample-scripts"></a>Exempelskript
 
-Du kan hitta de föregående exempel skripten för Azure CLI på GitHub, och även Azure PowerShell:
+You can find the preceding sample scripts for Azure CLI on GitHub, as well versions for Azure PowerShell:
 
 * [Azure CLI][acr-scripts-cli]
 * [Azure PowerShell][acr-scripts-psh]
 
 ## <a name="next-steps"></a>Nästa steg
 
-Följande artiklar innehåller ytterligare information om hur du arbetar med tjänstens huvud namn och ACR:
+The following articles contain additional details on working with service principals and ACR:
 
-* [Azure Container Registry autentisering med tjänstens huvud namn](container-registry-auth-service-principal.md)
-* [Autentisera med Azure Container Registry från Azure Kubernetes service (AKS)](../aks/cluster-container-registry-integration.md)
+* [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md)
+* [Authenticate with Azure Container Registry from Azure Kubernetes Service (AKS)](../aks/cluster-container-registry-integration.md)
 
 <!-- IMAGES -->
 

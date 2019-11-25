@@ -1,131 +1,133 @@
 ---
-title: Använda Reference Swagger-dokumentation – Azure Digitals flätar | Microsoft Docs
-description: Förstå hur du använder Azure Digitals sammanflätade Swagger Reference-dokumentation.
+title: How to use reference Swagger documentation - Azure Digital Twins | Microsoft Docs
+description: Understanding how to use Azure Digital Twins Swagger reference documentation.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: ccea63e8edee739ce6743d7638b4e5300ad07f8f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 3d4470a89455fd4b49fb7bb5ae26375f9cf9884c
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74009889"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456960"
 ---
-# <a name="azure-digital-twins-swagger-reference-documentation"></a>Dokumentation om Azure Digitals Swagger-referens
+# <a name="azure-digital-twins-swagger-reference-documentation"></a>Azure Digital Twins Swagger reference documentation
 
-Alla etablerade Azure Digitals dubbla instanser innehåller en egen automatiskt genererad Swagger-referens dokumentation.
+Each provisioned Azure Digital Twins instance includes its own automatically generated Swagger reference documentation.
 
-[Swagger](https://swagger.io/), eller [openapi](https://www.openapis.org/), bevarar komplex API-information till en interaktiv och språk-oberoende referens resurs. Swagger tillhandahåller kritiskt referens material om vilka JSON-nyttolaster, HTTP-metoder och vissa slut punkter som ska användas för att utföra åtgärder mot ett API.
+[Swagger](https://swagger.io/), or [OpenAPI](https://www.openapis.org/), unites complex API information into an interactive and language-agnostic reference resource. Swagger provides critical reference material about which JSON payloads, HTTP methods, and specific endpoints to use to perform operations against an API.
 
-## <a name="swagger-summary"></a>Sammanfattning av Swagger
+## <a name="swagger-summary"></a>Swagger summary
 
-Swagger innehåller en interaktiv Sammanfattning av ditt API, som innehåller:
+Swagger provides an interactive summary of your API, which includes:
 
-* Information om API-och objekt modell.
-* REST API slut punkter som anger begärda nytto laster, huvuden, parametrar, kontext Sök vägar och HTTP-metoder.
-* Testning av API-funktioner.
-* Exempel svars information som används för att verifiera och bekräfta HTTP-svar.
-* Information om fel kod.
+* API and object model information.
+* REST API endpoints that specify the required request payloads, headers, parameters, context paths, and HTTP methods.
+* Testing of API functionalities.
+* Example response information used to validate and confirm HTTP responses.
+* Error code information.
 
-Swagger är ett bekvämt verktyg för att hjälpa till med utvecklings-och testnings anrop till API: erna för Azure Digitals sammanställda hantering.
+Swagger is a convenient tool to assist with development and testing calls made to the Azure Digital Twins Management APIs.
 
 [!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
 ## <a name="reference-material"></a>Referensmaterial
 
-Det automatiskt genererade Swagger-referensmaterial ger en snabb överblick över viktiga begrepp, tillgängliga hanterings-API-slutpunkter och en beskrivning av varje objekt modell som underlättar utveckling och testning.
+The automatically generated Swagger reference material supplies a quick overview of important concepts, available Management API endpoints, and a description of each object model to assist development and testing.
 
-En kortfattad sammanfattning beskriver API: et.
+A concise summary describes the API.
 
-[![Swagger översta](media/how-to-use-swagger/swagger-management-top-img.png)](media/how-to-use-swagger/swagger-management-top-img.png#lightbox)
+[![Swagger summary and API overview information](media/how-to-use-swagger/swagger-management-top-img.png)](media/how-to-use-swagger/swagger-management-top-img.png#lightbox)
 
-Objekt modeller för hanterings-API visas också.
+Management API object models are also listed.
 
-[![Swagger-modeller](media/how-to-use-swagger/swagger-management-models-img.png)](media/how-to-use-swagger/swagger-management-models-img.png#lightbox)
+[![Swagger models listed at bottom of Swagger UI](media/how-to-use-swagger/swagger-management-models-img.png)](media/how-to-use-swagger/swagger-management-models-img.png#lightbox)
 
-Du kan markera varje objekt modell i listan för en mer detaljerad sammanfattning av nyckelattribut.
+You can select each listed object model for a more detailed summary of key attributes.
 
-[![Swagger-modell](media/how-to-use-swagger/swagger-management-model-img.png)](media/how-to-use-swagger/swagger-management-model-img.png#lightbox)
+[![Swagger models expanded to see contents of models](media/how-to-use-swagger/swagger-management-model-img.png)](media/how-to-use-swagger/swagger-management-model-img.png#lightbox)
 
-De genererade Swagger-objekt modellerna är praktiska för att se alla tillgängliga Azure Digital-dubbla [objekt och API: er](./concepts-objectmodel-spatialgraph.md). Utvecklare kan använda den här resursen när de skapar lösningar på digitala Azure-dubbla.
+The generated Swagger object models are convenient to see all available Azure Digital Twins [objects and APIs](./concepts-objectmodel-spatialgraph.md). Developers can use this resource when they build solutions on Azure Digital Twins.
 
-## <a name="endpoint-summary"></a>Slut punkts Sammanfattning
+## <a name="endpoint-summary"></a>Endpoint summary
 
-Swagger tillhandahåller också en grundlig översikt över alla slut punkter som utgör hanterings-API: er.
+Swagger also provides a thorough overview of all endpoints that compose the Management APIs.
 
-Varje slut punkt i listan innehåller även nödvändig information om begäran, till exempel:
+Each listed endpoint also includes the required request information, such as the:
 
-* Obligatoriska parametrar.
-* Obligatoriska parameter data typer.
-* HTTP-metod för att få åtkomst till resursen.
+* Required parameters.
+* Required parameter data types.
+* HTTP method to access the resource.
 
-[![Swagger-slutpunkter](media/how-to-use-swagger/swagger-management-endpoints-img.png)](media/how-to-use-swagger/swagger-management-endpoints-img.png#lightbox)
+[![Swagger endpoints displayed in Swagger UI](media/how-to-use-swagger/swagger-management-endpoints-img.png)](media/how-to-use-swagger/swagger-management-endpoints-img.png#lightbox)
 
-Om du vill se en mer detaljerad översikt väljer du varje resurs.
+To see a more detailed overview, select each resource.
 
-## <a name="use-swagger-to-test-endpoints"></a>Använda Swagger för att testa slut punkter
+## <a name="use-swagger-to-test-endpoints"></a>Use Swagger to test endpoints
 
-En av de kraftfulla funktionerna i Swagger ger möjlighet att testa en API-slutpunkt direkt via dokumentations gränssnittet.
+One of the powerful functionalities Swagger provides is the ability to test an API endpoint directly through the documentation UI.
 
-När du har valt en angiven slut punkt kan du se **prova**.
+After you select a specific endpoint, you see **Try it out**.
 
-[![Swagger try](media/how-to-use-swagger/swagger-management-try-img.png)](media/how-to-use-swagger/swagger-management-try-img.png#lightbox)
+[![Swagger Try it out button](media/how-to-use-swagger/swagger-management-try-img.png)](media/how-to-use-swagger/swagger-management-try-img.png#lightbox)
 
-Expandera avsnittet för att hämta indatatyper för varje obligatorisk och valfri parameter. Ange rätt värden och välj **Kör**.
+Expand that section to bring up input fields for each required and optional parameter. Enter the correct values, and select **Execute**.
 
-[![Swagger försök](media/how-to-use-swagger/swagger-management-tried-img.png)](media/how-to-use-swagger/swagger-management-tried-img.png#lightbox)
+[![Swagger Try it out result example](media/how-to-use-swagger/swagger-management-tried-img.png)](media/how-to-use-swagger/swagger-management-tried-img.png#lightbox)
 
-När du har kört testet kan du validera svars data.
+After you execute the test, you can validate the response data.
 
-## <a name="swagger-response-data"></a>Svars data för Swagger
+## <a name="swagger-response-data"></a>Swagger response data
 
-Varje slut punkt i listan innehåller även svars text data för att verifiera utveckling och tester. I de här exemplen ingår de status koder och JSON som du vill se för lyckade HTTP-begäranden.
+Each listed endpoint also includes response body data to validate your development and tests. These examples include the status codes and JSON you want to see for successful HTTP requests.
 
-[![Swagger-svar](media/how-to-use-swagger/swagger-management-response-img.png)](media/how-to-use-swagger/swagger-management-response-img.png#lightbox)
+[![Swagger JSON response example](media/how-to-use-swagger/swagger-management-response-img.png)](media/how-to-use-swagger/swagger-management-response-img.png#lightbox)
 
-I exemplen finns även felkoder som hjälper dig att felsöka eller förbättra misslyckade tester.
+The examples also include error codes to help debug or improve failing tests.
 
-## <a name="swagger-oauth-20-authorization"></a>Swagger OAuth 2,0-auktorisering
+## <a name="swagger-oauth-20-authorization"></a>Swagger OAuth 2.0 authorization
 
 > [!NOTE]
-> * Användarens huvud namn som skapade Azure Digitals sammanflätade resurser har en roll tilldelning för utrymmes administratör och kommer att kunna skapa ytterligare roll tilldelningar för andra användare. Sådana användare och deras roller kan auktoriseras för att anropa API: erna.
+> * The user principal that created the Azure Digital Twins resource will have a Space Administrator role assignment and will be able to create additional role assignments for other users. Such users and their roles can be authorized to call the APIs.
 
-1. Följ stegen i [den här snabb](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) starten för att skapa och konfigurera ett Azure AD-program. Du kan också återanvända en befintlig app-registrering.
+1. Follow the steps in [this quickstart](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) to create and configure an Azure AD application. Alternatively, you can reuse an existing app registration.
 
-1. Lägg till följande svars-URL i appens registrering:
+1. Add the following **Redirect url** to your Azure AD app registration:
+
+    [![Register Swagger redirect url in AAD](media/how-to-use-swagger/swagger-aad-redirect-url-registration.png)](media/how-to-use-swagger/swagger-aad-redirect-url-registration.png#lightbox)
 
     ```plaintext
     https://YOUR_SWAGGER_URL/ui/oauth2-redirect-html
     ```
     | Namn  | Ersätt med | Exempel |
     |---------|---------|---------|
-    | YOUR_SWAGGER_URL | URL: en för hanterings REST API-dokumentationen finns i portalen  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
+    | YOUR_SWAGGER_URL | Your Management REST API documentation URL found in the portal  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
 
-1. Kopiera ID: t för din Azure AD-App.
+1. Copy the **Client ID** of your Azure AD app.
 
-När du har slutfört Azure Active Directory registreringen:
+After completing the Azure Active Directory registration:
 
-1. Välj knappen **auktorisera** på din Swagger-sida.
+1. Select the **Authorize** button on your swagger page.
 
-    [![att välja knappen Swagger-auktorisera](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
+    [![Select the Swagger authorize button](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
 
-1. Klistra in program-ID: t i fältet **client_id** .
+1. Paste the application ID into the **client_id** field.
 
-    [![Swagger client_id fält](media/how-to-use-swagger/swagger-auth-form.png)](media/how-to-use-swagger/swagger-auth-form.png#lightbox)
+    [![Swagger client_id field](media/how-to-use-swagger/swagger-auth-form.png)](media/how-to-use-swagger/swagger-auth-form.png#lightbox)
 
-1. Du omdirigeras sedan till följande lyckade spärred.
+1. You will then be redirected to the following success modal.
 
-    [![Swagger Redirect modal](media/how-to-use-swagger/swagger-auth-redirect-img.png)](media/how-to-use-swagger/swagger-auth-redirect-img.png#lightbox)
+    [![Swagger redirect modal](media/how-to-use-swagger/swagger-auth-redirect-img.png)](media/how-to-use-swagger/swagger-auth-redirect-img.png#lightbox)
 
-Läs mer om interaktivt Est-begäranden som skyddas av OAuth 2,0 i den [officiella dokumentationen](https://swagger.io/docs/specification/authentication/oauth2/).
+To learn more about interactively testing requests protected by OAuth 2.0, see the [official documentation](https://swagger.io/docs/specification/authentication/oauth2/).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill läsa mer om Azure Digitals dubbla objekt modeller och spatial Intelligence-diagrammet läser du [förstå Azure Digitals objekt modeller](./concepts-objectmodel-spatialgraph.md).
+- To read more about Azure Digital Twins object models and the spatial intelligence graph, read [Understand Azure Digital Twins object models](./concepts-objectmodel-spatialgraph.md).
 
-- Läs [autentisera med API: er](./security-authenticating-apis.md)för att lära dig hur du autentiserar med ditt hanterings-API.
+- To learn how to authenticate with your Management API, read [Authenticate with APIs](./security-authenticating-apis.md).

@@ -12,12 +12,8 @@
       href: quickstarts/create-publish-knowledge-base.md
     - name: Lägga till frågor med metadata
       href: quickstarts/add-question-metadata-portal.md
-    - name: Få svar
-      items:
-        - name: Använda Postman
-          href: Quickstarts/get-answer-from-kb-using-postman.md
-        - name: Använda cURL
-          href: Quickstarts/get-answer-from-kb-using-cURL.md
+    - name: Få svar med Postman eller cURL
+      href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
     - name: 'Använda REST API:er'
       items:
         - name: Skapa en ny kunskapsbas

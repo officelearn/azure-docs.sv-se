@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 09/04/2019
-  ms.openlocfilehash: b99b45427cf793eec4f6257190823c102b838cfa
-  ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+  ms.openlocfilehash: cbd3a4dbaa80119d72cd54efa7dd2dc751b91b40
+  ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 11/10/2019
-  ms.locfileid: "73903353"
+  ms.lasthandoff: 11/23/2019
+  ms.locfileid: "74422809"
 highlightedContent:
   items:
   - title: Vad är IoT i Azure?
@@ -40,7 +40,7 @@ conceptualContent:
   title: Börja bygga din IoT-lösning
   summary: Azure IoT erbjuder IoT-plattformar för molnet och gränsen samt fullständigt hanterade IoT-lösningar
   items:
-  - title: Använda Azure IoT Hub för att skapa en egen IoT-lösning
+  - title: Skapa din egen IoT-molnlösning
     links:
     - url: ../iot-hub/about-iot-hub.md
       itemType: overview
@@ -54,7 +54,7 @@ conceptualContent:
     footerLink:
       url: ../iot-hub/index.yml
       text: Mer information
-  - title: Använda Azure IoT Central för att distribuera en fullständigt hanterad IoT-lösning
+  - title: Distribuera en fullständigt hanterad IoT-lösning
     links:
     - url: ../iot-central/core/overview-iot-central.md
       itemType: overview
@@ -68,7 +68,7 @@ conceptualContent:
     footerLink:
       url: ../iot-central/core/index.yml
       text: Mer information
-  - title: Använda Azure IoT-lösningsacceleratorer för att anpassa en färdig IoT-lösning
+  - title: Anpassa en fördefinierad IoT-lösning
     links:
     - url: ../iot-accelerators/about-iot-accelerators.md
       itemType: overview
@@ -82,7 +82,7 @@ conceptualContent:
     footerLink:
       url: ../iot-accelerators/index.md
       text: Mer information
-  - title: Använda Azure IoT Edge för att köra intelligenta molntjänster på enheter
+  - title: Köra intelligenta molntjänster på gränsenheter
     links:
     - url: ../iot-edge/about-iot-edge.md
       itemType: overview
@@ -96,7 +96,7 @@ conceptualContent:
     footerLink:
       url: ../iot-edge/index.yml
       text: Mer information
-  - title: Använda Azure Digital Twins för att skapa anslutna och smarta infrastrukturer
+  - title: Skapa ansluten och smart infrastruktur
     links:
     - url: ../digital-twins/about-digital-twins.md
       itemType: overview
@@ -110,7 +110,7 @@ conceptualContent:
     footerLink:
       url: ../digital-twins/index.yml
       text: Mer information
-  - title: Använda IoT Hub Device Provisioning Service för att etablera enheter på skala på ett säkert sätt
+  - title: Tillhandahålla enheter i hög skala på ett säkert sätt
     links:
     - url: ../iot-dps/about-iot-dps.md
       itemType: overview
@@ -124,7 +124,7 @@ conceptualContent:
     footerLink:
       url: ../iot-dps/index.yml
       text: Mer information
-  - title: Använda Azure Time Series Insights för att utforska och analysera enhetsdata
+  - title: Utforska och analysera enhetdata
     links:
     - url: ../time-series-insights/time-series-insights-update-overview.md
       itemType: overview
@@ -138,7 +138,7 @@ conceptualContent:
     footerLink:
       url: ../time-series-insights/index.yml
       text: Mer information
-  - title: Använda Azure Maps för att ge ditt företag mobilitet
+  - title: Ge ditt företag mobilitet
     links:
     - url: ../azure-maps/about-azure-maps.md
       itemType: overview

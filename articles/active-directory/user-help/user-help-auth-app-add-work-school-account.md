@@ -1,6 +1,6 @@
 ---
-title: Lägg till ett arbets-eller skol konto i en Authenticator-app – Azure AD
-description: Så här lägger du till ditt arbets-eller skol konto i Microsoft Authenticator-appen för tvåstegsverifiering.
+title: Lägg till ett arbets-eller skol konto i Microsoft Authenticator app – Azure AD
+description: Lägg till ditt arbets-eller skol konto i Microsoft Authenticator-appen för att verifiera din identitet när du använder tvåstegsverifiering.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7c9fa41a1278f0e1e54a06c3930e3bbc3d3d3ae
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: bcd69fab269e39a8c78a56c08854262ca839d60f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73803737"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267129"
 ---
-# <a name="add-your-work-or-school-account"></a>Lägg till ditt arbets-eller skol konto
+# <a name="add-your-work-or-school-account-to-the-microsoft-authenticator-app"></a>Lägg till ditt arbets-eller skol konto i Microsoft Authenticator-appen
 
 Om din organisation använder tvåstegsverifiering kan du konfigurera ditt arbets-eller skol konto för att använda Microsoft Authenticator-appen som en av verifierings metoderna.
 

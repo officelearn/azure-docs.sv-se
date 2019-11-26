@@ -127,7 +127,7 @@
               href: map-add-custom-html.md
             - name: Visa trafik
               href: map-show-traffic.md
-            - name: Interagera med mushändelser
+            - name: Reagerar på händelser
               href: map-events.md
             - name: Göra programmet tillgängligt
               href: map-accessibility.md

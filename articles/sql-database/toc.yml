@@ -124,8 +124,6 @@
               href: sql-database-threat-detection-overview.md
             - name: Säkerhetsattribut
               href: sql-database-security-attributes.md
-            - name: Funktionsbegränsningar
-              href: sql-database-feature-restrictions.md
         - name: Säkerhet för enkel databas
           items:
             - name: Nätverksåtkomstkontroller

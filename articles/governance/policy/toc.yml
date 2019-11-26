@@ -2,7 +2,7 @@
   href: index.yml
 - name: Översikt
   items:
-    - name: Översikt över Azure Policy
+    - name: Vad är Azure Policy?
       displayName: 'rbac, assign, initiative, parameters, count'
       href: overview.md
 - name: Snabbstarter

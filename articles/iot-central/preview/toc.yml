@@ -71,6 +71,8 @@
           href: howto-version-device-template.md
         - name: Hantera dina enheter
           href: howto-manage-devices.md
+        - name: Konfigurera regler
+          href: howto-configure-rules.md
         - name: Analysera dina enhetsdata
           href: howto-create-analytics.md
         - name: Lägga till paneler på din instrumentpanel

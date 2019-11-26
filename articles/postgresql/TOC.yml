@@ -84,16 +84,18 @@
               href: concepts-limits.md
         - name: Dataåtkomst och säkerhet
           items:
-            - name: Brandväggsregler
-              href: concepts-firewall-rules.md
+            - name: Säkerhetsöversikt
+              href: concepts-security.md
             - name: Konfigurera SSL
               href: concepts-ssl-connection-security.md
-            - name: Advanced Threat Protection
-              href: concepts-data-access-and-security-threat-protection.md
-            - name: Virtuellt nätverk
-              href: concepts-data-access-and-security-vnet.md
             - name: Anslutningsarkitektur
               href: concepts-connectivity-architecture.md
+            - name: Brandväggsregler
+              href: concepts-firewall-rules.md
+            - name: Virtuellt nätverk
+              href: concepts-data-access-and-security-vnet.md
+            - name: Advanced Threat Protection
+              href: concepts-data-access-and-security-threat-protection.md
             - name: Azure AD-autentisering
               href: concepts-aad-authentication.md
         - name: Verksamhetskontinuitet

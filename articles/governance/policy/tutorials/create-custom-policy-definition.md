@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Create a custom policy definition'
 description: In this tutorial, you craft a custom policy definition for Azure Policy to enforce custom business rules on your Azure resources.
-ms.date: 11/21/2019
+ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: d93f1acb383782de055983ec9ec33ce5576619d1
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: e30d47ed6e01c4fd8ff061398b1045f9446e466a
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327413"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483979"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Create a custom policy definition
 
@@ -52,7 +52,7 @@ Based on the business requirement, the Azure resource to audit with Azure Policy
 
 Det finns många sätt att avgöra egenskaperna för en Azure-resurs. Vi ska titta på var och en för den här självstudien:
 
-- Azure Policy extension for VS Code
+- Azure Policy-tillägg för VS Code
 - Mallar för Resurshanteraren
   - Exportera befintlig resurs
   - Skapandeupplevelse
@@ -163,7 +163,7 @@ Vi har identifierat resursegenskapen, men vi behöver mappa egenskapen till ett 
 
 Det finns några olika sätt att avgöra alias för en Azure-resurs. Vi ska titta på var och en för den här självstudien:
 
-- Azure Policy extension for VS Code
+- Azure Policy-tillägg för VS Code
 - Azure CLI
 - Azure PowerShell
 - Azure Resource Graph
@@ -450,6 +450,16 @@ När alla tre delar av principen har definierats är här vår slutförda defini
 ```
 
 Den slutförda definitionen kan användas för att skapa en ny princip. Portalen och varje SDK (Azure CLI, Azure PowerShell och REST-API) accepterar definitionen på olika sätt, så gå igenom kommandona för varje att verifiera korrekt användning. Tilldela den sedan, med den parameteriserade effekten, till lämpliga resurser för att hantera säkerheten för dina lagringskonton.
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Om du är klar med att arbeta med resurser i den här självstudien kan du använda följande steg för att ta bort tilldelningar eller definitioner som skapades ovan:
+
+1. Välj **Definitioner** (eller **Tilldelningar** om du ska ta bort en tilldelning) under **Redigering** till vänster på sidan Azure Policy.
+
+1. Sök efter den nya initiativ- eller principdefinition (eller tilldelning) som du vill ta bort.
+
+1. Högerklicka på raden eller välj ellipserna i slutet av definitionen (eller tilldelningen) och välj **Ta bort definition** (eller **Ta bort tilldelning**).
 
 ## <a name="review"></a>Granska
 

@@ -1,6 +1,6 @@
 ---
-title: Data drivna format uttryck i Azure Maps Web SDK | Microsoft Docs
-description: Använda data drivna format uttryck i Azure Maps Web SDK.
+title: Data-driven style Expressions in the Azure Maps Web SDK | Microsoft Docs
+description: How to use data-driven style expressions in the Azure Maps Web SDK.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 4/4/2019
@@ -9,26 +9,26 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 507af54b8b4c2e7c67538a1a25a040c7ee5fdfd5
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 6cd69ba8abe243daadf5d517ab7c5a224953cc99
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976321"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74480643"
 ---
-# <a name="data-driven-style-expressions-web-sdk"></a>Uttryck för data drivna format (webb-SDK)
+# <a name="data-driven-style-expressions-web-sdk"></a>Data-driven Style Expressions (Web SDK)
 
-Med uttryck kan du tillämpa affärs logik för att formatera alternativ som ser till att egenskaperna som definierats i varje form i en data källa. Uttryck kan också användas för att filtrera data i en data källa eller ett lager. Uttryck kan bestå av villkorlig logik, t. ex. if-statements, och kan även användas för att manipulera data med; sträng, logiska och matematiska operatorer. 
+Expressions enable you to apply business logic to styling options that observe the properties defined in each shape in a data source. Expressions can also be used to filter data in a data source or layer. Expressions can consist of conditional logic, like if-statements, and can also be used to manipulate data with; string, logical and mathematical operators. 
 
-Data drivna format kan minska mängden kod som behövs för att implementera affärs logik kring formatering. När det används med lager utvärderas uttryck vid åter givnings tiden på en separat tråd som ger bättre prestanda jämfört med att utvärdera affärs logiken i UI-tråden.
+Data-driven styles can reduce the amount of code needed to implement business logic around styling. When used with layers, expressions are evaluated at render time on a separate thread that provides increased performance when compared to evaluating business logic on the UI thread.
 
-Följande videoklipp ger en översikt över data driven format i Azure Maps Web SDK.
+The following video provides an overview of data-driven styling in the Azure Maps Web SDK.
 
 <br/>
 
 <iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Data-Driven-Styling-with-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
-Uttryck visas som JSON-matriser. Det första elementet i ett uttryck i matrisen är en sträng som anger namnet på uttrycks operatorn. Till exempel "+" eller "Case". Nästa element (om det finns några) är argumenten för uttrycket. Varje argument är antingen ett litteralt värde (en sträng, en siffra, ett `null`booleskt värde eller ett) eller en annan uttrycks mat ris. Följande pseudocode definierar den grundläggande strukturen ett uttryck. 
+Expressions are represented as JSON arrays. The first element of an expression in the array is a string that specifies the name of the expression operator. For example, "+" or "case". The next elements (if any) are the arguments to the expression. Each argument is either a literal value (a string, number, boolean, or `null`), or another expression array. The following pseudocode defines the basic structure an expression. 
 
 ```javascript
 [ 
@@ -39,24 +39,24 @@ Uttryck visas som JSON-matriser. Det första elementet i ett uttryck i matrisen 
 ] 
 ```
 
-Azure Maps Web SDK stöder många typer av som kan användas på egen hand eller i kombination med andra uttryck.
+The Azure Maps Web SDK supports many types of that can be used on their own or in combination with other expressions.
 
-| Typ av uttryck | Beskrivning |
+| Type of expressions | Beskrivning |
 |---------------------|-------------|
-| [Mängd uttryck](#aggregate-expression) | Ett uttryck som definierar en beräkning som bearbetas över en uppsättning data och som kan användas med `clusterProperties` alternativet i en. `DataSource` |
-| [Booleska uttryck](#boolean-expressions) | Booleska uttryck tillhandahåller en uppsättning booleska operator uttryck för att utvärdera booleska jämförelser. |
-| [Färg uttryck](#color-expressions) | Färg uttryck gör det enklare att skapa och ändra färg värden. |
-| [Villkors uttryck](#conditional-expressions) | Villkors uttryck tillhandahåller logik åtgärder som liknar IF-Statements. |
-| [Data uttryck](#data-expressions) | Ger åtkomst till egenskaps data i en funktion. |
-| [Interpolerade och steg uttryck](#interpolate-and-step-expressions) | Interpolerade och steg uttryck kan användas för att beräkna värden längs en interpolerad kurva eller en steg funktion. |
-| [Lagerbaserat uttryck](#layer-specific-expressions) | Särskilda uttryck som endast gäller för ett enskilt lager. |
-| [Matematiska uttryck](#math-expressions) | Innehåller matematiska operatorer för att utföra data drivna beräkningar i uttrycks ramverket. |
-| [Uttryck för sträng operator](#string-operator-expressions) | Uttryck för sträng operatorer utför konverterings åtgärder på strängar som sammanfogning och konvertering av ärendet. |
-| [Typ uttryck](#type-expressions) | Typ uttryck innehåller verktyg för att testa och konvertera olika data typer, t. ex. strängar, siffror och booleska värden. |
-| [Uttryck för variabel bindning](#variable-binding-expressions) | Uttryck för variabel bindning gör att resultatet av en beräkning lagras i en variabel och refereras till någon annan stans i ett uttryck med flera gånger utan att behöva beräkna om det lagrade värdet. |
-| [Uttryck för zoomning](#zoom-expression) | Hämtar den aktuella zoomnings nivån för kartan vid åter givnings tiden. |
+| [Aggregate expression](#aggregate-expression) | An expression that defines a calculate that is processed over a set of data and can be used with the `clusterProperties` option of a `DataSource`. |
+| [Boolean expressions](#boolean-expressions) | Boolean expressions provide a set of boolean operators expressions for evaluating boolean comparisons. |
+| [Color expressions](#color-expressions) | Color expressions make it easier to create and manipulate color values. |
+| [Conditional expressions](#conditional-expressions) | Conditional expressions provide logic operations that are like if-statements. |
+| [Data expressions](#data-expressions) | Provides access to the property data in a feature. |
+| [Interpolate and Step expressions](#interpolate-and-step-expressions) | Interpolate and step expressions can be used to calculate values along an interpolated curve or step function. |
+| [Layer specific expressions](#layer-specific-expressions) | Special expressions that are only applicable to a single layer. |
+| [Math expressions](#math-expressions) | Provides mathematical operators to perform data-driven calculations within the expression framework. |
+| [String operator expressions](#string-operator-expressions) | String operator expressions perform conversion operations on strings such as concatenating and converting the case. |
+| [Type expressions](#type-expressions) | Type expressions provide tools for testing and converting different data types like strings, numbers, and boolean values. |
+| [Variable binding expressions](#variable-binding-expressions) | Variable binding expressions let the results of a calculation be stored in a variable and referenced elsewhere in an expression multiple times without having to recalculate the stored value. |
+| [Zoom expression](#zoom-expression) | Retrieves the current zoom level of the map at render time. |
 
-I alla exempel i det här dokumentet används följande funktion för att demonstrera olika sätt i att de olika typerna av uttryck kan användas. 
+All examples in this document will use the following feature to demonstrate different ways in that the different types of expressions can be used. 
 
 ```javascript
 {
@@ -77,24 +77,24 @@ I alla exempel i det här dokumentet används följande funktion för att demons
 }
 ```
 
-## <a name="data-expressions"></a>Data uttryck
+## <a name="data-expressions"></a>Data expressions
 
-Data uttryck ger till gång till egenskaps data i en funktion. 
+Data expressions provide access to the property data in a feature. 
 
-| Uttryck | Returtyp | Beskrivning |
+| Uttryck | Return type | Beskrivning |
 |------------|-------------|-------------|
-| `['at', number, array]` | object | Hämtar ett objekt från en matris. |
-| `['geometry-type']` | sträng | Hämtar funktionens geometri typ: Punkt, MultiPoint, lin Est ring, MultiLineString, polygon, multipolygon. |
-| `['get', string]` | value | Hämtar egenskap svärdet från den aktuella funktionens egenskaper. Returnerar null om den begärda egenskapen saknas. |
-| `['get', string, object]` | value | Hämtar egenskap svärdet från egenskaperna för det angivna objektet. Returnerar null om den begärda egenskapen saknas. |
-| `['has', string]` | boolean | Anger om egenskaperna för en funktion har den angivna egenskapen. |
-| `['has', string, object]` | boolean | Anger om egenskaperna för objektet har den angivna egenskapen. |
-| `['id']` | value | Hämtar funktionens ID om det har en sådan. |
-| `['length', string | array]` | nummer | Hämtar längden för en sträng eller matris. |
+| `['at', number, array]` | objekt | Retrieves an item from an array. |
+| `['geometry-type']` | sträng | Gets the feature's geometry type: Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
+| `['get', string]` | värde | Gets the property value from the current feature's properties. Returns null if the requested property is missing. |
+| `['get', string, object]` | värde | Gets the property value from the properties of the provided object. Returns null if the requested property is missing. |
+| `['has', string]` | boolesk | Determines if the properties of a feature have the specified property. |
+| `['has', string, object]` | boolesk | Determines if the properties of the object have the specified property. |
+| `['id']` | värde | Gets the feature's ID if it has one. |
+| `['length', string | array]` | nummer | Gets the length of a string or array. |
 
 **Exempel**
 
-Egenskaperna för en funktion kan nås direkt i ett uttryck med hjälp av ett `get` uttryck. I följande exempel används värdet "zoneColor" för funktionen för att ange färg egenskapen för ett bubbeldiagram. 
+Properties of a feature can be accessed directly in an expression by using a `get` expression. The following example uses the "zoneColor" value of the feature to specify the color property of a bubble layer. 
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -102,7 +102,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-Exemplet ovan fungerar bra om alla punkt funktioner har `zoneColor` egenskapen, men om de inte gör det kommer färgen förmodligen att återgå till "svart". Om du vill ändra återställnings `case` färgen kan ett uttryck användas i kombination `has` med uttrycket för att kontrol lera om egenskapen finns och om den inte returnerar en återställnings färg i stället.
+The above example will work fine if all the point features have the `zoneColor` property, but if they don’t, the color will likely fall back to "black". To modify the fallback color, a `case` expression can be used in combination with the `has` expression to check if the property exists, and if it doesn’t return a fallback color instead.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -117,7 +117,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-Bubbeldiagram och symbol lager kommer att återge koordinaterna för alla former i en data källa som standard. Detta kan göras för att markera hörnen på en polygon eller linje. Alternativet för skiktet kan användas för att begränsa geometri typen för de funktioner som återges med hjälp av ett `['geometry-type']` uttryck i ett booleskt uttryck. `filter` I följande exempel begränsas ett bubbel lager så att `Point` endast funktioner återges.
+Bubble and symbol layers will render the coordinates of all shapes in a data source by default. This can be done to highlight the vertices of a polygon or line. The `filter` option of the layer can be used to limit the geometry type of the features it renders by using a `['geometry-type']` expression within a boolean expression. The following example limits a bubble layer so that only `Point` features are rendered.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -125,7 +125,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-I följande exempel kommer både `Point` och `MultiPoint` funktionerna att återges. 
+The following example will allow both `Point` and `MultiPoint` features to be rendered. 
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -133,90 +133,90 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-På samma sätt kommer konturen för polygoner att återges i linje lager. Om du vill inaktivera det här beteendet i ett linje lager lägger du till `LineString` ett `MultiLineString` filter som endast tillåter och-funktioner.  
+Similarly, the outline of Polygons will render in line layers. To disable this behavior in a line layer, add a filter that only allows `LineString` and `MultiLineString` features.  
 
-## <a name="math-expressions"></a>Matematiska uttryck
+## <a name="math-expressions"></a>Math expressions
 
-Matematiska uttryck tillhandahåller matematiska operatorer för att utföra data drivna beräkningar i uttrycks ramverket.
+Math expressions provide mathematical operators to perform data-driven calculations within the expression framework.
 
-| Uttryck | Returtyp | Beskrivning |
+| Uttryck | Return type | Beskrivning |
 |------------|-------------|-------------|
-| `['+', number, number, …]` | nummer | Beräknar summan av de angivna talen. |
-| `['-', number]` | nummer | Subtraherar 0 efter det angivna talet. |
-| `['-', number, number]` | nummer | Subtraherar de första talen med det andra talet. |
-| `['*', number, number, …]` | nummer | Multiplicerar de angivna talen tillsammans. |
-| `['/', number, number]` | nummer | Dividerar det första talet med det andra talet. |
-| `['%', number, number]` | nummer | Beräknar resten när det första talet divideras med det andra talet. |
-| `['^', number, number]` | nummer | Beräknar värdet för det första värdet upphöjt till det andra värdets potens. |
-| `['abs', number]` | nummer | Beräknar det absoluta värdet för det angivna talet. |
-| `['acos', number]` | nummer | Beräknar arcus cosinus för det angivna talet. |
-| `['asin', number]` | nummer | Beräknar arcus sinus för det angivna talet. |
-| `['atan', number]` | nummer | Beräknar arcus tangens för det angivna talet. |
-| `['ceil', number]` | nummer | Avrundar talet uppåt till närmaste heltal. |
-| `['cos', number]` | nummer | Beräknar cos för det angivna talet. |
-| `['e']` | nummer | Returnerar den matematiska konstanten `e`. |
-| `['floor', number]` | nummer | Avrundar talet nedåt till föregående heltal. |
-| `['ln', number]` | nummer | Beräknar den naturliga logaritmen för det angivna talet. |
-| `['ln2']` | nummer | Returnerar den matematiska konstanten `ln(2)`. |
-| `['log10', number]` | nummer | Beräknar basen 10-logaritmen för det angivna talet. |
-| `['log2', number]` | nummer | Beräknar basen – två logaritmen för det angivna talet. |
-| `['max', number, number, …]` | nummer | Beräknar det maximala antalet i den angivna uppsättningen tal. |
-| `['min', number, number, …]` | nummer | Beräknar det lägsta antalet i den angivna uppsättningen tal. |
-| `['pi']` | nummer | Returnerar den matematiska konstanten `PI`. |
-| `['round', number]` | nummer | Avrundar talet till närmaste heltal. Värdena för halvvägs avrundas från noll. Till exempel `['round', -1.5]` utvärderas till-2. |
-| `['sin', number]` | nummer | Beräknar sinus för det angivna talet. |
-| `['sqrt', number]` | nummer | Beräknar kvadratroten ur det angivna talet. |
-| `['tan', number]` | nummer | Beräknar tangens för det angivna talet. |
+| `['+', number, number, …]` | nummer | Calculates the sum of the specified numbers. |
+| `['-', number]` | nummer | Subtracts 0 by the specified number. |
+| `['-', number, number]` | nummer | Subtracts the first numbers by the second number. |
+| `['*', number, number, …]` | nummer | Multiplies the specified numbers together. |
+| `['/', number, number]` | nummer | Divides the first number by the second number. |
+| `['%', number, number]` | nummer | Calculates the remainder when dividing the first number by the second number. |
+| `['^', number, number]` | nummer | Calculates the value of the first value raised to the power of the second number. |
+| `['abs', number]` | nummer | Calculates the absolute value of the specified number. |
+| `['acos', number]` | nummer | Calculates the arccosine of the specified number. |
+| `['asin', number]` | nummer | Calculates the arcsine of the specified number. |
+| `['atan', number]` | nummer | Calculates the arctangent of the specified number. |
+| `['ceil', number]` | nummer | Rounds the number up to the next whole integer. |
+| `['cos', number]` | nummer | Calculates the cos of the specified number. |
+| `['e']` | nummer | Returns the mathematical constant `e`. |
+| `['floor', number]` | nummer | Rounds the number down to the previous whole integer. |
+| `['ln', number]` | nummer | Calculates the natural logarithm of the specified number. |
+| `['ln2']` | nummer | Returns the mathematical constant `ln(2)`. |
+| `['log10', number]` | nummer | Calculates the base-ten logarithm of the specified number. |
+| `['log2', number]` | nummer | Calculates the base-two logarithm of the specified number. |
+| `['max', number, number, …]` | nummer | Calculates the maximum number in the specified set of numbers. |
+| `['min', number, number, …]` | nummer | Calculates the minimum number in the specified set of numbers. |
+| `['pi']` | nummer | Returns the mathematical constant `PI`. |
+| `['round', number]` | nummer | Rounds the number to the nearest integer. Halfway values are rounded away from zero. For example, `['round', -1.5]` evaluates to -2. |
+| `['sin', number]` | nummer | Calculates the sine of the specified number. |
+| `['sqrt', number]` | nummer | Calculates the square root of the specified number. |
+| `['tan', number]` | nummer | Calculates the tangent of the specified number. |
 
-## <a name="aggregate-expression"></a>Mängd uttryck
+## <a name="aggregate-expression"></a>Aggregate expression
 
-Ett mängd uttryck definierar en beräkning som bearbetas över en uppsättning data och kan användas med `clusterProperties` alternativet för en. `DataSource` Utdata från dessa uttryck måste vara en siffra eller ett booleskt värde. 
+An aggregate expression defines a calculation that is processed over a set of data and can be used with the `clusterProperties` option of a `DataSource`. The output of these expressions must be a number or boolean. 
 
-Ett agg regerings uttryck tar i tre värden. ett operator värde och ett start värde och ett uttryck för att hämta en egenskap från varje funktion i en data för att tillämpa den sammanställda åtgärden. Det här uttrycket har följande format:
+An aggregate expression takes in three values; an operator value, and initial value, and an expression to retrieve a property from each feature in a data to apply the aggregate operation on. This expression has the following format:
 
 ```javascript
 [operator: string, initialValue: boolean | number, mapExpression: Expression]
 ```
 
-- Operator En uttrycks funktion som sedan tillämpas på alla värden som beräknas av `mapExpression` för varje punkt i klustret. Operatorer som stöds; 
-    - För siffror: `+`, `*`, `max`,`min`
-    - För booleska värden: `all`,`any`
-- initialValue: Ett initialt värde där det första beräknade värdet aggregeras mot.
-- mapExpression: Ett uttryck som tillämpas mot varje punkt i data uppsättningen.
+- operator: An expression function that is then applied to against all values calculated by the `mapExpression` for each point in the cluster. Supported operators; 
+    - For numbers: `+`, `*`, `max`, `min`
+    - For Booleans: `all`, `any`
+- initialValue: An initial value in which the first calculated value is aggregated against.
+- mapExpression: An expression that is applied against each point in the data set.
 
 **Exempel**
 
-Om alla funktioner i en data uppsättning har en `revenue` egenskap som är ett tal. Den totala intäkten för alla punkter i ett kluster som skapats från data uppsättningen kan beräknas med följande mängd uttryck:`['+', 0, ['get', 'revenue']]`
+If all features in a data set have a `revenue` property that is a number. The total revenue of all points in a cluster created from the data set can be calculated using the following aggregate expression: `['+', 0, ['get', 'revenue']]`
 
 ## <a name="boolean-expressions"></a>Booleska uttryck
 
-Booleska uttryck tillhandahåller en uppsättning booleska operator uttryck för att utvärdera booleska jämförelser.
+Boolean expressions provide a set of boolean operators expressions for evaluating boolean comparisons.
 
-När värden jämförs skrivs jämförelsen strikt. Värden av olika typer betraktas alltid som likvärdiga. De fall där typerna är kända för olika tidpunkter för parsar betraktas som ogiltiga och genererar ett parsningsfel. 
+When comparing values, the comparison is strictly typed. Values of different types are always considered unequal. Cases where the types are known to be different at parse time are considered invalid and will produce a parse error. 
 
-| Uttryck | Returtyp | Beskrivning |
+| Uttryck | Return type | Beskrivning |
 |------------|-------------|-------------|
-| `['! ', boolean]` | boolean | Logisk negation. Returnerar `true` om indatatypen `false`är och `false` om indatatypen `true`är. |
-| `['!= ', value, value]` | boolean | Returnerar `true` Om indatavärdena inte är lika, `false` annars. |
-| `['<', value, value]` | boolean | Returnerar `true` om den första indatamängden är strikt mindre än den `false` andra, annars. Argumenten måste vara antingen båda strängarna eller båda talen. |
-| `['<=', value, value]` | boolean | Returnerar `true` om den första indatamängden är mindre än eller lika med den `false` andra, annars. Argumenten måste vara antingen båda strängarna eller båda talen. |
-| `['==', value, value]` | boolean | Returnerar `true` Om indatavärdena är identiska, `false` annars. Argumenten måste vara antingen båda strängarna eller båda talen. |
-| `['>', value, value]` | boolean | Returnerar `true` om den första indatamängden är exakt större än den `false` andra, annars. Argumenten måste vara antingen båda strängarna eller båda talen. |
-| `['>=' value, value]` | boolean | Returnerar `true` om den första indatamängden är större än eller lika med den `false` andra, annars. Argumenten måste vara antingen båda strängarna eller båda talen. |
-| `['all', boolean, boolean, …]` | boolean | Returnerar `true` om alla indata är `true`, `false` annars. |
-| `['any', boolean, boolean, …]` | boolean | Returnerar `true` om någon av indatan `true`är `false` , annars. |
+| `['! ', boolean]` | boolesk | Logical negation. Returns `true` if the input is `false`, and `false` if the input is `true`. |
+| `['!= ', value, value]` | boolesk | Returns `true` if the input values are not equal, `false` otherwise. |
+| `['<', value, value]` | boolesk | Returns `true` if the first input is strictly less than the second, `false` otherwise. The arguments are required to be either both strings or both numbers. |
+| `['<=', value, value]` | boolesk | Returns `true` if the first input is less than or equal to the second, `false` otherwise. The arguments are required to be either both strings or both numbers. |
+| `['==', value, value]` | boolesk | Returns `true` if the input values are equal, `false` otherwise. The arguments are required to be either both strings or both numbers. |
+| `['>', value, value]` | boolesk | Returns `true` if the first input is strictly greater than the second, `false` otherwise. The arguments are required to be either both strings or both numbers. |
+| `['>=' value, value]` | boolesk | Returns `true` if the first input is greater than or equal to the second, `false` otherwise. The arguments are required to be either both strings or both numbers. |
+| `['all', boolean, boolean, …]` | boolesk | Returns `true` if all the inputs are `true`, `false` otherwise. |
+| `['any', boolean, boolean, …]` | boolesk | Returns `true` if any of the inputs are `true`, `false` otherwise. |
 
 ## <a name="conditional-expressions"></a>Villkorliga uttryck
 
-Villkors uttryck tillhandahåller logik åtgärder som liknar IF-Statements.
+Conditional expressions provide logic operations that are like if-statements.
 
-Följande uttryck utför villkorliga logik åtgärder på indata. `case` Uttrycket innehåller exempelvis logiken "if/then/Else" `match` medan uttrycket liknar en "switch-sats". 
+The following expressions perform conditional logic operations on the input data. For example, the `case` expression provides "if/then/else" logic while the `match` expression is like a "switch-statement". 
 
-### <a name="case-expression"></a>Case-uttryck
+### <a name="case-expression"></a>Case expression
 
-Ett `case` uttryck är en typ av villkors uttryck som ger IF-Statement som Logic (om/sedan/Else). Den här typen av uttrycks steg genom en lista över booleska villkor och returnerar värdet output för det första booleska villkoret som är sant.
+A `case` expression is a type of conditional expression that provides if-statement like logic (if/then/else). This type of expression steps through a list of boolean conditions and returns the output value of the first boolean condition that’s true.
 
-Följande pseudocode definierar strukturen för `case` uttrycket. 
+The following pseudocode defines the structure of the `case` expression. 
 
 ```javascript
 [
@@ -232,7 +232,7 @@ Följande pseudocode definierar strukturen för `case` uttrycket.
 
 **Exempel**
 
-I följande exempel går vi igenom olika booleska villkor tills den hittar en som utvärderas `true`till och returnerar sedan det associerade värdet. Om inget booleskt villkor utvärderas till `true`returneras ett återställnings värde. 
+The following example steps through different boolean conditions until it finds one that evaluates to `true`, and then returns that associated value. If no boolean condition evaluates to `true`, a fallback value will be returned. 
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -253,11 +253,11 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-### <a name="match-expression"></a>Matchnings uttryck
+### <a name="match-expression"></a>Match expression
 
-Ett `match` uttryck är en typ av villkors uttryck som ger switch-instruktion som logik. Inmatade värden kan vara ett uttryck `['get', 'entityType']` som returnerar en sträng eller ett tal. Varje etikett måste antingen vara ett enstaka litteralt värde eller en matris med litterala värden, vars värden måste vara alla strängar eller alla siffror. Inmatarna matchar om något av värdena i mat ris matchningen. Varje etikett måste vara unik. Om indatatypen inte matchar typen av etiketter, blir resultatet värdet fallback.
+A `match` expression is a type of conditional expression that provides switch-statement like logic. The input can be any expression such as `['get', 'entityType']` that returns a string or a number. Each label must be either a single literal value or an array of literal values, whose values must be all strings or all numbers. The input matches if any of the values in the array match. Each label must be unique. If the input type doesn't match the type of the labels, the result will be the fallback value.
 
-Följande pseudocode definierar strukturen för `match` uttrycket. 
+The following pseudocode defines the structure of the `match` expression. 
 
 ```javascript
 [
@@ -274,7 +274,7 @@ Följande pseudocode definierar strukturen för `match` uttrycket.
 
 **Exempel**
 
-Följande exempel tittar på `entityType` egenskapen för en punkt funktion i ett Bubble-lager söker efter en matchning. Om en matchning hittas returneras det angivna värdet eller returneras återställnings värde.
+The following example looks at the `entityType` property of a Point feature in a bubble layer searches for a match. If it finds a match, that specified value is returned or it returns the fallback value.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -294,7 +294,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-I följande exempel används en matris för att visa en uppsättning etiketter som alla ska returnera samma värde. Det här är mycket mer effektivt än att lista varje etikett individuellt. I detta fall returneras färgen " `entityType` Red", om egenskapen är "restaurang" eller "grocery_store".
+The following example uses an array to list a set of labels that should all return the same value. This is much more efficient than list each label individually. In this case, if the `entityType` property is "restaurant" or "grocery_store", the color "red" will be returned.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -315,7 +315,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-I följande exempel används ett matchnings uttryck för att utföra en "i matris" eller "matris innehåller" typ filter, i det här fallet filtrerar data som har ett ID-värde som finns i en lista över tillåtna ID: n. När du använder uttryck med filter måste resultatet vara ett booleskt värde.
+The following example uses a match expression to perform an "in array" or "array contains" type filter, in this case filtering data that has an ID value that is in a list of allowed IDs. When using expressions with filters, the result needs to be a Boolean value.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -337,11 +337,11 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-### <a name="coalesce-expression"></a>Sammanslagnings uttryck
+### <a name="coalesce-expression"></a>Coalesce expression
 
-Ett `coalesce` uttrycks steg genom en uppsättning uttryck tills det första värdet som inte är null hämtas och returnerar värdet. 
+A `coalesce` expression steps through a set of expressions until the first non-null value is obtained and returns that value. 
 
-Följande pseudocode definierar strukturen för `coalesce` uttrycket. 
+The following pseudocode defines the structure of the `coalesce` expression. 
 
 ```javascript
 [
@@ -354,7 +354,7 @@ Följande pseudocode definierar strukturen för `coalesce` uttrycket.
 
 **Exempel**
 
-I följande exempel används ett `coalesce` uttryck för att `textField` ange alternativet för ett symbol lager. Om egenskapen saknas i funktionen eller om den är inställd på `null`, försöker uttrycket `subtitle` sedan att söka efter egenskapen, om den saknas eller `null`, kommer den att återgå till en tom sträng. `title` 
+The following example uses a `coalesce` expression to set the `textField` option of a symbol layer. If the `title` property is missing from the feature or set to `null`, the expression will then try looking for the `subtitle` property, if its missing or `null`, it will then fall back to an empty string. 
 
 ```javascript
 var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -375,21 +375,40 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 });
 ```
 
-## <a name="type-expressions"></a>Typ uttryck
+The following example uses a `coalesce` expression to retrieve the first available image icon available in the map sprite from a list of specified image names.
 
-Typ uttryck innehåller verktyg för att testa och konvertera olika data typer, t. ex. strängar, siffror och booleska värden.
+```javascript
+var layer = new atlas.layer.SymbolLayer(datasource, null, {
+    iconOptions: {
+        image: [
+            'coalesce',
 
-| Uttryck | Returtyp | Beskrivning |
+            //Try getting the image with id 'missing-image'.
+            ['image', 'missing-image'],
+
+            //Specify an image id to fallback to. 
+            'marker-blue'
+        ]
+    }
+});
+``` 
+
+## <a name="type-expressions"></a>Type expressions
+
+Type expressions provide tools for testing and converting different data types like strings, numbers, and boolean values.
+
+| Uttryck | Return type | Beskrivning |
 |------------|-------------|-------------|
-| `['literal', array]`<br/><br/>`['literal', object]` | mat \| ris objekt | Returnerar en literal matris eller ett objekt värde. Använd det här uttrycket för att förhindra att en matris eller ett objekt utvärderas som ett uttryck. Detta är nödvändigt när en matris eller ett objekt måste returneras av ett uttryck. |
-| `['to-boolean', value]` | boolean | Konverterar indatavärdet till ett booleskt värde. Resultatet är `false` när indatatypen är en tom sträng `null` `false`, `0`,, eller `NaN`; i övrigt `true`. |
-| `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | färg | Konverterar indatavärdet till en färg. Om flera värden anges utvärderas var och en i ordning tills den första lyckade konverteringen erhålls. Om ingen av indatana kan konverteras, är uttrycket ett fel. |
-| `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | nummer | Konverterar indatavärdet till ett tal, om möjligt. Om indatatypen `null` är `false`eller, är resultatet 0. Om indatatypen `true`är är resultatet 1. Om indatatypen är en sträng konverteras den till ett tal med hjälp av funktionen [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) -sträng i språk specifikationen ECMAScript. Om flera värden anges utvärderas var och en i ordning tills den första lyckade konverteringen erhålls. Om ingen av indatana kan konverteras, är uttrycket ett fel. |
-| `['to-string', value]` | sträng | Konverterar indatavärdet till en sträng. Om indatatypen `null`är är `""`resultatet. Om indatatypen är ett booleskt värde är `"true"` resultatet eller. `"false"` Om indatatypen är ett tal, konverteras den till en sträng med hjälp av funktionen [toString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) Number i språk specifikationen ECMAScript. Om indatatypen är en färg konverteras den till CSS RGBA-färg `"rgba(r,g,b,a)"`sträng. Annars konverteras inmatarna till en sträng med hjälp av [JSON. stringify](https://tc39.github.io/ecma262/#sec-json.stringify) -funktionen i språk specifikationen ECMAScript. |
-| `['typeof', value]` | sträng | Returnerar en sträng som beskriver typen för det aktuella värdet. |
+| `['literal', array]`<br/><br/>`['literal', object]` | array \| object | Returns a literal array or object value. Use this expression to prevent an array or object from being evaluated as an expression. This is necessary when an array or object needs to be returned by an expression. |
+| `['image', string]` | sträng | Checks to see if a specified image ID is loaded into the maps image sprite. If it is, the ID is returned, otherwise null is returned. |
+| `['to-boolean', value]` | boolesk | Converts the input value to a boolean. The result is `false` when the input is an empty string, `0`, `false`, `null`, or `NaN`; otherwise its `true`. |
+| `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | color | Converts the input value to a color. If multiple values are provided, each one is evaluated in order until the first successful conversion is obtained. If none of the inputs can be converted, the expression is an error. |
+| `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | nummer | Converts the input value to a number, if possible. If the input is `null` or `false`, the result is 0. If the input is `true`, the result is 1. If the input is a string, it's converted to a number using the [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) string function of the ECMAScript Language Specification. If multiple values are provided, each one is evaluated in order until the first successful conversion is obtained. If none of the inputs can be converted, the expression is an error. |
+| `['to-string', value]` | sträng | Converts the input value to a string. If the input is `null`, the result is `""`. If the input is a boolean, the result is `"true"` or `"false"`. If the input is a number, it's converted to a string using the [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) number function of the ECMAScript Language Specification. If the input is a color, it's converted to CSS RGBA color string `"rgba(r,g,b,a)"`. Otherwise, the input is converted to a string using the [JSON.stringify](https://tc39.github.io/ecma262/#sec-json.stringify) function of the ECMAScript Language Specification. |
+| `['typeof', value]` | sträng | Returns a string describing the type of the given value. |
 
 > [!TIP]
-> Om ett fel meddelande liknar `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].` det som visas i webb läsar konsolen betyder det att det finns ett uttryck någonstans i koden som har en matris som inte har en sträng för det första värdet. Om du vill att uttrycket ska returnera en matris omsluter du matrisen `literal` med uttrycket. I följande exempel anges ikon `offset` alternativet för ett symbol lager, som måste vara en matris som innehåller två siffror, genom att använda ett `match` uttryck för att välja mellan två offset-värden baserat `entityType` på värdet för punktens egenskap zoomfunktionen.
+> If an error message similar to `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].` appears in the browser console it means that there is an expression somewhere in your code that has an array that doesn’t have a string for its first value. If you want the expression to return an array, wrap the array with the `literal` expression. The following example sets the icon `offset` option of a symbol layer, which needs to be an array containing two numbers, by using a `match` expression to choose between two offset values based on the value of the  `entityType` property of the point feature.
 >
 > ```javascript
 > var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -400,7 +419,7 @@ Typ uttryck innehåller verktyg för att testa och konvertera olika data typer, 
 >             //Get the entityType value.
 >             ['get', 'entityType'],
 >
->             //If there is no title, try getting the subtitle. 
+>             //If the entity type is 'restaurant', return a different pixel offset. 
 >             'restaurant', ['literal', [0, -10]],
 >
 >             //Default to value.
@@ -410,19 +429,19 @@ Typ uttryck innehåller verktyg för att testa och konvertera olika data typer, 
 > });
 > ```
 
-## <a name="color-expressions"></a>Färg uttryck
+## <a name="color-expressions"></a>Color expressions
 
-Färg uttryck gör det enklare att skapa och ändra färg värden.
+Color expressions make it easier to create and manipulate color values.
 
-| Uttryck | Returtyp | Beskrivning |
+| Uttryck | Return type | Beskrivning |
 |------------|-------------|-------------|
-| `['rgb', number, number, number]` | färg | Skapar ett färg värde från *röda*, *gröna*och *blå* komponenter som måste vara mellan `0` och `255`och en alpha-komponent i `1`. Om någon komponent är utanför intervallet är uttrycket ett fel. |
-| `['rgba', number, number, number, number]` | färg | Skapar ett färg värde från *röda*, *gröna*, *blå* komponenter som måste vara mellan `0` och `255`och en alpha-komponent inom ett intervall av `0` och `1`. Om någon komponent är utanför intervallet är uttrycket ett fel. |
-| `['to-rgba']` | \[Number, Number, Number, Number\] | Returnerar en matris med fyra element som innehåller indatamängdens *röda*, *gröna*, *blå*och *alpha* -komponenter i den ordningen. |
+| `['rgb', number, number, number]` | color | Creates a color value from *red*, *green*, and *blue* components that must range between `0` and `255`, and an alpha component of `1`. If any component is out of range, the expression is an error. |
+| `['rgba', number, number, number, number]` | color | Creates a color value from *red*, *green*, *blue* components that must range between `0` and `255`, and an alpha component within a range of `0` and `1`. If any component is out of range, the expression is an error. |
+| `['to-rgba']` | \[number, number, number, number\] | Returns a four-element array containing the input color's *red*, *green*, *blue*, and *alpha* components, in that order. |
 
 **Exempel**
 
-I följande exempel skapas och RGB-färgvärdet som har ett rött `255`värde av och de *gröna* och *blå* värdena som beräknas `2.5` `temperature` genom att multipliceras med egenskapens värde. När temperaturen ändras ändras färgen till olika nyanser av *rött*.
+The following example creates and RGB color value that has a *red* value of `255`, and *green* and *blue* values that are calculated by multiplying `2.5` by the value of the `temperature` property. As the temperature changes the color will change to different shades of *red*.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -438,19 +457,19 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-## <a name="string-operator-expressions"></a>Uttryck för sträng operator
+## <a name="string-operator-expressions"></a>String operator expressions
 
-Uttryck för sträng operatorer utför konverterings åtgärder på strängar som sammanfogning och konvertering av ärendet. 
+String operator expressions perform conversion operations on strings such as concatenating and converting the case. 
 
-| Uttryck | Returtyp | Beskrivning |
+| Uttryck | Return type | Beskrivning |
 |------------|-------------|-------------|
-| `['concat', string, string, …]` | sträng | Sammanfogar flera strängar. Varje värde måste vara en sträng. `to-string` Använd typ uttrycket för att konvertera andra värde typer till sträng vid behov. |
-| `['downcase', string]` | sträng | Konverterar den angivna strängen till gemener. |
-| `['upcase', string]` | sträng | Konverterar den angivna strängen till versaler. |
+| `['concat', string, string, …]` | sträng | Concatenates multiple strings together. Each value must be a string. Use the `to-string` type expression to convert other value types to string if needed. |
+| `['downcase', string]` | sträng | Converts the specified string to lowercase. |
+| `['upcase', string]` | sträng | Converts the specified string to uppercase. |
 
 **Exempel**
 
-I följande exempel konverteras `temperature` egenskapen för punkt-funktionen till en sträng och sedan sammanfogas "°F" till slutet av den.
+The following example converts the `temperature` property of the point feature into a string and then concatenates "°F" to the end of it.
 
 ```javascript
 var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -465,33 +484,33 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 });
 ```
 
-Uttrycket ovan återger en PIN-kod på kartan med texten "64 °F" som står ovanpå den som visas på bilden nedan.
+The above expression renders a pin on the map with the text "64°F" overlaid on top of it as shown in the image below.
 
 <center>
 
-![Uttrycks exempel](media/how-to-expressions/string-operator-expression.png) för sträng operator</center>
+![String operator expression example](media/how-to-expressions/string-operator-expression.png) </center>
 
-## <a name="interpolate-and-step-expressions"></a>Interpolerade och steg uttryck
+## <a name="interpolate-and-step-expressions"></a>Interpolate and Step expressions
 
-Interpolerade och steg uttryck kan användas för att beräkna värden längs en interpolerad kurva eller en steg funktion. Dessa uttryck tar i ett uttryck som returnerar ett numeriskt värde som indatatyp, till `['get',  'temperature']`exempel. Indatavärdet utvärderas mot par av indata-och utdatakolumner, som kallas "stoppa", för att fastställa det värde som passar bäst för funktionen interpolerad kurva eller funktion. Indatavärdena för varje stopp måste vara ett tal och vara i stigande ordning. Värdena för utdata måste vara ett tal, en matris med tal eller en färg.
+Interpolate and step expressions can be used to calculate values along an interpolated curve or step function. These expressions take in an expression that returns a numeric value as their input, for example `['get',  'temperature']`. The input value is evaluated against pairs of input and output values, called "stops", to determine the value that best fits the interpolated curve or step function. The input values for each stop must be a number and be in ascending order. The output values must be a number, and array of numbers, or a color.
 
-### <a name="interpolate-expression"></a>Interpolerat uttryck
+### <a name="interpolate-expression"></a>Interpolate expression
 
-Ett `interpolate` uttryck kan användas för att beräkna en kontinuerlig, mjuk uppsättning värden genom interpolating mellan stopp värden. Ett `interpolate` uttryck som returnerar färg värden skapar en färg toning där resultat värden väljs.
+An `interpolate` expression can be used to calculate a continuous, smooth set of values by interpolating between stop values. An `interpolate` expression that returns color values produces a color gradient in which result values are selected from.
 
-Det finns tre typer av interpolation-metoder som kan användas i `interpolate` ett uttryck:
+There are three types of interpolation methods that can be used in an `interpolate` expression:
  
-* `['linear']`– Interpolerar linjärt mellan stopp paret.
-* `['exponential', base]`– Interpolerar exponentiellt mellan stoppen. `base` Värdet styr den hastighet som utdata ökar. Högre värden gör att utdata ökar till den övre delen av intervallet. Ett `base` värde nära 1 ger utdata som ökar linjärt.
-* `['cubic-bezier', x1, y1, x2, y2]`– Interpolerar med en [kubikmeter-kurva](https://developer.mozilla.org/docs/Web/CSS/timing-function) som definieras av de angivna kontroll punkterna.
+* `['linear']` -  Interpolates linearly between the pair of stops.
+* `['exponential', base]` - Interpolates exponentially between the stops. The `base` value controls the rate at which the output increases. Higher values make the output increase more towards the high end of the range. A `base` value close to 1 produces an output that increases more linearly.
+* `['cubic-bezier', x1, y1, x2, y2]` - Interpolates using a [cubic Bezier curve](https://developer.mozilla.org/docs/Web/CSS/timing-function) defined by the given control points.
 
-Här är ett exempel på hur de olika typerna av interpolerar ser ut. 
+Here is an example of what these different types of interpolations look like. 
 
-| Linjär  | Exponentiell | Kubisk Bezier |
+| Linjär  | Exponentiell | Cubic Bezier |
 |---------|-------------|--------------|
-| ![Diagram över linjär interpolation](media/how-to-expressions/linear-interpolation.png) | ![Diagram över exponentiell interpolation](media/how-to-expressions/exponential-interpolation.png) | ![Diagram över kubisk bezierinterpolation](media/how-to-expressions/bezier-curve-interpolation.png) |
+| ![Linear interpolation graph](media/how-to-expressions/linear-interpolation.png) | ![Exponential interpolation graph](media/how-to-expressions/exponential-interpolation.png) | ![Cubic Bezier interpolation graph](media/how-to-expressions/bezier-curve-interpolation.png) |
 
-Följande pseudocode definierar strukturen för `interpolate` uttrycket. 
+The following pseudocode defines the structure of the `interpolate` expression. 
 
 ```javascript
 [
@@ -508,7 +527,7 @@ Följande pseudocode definierar strukturen för `interpolate` uttrycket.
 
 **Exempel**
 
-I följande exempel används ett `linear interpolate` uttryck för att `color` ange egenskapen för ett `temperature` bubbel-lager baserat på egenskapen för punkt funktionen. `temperature` Om värdet är mindre än 60 kommer "blå" att returneras, om mellan 60 och mindre än 70, kommer gult att returneras, om mellan 70 och mindre än 80, returneras "orange", om 80 eller senare, "röd" kommer att returneras.
+The following example uses a `linear interpolate` expression to set the `color` property of a bubble layer based on the `temperature` property of the point feature. If the `temperature` value is less than 60, "blue" will be returned, if between 60 and less than 70, yellow will be returned, if between 70 and less than 80, "orange" will be returned, if 80 or greater, "red" will be returned.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -528,17 +547,17 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-Följande bild visar hur färgerna väljs för uttrycket ovan.
+The following image demonstrates how the colors are chosen for the above expression.
  
 <center>
 
-![Exempel](media/how-to-expressions/interpolate-expression-example.png) på interpolerat uttryck</center>
+![Interpolate expression example](media/how-to-expressions/interpolate-expression-example.png) </center>
 
-### <a name="step-expression"></a>Steg uttryck
+### <a name="step-expression"></a>Step expression
 
-Ett `step` uttryck kan användas för att beräkna diskreta, stegvisa resultat värden genom att utvärdera en [PieceWise-konstant funktion](http://mathworld.wolfram.com/PiecewiseConstantFunction.html) som definieras av stopp. 
+A `step` expression can be used to calculate discrete, stepped result values by evaluating a [piecewise-constant function](http://mathworld.wolfram.com/PiecewiseConstantFunction.html) defined by stops. 
 
-Följande pseudocode definierar strukturen för `step` uttrycket. 
+The following pseudocode defines the structure of the `step` expression. 
 
 ```javascript
 [
@@ -553,11 +572,11 @@ Följande pseudocode definierar strukturen för `step` uttrycket.
 ]
 ```
 
-Steg uttryck returnerar utdata för stoppet precis före indatavärdet eller det första indatavärdet om indata är mindre än det första steget. 
+Step expressions return the output value of the stop just before the input value, or the first input value if the input is less than the first stop. 
 
 **Exempel**
 
-I följande exempel används ett `step` uttryck för att `color` ange egenskapen för ett `temperature` bubbel-lager baserat på egenskapen för punkt funktionen. `temperature` Om värdet är mindre än 60 returneras "blått", om mellan 60 och mindre än 70, returneras "gult", om mellan 70 och mindre än 80, returneras "orange", om 80 eller senare, "röd" kommer att returneras.
+The following example uses a `step` expression to set the `color` property of a bubble layer based on the `temperature` property of the point feature. If the `temperature` value is less than 60, "blue" will be returned, if between 60 and less than 70, "yellow" will be returned, if between 70 and less than 80, "orange" will be returned, if 80 or greater, "red" will be returned.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -575,27 +594,27 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-Följande bild visar hur färgerna väljs för uttrycket ovan.
+The following image demonstrates how the colors are chosen for the above expression.
  
 <center>
 
-![Exempel på steg uttryck](media/how-to-expressions/step-expression-example.png)
+![Step expression example](media/how-to-expressions/step-expression-example.png)
 </center>
 
-## <a name="layer-specific-expressions"></a>Lagerbaserat uttryck
+## <a name="layer-specific-expressions"></a>Layer specific expressions
 
-Särskilda uttryck som endast gäller för specifika lager.
+Special expressions that only apply to specific layers.
 
-### <a name="heat-map-density-expression"></a>Uttryck för termisk kart täthet
+### <a name="heat-map-density-expression"></a>Heat map density expression
 
-Ett termiskt kart Täthets uttryck hämtar värdet för värme kartan för varje pixel i ett värme kart skikt och definieras som `['heatmap-density']`. Det här värdet är ett tal `0` mellan `1` och och används i kombination med ett `interpolation` or `step` -uttryck för att definiera färg toningen som används för att färga värme kartan. Det här uttrycket kan bara användas i [färg alternativet](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions?view=azure-iot-typescript-latest#color) för värme kart skiktet.
+A heat map density expression retrieves the heat map density value for each pixel in a heat map layer and is defined as `['heatmap-density']`. This value is a number between `0` and `1` and is used in combination with a `interpolation` or `step` expression to define the color gradient used to colorize the heat map. This expression can only be used in the [color option](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions?view=azure-iot-typescript-latest#color) of the heat map layer.
 
 > [!TIP]
-> Färgen vid index 0 i ett interpolation-uttryck eller standard färgen för en steg färg definierar ytans färg där det inte finns några data och som kan användas för att definiera en bakgrunds färg. Många föredrar att ange det här värdet som transparent eller en halv genomskinlig svart. 
+> The color at index 0 in an interpolation expression or the default color of a step color, defines the color of the area where there's no data and can be used to define a background color. Many prefer to set this value to transparent or a semi-transparent black. 
 
 **Exempel**
 
-I det här exemplet används ett liner-interpolation-uttryck för att skapa en mjuk färg toning för rendering av värme kartan. 
+This example uses a liner interpolation expression to create a smooth color gradient for rendering the heat map. 
 
 ```javascript 
 var layer = new atlas.layer.HeatMapLayer(datasource, null, {
@@ -611,7 +630,7 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 });
 ```
 
-Förutom att använda en mjuk toning för att färga en värme karta kan färger anges inom en uppsättning intervall med hjälp av ett `step` uttryck. Om du `step` använder ett uttryck för att färgsätta värme kartan bryts densiteten visuellt i intervall som påminner om en profil eller radar stil karta.  
+In addition to using a smooth gradient to colorize a heat map, colors can be specified within a set of ranges by using a `step` expression. Using a `step` expression for colorizing the heat map breaks up the density visually into ranges that more so resembles a contour or radar style map.  
 
 ```javascript 
 var layer = new atlas.layer.HeatMapLayer(datasource, null, {
@@ -628,18 +647,18 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 });
 ```
 
-Mer information finns i dokumentationen för att [lägga till en termisk kart skikt](map-add-heat-map-layer.md) .
+For more information, see the [Add a heat map layer](map-add-heat-map-layer.md) documentation.
 
-### <a name="line-progress-expression"></a>Uttryck för linje förlopp
+### <a name="line-progress-expression"></a>Line progress expression
 
-Ett uttryck för linje förlopp hämtar förloppet längs en övertoningsfyllning i ett linje lager och definieras som `['line-progress']`. Det här värdet är ett tal mellan 0 och 1 och används i kombination med ett `interpolation` eller `step` -uttryck. Det här uttrycket kan bara användas med [alternativet strokeGradient]( https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest#strokegradient) för rad skiktet. 
+A line progress expression retrieves the progress along a gradient line in a line layer and is defined as `['line-progress']`. This value is a number between 0 and 1 and is used in combination with a `interpolation` or `step` expression. This expression can only be used with the [strokeGradient option]( https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest#strokegradient) of the line layer. 
 
 > [!NOTE]
-> Alternativet för linje skiktet `lineMetrics` kräver att du anger alternativet för den data källa som ska anges `true`till. `strokeGradient`
+> The `strokeGradient` option of the line layer requires the `lineMetrics` option of the data source to be set to `true`.
 
 **Exempel**
 
-I följande exempel används `['line-progress']` uttrycket för att tillämpa en färg toning på linjen för en linje.
+The following example uses the `['line-progress']` expression to apply a color gradient to the stroke of a line.
 
 ```javascript
 var layer = new atlas.layer.LineLayer(datasource, null, {
@@ -657,16 +676,17 @@ var layer = new atlas.layer.LineLayer(datasource, null, {
 });
 ```
 
-[Se live-exempel](map-add-line-layer.md#line-stroke-gradient)
+[See live example](map-add-line-layer.md#line-stroke-gradient)
 
-### <a name="text-field-format-expression"></a>Format uttryck för text fält
+### <a name="text-field-format-expression"></a>Text field format expression
 
-Format uttrycket för textfält kan användas med `textField` alternativet för egenskapen symbol lager `textOptions` för att ge blandad textformatering. Med det här uttrycket kan du ange en uppsättning med indatatyps strängar och formaterings alternativ. Följande alternativ kan anges för varje Indatasträngen i det här uttrycket.
+The text field format expression can be used with the `textField` option of the symbol layers `textOptions` property to provide mixed text formatting. This expression allows a set of input strings and formatting options to be specified. The following options can be specified for each input string in this expression.
 
- * `'font-scale'`– Anger skalnings faktorn för tecken storleken. Om det här värdet anges åsidosätts `size` egenskapen `textOptions` för för den enskilda strängen.
- * `'text-font'`-Anger en eller flera teckensnitts familjer som ska användas för den här strängen. Om det här värdet anges åsidosätts `font` egenskapen `textOptions` för för den enskilda strängen.
+ * `'font-scale'` - Specifies the scaling factor for the font size. If specified, this value will override the `size` property of the `textOptions` for the individual string.
+ * `'text-font'` - Specifies one or more font families that should be used for this string. If specified, this value will override the `font` property of the `textOptions` for the individual string.
+ * `'text-color'` - Specifies a color to apply to a text when rendering. 
 
-Följande pseudocode definierar strukturen för text fältets format uttryck. 
+The following pseudocode defines the structure of the text field format expression. 
 
 ```javascript
 [
@@ -674,12 +694,14 @@ Följande pseudocode definierar strukturen för text fältets format uttryck.
     input1: string, 
     options1: { 
         'font-scale': number, 
-        'text-font': string[] 
+        'text-font': string[],
+        'text-color': color
     },
     input2: string, 
     options2: { 
         'font-scale': number, 
-        'text-font': string[] 
+        'text-font': string[] ,
+        'text-color': color
     },
     …
 ]
@@ -687,7 +709,7 @@ Följande pseudocode definierar strukturen för text fältets format uttryck.
 
 **Exempel**
 
-I följande exempel formateras textfältet genom att lägga till ett fetstilt teckensnitt och skala upp tecken storleken `title` för egenskapen i funktionen. I det här exemplet läggs `subtitle` även egenskapen för funktionen till på en ny rad med en skalad nedåt tecken storlek.
+The following example formats the text field by adding a bold font and scaling up the font size of the `title` property of the feature. This example also adds the `subtitle` property of the feature on a newline, with a scaled down font size and colored red.
 
 ```javascript
 var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -706,28 +728,31 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
             //Scale the font size down of the subtitle property. 
             ['get', 'subtitle'],
-            { 'font-scale': 0.75 }
+            { 
+                'font-scale': 0.75, 
+                'text-color': 'red' 
+            }
         ]
     }
 });
 ```
 
-Det här lagret återger punkt funktionen som visas på bilden nedan:
+This layer will render the point feature as shown in the image below:
  
 <center>
 
-![Bild av punkt funktion med formaterat textfält](media/how-to-expressions/text-field-format-expression.png)</center>
+![Image of Point feature with formatted text field](media/how-to-expressions/text-field-format-expression.png) </center>
 
-### <a name="number-format-expression"></a>Uttryck för tal format
+### <a name="number-format-expression"></a>Number format expression
 
-Uttrycket kan bara användas `textField` med ett symbol skikts alternativ. `number-format` Det här uttrycket konverterar det angivna talet till en formaterad sträng. Det här uttrycket radbryter JavaScript-funktionen [number. toLocalString](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) och har stöd för följande uppsättning alternativ.
+The `number-format` expression can only be used with the `textField` option of a symbol layer. This expression converts the provided number into a formatted string. This expression wraps JavaScript’s [Number.toLocalString](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) function and supports the following set of options.
 
- * `locale`– Ange det här alternativet för att konvertera siffror till strängar på ett sätt som justeras med det angivna språket. Skicka en [language-tagg för BCP 47](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation) till det här alternativet.
- * `currency`– Om du vill konvertera talet till en sträng som representerar en valuta. Möjliga värden är [ISO 4217-valuta koderna](https://en.wikipedia.org/wiki/ISO_4217), till exempel "USD" för amerikanska dollar, "EUR" för euron, eller "CNY" för kinesiska RMB.
- * `'min-fraction-digits'`– Anger det minsta antalet decimaler som ska ingå i sträng versionen av talet.
- * `'max-fraction-digits'`-Anger det maximala antalet decimaler som ska ingå i sträng versionen av talet.
+ * `locale` - Specify this option for converting numbers to strings in a way that aligns with the specified language. Pass a [BCP 47 language tag](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation) into this option.
+ * `currency` - To convert the number into a string representing a currency. Possible values are the [ISO 4217 currency codes](https://en.wikipedia.org/wiki/ISO_4217), such as "USD" for the US dollar, "EUR" for the euro, or "CNY" for the Chinese RMB.
+ * `'min-fraction-digits'` - Specifies the minimum number of decimal places to include in the string version of the number.
+ * `'max-fraction-digits'` - Specifies the maximum number of decimal places to include in the string version of the number.
 
-Följande pseudocode definierar strukturen för text fältets format uttryck. 
+The following pseudocode defines the structure of the text field format expression. 
 
 ```javascript
 [
@@ -744,7 +769,7 @@ Följande pseudocode definierar strukturen för text fältets format uttryck.
 
 **Exempel**
 
-I följande exempel används ett `number-format` uttryck för att ändra `revenue` hur egenskapen för punkt funktionen återges i `textField` alternativet för ett symbol lager så att det visas som ett US-dollar värde.
+The following example uses a `number-format` expression to modify how the `revenue` property of the point feature is rendered in the `textField` option of a symbol layer such that it appears a US dollar value.
 
 ```javascript
 var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -760,19 +785,19 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 });
 ```
 
-Det här lagret återger punkt funktionen som visas på bilden nedan:
+This layer will render the point feature as shown in the image below:
 
 <center>
 
-![Uttrycks exempel](media/how-to-expressions/number-format-expression.png) för tal format</center>
+![Number format expression example](media/how-to-expressions/number-format-expression.png) </center>
 
-## <a name="zoom-expression"></a>Uttryck för zoomning
+## <a name="zoom-expression"></a>Zoom expression
 
-Ett `zoom` uttryck används för att hämta den aktuella zoomnings nivån för kartan vid åter givnings tiden och definieras som `['zoom']`. Det här uttrycket returnerar ett tal mellan kartans minsta och högsta zoomnings nivå intervall. Genom att använda det här uttrycket kan du ändra formaten dynamiskt när kart nivån för kartan ändras. Uttrycket får bara användas med `interpolate` och `step` -uttryck. `zoom`
+A `zoom` expression is used to retrieve the current zoom level of the map at render time and is defined as `['zoom']`. This expression returns a number between the minimum and maximum zoom level range of the map. Using this expression allows styles to be modified dynamically as the zoom level of the map is changed. The `zoom` expression may only be used with `interpolate` and `step` expressions.
 
 **Exempel**
 
-Som standard har radien för data punkter som återges i värme kart skiktet ett fast pixel-radie för alla zoomnings nivåer. När kartan zoomas samman samlas data samman och termisk kart skiktet ser annorlunda ut. Ett `zoom` uttryck kan användas för att skala radien för varje zoomnings nivå så att varje data punkt täcker samma fysiska område i kartan. Det gör att värme kart lagret ser mer statiskt och konsekvent. Varje zoomnivå på kartan har två gånger så många bild punkter lodrätt och vågrätt som föregående zoomnings nivå. Om du skalar radien så att den dubbleras med varje zoomnivå skapas en värme karta som ser konsekvent ut på alla zoomnings nivåer. Detta kan åstadkommas med hjälp `zoom` av uttrycket med ett `base 2 exponential interpolation` uttryck som visas nedan. 
+By default, the radii of data points rendered in the heat map layer have a fixed pixel radius for all zoom levels. As the map is zoomed the data aggregates together and the heat map layer looks different. A `zoom` expression can be used to scale the radius for each zoom level such that each data point covers the same physical area of the map. This will make the heat map layer look more static and consistent. Each zoom level of the map has twice as many pixels vertically and horizontally as the previous zoom level. Scaling the radius such that it doubles with each zoom level will create a heat map that looks consistent on all zoom levels. This can be accomplished by using the `zoom` expression with a `base 2 exponential interpolation` expression as shown below. 
 
 ```javascript 
 var layer = new atlas.layer.HeatMapLayer(datasource, null, {
@@ -790,20 +815,20 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 };
 ```
 
-[Se live-exempel](map-add-heat-map-layer.md#consistent-zoomable-heat-map)
+[See live example](map-add-heat-map-layer.md#consistent-zoomable-heat-map)
 
-## <a name="variable-binding-expressions"></a>Uttryck för variabel bindning
+## <a name="variable-binding-expressions"></a>Variable binding expressions
 
-Variabel bindnings uttryck lagrar resultatet av en beräkning i en variabel så att den kan refereras till någon annan stans i ett uttryck, utan att behöva beräkna om den. Detta är en användbar optimering för uttryck som omfattar många beräkningar
+Variable binding expressions store the results of a calculation in a variable so that it can be referenced elsewhere in an expression multiple times without having to recalculate it. This is a useful optimization for expressions that involve many calculations
 
-| Uttryck | Returtyp | Beskrivning |
+| Uttryck | Return type | Beskrivning |
 |--------------|---------------|--------------|
-| \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;"Let",<br/>&nbsp;&nbsp;&nbsp;&nbsp;name1: sträng,<br/>&nbsp;&nbsp;&nbsp;&nbsp;värde1: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;name2: sträng,<br/>&nbsp;&nbsp;&nbsp;&nbsp;värde2: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>&nbsp;&nbsp;&nbsp;&nbsp;childExpression<br/>\] | | Lagrar ett eller flera värden som variabler som används av `var` uttrycket i det underordnade uttrycket som returnerar resultatet. |
-| `['var', name: string]` | valfri | Refererar till `let` en variabel som skapats med uttrycket. |
+| \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'let',<br/>&nbsp;&nbsp;&nbsp;&nbsp;name1: string,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value1: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;name2: string,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value2: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>&nbsp;&nbsp;&nbsp;&nbsp;childExpression<br/>\] | | Stores one or more values as variables for use by the `var` expression in the child expression that returns the result. |
+| `['var', name: string]` | any | References a variable that was created using the `let` expression. |
 
 **Exempel**
 
-I det här exemplet används ett uttryck som beräknar intäkterna relativt temperatur förhållandet och använder sedan ett `case` uttryck för att utvärdera olika booleska åtgärder för det här värdet. Uttrycket används för att lagra intäkterna relativt till temperatur förhållandet så att det bara behöver beräknas en gång `var` och uttrycket refererar till den här variabeln så ofta som det behövs utan att behöva beräkna om den. `let`
+This example uses an expression that calculates the revenue relative to temperature ratio and then uses a `case` expression to evaluate different boolean operations on this value. The `let` expression is used to store the revenue relative to temperature ratio so that it only needs to be calculated once and the `var` expression references this variable as often as needed without having to recalculate it.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -831,24 +856,24 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 ## <a name="next-steps"></a>Nästa steg
 
-I följande artiklar finns fler kod exempel som implementerar uttryck:
+See the following articles for more code samples that implement expressions:
 
 > [!div class="nextstepaction"] 
-> [Lägg till ett symbol lager](map-add-pin.md)
+> [Add a symbol layer](map-add-pin.md)
 
 > [!div class="nextstepaction"] 
-> [Lägg till ett bubbel-lager](map-add-bubble-layer.md)
+> [Add a bubble layer](map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
-> [Lägg till ett linje lager](map-add-line-layer.md)
+> [Add a line layer](map-add-line-layer.md)
 
 > [!div class="nextstepaction"]
-> [Lägg till ett polygon-lager](map-add-shape.md)
+> [Add a polygon layer](map-add-shape.md)
 
 > [!div class="nextstepaction"] 
-> [Lägg till ett värme kart skikt](map-add-heat-map-layer.md)
+> [Add a heat map layer](map-add-heat-map-layer.md)
 
-Läs mer om de lager alternativ som stöder uttryck:
+Learn more about the layer options that support expressions:
 
 > [!div class="nextstepaction"] 
 > [BubbleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions?view=azure-iot-typescript-latest)

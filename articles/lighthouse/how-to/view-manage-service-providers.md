@@ -1,67 +1,67 @@
 ---
 title: Visa och hantera tjänstleverantörer
-description: Kunder kan använda sidan tjänst leverantörer i Azure Portal för att visa information om tjänst leverantörer, Service Provider-erbjudanden och delegerade resurser.
+description: Customers can use the Service providers page in the Azure portal to view info about service providers, service provider offers, and delegated resources.
 ms.date: 11/15/2019
-ms.topic: overview
-ms.openlocfilehash: 12ddafe1d1e425ed1c1f1188be1377a584e03936
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.topic: conceptual
+ms.openlocfilehash: 453f5d3ba4ed5c49b5e71c7530298bc0a03c73ee
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74169646"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463810"
 ---
 # <a name="view-and-manage-service-providers"></a>Visa och hantera tjänstleverantörer
 
-Kunder kan använda sidan **tjänst leverantörer** i [Azure Portal](https://portal.azure.com) om du vill visa information om tjänst leverantörer och service provider-erbjudanden, delegera vissa resurser via [Azure delegerad resurs hantering](../concepts/azure-delegated-resource-management.md)och shoppa för ytterligare tjänst leverantörs erbjudanden. Vi kommer att hänvisa till tjänst leverantörer och kunder här, men företag som hanterar flera klienter kan använda samma process för att konsolidera sin hanterings upplevelse.
+Customers can use the **Service providers** page in the [Azure portal](https://portal.azure.com) to view info about service providers and service provider offers, delegate specific resources through [Azure delegated resource management](../concepts/azure-delegated-resource-management.md), and shop for additional service provider offers. While we'll refer to service providers and customers here, enterprises managing multiple tenants can use the same process to consolidate their management experience.
 
-För att få åtkomst till sidan **tjänst leverantörer** i Azure Portal kan kunden välja **alla tjänster**och sedan söka efter **tjänst leverantörer** och välja den. De kan också hitta den genom att ange "tjänste leverantörer" i sökrutan längst upp i Azure Portal.
+To access the **Service providers** page in the Azure portal, the customer can select **All services**, then search for **Service providers** and select it. They can also find it by entering “Service providers” in the search box near the top of the Azure portal.
 
-Tänk på att sidan **tjänst leverantörer** endast visar information om de tjänst leverantörer som har åtkomst till kundens prenumerationer eller resurs grupper via Azure delegerad resurs hantering. Om en kund arbetar med ytterligare tjänst leverantörer som inte använder Azure-delegerad resurs hantering för att få åtkomst till kundens resurser visas information om dessa leverantörer här.
+Keep in mind that the **Service providers** page only shows info about the service providers which have access to the customer's subscriptions or resource groups through Azure delegated resource management. If a customer works with additional service providers who don't use Azure delegated resource management to access the customer's resources, info about those service providers is not shown here.
 
 > [!NOTE]
-> Tjänste leverantörer kan visa information om sina kunder genom att gå till **Mina kunder** i Azure Portal. Mer information finns i [Visa och hantera kunder och delegerade resurser](view-manage-customers.md).
+> Service providers can view info about their customers by navigating to **My customers** in the Azure portal. For more info, see [View and manage customers and delegated resources](view-manage-customers.md).
 
-## <a name="view-service-provider-details"></a>Visa information om tjänst leverantör
+## <a name="view-service-provider-details"></a>View service provider details
 
-Om du vill visa information om de tjänst leverantörer som en kund arbetar med kan han eller hon välja **leverantörs erbjudanden** på vänster sida av sidan **tjänst leverantörer** .
+To view info about the service provider(s) that a customer is working with, they can select **Provider offers** on the left side of the **Service providers** page.
 
-För varje tjänst leverantörs erbjudande kommer kunden att se tjänst leverantörens namn och erbjudandet som är associerat med det, tillsammans med namnet som kunden angav under onboarding-processen.
+For each service provider offer, the customer will see the service provider's name and the offer associated with it, along with the name that the customer entered during the onboarding process.
 
-I kolumnen **delegeringar** ser kunden hur många prenumerationer och/eller resurs grupper som har delegerats till tjänst leverantören för det erbjudandet. Tjänste leverantören kommer att kunna komma åt och hantera dessa prenumerationer och/eller resurs grupper enligt de åtkomst nivåer som anges i erbjudandet.
+In the **Delegations** column, the customer sees how many subscriptions and/or resource groups have been delegated to the service provider for that offer. The service provider will be able to access and manage these subscriptions and/or resource groups according to the access levels specified in the offer.
 
-## <a name="delegate-resources"></a>Delegera resurser
+## <a name="delegate-resources"></a>Delegate resources
 
-Innan en tjänst leverantör kan komma åt och hantera en kunds resurser måste de delegeras. Om en kund har accepterat ett erbjudande men ännu inte har delegerat några resurser, ser de en anteckning överst i avsnittet med **leverantörs erbjudanden** . På så sätt kan kunden veta att de måste vidta åtgärder innan tjänste leverantören kan komma åt någon av kundens resurser.
+Before a service provider can access and manage a customer's resources, they must be delegated. If a customer has accepted an offer but has not yet delegated any resources, they'll see a note at the top of the **Provider offers** section. This lets the customer know that they need to take action before the service provider can access any of the customer's resources.
 
-Så här delegerar du prenumerationer eller resurs grupper:
+To delegate subscriptions or resource groups:
 
-1. Markera kryss rutan för raden som innehåller tjänst leverantören, erbjudandet och namnet. Välj sedan **delegera resurser** överst på skärmen.
-1. I avsnittet **erbjudande information** på sidan **delegera resurser** granskar du information om tjänst leverantören och erbjudandet. Om du vill granska roll tilldelningar för erbjudandet väljer du **Klicka här för att visa information om det valda erbjudandet**.
-1. I avsnittet **ombud** väljer du **delegera prenumerationer** eller **delegera resurs grupper**.
-1. Välj de prenumerationer och/eller resurs grupper som du vill delegera för erbjudandet och välj sedan **Lägg till**.
-1. Markera kryss rutan längst ned på sidan för att bekräfta att du vill ge denna tjänst leverantör åtkomst till de resurser som du har valt och välj sedan **delegera**.
+1. Check the box for the row containing the service provider, offer, and name. Then select **Delegate resources** at the top of the screen.
+1. In the **Offer details** section of the **Delegate resources** page, review the details about the service provider and offer. To review role assignments for the offer, select **Click here to see the details of the selected offer**.
+1. In the **Delegate** section, select **Delegate subscriptions** or **Delegate resource groups**.
+1. Choose the subscriptions and/or resource groups you'd like to delegate for this offer, then select **Add**.
+1. Select the checkbox at the bottom of the page to confirm that you want to grant this service provider access to the resources that you've selected, then select **Delegate**.
 
-## <a name="add-or-remove-service-provider-offers"></a>Lägg till eller ta bort tjänst leverantörs erbjudanden
+## <a name="add-or-remove-service-provider-offers"></a>Add or remove service provider offers
 
-En kund kan lägga till ett nytt erbjudande för service provider från sidan **leverantörs erbjudanden** genom att välja **Lägg till erbjudande**. Tjänste leverantören måste ha publicerat ett erbjudande för den här kunden. Kunden kan sedan välja erbjudandet från den **privata erbjudande** skärmen och sedan välja **skapa**.
+A customer can add a new service provider offer from the **Provider offers** page by selecting **Add offer**. The service provider must have published an offer for this customer. The customer can then select that offer from the **Private offers** screen and then select **Create**.
 
-Om kunden vill ta bort ett Service Provider-erbjudande kan de välja pappers korgs ikonen på raden för det erbjudandet. När du har bekräftat borttagningen kommer tjänste leverantören inte längre att ha åtkomst till de kund resurser som tidigare har delegerats för det erbjudandet.
+If the customer wants to remove a service provider offer, they can select the trash can icon in the row for that offer. After confirming the deletion, that service provider will no longer have access to the customer resources that were formerly delegated for that offer.
 
-## <a name="update-service-provider-offers"></a>Uppdatering av tjänst leverantören erbjuder
+## <a name="update-service-provider-offers"></a>Update service provider offers
 
-När en kund har lagt till ett erbjudande kan en tjänste leverantör publicera en uppdaterad version av samma erbjudande på Azure Marketplace. De kan till exempel vilja lägga till en ny roll definition. Om en ny version av erbjudandet har publicerats visas en "uppdatering"-ikon i raden för det erbjudandet på sidan **Provider-erbjudanden** . Kunden kan välja den här ikonen för att se skillnaderna mellan den aktuella versionen av erbjudandet och den nya.
+After a customer has added an offer, a service provider may publish an updated version of the same offer to Azure Marketplace. For example, they may want to add a new role definition. If a new version of the offer has been published, the **Provider offers** page will show an "update" icon in the row for that offer. The customer can select this icon to see the differences between the current version of the offer and the new one.
 
- ![Uppdatera erbjudande ikon](../media/update-offer.jpg)
+ ![Update offer icon](../media/update-offer.jpg)
 
-Efter att ha granskat ändringarna kan kunden välja att uppdatera till den nya versionen. När de gör det kommer de auktoriseringar och andra inställningar som anges i den nya versionen att gälla för alla prenumerationer och/eller resurs grupper som har delegerats för erbjudandet.
+After reviewing the changes, the customer can choose to update to the new version. Once they do, the authorizations and other settings specified in the new version will apply to any subscriptions and/or resource groups that have been delegated for that offer.
 
-## <a name="view-delegations"></a>Visa delegeringar
+## <a name="view-delegations"></a>View delegations
 
-Delegeringarna representerar roll tilldelningarna som beviljar behörigheter till tjänste leverantören för de resurser som en kund har delegerat. Om du vill visa den här informationen väljer du **delegeringar** på vänster sida av sidan **tjänst leverantörer** .
+Delegations represent the role assignments that grant permissions to the service provider for the resources a customer has delegated. To view this info, select **Delegations** on the left side of the **Service providers** page.
 
-Med filter överst på sidan kan du sortera och gruppera Delegerings informationen eller filtrera efter vissa kunder, erbjudanden eller nyckelord.
+Filters at the top of the page let you sort and group your delegation info or filter by specific customers, offers, or keywords.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [Azure Lighthouse](../overview.md).
-- Lär dig hur tjänst leverantörer kan [Visa och hantera kunder](view-manage-customers.md) genom att gå till **mina kunder** i Azure Portal.
+- Learn more about [Azure Lighthouse](../overview.md).
+- Learn how service providers can [view and manage customers](view-manage-customers.md) by going to **My customers** in the Azure portal.

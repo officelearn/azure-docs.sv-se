@@ -1,6 +1,6 @@
 ---
-title: PHP (Laravel) med MySQL på Linux – Azure Apptjänst | Microsoft Docs
-description: Lär dig hur du får en PHP-app att fungera i Azure App Service i Linux, med anslutning till en MySQL-databas i Azure. Laravel används i självstudien.
+title: PHP (Laravel) with MySQL on Linux - Azure App Service | Microsoft Docs
+description: Lär dig hur du får en PHP-app att fungera i Azure App Service i Linux, med anslutning till en MySQL-databas i Azure. Laravel is used in the tutorial.
 services: app-service\web
 author: cephalin
 manager: jeconnoc
@@ -8,15 +8,15 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: php
 ms.topic: tutorial
-ms.date: 03/27/2019
+ms.date: 11/25/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 6d9ef67f39a67fd06a5b42afe4432b5a0156fead
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 4fade03d798096e250cb5b56fbb2003ea4b58e1b
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130236"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481315"
 ---
 # <a name="build-a-php-and-mysql-app-in-azure-app-service-on-linux"></a>Skapa en PHP- och MySQL-app i Azure App Service i Linux
 
@@ -31,7 +31,7 @@ Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * skapa en MySQL-databas i Azure
+> * Skapa en MySQL-databas i Azure
 > * ansluta en PHP-app till MySQL
 > * distribuera appen till Azure
 > * uppdatera datamodellen och distribuera om appen
@@ -40,14 +40,14 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien behöver du:
 
 * [Installera Git](https://git-scm.com/)
 * [Installera PHP 5.6.4 eller senare](https://php.net/downloads.php)
 * [Installera Composer](https://getcomposer.org/doc/00-intro.md)
-* Aktivera följande PHP-tillägg som Laravel behöver: OpenSSL, PDO-MySQL, Mbstring, Tokenizer och XML
+* Aktivera följande PHP-tillägg som behövs för Laravel: OpenSSL, PDO-MySQL, Mbstring, Tokenizer och XML
 * [Installera och starta MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 
 ## <a name="prepare-local-mysql"></a>Förbereda lokal MySQL
@@ -56,13 +56,13 @@ I det här steget skapar du en databas för självstudien på din lokala MySQL-s
 
 ### <a name="connect-to-local-mysql-server"></a>Ansluta till en lokal MySQL-server
 
-Anslut till din lokala MySQL-server via ett terminalfönster. Du kan använda det här terminalfönstret för att köra alla kommandon i den här självstudien.
+Öppna ett terminalfönster och anslut till din lokala MySQL-server. Du kan använda det här terminalfönstret för att köra alla kommandon i den här självstudien.
 
 ```bash
 mysql -u root -p
 ```
 
-Om du uppmanas att ange ett lösenord anger du lösenordet för `root`-kontot. Om du inte kommer ihåg rotlösenordet för ditt konto kan du gå till [MySQL: Återställa rotlösenordet](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
+Om du uppmanas att ange ett lösenord anger du lösenordet för `root`-kontot. Se [MySQL: Återställa rotlösenordet](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html) om du inte kommer ihåg rotlösenordet för ditt konto.
 
 MySQL-servern är igång om kommandot körs utan problem. Om inte, kontrollerar du att den lokala MySQL-servern är igång genom att följa [anvisningarna efter installation av MySQL](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html).
 
@@ -103,7 +103,7 @@ cd laravel-tasks
 composer install
 ```
 
-### <a name="configure-mysql-connection"></a>Konfigurera MySQL-anslutningen
+### <a name="configure-mysql-connection"></a>Konfigurera MySQL-anslutning
 
 Skapa en fil med namnet *.env* i lagringsplatsens rot. Kopiera in följande variabler i *.env*-filen. Ersätt platshållaren _&lt;root_password>_ med MySQL-rotanvändarens lösenord.
 
@@ -161,7 +161,7 @@ I det här steget skapar du en MySQL-databas i [Azure Database for MySQL](/azure
 
 Skapa en server i Azure Database for MySQL med kommandot [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create).
 
-I följande kommando, anger du ett unikt namn för den  *\<mysql-servernamn >* platshållare, ett användarnamn för den  *\<administratörsanvändaren >*, och ett lösenord för den  *\<adminlösenord >* platshållare. Det här servernamnet används som en del av MySQL-slutpunkten (`https://<mysql-server-name>.mysql.database.azure.com`), så namnet måste vara unikt för alla servrar i Azure. Mer information om hur du väljer MySQL DB SKU finns i [Skapa en Azure Database for MySQL-server](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli#create-an-azure-database-for-mysql-server).
+In the following command, substitute a unique server name for the *\<mysql-server-name>* placeholder, a user name for the *\<admin-user>* , and a password for the *\<admin-password>*  placeholder. Det här servernamnet används som en del av MySQL-slutpunkten (`https://<mysql-server-name>.mysql.database.azure.com`), så namnet måste vara unikt för alla servrar i Azure. Mer information om hur du väljer MySQL DB SKU finns i [Skapa en Azure Database for MySQL-server](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli#create-an-azure-database-for-mysql-server).
 
 ```azurecli-interactive
 az mysql server create --resource-group myResourceGroup --name <mysql-server-name> --location "West Europe" --admin-user <admin-user> --admin-password <admin-password> --sku-name B_Gen5_1
@@ -194,7 +194,7 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql-server-n
 > Du kan begränsa brandväggsregeln ännu mer genom att [endast använda de utgående IP-adresser som används av din app](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 >
 
-I Cloud Shell kör du kommandot igen för att tillåta åtkomst från din lokala dator genom att ersätta  *\<din IP-adress >* med [din lokala IPv4-adress](https://www.whatsmyip.org/).
+In the Cloud Shell, run the command again to allow access from your local computer by replacing *\<your-ip-address>* with [your local IPv4 IP address](https://www.whatsmyip.org/).
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name AllowLocalClient --server <mysql-server-name> --resource-group myResourceGroup --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address>
@@ -202,7 +202,7 @@ az mysql server firewall-rule create --name AllowLocalClient --server <mysql-ser
 
 ### <a name="connect-to-production-mysql-server-locally"></a>Ansluta lokalt till MySQL-produktionsservern
 
-Anslut till MySQL-server i Azure via terminalfönstret. Använd värdet du angav tidigare för  _&lt;administratörsanvändaren >_ och  _&lt;mysql-servernamn >_. När du uppmanas att ange ett lösenord använder du lösenordet som du angav när du skapade databasen i Azure.
+Anslut till MySQL-server i Azure via terminalfönstret. Use the value you specified previously for _&lt;admin-user>_ and _&lt;mysql-server-name>_ . När du uppmanas att ange ett lösenord använder du lösenordet som du angav när du skapade databasen i Azure.
 
 ```bash
 mysql -u <admin-user>@<mysql-server-name> -h <mysql-server-name>.mysql.database.azure.com -P 3306 -p
@@ -239,7 +239,7 @@ I det här steget ansluter du PHP-programmet till MySQL-databasen som du skapade
 
 ### <a name="configure-the-database-connection"></a>Konfigurera databasanslutningen
 
-Skapa en _.env.production_-fil i lagringsplatsens rot och kopiera in följande variabler i filen. Ersätt platshållaren  _&lt;mysql-servernamn >_.
+Skapa en _.env.production_-fil i lagringsplatsens rot och kopiera in följande variabler i filen. Replace the placeholder _&lt;mysql-server-name>_ .
 
 ```txt
 APP_ENV=production
@@ -262,7 +262,7 @@ Spara ändringarna.
 
 ### <a name="configure-ssl-certificate"></a>Konfigurera ett SSL-certifikat
 
-Azure Database for MySQL använder som standard SSL-anslutningar från klienter. För att ansluta till din MySQL-databas i Azure måste du använda [_.pem_-certifikatet som tillhandahålls av Azure Database for MySQL](../../mysql/howto-configure-ssl.md).
+Azure Database för MySQL använder som standard SSL-anslutningar från klienter. För att ansluta till din MySQL-databas i Azure måste du använda [ _.pem_-certifikatet som tillhandahålls av Azure Database for MySQL](../../mysql/howto-configure-ssl.md).
 
 Öppna _config/database.php_ och lägg till parametrarna _sslmode_ och _options_ i `connections.mysql`, enligt följande kod.
 
@@ -270,7 +270,7 @@ Azure Database for MySQL använder som standard SSL-anslutningar från klienter.
 'mysql' => [
     ...
     'sslmode' => env('DB_SSLMODE', 'prefer'),
-    'options' => (env('MYSQL_SSL')) ? [
+    'options' => (env('MYSQL_SSL') && extension_loaded('pdo_mysql')) ? [
         PDO::MYSQL_ATTR_SSL_KEY    => '/ssl/BaltimoreCyberTrustRoot.crt.pem',
     ] : []
 ],
@@ -315,7 +315,7 @@ git add .
 git commit -m "database.php updates"
 ```
 
-Din app är klar att distribueras.
+Din app är klar att distribuera.
 
 ## <a name="deploy-to-azure"></a>Distribuera till Azure
 
@@ -323,7 +323,7 @@ I det här steget distribuerar du din MySQL-anslutna PHP-app till Azure App Serv
 
 Laravel-appen startas i katalogen _/public_. PHP Docker-standardavbildningen för App Service använder Apache, och låter dig inte anpassa `DocumentRoot` för Laravel. Däremot kan du använda `.htaccess` för att skriva om alla begäranden så att de pekar till _/public_ i stället för rotkatalogen. I lagringsplatsens rot har en `.htaccess` redan lagts till för detta ändamål. Därmed är Laravel-appen klar att distribueras.
 
-Mer information finns i [ändra webbplatsrot](configure-language-php.md#change-site-root).
+For more information, see [Change site root](configure-language-php.md#change-site-root).
 
 ### <a name="configure-a-deployment-user"></a>Konfigurera en distributionsanvändare
 
@@ -333,7 +333,7 @@ Mer information finns i [ändra webbplatsrot](configure-language-php.md#change-s
 
 [!INCLUDE [Create app service plan no h](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
-### <a name="create-a-web-app"></a>Skapa en webbapp
+### <a name="create-a-web-app"></a>Skapa ett webbprogram
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-linux-no-h.md)] 
 
@@ -341,13 +341,13 @@ Mer information finns i [ändra webbplatsrot](configure-language-php.md#change-s
 
 I App Service ställer du in miljövariabler som _appinställningar_ med kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set).
 
-Följande kommando konfigurerar appinställningarna `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` och `DB_PASSWORD`. Ersätt platshållarna  _&lt;appname >_ och  _&lt;mysql-servernamn >_.
+Följande kommando konfigurerar appinställningarna `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` och `DB_PASSWORD`. Replace the placeholders _&lt;appname>_ and _&lt;mysql-server-name>_ .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DB_HOST="<mysql-server-name>.mysql.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql-server-name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
 ```
 
-Du kan använda PHP [getenv](https://php.net/manual/en/function.getenv.php) metod för att [åtkomstinställningar app](configure-language-php.md#access-environment-variables). Laravel-koden används en [env](https://laravel.com/docs/5.4/helpers#method-env) omslutning över PHP `getenv`. MySQL-konfigurationen i _config/database.php_ ser till exempel ut som följande kod:
+You can use the PHP [getenv](https://php.net/manual/en/function.getenv.php) method to [access the app settings](configure-language-php.md#access-environment-variables). The Laravel code uses an [env](https://laravel.com/docs/5.4/helpers#method-env) wrapper over the PHP `getenv`. MySQL-konfigurationen i _config/database.php_ ser till exempel ut som följande kod:
 
 ```php
 'mysql' => [
@@ -370,7 +370,7 @@ Använd `php artisan` för att generera en ny programnyckel utan att spara den i
 php artisan key:generate --show
 ```
 
-Ange programnyckeln i App Service-appen genom att använda kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set). Ersätt platshållarna _&lt;appname>_ och _&lt;outputofphpartisankey:generate>_.
+Ange programnyckeln i App Service-appen genom att använda kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set). Ersätt platshållarna _&lt;appname>_ och _&lt;outputofphpartisankey:generate>_ .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
@@ -416,7 +416,7 @@ remote: Running deployment command...
 > - `deploy.sh` – Det anpassade distributionsskriptet. Om du granskar filen ser du att den kör `php composer.phar install` efter `npm install`.
 > - `composer.phar` – Composer-pakethanteraren.
 >
-> Du kan använda den här metoden för att lägga till steg i den Git-baserade distributionen till App Service. Mer information finns i [kör Composer](configure-language-php.md#run-composer).
+> Du kan använda den här metoden för att lägga till steg i den Git-baserade distributionen till App Service. For more information, see [Run Composer](configure-language-php.md#run-composer).
 >
 
 ### <a name="browse-to-the-azure-app"></a>Bläddra till Azure-appen
@@ -427,13 +427,13 @@ Bläddra till `http://<app-name>.azurewebsites.net` och lägg till några uppgif
 
 Grattis! Du kör en datadriven PHP-app i Azure App Service.
 
-## <a name="update-model-locally-and-redeploy"></a>Uppdatera modellen lokalt och distribuera om
+## <a name="update-model-locally-and-redeploy"></a>Uppdatera modell lokalt och distribuera om
 
 I det här steget gör du en enkel ändring i `task`-datamodellen och webbappen och publicerar sedan uppdateringen till Azure.
 
 För uppgiftsscenariot ändrar du programmet så att du kan markera en uppgift som slutförd.
 
-### <a name="add-a-column"></a>Lägg till en kolumn
+### <a name="add-a-column"></a>Lägga till en kolumn
 
 I terminalen går du till roten för Git-lagringsplatsen.
 
@@ -555,7 +555,7 @@ I terminalen kör du Laravel-databasmigreringar med produktionsanslutningssträn
 php artisan migrate --env=production --force
 ```
 
-Genomför alla ändringar på Git och skicka sedan kodändringarna till Azure.
+Spara alla ändringar på Git och skicka sedan kodändringarna till Azure.
 
 ```bash
 git add .
@@ -581,7 +581,7 @@ I den vänstra menyn, klickar du på **App Services** och därefter på namnet p
 
 ![Portalnavigering till Azure-app](./media/tutorial-php-mysql-app/access-portal.png)
 
-Nu visas översiktssidan för din app. Här kan du utföra grundläggande hanteringsåtgärder som att stoppa, starta, starta om, bläddra och ta bort.
+Du ser din apps översiktssida. Här kan du utföra grundläggande hanteringsåtgärder som att stoppa, starta, starta om, bläddra och ta bort.
 
 Menyn till vänster innehåller sidor för att konfigurera appen.
 
@@ -596,7 +596,7 @@ Menyn till vänster innehåller sidor för att konfigurera appen.
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
-> * skapa en MySQL-databas i Azure
+> * Skapa en MySQL-databas i Azure
 > * ansluta en PHP-app till MySQL
 > * distribuera appen till Azure
 > * uppdatera datamodellen och distribuera om appen
@@ -606,9 +606,9 @@ I den här självstudiekursen lärde du dig att:
 Gå vidare till nästa självstudie för att läsa hur du mappar ett anpassat DNS-namn till din app.
 
 > [!div class="nextstepaction"]
-> [Självstudie: Mappa anpassad DNS-namn till din app](../app-service-web-tutorial-custom-domain.md)
+> [Tutorial: Map custom DNS name to your app](../app-service-web-tutorial-custom-domain.md)
 
-Eller titta på andra resurser:
+Or, check out other resources:
 
 > [!div class="nextstepaction"]
-> [Konfigurera PHP-app](configure-language-php.md)
+> [Configure PHP app](configure-language-php.md)

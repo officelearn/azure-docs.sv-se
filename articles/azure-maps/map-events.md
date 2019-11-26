@@ -1,6 +1,6 @@
 ---
-title: Hantera händelser med Azure Maps | Microsoft Docs
-description: Så här skapar du en interaktiv Web SDK-mappning med kart händelser
+title: Handle events with Azure Maps | Microsoft Docs
+description: How to make an interactive Web SDK map with map events
 author: jingjing-z
 ms.author: jinzh
 ms.date: 09/10/2019
@@ -9,105 +9,112 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: c5b4ed73d7bc4d89a67280a0bb183f374ae093d8
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 99ef5aa0ee8fa542b0aa807cc536ebfbee369e10
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899435"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484286"
 ---
-# <a name="interact-with-the-map"></a>Interagera med kartan
+# <a name="interact-with-the-map"></a>Interact with the map
 
-Den här artikeln visar hur du använder egenskapen [Mappa klass händelser](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?#events) för att markera händelser på kartan och på olika lager i kartan. Det visar också hur du använder egenskapen mappa klass händelser för att markera händelser när du interagerar med en HTML-markör.
+This article shows you how to use [map class events](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?#events) property to highlight events on the map and on different layers of the map. It also shows you how to use the map class events property to highlight events when you interact with an HTML marker.
 
-## <a name="interact-with-the-map"></a>Interagera med kartan
+## <a name="interact-with-the-map"></a>Interact with the map
 
-Spela upp med kartan nedan och se motsvarande mus händelser markerade till höger. Du kan klicka på **fliken JS** för att visa och redigera JavaScript-koden. Du kan också klicka på knappen **Redigera på CodePen** och redigera koden på CodePen.
-
-<br/>
-
-<iframe height='600' scrolling='no' title='Interagera med kartan – mus händelser' src='//codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>interagerar med kartan – mus händelser</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
-## <a name="interact-with-map-layers"></a>Interagera med kart skikt
-
-I följande kod visas namnet på de händelser som utlöses när du interagerar med symbol lagret. Symbol-, bubbeldiagram-, linje-och polygon-lagret stöder samma uppsättning händelser. Värme kartan och panel lagren stöder inte någon av dessa händelser.
+Play with the map below, and see the corresponding mouse events highlighted on the right. You can click on the **JS tab** to view and edit the JavaScript code. You can also click on the **Edit on CodePen** button and edit the code on CodePen.
 
 <br/>
 
-<iframe height='600' scrolling='no' title='Interagera med karta – skikt händelser' src='//codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan som <a href='https://codepen.io/azuremaps/pen/bQRRPE/'>interagerar med kartan – skikt händelser</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='600' scrolling='no' title='Interacting with the map – mouse events' src='//codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>Interact with the map – mouse events</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="interact-with-html-marker"></a>Interagera med HTML-markör
+## <a name="interact-with-map-layers"></a>Interact with map layers
 
-Följande kod lägger till Java Script Map-händelser till en HTML-markör. Den markerar även namnet på de händelser som visas när du interagerar med HTML-markören.
+The following code highlights the name of the events that get fired up as you interact with the Symbol Layer. The symbol, bubble, line, and polygon layer all support the same set of events. The heat map and tile layers do not support any of these events.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Interagera med händelser för kart-HTML-markör' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan som <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>samverkar med kart-HTML-markörens händelser</a> genom Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='600' scrolling='no' title='Interacting with the map – Layer Events' src='//codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/bQRRPE/'>Interacting with the map – Layer Events</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-I följande tabell visas alla de mappnings klass händelser som stöds.
+## <a name="interact-with-html-marker"></a>Interact with HTML Marker
 
-| Händelse             | Beskrivning |
-|-------------------|-------------|
-| boxzoomend        | Utlöses när interaktionen "box zoom" upphör.|
-| boxzoomstart      | Utlöses när en "box zoom"-interaktion startar.|
-| Markera             | Utlöses när en pekande enhet trycks ned och släpps på samma plats på kartan.|
-| stäng             | Utlöses när popup-fönstret stängs manuellt eller program mässigt.|
-| ContextMenu       | Utlöses när användaren klickar på höger musknapp.|
-| dataadded         | Utlöses när former läggs till i data källan.|
-| dataremoved       | Utlöses när former tas bort från data källan.|
-| datasourceupdated | Utlöses när DataSource-objektet uppdateras.|
-| förekomsten          | Utlöses när en pekande enhet klickas två gånger på samma plats på kartan.|
-| Dra              | Utlöses upprepade gånger under en "dra för att panorera"-interaktion på kartan, popup-eller HTML-markören.|
-| dragend           | Utlöses när en "dra för att panorera"-interaktionen slutar på kartan, popup-eller HTML-markören.|
-| dragstart         | Utlöses när en "dra för att panorera"-interaktion startar på kartan, popup-eller HTML-markören.|
-| error             | Utlöses när ett fel inträffar.|
-| NEDPIL           | Utlöses när en tangent trycks ned.|
-| tolkas tangent Ryckningen          | Utlöses när en nyckel som producerar ett typable-tecknet (en ANSI-nyckel) trycks ned.|
-| upp             | Utlöses när en nyckel släpps.|
-| layeradded        | Utlöses när ett lager läggs till i kartan.|
-| load              | Utlöses omedelbart efter att alla nödvändiga resurser har hämtats och den första visuella åter givningen av kartan har inträffat.|
-| händelsen         | Utlöses när en pekande enhet trycks på kartan.|
-| flyttning         | Utlöses när en pekande enhet flyttas inom kartan.|
-| mus          | Utlöses när en punkt enhet lämnar kartans arbets yta.|
-| mouseover         | Utlöses när en pekande enhet flyttas inom kartan.|
-| händelsen           | Utlöses när en pekande enhet släpps i kartan.|
-| Fart              | Utlöses upprepade gånger under en animerad över gång från en vy till en annan, som ett resultat av en användar interaktion eller metoder.|
-| moveend           | Utlöses strax efter att kartan har slutfört en över gång från en vy till en annan, som ett resultat av användar interaktion eller metoder.|
-| movestart         | Utlöses precis innan kartan påbörjar en över gång från en vy till en annan, som ett resultat av en användar interaktion eller metoder.|
-| open (öppen)              | Utlöses när popup-fönstret öppnas manuellt eller program mässigt.|
-| röst             | Utlöses när kartans höjd vinkel (lutning) ändras till följd av användar interaktion eller metoder.|
-| pitchend          | Aktive ras omedelbart efter det att kartans bredd steg (lutning) har slutförts, som ett resultat av användar interaktion eller metoder.|
-| pitchstart        | Utlöses när kartans bredd steg (lutning) börjar ändras till följd av användar interaktion eller metoder.|
-| klar             | Utlöses när de lägsta obligatoriska mappnings resurserna läses in innan kartan är klar att program mässigt interagera med.|
-| återge            | <p> Utlöses när kartan ritas till skärmen, till följd av:<ul><li>En ändring av kartans position, zoomning, färgdjup eller förhöjd.</li><li>En ändring av kartans format.</li><li>En ändring i en DataSource-källa.</li><li>Inläsningen av en vektor panel, en multijson-fil, ett specialtecken eller en sprite.</li></ul></p>|
-| Ändra storlek på            | Utlöses omedelbart efter att kart storleken har ändrats.|
-| automatisk            | Utlöses upprepade gånger under en "dra för att rotera"-interaktion.|
-| rotateend         | Utlöses när interaktionen "dra för att rotera" upphör.|
-| rotatestart       | Utlöses när interaktionen "dra och rotera" startar.|
-| shapechanged      | Utlöses när en form objekt egenskap ändras.|
-| sourceadded       | Utlöses när en DataSource eller VectorTileSource läggs till i kartan.|
-| sourceremoved     | Utlöses när en DataSource eller VectorTileSource tas bort från kartan.|
-| styledata         | Utlöses när kartans format läses in eller ändras.|
-| tokenacquired     | Utlöses när en AAD-åtkomsttoken hämtas.|
-| touchcancel       | Utlöses när en touchcancel-händelse inträffar inom kartan.|
-| touchend          | Utlöses när en touchEnd-händelse inträffar inom kartan.|
-| touchmove         | Utlöses när en touchMove-händelse inträffar inom kartan.|
-| touchstart        | Utlöses när en touchstart-händelse inträffar inom kartan.|
-| rullhjul             | Utlöses när en mus hjuls händelse inträffar i kartan.|
-| Förhindra              | Utlöses upprepade gånger under en animerad över gång från en zoomnings nivå till en annan, som ett resultat av användar interaktion eller metoder.|
-| zoomend           | Utlöses strax efter att kartan har slutfört en över gång från en zoomnivå till en annan, som ett resultat av användar interaktion eller metoder.|
-| zoomstart         | Utlöses precis innan kartan påbörjar en över gång från en zoomnings nivå till en annan, som ett resultat av användar interaktion eller metoder.|
+The following code adds Javascript map events to an HTML marker. It also highlights the name of the events that get fired up as you interact with the HTML marker.
+
+<br/>
+
+<iframe height='500' scrolling='no' title='Interacting with the map - HTML Marker events' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>Interacting with the map - HTML Marker events</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+The following table lists all of the supported map class events.
+
+| Händelse               | Beskrivning |
+|---------------------|-------------|
+| `boxzoomend`        | Fired when a "box zoom" interaction ends.|
+| `boxzoomstart`      | Fired when a "box zoom" interaction starts.|
+| `click`             | Fired when a pointing device is pressed and released at the same point on the map.|
+| `close`             | Fired when the popup is closed manually or programatically.|
+| `contextmenu`       | Fired when the right button of the mouse is clicked.|
+| `data`              | Fired when any map data loads or changes. |
+| `dataadded`         | Fired when shapes are added to the `DataSource`.|
+| `dataremoved`       | Fired when shapes are removed from the `DataSource`.|
+| `datasourceupdated` | Fired when the `DataSource` object is updated.|
+| `dblclick`          | Fired when a pointing device is clicked twice at the same point on the map.|
+| `drag`              | Fired repeatedly during a "drag to pan" interaction on the map, popup, or HTML marker.|
+| `dragend`           | Fired when a "drag to pan" interaction ends on the map, popup, or HTML marker.|
+| `dragstart`         | Fired when a "drag to pan" interaction starts on the map, popup, or HTML marker.|
+| `error`             | Fired when an error occurs.|
+| `idle`              | <p>Fired after the last frame rendered before the map enters an "idle" state:<ul><li>No camera transitions are in progress.</li><li>All currently requested tiles have loaded.</li><li>All fade/transition animations have completed.</li></ul></p>|
+| `keydown`           | Fired when a key is pressed down.|
+| `keypress`          | Fired when a key that produces a typable character (an ANSI key) is pressed.|
+| `keyup`             | Fired when a key is released.|
+| `layeradded`        | Fired when a layer is added to the map.|
+| `layerremoved`      | Fired when a layer is removed from the map.|
+| `load`              | Fired immediately after all necessary resources have been downloaded and the first visually complete rendering of the map has occurred.|
+| `mousedown`         | Fired when a pointing device is pressed within the map or when on top of an element.|
+| `mouseenter`        | Fired when a pointing device is initially moved over the map or an element. |
+| `mouseleave`        | Fired when a pointing device is moved out the map or an element. |
+| `mousemove`         | Fired when a pointing device is moved within the map or an element.|
+| `mouseout`          | Fired when a point device leaves the map's canvas our leaves an element.|
+| `mouseover`         | Fired when a pointing device is moved over the map or an element.|
+| `mouseup`           | Fired when a pointing device is released within the map or when on top of an element.|
+| `move`              | Fired repeatedly during an animated transition from one view to another, as the result of either user interaction or methods.|
+| `moveend`           | Fired just after the map completes a transition from one view to another, as the result of either user interaction or methods.|
+| `movestart`         | Fired just before the map begins a transition from one view to another, as the result of either user interaction or methods.|
+| `open`              | Fired when the popup is opened manually or programatically.|
+| `pitch`             | Fired whenever the map's pitch (tilt) changes as the result of either user interaction or methods.|
+| `pitchend`          | Fired immediately after the map's pitch (tilt) finishes changing as the result of either user interaction or methods.|
+| `pitchstart`        | Fired whenever the map's pitch (tilt) begins a change as the result of either user interaction or methods.|
+| `ready`             | Fired when the minimum required map resources are loaded before the map is ready to be programmatically interacted with.|
+| `render`            | <p>Fired whenever the map is drawn to the screen, as the result of:<ul><li>A change to the map's position, zoom, pitch, or bearing.</li><li>A change to the map's style.</li><li>A change to a `DataSource` source.</li><li>The loading of a vector tile, GeoJSON file, glyph, or sprite.</li></ul></p>|
+| `resize`            | Fired immediately after the map has been resized.|
+| `rotate`            | Fired repeatedly during a "drag to rotate" interaction.|
+| `rotateend`         | Fired when a "drag to rotate" interaction ends.|
+| `rotatestart`       | Fired when a "drag to rotate" interaction starts.|
+| `shapechanged`      | Fired when a shape object property is changed.|
+| `sourcedata`        | Fired when one of the map's sources loads or changes, including if a tile belonging to a source loads or changes. |
+| `sourceadded`       | Fired when a `DataSource` or `VectorTileSource` is added to the map.|
+| `sourceremoved`     | Fired when a `DataSource` or `VectorTileSource` is removed from the map.|
+| `styledata`         | Fired when the map's style loads or changes.|
+| `styleimagemissing` | Fired when a layer tries to load an image from the image sprite that doesn't exist |
+| `tokenacquired`     | Fired when an AAD access token is obtained.|
+| `touchcancel`       | Fired when a touchcancel event occurs within the map.|
+| `touchend`          | Fired when a touchend event occurs within the map.|
+| `touchmove`         | Fired when a touchmove event occurs within the map.|
+| `touchstart`        | Fired when a touchstart event occurs within the map.|
+| `wheel`             | Fired when a mouse wheel event occurs within the map.|
+| `zoom`              | Fired repeatedly during an animated transition from one zoom level to another, as the result of either user interaction or methods.|
+| `zoomend`           | Fired just after the map completes a transition from one zoom level to another, as the result of either user interaction or methods.|
+| `zoomstart`         | Fired just before the map begins a transition from one zoom level to another, as the result of either user interaction or methods.|
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I följande artiklar finns fullständiga kod exempel:
+See the following articles for full code examples:
 
 > [!div class="nextstepaction"]
-> [Använda modulen Azure Maps tjänster](./how-to-use-services-module.md)
+> [Using the Azure Maps Services module](./how-to-use-services-module.md)
 
 > [!div class="nextstepaction"]
 > [Kodexempel](https://docs.microsoft.com/samples/browse/?products=azure-maps)

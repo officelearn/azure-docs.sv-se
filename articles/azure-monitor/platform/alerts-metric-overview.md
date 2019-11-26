@@ -1,187 +1,152 @@
 ---
-title: Förstå hur mått varningar fungerar i Azure Monitor.
-description: Få en översikt över vad du kan göra med mått aviseringar och hur de fungerar i Azure Monitor.
-author: snehithm
-ms.author: snmuvva
-ms.date: 9/18/2018
+title: Understand how metric alerts work in Azure Monitor.
+description: Get an overview of what you can do with metric alerts and how they work in Azure Monitor.
+author: rboucher
+ms.author: robb
+ms.date: 11/18/2019
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 4dd95d32bad76a610b88a4362e7887efdfaf6af0
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: b92b4233b6ecd8743f98f7f0dd13e07ad4c76c81
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972065"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484259"
 ---
-# <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Förstå hur mått varningar fungerar i Azure Monitor
+# <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Understand how metric alerts work in Azure Monitor
 
-Mått varningar i Azure Monitor fungerar ovanpå flerdimensionella mått. Dessa mått kan vara [plattforms mått](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [anpassade mått](../../azure-monitor/platform/metrics-custom-overview.md), [populära loggar från Azure Monitor konverteras till mått](../../azure-monitor/platform/alerts-metric-logs.md) och Application Insights mått. Mått varningar utvärderas med jämna mellanrum för att kontrol lera om villkoren på en eller flera metriska tids serier är sanna och meddelar dig när utvärderingarna är uppfyllda. Mått varningar är tillstånds känsliga, det vill säga de skickar bara meddelanden när tillstånd ändras.
+Metric alerts in Azure Monitor work on top of multi-dimensional metrics. These metrics could be [platform metrics](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [custom metrics](../../azure-monitor/platform/metrics-custom-overview.md), [popular logs from Azure Monitor converted to metrics](../../azure-monitor/platform/alerts-metric-logs.md) and Application Insights metrics. Metric alerts evaluate at regular intervals to check if conditions on one or more metric time-series are true and notify you when the evaluations are met. Metric alerts are stateful, that is, they only send out notifications when the state changes.
 
-## <a name="how-do-metric-alerts-work"></a>Hur fungerar mått varningar?
+## <a name="how-do-metric-alerts-work"></a>How do metric alerts work?
 
-Du kan definiera en regel för mått varningar genom att ange en mål resurs som ska övervakas, Metric-namn, villkors typ (statisk eller dynamisk) och villkoret (en operator och ett tröskelvärde/känslighet) och en åtgärds grupp som ska utlösas när varnings regeln utlöses. Villkors typer påverkar hur tröskelvärdena bestäms. [Läs mer om villkors typ och känslighets alternativ för dynamisk tröskel](alerts-dynamic-thresholds.md).
+You can define a metric alert rule by specifying a target resource to be monitored, metric name, condition type (static or dynamic), and the condition (an operator and a threshold/sensitivity) and an action group to be triggered when the alert rule fires. Condition types affect the way thresholds are determined. [Learn more about Dynamic Thresholds condition type and sensitivity options](alerts-dynamic-thresholds.md).
 
-### <a name="alert-rule-with-static-condition-type"></a>Varnings regel med statisk villkors typ
+### <a name="alert-rule-with-static-condition-type"></a>Alert rule with static condition type
 
-Anta att du har skapat en varnings regel för enkel statisk tröskel enligt följande:
+Let's say you have created a simple static threshold metric alert rule as follows:
 
-- Mål resurs (den Azure-resurs som du vill övervaka): myVM
-- Kostnads Procent CPU
-- Villkors typ: Statisk
-- Tids agg regering (statistik som körs över rå metriska värden. Tids agg regeringar som stöds är min, Max, AVG, total, Count): Average
-- Period (fönstret för att se vilka metriska värden är markerade): Under de senaste 5 minuterna
-- Frekvens (den frekvens med vilken måttets avisering kontrollerar om villkoren är uppfyllda): 1 min
-- Operator Större än
-- Fastställd 70
+- Target Resource (the Azure resource you want to monitor): myVM
+- Metric: Percentage CPU
+- Condition Type: Static
+- Time Aggregation (Statistic that is run over raw metric values. Supported time aggregations are Min, Max, Avg, Total, Count): Average
+- Period (The look back window over which metric values are checked): Over the last 5 mins
+- Frequency (The frequency with which the metric alert checks if the conditions are met): 1 min
+- Operator: Greater Than
+- Threshold: 70
 
-När aviserings regeln skapas körs övervakaren var 1: e minut och tittar på mått värden under de senaste 5 minuterna och kontrollerar om genomsnittet för dessa värden överstiger 70. Om villkoret är uppfyllt, är den genomsnittliga procent andelen för de senaste 5 minuterna längre än 70, varnings regeln utlöser ett aktiverat meddelande. Om du har konfigurerat ett e-postmeddelande eller en webhook-åtgärd i den åtgärds grupp som är associerad med varnings regeln får du ett aktiverat meddelande på båda.
+From the time the alert rule is created, the monitor runs every 1 min and looks at metric values for the last 5 minutes and checks if the average of those values exceeds 70. If the condition is met that is, the average Percentage CPU for the last 5 minutes exceeds 70, the alert rule fires an activated notification. If you have configured an email or a web hook action in the action group associated with the alert rule, you will receive an activated notification on both.
 
-När du använder flera villkor i en regel, "ands" villkoren tillsammans.  Det vill säga att aviseringen utlöses när alla villkor i aviseringen utvärderas som sant och löses när ett av villkoren inte längre är sant. Och exempel på den här typen av avisering skulle vara en avisering när "CPU som är högre än 90%" och "Queue length är över 300-objekt". 
+When you are using multiple conditions in one rule, the rule "ands" the conditions together.  That is, the alert fires when all the conditions in the alert evaluate as true and resolve when one of the conditions is no longer true. And example of this type of alert would be alert when "CPU higher than 90%" and "queue length is over 300 items". 
 
-### <a name="alert-rule-with-dynamic-condition-type"></a>Varnings regel med dynamisk villkors typ
+### <a name="alert-rule-with-dynamic-condition-type"></a>Alert rule with dynamic condition type
 
-Anta att du har skapat en mått regel för enkla dynamiska tröskelvärden enligt följande:
+Let's say you have created a simple Dynamic Thresholds metric alert rule as follows:
 
-- Mål resurs (den Azure-resurs som du vill övervaka): myVM
-- Kostnads Procent CPU
-- Villkors typ: Dynamisk
-- Tids agg regering (statistik som körs över rå metriska värden. Tids agg regeringar som stöds är min, Max, AVG, total, Count): Average
-- Period (fönstret för att se vilka metriska värden är markerade): Under de senaste 5 minuterna
-- Frekvens (den frekvens med vilken måttets avisering kontrollerar om villkoren är uppfyllda): 1 min
-- Operator Större än
-- Normal Medel
-- Se tillbaka-perioder: 4
-- Antal överträdelser: 4
+- Target Resource (the Azure resource you want to monitor): myVM
+- Metric: Percentage CPU
+- Condition Type: Dynamic
+- Time Aggregation (Statistic that is run over raw metric values. Supported time aggregations are Min, Max, Avg, Total, Count): Average
+- Period (The look back window over which metric values are checked): Over the last 5 mins
+- Frequency (The frequency with which the metric alert checks if the conditions are met): 1 min
+- Operator: Greater Than
+- Sensitivity: Medium
+- Look Back Periods: 4
+- Number of Violations: 4
 
-När varnings regeln har skapats, kommer Machine Learning-algoritmen för dynamiska tröskelvärden att hämta historiska data som är tillgängliga, beräkna tröskel som bäst passar mått seriens beteende mönster och kommer kontinuerligt att lära sig utifrån nya data för att göra tröskelvärdet är mer exakt.
+Once the alert rule is created, the Dynamic Thresholds machine learning algorithm will acquire historical data that is available, calculate threshold that best fits the metric series behavior pattern and will continuously learn based on new data to make the threshold more accurate.
 
-När aviserings regeln skapas körs övervakaren var 1: e minut och tittar på mått värden under de senaste 20 minuterna grupperade i 5 minuters perioder och kontrollerar om genomsnittet för period värden i var och en av de 4 perioderna överstiger det förväntade tröskelvärdet. Om villkoret är uppfyllt, vilket är den genomsnittliga procent andelen av processorn under de senaste 20 minuterna (fyra 5 minuter) som avviker från förväntat beteende fyra gånger, utlöses aviserings regeln av ett aktiverat meddelande. Om du har konfigurerat ett e-postmeddelande eller en webhook-åtgärd i den åtgärds grupp som är associerad med varnings regeln får du ett aktiverat meddelande på båda.
+From the time the alert rule is created, the monitor runs every 1 min and looks at metric values in the last 20 minutes grouped into 5 minutes periods and checks if the average of the period values in each of the 4 periods exceeds the expected threshold. If the condition is met that is, the average Percentage CPU in the last 20 minutes (four 5 minutes periods) deviated from expected behavior four times, the alert rule fires an activated notification. If you have configured an email or a web hook action in the action group associated with the alert rule, you will receive an activated notification on both.
 
-### <a name="view-and-resolution-of-fired-alerts"></a>Visa och matcha utlösta aviseringar
+### <a name="view-and-resolution-of-fired-alerts"></a>View and resolution of fired alerts
 
-Ovanstående exempel på utlösare för varnings regler kan också visas i Azure Portal på bladet **alla aviseringar** .
+The above examples of alert rules firing can also be viewed in the Azure portal in the **All Alerts** blade.
 
-Anta att användningen på "myVM" fortsätter att ligga över tröskelvärdet i efterföljande kontroller, att varnings regeln inte utlöses igen förrän villkoren har lösts.
+Say the usage on "myVM" continues being above the threshold in subsequent checks, the alert rule will not fire again until the conditions are resolved.
 
-Efter en stund kommer användningen av "myVM" att gå tillbaka till normal (hamnar under tröskelvärdet). Varnings regeln övervakar villkoret i två gånger för att skicka ett löst meddelande. Varnings regeln skickar ut ett löst/inaktiverat meddelande när varnings villkoret inte är uppfyllt under tre efterföljande perioder för att minska bruset i händelse av växlar-villkor.
+After some time, the usage on "myVM" comes back down to normal (goes below the threshold). The alert rule monitors the condition for two more times, to send out a resolved notification. The alert rule sends out a resolved/deactivated message when the alert condition is not met for three consecutive periods to reduce noise in case of flapping conditions.
 
-När det lösta meddelandet skickas ut via Webhooks eller e-post, anges även status för varnings instansen (kallas övervaknings tillstånd) i Azure Portal till löst.
+As the resolved notification is sent out via web hooks or email, the status of the alert instance (called monitor state) in Azure portal is also set to resolved.
 
-### <a name="using-dimensions"></a>Använda dimensioner
+### <a name="using-dimensions"></a>Using dimensions
 
-Mått varningar i Azure Monitor också stöd för övervakning av flera dimensions värde kombinationer med en regel. Nu ska vi ta reda på varför du kan använda flera dimensions kombinationer med hjälp av ett exempel.
+Metric alerts in Azure Monitor also support monitoring multiple dimensions value combinations with one rule. Let's understand why you might use multiple dimension combinations with the help of an example.
 
-Anta att du har en App Service plan för din webbplats. Du vill övervaka CPU-användning på flera instanser som kör webbplatsen/appen. Du kan göra det med en regel för mått varningar enligt följande:
+Say you have an App Service plan for your website. You want to monitor CPU usage on multiple instances running your web site/app. You can do that using a metric alert rule as follows:
 
-- Mål resurs: myAppServicePlan
-- Kostnads Procent CPU
-- Villkors typ: Statisk
+- Target resource: myAppServicePlan
+- Metric: Percentage CPU
+- Condition Type: Static
 - Dimensioner
-  - Instans = InstanceName1, InstanceName2
-- Tids mängd: Average
-- Gått Under de senaste 5 minuterna
-- Frekvens 1 min
-- Operator GreaterThan
-- Fastställd 70
+  - Instance = InstanceName1, InstanceName2
+- Time Aggregation: Average
+- Period: Over the last 5 mins
+- Frequency: 1 min
+- Operator: GreaterThan
+- Threshold: 70
 
-Precis som tidigare övervakar den här regeln om den genomsnittliga CPU-användningen för de senaste 5 minuterna överstiger 70%. Men med samma regel kan du övervaka två instanser som kör din webbplats. Varje instans kommer att övervakas individuellt och du får meddelanden individuellt.
+Like before, this rule monitors if the average CPU usage for the last 5 minutes exceeds 70%. However, with the same rule you can monitor two instances running your website. Each instance will get monitored individually and you will get notifications individually.
 
-Anta att du har en webbapp som kan se enorma behov och du behöver lägga till fler instanser. Regeln ovan övervakar fortfarande bara två instanser. Du kan dock skapa en regel på följande sätt:
+Say you have a web app that is seeing massive demand and you will need to add more instances. The above rule still monitors just two instances. However, you can create a rule as follows:
 
-- Mål resurs: myAppServicePlan
-- Kostnads Procent CPU
-- Villkors typ: Statisk
+- Target resource: myAppServicePlan
+- Metric: Percentage CPU
+- Condition Type: Static
 - Dimensioner
-  - Instans = *
-- Tids mängd: Average
-- Gått Under de senaste 5 minuterna
-- Frekvens 1 min
-- Operator GreaterThan
-- Fastställd 70
+  - Instance = *
+- Time Aggregation: Average
+- Period: Over the last 5 mins
+- Frequency: 1 min
+- Operator: GreaterThan
+- Threshold: 70
 
-Den här regeln övervakar automatiskt alla värden för instansen, dvs. Du kan övervaka dina instanser när de kommer igång utan att behöva ändra måttet för mått aviseringen igen.
+This rule will automatically monitor all values for the instance i.e you can monitor your instances as they come up without needing to modify your metric alert rule again.
 
-När du övervakar flera dimensioner kan aviserings regeln för dynamiska tröskelvärden skapa skräddarsydda tröskelvärden för hundratals mått serier i taget. Dynamiska tröskelvärden ger färre varnings regler för att hantera och betydande tid att spara vid hantering och skapande av aviserings regler.
+When monitoring multiple dimensions, Dynamic Thresholds alerts rule can create tailored thresholds for hundreds of metric series at a time. Dynamic Thresholds results in fewer alert rules to manage and significant time saving on management and creation of alerts rules.
 
-Anta att du har en webbapp med många instanser och att du inte vet vad det bästa tröskelvärdet är. Reglerna ovan kommer alltid att använda tröskelvärdet 70%. Du kan dock skapa en regel på följande sätt:
+Say you have a web app with many instances and you don't know what the most suitable threshold is. The above rules will always use threshold of 70%. However, you can create a rule as follows:
 
-- Mål resurs: myAppServicePlan
-- Kostnads Procent CPU
-- Villkors typ: Dynamisk
+- Target resource: myAppServicePlan
+- Metric: Percentage CPU
+- Condition Type: Dynamic
 - Dimensioner
-  - Instans = *
-- Tids mängd: Average
-- Gått Under de senaste 5 minuterna
-- Frekvens 1 min
-- Operator GreaterThan
-- Normal Medel
-- Se tillbaka-perioder: 1
-- Antal överträdelser: 1
+  - Instance = *
+- Time Aggregation: Average
+- Period: Over the last 5 mins
+- Frequency: 1 min
+- Operator: GreaterThan
+- Sensitivity: Medium
+- Look Back Periods: 1
+- Number of Violations: 1
 
-Den här regeln övervakar om den genomsnittliga CPU-användningen för de senaste 5 minuterna överskrider det förväntade beteendet för varje instans. Samma regel du kan övervaka instanser när de kommer igång utan att behöva ändra mått varnings regeln igen. Varje instans får ett tröskelvärde som passar mått seriens beteende mönster och kommer kontinuerligt att ändras baserat på nya data för att göra tröskelvärdet mer exakt. Precis som tidigare övervakas varje instans individuellt och du får meddelanden individuellt.
+This rule monitors if the average CPU usage for the last 5 minutes exceeds the expected behavior for each instance. The same rule you can monitor instances as they come up without needing to modify your metric alert rule again. Each instance will get a threshold that fits the metric series behavior pattern and will continuously change based on new data to make the threshold more accurate. Like before, each instance will be monitored individually and you will get notifications individually.
 
-Om du ökar antalet återställnings perioder och antalet överträdelser kan du också tillåta filtrerings aviseringar enbart för aviseringar i definitionen av en betydande avvikelse. [Lär dig mer om avancerade alternativ för dynamiska tröskelvärden](alerts-dynamic-thresholds.md#what-do-the-advanced-settings-in-dynamic-thresholds-mean).
+Increasing look-back periods and number of violations can also allow filtering alerts to only alert on your definition of a significant deviation. [Learn more about Dynamic Thresholds advanced options](alerts-dynamic-thresholds.md#what-do-the-advanced-settings-in-dynamic-thresholds-mean).
 
-## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Övervakning i skala med hjälp av mått varningar i Azure Monitor
+## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Monitoring at scale using metric alerts in Azure Monitor
 
-Hittills har du sett hur du kan använda en enda mått avisering för att övervaka en eller flera metriska tids serier som är relaterade till en enda Azure-resurs. Många gånger kanske du vill att samma varnings regel ska tillämpas på många resurser. Azure Monitor också stöd för övervakning av flera resurser med en mått varnings regel. Den här funktionen stöds för närvarande bara på virtuella datorer. Dessutom kan en enda mått avisering övervaka resurser i en Azure-region.
+So far, you have seen how a single metric alert could be used to monitor one or many metric time-series related to a single Azure resource. Many times, you might want the same alert rule applied to many resources. Azure Monitor also supports monitoring multiple resources with one metric alert rule. This feature is currently supported only on virtual machines. Also, a single metric alert can monitor resources in one Azure region.
 
-Du kan ange omfattningen för övervakning av en enda mått avisering på något av tre sätt:
+You can specify the scope of monitoring by a single metric alert in one of three ways:
 
-- som en lista över virtuella datorer i en Azure-region inom en prenumeration
-- alla virtuella datorer (i en Azure-region) i en eller flera resurs grupper i en prenumeration
-- alla virtuella datorer (i en Azure-region) i en prenumeration
+- as a list of virtual machines in one Azure region within a subscription
+- all virtual machines (in one Azure region) in one or more resource groups in a subscription
+- all virtual machines (in one Azure region) in one subscription
 
-Skapa mått varnings regler som övervakar flera resurser, till exempel att [skapa alla andra mått varningar](alerts-metric.md) som övervakar en enskild resurs. Den enda skillnaden är att du väljer alla resurser som du vill övervaka. Du kan också skapa dessa regler genom att [Azure Resource Manager mallar](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-metric-alert-that-monitors-multiple-resources). Du kommer att få enskilda meddelanden för varje virtuell dator.
+Creating metric alert rules that monitor multiple resources is like [creating any other metric alert](alerts-metric.md) that monitors a single resource. Only difference is that you would select all the resources you want to monitor. You can also create these rules through [Azure Resource Manager templates](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-metric-alert-that-monitors-multiple-resources). You will receive individual notifications for each virtual machine.
 
-## <a name="typical-latency"></a>Typisk svars tid
+## <a name="typical-latency"></a>Typical latency
 
-För mått aviseringar visas vanligt vis att du får ett meddelande under 5 minuter om du ställer in frekvensen för varnings regeln på 1 min. Vid tung belastning för aviserings system kan du se längre svars tid.
+For metric alerts, typically you will get notified in under 5 minutes if you set the alert rule frequency to be 1 min. In cases of heavy load for notification systems, you might see a longer latency.
 
-## <a name="supported-resource-types-for-metric-alerts"></a>Resurs typer som stöds för mått aviseringar
+## <a name="supported-resource-types-for-metric-alerts"></a>Supported resource types for metric alerts
 
-Du hittar en fullständig lista över resurs typer som stöds i den här [artikeln](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
+You can find the full list of supported resource types in this [article](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
-Om du använder klassiska metriska aviseringar idag och vill se om mått aviseringarna stöder alla resurs typer som du använder, visar följande tabell de resurs typer som stöds av klassiska mått varningar och om de stöds av metriska aviseringar idag eller inte.
-
-|Resurs typ som stöds av klassiska mått varningar | Stöds av mått varningar |
-|-------------------------------------------------|----------------------------|
-| Microsoft.ApiManagement/service | Ja |
-| Microsoft.Batch/batchAccounts| Ja|
-|Microsoft.Cache/redis| Ja |
-|Microsoft.ClassicCompute/virtualMachines | Nej |
-|Microsoft. ClassicCompute/domän namn/platser/roller | Nej|
-|Microsoft.CognitiveServices/accounts | Nej |
-|Microsoft.Compute/virtualMachines | Ja|
-|Microsoft.Compute/virtualMachineScaleSets| Ja|
-|Microsoft.ClassicStorage/storageAccounts| Nej |
-|Microsoft. DataFactory/datafactories | Ja|
-|Microsoft. DBforMySQL/servers| Ja|
-|Microsoft.DBforPostgreSQL/servers| Ja|
-|Microsoft.Devices/IotHubs | Nej|
-|Microsoft. DocumentDB/databaseAccounts| Ja|
-|Microsoft.EventHub/namespaces | Ja|
-|Microsoft.Logic/workflows | Ja|
-|Microsoft.Network/loadBalancers |Ja|
-|Microsoft.Network/publicIPAddresses| Ja|
-|Microsoft.Network/applicationGateways| Ja|
-|Microsoft.Network/expressRouteCircuits| Ja|
-|Microsoft.Network/trafficManagerProfiles | Ja|
-|Microsoft.Search/searchServices | Ja|
-|Microsoft.ServiceBus/namespaces| Ja |
-|Microsoft.Storage/storageAccounts | Ja|
-|Microsoft.StreamAnalytics/streamingjobs| Ja|
-|Microsoft.TimeSeriesInsights/environments | Ja|
-|Microsoft. Webb-/Server grupper | Ja |
-|Microsoft. Webb/platser (exklusive funktioner) | Ja|
-|Microsoft. Webb-/hostingEnvironments/multiRolePools | Nej|
-|Microsoft. Webb-/hostingEnvironments/workerPools| Nej |
-|Microsoft. SQL/Servers | Nej |
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Lär dig hur du skapar, visar och hanterar mått varningar i Azure](alerts-metric.md)
-- [Lär dig hur du distribuerar mått aviseringar med hjälp av Azure Resource Manager mallar](../../azure-monitor/platform/alerts-metric-create-templates.md)
-- [Läs mer om åtgärds grupper](action-groups.md)
-- [Läs mer om villkors typen för dynamiska tröskelvärden](alerts-dynamic-thresholds.md)
+- [Learn how to create, view, and manage metric alerts in Azure](alerts-metric.md)
+- [Learn how to deploy metric alerts using Azure Resource Manager templates](../../azure-monitor/platform/alerts-metric-create-templates.md)
+- [Learn more about action groups](action-groups.md)
+- [Learn more about Dynamic Thresholds condition type](alerts-dynamic-thresholds.md)

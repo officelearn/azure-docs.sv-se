@@ -1,49 +1,58 @@
 ---
-title: 'Självstudie: hantera märkes styrning'
-description: I den här självstudien använder du ändrings resultatet för Azure Policy för att skapa och tillämpa en etikett styrnings modell på nya och befintliga resurser.
-ms.date: 11/04/2019
+title: 'Tutorial: Manage tag governance'
+description: In this tutorial, you use the Modify effect of Azure Policy to create and enforce a tag governance model on new and existing resources.
+ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: 59de9d6ff03e160f83e2f2ad8b8b697109f31cd7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: e3d6e279b293ea8063c690f9fb69a6f183b2838d
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74216688"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482258"
 ---
-# <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Självstudie: hantera märkes styrning med Azure Policy
+# <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Tutorial: Manage tag governance with Azure Policy
 
-[Taggar](../../../azure-resource-manager/resource-group-using-tags.md) är en viktig del av att organisera dina Azure-resurser i en taxonomi. När du följer [metod tipsen för etikett hantering](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources)kan du använda taggar för att tillämpa affärs principer med Azure policy eller [spåra kostnader med Cost Management](../../../cost-management/cost-mgt-best-practices.md#organize-and-tag-your-resources).
-Oavsett hur eller varför du använder taggar är det viktigt att du snabbt kan lägga till, ändra och ta bort taggarna på dina Azure-resurser.
+[Tags](../../../azure-resource-manager/resource-group-using-tags.md) are a crucial part of organizing your Azure resources into a taxonomy. When following [best practices for tag management](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources), tags can be the basis for applying your business policies with Azure Policy or [tracking costs with Cost Management](../../../cost-management/cost-mgt-best-practices.md#organize-and-tag-your-resources).
+No matter how or why you use tags, it's important that you can quickly add, change, and remove those tags on your Azure resources.
 
-Azure Policyens [ändrings](../concepts/effects.md#modify) funktion har utformats för att hjälpa till med styrning av Taggar oavsett vilket stadium av resurs styrning som du är i. **Ändra** hjälper när:
+Azure Policy's [Modify](../concepts/effects.md#modify) effect is designed to aid in the governance of tags no matter what stage of resource governance you are in. **Modify** helps when:
 
-- Du är inte nybörjare i molnet och har ingen märknings styrning
-- Har redan tusentals resurser utan någon märknings styrning
-- Redan har en befintlig taxonomi som du behöver ändra
+- You're new to the cloud and have no tag governance
+- Already have thousands of resources with no tag governance
+- Already have an existing taxonomy that you need changed
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+In this tutorial, you'll complete the following tasks:
+
+> [!div class="checklist"]
+> - Identifiera dina affärskrav
+> - Map each requirement to a policy definition
+> - Group the tag policies into an initiative
+
+## <a name="prerequisites"></a>Krav
+
+Du behöver en Azure-prenumeration för att kunna utföra stegen i den här självstudiekursen. Om du inte har ett konto kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="identify-requirements"></a>Identifiera krav
 
-Precis som all bra implementering av styrnings kontroller bör kraven komma från dina affärs behov och förstås bra innan du skapar tekniska kontroller. I den här scenario kursen är följande saker som är våra affärs krav:
+Like any good implementation of governance controls, the requirements should come from your business needs and be well understood before creating technical controls. For this scenario tutorial, the following items are our business requirements:
 
-- Två obligatoriska taggar för alla resurser: _CostCenter_ och _Kuvert_
-- _CostCenter_ måste finnas på alla behållare och enskilda resurser
-  - Resurser ärver från den behållare som de befinner sig i, men de kan åsidosättas individuellt
-- _Kuvert_ måste finnas på alla behållare och enskilda resurser
-  - Resurser fastställer miljö för namngivnings schema för behållare och kan inte åsidosättas
-  - Alla resurser i en behållare ingår i samma miljö
+- Two required tags on all resources: _CostCenter_ and _Env_
+- _CostCenter_ must exist on all containers and individual resources
+  - Resources inherit from the container they're in, but may be individually overridden
+- _Env_ must exist on all containers and individual resources
+  - Resources determine environment by container naming scheme and may not be overridden
+  - All resources in a container are part of the same environment
 
-## <a name="configure-the-costcenter-tag"></a>Konfigurera CostCenter-taggen
+## <a name="configure-the-costcenter-tag"></a>Configure the CostCenter tag
 
-Med avseende på en Azure-miljö som hanteras av Azure Policy, kräver _CostCenter_ tag-krav för följande:
+In terms specific to an Azure environment managed by Azure Policy, the _CostCenter_ tag requirements call for the following:
 
-- Neka resurs grupper som saknar taggen _CostCenter_
-- Ändra resurser för att lägga till _CostCenter_ -taggen från den överordnade resurs gruppen när den saknas
+- Deny resource groups missing the _CostCenter_ tag
+- Modify resources to add the _CostCenter_ tag from the parent resource group when missing
 
-### <a name="deny-resource-groups-missing-the-costcenter-tag"></a>Neka resurs grupper som saknar taggen CostCenter
+### <a name="deny-resource-groups-missing-the-costcenter-tag"></a>Deny resource groups missing the CostCenter tag
 
-Eftersom _CostCenter_ för en resurs grupp inte kan bestämmas av namnet på resurs gruppen, måste den ha taggen som definierats i begäran för att skapa resurs gruppen. Följande princip regel med [neka](../concepts/effects.md#deny) -funktionen förhindrar skapande eller uppdatering av resurs grupper som inte har _CostCenter_ -taggen:
+Since the _CostCenter_ for a resource group can't be determined by the name of the resource group, it must have the tag defined on the request to create the resource group. The following policy rule with the [Deny](../concepts/effects.md#deny) effect prevents the creation or updating of resource groups that don't have the _CostCenter_ tag:
 
 ```json
 "if": {
@@ -63,11 +72,11 @@ Eftersom _CostCenter_ för en resurs grupp inte kan bestämmas av namnet på res
 ```
 
 > [!NOTE]
-> Eftersom den här princip regeln är riktad mot en resurs grupp måste _läget_ i princip definitionen vara all i stället för indexerad.
+> As this policy rule targets a resource group, the _mode_ on the policy definition must be 'All' instead of 'Indexed'.
 
-### <a name="modify-resources-to-inherit-the-costcenter-tag-when-missing"></a>Ändra resurser för att ärva CostCenter-taggen när den saknas
+### <a name="modify-resources-to-inherit-the-costcenter-tag-when-missing"></a>Modify resources to inherit the CostCenter tag when missing
 
-Det andra _CostCenter_ -behovet är för alla resurser som ska ärva taggen från den överordnade resurs gruppen när den saknas. Om taggen redan har definierats på resursen, även om den skiljer sig från den överordnade resurs gruppen, måste den lämnas ensam. Följande princip regel använder [ändring](../concepts/effects.md#modify):
+The second _CostCenter_ need is for any resources to inherit the tag from the parent resource group when it's missing. If the tag is already defined on the resource, even if different from the parent resource group, it must be left alone. The following policy rule uses [Modify](../concepts/effects.md#modify):
 
 ```json
 "policyRule": {
@@ -91,21 +100,21 @@ Det andra _CostCenter_ -behovet är för alla resurser som ska ärva taggen frå
 }
 ```
 
-Den här princip regeln använder åtgärden **Lägg till** i stället för **addOrReplace** eftersom vi inte vill ändra taggnamnet om det är tillgängligt när du [reparerar](../how-to/remediate-resources.md) befintliga resurser. Den använder också funktionen `[resourcegroup()]`-mall för att hämta taggnamnet från den överordnade resurs gruppen.
+This policy rule uses the **add** operation instead of **addOrReplace** as we don't want to alter the tag value if it's present when [remediating](../how-to/remediate-resources.md) existing resources. It also uses the `[resourcegroup()]` template function to get the tag value from the parent resource group.
 
 > [!NOTE]
-> Eftersom den här princip regeln riktar resurser som stöder taggar, måste _läget_ i princip definitionen vara ' Indexed '. Den här konfigurationen ser också till att den här principen hoppar över resurs grupper.
+> As this policy rule targets resources that support tags, the _mode_ on the policy definition must be 'Indexed'. This configuration also ensures this policy skips resource groups.
 
-## <a name="configure-the-env-tag"></a>Konfigurera kuvert-taggen
+## <a name="configure-the-env-tag"></a>Configure the Env tag
 
-I termer som är särskilt för en Azure-miljö som hanteras av Azure Policy, uppfyller _Kuvert_ tag gen kraven följande:
+In terms specific to an Azure environment managed by Azure Policy, the _Env_ tag requirements call for the following:
 
-- Ändra _Kuvert_ -taggen i resurs gruppen baserat på resurs gruppens namngivnings schema
-- Ändra _Kuvert_ -taggen för alla resurser i resurs gruppen till samma som den överordnade resurs gruppen
+- Modify the _Env_ tag on the resource group based on the naming scheme of the resource group
+- Modify the _Env_ tag on all resources in the resource group to the same as the parent resource group
 
-### <a name="modify-resource-groups-env-tag-based-on-name"></a>Ändra kuvert kod för resurs grupper baserat på namn
+### <a name="modify-resource-groups-env-tag-based-on-name"></a>Modify resource groups Env tag based on name
 
-En [ändrings](../concepts/effects.md#modify) princip krävs för varje miljö som finns i din Azure-miljö. Ändra principen för var och en ser ut ungefär så här princip definitionen:
+A [Modify](../concepts/effects.md#modify) policy is required for each environment that exists in your Azure environment. The Modify policy for each looks something like this policy definition:
 
 ```json
 "policyRule": {
@@ -137,13 +146,13 @@ En [ändrings](../concepts/effects.md#modify) princip krävs för varje miljö s
 ```
 
 > [!NOTE]
-> Eftersom den här princip regeln är riktad mot en resurs grupp måste _läget_ i princip definitionen vara all i stället för indexerad.
+> As this policy rule targets a resource group, the _mode_ on the policy definition must be 'All' instead of 'Indexed'.
 
-Den här principen matchar endast resurs grupper med det exempel på namngivnings schema som används för produktions resurser för `prd-`. Mer komplexa namngivnings scheman kan uppnås med flera **matchnings** villkor i stället för samma **som** i det här exemplet.
+This policy only matches resource groups with the sample naming scheme used for production resources of `prd-`. More complex naming scheme's can be achieved with several **match** conditions instead of the single **like** in this example.
 
-### <a name="modify-resources-to-inherit-the-env-tag"></a>Ändra resurser för att ärva kuvert-taggen
+### <a name="modify-resources-to-inherit-the-env-tag"></a>Modify resources to inherit the Env tag
 
-Företags kraven kräver att alla resurser har en _Kuvert_ -tagg som deras överordnade resurs grupp gör. Det går inte att åsidosätta den här taggen, så vi använder **addOrReplace** -åtgärden med [ändra](../concepts/effects.md#modify) -resultatet. Exempel ändrings principen ser ut som följande regel:
+The business requirement calls for all resources to have the _Env_ tag that their parent resource group does. This tag can't be overridden, so we'll use the **addOrReplace** operation with the [Modify](../concepts/effects.md#modify) effect. The sample Modify policy looks like the following rule:
 
 ```json
 "policyRule": {
@@ -175,24 +184,34 @@ Företags kraven kräver att alla resurser har en _Kuvert_ -tagg som deras över
 ```
 
 > [!NOTE]
-> Eftersom den här princip regeln riktar resurser som stöder taggar, måste _läget_ i princip definitionen vara ' Indexed '. Den här konfigurationen ser också till att den här principen hoppar över resurs grupper.
+> As this policy rule targets resources that support tags, the _mode_ on the policy definition must be 'Indexed'. This configuration also ensures this policy skips resource groups.
 
-Den här princip regeln söker efter en resurs som inte har det överordnade resurs grupp svärdet för _Kuvert_ -taggen eller som saknar taggen _Kuvert_ . De matchande resurserna har sina _Kuvert_ etiketter inställt på värdet för överordnade resurs grupper, även om taggen redan fanns på resursen men med ett annat värde.
+This policy rule looks for any resource that doesn't have its parent resource groups value for the _Env_ tag or is missing the _Env_ tag. Matching resources have their _Env_ tag set to the parent resource groups value, even if the tag already existed on the resource but with a different value.
 
-## <a name="assign-the-initiative-and-remediate-resources"></a>Tilldela initiativet initiativ och åtgärda resurser
+## <a name="assign-the-initiative-and-remediate-resources"></a>Assign the initiative and remediate resources
 
-När du har skapat tag-principerna ovan kan du ansluta dem till ett enda initiativ för märknings styrning och tilldela dem till en hanterings grupp eller prenumeration. Initiativet initiativ och inkluderade principer utvärderar sedan efterlevnad av befintliga resurser och ändrar begär Anden för nya eller uppdaterade resurser som matchar **IF** -egenskapen i princip regeln. Principen uppdaterar dock inte automatiskt befintliga icke-kompatibla resurser med den definierade tag gen ändringen.
+Once the tag policies above are created, join them into a single initiative for tag governance and assign them to a management group or subscription. The initiative and included policies then evaluate compliance of existing resources and alters requests for new or updated resources that match the **if** property in the policy rule. However, the policy doesn't automatically update existing non-compliant resources with the defined tag changes.
 
-Precis som [deployIfNotExists](../concepts/effects.md#deployifnotexists) -principer använder **ändrings** principen åtgärds åtgärder för att ändra befintliga icke-kompatibla resurser. Följ anvisningarna för [hur du kan åtgärda resurserna](../how-to/remediate-resources.md) för att identifiera dina icke-kompatibla **ändrings** resurser och korrigera taggarna till din definierade taxonomi.
+Like [deployIfNotExists](../concepts/effects.md#deployifnotexists) policies, the **Modify** policy uses remediation tasks to alter existing non-compliant resources. Follow the directions on [How-to remediate resources](../how-to/remediate-resources.md) to identify your non-compliant **Modify** resources and correct the tags to your defined taxonomy.
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Om du är klar med att arbeta med resurser i den här självstudien kan du använda följande steg för att ta bort tilldelningar eller definitioner som skapades ovan:
+
+1. Välj **Definitioner** (eller **Tilldelningar** om du ska ta bort en tilldelning) under **Redigering** till vänster på sidan Azure Policy.
+
+1. Sök efter den nya initiativ- eller principdefinition (eller tilldelning) som du vill ta bort.
+
+1. Högerklicka på raden eller välj ellipserna i slutet av definitionen (eller tilldelningen) och välj **Ta bort definition** (eller **Ta bort tilldelning**).
 
 ## <a name="review"></a>Granska
 
-I den här självstudien har du lärt dig om följande uppgifter:
+In this tutorial, you learned about the following tasks:
 
 > [!div class="checklist"]
 > - Identifierade dina affärskrav
-> - Mappat varje krav till en princip definition
-> - Grupperade tag policys i ett initiativ
+> - Mapped each requirement to a policy definition
+> - Grouped the tag policies into an initiative
 
 ## <a name="next-steps"></a>Nästa steg
 

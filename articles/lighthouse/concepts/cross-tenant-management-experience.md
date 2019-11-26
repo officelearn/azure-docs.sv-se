@@ -1,138 +1,138 @@
 ---
 title: Miljöer för hantering av flera klienter
-description: Azure-delegerad resurs hantering möjliggör hantering av flera innehavare.
+description: Azure delegated resource management enables a cross-tenant management experience.
 ms.date: 11/7/2019
-ms.topic: overview
-ms.openlocfilehash: 0d04a7a77a3f92cffb185ff829f0d678dac2a9ff
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.topic: conceptual
+ms.openlocfilehash: 2db1cfd7cc8145ff3020bf232021b4f1a63b2ddd
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131929"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74464026"
 ---
 # <a name="cross-tenant-management-experiences"></a>Miljöer för hantering av flera klienter
 
-Som tjänst leverantör kan du använda Azure- [delegerad resurs hantering](../concepts/azure-delegated-resource-management.md) för att hantera Azure-resurser för flera kunder från din egen klient i [Azure Portal](https://portal.azure.com). De flesta uppgifter och tjänster kan utföras på delegerade Azure-resurser över hanterade klienter. I den här artikeln beskrivs några av de förbättrade scenarier där Azure-delegerad resurs hantering kan vara effektiv.
+As a service provider, you can use [Azure delegated resource management](../concepts/azure-delegated-resource-management.md) to manage Azure resources for multiple customers from within your own tenant in the [Azure portal](https://portal.azure.com). Most tasks and services can be performed on delegated Azure resources across managed tenants. This article describes some of the enhanced scenarios where Azure delegated resource management can be effective.
 
 > [!NOTE]
-> Azure-delegerad resurs hantering kan också användas i ett företag som har flera klient organisationer för att förenkla administrationen av flera innehavare.
+> Azure delegated resource management can also be used within an enterprise which has multiple tenants of its own to simplify cross-tenant administration.
 
-## <a name="understanding-customer-tenants"></a>Förstå kund klienter
+## <a name="understanding-customer-tenants"></a>Understanding customer tenants
 
-En Azure Active Directory-klient (Azure AD) är en representation av en organisation. Det är en dedikerad instans av Azure AD som en organisation tar emot när de skapar en relation med Microsoft genom att registrera sig för Azure, Microsoft 365 eller andra tjänster. Varje Azure AD-klient är distinkt och åtskild från andra Azure AD-klienter och har ett eget klient-ID (ett GUID). Mer information finns i [Vad är Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
+An Azure Active Directory (Azure AD) tenant is a representation of an organization. It's a dedicated instance of Azure AD that an organization receives when they create a relationship with Microsoft by signing up for Azure, Microsoft 365, or other services. Each Azure AD tenant is distinct and separate from other Azure AD tenants, and has its own tenant ID (a GUID). For more info, see [What is Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
 
-För att kunna hantera Azure-resurser för en kund måste tjänst leverantörer ofta logga in på Azure Portal med ett konto som är kopplat till den kundens klient organisation, vilket kräver att en administratör i kundens klient organisation skapar och hanterar användar konton för tjänst leverantören.
+Typically, in order to manage Azure resources for a customer, service providers would have to sign in to the Azure portal using an account associated with that customer's tenant, requiring an administrator in the customer's tenant to create and manage user accounts for the service provider.
 
-Med Azure-delegerad resurs hantering anger onboarding-processen användare inom tjänst leverantörens klient organisation som ska kunna komma åt och hantera prenumerationer, resurs grupper och resurser i kundens klient organisation. Dessa användare kan sedan logga in på Azure Portal med sina egna autentiseringsuppgifter. I Azure Portal kan de hantera resurser som hör till alla kunder som de har åtkomst till. Detta kan göras genom att gå till sidan [Mina kunder](../how-to/view-manage-customers.md) i Azure Portal eller genom att arbeta direkt inom kontexten för kundens prenumeration, antingen i Azure Portal eller via API: er.
+With Azure delegated resource management, the onboarding process specifies users within the service provider's tenant who will be able to access and manage subscriptions, resource groups, and resources in the customer's tenant. These users can then sign in to the Azure portal using their own credentials. Within the Azure portal, they can manage resources belonging to all customers to which they have access. This can be done by visiting the [My customers](../how-to/view-manage-customers.md) page in the Azure portal, or by working directly within the context of that customer's subscription, either in the Azure portal or via APIs.
 
-Azure delegerad resurs hantering ger större flexibilitet för att hantera resurser för flera kunder utan att behöva logga in på olika konton i olika klienter. En tjänst leverantör kan till exempel ha tre kunder, med olika ansvars områden och åtkomst nivåer, som du ser här:
+Azure delegated resource management allows greater flexibility to manage resources for multiple customers without having to sign in to different accounts in different tenants. For example, a service provider may have three customers, with different responsibilities and access levels, as shown here:
 
-![Tre kund innehavare som visar service leverantörens ansvar](../media/azure-delegated-resource-management-customer-tenants.jpg)
+![Three customer tenants showing service provider responsibilities](../media/azure-delegated-resource-management-customer-tenants.jpg)
 
-Med Azure-delegerad resurs hantering kan behöriga användare logga in på tjänst leverantörens klient för att få åtkomst till dessa resurser, som du ser här:
+Using Azure delegated resource management, authorized users can sign in to the service provider’s tenant to access these resources, as shown here:
 
-![Kund resurser som hanteras via en tjänst leverantörs klient](../media/azure-delegated-resource-management-service-provider-tenant.jpg)
+![Customer resources managed through one service provider tenant](../media/azure-delegated-resource-management-service-provider-tenant.jpg)
 
-## <a name="apis-and-management-tool-support"></a>Stöd för API: er och hanterings verktyg
+## <a name="apis-and-management-tool-support"></a>APIs and management tool support
 
-Du kan utföra hanterings uppgifter för delegerade resurser antingen direkt i portalen eller med hjälp av API: er och hanterings verktyg (till exempel Azure CLI och Azure PowerShell). Alla befintliga API: er kan användas när du arbetar med delegerade resurser, så länge som funktionerna stöds för hantering av flera innehavare och användaren har rätt behörigheter.
+You can perform management tasks on delegated resources either directly in the portal or by using APIs and management tools (such as Azure CLI and Azure PowerShell). All existing APIs can be used when working with delegated resources, as long as the functionality is supported for cross-tenant management and the user has the appropriate permissions.
 
-Vi tillhandahåller också API: er för att utföra Azure delegerade resurs hanterings uppgifter. Mer information finns i avsnittet **referens** .
+We also provide APIs to perform Azure delegated resource management tasks. For more info, see the **Reference** section.
 
-## <a name="enhanced-services-and-scenarios"></a>Förbättrade tjänster och scenarier
+## <a name="enhanced-services-and-scenarios"></a>Enhanced services and scenarios
 
-De flesta uppgifter och tjänster kan utföras på delegerade resurser över hanterade klienter. Nedan visas några viktiga scenarier där hantering av flera innehavare kan vara effektiv.
+Most tasks and services can be performed on delegated resources across managed tenants. Below are some of the key scenarios where cross-tenant management can be effective.
 
-[Azure-båge för servrar (för hands version)](https://docs.microsoft.com/azure/azure-arc/servers/overview):
+[Azure Arc for servers (preview)](https://docs.microsoft.com/azure/azure-arc/servers/overview):
 
-- [Anslut Windows Server-eller Linux-datorer utanför Azure](https://docs.microsoft.com/azure/azure-arc/servers/quickstart-onboard-portal) till delegerade prenumerationer och/eller resurs grupper i Azure
-- Hantera anslutna datorer med hjälp av Azure-konstruktioner, till exempel Azure Policy och taggning
+- [Connect Windows Server or Linux machines outside Azure](https://docs.microsoft.com/azure/azure-arc/servers/quickstart-onboard-portal) to delegated subscriptions and/or resource groups in Azure
+- Manage connected machines using Azure constructs, such as Azure Policy and tagging
 
 [Azure Automation](https://docs.microsoft.com/azure/automation/):
 
-- Använd Automation-konton för att komma åt och arbeta med delegerade kund resurser
+- Use automation accounts to access and work with delegated customer resources
 
 [Azure Backup](https://docs.microsoft.com/azure/backup/):
 
-- Säkerhetskopiera och återställa kund information i kund klienter
+- Back up and restore customer data in customer tenants
 
-[Azure Kubernetes service (AKS)](https://docs.microsoft.com//azure/aks/):
+[Azure Kubernetes Service (AKS)](https://docs.microsoft.com//azure/aks/):
 
-- Hantera värdbaserade Kubernetes-miljöer och distribuera och hantera program i behållare inom kund klienter
+- Manage hosted Kubernetes environments and deploy and manage containerized applications within customer tenants
 
 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/):
 
-- Visa aviseringar för delegerade prenumerationer, med möjlighet att visa aviseringar över alla prenumerationer
-- Visa aktivitets logg information för delegerade prenumerationer
-- Log Analytics: fråga efter data från fjärranslutna kund arbets ytor i flera klienter
-- Skapa aviseringar i kund klienter som utlöser automatisering, till exempel Azure Automation runbooks eller Azure Functions, i tjänst leverantörens klient organisation via Webhooks
+- View alerts for delegated subscriptions, with the ability to view alerts across all subscriptions
+- View activity log details for delegated subscriptions
+- Log analytics: Query data from remote customer workspaces in multiple tenants
+- Create alerts in customer tenants that trigger automation, such as Azure Automation runbooks or Azure Functions, in the service provider tenant through webhooks
 
-[Azure policy](https://docs.microsoft.com/azure/governance/policy/):
+[Azure Policy](https://docs.microsoft.com/azure/governance/policy/):
 
-- Ögonblicks bilder av kompatibilitet visar information om tilldelade principer i delegerade prenumerationer
-- Skapa och redigera princip definitioner i en delegerad prenumeration
-- Tilldela kunddefinierade princip definitioner inom den delegerade prenumerationen
-- Kunder ser principer som skapats av tjänst leverantören tillsammans med eventuella principer som de har skapat själva
-- Kan [åtgärda deployIfNotExists eller ändra tilldelningar inom kund innehavaren](../how-to/deploy-policy-remediation.md)
+- Compliance snapshots show details for assigned policies within delegated subscriptions
+- Create and edit policy definitions within a delegated subscription
+- Assign customer-defined policy definitions within the delegated subscription
+- Customers see policies authored by the service provider alongside any policies they've authored themselves
+- Can [remediate deployIfNotExists or modify assignments within the customer tenant](../how-to/deploy-policy-remediation.md)
 
 [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/):
 
-- Innehåller nu klient-ID: t i returnerade frågeresultat, så att du kan identifiera om en prenumeration tillhör kunden eller tjänst leverantörens klient organisation
+- Now includes the tenant ID in returned query results, allowing you to identify whether a subscription belongs to the customer tenant or service provider tenant
 
 [Azure Security Center](https://docs.microsoft.com/azure/security-center/):
 
-- Synlighet mellan klienter
-  - Övervaka efterlevnad av säkerhets principer och garantera säkerhets täckning för alla klienters resurser
-  - Kontinuerlig övervakning av efterlevnad för flera kunder i en enda vy
-  - Övervaka, prioritering och prioritera åtgärds bara säkerhets rekommendationer med säker Poäng beräkning
-- Hantering av säkerhets position över flera innehavare
-  - Hantera säkerhets principer
-  - Vidta åtgärder för resurser som inte är kompatibla med åtgärds bara säkerhets rekommendationer
-  - Samla in och lagra säkerhetsrelaterade data
-- Hot identifiering och skydd mellan klienter
-  - Identifiera hot över klient organisations resurser
-  - Använd avancerade skydds kontroller som just-in-Time (JIT) VM-åtkomst
-  - Härdning av nätverks säkerhets grupp konfigurationen med anpassad nätverks härdning
-  - Se till att servrarna bara kör de program och processer som de ska vara med anpassningsbara program kontroller
-  - Övervaka ändringar i viktiga filer och register poster med File Integrity Monitoring (FIM)
+- Cross-tenant visibility
+  - Monitor compliance to security policies and ensure security coverage across all tenants’ resources
+  - Continuous regulatory compliance monitoring across multiple customers in a single view
+  - Monitor, triage, and prioritize actionable security recommendations with secure score calculation
+- Cross-tenant security posture management
+  - Manage security policies
+  - Take action on resources that are out of compliance with actionable security recommendations
+  - Collect and store security-related data
+- Cross-tenant threat detection and protection
+  - Detect threats across tenants’ resources
+  - Apply advanced threat protection controls such as just-in-time (JIT) VM access
+  - Harden network security group configuration with Adaptive Network Hardening
+  - Ensure servers are running only the applications and processes they should be with adaptive application controls
+  - Monitor changes to important files and registry entries with File Integrity Monitoring (FIM)
 
 [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/multiple-tenants-service-providers):
 
-- Hantera Azure Sentinel-resurser i kund klienter
+- Manage Azure Sentinel resources in customer tenants
 
 [Azure Service Health](https://docs.microsoft.com/azure/service-health/):
 
-- Övervaka hälso tillståndet för kund resurser med Azure Resource Health
-- Spåra hälsan hos de Azure-tjänster som används av dina kunder
+- Monitor the health of customer resources with Azure Resource Health
+- Track the health of the Azure services used by your customers
 
 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/):
 
-- Hantera katastrof återställnings alternativ för virtuella Azure-datorer i kund klienter (Observera att du inte kan använda RunAs-konton för att kopiera VM-tillägg)
+- Manage disaster recovery options for Azure virtual machines in customer tenants (note that you can't use RunAs accounts to copy VM extensions)
 
-[Azure-Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/):
+[Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/):
 
-- Använd tillägg för virtuella datorer för att tillhandahålla konfigurations-och automatiserings uppgifter efter distributionen på virtuella Azure-datorer i kund klienter
-- Använd startdiagnostik för att felsöka virtuella Azure-datorer i kund klienter
-- Få åtkomst till virtuella datorer med serie konsolen i kund klienter
-- Observera att du inte kan använda Azure Active Directory för fjärrinloggning till en virtuell dator och du kan inte integrera en virtuell dator med en Key Vault för lösen ord, hemligheter eller kryptografiska nycklar för disk kryptering
+- Use virtual machine extensions to provide post-deployment configuration and automation tasks on Azure VMs in customer tenants
+- Use boot diagnostics to troubleshoot Azure VMs in customer tenants
+- Access VMs with serial console in customer tenants
+- Note that you can't use Azure Active Directory for remote login to a VM, and you can't integrate a VM with a Key Vault for passwords, secrets or cryptographic keys for disk encryption
 
 [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/):
 
-- Distribuera och hantera virtuella nätverk och virtuella nätverks gränssnitts kort (virtuella nätverkskort) i kund klienter
+- Deploy and manage virtual networks and virtual network interface cards (vNICs) within customer tenants
 
-Support förfrågningar:
+Support requests:
 
-- Öppna support förfrågningar för delegerade resurser från **Hjälp + Support** -bladet i Azure Portal (välja det support avtal som är tillgängligt för det delegerade omfånget)
+- Open support requests for delegated resources from the **Help + support** blade in the Azure portal (selecting the support plan available to the delegated scope)
 
 ## <a name="current-limitations"></a>Aktuella begränsningar
-Tänk på följande nuvarande begränsningar i alla scenarier:
+With all scenarios, please be aware of the following current limitations:
 
-- Begär Anden som hanteras av Azure Resource Manager kan utföras med Azure-delegerad resurs hantering. Åtgärds-URI: erna för dessa begär Anden börjar med `https://management.azure.com`. Förfrågningar som hanteras av en instans av en resurs typ (till exempel åtkomst till nyckel valv hemligheter eller åtkomst till lagrings data) stöds dock inte med Azure-delegerad resurs hantering. Åtgärds-URI: erna för dessa begär Anden börjar vanligt vis med en adress som är unik för din instans, till exempel `https://myaccount.blob.core.windows.net` eller `https://mykeyvault.vault.azure.net/`. De sistnämnda är också vanliga data åtgärder i stället för hanterings åtgärder. 
-- Roll tilldelningar måste använda [Inbyggda RBAC-roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)(rollbaserad åtkomst kontroll). Alla inbyggda roller stöds för närvarande med Azure-delegerad resurs hantering förutom för ägare eller inbyggda roller med [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) -behörighet. Rollen administratör för användar åtkomst stöds endast för begränsad användning i [tilldela roller till hanterade identiteter](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  Administratörs roller för anpassade roller och [klassiska prenumerationer](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) stöds inte.
-- För närvarande kan du inte publicera en prenumeration (eller resurs grupp i en prenumeration) för Azure-delegerad resurs hantering om prenumerationen använder Azure Databricks. Om en prenumeration har registrerats för onboarding med **Microsoft. ManagedServices** Resource Provider kan du inte heller skapa en Databricks-arbetsyta för den prenumerationen just nu.
-- Även om du kan publicera prenumerationer och resurs grupper för Azure delegerad resurs hantering som har resurs lås, kommer dessa lås inte att förhindra att åtgärder utförs av användare i hanterings klienten. [Neka tilldelningar](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments) som skyddar systemhanterade resurser, t. ex. de som skapats av Azure-hanterade program eller Azure-skisser (systemtilldelade neka-tilldelningar), förhindrar användare i hanterings klienten från att fungera på dessa resurser. men vid den här tidpunkten kan användare i kund klienten inte skapa sina egna neka-tilldelningar (användar tilldelning neka tilldelningar).
+- Requests handled by Azure Resource Manager can be performed using Azure delegated resource management. The operation URIs for these requests start with `https://management.azure.com`. However, requests that are handled by an instance of a resource type (such as KeyVault secrets access or storage data access) aren’t supported with Azure delegated resource management. The operation URIs for these requests typically start with an address that is unique to your instance, such as `https://myaccount.blob.core.windows.net` or `https://mykeyvault.vault.azure.net/`. The latter also are typically data operations rather than management operations. 
+- Role assignments must use role-based access control (RBAC) [built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles). All built-in roles are currently supported with Azure delegated resource management except for Owner or any built-in roles with [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) permission. The User Access Administrator role is supported only for limited use in [assigning roles to managed identities](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  Custom roles and [classic subscription administrator roles](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) are not supported.
+- Currently, you can’t onboard a subscription (or resource group within a subscription) for Azure delegated resource management if the subscription uses Azure Databricks. Similarly, if a subscription has been registered for onboarding with the **Microsoft.ManagedServices** resource provider, you won’t be able to create a Databricks workspace for that subscription at this time.
+- While you can onboard subscriptions and resource groups for Azure delegated resource management which have resource locks, those locks will not prevent actions from being performed by users in the managing tenant. [Deny assignments](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments) that protect system-managed resources, such as those created by Azure managed applications or Azure Blueprints (system-assigned deny assignments), do prevent users in the managing tenant from acting on those resources; however, at this time users in the customer tenant can’t create their own deny assignments (user-assigned deny assignments).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Publicera dina kunder till Azure delegerad resurs hantering, antingen genom att [använda Azure Resource Manager mallar](../how-to/onboard-customer.md) eller genom [att publicera ett privat eller offentligt hanterat tjänst erbjudande på Azure Marketplace](../how-to/publish-managed-services-offers.md).
-- [Visa och hantera kunder](../how-to/view-manage-customers.md) genom att gå till **mina kunder** i Azure Portal.
+- Onboard your customers to Azure delegated resource management, either by [using Azure Resource Manager templates](../how-to/onboard-customer.md) or by [publishing a private or public managed services offer to Azure Marketplace](../how-to/publish-managed-services-offers.md).
+- [View and manage customers](../how-to/view-manage-customers.md) by going to **My customers** in the Azure portal.

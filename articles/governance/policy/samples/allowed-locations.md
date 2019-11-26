@@ -1,14 +1,14 @@
 ---
 title: Exempel – Tillåtna platser
-description: Den här exempelprincipdefinitionen kräver att alla resurser distribueras till de godkända platserna.
+description: This sample policy definition requires that all resources are deployed to the approved locations defined in a parameter.
 ms.date: 01/26/2019
 ms.topic: sample
-ms.openlocfilehash: 7561e57a00f440e50701fa75bd54676ad014e1d5
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 7620055c82a49c1e805da69205d14c5f0a925e8c
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74071925"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463703"
 ---
 # <a name="sample---allowed-region-locations"></a>Exempel – Tillåtna regionplatser
 
@@ -19,7 +19,7 @@ Du kan distribuera det här exemplet med hjälp av:
 - [Azure Portal](#azure-portal)
 - [Azure PowerShell](#azure-powershell)
 - [Azure CLI](#azure-cli)
-- [REST-API](#rest-api)
+- [REST API](#rest-api)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -70,8 +70,8 @@ I den här exempelparametern tillåts endast platserna _USA, östra 2_ eller _US
 
 ## <a name="azure-portal"></a>Azure portal
 
-[![distribuera princip exemplet till azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fallowed-locations%2Fazurepolicy.json)
-[![distribuera princip exemplet till Azure gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fallowed-locations%2Fazurepolicy.json)
+[![Deploy the Policy sample to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fallowed-locations%2Fazurepolicy.json)
+[![Deploy the Policy sample to Azure Gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fallowed-locations%2Fazurepolicy.json)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -107,7 +107,7 @@ Remove-AzPolicyDefinition -Id $definition.ResourceId
 
 ### <a name="azure-powershell-explanation"></a>Azure PowerShell-förklaring
 
-Skripten för distribution och borttagning använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation:
+Skripten för distribution och borttagning använder följande kommandon. Varje kommando i följande tabell länkar till kommandospecifik dokumentation:
 
 | Kommando | Anteckningar |
 |---|---|

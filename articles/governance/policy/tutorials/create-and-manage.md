@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Build policies to enforce compliance'
 description: In this tutorial, you use policies to enforce standards, control costs, maintain security, and impose enterprise wide design principles.
-ms.date: 02/04/2019
+ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: 38c41c94600da1f028c7857febc7de1eef2436ae
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 75a1d892a88f2b5bbdbec2a1b8d525245bb1e86f
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74216901"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482365"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Tutorial: Create and manage policies to enforce compliance
 
@@ -20,7 +20,11 @@ Det är viktigt att du förstår hur du skapar och hanterar principer i Azure f�
 > - Lösa en icke-kompatibel eller nekad resurs
 > - Implementera en ny princip i en organisation
 
-Om du vill tilldela en princip för att identifiera dina befintliga resursers efterlevnadstillstånd går artiklarna i snabbstarten igenom det. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du vill tilldela en princip för att identifiera dina befintliga resursers efterlevnadstillstånd går artiklarna i snabbstarten igenom det.
+
+## <a name="prerequisites"></a>Krav
+
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="assign-a-policy"></a>Tilldela en princip
 
@@ -443,7 +447,7 @@ Om du är klar med att arbeta med resurser i den här självstudien kan du anvä
 
 1. Högerklicka på raden eller välj ellipserna i slutet av definitionen (eller tilldelningen) och välj **Ta bort definition** (eller **Ta bort tilldelning**).
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="review"></a>Granska
 
 I den här självstudien har du genomfört följande uppgifter:
 
@@ -452,6 +456,8 @@ I den här självstudien har du genomfört följande uppgifter:
 > - Skapat och tilldelat en initiativdefinition för att spåra efterlevnad för flera resurser
 > - Löst en icke-kompatibel eller nekad resurs
 > - Implementerat en ny princip i en organisation
+
+## <a name="next-steps"></a>Nästa steg
 
 Mer information om principdefinitionernas strukturer finns i den här artikeln:
 

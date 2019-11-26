@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: c2769282a2e9afda22d2e03c653b0f62b05b98bc
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e52433cfae1e889f07818f582fc3aef0752932ea
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187524"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482495"
 ---
-Innan du läser den här artikeln bör du känna till följande begrepp eller läsa följande artiklar:
+Before reading this article, you should be familiar with the following concepts:
 
-- [Översikt över Microsoft identity-plattformen](../articles/active-directory/develop/v2-overview.md)
+- [Microsoft identity platform overview](../articles/active-directory/develop/v2-overview.md)
 - [Grundläggande om autentisering](../articles/active-directory/develop/authentication-scenarios.md)
-- [målgrupper](../articles/active-directory/develop/v2-supported-account-types.md)
-- [Program och tjänstens huvudnamn](../articles/active-directory/develop/app-objects-and-service-principals.md)
-- [Behörigheter och samtycke](../articles/active-directory/develop/v2-permissions-and-consent.md)
-- [ID-token](../articles/active-directory/develop/id-tokens.md) och [åtkomsttoken](../articles/active-directory/develop/access-tokens.md)
+- [Audiences](../articles/active-directory/develop/v2-supported-account-types.md)
+- [Application and service principals](../articles/active-directory/develop/app-objects-and-service-principals.md)
+- [Permissions and consent](../articles/active-directory/develop/v2-permissions-and-consent.md)
+- [ID tokens](../articles/active-directory/develop/id-tokens.md) and [access tokens](../articles/active-directory/develop/access-tokens.md)

@@ -1,27 +1,28 @@
 ---
 title: 'Quickstart: New policy assignment with PowerShell'
 description: In this quickstart, you use Azure PowerShell to create an Azure Policy assignment to identify non-compliant resources.
-ms.date: 03/11/2019
+ms.date: 11/25/2019
 ms.topic: quickstart
-ms.openlocfilehash: 3e488bece1b74eb473e3e08ea9c36a78063bd5a8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3ce823a7abfe16e4433128dcdfe073dfcfaeba50
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74210070"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482390"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Quickstart: Create a policy assignment to identify non-compliant resources using Azure PowerShell
 
-Det första steget mot att förstå kompatibilitet i Azure är att identifiera dina resursers status. I den här snabbstarten skapar du en principtilldelning som identifierar virtuella datorer som inte använder hanterade diskar. When complete, you'll identify virtual machines that are *non-compliant*.
+Det första steget mot att förstå kompatibilitet i Azure är att identifiera dina resursers status. I den här snabbstarten skapar du en principtilldelning som identifierar virtuella datorer som inte använder hanterade diskar. When complete, you'll identify virtual machines that are _non-compliant_.
 
 The Azure PowerShell module is used to manage Azure resources from the command line or in scripts.
 This guide explains how to use Az module to create a policy assignment.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
-
 ## <a name="prerequisites"></a>Krav
 
+- Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+
 - Innan du börjar bör du kontrollera att den senaste versionen av Azure PowerShell har installerats. Detaljerad information finns i [Installera Azure PowerShell-modulen](/powershell/azure/install-az-ps).
+
 - Register the Azure Policy Insights resource provider using Azure PowerShell. När du registrerar resursprovidern säkerställer du att din prenumeration fungerar med den. Om du vill registrera en resursprovider måste du ha behörighet att utföra åtgärden att registrera resursprovidern. Den här åtgärden ingår i rollerna Deltagare och Ägare. Registrera resursprovidern genom att köra följande kommando:
 
   ```azurepowershell-interactive
@@ -29,11 +30,13 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
   Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
   ```
 
-  Läs mer om att registrera och visa resursprovidrar i [(Resursprovidrar och typer)](../../azure-resource-manager/resource-manager-supported-services.md)
+  Läs mer om att registrera och visa resursproviders i [Resource Providers and Types](../../azure-resource-manager/resource-manager-supported-services.md) (Resursproviders och typer).
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-policy-assignment"></a>Skapa en principtilldelning
 
-In this quickstart, you create a policy assignment for the *Audit VMs without managed disks* definition. This policy definition identifies virtual machines not using managed disks.
+In this quickstart, you create a policy assignment for the _Audit VMs without managed disks_ definition. This policy definition identifies virtual machines not using managed disks.
 
 Skapa en ny principtilldelning genom att köra följande kommandon:
 
@@ -50,9 +53,9 @@ New-AzPolicyAssignment -Name 'audit-vm-manageddisks' -DisplayName 'Audit VMs wit
 
 Föregående kommandon använder följande information:
 
-- **Namn** - det faktiska namnet på tilldelningen. I det här exemplet användes *audit-vm-manageddisks*.
-- **Visningsnamn** – Visningsnamn för principtilldelningen. I det här fallet använder du *tilldelningen Granska virtuella datorer utan Managed Disks*.
-- **Definition** – Principdefinitionen som du använder som bas för att skapa tilldelningen. I det här fallet är principdefinitionens ID *Granska virtuella datorer som inte använder hanterade diskar*.
+- **Namn** - det faktiska namnet på tilldelningen. I det här exemplet användes _audit-vm-manageddisks_.
+- **Visningsnamn** – Visningsnamn för principtilldelningen. I det här fallet använder du _tilldelningen Granska virtuella datorer utan Managed Disks_.
+- **Definition** – Principdefinitionen som du använder som bas för att skapa tilldelningen. I det här fallet är principdefinitionens ID _Granska virtuella datorer som inte använder hanterade diskar_.
 - **Omfång** – Ett omfång avgör vilka resurser eller grupper med resurser som principtilldelningen används på. Det kan vara allt från en prenumeration till resursgrupper. Kom ihåg att ersätta &lt;omfång&gt; med namnet på din resursgrupp.
 
 You're now ready to identify non-compliant resources to understand the compliance state of your environment.

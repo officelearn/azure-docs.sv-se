@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: övervaka dina enheter i Azure IoT Central'
-description: 'Självstudie: som operatör använder du ditt Azure IoT Central-program för att övervaka dina enheter.'
+title: 'Tutorial: Monitor your devices in Azure IoT Central'
+description: 'Tutorial: As an operator, use your Azure IoT Central application to monitor your devices.'
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/13/2019
@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: db3a9a6ba51394a0473f64a2ccede97e5283bba1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: a07a822e863c5ff5d695a20c02bd8d295721efda
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74106568"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74480248"
 ---
 # <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>Självstudie: Använda Azure IoT Central för att övervaka dina enheter
 
@@ -22,7 +22,7 @@ ms.locfileid: "74106568"
 
 I den här självstudien lär du dig att som operatör använda Microsoft Azure IoT Central-programmet för att övervaka enheter och ändra inställningar.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Få ett meddelande
@@ -41,7 +41,7 @@ Innan du börjar bör byggaren skapa Azure IoT Central-programmet genom att slut
 
 Azure IoT Central skickar meddelanden om enheter via e-post. Byggaren lade till en regel för att skicka ett meddelande när temperaturen i en ansluten luftkonditioneringsenhet överskrider ett tröskelvärde. Kontrollera e-postmeddelanden som skickas till det konto som valdes ut av byggaren för att få meddelanden.
 
-Öppna det e-postmeddelande som du fick i slutet av självstudien om att [konfigurera regler och åtgärder för din enhet](tutorial-configure-rules.md). I e-postmeddelandet väljer du länken till enheten bredvid **enhetens namn** i avsnittet **information** :
+Öppna det e-postmeddelande som du fick i slutet av självstudien om att [konfigurera regler och åtgärder för din enhet](tutorial-configure-rules.md). In the email, select the link to the device next to **Device Name** in the **Details** section:
 
 ![E-postavisering](media/tutorial-monitor-devices/email.png)
 
@@ -57,7 +57,7 @@ Välj **Instrumentpanelen** om du vill se information om enheten.
 
 ![Instrumentpanel för enhet](media/tutorial-monitor-devices/initial_screen.png)
 
-Diagrammet på instrumentpanelen visar en kurva över enhetens temperatur. Du kan också se aktuell mål temperatur för enheten i **enhetens egenskaps** panel. Du anser att måltemperaturen är för hög.
+Diagrammet på instrumentpanelen visar en kurva över enhetens temperatur. You can also see the current target temperature for the device in the **Device properties** tile. Du anser att måltemperaturen är för hög.
 
 ## <a name="remediate-an-issue"></a>Lösa ett problem
 

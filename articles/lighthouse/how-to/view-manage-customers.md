@@ -1,66 +1,66 @@
 ---
-title: Visa och hantera kunder och delegerade resurser
-description: Som en tjänst leverantör som använder Azure-delegerad resurs hantering kan du Visa alla dina delegerade kund resurser och prenumerationer genom att gå till mina kunder i Azure Portal.
+title: View and manage customers and delegated resources
+description: As a service provider using Azure delegated resource management, you can view all of your delegated customer resources and subscriptions by going to My customers in the Azure portal.
 ms.date: 10/23/2019
-ms.topic: overview
-ms.openlocfilehash: ed1f2e5044fe5058acc4f8b155b346dd46c51b28
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.topic: conceptual
+ms.openlocfilehash: f115ecad09b01869a465f50485e191671970d521
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131235"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463835"
 ---
-# <a name="view-and-manage-customers-and-delegated-resources"></a>Visa och hantera kunder och delegerade resurser
+# <a name="view-and-manage-customers-and-delegated-resources"></a>View and manage customers and delegated resources
 
-Tjänst leverantörer som använder [Azure-delegerad resurs hantering](../concepts/azure-delegated-resource-management.md) kan använda sidan **mina kunder** i [Azure Portal](https://portal.azure.com) för att Visa delegerade kund resurser och prenumerationer. Vi kommer att hänvisa till tjänst leverantörer och kunder här, men företag som hanterar flera klienter kan använda samma process för att konsolidera sin hanterings upplevelse.
+Service providers using [Azure delegated resource management](../concepts/azure-delegated-resource-management.md) can use the **My customers** page in the [Azure portal](https://portal.azure.com) to view delegated customer resources and subscriptions. While we'll refer to service providers and customers here, enterprises managing multiple tenants can use the same process to consolidate their management experience.
 
-Du kommer åt sidan **Mina kunder** på Azure Portal genom att välja **alla tjänster**och sedan söka efter **Mina kunder** och välja den. Du kan också hitta den genom att ange "mina kunder" i sökrutan längst upp i Azure Portal.
+To access the **My customers** page in the Azure portal, select **All services**, then search for **My customers** and select it. You can also find it by entering “My customers” in the search box near the top of the Azure portal.
 
-Tänk på att den översta delen av sidan **Mina kunder** endast visar information om kunder som har delegerade prenumerationer eller resurs grupper. Om du arbetar med andra kunder (t. ex. via [Cloud Solution Provider-programmet](https://docs.microsoft.com/partner-center/csp-overview)kan du inte se information om dessa kunder här om du inte har publicerat resurserna för delegerad resurs hantering). I avsnittet **Cloud Solution Provider (för hands version)** på sidan visas fakturerings information och resurser för dina CSP-kunder som har [undertecknat Microsofts kund avtal (MCA)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) och följer Azure-prenumerationen, oavsett om de har registrerats eller inte för Azure-delegerad resurs hantering. Mer information finns i [Kom igång med ditt fakturerings konto för Microsoft partner avtal](https://docs.microsoft.com/azure/billing/mpa-overview).
+Keep in mind that the top section of the **My customers** page only shows info about customers who have delegated subscriptions or resource groups. If you work with other customers (such as through the [Cloud Solution Provider program](https://docs.microsoft.com/partner-center/csp-overview), you won’t see info about those customers here unless you onboard their resources for delegated resource management. Lower on the page, the **Cloud Solution Provider (Preview)** section shows billing info and resources for your CSP customers who have [signed the Microsoft Customer Agreement (MCA)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) and are under the Azure plan, whether or not they have been onboarded for Azure delegated resource management. For more info, see [Get started with your Microsoft Partner Agreement billing account](https://docs.microsoft.com/azure/billing/mpa-overview).
 
 > [!NOTE]
-> Dina kunder kan visa information om tjänst leverantörer genom att gå till **tjänst leverantörer** i Azure Portal. Mer information finns i [Visa och hantera tjänst leverantörer](view-manage-service-providers.md).
+> Your customers can view info about service providers by navigating to **Service providers** in the Azure portal. For more info, see [View and manage service providers](view-manage-service-providers.md).
 
-## <a name="view-and-manage-customer-details"></a>Visa och hantera kund information
+## <a name="view-and-manage-customer-details"></a>View and manage customer details
 
-Om du vill visa kund information väljer du **kunder** till vänster på sidan **Mina kunder** .
+To view customer details, select **Customers** on the left side of the **My customers** page.
 
-För varje kund ser du kundens namn, kund-ID (klient-ID) och erbjudandet som är associerat med ärendet. I kolumnen **delegeringar** ser du antalet delegerade prenumerationer och/eller antalet delegerade resurs grupper.
+For each customer, you'll see the customer's name, customer ID (tenant ID), and the offer associated with the engagement. In the **Delegations** column, you'll see the number of delegated subscriptions and/or the number of delegated resource groups.
 
 > [!IMPORTANT]
-> För att kunna se en delegering måste användarna ha fått rollen [läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) (eller en annan inbyggd roll som inkluderar läsar åtkomst) i onboarding-processen.
+> In order to see a delegation, users must have been granted the [Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) role (or another built-in role which includes Reader access) in the onboarding process.
 
-Med filter överst på sidan kan du sortera och gruppera kund information eller filtrera efter specifika kunder, erbjudanden eller nyckelord.
+Filters at the top of the page let you sort and group your customer info or filter by specific customers, offers, or keywords.
 
-Du kan visa följande information från den här sidan:
+You can view the following info from this page:
 
-- Om du vill se alla prenumerationer, erbjudanden och delegeringar som är associerade med en kund väljer du kundens namn.
-- Om du vill se mer information om ett erbjudande och dess delegeringar väljer du namnet på erbjudandet.
-- Om du vill visa mer information om roll tilldelningar för delegerade prenumerationer eller resurs grupper väljer du posten i kolumnen **delegeringar** .
+- To see all of the subscriptions, offers, and delegations associated with a customer, select the customer's name.
+- To see more details about an offer and its delegations, select the offer name.
+- To view more details about role assignments for delegated subscriptions or resource groups, select the entry in the **Delegations** column.
 
-## <a name="view-delegations"></a>Visa delegeringar
+## <a name="view-delegations"></a>View delegations
 
-Delegeringarna visar den prenumeration/resurs grupp som har delegerats, tillsammans med de användare och behörigheter som har åtkomst till den. Om du vill visa den här informationen väljer du **delegeringar** på vänster sida av sidan **Mina kunder** .
+Delegations show the subscription/resource group that has been delegated , along with the users and permissions that have access to it. To view this info, select **Delegations** on the left side of the **My customers** page.
 
-Med filter överst på sidan kan du sortera och gruppera information om åtkomst tilldelning eller filtrera efter vissa kunder, erbjudanden eller nyckelord.
+Filters at the top of the page let you sort and group your access assignment info or filter by specific customers, offers, or keywords.
 
-Användare och behörigheter som är associerade med varje delegering visas i kolumnen **roll tilldelningar** . Du kan välja varje post om du vill visa en fullständig lista över användare, grupper och tjänstens huvud namn som har beviljats åtkomst till prenumerationen eller resurs gruppen. Därifrån kan du välja en viss användare, grupp eller tjänstens huvud namn för att få mer information.
+The users and permissions associated with each delegation appear in the **Role assignments** column. You can select each entry to view the full list of users, groups, and service principals that have been granted access to the subscription or resource group. From there, you can select a particular user, group, or service principal name to get more details.
 
-## <a name="work-in-the-context-of-a-delegated-subscription"></a>Arbeta i kontexten för en delegerad prenumeration
+## <a name="work-in-the-context-of-a-delegated-subscription"></a>Work in the context of a delegated subscription
 
-Du kan arbeta direkt i kontexten för en delegerad prenumeration i Azure Portal, utan att byta katalog som du arbetar i. Gör så här:
+You can work directly in the context of a delegated subscription within the Azure portal, without switching the directory you're working in. Gör så här:
 
-1. Välj ikonen **katalog + prenumeration** längst upp i Azure Portal.
-2. I det **globala prenumerations** filtret ser du till att endast rutan för den delegerade prenumerationen är markerad. Du kan använda List rutan **aktuella och delegerade kataloger** om du bara vill visa prenumerationer i en angiven katalog. (Använd inte alternativet **Växla katalog** eftersom det ändrar den katalog som du är inloggad på.)
+1. Select the **Directory + Subscription** icon near the top of the Azure portal.
+2. In the **Global subscription** filter, ensure that only the box for that delegated subscription is selected. You can use the **Current + delegated directories** drop-down box to show only subscriptions within a specific directory. (Do not use the **Switch directory** option, since that changes the directory to which you're signed in.)
 
-Om du sedan ansluter till en tjänst som stöder [hantering av flera innehavare](../concepts/cross-tenant-management-experience.md), kommer tjänsten att standard kontexten för den delegerade prenumeration som du har valt. Du kan ändra detta genom att följa stegen ovan och **Markera kryss rutan Markera alla** (eller välja en eller flera prenumerationer som du vill arbeta i i stället).
+If you then access a service which supports [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md), the service will default to the context of the delegated subscription that you selected. You can change this by following the steps above and checking the **Select all** box (or choosing one or more subscriptions to work in instead).
 
 > [!NOTE]
-> Om du har beviljats åtkomst till en eller flera resurs grupper, i stället för att få åtkomst till en hel prenumeration, kan du välja den prenumeration som resurs gruppen tillhör. Sedan arbetar du i samband med den prenumerationen, men kommer bara att kunna komma åt de angivna resurs grupperna.
+> If you have been granted access to one or more resource groups, rather than access to an entire subscription, you can select the subscription to which that resource group belongs. You'll then work in the context of that subscription, but will only be able to access the designated resource groups.
 
-Du kan också få åtkomst till funktioner relaterade till delegerade prenumerationer eller resurs grupper från tjänster som stöder hantering av flera innehavare genom att välja prenumerationen eller resurs gruppen inifrån den tjänsten.
+You can also access functionality related to delegated subscriptions or resource groups from within services that support cross-tenant management experiences by selecting the subscription or resource group from within that service.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [hanterings upplevelser mellan flera innehavare](../concepts/cross-tenant-management-experience.md).
-- Lär dig hur dina kunder kan [Visa och hantera tjänst leverantörer](view-manage-service-providers.md) genom att gå till **tjänst leverantörer** i Azure Portal.
+- Learn about [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md).
+- Learn how your customers can [view and manage service providers](view-manage-service-providers.md) by going to **Service providers** in the Azure portal.

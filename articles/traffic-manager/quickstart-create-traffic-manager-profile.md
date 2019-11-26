@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: skapa en profil för HA med program – Azure Portal – Azure Traffic Manager'
+title: Quickstart:Create a profile for HA of applications - Azure portal - Azure Traffic Manager
 description: I den här snabbstartsartikeln beskrivs hur du skapar en Traffic Manager-profil för att bygga en webbapp med hög tillgänglighet.
 services: traffic-manager
 author: asudbring
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: allensu
-ms.openlocfilehash: b6a015c7462f082d5114a51d83cfacb0c550b026
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b2163b76dc3a301359cf3474789c5b473f9e4552
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74032702"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483668"
 ---
-# <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Snabb start: skapa en Traffic Manager profil med hjälp av Azure Portal
+# <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Quickstart: Create a Traffic Manager profile using the Azure portal
 
 I den här snabbstarten beskrivs hur du skapar en Traffic Manager-profil som ger hög tillgänglighet för din webbapp.
 
-I den här snabbstarten läser du om två instanser av en webbapp. Var och en av dem körs i olika Azure-regioner. Du skapar Traffic Manager-profil baserat på [slutpunktsprioritet](traffic-manager-routing-methods.md#priority). Profilen dirigerar användartrafik till den primära plats som kör webbappen. Traffic Manager övervakar kontinuerligt webbappen. Om den primära platsen inte är tillgänglig ger den automatisk redundans till säkerhetskopieringsplatsen.
+I den här snabbstarten läser du om två instanser av en webbapp. Var och en av dem körs i olika Azure-regioner. Du skapar Traffic Manager-profil baserat på [slutpunktsprioritet](traffic-manager-routing-methods.md#priority-traffic-routing-method). Profilen dirigerar användartrafik till den primära plats som kör webbappen. Traffic Manager övervakar kontinuerligt webbappen. Om den primära platsen inte är tillgänglig ger den automatisk redundans till säkerhetskopieringsplatsen.
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) nu.
 
@@ -37,24 +37,24 @@ För den här snabbstarten behöver du två instanser av en webbapp som distribu
 
 1. Uppe till vänster på skärmen väljer du **Skapa en resurs** > **Webb** > **Webbapp**.
 
-1. I **skapa en webbapp**skriver eller väljer du följande värden på fliken **grundläggande** :
+1. In **Create a Web App**, type or select the following values in the **Basics** tab:
 
-   - **Prenumerations** > **resurs grupp**: Välj **Skapa ny** och skriv sedan **myResourceGroupTM1**.
-   - **Instans information** > **namn**: Skriv *myWebAppEastUS*.
-   - **Instans information** > **publicera**: Välj **kod**.
-   - **Instans information** > **körnings stack**: Välj **ASP.net v 4.7**
-   - **Instans information** > **operativ system**: Välj **Windows**.
-   - **Instans information** > **region**: Välj **USA, östra**.
-   - **App Service plan** > **Windows plan (USA, östra)** : Välj **Skapa ny** och skriv sedan **myAppServicePlanEastUS**
-   - **App Service Plan** > **SKU och storlek**: Välj **standard S1**.
+   - **Subscription** > **Resource Group**: Select **Create new** and then type **myResourceGroupTM1**.
+   - **Instance Details** > **Name**: Type *myWebAppEastUS*.
+   - **Instance Details** > **Publish**: Select **Code**.
+   - **Instance Details** > **Runtime stack**: Select **ASP.NET V4.7**
+   - **Instance Details** > **Operating System**: Select **Windows**.
+   - **Instance Details** > **Region**:  Select **East US**.
+   - **App Service Plan** > **Windows Plan (East US)** : Select **Create new** and then type **myAppServicePlanEastUS**
+   - **App Service Plan** > **Sku and size**: Select **Standard S1**.
    
-3. Välj fliken **övervakning** eller Välj **Nästa: övervakning**.  Under **övervakning**anger **Application Insights** > **Aktivera Application Insights** till **Nej**.
+3. Select the **Monitoring** tab, or select **Next:Monitoring**.  Under **Monitoring**, set **Application Insights** > **Enable Application Insights** to **No**.
 
-4. Välj **Granska och skapa**
+4. Select **Review and create**
 
-5. Granska inställningarna och klicka sedan på **skapa**.  När webbappen har distribuerats skapar den en standardwebbplats.
+5. Review the settings, and then click **Create**.  När webbappen har distribuerats skapar den en standardwebbplats.
 
-6. Följ stegen för att skapa en andra webbapp med namnet *myWebAppWestEurope*, med **resurs grupp** namnet *MyResourceGroupTM2*, en **region** i *Västeuropa*, ett **App Service plan** namn för **myAppServicePlanWestEurope**och alla andra inställningar på samma sätt som *myWebAppEastUS*.
+6. Follow the steps to create a second Web App named *myWebAppWestEurope*, with a **Resource Group** name of *myResourceGroupTM2*, a **Region** of *West Europe*, a **App Service Plan** name of **myAppServicePlanWestEurope**, and all the other settings the same as *myWebAppEastUS*.
 
 ## <a name="create-a-traffic-manager-profile"></a>Skapa en Traffic Manager-profil
 

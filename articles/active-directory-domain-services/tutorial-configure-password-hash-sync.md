@@ -1,6 +1,6 @@
 ---
-title: Aktivera hash-synkronisering av lösen ord för Azure AD Domain Services | Microsoft Docs
-description: I den här självstudien får du lära dig hur du aktiverar hash-synkronisering av lösen ord med Azure AD Connect till en Azure Active Directory Domain Services hanterad domän.
+title: Enable password hash sync for Azure AD Domain Services | Microsoft Docs
+description: In this tutorial, learn how to enable password hash synchronization using Azure AD Connect to an Azure Active Directory Domain Services managed domain.
 author: iainfoulds
 manager: daveba
 ms.service: active-directory
@@ -9,68 +9,71 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 41e61376d12d447dd480a39ef7200db6af7cca89
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 3a1d99ad282190c61f652179dd08a810c9444064
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73172858"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481158"
 ---
-# <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>Självstudie: Aktivera Lösenordssynkronisering i Azure Active Directory Domain Services för Hybrid miljöer
+# <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>Tutorial: Enable password synchronization in Azure Active Directory Domain Services for hybrid environments
 
-I hybrid miljöer kan en Azure Active Directory (Azure AD)-klient konfigureras för att synkroniseras med en lokal Active Directory Domain Services (AD DS)-miljö med hjälp av Azure AD Connect. Som standard synkroniserar Azure AD Connect inte äldre NTLM (NT LAN Manager) och Kerberos-hashvärden för lösen ord som behövs för Azure Active Directory Domain Services (Azure AD DS).
+For hybrid environments, an Azure Active Directory (Azure AD) tenant can be configured to synchronize with an on-premises Active Directory Domain Services (AD DS) environment using Azure AD Connect. By default, Azure AD Connect doesn't synchronize legacy NT LAN Manager (NTLM) and Kerberos password hashes that are needed for Azure Active Directory Domain Services (Azure AD DS).
 
-Om du vill använda Azure AD DS med konton som är synkroniserade från en lokal AD DS-miljö måste du konfigurera Azure AD Connect för att synkronisera de lösen ords-hashar som krävs för NTLM-och Kerberos-autentisering. När Azure AD Connect har kon figurer ATS synkroniseras även en tjänst för att skapa ett lokalt konto eller lösen ords ändring.
+To use Azure AD DS with accounts synchronized from an on-premises AD DS environment, you need to configure Azure AD Connect to synchronize those password hashes required for NTLM and Kerberos authentication. After Azure AD Connect is configured, an on-premises account creation or password change event also then synchronizes the legacy password hashes to Azure AD.
 
-Du behöver inte utföra de här stegen om du använder enbart moln konton utan en lokal AD DS-miljö.
+You don't need to perform these steps if you use cloud-only accounts with no on-premises AD DS environment.
 
-I den här självstudien får du lära dig:
+In this tutorial, you learn:
 
 > [!div class="checklist"]
-> * Varför behövs inte hashar för äldre NTLM-och Kerberos-lösenord
-> * Konfigurera äldre hash-synkronisering för lösen ord för Azure AD Connect
+> * Why legacy NTLM and Kerberos password hashes are needed
+> * How to configure legacy password hash synchronization for Azure AD Connect
 
-Om du inte har en Azure-prenumeration kan du [skapa ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## <a name="prerequisites"></a>Krav
 
-För att slutföra den här självstudien behöver du följande resurser:
+To complete this tutorial, you need the following resources:
 
 * En aktiv Azure-prenumeration.
-    * [Skapa ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)om du inte har någon Azure-prenumeration.
-* En Azure Active Directory klient som är associerad med din prenumeration som är synkroniserad med en lokal katalog som använder Azure AD Connect.
-    * Om det behövs kan du [skapa en Azure Active Directory klient][create-azure-ad-tenant] eller [associera en Azure-prenumeration med ditt konto][associate-azure-ad-tenant].
-    * Om det behövs [aktiverar Azure AD Connect för synkronisering av lösen ords-hash][enable-azure-ad-connect].
-* En Azure Active Directory Domain Services hanterad domän aktive rad och konfigurerad i Azure AD-klienten.
-    * Om det behövs kan du [skapa och konfigurera en Azure Active Directory Domain Services-instans][create-azure-ad-ds-instance].
+    * If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure Active Directory tenant associated with your subscription that's synchronized with an on-premises directory using Azure AD Connect.
+    * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
+    * If needed, [enable Azure AD Connect for password hash synchronization][enable-azure-ad-connect].
+* An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
+    * If needed, [create and configure an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance].
 
-## <a name="password-hash-synchronization-using-azure-ad-connect"></a>Hash-synkronisering av lösen ord med Azure AD Connect
+## <a name="password-hash-synchronization-using-azure-ad-connect"></a>Password hash synchronization using Azure AD Connect
 
-Azure AD Connect används för att synkronisera objekt som användar konton och grupper från en lokal AD DS-miljö till en Azure AD-klient. Som en del av processen aktiverar hash-synkronisering av lösen ord konton att använda samma lösen ord i AD DS-miljön lokal och Azure AD.
+Azure AD Connect is used to synchronize objects like user accounts and groups from an on-premises AD DS environment into an Azure AD tenant. As part of the process, password hash synchronization enables accounts to use the same password in the on-prem AD DS environment and Azure AD.
 
-För att autentisera användare på den hanterade domänen behöver Azure AD DS lösen ords-hashar i ett format som är lämpligt för NTLM-och Kerberos-autentisering. Azure AD lagrar inte lösen ordets hash-värden i det format som krävs för NTLM eller Kerberos-autentisering förrän du aktiverar Azure AD DS för din klient. Av säkerhets skäl lagrar Azure AD inte heller lösen ords referenser i klartext-format. Därför kan inte Azure AD automatiskt generera dessa NTLM-eller Kerberos-hashvärden utifrån användarnas befintliga autentiseringsuppgifter.
+To authenticate users on the managed domain, Azure AD DS needs password hashes in a format that's suitable for NTLM and Kerberos authentication. Azure AD doesn't store password hashes in the format that's required for NTLM or Kerberos authentication until you enable Azure AD DS for your tenant. For security reasons, Azure AD also doesn't store any password credentials in clear-text form. Therefore, Azure AD can't automatically generate these NTLM or Kerberos password hashes based on users' existing credentials.
 
-Azure AD Connect kan konfigureras för att synkronisera de obligatoriska NTLM-eller Kerberos-hashvärden för Azure AD DS. Se till att du har slutfört stegen för att [aktivera Azure AD Connect för synkronisering av lösen ords-hash][enable-azure-ad-connect]. Om du har en befintlig instans av Azure AD Connect [hämtar och uppdaterar du till den senaste versionen][azure-ad-connect-download] för att se till att du kan synkronisera äldre hashvärden för lösen ord för NTLM och Kerberos. Den här funktionen är inte tillgänglig i tidiga versioner av Azure AD Connect eller med det äldre DirSync-verktyget. Azure AD Connect version *1.1.614.0* eller senare krävs.
+Azure AD Connect can be configured to synchronize the required NTLM or Kerberos password hashes for Azure AD DS. Make sure that you have completed the steps to [enable Azure AD Connect for password hash synchronization][enable-azure-ad-connect]. If you had an existing instance of Azure AD Connect, [download and update to the latest version][azure-ad-connect-download] to make sure you can synchronize the legacy password hashes for NTLM and Kerberos. This functionality isn't available in early releases of Azure AD Connect or with the legacy DirSync tool. Azure AD Connect version *1.1.614.0* or later is required.
 
-## <a name="enable-synchronization-of-password-hashes"></a>Aktivera synkronisering av lösen ords-hashar
+> [!IMPORTANT]
+> Azure AD Connect should only be installed and configured for synchronization with on-premises AD DS environments. It's not supported to install Azure AD Connect in an Azure AD DS managed domain to synchronize objects back to Azure AD.
 
-När Azure AD Connect installerats och kon figurer ATS för synkronisering med Azure AD konfigurerar du nu den äldre hash-synkroniseringen för lösen ord för NTLM och Kerberos. Ett PowerShell-skript används för att konfigurera de nödvändiga inställningarna och sedan starta en fullständig Lösenordssynkronisering till Azure AD. När den Azure AD Connect synkroniseringen av lösen ord för hash är klar kan användarna logga in på program via Azure AD DS som använder äldre NTLM-eller Kerberos-hashvärden.
+## <a name="enable-synchronization-of-password-hashes"></a>Enable synchronization of password hashes
 
-1. På datorn med Azure AD Connect installerat går du till Start-menyn och öppnar **Azure AD Connect >-synkroniseringstjänsten**.
-1. Välj fliken **anslutningar** . Anslutnings informationen som används för att upprätta synkroniseringen mellan den lokala AD DS-miljön och Azure AD visas.
+With Azure AD Connect installed and configured to synchronize with Azure AD, now configure the legacy password hash sync for NTLM and Kerberos. A PowerShell script is used to configure the required settings and then start a full password synchronization to Azure AD. When that Azure AD Connect password hash synchronization process is complete, users can sign in to applications through Azure AD DS that use legacy NTLM or Kerberos password hashes.
 
-    **Typen** anger antingen *Windows Azure Active Directory (Microsoft)* för Azure AD-anslutningen eller *Active Directory Domain Services* för den lokala AD DS-anslutningen. Anteckna de kopplings namn som ska användas i PowerShell-skriptet i nästa steg.
+1. On the computer with Azure AD Connect installed, from the Start menu, open the **Azure AD Connect > Synchronization Service**.
+1. Select the **Connectors** tab. The connection information used to establish the synchronization between the on-premises AD DS environment and Azure AD are listed.
 
-    ![Lista de anslutnings namn som är synkroniserade Service Manager](media/tutorial-configure-password-hash-sync/service-sync-manager.png)
+    The **Type** indicates either *Windows Azure Active Directory (Microsoft)* for the Azure AD connector or *Active Directory Domain Services* for the on-premises AD DS connector. Make a note of the connector names to use in the PowerShell script in the next step.
 
-    I det här exemplet på skärm bilden används följande kopplingar:
+    ![List the connector names in Sync Service Manager](media/tutorial-configure-password-hash-sync/service-sync-manager.png)
 
-    * Azure AD-anslutningen heter *contoso.onmicrosoft.com-AAD*
-    * Den lokala AD DS-anslutningen heter *OnPrem.contoso.com*
+    In this example screenshot, the following connectors are used:
 
-1. Kopiera och klistra in följande PowerShell-skript till datorn med Azure AD Connect installerat. Skriptet utlöser en fullständig lösen ords synkronisering som innehåller äldre hashvärden för lösen ord. Uppdatera `$azureadConnector` och `$adConnector` variabler med anslutnings namnen från föregående steg.
+    * The Azure AD connector is named *contoso.onmicrosoft.com - AAD*
+    * The on-premises AD DS connector is named *onprem.contoso.com*
 
-    Kör det här skriptet på varje AD-skog för att synkronisera lokala konton NTLM och Kerberos-hashvärden för lösen ord till Azure AD.
+1. Copy and paste the following PowerShell script to the computer with Azure AD Connect installed. The script triggers a full password sync that includes legacy password hashes. Update the `$azureadConnector` and `$adConnector` variables with the connector names from the previous step.
+
+    Run this script on each AD forest to synchronize on-premises account NTLM and Kerberos password hashes to Azure AD.
 
     ```powershell
     # Define the Azure AD Connect connector names and import the required PowerShell module
@@ -92,18 +95,18 @@ När Azure AD Connect installerats och kon figurer ATS för synkronisering med A
     Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $azureadConnector -Enable $true
     ```
 
-    Beroende på storleken på din katalog med avseende på antalet konton och grupper kan synkroniseringen av de äldre lösen ords hasharna till Azure AD ta en stund. Lösen orden synkroniseras sedan till den Azure AD DS-hanterade domänen när de har synkroniserats till Azure AD.
+    Depending on the size of your directory in terms of number of accounts and groups, synchronization of the legacy password hashes to Azure AD may take some time. The passwords are then synchronized to the Azure AD DS managed domain after they've synchronized to Azure AD.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig:
+In this tutorial, you learned:
 
 > [!div class="checklist"]
-> * Varför behövs inte hashar för äldre NTLM-och Kerberos-lösenord
-> * Konfigurera äldre hash-synkronisering för lösen ord för Azure AD Connect
+> * Why legacy NTLM and Kerberos password hashes are needed
+> * How to configure legacy password hash synchronization for Azure AD Connect
 
 > [!div class="nextstepaction"]
-> [Lär dig hur synkronisering fungerar i en Azure AD Domain Services hanterad domän](synchronization.md)
+> [Learn how synchronization works in an Azure AD Domain Services managed domain](synchronization.md)
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

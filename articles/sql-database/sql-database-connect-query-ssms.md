@@ -1,5 +1,5 @@
 ---
-title: 'SSMS: Anslut och fråga efter data'
+title: 'SSMS: Connect and query data'
 description: Lär dig hur du ansluter till SQL Database på Azure med hjälp av SQL Server Management Studio (SSMS). Kör sedan Transact-SQL-uttryck (T-SQL) för att skicka frågor mot och redigera data.
 keywords: anslut till sql database, sql server management studio
 services: sql-database
@@ -12,43 +12,43 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: 69a6939cdbcc9b2c4e496c8d47aa20c9f6e85d57
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ed33d50da84347f55d355802e7767c8477c30e87
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826944"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482148"
 ---
-# <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Snabb start: använda SQL Server Management Studio för att ansluta och skicka frågor till en Azure SQL-databas
+# <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Quickstart: Use SQL Server Management Studio to connect and query an Azure SQL database
 
-I den här snabb starten använder du [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) för att ansluta till en Azure SQL-databas. Därefter kör du Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data. Du kan använda SSMS för att hantera all SQL-infrastruktur, från SQL Server till SQL Database för Microsoft Windows.  
+In this quickstart, you'll use [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) to connect to an Azure SQL database. Därefter kör du Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data. Du kan använda SSMS för att hantera all SQL-infrastruktur, från SQL Server till SQL Database för Microsoft Windows.  
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 En Azure SQL-databas. Du kan använda någon av dessa snabbstarter för att skapa och därefter konfigurera en databas i Azure SQL Database:
 
-  || Enskild databas | Hanterad instans |
+  || Enkel databas | Hanterad instans |
   |:--- |:--- |:---|
-  | Skapa| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  | Create| [Portalen](sql-database-single-database-get-started.md) | [Portalen](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
   | Konfigurera | [IP-brandväggsregel på servernivå](sql-database-server-level-firewall-rule.md)| [Anslutning från en virtuell dator](sql-database-managed-instance-configure-vm.md)|
   |||[Anslutning från en lokal plats](sql-database-managed-instance-configure-p2s.md)
   |Läsa in data|AdventureWorks som lästs in per snabbstart|[Återställa Wide World Importers](sql-database-managed-instance-get-started-restore.md)
-  |||Återställa eller importera Adventure Works från [BACPAC](sql-database-import.md) -filen från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||Restore or import Adventure Works from [BACPAC](sql-database-import.md) file from [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
 
   > [!IMPORTANT]
-  > Skripten i den här artikeln skrivs för att använda Adventure Works-databasen. Med en hanterad instans måste du antingen importera Adventure Works-databasen till en instansdatabas eller ändra skripten i den här artikeln om du vill använda Wide World Importers-databasen.
+  > Skripten i den här artikeln skrivs för att använda Adventure Works-databasen. Med en hanterad instans måste du antingen importera Adventure Works-databasen till en instansdatabas, eller ändra skripten i den här artikeln om du vill använda Wide World Importers-databasen.
 
 ## <a name="install-the-latest-ssms"></a>Installera den senaste SSMS
 
-Innan du börjar ska du kontrol lera att du har installerat de senaste [SSMS][ssms-install-latest-84g].
+Before you start, make sure you've installed the latest [SSMS][ssms-install-latest-84g].
 
 ## <a name="get-sql-server-connection-information"></a>Hämta anslutningsinformation för en SQL-server
 
 Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-databasen. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet och inloggningsinformationen för de kommande procedurerna.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 2. Navigera till sidan **SQL-databaser** eller **SQL-hanterade instanser**.
 
@@ -77,7 +77,7 @@ Anslut till din Azure SQL Database-server i SMSS.
 
    ![Anslut till server](./media/sql-database-connect-query-ssms/connect.png)  
 
-3. Välj **Alternativ** i dialogrutan **Anslut till server**. I den nedrullningsbara menyn **Anslut till databas** väljer du **mySampleDatabase**.
+3. Välj **Alternativ** i dialogrutan **Anslut till server**. In the **Connect to database** drop-down menu, select **mySampleDatabase**.If you leave the drop down to default, the connection is made to **master** database.
 
    ![ansluta till databas på server](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
@@ -85,9 +85,9 @@ Anslut till din Azure SQL Database-server i SMSS.
 
 5. Om du vill se databasens objekt expanderar du **Databaser** och **mySampleDatabase**.
 
-   ![mySampleDatabase-objekt](./media/sql-database-connect-query-ssms/connected.png)  
+   ![mySampleDatabase objects](./media/sql-database-connect-query-ssms/connected.png)  
 
-## <a name="query-data"></a>Frågedata
+## <a name="query-data"></a>Söka i data
 
 Kör den här [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL-koden för att fråga efter de 20 viktigaste produkterna efter kategori.
 
@@ -104,13 +104,13 @@ Kör den här [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transac
 
 3. I verktygsfältet väljer du **Kör** för att hämta data från tabellerna `Product` och `ProductCategory`.
 
-    ![fråga för att hämta data från tabell produkter och ProductCategory](./media/sql-database-connect-query-ssms/query2.png)
+    ![query to retrieve data from table Product and ProductCategory](./media/sql-database-connect-query-ssms/query2.png)
 
 ## <a name="insert-data"></a>Infoga data
 
 Kör den här [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL-koden för att skapa en ny produkt i tabellen `SalesLT.Product`.
 
-1. Ersätt den tidigare frågan med denna.
+1. Ersätt den föregående frågan med denna.
 
    ```sql
    INSERT INTO [SalesLT].[Product]
@@ -135,22 +135,22 @@ Kör den här [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transac
 
 ## <a name="view-the-result"></a>Visa resultatet
 
-1. Ersätt den tidigare frågan med denna.
+1. Ersätt den föregående frågan med denna.
 
    ```sql
    SELECT * FROM [SalesLT].[Product]
    WHERE Name='myNewProduct'
    ```
 
-2. Välj **Kör**. Följande resultat visas.
+2. Välj **Kör**. The following result appears.
 
-   ![resultat av produkt tabell fråga](./media/sql-database-connect-query-ssms/result.png)
+   ![result of Product table query](./media/sql-database-connect-query-ssms/result.png)
 
 ## <a name="update-data"></a>Uppdatera data
 
-Kör den här [uppdateringen](https://msdn.microsoft.com/library/ms177523.aspx) av Transact-SQL-koden för att ändra din nya produkt.
+Run this [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL code to modify your new product.
 
-1. Ersätt den tidigare frågan med denna.
+1. Ersätt den föregående frågan med denna.
 
    ```sql
    UPDATE [SalesLT].[Product]
@@ -164,7 +164,7 @@ Kör den här [uppdateringen](https://msdn.microsoft.com/library/ms177523.aspx) 
 
 Kör den här [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL-koden för att ta bort din nya produkt.
 
-1. Ersätt den tidigare frågan med denna.
+1. Ersätt den föregående frågan med denna.
 
    ```sql
    DELETE FROM [SalesLT].[Product]

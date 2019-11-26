@@ -1,6 +1,6 @@
 ---
-title: Indexera mediefiler med Azure Media Indexer
-description: Azure Media Indexer gör det möjligt för dig att söka efter innehållet i dina mediefiler och generera en full text avskrift för dold textning och nyckelord. Det här avsnittet visar hur du använder Media Indexer.
+title: Indexing Media Files with Azure Media Indexer
+description: Azure Media Indexer enables you to make content of your media files searchable and to generate a full-text transcript for closed captioning and keywords. This topic shows how to use Media Indexer.
 services: media-services
 documentationcenter: ''
 author: Asolanki
@@ -15,47 +15,42 @@ ms.topic: article
 ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 0987e15b1619fcd4c1c79f9a61420c092a7da886
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: b72d1483201c9c25a420d3ede0558f10229cf47c
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529187"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74464078"
 ---
-# <a name="indexing-media-files-with-azure-media-indexer"></a>Indexera mediefiler med Azure Media Indexer
+# <a name="indexing-media-files-with-azure-media-indexer"></a>Indexing Media Files with Azure Media Indexer
 
 > [!NOTE]
-> [Azure Media Indexer](media-services-index-content.md) medie processorn kommer att dras tillbaka den 1 oktober 2020. [Azure Media Services video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) ersätter denna äldre medie processor. Mer information finns i [Migrera från Azure Media Indexer och Azure Media Indexer 2 till Azure Media Services video Indexer](migrate-indexer-v1-v2.md).
+> The [Azure Media Indexer](media-services-index-content.md) media processor will be retired on October 1st of 2020. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) replaces this legacy media processor. For more information, see [Migrate from Azure Media Indexer and Azure Media Indexer 2 to Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
 
-Azure Media Indexer gör det möjligt för dig att söka efter innehållet i dina mediefiler och generera en full text avskrift för dold textning och nyckelord. Du kan bearbeta en mediefil eller flera mediefiler i en batch.  
+Azure Media Indexer enables you to make content of your media files searchable and to generate a full-text transcript for closed captioning and keywords. Du kan bearbeta en mediefil eller flera mediefiler i en batch.  
 
-När du indexerar innehåll måste du se till att använda mediefiler som har tydliga tal (utan Bakgrunds musik, brus, effekter eller mikrofon hiss). Några exempel på lämpligt innehåll är: registrerade möten, föreläsningar eller presentationer. Följande innehåll kanske inte är lämpligt för indexering: filmer, TV-program, allt med blandad ljud-och ljud effekter, dåligt inspelat innehåll med bakgrunds brus (hiss).
+When indexing content, make sure to use media files that have clear speech (without background music, noise, effects, or microphone hiss). Some examples of appropriate content are: recorded meetings, lectures, or presentations. The following content might not be suitable for indexing: movies, TV shows, anything with mixed audio and sound effects, poorly recorded content with background noise (hiss).
 
-Ett indexerings jobb kan generera följande utdata:
+An indexing job can generate the following outputs:
 
-* Filer med dold textning i följande format: **samiska**, **ttml**och **webvtt**.
+* Closed caption files in the following formats: **TTML**, and **WebVTT**.
   
-    Filer med dold textning innehåller en tagg som kallas identifierbarhet, som ger ett indexerings jobb baserat på hur det går att känna igen talet i käll videon.  Du kan använda värdet för att känna igen för att skriva ut filer för användbarhet. En låg poäng skulle innebära dåliga indexerings resultat på grund av ljud kvaliteten.
-* Nyckelords fil (XML).
-* AIB (Audio Indexing BLOB File) för användning med SQL Server.
-  
-    Mer information finns i [använda AIB-filer med Azure Media Indexer och SQL Server](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
+    Closed caption files include a tag called Recognizability, which scores an indexing job based on how recognizable the speech in the source video is.  You can use the value of Recognizability to screen output files for usability. A low score would mean poor indexing results due to audio quality.
+* Keyword file (XML).
 
-Den här artikeln visar hur du skapar indexerings jobb för att **indexera en till gång** och **Indexera flera filer**.
+This article shows how to create indexing jobs to **Index an asset** and **Index multiple files**.
 
-De senaste Azure Media Indexer uppdateringarna finns i [Media Services Bloggar](#preset).
+## <a name="using-configuration-and-manifest-files-for-indexing-tasks"></a>Using configuration and manifest files for indexing tasks
+You can specify more details for your indexing tasks by using a task configuration. For example, you can specify which metadata to use for your media file. This metadata is used by the language engine to expand its vocabulary, and greatly improves the speech recognition accuracy.  You are also able to specify your desired output files.
 
-## <a name="using-configuration-and-manifest-files-for-indexing-tasks"></a>Använda konfigurations-och MANIFEST filer för indexerings aktiviteter
-Du kan ange mer information för dina indexerings aktiviteter med hjälp av en aktivitets konfiguration. Du kan till exempel ange vilka metadata som ska användas för medie filen. Dessa metadata används av språk motorn för att utöka sin vokabulär och förbättrar tal igenkännings precisionen avsevärt.  Du kan också ange önskade utdatafiler.
+You can also process multiple media files at once by using a manifest file.
 
-Du kan också bearbeta flera mediefiler samtidigt med hjälp av en manifest fil.
+For more information, see [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/library/dn783454.aspx).
 
-Mer information finns i [uppgifts för inställning för Azure Media Indexer](https://msdn.microsoft.com/library/dn783454.aspx).
+## <a name="index-an-asset"></a>Index an asset
+The following method uploads a media file as an asset and creates a job to index the asset.
 
-## <a name="index-an-asset"></a>Indexera en till gång
-Följande metod laddar upp en mediefil som en till gång och skapar ett jobb för att indexera till gången.
-
-Om ingen konfigurations fil anges indexeras medie filen med alla standardinställningar.
+If no configuration file is specified, the media file is indexed with all default settings.
 
 ```csharp
     static bool RunIndexingJob(string inputMediaFilePath, string outputFolder, string configurationFile = "")
@@ -147,24 +142,23 @@ Om ingen konfigurations fil anges indexeras medie filen med alla standardinstäl
 ```
 
 <!-- __ -->
-### <a id="output_files"></a>Utdatafiler
-Som standard genererar ett indexerings jobb följande utdatafiler. Filerna lagras i den första till gången till utdata.
+### <a id="output_files"></a>Output files
+By default, an indexing job generates the following output files. The files are stored in the first output asset.
 
-Om det finns fler än en mediefil i taget genererar indexeraren en manifest fil för jobbets utdata, med namnet "JobResult. txt". För varje indatafil är de resulterande AIB-, TTML-, WebVTT-och keywords-filerna sekventiellt numrerade och namngivna med "alias".
+When there is more than one input media file, Indexer generates a manifest file for the job outputs, named ‘JobResult.txt’. For each input media file, the resulting TTML, WebVTT, and keyword files are sequentially numbered and named using the "Alias."
 
 | Filnamn | Beskrivning |
 | --- | --- |
-| **InputFileName. AIB** |BLOB-fil för ljud indexering. <br/><br/> AIB-filen (Audio Indexing BLOB) är en binär fil som kan sökas i Microsoft SQL Server med fullständig texts ökning.  AIB-filen är mer kraftfull än de enkla textfilerna, eftersom den innehåller alternativ för varje ord, vilket ger en mycket rikare Sök upplevelse. <br/> <br/>Det kräver att du installerar indexeraren SQL-tillägg på en dator som kör Microsoft SQL Server 2008 eller senare. Genom att söka i AIB med Microsoft SQL Server full texts ökning får du mer exakta Sök resultat än att söka i de filer för dold textning som genereras av WAMI. Detta beror på att AIB innehåller ord alternativ som liknar de filer för dold textning och som innehåller det högsta konfidens ordet för varje segment av ljudet. Om sökningen efter talade ord är av största vikt, rekommenderar vi att du använder AIB tillsammans med Microsoft SQL Server. <br/><br/>Det är också möjligt att använda andra sökmotorer som Apache Lucene/solr för att enkelt indexera videon baserat på XML-filer med dold textning och nyckelord, men detta leder till mindre exakta Sök resultat. |
-| **InputFileName. SMI**<br/>**InputFileName. ttml**<br/>**InputFileName. VTT** |Filer med dold textning (CC) i formaten samiska, TTML och WebVTT.<br/><br/>De kan användas för att göra ljud-och videofiler tillgängliga för personer med hörsel funktions hinder.<br/><br/>Filer med dold textning innehåller en tagg som kallas <b>identifierbarhet</b> , vilket innebär att ett indexerings jobb baseras på hur det går att känna igen talet i käll videon.  Du kan använda värdet för att <b>känna igen</b> för att skriva ut filer för användbarhet. En låg poäng skulle innebära dåliga indexerings resultat på grund av ljud kvaliteten. |
-| **InputFileName. kW. XML <br/>InputFileName. info** |Nyckelord och konfigurationsfiler. <br/><br/>Nyckelords filen är en XML-fil som innehåller nyckelord som har extraherats från tal innehållet, med frekvens och offset-information. <br/><br/>Informations filen är en oformaterad textfil som innehåller detaljerad information om varje term som identifieras. Den första raden är speciell och innehåller tolknings poängen. Varje efterföljande rad är en tabbavgränsad lista med följande data: start tid, slut tid, ord/fras, relevans. Tiderna anges i sekunder och förtroendet ges som ett tal från 0-1. <br/><br/>Exempel rad: "1,20 1,45 Word 0,67" <br/><br/>Dessa filer kan användas för ett antal olika sätt, till exempel för att utföra tal analys, eller exponeras för sökmotorer som Bing, Google eller Microsoft SharePoint för att göra mediefilerna mer synliga eller till och med använda för att leverera mer relevanta annonser. |
-| **JobResult. txt** |Utdata manifestet visas bara när du indexerar flera filer, som innehåller följande information:<br/><br/><table border="1"><tr><th>InputFile</th><th>Alias</th><th>MediaLength</th><th>Fel</th></tr><tr><td>en. mp4</td><td>Media_1</td><td>300</td><td>0</td></tr><tr><td>b. mp4</td><td>Media_2</td><td>0</td><td>3000</td></tr><tr><td>c. mp4</td><td>Media_3</td><td>600</td><td>0</td></tr></table><br/> |
+| **InputFileName.ttml**<br/>**InputFileName.vtt** |Closed Caption (CC) files in TTML and WebVTT formats.<br/><br/>They can be used to make audio and video files accessible to people with hearing disability.<br/><br/>Closed Caption files include a tag called <b>Recognizability</b> which scores an indexing job based on how recognizable the speech in the source video is.  You can use the value of <b>Recognizability</b> to screen output files for usability. A low score would mean poor indexing results due to audio quality. |
+| **InputFileName.kw.xml<br/>InputFileName.info** |Keyword and info files. <br/><br/>Keyword file is an XML file that contains keywords extracted from the speech content, with frequency and offset information. <br/><br/>Info file is a plain-text file that contains granular information about each term recognized. The first line is special and contains the Recognizability score. Each subsequent line is a tab-separated list of the following data: start time, end time, word/phrase, confidence. The times are given in seconds and the confidence is given as a number from 0-1. <br/><br/>Example line: "1.20    1.45    word    0.67" <br/><br/>These files can be used for a number of purposes, such as, to perform speech analytics, or exposed to search engines such as Bing, Google or Microsoft SharePoint to make the media files more discoverable, or even used to deliver more relevant ads. |
+| **JobResult.txt** |Output manifest, present only when indexing multiple files, containing the following information:<br/><br/><table border="1"><tr><th>InputFile</th><th>Alias</th><th>MediaLength</th><th>Fel</th></tr><tr><td>a.mp4</td><td>Media_1</td><td>300</td><td>0</td></tr><tr><td>b.mp4</td><td>Media_2</td><td>0</td><td>3000</td></tr><tr><td>c.mp4</td><td>Media_3</td><td>600</td><td>0</td></tr></table><br/> |
 
-Om inte alla indatafiler indexeras utan fel, Miss lyckas indexerings jobbet med felkoden 4000. Mer information finns i [fel koder](#error_codes).
+If not all input media files are indexed successfully, the indexing job fails with error code 4000. For more information, see [Error codes](#error_codes).
 
-## <a name="index-multiple-files"></a>Indexera flera filer
-Följande metod överför flera mediafiler som en till gång och skapar ett jobb för att indexera alla dessa filer i en batch.
+## <a name="index-multiple-files"></a>Index multiple files
+The following method uploads multiple media files as an asset, and creates a job to index all these files in a batch.
 
-En manifest fil med tillägget ". lst" skapas och överförs till till gången. Manifest filen innehåller en lista över alla till gångs filer. Mer information finns i [uppgifts för inställning för Azure Media Indexer](https://msdn.microsoft.com/library/dn783454.aspx).
+A manifest file with the ".lst" extension is created and uploading into the asset. The manifest file contains the list of all the asset files. For more information, see [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/library/dn783454.aspx).
 
 ```csharp
     static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
@@ -241,38 +235,38 @@ En manifest fil med tillägget ". lst" skapas och överförs till till gången. 
     }
 ```
 
-### <a name="partially-succeeded-job"></a>Delvis slutfört jobb
-Om inte alla indatafiler indexeras korrekt kommer indexerings jobbet att Miss lyckas med felkoden 4000. Mer information finns i [fel koder](#error_codes).
+### <a name="partially-succeeded-job"></a>Partially Succeeded Job
+If not all input media files are indexed successfully, the indexing job will fail with error code 4000. For more information, see [Error codes](#error_codes).
 
-Samma utdata (som slutförda jobb) skapas. Du kan referera till manifest filen för utdata för att ta reda på vilka indatafiler som har misslyckats, enligt värdena i fel kolumnen. För indatafiler som har misslyckats kommer de resulterande AIB, TTML, WebVTT och nyckelords filerna inte att genereras.
+The same outputs (as succeeded jobs) are generated. You can refer to the output manifest file to find out which input files are failed, according to the Error column values. For input files that failed, the resulting TTML, WebVTT, and keyword files will NOT be generated.
 
-### <a id="preset"></a>Uppgifts för inställning för Azure Media Indexer
-Bearbetningen från Azure Media Indexer kan anpassas genom att tillhandahålla en valfri aktivitets för inställning tillsammans med aktiviteten.  I följande avsnitt beskrivs formatet för den här konfigurations-XML-filen.
+### <a id="preset"></a> Task Preset for Azure Media Indexer
+The processing from Azure Media Indexer can be customized by providing an optional task preset alongside the task.  The following describes the format of this configuration xml.
 
 | Namn | Kräv | Beskrivning |
 | --- | --- | --- |
-| **inleveranstransport** |false |Till gångs fil (er) som du vill indexera.</p><p>Azure Media Indexer stöder följande medie fil format: MP4, WMV, MP3, M4A, WMA, AAC, WAV.</p><p>Du kan ange fil namnen i **indata** -elementets **namn** eller **list** -attribut (se nedan). Om du inte anger vilken till gångs fil som ska indexeras, kommer den primära filen att plockas. Om ingen primär till gångs fil anges indexeras den första filen i indata till gången.</p><p>Om du uttryckligen vill ange namnet på till gångs filen gör du följande:<br/>`<input name="TestFile.wmv">`<br/><br/>Du kan också indexera flera till gångs filer samtidigt (upp till 10 filer). Gör så här:<br/><br/><ol class="ordered"><li><p>Skapa en textfil (manifest fil) och ge den fil tillägget LST. </p></li><li><p>Lägg till en lista över alla till gångs fil namn i din indata till gång till manifest filen. </p></li><li><p>Lägg till (överför) manifest filen till till gången.  </p></li><li><p>Ange namnet på manifest filen i indatans List-attribut.<br/>`<input list="input.lst">`</li></ol><br/><br/>Obs: om du lägger till fler än 10 filer i manifest filen kommer indexerings jobbet att Miss 2006-felkoden. |
-| **metadatatjänst** |false |Metadata för de angivna till gångs fil (er) som används för vokabulär anpassning.  Användbart för att förbereda indexeraren för att identifiera ord som inte är standard ord listor, till exempel riktiga substantiv.<br/>`<metadata key="..." value="..."/>` <br/><br/>Du kan ange **värden** för fördefinierade **nycklar**. För närvarande stöds följande nycklar:<br/><br/>"title" och "Description" – används för att anpassa ord listan för att anpassa språk modellen för ditt jobb och förbättra precisionen för tal igenkänning.  Värdena för att dirigera Internet söker efter Sammanhangs beroende text dokument, med hjälp av innehållet för att utöka den interna ord listan under din indexerings aktivitet.<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
-| **egenskaper** <br/><br/> Tillagt i version 1,2. För närvarande är den enda funktionen som stöds tal igenkänning ("ASR"). |false |Tal igenkännings funktionen har följande inställnings nycklar:<table><tr><th><p>Nyckel</p></th>        <th><p>Beskrivning</p></th><th><p>Exempelvärde</p></th></tr><tr><td><p>Språk</p></td><td><p>Det naturliga språket som ska identifieras i multimedie filen.</p></td><td><p>Engelska, spanska</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>en semikolonavgränsad lista med önskade text format för utdata (om det finns några)</p></td><td><p>ttml; samiska; webvtt</p></td></tr><tr><td><p>GenerateAIB</p></td><td><p>En boolesk flagga som anger om en AIB-fil krävs eller inte (används med SQL Server och kund indexet IFilter).  Mer information finns i <a href="https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/">använda AIB-filer med Azure Media Indexer och SQL Server</a>.</p></td><td><p>Värdet !</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>En boolesk flagga som anger om en nyckelords-XML-fil krävs eller inte.</p></td><td><p>Värdet !. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>En boolesk flagga som anger om full textning ska tvingas (oavsett konfidensnivå).  </p><p>Standardvärdet är false, vilket innebär att ord och fraser som har en lägre konfidensnivå än 50% utelämnas från de slutliga text utmatningarna och ersätts av ellipser ("...").  Ellipserna är användbara för text kvalitets kontroll och granskning.</p></td><td><p>Värdet !. </p></td></tr></table> |
+| **input** |false |Asset file(s) that you want to index.</p><p>Azure Media Indexer supports the following media file formats: MP4, WMV, MP3, M4A, WMA, AAC, WAV.</p><p>You can specify the file name (s) in the **name** or **list** attribute of the **input** element (as shown below).If you do not specify which asset file to index, the primary file is picked. If no primary asset file is set, the first file in the input asset is indexed.</p><p>To explicitly specify the asset file name, do:<br/>`<input name="TestFile.wmv">`<br/><br/>You can also index multiple asset files at once (up to 10 files). Gör så här:<br/><br/><ol class="ordered"><li><p>Create a text file (manifest file) and give it an .lst extension. </p></li><li><p>Add a list of all the asset file names in your input asset to this manifest file. </p></li><li><p>Add (upload) the manifest file to the asset.  </p></li><li><p>Specify the name of the manifest file in the input’s list attribute.<br/>`<input list="input.lst">`</li></ol><br/><br/>Note: If you add more than 10 files to the manifest file, the indexing job will fail with the 2006 error code. |
+| **metadata** |false |Metadata for the specified asset file(s) used for Vocabulary Adaptation.  Useful to prepare Indexer to recognize non-standard vocabulary words such as proper nouns.<br/>`<metadata key="..." value="..."/>` <br/><br/>You can supply **values** for predefined **keys**. Currently the following keys are supported:<br/><br/>“title” and “description” - used for vocabulary adaptation to tweak the language model for your job and improve speech recognition accuracy.  The values seed Internet searches to find contextually relevant text documents, using the contents to augment the internal dictionary for the duration of your Indexing task.<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
+| **features** <br/><br/> Added in version 1.2. Currently, the only supported feature is speech recognition ("ASR"). |false |The Speech Recognition feature has the following settings keys:<table><tr><th><p>Nyckel</p></th>        <th><p>Beskrivning</p></th><th><p>Exempelvärde</p></th></tr><tr><td><p>Språk</p></td><td><p>The natural language to be recognized in the multimedia file.</p></td><td><p>English, Spanish</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>a semicolon-separated list of the desired output caption formats (if any)</p></td><td><p>ttml;sami;webvtt</p></td></tr><tr><td><p></p></td><td><p> </p></td><td><p>True; False</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>A boolean flag specifying whether or not a keyword XML file is required.</p></td><td><p>True; False. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>A boolean flag specifying whether or not to force full captions (regardless of confidence level).  </p><p>Default is false, in which case words and phrases which have a less than 50% confidence level are omitted from the final caption outputs and replaced by ellipses ("...").  The ellipses are useful for caption quality control and auditing.</p></td><td><p>True; False. </p></td></tr></table> |
 
-### <a id="error_codes"></a>Felkoder
-Om ett fel uppstår bör Azure Media Indexer rapportera tillbaka en av följande felkoder:
+### <a id="error_codes"></a>Error codes
+In the case of an error, Azure Media Indexer should report back one of the following error codes:
 
-| Programmera | Namn | Möjliga orsaker |
+| Programmera | Namn | Possible Reasons |
 | --- | --- | --- |
-| 2000 |Ogiltig konfiguration |Ogiltig konfiguration |
-| 2001 |Ogiltiga inmatade till gångar |Inmatade till gångar eller tom till gång saknas. |
-| 2002 |Ogiltigt manifest |Manifestet är tomt eller så innehåller manifestet ogiltiga objekt. |
-| 2003 |Det gick inte att hämta medie filen |Ogiltig URL i manifest filen. |
-| 2004 |Protokollet stöds inte |Protokoll för medie webb adress stöds inte. |
-| 2005 |Filtyp som inte stöds |Medietyp för indatafilen stöds inte. |
-| 2006 |För många indatafiler |Det finns fler än 10 filer i manifestet för indatamängden. |
-| 3000 |Det gick inte att avkoda medie filen |Medie-codec som inte stöds <br/>eller<br/> Skadad medie fil <br/>eller<br/> Ingen ljud ström i indata-mediet. |
-| 4000 |Batch-indexering delvis genomförd |Det gick inte att indexera några av medierna med indatafiler. Mer information finns i <a href="#output_files">utdatafiler</a>. |
-| other |Interna fel |Kontakta support teamet. indexer@microsoft.com |
+| 2000 |Invalid configuration |Invalid configuration |
+| 2001 |Invalid input assets |Missing input assets or empty asset. |
+| 2002 |Invalid manifest |Manifest is empty or manifest contains invalid items. |
+| 2003 |Failed to download media file |Invalid URL in manifest file. |
+| 2004 |Unsupported protocol |Protocol of media URL is not supported. |
+| 2005 |Unsupported file type |Input media file type is not supported. |
+| 2006 |Too many input files |There are more than 10 files in the input manifest. |
+| 3000 |Failed to decode media file |Unsupported media codec <br/>eller<br/> Corrupted media file <br/>eller<br/> No audio stream in input media. |
+| 4000 |Batch indexing partially succeeded |Some of the input media files are failed to be indexed. For more information, see <a href="#output_files">Output files</a>. |
+| other |Internal errors |Please contact support team. indexer@microsoft.com |
 
-## <a id="supported_languages"></a>Språk som stöds
-För närvarande stöds de engelska och spanska språken. Mer information finns i [blogg inlägget v 1.2 Release](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
+## <a id="supported_languages"></a>Supported Languages
+Currently, the English and Spanish languages are supported.  
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -281,9 +275,7 @@ För närvarande stöds de engelska och spanska språken. Mer information finns 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Tillhörande länkar
-[Översikt över Azure Media Services Analytics](media-services-analytics-overview.md)
+[Azure Media Services Analytics Overview](media-services-analytics-overview.md)
 
-[Använda AIB-filer med Azure Media Indexer och SQL Server](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
-
-[Indexera mediefiler med Azure Media Indexer 2 för hands version](media-services-process-content-with-indexer2.md)
+[Indexing Media Files with Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md)
 

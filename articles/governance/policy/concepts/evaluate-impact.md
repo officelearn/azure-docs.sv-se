@@ -1,76 +1,76 @@
 ---
-title: Utvärdera effekten av en ny Azure-princip
-description: Förstå den process som ska följas när du introducerar en ny princip i Azure-miljön.
+title: Evaluate the impact of a new Azure policy
+description: Understand the process to follow when introducing a new policy definition into your Azure environment.
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: e39183b13d2b3cf8c7527f9372879372b2123648
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 562fa2378356ddc1eac48b6ea5c160ebf655d525
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279432"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463522"
 ---
-# <a name="evaluate-the-impact-of-a-new-azure-policy"></a>Utvärdera effekten av en ny Azure-princip
+# <a name="evaluate-the-impact-of-a-new-azure-policy"></a>Evaluate the impact of a new Azure policy
 
-Azure Policy är ett kraftfullt verktyg för att hantera dina Azure-resurser till företags standarder och uppfylla behoven för efterlevnad. När personer, processer eller pipeliner skapar eller uppdaterar resurser, granskar Azure Policy begäran. När princip definitions effekterna är [APPEND](./effects.md#deny) eller [DeployIfNotExists](./effects.md#deployifnotexists), ändrar principen begäran eller lägger till den. När princip definitions effekterna är [gransknings](./effects.md#audit) -eller [AuditIfNotExists](./effects.md#auditifnotexists)så gör principen att en aktivitets logg post skapas. När princip definitions resultatet är [nekat](./effects.md#deny), stoppar principen skapandet eller ändringen av begäran.
+Azure Policy is a powerful tool for managing your Azure resources to business standards and to meet compliance needs. When people, processes, or pipelines create or update resources, Azure Policy reviews the request. When the policy definition effect is [Append](./effects.md#deny) or [DeployIfNotExists](./effects.md#deployifnotexists), Policy alters the request or adds to it. When the policy definition effect is [Audit](./effects.md#audit) or [AuditIfNotExists](./effects.md#auditifnotexists), Policy causes an Activity log entry to be created. And when the policy definition effect is [Deny](./effects.md#deny), Policy stops the creation or alteration of the request.
 
-Dessa resultat är exakt så som du vill när du vet att principen är korrekt definierad. Det är dock viktigt att verifiera att en ny princip fungerar som avsett innan den gör det möjligt att ändra eller blockera arbete. Verifieringen måste se till att endast de avsedda resurserna bedöms vara icke-kompatibla och inga kompatibla resurser ingår felaktigt (kallas _falskt positiv_) i resultaten.
+These outcomes are exactly as desired when you know the policy is defined correctly. However, it's important to validate a new policy works as intended before allowing it to change or block work. The validation must ensure only the intended resources are determined to be non-compliant and no compliant resources are incorrectly included (known as a _false positive_) in the results.
 
-Den rekommenderade metoden för att verifiera en ny princip definition är att följa dessa steg:
+The recommended approach to validating a new policy definition is by following these steps:
 
-- Definiera noggrant principen
-- Granska dina befintliga resurser
-- Granska nya eller uppdaterade resurs begär Anden
-- Distribuera principen till resurser
+- Tightly define your policy
+- Audit your existing resources
+- Audit new or updated resource requests
+- Deploy your policy to resources
 - Kontinuerlig övervakning
 
-## <a name="tightly-define-your-policy"></a>Definiera noggrant principen
+## <a name="tightly-define-your-policy"></a>Tightly define your policy
 
-Det är viktigt att förstå hur affärs principen implementeras som en princip definition och förhållandet mellan Azure-resurser med andra Azure-tjänster. Det här steget utförs genom [att identifiera kraven](../tutorials/create-custom-policy-definition.md#identify-requirements) och [fastställa resurs egenskaperna](../tutorials/create-custom-policy-definition.md#determine-resource-properties).
-Men det är också viktigt att se bortom den smala definitionen av din affärs policy. Är ditt princip tillstånd till exempel "alla Virtual Machines måste..."? Vad gäller för andra Azure-tjänster som använder virtuella datorer, till exempel HDInsight eller AKS? När du definierar en princip måste vi fundera över hur den här principen påverkar resurser som används av andra tjänster.
+It's important to understand how the business policy is implemented as a policy definition and the relationship of Azure resources with other Azure services. This step is accomplished by [identifying the requirements](../tutorials/create-custom-policy-definition.md#identify-requirements) and [determining the resource properties](../tutorials/create-custom-policy-definition.md#determine-resource-properties).
+But it's also important to see beyond the narrow definition of your business policy. Does your policy state for example "All Virtual Machines must..."? What about other Azure services that make use of VMs, such as HDInsight or AKS? When defining a policy, we must consider how this policy impacts resources that are used by other services.
 
-Därför bör princip definitionerna vara så tätt definierade och fokuserade på resurserna och de egenskaper som du behöver för att utvärdera kompatibiliteten som möjligt.
+For this reason, your policy definitions should be as tightly defined and focused on the resources and the properties you need to evaluate for compliance as possible.
 
-## <a name="audit-existing-resources"></a>Granska befintliga resurser
+## <a name="audit-existing-resources"></a>Audit existing resources
 
-Innan du tittar på att hantera nya eller uppdaterade resurser med den nya princip definitionen är det bäst att se hur det utvärderar en begränsad del av befintliga resurser, till exempel en resurs grupp för test. Använd [tvångs läget](./assignment-structure.md#enforcement-mode)
-_inaktiverat_ (DoNotEnforce) i princip tilldelningen för att förhindra att [påverkan](./effects.md) utlöses eller att aktivitets logg poster skapas.
+Before looking to manage new or updated resources with your new policy definition, it's best to see how it evaluates a limited subset of existing resources, such as a test resource group. Use the [enforcement mode](./assignment-structure.md#enforcement-mode)
+_Disabled_ (DoNotEnforce) on your policy assignment to prevent the [effect](./effects.md) from triggering or activity log entries from being created.
 
-Det här steget ger dig möjlighet att utvärdera resultatet av kompatibiliteten för den nya principen på befintliga resurser utan att påverka arbets flödet. Kontrol lera att inga kompatibla resurser är markerade som icke-kompatibla (_falskt positiva_) och att alla resurser som du förväntar dig inte är kompatibla markeras korrekt.
-När den första del mängden av resurserna verifieras som förväntat expanderar du utvärderingen till alla befintliga resurser.
+This step gives you a chance to evaluate the compliance results of the new policy on existing resources without impacting work flow. Check that no compliant resources are marked as non-compliant (_false positive_) and that all the resources you expect to be non-compliant are marked correctly.
+After the initial subset of resources validates as expected, slowly expand the evaluation to all existing resources.
 
-Utvärdering av befintliga resurser på det här sättet ger också möjlighet att åtgärda icke-kompatibla resurser innan den nya principen implementeras. Den här rensningen kan utföras manuellt eller via en [reparations uppgift](../how-to/remediate-resources.md) om princip definitions effekterna är _DeployIfNotExists_.
+Evaluating existing resources in this way also provides an opportunity to remediate non-compliant resources before full implementation of the new policy. This cleanup can be done manually or through a [remediation task](../how-to/remediate-resources.md) if the policy definition effect is _DeployIfNotExists_.
 
-## <a name="audit-new-or-updated-resources"></a>Granska nya eller uppdaterade resurser
+## <a name="audit-new-or-updated-resources"></a>Audit new or updated resources
 
-När du har verifierat att den nya princip definitionen rapporteras korrekt på befintliga resurser, är det dags att titta på effekten av principen när resurser skapas eller uppdateras. Om princip definitionen har stöd för Effect Parameterisering, använder du [audit](./effects.md#audit). Med den här konfigurationen kan du övervaka skapande och uppdatering av resurser för att se om den nya princip definitionen utlöser en post i Azure aktivitets loggen för en resurs som är icke-kompatibel utan att det påverkar befintliga arbete eller begär Anden.
+Once you've validated your new policy definition is reporting correctly on existing resources, it's time to look at the impact of the policy when resources get created or updated. If the policy definition supports effect parameterization, use [Audit](./effects.md#audit). This configuration allows you to monitor the creation and updating of resources to see if the new policy definition triggers an entry in Azure Activity log for a resource that is non-compliant without impacting existing work or requests.
 
-Vi rekommenderar att både uppdatera och skapa nya resurser som matchar din princip definition för att se att _gransknings_ effekterna är korrekt utlösta när de förväntas. Vara på Lookout för resurs begär Anden som inte ska påverkas av den nya princip definitionen som utlöser _gransknings_ effekten.
-Dessa resurser som påverkas är ett annat exempel på _falska positiva identifieringar_ och måste åtgärdas i princip definitionen före fullständig implementering.
+It's recommended to both update and create new resources that match your policy definition to see that the _Audit_ effect is correctly being triggered when expected. Be on the lookout for resource requests that shouldn't be impacted by the new policy definition that trigger the _Audit_ effect.
+These impacted resources are another example of _false positives_ and must be fixed in the policy definition before full implementation.
 
-I händelse av att princip definitionen ändras i den här test fasen rekommenderar vi att du startar validerings processen med granskningen av befintliga resurser. En ändring i princip definitionen för ett _falskt positivt resultat_ på nya eller uppdaterade resurser påverkar förmodligen också befintliga resurser.
+In the event the policy definition is changed at this stage of testing, it's recommended to begin the validation process over with the auditing of existing resources. A change to the policy definition for a _false positive_ on new or updated resources is likely to also have an impact on existing resources.
 
-## <a name="deploy-your-policy-to-resources"></a>Distribuera principen till resurser
+## <a name="deploy-your-policy-to-resources"></a>Deploy your policy to resources
 
-När du har slutfört valideringen av den nya princip definitionen med både befintliga resurser och nya eller uppdaterade resurs begär Anden börjar du implementera principen. Vi rekommenderar att du skapar princip tilldelningen för den nya princip definitionen till en delmängd av alla resurser, till exempel en resurs grupp. När du har verifierat den första distributionen utökar du omfånget för principen till bredare och bredare nivåer, till exempel prenumerationer och hanterings grupper. Den här utökningen uppnås genom att du tar bort tilldelningen och skapar en ny i mål omfånget tills den har tilldelats till det fullständiga omfånget av resurser som är avsedda att omfattas av den nya princip definitionen.
+After completing validation of your new policy definition with both existing resources and new or updated resource requests, you begin the process of implementing the policy. It's recommended to create the policy assignment for the new policy definition to a subset of all resources first, such as a resource group. After validating initial deployment, extend the scope of the policy to broader and broader levels, such as subscriptions and management groups. This expansion is achieved by removing the assignment and creating a new one at the target scopes until it's assigned to the full scope of resources intended to be covered by your new policy definition.
 
-Om det finns resurser som ska undantas från din nya princip definition under distributionen kan du adressera dem på något av följande sätt:
+During rollout, if resources are located that should be exempt from your new policy definition, address them in one of the following ways:
 
-- Uppdatera princip definitionen så att den är mer explicit för att minska oavsiktlig påverkan
-- Ändra omfånget för princip tilldelningen (genom att ta bort och skapa en ny tilldelning)
-- Lägg till resurs gruppen i undantags listan för princip tilldelningen
+- Update the policy definition to be more explicit to reduce unintended impact
+- Change the scope of the policy assignment (by removing and creating a new assignment)
+- Add the group of resources to the exclusion list for the policy assignment
 
-Ändringar i omfånget (nivå eller undantag) bör kontrol leras fullständigt och kommuniceras med organisationer för säkerhet och efterlevnad för att säkerställa att det inte finns några luckor i täckningen.
+Any changes to the scope (level or exclusions) should be fully validated and communicated with your security and compliance organizations to ensure there are no gaps in coverage.
 
-## <a name="monitor-your-policy-and-compliance"></a>Övervaka din princip och efterlevnad
+## <a name="monitor-your-policy-and-compliance"></a>Monitor your policy and compliance
 
-Att implementera och tilldela en princip definition är inte det sista steget. Övervaka kontinuerligt [efterlevnaden](../how-to/get-compliance-data.md) av resurser till din nya princip definition och lämpliga [Azure Monitor aviseringar och aviseringar](../../../azure-monitor/platform/alerts-overview.md) för när icke-kompatibla enheter identifieras. Vi rekommenderar också att du utvärderar princip definitionen och de relaterade tilldelningarna enligt schemat för att verifiera att princip definitionen uppfyller behoven för affärs principer och efterlevnad. Principer bör tas bort om de inte längre behövs. Principer behöver också uppdateras från tid till att de underliggande Azure-resurserna utvecklas och lägger till nya egenskaper och funktioner.
+Implementing and assigning your policy definition isn't the final step. Continuously monitor the [compliance](../how-to/get-compliance-data.md) level of resources to your new policy definition and setup appropriate [Azure Monitor alerts and notifications](../../../azure-monitor/platform/alerts-overview.md) for when non-compliant devices are identified. It's also recommended to evaluate the policy definition and related assignments on a scheduled basis to validate the policy definition is meeting business policy and compliance needs. Policies should be removed if no longer needed. Policies also need updating from time to time as the underlying Azure resources evolve and add new properties and capabilities.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [princip definitions strukturen](./definition-structure.md).
-- Lär dig mer om [princip tilldelnings strukturen](./assignment-structure.md).
-- Lär dig att [program mässigt skapa principer](../how-to/programmatically-create.md).
-- Lär dig hur du [hämtar efterlevnadsprinciper](../how-to/get-compliance-data.md).
-- Lär dig hur du [åtgärdar icke-kompatibla resurser](../how-to/remediate-resources.md).
-- Granska en hanterings grupp med [organisera dina resurser med Azures hanterings grupper](../../management-groups/overview.md).
+- Learn about the [policy definition structure](./definition-structure.md).
+- Learn about the [policy assignment structure](./assignment-structure.md).
+- Understand how to [programmatically create policies](../how-to/programmatically-create.md).
+- Learn how to [get compliance data](../how-to/get-compliance-data.md).
+- Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
+- Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).

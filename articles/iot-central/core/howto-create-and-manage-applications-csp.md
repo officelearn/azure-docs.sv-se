@@ -1,6 +1,6 @@
 ---
-title: Skapa och hantera Azure IoT Central-program från CSP-portalen | Microsoft Docs
-description: Som KRYPTOGRAFIPROVIDER skapar du ett Azure IoT Central-program för kundens räkning.
+title: Create and manage Azure IoT Central applications from the CSP portal | Microsoft Docs
+description: As a CSP, how to create an Azure IoT Central application on behalf of your customer.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
@@ -8,94 +8,94 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 8e9c2077960dc64aa7bac13a53e0b3f74062aa55
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 1588a27453dbc223e6aa1dd993905d274e5e1242
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177271"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74480339"
 ---
-# <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>Skapa och hantera ett Azure IoT Central-program från CSP-portalen
+# <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>Create and manage an Azure IoT Central application from the CSP portal
 
-CSP-programmet (Microsoft Cloud Solution Provider) är ett Microsoft-program för åter försäljare. Avsikten är att tillhandahålla våra kanal partner med ett program som gör att du kan sälja alla Microsofts kommersiella online tjänster. Läs mer om [Cloud Solution Provider-programmet](https://partner.microsoft.com/cloud-solution-provider).
+The Microsoft Cloud Solution Provider (CSP) program is a Microsoft Reseller program. Its intent is to provide our channel partners with a one-stop program to resell all Microsoft Commercial Online Services. Learn more about the [Cloud Solution Provider program](https://partner.microsoft.com/cloud-solution-provider).
 
-Som KRYPTOGRAFIPROVIDER kan du skapa och hantera Microsoft Azure IoT Central program för dina kunders räkning via [Microsoft Partner Center](https://partnercenter.microsoft.com/partner/home). När Azure IoT Central-program skapas för kunders räkning med kryptografiproviders, precis som med andra CSP-hanterade Azure-tjänster, hanterar CSP fakturering för kunder. En avgift för Azure IoT Central kommer att visas i din totala faktura i Microsoft Partner Center.
+As a CSP, you can create and manage Microsoft Azure IoT Central applications on behalf of your customers through the [Microsoft Partner Center](https://partnercenter.microsoft.com/partner/home). When Azure IoT Central applications are created on behalf of customers by CSPs, just like with other CSP managed Azure services, CSPs manage billing for customers. A charge for Azure IoT Central will appear in your total bill in the Microsoft Partner Center.
 
-Kom igång genom att logga in på ditt konto på Microsoft Partner Portal och välj en kund för vilken du vill skapa ett Azure IoT Central-program. Navigera till Service Management för kunden från det vänstra navigerings fältet.
+To get started, sign-in to your account on the Microsoft Partner Portal and select a customer for whom you want to create an Azure IoT Central application. Navigate to Service Management for the customer from the left nav.
 
-![Microsoft Partner Center, kund visning](media/howto-create-application-csp/image1.png)
+![Microsoft Partner Center, customer view](media/howto-create-application-csp/image1.png)
 
-Azure IoT Central listas som en tjänst som är tillgänglig för administration. Välj Azure IoT Central-länken på sidan för att skapa nya program eller hantera befintliga program för den här kunden.
+Azure IoT Central is listed as a service available to administer. Select the Azure IoT Central link on the page to create new applications or manage existing applications for this customer.
 
-![Azure-IoT Central tillgängligt för hantering](media/howto-create-application-csp/image2.png)
+![Azure IoT Central available to manage](media/howto-create-application-csp/image2.png)
 
-Du land på sidan för Azure IoT Central Application Manager. Azure IoT Central håller kontexten som du kom från Microsoft Partner Center och som du kom att hantera den specifika kunden. Du ser det här bekräftelsen i rubriken på program hanterings sidan. Härifrån kan du antingen navigera till ett befintligt program som du har skapat tidigare för den här kunden för att hantera eller skapa ett nytt program för kunden.
+You land on the Azure IoT Central Application Manager page. Azure IoT Central keeps context that you came from the Microsoft Partner Center and that you came to manage that particular customer. You see this acknowledged in the header of the Application Manager page. From here, you can either navigate to an existing application you had created earlier for this customer to manage or create a new application for the customer.
 
-![Skapa hanterare för kryptografiproviders](media/howto-create-application-csp/image3.png)
+![Create Manager for CSPs](media/howto-create-application-csp/image3.png)
 
-Om du vill skapa ett Azure IoT Central-program väljer du **skapa** på den vänstra menyn. Välj en av idustry-mallarna eller Välj **anpassad app** för att skapa ett program från grunden. Då öppnas sidan Skapa program. Du måste fylla i alla fält på den här sidan och sedan välja **skapa**. Du hittar mer information om vart och ett av fälten nedan.
+To create an Azure IoT Central application, select **Build** in the left menu. Choose one of the industry templates, or choose **Custom app** to create an application from scratch. This will load the Application Creation page. You must complete all the fields on this page and then choose **Create**. You find more information about each of the fields below.
 
-![Skapa program sida för kryptografiproviders](media/howto-create-application-csp/image4.png)
+![Create Application Page for CSPs](media/howto-create-application-csp/image4.png)
 
-![Skapa program sida för kryptografiproviders](media/howto-create-application-csp/image4-1.png)
+![Create Application Page for CSPs](media/howto-create-application-csp/image4-1.png)
 
-## <a name="payment-plan"></a>Betalnings plan
+## <a name="payment-plan"></a>Payment plan
 
-Du kan bara skapa "betala per användning"-program som en CSP. För att presentera Azure-IoT Central till kunden kan du skapa ett utvärderings program separat. Läs mer om utvärderings versioner och program som du betalar per användning på [sidan med priser för Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
+You can only create Pay-As-You-Go applications as a CSP. To showcase Azure IoT Central to your customer, you can create a trial application separately. Learn more about Trial and Pay-As-You-Go applications on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/).
 
 ## <a name="application-name"></a>Programnamn
 
-Namnet på ditt program visas på **program hanterings** sidan och i varje Azure IoT Central-program. Du kan välja ett namn för ditt Azure IoT Central-program. Välj ett namn som passar dig och till andra i din organisation.
+The name of your application is displayed on the **Application Manager** page and within each Azure IoT Central application. You can choose any name for your Azure IoT Central application. Choose a name that makes sense to you and to others in your organization.
 
 ## <a name="application-url"></a>Program-URL
 
-Programmets URL är länken till ditt program. Du kan spara ett bok märke i webbläsaren eller dela det med andra.
+The application URL is the link to your application. You can save a bookmark to it in your browser or share it with others.
 
-När du anger namnet på programmet genereras din program-URL automatiskt. Om du vill kan du välja en annan URL för ditt program. Varje Azure IoT Central-URL måste vara unik i Azure IoT Central. Ett fel meddelande visas om den URL du väljer redan har gjorts.
+When you enter the name for your application, your application URL is autogenerated. If you prefer, you can choose a different URL for your application. Each Azure IoT Central URL must be unique within Azure IoT Central. You see an error message if the URL you choose has already been taken.
 
 ## <a name="directory"></a>Katalog
 
-Eftersom Azure IoT Central har sammanhang som du har för att hantera kunden som du valde i Microsoft Partner Portal, ser du bara Azure Active Directory klienten för kunden i fältet katalog. 
+Since Azure IoT Central has context that you came to manage the customer you selected in the Microsoft Partner Portal, you see just the Azure Active Directory tenant for that customer in the Directory field. 
 
-En Azure Active Directory klient organisation innehåller användar identiteter, autentiseringsuppgifter och annan organisatorisk information. Flera Azure-prenumerationer kan associeras med en enda Azure Active Directory-klient.
+An Azure Active Directory tenant contains user identities, credentials, and other organizational information. Multiple Azure subscriptions can be associated with a single Azure Active Directory tenant.
 
-Läs mer i [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/).
+To learn more, see [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/).
 
 ## <a name="azure-subscription"></a>Azure-prenumeration
 
-Med en Azure-prenumeration kan du skapa instanser av Azure-tjänster. Azure IoT Central hittar automatiskt alla Azure-prenumerationer för kunden som du har åtkomst till och visar dem i en listruta på sidan **skapa program** . Välj en Azure-prenumeration för att skapa ett nytt Azure IoT Central-program.
+An Azure subscription enables you to create instances of Azure services. Azure IoT Central automatically finds all Azure Subscriptions of the customer to which you have access, and displays them in a dropdown on the **Create Application** page. Choose an Azure subscription to create a new Azure IoT Central Application.
 
-Om du inte har någon Azure-prenumeration kan du skapa en i Microsoft Partner Center. När du har skapat Azure-prenumerationen kan du gå tillbaka till sidan **Skapa program**. Din nya prenumeration visas i listrutan **Azure-prenumeration**.
+If you don’t have an Azure subscription, you can create one in the Microsoft Partner Center. När du har skapat Azure-prenumerationen kan du gå tillbaka till sidan **Skapa program**. Din nya prenumeration visas i listrutan **Azure-prenumeration**.
 
-Mer information finns i [Azure-prenumerationer](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing).
+To learn more, see [Azure subscriptions](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing).
 
 ## <a name="region"></a>Region
 
-Välj den region eller det [geografiskt](https://azure.microsoft.com/global-infrastructure/geographies/) område där du vill skapa ett Azure IoT Central-program. Normalt bör du välja den region som är närmast fysiskt till dina enheter för att få optimala prestanda.
+Choose the region or [geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you’d like to create your Azure IoT Central Application. Typically, you should choose the region that's closest physically to your devices to get optimal performance.
 
 > [!NOTE]
-> För **hands versions** mal len är för närvarande endast tillgänglig i regionerna **Nord Europa** och **centrala USA** .
+> The preview application templates are currently only available in the **Europe** and **US** locations.
 
-Mer information finns i [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions/) och [Azure-geografiska](https://azure.microsoft.com/global-infrastructure/geographies/)områden.
+To learn more, see [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/) and [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
 
-Du kan se de regioner där Azure IoT Central är tillgängligt på sidan [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/?products=iot-central) .
+You can see the regions in which Azure IoT Central is available on the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=iot-central) page.
 
 > [!Note]
 > När du väljer en region kan du inte flytta ditt program till en annan region senare.
 
 ## <a name="application-template"></a>Programmall
 
-Du kan välja en av de tillgängliga Programmallarna för ditt nya Azure IoT Central-program. En programmall kan innehålla fördefinierade objekt, till exempel mallar för enheten och instrumentpaneler som hjälper dig att komma igång.
+You can choose one of the available application templates for your new Azure IoT Central application. En programmall kan innehålla fördefinierade objekt, till exempel mallar för enheten och instrumentpaneler som hjälper dig att komma igång.
 
 | Programmall | Beskrivning |
 | -------------------- | ----------- |
 | Anpassat program   | Skapar ett tomt program som du kan fylla med dina egna enhetsmallar och enheter. |
-| Exemplet Contoso       | Skapar ett program som innehåller en enhets mall för en enkel ansluten enhet. Använd den här mallen för att börja utforska Azure IoT Central. |
-| Exemplet Devkits       | Skapar ett program med enhetsmallar där du kan ansluta en MXChip- eller Raspberry Pi-enhet. Använd den här mallen om du är en enhets utvecklare som experimenterar med kod på någon av dessa enheter. |
+| Exemplet Contoso       | Creates an application that includes a device template for a simple connected device. Använd den här mallen för att börja utforska Azure IoT Central. |
+| Exemplet Devkits       | Skapar ett program med enhetsmallar där du kan ansluta en MXChip- eller Raspberry Pi-enhet. Use this template if you are a device developer experimenting with code on one of these devices. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du skapar ett Azure IoT Central-program som en CSP, är det här det föreslagna nästa steg:
+Now that you have learned how to create an Azure IoT Central application as a CSP, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [Administrera ditt program](howto-administer.md)
+> [Administer your application](howto-administer.md)

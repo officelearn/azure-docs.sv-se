@@ -1,14 +1,14 @@
 ---
 title: Exempel – Granska granskningsinställningar för SQL Server
-description: Den här exempelprincipdefinitionen granskar granskningsinställningarna för SQL-server med auditIfNotExists.
+description: This sample policy definition audits the SQL server audit settings defined in a parameter with auditIfNotExists.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 5a0d758bd96937ca443d434b76d22aaefc618687
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 7eba24c0916297dba0649024874aed7ba0fac2f6
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74069802"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463107"
 ---
 # <a name="sample---audit-sql-server-audit-settings"></a>Exempel – Granska granskningsinställningar för SQL-server
 
@@ -92,4 +92,4 @@ az policy assignment delete --name "SQL Audit audit" --resource-group myResource
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska fler exempel på [Azure Policy-exempel](index.md)
+- Granska fler exempel under [Exempel på Azure-princip](index.md)

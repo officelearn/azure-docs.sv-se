@@ -1,6 +1,6 @@
 ---
-title: Hanterings begrepp för Azure AD Domain Services | Microsoft Docs
-description: Lär dig mer om hur du administrerar en Azure Active Directory Domain Services hanterad domän och hur användar konton och lösen ord fungerar
+title: Management concepts for Azure AD Domain Services | Microsoft Docs
+description: Learn about how to administer an Azure Active Directory Domain Services managed domain and the behavior of user accounts and passwords
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -10,70 +10,73 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: iainfou
-ms.openlocfilehash: a5a08bddb53afe8f698b0d96621cc116ee866070
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f239bab48e732755361fe734fdc24b37d3823c63
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209176"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481025"
 ---
-# <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Hanterings begrepp för användar konton, lösen ord och administration i Azure Active Directory Domain Services
+# <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Management concepts for user accounts, passwords, and administration in Azure Active Directory Domain Services
 
-När du skapar och kör en Azure Active Directory Domain Services (AD DS)-hanterad domän, finns det vissa skillnader i beteende jämfört med en traditionell lokal AD DS-miljö. Du använder samma administrativa verktyg i Azure AD DS som en självhanterad domän, men du kan inte komma åt domän kontrol Lanterna direkt. Det finns också vissa skillnader i beteendet för lösen ords principer och lösen ords-hashar beroende på källan till det användar konto som skapas.
+When you create and run an Azure Active Directory Domain Services (AD DS) managed domain, there are some differences in behavior compared to a traditional on-premises AD DS environment. You use the same administrative tools in Azure AD DS as a self-managed domain, but you can't directly access the domain controllers (DC). There's also some differences in behavior for password policies and password hashes depending on the source of the user account creation.
 
-Den här konceptuella artikeln beskriver hur du administrerar en Azure AD DS-hanterad domän och olika beteenden för användar konton beroende på hur de skapas.
+This conceptual article details how to administer an Azure AD DS managed domain and the different behavior of user accounts depending on the way they're created.
 
-## <a name="domain-management"></a>Domän hantering
+## <a name="domain-management"></a>Domain management
 
-I Azure AD DS är domän kontrol Lanterna (DCs) som innehåller alla resurser, t. ex. användare och grupper, autentiseringsuppgifter och principer, en del av den hanterade tjänsten. För redundans skapas två domänkontrollanter som en del av en Azure AD DS-hanterad domän. Du kan inte logga in på dessa domänkontrollanter för att utföra hanterings uppgifter. I stället skapar du en virtuell hanterings dator som är ansluten till den hanterade Azure AD DS-domänen och installerar sedan dina vanliga hanterings verktyg för AD DS. Du kan till exempel använda snapin-modulerna Active Directory Administrationscenter eller Microsoft Management Console (MMC) som DNS eller grupprincip objekt.
+In Azure AD DS, the domain controllers (DCs) that contain all the resources like users and groups, credentials, and policies are part of the managed service. For redundancy, two DCs are created as part of an Azure AD DS managed domain. You can't sign in to these DCs to perform management tasks. Instead, you create a management VM that's joined to the Azure AD DS managed domain, then install your regular AD DS management tools. You can use the Active Directory Administrative Center or Microsoft Management Console (MMC) snap-ins like DNS or Group Policy objects, for example.
 
-## <a name="user-account-creation"></a>Skapa användar konto
+## <a name="user-account-creation"></a>User account creation
 
-Användar konton kan skapas i Azure AD DS på flera olika sätt. De flesta användar konton synkroniseras i från Azure AD, vilket även kan omfatta användar konto som synkroniseras från en lokal AD DS-miljö. Du kan också skapa konton manuellt direkt i Azure AD DS. Vissa funktioner, t. ex. inledande Lösenordssynkronisering eller lösen ords princip, beter sig på olika sätt beroende på hur och var användar konton skapas.
+User accounts can be created in Azure AD DS in multiple ways. Most user accounts are synchronized in from Azure AD, which can also include user account synchronized from an on-premises AD DS environment. You can also manually create accounts directly in Azure AD DS. Some features, like initial password synchronization or password policy, behave differently depending on how and where user accounts are created.
 
-* Användar kontot kan synkroniseras i från Azure AD. Detta inkluderar endast molnbaserade användar konton som skapas direkt i Azure AD och hybrid användar konton som synkroniseras från en lokal AD DS-miljö med hjälp av Azure AD Connect.
-    * Majoriteten av användar kontona i Azure AD DS skapas genom synkroniseringsprocessen från Azure AD.
-* Användar kontot kan skapas manuellt i en Azure AD DS-hanterad domän och finns inte i Azure AD.
-    * Om du behöver skapa tjänst konton för program som bara körs i Azure AD DS kan du skapa dem manuellt i den hanterade domänen. Eftersom synkroniseringen är enkelriktad från Azure AD, synkroniseras inte användar konton som skapats i Azure AD DS tillbaka till Azure AD.
+* The user account can be synchronized in from Azure AD. This includes cloud-only user accounts created directly in Azure AD, and hybrid user accounts synchronized from an on-premises AD DS environment using Azure AD Connect.
+    * The majority of user accounts in Azure AD DS are created through the synchronization process from Azure AD.
+* The user account can be manually created in an Azure AD DS managed domain, and doesn't exist in Azure AD.
+    * If you need to create service accounts for applications that only run in Azure AD DS, you can manually create them in the managed domain. As synchronization is one-way from Azure AD, user accounts created in Azure AD DS aren't synchronized back to Azure AD.
 
-## <a name="password-policy"></a>Lösen ords princip
+## <a name="password-policy"></a>Password policy
 
-Azure AD DS innehåller en standard lösen ords princip som definierar inställningar för saker som konto utelåsning, högsta ålder för lösen ord och lösen ords komplexitet. Inställningar som konto utelåsnings princip gäller för alla användare i Azure AD DS, oavsett hur användaren skapades enligt beskrivningen i föregående avsnitt. Några inställningar, t. ex. minsta längd på lösen ord och lösen ords komplexitet, gäller endast för användare som skapats direkt i Azure AD DS.
+Azure AD DS includes a default password policy that defines settings for things like account lockout, maximum password age, and password complexity. Settings like account lockout policy apply to all users in Azure AD DS, regardless of how the user was created as outlined in the previous section. A few settings, like minimum password length and password complexity, only apply to users created directly in Azure AD DS.
 
-Du kan skapa egna lösen ords principer om du vill åsidosätta standard principen i Azure AD DS. De här anpassade principerna kan sedan tillämpas på vissa grupper av användare efter behov.
+You can create your own custom password policies to override the default policy in Azure AD DS. These custom policies can then be applied to specific groups of users as needed.
 
-Mer information om skillnaderna i hur lösen ords principer tillämpas, beroende på källan för att skapa användare, finns i [principer för lösen ords-och konto utelåsning på hanterade domäner][password-policy].
+For more information on the differences in how password policies are applied depending on the source of user creation, see [Password and account lockout policies on managed domains][password-policy].
 
-## <a name="password-hashes"></a>Lösenords-hashvärden
+## <a name="password-hashes"></a>Password hashes
 
-För att autentisera användare på den hanterade domänen behöver Azure AD DS lösen ords-hashar i ett format som är lämpligt för NT LAN Manager (NTLM) och Kerberos-autentisering. Azure AD genererar eller lagrar inte lösen ordets hash-värden i det format som krävs för NTLM-eller Kerberos-autentisering förrän du aktiverar Azure AD DS för din klient. Av säkerhets skäl lagrar Azure AD inte heller lösen ords referenser i klartext-format. Därför kan inte Azure AD automatiskt generera dessa NTLM-eller Kerberos-hashvärden utifrån användarnas befintliga autentiseringsuppgifter.
+To authenticate users on the managed domain, Azure AD DS needs password hashes in a format that's suitable for NT LAN Manager (NTLM) and Kerberos authentication. Azure AD doesn't generate or store password hashes in the format that's required for NTLM or Kerberos authentication until you enable Azure AD DS for your tenant. For security reasons, Azure AD also doesn't store any password credentials in clear-text form. Therefore, Azure AD can't automatically generate these NTLM or Kerberos password hashes based on users' existing credentials.
 
-För endast molnbaserade användar konton måste användare ändra sina lösen ord innan de kan använda Azure AD DS. Den här processen för lösen ords ändring gör att lösen ords hashar för Kerberos-och NTLM-autentisering skapas och lagras i Azure AD.
+For cloud-only user accounts, users must change their passwords before they can use Azure AD DS. This password change process causes the password hashes for Kerberos and NTLM authentication to be generated and stored in Azure AD.
 
-För användare som synkroniseras från en lokal AD DS-miljö med hjälp av Azure AD Connect [aktiverar du synkronisering av lösen ords-hashar][hybrid-phs].
+For users synchronized from an on-premises AD DS environment using Azure AD Connect, [enable synchronization of password hashes][hybrid-phs].
 
 > [!IMPORTANT]
-> Azure AD Connect synkroniserar bara äldre lösen ords-hashar när du aktiverar Azure AD DS för Azure AD-klienten. Äldre hashvärden för lösen ord används inte om du bara använder Azure AD Connect för att synkronisera en lokal AD DS-miljö med Azure AD.
+> Azure AD Connect only synchronizes legacy password hashes when you enable Azure AD DS for your Azure AD tenant. Legacy password hashes aren't used if you only use Azure AD Connect to synchronize an on-premises AD DS environment with Azure AD.
 >
-> Om dina äldre program inte använder NTLM-autentisering eller enkla LDAP-bindningar, rekommenderar vi att du inaktiverar hash-synkronisering av NTLM-lösenord för Azure AD DS. Mer information finns i [inaktivera svaga chiffersviter och hash-synkronisering av NTLM-autentiseringsuppgifter][secure-domain].
+> If your legacy applications don't use NTLM authentication or LDAP simple binds, we recommend that you disable NTLM password hash synchronization for Azure AD DS. For more information, see [Disable weak cipher suites and NTLM credential hash synchronization][secure-domain].
 
-När det är korrekt konfigurerat lagras de användbara lösen ords hasharna i den hanterade domänen i Azure AD DS. Om du tar bort den hanterade Azure AD DS-domänen, raderas även alla lösen ords-hashar som lagras i den punkten. Det går inte att återanvända synkroniserad autentiseringsinformation i Azure AD om du senare skapar en Azure AD DS-hanterad domän. du måste konfigurera om lösen ordets hash-synkronisering för att lagra lösen ordets hash-meddelanden igen. Tidigare domänanslutna virtuella datorer eller användare kan inte omedelbart autentisera – Azure AD behöver generera och lagra lösen ordets hash-värden i den nya Azure AD DS-hanterade domänen. Mer information finns i [synkronisering av lösen ords-hash för Azure AD DS och Azure AD Connect][azure-ad-password-sync].
+Once appropriately configured, the usable password hashes are stored in the Azure AD DS managed domain. If you delete the Azure AD DS managed domain, any password hashes stored at that point are also deleted. Synchronized credential information in Azure AD can't be reused if you later create an Azure AD DS managed domain - you must reconfigure the password hash synchronization to store the password hashes again. Previously domain-joined VMs or users won't be able to immediately authenticate - Azure AD needs to generate and store the password hashes in the new Azure AD DS managed domain. For more information, see [Password hash sync process for Azure AD DS and Azure AD Connect][azure-ad-password-sync].
+
+> [!IMPORTANT]
+> Azure AD Connect should only be installed and configured for synchronization with on-premises AD DS environments. It's not supported to install Azure AD Connect in an Azure AD DS managed domain to synchronize objects back to Azure AD.
 
 ## <a name="forests-and-trusts"></a>Skogar och förtroenden
 
-En *skog* är en logisk konstruktion som används av Active Directory Domain Services (AD DS) för att gruppera en eller flera *domäner*. Domänerna lagrar sedan objekt för användare eller grupper och tillhandahåller Authentication Services.
+A *forest* is a logical construct used by Active Directory Domain Services (AD DS) to group one or more *domains*. The domains then store objects for user or groups, and provide authentication services.
 
-I Azure AD DS innehåller skogen bara en domän. Lokala AD DS-skogar innehåller ofta många domäner. I stora organisationer, särskilt efter sammanslagning och förvärv, kan du få flera lokala skogar som var och en innehåller flera domäner.
+In Azure AD DS, the forest only contains one domain. On-premises AD DS forests often contain many domains. In large organizations, especially after mergers and acquisitions, you may end up with multiple on-premises forests that each then contain multiple domains.
 
-Som standard skapas en Azure AD DS-hanterad domän som en *användar* skog. Den här typen av skog synkroniserar alla objekt från Azure AD, inklusive alla användar konton som skapats i en lokal AD DS-miljö. Användar konton kan autentiseras direkt mot Azure AD DS-hanterad domän, t. ex. för att logga in på en domänansluten virtuell dator. En användar skog fungerar när lösen ordets hash-värden kan synkroniseras och användarna inte använder exklusiva inloggnings metoder som smartkort-autentisering.
+By default, an Azure AD DS managed domain is created as a *user* forest. This type of forest synchronizes all objects from Azure AD, including any user accounts created in an on-premises AD DS environment. User accounts can directly authenticate against the Azure AD DS managed domain, such as to sign in to a domain-joined VM. A user forest works when the password hashes can be synchronized and users aren't using exclusive sign-in methods like smart card authentication.
 
-I en Azure AD DS- *resurs* kan användare autentiseras över ett enkelriktat skogs *förtroende* från sina lokala AD DS. Med den här metoden synkroniseras inte användar objekt och lösen ordets hash-värden till Azure AD DS. Användar objekt och autentiseringsuppgifter finns bara i den lokala AD DS. Med den här metoden kan företag hantera resurser och programplattformar i Azure som är beroende av klassisk autentisering, t. ex. LDAP, Kerberos eller NTLM, men eventuella autentiseringsproblem eller problem tas bort. Azure AD DS resurs skogar är för närvarande en för hands version.
+In an Azure AD DS *resource* forest, users authenticate over a one-way forest *trust* from their on-premises AD DS. With this approach, the user objects and password hashes aren't synchronized to Azure AD DS. The user objects and credentials only exist in the on-premises AD DS. This approach lets enterprises host resources and application platforms in Azure that depend on classic authentication such LDAPS, Kerberos, or NTLM, but any authentication issues or concerns are removed. Azure AD DS resource forests are currently in preview.
 
-Mer information om skogs typer i Azure AD DS finns i [Vad är resurs skogar?][concepts-forest] och [Hur fungerar skogs förtroenden i Azure AD DS?][concepts-trust]
+For more information about forest types in Azure AD DS, see [What are resource forests?][concepts-forest] and [How do forest trusts work in Azure AD DS?][concepts-trust]
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kom igång genom att [skapa en Azure AD DS-hanterad domän][create-instance].
+To get started, [create an Azure AD DS managed domain][create-instance].
 
 <!-- INTERNAL LINKS -->
 [password-policy]: password-policy.md

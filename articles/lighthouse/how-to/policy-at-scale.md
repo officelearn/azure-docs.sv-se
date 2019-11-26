@@ -1,24 +1,24 @@
 ---
-title: Distribuera Azure Policy till delegerade prenumerationer i stor skala
-description: Lär dig hur Azure delegerad resurs hantering gör det möjligt att distribuera en princip definition och princip tilldelning över flera klienter.
+title: Deploy Azure Policy to delegated subscriptions at scale
+description: Learn how Azure delegated resource management lets you deploy a policy definition and policy assignment across multiple tenants.
 ms.date: 11/8/2019
-ms.topic: overview
-ms.openlocfilehash: fd335e77feb26241d573db48c2e96c725f70d031
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.topic: conceptual
+ms.openlocfilehash: 3853e8fc163dfc662adc675dd3df1d15958d329a
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131284"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463867"
 ---
-# <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Distribuera Azure Policy till delegerade prenumerationer i stor skala
+# <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Deploy Azure Policy to delegated subscriptions at scale
 
-Som tjänst leverantör kan du ha registrerat flera kund innehavare för Azure-delegerad resurs hantering. Med [Azure Lighthouse](../overview.md) kan tjänst leverantörer utföra åtgärder i skala över flera klienter samtidigt, vilket gör hanterings uppgifter mer effektiva.
+As a service provider, you may have onboarded multiple customer tenants for Azure delegated resource management. [Azure Lighthouse](../overview.md) allows service providers to perform operations at scale across several tenants at once, making management tasks more efficient.
 
-Det här avsnittet visar hur du använder [Azure policy](https://docs.microsoft.com/azure/governance/policy/) för att distribuera en princip definition och princip tilldelning över flera klienter med PowerShell-kommandon. I det här exemplet säkerställer princip definitionen att lagrings konton skyddas genom att endast tillåta HTTPS-trafik.
+This topic shows you how to use [Azure Policy](https://docs.microsoft.com/azure/governance/policy/) to deploy a policy definition and policy assignment across multiple tenants using PowerShell commands. In this example, the policy definition ensures that storage accounts are secured by allowing only HTTPS traffic.
 
-## <a name="use-azure-resource-graph-to-query-across-customer-tenants"></a>Använd Azure Resource Graph för att fråga mellan kund klienter
+## <a name="use-azure-resource-graph-to-query-across-customer-tenants"></a>Use Azure Resource Graph to query across customer tenants
 
-Du kan använda [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/) för att fråga över alla prenumerationer i de kund innehavare som du hanterar. I det här exemplet kommer vi att identifiera eventuella lagrings konton i dessa prenumerationer som inte kräver HTTPS-trafik.  
+You can use [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/) to query across all subscriptions in the customer tenants that you manage. In this example, we’ll identify any storage accounts in these subscriptions that do not currently require HTTPS traffic.  
 
 ```powershell
 $MspTenant = "insert your managing tenantId here"
@@ -30,9 +30,9 @@ $ManagedSubscriptions = Search-AzGraph -Query "ResourceContainers | where type =
 Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Storage/storageAccounts' | project name, location, subscriptionId, tenantId, properties.supportsHttpsTrafficOnly" -subscription $ManagedSubscriptions.subscriptionId | convertto-json
 ```
 
-## <a name="deploy-a-policy-across-multiple-customer-tenants"></a>Distribuera en princip över flera kund klienter
+## <a name="deploy-a-policy-across-multiple-customer-tenants"></a>Deploy a policy across multiple customer tenants
 
-Exemplet nedan visar hur du använder en [Azure Resource Manager-mall](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/policy-enforce-https-storage/enforceHttpsStorage.json) för att distribuera en princip definition och princip tilldelning mellan delegerade prenumerationer i flera kund klienter. Den här princip definitionen kräver att alla lagrings konton använder HTTPS-trafik, vilket förhindrar att nya lagrings konton skapas som inte uppfyller och markerar befintliga lagrings konton utan inställningen som icke-kompatibel.
+The example below shows how to use an [Azure Resource Manager template](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/policy-enforce-https-storage/enforceHttpsStorage.json) to deploy a policy definition and policy assignment across delegated subscriptions in multiple customer tenants. This policy definition requires all storage accounts to use HTTPS traffic, preventing the creation of any new storage accounts that don’t comply and marking existing storage accounts without the setting as non-compliant.
 
 ```powershell
 Write-Output "In total, there are $($ManagedSubscriptions.Count) delegated customer subscriptions to be managed"
@@ -48,9 +48,9 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 }
 ```
 
-## <a name="validate-the-policy-deployment"></a>Verifiera princip distributionen
+## <a name="validate-the-policy-deployment"></a>Validate the policy deployment
 
-När du har distribuerat Azure Resource Manager-mallen kan du bekräfta att princip definitionen har tillämpats genom att försöka skapa ett lagrings konto med **EnableHttpsTrafficOnly** inställt på **false** i en av dina delegerade prenumerationer. På grund av princip tilldelningen bör du inte skapa det här lagrings kontot.  
+After you’ve deployed the Azure Resource Manager template, you can confirm that the policy definition was successfully applied by attempting to create a storage account with **EnableHttpsTrafficOnly** set to **false** in one of your delegated subscriptions. Because of the policy assignment, you should be unable to create this storage account.  
 
 ```powershell
 New-AzStorageAccount -ResourceGroupName (New-AzResourceGroup -name policy-test -Location eastus -Force).ResourceGroupName `
@@ -63,7 +63,7 @@ New-AzStorageAccount -ResourceGroupName (New-AzResourceGroup -name policy-test -
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är klar tar du bort princip definitionen och tilldelningen som skapats av distributionen.
+When you’re finished, remove the policy definition and assignment created by the deployment.
 
 ```powershell
 foreach ($ManagedSub in $ManagedSubscriptions)
@@ -90,5 +90,5 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [Azure policy](https://docs.microsoft.com/azure/governance/policy/).
-- Lär dig mer om [hanterings upplevelser mellan flera innehavare](../concepts/cross-tenant-management-experience.md).
+- Learn about [Azure Policy](https://docs.microsoft.com/azure/governance/policy/).
+- Learn about [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md).

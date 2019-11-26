@@ -1,6 +1,6 @@
 ---
-title: Anslutnings arkitektur
-description: I det här dokumentet förklaras Azure SQL Connectivity-arkitekturen för databas anslutningar från Azure eller utanför Azure.
+title: Connectivity Architecture
+description: This document explains the Azure SQL connectivity architecture for database connections from within Azure or from outside of Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -12,117 +12,123 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
-ms.openlocfilehash: b3b735f7ee644bb017756f3d6378e625fa66d448
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 0ac9247f5156eb1b766aec7403b2dc8473114659
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280794"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483715"
 ---
-# <a name="azure-sql-connectivity-architecture"></a>Arkitektur för Azure SQL-anslutning
+# <a name="azure-sql-connectivity-architecture"></a>Azure SQL Connectivity Architecture
 
-I den här artikeln beskrivs Azure SQL Database och SQL Data Warehouse anslutnings arkitektur samt hur olika komponenter fungerar för att dirigera trafik till din instans av Azure SQL. Dessa anslutnings komponenter fungerar för att dirigera nätverks trafik till Azure SQL Database eller SQL Data Warehouse med klienter som ansluter inifrån Azure och med klienter som ansluter från utanför Azure. Den här artikeln innehåller också skript exempel för att ändra hur anslutningen sker och de överväganden som rör ändring av inställningarna för standard anslutning.
+This article explains the Azure SQL Database and SQL Data Warehouse connectivity architecture as well as how the different components function to direct traffic to your instance of Azure SQL. These connectivity components function to direct network traffic to the Azure SQL Database or SQL Data Warehouse with clients connecting from within Azure and with clients connecting from outside of Azure. This article also provides script samples to change how connectivity occurs, and the considerations related to changing the default connectivity settings.
 
 ## <a name="connectivity-architecture"></a>Anslutningsarkitektur
 
-Följande diagram ger en översikt över Azure SQL Database anslutnings arkitekturen.
+The following diagram provides a high-level overview of the Azure SQL Database connectivity architecture.
 
-![arkitektur översikt](./media/sql-database-connectivity-architecture/connectivity-overview.png)
+![architecture overview](./media/sql-database-connectivity-architecture/connectivity-overview.png)
 
-Följande steg beskriver hur en anslutning upprättas till en Azure SQL-databas:
+The following steps describe how a connection is established to an Azure SQL database:
 
-- Klienter ansluter till gatewayen, som har en offentlig IP-adress och lyssnar på port 1433.
-- Gatewayen, beroende på principen gällande anslutning, omdirigerar eller proxyservrarar trafiken till rätt databas kluster.
-- I databas klustret vidarebefordras trafiken till rätt Azure SQL-databas.
+- Clients connect to the gateway, that has a public IP address and listens on port 1433.
+- The gateway, depending on the effective connection policy, redirects or proxies the traffic to the right database cluster.
+- Inside the database cluster traffic is forwarded to the appropriate Azure SQL database.
 
-## <a name="connection-policy"></a>Anslutnings princip
+## <a name="connection-policy"></a>Connection policy
 
-Azure SQL Database stöder följande tre alternativ för anslutnings princip inställningen för en SQL Database-Server:
+Azure SQL Database supports the following three options for the connection policy setting of a SQL Database server:
 
-- **Omdirigera (rekommenderas):** Klienter upprättar anslutningar direkt till noden som är värd för databasen. För att möjliggöra anslutning måste klienterna tillåta utgående brand Väggs regler till alla Azure IP-adresser i regionen med hjälp av nätverks säkerhets grupper (NSG) med [service märken](../virtual-network/security-overview.md#service-tags) för portarna 11000-11999, inte bara Azure SQL Database Gateway-IP-adresserna på port 1433. Eftersom paket går direkt till databasen har svars tiden och data flödet bättre prestanda.
-- **Proxy:** I det här läget är alla anslutningar via proxy via Azure SQL Database gatewayer. För att aktivera anslutning måste klienten ha utgående brand Väggs regler som endast tillåter IP-adresser för Azure SQL Database Gateway (vanligt vis två IP-adresser per region). Att välja det här läget kan resultera i högre latens och lägre data flöde, beroende på arbets Belastningens natur. Vi rekommenderar starkt `Redirect` anslutnings princip via `Proxy` anslutnings princip för lägsta latens och högsta data flöde.
-- **Standard:** Detta är anslutnings principen som används på alla servrar när den har skapats, såvida du inte uttryckligen ändrar anslutnings principen till antingen `Proxy` eller `Redirect`. Den effektiva principen beror på om anslutningar härstammar från Azure (`Redirect`) eller utanför Azure (`Proxy`).
+- **Redirect (recommended):** Clients establish connections directly to the node hosting the database, leading to reduced latency and improved throughout. For connections to use this mode clients need to
+   - Allow inbound and outbound communication from the client to all Azure IP addresses in the region on ports in the range of 11000 11999.  
+   - Allow inbound and outbound communication from the client to Azure SQL Database gateway IP addresses on port 1433.
 
-## <a name="connectivity-from-within-azure"></a>Anslutning inifrån Azure
+- **Proxy:** In this mode, all connections are proxied via the Azure SQL Database gateways,leading to increased latency and reduced throughout. For connections to use this mode clients need to allow inbound and outbound communication from the client to Azure SQL Database gateway IP addresses on port 1433.
 
-Om du ansluter inifrån Azure får anslutningarna `Redirect` som standard. En princip för `Redirect` innebär att när TCP-sessionen har upprättats till Azure SQL Database omdirigeras sedan klientsessionen till rätt databas kluster med en ändring i den virtuella mål-IP-adressen från den Azure SQL Database gatewayen till den flernodskluster. Därefter flödar alla efterföljande paket direkt till klustret och hoppar över Azure SQL Database Gateway. Följande diagram illustrerar det här trafikflödet.
+- **Default:** This is the connection policy in effect on all servers after creation unless you explicitly alter the connection policy to either `Proxy` or `Redirect`. The default policy is`Redirect` for all client connections originating inside of Azure (e.g. from an Azure Virtual Machine) and `Proxy`for all client connections originating inside ( e.g. connections from your local workstation)
 
-![arkitektur översikt](./media/sql-database-connectivity-architecture/connectivity-azure.png)
+ We highly recommend the `Redirect` connection policy over the `Proxy` connection policy for the lowest latency and highest throughput.However, you will need to meet the additional requirements for allowing network traffic as outlined above. If the client is an Azure Virtual Machine you can accomplish this using Network Security Groups (NSG) with [service tags](../virtual-network/security-overview.md#service-tags). If the client is connecting from a workstation on-premises then you may need to work with your network admin to allow network traffic through your corporate firewall.
 
-## <a name="connectivity-from-outside-of-azure"></a>Anslutning från utanför Azure
+## <a name="connectivity-from-within-azure"></a>Connectivity from within Azure
 
-Om du ansluter från en plats utanför Azure, har anslutningarna en anslutnings princip för `Proxy` som standard. En princip för `Proxy` innebär att TCP-sessionen upprättas via Azure SQL Database gateway och alla efterföljande paket flöden via gatewayen. Följande diagram illustrerar det här trafikflödet.
+If you are connecting from within Azure your connections have a connection policy of `Redirect` by default. A policy of `Redirect` means that after the TCP session is established to the Azure SQL database, the client session is then redirected to the right database cluster with a change to the destination virtual IP from that of the Azure SQL Database gateway to that of the cluster. Thereafter, all subsequent packets flow directly to the cluster, bypassing the Azure SQL Database gateway. The following diagram illustrates this traffic flow.
 
-![arkitektur översikt](./media/sql-database-connectivity-architecture/connectivity-onprem.png)
+![architecture overview](./media/sql-database-connectivity-architecture/connectivity-azure.png)
+
+## <a name="connectivity-from-outside-of-azure"></a>Connectivity from outside of Azure
+
+If you are connecting from outside Azure, your connections have a connection policy of `Proxy` by default. A policy of `Proxy` means that the TCP session is established via the Azure SQL Database gateway and all subsequent packets flow via the gateway. The following diagram illustrates this traffic flow.
+
+![architecture overview](./media/sql-database-connectivity-architecture/connectivity-onprem.png)
 
 > [!IMPORTANT]
-> Öppna även portarna 14000-14999 för att aktivera [anslutning med DAC](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
+> Additionally open ports 14000-14999 to enable [Connecting with DAC](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
 
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Gateway-IP-adresser för Azure SQL Database
 
-I tabellen nedan visas IP-adresserna för gatewayer per region. Om du vill ansluta till en Azure SQL Database måste du tillåta nätverks trafik att & från **alla** gatewayer i regionen.
+The table below lists the IP Addresses of Gateways by region. To connect to an Azure SQL Database, you need to allow network traffic to & from **all** Gateways for the region.
 
-Information om hur trafiken ska migreras till nya gateways i vissa regioner finns i följande artikel: [Azure SQL Database trafikmigrering till nyare gateways](sql-database-gateway-migration.md)
+Details of how traffic shall be migrated to new Gateways in specific regions are in the following article: [Azure SQL Database traffic migration to newer Gateways](sql-database-gateway-migration.md)
 
 
-| Regionsnamn          | IP-adresser för gateway |
+| Regionsnamn          | Gateway IP Addresses |
 | --- | --- |
 | Australien, centrala    | 20.36.105.0 |
-| Australien, Central2   | 20.36.113.0 |
-| Östra Australien       | 13.75.149.87, 40.79.161.1 |
+| Australia Central2   | 20.36.113.0 |
+| Australien, östra       | 13.75.149.87, 40.79.161.1 |
 | Sydöstra Australien | 191.239.192.109, 13.73.109.251 |
-| Södra Brasilien         | 104.41.11.5, 191.233.200.14 |
-| Centrala Kanada       | 40.85.224.249      |
+| Brasilien, södra         | 104.41.11.5, 191.233.200.14 |
+| Kanada, centrala       | 40.85.224.249      |
 | Kanada, östra          | 40.86.226.166      |
-| Centrala USA           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 | 
+| USA, centrala           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 | 
 | Kina, östra           | 139.219.130.35     |
 | Kina, östra 2         | 40.73.82.1         |
 | Kina, norra          | 139.219.15.17      |
 | Kina, norra 2        | 40.73.50.0         |
-| Östasien            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
-| Östra USA              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
-| USA, östra 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107, 104.208.150.3 | 
+| Asien, östra            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
+| USA, östra              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
+| USA, östra 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0,  191.239.224.107, 104.208.150.3 | 
 | Frankrike, centrala       | 40.79.137.0, 40.79.129.1 |
-| Centrala Tyskland      | 51.4.144.100       |
-| Tyskland, norra öst   | 51.5.144.179       |
+| Tyskland, centrala      | 51.4.144.100       |
+| Germany North East   | 51.5.144.179       |
 | Centrala Indien        | 104.211.96.159     |
 | Södra Indien          | 104.211.224.146    |
 | Västra Indien           | 104.211.160.80     |
-| Östra Japan           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 | 
-| Västra Japan           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 | 
+| Japan, östra           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 | 
+| Japan, västra           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 | 
 | Sydkorea, centrala        | 52.231.32.42       |
 | Sydkorea, södra          | 52.231.200.86      |
 | USA, norra centrala     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
 | Europa, norra         | 40.113.93.91, 191.235.193.75, 52.138.224.1 | 
 | Sydafrika, norra   | 102.133.152.0      |
 | Sydafrika, västra    | 102.133.24.0       |
-| Södra centrala USA     | 13.66.62.124, 23.98.162.75, 104.214.16.32   | 
+| USA, södra centrala     | 13.66.62.124, 23.98.162.75, 104.214.16.32   | 
 | Sydostasien      | 104.43.15.0, 23.100.117.95, 40.78.232.3   | 
 | Förenade Arabemiraten, centrala          | 20.37.72.64        |
 | Förenade Arabemiraten, norra            | 65.52.248.0        |
 | Storbritannien, södra             | 51.140.184.11      |
 | Storbritannien, västra              | 51.141.8.11        |
-| Västra centrala USA      | 13.78.145.25       |
+| USA, västra centrala      | 13.78.145.25       |
 | Europa, västra          | 40.68.37.158, 191.237.232.75, 104.40.168.105  |
-| Västra USA              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
-| Västra USA 2            | 13.66.226.202      |
+| USA, västra              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
+| USA, västra 2            | 13.66.226.202      |
 |                      |                    |
 
-## <a name="change-azure-sql-database-connection-policy"></a>Ändra Azure SQL Database anslutnings princip
+## <a name="change-azure-sql-database-connection-policy"></a>Change Azure SQL Database connection policy
 
-Om du vill ändra Azure SQL Database anslutnings princip för en Azure SQL Database-Server använder [du kommandot](https://docs.microsoft.com/cli/azure/sql/server/conn-policy) för att ansluta.
+To change the Azure SQL Database connection policy for an Azure SQL Database server, use the [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy) command.
 
-- Om din anslutnings princip är inställd på `Proxy`, flödar alla nätverks paket via Azure SQL Database Gateway. För den här inställningen behöver du bara tillåta utgående till Azure SQL Database Gateway-IP. Att använda en inställning av `Proxy` har mer latens än en inställning av `Redirect`.
-- Om din anslutnings princip anger `Redirect`, flödar alla nätverks paket direkt till databas klustret. För den här inställningen måste du tillåta utgående till flera IP-adresser.
+- If your connection policy is set to `Proxy`, all network packets flow via the Azure SQL Database gateway. For this setting, you need to allow outbound to only the Azure SQL Database gateway IP. Using a setting of `Proxy` has more latency than a setting of `Redirect`.
+- If your connection policy is setting `Redirect`, all network packets flow directly to the database cluster. For this setting, you need to allow outbound to multiple IPs.
 
-## <a name="script-to-change-connection-settings-via-powershell"></a>Skript för att ändra anslutnings inställningar via PowerShell
+## <a name="script-to-change-connection-settings-via-powershell"></a>Script to change connection settings via PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska. Följande skript kräver Azure PowerShell- [modulen](/powershell/azure/install-az-ps).
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. The following script requires the [Azure PowerShell module](/powershell/azure/install-az-ps).
 
-Följande PowerShell-skript visar hur du ändrar anslutnings principen.
+The following PowerShell script shows how to change the connection policy.
 
 ```powershell
 # Get SQL Server ID
@@ -138,17 +144,17 @@ $id="$sqlserverid/connectionPolicies/Default"
 Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
 ```
 
-## <a name="script-to-change-connection-settings-via-azure-cli"></a>Skript för att ändra anslutnings inställningar via Azure CLI
+## <a name="script-to-change-connection-settings-via-azure-cli"></a>Script to change connection settings via Azure CLI
 
 > [!IMPORTANT]
-> Det här skriptet kräver [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+> This script requires the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-### <a name="azure-cli-in-a-bash-shell"></a>Azure CLI i ett bash-gränssnitt
+### <a name="azure-cli-in-a-bash-shell"></a>Azure CLI in a bash shell
 
 > [!IMPORTANT]
-> Det här skriptet kräver [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+> This script requires the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-Följande CLI-skript visar hur du ändrar anslutnings principen i ett bash-gränssnitt.
+The following CLI script shows how to change the connection policy in a bash shell.
 
 ```azurecli-interactive
 # Get SQL Server ID
@@ -164,12 +170,12 @@ az resource show --ids $ids
 az resource update --ids $ids --set properties.connectionType=Proxy
 ```
 
-### <a name="azure-cli-from-a-windows-command-prompt"></a>Azure CLI från en kommando tolk i Windows
+### <a name="azure-cli-from-a-windows-command-prompt"></a>Azure CLI from a Windows command prompt
 
 > [!IMPORTANT]
-> Det här skriptet kräver [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+> This script requires the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-Följande CLI-skript visar hur du ändrar anslutnings principen från en kommando tolk i Windows (med Azure CLI installerat).
+The following CLI script shows how to change the connection policy from a Windows command prompt (with Azure CLI installed).
 
 ```azurecli
 # Get SQL Server ID and set URI
@@ -184,6 +190,6 @@ az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Information om hur du ändrar Azure SQL Database anslutnings princip för en Azure SQL Database-Server finns i avsnittet om att ansluta [-princip](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
-- Information om hur du Azure SQL Database anslutnings beteende för klienter som använder ADO.NET 4,5 eller en senare version finns i [portar bortom 1433 för ADO.NET 4,5](sql-database-develop-direct-route-ports-adonet-v12.md).
-- Allmän översikts information om program utveckling finns i [Översikt över SQL Database program utveckling](sql-database-develop-overview.md).
+- For information on how to change the Azure SQL Database connection policy for an Azure SQL Database server, see [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
+- For information about Azure SQL Database connection behavior for clients that use ADO.NET 4.5 or a later version, see [Ports beyond 1433 for ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md).
+- For general application development overview information, see [SQL Database Application Development Overview](sql-database-develop-overview.md).

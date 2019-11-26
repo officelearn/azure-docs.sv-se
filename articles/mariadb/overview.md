@@ -1,22 +1,22 @@
 ---
 title: Översikt över relationsdatabastjänsten i Azure Database for MariaDB
-description: Lär dig mer om tjänsten Azure Database for MariaDB, en Relations databas tjänst i Microsoft-molnet baserat på MySQL Community Edition.
+description: Learn about the Azure Database for MariaDB service, a relational database service in the Microsoft cloud based on the MySQL community edition.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
-ms.date: 08/13/2019
-ms.openlocfilehash: 46ba972c489326157cbdea19a1363a30e18f72b8
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.date: 11/25/2019
+ms.openlocfilehash: aed2e090a1e3a6a4c80f70ba25da9a903a6192c1
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177983"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484151"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>Vad är Azure Database for MariaDB?
 
-Azure Database for MariaDB är en relationsdatabastjänst i Microsofts moln. Azure Database for MariaDB baseras på [MariaDB Community Edition](https://mariadb.org/download/) (finns i GPLv2-licensen) databas motor, version 10,2 och 10,3.
+Azure Database for MariaDB är en relationsdatabastjänst i Microsofts moln. Azure Database for MariaDB is based on the [MariaDB community edition](https://mariadb.org/download/) (available under the GPLv2 license) database engine, version 10.2 and 10.3.
 
 Azure Database for MariaDB ger:
 
@@ -53,11 +53,7 @@ Azures branschledande serviceavtal med 99,99 % tillgänglighet drivs av ett glo
 
 ## <a name="secure-your-data"></a>Skydda dina data
 
-Azure-databastjänster har en tradition av datasäkerhet som Azure Database for MariaDB upprätthåller. Azure Database for MariaDB ger funktioner som begränsar åtkomst, skyddar data i vila och under rörelse samt hjälper dig att övervaka aktivitet. Besök [Azure Säkerhetscenter](https://www.microsoft.com/en-us/trustcenter/security) för information om Azures plattformssäkerhet.
-
-Tjänsten Azure Database for MariaDB använder FIPS 140-2-validerade kryptografisk modul för lagrings kryptering av data i vila. Data, inklusive säkerhets kopior, krypteras på disk med undantag för tillfälliga filer som skapas vid körning av frågor. Tjänsten använder chiffer med AES 256 bitar, vilket ingår i Azure Storage-kryptering. Nycklarna hanteras av systemet. Lagringskrypteringen är alltid igång och kan inte inaktiveras.
-
-Tjänsten Azure Database for MariaDB är som standard konfigurerad att kräva [SSL-anslutningssäkerhet](./concepts-ssl-connection-security.md) för data i rörelse över nätverket. Framtvingande av SSL-anslutningar mellan databasservern och klientprogrammen hjälper till att skydda mot ”man in the middle”-attacker genom att kryptera dataströmmen mellan servern och programmet. Du kan även välja att inaktivera SSL-kravet för anslutning till databastjänsten om klientprogrammet inte har stöd för SSL-anslutning.
+Azure-databastjänster har en tradition av datasäkerhet som Azure Database for MariaDB upprätthåller. Azure Database for MariaDB ger funktioner som begränsar åtkomst, skyddar data i vila och under rörelse samt hjälper dig att övervaka aktivitet. Besök [Azure Säkerhetscenter](https://www.microsoft.com/trustcenter/security) för information om Azures plattformssäkerhet. For more information about Azure Database for MySQL security features, see the [security overview](concepts-security.md).
 
 ## <a name="contacts"></a>Contacts
 

@@ -1,6 +1,6 @@
 ---
 title: Säkerhetsöversikt
-description: Lär dig mer om Azure SQL Database och SQL Server säkerhet, inklusive skillnaderna mellan molnet och SQL Server lokalt.
+description: Learn about Azure SQL Database and SQL Server security, including the differences between the cloud and SQL Server on-premises.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,151 +11,147 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: d952229ab327440771db6cc5ac64db2256491179
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b318d4b5076ff24612d5b5ce0ba619f0b38ac280
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823245"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483844"
 ---
-# <a name="an-overview-of-azure-sql-database-security-capabilities"></a>En översikt över Azure SQL Database säkerhets funktioner
+# <a name="an-overview-of-azure-sql-database-security-capabilities"></a>An overview of Azure SQL Database security capabilities
 
-Den här artikeln beskriver grunderna för att skydda data nivån för ett program med hjälp av Azure SQL Database. Säkerhets strategin som beskrivs följer efter det skiktade försvars fördjupet, som visas i bilden nedan, och som rör sig från utsidan i:
+This article outlines the basics of securing the data tier of an application using Azure SQL Database. The security strategy described follows the layered defense-in-depth approach as shown in the picture below, and moves from the outside in:
 
-![SQL-Security-Layer. png](media/sql-database-security-overview/sql-security-layer.png)
+![sql-security-layer.png](media/sql-database-security-overview/sql-security-layer.png)
 
 ## <a name="network-security"></a>Nätverkssäkerhet
 
-Microsoft Azure SQL Database tillhandahåller en Relations databas tjänst för moln-och företags program. För att skydda kund information, förhindrar brand väggar nätverks åtkomst till databas servern förrän åtkomst uttryckligen beviljas baserat på IP-adress eller trafik ursprung i Azures virtuella nätverk.
+Microsoft Azure SQL Database provides a relational database service for cloud and enterprise applications. To help protect customer data, firewalls prevent network access to the database server until access is explicitly granted based on IP address or Azure Virtual network traffic origin.
 
-### <a name="ip-firewall-rules"></a>Regler för IP-brandvägg
+### <a name="ip-firewall-rules"></a>IP firewall rules
 
-Regler för IP-brandvägg ger åtkomst till databaser baserat på den ursprungliga IP-adressen för varje begäran. Mer information finns i [Översikt över Azure SQL Database och SQL Data Warehouse brand Väggs regler](sql-database-firewall-configure.md).
+IP firewall rules grant access to databases based on the originating IP address of each request. For more information, see [Overview of Azure SQL Database and SQL Data Warehouse firewall rules](sql-database-firewall-configure.md).
 
 ### <a name="virtual-network-firewall-rules"></a>Brandväggsregler för virtuella nätverk
 
-[Tjänst slut punkter i virtuella nätverk](../virtual-network/virtual-network-service-endpoints-overview.md) utökar din virtuella nätverks anslutning via Azures stamnät och aktiverar Azure SQL Database för att identifiera det virtuella nätverkets undernät som trafiken kommer från. Om du vill tillåta att trafik når Azure SQL Database använder du SQL [-tjänstens Taggar](../virtual-network/security-overview.md) för att tillåta utgående trafik via nätverks säkerhets grupper.
+[Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) extend your virtual network connectivity over the Azure backbone and enable Azure SQL Database to identify the virtual network subnet that traffic originates from. To allow traffic to reach Azure SQL Database, use the SQL [service tags](../virtual-network/security-overview.md) to allow outbound traffic through Network Security Groups.
 
-[Regler för virtuella nätverk](sql-database-vnet-service-endpoint-rule-overview.md) gör det möjligt för Azure SQL Database att endast acceptera kommunikation som skickas från valda undernät i ett virtuellt nätverk.
+[Virtual network rules](sql-database-vnet-service-endpoint-rule-overview.md) enable Azure SQL Database to only accept communications that are sent from selected subnets inside a virtual network.
 
 > [!NOTE]
-> Kontroll av åtkomst med brand Väggs regler gäller *inte* för **en hanterad instans**. Mer information om nätverks konfigurationen som behövs finns i [ansluta till en hanterad instans](sql-database-managed-instance-connect-app.md)
+> Controlling access with firewall rules does *not* apply to **a managed instance**. For more information about the networking configuration needed, see [connecting to a managed instance](sql-database-managed-instance-connect-app.md)
 
 ## <a name="access-management"></a>Åtkomsthantering
 
 > [!IMPORTANT]
-> Hantering av databaser och databas servrar i Azure styrs av ditt användar kontos roll tilldelningar för portalen. Mer information om den här artikeln finns i [rollbaserad åtkomst kontroll i Azure Portal](../role-based-access-control/overview.md).
+> Managing databases and database servers within Azure is controlled by your portal user account's role assignments. For more information on this article, see [Role-based access control in Azure portal](../role-based-access-control/overview.md).
 
 ### <a name="authentication"></a>Autentisering
 
-Autentisering är en process för att bevisa att användaren är den som han eller hon ansöker. Azure SQL Database stöder två typer av autentisering:
+Authentication is the process of proving the user is who they claim to be. Azure SQL Database supports two types of authentication:
 
-- **SQL-autentisering**:
+- **SQL authentication**:
 
-    SQL Database-autentisering syftar på autentiseringen av en användare när du ansluter till [Azure SQL Database](sql-database-technical-overview.md) med hjälp av användar namn och lösen ord. Under skapandet av databas servern för databasen måste en "Server administratör"-inloggning med ett användar namn och lösen ord anges. Med dessa autentiseringsuppgifter kan en "Server administratör" autentisera till valfri databas på databas servern som databasens ägare. Efter det kan ytterligare SQL-inloggningar och användare skapas av Server administratören, vilket gör det möjligt för användare att ansluta med användar namn och lösen ord.
+    SQL database authentication refers to the authentication of a user when connecting to [Azure SQL Database](sql-database-technical-overview.md) using username and password. During the database server creation for the database, a "Server admin" login with a username and password must be specified. Using these credentials, a “server admin” can authenticate to any database on that database server as the database owner. After that, additional SQL logins and users can be created by the server admin, which enable users to connect using username and password.
 
-- **Azure Active Directory autentisering**:
+- **Azure Active Directory authentication**:
 
-    Azure Active Directory autentisering är en mekanism för att ansluta till [Azure SQL Database](sql-database-technical-overview.md) och [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) med hjälp av identiteter i Azure Active Directory (Azure AD). Med Azure AD-autentisering kan administratörer centralt hantera identiteter och behörigheter för databas användare tillsammans med andra Microsoft-tjänster på en central plats. Detta inkluderar minimering av lösen ords lagring och möjliggör centraliserade principer för lösen ords rotation.
+    Azure Active Directory authentication is a mechanism of connecting to [Azure SQL Database](sql-database-technical-overview.md) and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) by using identities in Azure Active Directory (Azure AD). Azure AD authentication allows administrators to centrally manage the identities and permissions of database users along with other Microsoft services in one central location. This includes the minimization of password storage and enables centralized password rotation policies.
 
-     En Server administratör som kallas **Active Directory administratör** måste skapas för att använda Azure AD-autentisering med SQL Database. Mer information finns i [ansluta till SQL Database med Azure Active Directory autentisering](sql-database-aad-authentication.md). Azure AD-autentisering stöder både hanterade och federerade konton. Federerade konton stöder Windows-användare och grupper för en kund domän som är federerad med Azure AD.
+     A server admin called the **Active Directory administrator** must be created to use Azure AD authentication with SQL Database. For more information, see [Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md). Azure AD authentication supports both managed and federated accounts. The federated accounts support Windows users and groups for a customer domain federated with Azure AD.
 
-    Ytterligare alternativ för Azure AD-autentisering är tillgängliga [Active Directory Universal-autentisering för SQL Server Management Studio](sql-database-ssms-mfa-authentication.md) anslutningar inklusive [Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) och [villkorlig åtkomst](sql-database-conditional-access.md).
+    Additional Azure AD authentication options available are [Active Directory Universal Authentication for SQL Server Management Studio](sql-database-ssms-mfa-authentication.md) connections including [Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) and [Conditional Access](sql-database-conditional-access.md).
 
 > [!IMPORTANT]
-> Hantering av databaser och servrar i Azure styrs av ditt användar kontos roll tilldelningar för portalen. Mer information om den här artikeln finns i [rollbaserad åtkomst kontroll i Azure Portal](../role-based-access-control/overview.md). Kontroll av åtkomst med brand Väggs regler gäller *inte* för **en hanterad instans**. I följande artikel om hur [du ansluter till en hanterad instans](sql-database-managed-instance-connect-app.md) finns mer information om nätverks konfigurationen som behövs.
+> Managing databases and servers within Azure is controlled by your portal user account's role assignments. For more information on this article, see [Role-based access control in Azure portal](../role-based-access-control/overview.md). Controlling access with firewall rules does *not* apply to **a managed instance**. Please see the following article on [connecting to a managed instance](sql-database-managed-instance-connect-app.md) for more information about the networking configuration needed.
 
-## <a name="authorization"></a>Auktorisering
+## <a name="authorization"></a>Autentisering
 
-Auktorisering syftar på de behörigheter som tilldelats en användare inom en Azure SQL Database och avgör vad användaren får göra. Behörigheter styrs genom att lägga till användar konton till [databas roller](/sql/relational-databases/security/authentication-access/database-level-roles) och tilldela behörigheter på databas nivå till dessa roller eller genom att bevilja användaren vissa [behörigheter på objekt nivå](/sql/relational-databases/security/permissions-database-engine). Mer information finns i [inloggningar och användare](sql-database-manage-logins.md)
+Authorization refers to the permissions assigned to a user within an Azure SQL Database, and determines what the user is allowed to do. Permissions are controlled by adding user accounts to [database roles](/sql/relational-databases/security/authentication-access/database-level-roles) and assigning database-level permissions to those roles or by granting the user certain [object-level permissions](/sql/relational-databases/security/permissions-database-engine). For more information, see [Logins and users](sql-database-manage-logins.md)
 
-Vi rekommenderar att du skapar anpassade roller vid behov. Lägg till användare i rollen med de minsta privilegier som krävs för att utföra jobb funktionen. Tilldela inte behörigheter direkt till användare. Server administratörs kontot är medlem i den inbyggda db_owners rollen, som har omfattande behörigheter och bör bara beviljas till några få användare med administrativa uppgifter. För Azure SQL Database program använder du [Kör som](/sql/t-sql/statements/execute-as-clause-transact-sql) för att ange körnings kontexten för den anropade modulen eller Använd [program roller](/sql/relational-databases/security/authentication-access/application-roles) med begränsad behörighet. Den här metoden säkerställer att det program som ansluter till databasen har den lägsta behörighet som krävs för programmet. Genom att följa dessa rekommendationer bör du också skilja på olika uppgifter.
+As a best practice, create custom roles when needed. Add users to the role with the least privileges required to do their job function. Do not assign permissions directly to users. The server admin account is a member of the built-in db_owner role, which has extensive permissions and should only be granted to few users with administrative duties. For Azure SQL Database applications, use the [EXECUTE AS](/sql/t-sql/statements/execute-as-clause-transact-sql) to specify the execution context of the called module or use [Application Roles](/sql/relational-databases/security/authentication-access/application-roles) with limited permissions. This practice ensures that the application that connects to the database has the least privileges needed by the application. Following these best practices also fosters separation of duties.
 
 ### <a name="row-level-security"></a>Säkerhet på radnivå
 
-Säkerhet på radnivå gör det möjligt för kunder att styra åtkomsten till rader i en databas tabell baserat på egenskaperna för användaren som kör en fråga (till exempel grupp medlemskap eller körnings kontext). Säkerhet på radnivå kan också användas för att implementera anpassade, märkta säkerhets begrepp. Mer information finns i [Säkerhet på radnivå](/sql/relational-databases/security/row-level-security).
+Row-Level Security enables customers to control access to rows in a database table based on the characteristics of the user executing a query (for example, group membership or execution context). Row-Level Security can also be used to implement custom Label-based security concepts. Mer information finns i [Säkerhet på radnivå](/sql/relational-databases/security/row-level-security).
 
-![Azure-Database-RLS. png](media/sql-database-security-overview/azure-database-rls.png)
+![azure-database-rls.png](media/sql-database-security-overview/azure-database-rls.png)
 
 ## <a name="threat-protection"></a>Hotskydd
 
-SQL Database skyddar kund information genom att tillhandahålla funktioner för granskning och hot identifiering.
+SQL Database secures customer data by providing auditing and threat detection capabilities.
 
-### <a name="sql-auditing-in-azure-monitor-logs-and-event-hubs"></a>SQL-granskning i Azure Monitor loggar och Event Hubs
+### <a name="sql-auditing-in-azure-monitor-logs-and-event-hubs"></a>SQL auditing in Azure Monitor logs and Event Hubs
 
-SQL Database granskning spårar databas aktiviteter och hjälper till att upprätthålla efterlevnaden av säkerhets standarder genom att registrera databas händelser till en Gransknings logg i ett kundägda Azure Storage-konto. Med granskning kan användarna övervaka pågående databas aktiviteter, samt analysera och undersöka historiska aktiviteter för att identifiera potentiella hot eller misstänkt missbruk och säkerhets överträdelser. Mer information finns i kom igång med [SQL Database granskning](sql-database-auditing.md).  
+SQL Database auditing tracks database activities and helps to maintain compliance with security standards by recording database events to an audit log in a customer-owned Azure storage account. Auditing allows users to monitor ongoing database activities, as well as analyze and investigate historical activity to identify potential threats or suspected abuse and security violations. For more information, see Get started with [SQL Database Auditing](sql-database-auditing.md).  
 
 ### <a name="advanced-threat-protection"></a>Advanced Threat Protection
 
-Avancerat skydd analyserar SQL Server loggar för att identifiera onormalt beteende och potentiellt skadliga försök att komma åt eller utnyttja databaser. Aviseringar skapas för misstänkta aktiviteter, till exempel SQL-inmatning, potentiell data intrånget och brutna force-attacker eller för avvikelser i åtkomst mönster för att fånga in behörighets eskaleringar och avslöjade autentiseringsuppgifter. Aviseringar visas från [Azure Security Center](https://azure.microsoft.com/services/security-center/), där information om misstänkta aktiviteter tillhandahålls och rekommendationer för ytterligare undersökning ges tillsammans med åtgärder för att minimera hotet. Avancerat skydd kan aktive ras per server för ytterligare en avgift. Mer information finns i [Kom igång med SQL Database Avancerat skydd](sql-database-threat-detection.md).
+Advanced Threat Protection is analyzing your SQL Server logs to detect unusual behavior and potentially harmful attempts to access or exploit databases. Alerts are created for suspicious activities such as SQL injection, potential data infiltration, and brute force attacks or for anomalies in access patterns to catch privilege escalations and breached credentials use. Alerts are viewed from the  [Azure Security Center](https://azure.microsoft.com/services/security-center/), where the details of the suspicious activities are provided and recommendations for further investigation given along with actions to mitigate the threat. Advanced Threat Protection can be enabled per server for an additional fee. For more information, see [Get started with SQL Database Advanced Threat Protection](sql-database-threat-detection.md).
 
-![Azure-Database-TD. jpg](media/sql-database-security-overview/azure-database-td.jpg)
+![azure-database-td.jpg](media/sql-database-security-overview/azure-database-td.jpg)
 
-## <a name="information-protection-and-encryption"></a>Informations skydd och kryptering
+## <a name="information-protection-and-encryption"></a>Information protection and encryption
 
-### <a name="transport-layer-security-tls-encryption-in-transit"></a>Transport Layer Security TLS (kryptering under överföring)
+### <a name="transport-layer-security-tls-encryption-in-transit"></a>Transport Layer Security TLS (Encryption-in-transit)
 
-SQL Database skyddar kund information genom att kryptera data i rörelse med [Transport Layer Security](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
+SQL Database secures customer data by encrypting data in motion with [Transport Layer Security](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
 
-SQL Server upprätthåller kryptering (SSL/TLS) hela tiden för alla anslutningar. Detta säkerställer att alla data krypteras "under överföring" mellan klienten och servern oavsett inställningen för **kryptering** eller **TrustServerCertificate** i anslutnings strängen.
+Sql Server enforces encryption (SSL/TLS) at all times for all connections. This ensures all data is encrypted "in transit" between the client and server irrespective of the setting of **Encrypt** or **TrustServerCertificate** in the connection string.
 
-Som bästa praxis rekommenderar vi att du i programmets anslutnings sträng anger en krypterad anslutning och _**inte**_ litar på Server certifikatet. Detta tvingar ditt program att verifiera Server certifikatet och förhindrar därför att ditt program är sårbart för människor i mellan typ attacker.
+As a best practice, recommend that in your application's connection string you specify an encrypted connection and _**not**_ trust the server certificate. This forces your application to verify the server certificate and thus prevents your application from being vulnerable to man in the middle type attacks.
 
-Till exempel när du använder ADO.NET-drivrutinen utförs detta via **kryptera = True** och **TrustServerCertificate = false**. Om du får anslutnings strängen från Azure Portal har den rätt inställningar.
+For example when using the ADO.NET driver this is accomplished via  **Encrypt=True** and **TrustServerCertificate=False**. If you obtain your connection string from the Azure portal, it will have the correct settings.
 
 > [!IMPORTANT]
-> Observera att vissa driv rutiner som inte kommer från Microsoft inte använder TLS som standard eller som förlitar sig på en äldre version av TLS (< 1.2) för att fungera. I det här fallet SQL Server kan du fortfarande ansluta till databasen. Vi rekommenderar dock att du utvärderar säkerhets riskerna med att tillåta att driv rutiner och program ansluter till SQL Database, särskilt om du lagrar känsliga data. 
+> Note that some non-Microsoft drivers may not use TLS by default or rely on an older version of TLS (<1.2) in order to function. In this case SQL Server still allows you to connect to your database. However, we recommend that you evaluate the security risks of allowing such drivers and application to connect to SQL Database, especially if you store sensitive data. 
 >
-> Mer information om TLS och anslutningar finns i [TLS-överväganden](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
+> For further information about TLS and connectivity, see [TLS considerations](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 
-### <a name="transparent-data-encryption-encryption-at-rest"></a>Transparent datakryptering (kryptering vid vila)
+### <a name="transparent-data-encryption-encryption-at-rest"></a>Transparent Data Encryption (Encryption-at-rest)
 
-[Transparent datakryptering (TDE) för Azure SQL Database](transparent-data-encryption-azure-sql.md) lägger till ett säkerhets lager som hjälper till att skydda data i vila från obehörig eller offline-åtkomst till RAW-filer eller säkerhets kopior. Vanliga scenarier är data Center stöld eller osäkert omhändertagande av maskin vara eller medium, till exempel disk enheter och säkerhets kopierings band. TDE krypterar hela databasen med en AES-krypteringsalgoritm, som inte kräver att programutvecklare gör några ändringar i befintliga program.
+[Transparent Data Encryption (TDE) for Azure SQL Database](transparent-data-encryption-azure-sql.md) adds a layer of security to help protect data at rest from unauthorized or offline access to raw files or backups. Common scenarios include datacenter theft or unsecured disposal of hardware or media such as disk drives and backup tapes. TDE encrypts the entire database using an AES encryption algorithm, which doesn’t require application developers to make any changes to existing applications.
 
-I Azure krypteras alla nyligen skapade SQL-databaser som standard och databas krypterings nyckeln skyddas av ett inbyggt Server certifikat.  Certifikat underhåll och-rotation hanteras av tjänsten och kräver inga indata från användaren. Kunder som föredrar att ta kontroll över krypterings nycklarna kan hantera nycklarna i [Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md).
+In Azure, all newly created SQL databases are encrypted by default and the database encryption key is protected by a built-in server certificate.  Certificate maintenance and rotation are managed by the service and requires no input from the user. Customers who prefer to take control of the encryption keys can manage the keys in [Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md).
 
-### <a name="key-management-with-azure-key-vault"></a>Nyckel hantering med Azure Key Vault
+### <a name="key-management-with-azure-key-vault"></a>Key management with Azure Key Vault
 
-[Bring Your Own Key](transparent-data-encryption-byok-azure-sql.md) (BYOK) support för [Transparent datakryptering](/sql/relational-databases/security/encryption/transparent-data-encryption) (TDE) gör det möjligt för kunder att bli ägare till nyckel hantering och rotation med hjälp av [Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md), molnbaserad hanterings system för externa nycklar i Azure. Om databasens åtkomst till nyckel valvet har återkallats kan en databas inte dekrypteras och läsas in i minnet. Azure Key Vault tillhandahåller en central nyckel hanterings plattform, använder tätt övervakade HSM: er (Hardware Security modules) och gör det möjligt att separera uppgifter mellan hantering av nycklar och data för att uppfylla kraven på säkerhetskompatibilitet.
+[Bring Your Own Key](transparent-data-encryption-byok-azure-sql.md) (BYOK) support for [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption) (TDE) allows customers to take ownership of key management and rotation using [Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md), Azure’s cloud-based external key management system. If the database's access to the key vault is revoked, a database cannot be decrypted and read into memory. Azure Key Vault provides a central key management platform, leverages tightly monitored hardware security modules (HSMs), and enables separation of duties between management of keys and data to help meet security compliance requirements.
 
-### <a name="always-encrypted-encryption-in-use"></a>Always Encrypted (kryptering används)
+### <a name="always-encrypted-encryption-in-use"></a>Always Encrypted (Encryption-in-use)
 
-![Azure-Database-AE. png](media/sql-database-security-overview/azure-database-ae.png)
+![azure-database-ae.png](media/sql-database-security-overview/azure-database-ae.png)
 
-[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) är en funktion som har utformats för att skydda känsliga data som lagras i vissa databas kolumner från åtkomst (till exempel kreditkorts nummer, nationella identifierings nummer eller data på ett _behov av att känna till_ grunden). Detta inkluderar databas administratörer eller andra privilegierade användare som har behörighet att komma åt databasen för att utföra hanterings uppgifter, men inte ha någon verksamhet som behöver komma åt specifika data i de krypterade kolumnerna. Data krypteras alltid, vilket innebär att krypterade data endast dekrypteras för bearbetning av klient program med åtkomst till krypterings nyckeln.  Krypterings nyckeln exponeras aldrig för SQL och kan lagras antingen i [Windows certifikat Arkiv](sql-database-always-encrypted.md) eller i [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md).
+[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) is a feature designed to protect sensitive data stored in specific database columns from access (for example, credit card numbers, national identification numbers, or data on a _need to know_ basis). This includes database administrators or other privileged users who are authorized to access the database to perform management tasks, but have no business need to access the particular data in the encrypted columns. The data is always encrypted, which means the encrypted data is decrypted only for processing by client applications with access to the encryption key.  The encryption key is never exposed to SQL and can be stored either in the [Windows Certificate Store](sql-database-always-encrypted.md) or in [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md).
 
-### <a name="dynamic-data-masking"></a>Dynamisk datamaskning
+### <a name="dynamic-data-masking"></a>Dynamisk datamaskering
 
-![Azure-Database-DDM. png](media/sql-database-security-overview/azure-database-ddm.png)
+![azure-database-ddm.png](media/sql-database-security-overview/azure-database-ddm.png)
 
-SQL Database dynamisk data maskning begränsar känslig data exponering genom att maskera den till icke-privilegierade användare. Dynamisk data maskning identifierar automatiskt potentiellt känsliga data i Azure SQL Database och ger rekommendationer för att maskera dessa fält, med minimal påverkan på program skiktet. Det fungerar genom att dölja känslig data i resultatuppsättningen för en fråga över angivna databasfält, medan data i databasen förblir oförändrad. Mer information finns i [Kom igång med SQL Database dynamisk data maskning](sql-database-dynamic-data-masking-get-started.md).
+SQL Database dynamic data masking limits sensitive data exposure by masking it to non-privileged users. Dynamic data masking automatically discovers potentially sensitive data in Azure SQL Database and provides actionable recommendations to mask these fields, with minimal impact on the application layer. Det fungerar genom att dölja känslig data i resultatuppsättningen för en fråga över angivna databasfält, medan data i databasen förblir oförändrad. For more information, see [Get started with SQL Database dynamic data masking](sql-database-dynamic-data-masking-get-started.md).
 
 ## <a name="security-management"></a>Säkerhetshantering
 
 ### <a name="vulnerability-assessment"></a>Sårbarhetsbedömning
 
-[Sårbarhets bedömning](sql-vulnerability-assessment.md) är ett enkelt sätt att konfigurera en tjänst som kan upptäcka, spåra och hjälpa till att åtgärda potentiella databas sårbarheter med målet att proaktivt förbättra övergripande databas säkerhet. Sårbarhets bedömning (VA) är en del av erbjudandet för avancerad data säkerhet (ADS), som är ett enhetligt paket för avancerade SQL-säkerhetsfunktioner. Sårbarhets bedömning kan nås och hanteras via den centrala SQL ADS-portalen.
+[Vulnerability assessment](sql-vulnerability-assessment.md) is an easy to configure service that can discover, track, and help remediate potential database vulnerabilities with the goal to proactively improve overall database security. Vulnerability assessment (VA) is part of the advanced data security (ADS) offering, which is a unified package for advanced SQL security capabilities. Vulnerability assessment can be accessed and managed via the central SQL ADS portal.
 
 ### <a name="data-discovery--classification"></a>Dataidentifiering och -klassificering
 
-Data identifierings & klassificering (för närvarande i för hands version) innehåller avancerade funktioner som är inbyggda i Azure SQL Database för att upptäcka, klassificera, märka och skydda känsliga data i dina databaser. Att upptäcka och klassificera dina ytterst känsliga data (företag/ekonomi, sjukvård, personliga data osv.) kan spela en pivot-roll i din organisations informations skydds datasekretesstandarder. Den kan fungera som infrastruktur för:
+Data discovery & classification (currently in preview) provides advanced capabilities built into Azure SQL Database for discovering, classifying, labeling, and protecting the sensitive data in your databases. Discovering and classifying your utmost sensitive data (business/financial, healthcare, personal data, etc.) can play a pivotal role in your organizational Information protection stature. It can serve as infrastructure for:
 
-- Olika säkerhets scenarier, till exempel övervakning (granskning) och aviseringar om avvikande åtkomst till känsliga data.
-- Kontroll av åtkomst till och härdning av säkerheten för databaser som innehåller mycket känsliga data.
-- Hjälpa till att uppfylla data sekretess standarder och regler för efterlevnad av efterlevnad.
+- Various security scenarios, such as monitoring (auditing) and alerting on anomalous access to sensitive data.
+- Controlling access to, and hardening the security of, databases containing highly sensitive data.
+- Helping meet data privacy standards and regulatory compliance requirements.
 
-Mer information finns i [Kom igång med data identifiering & klassificering](sql-database-data-discovery-and-classification.md).
+For more information, see [Get started with data discovery & classification](sql-database-data-discovery-and-classification.md).
 
 ### <a name="compliance"></a>Efterlevnad
 
-Förutom de ovanstående funktionerna och funktionerna som kan hjälpa ditt program att uppfylla olika säkerhets krav, kan Azure SQL Database också delta i vanliga revisioner och har certifierats mot ett antal efterlevnads standarder. Mer information finns i [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) där du hittar den mest aktuella listan med SQL Database certifierings certifieringar.
-
-### <a name="feature-restrictions"></a>Funktionsbegränsningar
-
-Funktions begränsningar hjälper till att förhindra vissa typer av SQL-inmatning från att avslöja information om databasen, även när SQL-inmatningen har slutförts. Mer information finns i [Azure SQL Database funktions begränsningar](sql-database-feature-restrictions.md).
+In addition to the above features and functionality that can help your application meet various security requirements, Azure SQL Database also participates in regular audits, and has been certified against a number of compliance standards. For more information, see the [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) where you can find the most current list of SQL Database compliance certifications.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - En beskrivning av åtkomstkontrollfunktionerna i SQL Database finns i [Kontrollera åtkomst](sql-database-control-access.md).
-- En diskussion om databas granskning finns i [SQL Database granskning](sql-database-auditing.md).
-- En diskussion om hot identifiering finns i [SQL Database hot identifiering](sql-database-threat-detection.md).
+- For a discussion of database auditing, see [SQL Database auditing](sql-database-auditing.md).
+- For a discussion of threat detection, see [SQL Database threat detection](sql-database-threat-detection.md).

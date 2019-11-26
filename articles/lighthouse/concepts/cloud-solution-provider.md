@@ -1,45 +1,45 @@
 ---
 title: Att tänka på med Cloud Solution Provider-programmet
-description: För CSP-partner hjälper Azure delegerad resurs hantering att förbättra säkerheten och kontrollen genom att aktivera detaljerade behörigheter.
+description: For CSP partners, Azure delegated resource management helps improve security and control by enabling granular permissions.
 ms.date: 10/23/2019
-ms.topic: overview
-ms.openlocfilehash: 3ea32418cdf6808ad311d343d28ba2778740dbe4
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.topic: conceptual
+ms.openlocfilehash: 7e1e371d8c31c45828ee0565545cb40145b40e92
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132525"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463976"
 ---
-# <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Azure-Lighthouse och Cloud Solution Provider-programmet
+# <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Azure Lighthouse and the Cloud Solution Provider program
 
-Om du är en [CSP-partner (Cloud Solution Provider)](https://docs.microsoft.com/partner-center/csp-overview) kan du redan komma åt de Azure-prenumerationer som har skapats för dina kunder via CSP-programmet med hjälp av [administrate-funktionen (administrera på uppdrag av)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) . Med den här åtkomsten kan du direkt stödja, konfigurera och hantera dina kunders prenumerationer.
+If you're a [CSP (Cloud Solution Provider)](https://docs.microsoft.com/partner-center/csp-overview) partner, you can already access the Azure subscriptions created for your customers through the CSP program by using the [Administer On Behalf Of (AOBO)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) functionality. This access allows you to directly support, configure, and manage your customers' subscriptions.
 
-Med [Azure Lighthouse](../overview.md)kan du använda Azure-delegerad resurs hantering tillsammans med administrate. Detta bidrar till att förbättra säkerheten och minskar onödig åtkomst genom att aktivera mer detaljerade behörigheter för dina användare. Det ger också ökad effektivitet och skalbarhet, eftersom dina användare kan arbeta över flera kund prenumerationer med hjälp av en enda inloggning i din klient organisation.
+With [Azure Lighthouse](../overview.md), you can use Azure delegated resource management along with AOBO. This helps improve security and reduces unnecessary access by enabling more granular permissions for your users. It also allows for greater efficiency and scalability, as your users can work across multiple customer subscriptions using a single login in your tenant.
 
 > [!TIP]
-> Du kan skydda kund resurser genom att granska och följa våra [rekommenderade säkerhets metoder](recommended-security-practices.md) tillsammans med [partner säkerhets kraven](https://docs.microsoft.com/partner-center/partner-security-requirements).
+> To help safeguard customer resources, be sure to review and follow our [recommended security practices](recommended-security-practices.md) along with the [partner security requirements](https://docs.microsoft.com/partner-center/partner-security-requirements).
 
-## <a name="administer-on-behalf-of-aobo"></a>Administrera på uppdrag av (ADMINISTRATE)
+## <a name="administer-on-behalf-of-aobo"></a>Administer on Behalf of (AOBO)
 
-Med ADMINISTRATE kommer alla användare med [Administratörs agent](https://docs.microsoft.com/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) rollen i din klient organisation ha administrate åtkomst till Azure-prenumerationer som du skapar via CSP-programmet. Alla användare som behöver åtkomst till kunders prenumerationer måste vara medlemmar i den här gruppen. ADMINISTRATE tillåter inte flexibiliteten att skapa distinkta grupper som fungerar med olika kunder, eller för att aktivera olika roller för grupper eller användare.
+With AOBO, any user with the [Admin Agent](https://docs.microsoft.com/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) role in your tenant will have AOBO access to Azure subscriptions that you create through the CSP program. Any users who need access to any customers' subscriptions must be a member of this group. AOBO doesn’t allow the flexibility to create distinct groups that work with different customers, or to enable different roles for groups or users.
 
-![Hantering av innehavare med ADMINISTRATE](../media/csp-1.jpg)
+![Tenant management using AOBO](../media/csp-1.jpg)
 
 ## <a name="azure-delegated-resource-management"></a>Azure-delegerad resurshantering
 
-Med Azure-delegerad resurs hantering kan du tilldela olika grupper till olika kunder eller roller, som du ser i följande diagram. Eftersom användarna får rätt åtkomst nivå via Azure-delegerad resurs hantering kan du minska antalet användare som har rollen administratörs agent (och därmed ha fullständig ADMINISTRATE-åtkomst). Detta bidrar till att förbättra säkerheten genom att begränsa onödig åtkomst till dina kunders resurser. Det ger dig också större flexibilitet att hantera flera kunder i stor skala.
+Using Azure delegated resource management, you can assign different groups to different customers or roles, as shown in the following diagram. Because users will have the appropriate level of access through Azure delegated resource management, you can reduce the number of users who have the Admin Agent role (and thus have full AOBO access). This helps improve security by limiting unnecessary access to your customers’ resources. It also gives you more flexibility to manage multiple customers at scale.
 
-När du registrerar en prenumeration som du har skapat via CSP-programmet följer du stegen som beskrivs i [publicera en prenumeration på Azure-delegerad resurs hantering](../how-to/onboard-customer.md). Alla användare som har rollen administratörs agent i din klient organisation kan utföra denna onboarding.
+Onboarding a subscription that you created through the CSP program follows the steps described in [Onboard a subscription to Azure delegated resource management](../how-to/onboard-customer.md). Any user who has the Admin Agent role in your tenant can perform this onboarding.
 
-![Hantering av innehavare med ADMINISTRATE och Azure delegerad resurs hantering](../media/csp-2.jpg)
+![Tenant management using AOBO and Azure delegated resource management](../media/csp-2.jpg)
 
 > [!NOTE]
-> Sidan [ **Mina kunder** i Azure Portal](../how-to/view-manage-customers.md) innehåller nu en **moln lösnings leverantör (förhands granskning)** , som visar fakturerings information och resurser för CSP-kunder som har [undertecknat Microsofts kund avtal (MCA)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) och som ingår i Azure-prenumerationen. Mer information finns i [Kom igång med ditt fakturerings konto för Microsoft partner avtal](https://docs.microsoft.com/azure/billing/mpa-overview).
+> The [**My customers** page in the Azure portal](../how-to/view-manage-customers.md) now includes a **Cloud Solution Provider (Preview)** section, which displays billing info and resources for CSP customers who have [signed the Microsoft Customer Agreement (MCA)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) and are under the Azure plan. For more info, see [Get started with your Microsoft Partner Agreement billing account](https://docs.microsoft.com/azure/billing/mpa-overview).
 >
-> CSP-kunder kan visas i det här avsnittet oavsett om de har publicerats för Azure-delegerad resurs hantering. Om de har det visas de också i avsnittet **kunder** , enligt beskrivningen i [Visa och hantera kunder och delegerade resurser](../how-to/view-manage-customers.md).
+> CSP customers may appear in this section whether or not they have been onboarded for Azure delegated resource management. If they have, then they'll also appear in the **Customers** section, as described in [View and manage customers and delegated resources](../how-to/view-manage-customers.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [hanterings upplevelser mellan flera innehavare](cross-tenant-management-experience.md).
-- Lär dig att [publicera en prenumeration på Azure-delegerad resurs hantering](../how-to/onboard-customer.md).
-- Lär dig mer om [Cloud Solution Provider-programmet](https://docs.microsoft.com/partner-center/csp-overview).
+- Learn about [cross-tenant management experiences](cross-tenant-management-experience.md).
+- Learn how to [onboard a subscription to Azure delegated resource management](../how-to/onboard-customer.md).
+- Learn about the [Cloud Solution Provider program](https://docs.microsoft.com/partner-center/csp-overview).

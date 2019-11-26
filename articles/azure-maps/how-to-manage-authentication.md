@@ -1,6 +1,6 @@
 ---
-title: Hantera autentisering i Azure Maps | Microsoft Docs
-description: Du kan använda Azure Portal för att hantera autentisering i Azure Maps.
+title: Manage authentication in Azure Maps | Microsoft Docs
+description: You can use the Azure portal to manage authentication in Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 10/24/2019
@@ -8,108 +8,108 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 496edb4f3528daa5bd06193383f0277922e8a93a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 057bd18c50d7074e8a88b8273bec766a306a3776
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73478776"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484354"
 ---
-# <a name="manage-authentication-in-azure-maps"></a>Hantera autentisering i Azure Maps
+# <a name="manage-authentication-in-azure-maps"></a>Manage authentication in Azure Maps
 
-När du har skapat ett Azure Maps-konto skapas ett klient-ID och nycklar som stöder antingen Azure Active Directory (Azure AD) eller autentisering med delad nyckel.
+After you create an Azure Maps account, a client ID and keys are created to support either Azure Active Directory (Azure AD) or Shared Key authentication.
 
-## <a name="view-authentication-details"></a>Visa information om autentisering
+## <a name="view-authentication-details"></a>View authentication details
 
-Du kan visa information om autentiseringen på Azure Portal. Gå till ditt konto och välj **autentisering** på menyn **Inställningar** .
+You can view your authentication details on the Azure portal. Go to your account and select **Authentication** on the **Settings** menu.
 
-![Information om autentisering](./media/how-to-manage-authentication/how-to-view-auth.png)
+![Authentication details](./media/how-to-manage-authentication/how-to-view-auth.png)
 
- Mer information finns i [autentisering med Azure Maps](https://aka.ms/amauth).
+ To learn more, see [Authentication with Azure Maps](https://aka.ms/amauth).
 
 
-## <a name="set-up-azure-ad-app-registration"></a>Konfigurera registrering av Azure AD-App
+## <a name="set-up-azure-ad-app-registration"></a>Set up Azure AD app registration
 
-När du har skapat ett Azure Maps-konto måste du upprätta en länk mellan din Azure AD-klient och Azure Maps-resursen.
+After you create an Azure Maps account, you need to establish a link between your Azure AD tenant and the Azure Maps resource.
 
-1. Gå till bladet Azure AD och skapa en app-registrering. Ange ett namn för registreringen. I rutan **inloggnings-URL** anger du start sidan för WEBBAPP/API (till exempel https:\//localhost/). Om du redan har en registrerad app går du till steg 2.
+1. Go to the Azure AD blade and create an app registration. Provide a name for the registration. In the **Sign-on URL** box, provide the home page of the web app / API (for example, https:\//localhost/). If you already have a registered app, go to step 2.
 
     ![Appregistrering](./media/how-to-manage-authentication/app-registration.png)
 
-    ![Registrerings information för appen](./media/how-to-manage-authentication/app-create.png)
+    ![App registration details](./media/how-to-manage-authentication/app-create.png)
 
-2. Om du vill tilldela delegerade API-behörigheter till Azure Maps går du till programmet under **Appregistreringar**och väljer sedan **Inställningar**.  Välj **nödvändiga behörigheter**och välj sedan **Lägg till**. Sök efter och välj **Azure Maps** under **Välj ett API**och välj sedan knappen **Välj** .
+2. To assign delegated API permissions to Azure Maps, go to the application under **App registrations**, and then select **Settings**.  Select **Required permissions**, and then select **Add**. Search for and select **Azure Maps** under **Select an API**, and then select the **Select** button.
 
-    ![API-behörigheter för app](./media/how-to-manage-authentication/app-permissions.png)
+    ![App API permissions](./media/how-to-manage-authentication/app-permissions.png)
 
-3. Välj **åtkomst Azure Maps**under **Välj behörigheter**och välj sedan knappen **Välj** .
+3. Under **Select permissions**, select **Access Azure Maps**, and then select the **Select** button.
 
-    ![Välj API-behörigheter för app](./media/how-to-manage-authentication/select-app-permissions.png)
+    ![Select app API permissions](./media/how-to-manage-authentication/select-app-permissions.png)
 
-4. Slutför steget a eller b, beroende på din autentiseringsmetod.
+4. Complete step a or b, depending on your authentication method.
 
-    1. Om ditt program använder autentisering med användar-token med Azure Maps-webbsdk, aktiverar du `oauthEnableImplicitFlow` genom att ställa in det på sant i avsnittet manifest på informations sidan för appens registrering.
+    1. If your application uses user-token authentication with the Azure Maps Web SDK, enable `oauthEnableImplicitFlow` by setting it to true in the Manifest section of your app registration detail page.
     
-       ![App-manifest](./media/how-to-manage-authentication/app-manifest.png)
+       ![App manifest](./media/how-to-manage-authentication/app-manifest.png)
 
-    2. Om programmet använder Server/program-autentisering går du till bladet **nycklar** i appens registrering och skapar antingen ett lösen ord eller laddar upp ett certifikat för offentlig nyckel till appens registrering. Om du skapar ett lösen ord kan du, när du har valt **Spara**, kopiera lösen ordet för senare och lagra det på ett säkert sätt. Du använder det här lösen ordet för att hämta token från Azure AD.
+    2. If your application uses server/application authentication, go to the **Keys** blade in app registration and either create a password or upload a public key certificate to the app registration. If you create a password, after you select **Save**, copy the password for later and store it securely. You'll use this password to acquire tokens from Azure AD.
 
-       ![App-nycklar](./media/how-to-manage-authentication/app-keys.png)
-
-
-## <a name="grant-rbac-to-azure-maps"></a>Bevilja RBAC till Azure Maps
-
-När du har kopplat ett Azure Maps-konto till din Azure AD-klient kan du bevilja åtkomst kontroll genom att tilldela en användare, grupp eller program till en eller flera Azure Maps åtkomst kontroll roller.
-
-1. Gå till **åtkomst kontroll (IAM)** , Välj **roll tilldelningar**och välj sedan **Lägg till roll tilldelning**.
-
-    ![Bevilja RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
-
-2. I fönstret **Lägg till roll tilldelning** under **roll**väljer du **Azure Maps datum läsare (för hands version)** . Under **tilldela åtkomst till**väljer du **Azure AD-användare, grupp eller tjänstens huvud namn**. Under **Välj**väljer du användaren eller programmet. Välj **Spara**.
-
-    ![Lägg till roll tilldelning](./media/how-to-manage-authentication/add-role-assignment.png)
-
-## <a name="view-available-azure-maps-rbac-roles"></a>Visa tillgängliga Azure Maps RBAC-roller
-
-Om du vill visa RBAC-roller (rollbaserad åtkomst kontroll) som är tillgängliga för Azure Maps går du till **åtkomst kontroll (IAM)** , väljer **roller**och söker sedan efter roller som börjar med **Azure Maps**. Det här är de roller som du kan bevilja åtkomst till.
-
-![Visa tillgängliga roller](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
+       ![App keys](./media/how-to-manage-authentication/app-keys.png)
 
 
-## <a name="view-azure-maps-rbac"></a>Visa Azure Maps RBAC
+## <a name="grant-rbac-to-azure-maps"></a>Grant RBAC to Azure Maps
 
-RBAC ger detaljerad åtkomst kontroll.
+After you associate an Azure Maps account with your Azure AD tenant, you can grant access control by assigning a user, group or application to one or more Azure Maps access control roles.
 
-Om du vill visa användare och appar som har beviljats RBAC för Azure Maps går du till **Access Control (IAM)** , väljer **roll tilldelningar**och filtrerar efter **Azure Maps**.
+1. Go to **Access control (IAM)** , select **Role assignments**, and then select **Add role assignment**.
 
-![Visa användare och appar som beviljats RBAC](./media/how-to-manage-authentication/how-to-view-amrbac.png)
+    ![Grant RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
+
+2. In the **Add role assignment** window, under **Role**, select **Azure Maps Date Reader (Preview)** . Under **Assign access to**, select **Azure AD user, group, or service principal**. Under **Select**, select the user or application. Välj **Spara**.
+
+    ![Add role assignment](./media/how-to-manage-authentication/add-role-assignment.png)
+
+## <a name="view-available-azure-maps-rbac-roles"></a>View available Azure Maps RBAC roles
+
+To view role-based access control (RBAC) roles that are available for Azure Maps, go to **Access control (IAM)** , select **Roles**, and then search for roles beginning with **Azure Maps**. These are the roles that you can grant access to.
+
+![View available roles](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
 
 
-## <a name="request-tokens-for-azure-maps"></a>Begär token för Azure Maps
+## <a name="view-azure-maps-rbac"></a>View Azure Maps RBAC
 
-När du har registrerat din app och associerat den med Azure Maps kan du begära åtkomst-token.
+RBAC provides granular access control.
 
-* Om ditt program använder autentisering med användar-token med Azure Maps Web SDK, måste du konfigurera din HTML-sida med Azure Maps-klient-ID och Azure AD App-ID.
+To view users and apps that have been granted RBAC for Azure Maps, go to **Access Control (IAM)** , select **Role assignments**, and then filter by **Azure Maps**.
 
-* Om programmet använder Server/program-autentisering måste du begära en token från Azure AD token-slutpunkten `https://login.microsoftonline.com` med Azure AD-resurs-ID: t `https://atlas.microsoft.com/`, Azure Maps klient-ID, Azure AD-App-ID och Azure AD-appens registrerings lösen ord eller certifikatmallens.
+![View users and apps granted RBAC](./media/how-to-manage-authentication/how-to-view-amrbac.png)
 
-| Azure-miljö   | Azure AD-token-slutpunkt | Resurs-ID för Azure |
+
+## <a name="request-tokens-for-azure-maps"></a>Request tokens for Azure Maps
+
+After you register your app and associated it with Azure Maps, you can request access tokens.
+
+* If your application uses user-token authentication with the Azure Maps Web SDK, you need to configure your HTML page with the Azure Maps client ID and the Azure AD app ID.
+
+* If your application uses server/application authentication, you need to request a token from Azure AD token endpoint `https://login.microsoftonline.com` with the Azure AD resource ID `https://atlas.microsoft.com/`, the Azure Maps client ID, the Azure AD app ID, and the Azure AD app registration password or certificate.
+
+| Azure Environment   | Azure AD token endpoint | Azure Resource ID |
 | --------------------|-------------------------|-------------------|
-| Offentlig Azure-        | https://login.microsoftonline.com | https://atlas.microsoft.com/ |
+| Azure Public        | https://login.microsoftonline.com | https://atlas.microsoft.com/ |
 | Azure Government    | https://login.microsoftonline.us  | https://atlas.microsoft.com/ | 
 
-Mer information om hur du begär åtkomsttoken från Azure AD för användare och tjänst huvud namn finns i [autentiserings scenarier för Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
+For more information about requesting access tokens from Azure AD for users and service principals, see [Authentication scenarios for Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure AD-autentisering och Azure Maps Web SDK finns i [Azure AD och Azure Maps Web SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
+To learn more about Azure AD authentication and the Azure Maps Web SDK, see [Azure AD and Azure Maps Web SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
 
-Lär dig hur du ser API-användnings mått för ditt Azure Maps-konto:
+Learn how to see the API usage metrics for your Azure Maps account:
 > [!div class="nextstepaction"] 
-> [Visa användnings statistik](how-to-view-api-usage.md)
+> [View usage metrics](how-to-view-api-usage.md)
 
-En lista över exempel som visar hur du integrerar Azure Active Directory (AAD) med Azure Maps finns i:
+For a list of samples showing how to integrate Azure Active Directory (AAD) with Azure Maps, see:
 
 > [!div class="nextstepaction"]
-> [Exempel på AAD-autentisering](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)
+> [Azure AD authentication samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)

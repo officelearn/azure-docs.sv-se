@@ -1,30 +1,25 @@
 ---
-title: Hämta behållar loggar och händelser med Azure Container Instances
-description: Lär dig att felsöka med behållar loggar och händelser med Azure Container Instances
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
+title: Get container instance logs & events
+description: Learn how to debug with container logs and events with Azure Container Instances
 ms.topic: article
 ms.date: 03/21/2019
-ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 8ae7ab3f53f480f46165800504fbb1eb6649c3e2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 57d35b9423fd8c64e5a58ee4d8055aa3b238ba8c
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68325975"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481752"
 ---
-# <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Hämta behållar loggar och händelser i Azure Container Instances
+# <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Retrieve container logs and events in Azure Container Instances
 
-När du har en behållare som inte är en behållare börjar du med att visa dess loggar med [AZ][az-container-logs], och strömma dess standard-och standard fel med [AZ container Attach][az-container-attach].
+When you have a misbehaving container, start by viewing its logs with [az container logs][az-container-logs], and streaming its standard out and standard error with [az container attach][az-container-attach].
 
 ## <a name="view-logs"></a>Visa loggar
 
-Om du vill visa loggar från din program kod i en behållare kan du använda kommandot [AZ container logs][az-container-logs] .
+To view logs from your application code within a container, you can use the [az container logs][az-container-logs] command.
 
-Följande är en logg utmatning från exempel uppgiftsbaserade behållare i [köra en behållar uppgift i Aci](container-instances-restart-policy.md), efter att ha matat in den som en ogiltig URL för att bearbeta:
+The following is log output from the example task-based container in [Run a containerized task in ACI](container-instances-restart-policy.md), after having fed it an invalid URL to process:
 
 ```console
 $ az container logs --resource-group myResourceGroup --name mycontainer
@@ -50,9 +45,9 @@ urllib.error.HTTPError: HTTP Error 404: Not Found
 
 ## <a name="attach-output-streams"></a>Ansluta utdataströmmar
 
-Kommandot [AZ container Attach][az-container-attach] innehåller diagnostikinformation när behållaren startas. När behållaren har startat strömmas STDOUT och STDERR till den lokala konsolen.
+The [az container attach][az-container-attach] command provides diagnostic information during container startup. Once the container has started, it streams STDOUT and STDERR to your local console.
 
-Här är till exempel utdata från den uppgiftsbaserade behållaren i [köra en behållar uppgift i Aci](container-instances-restart-policy.md), efter att ha angett en giltig URL för en stor textfil som ska bearbetas:
+For example, here is output from the task-based container in [Run a containerized task in ACI](container-instances-restart-policy.md), after having supplied a valid URL of a large text file to process:
 
 ```console
 $ az container attach --resource-group myResourceGroup --name mycontainer
@@ -79,15 +74,15 @@ Start streaming logs:
  ('is', 8195)]
 ```
 
-## <a name="get-diagnostic-events"></a>Hämta diagnostiska händelser
+## <a name="get-diagnostic-events"></a>Get diagnostic events
 
-Om din behållare inte kan distribueras måste du granska den diagnostikinformation som tillhandahålls av Azure Container Instances Resource Provider. Om du vill visa händelser för din behållare kör du kommandot [AZ container show] [AZ-container-show]:
+If your container fails to deploy successfully, you need to review the diagnostic information provided by the Azure Container Instances resource provider. To view the events for your container, run the [az container show][az-container-show] command:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer
 ```
 
-Utdata innehåller kärn egenskaperna för din behållare, tillsammans med distributions händelser (visas här trunkerade):
+The output includes the core properties of your container, along with deployment events (shown here truncated):
 
 ```JSON
 {
@@ -148,7 +143,7 @@ Utdata innehåller kärn egenskaperna för din behållare, tillsammans med distr
 }
 ```
 ## <a name="next-steps"></a>Nästa steg
-Lär dig hur du [felsöker vanliga problem med behållare och distribution](container-instances-troubleshooting.md) för Azure Container instances.
+Learn how to [troubleshoot common container and deployment issues](container-instances-troubleshooting.md) for Azure Container Instances.
 
 <!-- LINKS - Internal -->
 [az-container-attach]: /cli/azure/container#az-container-attach

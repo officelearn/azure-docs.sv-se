@@ -1,16 +1,16 @@
 ---
 title: Översikt över Azure Policy
 description: Azure Policy är en tjänst i Azure som används för att skapa, tilldela och hantera principdefinitioner i Azure-miljön.
-ms.date: 11/21/2019
+ms.date: 11/25/2019
 ms.topic: overview
-ms.openlocfilehash: 52d8026d81261f5f8207e235ab8d2119be998dac
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: db6a7c592213b0ef8a17466300c37c859e96476b
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74321790"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484013"
 ---
-# <a name="overview-of-the-azure-policy-service"></a>Overview of the Azure Policy service
+# <a name="what-is-azure-policy"></a>Vad är Azure Policy?
 
 Governance validates that your organization can achieve its goals through effective and efficient use of IT. Detta sker genom att tydlighet skapas mellan affärsmålen och IT-projekten.
 
@@ -147,5 +147,3 @@ Nu när du har en översikt över Azure Policy och några av de centrala begrepp
 - [Assign a policy definition using the portal](./assign-policy-portal.md).
 - [Assign a policy definition using the Azure CLI](./assign-policy-azurecli.md).
 - [Assign a policy definition using PowerShell](./assign-policy-powershell.md).
-- Review what a management group is with [Organize your resources with Azure management groups](../management-groups/overview.md).
-- View [Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) on Channel 9.

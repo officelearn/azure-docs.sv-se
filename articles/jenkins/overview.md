@@ -4,12 +4,12 @@ description: Använd Azure som värd för en Jenkins-automationsserver för vers
 keywords: jenkins, azure, devops, översikt
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: a7ac07af4d9f3c065ce033fac3982091a0b9c679
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 84d9a62c432208893ac5ff960a5f7aec743680d1
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158758"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74479351"
 ---
 # <a name="azure-and-jenkins"></a>Azure och Jenkins
 
@@ -23,17 +23,17 @@ Med Azure som värd för dina Jenkins-servrar kan du centralisera versionsautoma
  
 - [Jenkins-lösningsmallen](install-jenkins-solution-template.md) på Azure Marketplace.
 - [Virtuella Azure-datorer](/azure/virtual-machines/linux/overview). Anvisningar som beskriver hur du skapar en Jenkins-instans på en virtuell dator finns i vår [självstudie](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd).
-- Läs vår [instruktionsartikel](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough) som beskriver ett Kubernetes-kluster som körs i [Azure Container Service](/azure/container-service/kubernetes/container-service-kubernetes-jenkins).
+- Läs vår [instruktionsartikel](/azure/container-service/kubernetes/container-service-kubernetes-jenkins) som beskriver ett Kubernetes-kluster som körs i [Azure Container Service](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough).
 
-Övervaka och hantera din Azure Jenkins-distribution med hjälp av [Azure Monitor loggar](/azure/log-analytics/log-analytics-overview) och [Azure CLI](/cli/azure).
+Monitor and manage your Azure Jenkins deployment using [Azure Monitor logs](/azure/log-analytics/log-analytics-overview) and the [Azure CLI](/cli/azure).
 
 ## <a name="scale-your-build-automation-on-demand"></a>Skala versionsautomatiseringen på begäran
 
-Lägg till versionsagenter i din befintliga Jenkins-distribution och skala upp Jenkins-versionshanteringen i takt med att antalet versioner och komplexiteten i dina jobb och pipelines ökar. Du kan köra dessa build-agenter på virtuella Azure-datorer med hjälp av [plugin-programmet för Azure VM-agenter](jenkins-azure-vm-agents.md). Se vår [självstudie](/azure/jenkins/jenkins-azure-vm-agents) för mer information.
+Lägg till versionsagenter i din befintliga Jenkins-distribution och skala upp Jenkins-versionshanteringen i takt med att antalet versioner och komplexiteten i dina jobb och pipelines ökar. You can run these build agents on Azure virtual machines by using the [Azure VM Agents plug-in](https://plugins.jenkins.io/azure-vm-agents). Se vår [självstudie](/azure/jenkins/jenkins-azure-vm-agents) för mer information.
 
 När de har konfigurerats med ett [Azure-tjänstobjekt](/azure/azure-resource-manager/resource-group-overview) kan Jenkins-jobb och Jenkins-pipelines använda den här informationen för att:
 
-- Lagra och arkivera Bygg artefakter säkert i [Azure Storage](/azure/storage/common/storage-introduction) med hjälp av [Azure Storage-plugin-programmet](https://plugins.jenkins.io/windows-azure-storage). Mer information finns i [instruktionsartikeln om Jenkins-lagring](/azure/storage/common/storage-java-jenkins-continuous-integration-solution).
+- Securely store and archive build artifacts in [Azure Storage](/azure/storage/common/storage-introduction) using the [Azure Storage plug-in](https://plugins.jenkins.io/windows-azure-storage). Mer information finns i [instruktionsartikeln om Jenkins-lagring](/azure/storage/common/storage-java-jenkins-continuous-integration-solution).
 - Hantera och konfigurera Azure-resurser med [Azure CLI](/azure/jenkins/execute-cli-jenkins-pipeline).
 
 ## <a name="deploy-your-code-into-azure-services"></a>Distribuera din kod till Azure-tjänster

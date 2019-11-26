@@ -1,6 +1,6 @@
 ---
-title: Webbapp som loggar in användare (app-registrering) – Microsoft Identity Platform
-description: Lär dig hur du skapar en webbapp som loggar in användare (app-registrering)
+title: Web app that signs in users (app registration) - Microsoft identity platform
+description: Learn how to build a web app that signs in users (app registration)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,115 +15,116 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 641f71f6111930b54d0a2bd548f16d3cb0c07189
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 50e4778693e448b9a989d70d3ca8cf91c76ce380
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175258"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482051"
 ---
-# <a name="web-app-that-signs-in-users---app-registration"></a>Webbapp som loggar in användare – app-registrering
+# <a name="web-app-that-signs-in-users-app-registration"></a>Web app that signs in users: App registration
 
-På den här sidan förklaras program registreringen för en webbapp som loggar in användare.
+This article explains the app registration specifics for a web app that signs in users.
 
-Du kan registrera ditt program genom att använda:
+To register your application, you can use:
 
-- [Webbappens snabb starter](#register-an-app-using-the-quickstarts) – förutom att det är en bra första upplevelse med att skapa ett program kan snabb starter i Azure Portal innehålla en knapp **som heter gör den här ändringen åt mig**. Du kan använda den här knappen för att ange de egenskaper du behöver, även för en befintlig app. Du måste anpassa värdena för dessa egenskaper till ditt eget fall. I synnerhet kommer URL: en för webb-API: t för din app förmodligen att skilja sig från det föreslagna standardvärdet, vilket också påverkar utloggnings-URI.
-- Azure Portal att [Registrera ditt program manuellt](#register-an-app-using-azure-portal)
-- PowerShell och kommando rads verktyg
+- The [web app quickstarts](#register-an-app-by-using-the-quickstarts). In addition to being a great first experience with creating an application, quickstarts in the Azure portal contain a button named **Make this change for me**. You can use this button to set the properties you need, even for an existing app. You'll need to adapt the values of these properties to your own case. In particular, the web API URL for your app is probably going to be different from the proposed default, which will also affect the sign-out URI.
+- The Azure portal to [register your application manually](#register-an-app-by-using-the-azure-portal).
+- PowerShell and command-line tools.
 
-## <a name="register-an-app-using-the-quickstarts"></a>Registrera en app med snabb starterna
+## <a name="register-an-app-by-using-the-quickstarts"></a>Register an app by using the quickstarts
 
-Om du navigerar till den här länken kan du skapa en start för att skapa ditt webb program:
+You can use these links to bootstrap the creation of your web application:
 
 - [ASP.NET Core](https://aka.ms/aspnetcore2-1-aad-quickstart-v2)
 - [ASP.NET](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs)
 
-## <a name="register-an-app-using-azure-portal"></a>Registrera en app med hjälp av Azure Portal
+## <a name="register-an-app-by-using-the-azure-portal"></a>Register an app by using the Azure portal
 
 > [!NOTE]
-> vilken portal som ska användas är olika beroende på om ditt program körs i Microsoft Azure offentliga molnet eller i ett nationellt eller suveränt moln. Mer information finns i [nationella moln](./authentication-national-cloud.md#app-registration-endpoints)
+> The portal to use is different depending on whether your application runs in the Microsoft Azure public cloud or in a national or sovereign cloud. For more information, see [National clouds](./authentication-national-cloud.md#app-registration-endpoints).
 
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto. Du kan också logga in på den nationella moln Azure Portal av Choice.
-1. Om ditt konto ger dig åtkomst till fler än en klient väljer du ditt konto i det övre högra hörnet och ställer in din portal-session till önskad Azure AD-klient.
-1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** och väljer sedan **Appregistreringar** > **ny registrering**.
+1. Sign in to the [Azure portal](https://portal.azure.com) by using either a work or school account, or a personal Microsoft account. Alternatively, sign in to the Azure portal of choice for the national cloud.
+1. If your account gives you access to more than one tenant, select your account in the upper-right corner. Then, set your portal session to the desired Azure Active Directory (Azure AD) tenant.
+1. In the left pane, select the **Azure Active Directory** service, and then select **App registrations** > **New registration**.
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-4. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
-   1. Välj de konto typer som stöds för ditt program (se [konto typer som stöds](./v2-supported-account-types.md))
-   1. I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `AspNetCore-WebApp`.
-   1. I **omdirigerings-URI**lägger du till den typ av program och URI-destination som accepterar returnerade token-svar efter att autentiseringen har utförts. Till exempel `https://localhost:44321/`.  Välj **Registrera**.
+1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
+   1. Choose the supported account types for your application. (See [Supported account types](./v2-supported-account-types.md).)
+   1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app. For example, enter **AspNetCore-WebApp**.
+   1. For **Redirect URI**, add the type of application and the URI destination that will accept returned token responses after successful authentication. For example, enter **https://localhost:44321** . Then, select **Register**.
 1. Välj menyn **Autentisering** och lägg sedan till följande information:
-   1. Lägg till `https://localhost:44321/signin-oidc` av typen "Web" i **svars-URL**.
-   1. I avsnittet **Avancerade inställningar** ställer du in **Utloggnings-URL** på `https://localhost:44321/signout-oidc`.
-   1. Under **Implicit beviljande** kontrollerar du **ID-token**.
+   1. For **Reply URL**, add **https://localhost:44321/signin-oidc** of type **Web**.
+   1. In the **Advanced settings** section, set **Logout URL** to **https://localhost:44321/signout-oidc** .
+   1. Under **Implicit grant**, select **ID tokens**.
    1. Välj **Spara**.
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
-4. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
-   1. Välj de konto typer som stöds för ditt program (se [konto typer som stöds](./v2-supported-account-types.md))
-   - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `MailApp-openidconnect-v2`.
-   - I avsnittet omdirigerings-URI (valfritt) väljer du webb i kombinations rutan och anger följande omdirigerings **-** URI: er: `https://localhost:44326/`.
+1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
+   1. Choose the supported account types for your application. (See [Supported account types](./v2-supported-account-types.md).)
+   1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app. For example, enter **MailApp-openidconnect-v2**.
+   1. In the **Redirect URI (optional)** section, select **Web** in the combo box and enter the following redirect URI: **https://localhost:44326/** .
 1. Välj **Registrera** för att skapa programmet.
-1. Välj menyn **Autentisering** och lägg sedan till följande information:
-   - I avsnittet **Avancerade inställningar** | **implicita bidrag** kontrollerar du **ID-token** som det här exemplet kräver att det [implicita tilldelnings flödet](v2-oauth2-implicit-grant-flow.md) är aktiverat för att logga in användaren.
+1. Select the **Authentication** menu. 
+1. In the **Advanced settings** | **Implicit grant** section, select **ID tokens**. This sample requires the [implicit grant flow](v2-oauth2-implicit-grant-flow.md) to be enabled to sign in the user.
 1. Välj **Spara**.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-4. När **sidan Registrera ett program** visas anger du ett eget namn för programmet, till exempel "Java-webapp", väljer "konton i valfri organisations katalog och personliga Microsoft-konton (t. ex. Skype, Xbox, Outlook.com)" och välj "webbapp" /API "som *program typ*.
-1. Klicka på **Registrera** för att registrera programmet.
-1. Klicka på **autentisering**på den vänstra menyn och under *omdirigerings-URI: er*väljer du "Web". Du måste ange två olika omdirigerings-URI: er: en för inloggnings sidan och en för diagram sidan. För båda ska du använda samma värd och port nummer, följt av "/msal4jsample/Secure/AAD" för inloggnings sidan och "msal4jsample/Graph/Me" på sidan användar information.
- Som standard använder exemplet:
+1. When the **Register an application page** appears, enter a display name for the application. For example, enter **java-webapp**. 
+1. Select **Accounts in any organizational directory and personal Microsoft Accounts (e.g. Skype, Xbox, Outlook.com)** , and then select **Web app / API** for **Application Type**.
+1. Select **Register** to register the application.
+1. On the left menu, select **Authentication**. Under **Redirect URIs**, select **Web**. 
 
-    - `http://localhost:8080/msal4jsample/secure/aad`.
-    - `http://localhost:8080/msal4jsample/graph/me`
+1. Enter two redirect URIs: one for the sign-in page, and one for the graph page. For both, use the same host and port number, followed by **/msal4jsample/secure/aad** for the sign-in page and **msal4jsample/graph/me** for the user information page.
+ 
+   By default, the sample uses:
 
-    I avsnittet **Avancerade inställningar** ställer du in **Utloggnings-URL** på `http://localhost:8080/msal4jsample/sign_out`.
+   - **http://localhost:8080/msal4jsample/secure/aad**
+   - **http://localhost:8080/msal4jsample/graph/me**
 
-     Klicka på **Spara**.
+1. In the **Advanced settings** section, set **Logout URL** to **http://localhost:8080/msal4jsample/sign_out** . Välj sedan **Spara**.
 
-1. Välj **certifikaten & hemligheter** på menyn och klicka på **ny klient hemlighet**i avsnittet **klient hemligheter** :
+1. Select **Certificates & secrets** from the menu. 
+1. In the **Client secrets** section, select **New client secret**, and then:
 
-    - Ange en nyckel Beskrivning
-    - Välj en nyckel varaktighet **i ett år**.
-    - Nyckelvärdet visas när du väljer **Lägg till**.
-    - Kopiera värdet för nyckeln för senare. Det här nyckelvärdet visas inte igen eller kan inte hämtas på något annat sätt, så du kan registrera det så snart det visas från Azure Portal.
+   1. Enter a key description.
+   1. Select the key duration **In 1 year**.
+   1. Välj **Lägg till**.
+   1. When the key value appears, copy it for later. This value will not be displayed again or be retrievable by any other means.
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-4. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
-   - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `python-webapp`.
-   - Ändra **konto typer som stöds** till **konton i alla organisations kataloger och personliga Microsoft-konton (t. ex. Skype, Xbox, Outlook.com)** .
-   - I avsnittet omdirigerings-URI (valfritt) väljer du webb i kombinations rutan och anger följande omdirigerings **-** URI: er: `http://localhost:5000/getAToken`.
+1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
+   1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app. For example, enter **python-webapp**.
+   1. Change **Supported account types** to **Accounts in any organizational directory and personal Microsoft accounts (e.g. Skype, Xbox, Outlook.com)** .
+   1. In the **Redirect URI (optional)** section, select **Web** in the combo  box and enter the following redirect URI: **http://localhost:5000/getAToken** .
 1. Välj **Registrera** för att skapa programmet.
-1. På sidan **Översikt över** appen letar du reda på **programmets ID-** värde och registrerar det för senare. Du behöver den för att konfigurera Visual Studio-konfigurationsfilen för projektet.
-1. Välj avsnittet **autentisering** på appens översikts sida.
-   - I avsnittet **Avancerade inställningar** anger du **en utloggnings-URL** till `http://localhost:5000/logout`
+1. On the app's **Overview** page, find the **Application (client) ID** value and record it for later. You'll need it to configure the Visual Studio configuration file for this project.
+1. Select the **Authentication** section. In **Advanced settings**, set **Logout URL** to **http://localhost:5000/logout** . Välj sedan **Spara**.
+1. On the left menu, select **Certificates & secrets**.
+1. In the **Client Secrets** section, select **New client secret**, and then:
 
-  Välj **Spara**.
-1. På den vänstra menyn väljer du **certifikat & hemligheter** och klickar på **ny klient hemlighet** i avsnittet **klient hemligheter** :
-
-      - Ange en nyckel Beskrivning
-      - Välj en nyckel varaktighet på om **1 år**.
-      - När du klickar på **Lägg till**visas nyckelvärdet.
-      - Kopiera värdet för nyckeln. Du behöver den senare.
+   1. Enter a key description.
+   1. Select a key duration of **In 1 year**.
+   1. Välj **Lägg till**.
+   1. When the key value appears, copy it. Du behöver det senare.
 ---
 
-## <a name="register-an-app-using-powershell"></a>Registrera en app med PowerShell
+## <a name="register-an-app-by-using-powershell"></a>Register an app by using PowerShell
 
 > [!NOTE]
-> För närvarande skapar Azure AD PowerShell endast program med följande konto typer som stöds:
+> Currently, Azure AD PowerShell creates applications with only the following supported account types:
 >
-> - MyOrg (endast konton i den här organisatoriska katalogen)
-> - AnyOrg (konton i valfri organisations katalog).
+> - MyOrg (accounts in this organizational directory only)
+> - AnyOrg (accounts in any organizational directory)
 >
-> Om du vill skapa ett program som loggar in användare med sina personliga Microsoft-konton (t. ex. Skype, XBox, Outlook.com) kan du först skapa ett program för flera innehavare (konto typer som stöds = konton i valfri organisations katalog) och sedan ändra Egenskapen `signInAudience` i applikations manifestet från Azure Portal. Detta beskrivs i detalj i steg [1,3](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) i ASP.net Core själv studie kursen (och kan generaliseras till webbappar på valfritt språk).
+> You can create an application that signs in users with their personal Microsoft accounts (for example, Skype, Xbox, or Outlook.com). First, create a multitenant application. Supported account types are accounts in any organizational directory. Then, change the `signInAudience` property in the application manifest from the Azure portal. For more information, see [step 1.3](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) in the ASP.NET Core tutorial. You can generalize this step to web apps in any language.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Appens kod konfiguration](scenario-web-app-sign-user-app-configuration.md)
+> [App's code configuration](scenario-web-app-sign-user-app-configuration.md)

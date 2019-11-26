@@ -1,6 +1,6 @@
 ---
-title: Webbapp som loggar in användare (flytta till produktion) – Microsoft Identity Platform
-description: Lär dig hur du skapar en webbapp som loggar in användare (flytta till produktion)
+title: Web app that signs in users (move to production) - Microsoft identity platform
+description: Learn how to build a web app that signs in users (move to production)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,38 +15,46 @@ ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd6717c132d32d54c16e7678695a09e35181a057
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: efcc7ed4f80d0e3e9750d19ff95d010052a08b87
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086554"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481876"
 ---
-# <a name="web-app-that-signs-in-users---move-to-production"></a>Webbapp som loggar in användare – flytta till produktion
+# <a name="web-app-that-signs-in-users-move-to-production"></a>Web app that signs in users: Move to production
 
-Nu när du vet hur du kan hämta en token för att anropa webb-API: er, lär du dig hur du flyttar den till produktionen.
+Now that you know how to get a token to call web APIs, learn how to move it to production.
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-### <a name="calling-web-apis-scenario"></a>Anropa webb-API-scenario
+### <a name="scenario-for-calling-web-apis"></a>Scenario for calling web APIs
 
-När din webbapp loggar in användare kan den anropa webb-API: er för de inloggade användarna. Att anropa webb-API: er från webbappen är objektet i följande scenario:
+After your web app signs in users, it can call web APIs on behalf of the signed-in users. Calling web APIs from the web app is the object of the following scenario:
 
 > [!div class="nextstepaction"]
 > [Webbapp som anropar webb-API:er](scenario-web-app-call-api-overview.md)
 
-### <a name="deep-dive---aspnet-core-web-app-tutorial"></a>Djupgående vägledning – ASP.NET Core Web Apps-självstudie
+### <a name="deep-dive-aspnet-core-web-app-tutorial"></a>Deep dive: ASP.NET Core web app tutorial
 
-Lär dig mer om andra sätt att logga in användare med självstudierna ASP.NET Core: [MS-Identity-aspnetcore-webapp-självstudie](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial). Det här exemplet är en progressiv självstudie med produktions klar kod för en webbapp, inklusive hur du lägger till inloggning med konton i:
+Learn about other ways to sign in users with this ASP.NET Core tutorial: 
 
-- din organisation,
-- flera organisationer,
-- arbets-eller skol konton eller personliga Microsoft-konto,
-- med [Azure AD B2C](https://aka.ms/aadb2c),
-- eller i nationella moln.
+> [!div class="nextstepaction"]
+> [Enable your web apps to sign in users and call APIs with the Microsoft identity platform for developers](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) 
 
-### <a name="sample-code---java-web-app"></a>Exempel kod – Java-webbapp
+This progressive tutorial has production-ready code for a web app, including how to add sign-in with accounts in:
 
-Läs mer om Java-webbappen från exemplet på GitHub: [Ett Java-webbprogram som loggar in användare med Microsoft Identity Platform och anropar Microsoft Graph](https://github.com/Azure-Samples/ms-identity-java-webapp)
+- Your organization
+- Multiple organizations
+- Work or school accounts, or personal Microsoft accounts
+- [Azure AD B2C](https://aka.ms/aadb2c)
+- National clouds
+
+### <a name="sample-code-java-web-app"></a>Sample code: Java web app
+
+Learn more about the Java web app from this sample on GitHub: 
+
+> [!div class="nextstepaction"]
+> [A Java Web application that signs in users with the Microsoft identity platform and calls Microsoft Graph](https://github.com/Azure-Samples/ms-identity-java-webapp)

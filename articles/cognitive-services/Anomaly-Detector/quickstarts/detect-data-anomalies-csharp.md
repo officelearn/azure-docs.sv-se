@@ -1,117 +1,110 @@
 ---
-title: 'Snabb start: identifiera avvikelser i dina tids serie data med hjälp av avvikelse detektor REST API ochC#'
+title: 'Quickstart: Detect anomalies in your time series data using the Anomaly Detector REST API and C#'
 titleSuffix: Azure Cognitive Services
-description: 'Använd API: t för avvikelse detektor för att identifiera avvikelser i din data serie antingen som en batch eller vid strömmande data.'
+description: Use the Anomaly Detector API to detect abnormalities in your data series either as a batch or on streaming data.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 10/14/2019
+ms.date: 11/19/2019
 ms.author: aahi
-ms.openlocfilehash: 222fb5d37065bc40e9c96a9ff3487a7ea8ad0570
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 76308e2167cbedae9572f1fb5037dfb394ce4b17
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554768"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483420"
 ---
-# <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>Snabb start: identifiera avvikelser i dina tids serie data med hjälp av avvikelse detektor REST API ochC# 
+# <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>Quickstart: Detect anomalies in your time series data using the Anomaly Detector REST API and C# 
 
-Använd den här snabb starten för att börja använda de två identifierings lägena för avvikelse detektor API: erna för att identifiera avvikelser i dina tids serie data. Det C# här programmet skickar två API-begäranden som innehåller JSON-formaterade Time Series-data och hämtar svaren.
+Use this quickstart to start using the Anomaly Detector API's two detection modes to detect anomalies in your time series data. This C# application sends two API requests containing JSON-formatted time series data, and gets the responses.
 
-| API-begäran                                        | Programutdata                                                                                                                         |
-|----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Identifiera avvikelser som en batch                        | JSON-svaret som innehåller avvikelse status (och andra data) för varje data punkt i tids serie data och positionerna för identifierade avvikelser. |
-| Identifiera avvikelse statusen för den senaste data punkten | JSON-svaret som innehåller avvikelse status (och andra data) för den senaste data punkten i tids serie data.                                                                                                                                         |
+| API request                                        | Programutdata                                                                                                                                         |
+|----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Detect anomalies as a batch                        | The JSON response containing the anomaly status (and other data) for each data point in the time series data, and the positions of any detected anomalies. |
+| Detect the anomaly status of the latest data point | The JSON response containing the anomaly status (and other data) for the latest data point in the time series data.                                        |
 
- Även om det här programmet är skrivet i C#, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+ Även om det här programmet är skrivet i C#, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. You can find the source code for this quickstart on [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/csharp-detect-anomalies.cs).
 
 ## <a name="prerequisites"></a>Krav
 
-- Alla versioner av [Visual Studio 2017 eller senare](https://visualstudio.microsoft.com/downloads/),
-
-- [Json.NET](https://www.newtonsoft.com/json) framework, tillgänglig som ett NuGet-paket. Så här installerar du Newtonsoft. JSON som ett NuGet-paket i Visual Studio:
+- Any edition of [Visual Studio 2017 or later](https://visualstudio.microsoft.com/downloads/),
+- An Anomaly detector key and endpoint
+- [Json.NET](https://www.newtonsoft.com/json) framework, tillgänglig som ett NuGet-paket. To install Newtonsoft.Json as a NuGet package in Visual Studio:
     
-    1. Högerklicka på ditt projekt i **Solution Explorer**.
-    2. Välj **Hantera NuGet-paket**.
-    3. Sök efter *Newtonsoft. JSON* och installera paketet.
+    1. Right click your project in **Solution Explorer**.
+    2. Select **Manage NuGet Packages**.
+    3. Search for *Newtonsoft.Json* and install the package.
 
-- Om du använder Linux/MacOS kan du köra det här programmet med hjälp av [mono](https://www.mono-project.com/).
+- If you're using Linux/MacOS, this application can be run by using [Mono](https://www.mono-project.com/).
 
-- En JSON-fil som innehåller tids serie data punkter. Exempel data för den här snabb starten finns på [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
+- A JSON file containing time series data points. The example data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
 
-### <a name="create-an-anomaly-detector-resource"></a>Skapa en resurs för avvikelse detektor
+### <a name="create-an-anomaly-detector-resource"></a>Create an Anomaly Detector resource
 
 [!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
 
 ## <a name="create-a-new-application"></a>Skapa ett nytt program
 
-1. Skapa en ny konsol lösning i Visual Studio och Lägg till följande paket. 
+1. In Visual Studio, create a new console solution and add the following packages. 
 
     [!code-csharp[using statements](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=usingStatements)]
 
 
-2. Skapa variabler för din prenumerations nyckel och din slut punkt. Nedan visas de URI: er som du kan använda för avvikelse identifiering. Dessa kommer att läggas till i tjänst slut punkten senare för att skapa API-begärandena URL: er.
+2. Create variables for your subscription key and your endpoint. Below are the URIs you can use for anomaly detection. These will be appended to your service endpoint later to create the API request URLs.
 
-    |Identifierings metod  |URI  |
-    |---------|---------|
-    |Batch-identifiering    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
-    |Identifiering på den senaste data punkten     | `/anomalydetector/v1.0/timeseries/last/detect`        |
-    
+    | Detection method                   | URI                                              |
+    |------------------------------------|--------------------------------------------------|
+    | Batch detection                    | `/anomalydetector/v1.0/timeseries/entire/detect` |
+    | Detection on the latest data point | `/anomalydetector/v1.0/timeseries/last/detect`   |
+        
     [!code-csharp[initial variables for endpoint, key and data file](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=vars)]
 
-## <a name="create-a-function-to-send-requests"></a>Skapa en funktion för att skicka begär Anden
+## <a name="create-a-function-to-send-requests"></a>Create a function to send requests
 
-1. Skapa en ny async-funktion som heter `Request` som använder variablerna som skapats ovan.
+1. Create a new async function called `Request` that takes the variables created above.
 
-2. Ange klientens säkerhets protokoll och huvud information med hjälp av ett `HttpClient`-objekt. Se till att lägga till din prenumerations nyckel i `Ocp-Apim-Subscription-Key`s huvudet. Skapa sedan ett `StringContent`-objekt för begäran.
+2. Set the client's security protocol and header information using an `HttpClient` object. Be sure to add your subscription key to the `Ocp-Apim-Subscription-Key` header. Then create a `StringContent` object for the request.
 
-3. Skicka begäran med `PostAsync()` och returnera sedan svaret.
+3. Send the request with `PostAsync()`, and then return the response.
 
     [!code-csharp[Request method](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=requestMethod)]
 
-## <a name="detect-anomalies-as-a-batch"></a>Identifiera avvikelser som en batch
+## <a name="detect-anomalies-as-a-batch"></a>Detect anomalies as a batch
 
-1. Skapa en ny funktion som kallas `detectAnomaliesBatch()`. Skapa begäran och skicka den genom att anropa funktionen `Request()` med din slut punkt, prenumerations nyckel, URL för identifiering av batch-avvikelse och tids serie data.
+1. Create a new function called `detectAnomaliesBatch()`. Construct the request and send it by calling the `Request()` function with your endpoint, subscription key, the URL for batch anomaly detection, and the time series data.
 
-2. Deserialisera JSON-objektet och skriv det till-konsolen.
+2. Deserialize the JSON object, and write it to the console.
 
-3. Om svaret innehåller `code` fältet, skriver du ut felkoden och fel meddelandet. 
+3. If the response contains `code` field, print the error code and error message. 
 
-4. Annars hittar du positionerna för avvikelser i data uppsättningen. Svarets `isAnomaly` fält innehåller en matris med booleska värden, som anger om en data punkt är en avvikelse. Konvertera detta till en sträng mat ris med svars objektets `ToObject<bool[]>()` funktion. Iterera genom matrisen och skriv ut indexet för alla `true` värden. Dessa värden motsvarar indexet för avvikande data punkter, om sådana hittades.
+4. Otherwise, find the positions of anomalies in the data set. The response's `isAnomaly` field contains an array of boolean values, each of which indicates whether a data point is an anomaly. Convert this to a string array with the response object's `ToObject<bool[]>()` function. Iterate through the array, and print the index of any `true` values. These values correspond to the index of anomalous data points, if any were found.
 
     [!code-csharp[Detect anomalies batch](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=detectAnomaliesBatch)]
 
 
-## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Identifiera avvikelse statusen för den senaste data punkten
+## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Detect the anomaly status of the latest data point
 
-1. Skapa en ny funktion som kallas `detectAnomaliesLatest()`. Skapa begäran och skicka den genom att anropa funktionen `Request()` med din slut punkt, prenumerations nyckel, URL för den senaste punkten avvikelse identifiering och tids serie data.
+1. Create a new function called `detectAnomaliesLatest()`. Construct the request and send it by calling the `Request()` function with your endpoint, subscription key, the URL for latest point anomaly detection, and the time series data.
 
-2. Deserialisera JSON-objektet och skriv det till-konsolen.
+2. Deserialize the JSON object, and write it to the console.
 
-[!code-csharp[Detect anomalies latest](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=detectAnomaliesLatest)]
+    [!code-csharp[Detect anomalies latest](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=detectAnomaliesLatest)]
+ 
+## <a name="load-your-time-series-data-and-send-the-request"></a>Load your time series data and send the request
 
-## <a name="load-your-time-series-data-and-send-the-request"></a>Läs in dina Time Series-data och skicka begäran
+1. In the main method of your application, load your JSON time series data with `File.ReadAllText()`. 
 
-1. I appens huvud metod läser du in dina JSON Time Series-data med `File.ReadAllText()`. 
-
-2. Anropa de funktioner för avvikelse identifiering som skapats ovan. Använd `System.Console.ReadKey()` för att se till att konsol fönstret är öppet när du har kört programmet.
+2. Call the anomaly detection functions created above. Use `System.Console.ReadKey()` to keep the console window open after running the application.
 
     [!code-csharp[Main method](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=main)]
 
 ### <a name="example-response"></a>Exempelsvar
 
-Ett lyckat svar returneras i JSON-format. Klicka på länkarna nedan om du vill visa JSON-svaret på GitHub:
-* [Exempel svar för batch-identifiering](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
-* [Exempel svar på senaste Poäng identifiering](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
+A successful response is returned in JSON format. Click the links below to view the JSON response on GitHub:
+* [Example batch detection response](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
+* [Example latest point detection response](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
 
-## <a name="next-steps"></a>Nästa steg
-
-> [!div class="nextstepaction"]
->[Strömma avvikelse identifiering med Azure Databricks](../tutorials/anomaly-detection-streaming-databricks.md)
-
-* Vad är [API: t för avvikelse detektor?](../overview.md)
-* [Metod tips](../concepts/anomaly-detection-best-practices.md) när du använder API: t för avvikelse identifiering.
-* Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs).
+[!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-next-steps.md)]

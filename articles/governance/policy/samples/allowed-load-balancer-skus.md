@@ -1,14 +1,14 @@
 ---
 title: Exempel – Tillåtna SKU:er för lastbalanserare
-description: Den här exempelprincipdefinitionen kräver att lastbalanserare använder en godkänd SKU.
+description: This sample policy definition requires that load balancers use an approved SKU defined in a parameter.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: f3872ffc2fc75445f4f51573474fc359227b431b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 3d3425211e44dc87d87a962630dec574a60614e7
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076444"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463485"
 ---
 # <a name="sample---allowed-load-balancer-skus"></a>Exempel – Tillåtna SKU:er för lastbalanserare
 
@@ -24,7 +24,7 @@ Du kan distribuera den här mallen med hjälp av [Azure Portal](#deploy-with-the
 
 ## <a name="deploy-with-the-portal"></a>Distribuera med portalen
 
-[![distribuera princip exemplet till Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FNetwork%2Fload-balancer-skus%2Fazurepolicy.json)
+[![Deploy the Policy sample to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FNetwork%2Fload-balancer-skus%2Fazurepolicy.json)
 
 ## <a name="deploy-with-powershell"></a>Distribuera med PowerShell
 
@@ -65,4 +65,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska fler exempel på [Azure Policy-exempel](index.md)
+- Granska fler exempel under [Exempel på Azure-princip](index.md)

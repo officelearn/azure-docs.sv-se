@@ -1,6 +1,6 @@
 ---
-title: Implementera hash-synkronisering av lösen ord med Azure AD Connect Sync | Microsoft Docs
-description: Innehåller information om hur Lösenordssynkronisering för hash fungerar och hur du konfigurerar.
+title: Implement password hash synchronization with Azure AD Connect sync | Microsoft Docs
+description: Provides information about how password hash synchronization works and how to set up.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -15,205 +15,207 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0398ff7eb8931acc400b326ff92deaf75f0aa97e
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 2d5ca62bc032c12c568e2b8065630dcd8b687513
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73882829"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483105"
 ---
-# <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementera hash-synkronisering av lösen ord med Azure AD Connect Sync
-Den här artikeln innehåller information som du behöver för att synkronisera dina användar lösen ord från en lokal Active Directory-instans till en molnbaserad Azure Active Directory-instans (Azure AD).
+# <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implement password hash synchronization with Azure AD Connect sync
+This article provides information that you need to synchronize your user passwords from an on-premises Active Directory instance to a cloud-based Azure Active Directory (Azure AD) instance.
 
 ## <a name="how-password-hash-synchronization-works"></a>Så här fungerar hash-synkronisering
-Den Active Directory domän tjänsten lagrar lösen ord i form av en hash-värde representation av det faktiska användar lösen ordet. Ett hash-värde är ett resultat av en enkelriktad matematisk funktion ( *hash-algoritmen*). Det finns ingen metod för att återställa resultatet av en envägsfunktion till versionen av ett lösenord med oformaterad text. 
+The Active Directory domain service stores passwords in the form of a hash value representation, of the actual user password. A hash value is a result of a one-way mathematical function (the *hashing algorithm*). Det finns ingen metod för att återställa resultatet av en envägsfunktion till versionen av ett lösenord med oformaterad text. 
 
-För att synkronisera ditt lösen ord extraherar Azure AD Connect sync din lösen ords-hash från den lokala Active Directory-instansen. Extra säkerhets bearbetning tillämpas på lösen ordets hash innan den synkroniseras med Azure Active Directory-Autentiseringstjänsten. Lösen ord synkroniseras per användare och i kronologisk ordning.
+To synchronize your password, Azure AD Connect sync extracts your password hash from the on-premises Active Directory instance. Extra security processing is applied to the password hash before it is synchronized to the Azure Active Directory authentication service. Passwords are synchronized on a per-user basis and in chronological order.
 
-Det faktiska data flödet för processen för synkronisering av lösen ords-hash liknar synkroniseringen av användar data. Lösen ord synkroniseras dock oftare än standard fönstret för katalog synkronisering för andra attribut. Processen för synkronisering av lösen ord för hash körs var 2: e minut. Du kan inte ändra frekvensen för den här processen. När du synkroniserar ett lösen ord skriver det över det befintliga moln lösen ordet.
+The actual data flow of the password hash synchronization process is similar to the synchronization of user data. However, passwords are synchronized more frequently than the standard directory synchronization window for other attributes. The password hash synchronization process runs every 2 minutes. You cannot modify the frequency of this process. When you synchronize a password, it overwrites the existing cloud password.
 
-Första gången du aktiverar funktionen för hash-synkronisering av lösen ord utför den en inledande synkronisering av lösen orden för alla användare i omfånget. Du kan inte uttryckligen definiera en delmängd av användar lösen ord som du vill synkronisera. Men om det finns flera kopplingar är det möjligt att inaktivera hash-synkronisering av lösen ord för vissa anslutningar, men inte andra som använder cmdleten [set-ADSyncAADPasswordSyncConfiguration](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant) .
+The first time you enable the password hash synchronization feature, it performs an initial synchronization of the passwords of all in-scope users. You cannot explicitly define a subset of user passwords that you want to synchronize. However, if there are multiple connectors, it is possible to disable password hash sync for some connectors but not others using the [Set-ADSyncAADPasswordSyncConfiguration](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant) cmdlet.
 
-När du ändrar ett lokalt lösen ord, synkroniseras det uppdaterade lösen ordet, oftast på bara några minuter.
-Funktionen för synkronisering av lösen ord för hash-meddelanden misslyckade försök att synkronisera automatiskt. Om ett fel inträffar under ett försök att synkronisera ett lösen ord loggas ett fel i logg boken.
+When you change an on-premises password, the updated password is synchronized, most often in a matter of minutes.
+The password hash synchronization feature automatically retries failed synchronization attempts. If an error occurs during an attempt to synchronize a password, an error is logged in your event viewer.
 
-Synkroniseringen av ett lösen ord påverkar inte den användare som för tillfället är inloggad.
-Den aktuella Cloud Service-sessionen påverkas inte omedelbart av en synkroniserad lösen ords ändring som inträffar, medan du är inloggad i en moln tjänst. Men när moln tjänsten kräver att du autentiserar igen måste du ange ditt nya lösen ord.
+The synchronization of a password has no impact on the user  who is currently signed in.
+Your current cloud service session is not immediately affected by a synchronized password change that occurs, while you are signed in, to a cloud service. However, when the cloud service requires you to authenticate again, you need to provide your new password.
 
-En användare måste ange sina företags uppgifter en andra gång för att autentisera till Azure AD, oavsett om de är inloggade i företagets nätverk. Det här mönstret kan minimeras, men om användaren markerar kryss rutan Håll mig inloggad (KMSI avgör) vid inloggning. Det här alternativet anger en sessions-cookie som hoppar över autentisering i 180 dagar. KMSI avgör-beteende kan aktive ras eller inaktive ras av Azure AD-administratören. Dessutom kan du minska lösen ords prompten genom att aktivera [sömlös SSO](how-to-connect-sso.md), som automatiskt signerar användare i när de befinner sig på företagets enheter som är anslutna till företagets nätverk.
-
-> [!NOTE]
-> Lösenordssynkronisering stöds endast för objekt typ användaren i Active Directory. Det finns inte stöd för objekt typen iNetOrgPerson.
-
-### <a name="detailed-description-of-how-password-hash-synchronization-works"></a>Detaljerad beskrivning av hur hash-synkronisering av lösen ord fungerar
-
-I följande avsnitt beskrivs i djup hur synkroniseringen av lösen ord för hash fungerar mellan Active Directory och Azure AD.
-
-![Detaljerat lösen flöde](./media/how-to-connect-password-hash-synchronization/arch3b.png)
-
-1. Varannan minut begär agenten för Lösenordssynkronisering på AD Connect-servern lagrade lösenords-hashvärden (attributet unicodePwd) från en DOMÄNKONTROLLANT.  Den här begäran är via standard [-MS-DRSR](https://msdn.microsoft.com/library/cc228086.aspx) som används för att synkronisera data mellan domänkontrollanter. Tjänst kontot måste ha replikerade katalog ändringar och replikera katalogen ändrar alla AD-behörigheter (beviljas som standard vid installation) för att hämta lösen ordets hash-värden.
-2. Innan du skickar krypterar DOMÄNKONTROLLANTen MD4 Password hash med hjälp av en nyckel som är en [MD5](https://www.rfc-editor.org/rfc/rfc1321.txt) -hash av RPC-sessionsnyckeln och en salt. Den skickar sedan resultatet till agenten för Lösenordssynkronisering via RPC. DOMÄNKONTROLLANTen skickar också saltet till synkroniseringstjänsten med hjälp av DC-replikeringstjänsten, så att agenten kan dekryptera kuvertet.
-3. När agenten för Lösenordssynkronisering har krypterat kuvert används [MD5CryptoServiceProvider](https://msdn.microsoft.com/library/System.Security.Cryptography.MD5CryptoServiceProvider.aspx) och salt för att generera en nyckel för att dekryptera mottagna data till ursprungligt MD4-format. Agenten för Lösenordssynkronisering har aldrig åtkomst till lösen ordet för klartext. Password hash Sync-agentens användning av MD5 är strikt för replikering av autentiseringsprotokoll med DOMÄNKONTROLLANTen och används bara lokalt mellan DOMÄNKONTROLLANTen och agenten för Lösenordssynkronisering.
-4. Agenten för Lösenordssynkronisering expanderar den 16-bytes binära lösen ords-hashen till 64 byte genom att först konvertera hashen till en hexadecimal sträng på 32 byte och sedan konvertera den här strängen till binär med UTF-16-kodning.
-5. Agenten för Lösenordssynkronisering lägger till ett per användare-salt, som består av en längd på 10 bytes, till 64 byte-binärfilen för att ytterligare skydda den ursprungliga hashen.
-6. Agenten för synkronisering av lösen ords-hash kombinerar sedan MD4-hash plus per användarens salt och indata indata i funktionen [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt) . 1000 iterationer av den förkonfigurerade hash-algoritmen för [HMAC-SHA256](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) används. 
-7. Agenten för Lösenordssynkronisering tar den resulterande 32-byte-hashen och sammanfogar både per användarens salt och antalet SHA256-iterationer (används av Azure AD) och skickar sedan strängen från Azure AD Connect till Azure AD över SSL.</br> 
-8. När en användare försöker logga in på Azure AD och anger sitt lösen ord, körs lösen ordet genom samma MD4 + salt + PBKDF2 + HMAC-SHA256 process. Om den resulterande hashen matchar hashen som lagras i Azure AD har användaren angett rätt lösen ord och autentiseras.
+A user must enter their corporate credentials a second time to authenticate to Azure AD, regardless of whether they're signed in to their corporate network. This pattern can be minimized, however, if the user selects the Keep me signed in (KMSI) check box at sign-in. This selection sets a session cookie that bypasses authentication for 180 days. KMSI behavior can be enabled or disabled by the Azure AD administrator. In addition, you can reduce password prompts by turning on [Seamless SSO](how-to-connect-sso.md), which automatically signs users in when they are on their corporate devices connected to your corporate network.
 
 > [!NOTE]
-> Den ursprungliga MD4-hashen överförs inte till Azure AD. I stället överförs SHA256-hashen för den ursprungliga MD4-hashen. Det innebär att om hashen som lagras i Azure AD hämtas, kan den inte användas i en lokal pass-The-hash-attack.
+> Password sync is only supported for the object type user in Active Directory. It is not supported for the iNetOrgPerson object type.
+
+### <a name="detailed-description-of-how-password-hash-synchronization-works"></a>Detailed description of how password hash synchronization works
+
+The following section describes, in-depth, how password hash synchronization works between Active Directory and Azure AD.
+
+![Detailed password flow](./media/how-to-connect-password-hash-synchronization/arch3b.png)
+
+1. Every two minutes, the password hash synchronization agent on the AD Connect server requests stored password hashes (the unicodePwd attribute) from a DC.  This request is via the standard [MS-DRSR](https://msdn.microsoft.com/library/cc228086.aspx) replication protocol used to synchronize data between DCs. The service account must have Replicate Directory Changes and Replicate Directory Changes All AD permissions (granted by default on installation) to obtain the password hashes.
+2. Before sending, the DC encrypts the MD4 password hash by using a key that is a [MD5](https://www.rfc-editor.org/rfc/rfc1321.txt) hash of the RPC session key and a salt. It then sends the result to the password hash synchronization agent over RPC. The DC also passes the salt to the synchronization agent by using the DC replication protocol, so the agent will be able to decrypt the envelope.
+3. After the password hash synchronization agent has the encrypted envelope, it uses [MD5CryptoServiceProvider](https://msdn.microsoft.com/library/System.Security.Cryptography.MD5CryptoServiceProvider.aspx) and the salt to generate a key to decrypt the received data back to its original MD4 format. The password hash synchronization agent never has access to the clear text password. The password hash synchronization agent’s use of MD5 is strictly for replication protocol compatibility with the DC, and it is only used on premises between the DC and the password hash synchronization agent.
+4. The password hash synchronization agent expands the 16-byte binary password hash to 64 bytes by first converting the hash to a 32-byte hexadecimal string, then converting this string back into binary with UTF-16 encoding.
+5. The password hash synchronization agent adds a per user salt, consisting of a 10-byte length salt, to the 64-byte binary to further protect the original hash.
+6. The password hash synchronization agent then combines the MD4 hash plus the per user salt, and inputs it into the [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt) function. 1000 iterations of the [HMAC-SHA256](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) keyed hashing algorithm are used. 
+7. The password hash synchronization agent takes the resulting 32-byte hash, concatenates both the per user salt and the number of SHA256 iterations to it (for use by Azure AD), then transmits the string from Azure AD Connect to Azure AD over SSL.</br> 
+8. When a user attempts to sign in to Azure AD and enters their password, the password is run through the same MD4+salt+PBKDF2+HMAC-SHA256 process. If the resulting hash matches the hash stored in Azure AD, the user has entered the correct password and is authenticated.
+
+> [!NOTE]
+> The original MD4 hash is not transmitted to Azure AD. Instead, the SHA256 hash of the original MD4 hash is transmitted. As a result, if the hash stored in Azure AD is obtained, it cannot be used in an on-premises pass-the-hash attack.
 
 ### <a name="security-considerations"></a>Säkerhetsöverväganden
 
-Vid synkronisering av lösen ord exponeras inte den rena text versionen av ditt lösen ord för funktionen för synkronisering av lösen ord, till Azure AD eller någon av de associerade tjänsterna.
+When synchronizing passwords, the plain-text version of your password is not exposed to the password hash synchronization feature, to Azure AD, or any of the associated services.
 
-Användarautentisering sker mot Azure AD snarare än gentemot organisationens egna Active Directory instans. De SHA256-lösenords data som lagras i Azure AD – en hash av den ursprungliga MD4-hashen – är säkrare än vad som lagras i Active Directory. Eftersom den här SHA256-hashen inte kan dekrypteras går den inte att återgå till organisationens Active Directory miljö och visas som ett giltigt användar lösen ord i en pass-The-hash-attack.
+User authentication takes place against Azure AD rather than against the organization's own Active Directory instance. The SHA256 password data stored in Azure AD--a hash of the original MD4 hash--is more secure than what is stored in Active Directory. Further, because this SHA256 hash cannot be decrypted, it cannot be brought back to the organization's Active Directory environment and presented as a valid user password in a pass-the-hash attack.
 
-### <a name="password-policy-considerations"></a>Överväganden för lösen ords principer
+### <a name="password-policy-considerations"></a>Password policy considerations
 
-Det finns två typer av lösen ords principer som påverkas av att du aktiverar synkronisering av lösen ords-hash:
+There are two types of password policies that are affected by enabling password hash synchronization:
 
-* Princip för lösen ords komplexitet
-* Princip för förfallo datum för lösen ord
+* Password complexity policy
+* Password expiration policy
 
-#### <a name="password-complexity-policy"></a>Princip för lösen ords komplexitet
+#### <a name="password-complexity-policy"></a>Password complexity policy
 
-När Lösenordssynkronisering är aktiverat åsidosätter komplexitets principerna för lösen ord i den lokala Active Directory-instansen komplexitets principer i molnet för synkroniserade användare. Du kan använda alla giltiga lösen ord från din lokala Active Directory-instans för att få åtkomst till Azure AD-tjänster.
+When password hash synchronization is enabled, the password complexity policies in your on-premises Active Directory instance override complexity policies in the cloud for synchronized users. You can use all of the valid passwords from your on-premises Active Directory instance to access Azure AD services.
 
 > [!NOTE]
-> Lösen ord för användare som skapas direkt i molnet omfattas fortfarande av lösen ords principer som definieras i molnet.
+> Passwords for users that are created directly in the cloud are still subject to password policies as defined in the cloud.
 
-#### <a name="password-expiration-policy"></a>Princip för förfallo datum för lösen ord
+#### <a name="password-expiration-policy"></a>Password expiration policy
 
-Om en användare är inom omfånget för synkronisering av lösen ords-hash är moln kontots lösen ord inställt på att *aldrig upphöra att gälla*.
+If a user is in the scope of password hash synchronization, by default the cloud account password is set to *Never Expire*.
 
-Du kan fortsätta att logga in på dina moln tjänster genom att använda ett synkroniserat lösen ord som har upphört att gälla i din lokala miljö. Ditt moln lösen ord uppdateras nästa gången du ändrar lösen ordet i den lokala miljön.
+You can continue to sign in to your cloud services by using a synchronized password that is expired in your on-premises environment. Your cloud password is updated the next time you change the password in the on-premises environment.
 
-##### <a name="public-preview-of-the-enforcecloudpasswordpolicyforpasswordsyncedusers-feature"></a>Offentlig för hands version av funktionen *EnforceCloudPasswordPolicyForPasswordSyncedUsers*
+##### <a name="public-preview-of-the-enforcecloudpasswordpolicyforpasswordsyncedusers-feature"></a>Public preview of the *EnforceCloudPasswordPolicyForPasswordSyncedUsers* feature
 
-Om det finns synkroniserade användare som bara interagerar med Azure AD-integrerade tjänster och måste också uppfylla en princip för lösen ords förfallo tid, kan du tvinga dem att följa din Azure AD-princip för lösen ords förfallo tid genom att aktivera  *EnforceCloudPasswordPolicyForPasswordSyncedUsers* -funktion.
+If there are synchronized users that only interact with Azure AD integrated services and must also comply with a password expiration policy, you can force them to comply with your Azure AD password expiration policy by enabling the *EnforceCloudPasswordPolicyForPasswordSyncedUsers* feature.
 
-När *EnforceCloudPasswordPolicyForPasswordSyncedUsers* är inaktiverat (vilket är standardinställningen) anger Azure AD Connect attributet PasswordPolicies för synkroniserade användare till "DisablePasswordExpiration". Detta görs varje gång en användares lösen ord synkroniseras och instruerar Azure AD att ignorera lösen ordets giltighets princip för lösen ord för den användaren. Du kan kontrol lera värdet för attributet med hjälp av Azure AD PowerShell-modulen med följande kommando:
+When *EnforceCloudPasswordPolicyForPasswordSyncedUsers* is disabled (which is the default setting), Azure AD Connect sets the PasswordPolicies attribute of synchronized users to "DisablePasswordExpiration". This is done every time a user's password is synchronized and instructs Azure AD to ignore the cloud password expiration policy for that user. You can check the value of the attribute using the Azure AD PowerShell module with the following command:
 
 `(Get-AzureADUser -objectID <User Object ID>).passwordpolicies`
 
 
-Om du vill aktivera funktionen EnforceCloudPasswordPolicyForPasswordSyncedUsers kör du följande kommando med hjälp av MSOnline PowerShell-modulen:
+To enable the EnforceCloudPasswordPolicyForPasswordSyncedUsers feature, run the following command using the MSOnline PowerShell module:
 
 `Set-MsolDirSyncFeature -Feature EnforceCloudPasswordPolicyForPasswordSyncedUsers -Enable $true`
 
-När den är aktive rad går Azure AD inte till varje synkroniserad användare för att ta bort `DisablePasswordExpiration`-värdet från attributet PasswordPolicies. I stället är värdet inställt på `None` under nästa Lösenordssynkronisering för varje användare nästa gång de ändrar sitt lösen ord i lokal AD.  
+Once enabled, Azure AD does not go to each synchronized user to remove the `DisablePasswordExpiration` value from the PasswordPolicies attribute. Instead, the value is set to `None` during the next password sync for each user when they next change their password in on-premises AD.  
 
-Vi rekommenderar att du aktiverar EnforceCloudPasswordPolicyForPasswordSyncedUsers innan du aktiverar synkronisering av lösen ords-hash, så att den inledande synkroniseringen av lösen ords-hashar inte lägger till värdet `DisablePasswordExpiration` till attributet PasswordPolicies för användarna.
+It is recommended to enable EnforceCloudPasswordPolicyForPasswordSyncedUsers, prior to enabling password hash sync, so that the initial sync of password hashes does not add the `DisablePasswordExpiration` value to the PasswordPolicies attribute for the users.
 
-Standard lösen ords principen för Azure AD kräver att användare ändrar sina lösen ord var 90: e dag. Om din princip i AD också är 90 dagar ska de två principerna matcha. Men om AD-principen inte är 90 dagar kan du uppdatera lösen ords principen för Azure AD så att den matchar med hjälp av kommandot Set-MsolPasswordPolicy PowerShell.
+The default Azure AD password policy requires users to change their passwords every 90 days. If your policy in AD is also 90 days, the two policies should match. However, if the AD policy is not 90 days, you can update the Azure AD password policy to match by using the Set-MsolPasswordPolicy PowerShell command.
 
-Azure AD har stöd för en separat princip för förfallo datum för lösen ord per registrerad domän.
+Azure AD supports a separate password expiration policy per registered domain.
 
-Varningar: om det finns synkroniserade konton som måste ha lösen ord som inte upphör att gälla i Azure AD måste du uttryckligen lägga till `DisablePasswordExpiration`-värdet i PasswordPolicies-attributet för användarobjektet i Azure AD.  Det kan du göra genom att köra följande kommando.
+Caveat: If there are synchronized accounts that need to have non-expiring passwords in Azure AD, you must explicitly add the `DisablePasswordExpiration` value to the PasswordPolicies attribute of the user object in Azure AD.  You can do this by running the following command.
 
 `Set-AzureADUser -ObjectID <User Object ID> -PasswordPolicies "DisablePasswordExpiration"`
 
 > [!NOTE]
-> Den här funktionen finns nu i offentlig för hands version.
+> This feature is in Public Preview right now.
 
-#### <a name="public-preview-of-synchronizing-temporary-passwords-and-force-password-on-next-logon"></a>Offentlig för hands version av synkronisering av temporära lösen ord och "tvinga lösen ord vid nästa inloggning"
+#### <a name="public-preview-of-synchronizing-temporary-passwords-and-force-password-on-next-logon"></a>Public Preview of synchronizing temporary passwords and "Force Password on Next Logon"
 
-Det är vanligt att tvinga en användare att ändra sina lösen ord under sin första inloggning, särskilt efter att administratörs lösen ordet har återställts.  Det kallas vanligt vis att ange ett "tillfälligt" lösen ord och slutförs genom att markera flaggan "användaren måste byta lösen ord vid nästa inloggning" på ett användar objekt i Active Directory (AD).
+It is typical to force a user to change their password during their first logon, especially after an admin password reset occurs.  It is commonly known as setting a "temporary" password and is completed by checking the "User must change password at next logon" flag on a user object in Active Directory (AD).
   
-Funktionen för temporära lösen ord hjälper till att säkerställa att överföringen av ägarskapet för autentiseringsuppgiften har slutförts vid första användningen, för att minimera tiden i vilken mer än en person har kännedom om den autentiseringsuppgiften.
+The temporary password functionality helps to ensure that the transfer of ownership of the credential is completed on first use, to minimize the duration of time in which more than one individual has knowledge of that credential.
 
-Om du vill ha stöd för tillfälliga lösen ord i Azure AD för synkroniserade användare kan du aktivera funktionen *ForcePasswordResetOnLogonFeature* genom att köra följande kommando på Azure AD Connect-servern och ersätta <AAD Connector Name> med anslutnings namnet som är särskilt för din miljö:
+To support temporary passwords in Azure AD for synchronized users, you can enable the *ForcePasswordResetOnLogonFeature* feature, by running the following command on your Azure AD Connect server, replacing <AAD Connector Name> with the connector name specific to your environment:
 
 `Set-ADSyncAADCompanyFeature -ConnectorName "<AAD Connector name>" -ForcePasswordResetOnLogonFeature $true`
 
-Du kan använda följande kommando för att fastställa anslutnings namnet:
+You can use the following command to determine the connector name:
 
 `(Get-ADSyncConnector | where{$_.ListName -eq "Windows Azure Active Directory (Microsoft)"}).Name`
 
-Villkor: tvingar en användare att ändra sina lösen ord vid nästa inloggning kräver en lösen ords ändring samtidigt.  AD Connect hämtar inte själva flaggan för att ändra lösen ordets ändringar. den kompletteras med den identifierade lösen ords ändringen som sker under synkroniseringen av lösen ords-hash.
+Caveat:  Forcing a user to change their password on next logon requires a password change at the same time.  AD Connect will not pick up the force password change flag by itself, it is supplemental to the detected password change that occurs during password hash sync.
 
 > [!CAUTION]
-> Om du inte aktiverar självbetjäning för återställning av lösen ord (SSPR) i Azure AD-användare får du en förvirrande upplevelse när de återställer sitt lösen ord i Azure AD och försöker sedan logga in i Active Directory med det nya lösen ordet, eftersom det nya lösen ordet inte är giltigt i Active Directory . Du bör endast använda den här funktionen när tillbakaskrivning av SSPR och lösen ord är aktiverat på klienten.
+> If you do not enable Self-service Password Reset (SSPR) in Azure AD users will have a confusing experience when they reset their password in Azure AD and then attempt to sign in in Active Directory with the new password, as the new password isn’t valid in Active Directory. You should only use this feature when SSPR and Password Writeback is enabled on the tenant.
 
 > [!NOTE]
-> Den här funktionen finns nu i offentlig för hands version.
+> This feature is in Public Preview right now.
 
-#### <a name="account-expiration"></a>Kontots förfallo datum
+#### <a name="account-expiration"></a>Account expiration
 
-Om din organisation använder attributet accountExpires som en del av användar konto hantering, synkroniseras inte det här attributet med Azure AD. Det innebär att ett utgånget Active Directory-konto i en miljö som kon figurer ATS för synkronisering av lösen ords-hash fortfarande är aktivt i Azure AD. Vi rekommenderar att om kontot har upphört att gälla ska en arbets flödes åtgärd utlösa ett PowerShell-skript som inaktiverar användarens Azure AD-konto (Använd cmdleten [set-AzureADUser](https://docs.microsoft.com/powershell/module/azuread/set-azureaduser?view=azureadps-2.0) ). När kontot är påslaget måste Azure AD-instansen vara aktive rad.
+If your organization uses the accountExpires attribute as part of user account management, this attribute is not synchronized to Azure AD. As a result, an expired Active Directory account in an environment configured for password hash synchronization will still be active in Azure AD. We recommend that if the account is expired, a workflow action should trigger a PowerShell script that disables the user's Azure AD account (use the [Set-AzureADUser](https://docs.microsoft.com/powershell/module/azuread/set-azureaduser?view=azureadps-2.0) cmdlet). Conversely, when the account is turned on, the Azure AD instance should be turned on.
 
-### <a name="overwrite-synchronized-passwords"></a>Skriv över synkroniserade lösen ord
+### <a name="overwrite-synchronized-passwords"></a>Overwrite synchronized passwords
 
-En administratör kan manuellt återställa ditt lösen ord med hjälp av Windows PowerShell.
+An administrator can manually reset your password by using Windows PowerShell.
 
-I det här fallet åsidosätter det nya lösen ordet det synkroniserade lösen ordet och alla lösen ords principer som definierats i molnet tillämpas på det nya lösen ordet.
+In this case, the new password overrides your synchronized password, and all password policies defined in the cloud are applied to the new password.
 
-Om du ändrar ditt lokala lösen ord igen synkroniseras det nya lösen ordet till molnet och åsidosätter det manuellt uppdaterade lösen ordet.
+If you change your on-premises password again, the new password is synchronized to the cloud, and it overrides the manually updated password.
 
-Synkroniseringen av ett lösen ord påverkar inte den Azure-användare som är inloggad. Den aktuella Cloud Service-sessionen påverkas inte direkt av en synkroniserad lösen ords ändring som inträffar när du är inloggad i en moln tjänst. KMSI avgör utökar varaktigheten för den här skillnaden. När moln tjänsten kräver att du autentiserar igen måste du ange ditt nya lösen ord.
+The synchronization of a password has no impact on the Azure user who is signed in. Your current cloud service session is not immediately affected by a synchronized password change that occurs while you're signed in to a cloud service. KMSI extends the duration of this difference. When the cloud service requires you to authenticate again, you need to provide your new password.
 
-### <a name="additional-advantages"></a>Ytterligare fördelar
+### <a name="additional-advantages"></a>Additional advantages
 
-- I allmänhet är Lösenordssynkronisering enklare att implementera än en Federations tjänst. Det krävs inga ytterligare servrar och eliminerar beroendet av en Federations tjänst med hög tillgänglighet för att autentisera användare.
-- Hash-synkronisering av lösen ord kan också aktive ras utöver Federation. Den kan användas som reserv om Federations tjänsten upplever ett avbrott.
+- Generally, password hash synchronization is simpler to implement than a federation service. It doesn't require any additional servers, and eliminates dependence on a highly available federation service to authenticate users.
+- Password hash synchronization can also be enabled in addition to federation. It may be used as a fallback if your federation service experiences an outage.
 
-## <a name="password-hash-sync-process-for-azure-ad-domain-services"></a>Synkronisering av lösenords-hash för Azure AD Domain Services
+## <a name="password-hash-sync-process-for-azure-ad-domain-services"></a>Password hash sync process for Azure AD Domain Services
 
-Om du använder Azure AD Domain Services för att tillhandahålla äldre autentisering för program och tjänster som behöver använda Keberos, LDAP eller NTLM, ingår vissa ytterligare processer i flödet för Lösenordssynkronisering. Azure AD Connect använder ytterligare följande process för att synkronisera Password-hashar till Azure AD för användning i Azure AD Domain Services:
+If you use Azure AD Domain Services to provide legacy authentication for applications and services that need to use Keberos, LDAP, or NTLM, some additional processes are part of the password hash synchronization flow. Azure AD Connect uses the additional following process to synchronize password hashes to Azure AD for use in Azure AD Domain Services:
 
 > [!IMPORTANT]
-> Azure AD Connect synkroniserar bara äldre lösen ords-hashar när du aktiverar Azure AD DS för Azure AD-klienten. Följande steg används inte om du bara använder Azure AD Connect för att synkronisera en lokal AD DS-miljö med Azure AD.
+> Azure AD Connect should only be installed and configured for synchronization with on-premises AD DS environments. It's not supported to install Azure AD Connect in an Azure AD DS managed domain to synchronize objects back to Azure AD.
 >
-> Om dina äldre program inte använder NTLM-autentisering eller enkla LDAP-bindningar, rekommenderar vi att du inaktiverar hash-synkronisering av NTLM-lösenord för Azure AD DS. Mer information finns i [inaktivera svaga chiffersviter och hash-synkronisering av NTLM-autentiseringsuppgifter](../../active-directory-domain-services/secure-your-domain.md).
+> Azure AD Connect only synchronizes legacy password hashes when you enable Azure AD DS for your Azure AD tenant. The following steps aren't used if you only use Azure AD Connect to synchronize an on-premises AD DS environment with Azure AD.
+>
+> If your legacy applications don't use NTLM authentication or LDAP simple binds, we recommend that you disable NTLM password hash synchronization for Azure AD DS. For more information, see [Disable weak cipher suites and NTLM credential hash synchronization](../../active-directory-domain-services/secure-your-domain.md).
 
-1. Azure AD Connect hämtar den offentliga nyckeln för klient Azure AD Domain Servicess instansen.
-1. När en användare ändrar sitt lösen ord lagrar den lokala domänkontrollanten resultatet av lösen ords ändringen (hash-värden) i två attribut:
-    * *unicodePwd* för NTLM-lösenords-hash.
-    * *supplementalCredentials* för Kerberos-lösenords-hash.
-1. Azure AD Connect identifierar lösen ords ändringar via Directory Replication-kanal (attributändringar som behöver replikeras till andra domänkontrollanter).
-1. För varje användare vars lösen ord har ändrats utför Azure AD Connect följande steg:
-    * Genererar en slumpmässig AES 256-bitars symmetrisk nyckel.
-    * Genererar en slumpmässig initierings vektor som krävs för den första avrundade krypteringen.
-    * Extraherar Kerberos-lösenords-hashvärden från *supplementalCredentials* -attributen.
-    * Kontrollerar inställningen för *SyncNtlmPasswords* Azure AD Domain Services av säkerhets konfiguration.
-        * Om den här inställningen är inaktive rad genererar en slumpmässig, hög entropi NTLM-hash (skiljer sig från användarens lösen ord). Denna hash kombineras sedan med exakta Kerberos-lösenords-hashvärden från attributet *supplementalCrendetials* till en data struktur.
-        * Om aktive rad kombineras värdet för attributet *unicodePwd* med de extraherade Kerberos-lösenords-hasharna från attributet *supplementalCredentials* till en data struktur.
-    * Krypterar den enkla data strukturen med hjälp av den symmetriska AES-nyckeln.
-    * Krypterar den symmetriska AES-nyckeln med klientens Azure AD Domain Services offentliga nyckel.
-1. Azure AD Connect skickar den krypterade AES symmetriska nyckeln, den krypterade data strukturen som innehåller lösen ordets hash-värden och initierings vektorn till Azure AD.
-1. Azure AD lagrar den krypterade AES symmetriska nyckeln, den krypterade data strukturen och initierings vektorn för användaren.
-1. Azure AD push-överför den krypterade AES symmetriska nyckeln, den krypterade data strukturen och initierings vektorn med hjälp av en intern synkronisering över en krypterad HTTP-session till Azure AD Domain Services.
-1. Azure AD Domain Services hämtar den privata nyckeln för klient organisationens instans från Azure Key Vault.
-1. För varje krypterad data uppsättning (som representerar en enskild användares lösen ords ändring) utför Azure AD Domain Services följande steg:
-    * Använder den privata nyckeln för att dekryptera den symmetriska AES-nyckeln.
-    * Använder den symmetriska AES-nyckeln med initierings vektorn för att dekryptera den krypterade data strukturen som innehåller lösen ordets hash-värden.
-    * Skriver de Kerberos-lösenords-hashar som den tar emot till Azure AD Domain Services domänkontrollanten. Hasharna sparas i användarobjektet *supplementalCredentials* -attribut som är krypterade till den Azure AD Domain Services domänkontrollantens publika nyckel.
-    * Azure AD Domain Services skriver det NTLM-lösenord som det fick till Azure AD Domain Services domänkontrollanten. Hashen sparas i objektet för attributet *unicodePwd* som är krypterat till den Azure AD Domain Services domänkontrollantens publika nyckel.
+1. Azure AD Connect retrieves the public key for the tenant's instance of Azure AD Domain Services.
+1. When a user changes their password, the on-premises domain controller stores the result of the password change (hashes) in two attributes:
+    * *unicodePwd* for the NTLM password hash.
+    * *supplementalCredentials* for the Kerberos password hash.
+1. Azure AD Connect detects password changes through the directory replication channel (attribute changes needing to replicate to other domain controllers).
+1. For each user whose password has changed, Azure AD Connect performs the following steps:
+    * Generates a random AES 256-bit symmetric key.
+    * Generates a random initialization vector needed for the first round of encryption.
+    * Extracts Kerberos password hashes from the *supplementalCredentials* attributes.
+    * Checks the Azure AD Domain Services security configuration *SyncNtlmPasswords* setting.
+        * If this setting is disabled, generates a random, high-entropy NTLM hash (different from the user's password). This hash is then combined with the exacted Kerberos password hashes from the *supplementalCrendetials* attribute into one data structure.
+        * If enabled, combines the value of the *unicodePwd* attribute with the extracted Kerberos password hashes from the *supplementalCredentials* attribute into one data structure.
+    * Encrypts the single data structure using the AES symmetric key.
+    * Encrypts the AES symmetric key using the tenant's Azure AD Domain Services public key.
+1. Azure AD Connect transmits the encrypted AES symmetric key, the encrypted data structure containing the password hashes, and the initialization vector to Azure AD.
+1. Azure AD stores the encrypted AES symmetric key, the encrypted data structure, and the initialization vector for the user.
+1. Azure AD pushes the encrypted AES symmetric key, the encrypted data structure, and the initialization vector using an internal synchronization mechanism over an encrypted HTTP session to Azure AD Domain Services.
+1. Azure AD Domain Services retrieves the private key for the tenant's instance from Azure Key vault.
+1. For each encrypted set of data (representing a single user's password change), Azure AD Domain Services then performs the following steps:
+    * Uses its private key to decrypt the AES symmetric key.
+    * Uses the AES symmetric key with the initialization vector to decrypt the encrypted data structure that contains the password hashes.
+    * Writes the Kerberos password hashes it receives to the Azure AD Domain Services domain controller. The hashes are saved into the user object's *supplementalCredentials* attribute that is encrypted to the Azure AD Domain Services domain controller's public key.
+    * Azure AD Domain Services writes the NTLM password hash it received to the Azure AD Domain Services domain controller. The hash is saved into the user object's *unicodePwd* attribute that is encrypted to the Azure AD Domain Services domain controller's public key.
 
 ## <a name="enable-password-hash-synchronization"></a>Aktivera hashsynkronisering för lösenord
 
 >[!IMPORTANT]
->Om du migrerar från AD FS (eller andra Federations tekniker) till synkronisering av lösen ords-hash rekommenderar vi starkt att du följer vår detaljerade distributions guide publicerad [här](https://aka.ms/adfstophsdpdownload).
+>If you are migrating from AD FS (or other federation technologies) to Password Hash Synchronization, we highly recommend that you follow our detailed deployment guide published [here](https://aka.ms/adfstophsdpdownload).
 
-När du installerar Azure AD Connect med alternativet **Express-inställningar** aktive ras hash-synkronisering av lösen ord automatiskt. Mer information finns i [komma igång med Azure AD Connect med hjälp av Express inställningar](how-to-connect-install-express.md).
+When you install Azure AD Connect by using the **Express Settings** option, password hash synchronization is automatically enabled. For more information, see [Getting started with Azure AD Connect using express settings](how-to-connect-install-express.md).
 
-Om du använder anpassade inställningar när du installerar Azure AD Connect är hash-synkronisering av lösen ord tillgängligt på inloggnings sidan för användare. Mer information finns i [anpassad installation av Azure AD Connect](how-to-connect-install-custom.md).
+If you use custom settings when you install Azure AD Connect, password hash synchronization is available on the user sign-in page. For more information, see [Custom installation of Azure AD Connect](how-to-connect-install-custom.md).
 
 ![Aktivera synkronisering av lösenordshash](./media/how-to-connect-password-hash-synchronization/usersignin2.png)
 
-### <a name="password-hash-synchronization-and-fips"></a>Password-hash-synkronisering och FIPS
-Om servern har låsts enligt Federal Information Processing Standard (FIPS) inaktive ras MD5.
+### <a name="password-hash-synchronization-and-fips"></a>Password hash synchronization and FIPS
+If your server has been locked down according to Federal Information Processing Standard (FIPS), then MD5 is disabled.
 
-**Gör så här för att aktivera MD5 för synkronisering av lösen ords-hash:**
+**To enable MD5 for password hash synchronization, perform the following steps:**
 
-1. Gå till%programfiles%\Azure AD Sync\Bin.
-2. Öppna MIIServer. exe. config.
-3. Gå till noden konfiguration/körning i slutet av filen.
-4. Lägg till följande nod: `<enforceFIPSPolicy enabled="false"/>`
+1. Go to %programfiles%\Azure AD Sync\Bin.
+2. Open miiserver.exe.config.
+3. Go to the configuration/runtime node at the end of the file.
+4. Add the following node: `<enforceFIPSPolicy enabled="false"/>`
 5. Spara ändringarna.
 
-För referens är det här kodfragmentet det som ska se ut så här:
+For reference, this snippet is what it should look like:
 
 ```
     <configuration>
@@ -223,12 +225,12 @@ För referens är det här kodfragmentet det som ska se ut så här:
     </configuration>
 ```
 
-Information om säkerhet och FIPS finns i [Azure AD Password hash Sync, kryptering och FIPS-kompatibilitet](https://blogs.technet.microsoft.com/enterprisemobility/2014/06/28/aad-password-sync-encryption-and-fips-compliance/).
+For information about security and FIPS, see [Azure AD password hash sync, encryption, and FIPS compliance](https://blogs.technet.microsoft.com/enterprisemobility/2014/06/28/aad-password-sync-encryption-and-fips-compliance/).
 
-## <a name="troubleshoot-password-hash-synchronization"></a>Felsöka hash-synkronisering av lösen ord
-Om du har problem med att synkronisera hash-synkronisering, se [Felsöka Lösenordssynkronisering för lösen ord](tshoot-connect-password-hash-synchronization.md).
+## <a name="troubleshoot-password-hash-synchronization"></a>Troubleshoot password hash synchronization
+If you have problems with password hash synchronization, see [Troubleshoot password hash synchronization](tshoot-connect-password-hash-synchronization.md).
 
 ## <a name="next-steps"></a>Nästa steg
-* [Azure AD Connect synkronisering: Anpassa synkroniseringsalternativ](how-to-connect-sync-whatis.md)
+* [Azure AD Connect sync: Customizing synchronization options](how-to-connect-sync-whatis.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)
-* [Få en stegvis distributions plan för migrering från ADFS till hash-synkronisering av lösen ord](https://aka.ms/authenticationDeploymentPlan)
+* [Get a step-by-step deployment plan for migrating from ADFS to Password Hash Synchronization](https://aka.ms/authenticationDeploymentPlan)

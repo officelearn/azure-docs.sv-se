@@ -1,132 +1,127 @@
 ---
-title: Använd Azure Container Instances som Jenkins build-agent
-description: Lär dig hur du konfigurerar en Jenkins-Server för att köra Bygg jobb på begäran i Azure Container Instances
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
+title: Jenkins build on container instance
+description: Learn how to configure a Jenkins server to run build jobs on-demand in Azure Container Instances
 ms.topic: article
 ms.date: 08/31/2018
-ms.author: danlep
-ms.openlocfilehash: 7e93457a182598a2e8d739f4d626b49ff57b30fb
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: e63ade82d4efeed40a9fba6f11d16131e8c728e7
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150210"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484060"
 ---
-# <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Använd Azure Container Instances som Jenkins build-agent
+# <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Use Azure Container Instances as a Jenkins build agent
 
-Azure Container Instances (ACI) tillhandahåller en miljö på begäran, burst-anslutning och isolerad miljö för att köra arbets belastningar i behållare. På grund av dessa attribut gör ACI en bra plattform för att köra Jenkins-build-jobb i stor skala. Den här artikeln beskriver hur du distribuerar och använder en Jenkins-server som är förkonfigurerad med ACI som bygg mål.
+Azure Container Instances (ACI) provides an on-demand, burstable, and isolated environment for running containerized workloads. Because of these attributes, ACI makes a great platform for running Jenkins build jobs at a large scale. This article walks through deploying and using a Jenkins server that's pre-configured with ACI as a build target.
 
-Mer information om Azure Container Instances finns i [om Azure Container instances][about-aci].
+For more information on Azure Container Instances, see [About Azure Container Instances][about-aci].
 
-## <a name="deploy-a-jenkins-server"></a>Distribuera en Jenkins-Server
+## <a name="deploy-a-jenkins-server"></a>Deploy a Jenkins server
 
-1. I Azure Portal väljer du **skapa en resurs** och söker efter **Jenkins**. Välj Jenkins-erbjudandet med en utgivare av **Microsoft**och välj sedan **skapa**.
+1. In the Azure portal, select **Create a resource** and search for **Jenkins**. Select the Jenkins offering with a publisher of **Microsoft**, and then select **Create**.
 
-2. Ange följande information i formuläret **grundläggande** och välj sedan **OK**.
+2. Enter the following information on the **Basics** form, and then select **OK**.
 
-   - **Namn**: Ange ett namn för Jenkins-distributionen.
-   - **Användar namn**: Ange ett namn på administratörs användaren för den virtuella Jenkins-datorn.
-   - **Autentiseringstyp**: Vi rekommenderar en offentlig SSH-nyckel för autentisering. Om du väljer det här alternativet klistrar du in en offentlig SSH-nyckel som ska användas för att logga in på den virtuella Jenkins-datorn.
+   - **Name**: Enter a name for the Jenkins deployment.
+   - **User name**: Enter a name for the admin user of the Jenkins virtual machine.
+   - **Authentication type**: We recommend an SSH public key for authentication. If you select this option, paste in an SSH public key to be used for logging in to the Jenkins virtual machine.
    - **Prenumeration**: Välj en Azure-prenumeration.
    - **Resursgrupp**: Skapa en resursgrupp eller välj en befintlig.
-   - **Plats**: Välj en plats för Jenkins-servern.
+   - **Location**: Select a location for the Jenkins server.
 
-   ![Grundläggande inställningar för distribution av Jenkins-portalen](./media/container-instances-jenkins/jenkins-portal-01.png)
+   ![Basic settings for Jenkins portal deployment](./media/container-instances-jenkins/jenkins-portal-01.png)
 
-3. I formuläret **ytterligare inställningar** slutför du följande objekt:
+3. On the **Additional Settings** form, complete the following items:
 
-   - **Storlek**: Välj lämpligt storleks alternativ för din virtuella Jenkins-dator.
-   - **Disk typ för virtuell dator**: Ange antingen **HDD** (hård disk enhet) eller **SSD** (Solid-State Drive) för Jenkins-servern.
-   - **Virtuellt nätverk**: Välj pilen om du vill ändra standardinställningarna.
-   - **Undernät**: Välj pilen, verifiera informationen och välj **OK**.
-   - **Offentlig IP-adress**: Välj pilen för att ge den offentliga IP-adressen ett anpassat namn, konfigurera SKU: n och ange tilldelnings metoden.
-   - **Domän namns etikett**: Ange ett värde för att skapa en fullständigt kvalificerad URL till den virtuella Jenkins-datorn.
-   - **Jenkins-versions typ**: Välj önskad versions typ från alternativen: **LTS**, **veckovis build**eller **Azure verifierad**.
+   - **Size**: Select the appropriate sizing option for your Jenkins virtual machine.
+   - **VM disk type**: Specify either **HDD** (hard-disk drive) or **SSD** (solid-state drive) for the Jenkins server.
+   - **Virtual network**: Select the arrow if you want to modify the default settings.
+   - **Subnets**: Select the arrow, verify the information, and select **OK**.
+   - **Public IP address**: Select the arrow to give the public IP address a custom name, configure the SKU, and set the assignment method.
+   - **Domain name label**: Specify a value to create a fully qualified URL to the Jenkins virtual machine.
+   - **Jenkins release type**: Select the desired release type from the options: **LTS**, **Weekly build**, or **Azure Verified**.
 
-   ![Ytterligare inställningar för distribution av Jenkins-portalen](./media/container-instances-jenkins/jenkins-portal-02.png)
+   ![Additional settings for Jenkins portal deployment](./media/container-instances-jenkins/jenkins-portal-02.png)
 
-4. För tjänstens huvud namns integrering väljer du **Auto (MSI)** om du vill att [hanterade identiteter för Azure-resurser][managed-identities-azure-resources] automatiskt ska skapa en Autentiseringsidentitet för Jenkins-instansen. Välj **manuell** om du vill ange dina egna autentiseringsuppgifter för tjänstens huvud namn.
+4. For service principal integration, select **Auto(MSI)** to have [managed identities for Azure resources][managed-identities-azure-resources] automatically create an authentication identity for the Jenkins instance. Select **Manual** to provide your own service principal credentials.
 
-5. Moln agenter konfigurerar en molnbaserad plattform för Jenkins build-jobb. I den här artikeln väljer du **ACI**. Med ACI Cloud Agent körs varje Jenkins-build-jobb i en behållar instans.
+5. Cloud agents configure a cloud-based platform for Jenkins build jobs. For the sake of this article, select **ACI**. With the ACI cloud agent, each Jenkins build job is run in a container instance.
 
-   ![Moln integrerings inställningar för distribution av Jenkins-portalen](./media/container-instances-jenkins/jenkins-portal-03.png)
+   ![Cloud integration settings for Jenkins portal deployment](./media/container-instances-jenkins/jenkins-portal-03.png)
 
-6. När du är klar med integrations inställningarna väljer du **OK**och väljer sedan **OK** igen på validerings sammanfattningen. Välj **skapa** på **användningsvillkor** Sammanfattning. Det tar några minuter att distribuera Jenkins-servern.
+6. When you're done with the integration settings, select **OK**, and then select **OK** again on the validation summary. Select **Create** on the **Terms of use** summary. The Jenkins server takes a few minutes to deploy.
 
 ## <a name="configure-jenkins"></a>Konfigurera Jenkins
 
-1. I Azure Portal bläddrar du till resurs gruppen Jenkins, väljer den virtuella Jenkins-datorn och noterar DNS-namnet.
+1. In the Azure portal, browse to the Jenkins resource group, select the Jenkins virtual machine, and take note of the DNS name.
 
-   ![DNS-namn i information om den virtuella Jenkins-datorn](./media/container-instances-jenkins/jenkins-portal-fqdn.png)
+   ![DNS name in details about the Jenkins virtual machine](./media/container-instances-jenkins/jenkins-portal-fqdn.png)
 
-2. Bläddra till DNS-namnet för den virtuella Jenkins-datorn och kopiera den returnerade SSH-strängen.
+2. Browse to the DNS name of the Jenkins VM and copy the returned SSH string.
 
-   ![Jenkins inloggnings instruktioner med SSH-sträng](./media/container-instances-jenkins/jenkins-portal-04.png)
+   ![Jenkins login instructions with SSH string](./media/container-instances-jenkins/jenkins-portal-04.png)
 
-3. Öppna en terminalsession i utvecklings systemet och klistra in SSH-strängen från det sista steget. Uppdatera `username` till det användar namn som du angav när du distribuerade Jenkins-servern.
+3. Open a terminal session on your development system, and paste in the SSH string from the last step. Update `username` to the username that you specified when you deployed the Jenkins server.
 
-4. När sessionen är ansluten kör du följande kommando för att hämta det ursprungliga administratörs lösen ordet:
+4. After the session is connected, run the following command to retrieve the initial admin password:
 
-   ```
+   ```bash
    sudo cat /var/lib/jenkins/secrets/initialAdminPassword
    ```
 
-5. Lämna SSH-sessionen och-tunneln igång och gå till `http://localhost:8080` i en webbläsare. Klistra in det ursprungliga administratörs lösen ordet i rutan och välj sedan **Fortsätt**.
+5. Leave the SSH session and tunnel running, and go to `http://localhost:8080` in a browser. Paste the initial admin password into the box, and then select **Continue**.
 
-   ![Skärmen "Lås upp Jenkins" med rutan för administratörs lösen ordet](./media/container-instances-jenkins/jenkins-portal-05.png)
+   !["Unlock Jenkins" screen with the box for the administrator password](./media/container-instances-jenkins/jenkins-portal-05.png)
 
-6. Välj **Installera föreslagna plugin** -program för att installera alla rekommenderade Jenkins-plugin-program.
+6. Select **Install suggested plugins** to install all recommended Jenkins plugins.
 
-   ![Skärmen "anpassa Jenkins" med "installera föreslagna plugin-program" valt](./media/container-instances-jenkins/jenkins-portal-06.png)
+   !["Customize Jenkins" screen with "Install suggested plugins" selected](./media/container-instances-jenkins/jenkins-portal-06.png)
 
-7. Skapa ett administratörs användar konto. Det här kontot används för att logga in på och arbeta med din Jenkins-instans.
+7. Create an admin user account. This account is used for logging in to and working with your Jenkins instance.
 
-   ![Skärmen "skapa första administratörs användare" med autentiseringsuppgifter ifyllt](./media/container-instances-jenkins/jenkins-portal-07.png)
+   !["Create First Admin User" screen, with credentials filled in](./media/container-instances-jenkins/jenkins-portal-07.png)
 
-8. Välj **Spara och slutför**och välj sedan **börja använda Jenkins** för att slutföra konfigurationen.
+8. Select **Save and Finish**, and then select **Start using Jenkins** to complete the configuration.
 
-Jenkins har nu kon figurer ATS och är redo att bygga och distribuera kod. I det här exemplet används ett enkelt Java-program för att demonstrera en Jenkins-version på Azure Container Instances.
+Jenkins is now configured and ready to build and deploy code. For this example, a simple Java application is used to demonstrate a Jenkins build on Azure Container Instances.
 
-## <a name="create-a-build-job"></a>Skapa ett Bygg jobb
+## <a name="create-a-build-job"></a>Create a build job
 
-Nu skapas ett Jenkins build-jobb för att demonstrera Jenkins-versioner på en Azure Container instance.
+Now, a Jenkins build job is created to demonstrate Jenkins builds on an Azure container instance.
 
-1. Välj **nytt objekt**, ge build-projektet ett namn som **ACI-demo**, Välj **Freestyle projekt**och välj **OK**.
+1. Select **New Item**, give the build project a name such as **aci-demo**, select **Freestyle project**, and select **OK**.
 
-   ![Box för namnet på Build-jobbet och en lista över projekt typer](./media/container-instances-jenkins/jenkins-new-job.png)
+   ![Box for the name of the build job, and list of project types](./media/container-instances-jenkins/jenkins-new-job.png)
 
-2. Under **Allmänt**kontrollerar du att **begränsa var det här projektet kan köras** är markerat. Ange **Linux** som etikett uttryck. Den här konfigurationen säkerställer att det här bygg jobbet körs i ACI-molnet.
+2. Under **General**, ensure that **Restrict where this project can be run** is selected. Enter **linux** for the label expression. This configuration ensures that this build job runs on the ACI cloud.
 
-   ![Fliken Allmänt med konfigurations information](./media/container-instances-jenkins/jenkins-job-01.png)
+   !["General" tab with configuration details](./media/container-instances-jenkins/jenkins-job-01.png)
 
-3. Under **build**väljer du **Lägg till build-steg** och väljer **Kör gränssnitt**. Ange `echo "aci-demo"` som kommando.
+3. Under **Build**, select **Add build step** and select **Execute Shell**. Enter `echo "aci-demo"` as the command.
 
-   ![Fliken "Build" med val för build-steget](./media/container-instances-jenkins/jenkins-job-02.png)
+   !["Build" tab with selections for the build step](./media/container-instances-jenkins/jenkins-job-02.png)
 
 5. Välj **Spara**.
 
-## <a name="run-the-build-job"></a>Kör build-jobbet
+## <a name="run-the-build-job"></a>Run the build job
 
-Om du vill testa build-jobbet och titta Azure Container Instances som build-plattform startar du en version manuellt.
+To test the build job and observe Azure Container Instances as the build platform, manually start a build.
 
-1. Välj **Skapa nu** för att starta ett build-jobb. Det tar några minuter för jobbet att starta. Du bör se en status som liknar följande bild:
+1. Select **Build Now** to start a build job. It takes a few minutes for the job to start. You should see a status that's similar to the following image:
 
-   ![Information om "versions historik" med jobb status](./media/container-instances-jenkins/jenkins-job-status.png)
+   !["Build History" information with job status](./media/container-instances-jenkins/jenkins-job-status.png)
 
-2. När jobbet körs öppnar du Azure Portal och tittar på resurs gruppen Jenkins. Du bör se att en behållar instans har skapats. Jenkins-jobbet körs i den här instansen.
+2. While the job is running, open the Azure portal and look at the Jenkins resource group. You should see that a container instance has been created. The Jenkins job is running inside this instance.
 
-   ![Container instans i resurs gruppen](./media/container-instances-jenkins/jenkins-aci.png)
+   ![Container instance in the resource group](./media/container-instances-jenkins/jenkins-aci.png)
 
-3. När Jenkins kör fler jobb än det konfigurerade antalet Jenkins-körningar (standard 2) skapas flera behållar instanser.
+3. As Jenkins runs more jobs than the configured number of Jenkins executors (default 2), multiple container instances are created.
 
-   ![Nyligen skapade behållar instanser](./media/container-instances-jenkins/jenkins-aci-multi.png)
+   ![Newly created container instances](./media/container-instances-jenkins/jenkins-aci-multi.png)
 
-4. När alla Bygg jobb har avslut ATS tas behållar instanserna bort.
+4. After all build jobs have finished, the container instances are removed.
 
-   ![Resurs grupp med behållar instanser borttagna](./media/container-instances-jenkins/jenkins-aci-none.png)
+   ![Resource group with container instances removed](./media/container-instances-jenkins/jenkins-aci-none.png)
 
 ## <a name="troubleshooting-the-jenkins-plugin"></a>Felsökning av Jenkins-plugin-programmet
 
@@ -134,7 +129,7 @@ Om du stöter på buggar med Jenkins-plugin-programmet kan du rapportera problem
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Jenkins i Azure finns i [Azure och Jenkins][jenkins-azure].
+To learn more about Jenkins on Azure, see [Azure and Jenkins][jenkins-azure].
 
 <!-- LINKS - internal -->
 [about-aci]: ./container-instances-overview.md

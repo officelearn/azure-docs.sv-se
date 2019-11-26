@@ -266,18 +266,6 @@
           href: media-services-dotnet-long-operations.md
         - name: Specifikation för live-inmatning av fragmenterad MP4
           href: ../media-services-fmp4-live-ingest-overview.md
-        - name: Komma igång
-          href: media-services-azure-media-clipper-getting-started.md
-        - name: Läsa in videor
-          href: media-services-azure-media-clipper-load-assets.md
-        - name: Konfigurera kortkommandon
-          href: media-services-azure-media-clipper-keyboard-shortcuts.md
-        - name: Konfigurera lokalisering
-          href: media-services-azure-media-clipper-localization.md
-        - name: Skicka urklippningsjobb
-          href: media-services-azure-media-clipper-submit-job.md
-        - name: Azure Portal
-          href: media-services-azure-media-clipper-portal.md
     - name: Skydda innehåll
       href: media-services-content-protection-overview.md
       items:

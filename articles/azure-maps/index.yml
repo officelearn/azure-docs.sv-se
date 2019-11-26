@@ -45,6 +45,8 @@ sections:
         style: unordered
         items:
           - html: <a href="/azure/azure-maps/tutorial-geofence">Konfigurera geofence</a>
+          - html: <a href="/azure-maps/tutorial-iot-hub-maps">Rumslig analys</a>
+          - html: <a href=/azure/azure-maps/tutorial-ev-routing">EV-routning med Azure Notebooks (Python)</a>
   - title: Referens
     items:
       - type: list
@@ -52,6 +54,6 @@ sections:
         className: cardsW
         items:
           - title: JavaScript
-            html: '<p><a href="https://docs.microsoft.com/javascript/api/azure-maps-javascript/">Kartkontroll</a></p>'
+            html: '<p><a href="https://docs.microsoft.com/javascript/api/azure-maps-javascript/">Kartkontroll</a></p><p><a href="https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/">Modul för ritningsverktyg</a></p><p><a href="https://docs.microsoft.com/javascript/api/azure-maps-rest/">Tjänstmodul</a></p>'
           - title: REST
             html: '<p><a href="https://docs.microsoft.com/rest/api/maps/data">Datatjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/geolocation">Geoplatstjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/mobility">Mobilitetstjänsten</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/render">Renderingstjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/route">Routningstjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/search">Söktjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/spatial">Rumslig tjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/timezone">Tidszonstjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/traffic">Trafiktjänst</a></p>'

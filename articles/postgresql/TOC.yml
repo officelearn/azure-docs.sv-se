@@ -175,6 +175,10 @@
   items:
     - name: Enskild server
       items:
+        - name: Hantera en server
+          items:
+            - name: Azure Portal
+              href: howto-create-manage-server-portal.md
         - name: Autentisering
           items:
             - name: Skapa användare

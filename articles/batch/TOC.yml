@@ -45,6 +45,8 @@
       href: batch-api-basics.md
     - name: 'API:er och verktyg'
       href: batch-apis-tools.md
+    - name: Bästa praxis
+      href: best-practices.md
     - name: Kvoter och begränsningar
       href: batch-quota-limit.md
     - name: VM-storlekar som stöds

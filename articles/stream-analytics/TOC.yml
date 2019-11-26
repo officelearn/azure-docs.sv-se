@@ -133,6 +133,9 @@
         - name: Bearbeta Event Hubs-data
           href: ../event-hubs/process-data-azure-stream-analytics.md
           maintainContext: true
+        - name: Bearbeta Azure SQL Database
+          href: ../sql-database/sql-database-stream-analytics.md
+          maintainContext: true
         - name: Geospatiala scenarier
           href: geospatial-scenarios.md
     - name: Övervaka

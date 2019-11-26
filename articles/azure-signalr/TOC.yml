@@ -61,6 +61,8 @@
   items:
     - name: Skala
       items:
+        - name: Enstaka instans
+          href: signalr-howto-scale-signalr.md
         - name: Flera instanser
           href: signalr-howto-scale-multi-instances.md
     - name: Skydda

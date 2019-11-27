@@ -14,26 +14,29 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/04/2019
+ms.date: 11/26/2019
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: elisol, lenalepa
+ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebf6b9a07e775c76188dcebece011b01e90fbcf5
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 6d2efdcf03b829b43f797ddb7ca32bb6d120609e
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803452"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533002"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Hur och varför program läggs till i Azure AD
 
-Det finns två representationer av program i Azure AD: 
+Det finns två representationer av program i Azure AD:
+
 * [Program objekt](app-objects-and-service-principals.md#application-object) – även om det finns [undantag](#notes-and-exceptions)kan program objekt anses vara definitionen av ett program.
 * [Tjänstens huvud namn](app-objects-and-service-principals.md#service-principal-object) – kan betraktas som en instans av ett program. Tjänstens huvud namn refererar vanligt vis till ett program objekt, och ett program objekt kan refereras till av flera huvud namn för tjänsten mellan kataloger.
 
 ## <a name="what-are-application-objects-and-where-do-they-come-from"></a>Vad är program objekt och var de kommer från?
+
 Du kan hantera [program objekt](app-objects-and-service-principals.md#application-object) i Azure Portal via [appens registrerings](https://aka.ms/appregistrations) upplevelse. Program objekt beskriver programmet till Azure AD och kan betraktas som definition av programmet, vilket gör att tjänsten vet hur token ska utfärdas till programmet baserat på dess inställningar. Programobjektet finns bara i sin Hem Katalog, även om det är ett program med flera innehavare som stöder tjänstens huvud namn i andra kataloger. Programobjektet kan innehålla något av följande (och ytterligare information som inte nämns här):
+
 * Namn, logo typ och utgivare
 * Omdirigera URI: er
 * Hemligheter (symmetriska och/eller asymmetriska nycklar som används för att autentisera programmet)
@@ -45,13 +48,15 @@ Du kan hantera [program objekt](app-objects-and-service-principals.md#applicatio
 * Metadata och konfiguration för proxy
 
 Program objekt kan skapas via flera vägar, inklusive:
+
 * Program registreringar i Azure Portal
 * Skapa ett nytt program med Visual Studio och konfigurera det för att använda Azure AD-autentisering
 * När en administratör lägger till ett program från App-galleriet (som också kommer att skapa ett huvud namn för tjänsten)
-* Skapa ett nytt program med hjälp av Microsoft Graph API, Azure AD Graph API eller PowerShell
+* Använda Microsoft Graph API eller PowerShell för att skapa ett nytt program
 * Många andra, inklusive olika utvecklares upplevelser i Azure och i API Explorer-upplevelser i olika utvecklings Center
 
 ## <a name="what-are-service-principals-and-where-do-they-come-from"></a>Vad är tjänstens huvud namn och var de kommer från?
+
 Du kan hantera [tjänstens huvud namn](app-objects-and-service-principals.md#service-principal-object) i Azure Portal via [företags program](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) upplevelsen. Tjänstens huvud namn är det som styr ett program som ansluter till Azure AD och som kan anses vara instansen av programmet i din katalog. För ett angivet program kan det ha högst ett program objekt (som är registrerat i en "Hem Katalog") och ett eller flera tjänst huvud objekt som representerar instanser av programmet i varje katalog där det fungerar. 
 
 Tjänstens huvud namn kan innehålla:
@@ -122,7 +127,7 @@ Program läggs till i Azure AD för att utnyttja en eller flera av de tjänster 
 
 ## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>Vem har behörighet att lägga till program till min Azure AD-instans?
 
-Det finns vissa aktiviteter som bara globala administratörer kan göra (till exempel att lägga till program från App-galleriet och konfigurera ett program för att använda programproxyn) som standard som standard alla användare i katalogen har behörighet att registrera program objekt som de utvecklar och ser över vilka program som de delar/ger åtkomst till organisationens data genom medgivande. Om en person är den första användaren i din katalog för att logga in i ett program och bevilja medgivande, skapas ett huvud namn för tjänsten i din klient organisation. Annars lagras medgivande beviljad information på det befintliga huvud namnet för tjänsten.
+Det finns vissa aktiviteter som bara globala administratörer kan göra (till exempel att lägga till program från App-galleriet och konfigurera ett program för att använda programproxyn) som standard, men alla användare i katalogen har behörighet att registrera program objekt som de utvecklar och gör det möjligt att registrera program som de delar/ger åtkomst till sina organisations data via medgivande. Om en person är den första användaren i din katalog för att logga in i ett program och bevilja medgivande, skapas ett huvud namn för tjänsten i din klient organisation. Annars lagras medgivande beviljad information på det befintliga huvud namnet för tjänsten.
 
 Att tillåta att användare registrerar och samtycker till program kan ha ett inlednings vis ljud om, men tänk på följande i åtanke:
 

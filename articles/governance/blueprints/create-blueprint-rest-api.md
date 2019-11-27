@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create a blueprint with REST API'
-description: In this quickstart, you use Azure Blueprints to create, define, and deploy artifacts using the REST API.
+title: 'Snabb start: skapa en skiss med REST API'
+description: I den här snabb starten använder du Azure-ritningar för att skapa, definiera och distribuera artefakter med hjälp av REST API.
 ms.date: 11/21/2019
 ms.topic: quickstart
 ms.openlocfilehash: 0338afb3dbcb7b2c6d7d204d4387873ac7607182
@@ -10,7 +10,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74322161"
 ---
-# <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Quickstart: Define and Assign an Azure Blueprint with REST API
+# <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Snabb start: definiera och tilldela en Azure Blueprint med REST API
 
 När du skapar och tilldelar skisser kan definitionen av vanliga mönster utveckla återanvändbara och snabbt distribuerbara konfigurationer baserade på Resource Manager-mallar, principer, säkerhet med mera. I den här självstudien får du lära dig att använda Azure Blueprint för att utföra några av de vanliga uppgifter som rör generering, publicering och tilldelning av en skiss i din organisation. Du lär dig till exempel att:
 
@@ -62,7 +62,7 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
 - `{subscriptionId}` – Ersätt med ditt prenumerations-ID
 
 > [!NOTE]
-> Blueprints may also be created at the subscription level. To see an example, see [create blueprint at subscription example](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint).
+> Ritningar kan också skapas på prenumerations nivå. Ett exempel finns i [skapa skiss vid prenumerations exempel](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint).
 
 1. Skapa det första _skissobjektet_. **Begärandetexten** innehåller egenskaper för skissen, de resursgrupper som ska skapas och alla parametrar på skissnivå. Parametrarna anges vid tilldelning och används av artefakterna som lagts till i senare steg.
 
@@ -328,7 +328,7 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
 - `{YourMG}` – Ersätt med ID för din hanteringsgrupp
 - `{subscriptionId}` – Ersätt med ditt prenumerations-ID
 
-1. Ge Azure Blueprint-tjänstobjektet rollen **Ägare** för målprenumerationen. The AppId is static (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), but the service principal ID varies by tenant. Information kan begäras för din klientorganisation med hjälp av följande REST API. Det använder [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md) som har en annan auktorisering.
+1. Ge Azure Blueprint-tjänstobjektet rollen **Ägare** för målprenumerationen. AppId är static (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), men tjänstens huvud namns-ID varierar av klienten. Information kan begäras för din klientorganisation med hjälp av följande REST API. Det använder [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md) som har en annan auktorisering.
 
    - REST API-URI
 
@@ -429,7 +429,7 @@ Om du vill ta bort själva skissen använder du följande REST API-åtgärd:
 
 ## <a name="next-steps"></a>Nästa steg
 
-In this quickstart, you've created, assigned, and removed a blueprint with REST API. To learn more about Azure Blueprints, continue to the blueprint lifecycle article.
+I den här snabb starten har du skapat, tilldelat och tagit bort en skiss med REST API. Om du vill veta mer om Azure-ritningar kan du fortsätta till ritnings livs cykel artikeln.
 
 > [!div class="nextstepaction"]
-> [Learn about the blueprint lifecycle](./concepts/lifecycle.md)
+> [Lär dig mer om skiss livs cykeln](./concepts/lifecycle.md)

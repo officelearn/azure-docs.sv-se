@@ -1,6 +1,6 @@
 ---
-title: Self-service password reset deployment - Azure Active Directory
-description: Strategy for successful implementation of Azure AD self-service password reset
+title: Distribution av lösen ords återställning via självbetjäning – Azure Active Directory
+description: Strategi för lyckad implementering av lösen ords återställning via självbetjäning i Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -21,229 +21,229 @@ ms.locfileid: "74381294"
 # <a name="deploy-azure-ad-self-service-password-reset"></a>Distribuera självbetjäning av lösenordsåterställning för Azure AD
 
 > [!NOTE]
-> This guide explains self-service password reset and how to deploy it. If you are looking for the self service password reset tool to get back into your account, go to [https://aka.ms/sspr](https://aka.ms/sspr). 
+> Den här guiden förklarar självbetjäning för återställning av lösen ord och hur du distribuerar den. Om du letar efter verktyget för återställning av lösen ord för självbetjäning för att komma tillbaka till ditt konto går du till [https://aka.ms/sspr](https://aka.ms/sspr). 
 
-Self-service password reset (SSPR) is an Azure Active Directory feature that enables employees to reset their passwords without needing to contact IT staff. Employees must register for or be registered for self-service password reset before using the service. During registration, the employee chooses one or more authentication methods enabled by their organization.
+Lösen ords återställning via självbetjäning (SSPR) är en Azure Active Directory funktion som gör att anställda kan återställa sina lösen ord utan att behöva kontakta IT-personalen. Medarbetare måste registreras för eller registreras för lösen ords återställning via självbetjäning innan tjänsten kan användas. Under registreringen väljer den anställda en eller flera autentiseringsmetoder som har Aktiver ATS av organisationen.
 
-SSPR enables employees to quickly get unblocked and continue working no matter where they are or the time of day. By allowing users to unblock themselves, your organization can reduce the non-productive time and high support costs for most common password-related issues.
+SSPR gör det möjligt för de anställda att snabbt få tag i blockering och fortsätta att arbeta oavsett var de befinner sig eller tiden på dagen. Genom att tillåta användare att avblockera sig själva kan din organisation minska den icke produktiva tiden och höga support kostnader för de flesta vanliga problem som rör lösen ord.
 
-Help users get registered quickly by deploying SSPR alongside another application or service in your organization. This action will generate a large volume of sign-ins and will drive registration.
+Hjälp användarna att komma igång snabbt genom att distribuera SSPR tillsammans med ett annat program eller en tjänst i din organisation. Den här åtgärden genererar en stor volym av inloggningar och kommer att driva registrering.
 
-Before deploying SSPR, organizations may want to determine how many password reset related help desk calls happen over time and the average cost of each call. They can use this data post deployment to show the value SSPR is bringing to your organization.  
+Innan du distribuerar SSPR kanske organisationer vill fastställa hur många relaterade svar på lösen ords återställning sker över tid och den genomsnittliga kostnaden för varje anrop. De kan använda den här data publicerings distributionen för att visa värdet som SSPR ansluter till din organisation.  
 
-## <a name="how-sspr-works"></a>How SSPR works
+## <a name="how-sspr-works"></a>Så här fungerar SSPR
 
-1. When a user attempts to reset a password, they must verify their previously registered authentication method or methods to prove their identity.
-1. Then the user enters a new password.
-   1. For cloud-only users, the new password is stored in Azure Active Directory. For more information, see the article [How SSPR works](concept-sspr-howitworks.md#how-does-the-password-reset-portal-work).
-   1. For hybrid users, the password is written back to the on-premises Active Directory via the Azure AD Connect service. For more information, see the article [What is password writeback](concept-sspr-writeback.md#how-password-writeback-works).
+1. När en användare försöker återställa ett lösen ord måste han eller hon verifiera sin identitet genom att verifiera deras tidigare registrerade autentiseringsmetod eller metoder.
+1. Användaren anger sedan ett nytt lösen ord.
+   1. För endast molnbaserade användare lagras det nya lösen ordet i Azure Active Directory. Mer information finns i artikeln [hur SSPR fungerar](concept-sspr-howitworks.md#how-does-the-password-reset-portal-work).
+   1. För Hybrid användare skrivs lösen ordet tillbaka till den lokala Active Directory via tjänsten Azure AD Connect. Mer information finns i artikeln [Vad är tillbakaskrivning av lösen ord](concept-sspr-writeback.md#how-password-writeback-works).
 
-## <a name="licensing-considerations"></a>Licensing considerations
+## <a name="licensing-considerations"></a>Licens överväganden
 
-Azure Active Directory is licensed per-user meaning each user has to have an appropriate license for the features they utilize.
+Azure Active Directory är licensierad per användare, vilket innebär att varje användare måste ha en lämplig licens för de funktioner som de använder.
 
-More information about licensing can be found on the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory/)
+Mer information om licensiering finns på [sidan Azure Active Directory prissättning](https://azure.microsoft.com/pricing/details/active-directory/)
 
-## <a name="enable-combined-registration-for-sspr-and-mfa"></a>Enable combined registration for SSPR and MFA
+## <a name="enable-combined-registration-for-sspr-and-mfa"></a>Aktivera kombinerad registrering för SSPR och MFA
 
-Microsoft recommends that organizations enable the combined registration experience for SSPR and multi-factor authentication. When you enable this combined registration experience, users need only select their registration information once to enable both features.
+Microsoft rekommenderar att organisationer aktiverar den kombinerade registrerings upplevelsen för SSPR och Multi-Factor Authentication. När du aktiverar den här kombinerade registrerings upplevelsen behöver användarna bara välja sin registrerings information en gång för att aktivera båda funktionerna.
 
-![Combined security information registration](./media/howto-sspr-deployment/combined-security-info.png)
+![Kombinerad säkerhets informations registrering](./media/howto-sspr-deployment/combined-security-info.png)
 
-The combined registration experience does not require organizations to enable both SSPR and Azure Multi-Factor Authentication to use. The combined registration experience provides organizations a better user experience compared to the traditional individual components. More information about combined registration, and how to enable, can be found in the article [Combined security information registration (preview)](concept-registration-mfa-sspr-combined.md)
+Den kombinerade registrerings upplevelsen kräver inte att organisationer aktiverar både SSPR och Azure Multi-Factor Authentication att använda. Den kombinerade registrerings upplevelsen ger organisationer en bättre användar upplevelse jämfört med de traditionella enskilda komponenterna. Mer information om kombinerad registrering och hur du aktiverar finns i artikeln [kombinerad säkerhets informations registrering (för hands version)](concept-registration-mfa-sspr-combined.md)
 
-## <a name="plan-the-configuration"></a>Plan the configuration
+## <a name="plan-the-configuration"></a>Planera konfigurationen
 
-The following settings are required to enable SSPR along with recommended values.
+Följande inställningar krävs för att aktivera SSPR tillsammans med rekommenderade värden.
 
 | Område | Inställning | Värde |
 | --- | --- | --- |
-| **SSPR Properties** | Self-service password reset enabled | **Selected** group for pilot / **All** for production |
-| **Autentiseringsmetoder** | Authentication methods required to register | Always 1 more than required for reset |
-|   | Authentication methods required to reset | One or two |
+| **Egenskaper för SSPR** | Återställning av lösen ord för självbetjäning har Aktiver ATS | **Vald** grupp för pilot/ **alla** för produktion |
+| **Autentiseringsmetoder** | Autentiseringsmetoder som krävs för registrering | Alltid 1 mer än vad som krävs för återställning |
+|   | Autentiseringsmetoder som krävs för att återställa | En eller två |
 | **Registrering** | Kräv att användare registrerar sig vid inloggning | Ja |
-|   | Number of days before users are asked to re-confirm their authentication information | 90 – 180 days |
+|   | Antal dagar innan användare uppmanas att bekräfta sin autentiseringsinformation | 90 – 180 dagar |
 | **Meddelanden** | Meddela användare om lösenordsåterställning | Ja |
 |   | Meddela alla administratörer när andra administratörer återställer sina lösenord | Ja |
-| **Customization** | Customize helpdesk link | Ja |
-|   | Custom helpdesk email or URL | Support site or email address |
-| **Lokal integration** | Write back passwords to on-premises AD | Ja |
-|   | Allow users to unlock account without resetting password | Ja |
+| **Eventuella** | Anpassa supportavdelningen-länk | Ja |
+|   | E-post eller URL för anpassad helpdesk | Support webbplats eller e-postadress |
+| **Lokal integration** | Skriv tillbaka lösen ord till lokal AD | Ja |
+|   | Tillåt att användare låser upp kontot utan att återställa lösen ordet | Ja |
 
-### <a name="sspr-properties-recommendations"></a>SSPR properties recommendations
+### <a name="sspr-properties-recommendations"></a>Rekommendationer för SSPR-egenskaper
 
-When enabling Self-service password reset, choose a security group to be used during the pilot.
+När du aktiverar lösen ords återställning via självbetjäning väljer du en säkerhets grupp som ska användas under piloten.
 
-When you plan to launch the service more broadly, we recommend using the All option to enforce SSPR for everyone in the organization. If you cannot set to all, select the appropriate Azure AD Security group or AD group synced to Azure AD.
+När du planerar att starta tjänsten mer brett rekommenderar vi att du använder alternativet all för att genomdriva SSPR för alla i organisationen. Om du inte kan ställa in på alla väljer du den aktuella Azure AD-säkerhetsgruppen eller AD-gruppen som synkroniseras med Azure AD.
 
 ### <a name="authentication-methods"></a>Autentiseringsmetoder
 
-Set Authentication methods required to register to at least one more than the number required to reset. Allowing multiple gives users flexibility when they need to reset.
+Ange de autentiseringsmetoder som krävs för att registrera minst ett av de tal som krävs för att återställa. Om du tillåter flera får användarna flexibilitet när de behöver återställa.
 
-Set **Number of methods required to reset** to a level appropriate to your organization. One requires the least friction, while two may increase your security posture.
+Ange det **antal metoder som krävs för att återställa** till en nivå som är lämplig för din organisation. En kräver minst friktion, medan två kan öka din säkerhets position.
 
-See [What are authentication methods](concept-authentication-methods.md) for detailed information on which authentication methods are available for SSPR, pre-defined security questions, and how to create customized security questions.
+Se [Vad är autentiseringsmetoder](concept-authentication-methods.md) för detaljerad information om vilka autentiseringsmetoder som är tillgängliga för SSPR, fördefinierade säkerhets frågor och hur du skapar anpassade säkerhets frågor.
 
-### <a name="registration-settings"></a>Registration settings
+### <a name="registration-settings"></a>Registrerings inställningar
 
-Set **Require users to register when signing in** to **Yes**. This setting means that the users are forced to register when signing in, ensuring that all users are protected.
+Ange **Kräv att användare registrerar sig när de loggar in** på **Ja**. Den här inställningen innebär att användarna tvingas att registrera sig när de loggar in, vilket säkerställer att alla användare är skyddade.
 
-Set **Number of days before users are asked to re-confirm their authentication information** to between **90** and **180** days, unless your organization has a business need for a shorter time frame.
+Ange **antal dagar innan användare uppmanas att bekräfta sin autentiseringsinformation** till mellan **90** och **180** dagar, om inte din organisation har ett affärs behov för kortare tids ramar.
 
-### <a name="notifications-settings"></a>Notifications settings
+### <a name="notifications-settings"></a>Aviserings inställningar
 
-Configure both the **Notify users on password resets** and the **Notify all admins when other admins reset their password** to **Yes**. Selecting **Yes** on both increases security by ensuring that users are aware when their password has been reset, and that all admins are aware when an admin changes a password. If users or admins receive such a notification and they have not initiated the change, they can immediately report a potential security breach.
+Konfigurera både **meddela användare om lösen ords** återställning och **meddela alla administratörer när andra administratörer återställer sina lösen ord** till **Ja**. Om du väljer **Ja** på båda ökar säkerheten genom att se till att användarna är medvetna om deras lösen ord har återställts och att alla administratörer är medvetna om en administratör ändrar ett lösen ord. Om användare eller administratörer får sådant meddelande och de inte har initierat ändringen, kan de omedelbart rapportera en potentiell säkerhets överträdelse.
 
 ### <a name="customization"></a>Anpassning
 
-It’s critical to customize the **helpdesk email or URL** to ensure users who experience problems can quickly get help. Set this option to a common helpdesk email address or web page that your users are familiar with.
+Det är viktigt att anpassa e-postadressen **eller URL: en för supportavdelningen** för att säkerställa att användare som upplever problem snabbt kan få hjälp. Ange det här alternativet till en vanlig e-postadress för supportavdelningen eller en webb sida som användarna är bekanta med.
 
 ### <a name="on-premises-integration"></a>Lokal integration
 
-If you have a hybrid environment, ensure that **Write back passwords to on-premises AD** is set to **Yes**. Also set the Allow users to unlock account without resetting password to Yes, as it gives them more flexibility.
+Om du har en hybrid miljö kontrollerar du att **Skriv tillbaka lösen ord till lokal AD** har angetts till **Ja**. Ange också Tillåt att användare låser upp kontot utan att återställa lösen ordet till Ja, eftersom det ger dem större flexibilitet.
 
-### <a name="changingresetting-passwords-of-administrators"></a>Changing/Resetting passwords of administrators
+### <a name="changingresetting-passwords-of-administrators"></a>Ändra/återställa lösen ord för administratörer
 
-Administrator accounts are special accounts with elevated permissions. To secure them, the following restrictions apply to changing passwords of administrators:
+Administratörs konton är särskilda konton med utökade behörigheter. För att skydda dem gäller följande begränsningar för att ändra lösen ord för administratörer:
 
-- On-premises enterprise administrators or domain administrators cannot reset their password through SSPR. They can only change their password in their on-premises environment. Thus, we recommend not syncing on-prem AD admin accounts to Azure AD.
-- An administrator cannot use secret Questions & Answers as a method to reset password.
+- Lokala företags administratörer eller domän administratörer kan inte återställa sina lösen ord via SSPR. De kan bara ändra sina lösen ord i sin lokala miljö. Därför rekommenderar vi inte att du synkroniserar lokal AD admin-konton till Azure AD.
+- En administratör kan inte använda hemliga frågor & svar som en metod för att återställa lösen ordet.
 
-### <a name="environments-with-multiple-identity-management-systems"></a>Environments with multiple identity management systems
+### <a name="environments-with-multiple-identity-management-systems"></a>Miljöer med flera identitets hanterings system
 
-If there are multiple identity management systems within an environment such as on-premises identity managers like Oracle AM, SiteMinder, or other systems, then passwords written to Active Directory may need to be synchronized to the other systems using a tool like the Password Change Notification Service (PCNS) with Microsoft Identity Manager (MIM). To find information on this more complex scenario, see the article [Deploy the MIM Password Change Notification Service on a domain controller](https://docs.microsoft.com/microsoft-identity-manager/deploying-mim-password-change-notification-service-on-domain-controller).
+Om det finns flera identitets hanterings system i en miljö, till exempel lokala identitets hanterare som Oracle AM, SiteMinder eller andra system, kan lösen ord som skrivs till Active Directory behöva synkroniseras till andra system med hjälp av ett verktyg som Tjänsten för meddelanden om lösen ords ändring (PCNS) med Microsoft Identity Manager (MIM). Om du vill ha mer information om det här komplexa scenariot kan du läsa artikeln [distribuera MIM-tjänsten för meddelanden om lösen ords ändring på en](https://docs.microsoft.com/microsoft-identity-manager/deploying-mim-password-change-notification-service-on-domain-controller)domänkontrollant.
 
-## <a name="plan-deployment-and-support-for-sspr"></a>Plan deployment and support for SSPR
+## <a name="plan-deployment-and-support-for-sspr"></a>Planera distribution och stöd för SSPR
 
-### <a name="engage-the-right-stakeholders"></a>Engage the right stakeholders
+### <a name="engage-the-right-stakeholders"></a>Engagera rätt intressenter
 
-When technology projects fail, they typically do so due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, ensure that you are engaging the right stakeholders, and that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountability.
+När teknik projekt inte fungerar, gör de vanligt vis på grund av felaktiga förväntningar på påverkan, resultat och ansvars områden. För att undvika dessa fall GRO par bör du se till att du engagerar rätt intressenter och att från intressenter-rollerna i projektet är väl förstå genom att dokumentera intressenterna och deras ingångs uppgifter och ansvars uppgifter.
 
-### <a name="communications-plan"></a>Communications plan
+### <a name="communications-plan"></a>Kommunikations plan
 
-Communication is critical to the success of any new service. Proactively communicate with your users how to use the service and what they can do to get help if something doesn’t work as expected. Review the [Self-service password reset rollout materials on the Microsoft download center](https://www.microsoft.com/download/details.aspx?id=56768) for ideas on how to plan your end-user communication strategy.
+Kommunikationen är nödvändig för att en ny tjänst ska lyckas. Kommunicera proaktivt med dina användare om hur du använder tjänsten och vad de kan göra för att få hjälp om något inte fungerar som förväntat. Granska distributions [materialet för lösen ords återställning via självbetjäning på Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=56768) för att få tips om hur du planerar din slut användar kommunikations strategi.
 
-### <a name="testing-plan"></a>Testing plan
+### <a name="testing-plan"></a>Test plan
 
-To ensure that your deployment works as expected, you should plan out a set of test cases you will use to validate the implementation. The following table includes some useful test scenarios you can use to document your organizations expected results based on your policies.
+För att säkerställa att distributionen fungerar som förväntat, bör du planera en uppsättning test ärenden som du ska använda för att validera implementeringen. Följande tabell innehåller några användbara test scenarier som du kan använda för att dokumentera dina organisationers förväntade resultat baserat på dina principer.
 
-| Företagscase | Expected result |
+| Företagscase | Förväntat resultat |
 | --- | --- |
-| SSPR portal is accessible from within the corporate network | Determined by your organization |
-| SSPR portal is accessible from outside the corporate network | Determined by your organization |
-| Reset user password from browser when user is not enabled for password reset | User is not able to access the password reset flow |
-| Reset user password from browser when user has not registered for password reset | User is not able to access the password reset flow |
-| User signs in when password reset registration is enforced | User is prompted to register security information |
-| User signs in when password reset registration has been completed | User is not prompted to register security information |
-| SSPR portal is accessible when the user does not have a license | Is accessible |
-| Reset user password from Windows 10 Azure AD joined or hybrid Azure AD joined device lock screen after user has registered | User can reset password |
-| SSPR registration and usage data are available to administrators in near real time | Is available via audit logs |
+| SSPR-portalen är tillgänglig i företags nätverket | Bestäms av din organisation |
+| SSPR-portalen kan nås utanför företags nätverket | Bestäms av din organisation |
+| Återställ användar lösen ord från webbläsare när användaren inte har Aktiver ATS för lösen ords återställning | Användaren kan inte komma åt flödet för lösen ords återställning |
+| Återställ användar lösen ord från webbläsare när användaren inte har registrerats för lösen ords återställning | Användaren kan inte komma åt flödet för lösen ords återställning |
+| Användaren loggar in när registreringen av lösen ords återställning tillämpas | Användaren uppmanas att registrera säkerhets information |
+| Användaren loggar in när registreringen av lösen ords återställning har slutförts | Användaren uppmanas inte att registrera säkerhets information |
+| SSPR-portalen är tillgänglig när användaren inte har någon licens | Är tillgänglig |
+| Återställ användar lösen ord från Windows 10 Azure AD-ansluten eller hybrid Azure AD-ansluten enhets Lås skärm när användaren har registrerat sig | Användare kan återställa lösen ord |
+| SSPR-registrering och användnings data är tillgängliga för administratörer i nära real tid | Är tillgänglig via gransknings loggar |
 
 ### <a name="support-plan"></a>Supportplan
 
-While SSPR does not typically create user issues, it is important to have support staff prepared to deal with issues that may arise.
+Medan SSPR vanligt vis inte skapar användar problem är det viktigt att ha support personal för beredd för att hantera problem som kan uppstå.
 
-While an administrator can change or reset the password for end users through the Azure AD portal, it is better to help resolve the issue via a self-service support process.
+Även om en administratör kan ändra eller återställa lösen ordet för slutanvändare via Azure AD Portal, är det bättre att hjälpa till att lösa problemet via en självbetjänings support process.
 
-In the operational guide section of this document, create a list of support cases and their likely causes, and create a guide for resolution.
+I avsnittet operativa rikt linjer i det här dokumentet skapar du en lista över support ärenden och deras sannolika orsaker och skapar en guide för lösning.
 
-### <a name="auditing-and-reporting"></a>Auditing and reporting
+### <a name="auditing-and-reporting"></a>Granskning och rapportering
 
-After deployment, many organizations want to know how or if self-service password reset (SSPR) is really being used. The reporting feature that Azure Active Directory (Azure AD) provides helps you answer questions by using prebuilt reports.
+Efter distributionen vill många organisationer veta hur eller om självbetjäning för återställning av lösen ord (SSPR) faktiskt används. Med rapporterings funktionen som Azure Active Directory (Azure AD) kan du besvara frågor genom att använda färdiga rapporter.
 
-Audit logs for registration and password reset are available for 30 days. Therefore, if security auditing within a corporation requires longer retention, the logs need to be exported and consumed into a SIEM tool such as [Azure Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk, or ArcSight.
+Gransknings loggar för registrering och återställning av lösen ord är tillgängliga i 30 dagar. Om säkerhets granskning i ett företag kräver längre kvarhållning måste därför loggarna exporteras och förbrukas i ett SIEM-verktyg som till exempel [Azure Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk eller ArcSight.
 
-In a table, like the one below, document the backup schedule, the system, and the responsible parties. You may not need separate auditing and reporting backups, but you should have a separate backup from which you can recover from an issue.
+I en tabell, precis som den nedan, dokumenterar du schemat för säkerhets kopiering, systemet och ansvariga parter. Du kanske inte behöver separata säkerhets kopior för granskning och rapportering, men du bör ha en separat säkerhets kopia som du kan återställa från ett problem.
 
-|   | Frequency of download | Target system | Responsible party |
+|   | Hämtnings frekvens | Mål system | Ansvarig part |
 | --- | --- | --- | --- |
-| Auditing backup |   |   |   |
-| Reporting backup |   |   |   |
-| Disaster recovery backup |   |   |   |
+| Granska säkerhets kopiering |   |   |   |
+| Rapportera säkerhets kopia |   |   |   |
+| Säkerhets kopiering av haveri beredskap |   |   |   |
 
 ## <a name="implementation"></a>Implementering
 
-Implementation occurs in three stages:
+Implementering sker i tre steg:
 
-- Configure users and licenses
-- Configure Azure AD SSPR for registration and self-service
-- Configure Azure AD Connect for password writeback
+- Konfigurera användare och licenser
+- Konfigurera Azure AD-SSPR för registrering och självbetjäning
+- Konfigurera Azure AD Connect för tillbakaskrivning av lösen ord
 
-### <a name="communicate-the-change"></a>Communicate the change
+### <a name="communicate-the-change"></a>Kommunicera ändringen
 
-Begin implementation of the communications plan that you developed in the planning phase.
+Börja implementeringen av kommunikations planen som du utvecklade i planerings fasen.
 
-### <a name="ensure-groups-are-created-and-populated"></a>Ensure groups are created and populated
+### <a name="ensure-groups-are-created-and-populated"></a>Se till att grupper skapas och fylls i
 
-Reference the Planning password authentication methods section and ensure the group(s) for the pilot or production implementation are available, and all appropriate users are added to the groups.
+Referera till avsnittet Planera autentiseringsmetoder för lösen ord och se till att grupperna för pilot-eller produktions implementeringen är tillgängliga och att alla lämpliga användare läggs till i grupperna.
 
-### <a name="apply-licenses"></a>Apply licenses
+### <a name="apply-licenses"></a>Tillämpa licenser
 
-The groups you are going to implement must have the Azure AD premium license assigned to them. You can assign licenses directly to the group, or you can use existing license policies such as through PowerShell or Group-Based Licensing.
+De grupper som du ska implementera måste ha tilldelats Azure AD Premium-licensen. Du kan tilldela licenser direkt till gruppen, eller så kan du använda befintliga licens principer, till exempel via PowerShell eller gruppbaserad licensiering.
 
-Information about assigning licenses to groups of users can be found in the article, [Assign licenses to users by group membership in Azure Active Directory](../users-groups-roles/licensing-groups-assign.md).
+Information om hur du tilldelar licenser till grupper med användare finns i artikeln [tilldela licenser till användare efter grupp medlemskap i Azure Active Directory](../users-groups-roles/licensing-groups-assign.md).
 
-### <a name="configure-sspr"></a>Configure SSPR
+### <a name="configure-sspr"></a>Konfigurera SSPR
 
-#### <a name="enable-groups-for-sspr"></a>Enable groups for SSPR
+#### <a name="enable-groups-for-sspr"></a>Aktivera grupper för SSPR
 
-1. Access the Azure portal with an administrator account.
-1. Select All Services, and in the Filter box, type Azure Active Directory, and then select Azure Active Directory.
-1. On the Active Directory blade, select Password reset.
-1. In the properties pane, select Selected. If you want all users enabled, Select All.
-1. In the Default password reset policy blade, type the name of the first group, select it, and then click Select at the bottom of the screen, and select Save at the top of the screen.
-1. Repeat this process for each group.
+1. Få åtkomst till Azure Portal med ett administratörs konto.
+1. Välj alla tjänster och skriv Azure Active Directory i rutan Filter och välj sedan Azure Active Directory.
+1. På bladet Active Directory väljer du lösen ords återställning.
+1. I fönstret Egenskaper väljer du vald. Om du vill att alla användare ska vara aktiverade väljer du alla.
+1. Skriv namnet på den första gruppen i bladet standard princip för lösen ords återställning, markera den och klicka sedan på Välj längst ned på skärmen och välj Spara längst upp på skärmen.
+1. Upprepa den här processen för varje grupp.
 
-#### <a name="configure-the-authentication-methods"></a>Configure the authentication methods
+#### <a name="configure-the-authentication-methods"></a>Konfigurera autentiseringsmetoder
 
-Reference your planning from the Planning Password Authentication Methods section of this document.
+Referera till planeringen från avsnittet Planera lösenordsautentisering för lösen ord i det här dokumentet.
 
-1. Select Registration, under Require user to register when signing in, select Yes, and then set the number of days before expiration, and then select Save.
-1. Select Notification, and configure per your plan, and then select Save.
-1. Select Customization, and configure per your plan, and then select Save.
-1. Select On-premises integration, and configure per your plan, and then select Save.
+1. Välj registrering under Kräv att användare registrerar när du loggar in, Välj Ja och ange sedan antalet dagar före förfallo datum och välj sedan Spara.
+1. Välj meddelande och konfigurera per plan och välj sedan Spara.
+1. Välj anpassning och konfigurera per plan och välj sedan Spara.
+1. Välj lokal integrering och konfigurera per plan och välj sedan Spara.
 
-### <a name="enable-sspr-in-windows"></a>Enable SSPR in Windows
+### <a name="enable-sspr-in-windows"></a>Aktivera SSPR i Windows
 
-Windows 10 devices running version 1803 or higher that are either Azure AD joined or hybrid Azure AD joined can reset their passwords at the Windows login screen. Information and steps to configure this capability can be found in the article [Azure AD password reset from the login screen](tutorial-sspr-windows.md)
+Windows 10-enheter som kör version 1803 eller högre som antingen är anslutna till Azure AD eller en hybrid Azure AD-anslutning kan återställa sina lösen ord på Windows inloggnings skärm. Information och steg för att konfigurera den här funktionen finns i artikeln [återställning av lösen ord för Azure AD från inloggnings skärmen](tutorial-sspr-windows.md)
 
-### <a name="configure-password-writeback"></a>Configure password writeback
+### <a name="configure-password-writeback"></a>Konfigurera tillbakaskrivning av lösen ord
 
-Steps to configure password writeback for your organization can be found in the article [How-to: Configure password writeback](howto-sspr-writeback.md).
+Steg för att konfigurera tillbakaskrivning av lösen ord för din organisation finns i artikeln [instruktion: Konfigurera tillbakaskrivning av lösen ord](howto-sspr-writeback.md).
 
-## <a name="manage-sspr"></a>Manage SSPR
+## <a name="manage-sspr"></a>Hantera SSPR
 
-Required roles to manage features associated with self-service password reset.
+Nödvändiga roller för att hantera funktioner som är associerade med lösen ords återställning via självbetjäning.
 
-| Business role/persona | Azure AD Role (if necessary) |
+| Affärs roll/persona | Azure AD-roll (om det behövs) |
 | :---: | :---: |
-| Level 1 Helpdesk | Password administrator |
-| Level 2 Helpdesk | User administrator |
-| SSPR Administrator | Global administratör |
+| Nivå 1-helpdesk | Lösen ords administratör |
+| Nivå 2-supportavdelningen | Användar administratör |
+| SSPR-administratör | Global administratör |
 
-### <a name="support-scenarios"></a>Support scenarios
+### <a name="support-scenarios"></a>Support scenarier
 
-To enable your support team success, you can create an FAQ based on questions you receive from your users. The following table contains common support scenarios.
+Om du vill göra det möjligt för support teamet att lyckas kan du skapa vanliga frågor och svar baserat på frågor som du får från användarna. Följande tabell innehåller vanliga support scenarier.
 
 | Scenarier | Beskrivning |
 | --- | --- |
-| User does not have any registered authentication methods available | A user is trying to reset their password but does not have any of the authentication methods that they registered available (Example: they left their cell phone at home and can’t access email) |
-| User is not receiving a text or call on their office or mobile phone | A user is trying to verify their identity via text or call but is not receiving a text/call. |
-| User cannot access the password reset portal | A user wants to reset their password but is not enabled for password reset and therefore cannot access the page to update passwords. |
-| User cannot set a new password | A user completes verification during the password reset flow but cannot set a new password. |
-| User does not see a Reset Password link on a Windows 10 device | A user is trying to reset password from the Windows 10 lock screen, but the device is either not joined to Azure AD, or the Intune device policy is not enabled |
+| Användaren har inga registrerade autentiseringsmetoder tillgängliga | En användare försöker återställa sitt lösen ord men har inte någon av de autentiseringsmetoder som de registrerade är tillgängliga (exempel: de lämnade sin mobil telefon hemma och har inte åtkomst till e-post) |
+| Användaren får ingen text eller ett samtal på sitt kontor eller mobil telefon | En användare försöker verifiera sin identitet via text eller anrop, men får inte något text/anrop. |
+| Användaren har inte åtkomst till portalen för återställning av lösen ord | En användare vill återställa sitt lösen ord men har inte Aktiver ATS för lösen ords återställning och kan därför inte komma åt sidan för att uppdatera lösen ord. |
+| Användaren kan inte ange ett nytt lösen ord | En användare har slutfört verifieringen under flödet för lösen ords återställning men kan inte ange ett nytt lösen ord. |
+| Användaren ser ingen länk för återställning av lösen ord på en Windows 10-enhet | En användare försöker återställa lösen ordet från Windows 10 Lås skärmen, men enheten är inte ansluten till Azure AD eller också är inte Intune-hälsoenheten aktive rad |
 
-You may also want to include information such as the following for additional troubleshooting.
+Du kanske också vill inkludera information som följande för ytterligare fel sökning.
 
-- Which groups are enabled for SSPR.
-- Which authentication methods are configured.
-- The access policies related to on or of the corporate network.
-- Troubleshooting steps for common scenarios.
+- Vilka grupper som är aktiverade för SSPR.
+- Vilka autentiseringsmetoder som har kon figurer ATS.
+- Åtkomst principerna för på eller i företags nätverket.
+- Fel söknings steg för vanliga scenarier.
 
-You can also refer to our online documentation on troubleshooting self-service password reset to understand general troubleshooting steps for the most common SSPR scenarios.
+Du kan också läsa vår onlinedokumentation om hur du felsöker lösen ords återställning via självbetjäning för att förstå allmänna fel söknings steg för de vanligaste SSPR-scenarierna.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Consider implementing Azure AD password protection](concept-password-ban-bad.md)
+- [Överväg att implementera lösen ords skydd i Azure AD](concept-password-ban-bad.md)
 
-- [Consider implementing Azure AD Smart Lockout](howto-password-smart-lockout.md)
+- [Överväg att implementera Azure AD Smart utelåsning](howto-password-smart-lockout.md)

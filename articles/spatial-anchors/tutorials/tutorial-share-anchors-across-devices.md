@@ -50,7 +50,7 @@ Det är värt att nämna att även om du använder Unity och en ASP.NET Core-web
 
 [!INCLUDE [Publish Azure](../../../includes/spatial-anchors-publish-azure.md)]
 
-## <a name="visual-studio-codetabvsc"></a>[Visual Studio-kod](#tab/VSC)
+## <a name="visual-studio-codetabvsc"></a>[Visual Studio Code](#tab/VSC)
 
 Du måste skapa en resurs grupp och en App Service plan innan du distribuerar tjänsten i VS Code.
 

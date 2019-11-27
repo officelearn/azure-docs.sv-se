@@ -1,6 +1,6 @@
 ---
-title: Configure devices for network proxies - Azure IoT Edge | Microsoft Docs
-description: How to configure the Azure IoT Edge runtime and any internet-facing IoT Edge modules to communicate through a proxy server.
+title: Konfigurera enheter för nätverk - proxyservrar i Azure IoT Edge | Microsoft Docs
+description: Så här konfigurerar du Azure IoT Edge-körningen och några internet-ansluten IoT Edge-moduler för att kommunicera via en proxyserver.
 author: kgremban
 ms.author: kgremban
 ms.date: 06/05/2019
@@ -14,75 +14,75 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74457166"
 ---
-# <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configure an IoT Edge device to communicate through a proxy server
+# <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Konfigurera en IoT Edge-enhet kan kommunicera via en proxyserver
 
-IoT Edge devices send HTTPS requests to communicate with IoT Hub. If your device is connected to a network that uses a proxy server, you need to configure the IoT Edge runtime to communicate through the server. Proxy servers can also affect individual IoT Edge modules if they make HTTP or HTTPS requests that aren't routed through the IoT Edge hub. 
+IoT Edge-enheter skicka HTTPS-begäranden för att kommunicera med IoT Hub. Om enheten är ansluten till ett nätverk som använder en proxyserver, måste du konfigurera IoT Edge-körningen att kommunicera med servern. Proxyservrar kan också påverka enskilda IoT Edge moduler om de gör HTTP-eller HTTPS-begäranden som inte dirigeras via IoT Edge Hub. 
 
-This article walks through the following four steps to configure and then manage an IoT Edge device behind a proxy server: 
+Den här artikeln vägleder dig genom följande fyra steg för att konfigurera och sedan hantera en IoT Edge enhet bakom en proxyserver: 
 
-1. **Install the IoT Edge runtime on your device.**
+1. **Installera IoT Edge runtime på enheten.**
 
-   The IoT Edge installation scripts pull packages and files from the internet, so your device needs to communicate through the proxy server to make those requests. For detailed steps, see the [Install the runtime through a proxy](#install-the-runtime-through-a-proxy) section of this article. For Windows devices, the installation script also provides an [Offline installation](how-to-install-iot-edge-windows.md#offline-installation) option. 
+   Installations skripten för IoT Edge hämtar paket och filer från Internet, så din enhet måste kommunicera via proxyservern för att utföra dessa förfrågningar. Detaljerade anvisningar finns i avsnittet [Installera körnings miljön via en proxy](#install-the-runtime-through-a-proxy) i den här artikeln. För Windows-enheter tillhandahåller installations skriptet även ett alternativ för [Offline-installation](how-to-install-iot-edge-windows.md#offline-installation) . 
 
-   This step is a one-time process performed on the IoT Edge device when you first set it up. The same connections are also required when you update the IoT Edge runtime. 
+   Det här steget är en engångs process som utförs på den IoT Edge enheten första gången du ställer in den. Samma anslutningar krävs också när du uppdaterar IoT Edge Runtime. 
 
-2. **Configure the Docker daemon and the IoT Edge daemon on your device.**
+2. **Konfigurera Docker daemon och IoT Edge daemon på enheten.**
 
-   IoT Edge uses two daemons on the device, both of which need to make web requests through the proxy server. The IoT Edge daemon is responsible for communications with IoT Hub. The Moby daemon is responsible for container management, so communicates with container registries. For detailed steps, see the [Configure the daemons](#configure-the-daemons) section of this article. 
+   IoT Edge använder två bakgrunds program på enheten, som båda måste göra webb förfrågningar via proxyservern. IoT Edge daemon ansvarar för kommunikation med IoT Hub. Moby daemon ansvarar för behållar hantering, och kommunicerar med behållar register. Detaljerade anvisningar finns i avsnittet [Konfigurera daemonar](#configure-the-daemons) i den här artikeln. 
 
-   This step is a one-time process performed on the IoT Edge device when you first set it up.
+   Det här steget är en engångs process som utförs på den IoT Edge enheten första gången du ställer in den.
 
-3. **Configure the IoT Edge agent properties in the config.yaml file on your device.**
+3. **Konfigurera egenskaperna för IoT Edge agent i filen config. yaml på enheten.**
 
-   The IoT Edge daemon starts the edgeAgent module initially, but then the edgeAgent module is responsible for retrieving the deployment manifest from IoT Hub and starting all the other modules. For the IoT Edge agent to make the initial connection to IoT Hub, configure the edgeAgent module environment variables manually on the device itself. After the initial connection, you can configure the edgeAgent module remotely. For detailed steps, see the [Configure the IoT Edge agent](#configure-the-iot-edge-agent) section of this article.
+   IoT Edge daemon startar edgeAgent-modulen från början, men edgeAgent-modulen ansvarar för att hämta distributions manifestet från IoT Hub och starta alla andra moduler. Konfigurera edgeAgent-modulens miljövariabler manuellt på själva enheten för att den IoT Edge agenten ska göra den första anslutningen till IoT Hub. Efter den första anslutningen kan du konfigurera edgeAgent-modulen från en annan plats. Detaljerade anvisningar finns i avsnittet [konfigurera IoT Edge agent](#configure-the-iot-edge-agent) i den här artikeln.
 
-   This step is a one-time process performed on the IoT Edge device when you first set it up.
+   Det här steget är en engångs process som utförs på den IoT Edge enheten första gången du ställer in den.
 
-4. **For all future module deployments, set environment variables for any module communicating through the proxy.**
+4. **För alla framtida modul distributioner ställer du in miljövariabler för alla moduler som kommunicerar via proxyservern.**
 
-   Once your IoT Edge device is set up and connected to IoT Hub through the proxy server, you need to maintain the connection in all future module deployments. For detailed steps, see the [Configure deployment manifests](#configure-deployment-manifests) section of this article. 
+   När din IoT Edge-enhet har kon figurer ATS och anslutits till IoT Hub via proxyservern måste du upprätthålla anslutningen i alla framtida distributioner av modulen. Detaljerade anvisningar finns i avsnittet [Konfigurera distributions manifest](#configure-deployment-manifests) i den här artikeln. 
 
-   This step is an ongoing process performed remotely so that every new module or deployment update maintains the device's ability to communicate through the proxy server. 
+   Det här steget är en fort löp ande process som utförs på distans, så att varje ny modul eller distributions uppdatering upprätthåller enhetens möjlighet att kommunicera via proxyservern. 
 
-## <a name="know-your-proxy-url"></a>Know your proxy URL
+## <a name="know-your-proxy-url"></a>Vet proxy-URL
 
-Before you begin any of the steps in this article, you need to know your proxy URL.
+Innan du påbörjar något av stegen i den här artikeln måste du känna till din proxy-URL.
 
-Proxy URLs take the following format: **protocol**://**proxy_host**:**proxy_port**.
+Proxy-URL: er ska ha följande format: **protokoll**://**proxy_host**:**proxy_port**.
 
-* The **protocol** is either HTTP or HTTPS. The Docker daemon can use either protocol, depending on your container registry settings, but the IoT Edge daemon and runtime containers should always use HTTP to connect to the proxy.
+* **Protokollet** är antingen http eller https. Docker daemon kan använda antingen protokollet, beroende på dina behållar register inställningar, men IoT Edge daemon-och runtime-behållare bör alltid använda HTTP för att ansluta till proxyservern.
 
-* The **proxy_host** is an address for the proxy server. If your proxy server requires authentication, you can provide your credentials as part of the proxy host with the following format: **user**:**password**\@**proxy_host**.
+* **Proxy_host** är en adress för proxyservern. Om proxyservern kräver autentisering kan du ange dina autentiseringsuppgifter som en del av proxy-värden med följande format: **användare**:**lösen ord**\@**proxy_host**.
 
-* The **proxy_port** is the network port at which the proxy responds to network traffic.
+* **Proxy_port** är nätverks porten där proxyservern svarar på nätverks trafik.
 
-## <a name="install-the-runtime-through-a-proxy"></a>Install the runtime through a proxy
+## <a name="install-the-runtime-through-a-proxy"></a>Installera körningen via en proxy
 
-Whether your IoT Edge device runs on Windows or Linux, you need to access the installation packages through the proxy server. Depending on your operating system, follow the steps to install the IoT Edge runtime through a proxy server. 
+Oavsett om din IoT Edge-enhet körs på Windows eller Linux måste du komma åt installations paketen via proxyservern. Följ stegen för att installera IoT Edge runtime via en proxyserver, beroende på ditt operativ system. 
 
 ### <a name="linux"></a>Linux
 
-If you're installing the IoT Edge runtime on a Linux device, configure the package manager to go through your proxy server to access the installation package. For example, [Set up apt-get to use a http-proxy](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). Once your package manager is configured, follow the instructions in [Install Azure IoT Edge runtime on Linux](how-to-install-iot-edge-linux.md) as usual.
+Om du installerar IoT Edge-körningen på en Linux-enhet, konfigurera package manager att gå igenom din proxyserver för att komma åt installationspaketet. Konfigurera till exempel [apt-get för att använda en http-proxy](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). När paket hanteraren har kon figurer ATS följer du anvisningarna i [installera Azure IoT Edge runtime på Linux](how-to-install-iot-edge-linux.md) som vanligt.
 
 ### <a name="windows"></a>Windows
 
-If you're installing the IoT Edge runtime on a Windows device, you need to go through the proxy server twice. The first connection downloads the installer script file, and the second connection is during the installation to download the necessary components. You can configure proxy information in Windows settings, or include your proxy information directly in the PowerShell commands. 
+Om du installerar IoT Edge runtime på en Windows-enhet måste du gå igenom proxyservern två gånger. Den första anslutningen laddar ned installations skript filen och den andra anslutningen är under installationen för att ladda ned nödvändiga komponenter. Du kan konfigurera proxyinformation i Windows-inställningar eller inkludera proxyinformation direkt i PowerShell-kommandona. 
 
-The following steps demonstrate an example of a windows installation using the `-proxy` argument:
+Följande steg visar ett exempel på en Windows-installation med hjälp av argumentet `-proxy`:
 
-1. The Invoke-WebRequest command needs proxy information to access the installer script. Then the Deploy-IoTEdge command needs the proxy information to download the installation files. 
+1. Kommandot anropa-WebRequest behöver proxyinformation för att komma åt installations skriptet. Sedan behöver kommandot Deploy-IoTEdge information om proxyn för att ladda ned installationsfilerna. 
 
    ```powershell
    . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; Deploy-IoTEdge -proxy <proxy URL>
    ```
 
-2. The Initialize-IoTEdge command doesn't need to go through the proxy server, so the second step only requires proxy information for Invoke-WebRequest.
+2. Kommandot Initialize-IoTEdge behöver inte gå via proxyservern, så det andra steget kräver bara proxyinformation för Invoke-webbegäran.
 
    ```powershell
    . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; Initialize-IoTEdge
    ```
 
-If you have complicated credentials for the proxy server that can't be included in the URL, use the `-ProxyCredential` parameter within `-InvokeWebRequestParameters`. Exempel:
+Om du har komplicerade autentiseringsuppgifter för proxyservern som inte kan ingå i URL: en, använder du parametern `-ProxyCredential` i `-InvokeWebRequestParameters`. Exempel:
 
 ```powershell
 $proxyCredential = (Get-Credential).GetNetworkCredential()
@@ -90,59 +90,59 @@ $proxyCredential = (Get-Credential).GetNetworkCredential()
 Deploy-IoTEdge -InvokeWebRequestParameters @{ '-Proxy' = '<proxy URL>'; '-ProxyCredential' = $proxyCredential }
 ```
 
-For more information about proxy parameters, see [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest). For more information about Windows installation options, including offline installation, see [Install Azure IoT Edge runtime on Windows](how-to-install-iot-edge-windows.md).
+Mer information om parametrar finns i [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest). Mer information om installations alternativ för Windows, inklusive offline-installation, finns i [installera Azure IoT Edge runtime i Windows](how-to-install-iot-edge-windows.md).
 
-## <a name="configure-the-daemons"></a>Configure the daemons
+## <a name="configure-the-daemons"></a>Konfigurera Daemon
 
-IoT Edge relies on two daemons running on the IoT Edge device. The Moby daemon makes web requests to pull container images from container registries. The IoT Edge daemon makes web requests to communicate with IoT Hub.
+IoT Edge förlitar sig på två daemonar som körs på IoT Edge enheten. Moby daemon gör webb förfrågningar till att hämta behållar avbildningar från behållar register. Daemonen IoT Edge gör webbegäranden till att kommunicera med IoT Hub.
 
-Both the Moby and the IoT Edge daemons need to be configured to use the proxy server for ongoing device functionality. This step takes place on the IoT Edge device during initial device setup. 
+Både Moby och IoT Edge daemon måste konfigureras för att använda proxyservern för kontinuerlig enhets funktion. Det här steget sker på IoT Edge enhet under installationen av den första enheten. 
 
 ### <a name="moby-daemon"></a>Moby daemon
 
-Since Moby is built on Docker, refer to the Docker documentation to configure the Moby daemon with environment variables. Most container registries (including DockerHub and Azure Container Registries) support HTTPS requests, so the parameter that you should set is **HTTPS_PROXY**. If you're pulling images from a registry that doesn't support transport layer security (TLS), then you should set the **HTTP_PROXY** parameter. 
+Eftersom Moby är byggd på Docker, se Docker-dokumentationen för att konfigurera Moby-daemon med miljövariabler. De flesta behållar register (inklusive DockerHub och Azure Container register) stöder HTTPS-begäranden, så den parameter som du bör ange är **HTTPS_PROXY**. Om du hämtar bilder från ett register som inte stöder TLS (Transport Layer Security) bör du ange **HTTP_PROXY** parameter. 
 
-Choose the article that applies to your IoT Edge device operating system: 
+Välj den artikel som gäller för IoT Edge enhetens operativ system: 
 
-* [Configure Docker daemon on Linux](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
-    * The Moby daemon on Linux devices keeps the name Docker.
-* [Configure Docker daemon on Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon#proxy-configuration)
-    * The Moby daemon on Windows devices is called iotedge-moby. The names are different because it's possible to run both Docker Desktop and Moby in parallel on a Windows device. 
+* [Konfigurera Docker daemon på Linux](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
+    * Moby daemon på Linux-enheter behåller namn Docker.
+* [Konfigurera Docker daemon i Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon#proxy-configuration)
+    * Daemon för Moby på Windows-enheter kallas iotedge-Moby. Namnen skiljer sig åt eftersom det är möjligt att köra både Docker Desktop och Moby parallellt på en Windows-enhet. 
 
-### <a name="iot-edge-daemon"></a>IoT Edge daemon
+### <a name="iot-edge-daemon"></a>Daemon för IoT Edge
 
-The IoT Edge daemon is configured in a similar manner to the Moby daemon. Use the following steps to set an environment variable for the service, based on your operating system. 
+IoT Edge daemon har kon figurer ATS på liknande sätt som Moby daemon. Använd följande steg för att ange en miljövariabel för tjänsten baserat på ditt operativsystem. 
 
-The IoT Edge daemon always uses HTTPS to send requests to IoT Hub.
+IoT Edge daemon använder alltid HTTPS för att skicka begär anden till IoT Hub.
 
 #### <a name="linux"></a>Linux
 
-Open an editor in the terminal to configure the IoT Edge daemon. 
+Öppna en redigerare i terminalen för att konfigurera IoT Edge-daemon. 
 
 ```bash
 sudo systemctl edit iotedge
 ```
 
-Enter the following text, replacing **\<proxy URL>** with your proxy server address and port. Then, save and exit. 
+Ange följande text och Ersätt **\<proxy-URL >** med proxyserverns adress och port. Spara och avsluta. 
 
 ```ini
 [Service]
 Environment="https_proxy=<proxy URL>"
 ```
 
-Refresh the service manager to pick up the new configuration for IoT Edge.
+Uppdatera Service Manager för att hämta den nya konfigurationen för IoT Edge.
 
 ```bash
 sudo systemctl daemon-reload
 ```
 
-Restart IoT Edge for the changes to take effect.
+Starta om IoT Edge för att ändringarna ska börja gälla.
 
 ```bash
 sudo systemctl restart iotedge
 ```
 
-Verify that your environment variable was created, and the new configuration was loaded. 
+Kontrollera att miljövariabeln har skapats och den nya konfigurationen lästes in. 
 
 ```bash
 systemctl show --property=Environment iotedge
@@ -150,43 +150,43 @@ systemctl show --property=Environment iotedge
 
 #### <a name="windows"></a>Windows
 
-Open a PowerShell window as an administrator and run the following command to edit the registry with the new environment variable. Replace **\<proxy url>** with your proxy server address and port. 
+Öppna ett PowerShell-fönster som administratör och kör följande kommando för att redigera registret med den nya miljövariabeln. Ersätt **\<proxy-url >** med proxyserverns adress och port. 
 
 ```powershell
 reg add HKLM\SYSTEM\CurrentControlSet\Services\iotedge /v Environment /t REG_MULTI_SZ /d https_proxy=<proxy URL>
 ```
 
-Restart IoT Edge for the changes to take effect.
+Starta om IoT Edge för att ändringarna ska börja gälla.
 
 ```powershell
 Restart-Service iotedge
 ```
 
-## <a name="configure-the-iot-edge-agent"></a>Configure the IoT Edge agent
+## <a name="configure-the-iot-edge-agent"></a>Konfigurera IoT Edge agent
 
-The IoT Edge agent is the first module to start on any IoT Edge device. It's started for the first time based on the information in the IoT Edge config.yaml file. The IoT Edge agent then connects to IoT Hub to retrieve deployment manifests, which declare what other modules should be deployed on the device.
+Den IoT Edge agenten är den första modulen som startar på valfri IoT Edge enhet. Den startas för första gången baserat på informationen i filen config.yaml IoT Edge. IoT Edge agenten ansluter sedan till IoT Hub för att hämta distributions manifest, som deklarerar vilka andra moduler som ska distribueras på enheten.
 
-This step takes place once on the IoT Edge device during initial device setup. 
+Det här steget sker en gång på IoT Edge enheten under den första installationen av enheten. 
 
-1. Open the config.yaml file on your IoT Edge device. On Linux systems, this file is located at **/etc/iotedge/config.yaml**. On Windows systems, this file is located at **C:\ProgramData\iotedge\config.yaml**. The configuration file is protected, so you need administrative privileges to access it. On Linux systems, use the `sudo` command before opening the file in your preferred text editor. On Windows, open a text editor like Notepad as administrator and then open the file. 
+1. Öppna filen config.yaml på din IoT Edge-enhet. På Linux-system finns den här filen på **/etc/iotedge/config.yaml**. På Windows-system finns den här filen på **C:\ProgramData\iotedge\config.yaml**. Konfigurationsfilen är skyddad, så du behöver administrativ behörighet att komma åt den. På Linux-system använder du kommandot `sudo` innan du öppnar filen i önskad text redigerare. Öppna en text redigerare som till exempel anteckningar som administratör i Windows och öppna sedan filen. 
 
-2. In the config.yaml file, find the **Edge Agent module spec** section. The IoT Edge agent definition includes an **env** parameter where you can add environment variables. 
+2. I filen config. yaml, letar du reda på avsnittet om **Edge agent module** . Den IoT Edge agent definitionen innehåller en **miljö** -parameter där du kan lägga till miljövariabler. 
 
-3. Remove the curly brackets that are placeholders for the env parameter, and add the new variable on a new line. Remember that indents in YAML are two spaces. 
+3. Ta bort klammerparenteser som platshållare för parametern env och lägga till nya variabeln på en ny rad. Kom ihåg att indrag i YAML är två blanksteg. 
 
    ```yaml
    https_proxy: "<proxy URL>"
    ```
 
-4. The IoT Edge runtime uses AMQP by default to talk to IoT Hub. Some proxy servers block AMQP ports. If that's the case, then you also need to configure edgeAgent to use AMQP over WebSocket. Add a second environment variable.
+4. IoT Edge-körningen använder AMQP som standard för att kommunicera med IoT Hub. Vissa proxyservrar blockera AMQP portar. Om så är fallet, sedan behöva du också konfigurera edgeAgent för att använda AMQP via WebSocket. Lägg till en andra miljövariabel.
 
    ```yaml
    UpstreamProtocol: "AmqpWs"
    ```
 
-   ![edgeAgent definition with environment variables](./media/how-to-configure-proxy-support/edgeagent-edited.png)
+   ![edgeAgent definition med miljövariabler](./media/how-to-configure-proxy-support/edgeagent-edited.png)
 
-5. Save the changes to config.yaml and close the editor. Restart IoT Edge for the changes to take effect. 
+5. Spara ändringarna i config.yaml och Stäng redigeraren. Starta om IoT Edge för att ändringarna ska börja gälla. 
 
    * Linux: 
 
@@ -200,35 +200,35 @@ This step takes place once on the IoT Edge device during initial device setup.
       Restart-Service iotedge
       ```
 
-## <a name="configure-deployment-manifests"></a>Configure deployment manifests  
+## <a name="configure-deployment-manifests"></a>Konfigurera distribution manifest  
 
-Once your IoT Edge device is configured to work with your proxy server, you need to continue to declare the environment variables in future deployment manifests. You can edit deployment manifests either using the Azure portal wizard or by editing a deployment manifest JSON file. 
+När din IoT Edge enhet har kon figurer ATS för att fungera med proxyservern måste du fortsätta att deklarera miljövariablerna i framtida distributions manifest. Du kan redigera distributions manifest antingen med hjälp av guiden Azure Portal eller genom att redigera en JSON-fil för distributions manifestet. 
 
-Always configure the two runtime modules, edgeAgent and edgeHub, to communicate through the proxy server so they can maintain a connection with IoT Hub. If you remove the proxy information from the edgeAgent module, the only way to reestablish connection is by editing the config.yaml file on the device, as described in the previous section. 
+Konfigurera alltid de två modulerna för körning, edgeAgent och edgeHub, för att kommunicera via proxyservern så att de kan underhålla en anslutning med IoT Hub. Om du tar bort proxyinformation från edgeAgent-modulen är det enda sättet att återupprätta anslutningen genom att redigera filen config. yaml på enheten, enligt beskrivningen i föregående avsnitt. 
 
-Other IoT Edge modules that connect to the internet should be configured to communicate through the proxy server, too. However, modules that route their messages through edgeHub or that only communicate with other modules on the device don't need the proxy server details. 
+Andra IoT Edge moduler som ansluter till Internet ska konfigureras för att kommunicera via proxyservern. Moduler som dirigerar sina meddelanden via edgeHub eller som bara kommunicerar med andra moduler på enheten behöver dock inte information om proxyservern. 
 
-This step is ongoing throughout the life of the IoT Edge device. 
+Det här steget pågår under hela IoT Edge enhetens livs längd. 
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
-When you use the **Set modules** wizard to create deployments for IoT Edge devices, every module has an **Environment Variables** section that you can use to configure proxy server connections. 
+När du använder guiden **Ange moduler** för att skapa distributioner för IoT Edge enheter, har alla moduler ett **miljö variabel** avsnitt som du kan använda för att konfigurera anslutningar till proxyservern. 
 
-To configure the IoT Edge agent and IoT Edge hub modules, select **Configure advanced Edge Runtime settings** on the first step of the wizard. 
+Om du vill konfigurera IoT Edge agenten och IoT Edge Hub-moduler, väljer du **Konfigurera avancerade Edge runtime-inställningar** i det första steget i guiden. 
 
-![Configure advanced Edge Runtime settings](./media/how-to-configure-proxy-support/configure-runtime.png)
+![Konfigurera avancerade Edge-körningsinställningar](./media/how-to-configure-proxy-support/configure-runtime.png)
 
-Add the **https_proxy** environment variable to both the IoT Edge agent and IoT Edge hub module definitions. If you included the **UpstreamProtocol** environment variable in the config.yaml file on your IoT Edge device, add that to the IoT Edge agent module definition too. 
+Lägg till miljövariabeln **https_proxy** i både modulen IoT Edge agent och IoT Edge hubb. Om du har inkluderat miljövariabeln **UpstreamProtocol** i filen config. yaml på din IoT Edge-enhet, lägger du till den i modulen för att skapa IoT Edge-agenten. 
 
-![Set https_proxy environment variable](./media/how-to-configure-proxy-support/edgehub-environmentvar.png)
+![Ange miljövariabeln för https_proxy](./media/how-to-configure-proxy-support/edgehub-environmentvar.png)
 
-All other modules that you add to a deployment manifest follow the same pattern. In the page where you set the module name and image, there is an environment variables section.
+Alla andra moduler som du lägger till ett distribution-manifest följer samma mönster. På sidan där du anger modulnamn och bild finns ett variabelavsnitt i miljön.
 
-### <a name="json-deployment-manifest-files"></a>JSON deployment manifest files
+### <a name="json-deployment-manifest-files"></a>JSON-distribution manifestfiler
 
-If you create deployments for IoT Edge devices using the templates in Visual Studio Code or by manually creating JSON files, you can add the environment variables directly to each module definition. 
+Om du skapar distributioner för IoT Edge-enheter med hjälp av mallar i Visual Studio Code eller genom att manuellt skapa JSON-filer kan du lägga till miljövariablerna som direkt till varje modul-definition. 
 
-Use the following JSON format: 
+Använd följande JSON-format: 
 
 ```json
 "env": {
@@ -238,7 +238,7 @@ Use the following JSON format:
 }
 ```
 
-With the environment variables included, your module definition should look like the following edgeHub example:
+Med miljövariabler som ingår, din modulen definition bör se ut som i följande exempel edgeHub:
 
 ```json
 "edgeHub": {
@@ -257,7 +257,7 @@ With the environment variables included, your module definition should look like
 }
 ```
 
-If you included the **UpstreamProtocol** environment variable in the confige.yaml file on your IoT Edge device, add that to the IoT Edge agent module definition too. 
+Om du har inkluderat miljövariabeln **UpstreamProtocol** i filen config. yaml på din IoT Edge-enhet, lägger du till den IoT Edge i definitionen för modulen för. 
 
 ```json
 "env": {
@@ -272,7 +272,7 @@ If you included the **UpstreamProtocol** environment variable in the confige.yam
 
 ## <a name="next-steps"></a>Nästa steg
 
-Learn more about the roles of the [IoT Edge runtime](iot-edge-runtime.md).
+Läs mer om rollerna för [IoT Edge runtime](iot-edge-runtime.md).
 
-Troubleshoot installation and configuration errors with [Common issues and resolutions for Azure IoT Edge](troubleshoot.md)
+Felsök installations-och konfigurations fel med [vanliga problem och lösningar för Azure IoT Edge](troubleshoot.md)
 

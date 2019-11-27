@@ -1,6 +1,6 @@
 ---
-title: Configure Azure Blockchain Workbench database firewall
-description: Learn how to configure the Azure Blockchain Workbench Preview database firewall to allow external clients and applications to connect.
+title: Konfigurera Azure blockchain Workbench Database-brandvägg
+description: Lär dig hur du konfigurerar Azure blockchain Workbench Preview Database-brandväggen så att externa klienter och program kan ansluta.
 ms.date: 09/09/2019
 ms.topic: article
 ms.reviewer: mmercuri
@@ -19,7 +19,7 @@ Den här artikeln beskriver hur du konfigurerar en brandväggsregel via Azure Po
 
 Så här ansluter du till databasen där du vill konfigurera en regel:
 
-1. Sign in to the Azure portal with an account that has **Owner**     permissions for the Azure Blockchain Workbench resources.
+1. Logga in på Azure Portal med ett konto som har **ägar** behörigheter för Azure blockchain Workbench-resurserna.
 2. Välj **Resursgrupper** i det vänstra navigeringsfönstret.
 3. Välj namnet på resursgruppen för din Blockchain Workbench-distribution.
 4. Sortera listan med resurser genom att välja **Typ** och välj sedan din **SQL-server**.

@@ -41,15 +41,15 @@ Detta är det vanligaste scenariot, där din organisation vill arbeta med nästa
 
 Så här lägger du till en neka-lista:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **Azure Active Directory** > **användare** > **användar inställningar**.
 3. Under **externa användare**väljer du **Hantera inställningar för externt samarbete**.
 4. Under **samarbets begränsningar**väljer **du neka inbjudningar till de angivna domänerna**.
-5. Under **mål domäner**anger du namnet på en av de domäner som du vill blockera. För flera domäner anger du varje domän på en ny rad. Exempel:
+5. Under **mål domäner**anger du namnet på en av de domäner som du vill blockera. För flera domäner anger du varje domän på en ny rad. Till exempel:
 
    ![Visar alternativet neka med tillagda domäner](./media/allow-deny-list/DenyListSettings.png)
  
-6. När du är klar klickar du på **spara**.
+6. När du är klar klickar du på **Spara**.
 
 Om du försöker bjuda in en användare från en blockerad domän efter att du har angett principen, får du ett meddelande om att användarens domän för närvarande är blockerad av din Inbjudnings princip.
  
@@ -62,15 +62,15 @@ Om du vill använda en lista över tillåtna, se till att du tillbringar tid fö
 
 Så här lägger du till en lista över tillåtna:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **Azure Active Directory** > **användare** > **användar inställningar**.
 3. Under **externa användare**väljer du **Hantera inställningar för externt samarbete**.
 4. Under **samarbets begränsningar**väljer du **Tillåt endast inbjudningar till de angivna domänerna (mest restriktiva)** .
-5. Under **mål domäner**anger du namnet på en av de domäner som du vill tillåta. För flera domäner anger du varje domän på en ny rad. Exempel:
+5. Under **mål domäner**anger du namnet på en av de domäner som du vill tillåta. För flera domäner anger du varje domän på en ny rad. Till exempel:
 
    ![Visar alternativet Tillåt med tillagda domäner](./media/allow-deny-list/AllowListSettings.png)
  
-6. När du är klar klickar du på **spara**.
+6. När du är klar klickar du på **Spara**.
 
 Om du försöker bjuda in en användare från en domän som inte finns med i listan över tillåtna, visas ett meddelande om att användarens domän för närvarande är blockerad av din Inbjudnings princip när du har angett principen.
 
@@ -140,19 +140,19 @@ Följande visar samma exempel, men med princip definitionen infogad.
 New-AzureADPolicy -Definition @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}") -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true 
 ```
 
-Använd cmdleten [set-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview) för att ange List principen för att tillåta eller neka. Exempel:
+Använd cmdleten [set-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview) för att ange List principen för att tillåta eller neka. Till exempel:
 
 ```powershell   
 Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id 
 ```
 
-Använd cmdleten [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) för att hämta principen. Exempel:
+Använd cmdleten [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) för att hämta principen. Till exempel:
 
 ```powershell
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 
 ```
 
-Använd cmdleten [Remove-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview) om du vill ta bort principen. Exempel:
+Använd cmdleten [Remove-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview) om du vill ta bort principen. Till exempel:
 
 ```powershell
 Remove-AzureADPolicy -Id $currentpolicy.Id 

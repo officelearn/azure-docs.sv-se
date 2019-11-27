@@ -40,7 +40,7 @@ Om du använder System Center Operations Manager 2012 R2 eller senare:
 * Linux-datorer som rapporterar till en hanterings grupp måste konfigureras att rapportera direkt till en Log Analytics-arbetsyta. Om Linux-datorerna redan rapporterar direkt till en arbets yta och du vill övervaka dem med Operations Manager följer du dessa steg för att [rapportera till en Operations Manager hanterings grupp](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group).
 * Du kan installera Log Analytics Windows-agenten på Windows-datorn och låta den rapportera till båda Operations Manager integrerade med en arbets yta och en annan arbets yta.
 
-Agenten för Linux och Windows är inte bara för att ansluta till Azure Monitor. den har också stöd för Azure Automation som värd för Hybrid Runbook Worker-rollen och andra tjänster som [ändringsspårning](../../automation/change-tracking.md), [uppdateringshantering](../../automation/automation-update-management.md)och [Azure Security Center](../../security-center/security-center-intro.md). Mer information om Hybrid Runbook Worker-rollen finns i [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).  
+Agenten för Linux och Windows är inte bara för att ansluta till Azure Monitor. den har också stöd för Azure Automation som värd för Hybrid Runbook Worker-rollen och andra tjänster som [ändringsspårning](../../automation/change-tracking.md), [uppdateringshantering](../../automation/automation-update-management.md)och [Azure Security Center](../../security-center/security-center-intro.md). Mer information om Hybrid Runbook Worker-rollen finns i [Azure Automation hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).  
 
 ## <a name="supported-windows-operating-systems"></a>Windows-operativsystem som stöds
 
@@ -60,7 +60,7 @@ Det här avsnittet innehåller information om Linux-distributioner som stöds.
 Från och med versioner som lanseras efter augusti 2018 har gör vi följande ändringar i vår supportmodell:  
 
 * Endast de server-versioner stöds, inte klienten.  
-* Nya versioner av [Azure Linux-godkända distributioner](../../virtual-machines/linux/endorsed-distros.md) stöds alltid.  
+* Nya versioner av [Azure Linux-distributioner](../../virtual-machines/linux/endorsed-distros.md) stöds alltid.  
 * Alla mindre versioner stöds för varje större version i listan.
 * Versioner som har klarat sina tillverkarens support upphör datum stöds inte.  
 * Nya versioner av AMI stöds inte.  
@@ -98,7 +98,7 @@ I följande tabell visas de paket som krävs för Linux-distributioner som stöd
 
 ## <a name="tls-12-protocol"></a>TLS 1.2-protokollet
 
-För att säkerställa säkerheten för data som överförs till Azure Monitor loggar, rekommenderar vi starkt att du konfigurerar agenten att använda minst Transport Layer Security (TLS) 1,2. Äldre versioner av TLS/Secure Sockets Layer (SSL) har påträffats sårbara och de fungerar fortfarande för närvarande för att tillåta bakåtkompatibilitet kompatibilitet, de arbetar **rekommenderas inte**.  Mer information [skickar data på ett säkert sätt med hjälp av TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
+För att säkerställa säkerheten för data som överförs till Azure Monitor loggar, rekommenderar vi starkt att du konfigurerar agenten att använda minst Transport Layer Security (TLS) 1,2. Äldre versioner av TLS/Secure Sockets Layer (SSL) har befunnits vara sårbara och även om de fortfarande arbetar för att tillåta bakåtkompatibilitet, rekommenderas de **inte**.  Mer information finns i [skicka data på ett säkert sätt med TLS 1,2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
 
 ## <a name="network-firewall-requirements"></a>Krav på brandvägg
 
@@ -114,9 +114,9 @@ För brand Väggs information som krävs för Azure Government, se [Azure Govern
 
 Om du planerar att använda Azure Automation Hybrid Runbook Worker för att ansluta till och registrera med Automation-tjänsten för att använda Runbooks eller hanterings lösningar i din miljö, måste den ha åtkomst till port numret och de URL: er som beskrivs i [Konfigurera ditt nätverk för Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
-Windows-och Linux-agenten stöder kommunikation antingen via en proxyserver eller Log Analytics Gateway för att Azure Monitor med HTTPS-protokollet.  Både anonyma och grundläggande autentisering (användarnamn/lösenord) stöds.  För Windows-agenten är ansluten direkt till tjänsten proxykonfigurationen har angetts under installationen eller [efter distributionen](agent-manage.md#update-proxy-settings) från Kontrollpanelen eller med PowerShell.  
+Windows-och Linux-agenten stöder kommunikation antingen via en proxyserver eller Log Analytics Gateway för att Azure Monitor med HTTPS-protokollet.  Både anonyma och grundläggande autentisering (användarnamn/lösenord) stöds.  För Windows-agenten som är ansluten direkt till tjänsten anges proxykonfigurationen under installationen eller [efter distributionen](agent-manage.md#update-proxy-settings) från kontroll panelen eller med PowerShell.  
 
-För Linux-agenten proxyservern har angetts under installationen eller [efter installationen](agent-manage.md#update-proxy-settings) genom att ändra konfigurationsfilen proxy.conf.  Konfigurationsvärdet för proxyn för Linux-agenten har följande syntax:
+För Linux-agenten anges proxyservern under installationen eller [efter installationen](agent-manage.md#update-proxy-settings) genom att ändra konfigurations filen proxy. conf.  Konfigurationsvärdet för proxyn för Linux-agenten har följande syntax:
 
 `[protocol://][user:password@]proxyhost[:port]`
 
@@ -134,7 +134,7 @@ För Linux-agenten proxyservern har angetts under installationen eller [efter in
 Exempel: `https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
-> Om du använder specialtecken som ”\@” i ditt lösenord kan du får ett anslutningsfel för proxy eftersom värdet tolkas felaktigt.  Undvik problemet genom att koda lösenordet i URL: en med ett verktyg som [URLDecode](https://www.urldecoder.org/).  
+> Om du använder specialtecken som "\@" i lösen ordet får du ett anslutnings fel på grund av att värdet parsas felaktigt.  Undvik det här problemet genom att koda lösen ordet i URL: en med ett verktyg som [URLDecode](https://www.urldecoder.org/).  
 
 ## <a name="install-and-configure-agent"></a>Installera och konfigurera agenten
 
@@ -142,15 +142,15 @@ Att ansluta datorer i din Azure-prenumeration eller hybrid miljö direkt med Azu
 
 |Källa | Metod | Beskrivning|
 |-------|-------------|-------------|
-|Azure VM| -Log Analytics VM-tillägg för [Windows](../../virtual-machines/extensions/oms-windows.md) eller [Linux](../../virtual-machines/extensions/oms-linux.md) med Azure CLI eller med en Azure Resource Manager-mall<br>- [manuellt från Azure Portal](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json)<br>- [Azure Security Center automatisk etablering](../../security-center/security-center-enable-data-collection.md)| -Tillägget installerar Log Analytics agent på virtuella Azure-datorer och registrerar dem i en befintlig Azure Monitor arbets yta.<br>-Azure Security Center kan etablera Log Analytics agent på alla virtuella Azure-datorer som stöds och eventuella nya som skapas om du aktiverar den för att övervaka säkerhets problem och hot. Om den aktive ras kommer alla nya eller befintliga virtuella datorer utan en installerad agent att tillhandahållas.|
-| Windows-hybriddator|- [Manuell installation](agent-windows.md)<br>- [Azure Automation DSC](agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Resource Manager-mall med Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |Installera Microsoft Monitoring agent från kommandoraden eller med hjälp av en automatiserad metod, till exempel Azure Automation DSC [System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications), eller med en Azure Resource Manager-mall om du har distribuerat Microsoft Azure Stack i ditt datacenter.| 
+|Azure VM| – Log Analytics VM-tillägg för [Windows](../../virtual-machines/extensions/oms-windows.md) eller [Linux](../../virtual-machines/extensions/oms-linux.md) med hjälp av Azure CLI eller med en Azure Resource Manager-mall<br>- [manuellt från Azure Portal](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json)<br>- [Azure Security Center automatisk etablering](../../security-center/security-center-enable-data-collection.md)| -Tillägget installerar Log Analytics agent på virtuella Azure-datorer och registrerar dem i en befintlig Azure Monitor arbets yta.<br>-Azure Security Center kan etablera Log Analytics agent på alla virtuella Azure-datorer som stöds och eventuella nya som skapas om du aktiverar den för att övervaka säkerhets problem och hot. Om den aktive ras kommer alla nya eller befintliga virtuella datorer utan en installerad agent att tillhandahållas.|
+| Windows-hybriddator|- [manuell installation](agent-windows.md)<br>- [Azure Automation DSC](agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Resource Manager-mall med Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |Installera Microsoft Monitoring Agent från kommando raden eller Använd en automatiserad metod som Azure Automation DSC, [System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications)eller med en Azure Resource Manager mall om du har distribuerat Microsoft Azure Stack i data centret.| 
 | Linux-hybriddator| [Manuell installation](../../azure-monitor/learn/quick-collect-linux-computer.md)|Installera agenten för Linux som anropar ett wrapper-skript som finns på GitHub. | 
 | System Center Operations Manager|[Integrera Operations Manager med Log Analytics](../../azure-monitor/platform/om-agents.md) | Konfigurera integration mellan Operations Manager och Azure Monitor loggar för att vidarebefordra insamlade data från Windows-datorer som rapporterar till en hanterings grupp.|  
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Granska [datakällor](../../azure-monitor/platform/agent-data-sources.md) att förstå datakällorna som är tillgängliga för att samla in data från din Windows- eller Linux-system. 
+* Granska [data källorna](../../azure-monitor/platform/agent-data-sources.md) för att förstå de data källor som är tillgängliga för att samla in data från Windows-eller Linux-systemet. 
 
-* Lär dig mer om [logga frågor](../../azure-monitor/log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar. 
+* Lär dig mer om [logg frågor](../../azure-monitor/log-query/log-query-overview.md) för att analysera data som samlas in från data källor och lösningar. 
 
-* Lär dig mer om [övervakningslösningar](../../azure-monitor/insights/solutions.md) som lägger till funktioner i Azure Monitor och också samla in data till Log Analytics-arbetsytan.
+* Lär dig mer om att [övervaka lösningar](../../azure-monitor/insights/solutions.md) som lägger till funktioner i Azure Monitor och även samla in data i arbets ytan Log Analytics.

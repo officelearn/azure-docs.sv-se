@@ -415,7 +415,7 @@ Du kan också skapa ett nytt dev-utrymme som härleds från ett annat dev-utrymm
 
 Det härledda dev-utrymmet kommer också att dirigera begär Anden mellan sina egna program och de program som delas från dess överordnade. Routningen fungerar genom att försöka skicka begäran till ett program i det härledda dev-utrymmet och återgå till det delade programmet från det överordnade dev-utrymmet. Routningen kommer att återgå till det delade programmet på det föräldrarade utrymmet om programmet inte finns i det överordnade utrymmet.
 
-Exempel:
+Till exempel:
 * *Standard* för dev-utrymme har program *service* och *serviceB* .
 * *Azureuser* för dev-ytan härleds från *standard*.
 * En uppdaterad version av *servicen* har distribuerats till *azureuser*.

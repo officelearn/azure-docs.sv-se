@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with ArcGIS Online | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory integrering med ArcGIS Online | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och ArcGIS Online.
 services: active-directory
 documentationCenter: na
@@ -23,7 +23,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74232096"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-arcgis-online"></a>Tutorial: Azure Active Directory integration with ArcGIS Online
+# <a name="tutorial-azure-active-directory-integration-with-arcgis-online"></a>Självstudie: Azure Active Directory integrering med ArcGIS Online
 
 I den här självstudien får du lära dig hur du integrerar ArcGIS Online med Azure Active Directory (Azure AD).
 Genom att integrera ArcGIS Online med Azure AD får du följande fördelar:
@@ -39,7 +39,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 För att konfigurera Azure AD-integrering med ArcGIS Online behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
 * ArcGIS Online-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -54,7 +54,7 @@ För att konfigurera integreringen av ArcGIS Online till Azure AD behöver du l�
 
 **Om du vill lägga till ArcGIS Online från galleriet ska du utföra följande steg:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -79,7 +79,7 @@ För att konfigurera och testa enkel inloggning med Azure AD med ArcGIS Online m
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning för ArcGIS Online](#configure-arcgis-online-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa ArcGIS Online-testanvändare](#create-arcgis-online-test-user)** – för att ha en motsvarighet för Britta Simon i ArcGIS Online som är länkad till en Azure AD-representation av användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
@@ -92,7 +92,7 @@ Konfigurera enkel inloggning med Azure AD med ArcGIS Online genom att utföra f�
 
 1. I [Azure Portal](https://portal.azure.com/) går du till sidan för **ArcGIS Online**-programintegrering och väljer **Enkel inloggning**.
 
-    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -108,10 +108,10 @@ Konfigurera enkel inloggning med Azure AD med ArcGIS Online genom att utföra f�
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<companyname>.maps.arcgis.com`
 
-    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `<companyname>.maps.arcgis.com`
+    b. I textrutan **Identifierare (entitets-ID)** skriver du en URL med följande mönster: `<companyname>.maps.arcgis.com`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [ArcGIS Onlines kundsupportteam](https://support.esri.com/en/) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [ArcGIS Onlines kundsupportteam](https://support.esri.com/en/) för att få dessa värden. Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
 
@@ -119,7 +119,7 @@ Konfigurera enkel inloggning med Azure AD med ArcGIS Online genom att utföra f�
 
 6. Om du vill automatisera konfigurationen i **ArcGIS Online**, måste du installera **webbläsartillägget Enkel inloggning för mina appar** genom att klicka på **Installera tillägget**.
 
-    ![mallar](./media/arcgis-tutorial/install_extension.png)
+    ![image](./media/arcgis-tutorial/install_extension.png)
 
 7. När du har lagt till tillägg i webbläsaren klickar du på **Konfigurera ArcGIS Online**. Du omdirigeras då till ArcGIS Online-programmet. Därifrån anger du administratörsautentiseringsuppgifterna för att logga in på ArcGIS Online. Webbläsartillägget konfigurerar automatiskt programmet åt dig och automatiserar stegen i avsnitt **Konfigurera enkel inloggning med ArcGIS Online**.
 
@@ -129,7 +129,7 @@ Konfigurera enkel inloggning med Azure AD med ArcGIS Online genom att utföra f�
 
 2. Klicka på **Redigera inställningar**.
 
-    ![Edit Settings](./media/arcgis-tutorial/ic784742.png "Edit Settings")
+    ![Redigera inställningar](./media/arcgis-tutorial/ic784742.png "Redigera inställningar")
 
 3. Klicka på **Säkerhet**.
 
@@ -137,11 +137,11 @@ Konfigurera enkel inloggning med Azure AD med ArcGIS Online genom att utföra f�
 
 4. Under **Företagsinloggningar**, klickar du på **SET IDENTITY PROVIDER**.
 
-    ![Enterprise Logins](./media/arcgis-tutorial/ic784744.png "Enterprise Logins")
+    ![Företags inloggningar](./media/arcgis-tutorial/ic784744.png "Företags inloggningar")
 
 5. Utför följande steg på konfigurationssidan **Ange identitetsprovider**:
 
-    ![Set Identity Provider](./media/arcgis-tutorial/ic784745.png "Set Identity Provider")
+    ![Ange identitets leverantör](./media/arcgis-tutorial/ic784745.png "Ange identitets leverantör")
 
     a. I textrutan **Namn** skriver du namnet på din organisation.
 
@@ -169,7 +169,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -188,7 +188,7 @@ I det här avsnittet ser du till att Britta Simon ska kunna använda enkel inlog
 
     ![ArcGIS Online-länken i listan med program](common/all-applications.png)
 
-3. I menyn till vänster väljer du **Användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -213,22 +213,22 @@ När det gäller ArcGIS Online är etablering en manuell aktivitet.
 
 2. Klicka på **BJUD IN MEDLEMMAR**.
    
-    ![Invite Members](./media/arcgis-tutorial/ic784747.png "Invite Members")
+    ![Bjud in medlemmar](./media/arcgis-tutorial/ic784747.png "Bjud in medlemmar")
 
 3. Välj **Lägg till medlemmar automatiskt utan att skicka ett e-postmeddelande** och klicka sedan på **NÄSTA**.
    
-    ![Add Members Automatically](./media/arcgis-tutorial/ic784748.png "Add Members Automatically")
+    ![Lägg till medlemmar automatiskt](./media/arcgis-tutorial/ic784748.png "Lägg till medlemmar automatiskt")
 
 4. I dialogrutan **Medlemmar** utför du följande steg:
    
-     ![Add and review](./media/arcgis-tutorial/ic784749.png "Add and review")
+     ![Lägg till och granska](./media/arcgis-tutorial/ic784749.png "Lägg till och granska")
     
-     a. Enter the **Email**, **First Name**, and **Last Name** of a valid Azure AD account you want to provision.
+     a. Ange **e-postadress**, **förnamn**och **efter namn** för ett giltigt Azure AD-konto som du vill etablera.
   
      b. Klicka på **LÄGG TILL OCH GRANSKA**.
 5. Granska de data du har angett och klicka sedan på **LÄGG TILL MEDLEMMAR**.
    
-    ![Add member](./media/arcgis-tutorial/ic784750.png "Add member")
+    ![Lägg till medlem](./media/arcgis-tutorial/ic784750.png "Lägg till medlem")
         
     > [!NOTE]
     > Azure Active Directory-kontoinnehavaren får ett e-postmeddelande och följer en länk för att bekräfta kontot innan det blir aktivt.
@@ -237,7 +237,7 @@ När det gäller ArcGIS Online är etablering en manuell aktivitet.
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på ArcGIS Online-panelen i åtkomstpanelen bör du automatiskt loggas in på ArcGIS Online som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på ArcGIS Online-panelen i åtkomstpanelen bör du automatiskt loggas in på ArcGIS Online som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -245,5 +245,5 @@ När du klickar på ArcGIS Online-panelen i åtkomstpanelen bör du automatiskt 
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

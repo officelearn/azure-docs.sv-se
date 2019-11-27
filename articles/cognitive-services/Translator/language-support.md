@@ -124,7 +124,7 @@ Metoden translittererad stöder följande språk. I "till/från", "<-->" anger a
 | Hebreiska | `he` | Hebreisk `Hebr` | <--> | Latinska `Latn` |
 | Hindi | `hi` | Devanagari `Deva` | <--> | Latinska `Latn` |
 | Japanska | `ja` | Japansk `Jpan` | <--> | Latinska `Latn` |
-| Kannada | `kn` | Kannada `Knda` | --> | Latinska `Latn` |
+| Kannada | `kn` | Kannada-`Knda` | --> | Latinska `Latn` |
 | Malayalam | `ml` | Malayalam-`Mlym` | --> | Latinska `Latn` |
 | Marathi | `mr` | Devanagari `Deva` | --> | Latinska `Latn` |
 | Odia | `or` | Odia `Orya` | <--> | Latinska `Latn` |

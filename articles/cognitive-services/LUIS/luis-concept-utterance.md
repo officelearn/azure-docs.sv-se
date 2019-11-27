@@ -140,14 +140,14 @@ Granska [metod tips](luis-concept-best-practices.md) och Använd dem som en del 
 
 Om word val eller word placering är samma, men inte betyda samma sak, du inte märker den med entiteten. 
 
-Följande uttryck, ordet `fair` är en homografiska. Det har stavats samma, men har en annan betydelse:
+Följande yttranden är ordet `fair` ett homograph. Det har stavats samma, men har en annan betydelse:
 
 |Yttrande|
 |--|
 |Vilken typ av region mässor sker i Seattle-området den här sommaren?|
 |Är den aktuella klassificeringen för Seattle-granskning fair?|
 
-Om du vill att en händelse entitet för att hitta alla händelsedata kan etikettera ordet `fair` i den första uttryck, men inte i andra.
+Om du vill att en händelse entitet ska hitta alla händelse data kan du märka ordet `fair` i den första uttryck, men inte i den andra.
 
 
 ## <a name="next-steps"></a>Nästa steg

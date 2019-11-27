@@ -1,6 +1,6 @@
 ---
-title: Automatically provision Windows devices with DPS - Azure IoT Edge | Microsoft Docs
-description: Use a simulated device on your Windows machine to test automatic device provisioning for Azure IoT Edge with Device Provisioning Service
+title: Etablera Windows-enheter automatiskt med DPS-Azure IoT Edge | Microsoft Docs
+description: Använda en simulerad enhet på din Windows-dator för att testa automatisk enhetsetablering för Azure IoT Edge med Device Provisioning-tjänsten
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -15,52 +15,52 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74457134"
 ---
-# <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Create and provision a simulated IoT Edge device with a virtual TPM on Windows
+# <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Skapa och etablera en simulerad IoT Edge enhet med en virtuell TPM i Windows
 
-Azure IoT Edge devices can be auto-provisioned using the [Device Provisioning Service](../iot-dps/index.yml) just like devices that are not edge-enabled. If you're unfamiliar with the process of auto-provisioning, review the [auto-provisioning concepts](../iot-dps/concepts-auto-provisioning.md) before continuing.
+Azure IoT Edge enheter kan konfigureras automatiskt med [enhets etablerings tjänsten](../iot-dps/index.yml) , precis som enheter som inte är Edge-aktiverade. Om du inte är bekant med processen för automatisk etablering granskar du de [automatiska etablerings begreppen](../iot-dps/concepts-auto-provisioning.md) innan du fortsätter.
 
-DPS supports symmetric key attestation for IoT Edge devices in both individual enrollment and group enrollment. For group enrollment, if you check “is IoT Edge device” option to be true in symmetric key attestation, all the devices that are registered under that enrollment group will be marked as IoT Edge devices. 
+DPS stöder symmetrisk nyckel attestering för IoT Edge enheter i både enskilda registreringar och grupp registrering. Om du markerar alternativet "är IoT Edge enhet" för att få en grupp registrering markeras alla enheter som är registrerade under den registrerings gruppen som IoT Edge enheter. 
 
-This article shows you how to test auto-provisioning on a simulated IoT Edge device with the following steps:
+Den här artikeln visar hur du testar automatisk etablering på en simulerad IoT Edge enhet med följande steg:
 
-* Create an instance of IoT Hub Device Provisioning Service (DPS).
-* Create a simulated device on your Windows machine with a simulated Trusted Platform Module (TPM) for hardware security.
-* Create an individual enrollment for the device.
-* Install the IoT Edge runtime and connect the device to IoT Hub.
+* Skapa en instans av IoT Hub enheten Provisioning Service (DPS).
+* Skapa en simulerad enhet på din Windows-dator med en simulerad Trusted Platform Module (TPM) för maskinvara säkerhet.
+* Skapa en enskild registrering för enheten.
+* Installera IoT Edge-körningen och ansluta enheten till IoT Hub.
 
 > [!NOTE]
-> TPM 2.0 is required when using TPM attestation with DPS and can only be used to create individual, not group, enrollments.
+> TPM 2,0 krävs när du använder TPM-attestering med DPS och kan endast användas för att skapa enskilda, inte grupper, registreringar.
 
 > [!TIP]
-> This article describes testing auto-provisioning by using TPM attestation on virtual devices, but much of it applies when using physical TPM hardware as well.
+> I den här artikeln beskrivs hur du testar automatisk etablering genom att använda TPM-attestering på virtuella enheter, men det är mycket som gäller när du använder den fysiska TPM-maskinvaran.
 
 ## <a name="prerequisites"></a>Krav
 
-* A Windows development machine. This article uses Windows 10.
-* An active IoT Hub.
+* En Windows-utvecklingsdator. Den här artikeln använder Windows 10.
+* En aktiv IoT-hubb.
 
-## <a name="set-up-the-iot-hub-device-provisioning-service"></a>Set up the IoT Hub Device Provisioning Service
+## <a name="set-up-the-iot-hub-device-provisioning-service"></a>Konfigurera IoT Hub Device Provisioning-tjänsten
 
-Create a new instance of the IoT Hub Device Provisioning Service in Azure, and link it to your IoT hub. You can follow the instructions in [Set up the IoT Hub DPS](../iot-dps/quick-setup-auto-provision.md).
+Skapa en ny instans av IoT Hub Device Provisioning-tjänsten i Azure och länka det till din IoT hub. Du kan följa anvisningarna i [konfigurera IoT Hub DPS](../iot-dps/quick-setup-auto-provision.md).
 
-After you have the Device Provisioning Service running, copy the value of **ID Scope** from the overview page. You use this value when you configure the IoT Edge runtime.
+När du har installerat enhets etablerings tjänsten kopierar du värdet för **ID-omfång** från översikts sidan. Du kan använda det här värdet när du konfigurerar IoT Edge-körningen.
 
 > [!TIP]
-> If you're using a physical TPM device, you need to determine the **Endorsement key**, which is unique to each TPM chip and is obtained from the TPM chip manufacturer associated with it. You can derive a unique **Registration ID** for your TPM device by, for example, creating an SHA-256 hash of the endorsement key.
+> Om du använder en fysisk TPM-enhet måste du bestämma **bekräftelse nyckeln**, som är unik för varje TPM-chip och hämtas från TPM-kretsen som är kopplad till den. Du kan härleda ett unikt **registrerings-ID** för din TPM-enhet genom att till exempel skapa en SHA-256-hash för bekräftelse nyckeln.
 >
-> Follow the instructions in the article [How to manage device enrollments with Azure Portal](../iot-dps/how-to-manage-enrollments.md) to create your enrollment in DPS and then proceed with the [Install the IoT Edge runtime](#install-the-iot-edge-runtime) section in this article to continue.
+> Följ anvisningarna i artikeln [Hantera enhets registreringar med Azure Portal](../iot-dps/how-to-manage-enrollments.md) för att skapa din registrering i DPS och fortsätt sedan med avsnittet [Installera IoT Edge runtime](#install-the-iot-edge-runtime) i den här artikeln för att fortsätta.
 
 ## <a name="simulate-a-tpm-device"></a>Simulera en TPM-enhet
 
-Create a simulated TPM device on your Windows development machine. Retrieve the **Registration ID** and **Endorsement key** for your device, and use them to create an individual enrollment entry in DPS.
+Skapa en simulerad TPM-enhet på en Windows-utvecklingsdator. Hämta **registrerings-ID** och **bekräftelse nyckel** för enheten och Använd dem för att skapa en enskild registrerings post i DPS.
 
-When you create an enrollment in DPS, you have the opportunity to declare an **Initial Device Twin State**. In the device twin you can set tags to group devices by any metric you need in your solution, like region, environment, location, or device type. These tags are used to create [automatic deployments](how-to-deploy-monitor.md).
+När du skapar en registrering i DPS har du möjlighet att deklarera en **första enhets dubbla tillstånd**. I enhetstvillingen kan du ställa in etiketter att gruppera enheter efter valfritt mått som du behöver i din lösning som region, miljö, plats eller enhet. De här taggarna används för att skapa [automatiska distributioner](how-to-deploy-monitor.md).
 
-Choose the SDK language that you want to use to create the simulated device, and follow the steps until you create the individual enrollment.
+Välj den SDK-språk som du vill använda för att skapa den simulerade enheten och följ stegen förrän du har skapat den enskilda registreringen.
 
-When you create the individual enrollment, select **True** to declare that the simulated TPM device on your Windows development machine is an **IoT Edge device**.
+När du skapar enskilda registreringar väljer du **Sant** för att deklarera att den SIMULERAde TPM-enheten på Windows Development-datorn är en **IoT Edge enhet**.
 
-Simulated device and individual enrollment guides:
+Simulerade enheter och guider för enskild registrering:
 
 * [C](../iot-dps/quick-create-simulated-device.md)
 * [Java](../iot-dps/quick-create-simulated-device-tpm-java.md)
@@ -68,47 +68,47 @@ Simulated device and individual enrollment guides:
 * [Node.js](../iot-dps/quick-create-simulated-device-tpm-node.md)
 * [Python](../iot-dps/quick-create-simulated-device-tpm-python.md)
 
-After creating the individual enrollment, save the value of the **Registration ID**. You use this value when you configure the IoT Edge runtime.
+När du har skapat den enskilda registreringen sparar du värdet för **registrerings-ID: t**. Du kan använda det här värdet när du konfigurerar IoT Edge-körningen.
 
-## <a name="install-the-iot-edge-runtime"></a>Install the IoT Edge runtime
+## <a name="install-the-iot-edge-runtime"></a>Installera IoT Edge-körningen
 
-IoT Edge-körningen distribueras på alla IoT Edge-enheter. Its components run in containers, and allow you to deploy additional containers to the device so that you can run code at the edge.
+IoT Edge-körningen distribueras på alla IoT Edge-enheter. Dess komponenter körs i behållare och gör att du kan distribuera ytterligare behållare till enheten så att du kan köra kod på gränsen.
 
-You'll need the following information when provisioning your device:
+Du behöver följande information när du konfigurerar din enhet:
 
-* The DPS **ID Scope** value
-* The device **Registration ID** you created
+* DPS **-ID omfångs** värde
+* ID för enhets **registrering** som du har skapat
 
-Install the IoT Edge runtime on the device that is running the simulated TPM. You'll configure the IoT Edge runtime for automatic, not manual, provisioning.
+Installera IoT Edge runtime på enheten som kör den simulerade TPM: en. Du konfigurerar IoT Edge runtime för automatisk, inte manuell, etablering.
 
 > [!TIP]
-> Keep the window that's running the TPM simulator open during your installation and testing.
+> Lämna fönstret med TPM-simulatorn öppen under installationen och testning.
 
-For more detailed information about installing IoT Edge on Windows, including prerequisites and instructions for tasks like managing containers and updating IoT Edge, see [Install the Azure IoT Edge runtime on Windows](how-to-install-iot-edge-windows.md).
+Mer detaljerad information om hur du installerar IoT Edge i Windows, inklusive krav och instruktioner för aktiviteter som hantering av behållare och uppdatering av IoT Edge, finns i [installera Azure IoT Edge runtime i Windows](how-to-install-iot-edge-windows.md).
 
-1. Open a PowerShell window in administrator mode. Be sure to use an AMD64 session of PowerShell when installing IoT Edge, not PowerShell (x86).
+1. Öppna ett PowerShell-fönster i administratörsläge. Se till att använda en AMD64-session av PowerShell när du installerar IoT Edge, inte PowerShell (x86).
 
-1. The **Deploy-IoTEdge** command checks that your Windows machine is on a supported version, turns on the containers feature, and then downloads the moby runtime and the IoT Edge runtime. The command defaults to using Windows containers.
+1. Kommandot **Deploy-IoTEdge** kontrollerar att Windows-datorn finns på en version som stöds, aktiverar funktionen containers och laddar sedan ned Moby runtime och IoT Edge Runtime. Kommandot använder som standard Windows-behållare.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Deploy-IoTEdge
    ```
 
-1. At this point, IoT Core devices may restart automatically. Other Windows 10 or Windows Server devices may prompt you to restart. If so, restart your device now. Once your device is ready, run PowerShell as an administrator again.
+1. I det här läget kan IoT core-enheter startas om automatiskt. Andra Windows 10-eller Windows Server-enheter kan bli ombedd att starta om. Om så är fallet startar du om enheten nu. När enheten är klar kör du PowerShell som administratör igen.
 
-1. The **Initialize-IoTEdge** command configures the IoT Edge runtime on your machine. The command defaults to manual provisioning with Windows containers. Use the `-Dps` flag to use the Device Provisioning Service instead of manual provisioning.
+1. Kommandot **Initialize-IoTEdge** konfigurerar IoT Edge runtime på din dator. Kommandot är standardvärdet för manuell etablering med Windows-behållare. Använd `-Dps`-flaggan om du vill använda enhets etablerings tjänsten i stället för manuell etablering.
 
-   Replace the placeholder values for `{scope_id}` and `{registration_id}` with the data you collected earlier.
+   Ersätt plats hållarnas värden för `{scope_id}` och `{registration_id}` med de data du samlat in tidigare.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID}
    ```
 
-## <a name="verify-successful-installation"></a>Verify successful installation
+## <a name="verify-successful-installation"></a>Verifiera installationen
 
-If the runtime started successfully, you can go into your IoT Hub and start deploying IoT Edge modules to your device. Use the following commands on your device to verify that the runtime installed and started successfully.  
+Om körningen har startats kan du gå till din IoT-hubb och börja distribuera IoT Edge-moduler till din enhet. Använd följande kommandon på din enhet för att kontrollera att körningen installerad och har startats.  
 
 Kontrollera status för IoT Edge-tjänsten.
 
@@ -116,13 +116,13 @@ Kontrollera status för IoT Edge-tjänsten.
 Get-Service iotedge
 ```
 
-Examine service logs from the last 5 minutes.
+Granska loggarna för tjänsten från de senaste 5 minuterna.
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
-List running modules.
+Lista med moduler.
 
 ```powershell
 iotedge list
@@ -130,4 +130,4 @@ iotedge list
 
 ## <a name="next-steps"></a>Nästa steg
 
-The Device Provisioning Service enrollment process lets you set the device ID and device twin tags at the same time as you provision the new device. You can use those values to target individual devices or groups of devices using automatic device management. Learn how to [Deploy and monitor IoT Edge modules at scale using the Azure portal](how-to-deploy-monitor.md) or [using Azure CLI](how-to-deploy-monitor-cli.md)
+Registreringen Device Provisioning-tjänsten kan du ange enhets-ID och device twin taggar samtidigt som du etablerar den nya enheten. Du kan använda dessa värden för att rikta enskilda enheter eller grupper av enheter med hjälp av automatisk enheter. Lär dig hur du [distribuerar och övervakar IoT Edge moduler i skala med hjälp av Azure Portal](how-to-deploy-monitor.md) eller [med hjälp av Azure CLI](how-to-deploy-monitor-cli.md)

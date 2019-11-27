@@ -1,12 +1,12 @@
 ---
-title: 'Running multiple dependent services: .NET Core & Visual Studio'
+title: 'Köra flera beroende tjänster: .NET Core & Visual Studio'
 services: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
 ms.openlocfilehash: 9fb6993c913454d67e2118cd3ff5a4b8fea6464b
 ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
@@ -14,9 +14,9 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74325688"
 ---
-# <a name="running-multiple-dependent-services-net-core-and-visual-studio-with-azure-dev-spaces"></a>Running multiple dependent services: .NET Core and Visual Studio with Azure Dev Spaces
+# <a name="running-multiple-dependent-services-net-core-and-visual-studio-with-azure-dev-spaces"></a>Köra flera beroende tjänster: .NET Core och Visual Studio med Azure dev Spaces
 
-I den här självstudien får du lära dig att utveckla program med flera tjänster med hjälp av Azure Dev Spaces, samt några av de fördelar som finns i Dev Spaces.
+I den här självstudien lär du dig att utveckla program för flera tjänster med hjälp av Azure Dev Spaces samt några av de fördelar som finns i Dev Spaces.
 
 ## <a name="call-another-container"></a>Anropa en annan container
 I det här avsnittet ska du skapa en andra tjänst, `mywebapi`, som ska anropas av `webfrontend`. Varje tjänst körs i en separat container. Du ska sedan felsöka båda containrarna.
@@ -28,7 +28,7 @@ För enkelhetens skull laddar vi ned exempelkoden från en GitHub-databas. Gå t
 
 ### <a name="run-mywebapi"></a>Kör *mywebapi*
 1. Öppna projektet `mywebapi` i ett *separat fönster i Visual Studio*.
-1. Välj **Azure Dev Spaces** i listrutan med startinställningar som du gjorde tidigare för projektet `webfrontend`. I stället för att skapa ett nytt AKS-kluster väljer du den här gången samma som du redan skapat. Precis som förut lämnar du standardinställningen `default` för Utrymme och klickar på **OK**. In the Output window, you may notice Visual Studio starts to "warm up" this new service in your dev space in order to speed up things when you start debugging.
+1. Välj **Azure Dev Spaces** i listrutan med startinställningar som du gjorde tidigare för projektet `webfrontend`. I stället för att skapa ett nytt AKS-kluster väljer du den här gången samma som du redan skapat. Precis som förut lämnar du standardinställningen `default` för Utrymme och klickar på **OK**. I fönstret utdata kanske du märker att Visual Studio börjar "värma upp" den här nya tjänsten i ditt utvecklings utrymme för att snabba upp saker när du startar fel sökning.
 1. Tryck på F5 och vänta tills tjänsten har skapats och distribuerats. Processen är klar när statusfältet i Visual Studio blir orange
 1. Anteckna slutpunktens webbadress som visas i fönstret **Azure Dev Spaces för AKS** i fönstret **Utdata**. Den ser ut ungefär så här: `http://localhost:<portnumber>`. Det kan verka som om containern körs lokalt, men i själva verket körs den i utvecklingsmiljön i Azure.
 2. När `mywebapi` är klar öppnar du webbläsaren på localhost-adressen och lägger till `/api/values` i URL:en för att anropa standard-GET-API:et för `ValuesController`. 
@@ -37,7 +37,7 @@ För enkelhetens skull laddar vi ned exempelkoden från en GitHub-databas. Gå t
     ![](media/get-started-netcore-visualstudio/WebAPIResponse.png)
 
 ### <a name="make-a-request-from-webfrontend-to-mywebapi"></a>Skicka en begäran från *webfrontend* till *mywebapi*
-Nu ska vi skriva kod i `webfrontend` som skickar en begäran till `mywebapi`. Växla till Visual Studio-fönstret som innehåller `webfrontend`-projektet. *Ersätt* koden för About-metoden i filen `HomeController.cs` med följande kod:
+Nu ska vi skriva kod i `webfrontend` som skickar en begäran till `mywebapi`. Växla till Visual Studio-fönstret som innehåller `webfrontend`-projektet. `HomeController.cs`Ersätt*koden för About-metoden i filen* med följande kod:
 
    ```csharp
    public async Task<IActionResult> About()
@@ -62,7 +62,7 @@ Nu ska vi skriva kod i `webfrontend` som skickar en begäran till `mywebapi`. V�
    }
    ```
 
-I föregående kodexempel vidarebefordrar rubriken `azds-route-as` från den inkommande till den utgående begäran. Senare ser du hur detta bidrar till en mer produktiv utvecklingsupplevelse i [teamscenarier](team-development-netcore-visualstudio.md).
+I föregående kodexempel vidarebefordras rubriken `azds-route-as` från den inkommande till den utgående begäran. Senare ser du hur detta bidrar till en mer produktiv utvecklingsupplevelse i [teamscenarier](team-development-netcore-visualstudio.md).
 
 ### <a name="debug-across-multiple-services"></a>Felsöka över flera tjänster
 1. I detta läge bör `mywebapi` fortfarande köras med felsökaren. Om inte trycker du på F5 i `mywebapi`-projektet.

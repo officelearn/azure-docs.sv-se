@@ -76,7 +76,7 @@ I din katalog har gästens **inbjudan godkänt** värde ändrats till **Ja**. Om
 ## <a name="next-steps"></a>Nästa steg
 
 - [Vad är Azure AD B2B-samarbete?](what-is-b2b.md)
-- [Lägg till användare i Azure Active Directory B2B-samarbetet i Azure portal](add-users-administrator.md)
+- [Lägg till Azure Active Directory B2B-samarbets användare i Azure Portal](add-users-administrator.md)
 - [Hur kan informations arbetare lägga till B2B-samarbets användare för att Azure Active Directory?](add-users-information-worker.md)
 - [Lägga till Azure Active Directory B2B-samarbets användare med hjälp av PowerShell](customize-invitation-api.md#powershell)
 - [Lämna en organisation som gäst användare](leave-the-organization.md)

@@ -37,7 +37,7 @@ Azure Marketplace erbjuder tekniska lösningar och tjänster från Microsoft och
 
 * bas operativ system
 * databaser
-* säkerhet
+* security
 * identity
 * nätverk
 * Blockchain
@@ -108,7 +108,7 @@ Om du vill migrera en Azure Marketplace-prenumeration (virtuell dator) till en E
 
 Prissättningen varierar beroende på produkttyp och utgivarens specifikationer. Avgifter för programvarulicenser och kostnader för Azure-användning faktureras separat genom din Azure-prenumeration.
 
-*Unbundled:*
+*Unbunta:*
 
 + *BYOL-modell (tag-Your-License)* : när du skaffar en program varu licens direkt från utgivaren eller en åter försäljare finns det inga ytterligare kostnader eller avgifter för program vara.
 

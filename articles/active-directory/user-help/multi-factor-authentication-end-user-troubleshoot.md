@@ -1,6 +1,6 @@
 ---
-title: Common problems & solutions with account authentication - Azure AD
-description: Learn about potential problems and solutions for some of the more common two-factor verification problems and your work or school account.
+title: Vanliga problem & lösningar med autentisering av konto – Azure AD
+description: Lär dig mer om potentiella problem och lösningar för några av de vanligaste två faktorerna verifierings problem och ditt arbets-eller skol konto.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -20,94 +20,94 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74231882"
 ---
-# <a name="common-problems-and-solutions-with-two-factor-verification-and-your-work-or-school-account"></a>Common problems and solutions with two-factor verification and your work or school account
+# <a name="common-problems-and-solutions-with-two-factor-verification-and-your-work-or-school-account"></a>Vanliga problem och lösningar med tvåstegsverifiering och ditt arbets-eller skol konto
 
-Your organization has turned on two-factor verification, meaning that your work or school account sign-in now requires a combination of your user name, your password, and a mobile device or phone. Your organization turned on this extra verification because it's more secure than just a password, relying on two forms of authentication: something you know and something you have with you. Two-factor verification can help to stop malicious hackers from pretending to be you, because even if they have your password, odds are that they don't have your device, too.
+Din organisation har aktiverat tvåstegsverifiering, vilket innebär att ditt arbets-eller skol konto loggar nu kräver en kombination av ditt användar namn, ditt lösen ord och en mobil enhet eller telefon. Din organisation aktiverade den här extra verifieringen eftersom det är säkrare än bara ett lösen ord, som förlitar sig på två typer av autentisering: något du känner och något som du har med dig. Tvåstegsverifiering kan hjälpa till att stoppa skadliga hackare från att vara du, eftersom även om de har ditt lösen ord, är strider att de inte har din enhet.
 
-There are some common two-factor verification problems that seem to happen more frequently than any of us would like. We've put together this article hoping to address the most common problems and some possible fixes.
+Det finns några vanliga vanliga verifierings problem på två faktorer som verkar oftare än vad som helst av oss. Vi har samlat ihop den här artikeln lura för att lösa de vanligaste problemen och några möjliga korrigeringar.
 
 >[!Important]
 >Innehållet är avsett för användare. Om du är administratör hittar du mer information om hur du konfigurerar och hanterar en Azure Active Directory (Azure AD)-miljö i [dokumentationen om Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 >
->This content is also only intended for use with your work or school account, the account provided to you by your organization (for example, alain@contoso.com). If you're having problems with two-factor verification and your personal Microsoft account, the account you set up for yourself (for example, danielle@outlook.com), see [Turning two-factor verification on or off for your Microsoft account](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+>Det här innehållet är även avsett för användning med ditt arbets-eller skol konto, kontot som du fått av din organisation (till exempel alain@contoso.com). Om du har problem med tvåstegsverifiering och ditt personliga Microsoft-konto, kan du se [Aktivera och inaktivera tvåstegsverifiering på eller av för din Microsoft-konto](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)om du har ett konto som du själv har konfigurerat för dig (till exempel danielle@outlook.com).
 
-## <a name="i-forgot-my-mobile-device-at-home"></a>I forgot my mobile device at home
+## <a name="i-forgot-my-mobile-device-at-home"></a>Jag har glömt min mobila enhet hemma
 
-It happens. You left your mobile device at home and now you can't use your phone to verify you are who you say you are. If you previously added another method to sign in to your account, such as your office phone, you should be able to use that method now. If you never added an additional verification method, you'll have to contact your Help desk and have them help you get back into your account.
+Det sker. Du har lämnat din mobila enhet hemma och nu kan du inte använda din telefon för att kontrol lera att du är den som du säger. Om du tidigare har lagt till en annan metod för att logga in på ditt konto, till exempel din arbets telefon, bör du kunna använda den metoden nu. Om du aldrig har lagt till en ytterligare verifieringsmetod måste du kontakta supportavdelningen och låta dem hjälpa dig att komma tillbaka till ditt konto.
 
-### <a name="to-sign-in-to-your-work-or-school-account-using-another-verification-method"></a>To sign in to your work or school account using another verification method
+### <a name="to-sign-in-to-your-work-or-school-account-using-another-verification-method"></a>Logga in på ditt arbets-eller skol konto med en annan verifieringsmetod
 
-1. Sign in to your account normally and choose the **Sign in another way** link on the **Two-factor verification** page.
+1. Logga in på ditt konto som vanligt och välj länken **Logga in på en annan väg** på sidan med **verifiering av två faktorer** .
 
-    ![Change sign in verification method](./media/multi-factor-authentication-end-user-troubleshoot/two-factor-auth-signin-another-way.png)
+    ![Ändra verifierings metod för inloggning](./media/multi-factor-authentication-end-user-troubleshoot/two-factor-auth-signin-another-way.png)
 
     >[!Note]
-    >If you don't see the **Sign in another way** link, it means that you haven't set up any other verification methods. You'll have to contact your administrator for help signing into your account.
+    >Om du inte ser länken **Logga in på ett annat sätt** , innebär det att du inte har ställt in några andra verifierings metoder. Du måste kontakta administratören om du behöver hjälp med att logga in på ditt konto.
 
-2. Choose your alternative verification method, and continue with the two-factor verification process.
+2. Välj den alternativa verifierings metoden och fortsätt med processen med tvåstegsverifiering.
 
-## <a name="i-lost-my-mobile-device-or-it-was-stolen"></a>I lost my mobile device or it was stolen
+## <a name="i-lost-my-mobile-device-or-it-was-stolen"></a>Jag har förlorat min mobila enhet eller blivit stulen
 
-If you've lost or had your mobile device stolen, you can either sign in using a different method or you can ask your Help desk to clear your settings. We strongly recommend letting your Help desk know if your phone was lost or stolen, so the appropriate updates can be made to your account. After your settings are cleared, you'll be prompted to [register for two-factor verification](multi-factor-authentication-end-user-first-time.md) the next time you sign in.
+Om du har förlorat eller haft din mobila enhet stulen kan du antingen logga in med en annan metod eller be supportavdelningen att ta bort dina inställningar. Vi rekommenderar starkt att du kontaktar supportavdelningen om din telefon tappades bort eller stulits, så att du kan göra lämpliga uppdateringar av ditt konto. När inställningarna har rensats uppmanas du att [Registrera dig för tvåstegsverifiering](multi-factor-authentication-end-user-first-time.md) nästa gången du loggar in.
 
-## <a name="im-not-getting-the-verification-code-sent-to-my-mobile-device"></a>I'm not getting the verification code sent to my mobile device
+## <a name="im-not-getting-the-verification-code-sent-to-my-mobile-device"></a>Jag får inte den verifierings kod som skickas till min mobila enhet
 
-Not getting your verification code is a common problem and it's typically related to your mobile device and its settings. Some possible things to try:
+Att inte hämta verifierings koden är ett vanligt problem och det är vanligt vis relaterat till din mobila enhet och dess inställningar. Några möjliga saker att prova:
 
-- **Restart your mobile device.** Sometimes your device just needs a refresh. Restarting your device ends any background processes or services that are currently running and could cause problems, along with refreshing your device's core components, restarting them in case they crashed at some point.
+- **Starta om den mobila enheten.** Ibland behöver enheten bara en uppdatering. Att starta om enheten avslutar alla bakgrunds processer eller tjänster som för närvarande körs och kan orsaka problem, tillsammans med att uppdatera enhetens kärn komponenter, starta om dem om de kraschade vid något tillfälle.
 
-- **Verify your security information is correct.** Make sure your security verification method information is accurate, especially your phone numbers. If you put in the wrong phone number, all of your alerts will go to that incorrect number. Fortunately, that user won't be able to do anything with the alerts, but it also won't help you sign in to your account. To make sure your information is correct, see the instructions in the [Manage your two-factor verification method settings](multi-factor-authentication-end-user-manage-settings.md) article.
+- **Kontrol lera att din säkerhets information är korrekt.** Kontrol lera att informationen om säkerhets verifierings metoden är korrekt, särskilt dina telefonnummer. Om du anger fel telefonnummer hamnar alla aviseringar till det felaktiga numret. Den användaren är lyckligt vis inte att kunna göra något med aviseringarna, men du kan inte heller logga in på ditt konto. Om du vill kontrol lera att informationen är korrekt läser du anvisningarna i artikeln [Hantera inställningar för metod för att hantera dina inställningar](multi-factor-authentication-end-user-manage-settings.md) .
 
-- **Verify your notifications are turned on.** Make sure your mobile device has notifications turned on and that you've selected a notification method that allows phone calls, your authentication app, and your messaging app (for text messages) to send visible alert notifications to your mobile device.
+- **Kontrol lera att dina meddelanden är aktiverade.** Kontrol lera att din mobila enhet har aktiverat meddelanden och att du har valt en meddelande metod som tillåter telefonsamtal, din webbapp och din meddelande program (för textmeddelanden) att skicka synliga aviseringar till din mobila enhet.
 
-- **Make sure you have a device signal and Internet connection.** Make sure your phone calls and text messages are getting through to your mobile device. Have a friend call you and send you a text message to make sure you receive both. If you don't, first check to make sure your mobile device is turned on. If your device is turned on, but you're still not getting the call or text, it's most likely a problem with your network and you'll need to talk to your provider. If you often have signal-related problems, we recommend you install and use the [Microsoft Authenticator app](user-help-auth-app-download-install.md) on your mobile device. The authenticator app can generate random security codes for sign-in, without requiring any cell signal or Internet connection.
+- **Kontrol lera att du har en enhets signal och Internet anslutning.** Se till att dina telefonsamtal och textmeddelanden går igenom till din mobila enhet. Låt en vän ringa dig och skicka ett SMS till dig för att se till att du får båda. Om du inte gör det ska du först kontrol lera att din mobila enhet är påslagen. Om enheten är påslagen, men du fortfarande inte får samtalet eller texten, är det förmodligen ett problem med nätverket och du måste prata med din Provider. Om du ofta har problem med signalen rekommenderar vi att du installerar och använder Microsoft Authenticator- [appen](user-help-auth-app-download-install.md) på din mobila enhet. Authenticator-appen kan generera slumpmässiga säkerhets koder för inloggning, utan att det krävs någon cell signal eller Internet anslutning.
 
-- **Turn off Do not disturb.** Make sure you haven't turned on the **Do not disturb** feature for your mobile device. When this feature is turned on, notifications aren't allowed to alert you on your mobile device. Refer to your mobile device's manual for instructions about how to turn off this feature.
+- **Inaktivera Stör ej.** Kontrol lera att du inte har aktiverat funktionen **stör ej** på den mobila enheten. När den här funktionen är aktive rad är aviseringar inte tillåtna för att varna dig på din mobila enhet. Information om hur du inaktiverar den här funktionen finns i hand boken för den mobila enheten.
 
-- **Unblock phone numbers** In the United States, voice calls from Microsoft come from the following numbers: +1 (866) 539 4191, +1 (855) 330 8653, and +1 (877) 668 6536.
+- **Avblockera telefonnummer** I USA kommer röst samtal från Microsoft att komma från följande nummer: + 1 (866) 539 4191, + 1 (855) 330 8653 och + 1 (877) 668 6536.
 
-- **Check your battery-related settings.** This one seems a bit odd on the surface, but if you've set up your battery optimization to stop lesser-used apps from remaining active in the background, your notification system has most-likely been affected. To try to fix this problem, turn off battery optimization for your authentication app and your messaging app, and then try signing in to your account again.
+- **Kontrol lera dina inställningar för batteri.** Det här verkar vara lite ojämnt på ytan, men om du har konfigurerat din batteri optimering för att stoppa appar som inte används längre än vad som är aktivt i bakgrunden har meddelande systemet förmodligen drabbats. Du kan försöka åtgärda problemet genom att inaktivera batteri optimering för din webbapp och appen för meddelande hantering och sedan försöka logga in på ditt konto igen.
 
-## <a name="im-not-getting-prompted-for-my-second-verification-information"></a>I'm not getting prompted for my second verification information
+## <a name="im-not-getting-prompted-for-my-second-verification-information"></a>Jag uppmanas inte att ange min andra verifierings information
 
-If you've signed in to your work or school account using your user name and password, but haven't been prompted about your additional security verification information, it might be that you haven't set up your device yet. Your mobile device must specifically be set up to work with your additional security verification method. To make sure you've turned on your mobile device and that it's available to use with your verification method, see the [Manage your two-factor verification method settings](multi-factor-authentication-end-user-manage-settings.md) article. If you know you haven't set up your device or your account, you can do it now by following the steps in the [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md) article.
+Om du har loggat in på ditt arbets-eller skol konto med ditt användar namn och lösen ord, men inte har tillfrågats om din ytterligare säkerhets verifierings information, kan det bero på att du inte har konfigurerat din enhet ännu. Din mobila enhet måste särskilt konfigureras för att fungera med den ytterligare säkerhets verifierings metoden. För att se till att du har aktiverat din mobila enhet och att den är tillgänglig för användning med din verifierings metod, se artikeln [Hantera inställningar för metod](multi-factor-authentication-end-user-manage-settings.md) för att kontrol lera Server. Om du vet att du inte har konfigurerat din enhet eller ditt konto kan du göra det nu genom att följa stegen i artikeln [Konfigurera mitt konto för](multi-factor-authentication-end-user-first-time.md) tvåstegsverifiering.
 
-## <a name="i-got-a-new-phone-number-how-do-i-change-it-for-two-factor-verification"></a>I got a new phone number, how do I change it for two-factor verification?
+## <a name="i-got-a-new-phone-number-how-do-i-change-it-for-two-factor-verification"></a>Jag fick ett nytt telefonnummer, hur ändrar jag det för tvåstegsverifiering?
 
-If you've gotten a new phone number, you'll need to update your security verification method details so your verification prompts go to the right location. To do update your verification method, follow the steps in the **Add or change your phone number** section of the [Manage your two-factor verification method settings](multi-factor-authentication-end-user-manage-settings.md#add-or-change-your-phone-number) article.
+Om du har fått ett nytt telefonnummer måste du uppdatera information om säkerhets verifierings metoden så att verifieringen blir ombedd att gå till rätt plats. Om du vill uppdatera verifierings metoden följer du stegen i artikeln **Lägg till eller ändra ditt telefonnummer** i artikeln [Hantera inställnings metoden för en tvåfaktorautentisering](multi-factor-authentication-end-user-manage-settings.md#add-or-change-your-phone-number) .
 
-## <a name="i-got-a-new-mobile-device-how-do-i-add-it"></a>I got a new mobile device, how do I add it?
+## <a name="i-got-a-new-mobile-device-how-do-i-add-it"></a>Jag fick en ny mobil enhet, hur gör jag för att lägga till den?
 
-If you've gotten a new mobile device, you'll need to set it up to work with two-factor verification. This is a multi-step solution:
+Om du har en ny mobil enhet måste du konfigurera den så att den fungerar med tvåstegsverifiering. Detta är en lösning med flera steg:
 
-1. Set up your device to work with your work or school account by following the steps in the [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md) article.
+1. Konfigurera enheten så att den fungerar med ditt arbets-eller skol konto genom att följa stegen i artikeln [Konfigurera mitt konto för](multi-factor-authentication-end-user-first-time.md) tvåstegsverifiering.
 
-2. Update your account and device information in the **Additional security verification** page, deleting your old device and adding your new one. For more information, see the [Manage your two-factor verification method settings](multi-factor-authentication-end-user-manage-settings.md) article.
+2. Uppdatera ditt konto och din enhets information på sidan **ytterligare säkerhets verifiering** och ta bort den gamla enheten och Lägg till din nya. Mer information finns i artikeln [Hantera inställnings metoden för tvåfaktorautentisering](multi-factor-authentication-end-user-manage-settings.md) .
 
-3. Valfri. Download, install, and set up the Microsoft Authenticator app on your mobile device by following the steps in the [Download and install the Microsoft Authenticator app](user-help-auth-app-download-install.md) article.
+3. Valfri. Hämta, installera och konfigurera Microsoft Authenticator-appen på din mobila enhet genom att följa stegen i [Hämta och installera Microsoft Authenticator app](user-help-auth-app-download-install.md) -artikeln.
 
-4. Valfri. Turn on two-factor verification for your trusted devices by following the steps in the **Turn on two-factor verification prompts on a trusted device** section of the [Manage your two-factor verification method settings](multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device) article.
+4. Valfri. Aktivera tvåstegsverifiering för dina betrodda enheter genom att följa stegen i artikeln **Aktivera två faktorers verifiering på en betrodd enhet** i avsnittet [Hantera inställningar för metod](multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device) med tvåstegsverifiering.
 
-## <a name="im-having-problems-signing-in-on-my-mobile-device-while-traveling"></a>I'm having problems signing in on my mobile device while traveling
+## <a name="im-having-problems-signing-in-on-my-mobile-device-while-traveling"></a>Jag har problem med att logga in på min mobila enhet under resa
 
-You might find it more difficult to use a mobile device-related verification method, like a text messaging, while you're in an international location. It's also possible that your mobile device can cause you to incur roaming charges. For this situation, we recommend you use the Microsoft Authenticator app, with the option to connect to a Wi-Fi hotspot. For more information about how to download, install, and set up the Microsoft Authenticator app on your mobile device, see the [Download and install the Microsoft Authenticator app](user-help-auth-app-download-install.md) article.
+Det kan vara svårare att använda en metod som är relaterad till mobil enhet, t. ex. textmeddelanden, medan du är på en internationell plats. Det är också möjligt att din mobila enhet kan medföra att du debiteras för nätverks växling. I den här situationen rekommenderar vi att du använder Microsoft Authenticator-appen med alternativet att ansluta till ett Wi-Fi-hotspot. Mer information om hur du laddar ned, installerar och konfigurerar Microsoft Authenticator-appen på din mobila enhet finns i artikeln [Hämta och installera Microsoft Authenticator app](user-help-auth-app-download-install.md) .
 
-## <a name="i-cant-get-my-app-passwords-to-work"></a>I can't get my app passwords to work
+## <a name="i-cant-get-my-app-passwords-to-work"></a>Jag kan inte få mina applösenord att fungera
 
-App passwords replace your normal password for older desktop applications that don't support two-factor verification. First, make sure you typed the password correctly. If that doesn't fix it, try creating a new app password for the app by following the steps in the **Create and delete app passwords using the My Apps portal** section of the [Manage app passwords for two-step verification](multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-from-the-additional-security-verification-page) article.
+Applösenord ersätter ditt normala lösen ord för äldre Skriv bords program som inte stöder tvåstegsverifiering. Kontrol lera först att du har angett lösen ordet korrekt. Om det inte löser problemet kan du försöka med att skapa ett nytt applösenord för appen genom att följa stegen i artikeln **skapa och ta bort applösenord med hjälp av avsnittet Mina appar-portalen** i artikeln [Hantera applösenord för två steg](multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-from-the-additional-security-verification-page) .
 
-## <a name="why-cant-i-turn-two-factor-verification-off"></a>Why can't I turn two-factor verification off?
+## <a name="why-cant-i-turn-two-factor-verification-off"></a>Varför kan jag inte göra en tvåfaktorautentisering-verifiering?
 
-If you're using two-factor verification with your work or school account (for example, alain@contoso.com), it most likely means that your organization has decided you must use this added security feature. Because your organization has decided you must use this feature, there is no way for you to individually turn it off. If, however, you're using two-factor verification with a personal account, like alain@outlook.com, you have the ability to turn the feature on and off. For instructions about how to control two-factor verification for your personal Microsoft accounts, see [Turning two-factor verification on or off for your Microsoft account](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+Om du använder tvåstegsverifiering med ditt arbets-eller skol konto (till exempel alain@contoso.com), betyder det förmodligen att din organisation har valt att du måste använda den här extra säkerhetsfunktionen. Eftersom din organisation har valt att du måste använda den här funktionen kan du inaktivera den på ett och samma sätt. Om du däremot använder tvåstegsverifiering med ett personligt konto, t. ex. alain@outlook.com, kan du aktivera och inaktivera funktionen. Instruktioner för hur du styr tvåstegsverifiering för dina personliga Microsoft-konton finns i [Aktivera eller inaktivera tvåstegsverifiering på din Microsoft-konto](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
-## <a name="i-didnt-find-an-answer-to-my-problem"></a>I didn't find an answer to my problem
+## <a name="i-didnt-find-an-answer-to-my-problem"></a>Jag hittade inget svar på mitt problem
 
-If you've tried these steps but are still running into problems, contact your Help desk for assistance.
+Om du har provat dessa steg men fortfarande har problem, kan du kontakta supportavdelningen om du behöver hjälp.
 
 ## <a name="related-articles"></a>Relaterade artiklar
 
-- [Manage your two-factor verification method settings](multi-factor-authentication-end-user-manage-settings.md)
+- [Hantera dina inställningar för verifierings metoden med två faktorer](multi-factor-authentication-end-user-manage-settings.md)
 
-- [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md)
+- [Konfigurera mitt konto för tvåstegsverifiering](multi-factor-authentication-end-user-first-time.md)
 
 - [Vanliga frågor och svar om Microsoft Authenticator-appen](user-help-auth-app-faq.md)

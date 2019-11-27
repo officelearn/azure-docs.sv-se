@@ -1,6 +1,6 @@
 ---
-title: How to troubleshoot Azure Functions Runtime is unreachable.
-description: Learn how to troubleshoot an invalid storage account.
+title: Fel sökning av Körmiljö för Azure Functions kan inte kontaktas.
+description: Lär dig hur du felsöker ett ogiltigt lagrings konto.
 author: alexkarcher-msft
 ms.topic: article
 ms.date: 09/05/2018
@@ -12,78 +12,78 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74226766"
 ---
-# <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>How to troubleshoot "functions runtime is unreachable"
+# <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Så här felsöker du "Functions runtime går inte att komma åt"
 
 
-## <a name="error-text"></a>Error text
-This doc is intended to troubleshoot the following error when displayed in the Functions portal.
+## <a name="error-text"></a>Feltext
+Det här dokumentet är avsett att felsöka följande fel när det visas i funktions portalen.
 
 `Error: Azure Functions Runtime is unreachable. Click here for details on storage configuration`
 
 ### <a name="summary"></a>Sammanfattning
-This issue occurs when the Azure Functions Runtime cannot start. The most common reason for this error to occur is the function app losing access to its storage account. [Read more about the storage account requirements here](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
+Det här problemet uppstår när Körmiljö för Azure Functions inte kan starta. Den vanligaste orsaken till att det här felet inträffar är att appen förlorar åtkomsten till lagrings kontot. [Läs mer om lagrings konto kraven här](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
 
-### <a name="troubleshooting"></a>Felsöka
-We'll walk through the four most common error cases, how to identify, and how to resolve each case.
+### <a name="troubleshooting"></a>Felsökning
+Vi går igenom de fyra vanligaste fel fallen, hur du identifierar och hur du löser varje ärende.
 
-1. Storage Account deleted
-1. Storage Account application settings deleted
-1. Storage Account credentials invalid
-1. Storage Account Inaccessible
-1. Daily Execution Quota Full
+1. Lagrings kontot har tagits bort
+1. Program inställningar för lagrings kontot har tagits bort
+1. Autentiseringsuppgifterna för lagrings kontot är ogiltiga
+1. Lagrings kontot är oåtkomligt
+1. Daglig körnings kvot full
 
-## <a name="storage-account-deleted"></a>Storage account deleted
+## <a name="storage-account-deleted"></a>Lagrings kontot har tagits bort
 
-Every function app requires a storage account to operate. If that account is deleted your Function will not work.
+Alla Functions-appar kräver ett lagrings konto för att fungera. Om kontot tas bort fungerar inte-funktionen.
 
-### <a name="how-to-find-your-storage-account"></a>How to find your storage account
+### <a name="how-to-find-your-storage-account"></a>Så här hittar du ditt lagrings konto
 
-Start by looking up your storage account name in your Application Settings. Either `AzureWebJobsStorage` or `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` will contain the name of your storage account wrapped up in a connection string. Read more specifics at the [application setting reference here](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage)
+Börja med att leta upp ditt lagrings konto namn i dina program inställningar. Antingen `AzureWebJobsStorage` eller `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` kommer att innehålla namnet på ditt lagrings konto i en anslutnings sträng. Läs mer om [program inställnings referensen här](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage)
 
-Search for your storage account in the Azure portal to see if it still exists. If it has been deleted, you will need to recreate a storage account and replace your storage connection strings. Your function code is lost and you will need to redeploy it again.
+Sök efter ditt lagrings konto i Azure Portal för att se om det fortfarande finns. Om den har tagits bort måste du återskapa ett lagrings konto och ersätta lagrings anslutnings strängarna. Funktions koden går förlorad och du måste distribuera den igen.
 
-## <a name="storage-account-application-settings-deleted"></a>Storage account application settings deleted
+## <a name="storage-account-application-settings-deleted"></a>Program inställningar för lagrings kontot har tagits bort
 
-In the previous step, if you did not have a storage account connection string they were likely deleted or overwritten. Deleting app settings is most commonly done when using deployment slots or Azure Resource Manager scripts to set application settings.
+I föregående steg, om du inte har någon anslutnings sträng för lagrings kontot, har de förmodligen tagits bort eller skrivits över. Att ta bort appinställningar utförs vanligt vis när du använder distributions fack eller Azure Resource Manager skript för att ange program inställningar.
 
-### <a name="required-application-settings"></a>Required application settings
+### <a name="required-application-settings"></a>Nödvändiga program inställningar
 
 * Krävs
     * [`AzureWebJobsStorage`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage)
-* Required for Consumption Plan Functions
+* Krävs för förbruknings plan funktioner
     * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
     * [`WEBSITE_CONTENTSHARE`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
 
-[Read about these application settings here](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
+[Läs om de här program inställningarna här](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
 
-### <a name="guidance"></a>Vägledning
+### <a name="guidance"></a>Riktlinjer
 
-* Do not check "slot setting" for any of these settings. When you swap deployment slots the Function will break.
-* Do not modify these settings as part of automated deployments.
-* These settings must be provided and valid at creation time. An automated deployment that does not contain these settings will result in a non-functional App, even if the settings are added after the fact.
+* Kontrol lera inte "plats inställning" för någon av dessa inställningar. När du växlar distributions platser avbryts funktionen.
+* Ändra inte inställningarna som en del av automatiserade distributioner.
+* De här inställningarna måste tillhandahållas och vara giltiga vid skapande tillfället. En automatiserad distribution som inte innehåller de här inställningarna leder till en icke-funktionell app, även om inställningarna läggs till efter faktumet.
 
-## <a name="storage-account-credentials-invalid"></a>Storage account credentials invalid
+## <a name="storage-account-credentials-invalid"></a>Autentiseringsuppgifterna för lagrings kontot är ogiltiga
 
-The above Storage Account connection strings must be updated if you regenerate storage keys. [Read more about storage key management here](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)
+Ovanstående lagrings kontots anslutnings strängar måste uppdateras om du återskapar lagrings nycklar. [Läs mer om hantering av lagrings nycklar här](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)
 
-## <a name="storage-account-inaccessible"></a>Storage account inaccessible
+## <a name="storage-account-inaccessible"></a>Lagrings kontot är oåtkomligt
 
-Your Function App must be able to access the storage account. Common issues that block a Functions access to a storage account are:
+Ditt Funktionsapp måste kunna komma åt lagrings kontot. Vanliga problem som blockerar en funktions åtkomst till ett lagrings konto är:
 
-* Function Apps deployed to App Service Environments without the correct network rules to allow traffic to and from the storage account
-* The storage account firewall is enabled and not configured to allow traffic to and from Functions. [Read more about storage account firewall configuration here](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
+* Function-appar som distribueras till App Service miljöer utan rätt nätverks regler för att tillåta trafik till och från lagrings kontot
+* Lagrings kontots brand vägg är aktive rad och inte konfigurerad för att tillåta trafik till och från funktioner. [Läs mer om konfiguration av brand vägg för lagrings konto här](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 
-## <a name="daily-execution-quota-full"></a>Daily Execution Quota Full
+## <a name="daily-execution-quota-full"></a>Daglig körnings kvot full
 
-If you have a Daily Execution Quota configured, your Function App will be temporarily disabled and many of the portal controls will become unavailable. 
+Om du har konfigurerat en daglig körnings kvot så inaktive ras Funktionsapp tillfälligt och många av Portal kontrollerna blir otillgängliga. 
 
-* To verify, check open Platform Features > Function App Settings in the portal. You will see the following message if you are over quota
+* För att verifiera, se öppna plattforms funktioner > Funktionsapp inställningar i portalen. Följande meddelande visas om du använder kvoten
     * `The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame.`
-* Remove the quota and restart your app to resolve the issue.
+* Ta bort kvoten och starta om appen för att lösa problemet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Now that your Function App is back and operational take a look at our quickstarts and developer references to get up and running again!
+Nu när din Funktionsapp är tillbaka och fungerar tar du en titt på våra snabb starter och Developer-referenser för att komma igång igen!
 
 * [Skapa din första Azure-funktion](functions-create-first-azure-function.md)  
   Kom igång snabbt och skapa din första funktion med hjälp av Azure Functions-snabbstart. 

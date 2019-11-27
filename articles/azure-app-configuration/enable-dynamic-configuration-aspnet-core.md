@@ -195,7 +195,7 @@ Innan du fortsätter måste du först [skapa en ASP.net Core-app med app-konfigu
 
     ![Snabbstart av lokal app](./media/quickstarts/aspnet-core-app-launch-local-before.png)
 
-4. Logga in på [Azure-portalen](https://portal.azure.com). Välj **alla resurser**och välj den instans av app Configuration Store som du skapade i snabb starten.
+4. Logga in på [Azure Portal](https://portal.azure.com). Välj **alla resurser**och välj den instans av app Configuration Store som du skapade i snabb starten.
 
 5. Välj **Configuration Explorer**och uppdatera värdena för följande nycklar:
 

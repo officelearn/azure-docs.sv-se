@@ -1,6 +1,6 @@
 ---
-title: Sample - Ensure HTTPS traffic for storage accounts
-description: This sample policy definition requires all Azure storage accounts to allow only secure HTTPS traffic.
+title: Exempel – se till att HTTPS-trafik för lagrings konton
+description: Den här exempel princip definitionen kräver att alla Azure Storage-konton endast tillåter säker HTTPS-trafik.
 ms.date: 01/23/2019
 ms.topic: sample
 ms.openlocfilehash: 4d6b6f7e494d2f8c5278c546ead1f9697f245f38
@@ -24,7 +24,7 @@ Du kan distribuera den här mallen med hjälp av [Azure Portal](#deploy-with-the
 
 ## <a name="deploy-with-the-portal"></a>Distribuera med portalen
 
-[![Deploy the Policy sample to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FStorage%2Fhttps-traffic-only%2Fazurepolicy.json)
+[![distribuera princip exemplet till Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FStorage%2Fhttps-traffic-only%2Fazurepolicy.json)
 
 ## <a name="deploy-with-powershell"></a>Distribuera med PowerShell
 
@@ -65,4 +65,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska fler exempel under [Exempel på Azure-princip](index.md)
+- Granska fler exempel under [Azure Policy-exempel](index.md)

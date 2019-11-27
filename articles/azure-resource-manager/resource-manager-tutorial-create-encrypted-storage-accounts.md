@@ -13,13 +13,13 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74326483"
 ---
-# <a name="tutorial-utilize-the-azure-resource-manager-template-reference"></a>Tutorial: Utilize the Azure Resource Manager template reference
+# <a name="tutorial-utilize-the-azure-resource-manager-template-reference"></a>Självstudie: Använd Azure Resource Manager mal len referens
 
 Lär dig hur du hittar information om mallschema och använd informationen för att skapa Azure Resource Manager-mallar.
 
 I den här självstudien använder du en basmall från Azure-snabbstartmallar. Använd referensdokumentationen för mallar för att anpassa mallen och skapa ett krypterat lagringskonto.
 
-![Resource Manager template reference deploy encrypted storage account](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-tutorial-deploy-encrypted-storage-account.png)
+![Referens för Resource Manager-mall distribuera krypterat lagrings konto](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-tutorial-deploy-encrypted-storage-account.png)
 
 Den här självstudien omfattar följande uppgifter:
 
@@ -36,7 +36,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 För att kunna följa stegen i den här artikeln behöver du:
 
-* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](./resource-manager-tools-vs-code.md).
+* Visual Studio Code med Resource Manager Tools-tillägg. [Skapa Azure Resource Manager mallar i använda Visual Studio Code](./resource-manager-tools-vs-code.md).
 
 ## <a name="open-a-quickstart-template"></a>Öppna en snabbstartsmall
 
@@ -70,9 +70,9 @@ För att kunna följa stegen i den här artikeln behöver du:
 
 ## <a name="find-the-template-reference"></a>Leta upp mallreferensen
 
-1. Browse to [Azure Template reference](https://docs.microsoft.com/azure/templates/).
-2. In the **Filter by title** box, enter **storage accounts**.
-3. Select **Reference/Template reference/Storage/&lt;Version>/Storage Accounts** as shown in the following screenshot:
+1. Bläddra till [referens för Azure-mall](https://docs.microsoft.com/azure/templates/).
+2. I rutan **Filtrera efter namn** anger du **lagrings konton**.
+3. Välj **referens/mall referens/lagring/&lt;Version >/Storage-konton** som visas på följande skärm bild:
 
     ![Resource Manager, mallreferens, lagringskonto](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
 

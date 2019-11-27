@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Search for entities with the SDK for Java - Bing Entity Search'
+title: 'Snabb start: söka efter entiteter med SDK för Java-Entitetssökning i Bing'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten för att söka efter entiteter med SDK:t Entitetssökning i Bing för Java
 services: cognitive-services
@@ -17,9 +17,9 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74327142"
 ---
-# <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-java"></a>Quickstart: Send a search request with the Bing Entity Search SDK for Java
+# <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-java"></a>Snabb start: skicka en sökbegäran med Entitetssökning i Bing SDK för Java
 
-Använd den här snabbstarten om du vill börja söka efter entiteter med SDK:t Entitetssökning i Bing för Java. Även om entitetssökning i Bing har ett REST API som är kompatibelt med de flesta programmeringsspråk så är SDK:t ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingEntitySearch).
+Använd den här snabbstarten om du vill börja söka efter entiteter med SDK:t Entitetssökning i Bing för Java. Även om entitetssökning i Bing har ett REST API som är kompatibelt med de flesta programmeringsspråk så tillhandahåller SDK:n ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingEntitySearch).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -67,7 +67,7 @@ Installera SDK-beroenden för entitetssökningen i Bing med hjälp av Maven, Gra
 
 ## <a name="create-a-search-client"></a>Skapa en sökklient
 
-1. Implementera klienten `dominantEntityLookup`, där din API-slutpunkt behövs, och en instans av klassen `ServiceClientCredentials`.
+1. Implementera klienten `dominantEntityLookup`, som kräver din API-slutpunkt och en instans av klassen `ServiceClientCredentials`.
 
     ```java
     public static EntitySearchAPIImpl getClient(final String subscriptionKey) {
@@ -80,7 +80,7 @@ Installera SDK-beroenden för entitetssökningen i Bing med hjälp av Maven, Gra
 
     Så här implementerar du `ServiceClientCredentials`:
 
-   1. Åsidosätt funktionen `applyCredentialsFilter()` med ett `OkHttpClient.Builder`-objekt som parameter. 
+   1. åsidosätt funktionen `applyCredentialsFilter()` med ett `OkHttpClient.Builder`-objekt som parameter. 
         
        ```java
        //...

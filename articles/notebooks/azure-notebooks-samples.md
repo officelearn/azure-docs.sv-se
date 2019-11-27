@@ -16,22 +16,22 @@ Internet har många samlingar med intressanta och användbara Jupyter-anteckning
 
 När du har identifierat en bärbar dator som du vill utforska, är här några uppgifter som du vill förstå:
 
-- Om en bärbar dator är redan i Azure-datorer använder den **klona** knappen på dess instrumentpanelen för projektet att göra en kopia av projektet i ditt eget konto.
-- Vissa bärbara datorer kräver specifika paket för att köra. Även om du kan använda `!pip install` (Python) eller `install.packages` (R) för att installera paket från en bärbar dator, du kan också [konfigurera ett projekt med Azure-anteckningsböcker med lämpliga miljön](configure-manage-azure-notebooks-projects.md).
+- Om en antecknings bok redan finns i Azure Notebooks använder du knappen **klona** på instrument panelen för projektet för att skapa en kopia av projektet i ditt eget konto.
+- Vissa bärbara datorer kräver specifika paket för att köra. Även om du kan använda `!pip install` (python) eller `install.packages` (R) för att installera paket från en bärbar dator kan du också [Konfigurera ett Azure Notebooks-projekt med lämplig miljö](configure-manage-azure-notebooks-projects.md).
 
 ## <a name="great-sample-notebooks"></a>Bra exempelanteckningsböcker
 
 - [Azure Notebooks start uppsättning](https://notebooks.azure.com/#sample-redirect) innehåller introduktioner till python, R och F#, tillsammans med antecknings böcker som demonstrerar data åtkomst, Azure Machine Learning och några data vetenskaps övningar.
-- [Introduktion till Jupyter notebooks](https://nbviewer.jupyter.org/github/jupyter/notebook/blob/master/docs/source/examples/Notebook/Notebook%20Basics.ipynb) (jupyter.org)
-- [Introduktion till Data Science](https://github.com/jakevdp/PythonDataScienceHandbook/tree/master/notebooks) av Jake Vanderplas.
-- [Galleri med intressanta anteckningsböcker](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks) (Jupyter-projekt på GitHub)
+- [Introduktion till Jupyter Notebooks](https://nbviewer.jupyter.org/github/jupyter/notebook/blob/master/docs/source/examples/Notebook/Notebook%20Basics.ipynb) (Jupyter.org)
+- [Introduktion till data science](https://github.com/jakevdp/PythonDataScienceHandbook/tree/master/notebooks) av Johan Vanderplas.
+- [Galleri med intressanta antecknings böcker](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks) (Jupyter-projekt på GitHub)
 - [nbviewer.jupyter.org](https://nbviewer.jupyter.org)
-- Fysik instruktion från den [fysik-avdelningen på brittiska College London](https://notebooks.azure.com/cvanbreu/libraries)
-- [Exempel för Azure Machine Learning-komma igång](https://notebooks.azure.com/azureml/projects/azureml-getting-started)
+- Fysik instruktion från [fysik avdelningen på Imperial-gymnasium i London](https://notebooks.azure.com/cvanbreu/libraries)
+- [Azure Machine Learning kom igång-exempel](https://notebooks.azure.com/azureml/projects/azureml-getting-started)
 
 ## <a name="next-steps"></a>Nästa steg  
 
-- [Så här: konfigurera och hantera projekt](configure-manage-azure-notebooks-projects.md)
-- [Så här: arbeta med filer](work-with-project-data-files.md)
-- [Så här: åtkomst till dataresurser](access-data-resources-jupyter-notebooks.md)
+- [Gör så här: Konfigurera och hantera projekt](configure-manage-azure-notebooks-projects.md)
+- [Gör så här: arbeta med datafiler](work-with-project-data-files.md)
+- [Så här gör du: åtkomst till data resurser](access-data-resources-jupyter-notebooks.md)
 - [Gör så här: använda Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)

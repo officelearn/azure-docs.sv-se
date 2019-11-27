@@ -1,6 +1,6 @@
 ---
 title: Elastic Database-jobb (förhandsversion)
-description: Configure Elastic Database Jobs (preview) to run Transact-SQL (T-SQL) scripts across a set of one or more Azure SQL databases
+description: Konfigurera Elastic Database jobb (för hands version) för att köra Transact-SQL-skript (T-SQL) i en uppsättning med en eller flera Azure SQL-databaser
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -18,30 +18,30 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74420374"
 ---
-# <a name="create-configure-and-manage-elastic-jobs"></a>Create, configure, and manage elastic jobs
+# <a name="create-configure-and-manage-elastic-jobs"></a>Skapa, konfigurera och hantera elastiska jobb
 
-In this article, you will learn how to create, configure, and manage elastic jobs.
+I den här artikeln får du lära dig hur du skapar, konfigurerar och hanterar elastiska jobb.
 
-If you have not used Elastic jobs, [learn more about the job automation concepts in Azure SQL Database](sql-database-job-automation-overview.md).
+Om du inte har använt elastiska jobb kan du [läsa mer om jobb automatiserings begreppen i Azure SQL Database](sql-database-job-automation-overview.md).
 
 ## <a name="create-and-configure-the-agent"></a>Skapa och konfigurera agenten
 
-1. Skapa eller identifiera en tom SQL-databas på S0-nivå eller högre. This database will be used as the *Job database* during Elastic Job agent creation.
-2. Create an Elastic Job agent in the [portal](https://portal.azure.com/#create/Microsoft.SQLElasticJobAgent) or with [PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent).
+1. Skapa eller identifiera en tom SQL-databas på S0-nivå eller högre. Den här databasen kommer att användas som *jobb databas* när en elastisk jobb agent skapas.
+2. Skapa en elastisk jobb agent i [portalen](https://portal.azure.com/#create/Microsoft.SQLElasticJobAgent) eller med [PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent).
 
-   ![Creating Elastic Job agent](media/elastic-jobs-overview/create-elastic-job-agent.png)
+   ![Skapa en elastisk jobb agent](media/elastic-jobs-overview/create-elastic-job-agent.png)
 
 ## <a name="create-run-and-manage-jobs"></a>Skapa, kör och hantera jobb
 
-1. Create a credential for job execution in the *Job database* using [PowerShell](elastic-jobs-powershell.md) or [T-SQL](elastic-jobs-tsql.md#create-a-credential-for-job-execution).
-2. Define the target group (the databases you want to run the job against) using [PowerShell](elastic-jobs-powershell.md) or [T-SQL](elastic-jobs-tsql.md#create-a-target-group-servers).
+1. Skapa en autentiseringsuppgift för jobb körning i *jobb databasen* med hjälp av [PowerShell](elastic-jobs-powershell.md) eller [T-SQL](elastic-jobs-tsql.md#create-a-credential-for-job-execution).
+2. Definiera mål gruppen (databaserna som du vill köra jobbet mot) med hjälp av [PowerShell](elastic-jobs-powershell.md) eller [T-SQL](elastic-jobs-tsql.md#create-a-target-group-servers).
 3. Skapa autentiseringsuppgifter för en jobbagent i varje databas som jobbet ska köras mot [(lägg till användaren (eller rollen) till varje databas i gruppen)](sql-database-control-access.md). Exempel finns i [PowerShell-självstudien](elastic-jobs-powershell.md).
-4. Create a job using [PowerShell](elastic-jobs-powershell.md) or [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
+4. Skapa ett jobb med hjälp av [PowerShell](elastic-jobs-powershell.md) eller [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
 5. Lägg till jobbsteg med [PowerShell](elastic-jobs-powershell.md) eller [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
-6. Run a job using [PowerShell](elastic-jobs-powershell.md#run-the-job) or [T-SQL](elastic-jobs-tsql.md#begin-ad-hoc-execution-of-a-job).
-7. Monitor job execution status using the portal, [PowerShell](elastic-jobs-powershell.md#monitor-status-of-job-executions) or [T-SQL](elastic-jobs-tsql.md#monitor-job-execution-status).
+6. Kör ett jobb med [PowerShell](elastic-jobs-powershell.md#run-the-job) eller [T-SQL](elastic-jobs-tsql.md#begin-ad-hoc-execution-of-a-job).
+7. Övervaka jobb körnings status med hjälp av portalen, [PowerShell](elastic-jobs-powershell.md#monitor-status-of-job-executions) eller [T-SQL](elastic-jobs-tsql.md#monitor-job-execution-status).
 
-   ![Portalen](media/elastic-jobs-overview/elastic-job-executions-overview.png)
+   ![Portal](media/elastic-jobs-overview/elastic-job-executions-overview.png)
 
 ## <a name="credentials-for-running-jobs"></a>Autentiseringsuppgifter för att köra jobb
 
@@ -50,8 +50,8 @@ Jobbet använder [databasbegränsade autentiseringsuppgifter](/sql/t-sql/stateme
 Att konfigurera rätt autentiseringsuppgifter för att köra ett jobb kan vara något förvirrande, så tänk på följande punkter:
 
 - De databasbegränsade autentiseringsuppgifterna måste skapas i *jobbdatabasen*.
-- **All target databases must have a login with [sufficient permissions](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) for the job to complete successfully** (`jobuser` in the diagram below).
-- Credentials can be reused across jobs, and the credential passwords are encrypted and secured from users who have read-only access to job objects.
+- **Alla mål databaser måste ha en inloggning med [tillräckliga behörigheter](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) för att jobbet ska kunna slutföras** (`jobuser` i diagrammet nedan).
+- Autentiseringsuppgifter kan återanvändas mellan jobb och lösen ord för autentiseringsuppgifter krypteras och skyddas från användare som har skrivskyddad åtkomst till jobb objekt.
 
 Följande bild är utformad för att underlätta förståelse och konfiguration av rätt autentiseringsuppgifter för jobb. **Kom ihåg att skapa användaren i varje databas (alla *målanvändardatabaser*) som jobbet behöver köras mot**.
 
@@ -62,8 +62,8 @@ Följande bild är utformad för att underlätta förståelse och konfiguration 
 Några metodtips för att arbeta med elastiska jobb:
 
 - Begränsa användningen av API:er till betrodda personer.
-- Autentiseringsuppgifter ska ha minsta möjliga behörigheter som krävs för att utföra jobbsteget. For more information, see [Authorization and Permissions SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server).
-- When using a server and/or pool target group member, it is highly suggested to create a separate credential with rights on the master database to view/list databases that is used to expand the database lists of the server(s) and/or pool(s) prior to the job execution.
+- Autentiseringsuppgifter ska ha minsta möjliga behörigheter som krävs för att utföra jobbsteget. Mer information finns i [auktorisering och behörigheter SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server).
+- När du använder en mål grupps medlem för Server och/eller pool, rekommenderar vi starkt att du skapar en separat autentiseringsuppgift med behörighet på huvud databasen för att Visa/lista databaser som används för att expandera databas listor för-servrar och/eller pooler innan jobb körningen.
 
 ## <a name="agent-performance-capacity-and-limitations"></a>Agentprestanda, kapacitet och begränsningar
 
@@ -77,7 +77,7 @@ För tillfället är förhandsgranskningen begränsad till 100 samtidiga jobb.
 
 För att resurser inte ska överbelastas vid körning av jobb mot databaser i en elastisk SQL-pool kan jobb konfigureras för att begränsa antalet databaser som ett jobb kan köras mot samtidigt.
 
-Set the number of concurrent databases a job runs on by setting the `sp_add_jobstep` stored procedure's `@max_parallelism` parameter in T-SQL, or `Add-AzSqlElasticJobStep -MaxParallelism` in PowerShell.
+Ange antalet samtidiga databaser som ett jobb körs på genom att ange den `sp_add_jobstep` lagrade procedurens `@max_parallelism` parameter i T-SQL eller `Add-AzSqlElasticJobStep -MaxParallelism` i PowerShell.
 
 ## <a name="best-practices-for-creating-jobs"></a>Metodtips för att skapa jobb
 

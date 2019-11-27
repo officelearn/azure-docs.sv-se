@@ -1,5 +1,5 @@
 ---
-title: Import SQL BACPAC files with templates
+title: Importera SQL BACPAC-filer med mallar
 description: Lär dig hur du använder SQL Database-tillägget för att importera SQL BACPAC-filer med Azure Resource Manager-mallar.
 author: mumian
 ms.date: 11/21/2019
@@ -14,7 +14,7 @@ ms.locfileid: "74422154"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>Självstudie: Importera SQL BACPAC-filer med Azure Resource Manager-mallar
 
-Lär dig hur du använder Azure SQL Database-tillägget för att importera en BACPAC-fil med Azure Resource Manager-mallar. Deployment artifacts are any files, in addition to the main template files that are needed to complete a deployment. BACPAC-filen är en artefakt. I den här självstudien skapar du en mall för att distribuera en Azure SQL-server och en SQL-databas och importera en BACPAC-fil. Information om hur du distribuerar tillägg för virtuell Azure-dator med hjälp av Azure Resource Manager-mallar finns i [# Självstudie: Distribuera tillägg för virtuell dator med Azure Resource Manager-mallar](./resource-manager-tutorial-deploy-vm-extensions.md).
+Lär dig hur du använder Azure SQL Database-tillägget för att importera en BACPAC-fil med Azure Resource Manager-mallar. Distributions artefakter är alla filer, förutom de viktigaste mallfiler som behövs för att slutföra en distribution. BACPAC-filen är en artefakt. I den här självstudien skapar du en mall för att distribuera en Azure SQL-server och en SQL-databas och importera en BACPAC-fil. Information om hur du distribuerar tillägg för virtuell Azure-dator med hjälp av Azure Resource Manager-mallar finns i [# Självstudie: Distribuera tillägg för virtuell dator med Azure Resource Manager-mallar](./resource-manager-tutorial-deploy-vm-extensions.md).
 
 Den här självstudien omfattar följande uppgifter:
 
@@ -31,7 +31,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 För att kunna följa stegen i den här artikeln behöver du:
 
-* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](./resource-manager-tools-vs-code.md).
+* Visual Studio Code med Resource Manager Tools-tillägg. [Skapa Azure Resource Manager mallar i använda Visual Studio Code](./resource-manager-tools-vs-code.md).
 * För att förbättra säkerheten bör du använda ett genererat lösenord för SQL-serverns administratörskonto. Här är ett exempel för att generera ett lösenord:
 
     ```azurecli-interactive
@@ -42,19 +42,19 @@ För att kunna följa stegen i den här artikeln behöver du:
 
 ## <a name="prepare-a-bacpac-file"></a>Förbereda en BACPAC-fil
 
-A BACPAC file is shared in [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). Om du vill skapa en egen läser du [Exportera en Azure SQL-databas till en BACPAC-fil](../sql-database/sql-database-export.md). Om du väljer att publicera filen till din egen plats måste du uppdatera mallen senare under självstudien.
+En BACPAC-fil delas i [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). Om du vill skapa en egen läser du [Exportera en Azure SQL-databas till en BACPAC-fil](../sql-database/sql-database-export.md). Om du väljer att publicera filen till din egen plats måste du uppdatera mallen senare under självstudien.
 
-The BACPAC file must be stored in an Azure Storage account before it can be imported using Resource Manager template.
+BACPAC-filen måste lagras i ett Azure Storage-konto innan den kan importeras med Resource Manager-mallen.
 
-1. Open the [Cloud shell](https://shell.azure.com).
-1. Select **Upload/Download files**, and then select **Upload**.
-1. Specify the following URL and then select **Open**.
+1. Öppna [Cloud Shell](https://shell.azure.com).
+1. Välj **Ladda upp/ladda ned filer**och välj sedan **Ladda upp**.
+1. Ange följande URL och välj sedan **Öppna**.
 
     ```url
     https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac
     ```
 
-1. Copy and paste the following PowerShell script into the shell window.
+1. Kopiera och klistra in följande PowerShell-skript i Shell-fönstret.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
@@ -86,11 +86,11 @@ The BACPAC file must be stored in an Azure Storage account before it can be impo
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-1. Write down storage account key and the BACPAC file URL. You need these values when you deploy the template.
+1. Skriv ned lagrings konto nyckel och BACPAC-filens URL. Du behöver dessa värden när du distribuerar mallen.
 
 ## <a name="open-a-quickstart-template"></a>Öppna en snabbstartsmall
 
-The template used in this tutorial is stored in [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json).
+Mallen som används i den här självstudien lagras i [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json).
 
 1. Från Visual Studio Code väljer du **Arkiv**>**Öppna fil**.
 2. I **Filnamn** klistrar du in följande URL:
@@ -107,12 +107,12 @@ The template used in this tutorial is stored in [GitHub](https://raw.githubuserc
    * `Microsoft.SQL/servers/securityAlertPolicies`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/securityalertpolicies).
    * `Microsoft.SQL.servers/databases`.  Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
 
-     Det är bra att få lite grundläggande förståelse av mallen innan den anpassas.
+     Det är bra att få viss grundläggande förståelse av mallen innan den anpassas.
 4. Välj **Arkiv**>**Spara som** för att spara en kopia av filen till den lokala datorn med namnet **azuredeploy.json**.
 
 ## <a name="edit-the-template"></a>Redigera mallen
 
-1. Add two more parameters at the end of the **parameters** section to set the storage account key and the BACPAC URL:
+1. Lägg till ytterligare två parametrar i slutet av **parameter** avsnittet för att ange lagrings konto nyckeln och BACPAC-URL: en:
 
     ```json
     "storageAccountKey": {
@@ -129,13 +129,13 @@ The template used in this tutorial is stored in [GitHub](https://raw.githubuserc
     }
     ```
 
-    Add a comma after **adminPassword**. To format the JSON file from VS Code, press **[SHIFT]+[ALT]+F**.
+    Lägg till ett kommatecken efter **adminPassword**. Om du vill formatera JSON-filen från VS Code trycker du på **[SHIFT] + [ALT] + F**.
 
-    See [Prepare a BACPAC file](#prepare-a-bacpac-file) about getting these two values.
+    Se [förbereda en BACPAC-fil](#prepare-a-bacpac-file) för att hämta dessa två värden.
 
 1. Lägg till två ytterligare resurser i mallen.
 
-    * To allow the SQL database extension to import BACPAC files, you need to allow traffic from Azure services. Add the following firewall rule definition under the SQL server definition:
+    * Om du vill tillåta att SQL Database-tillägget importerar BACPAC-filer måste du tillåta trafik från Azure-tjänster. Lägg till följande regel definition för brand väggen under SQL Server-definitionen:
 
         ```json
         {
@@ -187,9 +187,9 @@ The template used in this tutorial is stored in [GitHub](https://raw.githubuserc
         Information om resursdefinitionen finns i [tilläggsreferensen för SQL Database](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases/extensions). Här följer några viktiga element:
 
         * **dependsOn**: tilläggsresursen måste skapas efter att SQL-databasen har skapats.
-        * **storageKeyType**: Specify the type of the storage key to use. Värdet kan vara antingen `StorageAccessKey` eller `SharedAccessKey`. Use `StorageAccessKey` in this tutorial.
-        * **storageKey**: Specify the key for the storage account where the BACPAC file is stored. If storage key type is SharedAccessKey, it must be preceded with a "?"
-        * **storageUri**: Specify the URL of the BACPAC file stored in a storage account.
+        * **storageKeyType**: ange vilken typ av lagrings nyckel som ska användas. Värdet kan vara antingen `StorageAccessKey` eller `SharedAccessKey`. Använd `StorageAccessKey` i den här självstudien.
+        * **storageKey**: Ange nyckeln för lagrings kontot där BACPAC-filen lagras. Om lagrings nyckel typen är SharedAccessKey måste den föregås av "?"
+        * **storageUri**: Ange URL: en för den BACPAC-fil som lagras i ett lagrings konto.
         * **administratorLoginPassword**: Lösenordet för SQL-administratören. Använd ett genererat lösenord. Se [Förutsättningar](#prerequisites).
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
@@ -219,13 +219,13 @@ New-AzResourceGroupDeployment `
 Write-Host "Press [ENTER] to continue ..."
 ```
 
-Consider using the same project name as you used when you prepared the bacpac file, so that all the resources are stored within the same resource group.  It is easier for managing resource, such as cleaning up the resources. If you use the same project name, you can either remove the **New-AzResourceGroup** command from the script, or answer y or n when you are asked whether you want to update the existing resource group.
+Överväg att använda samma projekt namn som du använde när du för beredde BACPAC-filen, så att alla resurser lagras i samma resurs grupp.  Det är enklare att hantera resurser, till exempel att rensa resurserna. Om du använder samma projekt namn kan du antingen ta bort kommandot **New-AzResourceGroup** från skriptet eller svara y eller n när du tillfrågas om du vill uppdatera den befintliga resurs gruppen.
 
 Använd ett genererat lösenord. Se [Förutsättningar](#prerequisites).
 
 ## <a name="verify-the-deployment"></a>Verifiera distributionen
 
-To access the SQL server from your client computer, you need to add an additional firewall rule. For more information, see [Create and manage IP firewall rules](../sql-database/sql-database-firewall-configure.md#create-and-manage-ip-firewall-rules).
+För att få åtkomst till SQL Server från klient datorn måste du lägga till ytterligare en brand Väggs regel. Mer information finns i [skapa och hantera IP-brandväggens regler](../sql-database/sql-database-firewall-configure.md#create-and-manage-ip-firewall-rules).
 
 Välj SQL-databasen från den nyligen distribuerade resursgruppen i portalen. Välj **Frågeredigerare (förhandsversion)** och ange administratörsautentiseringsuppgifterna. Du bör se två tabeller som har importerats till databasen:
 

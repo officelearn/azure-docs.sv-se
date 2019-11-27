@@ -1,6 +1,6 @@
 ---
 title: Exempel – Kräv kryptering för Data Lake Store
-description: This sample policy definition requires the encryption state on Data Lake Store accounts to be enabled.
+description: Den här exempel princip definitionen kräver att krypterings tillstånd på Data Lake Store-konton aktive ras.
 ms.date: 01/23/2019
 ms.topic: sample
 ms.openlocfilehash: 5b29caa7fa8b9169b8c2164975f9cdb2663c5cef
@@ -80,4 +80,4 @@ az policy assignment delete --name "Data Lake Store encryption" --resource-group
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska fler exempel under [Exempel på Azure-princip](index.md)
+- Granska fler exempel under [Azure Policy-exempel](index.md)

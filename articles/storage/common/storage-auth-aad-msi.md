@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/17/2019
+ms.date: 11/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d77ab142e227cfaa6533395cc256d992e698dd17
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 66d867d33060aa931dbe42c534166e61ee7692fe
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495934"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534504"
 ---
 # <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Ge åtkomst till blobbar och köer med Azure Active Directory och hanterade identiteter för Azure-resurser
 
@@ -34,39 +34,92 @@ Innan du kan använda hanterade identiteter för Azure-resurser för att ge åtk
 
 Mer information om hanterade identiteter finns i [hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md).
 
-## <a name="authenticate-with-the-azure-identity-library-preview"></a>Autentisera med Azure Identity Library (för hands version)
+## <a name="authenticate-with-the-azure-identity-library"></a>Autentisera med Azure Identity Library
 
-Klient biblioteket för Azure Identity för .NET (för hands version) autentiserar ett säkerhets objekt. När din kod körs i Azure är säkerhets objekt en hanterad identitet för Azure-resurser.
+En fördel med klient biblioteket för Azure Identity är att du kan använda samma kod för att autentisera om ditt program körs i utvecklings miljön eller i Azure. I kod som körs i Azure-miljön autentiserar klient biblioteket en hanterad identitet för Azure-resurser. I utvecklings miljön finns inte den hanterade identiteten, så klient biblioteket autentiserar antingen användaren eller tjänstens huvud namn i test syfte.
 
-När din kod körs i utvecklings miljön kan autentiseringen hanteras automatiskt, eller så kan det krävas en webb läsar inloggning, beroende på vilka verktyg du använder. Microsoft Visual Studio stöder enkel inloggning (SSO), så att det aktiva Azure AD-användarkontot används automatiskt för autentisering. Mer information om SSO finns i [enkel inloggning till program](../../active-directory/manage-apps/what-is-single-sign-on.md).
-
-Andra utvecklingsverktyg kan bli ombedd att logga in via en webbläsare. Du kan också använda ett huvud namn för tjänsten för att autentisera från utvecklings miljön. Mer information finns i [skapa identitet för Azure-appen i portalen](../../active-directory/develop/howto-create-service-principal-portal.md).
+Klient biblioteket för Azure Identity för .NET autentiserar ett säkerhets objekt. När din kod körs i Azure är säkerhets objekt en hanterad identitet för Azure-resurser.
 
 Efter autentiseringen får klient biblioteket för Azure Identity ett token-autentiseringsuppgifter. Den här token-autentiseringsuppgiften kapslas sedan i det tjänst klient objekt som du skapar för att utföra åtgärder mot Azure Storage. Biblioteket hanterar detta för dig sömlöst genom att hämta rätt token-autentiseringsuppgifter.
 
 Mer information om klient biblioteket för Azure Identity finns i [klient biblioteket för Azure Identity för .net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity).
 
-## <a name="assign-rbac-roles-for-access-to-data"></a>Tilldela RBAC-roller för åtkomst till data
+### <a name="assign-role-based-access-control-rbac-roles-for-access-to-data"></a>Tilldela rollen rollbaserad åtkomst kontroll (RBAC) roller för åtkomst till data
 
 När ett Azure AD-säkerhetsobjekt försöker komma åt BLOB-eller Queue data, måste säkerhets objektets behörigheter ha behörighet till resursen. Om säkerhetsobjektet är en hanterad identitet i Azure eller ett Azure AD-användarkonto som kör kod i utvecklings miljön, måste säkerhets objekt tilldelas en RBAC-roll som ger åtkomst till BLOB-eller Queue-data i Azure Storage. Information om hur du tilldelar behörigheter via RBAC finns i avsnittet **tilldela RBAC-roller för åtkomst rättigheter** i [auktorisera åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights).
 
-## <a name="install-the-preview-packages"></a>Installera för hands versions paketen
+### <a name="authenticate-the-user-in-the-development-environment"></a>Autentisera användaren i utvecklings miljön
 
-I exemplen i den här artikeln används den senaste för hands versionen av Azure Storage klient biblioteket för Blob Storage. För att installera för hands versions paketet kör du följande kommando från NuGet Package Manager-konsolen:
+När din kod körs i utvecklings miljön kan autentiseringen hanteras automatiskt, eller så kan det krävas en webb läsar inloggning, beroende på vilka verktyg du använder. Microsoft Visual Studio stöder enkel inloggning (SSO), så att det aktiva Azure AD-användarkontot används automatiskt för autentisering. Mer information om SSO finns i [enkel inloggning till program](../../active-directory/manage-apps/what-is-single-sign-on.md).
 
-```powershell
-Install-Package Azure.Storage.Blobs -IncludePrerelease
+Andra utvecklingsverktyg kan bli ombedd att logga in via en webbläsare.
+
+### <a name="authenticate-a-service-principal-in-the-development-environment"></a>Autentisera ett huvud namn för tjänsten i utvecklings miljön
+
+Om utvecklings miljön inte stöder enkel inloggning eller inloggning via en webbläsare kan du använda ett huvud namn för tjänsten för att autentisera från utvecklings miljön.
+
+#### <a name="create-the-service-principal"></a>Skapa huvudnamn för tjänsten
+
+Om du vill skapa ett huvud namn för tjänsten med Azure CLI och tilldela en RBAC-roll, anropar du kommandot [AZ AD SP Create-for-RBAC](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) . Ange en Azure Storage data åtkomst roll som ska tilldelas det nya huvud namnet för tjänsten. Ange dessutom omfånget för roll tilldelningen. Mer information om de inbyggda roller som finns för Azure Storage finns [inbyggda roller för Azure-resurser](../../role-based-access-control/built-in-roles.md).
+
+Om du inte har tillräcklig behörighet för att tilldela en roll till tjänstens huvud namn kan du behöva be kontots ägare eller administratör att utföra roll tilldelningen.
+
+I följande exempel används Azure CLI för att skapa ett nytt huvud namn för tjänsten och tilldela rollen **Storage BLOB data Reader** till den med konto omfånget
+
+```azurecli-interactive
+az ad sp create-for-rbac \
+    --name <service-principal> \
+    --role "Storage Blob Data Reader" \
+    --scopes /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
 ```
 
-I exemplen i den här artikeln används även den senaste för hands versionen av [klient biblioteket för Azure Identity för .net](https://www.nuget.org/packages/Azure.Identity/) för att autentisera med Azure AD-autentiseringsuppgifter. För att installera för hands versions paketet kör du följande kommando från NuGet Package Manager-konsolen:
+Kommandot `az ad sp create-for-rbac` returnerar en lista över egenskaper för tjänstens huvud namn i JSON-format. Kopiera värdena så att du kan använda dem för att skapa de miljövariabler som krävs i nästa steg.
 
-```powershell
-Install-Package Azure.Identity -IncludePrerelease
+```json
+{
+    "appId": "generated-app-ID",
+    "displayName": "service-principal-name",
+    "name": "http://service-principal-uri",
+    "password": "generated-password",
+    "tenant": "tenant-ID"
+}
 ```
 
-## <a name="net-code-example-create-a-block-blob"></a>.NET-kod exempel: skapa en Block-Blob
+> [!IMPORTANT]
+> Det kan ta några minuter att sprida RBAC-roll tilldelningar.
 
-Lägg till följande `using` direktiv i din kod för att använda för hands versionerna av Azure Identity och Azure Storage klient bibliotek.
+#### <a name="set-environment-variables"></a>Ange miljövariabler
+
+Klient biblioteket för Azure Identity läser värden från tre miljövariabler vid körning för att autentisera tjänstens huvud namn. I följande tabell beskrivs det värde som ska anges för varje miljö variabel.
+
+|Miljövariabel|Värde
+|-|-
+|`AZURE_CLIENT_ID`|App-ID för tjänstens huvud namn
+|`AZURE_TENANT_ID`|Tjänstens huvud namn för Azure AD-klient
+|`AZURE_CLIENT_SECRET`|Lösen ordet som genereras för tjänstens huvud namn
+
+> [!IMPORTANT]
+> När du har ställt in miljövariablerna stänger du och öppnar konsol fönstret igen. Om du använder Visual Studio eller en annan utvecklings miljö kan du behöva starta om utvecklings miljön för att den ska kunna registrera nya miljövariabler.
+
+Mer information finns i [skapa identitet för Azure-appen i portalen](../../active-directory/develop/howto-create-service-principal-portal.md).
+
+## <a name="install-client-library-packages"></a>Installera klient biblioteks paket
+
+I exemplen i den här artikeln används den senaste versionen av Azure Storage klient biblioteket för Blob Storage. Installera paketet genom att köra följande kommando från NuGet Package Manager-konsolen:
+
+```powershell
+Install-Package Azure.Storage.Blobs
+```
+
+I exemplen i den här artikeln används även den senaste versionen av [klient biblioteket för Azure Identity för .net](https://www.nuget.org/packages/Azure.Identity/) för att autentisera med Azure AD-autentiseringsuppgifter. Installera paketet genom att köra följande kommando från NuGet Package Manager-konsolen:
+
+```powershell
+Install-Package Azure.Identity
+```
+
+## <a name="net-code-example-create-a-block-blob"></a>Kodexempel för .NET: skapa en blockblob
+
+Lägg till följande `using`-direktiv i koden för att använda klient biblioteken för Azure-identitet och Azure Storage.
 
 ```csharp
 using System;

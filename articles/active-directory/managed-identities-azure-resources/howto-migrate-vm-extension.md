@@ -166,7 +166,7 @@ Om tillägget stoppas i Windows och vissa versioner av Linux kan följande cmdle
 Set-AzVMExtension -Name <extension name>  -Type <extension Type>  -Location <location> -Publisher Microsoft.ManagedIdentity -VMName <vm name> -ResourceGroupName <resource group name> -ForceRerun <Any string different from any last value used>
 ```
 
-Var: 
+Där: 
 - Tilläggs namn och typ för Windows är: `ManagedIdentityExtensionForWindows`
 - Tilläggs namn och-typ för Linux är: `ManagedIdentityExtensionForLinux`
 

@@ -1,19 +1,14 @@
 ---
-title: Stoppa eller starta behållare manuellt i Azure Container Instances
+title: Stoppa eller starta behållar gruppen manuellt
 description: Lär dig hur du stoppar eller startar en behållar grupp manuellt i Azure Container Instances.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
-ms.author: danlep
-ms.openlocfilehash: c7d46ad8d935e28b5a24e48c85ac2464b55b2669
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: c9f8afea33c65df940d02823ec394697d2786d6a
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325647"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533427"
 ---
 # <a name="manually-stop-or-start-containers-in-azure-container-instances"></a>Stoppa eller starta behållare manuellt i Azure Container Instances
 

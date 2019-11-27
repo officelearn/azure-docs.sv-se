@@ -36,10 +36,10 @@ Application Proxy är en funktion i Azure AD som gör det möjligt för använda
 
 Application Proxy fungerar med:
 
-* Webbprogram som använder [integrerad Windows-autentisering](application-proxy-configure-single-sign-on-with-kcd.md) för autentisering  
-* Webbprogram som använder formulärbaserad eller [rubrikbaserad](application-proxy-configure-single-sign-on-with-ping-access.md) åtkomst  
+* Webb program som använder [integrerad Windows-autentisering](application-proxy-configure-single-sign-on-with-kcd.md) för autentisering  
+* Webb program som använder form-baserad eller [rubrik baserad](application-proxy-configure-single-sign-on-with-ping-access.md) åtkomst  
 * Web API: er som du vill exponera omfattande program på olika enheter  
-* Program som ligger bakom en [fjärrskrivbordsgateway](application-proxy-integrate-with-remote-desktop-services.md)  
+* Program som finns bakom en [fjärr skrivbords-Gateway](application-proxy-integrate-with-remote-desktop-services.md)  
 * Rich-klientprogram som är integrerade med Active Directory Authentication Library (ADAL)
 
 Application Proxy stöder enkel inloggning. Mer information om metoder som stöds finns i [välja en metod för enkel inloggning](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
@@ -64,7 +64,7 @@ Följande diagram visar hur Azure AD och Application Proxy arbetar tillsammans f
 | Slutpunkt  | Slut punkten är en URL eller en [slut användar Portal](end-user-experiences.md). Användarna kan nå program medan utanför ditt nätverk genom att gå till en extern URL. Användare i nätverket kan komma åt programmet via en URL eller ett slutanvändarportal. När användare går till en av de här slutpunkterna, de autentiseras i Azure AD och sedan dirigeras via anslutningen så att dina lokala program.|
 | Azure AD | Azure AD utför autentiseringen med hjälp av klient katalogen som lagras i molnet. |
 | Application Proxy-tjänst | Tjänsten Application Proxy körs i molnet som en del av Azure AD. Den skickar inloggnings-token från användaren till Application Proxy Connector. Programproxyn vidarebefordrar eventuella tillgängliga huvuden på begäran och anger huvudena enligt dess protokoll till klientens IP-adress. Om den inkommande begäran till proxyn redan har den rubriken, läggs klientens IP-adress till i slutet av den kommaavgränsade listan som är värdet för rubriken.|
-| Application Proxy Connector | Anslutningen är en Lightweight-agent som körs på en Windows-Server i nätverket. Anslutningen hanterar kommunikationen mellan Application Proxy-tjänsten i molnet och det lokala programmet. Anslutningen använder bara utgående anslutningar, så du behöver inte öppna några inkommande portar eller publicera något i DMZ. Anslutningarna är tillståndslösa och hämta information från molnet efter behov. Mer information om anslutningar kan, liksom hur de belastningsutjämna och autentisera, se [alternativ för Azure AD-programproxyn kopplingar](application-proxy-connectors.md).|
+| Application Proxy Connector | Anslutningen är en Lightweight-agent som körs på en Windows-Server i nätverket. Anslutningen hanterar kommunikationen mellan Application Proxy-tjänsten i molnet och det lokala programmet. Anslutningen använder bara utgående anslutningar, så du behöver inte öppna några inkommande portar eller publicera något i DMZ. Anslutningarna är tillståndslösa och hämta information från molnet efter behov. Mer information om anslutningar, t. ex. hur de kan belastningsutjämna och autentiseras, finns i [förstå Azure AD-programproxy-kopplingar](application-proxy-connectors.md).|
 | Active Directory (AD) | Active Directory körs lokalt för att utföra autentisering för domän konton. När enkel inloggning har kon figurer ATS kommunicerar anslutningen med AD för att utföra ytterligare autentisering krävs.
 | Lokalt program | Slutligen kan användaren komma åt ett lokalt program. 
 

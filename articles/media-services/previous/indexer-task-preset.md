@@ -1,6 +1,6 @@
 ---
-title: Task preset for Azure Media Indexer
-description: This topic gives an overview of task preset for Azure Media Indexer.
+title: Uppgifts för inställning för Azure Media Indexer
+description: Det här avsnittet innehåller en översikt över uppgifts för inställningar för Azure Media Indexer.
 services: media-services
 documentationcenter: ''
 author: Asolanki
@@ -20,23 +20,23 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74464097"
 ---
-# <a name="task-preset-for-azure-media-indexer"></a>Task preset for Azure Media Indexer 
+# <a name="task-preset-for-azure-media-indexer"></a>Uppgifts för inställning för Azure Media Indexer 
 
-Azure Media Indexer is a Media Processor that you use to perform the following tasks: make media files and content searchable, generate closed captioning tracks and keywords, index asset files that are part of your asset.
+Azure Media Indexer är en medie processor som du använder för att utföra följande uppgifter: gör mediefiler och innehåll sökbart, generera textning för dold textning och nyckelord, index till gångs filer som är en del av din till gång.
 
-This topic describes the task preset that you need to pass to your indexing job. For complete example, see [Indexing media files with Azure Media Indexer](media-services-index-content.md).
+I det här avsnittet beskrivs den uppgifts för inställning som du behöver skicka till ditt indexerings jobb. Fullständiga exempel finns i [Indexera mediefiler med Azure Media Indexer](media-services-index-content.md).
 
-## <a name="azure-media-indexer-configuration-xml"></a>Azure Media Indexer Configuration XML
+## <a name="azure-media-indexer-configuration-xml"></a>Azure Media Indexer konfigurations-XML
 
-The following table explains elements and attributes of the configuration XML.
+I följande tabell beskrivs element och attribut för konfigurations-XML.
 
 |Namn|Kräv|Beskrivning|
 |---|---|---|
-|Indata|sant|Asset file(s) that you want to index.<br/>Azure Media Indexer supports the following media file formats: MP4, MOV, WMV, MP3, M4A, WMA, AAC, WAV. <br/><br/>You can specify the file name (s) in the **name** or **list** attribute of the **input** element (as shown below). If you do not specify which asset file to index, the primary file is picked. If no primary asset file is set, the first file in the input asset is indexed.<br/><br/>To explicitly specify the asset file name, do:<br/>```<input name="TestFile.wmv" />```<br/><br/>You can also index multiple asset files at once (up to 10 files). Gör så här:<br/>- Create a text file (manifest file) and give it an .lst extension.<br/>- Add a list of all the asset file names in your input asset to this manifest file.<br/>- Add (upload) the manifest file to the asset.<br/>- Specify the name of the manifest file in the input’s list attribute.<br/>```<input list="input.lst">```<br/><br/>**Note:** If you add more than 10 files to the manifest file, the indexing job will fail with the 2006 error code.|
-|metadata|false|Metadata for the specified asset file(s).<br/>```<metadata key="..." value="..." />```<br/><br/>You can supply values for predefined keys. <br/><br/>Currently, the following keys are supported:<br/><br/>**title** and **description** - used to update the language model to improve speech recognition accuracy.<br/>```<metadata key="title" value="[Title of the media file]" /><metadata key="description" value="[Description of the media file]" />```<br/><br/>**username** and **password** - used for authentication when downloading internet files via http or https.<br/>```<metadata key="username" value="[UserName]" /><metadata key="password" value="[Password]" />```<br/>The username and password values apply to all media URLs in the input manifest.|
-|funktioner<br/><br/>Added in version 1.2. Currently, the only supported feature is speech recognition ("ASR").|false|The Speech Recognition feature has the following settings keys:<br/><br/>Språk:<br/>- The natural language to be recognized in the multimedia file.<br/>- English, Spanish<br/><br/>CaptionFormats:<br/>- a semicolon-separated list of the desired output caption formats (if any)<br/>- ttml;webvtt<br/><br/><br/>GenerateKeywords:<br/>- A boolean flag specifying whether or not a keyword XML file is required.<br/>- True; False.|
+|Indata|true|Till gångs fil (er) som du vill indexera.<br/>Azure Media Indexer stöder följande medie fil format: MP4, MOV, WMV, MP3, M4A, WMA, AAC, WAV. <br/><br/>Du kan ange fil namnen i **indata** -elementets **namn** eller **list** -attribut (se nedan). Om du inte anger vilken till gångs fil som ska indexeras, kommer den primära filen att plockas. Om ingen primär till gångs fil anges indexeras den första filen i indata till gången.<br/><br/>Om du uttryckligen vill ange namnet på till gångs filen gör du följande:<br/>```<input name="TestFile.wmv" />```<br/><br/>Du kan också indexera flera till gångs filer samtidigt (upp till 10 filer). Gör så här:<br/>– Skapa en textfil (manifest fil) och ge den fil tillägget LST.<br/>– Lägg till en lista över alla till gångs fil namn i din indata till gång till manifest filen.<br/>– Lägg till (överför) manifest filen till till gången.<br/>-Ange namnet på manifest filen i indatans List-attribut.<br/>```<input list="input.lst">```<br/><br/>**Obs:** Om du lägger till fler än 10 filer i manifest filen kommer indexerings jobbet att Miss 2006-felkoden.|
+|metadata|false|Metadata för de angivna till gångs fil (er).<br/>```<metadata key="..." value="..." />```<br/><br/>Du kan ange värden för fördefinierade nycklar. <br/><br/>För närvarande stöds följande nycklar:<br/><br/>**rubrik** och **Beskrivning** – används för att uppdatera språk modellen för att förbättra tal igenkännings precisionen.<br/>```<metadata key="title" value="[Title of the media file]" /><metadata key="description" value="[Description of the media file]" />```<br/><br/>**användar namn** och **lösen ord** – används för autentisering vid hämtning av Internet-filer via http eller https.<br/>```<metadata key="username" value="[UserName]" /><metadata key="password" value="[Password]" />```<br/>Värdena för användar namn och lösen ord gäller för alla media-URL: er i manifestet för indatamängden.|
+|funktioner<br/><br/>Tillagt i version 1,2. För närvarande är den enda funktionen som stöds tal igenkänning ("ASR").|false|Tal igenkännings funktionen har följande inställnings nycklar:<br/><br/>Språk:<br/>– Det naturliga språk som ska identifieras i multimedie filen.<br/>– Engelska, spanska<br/><br/>CaptionFormats:<br/>– en semikolonavgränsad lista med önskade format för text remsor (om det finns några)<br/>-ttml; webvtt<br/><br/><br/>GenerateKeywords:<br/>-En boolesk flagga som anger om en nyckelords-XML-fil krävs eller inte.<br/>Värdet !.|
 
-## <a name="azure-media-indexer-configuration-xml-example"></a>Azure Media Indexer configuration XML example
+## <a name="azure-media-indexer-configuration-xml-example"></a>Exempel på XML-Azure Media Indexer konfiguration
 
 ``` 
 <?xml version="1.0" encoding="utf-8"?>  
@@ -62,5 +62,5 @@ The following table explains elements and attributes of the configuration XML.
   
 ## <a name="next-steps"></a>Nästa steg
 
-See [Indexing media files with Azure Media Indexer](media-services-index-content.md).
+Se [Indexera mediefiler med Azure Media Indexer](media-services-index-content.md).
 

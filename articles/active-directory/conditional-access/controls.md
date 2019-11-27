@@ -1,6 +1,6 @@
 ---
-title: Access controls in Azure Active Directory Conditional Access
-description: Learn how access controls in Azure Active Directory Conditional Access work.
+title: Åtkomst kontroller i Azure Active Directory villkorlig åtkomst
+description: Lär dig hur åtkomst kontroller i Azure Active Directory villkorlig åtkomst fungerar.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -18,102 +18,102 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74380816"
 ---
-# <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>What are access controls in Azure Active Directory Conditional Access?
+# <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Vad är åtkomst kontroller i Azure Active Directory villkorlig åtkomst?
 
-With [Azure Active Directory (Azure AD) Conditional Access](../active-directory-conditional-access-azure-portal.md), you can control how authorized users access your cloud apps. In a Conditional Access policy, you define the response ("do this") to the reason for triggering your policy ("when this happens").
+Med [Azure Active Directory (Azure AD) villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md)kan du styra hur behöriga användare får åtkomst till dina molnappar. I en princip för villkorlig åtkomst definierar du svaret ("gör detta") till orsaken till att principen utlöses ("när detta händer").
 
 ![Kontroll](./media/controls/10.png)
 
-In the context of Conditional Access,
+I sammanhang för villkorlig åtkomst,
 
-- "**When this happens**" is called **conditions**
-- "**Then do this**" is called **access controls**
+- "**När detta händer kallas detta** **villkor**
+- "**Gör sedan så här**" kallas **åtkomst kontroller**
 
-The combination of a condition statement with your controls represents a Conditional Access policy.
+Kombinationen av en villkors instruktion med dina kontroller representerar en princip för villkorlig åtkomst.
 
 ![Kontroll](./media/controls/61.png)
 
-Each control is either a requirement that must be fulfilled by the person or system signing in, or a restriction on what the user can do after signing in.
+Varje kontroll är antingen ett krav som måste uppfyllas av personen eller systemet som loggar in, eller en begränsning för vad användaren kan göra efter att ha loggat in.
 
-There are two types of controls:
+Det finns två typer av kontroller:
 
-- **Grant controls** - To gate access
-- **Session controls** - To restrict access within a session
+- **Bevilja kontroller** -till gång till grind
+- **Sessions-kontroller** – för att begränsa åtkomst inom en session
 
-This topic explains the various controls that are available in Azure AD Conditional Access. 
+I det här avsnittet beskrivs de olika kontroller som är tillgängliga i villkorlig åtkomst i Azure AD. 
 
-## <a name="grant-controls"></a>Grant controls
+## <a name="grant-controls"></a>Bevilja kontroller
 
-With grant controls, you can either block access altogether or allow access with additional requirements by selecting the desired controls. For multiple controls, you can require:
+Med bevilja kontroller kan du antingen blockera åtkomsten helt eller tillåta åtkomst med ytterligare krav genom att välja önskade kontroller. För flera kontroller kan du behöva:
 
-- All selected controls to be fulfilled (*AND*)
-- One selected control to be fulfilled (*OR*)
+- Alla valda kontroller som ska uppfyllas (*och*)
+- En vald kontroll som ska uppfyllas (*eller*)
 
 ![Kontroll](./media/controls/18.png)
 
-### <a name="multi-factor-authentication"></a>Multifaktorautentisering
+### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-You can use this control to require multi-factor authentication to access the specified cloud app. This control supports the following multi-factor providers:
+Du kan använda den här kontrollen för att kräva Multi-Factor Authentication för att få åtkomst till den angivna Cloud-appen. Den här kontrollen stöder följande Multi-Factor providers:
 
 - Azure Multi-Factor Authentication
-- An on-premises multi-factor authentication provider, combined with Active Directory Federation Services (AD FS).
+- En lokal Multi-Factor Authentication-provider som kombineras med Active Directory Federation Services (AD FS) (AD FS).
 
-Using multi-factor authentication helps protect resources from being accessed by an unauthorized user who might have gained access to the primary credentials of a valid user.
+Genom att använda Multi-Factor Authentication kan du skydda resurser från att användas av en obehörig användare som har fått åtkomst till de primära autentiseringsuppgifterna för en giltig användare.
 
 ### <a name="compliant-device"></a>Kompatibel enhet
 
-You can configure Conditional Access policies that are device-based. The objective of a device-based Conditional Access policy is to only grant access to the selected cloud apps from [managed devices](require-managed-devices.md). Requiring a device to be marked as compliant is one option you have to limit access to managed devices. A device can be marked as compliant by Intune (for any device OS) or by your third-party MDM system for Windows 10 devices. Third-party MDM systems for device OS types other than Windows 10 are not supported. 
+Du kan konfigurera villkorliga åtkomst principer som är enhets baserade. Syftet med en enhets-baserad princip för villkorlig åtkomst är att endast bevilja åtkomst till de valda molnappar från [hanterade enheter](require-managed-devices.md). Att kräva att en enhet markeras som kompatibel är ett alternativ som du behöver för att begränsa åtkomsten till hanterade enheter. En enhet kan markeras som kompatibel av Intune (för alla enhetens operativ system) eller av ditt MDM-system från tredje part för Windows 10-enheter. MDM-system från tredje part för andra typer av enhets operativ system än Windows 10 stöds inte. 
 
-Your device needs to be registered to Azure AD before it can be marked as compliant. To register a device, you have three options: 
+Enheten måste vara registrerad i Azure AD innan den kan markeras som kompatibel. För att registrera en enhet har du tre alternativ: 
 
 - Azure AD-registrerade enheter
 - Azure AD-anslutna enheter  
 - Hybrid Azure AD-anslutna enheter
 
-These three options are discussed in the article [What is a device identity?](../devices/overview.md)
+De här tre alternativen beskrivs i artikeln [Vad är en enhets identitet?](../devices/overview.md)
 
-For more information, see [how to require managed devices for cloud app access with Conditional Access](require-managed-devices.md).
+Mer information finns i [så här kräver du hanterade enheter för Cloud app-åtkomst med villkorlig åtkomst](require-managed-devices.md).
 
-### <a name="hybrid-azure-ad-joined-device"></a>Hybrid Azure AD joined device
+### <a name="hybrid-azure-ad-joined-device"></a>Hybrid Azure AD-ansluten enhet
 
-Requiring a Hybrid Azure AD joined device is another option you have to configure device-based Conditional Access policies. This requirement refers to Windows desktops, laptops, and enterprise tablets that are joined to an on-premises Active Directory. If this option is selected, your Conditional Access policy grants access to access attempts made with devices that are joined to your on-premises Active Directory and your Azure Active Directory.  
+Att kräva en hybrid Azure AD-ansluten enhet är ett annat alternativ som du måste konfigurera enhets principer för villkorlig åtkomst. Detta krav avser Windows-datorer, bärbara datorer och företags surfplattor som är anslutna till en lokal Active Directory. Om det här alternativet väljs beviljar din princip för villkorlig åtkomst åtkomst till åtkomst försök som görs med enheter som är anslutna till din lokala Active Directory och din Azure Active Directory.  
 
-For more information, see [set up Azure Active Directory device-based Conditional Access policies](require-managed-devices.md).
+Mer information finns i [Konfigurera Azure Active Directory enhets principer för villkorlig åtkomst](require-managed-devices.md).
 
-### <a name="approved-client-app"></a>Approved client app
+### <a name="approved-client-app"></a>Godkänd klient app
 
-Because your employees use mobile devices for both personal and work tasks, you might want to have the ability to protect company data accessed using devices even in the case where they are not managed by you.
-You can use [Intune app protection policies](https://docs.microsoft.com/intune/app-protection-policy) to help protect your company’s data independent of any mobile-device management (MDM) solution.
+Eftersom dina anställda använder mobila enheter för både personliga och arbetsrelaterade uppgifter kan du vilja skydda företags data som nås med hjälp av enheter även i de fall där de inte hanteras av dig.
+Du kan använda [Intune App Protection-principer](https://docs.microsoft.com/intune/app-protection-policy) för att skydda företagets data oberoende av en lösning för hantering av mobila enheter (MDM).
 
-With approved client apps, you can require a client app that attempts to access your cloud apps to support [Intune app protection policies](https://docs.microsoft.com/intune/app-protection-policy). For example, you can restrict access to Exchange Online to the Outlook app. A Conditional Access policy that requires approved client apps is  also known as [app-based Conditional Access policy](app-based-conditional-access.md). For a list of supported approved client apps, see [approved client app requirement](technical-reference.md#approved-client-app-requirement).
+Med godkända klient program kan du kräva en klient app som försöker komma åt dina molnappar för att stödja [Intune App Protection-principer](https://docs.microsoft.com/intune/app-protection-policy). Du kan till exempel begränsa åtkomsten till Exchange Online till Outlook-appen. En princip för villkorlig åtkomst som kräver godkända klient program kallas även för [app-baserad villkorlig åtkomst princip](app-based-conditional-access.md). En lista över godkända klient program som stöds finns i [godkända klient program krav](technical-reference.md#approved-client-app-requirement).
 
-### <a name="app-protection-policy-preview"></a>App protection policy (preview)
+### <a name="app-protection-policy-preview"></a>Skydds princip för app (för hands version)
 
-Because your employees use mobile devices for both personal and work tasks, you might want to have the ability to protect company data accessed using devices even in the case where they are not managed by you.
-You can use [Intune app protection policies](https://docs.microsoft.com/intune/app-protection-policy) to help protect your company’s data independent of any mobile-device management (MDM) solution.
+Eftersom dina anställda använder mobila enheter för både personliga och arbetsrelaterade uppgifter kan du vilja skydda företags data som nås med hjälp av enheter även i de fall där de inte hanteras av dig.
+Du kan använda [Intune App Protection-principer](https://docs.microsoft.com/intune/app-protection-policy) för att skydda företagets data oberoende av en lösning för hantering av mobila enheter (MDM).
 
-With app protection policy, you can limit access to client applications that have reported to Azure AD has having received [Intune app protection policies](https://docs.microsoft.com/intune/app-protection-policy). For example, you can restrict access to Exchange Online to the Outlook app that has an Intune app protection policy. A Conditional Access policy that requires app protection policy is also known as [app protection-based Conditional Access policy](app-protection-based-conditional-access.md). 
+Med appens skydds princip kan du begränsa åtkomsten till klient program som har rapporter ATS till Azure AD har tagit emot [Intunes skydds principer för appar](https://docs.microsoft.com/intune/app-protection-policy). Du kan till exempel begränsa åtkomsten till Exchange Online till Outlook-appen som har en princip för Intune App Protection. En princip för villkorlig åtkomst som kräver en app Protection-princip kallas även för en [app Protection-baserad princip för villkorlig åtkomst](app-protection-based-conditional-access.md). 
 
-Your device must be registered to Azure AD before an application can be marked as policy protected.
+Enheten måste vara registrerad i Azure AD innan ett program kan markeras som princip skyddad.
 
-For a list of supported policy protected client apps, see [app protection policy requirement](technical-reference.md#app-protection-policy-requirement).
+En lista över de principer som är skyddade med klient program som stöds finns i [krav på skydds princip för appar](technical-reference.md#app-protection-policy-requirement).
 
 ### <a name="terms-of-use"></a>Användningsvillkor
 
-You can require a user in your tenant to consent to the terms of use before being granted access to a resource. As an administrator, you can configure and customize terms of use by uploading a PDF document. If a user falls in scope of this control access to an application is only granted if the terms of use have been agreed.
+Du kan kräva att en användare i din klient organisation samtycker till användnings villkoren innan de beviljas åtkomst till en resurs. Som administratör kan du konfigurera och anpassa användnings villkoren genom att ladda upp ett PDF-dokument. Om en användare omfattas av denna kontrolls åtkomst till ett program beviljas endast om användnings villkoren har överenskommits.
 
-## <a name="custom-controls-preview"></a>Custom controls (preview)
+## <a name="custom-controls-preview"></a>Anpassade kontroller (förhands granskning)
 
-Custom controls are a capability of the Azure Active Directory Premium P1 edition. When using custom controls, your users are redirected to a compatible service to satisfy further requirements outside of Azure Active Directory. To satisfy this control, a user’s browser is redirected to the external service, performs any required authentication or validation activities, and is then redirected back to Azure Active Directory. Azure Active Directory verifies the response and, if the user was successfully authenticated or validated, the user continues in the Conditional Access flow.
+Anpassade kontroller är en funktion i Azure Active Directory Premium P1-versionen. När du använder anpassade kontroller omdirigeras användarna till en kompatibel tjänst för att uppfylla ytterligare krav utanför Azure Active Directory. För att tillfredsställa den här kontrollen omdirigeras användarens webbläsare till den externa tjänsten, utför alla nödvändiga autentiserings-eller verifierings aktiviteter och dirigeras sedan tillbaka till Azure Active Directory. Azure Active Directory verifierar svaret och, om användaren har autentiserats eller verifierats, fortsätter användaren i flödet för villkorlig åtkomst.
 
-These controls allow the use of certain external or custom services as Conditional Access controls, and generally extend the capabilities of Conditional Access.
+Dessa kontroller tillåter användning av vissa externa eller anpassade tjänster som villkorliga åtkomst kontroller och utökar i allmänhet funktionerna för villkorlig åtkomst.
 
-Providers currently offering a compatible service include:
+Leverantörer som för närvarande erbjuder en kompatibel tjänst är:
 
-- [Duo Security](https://duo.com/docs/azure-ca)
+- [Duo-säkerhet](https://duo.com/docs/azure-ca)
 - [Entrust Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
 - [GSMA](https://mobileconnect.io/azure/)
-- [Ping Identity](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
+- [Pinga identitet](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
 - RSA
 - [SecureAuth](https://docs.secureauth.com/pages/viewpage.action?pageId=47238992#)
 - [Silverfort](https://www.silverfort.io/company/using-silverfort-mfa-with-azure-active-directory/)
@@ -121,52 +121,52 @@ Providers currently offering a compatible service include:
 - [Thales (Gemalto)](https://resources.eu.safenetid.com/help/AzureMFA/Azure_Help/Index.htm)
 - [Trusona](https://www.trusona.com/docs/azure-ad-integration-guide)
 
-For more information on those services, contact the providers directly.
+Om du vill ha mer information om dessa tjänster kan du kontakta providern direkt.
 
-### <a name="creating-custom-controls"></a>Creating custom controls
+### <a name="creating-custom-controls"></a>Skapa anpassade kontroller
 
-To create a custom control, you should first contact the provider that you wish to utilize. Each non-Microsoft provider has its own process and requirements to sign up, subscribe, or otherwise become a part of the service, and to indicate that you wish to integrate with Conditional Access. At that point, the provider will provide you with a block of data in JSON format. This data allows the provider and Conditional Access to work together for your tenant, creates the new control and defines how Conditional Access can tell if your users have successfully performed verification with the provider.
+Om du vill skapa en anpassad kontroll kontaktar du först den leverantör som du vill använda. Varje icke-Microsoft-provider har en egen process och krav för att registrera dig, prenumerera på eller på annat sätt bli en del av tjänsten och för att indikera att du vill integrera med villkorlig åtkomst. Vid det här tillfället tillhandahåller providern ett data block i JSON-format. Med den här informationen kan providern och villkorlig åtkomst samar beta för din klient, skapa den nya kontrollen och definiera hur villkorlig åtkomst kan avgöra om användarna har utfört verifiering med providern.
 
-Custom controls cannot be used with Identity Protection's automation requiring multi-factor authentication or to elevate roles in Privileged Identity Manager (PIM).
+Det går inte att använda anpassade kontroller med identitets skydds automatisering som kräver Multi-Factor Authentication eller för att höja roller i Privileged Identity Manager (PIM).
 
-Copy the JSON data and then paste it into the related textbox. Do not make any changes to the JSON unless you explicitly understand the change you’re making. Making any change could break the connection between the provider and Microsoft and potentially lock you and your users out of your accounts.
+Kopiera JSON-data och klistra sedan in den i den relaterade text rutan. Gör inga ändringar i JSON om du inte uttryckligen förstår den ändring du gör. Genom att göra en ändring kan du bryta anslutningen mellan leverantören och Microsoft och eventuellt låsa dig och dina användare från dina konton.
 
-The option to create a custom control is in the **Manage** section of the **Conditional Access** page.
+Alternativet för att skapa en anpassad kontroll finns i avsnittet **Hantera** på sidan för **villkorlig åtkomst** .
 
 ![Kontroll](./media/controls/82.png)
 
-Clicking **New custom control**, opens a blade with a textbox for the JSON data of your control.  
+Om du klickar på **ny anpassad kontroll**öppnas ett blad med en text ruta för dina KONTROLLers JSON-data.  
 
 ![Kontroll](./media/controls/81.png)
 
-### <a name="deleting-custom-controls"></a>Deleting custom controls
+### <a name="deleting-custom-controls"></a>Tar bort anpassade kontroller
 
-To delete a custom control, you must first ensure that it isn’t being used in any Conditional Access policy. Once complete:
+Om du vill ta bort en anpassad kontroll måste du först se till att den inte används i någon princip för villkorlig åtkomst. När du är klar:
 
-1. Go to the Custom controls list
-1. Click …  
+1. Gå till listan med anpassade kontroller
+1. Klicka på...  
 1. Välj **Ta bort**.
 
-### <a name="editing-custom-controls"></a>Editing custom controls
+### <a name="editing-custom-controls"></a>Redigera anpassade kontroller
 
-To edit a custom control, you must delete the current control and create a new control with the updated information.
+Om du vill redigera en anpassad kontroll måste du ta bort den aktuella kontrollen och skapa en ny kontroll med den uppdaterade informationen.
 
-## <a name="session-controls"></a>Session controls
+## <a name="session-controls"></a>Kontroller av sessioner
 
-Session controls enable limited experience within a cloud app. The session controls are enforced by cloud apps and rely on additional information provided by Azure AD to the app about the session.
+Session kontroller möjliggör begränsad upplevelse i en molnbaserad app. Session kontrollerna tillämpas av molnappar och förlitar sig på ytterligare information som tillhandahålls av Azure AD till appen om sessionen.
 
 ![Kontroll](./media/controls/31.png)
 
-### <a name="use-app-enforced-restrictions"></a>Use app enforced restrictions
+### <a name="use-app-enforced-restrictions"></a>Använd app-framtvingade begränsningar
 
-You can use this control to require Azure AD to pass device information to the selected cloud apps. The device information enables the cloud apps to know whether a connection is initiated from a compliant or domain-joined device. This control only supports SharePoint Online and Exchange Online as selected cloud apps. When selected, the cloud app uses the device information to provide users, depending on the device state, with a limited or full experience.
+Du kan använda den här kontrollen för att kräva att Azure AD skickar enhets information till de valda molnappar. Med enhets informationen kan molnappar se om en anslutning initieras från en kompatibel eller domänansluten enhet. Den här kontrollen stöder endast SharePoint Online och Exchange Online som valda molnappar. När det här alternativet är markerat använder Cloud App enhets informationen för att tillhandahålla användare, beroende på enhetens tillstånd, med en begränsad eller fullständig upplevelse.
 
 Du kan läsa mer här:
 
-- [Enabling limited access with SharePoint Online](https://aka.ms/spolimitedaccessdocs)
-- [Enabling limited access with Exchange Online](https://aka.ms/owalimitedaccess)
+- [Aktivera begränsad åtkomst med SharePoint Online](https://aka.ms/spolimitedaccessdocs)
+- [Aktivera begränsad åtkomst med Exchange Online](https://aka.ms/owalimitedaccess)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- If you want to know how to configure a Conditional Access policy, see [Require MFA for specific apps with Azure Active Directory Conditional Access](app-based-mfa.md).
-- If you are ready to configure Conditional Access policies for your environment, see the [best practices for Conditional Access in Azure Active Directory](best-practices.md).
+- Om du vill veta hur du konfigurerar en princip för villkorlig åtkomst, se [KRÄV MFA för vissa appar med Azure Active Directory villkorlig åtkomst](app-based-mfa.md).
+- Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö, se [metod tips för villkorlig åtkomst i Azure Active Directory](best-practices.md).

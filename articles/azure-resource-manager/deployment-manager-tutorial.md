@@ -186,7 +186,7 @@ Senare i självstudien ska du distribuera en distribution. En användartilldelad
 
 Du måste skapa en användartilldelad hanterad identitet och konfigurera åtkomstkontrollen för din prenumeration.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Skapa en [användartilldelad hanterad identitet](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 3. Från portalen väljer du **Prenumerationer** på den vänstra menyn och väljer sedan din prenumeration.
 4. Välj **Åtkomstkontroll (IAM)** och sedan **Lägg till rolltilldelning**.

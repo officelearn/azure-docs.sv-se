@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: ce0b917f34cab31227e721e119c72cd5d1f99bff
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 7ee593a8db020134e13ea853f17f097d716f7814
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832007"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538190"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Vanliga frågor om Övervakare av nätverksprestanda-lösning
 
@@ -183,6 +183,8 @@ Ett hopp kan inte svara på en traceroute i ett eller flera av följande scenari
 * Routrarna har kon figurer ATS för att inte avslöja sin identitet.
 * Nätverks enheterna tillåter inte ICMP_TTL_EXCEEDED trafik.
 * En brand vägg blockerar ICMP_TTL_EXCEEDED svaret från nätverks enheten.
+
+När någon av slut punkterna är i Azure visar traceroute identifierade hopp som Azure ndrastructure inte avslöjar identitet till traceroute. 
 
 ### <a name="i-get-alerts-for-unhealthy-tests-but-i-do-not-see-the-high-values-in-npms-loss-and-latency-graph-how-do-i-check-what-is-unhealthy"></a>Jag får aviseringar om fel test, men jag ser inte de höga värdena i NPM förlust och svars tid. Hur gör jag för att kontrollerar du vad som är ohälsosamt?
 NPM genererar en avisering om slut punkt till slut punkt mellan källa och mål korsar tröskelvärdet för valfri sökväg mellan dem. Vissa nätverk har flera vägar som ansluter samma källa och mål. NPM genererar en avisering. sökvägen är felaktig. Förlusten och svars tiden som visas i graferna är det genomsnittliga värdet för alla sökvägar, och därför kanske det inte visar exakt värdet för en enskild sökväg. För att förstå var tröskelvärdet har brutits, kan du leta efter kolumnen "undertyp" i aviseringen. Om problemet orsakas av en sökväg, kommer under typens värde att NetworkPath (för test av prestanda övervakare), EndpointPath (för övervakning av tjänst anslutnings övervakare) och ExpressRoutePath (för ExpressRotue övervaknings test). 

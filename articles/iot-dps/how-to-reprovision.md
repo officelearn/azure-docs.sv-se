@@ -1,6 +1,6 @@
 ---
-title: Reprovision devices in Azure IoT Hub Device Provisioning Service
-description: Learn how to reprovision devices with your device provisioning service instance, and why you might need to do this.
+title: Reetablera enheter i Azure IoT Hub Device Provisioning Service
+description: Lär dig hur du reetablerar enheter med din enhets etablerings tjänst instans och varför du kan behöva göra detta.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/04/2019
@@ -14,86 +14,86 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74229713"
 ---
-# <a name="how-to-reprovision-devices"></a>How to reprovision devices
+# <a name="how-to-reprovision-devices"></a>Så här etablerar du om enheter
 
-During the lifecycle of an IoT solution, it is common to move devices between IoT hubs. The reasons for this move may include the following scenarios:
+Under livs cykeln för en IoT-lösning är det vanligt att flytta enheter mellan IoT-hubbar. Orsakerna till den här flytten kan innefatta följande scenarier:
 
-* **Geolocation**: As a device moves between locations, network latency is improved by having the device migrated to an IoT hub closer to each location.
+* **Geolokalisering**: när en enhet flyttas mellan platser förbättras nätverks fördröjningen genom att enheten migreras till en IoT-hubb närmare varje plats.
 
-* **Multi-tenancy**: A device could be used within the same IoT solution but, reassigned or leased to a new customer, or customer site. This new customer may be serviced using a different IoT hub.
+* **Flera innehavare**: en enhet kan användas inom samma IoT-lösning, men omtilldelas eller lånas ut till en ny kund eller kunds webbplats. Den nya kunden kan servas med hjälp av en annan IoT-hubb.
 
-* **Solution change**: A device could be moved into a new or updated IoT solution. This reassignment may require that the device communicate with a new IoT hub that is connected to other backend components. 
+* **Lösnings ändring**: en enhet kan flyttas till en ny eller uppdaterad IoT-lösning. Den här omtilldelningen kan kräva att enheten kommunicerar med en ny IoT-hubb som är ansluten till andra server dels komponenter. 
 
-* **Quarantine**: Similar to a solution change. A device that is malfunctioning, compromised, or out-of-date may be reassigned to an IoT hub where all it can do is update and get back in compliance. Once the device is functioning properly, it is then migrated back to its main hub.
+* **Karantän**: liknar en lösnings förändring. En enhet som inte fungerar, komprometteras eller är inaktuell kan omtilldelas till en IoT-hubb där allt det kan göra är att uppdatera och se till att kompatibiliteten fungerar igen. När enheten fungerar korrekt migreras den tillbaka till huvud navet.
 
-For more a more detailed overview of reprovisioning, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md).
+Mer detaljerad information om hur du reetablering finns i [IoT Hub metoder för att etablera enheter](concepts-device-reprovision.md).
 
 
-## <a name="configure-the-enrollment-allocation-policy"></a>Configure the enrollment allocation policy
+## <a name="configure-the-enrollment-allocation-policy"></a>Konfigurera principen för registrerings tilldelning
 
-The allocation policy determines how the devices associated with the enrollment will be allocated, or assigned, to an IoT hub once reprovisioned.
+Allokeringsregeln avgör hur enheter som är kopplade till registreringen ska allokeras eller tilldelas till en IoT-hubb när den har etablerats.
 
-The following steps configure the allocation policy for a device's enrollment:
+Följande steg konfigurerar principen för en enhets registrering:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Device Provisioning Service instance.
+1. Logga in på [Azure Portal](https://portal.azure.com) och navigera till din enhets etablerings tjänst instans.
 
-2. Click **Manage enrollments**, and click the enrollment group or individual enrollment that you want to configure for reprovisioning. 
+2. Klicka på **Hantera registreringar**och klicka på den registrerings grupp eller enskild registrering som du vill konfigurera för att etablera om. 
 
-3. Under **Select how you want to assign devices to hubs**, select one of the following allocation policies:
+3. Under **Välj hur du vill tilldela enheter till hubbar väljer du**någon av följande allokeringsregler:
 
-    * **Lowest latency**: This policy assigns devices to the linked IoT Hub that will result in the lowest latency communications between device and IoT Hub. This option enables the device to communicate with the closest IoT hub based on location. 
+    * **Lägsta latens**: den här principen tilldelar enheter till den länkade IoT Hub som leder till den lägsta latens kommunikationen mellan enhet och IoT Hub. Med det här alternativet kan enheten kommunicera med den närmaste IoT-hubben baserat på plats. 
     
-    * **Evenly weighted distribution**: This policy distributes devices across the linked IoT Hubs based on the allocation weight assigned to each linked IoT hub. This policy allows you to load balance devices across a group of linked hubs based on the allocation weights set on those hubs. If you are provisioning devices to only one IoT Hub, we recommend this setting. Den här inställningen är standardinställningen. 
+    * **Jämt viktad distribution**: den här principen distribuerar enheter över de länkade IoT-hubbarna baserat på den tilldelnings vikt som tilldelats varje länkad IoT-hubb. Med den här principen kan du belastningsutjämna enheter i en grupp med länkade hubbar baserat på de tilldelnings vikter som anges för dessa nav. Om du bara konfigurerar enheter till en IoT Hub rekommenderar vi den här inställningen. Den här inställningen är standardinställningen. 
     
-    * **Static configuration**: This policy requires a desired IoT Hub be listed in the enrollment entry for a device to be provisioned. This policy allows you to designate a single specific IoT hub that you want to assign devices to.
+    * **Statisk konfiguration**: den här principen kräver att en önskad IoT Hub anges i registrerings posten för att en enhet ska kunna tillhandahållas. Med den här principen kan du ange en enda viss IoT-hubb som du vill tilldela enheter till.
 
-4. Under **Select the IoT hubs this group can be assigned to**, select the linked IoT hubs that you want included with your allocation policy. Optionally, add a new linked Iot hub using the **Link a new IoT Hub** button.
+4. Under **Välj de IoT-hubbar som gruppen kan tilldelas till**väljer du de länkade IoT-hubbar som du vill ska ingå i din resursallokeringsprincip. Du kan också lägga till en ny länkad IoT-hubb med knappen **Länka en ny IoT Hub** .
 
-    With the **Lowest latency** allocation policy, the hubs you select will be included in the latency evaluation to determine the closest hub for device assignment.
+    Med den **lägsta** tilldelnings principen för fördröjning kommer de nav du väljer att inkluderas i utvärderingen av fördröjningen för att fastställa den närmaste hubben för enhets tilldelning.
 
-    With the **Evenly weighted distribution** allocation policy, devices will be load balanced across the hubs you select based on their configured allocation weights and their current device load.
+    Med en **jämt viktad** resursallokeringsprincip kommer enheterna att läsas in över de nav du väljer baserat på deras konfigurerade fördelnings vikter och deras aktuella enhets belastning.
 
-    With the **Static configuration** allocation policy, select the IoT hub you want devices assigned to.
+    Med principen för **statisk konfiguration** av principen väljer du den IoT-hubb som du vill att enheter ska tilldelas till.
 
-4. Click **Save**, or proceed to the next section to set the reprovisioning policy.
+4. Klicka på **Spara**, eller Fortsätt till nästa avsnitt för att ange den ometablerings principen.
 
-    ![Select enrollment allocation policy](./media/how-to-reprovision/enrollment-allocation-policy.png)
-
-
-
-## <a name="set-the-reprovisioning-policy"></a>Set the reprovisioning policy
-
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Device Provisioning Service instance.
-
-2. Click **Manage enrollments**, and click the enrollment group or individual enrollment that you want to configure for reprovisioning.
-
-3. Under **Select how you want device data to be handled on re-provision to a different IoT hub**, choose one of the following reprovisioning policies:
-
-    * **Re-provision and migrate data**: This policy takes action when devices associated with the enrollment entry submit a new provisioning request. Depending on the enrollment entry configuration, the device may be reassigned to another IoT hub. If the device is changing IoT hubs, the device registration with the initial IoT hub will be removed. All device state information from that initial IoT hub will be migrated over to the new IoT hub. During migration, the device's status will be reported as **Assigning**
-
-    * **Re-provision and reset to initial config**: This policy takes action when devices associated with the enrollment entry submit a new provisioning request. Depending on the enrollment entry configuration, the device may be reassigned to another IoT hub. If the device is changing IoT hubs, the device registration with the initial IoT hub will be removed. The initial configuration data that the provisioning service instance received when the device was provisioned is provided to the new IoT hub. During migration, the device's status will be reported as **Assigning**.
-
-4. Click **Save** to enable the reprovisioning of the device based on your changes.
-
-    ![Select enrollment allocation policy](./media/how-to-reprovision/reprovisioning-policy.png)
+    ![Välj princip för registrerings tilldelning](./media/how-to-reprovision/enrollment-allocation-policy.png)
 
 
 
-## <a name="send-a-provisioning-request-from-the-device"></a>Send a provisioning request from the device
+## <a name="set-the-reprovisioning-policy"></a>Ange etablerings principen
 
-In order for devices to be reprovisioned based on the configuration changes made in the preceding sections, these devices must request reprovisioning. 
+1. Logga in på [Azure Portal](https://portal.azure.com) och navigera till din enhets etablerings tjänst instans.
 
-How often a device submits a provisioning request depends on the scenario. However, it is advised to program your devices to send a provisioning request to a provisioning service instance on reboot, and support a [method](../iot-hub/iot-hub-devguide-direct-methods.md) to manually trigger provisioning on demand. Provisioning could also be triggered by setting a [desired property](../iot-hub/iot-hub-devguide-device-twins.md#desired-property-example). 
+2. Klicka på **Hantera registreringar**och klicka på den registrerings grupp eller enskild registrering som du vill konfigurera för att etablera om.
 
-The reprovisioning policy on an enrollment entry determines how the device provisioning service instance handles these provisioning requests, and if device state data should be migrated during reprovisioning. The same policies are available for individual enrollments and enrollment groups:
+3. Under **Välj hur du vill att enhets data ska hanteras vid ny etablering till en annan IoT-hubb**väljer du någon av följande principer för att etablera:
 
-For example code of sending provisioning requests from a device during a boot sequence, see [Auto-provisioning a simulated device](quick-create-simulated-device.md).
+    * **Förnya och migrera data**: den här principen vidtar åtgärder när enheter som är associerade med registrerings posten skickar en ny etablerings förfrågan. Beroende på konfigurationen av registrerings posten kan enheten omtilldelas till en annan IoT-hubb. Om enheten ändrar IoT-hubbar tas enhets registreringen med den inledande IoT Hub bort. All enhets tillstånds information från den inledande IoT-hubben migreras till den nya IoT-hubben. Under migreringen rapporteras enhetens status som **tilldela**
+
+    * **Ometablering och återställning till ursprunglig konfiguration**: den här principen vidtar åtgärder när enheter som är associerade med registrerings posten skickar en ny etablerings förfrågan. Beroende på konfigurationen av registrerings posten kan enheten omtilldelas till en annan IoT-hubb. Om enheten ändrar IoT-hubbar tas enhets registreringen med den inledande IoT Hub bort. De inledande konfigurations data som etablerings tjänst instansen tog emot när enheten etablerades tillhandahålls till den nya IoT-hubben. Under migreringen rapporteras enhetens status som **tilldela**.
+
+4. Klicka på **Spara** för att aktivera ometablering av enheten baserat på dina ändringar.
+
+    ![Välj princip för registrerings tilldelning](./media/how-to-reprovision/reprovisioning-policy.png)
+
+
+
+## <a name="send-a-provisioning-request-from-the-device"></a>Skicka en etablerings förfrågan från enheten
+
+För att enheter ska kunna etableras på grund av konfigurations ändringarna som gjorts i föregående avsnitt, måste dessa enheter begära reetablering. 
+
+Hur ofta en enhet skickar en etablerings förfrågan beror på scenariot. Vi rekommenderar dock att programerar dina enheter för att skicka en etablerings förfrågan till en etablerings tjänst instans vid omstart och stödja en [metod](../iot-hub/iot-hub-devguide-direct-methods.md) för att manuellt utlösa etablering på begäran. Etableringen kan också utlösas genom att ange en [önskad egenskap](../iot-hub/iot-hub-devguide-device-twins.md#desired-property-example). 
+
+Den ometablerings principen på en registrerings post avgör hur enhets etablerings tjänst instansen hanterar dessa etablerings begär Anden och om enhets tillstånds data ska migreras under ometableringen. Samma principer är tillgängliga för enskilda registreringar och registrerings grupper:
+
+Till exempel kod för att skicka etablerings begär Anden från en enhet under en startsekvens, se [Automatisk etablering av en simulerad enhet](quick-create-simulated-device.md).
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- To learn more Reprovisioning, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md) 
-- To learn more Deprovisioning, see [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md) 
+- Mer information om hur du reetablerar finns i [IoT Hub metoder för att etablera enheter](concepts-device-reprovision.md) 
+- Mer information om hur du avetablerar [enheter finns i så här avetablerar du enheter som tidigare var automatiskt etablerade](how-to-unprovision-devices.md) 
 
 
 

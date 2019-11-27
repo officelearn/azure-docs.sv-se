@@ -1,7 +1,7 @@
 ---
-title: Support and help options - Speech Service
+title: Support-och hjälp alternativ – tal tjänsten
 titleSuffix: Azure Cognitive Services
-description: How to obtain help and support for questions and problems when you create applications that integrate with the Speech Service
+description: Få hjälp och support för frågor och problem när du skapar program som integreras med tal tjänsten
 services: cognitive-services
 author: jhakulin
 manager: nitinme
@@ -17,100 +17,100 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74422621"
 ---
-# <a name="support-and-help-options"></a>Support and help options
+# <a name="support-and-help-options"></a>Support-och hjälp alternativ
 
-Are you just starting to explore the functionality of the Speech Services? Are you implementing a new feature to your application? Here are suggestions about where you can get help as a developer.
+Börjar du bara utforska funktionerna i tal tjänsterna? Implementerar du en ny funktion för ditt program? Här är några förslag på var du kan få hjälp som utvecklare.
 
 > [!div class="checklist"]
-> * Stay informed about new developments in *Azure Cognitive Services*, or find the latest news related to *Speech service*.
-> * Release notes contain information for all releases.
-> * Search to see if your issue was discussed by the community, or if existing documentation for the feature you want to implement already exists.
-> * If you can't find a satisfactory answer, ask a question on *Stack Overflow*.
-> * If you find an issue with one of the samples on GitHub, raise a *GitHub* issue.
-> * Search for a solution in the *UserVoice forum*.
+> * Håll dig informerad om ny utveckling i *Azure Cognitive Services*eller Sök efter de senaste nyheterna som är relaterade till *tal tjänsten*.
+> * Versions information innehåller information för alla versioner.
+> * Sök för att se om problemet har diskuterats av communityn eller om befintlig dokumentation för den funktion som du vill implementera redan finns.
+> * Om du inte kan hitta ett tillfredsställande svar ställer du en fråga på *Stack Overflow*.
+> * Om du hittar ett problem med ett av exemplen på GitHub kan du öka ett *GitHub* -problem.
+> * Sök efter en lösning i *UserVoice-forumet*.
 
 ## <a name="stay-informed"></a>Håll dig informerad
 
-News about Cognitive Services is collected in the [Cognitive Services blog](https://azure.microsoft.com/blog/topics/cognitive-services/). For the latest information about Speech Services, track the [Speech Services blog](https://azure.microsoft.com/blog/tag/speech-service/).
+Nyheter om Cognitive Services samlas in i [Cognitive Services blogg](https://azure.microsoft.com/blog/topics/cognitive-services/). Om du vill ha den senaste informationen om tal tjänster spårar du [röst tjänst bloggen](https://azure.microsoft.com/blog/tag/speech-service/).
 
 ## <a name="release-notes"></a>Viktig information
 
-The [release notes](https://aka.ms/csspeech/whatsnew) are updated as soon as a new release is available. The notes contain information about new features, improvements, and bug fixes.
+[Viktig information](https://aka.ms/csspeech/whatsnew) uppdateras så snart en ny version är tillgänglig. Anteckningarna innehåller information om nya funktioner, förbättringar och fel korrigeringar.
 
-## <a name="search"></a>Sök
+## <a name="search"></a>Search
 
-You might find the answer you need in the documentation, the samples, or answers to [Stack Overflow](https://www.stackoverflow.com) questions or in the samples.
+Du kan hitta det svar du behöver i dokumentationen, exemplen eller svaren på [Stack Overflow](https://www.stackoverflow.com) frågor eller i exemplen.
 
-### <a name="scoped-search"></a>Scoped Search
+### <a name="scoped-search"></a>Omfattnings sökning
 
-For faster results, scope your search to Stack Overflow, the documentation, and code samples by using the following query on your [favorite search engine](https://bing.com):
+För snabbare resultat kan du begränsa sökningen till Stack Overflow, dokumentation och kod exempel med hjälp av följande fråga i din [favorit](https://bing.com)sökmotor:
 
 ```
 {Your Search Terms} (site:stackoverflow.com OR site:docs.microsoft.com OR site:github.com/azure-samples)
 ```
 
-Where *{Your Search Terms}* is your search keywords.
+Där *{dina Sök villkor}* är dina Sök nyckelord.
 
-## <a name="create-an-azure-support-request"></a>Create an Azure support request
+## <a name="create-an-azure-support-request"></a>Skapa en support förfrågan för Azure
 
-Azure customers can create and manage support requests in the Azure portal.
+Azure-kunder kan skapa och hantera support förfrågningar i Azure Portal.
 
-* [Azure-portalen](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
-* [Azure portal for the United States government](https://portal.azure.us)
+* [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [Azure Portal för USA myndigheter](https://portal.azure.us)
 
-## <a name="post-a-question-to-stack-overflow"></a>Post a question to Stack Overflow
+## <a name="post-a-question-to-stack-overflow"></a>Skicka en fråga till Stack Overflow
 
-Stack Overflow is the preferred channel for development-related questions. It's where members of the community and Microsoft team members are directly involved in helping you solve your problems.
+Stack Overflow är den föredragna kanalen för utvecklings frågor. Det är där medlemmar i communityn och Microsoft team-medlemmar är direkt inblandade i att hjälpa dig att lösa dina problem.
 
-If you can't find an answer to your problem via search, submit a new question to Stack Overflow by using the [microsoft-cognitive-speech](https://stackoverflow.com/questions/tagged/microsoft-cognitive-speech) tag.
+Om du inte kan hitta ett svar på problemet via sökning skickar du en ny fråga till Stack Overflow med hjälp av taggen [Microsoft-kognitiv-tal](https://stackoverflow.com/questions/tagged/microsoft-cognitive-speech) .
 
 > [!TIP]
-> The following posts from Stack Overflow contain tips on how to form questions and add source code. Following these guidelines might help increase the chances that community members assess and respond to your question quickly:  
-> * [How do I ask a good question?](https://stackoverflow.com/help/how-to-ask)
-> * [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve)
+> Följande inlägg från Stack Overflow innehåller tips om hur du kan forma frågor och lägga till källkod. Följande rikt linjer kan hjälpa dig att öka risken för att community-medlemmar bedömer och svarar snabbt på dina frågor:  
+> * [Hur gör jag för att ställa en lämplig fråga?](https://stackoverflow.com/help/how-to-ask)
+> * [Så här skapar du ett minimalt, komplett och verifierbart exempel](https://stackoverflow.com/help/mcve)
 
-## <a name="create-a-github-issue"></a>Create a GitHub issue
+## <a name="create-a-github-issue"></a>Skapa ett GitHub-problem
 
-Samples are often posted as open source. For questions and issues, create an *issue* in the respective GitHub repository. You can submit a pull request, too. The following list contains links to the sample repositories:
+Exempel publiceras ofta som öppen källkod. För frågor och problem skapar du ett *problem* i respektive GitHub-lagringsplats. Du kan också skicka en pull-begäran. Följande lista innehåller länkar till exempel databaserna:
 
 * [Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
-* [Speech Devices SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
+* [Tal enheter SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
 
-You can create a bug report, feature request, or ask a general question and share best practices. For bug reports, please follow the provided template:
+Du kan skapa en fel rapport, en funktions förfrågan eller ställa en allmän fråga och dela bästa praxis. För fel rapporter följer du den angivna mallen:
 
-**Describe the bug**
+**Beskriv felet**
 
-A clear and concise description of what the bug is.
+En tydlig och kortfattad beskrivning av vad felet är.
 
-**To Reproduce**
+**För att återskapa**
 
-Steps to reproduce the behavior:
+Steg för att återskapa problemet:
 1. ...
 2. ...
 
-**Expected behavior**
+**Förväntat beteende**
 
-A clear and concise description of what you expected to happen.
+En tydlig och kortfattad beskrivning av vad du förväntar dig.
 
-**Version of the Cognitive Services Speech SDK**
+**Version av Cognitive Services Speech SDK**
 
-Which version of the SDK are you using.
+Vilken version av SDK använder du.
 
-**Platform, Operating System, and Programming Language**
+**Plattform, operativ system och programmeringsspråk**
 
- - OS: [e.g. Windows, Linux, Android, iOS, ...] - please be specific
- - Hardware - x64, x86, ARM, ...
- - Browser  [e.g. Chrome, Safari] (if applicable)- please be specific
+ - OS: [t. ex. Windows, Linux, Android, iOS,...]-var speciell
+ - Maskin vara-x64, x86, ARM,...
+ - Webbläsare [t. ex. Chrome, Safari] (om tillämpligt) – var speciell
 
-**Additional context**
+**Ytterligare kontext**
 
- - Error messages, log information, stack trace, ...
- - If you report an error for a specific service interaction, report the SessionId and time (incl. timezone) of the reported incidents. The SessionId is reported in all call-backs/events you receive.
- - Any other additional information
+ - Fel meddelanden, logg information, stack spårning,...
+ - Om du rapporterar ett fel för en viss tjänst interaktion rapporterar du SessionId och tid (inkl. TimeZone) för rapporterade incidenter. SessionId rapporteras i alla återanrop/händelser som du får.
+ - Eventuell ytterligare information
 
 
 ## <a name="uservoice-forum"></a>UserVoice-forumet
 
-Share your ideas for making Cognitive Services and the accompanying APIs work better for the applications you develop. Use our growing Knowledge Base to find answers to common questions:
+Dela med dig av dina idéer för att göra Cognitive Services och medföljande API: er fungerar bättre för de program som du utvecklar. Använd vår växande kunskaps bas för att få svar på vanliga frågor:
 
 [UserVoice](https://cognitive.uservoice.com/)

@@ -24,7 +24,7 @@ Den här artikeln innehåller SQL Database funktioner som för närvarande finns
 
 ### <a name="single-databasetabsingle-database"></a>[Enkel databas](#tab/single-database)
 
-| Funktion | Information |
+| Funktion | Detaljer |
 | ---| --- |
 | Nya maskin varu generationer i Fsv2-serien och M-serien| Mer information finns i [maskin varu generationer](sql-database-service-tiers-vcore.md#hardware-generations).|
 | [Privat Azure-länk](https://azure.microsoft.com/updates/private-link-now-available-in-preview/)| Private Link förenklar nätverksarkitekturen och skyddar anslutningen mellan slutpunkter i Azure genom att behålla data på Azure-nätverket, vilket eliminerar exponeringen på Internet. Med Private Link kan du även skapa och återge dina egna tjänster på Azure. |
@@ -44,7 +44,7 @@ Den här artikeln innehåller SQL Database funktioner som för närvarande finns
 
 ### <a name="managed-instancetabmanaged-instance"></a>[Hanterad instans](#tab/managed-instance)
 
-| Funktion | Information |
+| Funktion | Detaljer |
 | ---| --- |
 | <a href="/azure/sql-database/sql-database-managed-instance-connectivity-architecture#service-aided-subnet-configuration-public-preview-in-east-us-and-west-us">Konfiguration av tjänstens konfiguration för under nätet</a> | Ett säkert och bekvämt sätt att hantera under näts konfiguration. |
 | <a href="/azure/sql-database/sql-database-instance-pools">Instans-pooler</a> | Ett bekvämt och kostnads effektivt sätt att migrera mindre SQL-instanser till molnet. |

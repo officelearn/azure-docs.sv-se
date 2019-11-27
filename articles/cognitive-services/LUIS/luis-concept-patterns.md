@@ -50,7 +50,7 @@ Ett mönster är främst avsett att hjälpa till att förutsäga avsikter och ro
 Vänta inte att se förbättrad enhets förutsägelse om du komprimerar flera yttranden till ett enda mönster. För att enkla entiteter ska kunna startas måste du lägga till yttranden eller använda List entiteter, annars går det inte att starta mönstret.
 
 ## <a name="patterns-use-entity-roles"></a>Mönster använder entiteten
-Om två eller flera entiteter i ett mönster är sammanhangsmässigt relaterade, mönster använda entiteten [roller](luis-concept-roles.md) extrahera sammanhangsberoende information om entiteter.  
+Om två eller flera entiteter i ett mönster är kontext bundna, använder mönster enhets [roller](luis-concept-roles.md) för att extrahera sammanhangsbaserad information om entiteter.  
 
 ## <a name="prediction-scores-with-and-without-patterns"></a>Förutsägelse poäng med och utan mönster
 Med tillräckligt med exempel yttranden kan skulle LUIS kunna öka förutsägelsen utan mönster. Mönster öka förtroendepoäng utan att behöva tillhandahålla så många yttranden.  
@@ -62,7 +62,7 @@ Ett mönster matchas baserat på identifiera entiteterna i mönstret först och 
 Du kan bygga en app med avsikter som inte har något exempel yttranden, så länge det finns ett mönster för varje avsikt. För en app-only-app bör mönstret inte innehålla enhets enheter, eftersom dessa kräver exempel yttranden. 
 
 ## <a name="best-practices"></a>Bästa praxis
-Lär dig [bästa praxis](luis-concept-best-practices.md).
+Lär dig [metod tips](luis-concept-best-practices.md).
 
 ## <a name="pattern-syntax"></a>Mönstersyntax
 

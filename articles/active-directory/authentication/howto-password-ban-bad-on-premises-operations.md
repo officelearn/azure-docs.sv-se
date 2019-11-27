@@ -1,6 +1,6 @@
 ---
-title: Password protection operations and reports - Azure Active Directory
-description: Azure AD Password Protection post-deployment operations and reporting
+title: Åtgärder och rapporter för lösen ords skydd – Azure Active Directory
+description: Azure AD Password Protection efter distributions åtgärder och rapportering
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -18,50 +18,50 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74381666"
 ---
-# <a name="azure-ad-password-protection-operational-procedures"></a>Azure AD Password Protection operational procedures
+# <a name="azure-ad-password-protection-operational-procedures"></a>Drift procedurer för Azure AD-lösenords skydd
 
-After you have completed the [installation of Azure AD Password Protection](howto-password-ban-bad-on-premises-deploy.md) on-premises, there are a couple items that must be configured in the Azure portal.
+När du har slutfört [installationen av Azure AD Password Protection](howto-password-ban-bad-on-premises-deploy.md) lokalt finns det ett par objekt som måste konfigureras i Azure Portal.
 
-## <a name="configure-the-custom-banned-password-list"></a>Configure the custom banned password list
+## <a name="configure-the-custom-banned-password-list"></a>Konfigurera listan anpassat blockerade lösen ord
 
-Follow the guidance in the article [Configuring the custom banned password list](howto-password-ban-bad-configure.md) for steps to customize the banned password list for your organization.
+Följ anvisningarna i artikeln [Konfigurera listan med anpassade förbjudna lösen ord](howto-password-ban-bad-configure.md) för att anpassa listan över förbjudna lösen ord för din organisation.
 
-## <a name="enable-password-protection"></a>Enable Password Protection
+## <a name="enable-password-protection"></a>Aktivera lösen ords skydd
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and browse to **Azure Active Directory**, **Authentication methods**, then **Password Protection**.
-1. Set **Enable Password Protection on Windows Server Active Directory** to **Yes**
-1. As mentioned in the [Deployment guide](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy), it is recommended to initially set the **Mode** to **Audit**
-   * After you are comfortable with the feature, you can switch the **Mode** to **Enforced**
+1. Logga in på [Azure Portal](https://portal.azure.com) och bläddra till **Azure Active Directory**, **autentiseringsmetoder**och **lösen ords skydd**.
+1. Ange **Aktivera lösen ords skydd på Windows Server Active Directory** till **Ja**
+1. Som vi nämnt i [distributions guiden](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy), rekommenderar vi att du ursprungligen ställer in **läget** på **granskning**
+   * När du är van att aktivera funktionen kan du växla mellan **läget** och **verkställa**
 1. Klicka på **Spara**
 
-![Enabling Azure AD Password Protection components in the Azure portal](./media/howto-password-ban-bad-on-premises-operations/authentication-methods-password-protection-on-prem.png)
+![Aktivera komponenter för lösen ords skydd i Azure AD i Azure Portal](./media/howto-password-ban-bad-on-premises-operations/authentication-methods-password-protection-on-prem.png)
 
-## <a name="audit-mode"></a>Audit Mode
+## <a name="audit-mode"></a>Gransknings läge
 
-Audit mode is intended as a way to run the software in a “what if” mode. Each DC agent service evaluates an incoming password according to the currently active policy. If the current policy is configured to be in Audit mode, “bad” passwords result in event log messages but are accepted. This is the only difference between Audit and Enforce mode; all other operations run the same.
+Gransknings läget är avsett som ett sätt att köra program varan i "Vad händer om"-läge. Varje DC-agenttjänsten utvärderar ett inkommande lösen ord enligt den aktuella aktiva principen. Om den aktuella principen är konfigurerad som gransknings läge resulterar "dåliga" lösen ord i händelse logg meddelanden men godkänns. Detta är den enda skillnaden mellan gransknings-och framtvingande läge. alla andra åtgärder kör samma.
 
 > [!NOTE]
-> Microsoft recommends that initial deployment and testing always start out in Audit mode. Events in the event log should then be monitored to try to anticipate whether any existing operational processes would be disturbed once Enforce mode is enabled.
+> Microsoft rekommenderar att den första distributionen och testningen alltid startar i gransknings läge. Händelser i händelse loggen bör sedan övervakas för att försöka förutse om befintliga operativa processer skulle störas när tvingande läge är aktiverat.
 
-## <a name="enforce-mode"></a>Enforce Mode
+## <a name="enforce-mode"></a>Framtvinga läge
 
-Enforce mode is intended as the final configuration. As in Audit mode above, each DC agent service evaluates incoming passwords according to the currently active policy. If Enforce mode is enabled though, a password that is considered unsecure according to the policy is rejected.
+Tvingande läge är avsett som den slutliga konfigurationen. Som i gransknings läget ovan utvärderar varje DC-agenttjänsten inkommande lösen ord enligt den aktuella aktiva principen. Om tvingande läge är aktiverat, avvisas ett lösen ord som betraktas som oskyddat enligt principen.
 
-When a password is rejected in Enforce mode by the Azure AD Password Protection DC Agent, the visible impact seen by an end user is identical to what they would see if their password was rejected by traditional on-premises password complexity enforcement. For example, a user might see the following traditional error message at the Windows logon\change password screen:
+När ett lösen ord avvisas i tvingande läge av Azure AD Password Protection DC-agenten, är den synliga påverkan som en slutanvändare sett identisk med vad de skulle se om deras lösen ord avvisades av traditionella lokala lösen ords komplexitet. En användare kan till exempel se följande vanliga fel meddelande på skärmen för Windows logon\change-lösenord:
 
 `Unable to update the password. The value provided for the new password does not meet the length, complexity, or history requirements of the domain.`
 
-This message is only one example of several possible outcomes. The specific error message can vary depending on the actual software or scenario that is attempting to set an unsecure password.
+Det här meddelandet är bara ett exempel på flera möjliga resultat. Det specifika fel meddelandet kan variera beroende på den faktiska program varan eller det scenario som försöker ange ett oskyddat lösen ord.
 
-Affected end users may need to work with their IT staff to understand the new requirements and be more able to choose secure passwords.
+Berörda slutanvändare kan behöva arbeta med sin IT-personal för att förstå de nya kraven och kunna välja säkra lösen ord.
 
 > [!NOTE]
-> Azure AD Password Protection has no control over the specific error message displayed by the client machine when a weak password is rejected.
+> Lösen ords skydd i Azure AD har ingen kontroll över det särskilda fel meddelande som visas av klient datorn när ett svagt lösen ord avvisas.
 
-## <a name="enable-mode"></a>Enable Mode
+## <a name="enable-mode"></a>Aktivera läge
 
-This setting should be left in its default enabled (Yes) state. Configuring this setting to disabled (No) will cause all deployed Azure AD Password Protection DC agents to go into a quiescent mode where all passwords are accepted as-is, and no validation activities will be executed whatsoever (for example, not even audit events will be emitted).
+Den här inställningen ska vara kvar i standard läget för aktive rad (Yes). Om den här inställningen är inaktive rad (Nej) kommer alla distribuerade Azure AD-quiescent att hamna i ett läge där alla lösen ord godkänns som de är, och inga validerings aktiviteter utförs på samma sätt (till exempel inte ens gransknings händelser genereras).
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Monitoring for Azure AD Password Protection](howto-password-ban-bad-on-premises-monitor.md)
+[Övervakning av lösen ords skydd i Azure AD](howto-password-ban-bad-on-premises-monitor.md)

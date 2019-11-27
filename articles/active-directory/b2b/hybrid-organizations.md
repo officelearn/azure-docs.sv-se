@@ -47,7 +47,7 @@ Information om implementering finns i [bevilja lokalt hanterad partner konton å
  
 ## <a name="next-steps"></a>Nästa steg
 
-- [Grant B2B-användare i Azure AD åtkomst till dina lokala program](hybrid-cloud-to-on-premises.md)
+- [Bevilja B2B-användare i Azure AD åtkomst till dina lokala program](hybrid-cloud-to-on-premises.md)
 - [Bevilja lokalt hanterad partner konton åtkomst till moln resurser med Azure AD B2B-samarbete](hybrid-on-premises-to-cloud.md)
 
 

@@ -1,6 +1,6 @@
 ---
-title: Password protection agent release history - Azure Active Directory
-description: Documents version release and behavior change history
+title: Versions historik för lösen ords skydds agent – Azure Active Directory
+description: Dokument versions version och beteende ändrings historik
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -18,122 +18,122 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74381736"
 ---
-# <a name="azure-ad-password-protection-agent-version-history"></a>Azure AD Password Protection agent version history
+# <a name="azure-ad-password-protection-agent-version-history"></a>Versions historik för Azure AD Password Protection-Agent
 
 ## <a name="121250"></a>1.2.125.0
 
-Release date: 3/22/2019
+Utgivnings datum: 3/22/2019
 
-* Fix minor typo errors in event log messages
-* Update EULA agreement to final General Availability version
+* Åtgärda mindre skrivfel i händelse logg meddelanden
+* Uppdatera EULA-avtalet till slutlig allmän tillgänglighets version
 
 > [!NOTE]
-> Build 1.2.125.0 is the General Availability build. Thank you again to everyone has provided feedback on the product!
+> Build 1.2.125.0 är den allmänna tillgänglighets versionen. Tack för att alla har fått feedback om produkten!
 
 ## <a name="121160"></a>1.2.116.0
 
-Release date: 3/13/2019
+Utgivnings datum: 3/13/2019
 
-* The Get-AzureADPasswordProtectionProxy and Get-AzureADPasswordProtectionDCAgent cmdlets now report software version and the current Azure tenant with the following limitations:
-  * Software version and Azure tenant data are only available for DC agents and proxies running version 1.2.116.0 or later.
-  * Azure tenant data may not be reported until a re-registration (or renewal) of the proxy or forest has occurred.
-* The Proxy service now requires that .NET 4.7 is installed.
-  * .NET 4.7 should already be installed on a fully updated Windows Server. If this is not the case, download and run the installer found at [The .NET Framework 4.7 offline installer for Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
-  * On Server Core systems it may be necessary to pass the /q flag to the .NET 4.7 installer to get it to succeed.
-* The Proxy service now supports automatic upgrade. Automatic upgrade uses the Microsoft Azure AD Connect Agent Updater service which is installed side-by-side with the Proxy service. Automatic upgrade is on by default.
-* Automatic upgrade can be enabled or disabled using the Set-AzureADPasswordProtectionProxyConfiguration cmdlet. The current setting can be queried using the Get-AzureADPasswordProtectionProxyConfiguration cmdlet.
-* The service binary for the DC agent service has been renamed to AzureADPasswordProtectionDCAgent.exe.
-* The service binary for the Proxy service has been renamed to AzureADPasswordProtectionProxy.exe. Firewall rules may need to be modified accordingly if a third-party firewall is in-use.
-  * NOTE: if an http proxy config file was being used in a previous Proxy install, it will need to be renamed (from *proxyservice.exe.config* to *AzureADPasswordProtectionProxy.exe.config*) after this upgrade.
-* All time-limited functionality checks have been removed from the DC agent.
-* Minor bugs fixes and logging improvements.
+* Cmdletarna get-AzureADPasswordProtectionProxy och get-AzureADPasswordProtectionDCAgent rapporterar nu program varu versionen och den aktuella Azure-klienten med följande begränsningar:
+  * Program varu versionen och Azures klient data är bara tillgängliga för DC-agenter och proxyservrar som kör version 1.2.116.0 eller senare.
+  * Azure-klientens data kan inte rapporteras förrän en omregistrering (eller förnyad) av proxyn eller skogen har inträffat.
+* Proxy-tjänsten kräver nu att .NET 4,7 har installerats.
+  * .NET 4,7 bör redan vara installerat på en helt uppdaterad Windows Server. Om detta inte är fallet kan du hämta och köra installations programmet som finns i [.NET Framework 4,7 Offline Installer för Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
+  * På Server Core-system kan det vara nödvändigt att skicka flaggan/q till .NET 4,7-installations programmet för att det ska gå att slutföra.
+* Proxy-tjänsten stöder nu automatisk uppgradering. Vid automatisk uppgradering används tjänsten Microsoft Azure AD Connect agent Updateer som installeras sida vid sida med proxy-tjänsten. Automatisk uppgradering är aktiverat som standard.
+* Automatisk uppgradering kan aktive ras eller inaktive ras med cmdleten Set-AzureADPasswordProtectionProxyConfiguration. Den aktuella inställningen kan frågas med hjälp av cmdleten Get-AzureADPasswordProtectionProxyConfiguration.
+* Tjänstens binärfil för DC-agenttjänsten har bytt namn till AzureADPasswordProtectionDCAgent. exe.
+* Tjänstens binärfil för proxy-tjänsten har bytt namn till AzureADPasswordProtectionProxy. exe. Brand Väggs regler kan behöva ändras i enlighet med detta om en brand vägg från tredje part används.
+  * OBS! om en http-proxy-konfigurationsfil användes i en tidigare proxy-installation måste den byta namn (från *proxyservice. exe. config* till *AzureADPasswordProtectionProxy. exe. config*) efter den här uppgraderingen.
+* Alla tids kontroller för tidsbegränsade funktioner har tagits bort från DC-agenten.
+* Mindre fel korrigeringar och loggnings förbättringar.
 
 ## <a name="12650"></a>1.2.65.0
 
-Release date: 2/1/2019
+Utgivnings datum: 2/1/2019
 
-Changes:
+Något
 
-* DC agent and proxy service are now supported on Server Core. Mininimum OS requirements are unchanged from before: Windows Server 2012 for DC agents, and Windows Server 2012 R2 for proxies.
-* The Register-AzureADPasswordProtectionProxy and Register-AzureADPasswordProtectionForest cmdlets now support device-code-based Azure authentication modes.
-* The Get-AzureADPasswordProtectionDCAgent cmdlet will ignore mangled and/or invalid service connection points. This fixes the bug where domain controllers would sometimes show up multiple times in the output.
-* The Get-AzureADPasswordProtectionSummaryReport cmdlet will ignore mangled and/or invalid service connection points. This fixes the bug where domain controllers would sometimes show up multiple times in the output.
-* The Proxy powershell module is now registered from %ProgramFiles%\WindowsPowerShell\Modules. The machine's PSModulePath environment variable is no longer modified.
-* A new Get-AzureADPasswordProtectionProxy cmdlet has been added to aid in discovering registered proxies in a forest or domain.
-* The DC agent uses a new folder in the sysvol share for replicating password policies and other files.
+* DC-agenten och proxy service stöds nu på Server Core. Mininimum OS-krav är oförändrade från före: Windows Server 2012 för DC-agenter och Windows Server 2012 R2 för proxyservrar.
+* Cmdletarna register-AzureADPasswordProtectionProxy och registrera AzureADPasswordProtectionForest har nu stöd för enhets kods baserade Azure-autentiseringsläge.
+* Cmdlet: en get-AzureADPasswordProtectionDCAgent ignorerar Mangled och/eller ogiltiga tjänst anslutnings punkter. Detta åtgärdar felet där domänkontrollanter ibland skulle visas flera gånger i utdata.
+* Cmdlet: en get-AzureADPasswordProtectionSummaryReport ignorerar Mangled och/eller ogiltiga tjänst anslutnings punkter. Detta åtgärdar felet där domänkontrollanter ibland skulle visas flera gånger i utdata.
+* Proxy PowerShell-modulen är nu registrerad från%ProgramFiles%\WindowsPowerShell\Modules. Datorns miljö variabel för PSModulePath ändras inte längre.
+* En ny get-AzureADPasswordProtectionProxy-cmdlet har lagts till för att hjälpa till att identifiera registrerade proxyservrar i en skog eller domän.
+* DC-agenten använder en ny mapp i Sysvol-resursen för replikering av lösen ords principer och andra filer.
 
-   Old folder location:
+   Plats för gammal mapp:
 
    `\\<domain>\sysvol\<domain fqdn>\Policies\{4A9AB66B-4365-4C2A-996C-58ED9927332D}`
 
-   New folder location:
+   Ny mapplats:
 
    `\\<domain>\sysvol\<domain fqdn>\AzureADPasswordProtection`
 
-   (This change was made to avoid false-positive "orphaned GPO" warnings.)
+   (Den här ändringen gjordes för att undvika falska, överblivna GPO-varningar.)
 
    > [!NOTE]
-   > No migration or sharing of data will be done between the old folder and the new folder. Older DC agent versions will continue to use the old location until upgraded to this version or later. Once all DC agents are running version 1.2.65.0 or later, the old sysvol folder may be manually deleted.
+   > Ingen migrering eller delning av data görs mellan den gamla mappen och den nya mappen. Äldre versioner av DC-agenten fortsätter att använda den gamla platsen tills den har uppgraderats till den här versionen eller senare. När alla DC-agenter kör version 1.2.65.0 eller senare kan den gamla SYSVOL-mappen tas bort manuellt.
 
-* The DC agent and proxy service will now detect and delete mangled copies of their respective service connection points.
-* Each DC agent will periodically delete mangled and stale service connection points in its domain, for both DC agent and proxy service connection points. Both DC agent and proxy service connection points are considered stale if its heartbeat timestamp is older than seven days.
-* The DC agent will now renew the forest certificate as needed.
-* The Proxy service will now renew the proxy certificate as needed.
-* Updates to password validation algorithm: the global banned password list and customer-specific banned password list (if configured) are combined prior to password validations. A given password may now be rejected (fail or audit-only) if it contains tokens from both the global and customer-specific list. The event log documentation has been updated to reflect this; please see [Monitor Azure AD Password Protection](howto-password-ban-bad-on-premises-monitor.md).
-* Performance and robustness fixes
-* Improved logging
+* DC-agenten och proxy-tjänsten kommer nu att identifiera och ta bort Mangled kopior av deras respektive tjänst anslutnings punkter.
+* Varje DC-agent tar regelbundet bort Mangled och föråldrade tjänst anslutnings punkter i sin domän, för både DC-agent och proxy service-anslutnings punkter. Både anslutnings punkter för DC-agent och proxy-tjänst anses vara inaktuella om Pulsslagets tidstämpel är äldre än sju dagar.
+* DC-agenten kommer nu att förnya skogs certifikatet efter behov.
+* Proxyservern kommer nu att förnya proxy-certifikatet vid behov.
+* Uppdateringar av algoritmen för lösen ords verifiering: den globala listan över förbjudna lösen ord och kundspecifika förbjudna lösen ord (om konfigurerad) kombineras före lösen ords valideringar. Ett angivet lösen ord kan nu avvisas (Miss lyckas eller granskas endast) om det innehåller tokens från både den globala och den kundspecifika listan. Dokumentationen för händelse loggen har uppdaterats för att avspegla detta. Se [övervaka lösen ords skydd i Azure AD](howto-password-ban-bad-on-premises-monitor.md).
+* Prestanda-och robusta korrigeringar
+* Förbättrad loggning
 
 > [!WARNING]
-> Time-limited functionality:  the DC agent service in this release (1.2.65.0) will stop processing password validation requests as of September 1st 2019.  DC agent services in prior releases (see list below) will stop processing as of July 1st 2019. The DC agent service in all versions will log 10021 events to the Admin event log in the two months leading up these deadlines. All time-limit restrictions will be removed in the upcoming GA release. The Proxy agent service is not time-limited in any version but should still be upgraded to the latest version in order to take advantage of all subsequent bug fixes and other improvements.
+> Tidsbegränsad funktionalitet: DC-agenttjänsten i den här versionen (1.2.65.0) slutar att bearbeta begär Anden om lösen ords verifiering från den 1 september 2019.  DC agent-tjänster i tidigare versioner (se listan nedan) slutar att bearbeta den 1 juli 2019. DC-agenttjänsten i alla versioner loggar 10021-händelser till administratörs händelse loggen under de två månaderna, vilket leder till att dessa deadlines. Alla begränsningar för tids gräns tas bort i den kommande GA-versionen. Proxy agent-tjänsten är inte tidsbegränsad i någon version, men bör fortfarande uppgraderas till den senaste versionen för att kunna dra nytta av alla efterföljande fel korrigeringar och andra förbättringar.
 
 ## <a name="12250"></a>1.2.25.0
 
-Release date: 11/01/2018
+Utgivnings datum: 11/01/2018
 
-Fixes:
+Fixe
 
-* DC agent and proxy service should no longer fail due to certificate trust failures.
-* DC agent and proxy service have additional fixes for FIPS-compliant machines.
-* Proxy service will now work properly in a TLS 1.2-only networking environment.
-* Minor performance and robustness fixes
-* Improved logging
+* DC-agenten och proxy-tjänsten bör inte längre fungera på grund av misslyckade certifikat förtroenden.
+* DC-agenten och proxy-tjänsten har ytterligare korrigeringar för FIPS-kompatibla datorer.
+* Proxy service fungerar nu som den ska i en nätverks miljö med endast TLS 1,2.
+* Mindre prestanda och robusta korrigeringar
+* Förbättrad loggning
 
-Changes:
+Något
 
-* The minimum required OS level for the Proxy service is now Windows Server 2012 R2. The minimum required OS level for the DC agent service remains at Windows Server 2012.
-* The Proxy service now requires .NET version 4.6.2.
-* The password validation algorithm uses an expanded character normalization table. This may result in passwords being rejected that were accepted in prior versions.
+* Minimi kraven på operativ system nivå för proxy-tjänsten är nu Windows Server 2012 R2. Minimi kraven på operativ system nivå för DC-agenttjänsten finns kvar på Windows Server 2012.
+* Proxy-tjänsten kräver nu .NET version 4.6.2.
+* Algoritmen för lösen ords verifiering använder en utökad Character normaliserings-tabell. Detta kan resultera i att lösen ord nekas som har godkänts i tidigare versioner.
 
 ## <a name="12100"></a>1.2.10.0
 
-Release date: 8/17/2018
+Utgivnings datum: 8/17/2018
 
-Fixes:
+Fixe
 
-* Register-AzureADPasswordProtectionProxy and Register-AzureADPasswordProtectionForest now support multi-factor authentication
-* Register-AzureADPasswordProtectionProxy requires a WS2012 or later domain controller in the domain to avoid encryption errors.
-* DC agent service is more reliable about requesting a new password policy from Azure on startup.
-* DC agent service will request a new password policy from Azure every hour if necessary, but will now do so on a randomly selected start time.
-* DC agent service will no longer cause an indefinite delay in new DC advertisement when installed on a server prior to its promotion as a replica.
-* DC agent service will now honor the “Enable password protection on Windows Server Active Directory” configuration setting
-* Both DC agent and proxy installers will now support in-place upgrade when upgrading to future versions.
+* Registrera-AzureADPasswordProtectionProxy och registrera-AzureADPasswordProtectionForest stöder nu Multi-Factor Authentication
+* Register-AzureADPasswordProtectionProxy kräver en WS2012 eller en senare domänkontrollant i domänen för att undvika krypterings fel.
+* DC-agenttjänsten är mer tillförlitlig om du begär en ny lösen ords princip från Azure vid start.
+* DC-agenttjänsten begär en ny lösen ords princip från Azure varje timme om det behövs, men kommer nu att göra det på en slumpmässigt vald start tid.
+* DC-agenttjänsten kommer inte längre att orsaka en obegränsad fördröjning i New DC-annonsering när den installeras på en server innan dess befordran som en replik.
+* DC-agenttjänsten kommer nu att respektera konfigurations inställningen "Aktivera lösen ords skydd på Windows Server Active Directory"
+* Både DC-agenten och proxy installations program kommer nu att ha stöd för uppgradering på plats när du uppgraderar till framtida versioner.
 
 > [!WARNING]
-> In-place upgrade from version 1.1.10.3 is not supported and will result in an installation error. To upgrade to version 1.2.10 or later, you must first completely uninstall the DC agent and proxy service software, then install the new version from scratch. Re-registration of the Azure AD password protection Proxy service is required.  It is not required to re-register the forest.
+> Uppgradering på plats från version 1.1.10.3 stöds inte och leder till ett installations fel. Om du vill uppgradera till version 1.2.10 eller senare måste du först avinstallera DC-agenten och proxy service-programvaran och sedan installera den nya versionen från grunden. Omregistrering av proxy-tjänsten för lösen ords skydd i Azure AD krävs.  Du behöver inte registrera skogen igen.
 
 > [!NOTE]
-> In-place upgrades of the DC agent software will require a reboot.
+> Uppgraderingar på plats av DC Agent-programvaran kräver en omstart.
 
-* DC agent and proxy service now support running on a server configured to only use FIPS-compliant algorithms.
-* Minor performance and robustness fixes
-* Improved logging
+* DC agent och proxy service stöder nu körning på en server som kon figurer ATS för att endast använda FIPS-kompatibla algoritmer.
+* Mindre prestanda och robusta korrigeringar
+* Förbättrad loggning
 
 ## <a name="11103"></a>1.1.10.3
 
-Release date: 6/15/2018
+Utgivnings datum: 6/15/2018
 
-Initial public preview release
+Första offentliga för hands version
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Deploy Azure AD Password Protection](howto-password-ban-bad-on-premises-deploy.md)
+[Distribuera lösen ords skydd i Azure AD](howto-password-ban-bad-on-premises-deploy.md)

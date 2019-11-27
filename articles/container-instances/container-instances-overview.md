@@ -1,20 +1,15 @@
 ---
-title: Vad är Azure Container Instances?
+title: Server lös behållare i Azure
 description: Tjänsten Azure Container Instances är det snabbaste och enklaste sättet att köra isolerade behållare i Azure, utan att behöva hantera virtuella datorer och utan att behöva använda en initierare på högre nivå.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: overview
 ms.date: 04/25/2019
-ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: a07eda709c813e68bc3e4f08b6aab3f93dec65a6
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: c8f243bc2bda83a467688ac5828219cd015c8326
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325749"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533548"
 ---
 # <a name="what-is-azure-container-instances"></a>Vad är Azure Container Instances?
 
@@ -53,10 +48,10 @@ Vissa funktioner är för närvarande begränsade till Linux-behållare:
 * Flera containrar per containergrupp
 * Volym montering ([Azure Files](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [Secret](container-instances-volume-secret.md))
 * [Användnings statistik för resursanvändningen](container-instances-monitor.md) med Azure Monitor
-* [Distribution av virtuellt nätverk](container-instances-vnet.md) förhandsgranskningsvyn
-* [GPU-resurser](container-instances-gpu.md) förhandsgranskningsvyn
+* [Distribution av virtuella nätverk](container-instances-vnet.md) (för hands version)
+* [GPU-resurser](container-instances-gpu.md) (förhands granskning)
 
-För distributioner av Windows-behållare använder du avbildningar baserade på vanliga [Windows Base](container-instances-faq.md#what-windows-base-os-images-are-supported)-avbildningar.
+För distributioner av Windows-behållare använder du avbildningar baserade på vanliga [Windows Base-avbildningar](container-instances-faq.md#what-windows-base-os-images-are-supported).
 
 > [!NOTE]
 > Användning av Windows Server 2019-baserade avbildningar i Azure Container Instances är en för hands version.

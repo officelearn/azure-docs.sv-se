@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Load Balancer VMs within a zone--Azure portal'
+title: 'Självstudie: Load Balancer virtuella datorer inom en zon – Azure Portal'
 titleSuffix: Azure Load Balancer
 description: Den här kursen visar hur du skapar en Standard Load Balancer med zonindelad klientdel för att lastbalansera virtuella datorer i en tillgänglighetszon med hjälp av Azure Portal
 services: load-balancer
@@ -56,8 +56,8 @@ Standard Load Balancer stöder endast offentliga IP-standardadresser. När du sk
     | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupZLB* i textrutan.|
     | Namn                   | *myLoadBalancer*                                   |
     | Region         | Välj **Västeuropa**.                                        |
-    | Typ          | Välj **Offentligt**.                                        |
-    | SKU           | Select **Standard**.                          |
+    | Typ          | Välj **Offentlig**.                                        |
+    | SKU           | Välj **standard**.                          |
     | Offentlig IP-adress | Välj **Skapa ny**. |
     | Namn på offentlig IP-adress              | Skriv *myPublicIP* i textrutan.   |
     |Tillgänglighetszon| Välj **1**.    |

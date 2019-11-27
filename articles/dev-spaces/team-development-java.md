@@ -1,12 +1,12 @@
 ---
-title: Team development using Java and Visual Studio Code
+title: Grupp utveckling med Java och Visual Studio Code
 services: azure-dev-spaces
 author: stepro
 ms.author: stephpr
 ms.date: 08/01/2018
 ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
-keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s '
+keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
 manager: gwallace
 ms.openlocfilehash: 400aec21d028011523fc5b441ed8ba77a1a46074
 ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
@@ -15,7 +15,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74325528"
 ---
-# <a name="team-development-using-java-and-visual-studio-code-with-azure-dev-spaces"></a>Team development using Java and Visual Studio Code with Azure Dev Spaces
+# <a name="team-development-using-java-and-visual-studio-code-with-azure-dev-spaces"></a>Grupp utveckling med Java och Visual Studio Code med Azure dev Spaces
 
 I den här självstudien lär du dig hur ett team med utvecklare kan samarbeta samtidigt i samma Kubernetes-kluster med hjälp av Dev Spaces.
 
@@ -101,7 +101,7 @@ Kör kommandot `azds space list` för att se en lista över alla utrymmen i utve
 Nu ska vi se hur det fungerar i praktiken.
 
 ### <a name="make-a-code-change"></a>Göra en kodändring
-Go to the VS Code window for `mywebapi` and make a code edit to the `String index()` method in `src/main/java/com/ms/sample/mywebapi/Application.java`, for example:
+Gå till VS Code-fönstret för `mywebapi` och gör en kod redigering till metoden `String index()` i `src/main/java/com/ms/sample/mywebapi/Application.java`, till exempel:
 
 ```java
 @RequestMapping(value = "/", produces = "text/plain")
@@ -112,7 +112,7 @@ public String index() {
 
 ### <a name="run-the-service"></a>Köra tjänsten
 
-To run the service, hit F5 (or type `azds up` in the Terminal Window) to run the service. Tjänsten körs automatiskt i det valda utrymmet _dev/scott_. Confirm that your service is running in its own space by running `azds list-up`:
+Tryck på F5 (eller Skriv `azds up` i terminalfönstret) för att köra tjänsten för att köra tjänsten. Tjänsten körs automatiskt i det valda utrymmet _dev/scott_. Bekräfta att tjänsten körs i sitt eget utrymme genom att köra `azds list-up`:
 
 ```cmd
 $ azds list-up
@@ -122,9 +122,9 @@ mywebapi                  scott     Service  3m ago   Running
 webfrontend               dev       Service  26m ago  Running
 ```
 
-Notice an instance of *mywebapi* is now running in the _dev/scott_ space. The version running in _dev_ is still running but it is not listed.
+Observera att en instans av *mywebapi* nu körs i _dev/Scott-_ utrymmet. Versionen som körs i _dev_ körs fortfarande, men den visas inte.
 
-List the URLs for the current space by running `azds list-uris`.
+Visa en lista med URL: er för det aktuella utrymmet genom att köra `azds list-uris`.
 
 ```cmd
 $ azds list-uris
@@ -135,9 +135,9 @@ http://localhost:53831 => mywebapi.scott:80                                Tunne
 http://scott.s.dev.webfrontend.6364744826e042319629.ce.azds.io/  Available
 ```
 
-Notice the public access point URL for *webfrontend* is prefixed with *scott.s*. Den här webbadressen är unik för utrymmet _dev/scott_. This URL prefix tells the Ingress controller to route requests to the _dev/scott_ version of a service. When a request with this URL is handled by Dev Spaces, the Ingress Controller first tries to route the request to the *webfrontend* service in the _dev/scott_ space. If that fails, the request will be routed to the *webfrontend* service in the _dev_ space as a fallback. Also notice there is a localhost URL to access the service over localhost using the Kubernetes *port-forward* functionality. For more information about URLs and routing in Azure Dev Spaces, see [How Azure Dev Spaces works and is configured](how-dev-spaces-works.md).
+Observera att URL: en för den offentliga åtkomst punkten för *webfrontend* har prefixet *Scott. s*. Den här webbadressen är unik för utrymmet _dev/scott_. Detta URL-prefix instruerar ingångs styrenheten att dirigera begär anden till _dev/Scott_ -versionen av en tjänst. När en begäran med denna URL hanteras av dev-utrymmen försöker ingångs kontrollen först omdirigera begäran till *webfrontend* -tjänsten i _dev/Scott_ -utrymmet. Om detta Miss lyckas dirigeras begäran till *webfrontend* -tjänsten i _dev_ -utrymmet som en reserv. Observera också att det finns en localhost-URL för att komma åt tjänsten via localhost med hjälp av Kubernetes *-Port-Forward-* funktionen. Mer information om URL: er och routning i Azure dev Spaces finns i [så här fungerar Azure dev Spaces och har kon figurer ATS](how-dev-spaces-works.md).
 
-![Space Routing](media/common/Space-Routing.png)
+![Utrymmes dirigering](media/common/Space-Routing.png)
 
 Med den här inbyggda Azure Dev Spaces-funktionen kan du testa kod i ett delat utrymme utan att varje utvecklare måste återskapa hela tjänstestacken i deras respektive utrymme. Den här typen av routning kräver att appkoden vidarebefordrar spridningshuvuden, vilket visas i föregående steg i den här guiden.
 
@@ -146,19 +146,19 @@ Du testar den nya versionen av *mywebapi* tillsammans med *webfrontend* genom at
 
 Ta nu bort delen ”scott.s.” från webbadressen och uppdatera webbläsaren. Nu bör du se det gamla beteendet (med *mywebapi*-versionen som körs i _dev_).
 
-När du har ett _dev_-utrymme som alltid innehåller dina senaste ändringar, och under förutsättning att ditt program är utformat för att dra nytta av DevSpace utrymmesbaserade routning enligt beskrivningen i den här delen av självstudien, kan du förhoppningsvis se hur mycket enklare det blir med Dev Spaces att testa nya funktioner inom ramen för det större programmet. I stället för att behöva distribuera _alla_ tjänster till ditt privata utrymme kan du skapa ett privat utrymme som härleds från _dev_ och endast ”införa” de tjänster som du faktiskt arbetar med. Dev Spaces-routningsinfrastrukturen hanterar resten genom att utnyttja så många tjänster utanför ditt privata adressutrymme som går att hitta, samtidigt som det återgår till den senaste versionen som körs i utrymmet _dev_. Ännu bättre är att _flera_ utvecklare aktivt kan utveckla olika tjänster samtidigt i sina egna utrymmen utan att störa varandra.
+När du har ett _dev_-utrymme som alltid innehåller dina senaste ändringar, och under förutsättning att ditt program är utformat för att dra nytta av DevSpace utrymmesbaserade routning enligt beskrivningen i den här delen av självstudien, kan du förhoppningsvis se hur mycket enklare det blir med Dev Spaces att testa nya funktioner inom ramen för det större programmet. I stället för att behöva distribuera _alla_ tjänster till ditt privata utrymme kan du skapa ett privat utrymme som härleds från _dev_ och endast ”införa” de tjänster du faktiskt arbetar med. Dev Spaces-routningsinfrastrukturen hanterar resten genom att utnyttja så många tjänster utanför ditt privata adressutrymme som går att hitta, samtidigt som det återgår till den senaste versionen som körs i utrymmet _dev_. Ännu bättre är att _flera_ utvecklare aktivt kan utveckla olika tjänster samtidigt i sina egna utrymmen utan att störa varandra.
 
 ### <a name="well-done"></a>Bra gjort!
 Du har slutfört guiden för att komma igång! Du har lärt dig att:
 
 > [!div class="checklist"]
-> * Ställa in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
+> * Ställer in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
 > * Iterativt utveckla kod i containrar.
 > * Oberoende utvecklar två separata tjänster och använder Kubernetes DNS-tjänstidentifiering för att anropa en annan tjänst.
 > * Effektivt utvecklar och testar din kod i en teammiljö.
 > * Upprätta en baslinje med funktioner med hjälp av Dev Spaces för att enkelt testa isolerade ändringar inom ramen för ett större mikrotjänstprogram
 
-Now that you've explored Azure Dev Spaces, [share your dev space with a team member](how-to/share-dev-spaces.md) and begin collaborating.
+Nu när du har utforskat Azure dev Spaces kan du [dela ditt dev Space med en grupp medlem](how-to/share-dev-spaces.md) och börja samar beta.
 
 ## <a name="clean-up"></a>Rensa
 Om du vill ta bort en Azure Dev Spaces-instans i ett kluster fullständigt, inklusive alla utvecklarmiljöer och tjänster som körs i den, använder du kommandot `az aks remove-dev-spaces`. Kom ihåg att den här åtgärden inte kan ångras. Du kan lägga till stöd för Azure Dev Spaces på klustret igen, men det blir som om du börjar om på nytt. Dina gamla tjänster och utrymmen kommer inte att återställas.

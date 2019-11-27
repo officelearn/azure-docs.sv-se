@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Blueprint sample to new environment'
-description: In this tutorial, you use a blueprint sample to create a blueprint definition that sets up two resource groups and configures a role assignment for each.
+title: 'Självstudie: skiss exempel till ny miljö'
+description: I den här självstudien använder du ett skiss exempel för att skapa en skiss definition som konfigurerar två resurs grupper och konfigurerar en roll tilldelning för var och en.
 ms.date: 11/21/2019
 ms.topic: tutorial
 ms.openlocfilehash: f9cc892ab8feadacbdfd00e55fab9f40d7cb2397
@@ -10,180 +10,180 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74321737"
 ---
-# <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Tutorial: Create an environment from a blueprint sample
+# <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Självstudie: skapa en miljö från ett skiss exempel
 
-Sample blueprints provide examples of what can be done using Azure Blueprints. Each is a sample with a specific intent or purpose, but doesn't create a complete environment by themselves. Each is intended as a starting place to explore using Azure Blueprints with various combinations of included artifacts, designs, and parameters.
+Exempel ritningar innehåller exempel på vad du kan göra med Azure-ritningar. Var och en är ett exempel med ett specifikt syfte eller syfte, men skapar inte en fullständig miljö själva. Var och en är avsedd som en start plats för att utforska användningen av Azure-ritningar med olika kombinationer av artefakter, konstruktioner och parametrar som ingår.
 
-The following tutorial uses the **Resource Groups with RBAC** blueprint sample to showcase different aspects of the Blueprints service. The following steps are covered:
+I följande självstudie används **resurs grupper med RBAC** -videoexempel för att visa olika aspekter av ritnings tjänsten. Följande steg beskrivs:
 
 > [!div class="checklist"]
-> - Create a new blueprint definition from the sample
-> - Mark your copy of the sample as **Published**
-> - Assign your copy of the blueprint to an existing subscription
-> - Inspect deployed resources for the assignment
-> - Unassign the blueprint to remove the locks
+> - Skapa en ny skiss definition från exemplet
+> - Markera din kopia av exemplet som **publicerad**
+> - Tilldela din kopia av skissen till en befintlig prenumeration
+> - Granska distribuerade resurser för tilldelningen
+> - Ta bort tilldelningen för att ta bort låsen
 
 ## <a name="prerequisites"></a>Krav
 
-To complete this tutorial, an Azure subscription is needed. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+För att slutföra den här självstudien krävs en Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="create-blueprint-definition-from-sample"></a>Create blueprint definition from sample
+## <a name="create-blueprint-definition-from-sample"></a>Skapa skiss definition från exempel
 
-First, implement the blueprint sample. Importing creates a new blueprint in your environment based on the sample.
-
-1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
-
-1. From the **Getting started** page on the left, select the **Create** button under _Create a blueprint_.
-
-1. Find the **Resource Groups with RBAC** blueprint sample under _Other Samples_ and select **Use this sample**.
-
-1. Enter the _Basics_ of the blueprint sample:
-
-   - **Blueprint name**: Provide a name for your copy of the blueprint sample. For this tutorial, we'll use the name _two-rgs-with-role-assignments_.
-   - **Definition location**: Use the ellipsis and select the management group or subscription to save your copy of the sample to.
-
-1. Select the _Artifacts_ tab at the top of the page or **Next: Artifacts** at the bottom of the page.
-
-1. Review the list of artifacts that make up the blueprint sample. This sample defines two resource groups, with display names of _ProdRG_ and _PreProdRG_. The final name and location of each resource group are set during blueprint assignment. The _ProdRG_ resource group is assigned the _Contributor_ role and the _PreProdRG_ resource group is assigned the _Owner_ and _Readers_ roles. The roles assigned in the definition are static, but user, app, or group that is assigned the role is set during blueprint assignment.
-
-1. Select **Save Draft** when you've finished reviewing the blueprint sample.
-
-This step creates a copy of the sample blueprint definition in the selected management group or subscription. The saved blueprint definition is managed like any blueprint created from scratch. You may save the sample to your management group or subscription as many times as needed. However, each copy must be provided a unique name.
-
-Once the **Saving blueprint definition succeeded** portal notification appears, move to the next step.
-
-## <a name="publish-the-sample-copy"></a>Publish the sample copy
-
-Your copy of the blueprint sample has now been created in your environment. It's created in **Draft** mode and must be **Published** before it can be assigned and deployed. The copy of the blueprint sample can be customized to your environment and needs. For this tutorial, we won't make any changes.
+Börja med att implementera skiss exemplet. När du importerar skapas en ny skiss i din miljö baserat på exemplet.
 
 1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
 
-1. Select the **Blueprint definitions** page on the left. Use the filters to find the _two-rgs-with-role-assignments_ blueprint definition and then select it.
+1. Från sidan **komma igång** till vänster väljer du knappen **skapa** under _skapa en skiss_.
 
-1. Select **Publish blueprint** at the top of the page. In the new pane on the right, provide **Version** as _1.0_ for your copy of the blueprint sample. This property is useful for if you make a modification later. Provide **Change notes** such as "First version published from the resource groups with RBAC blueprint sample." Then select **Publish** at the bottom of the page.
+1. Leta upp **resurs grupperna med RBAC** -skiss under _andra exempel_ och välj **Använd det här exemplet**.
 
-This step makes it possible to assign the blueprint to a subscription. Once published, changes can still be made. Additional changes require publishing with a new **Version** value to track differences between different versions of the same blueprint definition.
+1. Ange _grunderna_ för skiss exemplet:
 
-Once the **Publishing blueprint definition succeeded** portal notification appears, move to the next step.
+   - **Skiss namn**: Ange ett namn för din kopia av skiss exemplet. I den här självstudien använder vi namnet _två-RGS-with-Role-tilldelningar_.
+   - **Definitions plats**: Använd ellipsen och välj hanterings gruppen eller prenumerationen för att spara din kopia av exemplet till.
 
-## <a name="assign-the-sample-copy"></a>Assign the sample copy
+1. Välj fliken _artefakter_ överst på sidan eller **Nästa: artefakter** längst ned på sidan.
 
-Once the copy of the blueprint sample has been successfully **Published**, it can be assigned to a subscription within the management group it was saved to. This step is where parameters are provided to make each deployment of the copy of the blueprint sample unique.
+1. Granska listan över artefakter som utgör skiss exemplet. Det här exemplet definierar två resurs grupper med visnings namn för _ProdRG_ och _PreProdRG_. Det slutliga namnet och platsen för varje resurs grupp anges under skiss tilldelningen. Resurs gruppen _ProdRG_ tilldelas rollen _deltagare_ och _PreProdRG_ resurs gruppen tilldelas rollen _ägare_ och _läsare_ . Rollerna som tilldelas i definitionen är statiska, men användaren, appen eller gruppen som tilldelas rollen anges under skiss tilldelningen.
+
+1. Välj **Spara utkast** när du är klar med att granska skiss exemplet.
+
+Det här steget skapar en kopia av exempel ritnings definitionen i den valda hanterings gruppen eller prenumerationen. Den sparade skiss definitionen hanteras som alla skisser som skapats från grunden. Du kan spara exemplet i hanterings gruppen eller prenumerationen så många gånger som det behövs. Varje kopia måste dock anges med ett unikt namn.
+
+När du har skickat ett meddelande om att **skiss definitionen lyckades** , går du vidare till nästa steg.
+
+## <a name="publish-the-sample-copy"></a>Publicera exempel kopian
+
+Din kopia av skiss exemplet har nu skapats i din miljö. Den skapas i **utkast** läge och måste **publiceras** innan den kan tilldelas och distribueras. Kopian av skiss exemplet kan anpassas efter din miljö och behov. I den här självstudien kommer vi inte att göra några ändringar.
 
 1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
 
-1. Select the **Blueprint definitions** page on the left. Use the filters to find the _two-rgs-with-role-assignments_ blueprint definition and then select it.
+1. Välj sidan **skiss definitioner** till vänster. Använd filtren för att hitta skiss definitionen för _två-RGS-med-roll-tilldelningar_ och välj sedan den.
 
-1. Select **Assign blueprint** at the top of the blueprint definition page.
+1. Välj **publicera skiss** överst på sidan. I det nya fönstret till höger anger du **version** som _1,0_ för din kopia av skiss exemplet. Den här egenskapen är användbar för om du gör en ändring senare. Ange **ändrings anteckningar** som "första versionen som publicerats från resurs grupperna med RBAC-skiss." Välj sedan **publicera** längst ned på sidan.
 
-1. Provide the parameter values for the blueprint assignment:
+Det här steget gör det möjligt att tilldela skissen till en prenumeration. När den har publicerats kan du fortfarande göra ändringar. Ytterligare ändringar kräver publicering med ett nytt **versions** värde för att spåra skillnader mellan olika versioner av samma skiss definition.
+
+När du **har slutfört ett Portal meddelande om publicerings skissen** visas går du vidare till nästa steg.
+
+## <a name="assign-the-sample-copy"></a>Tilldela exempel kopian
+
+När kopieringen av skiss exemplet har **publicerats**kan den tilldelas en prenumeration i hanterings gruppen som den sparades till. Det här steget är den plats där parametrar tillhandahålls för att göra varje distribution av kopian av skiss exemplet unik.
+
+1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
+
+1. Välj sidan **skiss definitioner** till vänster. Använd filtren för att hitta skiss definitionen för _två-RGS-med-roll-tilldelningar_ och välj sedan den.
+
+1. Välj **tilldela skiss** överst på skiss definitions sidan.
+
+1. Ange parameter värden för skiss tilldelningen:
 
    - Grundläggande inställningar
 
-     - **Subscriptions**: Select one or more of the subscriptions that are in the management group you saved your copy of the blueprint sample to. If you select more than one subscription, an assignment will be created for each using the parameters entered.
-     - **Assignment name**: The name is pre-populated for you based on the name of the blueprint definition.
-     - **Location**: Select a region for the managed identity to be created in. Azure Blueprint använder den här hanterade identiteten för att distribuera alla artefakter i den tilldelade skissen. Mer information finns i [Hanterade identiteter för Azure-resurser](../../../active-directory/managed-identities-azure-resources/overview.md).
-       For this tutorial, select _East US 2_.
-     - **Blueprint definition version**: Pick the **Published** version _1.0_ of your copy of the sample blueprint definition.
+     - **Prenumerationer**: Välj en eller flera av de prenumerationer som finns i hanterings gruppen som du sparade din kopia av skiss exemplet till. Om du väljer fler än en prenumeration skapas en tilldelning för varje användning av de angivna parametrarna.
+     - **Tilldelnings namn**: namnet fylls i automatiskt för dig baserat på namnet på skiss definitionen.
+     - **Plats**: Välj en region som den hanterade identiteten ska skapas i. Azure Blueprint använder den här hanterade identiteten för att distribuera alla artefakter i den tilldelade skissen. Mer information finns i [Hanterade identiteter för Azure-resurser](../../../active-directory/managed-identities-azure-resources/overview.md).
+       I den här självstudien väljer du _USA, östra 2_.
+     - **Ritnings definitions version**: Välj den **publicerade** versionen _1,0_ av din kopia av exempel ritnings definitionen.
 
-   - Lock Assignment
+   - Lås tilldelning
 
-     Select the _Read Only_ blueprint lock mode. Mer information finns i [Låsa skissresurser](../concepts/resource-locking.md).
+     Välj Lås läget _skrivskyddad_ skiss. Mer information finns i [Låsa skissresurser](../concepts/resource-locking.md).
 
    - Hanterad identitet
 
-     Leave the default _System assigned_ option. For more information, see [managed identities](../../../active-directory/managed-identities-azure-resources/overview.md).
+     Lämna alternativet standard _tilldelat system_ . Mer information finns i [hanterade identiteter](../../../active-directory/managed-identities-azure-resources/overview.md).
 
-   - Artifact parameters
+   - Artefakt parametrar
 
-     The parameters defined in this section apply to the artifact under which it's defined. These parameters are [dynamic parameters](../concepts/parameters.md#dynamic-parameters) since they're defined during the assignment of the blueprint. For each artifact, set the parameter value to what is defined in the **Value** column. For `{Your ID}`, select your Azure user account.
+     De parametrar som definieras i det här avsnittet gäller för den artefakt som den definieras under. Dessa parametrar är [dynamiska parametrar](../concepts/parameters.md#dynamic-parameters) eftersom de definieras när skissen tilldelas. Ange parametervärdet till vad som definieras i kolumnen **värde** för varje artefakt. För `{Your ID}`väljer du ditt Azure-användarkonto.
 
-     |Artifact name|Artifact type|Parameternamn|Värde|Beskrivning|
+     |Artefakt namn|Artefakt typ|Parameternamn|Värde|Beskrivning|
      |-|-|-|-|-|
-     |ProdRG resource group|Resursgrupp|Namn|ProductionRG|Defines the name of the first resource group.|
-     |ProdRG resource group|Resursgrupp|Plats|USA, västra 2|Sets the location of the first resource group.|
-     |Deltagare|Rolltilldelning|User or Group|{Your ID}|Defines which user or group to grant the _Contributor_ role assignment within the first resource group.|
-     |PreProdRG resource group|Resursgrupp|Namn|PreProductionRG|Defines the name of the second resource group.|
-     |PreProdRG resource group|Resursgrupp|Plats|USA, västra|Sets the location of the second resource group.|
-     |Ägare|Rolltilldelning|User or Group|{Your ID}|Defines which user or group to grant the _Owner_ role assignment within the second resource group.|
-     |Läsare|Rolltilldelning|User or Group|{Your ID}|Defines which user or group to grant the _Readers_ role assignment within the second resource group.|
+     |Resurs grupp för ProdRG|Resursgrupp|Namn|ProductionRG|Definierar namnet på den första resurs gruppen.|
+     |Resurs grupp för ProdRG|Resursgrupp|Plats|Västra USA 2|Anger platsen för den första resurs gruppen.|
+     |Deltagare|Rolltilldelning|Användare eller grupp|{Ditt ID}|Definierar vilken användare eller grupp som ska bevilja _deltagar_ roll tilldelningen i den första resurs gruppen.|
+     |Resurs grupp för PreProdRG|Resursgrupp|Namn|PreProductionRG|Definierar namnet på den andra resurs gruppen.|
+     |Resurs grupp för PreProdRG|Resursgrupp|Plats|Västra USA|Anger platsen för den andra resurs gruppen.|
+     |Ägare|Rolltilldelning|Användare eller grupp|{Ditt ID}|Definierar vilken användare eller grupp som ska bevilja _ägar_ roll tilldelningen i den andra resurs gruppen.|
+     |Läsare|Rolltilldelning|Användare eller grupp|{Ditt ID}|Definierar vilken användare eller grupp som ska ge roll tilldelningen _läsare_ i den andra resurs gruppen.|
 
-1. Once all parameters have been entered, select **Assign** at the bottom of the page.
+1. När alla parametrar har angetts väljer du **tilldela** längst ned på sidan.
 
-This step deploys the defined resources and configures the selected **Lock Assignment**. Blueprint locks can take up to 30 minutes to apply.
+Det här steget distribuerar de definierade resurserna och konfigurerar den valda **Lås tilldelningen**. Skiss låsen kan ta upp till 30 minuter att tillämpa.
 
-Once the **Assigning blueprint definition succeeded** portal notification appears, move to the next step.
+När du har skickat ett meddelande om att **skiss definitionen lyckades** , går du vidare till nästa steg.
 
-## <a name="inspect-resources-deployed-by-the-assignment"></a>Inspect resources deployed by the assignment
+## <a name="inspect-resources-deployed-by-the-assignment"></a>Inspektera resurser som distribueras av tilldelningen
 
-The blueprint assignment creates and tracks the artifacts defined in the blueprint definition. We can see the status of the resources from the blueprint assignment page and by looking at the resources directly.
-
-1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
-
-1. Select the **Assigned blueprints** page on the left. Use the filters to find the _Assignment-two-rgs-with-role-assignments_ blueprint assignment and then select it.
-
-   From this page, we can see the assignment succeeded and the list of created resources along with their blueprint lock state. If the assignment is updated, the **Assignment operation** drop-down shows details about the deployment of each definition version. Each listed resource that was created can be clicked and opens that resources property page.
-
-1. Select the **ProductionRG** resource group.
-
-   We see that the name of the resource group is **ProductionRG** and not the artifact display name _ProdRG_. This name matches the value set during the blueprint assignment.
-
-1. Select the **Access control (IAM)** page on the left and then the **Role assignments** tab.
-
-   Here we see that your account has been granted the _Contributor_ role on the scope of _This resource_. The _Assignment-two-rgs-with-role-assignments_ blueprint assignment has the _Owner_ role as it was used to create the resource group. These permissions are also used to manage resources with configured blueprint locks.
-
-1. From the Azure portal breadcrumb, select **Assignment-two-rgs-with-role-assignments** to go back one page, then select the **PreProductionRG** resource group.
-
-1. Select the **Access control (IAM)** page on the left and then the **Role assignments** tab.
-
-   Here we see that your account has been granted both the _Owner_ and _Reader_ roles, both on the scope of _This resource_. The blueprint assignment also has the _Owner_ role like the first resource group.
-
-1. Select the **Deny assignments** tab.
-
-   The blueprint assignment created a [deny assignment](../../../role-based-access-control/deny-assignments.md) on the deployed resource group to enforce the _Read Only_ blueprint lock mode. The deny assignment prevents someone with appropriate rights on the _Role assignments_ tab from taking specific actions. The deny assignment affects _All principals_.
-
-1. Select the deny assignment, then select the **Denied Permissions** page on the left.
-
-   The deny assignment is preventing all operations with the **\*** and **Action** configuration, but allows read access by excluding **\*/read** via **NotActions**.
-
-1. From the Azure portal breadcrumb, select **PreProductionRG - Access control (IAM)** . Then select the **Overview** page on the left and then the **Delete resource group** button. Enter the name _PreProductionRG_ to confirm the delete and select **Delete** at the bottom of the pane.
-
-   The portal notification **Delete resource group PreProductionRG failed** is displayed. The error states that while your account has permission to delete the resource group, access is denied by the blueprint assignment. Remember that we selected the _Read Only_ blueprint lock mode during blueprint assignment. The blueprint lock prevents an account with permission, even _Owner_, from deleting the resource. Mer information finns i [Låsa skissresurser](../concepts/resource-locking.md).
-
-These steps show that our resources were created as defined and the blueprint locks prevented unwanted deletion, even from an account with permission.
-
-## <a name="unassign-the-blueprint"></a>Unassign the blueprint
-
-The last step is to remove the assignment of the blueprint and the resources that it deployed.
-Removing the assignment doesn't remove the deployed artifacts.
+Skiss tilldelningen skapar och spårar de artefakter som definieras i skiss definitionen. Vi kan se statusen för resurserna på sidan skiss tilldelning och genom att titta på resurserna direkt.
 
 1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
 
-1. Select the **Assigned blueprints** page on the left. Use the filters to find the _Assignment-two-rgs-with-role-assignments_ blueprint assignment and then select it.
+1. Välj sidan **tilldelade ritningar** till vänster. Använd filtren för att hitta _tilldelningen-två-RGS-med-roll tilldelningar_ och välj sedan den.
 
-1. Select the **Unassign blueprint** button at the top of the page. Read the warning in the confirmation dialog, then select **OK**.
+   På den här sidan kan vi se att tilldelningen lyckades och listan över skapade resurser tillsammans med deras skiss lås status. Om tilldelningen uppdateras visas information om distributionen av varje definitions version i list rutan **tilldelnings åtgärd** . Varje resurs i listan som du har skapat kan klicka på och öppna egenskaps sidan för resurser.
 
-   With the blueprint assignment removed, the blueprint locks are also removed. The created resources can once again be deleted by an account with permissions.
+1. Välj resurs gruppen **ProductionRG** .
 
-1. Select **Resource groups** from the Azure menu, then select **ProductionRG**.
+   Vi ser att namnet på resurs gruppen är **ProductionRG** och inte _ProdRG_för artefakt visnings namnet. Det här namnet matchar värdet som anges under skiss tilldelningen.
 
-1. Select the **Access control (IAM)** page on the left and then the **Role assignments** tab.
+1. Välj sidan **åtkomst kontroll (IAM)** till vänster och sedan fliken **roll tilldelningar** .
 
-The security for each resource groups still has the deployed role assignments, but the blueprint assignment no longer has _Owner_ access.
+   Här ser vi att ditt konto har beviljats _deltagar_ rollen för _resursens_omfattning. Skiss tilldelningen _tilldelning – två-RGS-med-roll tilldelningar_ har _ägar_ rollen som den användes för att skapa resurs gruppen. Dessa behörigheter används också för att hantera resurser med konfigurerade skiss lås.
 
-Once the **Removing blueprint assignment succeeded** portal notification appears, move to the next step.
+1. Från Azure Portal dynamiska objekt väljer du **tilldelning-två-RGS – med-roll tilldelningar** för att gå tillbaka en sida och sedan välja resurs gruppen **PreProductionRG** .
+
+1. Välj sidan **åtkomst kontroll (IAM)** till vänster och sedan fliken **roll tilldelningar** .
+
+   Här ser vi att ditt konto har beviljats både _ägar_ -och _läsar_ rollerna, både i den _här resursens_omfattning. Skiss tilldelningen har också _ägar_ rollen som den första resurs gruppen.
+
+1. Välj fliken **neka tilldelningar** .
+
+   Skiss tilldelningen skapade en [neka-tilldelning](../../../role-based-access-control/deny-assignments.md) på den distribuerade resurs gruppen för att tvinga det _skrivskyddade_ utkast låset. Neka-tilldelningen hindrar någon med lämpliga rättigheter på fliken _roll tilldelningar_ från att vidta vissa åtgärder. Neka-tilldelningen påverkar _alla huvud konton_.
+
+1. Välj neka tilldelning och välj sedan sidan **nekade behörigheter** till vänster.
+
+   Neka-tilldelningen förhindrar alla åtgärder med **\*** -och **Åtgärds** konfigurationen, men tillåter Läs åtkomst genom att utesluta **\*/Read** via **NotActions**.
+
+1. Från Azure Portal dynamiska länkar väljer du **PreProductionRG-Access Control (IAM)** . Välj sedan sidan **Översikt** till vänster och sedan knappen **ta bort resurs grupp** . Ange namnet _PreProductionRG_ för att bekräfta borttagningen och välj **ta bort** längst ned i fönstret.
+
+   Portal meddelandet det **gick inte att ta bort resurs gruppen PreProductionRG** visas. Felet anger att när ditt konto har behörighet att ta bort resurs gruppen nekas åtkomst av skiss tilldelningen. Kom ihåg att vi valde lås läget _skrivskyddad_ skiss under skiss tilldelningen. Skiss låset förhindrar ett konto med behörighet, till och med _ägare_, från att ta bort resursen. Mer information finns i [Låsa skissresurser](../concepts/resource-locking.md).
+
+De här stegen visar att våra resurser har skapats som definierade och att skisserna låser sig förhindra oönskad borttagning, även från ett konto med behörighet.
+
+## <a name="unassign-the-blueprint"></a>Ta bort tilldelningen av skissen
+
+Det sista steget är att ta bort tilldelningen av skissen och de resurser som den har distribuerat.
+Om du tar bort tilldelningen tas inte de distribuerade artefakterna bort.
+
+1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
+
+1. Välj sidan **tilldelade ritningar** till vänster. Använd filtren för att hitta _tilldelningen-två-RGS-med-roll tilldelningar_ och välj sedan den.
+
+1. Välj knappen **ta bort tilldelning av skiss** överst på sidan. Läs varningen i bekräftelse dialog rutan och välj **OK**.
+
+   När skiss tilldelningen har tagits bort tas även Skissernas lås bort. De skapade resurserna kan återigen tas bort av ett konto med behörighet.
+
+1. Välj **resurs grupper** på Azure-menyn och välj sedan **ProductionRG**.
+
+1. Välj sidan **åtkomst kontroll (IAM)** till vänster och sedan fliken **roll tilldelningar** .
+
+Säkerheten för varje resurs grupp har fortfarande de distribuerade roll tilldelningarna, men skiss tilldelningen har inte längre _ägar_ åtkomst.
+
+När aviseringen om att **ta bort skiss tilldelningen** visas går du vidare till nästa steg.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-When finished with this tutorial, delete the following resources:
+När du är färdig med den här självstudien tar du bort följande resurser:
 
-- Resource group _ProductionRG_
-- Resource group _PreProductionRG_
-- Blueprint definition _two-rgs-with-role-assignments_
+- _ProductionRG_ för resurs grupp
+- _PreProductionRG_ för resurs grupp
+- Skiss definition _två-RGS – med-roll-tilldelningar_
 
 ## <a name="next-steps"></a>Nästa steg
 
-In this tutorial, you've learned how to create a new blueprint from a sample definition. To learn more about Azure Blueprints, continue to the blueprint lifecycle article.
+I den här självstudien har du lärt dig hur du skapar en ny skiss från en exempel definition. Om du vill veta mer om Azure-ritningar kan du fortsätta till ritnings livs cykel artikeln.
 
 > [!div class="nextstepaction"]
-> [Learn about the blueprint lifecycle](../concepts/lifecycle.md)
+> [Lär dig mer om skiss livs cykeln](../concepts/lifecycle.md)

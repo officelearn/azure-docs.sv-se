@@ -16,7 +16,7 @@ Azure Notebooks är förkonfigurerade med den miljö som krävs för att arbeta 
 
 ## <a name="clone-the-sample-into-your-account"></a>Klona exemplet till ditt konto
 
-1. Logga in på [Azure anteckningsböcker](https://notebooks.azure.com/).
+1. Logga in på [Azure Notebooks](https://notebooks.azure.com/).
 1. Välj **Mina projekt** att gå till instrument panelen för projekt.
 1. Välj knappen **Ladda upp GitHub lagrings platsen** (uppåtpilen) för att öppna popup-fönstret för att **Ladda upp GitHub-lagringsplatsen** .
 1. I popup-fönstret anger du `Azure/MachineLearningNotebooks` **i GitHub-lagringsplatsen**, anger ett namn för projektet i **projekt namn** som "Azure Machine Learning", anger en identifierare i **projekt-ID**, rensar **offentligt** om du vill och väljer sedan **Importera**.
@@ -27,7 +27,7 @@ Azure Notebooks är förkonfigurerade med den miljö som krävs för att arbeta 
 
 ## <a name="run-a-sample-notebook"></a>Kör en exempel-anteckningsbok
 
-1. Välj **00 - configuration.ipynb** att starta i konfigurationsavsnittet för denna notebook och anvisningar om att skapa en Azure Machine Learning-arbetsyta.
+1. Välj **00-Configuration. ipynb** för att starta konfigurations avsnittet för antecknings boken och följ anvisningarna för att skapa en Azure Machine Learning-arbetsyta.
 
     - Eftersom Azure anteckningsböcker redan innehåller de Python-paket som behövs, kan du bara köra kodfragmentet i steg 2 av kraven för att verifiera Azure ML SDK-version.
 
@@ -37,9 +37,9 @@ Azure Notebooks är förkonfigurerade med den miljö som krävs för att arbeta 
 
 Azure Machine Learning-dokumentationen innehåller en mängd andra resurser som hjälper dig att arbeta med Machine Learning i antecknings böcker:
 
-- [Snabbstart: Använda Python för att komma igång med Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python)
+- [Snabb start: Använd python för att komma igång med Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python)
 - [Självstudie #1: träna en bild klassificerings modell med Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
-- [Självstudie #2: Distribuera en avbildning klassificeringsmodellen i Azure Container Instance (ACI)](https://docs.microsoft.com/azure/machine-learning/service/tutorial-deploy-models-with-aml)
+- [Självstudie #2: Distribuera en bild klassificerings modell i Azure Container Instance (ACI)](https://docs.microsoft.com/azure/machine-learning/service/tutorial-deploy-models-with-aml)
 - [Självstudie: träna en klassificerings modell med automatiserad maskin inlärning i Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/tutorial-auto-train-models)
 
-Även finns i dokumentationen för den [Azure Machine Learning-SDK för Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+Se även dokumentationen för [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).

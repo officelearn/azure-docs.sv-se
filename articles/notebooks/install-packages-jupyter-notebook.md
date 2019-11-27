@@ -12,7 +12,7 @@ ms.locfileid: "74277538"
 ---
 # <a name="install-packages-from-within-a-notebook"></a>Installera paket från inom en anteckningsbok
 
-Du kan konfigurera den [miljö för anteckningsboken vilken projektet](configure-manage-azure-notebooks-projects.md#configure-the-project-environment), kan du installera paket direkt i en enskild anteckningsbok.
+Även om du kan konfigurera [miljön för din bärbara dator på projekt nivå](configure-manage-azure-notebooks-projects.md#configure-the-project-environment)kanske du vill installera paket direkt i en enskild antecknings bok.
 
 Paket som installeras från anteckningsboken gäller endast för den aktuella serversessionen. Paketet är inte beständiga när servern stängs av.
 
@@ -26,7 +26,7 @@ Paket i Python kan installeras med pip eller conda med hjälp av kommandon i kod
 !conda install <package_name> -y
 ```
 
-Om utdata från kommandot indikerar att kravet uppfylls redan och anteckningsböcker i Azure kan innehålla paketet som standard. Paketet kan också installeras via en [projekt miljö installationssteget](configure-manage-azure-notebooks-projects.md#configure-the-project-environment).
+Om utdata från kommandot indikerar att kravet uppfylls redan och anteckningsböcker i Azure kan innehålla paketet som standard. Paketet kan också installeras via ett [installations steg för projekt miljön](configure-manage-azure-notebooks-projects.md#configure-the-project-environment).
 
 ## <a name="r"></a>R
 
@@ -46,7 +46,7 @@ install_github('<user>/<repo>')
 
 ## <a name="f"></a>F#
 
--Paket i F# kan installeras från [nuget.org](https://www.nuget.org) genom att anropa Paket beroendet manager från inom kod celler. Läs först in hanteraren för Paket:
+Paket i F# kan installeras från [NuGet.org](https://www.nuget.org) genom att anropa paket-beroende hanteraren inifrån kod cellerna. Läs först in hanteraren för Paket:
 
 ```fsharp
 #load "Paket.fsx"
@@ -73,5 +73,5 @@ open MathNet.Numerics
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Så här: konfigurera och hantera projekt](configure-manage-azure-notebooks-projects.md)
-- [Så här: presentera ett bildspel](present-jupyter-notebooks-slideshow.md)
+- [Gör så här: Konfigurera och hantera projekt](configure-manage-azure-notebooks-projects.md)
+- [Så här gör du: Visa ett bild spel](present-jupyter-notebooks-slideshow.md)

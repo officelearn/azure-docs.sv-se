@@ -1,6 +1,6 @@
 ---
-title: Delete and recover Azure Log Analytics workspace | Microsoft Docs
-description: Learn how to delete your Log Analytics workspace if you created one in a personal subscription or restructure your workspace model.
+title: Ta bort och återställa Azure Log Analytics-arbetsytan | Microsoft Docs
+description: Lär dig hur du tar bort din Log Analytics arbets yta om du skapade en i en personlig prenumeration eller omstrukturering av arbets ytans modell.
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
@@ -14,56 +14,56 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74326497"
 ---
-# <a name="delete-and-restore-azure-log-analytics-workspace"></a>Delete and restore Azure Log Analytics workspace
+# <a name="delete-and-restore-azure-log-analytics-workspace"></a>Ta bort och återställa Azure Log Analytics-arbetsytan
 
-This article explains the concept of Azure Log Analytics workspace soft-delete and how to recover deleted workspace. 
+Den här artikeln förklarar begreppet Azure Log Analytics arbets yta mjuk borttagning och hur du återställer den borttagna arbets ytan. 
 
-## <a name="considerations-when-deleting-a-workspace"></a>Considerations when deleting a workspace
+## <a name="considerations-when-deleting-a-workspace"></a>Att tänka på när du tar bort en arbets yta
 
-When you delete a Log Analytics workspace, a soft-delete operation is performed to allow the recovery of the workspace including its data and connected agents within 14 days, whether the deletion was accidental or intentional. After the soft-delete period, the workspace and its data are non-recoverable – data is queued for permanent deletion within 30 days and the workspace name is available and can be used to create a new workspace.
+När du tar bort en Log Analytics arbets yta utförs en mjuk borttagnings åtgärd för att tillåta återställning av arbets ytan, inklusive data och anslutna agenter inom 14 dagar, oavsett om borttagningen var oavsiktligt eller avsiktligt. Efter den mjuka borttagnings perioden är arbets ytan och dess data inte återställnings bara – data placeras i kö för permanent borttagning inom 30 dagar och namnet på arbets ytan är tillgängligt och kan användas för att skapa en ny arbets yta.
 
-You want to exercise caution when you delete a workspace because there might be important data and configuration that may negatively impact your service operation. Review what agents, solutions, and other Azure services and sources that store their data in Log Analytics, such as:
+Du bör vara försiktig när du tar bort en arbets yta eftersom det kan finnas viktiga data och konfiguration som kan påverka din tjänst åtgärd negativt. Granska vilka agenter, lösningar och andra Azure-tjänster och källor som lagrar data i Log Analytics, till exempel:
 
 * Hanteringslösningar
-* Azure Automatisering
-* Agents running on Windows and Linux virtual machines
-* Agents running on Windows and Linux computers in your environment
+* Azure Automation
+* Agenter som körs på virtuella Windows-och Linux-datorer
+* Agenter som körs på Windows-och Linux-datorer i din miljö
 * System Center Operations Manager
 
-The soft-delete operation deletes the workspace resource and any associated users’ permission is broken. If users are associated with other workspaces, then they can continue using Log Analytics with those other workspaces.
+Åtgärden mjuk borttagning tar bort arbets ytans resurs och alla tillhör ande användares behörighet är bruten. Om användarna är associerade med andra arbets ytor kan de fortsätta att använda Log Analytics med de andra arbets ytorna.
 
-## <a name="soft-delete-behavior"></a>Soft-delete behavior
+## <a name="soft-delete-behavior"></a>Beteende vid mjuk borttagning
 
-The workspace delete operation removes the workspace Resource Manager resource, but its configuration and data are kept for 14 days, while giving the appearance that the workspace is deleted. Any agents and System Center Operations Manager management groups configured to report to the workspace remain in an orphaned state during the soft-delete period. The service further provides a mechanism for recovering the deleted workspace including its data and connected resources, essentially undoing the deletion.
+Borttagnings åtgärden för arbets ytan tar bort resurs hanterarens Resource Manager-resurs, men konfigurationen och data sparas i 14 dagar, samtidigt som arbets ytans utseende tas bort. Alla agenter och System Center Operations Manager hanterings grupper som kon figurer ATS att rapportera till arbets ytan behålls i ett överblivna tillstånd under den mjuka borttagnings perioden. Tjänsten tillhandahåller ytterligare en mekanism för att återställa den borttagna arbets ytan, inklusive dess data och anslutna resurser, vilket i princip tar bort borttagningen.
 
 > [!NOTE] 
-> Installed solutions and linked services like your Azure Automation account are permanently removed from the workspace at deletion time and can’t be recovered. These should be reconfigured after the recovery operation to bring the workspace to its previously configured state.
+> Installerade lösningar och länkade tjänster som ditt Azure Automation-konto tas bort permanent från arbets ytan vid borttagnings tillfället och kan inte återställas. Dessa bör konfigureras om efter återställnings åtgärden för att flytta arbets ytan till det tidigare konfigurerade läget.
 
-You can delete a workspace using [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), [REST API](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete), or in the [Azure portal](https://portal.azure.com).
+Du kan ta bort en arbets yta med [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), [REST API](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete)eller i [Azure Portal](https://portal.azure.com).
 
-### <a name="delete-workspace-in-azure-portal"></a>Delete workspace in Azure portal
+### <a name="delete-workspace-in-azure-portal"></a>Ta bort arbets yta i Azure Portal
 
-1. To sign in, go to the [Azure portal](https://portal.azure.com). 
-2. Välj **Alla tjänster** i Azure-portalen. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Select **Log Analytics workspaces**.
-3. In the list of Log Analytics workspaces, select a workspace and then click **Delete**  from the top of the middle pane.
-   ![Delete option from Workspace properties pane](media/delete-workspace/log-analytics-delete-workspace.png)
-4. When the confirmation message window appears asking you to confirm deletion of the workspace, click **Yes**.
-   ![Confirm deletion of workspace](media/delete-workspace/log-analytics-delete-workspace-confirm.png)
+1. Logga in genom att gå till [Azure Portal](https://portal.azure.com). 
+2. Välj **Alla tjänster** i Azure-portalen. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics arbets ytor**.
+3. I listan över Log Analytics arbets ytor väljer du en arbets yta och klickar sedan på **ta bort** längst upp i mitten av fönstret.
+   ![ta bort alternativ från rutan Egenskaper för arbets ytan](media/delete-workspace/log-analytics-delete-workspace.png)
+4. När fönstret bekräftelse meddelande visas och du uppmanas att bekräfta borttagningen av arbets ytan klickar du på **Ja**.
+   ![Bekräfta borttagning av arbets ytan](media/delete-workspace/log-analytics-delete-workspace-confirm.png)
 
-## <a name="recover-workspace"></a>Recover workspace
+## <a name="recover-workspace"></a>Återställ arbets yta
 
-If you have Contributor permissions to the subscription and resource group where the workspace was associated before the soft-delete operation, you can recover it during its soft-delete period including its data, configuration and connected agents. After the soft-delete period, the workspace is non-recoverable and assigned for permanent deletion. Names of deleted workspaces are preserved during the soft-delete period and can't be used when attempting to create a new workspace.  
+Om du har deltagar behörighet till prenumerationen och resurs gruppen där arbets ytan var kopplad innan du mjuka borttagnings åtgärden, kan du återställa den under den mjuka borttagnings perioden, inklusive dess data, konfiguration och anslutna agenter. Efter den mjuka borttagnings perioden är arbets ytan inte återställnings bar och tilldelad för permanent borttagning. Namn på borttagna arbets ytor bevaras under perioden för mjuk borttagning och kan inte användas när du försöker skapa en ny arbets yta.  
 
-You can recover a workspace by re-creating it using the following workspace create methods: [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) or [REST API]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate) as long as the following properties are populated with the deleted workspace details:
+Du kan återställa en arbets yta genom att skapa den på nytt med hjälp av följande arbets yta skapa metoder: [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) eller [REST API]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate) så länge följande egenskaper är ifyllda med den borttagna arbets ytans information:
 
-* Prenumerations-ID
-* Resource Group name
-* Workspace name
+* Prenumerations-ID:t
+* Resurs grupps namn
+* Namn på arbets yta
 * Region
 
-The workspace and all its data are brought back after the recovery operation. Solutions and linked services were permanently removed from the workspace when it was deleted and these should be reconfigured to bring the workspace to its previously configured state. Some of the data may not be available for query after the workspace recovery until the associated solutions are re-installed and their schemas are added to the workspace.
+Arbets ytan och alla dess data tas tillbaka efter återställnings åtgärden. Lösningar och länkade tjänster togs bort permanent från arbets ytan när den togs bort och de bör konfigureras om så att arbets ytan försätts i det tidigare konfigurerade läget. Vissa data kanske inte är tillgängliga för frågan efter arbets ytans återställning tills de associerade lösningarna har installerats om och deras scheman har lagts till i arbets ytan.
 
 > [!NOTE]
-> * Workspace recovery isn't supported in the [Azure portal](https://portal.azure.com). 
-> * Re-creating a workspace during the soft-delete period gives an indication that this workspace name is already in use. 
+> * Arbets ytans återställning stöds inte i [Azure Portal](https://portal.azure.com). 
+> * När du återskapar en arbets yta under den mjuka borttagnings perioden visas en indikation på att namnet på arbets ytan redan används. 
 > 

@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Create a custom role for Azure resources using Azure CLI
-description: Get started creating a custom role for Azure resources using Azure CLI in this tutorial.
+title: Självstudie – Skapa en anpassad roll för Azure-resurser med hjälp av Azure CLI
+description: Kom igång med att skapa en anpassad roll för Azure-resurser med hjälp av Azure CLI i den här självstudien.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -20,11 +20,11 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74419591"
 ---
-# <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-cli"></a>Tutorial: Create a custom role for Azure resources using Azure CLI
+# <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-cli"></a>Självstudie: skapa en anpassad roll för Azure-resurser med hjälp av Azure CLI
 
 Om de [inbyggda rollerna för Azure-resurser](built-in-roles.md) inte uppfyller organisationens specifika krav, kan du skapa egna anpassade roller. För den här självstudien skapar du en anpassad roll med namnet Reader Support Tickets (Läsare av supportbegäranden) med hjälp av Azure CLI. Med den här anpassade rollen kan användare visa allt i en prenumerations hanteringsplan samt öppna supportbegäranden.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa en anpassad roll

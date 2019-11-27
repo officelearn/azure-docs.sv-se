@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Perform a news search using the SDK for Java - Bing News Search'
+title: 'Snabb start: utföra en nyhets sökning med SDK för Java-Nyhetssökning i Bing'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten för att söka efter nyheter med SDK för nyhetssökning i Bing för Java och bearbeta svaret.
 services: cognitive-services
@@ -18,7 +18,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74383918"
 ---
-# <a name="quickstart-search-for-news-with-the-bing-news-search-sdk-for-java"></a>Quickstart: Search for news with the Bing News Search SDK for Java
+# <a name="quickstart-search-for-news-with-the-bing-news-search-sdk-for-java"></a>Snabb start: Sök efter nyheter med Nyhetssökning i Bing SDK för Java
 
 Använd den här snabbstarten om du vill börja söka efter nyheter med SDK för nyhetssökning i Bing för Java. Även om Nyhetssökning i Bing har ett REST API som är kompatibelt med de flesta programmeringsspråk så tillhandahåller SDK:n ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch).
 

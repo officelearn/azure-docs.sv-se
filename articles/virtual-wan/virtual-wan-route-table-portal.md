@@ -1,6 +1,6 @@
 ---
-title: 'Virtual WAN: Create virtual hub route table to NVA: Azure portal'
-description: Virtual WAN virtual hub route table to steer traffic to a network virtual appliance using the portal.
+title: 'Virtuellt WAN: Skapa virtuell hubb väg tabell till NVA: Azure Portal'
+description: Väg tabell för virtuell WAN-hubb som styr trafik till en virtuell nätverks enhet med hjälp av portalen.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,88 +8,88 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a route table using the portal.
-ms.openlocfilehash: 3aa5660e5b777364ef9d684debe7e06f42acee6e
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 6b78b97004498fdacccdf9408d59158424ff6c07
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482013"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534137"
 ---
-# <a name="create-a-virtual-wan-hub-route-table-for-nvas-azure-portal"></a>Create a Virtual WAN hub route table for NVAs: Azure portal
+# <a name="create-a-virtual-wan-hub-route-table-for-nvas-azure-portal"></a>Skapa en virtuell WAN Hub-routningstabell för NVA: Azure Portal
 
-This article shows you how to steer traffic from a branch (on-premises site) connected to the Virtual WAN hub to a Spoke Vnet via a Network Virtual Appliance (NVA).
+Den här artikeln visar hur du styr trafik från en gren (lokal plats) som är ansluten till den virtuella WAN-hubben till ett eker VNet via en virtuell nätverks installation (NVA).
 
 ![Virtual WAN-diagram](./media/virtual-wan-route-table/vwanroute.png)
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Verify that you have met the following criteria:
+Kontrol lera att du har uppfyllt följande kriterier:
 
-*  You have a Network Virtual Appliance (NVA). A Network Virtual Appliance is a third-party software of your choice that is typically provisioned from Azure Marketplace in a virtual network.
+*  Du har en virtuell nätverks installation (NVA). En virtuell nätverks installation är ett tredjepartsprogram som du väljer som vanligt vis tillhandahålls från Azure Marketplace i ett virtuellt nätverk.
 
-    * A private IP address must be assigned to the NVA network interface.
+    * En privat IP-adress måste tilldelas till NVA-nätverks gränssnittet.
 
-    * The NVA is not deployed in the virtual hub. It must be deployed in a separate VNet.
+    * NVA har inte distribuerats i den virtuella hubben. Den måste distribueras i ett separat VNet.
 
-    *  The NVA VNet may have one or many virtual networks connected to it. In this article, we refer to the NVA VNet as an 'indirect spoke VNet'. These VNets can be connected to the NVA VNet by using VNet peering. The Vnet Peering links are depicted by black arrows in the above figure.
-*  You have created 2 VNets. They will be used as spoke VNets.
+    *  NVA VNet kan ha ett eller flera virtuella nätverk som är anslutna till det. I den här artikeln hänvisar vi till NVA VNet som ett ' indirekt eker VNet '. Dessa virtuella nätverk kan anslutas till det virtuella NVA-nätverket med hjälp av VNet-peering. Länkarna för VNet-peering illustreras med svarta pilar i bilden ovan mellan VNet 1, VNet 2 och NVA VNet.
+*  Du har skapat 2 virtuella nätverk. De kommer att användas som ekrar virtuella nätverk.
 
-    * For this exercise, the VNet spoke address spaces are: VNet1: 10.0.2.0/24 and VNet2: 10.0.3.0/24. If you need information on how to create a VNet, see [Create a virtual network](../virtual-network/quick-create-portal.md).
+    * I den här övningen är adress utrymmena för VNet-ekrar: VNet1:10.0.2.0/24 och VNet2:10.0.3.0/24. Om du behöver information om hur du skapar ett VNet, se [skapa ett virtuellt nätverk](../virtual-network/quick-create-portal.md).
 
-    * Ensure there are no virtual network gateways in any of the VNets.
-    * For this configuration, these VNets do not require a gateway subnet.
+    * Se till att det inte finns några virtuella nätverksgateway i någon av virtuella nätverk.
+    * Dessa virtuella nätverk kräver inte ett Gateway-undernät för den här konfigurationen.
 
-## <a name="signin"></a>1. Sign in
+## <a name="signin"></a>1. Logga in
 
 Öppna en webbläsare, navigera till [Azure Portal](https://portal.azure.com) och logga in med ditt Azure-konto.
 
-## <a name="vwan"></a>2. Create a virtual WAN
+## <a name="vwan"></a>2. skapa ett virtuellt WAN
 
-Create a virtual WAN. For the purposes of this exercise, you can use the following values:
+Skapa ett virtuellt WAN-nätverk. I den här övningen kan du använda följande värden:
 
-* **Virtual WAN name:** myVirtualWAN
-* **Resource group:** testRG
-* **Location:** West US
+* **Virtuellt WAN-namn:** myVirtualWAN
+* **Resurs grupp:** testRG
+* **Plats:** Västra USA
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 
-## <a name="hub"></a>3. Create a hub
+## <a name="hub"></a>3. skapa en hubb
 
-Create the hub. For the purposes of this exercise, you can use the following values:
+Skapa hubben. I den här övningen kan du använda följande värden:
 
-* **Location:** West US
-* **Name:** westushub
-* **Hub private address space:** 10.0.1.0/24
+* **Plats:** Västra USA
+* **Namn:** westushub
+* **Hubb privat adress utrymme:** 10.0.1.0/24
 
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-hub-include.md)]
 
-## <a name="route"></a>4. Create and apply a hub route table
+## <a name="route"></a>4. skapa och Använd en hubb väg tabell
 
-Update the hub with a hub route table. For the purposes of this exercise, you can use the following values:
+Uppdatera hubben med en hubb väg tabell. I den här övningen kan du använda följande värden:
 
-* **Indirect spoke VNet address spaces:** (VNet1 and VNet2) 10.0.2.0/24 and 10.0.3.0/24
-* **DMZ NVA network interface private IP address:** 10.0.4.5
+* **Indirekt eker VNet-adress utrymmen:** (VNet1 och VNet2) 10.0.2.0/24 och 10.0.3.0/24
+* **DMZ NVA Network Interface Private IP Address:** 10.0.4.5
 
-1. Navigate to your virtual WAN.
-2. Click the hub for which you want to create a route table.
-3. Click the **...** , and then click **Edit virtual hub**.
-4. On the **Edit virtual hub** page, scroll down and select the checkbox **Use table for routing**.
-5. In the **If destination prefix is** column, add the address spaces. In the **Send to next hop** column, add the DMZ NVA network interface private IP address.
-6. Click **Confirm** to update the hub resource with the route table settings.
+1. Navigera till ditt virtuella WAN-nätverk.
+2. Klicka på den hubb som du vill skapa en routningstabell för.
+3. Klicka på **...** och klicka sedan på **Redigera virtuell hubb**.
+4. På sidan **Redigera virtuellt nav** bläddrar du nedåt och markerar kryss rutan **Använd tabell för routning**.
+5. Lägg till adress utrymmena i kolumnen **om målets prefix är** . I kolumnen **Skicka till nästa hopp** lägger du till DMZ NVA Network Interface Private IP Address.
+6. Klicka på **Bekräfta** om du vill uppdatera Hub-resursen med väg tabells inställningarna.
 
-## <a name="connections"></a>5. Create the VNet connections
+## <a name="connections"></a>5. skapa VNet-anslutningarna
 
-Create a connection from each indirect spoke VNet (VNet1 and VNet2) to the hub. Then, create a connection from the NVA VNet to the hub. These Vnet Connections are dipicted by blue arrows in the figure above. 
+Skapa en VNET-anslutning från varje indirekt eker VNet (VNet1 och VNet2) till hubben. Dessa VNet-anslutningar illustreras med de blå pilarna i bilden ovan. Skapa sedan en VNET-anslutning från NVA VNet till hubben (svart pil i bilden). 
 
- For this step, you can use the following values:
+ I det här steget kan du använda följande värden:
 
-| VNet name| Anslutningsnamn|
+| VNet-namn| Anslutningsnamn|
 | --- | --- |
 | VNet1 | testconnection1 |
 | VNet2 | testconnection2 |
 | NVAVNet | testconnection3 |
 
-Repeat the following procedure for each VNet that you want to connect.
+Upprepa följande steg för varje VNet som du vill ansluta.
 
 1. På sidan för det virtuella WAN-nätverket klickar du på **Virtuella nätverksanslutningar**.
 2. På sidan för virtuell nätverksanslutning klickar du på **+Lägg till anslutning**.
@@ -99,7 +99,7 @@ Repeat the following procedure for each VNet that you want to connect.
     * **Hubbar** – Välj den hubb du vill koppla till anslutningen.
     * **Prenumeration** – Kontrollera prenumerationen.
     * **Virtuellt nätverk** – Välj det virtuella nätverk du vill ansluta till hubben. Det virtuella nätverket får inte ha någon befintlig gateway för virtuellt nätverk.
-4. Click **OK** to create the connection.
+4. Klicka på **OK** för att skapa anslutningen.
 
 ## <a name="next-steps"></a>Nästa steg
 

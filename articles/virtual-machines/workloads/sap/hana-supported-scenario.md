@@ -10,15 +10,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/06/2018
+ms.date: 11/26/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f17e447f26ae4f7573941fc0c578a918ff45a145
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7ed63f5caa6b1f1c0072a92f6a60ad43c5431af0
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101220"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538410"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Scenarier som stöds för HANA-stora instanser
 I det här dokumentet beskrivs de scenarier som stöds tillsammans med deras arkitektur information för HLI (HANA Large instances).
@@ -30,14 +30,14 @@ Innan du fortsätter med HLI enhets etablering, verifierar du designen med SAP e
 ## <a name="terms-and-definitions"></a>Villkor och definitioner
 Nu ska vi förstå de termer och definitioner som används i dokumentet.
 
-- SID System identifierare för HANA-system.
+- SID: system identifierare för HANA-system.
 - HLI: Hana-stora instanser.
-- AR En katastrof återställnings plats.
-- Normal DR: En systeminstallation med en dedikerad resurs för DR-syften används endast.
-- Multianvändnings DR: Ett system på en DR-plats som kon figurer ATS för att använda en icke-produktions miljö tillsammans med den produktions instans som kon figurer ATS att använda till DR 
-- Enskild SID:  Ett system med en instans installerad.
-- Flera SID: Ett system med flera konfigurerade instanser. Kallas även för en MCOS-miljö.
-
+- DR: en katastrof återställnings plats.
+- Normal DR: en systeminstallation med en dedikerad resurs för DR-syften används endast.
+- Interpurpose DR: ett system på en DR-plats som kon figurer ATS för att använda icke-produktions miljö tillsammans med den produktions instans som kon figurer ATS för att använda till DR 
+- Enskild SID: ett system med en instans installerad.
+- Flera SID: ett system med flera konfigurerade instanser. Kallas även för en MCOS-miljö.
+- HSR: SAP HANA systemets replikering.
 
 ## <a name="overview"></a>Översikt
 De stora och HANA-instanserna har stöd för olika arkitekturer för att uppnå dina affärs behov. I följande lista beskrivs scenarierna och deras konfigurations information. 
@@ -55,22 +55,22 @@ Det här dokumentet beskriver information om de två komponenterna i varje arkit
 
 Varje server som tillhandahålls är förkonfigurerad med uppsättningarna Ethernet-gränssnitt. Här följer information om de Ethernet-gränssnitt som kon figurer ATS på varje HLI-enhet.
 
-- **S**: Det här gränssnittet används för/av-klient åtkomsten.
-- **B**: Det här gränssnittet används för nod-till-nod-kommunikation. Det här gränssnittet är konfigurerat på alla servrar (oavsett vilken topologi som begärs), men används bara för 
+- **A**: det här gränssnittet används för/av-klient åtkomsten.
+- **B**: det här gränssnittet används för nod-till-nod-kommunikation. Det här gränssnittet är konfigurerat på alla servrar (oavsett vilken topologi som begärs), men används bara för 
 - skalnings scenarier.
-- **C**: Det här gränssnittet används för noden till lagrings anslutningen.
-- **D**: Det här gränssnittet används för noden till ISCSI-hälsoenhets anslutning för STONITH-installation. Det här gränssnittet är bara konfigurerat när HSR-installationen begärs.  
+- **C**: det här gränssnittet används för noden till lagrings anslutningen.
+- **D**: det här gränssnittet används för NODEN till iSCSI-hälsoenhets anslutning för STONITH-installation. Det här gränssnittet är bara konfigurerat när HSR-installationen begärs.  
 
 | LOGISKA NIC-GRÄNSSNITT | SKU-TYP | Namn med SUSE OS | Namn med RHEL OS | Användningsfall|
 | --- | --- | --- | --- | --- |
-| G | TYP I | ETH0. Tenant | eno1. Tenant | Klient till HLI |
+| A | TYP I | ETH0. Tenant | eno1. Tenant | Klient till HLI |
 | B | TYP I | ETH2. Tenant | eno3. Tenant | Nod till nod |
 | C | TYP I | eth1. Tenant | eno2. Tenant | Nod till lagring |
 | D | TYP I | eth4. Tenant | eno4. Tenant | STONITH |
-| G | TYP II | vlan\<tenantNo> | team0. Tenant | Klient till HLI |
-| B | TYP II | vlan\<tenantNo+2> | team0. Tenant + 2 | Nod till nod |
-| C | TYP II | VLAN\<-tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
-| D | TYP II | VLAN\<-tenantNo + 3 > | team0. klient + 3 | STONITH |
+| A | TYP II | VLAN-\<tenantNo > | team0. Tenant | Klient till HLI |
+| B | TYP II | VLAN\<tenantNo + 2 > | team0. Tenant + 2 | Nod till nod |
+| C | TYP II | VLAN\<tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
+| D | TYP II | VLAN\<tenantNo + 3 > | team0. klient + 3 | STONITH |
 
 Du använder gränssnitten baserat på den topologi som kon figurer ATS på HLI-enheten. Gränssnittet "B" är till exempel konfigurerat för att nod-till-nod-kommunikation, vilket är användbart när en skalbar topologi har kon figurer ATS. Det här gränssnittet används inte för en skalbar konfiguration av en nod. Granska dina nödvändiga scenarier (senare i det här dokumentet) om du vill ha mer information om gränssnitts användningen. 
 
@@ -100,14 +100,14 @@ För distributions fall av HANA-systemreplikering eller HANA-utskalning är en b
 Lagringen är förkonfigurerad baserat på den begärda topologin. Volym storlekarna och monterings punkt varierar beroende på hur många servrar, SKU: er och topologi som har kon figurer ATS. Granska dina nödvändiga scenarier (senare i det här dokumentet) om du vill ha mer information. Om det krävs mer lagrings utrymme kan du köpa det i en TB-ökning.
 
 >[!NOTE]
->Monterings punkt/usr/SAP/\<-sid > är en symbolisk länk till/Hana/Shared-monterings punkt.
+>Monterings punkt-/usr/SAP/\<SID > är en symbolisk länk till/Hana/Shared-monterings punkt.
 
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
 
 I arkitektur diagrammen används följande format för grafiken:
 
-![Förklaringar. PNG](media/hana-supported-scenario/Legends.PNG)
+[![förklaringar. PNG](media/hana-supported-scenario/Legends.png)](media/hana-supported-scenario/Legends.png#lightbox)
 
 I följande lista visas de scenarier som stöds:
 
@@ -124,7 +124,7 @@ I följande lista visas de scenarier som stöds:
 
 
 
-## <a name="1-single-node-with-one-sid"></a>1. En nod med en SID
+## <a name="1-single-node-with-one-sid"></a>1. enskild nod med en SID
 
 Den här topologin har stöd för en nod i en skalnings konfiguration med en SID.
 
@@ -137,14 +137,14 @@ Följande nätverks gränssnitt är förkonfigurerade:
 
 | LOGISKA NIC-GRÄNSSNITT | SKU-TYP | Namn med SUSE OS | Namn med RHEL OS | Användningsfall|
 | --- | --- | --- | --- | --- |
-| G | TYP I | ETH0. Tenant | eno1. Tenant | Klient till HLI |
+| A | TYP I | ETH0. Tenant | eno1. Tenant | Klient till HLI |
 | B | TYP I | ETH2. Tenant | eno3. Tenant | Konfigurerad men används inte |
 | C | TYP I | eth1. Tenant | eno2. Tenant | Nod till lagring |
 | D | TYP I | eth4. Tenant | eno4. Tenant | Konfigurerad men används inte |
-| G | TYP II | vlan\<tenantNo> | team0. Tenant | Klient till HLI |
-| B | TYP II | vlan\<tenantNo+2> | team0. Tenant + 2 | Konfigurerad men används inte |
-| C | TYP II | VLAN\<-tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
-| D | TYP II | VLAN\<-tenantNo + 3 > | team0. klient + 3 | Konfigurerad men används inte |
+| A | TYP II | VLAN-\<tenantNo > | team0. Tenant | Klient till HLI |
+| B | TYP II | VLAN\<tenantNo + 2 > | team0. Tenant + 2 | Konfigurerad men används inte |
+| C | TYP II | VLAN\<tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
+| D | TYP II | VLAN\<tenantNo + 3 > | team0. klient + 3 | Konfigurerad men används inte |
 
 ### <a name="storage"></a>Storage
 Följande mountpoints är förkonfigurerade:
@@ -172,14 +172,14 @@ Följande nätverks gränssnitt är förkonfigurerade:
 
 | LOGISKA NIC-GRÄNSSNITT | SKU-TYP | Namn med SUSE OS | Namn med RHEL OS | Användningsfall|
 | --- | --- | --- | --- | --- |
-| G | TYP I | ETH0. Tenant | eno1. Tenant | Klient till HLI |
+| A | TYP I | ETH0. Tenant | eno1. Tenant | Klient till HLI |
 | B | TYP I | ETH2. Tenant | eno3. Tenant | Konfigurerad men används inte |
 | C | TYP I | eth1. Tenant | eno2. Tenant | Nod till lagring |
 | D | TYP I | eth4. Tenant | eno4. Tenant | Konfigurerad men används inte |
-| G | TYP II | vlan\<tenantNo> | team0. Tenant | Klient till HLI |
-| B | TYP II | vlan\<tenantNo+2> | team0. Tenant + 2 | Konfigurerad men används inte |
-| C | TYP II | VLAN\<-tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
-| D | TYP II | VLAN\<-tenantNo + 3 > | team0. klient + 3 | Konfigurerad men används inte |
+| A | TYP II | VLAN-\<tenantNo > | team0. Tenant | Klient till HLI |
+| B | TYP II | VLAN\<tenantNo + 2 > | team0. Tenant + 2 | Konfigurerad men används inte |
+| C | TYP II | VLAN\<tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
+| D | TYP II | VLAN\<tenantNo + 3 > | team0. klient + 3 | Konfigurerad men används inte |
 
 ### <a name="storage"></a>Storage
 Följande mountpoints är förkonfigurerade:
@@ -199,7 +199,7 @@ Följande mountpoints är förkonfigurerade:
 - /usr/sap/SID är en symbolisk länk till/hana/shared/SID.
 - Distribution av volym storlek baseras på databasens storlek i minnet. Avsnittet [Översikt och arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) innehåller information om vilka databas storlekar i minnet som stöds med multisid-miljön.
 
-## <a name="3-single-node-with-dr-normal"></a>3. Enkel nod med DR (normal)
+## <a name="3-single-node-with-dr-using-storage-replication"></a>3. enkel nod med DR med Storage Replication
  
 Den här topologin har stöd för en nod i en skalbar konfiguration med en eller flera sid: er med den lagrings replikeringen till Dr-platsen för ett primärt sid. I diagrammet visas bara enkla SID på den primära platsen, men multisid (MCOS) stöds också.
 
@@ -212,14 +212,14 @@ Följande nätverks gränssnitt är förkonfigurerade:
 
 | LOGISKA NIC-GRÄNSSNITT | SKU-TYP | Namn med SUSE OS | Namn med RHEL OS | Användningsfall|
 | --- | --- | --- | --- | --- |
-| G | TYP I | ETH0. Tenant | eno1. Tenant | Klient till HLI |
+| A | TYP I | ETH0. Tenant | eno1. Tenant | Klient till HLI |
 | B | TYP I | ETH2. Tenant | eno3. Tenant | Konfigurerad men används inte |
 | C | TYP I | eth1. Tenant | eno2. Tenant | Nod till lagring |
 | D | TYP I | eth4. Tenant | eno4. Tenant | Konfigurerad men används inte |
-| G | TYP II | vlan\<tenantNo> | team0. Tenant | Klient till HLI |
-| B | TYP II | vlan\<tenantNo+2> | team0. Tenant + 2 | Konfigurerad men används inte |
-| C | TYP II | VLAN\<-tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
-| D | TYP II | VLAN\<-tenantNo + 3 > | team0. klient + 3 | Konfigurerad men används inte |
+| A | TYP II | VLAN-\<tenantNo > | team0. Tenant | Klient till HLI |
+| B | TYP II | VLAN\<tenantNo + 2 > | team0. Tenant + 2 | Konfigurerad men används inte |
+| C | TYP II | VLAN\<tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
+| D | TYP II | VLAN\<tenantNo + 3 > | team0. klient + 3 | Konfigurerad men används inte |
 
 ### <a name="storage"></a>Storage
 Följande mountpoints är förkonfigurerade:
@@ -234,13 +234,13 @@ Följande mountpoints är förkonfigurerade:
 
 ### <a name="key-considerations"></a>Viktiga överväganden
 - /usr/sap/SID är en symbolisk länk till/hana/shared/SID.
-- För MCOS: Distribution av volym storlek baseras på databasens storlek i minnet. Avsnittet [Översikt och arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) innehåller information om vilka databas storlekar i minnet som stöds med multisid-miljön.
-- Vid DR: Volymerna och mountpoints konfigureras (markerade som "krävs för HANA-installation") för produktion HANA-instansen-installation på DR HLI-enheten. 
-- Vid DR: Data, logbackups och delade volymer (markerade som "lagrings replikering") replikeras via ögonblicks bilder från produktions platsen. Dessa volymer monteras endast under redundansväxlingen. Mer information finns i dokumentet om [redundans för haveri beredskap](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) .
+- För MCOS: storleks fördelning av volym baseras på databasens storlek i minnet. Avsnittet [Översikt och arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) innehåller information om vilka databas storlekar i minnet som stöds med multisid-miljön.
+- Vid DR: volymerna och mountpoints konfigureras (markerade som "krävs för HANA-installation") för produktion HANA-instansen installation på DR HLI-enheten. 
+- I DR: data, logbackups och delade volymer (markerade som "lagrings replikering") replikeras via ögonblicks bild från produktions platsen. Dessa volymer monteras endast under redundansväxlingen. Mer information finns i dokumentet om [redundans för haveri beredskap](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) .
 - Start volym för **SKU-typ I klass** replikeras till en Dr-nod.
 
 
-## <a name="4-single-node-with-dr-multipurpose"></a>4. Enkel nod med DR (flera syften)
+## <a name="4-single-node-with-dr-multipurpose-using-storage-replication"></a>4. enkel nod med DR (flera syften) med Storage Replication
  
 Den här topologin har stöd för en nod i en skalbar konfiguration med en eller flera sid: er med den lagrings replikeringen till Dr-platsen för ett primärt sid. I diagrammet visas bara enkla SID på den primära platsen, men multisid (MCOS) stöds också. På DR-platsen används HLI-enheten för instansen frågor och svar medan produktions åtgärderna körs från den primära platsen. Vid tidpunkten för DR-redundans (eller failover-test) tas frågor om frågor och svar på DR-platsen ned.
 
@@ -253,14 +253,14 @@ Följande nätverks gränssnitt är förkonfigurerade:
 
 | LOGISKA NIC-GRÄNSSNITT | SKU-TYP | Namn med SUSE OS | Namn med RHEL OS | Användningsfall|
 | --- | --- | --- | --- | --- |
-| G | TYP I | ETH0. Tenant | eno1. Tenant | Klient till HLI |
+| A | TYP I | ETH0. Tenant | eno1. Tenant | Klient till HLI |
 | B | TYP I | ETH2. Tenant | eno3. Tenant | Konfigurerad men används inte |
 | C | TYP I | eth1. Tenant | eno2. Tenant | Nod till lagring |
 | D | TYP I | eth4. Tenant | eno4. Tenant | Konfigurerad men används inte |
-| G | TYP II | vlan\<tenantNo> | team0. Tenant | Klient till HLI |
-| B | TYP II | vlan\<tenantNo+2> | team0. Tenant + 2 | Konfigurerad men används inte |
-| C | TYP II | VLAN\<-tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
-| D | TYP II | VLAN\<-tenantNo + 3 > | team0. klient + 3 | Konfigurerad men används inte |
+| A | TYP II | VLAN-\<tenantNo > | team0. Tenant | Klient till HLI |
+| B | TYP II | VLAN\<tenantNo + 2 > | team0. Tenant + 2 | Konfigurerad men används inte |
+| C | TYP II | VLAN\<tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
+| D | TYP II | VLAN\<tenantNo + 3 > | team0. klient + 3 | Konfigurerad men används inte |
 
 ### <a name="storage"></a>Storage
 Följande mountpoints är förkonfigurerade:
@@ -283,13 +283,13 @@ Följande mountpoints är förkonfigurerade:
 
 ### <a name="key-considerations"></a>Viktiga överväganden
 - /usr/sap/SID är en symbolisk länk till/hana/shared/SID.
-- För MCOS: Distribution av volym storlek baseras på databasens storlek i minnet. Avsnittet [Översikt och arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) innehåller information om vilka databas storlekar i minnet som stöds med multisid-miljön.
-- Vid DR: Volymerna och mountpoints konfigureras (markerade som "krävs för HANA-installation") för produktion HANA-instansen-installation på DR HLI-enheten. 
-- Vid DR: Data, logbackups och delade volymer (markerade som "lagrings replikering") replikeras via ögonblicks bilder från produktions platsen. Dessa volymer monteras endast under redundansväxlingen. Mer information finns i dokumentet om [redundans för haveri beredskap](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) . 
-- Vid DR: Data, logbackups, logg, delade volymer för frågor och svar (märkta med instans installation av frågor och svar) har kon figurer ATS för instans installationen av frågor och svar.
+- För MCOS: storleks fördelning av volym baseras på databasens storlek i minnet. Avsnittet [Översikt och arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) innehåller information om vilka databas storlekar i minnet som stöds med multisid-miljön.
+- Vid DR: volymerna och mountpoints konfigureras (markerade som "krävs för HANA-installation") för produktion HANA-instansen installation på DR HLI-enheten. 
+- I DR: data, logbackups och delade volymer (markerade som "lagrings replikering") replikeras via ögonblicks bild från produktions platsen. Dessa volymer monteras endast under redundansväxlingen. Mer information finns i dokumentet om [redundans för haveri beredskap](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) . 
+- I DR: data, logbackups, logg, delade volymer för frågor och svar (markerade som "frågor och svar för instans installation") har kon figurer ATS för instans installationen av frågor och svar.
 - Start volym för **SKU-typ I klass** replikeras till en Dr-nod.
 
-## <a name="5-hsr-with-stonith"></a>5. HSR med STONITH
+## <a name="5-hsr-with-stonith-for-high-availability"></a>5. HSR med STONITH för hög tillgänglighet
  
 Den här topologin har stöd för två noder för HSR-konfigurationen (HANA System Replication). Den här konfigurationen stöds bara för enstaka HANA-instanser på en nod. Innebär att MCOS-scenarier inte stöds.
 
@@ -307,14 +307,14 @@ Följande nätverks gränssnitt är förkonfigurerade:
 
 | LOGISKA NIC-GRÄNSSNITT | SKU-TYP | Namn med SUSE OS | Namn med RHEL OS | Användningsfall|
 | --- | --- | --- | --- | --- |
-| G | TYP I | ETH0. Tenant | eno1. Tenant | Klient till HLI |
+| A | TYP I | ETH0. Tenant | eno1. Tenant | Klient till HLI |
 | B | TYP I | ETH2. Tenant | eno3. Tenant | Konfigurerad men används inte |
 | C | TYP I | eth1. Tenant | eno2. Tenant | Nod till lagring |
 | D | TYP I | eth4. Tenant | eno4. Tenant | Används för STONITH |
-| G | TYP II | vlan\<tenantNo> | team0. Tenant | Klient till HLI |
-| B | TYP II | vlan\<tenantNo+2> | team0. Tenant + 2 | Konfigurerad men används inte |
-| C | TYP II | VLAN\<-tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
-| D | TYP II | VLAN\<-tenantNo + 3 > | team0. klient + 3 | Används för STONITH |
+| A | TYP II | VLAN-\<tenantNo > | team0. Tenant | Klient till HLI |
+| B | TYP II | VLAN\<tenantNo + 2 > | team0. Tenant + 2 | Konfigurerad men används inte |
+| C | TYP II | VLAN\<tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
+| D | TYP II | VLAN\<tenantNo + 3 > | team0. klient + 3 | Används för STONITH |
 
 ### <a name="storage"></a>Storage
 Följande mountpoints är förkonfigurerade:
@@ -334,11 +334,11 @@ Följande mountpoints är förkonfigurerade:
 
 ### <a name="key-considerations"></a>Viktiga överväganden
 - /usr/sap/SID är en symbolisk länk till/hana/shared/SID.
-- För MCOS: Distribution av volym storlek baseras på databasens storlek i minnet. Avsnittet [Översikt och arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) innehåller information om vilka databas storlekar i minnet som stöds med multisid-miljön.
-- STONITH: En SBD har kon figurer ATS för installationen av STONITH. En användning av STONITH är dock valfri.
+- För MCOS: storleks fördelning av volym baseras på databasens storlek i minnet. Avsnittet [Översikt och arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) innehåller information om vilka databas storlekar i minnet som stöds med multisid-miljön.
+- STONITH: en SBD har kon figurer ATS för installationen av STONITH. En användning av STONITH är dock valfri.
 
 
-## <a name="6-hsr-with-dr"></a>6. HSR med DR
+## <a name="6-high-availability-with-hsr-and-dr-with-storage-replication"></a>6. hög tillgänglighet med HSR och DR med Storage Replication
  
 Den här topologin har stöd för två noder för HSR-konfigurationen (HANA System Replication). Både den normala och den vanliga DR-funktionen stöds. Dessa konfigurationer stöds endast för enstaka HANA-instanser på en nod. Innebär att MCOS-scenarier inte stöds med de här konfigurationerna.
 
@@ -355,14 +355,14 @@ Följande nätverks gränssnitt är förkonfigurerade:
 
 | LOGISKA NIC-GRÄNSSNITT | SKU-TYP | Namn med SUSE OS | Namn med RHEL OS | Användningsfall|
 | --- | --- | --- | --- | --- |
-| G | TYP I | ETH0. Tenant | eno1. Tenant | Klient till HLI |
+| A | TYP I | ETH0. Tenant | eno1. Tenant | Klient till HLI |
 | B | TYP I | ETH2. Tenant | eno3. Tenant | Konfigurerad men används inte |
 | C | TYP I | eth1. Tenant | eno2. Tenant | Nod till lagring |
 | D | TYP I | eth4. Tenant | eno4. Tenant | Används för STONITH |
-| G | TYP II | vlan\<tenantNo> | team0. Tenant | Klient till HLI |
-| B | TYP II | vlan\<tenantNo+2> | team0. Tenant + 2 | Konfigurerad men används inte |
-| C | TYP II | VLAN\<-tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
-| D | TYP II | VLAN\<-tenantNo + 3 > | team0. klient + 3 | Används för STONITH |
+| A | TYP II | VLAN-\<tenantNo > | team0. Tenant | Klient till HLI |
+| B | TYP II | VLAN\<tenantNo + 2 > | team0. Tenant + 2 | Konfigurerad men används inte |
+| C | TYP II | VLAN\<tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
+| D | TYP II | VLAN\<tenantNo + 3 > | team0. klient + 3 | Används för STONITH |
 
 ### <a name="storage"></a>Storage
 Följande mountpoints är förkonfigurerade:
@@ -390,18 +390,18 @@ Följande mountpoints är förkonfigurerade:
 
 ### <a name="key-considerations"></a>Viktiga överväganden
 - /usr/sap/SID är en symbolisk länk till/hana/shared/SID.
-- För MCOS: Distribution av volym storlek baseras på databasens storlek i minnet. Avsnittet [Översikt och arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) innehåller information om vilka databas storlekar i minnet som stöds med multisid-miljön.
-- STONITH: En SBD har kon figurer ATS för installationen av STONITH. En användning av STONITH är dock valfri.
-- Vid DR: Det **krävs två uppsättningar lagrings volymer** för replikering av primära och sekundära noder.
-- Vid DR: Volymerna och mountpoints konfigureras (markerade som "krävs för HANA-installation") för produktion HANA-instansen-installation på DR HLI-enheten. 
-- Vid DR: Data, logbackups och delade volymer (markerade som "lagrings replikering") replikeras via ögonblicks bilder från produktions platsen. Dessa volymer monteras endast under redundansväxlingen. Mer information finns i dokumentet om [redundans för haveri beredskap](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) . 
-- Vid DR: Data, logbackups, logg, delade volymer för frågor och svar (märkta med instans installation av frågor och svar) har kon figurer ATS för instans installationen av frågor och svar.
+- För MCOS: storleks fördelning av volym baseras på databasens storlek i minnet. Avsnittet [Översikt och arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) innehåller information om vilka databas storlekar i minnet som stöds med multisid-miljön.
+- STONITH: en SBD har kon figurer ATS för installationen av STONITH. En användning av STONITH är dock valfri.
+- Vid DR: **två uppsättningar lagrings volymer krävs** för replikering av primära och sekundära noder.
+- Vid DR: volymerna och mountpoints konfigureras (markerade som "krävs för HANA-installation") för produktion HANA-instansen installation på DR HLI-enheten. 
+- I DR: data, logbackups och delade volymer (markerade som "lagrings replikering") replikeras via ögonblicks bild från produktions platsen. Dessa volymer monteras endast under redundansväxlingen. Mer information finns i dokumentet om [redundans för haveri beredskap](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) . 
+- I DR: data, logbackups, logg, delade volymer för frågor och svar (markerade som "frågor och svar för instans installation") har kon figurer ATS för instans installationen av frågor och svar.
 - Start volym för **SKU-typ I klass** replikeras till en Dr-nod.
 
 
-## <a name="7-host-auto-failover-11"></a>7. Automatisk redundans för värd (1 + 1)
+## <a name="7-host-auto-failover-11"></a>7. automatisk redundans för värd (1 + 1)
  
-Den här topologin har stöd för två noder i en konfiguration för automatisk redundans för värd. Det finns en nod med Master/Worker-rollen och annan som vänte läge. **SAP stöder bara det här scenariot för S/4 HANA.** Se OSS Obs ”[2408419 - SAP S/4HANA - stöd för flera noder](https://launchpad.support.sap.com/#/notes/2408419)” för mer information.
+Den här topologin har stöd för två noder i en konfiguration för automatisk redundans för värd. Det finns en nod med Master/Worker-rollen och annan som vänte läge. **SAP stöder bara det här scenariot för S/4 HANA.** Se OSS NOTE "[2408419-SAP S/4HANA-stöd för flera noder](https://launchpad.support.sap.com/#/notes/2408419)" för mer information.
 
 
 
@@ -414,14 +414,14 @@ Följande nätverks gränssnitt är förkonfigurerade:
 
 | LOGISKA NIC-GRÄNSSNITT | SKU-TYP | Namn med SUSE OS | Namn med RHEL OS | Användningsfall|
 | --- | --- | --- | --- | --- |
-| G | TYP I | ETH0. Tenant | eno1. Tenant | Klient till HLI |
+| A | TYP I | ETH0. Tenant | eno1. Tenant | Klient till HLI |
 | B | TYP I | ETH2. Tenant | eno3. Tenant | Nod-till-nod-kommunikation |
 | C | TYP I | eth1. Tenant | eno2. Tenant | Nod till lagring |
 | D | TYP I | eth4. Tenant | eno4. Tenant | Konfigurerad men används inte |
-| G | TYP II | vlan\<tenantNo> | team0. Tenant | Klient till HLI |
-| B | TYP II | vlan\<tenantNo+2> | team0. Tenant + 2 | Nod-till-nod-kommunikation |
-| C | TYP II | VLAN\<-tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
-| D | TYP II | VLAN\<-tenantNo + 3 > | team0. klient + 3 | Konfigurerad men används inte |
+| A | TYP II | VLAN-\<tenantNo > | team0. Tenant | Klient till HLI |
+| B | TYP II | VLAN\<tenantNo + 2 > | team0. Tenant + 2 | Nod-till-nod-kommunikation |
+| C | TYP II | VLAN\<tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
+| D | TYP II | VLAN\<tenantNo + 3 > | team0. klient + 3 | Konfigurerad men används inte |
 
 ### <a name="storage"></a>Storage
 Följande mountpoints är förkonfigurerade:
@@ -438,10 +438,10 @@ Följande mountpoints är förkonfigurerade:
 
 ### <a name="key-considerations"></a>Viktiga överväganden
 - /usr/sap/SID är en symbolisk länk till/hana/shared/SID.
-- I vänte läge: Volymerna och mountpoints har kon figurer ATS (markerade som "krävs för HANA-installation") för den HANA-instans som installeras på enheten för vänte läge.
+- I vänte läge: volymerna och mountpoints har kon figurer ATS (markerade som "krävs för HANA-installation") för HANA-instansen som installeras på enheten för vänte läge.
  
 
-## <a name="8-scale-out-with-standby"></a>8. Skala ut med vänte läge
+## <a name="8-scale-out-with-standby"></a>8. skala ut med vänte läge
  
 Den här topologin stöder flera noder i en skalbar konfiguration. Det finns en nod med en huvud roll, en eller flera noder med arbets rollen och en eller flera noder som vänte läge. Det kan dock bara finnas en huvudnod vid en viss tidpunkt.
 
@@ -455,14 +455,14 @@ Följande nätverks gränssnitt är förkonfigurerade:
 
 | LOGISKA NIC-GRÄNSSNITT | SKU-TYP | Namn med SUSE OS | Namn med RHEL OS | Användningsfall|
 | --- | --- | --- | --- | --- |
-| G | TYP I | ETH0. Tenant | eno1. Tenant | Klient till HLI |
+| A | TYP I | ETH0. Tenant | eno1. Tenant | Klient till HLI |
 | B | TYP I | ETH2. Tenant | eno3. Tenant | Nod-till-nod-kommunikation |
 | C | TYP I | eth1. Tenant | eno2. Tenant | Nod till lagring |
 | D | TYP I | eth4. Tenant | eno4. Tenant | Konfigurerad men används inte |
-| G | TYP II | vlan\<tenantNo> | team0. Tenant | Klient till HLI |
-| B | TYP II | vlan\<tenantNo+2> | team0. Tenant + 2 | Nod-till-nod-kommunikation |
-| C | TYP II | VLAN\<-tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
-| D | TYP II | VLAN\<-tenantNo + 3 > | team0. klient + 3 | Konfigurerad men används inte |
+| A | TYP II | VLAN-\<tenantNo > | team0. Tenant | Klient till HLI |
+| B | TYP II | VLAN\<tenantNo + 2 > | team0. Tenant + 2 | Nod-till-nod-kommunikation |
+| C | TYP II | VLAN\<tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
+| D | TYP II | VLAN\<tenantNo + 3 > | team0. klient + 3 | Konfigurerad men används inte |
 
 ### <a name="storage"></a>Storage
 Följande mountpoints är förkonfigurerade:
@@ -476,7 +476,7 @@ Följande mountpoints är förkonfigurerade:
 |/hana/logbackups/SID | Gör om loggar för produktions-SID |
 
 
-## <a name="9-scale-out-without-standby"></a>9. Skala ut utan vänte läge
+## <a name="9-scale-out-without-standby"></a>9. skala ut utan vänte läge
  
 Den här topologin stöder flera noder i en skalbar konfiguration. Det finns en nod med en huvud roll och en eller mode-noder med arbets rollen. Det kan dock bara finnas en huvudnod vid en viss tidpunkt.
 
@@ -491,14 +491,14 @@ Följande nätverks gränssnitt är förkonfigurerade:
 
 | LOGISKA NIC-GRÄNSSNITT | SKU-TYP | Namn med SUSE OS | Namn med RHEL OS | Användningsfall|
 | --- | --- | --- | --- | --- |
-| G | TYP I | ETH0. Tenant | eno1. Tenant | Klient till HLI |
+| A | TYP I | ETH0. Tenant | eno1. Tenant | Klient till HLI |
 | B | TYP I | ETH2. Tenant | eno3. Tenant | Nod-till-nod-kommunikation |
 | C | TYP I | eth1. Tenant | eno2. Tenant | Nod till lagring |
 | D | TYP I | eth4. Tenant | eno4. Tenant | Konfigurerad men används inte |
-| G | TYP II | vlan\<tenantNo> | team0. Tenant | Klient till HLI |
-| B | TYP II | vlan\<tenantNo+2> | team0. Tenant + 2 | Nod-till-nod-kommunikation |
-| C | TYP II | VLAN\<-tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
-| D | TYP II | VLAN\<-tenantNo + 3 > | team0. klient + 3 | Konfigurerad men används inte |
+| A | TYP II | VLAN-\<tenantNo > | team0. Tenant | Klient till HLI |
+| B | TYP II | VLAN\<tenantNo + 2 > | team0. Tenant + 2 | Nod-till-nod-kommunikation |
+| C | TYP II | VLAN\<tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
+| D | TYP II | VLAN\<tenantNo + 3 > | team0. klient + 3 | Konfigurerad men används inte |
 
 ### <a name="storage"></a>Storage
 Följande mountpoints är förkonfigurerade:
@@ -515,7 +515,7 @@ Följande mountpoints är förkonfigurerade:
 ### <a name="key-considerations"></a>Viktiga överväganden
 - /usr/sap/SID är en symbolisk länk till/hana/shared/SID.
 
-## <a name="10-scale-out-with-dr"></a>10. Skala ut med DR
+## <a name="10-scale-out-with-dr-using-storage-replication"></a>10. skala ut med DR med hjälp av Storage Replication
  
 Den här topologin stöder flera noder i en skalbarhet med en DR. Både normal och dubbel användnings DR stöds. I diagrammet visas endast det enda syftet med DR. Du kan begära den här topologin med eller utan noden vänte läge.
 
@@ -530,14 +530,14 @@ Följande nätverks gränssnitt är förkonfigurerade:
 
 | LOGISKA NIC-GRÄNSSNITT | SKU-TYP | Namn med SUSE OS | Namn med RHEL OS | Användningsfall|
 | --- | --- | --- | --- | --- |
-| G | TYP I | ETH0. Tenant | eno1. Tenant | Klient till HLI |
+| A | TYP I | ETH0. Tenant | eno1. Tenant | Klient till HLI |
 | B | TYP I | ETH2. Tenant | eno3. Tenant | Nod-till-nod-kommunikation |
 | C | TYP I | eth1. Tenant | eno2. Tenant | Nod till lagring |
 | D | TYP I | eth4. Tenant | eno4. Tenant | Konfigurerad men används inte |
-| G | TYP II | vlan\<tenantNo> | team0. Tenant | Klient till HLI |
-| B | TYP II | vlan\<tenantNo+2> | team0. Tenant + 2 | Nod-till-nod-kommunikation |
-| C | TYP II | VLAN\<-tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
-| D | TYP II | VLAN\<-tenantNo + 3 > | team0. klient + 3 | Konfigurerad men används inte |
+| A | TYP II | VLAN-\<tenantNo > | team0. Tenant | Klient till HLI |
+| B | TYP II | VLAN\<tenantNo + 2 > | team0. Tenant + 2 | Nod-till-nod-kommunikation |
+| C | TYP II | VLAN\<tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
+| D | TYP II | VLAN\<tenantNo + 3 > | team0. klient + 3 | Konfigurerad men används inte |
 
 ### <a name="storage"></a>Storage
 Följande mountpoints är förkonfigurerade:
@@ -557,9 +557,242 @@ Följande mountpoints är förkonfigurerade:
 
 ### <a name="key-considerations"></a>Viktiga överväganden
 - /usr/sap/SID är en symbolisk länk till/hana/shared/SID.
--  Vid DR: Volymerna och mountpoints konfigureras (markerade som "krävs för HANA-installation") för produktion HANA-instansen-installation på DR HLI-enheten. 
-- Vid DR: Data, logbackups och delade volymer (markerade som "lagrings replikering") replikeras via ögonblicks bilder från produktions platsen. Dessa volymer monteras endast under redundansväxlingen. Mer information finns i dokumentet om [redundans för haveri beredskap](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) . 
+-  Vid DR: volymerna och mountpoints konfigureras (markerade som "krävs för HANA-installation") för produktion HANA-instansen installation på DR HLI-enheten. 
+- I DR: data, logbackups och delade volymer (markerade som "lagrings replikering") replikeras via ögonblicks bild från produktions platsen. Dessa volymer monteras endast under redundansväxlingen. Mer information finns i dokumentet om [redundans för haveri beredskap](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) . 
 - Start volym för **SKU-typ I klass** replikeras till en Dr-nod.
+
+
+## <a name="11-single-node-with-dr-using-hsr"></a>11. enkel nod med DR med HSR
+ 
+Den här topologin har stöd för en nod i en skalbar konfiguration med en SID med HANA-systemreplikering till DR-platsen för ett primärt SID. I diagrammet visas bara enkla SID på den primära platsen, men multisid (MCOS) stöds också.
+
+### <a name="architecture-diagram"></a>Arkitekturdiagram  
+
+![Single-Node-HSR-Dr-111. png](media/hana-supported-scenario/single-node-hsr-dr-111.png)
+
+### <a name="ethernet"></a>Ethernet
+Följande nätverks gränssnitt är förkonfigurerade:
+
+| LOGISKA NIC-GRÄNSSNITT | SKU-TYP | Namn med SUSE OS | Namn med RHEL OS | Användningsfall|
+| --- | --- | --- | --- | --- |
+| A | TYP I | ETH0. Tenant | eno1. Tenant | Klient till HLI/HSR |
+| B | TYP I | ETH2. Tenant | eno3. Tenant | Konfigurerad men används inte |
+| C | TYP I | eth1. Tenant | eno2. Tenant | Nod till lagring |
+| D | TYP I | eth4. Tenant | eno4. Tenant | Konfigurerad men används inte |
+| A | TYP II | VLAN-\<tenantNo > | team0. Tenant | Klient till HLI/HSR |
+| B | TYP II | VLAN\<tenantNo + 2 > | team0. Tenant + 2 | Konfigurerad men används inte |
+| C | TYP II | VLAN\<tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
+| D | TYP II | VLAN\<tenantNo + 3 > | team0. klient + 3 | Konfigurerad men används inte |
+
+### <a name="storage"></a>Storage
+Följande mountpoints är förkonfigurerade på båda HLI-enheterna (primär och DR):
+
+| Monterings punkt | Användningsfall | 
+| --- | --- |
+|/hana/shared/SID | HANA-installation för SID | 
+|/hana/data/SID/mnt00001 | Installera data filer för SID | 
+|/hana/log/SID/mnt00001 | Logga filer installera för SID | 
+|/hana/logbackups/SID | Gör om loggar för SID |
+
+
+### <a name="key-considerations"></a>Viktiga överväganden
+- /usr/sap/SID är en symbolisk länk till/hana/shared/SID.
+- För MCOS: storleks fördelning av volym baseras på databasens storlek i minnet. Avsnittet [Översikt och arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) innehåller information om vilka databas storlekar i minnet som stöds med multisid-miljön.
+- Primär nod Hämta synkronisering till DR-nod med HANA-systemreplikering. 
+- [Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) används för att länka ExpressRoute-kretsarna tillsammans för att skapa ett privat nätverk mellan regionernas nätverk.
+
+
+
+## <a name="12-single-node-hsr-to-dr-cost-optimized"></a>12. enkel nod HSR till DR (kostnads optimerad) 
+ 
+ Den här topologin har stöd för en nod i en skalbar konfiguration med en SID med HANA-systemreplikering till DR-platsen för ett primärt SID. I diagrammet visas bara enkla SID på den primära platsen, men multisid (MCOS) stöds också. På DR-platsen används HLI-enheten för instansen frågor och svar medan produktions åtgärderna körs från den primära platsen. Vid tidpunkten för DR-redundans (eller failover-test) tas frågor om frågor och svar på DR-platsen ned.
+
+### <a name="architecture-diagram"></a>Arkitekturdiagram  
+
+![Single-Node-HSR-Dr-Cost-Optimized-121. png](media/hana-supported-scenario/single-node-hsr-dr-cost-optimized-121.png)
+
+### <a name="ethernet"></a>Ethernet
+Följande nätverks gränssnitt är förkonfigurerade:
+
+| LOGISKA NIC-GRÄNSSNITT | SKU-TYP | Namn med SUSE OS | Namn med RHEL OS | Användningsfall|
+| --- | --- | --- | --- | --- |
+| A | TYP I | ETH0. Tenant | eno1. Tenant | Klient till HLI/HSR |
+| B | TYP I | ETH2. Tenant | eno3. Tenant | Konfigurerad men används inte |
+| C | TYP I | eth1. Tenant | eno2. Tenant | Nod till lagring |
+| D | TYP I | eth4. Tenant | eno4. Tenant | Konfigurerad men används inte |
+| A | TYP II | VLAN-\<tenantNo > | team0. Tenant | Klient till HLI/HSR |
+| B | TYP II | VLAN\<tenantNo + 2 > | team0. Tenant + 2 | Konfigurerad men används inte |
+| C | TYP II | VLAN\<tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
+| D | TYP II | VLAN\<tenantNo + 3 > | team0. klient + 3 | Konfigurerad men används inte |
+
+### <a name="storage"></a>Storage
+Följande mountpoints är förkonfigurerade:
+
+| Monterings punkt | Användningsfall | 
+| --- | --- |
+|**På den primära platsen**|
+|/hana/shared/SID | HANA-installation för produktions-SID | 
+|/hana/data/SID/mnt00001 | Filer som installeras för produktions-SID | 
+|/hana/log/SID/mnt00001 | Loggfiler installera för produktions-SID | 
+|/hana/logbackups/SID | Gör om loggar för produktions-SID |
+|**På DR-webbplatsen**|
+|/hana/shared/SID | HANA-installation för produktions-SID | 
+|/hana/data/SID/mnt00001 | Filer som installeras för produktions-SID | 
+|/hana/log/SID/mnt00001 | Loggfiler installera för produktions-SID | 
+|/hana/logbackups/SID | Gör om loggar för produktions-SID |
+|/hana/shared/QA-SID | HANA-installation för frågor och svar-SID | 
+|/hana/data/QA-SID/mnt00001 | Filer som installeras för frågor och svar-SID | 
+|/hana/log/QA-SID/mnt00001 | Loggfiler installeras för frågor och svar-SID |
+|/hana/logbackups/QA-SID | Gör om loggar för säkerhets frågor och svar |
+
+### <a name="key-considerations"></a>Viktiga överväganden
+- /usr/sap/SID är en symbolisk länk till/hana/shared/SID.
+- För MCOS: storleks fördelning av volym baseras på databasens storlek i minnet. Avsnittet [Översikt och arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) innehåller information om vilka databas storlekar i minnet som stöds med multisid-miljön.
+- Vid DR: volymerna och mountpoints konfigureras (markerade som "produktions instans på DR-plats") för produktion HANA-instansen-installation på DR HLI-enheten. 
+- I DR: data, logbackups, logg, delade volymer för frågor och svar (markerade som "frågor och svar för instans installation") har kon figurer ATS för instans installationen av frågor och svar.
+- Primär nod Hämta synkronisering till DR-nod med HANA-systemreplikering. 
+- [Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) används för att länka ExpressRoute-kretsarna tillsammans för att skapa ett privat nätverk mellan regionernas nätverk.
+
+## <a name="13-high-availability-and-disaster-recovery-with-hsr"></a>13. hög tillgänglighet och haveri beredskap med HSR 
+ 
+ Den här topologin har stöd för två noder för HSR-konfigurationen (HANA System Replication) för de lokala regionerna med hög tillgänglighet. Den tredje noden i DR-regionen för DR synkroniseras från den primära platsen med HSR (asynkront läge). 
+
+### <a name="architecture-diagram"></a>Arkitekturdiagram  
+
+![Hana-System-Replication-Dr-131. png](media/hana-supported-scenario/hana-system-replication-dr-131.png)
+
+### <a name="ethernet"></a>Ethernet
+Följande nätverks gränssnitt är förkonfigurerade:
+
+| LOGISKA NIC-GRÄNSSNITT | SKU-TYP | Namn med SUSE OS | Namn med RHEL OS | Användningsfall|
+| --- | --- | --- | --- | --- |
+| A | TYP I | ETH0. Tenant | eno1. Tenant | Klient till HLI/HSR |
+| B | TYP I | ETH2. Tenant | eno3. Tenant | Konfigurerad men används inte |
+| C | TYP I | eth1. Tenant | eno2. Tenant | Nod till lagring |
+| D | TYP I | eth4. Tenant | eno4. Tenant | Konfigurerad men används inte |
+| A | TYP II | VLAN-\<tenantNo > | team0. Tenant | Klient till HLI/HSR |
+| B | TYP II | VLAN\<tenantNo + 2 > | team0. Tenant + 2 | Konfigurerad men används inte |
+| C | TYP II | VLAN\<tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
+| D | TYP II | VLAN\<tenantNo + 3 > | team0. klient + 3 | Konfigurerad men används inte |
+
+### <a name="storage"></a>Storage
+Följande mountpoints är förkonfigurerade:
+
+| Monterings punkt | Användningsfall | 
+| --- | --- |
+|**På den primära platsen**|
+|/hana/shared/SID | HANA-installation för produktions-SID | 
+|/hana/data/SID/mnt00001 | Filer som installeras för produktions-SID | 
+|/hana/log/SID/mnt00001 | Loggfiler installera för produktions-SID | 
+|/hana/logbackups/SID | Gör om loggar för produktions-SID |
+|**På DR-webbplatsen**|
+|/hana/shared/SID | HANA-installation för produktions-SID | 
+|/hana/data/SID/mnt00001 | Filer som installeras för produktions-SID | 
+|/hana/log/SID/mnt00001 | Loggfiler installera för produktions-SID | 
+|/hana/logbackups/SID | Gör om loggar för produktions-SID |
+
+
+### <a name="key-considerations"></a>Viktiga överväganden
+- /usr/sap/SID är en symbolisk länk till/hana/shared/SID.
+- Vid DR: volymerna och mountpoints konfigureras (markerade som "PROD. DR-instans") för produktion HANA-instansen-installation på DR HLI-enheten. 
+- Noden primär plats hämtar synkronisering till DR-nod med hjälp av HANA-systemreplikering. 
+- [Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) används för att länka ExpressRoute-kretsarna tillsammans för att skapa ett privat nätverk mellan regionernas nätverk.
+
+## <a name="14-high-availability-and-disaster-recovery-with-hsr-cost-optimized"></a>14. hög tillgänglighet och haveri beredskap med HSR (kostnads optimerad)
+ 
+ Den här topologin har stöd för två noder för HSR-konfigurationen (HANA System Replication) för de lokala regionerna med hög tillgänglighet. För DR synkroniseras den tredje noden i DR-regionen från den primära platsen med HSR (asynkront läge), medan en annan instans (t. ex. Frågor och svar) körs redan från DR-noden. 
+
+### <a name="architecture-diagram"></a>Arkitekturdiagram  
+
+![Hana-System-Replication-Dr-Cost-Optimized-141. png](media/hana-supported-scenario/hana-system-replication-dr-cost-optimized-141.png)
+
+### <a name="ethernet"></a>Ethernet
+Följande nätverks gränssnitt är förkonfigurerade:
+
+| LOGISKA NIC-GRÄNSSNITT | SKU-TYP | Namn med SUSE OS | Namn med RHEL OS | Användningsfall|
+| --- | --- | --- | --- | --- |
+| A | TYP I | ETH0. Tenant | eno1. Tenant | Klient till HLI/HSR |
+| B | TYP I | ETH2. Tenant | eno3. Tenant | Konfigurerad men används inte |
+| C | TYP I | eth1. Tenant | eno2. Tenant | Nod till lagring |
+| D | TYP I | eth4. Tenant | eno4. Tenant | Konfigurerad men används inte |
+| A | TYP II | VLAN-\<tenantNo > | team0. Tenant | Klient till HLI/HSR |
+| B | TYP II | VLAN\<tenantNo + 2 > | team0. Tenant + 2 | Konfigurerad men används inte |
+| C | TYP II | VLAN\<tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
+| D | TYP II | VLAN\<tenantNo + 3 > | team0. klient + 3 | Konfigurerad men används inte |
+
+### <a name="storage"></a>Storage
+Följande mountpoints är förkonfigurerade:
+
+| Monterings punkt | Användningsfall | 
+| --- | --- |
+|**På den primära platsen**|
+|/hana/shared/SID | HANA-installation för produktions-SID | 
+|/hana/data/SID/mnt00001 | Filer som installeras för produktions-SID | 
+|/hana/log/SID/mnt00001 | Loggfiler installera för produktions-SID | 
+|/hana/logbackups/SID | Gör om loggar för produktions-SID |
+|**På DR-webbplatsen**|
+|/hana/shared/SID | HANA-installation för produktions-SID | 
+|/hana/data/SID/mnt00001 | Filer som installeras för produktions-SID | 
+|/hana/log/SID/mnt00001 | Loggfiler installera för produktions-SID | 
+|/hana/logbackups/SID | Gör om loggar för produktions-SID |
+|/hana/shared/QA-SID | HANA-installation för frågor och svar-SID | 
+|/hana/data/QA-SID/mnt00001 | Filer som installeras för frågor och svar-SID | 
+|/hana/log/QA-SID/mnt00001 | Loggfiler installeras för frågor och svar-SID |
+|/hana/logbackups/QA-SID | Gör om loggar för säkerhets frågor och svar |
+
+### <a name="key-considerations"></a>Viktiga överväganden
+- /usr/sap/SID är en symbolisk länk till/hana/shared/SID.
+- Vid DR: volymerna och mountpoints konfigureras (markerade som "PROD. DR-instans") för produktion HANA-instansen-installation på DR HLI-enheten. 
+- I DR: data, logbackups, logg, delade volymer för frågor och svar (markerade som "frågor och svar för instans installation") har kon figurer ATS för instans installationen av frågor och svar.
+- Noden primär plats hämtar synkronisering till DR-nod med hjälp av HANA-systemreplikering. 
+- [Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) används för att länka ExpressRoute-kretsarna tillsammans för att skapa ett privat nätverk mellan regionernas nätverk.
+
+## <a name="15-scale-out-with-dr-using-hsr"></a>15. skala ut med DR med hjälp av HSR
+ 
+Den här topologin stöder flera noder i en skalbarhet med en DR. Du kan begära den här topologin med eller utan noden vänte läge. Primära plats-noder kommer att synkroniseras till DR-platsens noder med HANA-systemreplikering (asynkront läge).
+
+
+### <a name="architecture-diagram"></a>Arkitekturdiagram  
+
+[![Scale-Out-Dr-HSR-151. png](media/hana-supported-scenario/scale-out-dr-hsr-151.png)](media/hana-supported-scenario/scale-out-dr-hsr-151.png#lightbox)
+
+
+### <a name="ethernet"></a>Ethernet
+Följande nätverks gränssnitt är förkonfigurerade:
+
+| LOGISKA NIC-GRÄNSSNITT | SKU-TYP | Namn med SUSE OS | Namn med RHEL OS | Användningsfall|
+| --- | --- | --- | --- | --- |
+| A | TYP I | ETH0. Tenant | eno1. Tenant | Klient till HLI/HSR |
+| B | TYP I | ETH2. Tenant | eno3. Tenant | Nod-till-nod-kommunikation |
+| C | TYP I | eth1. Tenant | eno2. Tenant | Nod till lagring |
+| D | TYP I | eth4. Tenant | eno4. Tenant | Konfigurerad men används inte |
+| A | TYP II | VLAN-\<tenantNo > | team0. Tenant | Klient till HLI/HSR |
+| B | TYP II | VLAN\<tenantNo + 2 > | team0. Tenant + 2 | Nod-till-nod-kommunikation |
+| C | TYP II | VLAN\<tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
+| D | TYP II | VLAN\<tenantNo + 3 > | team0. klient + 3 | Konfigurerad men används inte |
+
+### <a name="storage"></a>Storage
+Följande mountpoints är förkonfigurerade:
+
+| Monterings punkt | Användningsfall | 
+| --- | --- |
+|**På den primära noden**|
+|/hana/shared | HANA-installation för produktions-SID | 
+|/hana/data/SID/mnt00001 | Filer som installeras för produktions-SID | 
+|/hana/log/SID/mnt00001 | Loggfiler installera för produktions-SID | 
+|/hana/logbackups/SID | Gör om loggar för produktions-SID |
+|**På DR-noden**|
+|/hana/shared | HANA-installation för produktions-SID | 
+|/hana/data/SID/mnt00001 | Filer som installeras för produktions-SID | 
+|/hana/log/SID/mnt00001 | Loggfiler installera för produktions-SID | 
+|/hana/logbackups/SID | Gör om loggar för produktions-SID |
+
+
+### <a name="key-considerations"></a>Viktiga överväganden
+- /usr/sap/SID är en symbolisk länk till/hana/shared/SID.
+- Vid DR: volymerna och mountpoints har kon figurer ATS för produktion HANA-instansen-installation på DR HLI-enheten. 
+- Primära plats noder får synkronisera till DR-noder med HANA-systemreplikering. 
+- [Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) används för att länka ExpressRoute-kretsarna tillsammans för att skapa ett privat nätverk mellan regionernas nätverk.
 
 
 ## <a name="next-steps"></a>Nästa steg

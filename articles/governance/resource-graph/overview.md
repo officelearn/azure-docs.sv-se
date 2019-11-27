@@ -1,6 +1,6 @@
 ---
 title: Översikt över Azure Resource Graph
-description: Understand how the Azure Resource Graph service enables complex querying of resources at scale across subscriptions and tenants.
+description: Förstå hur Azure Resource Graph-tjänsten möjliggör komplexa frågor om resurser i stor skala över prenumerationer och klienter.
 ms.date: 10/21/2019
 ms.topic: overview
 ms.openlocfilehash: 7a96faa8502fca6fc501985cd677ac28454f1ba1
@@ -12,43 +12,43 @@ ms.locfileid: "74406689"
 ---
 # <a name="what-is-azure-resource-graph"></a>Vad är Azure Resource Graph?
 
-Azure Resource Graph is a service in Azure that is designed to extend Azure Resource Management by providing efficient and performant resource exploration with the ability to query at scale across a given set of subscriptions so that you can effectively govern your environment. De här frågorna innehåller följande funktioner:
+Azure Resource Graph är en tjänst i Azure som är utformad för att utöka Azures resurs hantering genom att tillhandahålla effektiv och genomförd resurs utforskning med möjlighet att fråga i skala över en specifik uppsättning prenumerationer så att du effektivt kan styra din miljö. De här frågorna innehåller följande funktioner:
 
 - Möjlighet att fråga resurser med komplex filtrering, gruppering och sortering av resursegenskaper.
-- Ability to iteratively explore resources based on governance requirements.
+- Möjlighet att utforska resurser på ett iterativt, baserat på styrnings krav.
 - Möjlighet att utvärdera effekten av att tillämpa principer i en omfattande molnmiljö.
-- Ability to [detail changes made to resource properties](./how-to/get-resource-changes.md) (preview).
+- Möjlighet att [göra detalj ändringar i resurs egenskaper](./how-to/get-resource-changes.md) (för hands version).
 
 I den här dokumentationen går vi igenom varje funktion i detalj.
 
 > [!NOTE]
-> Azure Resource Graph powers Azure portal's search bar, the new browse 'All resources' experience, and Azure Policy's [Change history](../policy/how-to/determine-non-compliance.md#change-history-preview)
-> _visual diff_. It's designed to help customers manage large-scale environments.
+> Azure Resource Graph-befogenheter Azure Portal Sök fältet, den nya webbläsaren "alla resurser" och Azure Policy [ändrings historik](../policy/how-to/determine-non-compliance.md#change-history-preview)
+> _visuellt diff_. Den är utformad för att hjälpa kunder att hantera storskaliga miljöer.
 
 [!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="how-does-resource-graph-complement-azure-resource-manager"></a>Hur kompletterar Resource Graph Resurshantering i Azure
 
-Azure Resource Manager currently supports queries over basic resource fields, specifically - Resource name, ID, Type, Resource Group, Subscription, and Location. Resource Manager also provides facilities for calling individual resource providers for detailed properties one resource at a time.
+Azure Resource Manager stöder för närvarande frågor över grundläggande resurs fält, specifikt resurs namn, ID, typ, resurs grupp, prenumeration och plats. Resource Manager tillhandahåller också anläggningar för att anropa enskilda resurs leverantörer för detaljerade egenskaper en resurs i taget.
 
-Du kan använda Azure Resource Graph för att få åtkomst till dessa egenskaper, och resursprovidrarna returnerar utan att behöva göra enskilda anrop till varje enskild resursprovider. For a list of supported resource types, look for a **Yes** in the [Resources for complete mode deployments](../../azure-resource-manager/complete-mode-deletion.md) table. Additional resource types are found in the related [Resource Graph tables](./concepts/query-language.md#resource-graph-tables). An alternative way to see supported resource types is through the [Azure Resource Graph Explorer Schema browser](./first-query-portal.md#schema-browser).
+Du kan använda Azure Resource Graph för att få åtkomst till dessa egenskaper, och resursprovidrarna returnerar utan att behöva göra enskilda anrop till varje enskild resursprovider. Om du vill ha en lista över resurs typer som stöds letar du upp **Ja** i tabellen [resurser för komplett läges distribution](../../azure-resource-manager/complete-mode-deletion.md) . Ytterligare resurs typer finns i de relaterade [resurs diagram tabellerna](./concepts/query-language.md#resource-graph-tables). Ett alternativt sätt att se resurs typer som stöds är via [schema läsaren i Azure Resource Graph Explorer](./first-query-portal.md#schema-browser).
 
-With Azure Resource Graph, you can:
+Med Azure Resource Graph kan du:
 
-- Access the properties returned by resource providers without needing to make individual calls to each resource provider.
-- View the last 14 days of change history made to the resource to see what properties changed and when. (förhandsversion)
+- Få åtkomst till egenskaperna som returneras av resurs leverantörer utan att behöva göra enskilda anrop till varje resurs leverantör.
+- Visa de senaste 14 dagarna i ändrings historiken som har gjorts till resursen för att se vilka egenskaper som har ändrats och när. (förhandsversion)
 
-## <a name="how-resource-graph-is-kept-current"></a>How Resource Graph is kept current
+## <a name="how-resource-graph-is-kept-current"></a>Hur resurs diagram hålls aktuellt
 
-When an Azure resource is updated, Resource Graph is notified by Resource Manager of the change.
-Resource Graph then updates its database. Resource Graph also does a regular _full scan_. This scan ensures that Resource Graph data is current if there are missed notifications or when a resource is updated outside of Resource Manager.
+När en Azure-resurs uppdateras, kommer resurs grafen att meddelas via resurs hanteraren för ändringen.
+Resurs diagram uppdaterar sedan sin databas. Resurs diagram utför också en vanlig _fullständig genomsökning_. Den här genomsökningen säkerställer att resurs diagram data är aktuella om det finns uteblivna meddelanden eller när en resurs uppdateras utanför Resource Manager.
 
 > [!NOTE]
-> Resource Graph uses a `GET` to the latest non-preview API of each resource provider to gather properties and values. As a result, the property expected may not be available. In some cases, the API version used has been overridden to provide more current or widely used properties in the results. See the [Show API version for each resource type](./samples/advanced.md#apiversion) sample for a complete list in your environment.
+> Resurs diagram använder en `GET` till det senaste API: t för för hands versionen av varje resurs leverantör för att samla in egenskaper och värden. Därför kanske den förväntade egenskapen inte är tillgänglig. I vissa fall har den API-version som används åsidosatts för att ge mer aktuella eller allmänt använda egenskaper i resultaten. I [Visa API-versionen för varje resurs typ](./samples/advanced.md#apiversion) exempel finns en fullständig lista i din miljö.
 
 ## <a name="the-query-language"></a>Frågespråket
 
-Now that you have a better understanding of what Azure Resource Graph is, let's dive into how to construct queries.
+Nu när du har en bättre förståelse för vad Azure Resource Graph är, ska vi ta en titt på hur du skapar frågor.
 
 Det är viktigt att förstå att Azure Resource Graph-frågespråket baseras på [Kusto-frågespråket](../../data-explorer/data-explorer-overview.md) som används av Azure Data Explorer.
 
@@ -60,35 +60,35 @@ Information om hur man söker efter resurser finns i [Utforska resurser](./conce
 Om du vill använda Resource Graph måste du ha rätt behörighet i [Rollbaserad åtkomstkontroll](../../role-based-access-control/overview.md) (RBAC) med minst läsbehörighet till de resurser som du vill fråga. Utan minst `read`-behörigheter för Azure-objektet eller -objektgruppen returneras inte resultat.
 
 > [!NOTE]
-> Resource Graph uses the subscriptions available to a principal during login. To see resources of a new subscription added during an active session, the principal must refresh the context. This action happens automatically when logging out and back in.
+> Resurs diagram använder de prenumerationer som är tillgängliga för ett huvud konto under inloggningen. Om du vill se resurser för en ny prenumeration som lagts till under en aktiv session måste huvud kontot uppdatera kontexten. Den här åtgärden sker automatiskt när du loggar ut och in igen.
 
-Azure CLI and Azure PowerShell use subscriptions that the user has access to. When using REST API directly, the subscription list is provided by the user. If the user has access to any of the subscriptions in the list, the query results are returned for the subscriptions the user has access to. This behavior is the same as when calling [Resource Groups - List](/rest/api/resources/resourcegroups/list) \- you get resource groups you've access to without any indication that the result may be partial.
-If there are no subscriptions in the subscription list that the user has appropriate rights to, the response is a _403_ (Forbidden).
+Azure CLI och Azure PowerShell använder prenumerationer som användaren har åtkomst till. När du använder REST API direkt tillhandahålls prenumerations listan av användaren. Om användaren har åtkomst till någon av prenumerationerna i listan returneras frågeresultaten för de prenumerationer som användaren har åtkomst till. Detta är detsamma som när du anropar [resurs grupper –](/rest/api/resources/resourcegroups/list) \- du får resurs grupper som du har åtkomst till utan att ange att resultatet kan vara delvis.
+Om det inte finns några prenumerationer i prenumerations listan som användaren har rätt behörighet till är svaret _403_ (förbjudet).
 
 ## <a name="throttling"></a>Begränsning
 
-As a free service, queries to Resource Graph are throttled to provide the best experience and response time for all customers. If your organization wants to use the Resource Graph API for large-scale and frequent queries, use portal 'Feedback' from the [Resource Graph portal page](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/ResourceGraph).
-Provide your business case and select the 'Microsoft can email you about your feedback' checkbox in order for the team to contact you.
+Som en kostnads fri tjänst begränsas frågor till resurs diagram för att ge bästa möjliga upplevelse och svars tid för alla kunder. Om din organisation vill använda resurs Graph API för storskaliga och frekventa frågor använder du portalen feedback från [Portal sidan resurs diagram](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/ResourceGraph).
+Ange ditt affärs ärende och markera kryss rutan Microsoft kan skicka e-post om din feedback för att teamet ska kontakta dig.
 
-Resource Graph throttles queries at the user level. The service response contains the following HTTP headers:
+Resurs diagram begränsar frågor på användar nivå. Tjänst svaret innehåller följande HTTP-huvuden:
 
-- `x-ms-user-quota-remaining` (int): The remaining resource quota for the user. This value maps to query count.
-- `x-ms-user-quota-resets-after` (hh:mm:ss): The time duration until a user's quota consumption is reset
+- `x-ms-user-quota-remaining` (int): den återstående resurs kvoten för användaren. Det här värdet mappar till antal frågor.
+- `x-ms-user-quota-resets-after` (hh: mm: SS): tids perioden tills en användares kvot förbrukning återställs
 
-For more information, see [Guidance for throttled requests](./concepts/guidance-for-throttled-requests.md).
+Mer information finns i [rikt linjer för begränsade begär Anden](./concepts/guidance-for-throttled-requests.md).
 
 ## <a name="running-your-first-query"></a>Kör din första fråga
 
-Azure Resource Graph Explorer, part of Azure portal, enables running Resource Graph queries directly in Azure portal. Pin the results as dynamic charts to provide real-time dynamic information to your portal workflow. For more information, see [First query with Azure Resource Graph Explorer](first-query-portal.md).
+Azure Resource Graph Explorer, som är en del av Azure Portal, aktiverar resurs diagram frågor direkt i Azure Portal. Fäst resultaten som dynamiska diagram för att tillhandahålla dynamisk information i real tid till ditt Portal arbets flöde. Mer information finns i [första frågan med Azure Resource Graph Explorer](first-query-portal.md).
 
-Resource Graph supports Azure CLI, Azure PowerShell, Azure SDK for .NET, and more. The query is structured the same for each language. Learn how to enable Resource Graph with:
+Resurs diagram stöder Azure CLI, Azure PowerShell, Azure SDK för .NET och mer. Frågan är strukturerad samma för varje språk. Lär dig hur du aktiverar resurs diagram med:
 
-- [Azure portal and Resource Graph Explorer](first-query-portal.md) 
+- [Azure Portal och resurs diagram Utforskaren](first-query-portal.md) 
 - [Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension)
 - [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Run your first query by using the [Azure portal](first-query-portal.md).
-- Run your first query with [Azure CLI](first-query-azurecli.md).
-- Run your first query with [Azure PowerShell](first-query-powershell.md).
+- Kör din första fråga med hjälp av [Azure Portal](first-query-portal.md).
+- Kör din första fråga med [Azure CLI](first-query-azurecli.md).
+- Kör din första fråga med [Azure PowerShell](first-query-powershell.md).

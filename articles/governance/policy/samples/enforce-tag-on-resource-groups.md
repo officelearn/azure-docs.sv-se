@@ -1,6 +1,6 @@
 ---
-title: Sample - Enforce tag and value on resource groups
-description: This sample policy definition requires a tag and a value defined in a parameter on a resource group.
+title: Exempel – framtvinga tagg och värde i resurs grupper
+description: Den här exempel princip definitionen kräver en tagg och ett värde som definierats i en parameter i en resurs grupp.
 ms.date: 01/31/2019
 ms.topic: sample
 ms.openlocfilehash: d04c48e2633e1a23990723c91a66cf8ec219b160
@@ -19,7 +19,7 @@ Du kan distribuera det här exemplet med hjälp av:
 - [Azure Portal](#azure-portal)
 - [Azure PowerShell](#azure-powershell)
 - [Azure CLI](#azure-cli)
-- [REST API](#rest-api)
+- [REST-API](#rest-api)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -48,8 +48,8 @@ Det JSON som definierar principparametrarna, som används av Azure CLI och Azure
 
 |Namn |Typ |Fält |Beskrivning |
 |---|---|---|---|
-|tagName |Sträng |tags |Namnet på taggen, till exempel costCenter (kostnadsställe)|
-|tagValue |Sträng |tags |Taggens värde, till exempel headquarter (huvudkontor)|
+|tagName |Sträng |taggar |Namnet på taggen, till exempel costCenter (kostnadsställe)|
+|tagValue |Sträng |taggar |Taggens värde, till exempel headquarter (huvudkontor)|
 
 När du skapar en tilldelning via PowerShell eller Azure CLI går det att skicka parametervärdena som JSON antingen i en sträng eller via en fil med hjälp av `-PolicyParameter` (PowerShell) eller `--params` (Azure CLI).
 PowerShell stödjer även `-PolicyParameterObject`, vilket kräver att det till cmdlet skickas en Name/Value-hashtabell där **Name** (Namn) är parameternamnet och **Value** (Värde) är det enskilda värde eller den matris med värden som skickas under tilldelningen.
@@ -67,10 +67,10 @@ I den här exempelparametern definieras _tagName_ **costCenter** och _tagValue_ 
 }
 ```
 
-## <a name="azure-portal"></a>Azure portal
+## <a name="azure-portal"></a>Azure Portal
 
-[![Deploy the Policy sample to Azure](../media/deploy/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FResourceGroup%2Fenforce-resourceGroup-tags%2Fazurepolicy.json)
-[![Deploy the Policy sample to Azure Gov](../media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FResourceGroup%2Fenforce-resourceGroup-tags%2Fazurepolicy.json)
+[![distribuera princip exemplet till azure](../media/deploy/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FResourceGroup%2Fenforce-resourceGroup-tags%2Fazurepolicy.json)
+[![distribuera princip exemplet till Azure gov](../media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FResourceGroup%2Fenforce-resourceGroup-tags%2Fazurepolicy.json)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -106,7 +106,7 @@ Remove-AzPolicyDefinition -Id $definition.ResourceId
 
 ### <a name="azure-powershell-explanation"></a>Azure PowerShell-förklaring
 
-Skripten för distribution och borttagning använder följande kommandon. Varje kommando i följande tabell länkar till kommandospecifik dokumentation:
+Skripten för distribution och borttagning använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation:
 
 | Kommando | Anteckningar |
 |---|---|

@@ -1,7 +1,7 @@
 ---
-title: Edit a knowledge base - QnA Maker
+title: Redigera en kunskapsbas - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: QnA Maker allows you to manage the content of your knowledge base by providing an easy-to-use editing experience.
+description: QnA Maker kan du hantera innehållet i kunskapsbasen genom att tillhandahålla en enkel att använda redigering upplevelse.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -18,92 +18,92 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74326789"
 ---
-# <a name="edit-a-knowledge-base-in-qna-maker"></a>Edit a knowledge base in QnA Maker
+# <a name="edit-a-knowledge-base-in-qna-maker"></a>Redigera en kunskapsbas i QnA Maker
 
-QnA Maker allows you to manage the content of your knowledge base by providing an easy-to-use editing experience.
+QnA Maker kan du hantera innehållet i kunskapsbasen genom att tillhandahålla en enkel att använda redigering upplevelse.
 
 <a name="add-datasource"></a>
 
-## <a name="edit-your-knowledge-base-content"></a>Edit your knowledge base content
+## <a name="edit-your-knowledge-base-content"></a>Redigera din kunskapsbas-innehåll
 
-1.  Select **My knowledge bases** in the top navigation bar. 
+1.  Välj **Mina kunskaps banker** i det övre navigerings fältet. 
 
-    You can see all the services you created or shared with you sorted in the descending order of the **last modified** date.
+    Du kan se alla tjänster som du har skapat eller delat med sorterade i fallande ordning efter **senaste ändrings** datum.
 
-    ![My Knowledge Bases](../media/qnamaker-how-to-edit-kb/my-kbs.png)
+    ![Min kunskapsbaser](../media/qnamaker-how-to-edit-kb/my-kbs.png)
 
-1. Select a particular knowledge base to make edits to it.
+1. Välj en viss kunskapsbas kan göra ändringar i den.
  
-1. Select **Settings**. Here you can edit mandatory field Service Name.
+1. Välj **Inställningar**. Här kan du redigera obligatoriskt fält tjänstnamn.
   
     |Mål|Åtgärd|
     |--|--|
-    |Add URL|You can add new URLs to add new FAQ content to Knowledge base by clicking **Manage knowledge base -> '+ Add URL'** link.|
-    |Delete URL|You can delete existing URLs by selecting the delete icon, the trash can.|
-    |Refresh content|If you want your knowledge base to crawl the latest content of existing URLs, select the **Refresh** checkbox. This will update the knowledge base with latest URL content once. This is not setting a regular schedule of updates.|
-    |Add file|You can add a supported file document to be part of a knowledge base, by selecting **Manage knowledge base**, then selecting **+ Add File**|
-    |Importera|You can also import any existing knowledge base by selecting **Ímport Knowledge base** button. |
-    |Uppdatera|Updating of knowledge base depends on **management pricing tier** used while creating QnA Maker service associated with your knowledge base. You can also update the management tier from Azure portal if required.
+    |Lägg till webbadress|Du kan lägga till nya URL: er för att lägga till nya FAQ-innehåll i kunskaps basen genom att klicka på **Hantera kunskaps bas-> ' + Lägg till URL '**|
+    |Ta bort URL|Du kan ta bort befintliga webbadresser genom att välja ikonen Ta bort, kan Papperskorgen.|
+    |Uppdatera innehåll|Om du vill att din kunskaps bas ska crawla det senaste innehållet i befintliga webb adresser markerar du kryss rutan **Uppdatera** . Detta uppdaterar kunskaps basen med senaste URL-innehåll en gång. Detta ställer inte in ett regelbundet uppdaterings schema.|
+    |Lägg till fil|Du kan lägga till ett fil dokument som stöds som en del av en kunskaps bas genom att välja **Hantera kunskaps bas**och sedan välja **+ Lägg till fil**|
+    |Importera|Du kan också importera en befintlig kunskaps bas genom att välja **Ímport Knowledge Base** -knapp. |
+    |Uppdatering|Uppdatering av kunskaps basen beror på vilken **hanterings pris nivå** som används när du skapar QNA Maker tjänst som är kopplad till din kunskaps bas. Du kan också uppdatera hanteringsnivån från Azure-portalen om det behövs.
 
-1. Once you are done making changes to the knowledge base, select **Save and train** in the top right corner of the page in order to persist the changes.    
+1. När du är klar med att göra ändringar i kunskaps basen väljer du **Spara och träna** i det övre högra hörnet på sidan för att spara ändringarna.    
 
-    ![Save and Train](../media/qnamaker-how-to-edit-kb/save-and-train.png)
+    ![Spara och träna](../media/qnamaker-how-to-edit-kb/save-and-train.png)
 
     >[!CAUTION]
-    >If you leave the page before selecting **Save and train**, all changes will be lost.
+    >Om du lämnar sidan innan du väljer **Spara och träna**, kommer alla ändringar att gå förlorade.
 
 ## <a name="add-a-qna-pair"></a>Lägga till par med fråga och svar
 
-On the **EDIT** page, select **Add QnA pair** to add a new row to the knowledge base table.
+På sidan **Redigera** väljer du **Lägg till QNA-par** för att lägga till en ny rad i kunskaps bas tabellen.
 
-![Add QnA pair](../media/qnamaker-how-to-edit-kb/add-qnapair.png)
+![Lägg till frågor och svar om par](../media/qnamaker-how-to-edit-kb/add-qnapair.png)
 
-## <a name="delete-a-qna-pair"></a>Delete a QnA pair
+## <a name="delete-a-qna-pair"></a>Ta bort ett par frågor och svar
 
-To delete a QnA, click the **delete** icon on the far right of the QnA row. This is a permanent operation. It can't be undone. Consider exporting your KB from the **Publish** page before deleting pairs. 
+Om du vill ta bort en QnA klickar du på ikonen **ta bort** längst till höger på raden QNA. Det här är en permanent åtgärd. Det går inte att ångra. Överväg att exportera dina KB från sidan **publicera** innan du tar bort par. 
 
-![Delete QnA pair](../media/qnamaker-how-to-edit-kb/delete-qnapair.png)
+![Ta bort frågor och svar om par](../media/qnamaker-how-to-edit-kb/delete-qnapair.png)
 
-## <a name="add-alternate-questions"></a>Add alternate questions
+## <a name="add-alternate-questions"></a>Lägga till alternativa frågor
 
-Add alternate questions to an existing QnA pair to improve the likelihood of a match to a user query.
+Lägg till alternativa frågor i ett befintligt nyckelpar med frågor och svar om att förbättra sannolikheten för en matchning för att en användarfråga.
 
-![Add Alternate Questions](../media/qnamaker-how-to-edit-kb/add-alternate-question.png)
+![Lägga till alternativa frågor](../media/qnamaker-how-to-edit-kb/add-alternate-question.png)
 
-## <a name="add-metadata"></a>Add metadata
+## <a name="add-metadata"></a>lägga till metadata
 
-Add metadata pairs by first selecting **View options**, then selecting **Show metadata**. This displays the metadata column. Next, select the **+** sign to add a metadata pair. This pair consists of one key and one value.
+Lägg till metadata-par genom att först välja **visnings alternativ**och sedan välja **Visa metadata**. Kolumnen metadata visas. Välj sedan **+** signera för att lägga till ett metadata-par. Det här paret består av en nyckel och ett värde.
 
-![Add Metadata](../media/qnamaker-how-to-edit-kb/add-metadata.png)
+![Lägga till Metadata](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 
 > [!TIP]
-> Make sure to periodically Save and train the knowledge base after making edits to avoid losing changes.
+> Se till att regelbundet spara och tränar kunskapsbasen när du har gjort ändringar för att undvika att förlora ändringar.
 
-## <a name="manage-large-knowledge-bases"></a>Manage large knowledge bases
+## <a name="manage-large-knowledge-bases"></a>Hantera stora kunskapsbaser
 
-* **Data source groups**: The QnAs are grouped by the data source from which they were extracted. You can expand or collapse the data source.
+* **Data käll grupper**: kring grupperas efter den data källa som de extraherades från. Du kan visa eller dölja datakällan.
 
-    ![Use the QnA Maker data source bar to collapse and expand data source questions and answers](../media/qnamaker-how-to-edit-kb/data-source-grouping.png)
+    ![Använd QnA Maker data källans fält för att komprimera och expandera frågor och svar för data källor](../media/qnamaker-how-to-edit-kb/data-source-grouping.png)
 
-* **Search knowledge base**: You can search the knowledge base by typing in the text box at the top of the Knowledge Base table. Click enter to search on the question, answer, or metadata content. Click on the X icon to remove the search filter.
+* **Sök i kunskaps basen**: du kan söka i kunskaps basen genom att skriva i text rutan längst upp i tabellen kunskaps bas. Klicka på Ange om du vill söka i fråga, svar eller metadata för innehållet. Klicka på X-ikonen Ta bort sökrutan filtrera.
 
-    ![Use the QnA Maker search box above the questions and answers to reduce the view to only filter-matching items](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
+    ![Använd sökrutan QnA Maker ovanför frågorna och Svaren för att minska vyn till enbart filter matchnings objekt](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
 
-* **Pagination**: Quickly move through data sources to manage large knowledge bases
+* **Sid brytning**: flytta snabbt genom data källor för att hantera stora kunskaps baser
 
-    ![Use the QnA Maker pagination features above the questions and answers to move through pages of questions and answers](../media/qnamaker-how-to-edit-kb/pagination.png)
+    ![Använd QnA Maker sid brytnings funktioner ovanför frågorna och Svaren för att flytta genom sidor med frågor och svar](../media/qnamaker-how-to-edit-kb/pagination.png)
 
-## <a name="delete-knowledge-bases"></a>Delete knowledge bases
+## <a name="delete-knowledge-bases"></a>Ta bort kunskapsbaser
 
-Deleting a knowledge base (KB) is a permanent operation. It can't be undone. Before deleting a knowledge base, you should export the knowledge base from the **Settings** page of the QnA Maker portal. 
+Tar bort en knowledge base (KB) är en permanent åtgärd. Det går inte att ångra. Innan du tar bort en kunskaps bas bör du exportera kunskaps basen från sidan **Inställningar** i QNA Maker portalen. 
 
-If you share your KB with [collaborators](collaborate-knowledge-base.md) then delete it, everyone loses access to the KB. 
+Om du delar dina KB med [medarbetare](collaborate-knowledge-base.md) tar du bort det och alla förlorar åtkomsten till KB. 
 
 ## <a name="delete-azure-resources"></a>Ta bort Azure-resurser 
 
-If you delete any of the Azure resources used for your QnA Maker knowledge bases, the knowledge bases will no longer function. Before deleting any resources, make sure you export your knowledge bases from the **Settings** page. 
+Om du tar bort någon av de Azure-resurser används för kunskapsbaser din QnA Maker fungerar inte längre kunskapsbaser. Innan du tar bort några resurser bör du kontrol lera att du exporterar dina kunskaps baser från sidan **Inställningar** . 
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Collaborate on a knowledge base](./collaborate-knowledge-base.md)
+> [Samar beta i en kunskaps bas](./collaborate-knowledge-base.md)

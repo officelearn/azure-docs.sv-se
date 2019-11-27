@@ -1,6 +1,6 @@
 ---
-title: Deploy modules from Azure portal - Azure IoT Edge | Microsoft Docs
-description: Use the Azure portal to deploy modules to an IoT Edge device
+title: Distribuera moduler från Azure portal – Azure IoT Edge | Microsoft Docs
+description: Använd Azure-portalen för att distribuera moduler till en IoT Edge-enhet
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -16,96 +16,96 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74457437"
 ---
-# <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Deploy Azure IoT Edge modules from the Azure portal
+# <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Distribuera Azure IoT Edge-moduler från Azure portal
 
-Once you create IoT Edge modules with your business logic, you want to deploy them to your devices to operate at the edge. If you have multiple modules that work together to collect and process data, you can deploy them all at once and declare the routing rules that connect them.
+När du skapar IoT Edge moduler med din affärslogik som du vill distribuera dem till dina enheter att fungera på gränsen. Om du har flera moduler som arbetar tillsammans för att samla in och bearbeta data kan du distribuera dem på en gång och deklarera routningsregler som förenar dem.
 
-This article shows how the Azure portal guides you through creating a deployment manifest and pushing the deployment to an IoT Edge device. For information about creating a deployment that targets multiple devices based on their shared tags, see [Deploy and monitor IoT Edge modules at scale](how-to-deploy-monitor.md)
+Den här artikeln visar hur Azure-portalen visar hur du skapar ett manifest för distribution och skicka distributionen till en IoT Edge-enhet. Information om hur du skapar en distribution som riktar sig till flera enheter baserat på deras delade taggar finns i [distribuera och övervaka IoT Edge moduler i skala](how-to-deploy-monitor.md)
 
 ## <a name="prerequisites"></a>Krav
 
-* An [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in your Azure subscription.
-* An [IoT Edge device](how-to-register-device.md#register-in-the-azure-portal) with the IoT Edge runtime installed.
+* En [IoT-hubb](../iot-hub/iot-hub-create-through-portal.md) i din Azure-prenumeration.
+* En [IoT Edge-enhet](how-to-register-device.md#register-in-the-azure-portal) med IoT Edge runtime installerad.
 
-## <a name="select-your-device"></a>Select your device
+## <a name="select-your-device"></a>Välj din enhet
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
-1. Select **IoT Edge** from the menu.
-1. Click on the ID of the target device from the list of devices.
+1. Logga in på [Azure Portal](https://portal.azure.com) och navigera till din IoT-hubb.
+1. Välj **IoT Edge** på menyn.
+1. Klicka på ID för målenhet i listan över enheter.
 1. Välj **Ange moduler**.
 
-## <a name="configure-a-deployment-manifest"></a>Configure a deployment manifest
+## <a name="configure-a-deployment-manifest"></a>Konfigurera ett manifest för distribution
 
-A deployment manifest is a JSON document that describes which modules to deploy, how data flows between the modules, and desired properties of the module twins. For more information about how deployment manifests work and how to create them, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
+Ett manifest för distribution är ett JSON-dokument som beskriver vilka moduler för att distribuera, hur data flödar mellan moduler och önskade egenskaper för modultvillingar. Mer information om hur distributions manifest fungerar och hur du skapar dem finns i [förstå hur IoT Edge moduler kan användas, konfigureras och återanvändas](module-composition.md).
 
-The Azure portal has a wizard that walks you through creating the deployment manifest, instead of building the JSON document manually. It has three steps: **Add modules**, **Specify routes**, and **Review deployment**.
+Azure-portalen har en guide som visar hur du skapar distributionen manifestet, i stället för att skapa JSON-dokumentet manuellt. Det finns tre steg: **Lägg till moduler**, **Ange vägar**och **Granska distribution**.
 
-### <a name="add-modules"></a>Add modules
+### <a name="add-modules"></a>Lägg till moduler
 
-1. In the **Container Registry Settings** section of the page, provide the credentials to access any private container registries that contain your module images.
+1. I avsnittet **container Registry inställningar** på sidan anger du autentiseringsuppgifterna för åtkomst till alla privata behållar register som innehåller dina modulblad.
 
-1. In the **Deployment Modules** section of the page, select **Add**.
+1. I avsnittet **distributions moduler** på sidan väljer du **Lägg till**.
 
-1. Look at the types of modules from the drop-down list:
+1. Titta på typerna av moduler från den nedrullningsbara listan:
 
-   * **IoT Edge Module** - the default option.
-   * **Azure Stream Analytics Module** - only modules generated from an Azure Stream Analytics workload.
-   * **Azure Machine Learning Module** - only model images generated from an Azure Machine Learning workspace.
+   * **IoT Edge modul** – standard alternativet.
+   * **Azure Stream Analytics modulbaserade** moduler som genereras från en Azure Stream Analytics arbets belastning.
+   * **Azure Machine Learning modul** – endast modell avbildningar som genereras från en Azure Machine Learning arbets yta.
 
-1. Select the **IoT Edge Module**.
+1. Välj **IoT Edge-modulen**.
 
-1. Provide a name for the module, then specify the container image. Exempel:
+1. Ange ett namn för modulen och sedan ange behållaravbildningen. Till exempel:
 
-   * **Name** - SimulatedTemperatureSensor
-   * **Image URI** - mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
+   * **Namn** – SimulatedTemperatureSensor
+   * **Avbildnings-URI** – MCR.Microsoft.com/azureiotedge-Simulated-temperature-sensor:1.0
 
-1. Fill out the optional fields if necessary. For more information about container create options, restart policy, and desired status see [EdgeAgent desired properties](module-edgeagent-edgehub.md#edgeagent-desired-properties). For more information about the module twin see [Define or update desired properties](module-composition.md#define-or-update-desired-properties).
+1. Fyll i valfritt fält om det behövs. För ytterligare information om behållar skapande alternativ, starta om princip och önskad status, se [EdgeAgent önskade egenskaper](module-edgeagent-edgehub.md#edgeagent-desired-properties). Mer information om modulen finns i [definiera eller uppdatera önskade egenskaper](module-composition.md#define-or-update-desired-properties).
 
 1. Välj **Spara**.
 
-1. Repeat steps 2-6 to add additional modules to your deployment.
+1. Upprepa steg 2 till 6 för att lägga till ytterligare moduler för din distribution.
 
-1. Select **Next** to continue to the routes section.
+1. Välj **Nästa** för att fortsätta till avsnittet vägar.
 
-### <a name="specify-routes"></a>Specify routes
+### <a name="specify-routes"></a>Ange vägar
 
-By default the wizard gives you a route called **route** and defined as **FROM /* INTO $upstream**, which means that any messages output by any modules are sent to your IoT hub.  
+Som standard ger guiden en väg som kallas **väg** och definieras som **från/* till $upstream * *, vilket innebär att alla meddelanden som skickas av alla moduler skickas till din IoT-hubb.  
 
-Add or update the routes with information from [Declare routes](module-composition.md#declare-routes), then select **Next** to continue to the review section.
+Lägg till eller uppdatera vägarna med information från [deklarera vägar](module-composition.md#declare-routes), och välj sedan **Nästa** för att fortsätta till gransknings avsnittet.
 
-### <a name="review-deployment"></a>Review deployment
+### <a name="review-deployment"></a>Granska distribution
 
-The review section shows you the JSON deployment manifest that was created based on your selections in the previous two sections. Note that there are two modules declared that you didn't add: **$edgeAgent** and **$edgeHub**. These two modules make up the [IoT Edge runtime](iot-edge-runtime.md) and are required defaults in every deployment.
+Granska avsnittet visas i du JSON-distributionen manifest som har skapats baserat på dina val i de föregående två avsnitt. Observera att det finns två moduler som har deklarerats att du inte har lagt till: **$edgeAgent** och **$edgeHub**. Dessa två moduler utgör den [IoT Edge körningen](iot-edge-runtime.md) och måste vara standardvärden i varje distribution.
 
-Review your deployment information, then select **Submit**.
+Granska distributions informationen och välj sedan **Skicka**.
 
-## <a name="view-modules-on-your-device"></a>View modules on your device
+## <a name="view-modules-on-your-device"></a>Visa moduler på enheten
 
-Once you've deployed modules to your device, you can view all of them in the **Device details** page of the portal. This page displays the name of each deployed module, as well as useful information like the deployment status and exit code.
+När du har distribuerat moduler till din enhet kan du Visa alla på **enhets informations** sidan i portalen. Den här sidan visar namnet på varje distribuerade modulen, samt användbar information som distribution status och avsluta kod.
 
-## <a name="deploy-modules-from-azure-marketplace"></a>Deploy modules from Azure Marketplace
+## <a name="deploy-modules-from-azure-marketplace"></a>Distribuera moduler från Azure Marketplace
 
-Azure Marketplace is an online applications and services marketplace where you can browse through a wide range of enterprise applications and solutions that are certified and optimized to run on Azure, including [IoT Edge modules](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). Azure Marketplace can also be accessed through the Azure portal under **Create a Resource**.
+Azure Marketplace är ett online-program och tjänster för tjänster där du kan bläddra igenom en rad olika företags program och-lösningar som är certifierade och optimerade för att köras på Azure, inklusive [IoT Edge moduler](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). Azure Marketplace kan också nås via Azure Portal under **skapa en resurs**.
 
-You can install an IoT Edge module from either Azure Marketplace or the Azure portal:
+Du kan installera en IoT Edge modul från antingen Azure Marketplace eller Azure Portal:
 
-1. Find a module and begin the deployment process.
+1. Hitta en modul och påbörja distributions processen.
 
-   * Azure portal: Find a module and select **Create**.
+   * Azure Portal: Leta reda på en modul och välj **skapa**.
 
    * Azure Marketplace:
 
-     1. Find a module and select **Get it now**.
-     1. Acknowledge the provider's terms of use and privacy policy by selecting **Continue**.
+     1. Hitta en modul och välj **Hämta den nu**.
+     1. Bekräfta providerns användnings villkor och sekretess policy genom att välja **Fortsätt**.
 
-1. Choose your subscription and the IoT Hub to which the target device is attached.
+1. Välj din prenumeration och den IoT Hub som mål enheten är ansluten till.
 
-1. Choose **Deploy to a device**.
+1. Välj **distribuera till en enhet**.
 
-1. Enter the name of the device or select **Find Device** to browse among the devices registered with the hub.
+1. Ange namnet på enheten eller Välj **hitta enhet** för att bläddra bland de enheter som är registrerade i hubben.
 
-1. Select **Create** to continue the standard process of configuring a deployment manifest, including adding other modules if desired. Details for the new module such as image URI, create options, and desired properties are predefined but can be changed.
+1. Välj **skapa** för att fortsätta med standard processen att konfigurera ett distributions manifest, inklusive att lägga till andra moduler om du vill. Information om den nya modulen, till exempel bild-URI, skapa alternativ och önskade egenskaper är fördefinierade, men kan ändras.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Learn how to [Deploy and monitor IoT Edge modules at scale](how-to-deploy-monitor.md)
+Lär dig hur du [distribuerar och övervakar IoT Edge moduler i stor skala](how-to-deploy-monitor.md)

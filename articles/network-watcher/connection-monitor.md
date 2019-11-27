@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Monitor network communication using the Azure portal
-description: In this tutorial, learn how to monitor network communication between two virtual machines with Azure Network Watcher's connection monitor capability.
+title: Självstudie – övervaka nätverkskommunikation med hjälp av Azure Portal
+description: I den här självstudien får du lära dig hur du övervakar nätverkskommunikation mellan två virtuella datorer med Azure Network Watchers funktion för anslutnings övervakning.
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -25,7 +25,7 @@ ms.locfileid: "74419689"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Självstudie: Övervaka nätverkskommunikationen mellan två virtuella datorer i Azure Portal
 
-Det kan vara mycket viktigt att kommunikationen mellan en virtuell dator (VM) och en slutpunkt, som en annan virtuell dator, fungerar ordentligt. Ibland görs konfigurationsändringar som kan bryta kommunikationen. I den här guiden får du lära dig att:
+Det kan vara mycket viktigt att kommunikationen mellan en virtuell dator (VM) och en slutpunkt, som en annan virtuell dator, fungerar ordentligt. Ibland görs konfigurationsändringar som kan bryta kommunikationen. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa två virtuella datorer
@@ -37,9 +37,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
-## <a name="create-vms"></a>Skapa virtuella datorer
+## <a name="create-vms"></a>Skapa VM:ar
 
 Skapa två virtuella datorer.
 
@@ -77,7 +77,7 @@ Utför stegen i [Skapa den första virtuella datorn](#create-the-first-vm) igen 
 | 3 | Namn                                  | myVm2                                                                   |
 | 3 | Autentiseringstyp                   | Klistra in den offentliga SSH-nyckeln eller välj **Lösenord** och ange ett lösenord. |
 | 3 | Resursgrupp                        | Välj **Använd befintlig** och sedan **myResourceGroup**.                 |
-| 6 | Tillägg                            | **Network Watcher Agent for Linux**                                             |
+| 6 | Tillägg                            | **Network Watcher agent för Linux**                                             |
 
 Det tar några minuter att distribuera den virtuella datorn. Vänta tills distributionen av den virtuella datorn är klar innan du fortsätter med nästa steg.
 
@@ -85,7 +85,7 @@ Det tar några minuter att distribuera den virtuella datorn. Vänta tills distri
 
 Skapa en anslutningsövervakare för övervakning av kommunikationen via TCP-port 22 från *myVm1* till *myVm2*.
 
-1. Välj **Alla tjänster** till vänster i portalen.
+1. Välj **Alla tjänster** till vänster på portalen.
 2. Börja skriva *network watcher* i **filterrutan**. När **Network Watcher** visas i sökresultatet väljer du posten.
 3. Under **ÖVERVAKNING** väljer du **Anslutningsövervakare**.
 4. Välj **+ Lägg till**.
@@ -115,7 +115,7 @@ Skapa en anslutningsövervakare för övervakning av kommunikationen via TCP-por
 
     Notera följande information:
 
-    | Objekt                     | Värde                      | Information                                                     |
+    | Objekt                     | Värde                      | Detaljer                                                     |
     | ---------                | ---------                  |--------                                                     |
     | Status                   | Nåbar                  | Visar om slutpunkten kan nås eller inte.|
     | GENOMSN. TIDSFÖRDRÖJNING          | Visar anslutningens tidsfördröjning i millisekunder. Anslutningsövervakaren söker av anslutningen var 60:e sekund så att du kan se svarstiderna över tid.                                         |
@@ -168,7 +168,7 @@ Som standard tillåter Azure kommunikation via alla portar mellan virtuella dato
 
 Ta bort resursgruppen, skalningsuppsättningen och alla resurser som den innehåller:
 
-1. Skriv *myResourceGroup* i rutan **Sök** högst upp i portalen. När du ser **myResourceGroup** i sökresultatet väljer du den.
+1. Skriv *myResourceGroup* i **sökrutan** överst i portalen. När du ser **myResourceGroup** i sökresultatet väljer du den.
 2. Välj **Ta bort resursgrupp**.
 3. Skriv *myResourceGroup* i **SKRIV RESURSGRUPPSNAMNET:** och välj **Ta bort**.
 

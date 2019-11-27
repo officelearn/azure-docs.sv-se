@@ -1,5 +1,5 @@
 ---
-title: Deploy VM extensions with template
+title: Distribuera VM-tillägg med mall
 description: Lär dig hur du distribuerar tillägg för virtuell dator med Azure Resource Manager-mallar
 author: mumian
 ms.date: 11/13/2018
@@ -31,7 +31,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 För att kunna följa stegen i den här artikeln behöver du:
 
-* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](./resource-manager-tools-vs-code.md).
+* Visual Studio Code med Resource Manager Tools-tillägg. [Skapa Azure Resource Manager mallar i använda Visual Studio Code](./resource-manager-tools-vs-code.md).
 * För att förbättra säkerheten bör du använda ett genererat lösenord för den virtuella datorns administratörskonto. Här är ett exempel för att generera ett lösenord:
 
     ```azurecli-interactive
@@ -42,7 +42,7 @@ För att kunna följa stegen i den här artikeln behöver du:
 
 ## <a name="prepare-a-powershell-script"></a>Förbereda ett PowerShell-skript
 
-A PowerShell script with the following content is shared from [Github](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1):
+Ett PowerShell-skript med följande innehåll delas från [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1):
 
 ```azurepowershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -100,19 +100,19 @@ Lägg till en resurs för tillägg för virtuell dator i den befintliga mallen m
 
 Mer information om den här resursdefinitionen finns i [tilläggsreferensen](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines/extensions). Här följer några viktiga element:
 
-* **name** (namn): eftersom tilläggsresursen är en underordnad resurs för det virtuella datorobjektet måste namnet ha den virtuella datorns namnprefix. See [Set name and type for child resources](child-resource-name-type.md).
-* **dependsOn**: Create the extension resource after you've created the virtual machine.
-* **fileUris**: The locations where the script files are stored. Om du väljer att inte använda den angivna platsen måste du uppdatera värdena.
-* **commandToExecute**: This command invokes the script.
+* **name** (namn): eftersom tilläggsresursen är en underordnad resurs för det virtuella datorobjektet måste namnet ha den virtuella datorns namnprefix. Se [Ange namn och typ för underordnade resurser](child-resource-name-type.md).
+* **dependsOn**: skapa tilläggs resursen när du har skapat den virtuella datorn.
+* **fileUris**: de platser där skriptfilerna lagras. Om du väljer att inte använda den angivna platsen måste du uppdatera värdena.
+* **commandToExecute**: det här kommandot anropar skriptet.
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
-For the deployment procedure, see the "Deploy the template" section of [Tutorial: Create Azure Resource Manager templates with dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). Du bör använda ett genererat lösenord för den virtuella datorns administratörskonto. Läs mer i avsnittet om [förutsättningar](#prerequisites) i den här artikeln.
+Information om distributions proceduren finns i avsnittet "distribuera mallen" i [Självstudier: skapa Azure Resource Manager mallar med beroende resurser](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). Du bör använda ett genererat lösenord för den virtuella datorns administratörskonto. Läs mer i avsnittet om [förutsättningar](#prerequisites) i den här artikeln.
 
 ## <a name="verify-the-deployment"></a>Verifiera distributionen
 
 1. Välj den virtuella datorn i Azure Portal.
-1. In the VM overview, copy the IP address by selecting **Click to copy**, and then paste it in a browser tab. The default Internet Information Services (IIS) welcome page opens:
+1. I översikten för den virtuella datorn kopierar du IP-adressen genom att välja **Klicka för att kopiera**och klistra in den i en webbläsare-flik. Välkomst sidan för standard Internet Information Services (IIS) öppnas:
 
 ![Välkomstsida för Internet Information Services](./media/resource-manager-tutorial-deploy-vm-extensions/resource-manager-template-deploy-extensions-customer-script-web-server.png)
 

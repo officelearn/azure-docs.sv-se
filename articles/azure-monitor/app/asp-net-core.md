@@ -107,7 +107,7 @@ Exemplet som vi ska använda här är en [MVC-app](https://docs.microsoft.com/as
 
     * `ApplicationInsights:InstrumentationKey`
 
-    Exempel:
+    Till exempel:
 
     * `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 

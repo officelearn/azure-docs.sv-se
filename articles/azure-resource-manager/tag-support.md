@@ -1,6 +1,6 @@
 ---
-title: Tag support for resources
-description: Shows which Azure resource types support tags. Provides details for all Azure services.
+title: Tagga stöd för resurser
+description: Visar vilka typer av Azure-resurs typer som stöder taggar. Innehåller information om alla Azure-tjänster.
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.openlocfilehash: 5b3e26d914887496eedde609404eaf0b380dbcc0
@@ -10,206 +10,206 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74422136"
 ---
-# <a name="tag-support-for-azure-resources"></a>Tag support for Azure resources
-This article describes whether a resource type supports [tags](resource-group-using-tags.md). The column labeled **Supports tags** indicates whether the resource type has a property for the tag. The column labeled **Tag in cost report** indicates whether that resource type passes the tag to the cost report. You can view costs by tags in the [Cost Management cost analysis](../cost-management/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) and the [Azure billing invoice and daily usage data](../billing/billing-download-azure-invoice-daily-usage-date.md).
+# <a name="tag-support-for-azure-resources"></a>Tagga stöd för Azure-resurser
+I den här artikeln beskrivs om en resurs typ stöder [taggar](resource-group-using-tags.md). Den kolumn som har etiketten **stöder Taggar** anger om resurs typen har en egenskap för taggen. Kolumnen med etiketten **tagg i Cost** visar om den resurs typen skickar taggen till kostnads rapporten. Du kan visa kostnader efter taggar i [Cost Management kostnads analys](../cost-management/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) och Azure- [faktura och användnings data per dag](../billing/billing-download-azure-invoice-daily-usage-date.md).
 
-To get the same data as a file of comma-separated values, download [tag-support.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/tag-support.csv).
+Hämta samma data som en fil med kommaavgränsade värden genom att ladda ned [tag-support. csv](https://github.com/tfitzmac/resource-capabilities/blob/master/tag-support.csv).
 
-Jump to a resource provider namespace:
+Hoppa till ett namn område för en resurs leverantör:
 > [!div class="op_single_selector"]
-> - [Microsoft.AAD](#microsoftaad)
-> - [Microsoft.Addons](#microsoftaddons)
-> - [Microsoft.ADHybridHealthService](#microsoftadhybridhealthservice)
-> - [Microsoft.Advisor](#microsoftadvisor)
-> - [Microsoft.AlertsManagement](#microsoftalertsmanagement)
-> - [Microsoft.AnalysisServices](#microsoftanalysisservices)
-> - [Microsoft.ApiManagement](#microsoftapimanagement)
-> - [Microsoft.AppConfiguration](#microsoftappconfiguration)
-> - [Microsoft.AppPlatform](#microsoftappplatform)
-> - [Microsoft.Attestation](#microsoftattestation)
+> - [Microsoft. AAD](#microsoftaad)
+> - [Microsoft. addons](#microsoftaddons)
+> - [Microsoft. ADHybridHealthService](#microsoftadhybridhealthservice)
+> - [Microsoft. Advisor](#microsoftadvisor)
+> - [Microsoft. AlertsManagement](#microsoftalertsmanagement)
+> - [Microsoft. AnalysisServices](#microsoftanalysisservices)
+> - [Microsoft. API Management](#microsoftapimanagement)
+> - [Microsoft. AppConfiguration](#microsoftappconfiguration)
+> - [Microsoft. AppPlatform](#microsoftappplatform)
+> - [Microsoft. attestering](#microsoftattestation)
 > - [Microsoft.Authorization](#microsoftauthorization)
-> - [Microsoft.Automation](#microsoftautomation)
-> - [Microsoft.Azconfig](#microsoftazconfig)
-> - [Microsoft.Azure.Geneva](#microsoftazuregeneva)
-> - [Microsoft.AzureActiveDirectory](#microsoftazureactivedirectory)
-> - [Microsoft.AzureData](#microsoftazuredata)
-> - [Microsoft.AzureStack](#microsoftazurestack)
-> - [Microsoft.Batch](#microsoftbatch)
-> - [Microsoft.Billing](#microsoftbilling)
-> - [Microsoft.BingMaps](#microsoftbingmaps)
-> - [Microsoft.Blockchain](#microsoftblockchain)
-> - [Microsoft.Blueprint](#microsoftblueprint)
-> - [Microsoft.BotService](#microsoftbotservice)
-> - [Microsoft.Cache](#microsoftcache)
-> - [Microsoft.Capacity](#microsoftcapacity)
-> - [Microsoft.Cdn](#microsoftcdn)
-> - [Microsoft.CertificateRegistration](#microsoftcertificateregistration)
-> - [Microsoft.ClassicCompute](#microsoftclassiccompute)
-> - [Microsoft.ClassicInfrastructureMigrate](#microsoftclassicinfrastructuremigrate)
-> - [Microsoft.ClassicNetwork](#microsoftclassicnetwork)
-> - [Microsoft.ClassicStorage](#microsoftclassicstorage)
-> - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
-> - [Microsoft.Commerce](#microsoftcommerce)
-> - [Microsoft.Compute](#microsoftcompute)
-> - [Microsoft.Consumption](#microsoftconsumption)
-> - [Microsoft.ContainerInstance](#microsoftcontainerinstance)
-> - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
-> - [Microsoft.ContainerService](#microsoftcontainerservice)
-> - [Microsoft.CortanaAnalytics](#microsoftcortanaanalytics)
-> - [Microsoft.CostManagement](#microsoftcostmanagement)
-> - [Microsoft.CustomerLockbox](#microsoftcustomerlockbox)
-> - [Microsoft.CustomProviders](#microsoftcustomproviders)
-> - [Microsoft.DataBox](#microsoftdatabox)
-> - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
-> - [Microsoft.Databricks](#microsoftdatabricks)
-> - [Microsoft.DataCatalog](#microsoftdatacatalog)
-> - [Microsoft.DataFactory](#microsoftdatafactory)
-> - [Microsoft.DataLakeAnalytics](#microsoftdatalakeanalytics)
-> - [Microsoft.DataLakeStore](#microsoftdatalakestore)
-> - [Microsoft.DataMigration](#microsoftdatamigration)
-> - [Microsoft.DataShare](#microsoftdatashare)
-> - [Microsoft.DBforMariaDB](#microsoftdbformariadb)
-> - [Microsoft.DBforMySQL](#microsoftdbformysql)
-> - [Microsoft.DBforPostgreSQL](#microsoftdbforpostgresql)
-> - [Microsoft.DeploymentManager](#microsoftdeploymentmanager)
-> - [Microsoft.DesktopVirtualization](#microsoftdesktopvirtualization)
-> - [Microsoft.Devices](#microsoftdevices)
-> - [Microsoft.DevOps](#microsoftdevops)
-> - [Microsoft.DevSpaces](#microsoftdevspaces)
-> - [Microsoft.DevTestLab](#microsoftdevtestlab)
-> - [Microsoft.DocumentDB](#microsoftdocumentdb)
-> - [Microsoft.DomainRegistration](#microsoftdomainregistration)
-> - [Microsoft.DynamicsLcs](#microsoftdynamicslcs)
-> - [Microsoft.EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
-> - [Microsoft.EventGrid](#microsofteventgrid)
-> - [Microsoft.EventHub](#microsofteventhub)
-> - [Microsoft.Features](#microsoftfeatures)
-> - [Microsoft.Gallery](#microsoftgallery)
-> - [Microsoft.Genomics](#microsoftgenomics)
-> - [Microsoft.GuestConfiguration](#microsoftguestconfiguration)
-> - [Microsoft.HanaOnAzure](#microsofthanaonazure)
-> - [Microsoft.HardwareSecurityModules](#microsofthardwaresecuritymodules)
-> - [Microsoft.HDInsight](#microsofthdinsight)
-> - [Microsoft.HealthcareApis](#microsofthealthcareapis)
-> - [Microsoft.HybridCompute](#microsofthybridcompute)
-> - [Microsoft.HybridData](#microsofthybriddata)
-> - [Microsoft.Hydra](#microsofthydra)
-> - [Microsoft.ImportExport](#microsoftimportexport)
-> - [Microsoft.Intune](#microsoftintune)
-> - [Microsoft.IoTCentral](#microsoftiotcentral)
-> - [Microsoft.IoTSpaces](#microsoftiotspaces)
-> - [Microsoft.KeyVault](#microsoftkeyvault)
-> - [Microsoft.Kusto](#microsoftkusto)
-> - [Microsoft.LabServices](#microsoftlabservices)
-> - [Microsoft.Logic](#microsoftlogic)
-> - [Microsoft.MachineLearning](#microsoftmachinelearning)
-> - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
-> - [Microsoft.ManagedIdentity](#microsoftmanagedidentity)
-> - [Microsoft.ManagedServices](#microsoftmanagedservices)
-> - [Microsoft.Management](#microsoftmanagement)
-> - [Microsoft.Maps](#microsoftmaps)
-> - [Microsoft.Marketplace](#microsoftmarketplace)
-> - [Microsoft.MarketplaceApps](#microsoftmarketplaceapps)
-> - [Microsoft.MarketplaceOrdering](#microsoftmarketplaceordering)
-> - [Microsoft.Media](#microsoftmedia)
-> - [Microsoft.Microservices4Spring](#microsoftmicroservices4spring)
-> - [Microsoft.Migrate](#microsoftmigrate)
-> - [Microsoft.MixedReality](#microsoftmixedreality)
-> - [Microsoft.NetApp](#microsoftnetapp)
-> - [Microsoft.Network](#microsoftnetwork)
-> - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
-> - [Microsoft.ObjectStore](#microsoftobjectstore)
-> - [Microsoft.OffAzure](#microsoftoffazure)
-> - [Microsoft.OperationalInsights](#microsoftoperationalinsights)
-> - [Microsoft.OperationsManagement](#microsoftoperationsmanagement)
-> - [Microsoft.Peering](#microsoftpeering)
+> - [Microsoft. Automation](#microsoftautomation)
+> - [Microsoft. Azconfig](#microsoftazconfig)
+> - [Microsoft. Azure. Genève](#microsoftazuregeneva)
+> - [Microsoft. AzureActiveDirectory](#microsoftazureactivedirectory)
+> - [Microsoft. AzureData](#microsoftazuredata)
+> - [Microsoft. AzureStack](#microsoftazurestack)
+> - [Microsoft. batch](#microsoftbatch)
+> - [Microsoft. fakturering](#microsoftbilling)
+> - [Microsoft. Bingkartssökning](#microsoftbingmaps)
+> - [Microsoft. blockchain](#microsoftblockchain)
+> - [Microsoft. skiss](#microsoftblueprint)
+> - [Microsoft. BotService](#microsoftbotservice)
+> - [Microsoft. cache](#microsoftcache)
+> - [Microsoft. Capacity](#microsoftcapacity)
+> - [Microsoft. CDN](#microsoftcdn)
+> - [Microsoft. CertificateRegistration](#microsoftcertificateregistration)
+> - [Microsoft. ClassicCompute](#microsoftclassiccompute)
+> - [Microsoft. ClassicInfrastructureMigrate](#microsoftclassicinfrastructuremigrate)
+> - [Microsoft. ClassicNetwork](#microsoftclassicnetwork)
+> - [Microsoft. ClassicStorage](#microsoftclassicstorage)
+> - [Microsoft. CognitiveServices](#microsoftcognitiveservices)
+> - [Microsoft. Commerce](#microsoftcommerce)
+> - [Microsoft. Compute](#microsoftcompute)
+> - [Microsoft. förbrukning](#microsoftconsumption)
+> - [Microsoft. ContainerInstance](#microsoftcontainerinstance)
+> - [Microsoft. ContainerRegistry](#microsoftcontainerregistry)
+> - [Microsoft. container service](#microsoftcontainerservice)
+> - [Microsoft. CortanaAnalytics](#microsoftcortanaanalytics)
+> - [Microsoft. CostManagement](#microsoftcostmanagement)
+> - [Microsoft. CustomerLockbox](#microsoftcustomerlockbox)
+> - [Microsoft. CustomProviders](#microsoftcustomproviders)
+> - [Microsoft. data-](#microsoftdatabox)
+> - [Microsoft. DataBoxEdge](#microsoftdataboxedge)
+> - [Microsoft. Databricks](#microsoftdatabricks)
+> - [Microsoft. DataCatalog](#microsoftdatacatalog)
+> - [Microsoft. DataFactory](#microsoftdatafactory)
+> - [Microsoft. DataLakeAnalytics](#microsoftdatalakeanalytics)
+> - [Microsoft. DataLakeStore](#microsoftdatalakestore)
+> - [Microsoft. data migration](#microsoftdatamigration)
+> - [Microsoft. DataShare](#microsoftdatashare)
+> - [Microsoft. DBforMariaDB](#microsoftdbformariadb)
+> - [Microsoft. DBforMySQL](#microsoftdbformysql)
+> - [Microsoft. DBforPostgreSQL](#microsoftdbforpostgresql)
+> - [Microsoft. DeploymentManager](#microsoftdeploymentmanager)
+> - [Microsoft. DesktopVirtualization](#microsoftdesktopvirtualization)
+> - [Microsoft. Devices](#microsoftdevices)
+> - [Microsoft. DevOps](#microsoftdevops)
+> - [Microsoft. DevSpaces](#microsoftdevspaces)
+> - [Microsoft. DevTestLab](#microsoftdevtestlab)
+> - [Microsoft. DocumentDB](#microsoftdocumentdb)
+> - [Microsoft. DomainRegistration](#microsoftdomainregistration)
+> - [Microsoft. DynamicsLcs](#microsoftdynamicslcs)
+> - [Microsoft. EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
+> - [Microsoft. EventGrid](#microsofteventgrid)
+> - [Microsoft. EventHub](#microsofteventhub)
+> - [Microsoft. features](#microsoftfeatures)
+> - [Microsoft. Gallery](#microsoftgallery)
+> - [Microsoft. genomik](#microsoftgenomics)
+> - [Microsoft. GuestConfiguration](#microsoftguestconfiguration)
+> - [Microsoft. HanaOnAzure](#microsofthanaonazure)
+> - [Microsoft. HardwareSecurityModules](#microsofthardwaresecuritymodules)
+> - [Microsoft. HDInsight](#microsofthdinsight)
+> - [Microsoft. HealthcareApis](#microsofthealthcareapis)
+> - [Microsoft. HybridCompute](#microsofthybridcompute)
+> - [Microsoft. HybridData](#microsofthybriddata)
+> - [Microsoft. Hydra](#microsofthydra)
+> - [Microsoft. ImportExport](#microsoftimportexport)
+> - [Microsoft. Intune](#microsoftintune)
+> - [Microsoft. IoTCentral](#microsoftiotcentral)
+> - [Microsoft. IoTSpaces](#microsoftiotspaces)
+> - [Microsoft. nyckel valv](#microsoftkeyvault)
+> - [Microsoft. Kusto](#microsoftkusto)
+> - [Microsoft. LabServices](#microsoftlabservices)
+> - [Microsoft. Logic](#microsoftlogic)
+> - [Microsoft. MachineLearning](#microsoftmachinelearning)
+> - [Microsoft. MachineLearningServices](#microsoftmachinelearningservices)
+> - [Microsoft. ManagedIdentity](#microsoftmanagedidentity)
+> - [Microsoft. ManagedServices](#microsoftmanagedservices)
+> - [Microsoft. Management](#microsoftmanagement)
+> - [Microsoft. Maps](#microsoftmaps)
+> - [Microsoft. Marketplace](#microsoftmarketplace)
+> - [Microsoft. MarketplaceApps](#microsoftmarketplaceapps)
+> - [Microsoft. MarketplaceOrdering](#microsoftmarketplaceordering)
+> - [Microsoft. Media](#microsoftmedia)
+> - [Microsoft. Microservices4Spring](#microsoftmicroservices4spring)
+> - [Microsoft. Migrate](#microsoftmigrate)
+> - [Microsoft. MixedReality](#microsoftmixedreality)
+> - [Microsoft. NetApp](#microsoftnetapp)
+> - [Microsoft. Network](#microsoftnetwork)
+> - [Microsoft. NotificationHubs](#microsoftnotificationhubs)
+> - [Microsoft. ObjectStore](#microsoftobjectstore)
+> - [Microsoft. OffAzure](#microsoftoffazure)
+> - [Microsoft. OperationalInsights](#microsoftoperationalinsights)
+> - [Microsoft. OperationsManagement](#microsoftoperationsmanagement)
+> - [Microsoft. peering](#microsoftpeering)
 > - [Microsoft.PolicyInsights](#microsoftpolicyinsights)
-> - [Microsoft.Portal](#microsoftportal)
-> - [Microsoft.PowerBI](#microsoftpowerbi)
-> - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
-> - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
-> - [Microsoft.Relay](#microsoftrelay)
-> - [Microsoft.RemoteApp](#microsoftremoteapp)
-> - [Microsoft.ResourceGraph](#microsoftresourcegraph)
-> - [Microsoft.ResourceHealth](#microsoftresourcehealth)
-> - [Microsoft.Resources](#microsoftresources)
-> - [Microsoft.SaaS](#microsoftsaas)
-> - [Microsoft.Scheduler](#microsoftscheduler)
-> - [Microsoft.Search](#microsoftsearch)
-> - [Microsoft.Security](#microsoftsecurity)
-> - [Microsoft.SecurityGraph](#microsoftsecuritygraph)
-> - [Microsoft.SecurityInsights](#microsoftsecurityinsights)
+> - [Microsoft. Portal](#microsoftportal)
+> - [Microsoft. PowerBI](#microsoftpowerbi)
+> - [Microsoft. PowerBIDedicated](#microsoftpowerbidedicated)
+> - [Microsoft. RecoveryServices](#microsoftrecoveryservices)
+> - [Microsoft. Relay](#microsoftrelay)
+> - [Microsoft. RemoteApp](#microsoftremoteapp)
+> - [Microsoft. ResourceGraph](#microsoftresourcegraph)
+> - [Microsoft. ResourceHealth](#microsoftresourcehealth)
+> - [Microsoft. Resources](#microsoftresources)
+> - [Microsoft. SaaS](#microsoftsaas)
+> - [Microsoft. Scheduler](#microsoftscheduler)
+> - [Microsoft. search](#microsoftsearch)
+> - [Microsoft. Security](#microsoftsecurity)
+> - [Microsoft. SecurityGraph](#microsoftsecuritygraph)
+> - [Microsoft. SecurityInsights](#microsoftsecurityinsights)
 > - [Microsoft.ServiceBus](#microsoftservicebus)
-> - [Microsoft.ServiceFabric](#microsoftservicefabric)
-> - [Microsoft.ServiceFabricMesh](#microsoftservicefabricmesh)
-> - [Microsoft.Services](#microsoftservices)
-> - [Microsoft.SignalRService](#microsoftsignalrservice)
-> - [Microsoft.SiteRecovery](#microsoftsiterecovery)
-> - [Microsoft.SoftwarePlan](#microsoftsoftwareplan)
-> - [Microsoft.Solutions](#microsoftsolutions)
-> - [Microsoft.SQL](#microsoftsql)
-> - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
-> - [Microsoft.Storage](#microsoftstorage)
-> - [Microsoft.StorageCache](#microsoftstoragecache)
-> - [Microsoft.StorageReplication](#microsoftstoragereplication)
-> - [Microsoft.StorageSync](#microsoftstoragesync)
-> - [Microsoft.StorageSyncDev](#microsoftstoragesyncdev)
-> - [Microsoft.StorageSyncInt](#microsoftstoragesyncint)
-> - [Microsoft.StorSimple](#microsoftstorsimple)
-> - [Microsoft.StreamAnalytics](#microsoftstreamanalytics)
-> - [Microsoft.Subscription](#microsoftsubscription)
-> - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
-> - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
-> - [Microsoft.Web](#microsoftweb)
-> - [Microsoft.WindowsDefenderATP](#microsoftwindowsdefenderatp)
-> - [Microsoft.WindowsIoT](#microsoftwindowsiot)
-> - [Microsoft.WorkloadMonitor](#microsoftworkloadmonitor)
+> - [Microsoft. ServiceFabric](#microsoftservicefabric)
+> - [Microsoft. ServiceFabricMesh](#microsoftservicefabricmesh)
+> - [Microsoft. Services](#microsoftservices)
+> - [Microsoft. SignalRService](#microsoftsignalrservice)
+> - [Microsoft. SiteRecovery](#microsoftsiterecovery)
+> - [Microsoft. SoftwarePlan](#microsoftsoftwareplan)
+> - [Microsoft. Solutions](#microsoftsolutions)
+> - [Microsoft. SQL](#microsoftsql)
+> - [Microsoft. SqlVirtualMachine](#microsoftsqlvirtualmachine)
+> - [Microsoft. Storage](#microsoftstorage)
+> - [Microsoft. StorageCache](#microsoftstoragecache)
+> - [Microsoft. StorageReplication](#microsoftstoragereplication)
+> - [Microsoft. StorageSync](#microsoftstoragesync)
+> - [Microsoft. StorageSyncDev](#microsoftstoragesyncdev)
+> - [Microsoft. StorageSyncInt](#microsoftstoragesyncint)
+> - [Microsoft. StorSimple](#microsoftstorsimple)
+> - [Microsoft. StreamAnalytics](#microsoftstreamanalytics)
+> - [Microsoft. Subscription](#microsoftsubscription)
+> - [Microsoft. TimeSeriesInsights](#microsofttimeseriesinsights)
+> - [Microsoft. VMwareCloudSimple](#microsoftvmwarecloudsimple)
+> - [Microsoft. Web](#microsoftweb)
+> - [Microsoft. WindowsDefenderATP](#microsoftwindowsdefenderatp)
+> - [Microsoft. WindowsIoT](#microsoftwindowsiot)
+> - [Microsoft. WorkloadMonitor](#microsoftworkloadmonitor)
 
 ## <a name="microsoftaad"></a>Microsoft.AAD
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | DomainServices | Ja | Ja |
 > | DomainServices / oucontainer | Nej | Nej |
 
-## <a name="microsoftaddons"></a>Microsoft.Addons
+## <a name="microsoftaddons"></a>Microsoft. addons
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | supportProviders | Nej | Nej |
 
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | aadsupportcases | Nej | Nej |
 > | addsservices | Nej | Nej |
-> | agents | Nej | Nej |
+> | aktörer | Nej | Nej |
 > | anonymousapiusers | Nej | Nej |
 > | konfiguration | Nej | Nej |
 > | loggar | Nej | Nej |
-> | reports | Nej | Nej |
+> | rapporter | Nej | Nej |
 > | servicehealthmetrics | Nej | Nej |
 > | services | Nej | Nej |
 
 ## <a name="microsoftadvisor"></a>Microsoft.Advisor
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | configurations | Nej | Nej |
+> | konfigurationer | Nej | Nej |
 > | generateRecommendations | Nej | Nej |
 > | metadata | Nej | Nej |
-> | recommendations | Nej | Nej |
-> | suppressions | Nej | Nej |
+> | rekommenderade | Nej | Nej |
+> | utelämningar | Nej | Nej |
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | actionRules | Ja | Ja |
 > | aviseringar | Nej | Nej |
@@ -217,7 +217,7 @@ Jump to a resource provider namespace:
 > | alertsMetaData | Nej | Nej |
 > | alertsSummary | Nej | Nej |
 > | alertsSummaryList | Nej | Nej |
-> | feedback | Nej | Nej |
+> | oss | Nej | Nej |
 > | smartDetectorAlertRules | Ja | Ja |
 > | smartDetectorRuntimeEnvironments | Nej | Nej |
 > | smartGroups | Nej | Nej |
@@ -225,53 +225,53 @@ Jump to a resource provider namespace:
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | servrar | Ja | Ja |
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | reportFeedback | Nej | Nej |
 > | tjänst | Ja | Ja |
 > | validateServiceName | Nej | Nej |
 
-## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
+## <a name="microsoftappconfiguration"></a>Microsoft. AppConfiguration
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | configurationStores | Ja | Ja |
 > | configurationStores / eventGridFilters | Nej | Nej |
 
-## <a name="microsoftappplatform"></a>Microsoft.AppPlatform
+## <a name="microsoftappplatform"></a>Microsoft. AppPlatform
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | Spring | Ja | Ja |
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | attestationProviders | Nej | Nej |
 
-## <a name="microsoftauthorization"></a>Microsoft.Authorization
+## <a name="microsoftauthorization"></a>Microsoft. Authorization
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | classicAdministrators | Nej | Nej |
 > | dataAliases | Nej | Nej |
 > | denyAssignments | Nej | Nej |
 > | elevateAccess | Nej | Nej |
 > | findOrphanRoleAssignments | Nej | Nej |
-> | locks | Nej | Nej |
-> | permissions | Nej | Nej |
+> | hålls | Nej | Nej |
+> | behörigheter | Nej | Nej |
 > | policyAssignments | Nej | Nej |
 > | policyDefinitions | Nej | Nej |
 > | policySetDefinitions | Nej | Nej |
@@ -282,19 +282,19 @@ Jump to a resource provider namespace:
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | automationAccounts | Ja | Ja |
-> | automationAccounts / configurations | Ja | Ja |
-> | automationAccounts / jobs | Nej | Nej |
-> | automationAccounts / runbooks | Ja | Ja |
+> | automationAccounts/konfigurationer | Ja | Ja |
+> | automationAccounts/jobb | Nej | Nej |
+> | automationAccounts/Runbooks | Ja | Ja |
 > | automationAccounts / softwareUpdateConfigurations | Nej | Nej |
-> | automationAccounts / webhooks | Nej | Nej |
+> | automationAccounts/Webhooks | Nej | Nej |
 
-## <a name="microsoftazconfig"></a>Microsoft.Azconfig
+## <a name="microsoftazconfig"></a>Microsoft. Azconfig
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | configurationStores | Ja | Ja |
 > | configurationStores / eventGridFilters | Nej | Nej |
@@ -302,57 +302,57 @@ Jump to a resource provider namespace:
 ## <a name="microsoftazuregeneva"></a>Microsoft.Azure.Geneva
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | environments | Nej | Nej |
-> | environments / accounts | Nej | Nej |
-> | environments / accounts / namespaces | Nej | Nej |
-> | environments / accounts / namespaces / configurations | Nej | Nej |
+> | utrymmen | Nej | Nej |
+> | miljöer/konton | Nej | Nej |
+> | miljöer/konton/namn områden | Nej | Nej |
+> | miljöer/konton/namn rymder/konfigurationer | Nej | Nej |
 
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | b2cDirectories | Ja | Nej |
 > | b2ctenants | Nej | Nej |
 
-## <a name="microsoftazuredata"></a>Microsoft.AzureData
+## <a name="microsoftazuredata"></a>Microsoft. AzureData
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | hybridDataManagers | Ja | Ja |
 > | postgresInstances | Ja | Ja |
 > | sqlBigDataClusters | Ja | Ja |
 > | sqlInstances | Ja | Ja |
 > | sqlServerRegistrations | Ja | Ja |
-> | sqlServerRegistrations / sqlServers | Nej | Nej |
+> | sqlServerRegistrations/sqlServer | Nej | Nej |
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | registrations | Ja | Ja |
-> | registrations / customerSubscriptions | Nej | Nej |
-> | registrations / products | Nej | Nej |
+> | registreringar | Ja | Ja |
+> | registreringar/customerSubscriptions | Nej | Nej |
+> | registreringar/produkter | Nej | Nej |
 > | verificationKeys | Nej | Nej |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | batchAccounts | Ja | Ja |
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | billingAccounts | Nej | Nej |
-> | billingAccounts / agreements | Nej | Nej |
+> | billingAccounts/avtal | Nej | Nej |
 > | billingAccounts / billingPermissions | Nej | Nej |
 > | billingAccounts / billingProfiles | Nej | Nej |
 > | billingAccounts / billingProfiles / billingPermissions | Nej | Nej |
@@ -360,9 +360,9 @@ Jump to a resource provider namespace:
 > | billingAccounts / billingProfiles / billingRoleDefinitions | Nej | Nej |
 > | billingAccounts / billingProfiles / billingSubscriptions | Nej | Nej |
 > | billingAccounts / billingProfiles / createBillingRoleAssignment | Nej | Nej |
-> | billingAccounts / billingProfiles / customers | Nej | Nej |
-> | billingAccounts / billingProfiles / invoices | Nej | Nej |
-> | billingAccounts / billingProfiles / invoices / pricesheet | Nej | Nej |
+> | billingAccounts/billingProfiles/kunder | Nej | Nej |
+> | billingAccounts/billingProfiles/fakturor | Nej | Nej |
+> | billingAccounts/billingProfiles/fakturor/pris dokument | Nej | Nej |
 > | billingAccounts / billingProfiles / invoiceSections | Nej | Nej |
 > | billingAccounts / billingProfiles / invoiceSections / billingPermissions | Nej | Nej |
 > | billingAccounts / billingProfiles / invoiceSections / billingRoleAssignments | Nej | Nej |
@@ -370,73 +370,73 @@ Jump to a resource provider namespace:
 > | billingAccounts / billingProfiles / invoiceSections / billingSubscriptions | Nej | Nej |
 > | billingAccounts / billingProfiles / invoiceSections / createBillingRoleAssignment | Nej | Nej |
 > | billingAccounts / billingProfiles / invoiceSections / initiateTransfer | Nej | Nej |
-> | billingAccounts / billingProfiles / invoiceSections / products | Nej | Nej |
-> | billingAccounts / billingProfiles / invoiceSections / products / transfer | Nej | Nej |
-> | billingAccounts / billingProfiles / invoiceSections / products / updateAutoRenew | Nej | Nej |
-> | billingAccounts / billingProfiles / invoiceSections / transactions | Nej | Nej |
-> | billingAccounts / billingProfiles / invoiceSections / transfers | Nej | Nej |
+> | billingAccounts/billingProfiles/invoiceSections/Products | Nej | Nej |
+> | billingAccounts/billingProfiles/invoiceSections/Products/transfer | Nej | Nej |
+> | billingAccounts/billingProfiles/invoiceSections/Products/updateAutoRenew | Nej | Nej |
+> | billingAccounts/billingProfiles/invoiceSections/transaktioner | Nej | Nej |
+> | billingAccounts/billingProfiles/invoiceSections/transfers | Nej | Nej |
 > | billingAccounts / BillingProfiles / patchOperations | Nej | Nej |
 > | billingAccounts / billingProfiles / paymentMethods | Nej | Nej |
-> | billingAccounts / billingProfiles / policies | Nej | Nej |
-> | billingAccounts / billingProfiles / pricesheet | Nej | Nej |
+> | billingAccounts/billingProfiles/policys | Nej | Nej |
+> | billingAccounts/billingProfiles/pris dokument | Nej | Nej |
 > | billingAccounts / billingProfiles / pricesheetDownloadOperations | Nej | Nej |
-> | billingAccounts / billingProfiles / products | Nej | Nej |
-> | billingAccounts / billingProfiles / transactions | Nej | Nej |
+> | billingAccounts/billingProfiles/Products | Nej | Nej |
+> | billingAccounts/billingProfiles/transaktioner | Nej | Nej |
 > | billingAccounts / billingRoleAssignments | Nej | Nej |
 > | billingAccounts / billingRoleDefinitions | Nej | Nej |
 > | billingAccounts / billingSubscriptions | Nej | Nej |
-> | billingAccounts / billingSubscriptions / invoices | Nej | Nej |
+> | billingAccounts/billingSubscriptions/fakturor | Nej | Nej |
 > | billingAccounts / createBillingRoleAssignment | Nej | Nej |
 > | billingAccounts / createInvoiceSectionOperations | Nej | Nej |
-> | billingAccounts / customers | Nej | Nej |
-> | billingAccounts / customers / billingPermissions | Nej | Nej |
-> | billingAccounts / customers / billingSubscriptions | Nej | Nej |
-> | billingAccounts / customers / initiateTransfer | Nej | Nej |
-> | billingAccounts / customers / policies | Nej | Nej |
-> | billingAccounts / customers / products | Nej | Nej |
-> | billingAccounts / customers / transactions | Nej | Nej |
-> | billingAccounts / customers / transfers | Nej | Nej |
-> | billingAccounts / departments | Nej | Nej |
+> | billingAccounts/kunder | Nej | Nej |
+> | billingAccounts/kunder/billingPermissions | Nej | Nej |
+> | billingAccounts/kunder/billingSubscriptions | Nej | Nej |
+> | billingAccounts/kunder/initiateTransfer | Nej | Nej |
+> | billingAccounts/kunder/principer | Nej | Nej |
+> | billingAccounts/kunder/produkter | Nej | Nej |
+> | billingAccounts/kunder/transaktioner | Nej | Nej |
+> | billingAccounts/kunder/överföringar | Nej | Nej |
+> | billingAccounts/avdelningar | Nej | Nej |
 > | billingAccounts / enrollmentAccounts | Nej | Nej |
-> | billingAccounts / invoices | Nej | Nej |
+> | billingAccounts/fakturor | Nej | Nej |
 > | billingAccounts / invoiceSections | Nej | Nej |
 > | billingAccounts / invoiceSections / billingSubscriptionMoveOperations | Nej | Nej |
 > | billingAccounts / invoiceSections / billingSubscriptions | Nej | Nej |
-> | billingAccounts / invoiceSections / billingSubscriptions / transfer | Nej | Nej |
-> | billingAccounts / invoiceSections / elevate | Nej | Nej |
+> | billingAccounts/invoiceSections/billingSubscriptions/transfer | Nej | Nej |
+> | billingAccounts/invoiceSections/höjning | Nej | Nej |
 > | billingAccounts / invoiceSections / initiateTransfer | Nej | Nej |
 > | billingAccounts / invoiceSections / patchOperations | Nej | Nej |
 > | billingAccounts / invoiceSections / productMoveOperations | Nej | Nej |
-> | billingAccounts / invoiceSections / products | Nej | Nej |
-> | billingAccounts / invoiceSections / products / transfer | Nej | Nej |
-> | billingAccounts / invoiceSections / products / updateAutoRenew | Nej | Nej |
-> | billingAccounts / invoiceSections / transactions | Nej | Nej |
-> | billingAccounts / invoiceSections / transfers | Nej | Nej |
+> | billingAccounts/invoiceSections/Products | Nej | Nej |
+> | billingAccounts/invoiceSections/Products/transfer | Nej | Nej |
+> | billingAccounts/invoiceSections/Products/updateAutoRenew | Nej | Nej |
+> | billingAccounts/invoiceSections/transaktioner | Nej | Nej |
+> | billingAccounts/invoiceSections/överföringar | Nej | Nej |
 > | billingAccounts / lineOfCredit | Nej | Nej |
 > | billingAccounts / patchOperations | Nej | Nej |
 > | billingAccounts / paymentMethods | Nej | Nej |
-> | billingAccounts / products | Nej | Nej |
-> | billingAccounts / transactions | Nej | Nej |
+> | billingAccounts/produkter | Nej | Nej |
+> | billingAccounts/transaktioner | Nej | Nej |
 > | billingPeriods | Nej | Nej |
 > | billingPermissions | Nej | Nej |
 > | billingProperty | Nej | Nej |
 > | billingRoleAssignments | Nej | Nej |
 > | billingRoleDefinitions | Nej | Nej |
 > | createBillingRoleAssignment | Nej | Nej |
-> | departments | Nej | Nej |
+> | enheten | Nej | Nej |
 > | enrollmentAccounts | Nej | Nej |
-> | invoices | Nej | Nej |
-> | transfers | Nej | Nej |
-> | transfers / acceptTransfer | Nej | Nej |
-> | transfers / declineTransfer | Nej | Nej |
-> | transfers / operationStatus | Nej | Nej |
-> | transfers / validateTransfer | Nej | Nej |
+> | fakturor | Nej | Nej |
+> | överlåtelse | Nej | Nej |
+> | överföringar/acceptTransfer | Nej | Nej |
+> | överföringar/declineTransfer | Nej | Nej |
+> | överföringar/operationStatus | Nej | Nej |
+> | överföringar/validateTransfer | Nej | Nej |
 > | validateAddress | Nej | Nej |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | mapApis | Ja | Ja |
 > | updateCommunicationPreference | Nej | Nej |
@@ -444,7 +444,7 @@ Jump to a resource provider namespace:
 ## <a name="microsoftblockchain"></a>Microsoft.Blockchain
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | blockchainMembers | Ja | Ja |
 > | cordaMembers | Ja | Ja |
@@ -453,31 +453,31 @@ Jump to a resource provider namespace:
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | blueprintAssignments | Nej | Nej |
 > | blueprintAssignments / assignmentOperations | Nej | Nej |
-> | blueprintAssignments / operations | Nej | Nej |
-> | blueprints | Nej | Nej |
-> | blueprints / artifacts | Nej | Nej |
-> | blueprints / versions | Nej | Nej |
-> | blueprints / versions / artifacts | Nej | Nej |
+> | blueprintAssignments/åtgärder | Nej | Nej |
+> | modeller | Nej | Nej |
+> | skisser/artefakter | Nej | Nej |
+> | skisser/versioner | Nej | Nej |
+> | skisser/versioner/artefakter | Nej | Nej |
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | botServices | Ja | Ja |
-> | botServices / channels | Nej | Nej |
-> | botServices / connections | Nej | Nej |
-> | languages | Nej | Nej |
+> | botServices/kanaler | Nej | Nej |
+> | botServices/anslutningar | Nej | Nej |
+> | användning | Nej | Nej |
 > | mallar | Nej | Nej |
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | Redis | Ja | Ja |
 > | RedisConfigDefinition | Nej | Nej |
@@ -485,65 +485,65 @@ Jump to a resource provider namespace:
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | appliedReservations | Nej | Nej |
 > | calculateExchange | Nej | Nej |
 > | calculatePrice | Nej | Nej |
 > | calculatePurchasePrice | Nej | Nej |
-> | catalogs | Nej | Nej |
+> | kataloger | Nej | Nej |
 > | commercialReservationOrders | Nej | Nej |
 > | exchange | Nej | Nej |
 > | placePurchaseOrder | Nej | Nej |
 > | reservationOrders | Nej | Nej |
 > | reservationOrders / calculateRefund | Nej | Nej |
-> | reservationOrders / merge | Nej | Nej |
-> | reservationOrders / reservations | Nej | Nej |
-> | reservationOrders / reservations / revisions | Nej | Nej |
-> | reservationOrders / return | Nej | Nej |
-> | reservationOrders / split | Nej | Nej |
-> | reservationOrders / swap | Nej | Nej |
-> | reservations | Nej | Nej |
-> | resources | Nej | Nej |
+> | reservationOrders/slå samman | Nej | Nej |
+> | reservationOrders/reservationer | Nej | Nej |
+> | reservationOrders/reservationer/revisioner | Nej | Nej |
+> | reservationOrders/retur | Nej | Nej |
+> | reservationOrders/Split | Nej | Nej |
+> | reservationOrders/växling | Nej | Nej |
+> | reservera | Nej | Nej |
+> | resurser | Nej | Nej |
 > | validateReservationOrder | Nej | Nej |
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | CdnWebApplicationFirewallManagedRuleSets | Nej | Nej |
 > | CdnWebApplicationFirewallPolicies | Ja | Ja |
 > | edgenodes | Nej | Nej |
 > | profiles | Ja | Ja |
-> | profiles / endpoints | Ja | Ja |
-> | profiles / endpoints / customdomains | Nej | Nej |
-> | profiles / endpoints / origins | Nej | Nej |
+> | profiler/slut punkter | Ja | Ja |
+> | profiler/slut punkter/customdomains | Nej | Nej |
+> | profiler/slut punkter/ursprung | Nej | Nej |
 > | validateProbe | Nej | Nej |
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | certificateOrders | Ja | Ja |
-> | certificateOrders / certificates | Nej | Nej |
+> | certificateOrders/certifikat | Nej | Nej |
 > | validateCertificateRegistrationInformation | Nej | Nej |
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | capabilities | Nej | Nej |
-> | domainNames | Nej | Nej |
-> | domainNames / capabilities | Nej | Nej |
-> | domainNames / internalLoadBalancers | Nej | Nej |
-> | domainNames / serviceCertificates | Nej | Nej |
-> | domainNames / slots | Nej | Nej |
-> | domainNames / slots / roles | Nej | Nej |
-> | domainNames / slots / roles / metricDefinitions | Nej | Nej |
-> | domainNames / slots / roles / metrics | Nej | Nej |
+> | trådlösa | Nej | Nej |
+> | Domän namn | Nej | Nej |
+> | Domän namn/funktioner | Nej | Nej |
+> | Domän namn/internalLoadBalancers | Nej | Nej |
+> | Domän namn/serviceCertificates | Nej | Nej |
+> | Domän namn/platser | Nej | Nej |
+> | Domän namn/platser/roller | Nej | Nej |
+> | Domän namn/platser/roller/metricDefinitions | Nej | Nej |
+> | Domän namn/platser/roller/mått | Nej | Nej |
 > | moveSubscriptionResources | Nej | Nej |
 > | operatingSystemFamilies | Nej | Nej |
 > | operatingSystems | Nej | Nej |
@@ -553,68 +553,68 @@ Jump to a resource provider namespace:
 > | virtualMachines | Nej | Nej |
 > | virtualMachines / diagnosticSettings | Nej | Nej |
 > | virtualMachines / metricDefinitions | Nej | Nej |
-> | virtualMachines / metrics | Nej | Nej |
+> | virtualMachines/mått | Nej | Nej |
 
-## <a name="microsoftclassicinfrastructuremigrate"></a>Microsoft.ClassicInfrastructureMigrate
+## <a name="microsoftclassicinfrastructuremigrate"></a>Microsoft. ClassicInfrastructureMigrate
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | classicInfrastructureResources | Nej | Nej |
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | capabilities | Nej | Nej |
+> | trådlösa | Nej | Nej |
 > | expressRouteCrossConnections | Nej | Nej |
-> | expressRouteCrossConnections / peerings | Nej | Nej |
+> | expressRouteCrossConnections/peering | Nej | Nej |
 > | gatewaySupportedDevices | Nej | Nej |
 > | networkSecurityGroups | Nej | Nej |
 > | quotas | Nej | Nej |
 > | reservedIps | Nej | Nej |
 > | virtualNetworks | Nej | Nej |
-> | virtualNetworks / remoteVirtualNetworkPeeringProxies | Nej | Nej |
-> | virtualNetworks / virtualNetworkPeerings | Nej | Nej |
+> | virtualNetworks/remoteVirtualNetworkPeeringProxies | Nej | Nej |
+> | virtualNetworks/virtualNetworkPeerings | Nej | Nej |
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | capabilities | Nej | Nej |
-> | disks | Nej | Nej |
+> | trådlösa | Nej | Nej |
+> | disk | Nej | Nej |
 > | images | Nej | Nej |
 > | osImages | Nej | Nej |
 > | osPlatformImages | Nej | Nej |
 > | publicImages | Nej | Nej |
 > | quotas | Nej | Nej |
 > | storageAccounts | Nej | Nej |
-> | storageAccounts / blobServices | Nej | Nej |
-> | storageAccounts / fileServices | Nej | Nej |
-> | storageAccounts / metricDefinitions | Nej | Nej |
-> | storageAccounts / metrics | Nej | Nej |
-> | storageAccounts / queueServices | Nej | Nej |
-> | storageAccounts / services | Nej | Nej |
-> | storageAccounts / services / diagnosticSettings | Nej | Nej |
-> | storageAccounts / services / metricDefinitions | Nej | Nej |
-> | storageAccounts / services / metrics | Nej | Nej |
-> | storageAccounts / tableServices | Nej | Nej |
-> | storageAccounts / vmImages | Nej | Nej |
+> | storageAccounts/blobServices | Nej | Nej |
+> | storageAccounts/fileServices | Nej | Nej |
+> | storageAccounts/metricDefinitions | Nej | Nej |
+> | storageAccounts/mått | Nej | Nej |
+> | storageAccounts/queueServices | Nej | Nej |
+> | storageAccounts/tjänster | Nej | Nej |
+> | storageAccounts/tjänster/diagnosticSettings | Nej | Nej |
+> | storageAccounts/tjänster/metricDefinitions | Nej | Nej |
+> | storageAccounts/tjänster/mått | Nej | Nej |
+> | storageAccounts/tableServices | Nej | Nej |
+> | storageAccounts/vmImages | Nej | Nej |
 > | vmImages | Nej | Nej |
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | konton | Ja | Ja |
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | RateCard | Nej | Nej |
 > | UsageAggregates | Nej | Nej |
@@ -622,65 +622,65 @@ Jump to a resource provider namespace:
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | availabilitySets | Ja | Ja |
 > | diskEncryptionSets | Ja | Ja |
-> | disks | Ja | Ja |
-> | galleries | Ja | Ja |
-> | galleries / applications | Nej | Nej |
-> | galleries / applications / versions | Nej | Nej |
-> | galleries / images | Nej | Nej |
-> | galleries / images / versions | Nej | Nej |
+> | disk | Ja | Ja |
+> | gallerier | Ja | Ja |
+> | gallerier/program | Nej | Nej |
+> | gallerier/program/versioner | Nej | Nej |
+> | gallerier/bilder | Nej | Nej |
+> | gallerier/avbildningar/versioner | Nej | Nej |
 > | hostGroups | Ja | Ja |
-> | hostGroups / hosts | Ja | Ja |
+> | hostGroups/värdar | Ja | Ja |
 > | images | Ja | Ja |
 > | proximityPlacementGroups | Ja | Ja |
 > | restorePointCollections | Ja | Ja |
 > | restorePointCollections / restorePoints | Nej | Nej |
 > | sharedVMImages | Ja | Ja |
-> | sharedVMImages / versions | Nej | Nej |
+> | sharedVMImages/versioner | Nej | Nej |
 > | snapshots | Ja | Ja |
 > | virtualMachines | Ja | Ja |
-> | virtualMachines / extensions | Ja | Ja |
+> | virtualMachines/tillägg | Ja | Ja |
 > | virtualMachines / metricDefinitions | Nej | Nej |
 > | virtualMachineScaleSets | Ja | Ja |
-> | virtualMachineScaleSets / extensions | Nej | Nej |
-> | virtualMachineScaleSets / networkInterfaces | Nej | Nej |
-> | virtualMachineScaleSets / publicIPAddresses | Nej | Nej |
-> | virtualMachineScaleSets / virtualMachines | Nej | Nej |
-> | virtualMachineScaleSets / virtualMachines / networkInterfaces | Nej | Nej |
+> | virtualMachineScaleSets/tillägg | Nej | Nej |
+> | virtualMachineScaleSets/networkInterfaces | Nej | Nej |
+> | virtualMachineScaleSets/publicIPAddresses | Nej | Nej |
+> | virtualMachineScaleSets/virtualMachines | Nej | Nej |
+> | virtualMachineScaleSets/virtualMachines/networkInterfaces | Nej | Nej |
 
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | AggregatedCost | Nej | Nej |
 > | Saldon | Nej | Nej |
 > | Budgetar | Nej | Nej |
 > | Avgifter | Nej | Nej |
 > | CostTags | Nej | Nej |
-> | credits | Nej | Nej |
+> | krediter | Nej | Nej |
 > | evenemang | Nej | Nej |
 > | Prognoser | Nej | Nej |
-> | lots | Nej | Nej |
-> | Marketplaces | Nej | Nej |
+> | samtliga | Nej | Nej |
+> | Marknads platser | Nej | Nej |
 > | Pricesheets | Nej | Nej |
-> | products | Nej | Nej |
+> | läkemedle | Nej | Nej |
 > | ReservationDetails | Nej | Nej |
 > | ReservationRecommendations | Nej | Nej |
 > | ReservationSummaries | Nej | Nej |
 > | ReservationTransactions | Nej | Nej |
 > | Taggar | Nej | Nej |
-> | tenants | Nej | Nej |
+> | Klienter | Nej | Nej |
 > | Villkor | Nej | Nej |
 > | UsageDetails | Nej | Nej |
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | containerGroups | Ja | Ja |
 > | serviceAssociationLinks | Nej | Nej |
@@ -688,39 +688,39 @@ Jump to a resource provider namespace:
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | registries | Ja | Ja |
-> | registries / builds | Nej | Nej |
-> | registries / builds / cancel | Nej | Nej |
-> | registries / builds / getLogLink | Nej | Nej |
-> | registries / buildTasks | Ja | Ja |
-> | registries / buildTasks / steps | Nej | Nej |
-> | registries / eventGridFilters | Nej | Nej |
-> | registries / generateCredentials | Nej | Nej |
-> | registries / getBuildSourceUploadUrl | Nej | Nej |
-> | registries / GetCredentials | Nej | Nej |
-> | registries / importImage | Nej | Nej |
-> | registries / queueBuild | Nej | Nej |
-> | registries / regenerateCredential | Nej | Nej |
-> | registries / regenerateCredentials | Nej | Nej |
-> | registries / replications | Ja | Ja |
-> | registries / runs | Nej | Nej |
-> | registries / runs / cancel | Nej | Nej |
-> | registries / scheduleRun | Nej | Nej |
-> | registries / scopeMaps | Nej | Nej |
-> | registries / taskRuns | Ja | Ja |
-> | registries / tasks | Ja | Ja |
-> | registries / tokens | Nej | Nej |
-> | registries / updatePolicies | Nej | Nej |
-> | registries / webhooks | Ja | Ja |
-> | registries / webhooks / getCallbackConfig | Nej | Nej |
-> | registries / webhooks / ping | Nej | Nej |
+> | register | Ja | Ja |
+> | register/versioner | Nej | Nej |
+> | register/versioner/Avbryt | Nej | Nej |
+> | register/build/getLogLink | Nej | Nej |
+> | register/buildTasks | Ja | Ja |
+> | register/buildTasks/steg | Nej | Nej |
+> | register/eventGridFilters | Nej | Nej |
+> | register/generateCredentials | Nej | Nej |
+> | register/getBuildSourceUploadUrl | Nej | Nej |
+> | register/GetCredentials | Nej | Nej |
+> | register/importImage | Nej | Nej |
+> | register/queueBuild | Nej | Nej |
+> | register/regenerateCredential | Nej | Nej |
+> | register/regenerateCredentials | Nej | Nej |
+> | register/replikeringar | Ja | Ja |
+> | register/körningar | Nej | Nej |
+> | register/körningar/Avbryt | Nej | Nej |
+> | register/scheduleRun | Nej | Nej |
+> | register/scopeMaps | Nej | Nej |
+> | register/taskRuns | Ja | Ja |
+> | register/uppgifter | Ja | Ja |
+> | register/token | Nej | Nej |
+> | register/updatePolicies | Nej | Nej |
+> | register/Webhooks | Ja | Ja |
+> | register/Webhooks/getCallbackConfig | Nej | Nej |
+> | register/Webhooks/ping | Nej | Nej |
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | containerServices | Ja | Ja |
 > | managedClusters | Ja | Ja |
@@ -729,268 +729,268 @@ Jump to a resource provider namespace:
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | konton | Ja | Ja |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | Aviseringar | Nej | Nej |
-> | BillingAccounts | Nej | Nej |
+> | billingAccounts | Nej | Nej |
 > | Budgetar | Nej | Nej |
 > | CloudConnectors | Nej | Nej |
-> | Anslutningsprogram | Ja | Ja |
-> | Departments | Nej | Nej |
+> | Anslutningar | Ja | Ja |
+> | enheten | Nej | Nej |
 > | Dimensioner | Nej | Nej |
 > | EnrollmentAccounts | Nej | Nej |
 > | Exporter | Nej | Nej |
 > | ExternalBillingAccounts | Nej | Nej |
-> | ExternalBillingAccounts / Alerts | Nej | Nej |
-> | ExternalBillingAccounts / Dimensions | Nej | Nej |
-> | ExternalBillingAccounts / Forecast | Nej | Nej |
-> | ExternalBillingAccounts / Query | Nej | Nej |
+> | ExternalBillingAccounts/aviseringar | Nej | Nej |
+> | ExternalBillingAccounts/dimensioner | Nej | Nej |
+> | ExternalBillingAccounts/prognos | Nej | Nej |
+> | ExternalBillingAccounts/fråga | Nej | Nej |
 > | ExternalSubscriptions | Nej | Nej |
-> | ExternalSubscriptions / Alerts | Nej | Nej |
-> | ExternalSubscriptions / Dimensions | Nej | Nej |
-> | ExternalSubscriptions / Forecast | Nej | Nej |
-> | ExternalSubscriptions / Query | Nej | Nej |
-> | Forecast | Nej | Nej |
-> | Söka i data | Nej | Nej |
-> | register | Nej | Nej |
+> | ExternalSubscriptions/aviseringar | Nej | Nej |
+> | ExternalSubscriptions/dimensioner | Nej | Nej |
+> | ExternalSubscriptions/prognos | Nej | Nej |
+> | ExternalSubscriptions/fråga | Nej | Nej |
+> | Prognostisering | Nej | Nej |
+> | Fråga | Nej | Nej |
+> | Registrera dig | Nej | Nej |
 > | Reportconfigs | Nej | Nej |
 > | Rapporter | Nej | Nej |
 > | Inställningar | Nej | Nej |
 > | showbackRules | Nej | Nej |
 > | Vyer | Nej | Nej |
 
-## <a name="microsoftcustomerlockbox"></a>Microsoft.CustomerLockbox
+## <a name="microsoftcustomerlockbox"></a>Microsoft. CustomerLockbox
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | requests | Nej | Nej |
+> | Begäranden | Nej | Nej |
 
-## <a name="microsoftcustomproviders"></a>Microsoft.CustomProviders
+## <a name="microsoftcustomproviders"></a>Microsoft. CustomProviders
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | associations | Nej | Nej |
+> | typer | Nej | Nej |
 > | resourceProviders | Ja | Ja |
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | jobs | Ja | Ja |
+> | utskrifts | Ja | Ja |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | DataBoxEdgeDevices | Ja | Ja |
 
-## <a name="microsoftdatabricks"></a>Microsoft.Databricks
+## <a name="microsoftdatabricks"></a>Microsoft. Databricks
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | workspaces | Ja | Nej |
-> | workspaces / virtualNetworkPeerings | Nej | Nej |
+> | arbets ytor | Ja | Nej |
+> | arbets ytor/virtualNetworkPeerings | Nej | Nej |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | catalogs | Ja | Ja |
+> | kataloger | Ja | Ja |
 > | datacatalogs | Ja | Ja |
-> | datacatalogs / datasources | Nej | Nej |
-> | datacatalogs / datasources / scans | Nej | Nej |
-> | datacatalogs / datasources / scans / datasets | Nej | Nej |
-> | datacatalogs / datasources / scans / triggers | Nej | Nej |
+> | datacatalogs/data källor | Nej | Nej |
+> | datacatalogs/data källor/-genomsökningar | Nej | Nej |
+> | datacatalogs/data källor/genomsökningar/data uppsättningar | Nej | Nej |
+> | datacatalogs/data källor/genomsökningar/utlösare | Nej | Nej |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | dataFactories | Ja | Nej |
 > | dataFactories / diagnosticSettings | Nej | Nej |
 > | dataFactories / metricDefinitions | Nej | Nej |
 > | dataFactorySchema | Nej | Nej |
-> | factories | Ja | Nej |
-> | factories / integrationRuntimes | Nej | Nej |
+> | fabriker | Ja | Nej |
+> | fabriker/integrationRuntimes | Nej | Nej |
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | konton | Ja | Ja |
-> | accounts / dataLakeStoreAccounts | Nej | Nej |
-> | accounts / storageAccounts | Nej | Nej |
-> | accounts / storageAccounts / containers | Nej | Nej |
-> | accounts / transferAnalyticsUnits | Nej | Nej |
+> | konton/dataLakeStoreAccounts | Nej | Nej |
+> | konton/storageAccounts | Nej | Nej |
+> | konton/storageAccounts/behållare | Nej | Nej |
+> | konton/transferAnalyticsUnits | Nej | Nej |
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | konton | Ja | Ja |
-> | accounts / eventGridFilters | Nej | Nej |
-> | accounts / firewallRules | Nej | Nej |
+> | konton/eventGridFilters | Nej | Nej |
+> | konton/firewallRules | Nej | Nej |
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | services | Nej | Nej |
-> | services / projects | Nej | Nej |
+> | tjänster/projekt | Nej | Nej |
 
-## <a name="microsoftdatashare"></a>Microsoft.DataShare
+## <a name="microsoftdatashare"></a>Microsoft. DataShare
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | konton | Ja | Ja |
-> | accounts / shares | Nej | Nej |
-> | accounts / shares / datasets | Nej | Nej |
-> | accounts / shares / invitations | Nej | Nej |
-> | accounts / shares / providersharesubscriptions | Nej | Nej |
-> | accounts / shares / synchronizationSettings | Nej | Nej |
-> | accounts / sharesubscriptions | Nej | Nej |
-> | accounts / sharesubscriptions / consumerSourceDataSets | Nej | Nej |
-> | accounts / sharesubscriptions / datasetmappings | Nej | Nej |
-> | accounts / sharesubscriptions / triggers | Nej | Nej |
+> | konton/resurser | Nej | Nej |
+> | konton/resurser/data uppsättningar | Nej | Nej |
+> | konton/resurser/inbjudningar | Nej | Nej |
+> | konton/resurser/providersharesubscriptions | Nej | Nej |
+> | konton/resurser/synchronizationSettings | Nej | Nej |
+> | konton/sharesubscriptions | Nej | Nej |
+> | konton/sharesubscriptions/consumerSourceDataSets | Nej | Nej |
+> | konton/sharesubscriptions/datasetmappings | Nej | Nej |
+> | konton/sharesubscriptions/utlösare | Nej | Nej |
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | servrar | Ja | Ja |
-> | servers / advisors | Nej | Nej |
-> | servers / privateEndpointConnectionProxies | Nej | Nej |
-> | servers / privateEndpointConnections | Nej | Nej |
-> | servers / privateLinkResources | Nej | Nej |
-> | servers / queryTexts | Nej | Nej |
-> | servers / recoverableServers | Nej | Nej |
-> | servers / topQueryStatistics | Nej | Nej |
-> | servers / virtualNetworkRules | Nej | Nej |
-> | servers / waitStatistics | Nej | Nej |
+> | servrar/rådgivare | Nej | Nej |
+> | servrar/privateEndpointConnectionProxies | Nej | Nej |
+> | servrar/privateEndpointConnections | Nej | Nej |
+> | servrar/privateLinkResources | Nej | Nej |
+> | servrar/queryTexts | Nej | Nej |
+> | servrar/recoverableServers | Nej | Nej |
+> | servrar/topQueryStatistics | Nej | Nej |
+> | servrar/virtualNetworkRules | Nej | Nej |
+> | servrar/waitStatistics | Nej | Nej |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | servrar | Ja | Ja |
-> | servers / advisors | Nej | Nej |
-> | servers / privateEndpointConnectionProxies | Nej | Nej |
-> | servers / privateEndpointConnections | Nej | Nej |
-> | servers / privateLinkResources | Nej | Nej |
-> | servers / queryTexts | Nej | Nej |
-> | servers / recoverableServers | Nej | Nej |
-> | servers / topQueryStatistics | Nej | Nej |
-> | servers / virtualNetworkRules | Nej | Nej |
-> | servers / waitStatistics | Nej | Nej |
+> | servrar/rådgivare | Nej | Nej |
+> | servrar/privateEndpointConnectionProxies | Nej | Nej |
+> | servrar/privateEndpointConnections | Nej | Nej |
+> | servrar/privateLinkResources | Nej | Nej |
+> | servrar/queryTexts | Nej | Nej |
+> | servrar/recoverableServers | Nej | Nej |
+> | servrar/topQueryStatistics | Nej | Nej |
+> | servrar/virtualNetworkRules | Nej | Nej |
+> | servrar/waitStatistics | Nej | Nej |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | serverGroups | Ja | Ja |
 > | servrar | Ja | Ja |
-> | servers / advisors | Nej | Nej |
-> | servers / keys | Nej | Nej |
-> | servers / privateEndpointConnectionProxies | Nej | Nej |
-> | servers / privateEndpointConnections | Nej | Nej |
-> | servers / privateLinkResources | Nej | Nej |
-> | servers / queryTexts | Nej | Nej |
-> | servers / recoverableServers | Nej | Nej |
-> | servers / topQueryStatistics | Nej | Nej |
-> | servers / virtualNetworkRules | Nej | Nej |
-> | servers / waitStatistics | Nej | Nej |
+> | servrar/rådgivare | Nej | Nej |
+> | servrar/nycklar | Nej | Nej |
+> | servrar/privateEndpointConnectionProxies | Nej | Nej |
+> | servrar/privateEndpointConnections | Nej | Nej |
+> | servrar/privateLinkResources | Nej | Nej |
+> | servrar/queryTexts | Nej | Nej |
+> | servrar/recoverableServers | Nej | Nej |
+> | servrar/topQueryStatistics | Nej | Nej |
+> | servrar/virtualNetworkRules | Nej | Nej |
+> | servrar/waitStatistics | Nej | Nej |
 > | serversv2 | Ja | Ja |
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | artifactSources | Ja | Ja |
-> | rollouts | Ja | Ja |
+> | distributioner | Ja | Ja |
 > | serviceTopologies | Ja | Ja |
-> | serviceTopologies / services | Ja | Ja |
-> | serviceTopologies / services / serviceUnits | Ja | Ja |
+> | serviceTopologies/tjänster | Ja | Ja |
+> | serviceTopologies/tjänster/serviceUnits | Ja | Ja |
 > | steg | Ja | Ja |
 
-## <a name="microsoftdesktopvirtualization"></a>Microsoft.DesktopVirtualization
+## <a name="microsoftdesktopvirtualization"></a>Microsoft. DesktopVirtualization
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | applicationgroups | Ja | Ja |
-> | applicationgroups / applications | Nej | Nej |
-> | applicationgroups / desktops | Nej | Nej |
+> | applicationgroups/program | Nej | Nej |
+> | applicationgroups/Station ära datorer | Nej | Nej |
 > | applicationgroups / startmenuitems | Nej | Nej |
 > | hostpools | Ja | Ja |
 > | hostpools / sessionhosts | Nej | Nej |
 > | hostpools / sessionhosts / usersessions | Nej | Nej |
 > | hostpools / usersessions | Nej | Nej |
-> | workspaces | Ja | Ja |
+> | arbets ytor | Ja | Ja |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | ElasticPools | Ja | Ja |
 > | ElasticPools / IotHubTenants | Ja | Ja |
 > | IotHubs | Ja | Ja |
 > | IotHubs / eventGridFilters | Nej | Nej |
 > | ProvisioningServices | Ja | Ja |
-> | usages | Nej | Nej |
+> | användningar | Nej | Nej |
 
-## <a name="microsoftdevops"></a>Microsoft.DevOps
+## <a name="microsoftdevops"></a>Microsoft. DevOps
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | pipelines | Ja | Ja |
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | controllers | Ja | Ja |
+> | domänkontrollanter | Ja | Ja |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | labcenters | Ja | Ja |
-> | labs | Ja | Ja |
-> | labs / environments | Ja | Ja |
-> | labs / serviceRunners | Ja | Ja |
-> | labs / virtualMachines | Ja | Ja |
-> | schedules | Ja | Ja |
+> | Laboration | Ja | Ja |
+> | labb/miljöer | Ja | Ja |
+> | labb/serviceRunners | Ja | Ja |
+> | labb/virtualMachines | Ja | Ja |
+> | scheman | Ja | Ja |
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | databaseAccountNames | Nej | Nej |
 > | databaseAccounts | Ja | Ja |
@@ -998,10 +998,10 @@ Jump to a resource provider namespace:
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | domains | Ja | Ja |
-> | domains / domainOwnershipIdentifiers | Nej | Nej |
+> | domäner | Ja | Ja |
+> | domäner/domainOwnershipIdentifiers | Nej | Nej |
 > | generateSsoRequest | Nej | Nej |
 > | topLevelDomains | Nej | Nej |
 > | validateDomainRegistrationInformation | Nej | Nej |
@@ -1009,93 +1009,93 @@ Jump to a resource provider namespace:
 ## <a name="microsoftdynamicslcs"></a>Microsoft.DynamicsLcs
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | lcsprojects | Nej | Nej |
 > | lcsprojects / clouddeployments | Nej | Nej |
-> | lcsprojects / connectors | Nej | Nej |
+> | lcsprojects/kopplingar | Nej | Nej |
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | services | Ja | Ja |
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | domains | Ja | Ja |
-> | domains / topics | Nej | Nej |
+> | domäner | Ja | Ja |
+> | domäner/ämnen | Nej | Nej |
 > | eventSubscriptions | Nej | Nej |
 > | extensionTopics | Nej | Nej |
-> | topics | Ja | Ja |
+> | avsnitt | Ja | Ja |
 > | topicTypes | Nej | Nej |
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | clusters | Ja | Ja |
-> | namespaces | Ja | Ja |
-> | namespaces / authorizationrules | Nej | Nej |
-> | namespaces / disasterrecoveryconfigs | Nej | Nej |
-> | namespaces / eventhubs | Nej | Nej |
-> | namespaces / eventhubs / authorizationrules | Nej | Nej |
-> | namespaces / eventhubs / consumergroups | Nej | Nej |
-> | namespaces / networkrulesets | Nej | Nej |
+> | kluster | Ja | Ja |
+> | namn områden | Ja | Ja |
+> | namnrymder/authorizationrules | Nej | Nej |
+> | namnrymder/disasterrecoveryconfigs | Nej | Nej |
+> | namnrymder/eventhubs | Nej | Nej |
+> | namnrymder/eventhubs/authorizationrules | Nej | Nej |
+> | namnrymder/eventhubs/consumergroups | Nej | Nej |
+> | namnrymder/networkrulesets | Nej | Nej |
 
 ## <a name="microsoftfeatures"></a>Microsoft.Features
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | funktioner | Nej | Nej |
-> | providers | Nej | Nej |
+> | Providers | Nej | Nej |
 
 ## <a name="microsoftgallery"></a>Microsoft.Gallery
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | enroll | Nej | Nej |
+> | certifiering | Nej | Nej |
 > | galleryitems | Nej | Nej |
 > | generateartifactaccessuri | Nej | Nej |
-> | myareas | Nej | Nej |
-> | myareas / areas | Nej | Nej |
-> | myareas / areas / areas | Nej | Nej |
-> | myareas / areas / areas / galleryitems | Nej | Nej |
-> | myareas / areas / galleryitems | Nej | Nej |
-> | myareas / galleryitems | Nej | Nej |
-> | register | Nej | Nej |
-> | resources | Nej | Nej |
+> | områden | Nej | Nej |
+> | område/områden | Nej | Nej |
+> | område/områden/områden | Nej | Nej |
+> | område/områden/områden/galleryitems | Nej | Nej |
+> | områdets/områden/galleryitems | Nej | Nej |
+> | områden/galleryitems | Nej | Nej |
+> | Registrera dig | Nej | Nej |
+> | resurser | Nej | Nej |
 > | retrieveresourcesbyid | Nej | Nej |
 
-## <a name="microsoftgenomics"></a>Microsoft.Genomics
+## <a name="microsoftgenomics"></a>Microsoft. genomik
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | konton | Ja | Ja |
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | configurationProfileAssignments | Nej | Nej |
 > | guestConfigurationAssignments | Nej | Nej |
-> | software | Nej | Nej |
+> | IntelliPoint | Nej | Nej |
 > | softwareUpdateProfile | Nej | Nej |
 > | softwareUpdates | Nej | Nej |
 
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | hanaInstances | Ja | Ja |
 > | sapMonitors | Ja | Ja |
@@ -1103,59 +1103,59 @@ Jump to a resource provider namespace:
 ## <a name="microsofthardwaresecuritymodules"></a>Microsoft.HardwareSecurityModules
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | dedicatedHSMs | Ja | Ja |
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | clusters | Ja | Ja |
-> | clusters / applications | Nej | Nej |
+> | kluster | Ja | Ja |
+> | kluster/program | Nej | Nej |
 
 ## <a name="microsofthealthcareapis"></a>Microsoft.HealthcareApis
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | services | Ja | Ja |
 
 ## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | machines | Ja | Ja |
-> | machines / extensions | Ja | Ja |
+> | faxar | Ja | Ja |
+> | datorer/tillägg | Ja | Ja |
 
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | dataManagers | Ja | Ja |
 
-## <a name="microsofthydra"></a>Microsoft.Hydra
+## <a name="microsofthydra"></a>Microsoft. Hydra
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | components | Ja | Ja |
+> | delarna | Ja | Ja |
 > | networkScopes | Ja | Ja |
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | jobs | Ja | Ja |
+> | utskrifts | Ja | Ja |
 
 ## <a name="microsoftintune"></a>Microsoft.Intune
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | diagnosticSettings | Nej | Nej |
 > | diagnosticSettingsCategories | Nej | Nej |
@@ -1163,7 +1163,7 @@ Jump to a resource provider namespace:
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | appTemplates | Nej | Nej |
 > | IoTApps | Ja | Ja |
@@ -1171,38 +1171,38 @@ Jump to a resource provider namespace:
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | Graph | Ja | Ja |
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | deletedVaults | Nej | Nej |
 > | hsmPools | Ja | Ja |
-> | vaults | Ja | Ja |
-> | vaults / accessPolicies | Nej | Nej |
-> | vaults / eventGridFilters | Nej | Nej |
-> | vaults / secrets | Nej | Nej |
+> | valv | Ja | Ja |
+> | valv/accessPolicies | Nej | Nej |
+> | valv/eventGridFilters | Nej | Nej |
+> | valv/hemligheter | Nej | Nej |
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | clusters | Ja | Ja |
-> | clusters / attacheddatabaseconfigurations | Nej | Nej |
-> | clusters / databases | Nej | Nej |
-> | clusters / databases / dataconnections | Nej | Nej |
-> | clusters / databases / eventhubconnections | Nej | Nej |
-> | clusters / sharedidentities | Nej | Nej |
+> | kluster | Ja | Ja |
+> | kluster/attacheddatabaseconfigurations | Nej | Nej |
+> | kluster/databaser | Nej | Nej |
+> | kluster/databaser/dataconnections | Nej | Nej |
+> | kluster/databaser/eventhubconnections | Nej | Nej |
+> | kluster/sharedidentities | Nej | Nej |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | labaccounts | Ja | Ja |
 > | användare | Nej | Nej |
@@ -1210,45 +1210,45 @@ Jump to a resource provider namespace:
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | hostingEnvironments | Ja | Ja |
 > | integrationAccounts | Ja | Ja |
 > | integrationServiceEnvironments | Ja | Ja |
-> | integrationServiceEnvironments / managedApis | Ja | Ja |
+> | integrationServiceEnvironments/managedApis | Ja | Ja |
 > | isolatedEnvironments | Ja | Ja |
-> | workflows | Ja | Ja |
+> | arbetsflöden | Ja | Ja |
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | commitmentPlans | Ja | Ja |
-> | webServices | Ja | Ja |
+> | WebServices | Ja | Ja |
 > | Arbetsytor | Ja | Ja |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | workspaces | Ja | Ja |
-> | workspaces / computes | Nej | Nej |
-> | workspaces / eventGridFilters | Nej | Nej |
+> | arbets ytor | Ja | Ja |
+> | arbets ytor/beräkningar | Nej | Nej |
+> | arbets ytor/eventGridFilters | Nej | Nej |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | Identities | Nej | Nej |
+> | Identiteter | Nej | Nej |
 > | userAssignedIdentities | Ja | Ja |
 
-## <a name="microsoftmanagedservices"></a>Microsoft.ManagedServices
+## <a name="microsoftmanagedservices"></a>Microsoft. ManagedServices
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | marketplaceRegistrationDefinitions | Nej | Nej |
 > | registrationAssignments | Nej | Nej |
@@ -1257,45 +1257,45 @@ Jump to a resource provider namespace:
 ## <a name="microsoftmanagement"></a>Microsoft.Management
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | getEntities | Nej | Nej |
 > | managementGroups | Nej | Nej |
-> | resources | Nej | Nej |
+> | resurser | Nej | Nej |
 > | startTenantBackfill | Nej | Nej |
 > | tenantBackfillStatus | Nej | Nej |
 
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | konton | Ja | Ja |
-> | accounts / eventGridFilters | Nej | Nej |
+> | konton/eventGridFilters | Nej | Nej |
 
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | offers | Nej | Nej |
+> | budgivning | Nej | Nej |
 > | offerTypes | Nej | Nej |
-> | offerTypes / publishers | Nej | Nej |
-> | offerTypes / publishers / offers | Nej | Nej |
-> | offerTypes / publishers / offers / plans | Nej | Nej |
-> | offerTypes / publishers / offers / plans / agreements | Nej | Nej |
-> | offerTypes / publishers / offers / plans / configs | Nej | Nej |
-> | offerTypes / publishers / offers / plans / configs / importImage | Nej | Nej |
+> | offerTypes/utgivare | Nej | Nej |
+> | offerTypes/utgivare/erbjudanden | Nej | Nej |
+> | offerTypes/utgivare/erbjudanden/planer | Nej | Nej |
+> | offerTypes/utgivare/erbjudanden/planer/avtal | Nej | Nej |
+> | offerTypes/utgivare/erbjudanden/planer/konfigurationer | Nej | Nej |
+> | offerTypes/utgivare/erbjudanden/planer/configs/importImage | Nej | Nej |
 > | privategalleryitems | Nej | Nej |
-> | products | Nej | Nej |
-> | publishers | Nej | Nej |
-> | publishers / offers | Nej | Nej |
-> | publishers / offers / amendments | Nej | Nej |
+> | läkemedle | Nej | Nej |
+> | Utgivare | Nej | Nej |
+> | Utgivare/erbjudanden | Nej | Nej |
+> | Utgivare/erbjudanden/ändringar | Nej | Nej |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | classicDevServices | Ja | Ja |
 > | updateCommunicationPreference | Nej | Nej |
@@ -1303,54 +1303,54 @@ Jump to a resource provider namespace:
 ## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | agreements | Nej | Nej |
+> | villkor | Nej | Nej |
 > | offertypes | Nej | Nej |
 
 ## <a name="microsoftmedia"></a>Microsoft.Media
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | mediaservices | Ja | Ja |
-> | mediaservices / accountFilters | Nej | Nej |
-> | mediaservices / assets | Nej | Nej |
-> | mediaservices / assets / assetFilters | Nej | Nej |
-> | mediaservices / contentKeyPolicies | Nej | Nej |
-> | mediaservices / eventGridFilters | Nej | Nej |
-> | mediaservices / liveEventOperations | Nej | Nej |
-> | mediaservices / liveEvents | Ja | Ja |
-> | mediaservices / liveEvents / liveOutputs | Nej | Nej |
-> | mediaservices / liveOutputOperations | Nej | Nej |
-> | mediaservices / mediaGraphs | Nej | Nej |
-> | mediaservices / streamingEndpointOperations | Nej | Nej |
-> | mediaservices / streamingEndpoints | Ja | Ja |
-> | mediaservices / streamingLocators | Nej | Nej |
-> | mediaservices / streamingPolicies | Nej | Nej |
-> | mediaservices / transforms | Nej | Nej |
-> | mediaservices / transforms / jobs | Nej | Nej |
+> | Media Services | Ja | Ja |
+> | Media Services/accountFilters | Nej | Nej |
+> | Media Services/till gångar | Nej | Nej |
+> | Media Services/assets/assetFilters | Nej | Nej |
+> | Media Services/contentKeyPolicies | Nej | Nej |
+> | Media Services/eventGridFilters | Nej | Nej |
+> | Media Services/liveEventOperations | Nej | Nej |
+> | Media Services/liveEvents | Ja | Ja |
+> | Media Services/liveEvents/liveOutputs | Nej | Nej |
+> | Media Services/liveOutputOperations | Nej | Nej |
+> | Media Services/mediaGraphs | Nej | Nej |
+> | Media Services/streamingEndpointOperations | Nej | Nej |
+> | Media Services/strömnings slut punkter | Ja | Ja |
+> | Media Services/streamingLocators | Nej | Nej |
+> | Media Services/streamingPolicies | Nej | Nej |
+> | Media Services/transformeringar | Nej | Nej |
+> | Media Services/transformeringar/jobb | Nej | Nej |
 
-## <a name="microsoftmicroservices4spring"></a>Microsoft.Microservices4Spring
+## <a name="microsoftmicroservices4spring"></a>Microsoft. Microservices4Spring
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | appClusters | Ja | Ja |
 
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | assessmentProjects | Ja | Ja |
 > | migrateprojects | Ja | Ja |
-> | projects | Ja | Ja |
+> | samarbetsprojekt | Ja | Ja |
 
 ## <a name="microsoftmixedreality"></a>Microsoft.MixedReality
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | holographicsBroadcastAccounts | Ja | Ja |
 > | objectUnderstandingAccounts | Ja | Ja |
@@ -1361,18 +1361,18 @@ Jump to a resource provider namespace:
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | netAppAccounts | Ja | Nej |
 > | netAppAccounts / capacityPools | Ja | Nej |
-> | netAppAccounts / capacityPools / volumes | Ja | Nej |
-> | netAppAccounts / capacityPools / volumes / mountTargets | Ja | Nej |
-> | netAppAccounts / capacityPools / volumes / snapshots | Ja | Nej |
+> | netAppAccounts/capacityPools/Volumes | Ja | Nej |
+> | netAppAccounts/capacityPools/Volumes/mountTargets | Ja | Nej |
+> | netAppAccounts/capacityPools/volym/ögonblicks bilder | Ja | Nej |
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | applicationGateways | Ja | Ja |
 > | applicationGatewayWebApplicationFirewallPolicies | Ja | Ja |
@@ -1381,35 +1381,35 @@ Jump to a resource provider namespace:
 > | azureFirewalls | Ja | Nej |
 > | bastionHosts | Ja | Ja |
 > | bgpServiceCommunities | Nej | Nej |
-> | connections | Ja | Ja |
+> | anslutning | Ja | Ja |
 > | ddosCustomPolicies | Ja | Ja |
 > | ddosProtectionPlans | Ja | Ja |
 > | dnsOperationStatuses | Nej | Nej |
 > | dnszones | Ja | Ja |
-> | dnszones / A | Nej | Nej |
-> | dnszones / AAAA | Nej | Nej |
-> | dnszones / all | Nej | Nej |
-> | dnszones / CAA | Nej | Nej |
-> | dnszones / CNAME | Nej | Nej |
-> | dnszones / MX | Nej | Nej |
-> | dnszones / NS | Nej | Nej |
-> | dnszones / PTR | Nej | Nej |
-> | dnszones / recordsets | Nej | Nej |
-> | dnszones / SOA | Nej | Nej |
-> | dnszones / SRV | Nej | Nej |
-> | dnszones / TXT | Nej | Nej |
+> | dnszones/A | Nej | Nej |
+> | dnszones/AAAA | Nej | Nej |
+> | dnszones/alla | Nej | Nej |
+> | dnszones/CAA | Nej | Nej |
+> | dnszones/CNAME | Nej | Nej |
+> | dnszones/MX | Nej | Nej |
+> | dnszones/NS | Nej | Nej |
+> | dnszones/PTR | Nej | Nej |
+> | dnszones/Recordset | Nej | Nej |
+> | dnszones/SOA | Nej | Nej |
+> | dnszones/SRV | Nej | Nej |
+> | dnszones/TXT | Nej | Nej |
 > | expressRouteCircuits | Ja | Ja |
 > | expressRouteCrossConnections | Ja | Ja |
 > | expressRouteGateways | Ja | Ja |
 > | expressRoutePorts | Ja | Ja |
 > | expressRouteServiceProviders | Nej | Nej |
 > | firewallPolicies | Ja | Ja |
-> | frontdoors | Yes, but limited (see [note below](#frontdoor)) | Ja |
-> | frontdoorWebApplicationFirewallManagedRuleSets | Yes, but limited (see [note below](#frontdoor)) | Nej |
-> | frontdoorWebApplicationFirewallPolicies | Yes, but limited (see [note below](#frontdoor)) | Ja |
+> | frontdoors | Ja, men begränsat (se [Obs! nedan](#frontdoor)) | Ja |
+> | frontdoorWebApplicationFirewallManagedRuleSets | Ja, men begränsat (se [Obs! nedan](#frontdoor)) | Nej |
+> | frontdoorWebApplicationFirewallPolicies | Ja, men begränsat (se [Obs! nedan](#frontdoor)) | Ja |
 > | getDnsResourceReference | Nej | Nej |
 > | internalNotify | Nej | Nej |
-> | loadBalancers | Ja | Nej |
+> | Belastningsutjämnare | Ja | Nej |
 > | localNetworkGateways | Ja | Ja |
 > | natGateways | Ja | Ja |
 > | networkIntentPolicies | Ja | Ja |
@@ -1418,20 +1418,20 @@ Jump to a resource provider namespace:
 > | networkSecurityGroups | Ja | Ja |
 > | networkWatchers | Ja | Nej |
 > | networkWatchers / connectionMonitors | Ja | Nej |
-> | networkWatchers / lenses | Ja | Nej |
+> | networkWatchers/linser | Ja | Nej |
 > | networkWatchers / pingMeshes | Ja | Nej |
 > | p2sVpnGateways | Ja | Ja |
 > | privateDnsOperationStatuses | Nej | Nej |
 > | privateDnsZones | Ja | Ja |
-> | privateDnsZones / A | Nej | Nej |
-> | privateDnsZones / AAAA | Nej | Nej |
-> | privateDnsZones / all | Nej | Nej |
-> | privateDnsZones / CNAME | Nej | Nej |
-> | privateDnsZones / MX | Nej | Nej |
-> | privateDnsZones / PTR | Nej | Nej |
-> | privateDnsZones / SOA | Nej | Nej |
-> | privateDnsZones / SRV | Nej | Nej |
-> | privateDnsZones / TXT | Nej | Nej |
+> | privateDnsZones/A | Nej | Nej |
+> | privateDnsZones/AAAA | Nej | Nej |
+> | privateDnsZones/alla | Nej | Nej |
+> | privateDnsZones/CNAME | Nej | Nej |
+> | privateDnsZones/MX | Nej | Nej |
+> | privateDnsZones/PTR | Nej | Nej |
+> | privateDnsZones/SOA | Nej | Nej |
+> | privateDnsZones/SRV | Nej | Nej |
+> | privateDnsZones/TXT | Nej | Nej |
 > | privateDnsZones / virtualNetworkLinks | Ja | Ja |
 > | privateEndpoints | Ja | Ja |
 > | privateLinkServices | Ja | Ja |
@@ -1442,7 +1442,7 @@ Jump to a resource provider namespace:
 > | serviceEndpointPolicies | Ja | Ja |
 > | trafficManagerGeographicHierarchies | Nej | Nej |
 > | trafficmanagerprofiles | Ja | Ja |
-> | trafficmanagerprofiles/heatMaps | Nej | Nej |
+> | trafficmanagerprofiles/termiska kartor | Nej | Nej |
 > | trafficManagerUserMetricsKeys | Nej | Nej |
 > | virtualHubs | Ja | Ja |
 > | virtualNetworkGateways | Ja | Ja |
@@ -1456,28 +1456,28 @@ Jump to a resource provider namespace:
 <a id="frontdoor" />
 
 > [!NOTE]
-> For Azure Front Door Service, you can apply tags when creating the resource, but updating or adding tags is not currently supported.
+> För Azures frontend-tjänst kan du använda taggar när du skapar resursen, men att uppdatera eller lägga till taggar stöds inte för närvarande.
 
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | namespaces | Ja | Nej |
-> | namespaces / notificationHubs | Ja | Nej |
+> | namn områden | Ja | Nej |
+> | namnrymder/notificationHubs | Ja | Nej |
 
-## <a name="microsoftobjectstore"></a>Microsoft.ObjectStore
+## <a name="microsoftobjectstore"></a>Microsoft. ObjectStore
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | osNamespaces | Ja | Ja |
 
 ## <a name="microsoftoffazure"></a>Microsoft.OffAzure
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | HyperVSites | Ja | Ja |
 > | ImportSites | Ja | Ja |
@@ -1487,31 +1487,31 @@ Jump to a resource provider namespace:
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | clusters | Ja | Ja |
+> | kluster | Ja | Ja |
 > | enheter | Nej | Nej |
 > | linkTargets | Nej | Nej |
 > | storageInsightConfigs | Nej | Nej |
-> | workspaces | Ja | Ja |
-> | workspaces / dataSources | Nej | Nej |
-> | workspaces / linkedServices | Nej | Nej |
-> | workspaces / query | Nej | Nej |
+> | arbets ytor | Ja | Ja |
+> | arbets ytor/data källor | Nej | Nej |
+> | arbets ytor/linkedServices | Nej | Nej |
+> | arbets ytor/fråga | Nej | Nej |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | managementassociations | Nej | Nej |
 > | managementconfigurations | Ja | Ja |
 > | lösningar | Ja | Ja |
-> | views | Ja | Ja |
+> | vyer | Ja | Ja |
 
 ## <a name="microsoftpeering"></a>Microsoft.Peering
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | legacyPeerings | Nej | Nej |
 > | peerAsns | Nej | Nej |
@@ -1522,84 +1522,84 @@ Jump to a resource provider namespace:
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | policyEvents | Nej | Nej |
 > | policyMetadata | Nej | Nej |
 > | policyStates | Nej | Nej |
 > | policyTrackedResources | Nej | Nej |
-> | remediations | Nej | Nej |
+> | reparationer | Nej | Nej |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | consoles | Nej | Nej |
-> | dashboards | Ja | Ja |
+> | konsoler | Nej | Nej |
+> | instrument paneler | Ja | Ja |
 > | userSettings | Nej | Nej |
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | workspaceCollections | Ja | Ja |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | capacities | Ja | Ja |
+> | kapaciteter | Ja | Ja |
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | backupProtectedItems | Nej | Nej |
-> | vaults | Ja | Ja |
+> | valv | Ja | Ja |
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | namespaces | Ja | Ja |
-> | namespaces / authorizationrules | Nej | Nej |
-> | namespaces / hybridconnections | Nej | Nej |
-> | namespaces / hybridconnections / authorizationrules | Nej | Nej |
-> | namespaces / wcfrelays | Nej | Nej |
-> | namespaces / wcfrelays / authorizationrules | Nej | Nej |
+> | namn områden | Ja | Ja |
+> | namnrymder/authorizationrules | Nej | Nej |
+> | namnrymder/hybridconnections | Nej | Nej |
+> | namnrymder/hybridconnections/authorizationrules | Nej | Nej |
+> | namnrymder/wcfrelays | Nej | Nej |
+> | namnrymder/wcfrelays/authorizationrules | Nej | Nej |
 
-## <a name="microsoftremoteapp"></a>Microsoft.RemoteApp
+## <a name="microsoftremoteapp"></a>Microsoft. RemoteApp
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | konton | Nej | Nej |
-> | collections | Ja | Ja |
-> | collections / applications | Nej | Nej |
-> | collections / securityprincipals | Nej | Nej |
+> | Samlingar | Ja | Ja |
+> | Samlingar/program | Nej | Nej |
+> | Samlingar/securityprincipals | Nej | Nej |
 > | templateImages | Nej | Nej |
 
 ## <a name="microsoftresourcegraph"></a>Microsoft.ResourceGraph
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | frågor | Ja | Ja |
 > | resourceChangeDetails | Nej | Nej |
 > | resourceChanges | Nej | Nej |
-> | resources | Nej | Nej |
+> | resurser | Nej | Nej |
 > | resourcesHistory | Nej | Nej |
 > | subscriptionsStatus | Nej | Nej |
 
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | availabilityStatuses | Nej | Nej |
 > | childAvailabilityStatuses | Nej | Nej |
@@ -1607,28 +1607,28 @@ Jump to a resource provider namespace:
 > | evenemang | Nej | Nej |
 > | impactedResources | Nej | Nej |
 > | metadata | Nej | Nej |
-> | notifications | Nej | Nej |
+> | ansökningar | Nej | Nej |
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | deployments | Ja | Nej |
-> | deployments / operations | Nej | Nej |
+> | distributioner | Ja | Nej |
+> | distributioner/åtgärder | Nej | Nej |
 > | deploymentScripts | Ja | Ja |
-> | deploymentScripts / logs | Nej | Nej |
-> | links | Nej | Nej |
+> | deploymentScripts/loggar | Nej | Nej |
+> | Länkar | Nej | Nej |
 > | notifyResourceJobs | Nej | Nej |
-> | providers | Nej | Nej |
+> | Providers | Nej | Nej |
 > | resourceGroups | Ja | Nej |
-> | subscriptions | Nej | Nej |
-> | tenants | Nej | Nej |
+> | prenumerationer | Nej | Nej |
+> | Klienter | Nej | Nej |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | program | Ja | Ja |
 > | saasresources | Nej | Nej |
@@ -1636,14 +1636,14 @@ Jump to a resource provider namespace:
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | jobcollections | Ja | Ja |
+> | förfrågningsåtgärder | Ja | Ja |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | resourceHealthMetadata | Nej | Nej |
 > | searchServices | Ja | Ja |
@@ -1651,7 +1651,7 @@ Jump to a resource provider namespace:
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | adaptiveNetworkHardenings | Nej | Nej |
 > | advancedThreatProtectionSettings | Nej | Nej |
@@ -1659,11 +1659,11 @@ Jump to a resource provider namespace:
 > | allowedConnections | Nej | Nej |
 > | applicationWhitelistings | Nej | Nej |
 > | assessmentMetadata | Nej | Nej |
-> | assessments | Nej | Nej |
+> | utvärderingar | Nej | Nej |
 > | autoDismissAlertsRules | Nej | Nej |
-> | automations | Ja | Ja |
+> | automatiseringar | Ja | Ja |
 > | AutoProvisioningSettings | Nej | Nej |
-> | Compliances | Nej | Nej |
+> | Godkännanden | Nej | Nej |
 > | dataCollectionAgents | Nej | Nej |
 > | deviceSecurityGroups | Nej | Nej |
 > | discoveredSecuritySolutions | Nej | Nej |
@@ -1675,8 +1675,8 @@ Jump to a resource provider namespace:
 > | iotSecuritySolutions / analyticsModels / aggregatedRecommendations | Nej | Nej |
 > | jitNetworkAccessPolicies | Nej | Nej |
 > | networkData | Nej | Nej |
-> | policies | Nej | Nej |
-> | pricings | Nej | Nej |
+> | rikt | Nej | Nej |
+> | prissättningar | Nej | Nej |
 > | regulatoryComplianceStandards | Nej | Nej |
 > | regulatoryComplianceStandards / regulatoryComplianceControls | Nej | Nej |
 > | regulatoryComplianceStandards / regulatoryComplianceControls / regulatoryComplianceAssessments | Nej | Nej |
@@ -1687,31 +1687,31 @@ Jump to a resource provider namespace:
 > | securityStatusesSummaries | Nej | Nej |
 > | serverVulnerabilityAssessments | Nej | Nej |
 > | settings | Nej | Nej |
-> | subAssessments | Nej | Nej |
+> | underbedömningar | Nej | Nej |
 > | uppgifter | Nej | Nej |
-> | topologies | Nej | Nej |
+> | topologier | Nej | Nej |
 > | workspaceSettings | Nej | Nej |
 
 ## <a name="microsoftsecuritygraph"></a>Microsoft.SecurityGraph
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | diagnosticSettings | Nej | Nej |
 > | diagnosticSettingsCategories | Nej | Nej |
 
-## <a name="microsoftsecurityinsights"></a>Microsoft.SecurityInsights
+## <a name="microsoftsecurityinsights"></a>Microsoft. SecurityInsights
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | aggregations | Nej | Nej |
+> | agg regeringar | Nej | Nej |
 > | alertRules | Nej | Nej |
 > | alertRuleTemplates | Nej | Nej |
-> | bookmarks | Nej | Nej |
-> | cases | Nej | Nej |
+> | dina | Nej | Nej |
+> | fall | Nej | Nej |
 > | dataConnectors | Nej | Nej |
-> | entities | Nej | Nej |
+> | poster | Nej | Nej |
 > | entityQueries | Nej | Nej |
 > | officeConsents | Nej | Nej |
 > | settings | Nej | Nej |
@@ -1719,86 +1719,86 @@ Jump to a resource provider namespace:
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | namespaces | Ja | Nej |
-> | namespaces / authorizationrules | Nej | Nej |
-> | namespaces / disasterrecoveryconfigs | Nej | Nej |
-> | namespaces / eventgridfilters | Nej | Nej |
-> | namespaces / networkrulesets | Nej | Nej |
-> | namespaces / queues | Nej | Nej |
-> | namespaces / queues / authorizationrules | Nej | Nej |
-> | namespaces / topics | Nej | Nej |
-> | namespaces / topics / authorizationrules | Nej | Nej |
-> | namespaces / topics / subscriptions | Nej | Nej |
-> | namespaces / topics / subscriptions / rules | Nej | Nej |
+> | namn områden | Ja | Nej |
+> | namnrymder/authorizationrules | Nej | Nej |
+> | namnrymder/disasterrecoveryconfigs | Nej | Nej |
+> | namnrymder/eventgridfilters | Nej | Nej |
+> | namnrymder/networkrulesets | Nej | Nej |
+> | namnrymder/köer | Nej | Nej |
+> | namnrymder/köer/authorizationrules | Nej | Nej |
+> | namn områden/ämnen | Nej | Nej |
+> | namnrymder/ämnen/authorizationrules | Nej | Nej |
+> | namnrymder/ämnen/prenumerationer | Nej | Nej |
+> | namn områden/ämnen/prenumerationer/regler | Nej | Nej |
 > | premiumMessagingRegions | Nej | Nej |
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | program | Ja | Ja |
-> | clusters | Ja | Ja |
-> | clusters / applications | Nej | Nej |
+> | kluster | Ja | Ja |
+> | kluster/program | Nej | Nej |
 > | containerGroups | Ja | Ja |
 > | containerGroupSets | Ja | Ja |
 > | edgeclusters | Ja | Ja |
-> | edgeclusters / applications | Nej | Nej |
-> | networks | Ja | Ja |
+> | edgeclusters/program | Nej | Nej |
+> | nätet | Ja | Ja |
 > | secretstores | Ja | Ja |
-> | secretstores / certificates | Nej | Nej |
-> | secretstores / secrets | Nej | Nej |
+> | secretstores/certifikat | Nej | Nej |
+> | secretstores/hemligheter | Nej | Nej |
 > | volumes | Ja | Ja |
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | program | Ja | Ja |
 > | containerGroups | Ja | Ja |
-> | gateways | Ja | Ja |
-> | networks | Ja | Ja |
-> | hemligheter | Ja | Ja |
+> | gatewayer | Ja | Ja |
+> | nätet | Ja | Ja |
+> | secrets | Ja | Ja |
 > | volumes | Ja | Ja |
 
-## <a name="microsoftservices"></a>Microsoft.Services
+## <a name="microsoftservices"></a>Microsoft. Services
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | providerRegistrations | Nej | Nej |
 > | providerRegistrations / resourceTypeRegistrations | Nej | Nej |
-> | rollouts | Ja | Ja |
+> | distributioner | Ja | Ja |
 
-## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
+## <a name="microsoftsignalrservice"></a>Microsoft. SignalRService
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | SignalR | Ja | Ja |
-> | SignalR / eventGridFilters | Nej | Nej |
+> | SignalR/eventGridFilters | Nej | Nej |
 
 ## <a name="microsoftsiterecovery"></a>Microsoft.SiteRecovery
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | SiteRecoveryVault | Ja | Ja |
 
-## <a name="microsoftsoftwareplan"></a>Microsoft.SoftwarePlan
+## <a name="microsoftsoftwareplan"></a>Microsoft. SoftwarePlan
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | hybridUseBenefits | Nej | Nej |
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | applicationDefinitions | Ja | Ja |
 > | program | Ja | Ja |
@@ -1808,39 +1808,39 @@ Jump to a resource provider namespace:
 ## <a name="microsoftsql"></a>Microsoft.SQL
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | managedInstances | Ja | Ja |
-> | managedInstances / databases | Nej | Nej |
-> | managedInstances / databases / backupShortTermRetentionPolicies | Nej | Nej |
-> | managedInstances / databases / schemas / tables / columns / sensitivityLabels | Nej | Nej |
-> | managedInstances / databases / vulnerabilityAssessments | Nej | Nej |
-> | managedInstances / databases / vulnerabilityAssessments / rules / baselines | Nej | Nej |
+> | managedInstances/databaser | Nej | Nej |
+> | managedInstances/databaser/backupShortTermRetentionPolicies | Nej | Nej |
+> | managedInstances/databaser/scheman/tabeller/kolumner/sensitivityLabels | Nej | Nej |
+> | managedInstances/databaser/vulnerabilityAssessments | Nej | Nej |
+> | managedInstances/databaser/vulnerabilityAssessments/regler/bas linjer | Nej | Nej |
 > | managedInstances / encryptionProtector | Nej | Nej |
-> | managedInstances / keys | Nej | Nej |
+> | managedInstances/nycklar | Nej | Nej |
 > | managedInstances / restorableDroppedDatabases / backupShortTermRetentionPolicies | Nej | Nej |
 > | managedInstances / vulnerabilityAssessments | Nej | Nej |
 > | servrar | Ja | Ja |
-> | servers / administrators | Nej | Nej |
-> | servers / communicationLinks | Nej | Nej |
-> | servers / databases | Yes (see [note below](#sqlnote)) | Ja |
-> | servers / encryptionProtector | Nej | Nej |
-> | servers / firewallRules | Nej | Nej |
-> | servers / keys | Nej | Nej |
-> | servers / restorableDroppedDatabases | Nej | Nej |
-> | servers / serviceobjectives | Nej | Nej |
-> | servers / tdeCertificates | Nej | Nej |
+> | servrar/administratörer | Nej | Nej |
+> | servrar/communicationLinks | Nej | Nej |
+> | servrar/databaser | Ja (se [Anmärkning nedan](#sqlnote)) | Ja |
+> | servrar/encryptionProtector | Nej | Nej |
+> | servrar/firewallRules | Nej | Nej |
+> | servrar/nycklar | Nej | Nej |
+> | servrar/restorableDroppedDatabases | Nej | Nej |
+> | servrar/serviceobjectives | Nej | Nej |
+> | servrar/tdeCertificates | Nej | Nej |
 > | virtualClusters | Nej | Nej |
 
 <a id="sqlnote" />
 
 > [!NOTE]
-> The Master database doesn't support tags, but other databases, including Azure SQL Data Warehouse databases, support tags. Azure SQL Data Warehouse databases must be in Active (not Paused) state.
+> Huvud databasen stöder inte taggar, men andra databaser, inklusive Azure SQL Data Warehouse-databaser, stöder taggar. Azure SQL Data Warehouse-databaser måste vara i aktiv (inte pausad) status.
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | SqlVirtualMachineGroups | Ja | Ja |
 > | SqlVirtualMachineGroups / AvailabilityGroupListeners | Nej | Nej |
@@ -1849,112 +1849,112 @@ Jump to a resource provider namespace:
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | storageAccounts | Ja | Ja |
-> | storageAccounts / blobServices | Nej | Nej |
-> | storageAccounts / fileServices | Nej | Nej |
-> | storageAccounts / queueServices | Nej | Nej |
-> | storageAccounts / services | Nej | Nej |
-> | storageAccounts / services / metricDefinitions | Nej | Nej |
-> | storageAccounts / tableServices | Nej | Nej |
-> | usages | Nej | Nej |
+> | storageAccounts/blobServices | Nej | Nej |
+> | storageAccounts/fileServices | Nej | Nej |
+> | storageAccounts/queueServices | Nej | Nej |
+> | storageAccounts/tjänster | Nej | Nej |
+> | storageAccounts/tjänster/metricDefinitions | Nej | Nej |
+> | storageAccounts/tableServices | Nej | Nej |
+> | användningar | Nej | Nej |
 
 ## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | caches | Ja | Ja |
-> | caches / storageTargets | Nej | Nej |
+> | cacheminnen | Ja | Ja |
+> | cache-/storageTargets | Nej | Nej |
 > | usageModels | Nej | Nej |
 
-## <a name="microsoftstoragereplication"></a>Microsoft.StorageReplication
+## <a name="microsoftstoragereplication"></a>Microsoft. StorageReplication
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | replicationGroups | Nej | Nej |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | storageSyncServices | Ja | Ja |
 > | storageSyncServices / registeredServers | Nej | Nej |
 > | storageSyncServices / syncGroups | Nej | Nej |
 > | storageSyncServices / syncGroups / cloudEndpoints | Nej | Nej |
 > | storageSyncServices / syncGroups / serverEndpoints | Nej | Nej |
-> | storageSyncServices / workflows | Nej | Nej |
+> | storageSyncServices/arbets flöden | Nej | Nej |
 
 ## <a name="microsoftstoragesyncdev"></a>Microsoft.StorageSyncDev
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | storageSyncServices | Ja | Ja |
 > | storageSyncServices / registeredServers | Nej | Nej |
 > | storageSyncServices / syncGroups | Nej | Nej |
 > | storageSyncServices / syncGroups / cloudEndpoints | Nej | Nej |
 > | storageSyncServices / syncGroups / serverEndpoints | Nej | Nej |
-> | storageSyncServices / workflows | Nej | Nej |
+> | storageSyncServices/arbets flöden | Nej | Nej |
 
 ## <a name="microsoftstoragesyncint"></a>Microsoft.StorageSyncInt
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | storageSyncServices | Ja | Ja |
 > | storageSyncServices / registeredServers | Nej | Nej |
 > | storageSyncServices / syncGroups | Nej | Nej |
 > | storageSyncServices / syncGroups / cloudEndpoints | Nej | Nej |
 > | storageSyncServices / syncGroups / serverEndpoints | Nej | Nej |
-> | storageSyncServices / workflows | Nej | Nej |
+> | storageSyncServices/arbets flöden | Nej | Nej |
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | managers | Ja | Ja |
+> | hantera | Ja | Ja |
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | streamingjobs | Yes (see note below) | Ja |
+> | streamingjobs | Ja (se anmärkning nedan) | Ja |
 
 > [!NOTE]
-> You can't add a tag when streamingjobs is running. Stop the resource to add a tag.
+> Du kan inte lägga till en tagg när streamingjobs körs. Stoppa resursen för att lägga till en tagg.
 
 ## <a name="microsoftsubscription"></a>Microsoft.Subscription
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | cancel | Nej | Nej |
+> | Avbryt | Nej | Nej |
 > | CreateSubscription | Nej | Nej |
-> | enable | Nej | Nej |
-> | rename | Nej | Nej |
+> | Använd | Nej | Nej |
+> | ta | Nej | Nej |
 > | SubscriptionDefinitions | Nej | Nej |
 > | SubscriptionOperations | Nej | Nej |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | environments | Ja | Nej |
-> | environments / accessPolicies | Nej | Nej |
-> | environments / eventsources | Ja | Nej |
-> | environments / referenceDataSets | Ja | Nej |
+> | utrymmen | Ja | Nej |
+> | miljöer/accessPolicies | Nej | Nej |
+> | miljöer/eventsources | Ja | Nej |
+> | miljöer/referenceDataSets | Ja | Nej |
 
 ## <a name="microsoftvmwarecloudsimple"></a>Microsoft.VMwareCloudSimple
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | dedicatedCloudNodes | Ja | Ja |
 > | dedicatedCloudServices | Ja | Ja |
@@ -1963,22 +1963,22 @@ Jump to a resource provider namespace:
 ## <a name="microsoftweb"></a>Microsoft.Web
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | apiManagementAccounts | Nej | Nej |
 > | apiManagementAccounts / apiAcls | Nej | Nej |
-> | apiManagementAccounts / apis | Nej | Nej |
-> | apiManagementAccounts / apis / apiAcls | Nej | Nej |
-> | apiManagementAccounts / apis / connectionAcls | Nej | Nej |
-> | apiManagementAccounts / apis / connections | Nej | Nej |
-> | apiManagementAccounts / apis / connections / connectionAcls | Nej | Nej |
-> | apiManagementAccounts / apis / localizedDefinitions | Nej | Nej |
+> | apiManagementAccounts/API: er | Nej | Nej |
+> | apiManagementAccounts/API/apiAcls | Nej | Nej |
+> | apiManagementAccounts/API/connectionAcls | Nej | Nej |
+> | apiManagementAccounts/API/anslutningar | Nej | Nej |
+> | apiManagementAccounts/API/Connections/connectionAcls | Nej | Nej |
+> | apiManagementAccounts/API/localizedDefinitions | Nej | Nej |
 > | apiManagementAccounts / connectionAcls | Nej | Nej |
-> | apiManagementAccounts / connections | Nej | Nej |
+> | apiManagementAccounts/anslutningar | Nej | Nej |
 > | billingMeters | Nej | Nej |
-> | certificates | Ja | Ja |
+> | intyg | Ja | Ja |
 > | connectionGateways | Ja | Ja |
-> | connections | Ja | Ja |
+> | anslutning | Ja | Ja |
 > | customApis | Ja | Ja |
 > | deletedSites | Nej | Nej |
 > | functions | Nej | Nej |
@@ -1986,29 +1986,29 @@ Jump to a resource provider namespace:
 > | hostingEnvironments / multiRolePools | Nej | Nej |
 > | hostingEnvironments / workerPools | Nej | Nej |
 > | publishingUsers | Nej | Nej |
-> | recommendations | Nej | Nej |
+> | rekommenderade | Nej | Nej |
 > | resourceHealthMetadata | Nej | Nej |
-> | runtimes | Nej | Nej |
+> | körningar | Nej | Nej |
 > | serverFarms | Ja | Ja |
-> | serverFarms / eventGridFilters | Nej | Nej |
-> | sites | Ja | Ja |
-> | sites / config  | Nej | Nej |
-> | sites / eventGridFilters | Nej | Nej |
-> | sites / hostNameBindings | Nej | Nej |
-> | sites / networkConfig | Nej | Nej |
-> | sites / premieraddons | Ja | Ja |
-> | sites / slots | Ja | Ja |
-> | sites / slots / eventGridFilters | Nej | Nej |
-> | sites / slots / hostNameBindings | Nej | Nej |
-> | sites / slots / networkConfig | Nej | Nej |
+> | Server grupper/eventGridFilters | Nej | Nej |
+> | stationer | Ja | Ja |
+> | platser/konfig  | Nej | Nej |
+> | platser/eventGridFilters | Nej | Nej |
+> | platser/hostNameBindings | Nej | Nej |
+> | platser/networkConfig | Nej | Nej |
+> | platser/premieraddons | Ja | Ja |
+> | platser/platser | Ja | Ja |
+> | platser/platser/eventGridFilters | Nej | Nej |
+> | platser/platser/hostNameBindings | Nej | Nej |
+> | platser/platser/networkConfig | Nej | Nej |
 > | sourceControls | Nej | Nej |
-> | validate | Nej | Nej |
+> | kontrollerar | Nej | Nej |
 > | verifyHostingEnvironmentVnet | Nej | Nej |
 
 ## <a name="microsoftwindowsdefenderatp"></a>Microsoft.WindowsDefenderATP
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | diagnosticSettings | Nej | Nej |
 > | diagnosticSettingsCategories | Nej | Nej |
@@ -2016,22 +2016,22 @@ Jump to a resource provider namespace:
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | DeviceServices | Ja | Ja |
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
 
 > [!div class="mx-tableFixed"]
-> | Resurstyp | Supports tags | Tag in cost report |
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | components | Nej | Nej |
+> | delarna | Nej | Nej |
 > | componentsSummary | Nej | Nej |
 > | monitorInstances | Nej | Nej |
 > | monitorInstancesSummary | Nej | Nej |
-> | monitors | Nej | Nej |
+> | Övervakare | Nej | Nej |
 > | notificationSettings | Nej | Nej |
 
 ## <a name="next-steps"></a>Nästa steg
 
-To learn how to apply tags to resources, see [Use tags to organize your Azure resources](resource-group-using-tags.md).
+Information om hur du använder taggar för resurser finns i [använda taggar för att ordna dina Azure-resurser](resource-group-using-tags.md).

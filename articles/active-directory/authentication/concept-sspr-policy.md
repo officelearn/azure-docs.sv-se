@@ -1,6 +1,6 @@
 ---
-title: Self-service password reset policies - Azure Active Directory
-description: Configure Azure AD self-service password reset policy options
+title: Principer för lösen ords återställning via självbetjäning – Azure Active Directory
+description: Konfigurera princip alternativ för återställning av lösen ord för Azure AD-självbetjäning
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -18,149 +18,149 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74381925"
 ---
-# <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Password policies and restrictions in Azure Active Directory
+# <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Lösen ords principer och begränsningar i Azure Active Directory
 
-This article describes the password policies and complexity requirements associated with user accounts in your Azure Active Directory (Azure AD) tenant.
+Den här artikeln beskriver lösen ords principer och komplexitets krav som är kopplade till användar konton i din Azure Active Directory (Azure AD)-klient.
 
-## <a name="administrator-reset-policy-differences"></a>Administrator reset policy differences
+## <a name="administrator-reset-policy-differences"></a>Återställa princip skillnader i administratörer
 
-**Microsoft enforces a strong default *two-gate* password reset policy for any Azure administrator role** this policy may be different from the one you have defined for your users and cannot be changed. You should always test password reset functionality as a user without any Azure administrator roles assigned.
+**Microsoft tillämpar en stark standard princip för lösen ords återställning med *två grindar* för valfri Azure-administratörs roll** den här principen kan skilja sig från den som du har definierat för dina användare och inte kan ändras. Du bör alltid testa funktionen för återställning av lösen ord som en användare utan tilldelade Azure Administrator-roller.
 
-With a two-gate policy, **administrators don't have the ability to use security questions**.
+Med en princip med två-grind funktioner kan **administratörer inte använda säkerhets frågor**.
 
-The two-gate policy requires two pieces of authentication data, such as an **email address**, **authenticator app**, or a **phone number**. A two-gate policy applies in the following circumstances:
+Principen för två-grind kräver två delar av autentiseringsdata, till exempel en **e-postadress**, en **Authenticator-app**eller ett **telefonnummer**. En princip för två grindar gäller i följande fall:
 
-* All the following Azure administrator roles are affected:
-  * Helpdesk administrator
-  * Service support administrator
+* Alla följande roller för Azure-administratörer påverkas:
+  * Support administratör
+  * Tjänst support administratör
   * Faktureringsadministratör
-  * Partner Tier1 Support
-  * Partner Tier2 Support
-  * Exchange administrator
-  * Skype for Business administrator
-  * User administrator
-  * Directory writers
-  * Global administrator or company administrator
+  * Partnersupport, nivå 1
+  * Partnersupport, nivå 2
+  * Exchange-administratör
+  * Skype för företag-administratör
+  * Användar administratör
+  * Katalog skrivare
+  * Global administratör eller företags administratör
   * SharePoint-administratör
-  * Compliance administrator
-  * Application administrator
+  * Administratör för efterlevnad
+  * Program administratör
   * Säkerhetsadministratör
-  * Privileged role administrator
-  * Intune administrator
-  * Application proxy service administrator
-  * Dynamics 365 administrator
-  * Power BI service administrator
-  * Authentication administrator
-  * Privileged Authentication administrator
+  * Privilegie rad roll administratör
+  * Intune-administratör
+  * Administratör för tjänsten Application Proxy
+  * Dynamics 365-administratör
+  * Power BI-tjänst administratör
+  * Administratör för autentisering
+  * Administratör för privilegie rad autentisering
 
-* If 30 days have elapsed in a trial subscription; or
-* A vanity domain is present, such as contoso.com; or
-* Azure AD Connect is synchronizing identities from your on-premises directory
+* Om 30 dagar har förflutit i en utvärderings prenumeration; eller
+* Det finns en anpassad-domän, t. ex. contoso.com; eller
+* Azure AD Connect synkroniserar identiteter från din lokala katalog
 
 ### <a name="exceptions"></a>Undantag
 
-A one-gate policy requires one piece of authentication data, such as an email address *or* phone number. A one-gate policy applies in the following circumstances:
+En princip för en enskild grind kräver en typ av autentiseringsinformation, till exempel en e-postadress *eller* ett telefonnummer. En princip för en-grind gäller i följande fall:
 
-* It's within the first 30 days of a trial subscription; or
-* A vanity domain isn't present (*.onmicrosoft.com); and
-* Azure AD Connect isn't synchronizing identities
+* Den ligger inom de första 30 dagarna i en utvärderings prenumeration. eller
+* Det finns ingen anpassad-domän (*. onmicrosoft.com). särskilt
+* Azure AD Connect synkroniserar inte identiteter
 
-## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>UserPrincipalName policies that apply to all user accounts
+## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>UserPrincipalName-principer som gäller för alla användar konton
 
-Every user account that needs to sign in to Azure AD must have a unique user principal name (UPN) attribute value associated with their account. The following table outlines the policies that apply to both on-premises Active Directory user accounts that are synchronized to the cloud and to cloud-only user accounts:
+Varje användar konto som behöver logga in på Azure AD måste ha ett unikt värde för User Principal Name (UPN) som är kopplat till sitt konto. I följande tabell beskrivs de principer som gäller för både lokala Active Directory-användarkonton som är synkroniserade med molnet och endast molnbaserade användar konton:
 
-| Egenskap | UserPrincipalName requirements |
+| Egenskap | UserPrincipalName-krav |
 | --- | --- |
-| Characters allowed |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> ' \. - \_ ! \# ^ \~</li></ul> |
-| Characters not allowed |<ul> <li>Any "\@\" character that's not separating the username from the domain.</li> <li>Can't contain a period character "." immediately preceding the "\@\" symbol</li></ul> |
-| Length constraints |<ul> <li>The total length must not exceed 113 characters</li><li>There can be up to 64 characters before the "\@\" symbol</li><li>There can be up to 48 characters after the "\@\" symbol</li></ul> |
+| Tillåtna tecken |<ul> <li>A – Ö</li> <li>a-ö</li><li>0 – 9</li> <li> ' \. - \_! \# ^ \~</li></ul> |
+| Tecken tillåts inte |<ul> <li>Valfritt "\@\"-tecknen som inte avgränsar användar namnet från domänen.</li> <li>Får inte innehålla ett punkt tecken "." omedelbart före "\@\"-symbolen</li></ul> |
+| Längd begränsningar |<ul> <li>Den totala längden får inte överskrida 113 tecken</li><li>Det kan finnas upp till 64 tecken innan symbolen för\@\"</li><li>Det kan innehålla upp till 48 tecken efter symbolen "\@\"</li></ul> |
 
-## <a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>Password policies that only apply to cloud user accounts
+## <a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>Lösen ords principer som endast gäller för moln användar konton
 
-The following table describes the password policy settings applied to user accounts that are created and managed in Azure AD:
+I följande tabell beskrivs de princip inställningar för lösen ord som tillämpas på användar konton som skapas och hanteras i Azure AD:
 
 | Egenskap | Krav |
 | --- | --- |
-| Characters allowed |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li> <li>blank space</li></ul> |
-| Characters not allowed | Unicode characters. |
-| Password restrictions |<ul><li>A minimum of 8 characters and a maximum of 256 characters.</li><li>Requires three out of four of the following:<ul><li>Lowercase characters.</li><li>Uppercase characters.</li><li>Numbers (0-9).</li><li>Symbols (see the previous password restrictions).</li></ul></li></ul> |
-| Password expiry duration (Maximum password age) |<ul><li>Default value: **90** days.</li><li>The value is configurable by using the `Set-MsolPasswordPolicy` cmdlet from the Azure Active Directory Module for Windows PowerShell.</li></ul> |
-| Password expiry notification (When are users notified of password expiration) |<ul><li>Default value: **14** days (before password expires).</li><li>The value is configurable by using the `Set-MsolPasswordPolicy` cmdlet.</li></ul> |
-| Password expiry (Do passwords ever expire) |<ul><li>Default value: **false** days (indicates that password expiry is enabled).</li><li>The value can be configured for individual user accounts by using the `Set-MsolUser` cmdlet.</li></ul> |
-| Password change history | The last password *can't* be used again when the user changes a password. |
-| Password reset history | The last password *can* be used again when the user resets a forgotten password. |
-| Account lockout | After 10 unsuccessful sign-in attempts with the wrong password, the user is locked out for one minute. Further incorrect sign-in attempts lock out the user for increasing durations of time. [Smart lockout](howto-password-smart-lockout.md) tracks the last three bad password hashes to avoid incrementing the lockout counter for the same password. If someone enters the same bad password multiple times, this behavior will not cause the account to lockout. |
+| Tillåtna tecken |<ul><li>A – Ö</li><li>a-ö</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ "();</li> <li>tomt utrymme</li></ul> |
+| Tecken tillåts inte | Unicode-tecken. |
+| Lösen ords begränsningar |<ul><li>Minst 8 tecken och högst 256 tecken.</li><li>Kräver tre av fyra av följande:<ul><li>Gemener.</li><li>Versaler.</li><li>Tal (0-9).</li><li>Symboler (se tidigare lösen ords begränsningar).</li></ul></li></ul> |
+| Giltighets tid för lösen ord (högsta ålder för lösen ord) |<ul><li>Standardvärde: **90** dagar.</li><li>Värdet kan konfigureras med hjälp av cmdleten `Set-MsolPasswordPolicy` från modulen Azure Active Directory för Windows PowerShell.</li></ul> |
+| Meddelande om förfallo datum för lösen ord (när användare får meddelanden om förfallo datum för lösen ord) |<ul><li>Standardvärde: **14** dagar (innan lösen ordet upphör att gälla).</li><li>Värdet kan konfigureras med hjälp av `Set-MsolPasswordPolicy`-cmdleten.</li></ul> |
+| Lösen ordets giltighets tid (lösen ord upphör aldrig att gälla) |<ul><li>Standardvärde: **falskt** dagar (indikerar att förfallo datum för lösen ord är aktiverat).</li><li>Värdet kan konfigureras för enskilda användar konton med hjälp av `Set-MsolUser`-cmdleten.</li></ul> |
+| Ändrings historik för lösen ord | Det sista lösen ordet *kan inte* användas igen när användaren ändrar ett lösen ord. |
+| Historik för lösen ords återställning | Det senaste lösen ordet *kan* användas igen när användaren återställer ett bortglömt lösen ord. |
+| Konto utelåsning | Efter 10 misslyckade inloggnings försök med fel lösen ord är användaren utelåst i en minut. Ytterligare felaktiga inloggnings försök låser användaren för att öka tiden. [Smart utelåsning](howto-password-smart-lockout.md) spårar de tre senaste Felaktiga hasharna för lösen ord för att undvika ökning av utelåsnings räknaren för samma lösen ord. Om någon anger samma Felaktiga lösen ord flera gånger, kommer det här beteendet inte att orsaka att kontot kan låsas. |
 
-## <a name="set-password-expiration-policies-in-azure-ad"></a>Set password expiration policies in Azure AD
+## <a name="set-password-expiration-policies-in-azure-ad"></a>Ange principer för förfallo datum för lösen ord i Azure AD
 
-A global administrator or user administrator for a Microsoft cloud service can use the Microsoft Azure AD Module for Windows PowerShell to set user passwords not to expire. You can also use Windows PowerShell cmdlets to remove the never-expires configuration or to see which user passwords are set to never expire. 
+En global administratör eller användar administratör för en Microsoft-moln tjänst kan använda Microsoft Azure AD-modul för Windows PowerShell för att ange att användar lösen ord inte upphör att gälla. Du kan också använda Windows PowerShell-cmdlets för att ta bort konfigurationen för aldrig upphör att gälla eller se vilka användar lösen ord som aldrig upphör att gälla. 
 
-This guidance applies to other providers, such as Intune and Office 365, which also rely on Azure AD for identity and directory services. Password expiration is the only part of the policy that can be changed.
+Den här vägledningen gäller för andra leverantörer, till exempel Intune och Office 365, som också förlitar sig på Azure AD för identitets-och katalog tjänster. Lösen ordets giltighets tid är den enda delen av principen som kan ändras.
 
 > [!NOTE]
-> Only passwords for user accounts that are not synchronized through directory synchronization can be configured to not expire. For more information about directory synchronization, see [Connect AD with Azure AD](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
+> Endast lösen ord för användar konton som inte har synkroniserats med en katalog synkronisering kan konfigureras så att de inte upphör att gälla. Mer information om Active Directory-synkronisering finns i [ansluta AD med Azure AD](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
 
-## <a name="set-or-check-the-password-policies-by-using-powershell"></a>Set or check the password policies by using PowerShell
+## <a name="set-or-check-the-password-policies-by-using-powershell"></a>Ange eller kontrol lera lösen ords principerna med hjälp av PowerShell
 
-To get started, you need to [download and install the Azure AD PowerShell module](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0). After you have it installed, you can use the following steps to configure each field.
+För att komma igång måste du [Ladda ned och installera Azure AD PowerShell-modulen](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0). När du har installerat det kan du använda följande steg för att konfigurera varje fält.
 
-### <a name="check-the-expiration-policy-for-a-password"></a>Check the expiration policy for a password
+### <a name="check-the-expiration-policy-for-a-password"></a>Kontrol lera förfallo principen för ett lösen ord
 
-1. Connect to Windows PowerShell by using your user administrator or company administrator credentials.
-1. Execute one of the following commands:
+1. Anslut till Windows PowerShell genom att använda användar administratören eller företagets administratörs behörighet.
+1. Kör något av följande kommandon:
 
-   * To see if a single user’s password is set to never expire, run the following cmdlet by using the UPN (for example, *aprilr\@contoso.onmicrosoft.com*) or the user ID of the user you want to check:
+   * Om du vill se om en enskild användares lösen ord är inställda på att aldrig upphöra att gälla kör du följande cmdlet med hjälp av UPN (till exempel *april\@contoso.onmicrosoft.com*) eller användar-ID för den användare som du vill kontrol lera:
 
    ```powershell
    Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}
    ```
 
-   * To see the **Password never expires** setting for all users, run the following cmdlet:
+   * Om du vill se att **lösen ordet aldrig upphör att gälla** för alla användare kör du följande cmdlet:
 
    ```powershell
    Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}
    ```
 
-### <a name="set-a-password-to-expire"></a>Set a password to expire
+### <a name="set-a-password-to-expire"></a>Ange ett lösen ord som upphör att gälla
 
-1. Connect to Windows PowerShell by using your user administrator or company administrator credentials.
-1. Execute one of the following commands:
+1. Anslut till Windows PowerShell genom att använda användar administratören eller företagets administratörs behörighet.
+1. Kör något av följande kommandon:
 
-   * To set the password of one user so that the password expires, run the following cmdlet by using the UPN or the user ID of the user:
+   * Om du vill ange lösen ordet för en användare så att lösen ordet upphör att gälla kör du följande cmdlet med hjälp av UPN eller användar-ID för användaren:
 
    ```powershell
    Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None
    ```
 
-   * To set the passwords of all users in the organization so that they expire, use the following cmdlet:
+   * Använd följande cmdlet för att ange lösen orden för alla användare i organisationen så att de upphör att gälla:
 
    ```powershell
    Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies None
    ```
 
-### <a name="set-a-password-to-never-expire"></a>Set a password to never expire
+### <a name="set-a-password-to-never-expire"></a>Ange att ett lösen ord aldrig upphör att gälla
 
-1. Connect to Windows PowerShell by using your user administrator or company administrator credentials.
-1. Execute one of the following commands:
+1. Anslut till Windows PowerShell genom att använda användar administratören eller företagets administratörs behörighet.
+1. Kör något av följande kommandon:
 
-   * To set the password of one user to never expire, run the following cmdlet by using the UPN or the user ID of the user:
+   * Om du vill ange ett lösen ord för en användare som aldrig upphör att gälla kör du följande cmdlet med hjälp av UPN eller användar-ID för användaren:
 
    ```powershell
    Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration
    ```
 
-   * To set the passwords of all the users in an organization to never expire, run the following cmdlet:
+   * Om du vill ange lösen orden för alla användare i en organisation som aldrig upphör att gälla kör du följande cmdlet:
 
    ```powershell
    Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies DisablePasswordExpiration
    ```
 
    > [!WARNING]
-   > Passwords set to `-PasswordPolicies DisablePasswordExpiration` still age based on the `pwdLastSet` attribute. If you set the user passwords to never expire and then 90+ days go by, the passwords expire. Based on the `pwdLastSet` attribute, if you change the expiration to `-PasswordPolicies None`, all passwords that have a `pwdLastSet` older than 90 days require the user to change them the next time they sign in. This change can affect a large number of users.
+   > Lösen orden har angetts till `-PasswordPolicies DisablePasswordExpiration` fortfarande ålder baserat på attributet `pwdLastSet`. Om du anger att användar lösen ord aldrig upphör att gälla och sedan 90 + dagar går det att ange lösen orden. Om du ändrar förfallo datum till `-PasswordPolicies None`, baserat på `pwdLastSet`-attributet, kräver alla lösen ord som har en `pwdLastSet` som är äldre än 90 dagar användaren att ändra dem nästa gång de loggar in. Den här ändringen kan påverka ett stort antal användare.
 
 ## <a name="next-steps"></a>Nästa steg
 
-The following articles provide additional information about password reset through Azure AD:
+Följande artiklar innehåller ytterligare information om lösen ords återställning via Azure AD:
 
 * [Hur gör jag för att slutföra en lyckad distribution av SSPR?](howto-sspr-deployment.md)
 * [Återställ eller ändra ditt lösenord](../user-help/active-directory-passwords-update-your-own-password.md).
@@ -171,5 +171,5 @@ The following articles provide additional information about password reset throu
 * [Vad är tillbakaskrivning av lösenord och vad är intresserat med det?](howto-sspr-writeback.md)
 * [Hur gör jag för att rapportera på aktivitet i SSPR?](howto-sspr-reporting.md)
 * [Vad är alla alternativ i SSPR och vad betyder de?](concept-sspr-howitworks.md)
-* [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
+* [Jag tror att något är brutet. Hur gör jag för att felsöka SSPR?](active-directory-passwords-troubleshoot.md)
 * [Jag har en fråga som inte besvarades någon annanstans](active-directory-passwords-faq.md)

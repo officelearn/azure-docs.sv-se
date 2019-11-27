@@ -1,5 +1,5 @@
 ---
-title: 'Azure Storage Explorer: Manage access in Azure Data Lake Storage Gen2'
+title: 'Azure Storage Explorer: hantera åtkomst i Azure Data Lake Storage Gen2'
 description: I dessa anvisningar lär du dig hur du anger behörigheter med Azure Storage Explorer för filer och kataloger på ditt lagringskonto med funktioner för Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -15,7 +15,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74327969"
 ---
-# <a name="use-azure-storage-explorer-to-manage-access-in-azure-data-lake-storage-gen2"></a>Use Azure Storage Explorer to manage access in Azure Data Lake Storage Gen2
+# <a name="use-azure-storage-explorer-to-manage-access-in-azure-data-lake-storage-gen2"></a>Använd Azure Storage Explorer för att hantera åtkomst i Azure Data Lake Storage Gen2
 
 Filer som lagras i Azure Data Lake Storage Gen2 stöder detaljerade behörigheter och hantering av åtkomstkontrollistor (ACL). Tillsammans kan du, med detaljerade behörigheter och ACL-hantering, hantera åtkomsten till dina data på en mycket detaljerad nivå.
 
@@ -28,11 +28,11 @@ I den här artikeln lär du dig hur du använder Azure Storage Explorer till att
 
 ## <a name="prerequisites"></a>Krav
 
-För att du ska få den bästa beskrivningen av processen behöver du slutföra [snabbstarten för Azure Storage Explorer](data-lake-storage-Explorer.md). This ensures your storage account will be in the most appropriate state (container created and data uploaded to it).
+För att du ska få den bästa beskrivningen av processen behöver du slutföra [snabbstarten för Azure Storage Explorer](data-lake-storage-Explorer.md). Detta säkerställer att ditt lagrings konto kommer att vara i det lämpligaste stadiet (behållare skapat och data som överförs till det).
 
 ## <a name="managing-access"></a>Hantera åtkomst
 
-You can set permissions at the root of your container. To do so, you must be logged into Azure Storage Explorer with your individual account with rights to do so (as opposed to with a connection string). Right-click your container and select **Manage Permissions**, bringing up the **Manage Permission** dialog box.
+Du kan ange behörigheter i roten för din behållare. För att göra det måste du vara inloggad på Azure Storage Explorer med ditt enskilda konto med behörighet att göra detta (till skillnad från med en anslutnings sträng). Högerklicka på din behållare och välj **Hantera behörigheter**, så visas dialog rutan **Hantera behörighet** .
 
 ![Microsoft Azure Storage Explorer – Hantera katalogåtkomst](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
 
@@ -49,11 +49,11 @@ Användaren eller gruppen visas nu i fältet **Användare och grupper:** , där 
 
 Det finns två kategorier av behörigheter du kan tilldela: åtkomst-ACL och standard-ACL.
 
-* **Access**: Access ACLs control access to an object. Filer och kataloger har båda åtkomst-ACL:er.
+* **Åtkomst**: åtkomst kontrol listor styr åtkomst till ett objekt. Filer och kataloger har båda åtkomst-ACL:er.
 
-* **Default**: A template of ACLs associated with a directory that determines the access ACLs for any child items that are created under that directory. Filer har inte standard-ACL:er.
+* **Standard**: en mall för ACL: er som är kopplade till en katalog som fastställer åtkomst-ACL: er för underordnade objekt som skapas under den katalogen. Filer har inte standard-ACL:er.
 
-Within both of these categories, there are three permissions you can then assign on files or directories: **Read**, **Write**, and **Execute**.
+I båda dessa kategorier finns tre behörigheter som du kan tilldela till filer eller kataloger: **läsa**, **skriva**och **köra**.
 
 >[!NOTE]
 > När du gör val här anges inte behörigheter för några befintliga objekt i katalogen. Du måste gå till varje enskilt objekt och ange behörigheterna manuellt, om filen redan finns.

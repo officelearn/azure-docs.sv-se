@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/20/2019
-ms.openlocfilehash: 3fb021c06369d1f37dad83b3f9b27e039ddf8b5e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 75611dd36196c722254d694e9753deb982e2570d
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811292"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539323"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model"></a>Resurs gränser för enskilda databaser med inköps modellen DTU
 
@@ -43,6 +43,12 @@ Följande tabeller visar de resurser som är tillgängliga för en enskild datab
 | Maximalt antal samtidiga sessioner | 300 |
 |||
 
+> [!IMPORTANT]
+> Den grundläggande tjänst nivån ger mindre än en vCore (CPU).  För CPU-intensiva arbets belastningar rekommenderas tjänst nivån S3 eller högre. 
+>
+>För data lagring placeras den grundläggande tjänst nivån på standard-sid-blobar. Med standard Page blobbar används hård diskbaserade lagrings medier som är bäst lämpade för utveckling, testning och andra arbets belastningar som inte används ofta och som är mindre känsliga för prestanda variationer.
+>
+
 ### <a name="standard-service-tier"></a>Standardtjänstnivå
 
 | **Beräknings storlek** | **S0** | **S1** | **S2** | **S3** |
@@ -54,6 +60,12 @@ Följande tabeller visar de resurser som är tillgängliga för en enskild datab
 | Maximalt antal samtidiga arbetare (begär Anden)| 60 | 90 | 120 | 200 |
 | Maximalt antal samtidiga sessioner |600 | 900 | 1200 | 2400 |
 ||||||
+
+> [!IMPORTANT]
+> Standard S0, S1-och S2-nivåerna ger mindre än en vCore (CPU).  För CPU-intensiva arbets belastningar rekommenderas tjänst nivån S3 eller högre. 
+>
+>För data lagring, placeras Standard-S0 och S1-tjänst nivåerna på standard sid-blobar. Med standard Page blobbar används hård diskbaserade lagrings medier som är bäst lämpade för utveckling, testning och andra arbets belastningar som inte används ofta och som är mindre känsliga för prestanda variationer.
+>
 
 ### <a name="standard-service-tier-continued"></a>Standard tjänst nivå (forts.)
 
@@ -72,8 +84,8 @@ Följande tabeller visar de resurser som är tillgängliga för en enskild datab
 | **Beräknings storlek** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** |
 | :--- |---:|---:|---:|---:|---:|---:|
 | Maximala DTU:er | 125 | 250 | 500 | 1000 | 1750 | 4000 |
-| Inkluderat lagrings utrymme (GB) | 500 | 500 | 500 | 500 | 4096 * | 4096 * |
-| Maximalt lagrings alternativ (GB) | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096 * | 4096 * |
+| Inkluderat lagrings utrymme (GB) | 500 | 500 | 500 | 500 | 4096* | 4096* |
+| Maximalt lagrings alternativ (GB) | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096* | 4096* |
 | Maximal InMemory-OLTP-lagring (GB) | 1 | 2 | 4 | 8 | 14 | 32 |
 | Maximalt antal samtidiga arbetare (begär Anden)| 200 | 400 | 800 | 1600 | 2400 | 6400 |
 | Maximalt antal samtidiga sessioner | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |

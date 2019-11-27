@@ -1,6 +1,6 @@
 ---
-title: Develop and debug modules for Azure IoT Edge | Microsoft Docs
-description: Use Visual Studio Code to develop, build, and debug a module for Azure IoT Edge using C#, Python, Node.js, Java, or C
+title: Utveckla och felsöka moduler för Azure IoT Edge | Microsoft Docs
+description: Använd Visual Studio Code för att utveckla, bygga och felsöka en modul för Azure IoT Edge med C#hjälp av, python, Node. js, Java eller C
 services: iot-edge
 keywords: ''
 author: shizn
@@ -15,263 +15,263 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74457075"
 ---
-# <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Use Visual Studio Code to develop and debug modules for Azure IoT Edge
+# <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Använd Visual Studio Code för att utveckla och felsöka moduler för Azure IoT Edge
 
-You can turn your business logic into modules for Azure IoT Edge. This article shows you how to use Visual Studio Code as the main tool to develop and debug modules.
+Du kan aktivera din affärslogik-moduler för Azure IoT Edge. Den här artikeln visar hur du använder Visual Studio Code som huvud verktyg för att utveckla och felsöka moduler.
 
-There are two ways to debug modules written in C#, Node.js, or Java in Visual Studio Code: You can either attach a process in a module container or launch the module code in debug mode. To debug modules written in Python or C, you can only attach to a process in Linux amd64 containers.
+Det finns två sätt att felsöka moduler skrivna i C#Node. js eller java i Visual Studio Code: du kan antingen koppla en process i en modul-behållare eller starta modulens kod i fel söknings läge. Om du vill felsöka moduler skrivna i python eller C kan du bara ansluta till en process i Linux amd64-behållare.
 
-If you aren't familiar with the debugging capabilities of Visual Studio Code, read about [Debugging](https://code.visualstudio.com/Docs/editor/debugging).
+Om du inte är bekant med fel söknings funktionerna i Visual Studio Code läser du om [fel sökning](https://code.visualstudio.com/Docs/editor/debugging).
 
-This article provides instructions for developing and debugging modules in multiple languages for multiple architectures. Currently, Visual Studio Code provides support for modules written in C#, C, Python, Node.js, and Java. The supported device architectures are X64 and ARM32. For more information about supported operating systems, languages, and architectures, see [Language and architecture support](module-development.md#language-and-architecture-support).
+Den här artikeln innehåller instruktioner för att utveckla och felsöka moduler på flera språk för flera arkitekturer. För närvarande ger Visual Studio Code stöd för moduler som skrivits C#i, C, python, Node. js och Java. De enhets arkitekturer som stöds är x64 och ARM32. Mer information om operativ system, språk och arkitekturer som stöds finns i [stöd för språk och arkitektur](module-development.md#language-and-architecture-support).
 
 >[!NOTE]
->Develop and debugging support for Linux ARM64 devices is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For more information, see [Develop and debug ARM64 IoT Edge modules in Visual Studio Code (preview)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
+>Att utveckla och felsöka stöd för Linux ARM64-enheter finns i [offentlig för hands version](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Mer information finns i [utveckla och FELSÖKA ARM64 IoT Edge moduler i Visual Studio Code (för hands version)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
 
 ## <a name="prerequisites"></a>Krav
 
-You can use a computer or a virtual machine running Windows, macOS, or Linux as your development machine. On Windows computers you can develop either Windows or Linux modules. To develop Windows modules, use a Windows computer running version 1809/build 17763 or newer. To develop Linux modules, use a Windows computer that meets the [requirements for Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install). 
+Du kan använda en dator eller en virtuell dator som kör Windows, macOS eller Linux som utvecklings dator. På Windows-datorer kan du utveckla antingen Windows-eller Linux-moduler. Om du vill utveckla Windows-moduler använder du en Windows-dator som kör version 1809/build 17763 eller senare. Om du vill utveckla Linux-moduler använder du en Windows-dator som uppfyller [kraven för Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install). 
 
-Install [Visual Studio Code](https://code.visualstudio.com/) first and then add the following extensions:
+Installera [Visual Studio Code](https://code.visualstudio.com/) först och Lägg sedan till följande tillägg:
 
-- [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
-- [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
-- Visual Studio extension(s) specific to the language you're developing in:
-  - C#, including Azure Functions: [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
-  - Python: [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-  - Java: [Java Extension Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
-  - C: [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
+- [Azure IoT-verktyg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+- [Docker-tillägg](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
+- Visual Studio-tillägg som är specifika för det språk som du utvecklar i:
+  - C#, inklusive Azure Functions: [ C# tillägg](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+  - Python: [python-tillägg](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+  - Java: [Java Extension Pack för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
+  - C: [c/C++ tillägg](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
 
-You'll also need to install some additional, language-specific tools to develop your module:
+Du måste också installera ytterligare språkbaserade verktyg för att utveckla modulen:
 
-- C#, including Azure Functions: [.NET Core 2.1 SDK](https://www.microsoft.com/net/download)
+- C#, inklusive Azure Functions: [.net Core 2,1 SDK](https://www.microsoft.com/net/download)
 
-- Python: [Python](https://www.python.org/downloads/) and [Pip](https://pip.pypa.io/en/stable/installing/#installation) for installing Python packages (typically included with your Python installation).
+- Python: [python](https://www.python.org/downloads/) och [pip](https://pip.pypa.io/en/stable/installing/#installation) för att installera python-paket (som vanligt vis ingår i python-installationen).
 
-- Node.js: [Node.js](https://nodejs.org). You'll also want to install [Yeoman](https://www.npmjs.com/package/yo) and the [Azure IoT Edge Node.js Module Generator](https://www.npmjs.com/package/generator-azure-iot-edge-module).
+- Node. js: [Node. js](https://nodejs.org). Du vill också installera [Yeoman](https://www.npmjs.com/package/yo) och [Azure IoT Edge Node. js-modulens Generator](https://www.npmjs.com/package/generator-azure-iot-edge-module).
 
-- Java: [Java SE Development Kit 10](https://aka.ms/azure-jdks) and [Maven](https://maven.apache.org/). You'll need to [set the `JAVA_HOME` environment variable](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) to point to your JDK installation.
+- Java: [Java se Development Kit 10](https://aka.ms/azure-jdks) och [maven](https://maven.apache.org/). Du måste [ange `JAVA_HOME`-miljövariabeln](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) så att den pekar på din JDK-installation.
 
-To build and deploy your module image, you need Docker to build the module image and a container registry to hold the module image:
+Om du vill bygga och distribuera din modul-avbildning behöver Docker du för att bygga modul avbildningen och ett behållar register för att lagra modulens avbildning:
 
-- [Docker Community Edition](https://docs.docker.com/install/) on your development machine.
+- [Docker Community Edition](https://docs.docker.com/install/) på din utvecklings dator.
 
-- [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
+- [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) -eller [Docker-hubb](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
 
     > [!TIP]
-    > You can use a local Docker registry for prototype and testing purposes instead of a cloud registry.
+    > Du kan använda en lokal Docker-register för prototyper och testning i stället för ett register i molnet.
 
-Unless you're developing your module in C, you also need the Python-based [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/) in order to set up your local development environment to debug, run, and test your IoT Edge solution. If you haven't already done so, install [Python (2.7/3.6/3.7) and Pip](https://www.python.org/) and then install **iotedgehubdev** by running this command in your terminal.
+Om du inte utvecklar modulen i C behöver du även det python-baserade [Azure IoT EdgeHub dev-verktyget](https://pypi.org/project/iotedgehubdev/) för att konfigurera din lokala utvecklings miljö för att felsöka, köra och testa din IoT Edge-lösning. Om du inte redan har gjort det installerar du [python (2.7/3.6/3.7) och pip](https://www.python.org/) och installerar sedan **iotedgehubdev** genom att köra det här kommandot i terminalen.
 
    ```cmd
    pip install --upgrade iotedgehubdev
    ```
 > [!NOTE]
-> Currently, iotedgehubdev uses a docker-py library that is not compatible with Python 3.8.
+> För närvarande använder iotedgehubdev ett Docker-py-bibliotek som inte är kompatibelt med python 3,8.
 >
-> If you have multiple Python including pre-installed python 2.7 (for example, on Ubuntu or macOS), make sure you are using the correct `pip` or `pip3` to install **iotedgehubdev**
+> Om du har flera python-versioner, inklusive förinstallerad python 2,7 (till exempel på Ubuntu eller macOS), kontrollerar du att du använder rätt `pip` eller `pip3` för att installera **iotedgehubdev**
 
-To test your module on a device, you'll need an active IoT hub with at least one IoT Edge device. To use your computer as an IoT Edge device, follow the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows](quickstart.md). If you are running IoT Edge daemon on your development machine, you might need to stop EdgeHub and EdgeAgent before you move to next step.
+Om du vill testa modulen på en enhet behöver du en aktiv IoT-hubb med minst en IoT Edge enhet. Om du vill använda datorn som en IoT Edge enhet följer du stegen i snabb starten för [Linux](quickstart-linux.md) eller [Windows](quickstart.md). Om du kör IoT Edge daemon på din utvecklings dator kan du behöva stoppa EdgeHub och EdgeAgent innan du går vidare till nästa steg.
 
-## <a name="create-a-new-solution-template"></a>Create a new solution template
+## <a name="create-a-new-solution-template"></a>Skapa en ny lösnings mall
 
-The following steps show you how to create an IoT Edge module in your preferred development language (including Azure Functions, written in C#) using Visual Studio Code and the Azure IoT Tools. You start by creating a solution, and then generating the first module in that solution. Each solution can contain multiple modules.
+Följande steg visar hur du skapar en IoT Edge-modul på det föredragna utvecklings språket (inklusive Azure Functions, skrivet C#) med hjälp av Visual Studio Code och Azure IoT-verktyg. Du börjar med att skapa en lösning och genererar sedan den första modulen i lösningen. Varje lösning kan innehålla flera moduler.
 
-1. Select **View** > **Command Palette**.
+1. Välj **visa** > **kommando palett**.
 
-1. In the command palette, enter and run the command **Azure IoT Edge: New IoT Edge Solution**.
+1. I paletten kommando anger och kör du kommandot **Azure IoT Edge: ny IoT Edge lösning**.
 
-   ![Run New IoT Edge Solution](./media/how-to-develop-csharp-module/new-solution.png)
+   ![Kör ny IoT Edge-lösning](./media/how-to-develop-csharp-module/new-solution.png)
 
-1. Browse to the folder where you want to create the new solution and then select **Select folder**.
+1. Bläddra till den mapp där du vill skapa den nya lösningen och välj sedan **Välj mapp**.
 
-1. Enter a name for your solution.
+1. Ange ett namn för din lösning.
 
-1. Select a module template for your preferred development language to be the first module in the solution.
+1. Välj en mall för det programmeringsspråk som du föredrar som första modul i lösningen.
 
-1. Enter a name for your module. Choose a name that's unique within your container registry.
+1. Ange ett namn för modulen. Välj ett namn som är unikt i behållar registret.
 
-1. Provide the name of the module's image repository. Visual Studio Code autopopulates the module name with **localhost:5000/<your module name\>** . Replace it with your own registry information. If you use a local Docker registry for testing, then **localhost** is fine. If you use Azure Container Registry, then use the login server from your registry's settings. The login server looks like **_\<registry name\>_ .azurecr.io**. Only replace the **localhost:5000** part of the string so that the final result looks like **\<*registry name*\>.azurecr.io/ _\<your module name\>_** .
+1. Ange namnet på modulens avbildnings lagrings plats. Visual Studio Code fyller automatiskt i modulnamnet med **localhost: 5000/< ditt modulnamn\>** . Ersätt den med din egen information i registret. Om du använder ett lokalt Docker-register för testning är **localhost** bra. Om du använder Azure Container Registry kan du sedan använda inloggningsserver från din registerinställningar. Inloggnings servern ser ut som  **_\<register namn\>_ . azurecr.io**. Ersätt endast **localhost: 5000** del av strängen så att det slutliga resultatet ser ut som **\<*register namn*\>. azurecr.io/ _\<ditt Modulnamn\>_** .
 
    ![Ange lagringsplatsen för Docker-avbildningen](./media/how-to-develop-csharp-module/repository.png)
 
-Visual Studio Code takes the information you provided, creates an IoT Edge solution, and then loads it in a new window.
+Visual Studio Code tar den information du har angett, skapar en IoT Edge-lösning och läser sedan in den i ett nytt fönster.
 
-There are four items within the solution:
+Det finns fyra objekt i lösningen:
 
-- A **.vscode** folder contains debug configurations.
+- En **. VSCode** -mapp innehåller felsöknings konfigurationer.
 
-- A **modules** folder has subfolders for each module.  Within the folder for each module there is a file, **module.json**, that controls how modules are built and deployed.  This file would need to be modified to change the module deployment container registry from localhost to a remote registry. At this point, you only have one module.  But you can add more in the command palette with the command **Azure IoT Edge: Add IoT Edge Module**.
+- En mapp för **moduler** innehåller undermappar för varje modul.  I mappen för varje modul finns det en fil, **module. JSON**, som styr hur moduler skapas och distribueras.  Den här filen måste ändras för att ändra modulens distributions behållar register från localhost till ett fjär register. I det här läget har du bara en modul.  Men du kan lägga till fler i kommando paletten med kommandot **Azure IoT Edge: Lägg till IoT Edge-modul**.
 
-- An **.env** file lists your environment variables. If Azure Container Registry is your registry, you'll have an Azure Container Registry username and password in it.
+- En **. en. miljö** -fil visar dina miljövariabler. Om Azure Container Registry är ditt register, har du ett Azure Container Registry användar namn och lösen ord.
 
   > [!NOTE]
-  > The environment file is only created if you provide an image repository for the module. If you accepted the localhost defaults to test and debug locally, then you don't need to declare environment variables.
+  > Miljö filen skapas bara om du anger en avbildnings lagrings plats för modulen. Om du har accepterat standardvärdet för localhost för att testa och felsöka lokalt, behöver du inte deklarera miljövariabler.
 
-- A **deployment.template.json** file lists your new module along with a sample **SimulatedTemperatureSensor** module that simulates data you can use for testing. For more information about how deployment manifests work, see [Learn how to use deployment manifests to deploy modules and establish routes](module-composition.md).
+- En **Deployment. template. JSON** -fil listar den nya modulen tillsammans med en exempel- **SimulatedTemperatureSensor** -modul som simulerar data som du kan använda för testning. Mer information om hur distributions manifest fungerar finns i [Lär dig hur du använder distributions manifest för att distribuera moduler och upprätta vägar](module-composition.md).
 
-## <a name="add-additional-modules"></a>Add additional modules
+## <a name="add-additional-modules"></a>Lägg till ytterligare moduler
 
-To add additional modules to your solution, run the command **Azure IoT Edge: Add IoT Edge Module** from the command palette. You can also right-click the **modules** folder or the `deployment.template.json` file in the Visual Studio Code Explorer view and then select **Add IoT Edge Module**.
+Om du vill lägga till ytterligare moduler till din lösning kör du kommandot **Azure IoT Edge: Lägg till IoT Edge modul** från paletten kommando. Du kan också högerklicka på mappen **moduler** eller `deployment.template.json`-filen i Visual Studio Code Explorer-vyn och sedan välja **Lägg till IoT Edge modul**.
 
-## <a name="develop-your-module"></a>Develop your module
+## <a name="develop-your-module"></a>Utveckla din modell
 
-The default module code that comes with the solution is located at the following location:
+Standard koden för modulen som medföljer lösningen finns på följande plats:
 
-- Azure Function (C#): **modules > *&lt;your module name&gt;*  >  *&lt;your module name&gt;* .cs**
-- C#: **modules > *&lt;your module name&gt;* > Program.cs**
-- Python: **modules > *&lt;your module name&gt;* > main.py**
-- Node.js: **modules > *&lt;your module name&gt;* > app.js**
-- Java: **modules > *&lt;your module name&gt;* > src > main > java > com > edgemodulemodules > App.java**
-- C: **modules > *&lt;your module name&gt;* > main.c**
+- Azure function (C#): **moduler > *&lt;ditt Modulnamn&gt;*  >  *&lt;modulens namn&gt;* . cs**
+- C#: **moduler > *&lt;ditt modulnamn&gt;* > program.cs**
+- Python: **moduler > *&lt;ditt modulnamn&gt;* > main.py**
+- Node. js: **moduler > *&lt;ditt modulnamn&gt;* > app. js**
+- Java: **moduler > *&lt;ditt modulnamn&gt;* > src > main > java > com > edgemodulemodules > app. java**
+- C: **moduler > *&lt;ditt modulnamn&gt;* > main. c**
 
-The module and the deployment.template.json file are set up so that you can build the solution, push it to your container registry, and deploy it to a device to start testing without touching any code. The module is built to simply take input from a source (in this case, the SimulatedTemperatureSensor module that simulates data) and pipe it to IoT Hub.
+Modulen och filen deployment.template.json ställs in så att du kan skapa lösningen, push-överföra den till behållarregistret och distribuera den till en enhet för att börja testa utan att röra kod. Modulen är konstruerad för att helt enkelt ta med indata från en källa (i det här fallet SimulatedTemperatureSensor-modulen som simulerar data) och rör den till IoT Hub.
 
-When you're ready to customize the template with your own code, use the [Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md) to build modules that address the key needs for IoT solutions such as security, device management, and reliability.
+När du är redo att anpassa mallen med din egen kod kan du använda [Azure IoT Hub SDK](../iot-hub/iot-hub-devguide-sdks.md) : er för att bygga moduler som uppfyller nyckel behoven för IoT-lösningar som säkerhet, enhets hantering och pålitlighet.
 
-## <a name="debug-a-module-without-a-container-c-nodejs-java"></a>Debug a module without a container (C#, Node.js, Java)
+## <a name="debug-a-module-without-a-container-c-nodejs-java"></a>Felsöka en modul utan en behållare (C#, Node. js, Java)
 
-If you're developing in C#, Node.js, or Java, your module requires use of a **ModuleClient** object in the default module code so that it can start, run, and route messages. You'll also use the default input channel **input1** to take action when the module receives messages.
+Om du utvecklar i C#, Node. js eller Java kräver modulen att du använder ett **ModuleClient** -objekt i kodens kodmodul så att den kan starta, köra och dirigera meddelanden. Du ska också använda standardvärdet för **INPUT1** för inkanaler för att vidta åtgärder när modulen tar emot meddelanden.
 
-### <a name="set-up-iot-edge-simulator-for-iot-edge-solution"></a>Set up IoT Edge simulator for IoT Edge solution
+### <a name="set-up-iot-edge-simulator-for-iot-edge-solution"></a>Konfigurera IoT Edge Simulator för IoT Edge-lösning
 
-On your development machine, you can start an IoT Edge simulator instead of installing the IoT Edge security daemon so that you can run your IoT Edge solution.
+På din utvecklings dator kan du starta en IoT Edge Simulator i stället för att installera IoT Edge Security daemon så att du kan köra din IoT Edge lösning.
 
-1. In device explorer on the left side, right-click on your IoT Edge device ID, and then select **Setup IoT Edge Simulator** to start the simulator with the device connection string.
-1. You can see the IoT Edge Simulator has been successfully set up by reading the progress detail in the integrated terminal.
+1. I Device Explorer till vänster högerklickar du på IoT Edge enhets-ID och väljer sedan **installations IoT Edge Simulator** för att starta simulatorn med enhets anslutnings strängen.
+1. Du kan se att IoT Edge Simulator har kon figurer ATS genom att läsa informationen om förloppet i den integrerade terminalen.
 
-### <a name="set-up-iot-edge-simulator-for-single-module-app"></a>Set up IoT Edge simulator for single module app
+### <a name="set-up-iot-edge-simulator-for-single-module-app"></a>Konfigurera IoT Edge Simulator för en app med en modul
 
-To set up and start the simulator, run the command **Azure IoT Edge: Start IoT Edge Hub Simulator for Single Module** from the Visual Studio Code command palette. When prompted, use the value **input1** from the default module code (or the equivalent value from your code) as the input name for your application. The command triggers the **iotedgehubdev** CLI and then starts the IoT Edge simulator and a testing utility module container. You can see the outputs below in the integrated terminal if the simulator has been started in single module mode successfully. You can also see a `curl` command to help send message through. Du ska använda det senare.
+Konfigurera och starta simulatorn genom att köra kommandot **Azure IoT Edge: starta IoT Edge Hub Simulator för en modul** från Visual Studio Code-kommando paletten. När du uppmanas använder du värdet **INPUT1** från standardmodulens kod (eller motsvarande värde från koden) som Indataporten för ditt program. Kommandot utlöser **iotedgehubdev** CLI och startar sedan behållaren för IoT Edge Simulator och en testverktyg-modul. Du kan se utdata nedan i den integrerade terminalen om simulatorn har startats i läget för en modul. Du kan också se ett `curl`-kommando för att skicka ett meddelande via. Du ska använda det senare.
 
-   ![Set up IoT Edge simulator for single module app](media/how-to-develop-csharp-module/start-simulator-for-single-module.png)
+   ![Konfigurera IoT Edge Simulator för en app med en modul](media/how-to-develop-csharp-module/start-simulator-for-single-module.png)
 
-   You can use the Docker Explorer view in Visual Studio Code to see the module's running status.
+   Du kan använda vyn Docker-Utforskare i Visual Studio Code för att se modulens körnings status.
 
-   ![Simulator module status](media/how-to-develop-csharp-module/simulator-status.png)
+   ![Status för Simulator modul](media/how-to-develop-csharp-module/simulator-status.png)
 
-   The **edgeHubDev** container is the core of the local IoT Edge simulator. It can run on your development machine without the IoT Edge security daemon and provides environment settings for your native module app or module containers. The **input** container exposes REST APIs to help bridge messages to the target input channel on your module.
+   **EdgeHubDev** -behållaren är kärnan i den lokala IoT Edge simulatorn. Den kan köras på utvecklings datorn utan IoT Edge Security daemon och ger miljö inställningar för din app eller modul behållare i ursprunglig modul. **Indatamängden** EXPONERAr REST-API: er för att hjälpa att överbrygga meddelanden till mål Indataporten i modulen.
 
-### <a name="debug-module-in-launch-mode"></a>Debug module in launch mode
+### <a name="debug-module-in-launch-mode"></a>Felsöka modul i Start läge
 
-1. Prepare your environment for debugging according to the requirements of your development language, set a breakpoint in your module, and select the debug configuration to use:
+1. Förbered din miljö för fel sökning enligt kraven för ditt utvecklings språk, ange en Bryt punkt i modulen och välj den fel söknings konfiguration som ska användas:
    - **C#**
-     - In the Visual Studio Code integrated terminal, change the directory to the ***&lt;your module name&gt;*** folder, and then run the following command to build .NET Core application.
+     - I den integrerade Terminal Studio Code-integrerade terminalen ändrar du katalogen till ***&lt;ditt modulnamn&gt;*** mapp och kör sedan följande kommando för att skapa .net Core-program.
 
        ```cmd
        dotnet build
        ```
 
-     - Open the file `Program.cs` and add a breakpoint.
+     - Öppna filen `Program.cs` och Lägg till en Bryt punkt.
 
-     - Navigate to the Visual Studio Code Debug view by selecting **View > Debug**. Select the debug configuration ***&lt;your module name&gt;* Local Debug (.NET Core)** from the dropdown.
+     - Navigera till vyn Visual Studio Code debug genom att välja **visa > fel sökning**. Välj fel söknings konfiguration  ***&lt;ditt Modulnamn&gt;* lokal fel sökning (.net Core)** i list rutan.
 
         > [!NOTE]
-        > If your .NET Core `TargetFramework` is not consistent with your program path in `launch.json`, you'll need to manually update the program path in `launch.json` to match the `TargetFramework` in your .csproj file so that Visual Studio Code can successfully launch this program.
+        > Om din .NET Core-`TargetFramework` inte stämmer överens med din program Sök väg i `launch.json`måste du uppdatera program Sök vägen manuellt i `launch.json` för att matcha `TargetFramework` i din. CSPROJ-fil så att Visual Studio Code kan starta programmet.
 
    - **Node.js**
-     - In the Visual Studio Code integrated terminal, change the directory to the ***&lt;your module name&gt;*** folder, and then run the following command to install Node packages
+     - I den integrerade Terminal Studio Code-integrerade terminalen ändrar du katalogen till ***&lt;ditt modulnamn&gt;*** mapp och kör sedan följande kommando för att installera Node-paket
 
        ```cmd
        npm install
        ```
 
-     - Open the file `app.js` and add a breakpoint.
+     - Öppna filen `app.js` och Lägg till en Bryt punkt.
 
-     - Navigate to the Visual Studio Code Debug view by selecting **View > Debug**. Select the debug configuration ***&lt;your module name&gt;* Local Debug (Node.js)** from the dropdown.
+     - Navigera till vyn Visual Studio Code debug genom att välja **visa > fel sökning**. Välj fel söknings konfiguration  ***&lt;ditt Modulnamn&gt;* lokal fel sökning (Node. js)** i list rutan.
    - **Java**
-     - Open the file `App.java` and add a breakpoint.
+     - Öppna filen `App.java` och Lägg till en Bryt punkt.
 
-     - Navigate to the Visual Studio Code Debug view by selecting **View > Debug**. Select the debug configuration ***&lt;your module name&gt;* Local Debug (Java)** from the dropdown.
+     - Navigera till vyn Visual Studio Code debug genom att välja **visa > fel sökning**. Välj fel söknings konfiguration  ***&lt;ditt Modulnamn&gt;* lokal fel sökning (Java)** i list rutan.
 
-1. Click **Start Debugging** or press **F5** to start the debug session.
+1. Starta felsökningssessionen genom att klicka på **Starta fel sökning** eller trycka på **F5** .
 
-1. In the Visual Studio Code integrated terminal, run the following command to send a **Hello World** message to your module. This is the command shown in previous steps when you set up IoT Edge simulator.
+1. I Visual Studio Code Integrated Terminal kör du följande kommando för att skicka ett **Hello World** meddelande till modulen. Detta är kommandot som visas i föregående steg när du konfigurerar IoT Edge Simulator.
 
     ```bash
     curl --header "Content-Type: application/json" --request POST --data '{"inputName": "input1","data":"hello world"}' http://localhost:53000/api/v1/messages
     ```
 
    > [!NOTE]
-   > If you are using Windows, making sure the shell of your Visual Studio Code integrated terminal is **Git Bash** or **WSL Bash**. You cannot run the `curl` command from a PowerShell or command prompt.
+   > Om du använder Windows kontrollerar du att gränssnittet för den integrerade Terminal Studio Code-terminalen är **git bash** eller **Wsl bash**. Du kan inte köra kommandot `curl` från PowerShell eller kommando tolken.
    > [!TIP]
-   > You can also use [PostMan](https://www.getpostman.com/) or other API tools to send messages through instead of `curl`.
+   > Du kan också använda [Postman](https://www.getpostman.com/) eller andra API-verktyg för att skicka meddelanden via i stället för `curl`.
 
-1. In the Visual Studio Code Debug view, you'll see the variables in the left panel.
+1. I Visual Studio Codes debug-vy ser du variablerna i den vänstra panelen.
 
-1. To stop your debugging session, select the Stop button or press **Shift + F5**, and then run **Azure IoT Edge: Stop IoT Edge Simulator** in the command palette to stop the simulator and clean up.
+1. Om du vill stoppa din felsökningssession väljer du knappen Stoppa eller trycker på **Shift + F5**och kör **Azure IoT Edge: stoppa IoT Edge simulatorn** på kommando paletten för att stoppa simulatorn och rensa.
 
-## <a name="debug-in-attach-mode-with-iot-edge-simulator-c-nodejs-java-azure-functions"></a>Debug in attach mode with IoT Edge Simulator (C#, Node.js, Java, Azure Functions)
+## <a name="debug-in-attach-mode-with-iot-edge-simulator-c-nodejs-java-azure-functions"></a>Felsöka i Attach-läge med IoT Edge SimulatorC#(, Node. js, Java, Azure Functions)
 
-Your default solution contains two modules, one is a simulated temperature sensor module and the other is the pipe module. The simulated temperature sensor sends messages to the pipe module and then the messages are piped to the IoT Hub. In the module folder you created, there are several Docker files for different container types. Use any of the files that end with the extension **.debug** to build your module for testing.
+Standardlösningen innehåller två moduler, en är en simulerad temperatur sensor modul och den andra är pipe-modulen. Den simulerade temperatur sensorn skickar meddelanden till pipe-modulen och skickar sedan skickas till IoT Hub. I mappen modul som du har skapat finns det flera Docker-filer för olika behållar typer. Använd någon av filerna som slutar med tillägget **. debug** för att bygga modulen för testning.
 
-Currently, debugging in attach mode is supported only as follows:
+För närvarande stöds fel sökning i kopplings läge endast på följande sätt:
 
-- C# modules, including those for Azure Functions, support debugging in Linux amd64 containers
-- Node.js modules support debugging in Linux amd64 and arm32v7 containers, and Windows amd64 containers
-- Java modules support debugging in Linux amd64 and arm32v7 containers
+- C#moduler, inklusive de för Azure Functions, stöder fel sökning i Linux amd64-behållare
+- Node. js-moduler stöder fel sökning i Linux amd64-och arm32v7-behållare och Windows amd64-behållare
+- Java-moduler stöder fel sökning i Linux amd64-och arm32v7-behållare
 
 > [!TIP]
-> You can switch among options for the default platform for your IoT Edge solution by clicking the item in the Visual Studio Code status bar.
+> Du kan växla mellan alternativ för standard plattformen för din IoT Edge lösning genom att klicka på objektet i statusfältet i Visual Studio-kod.
 
-### <a name="set-up-iot-edge-simulator-for-iot-edge-solution"></a>Set up IoT Edge simulator for IoT Edge solution
+### <a name="set-up-iot-edge-simulator-for-iot-edge-solution"></a>Konfigurera IoT Edge Simulator för IoT Edge-lösning
 
-In your development machine, you can start an IoT Edge simulator instead of installing the IoT Edge security daemon so that you can run your IoT Edge solution.
+I utvecklings datorn kan du starta en IoT Edge Simulator i stället för att installera IoT Edge Security daemon så att du kan köra din IoT Edge lösning.
 
-1. In device explorer on the left side, right-click on your IoT Edge device ID, and then select **Setup IoT Edge Simulator** to start the simulator with the device connection string.
+1. I Device Explorer till vänster högerklickar du på IoT Edge enhets-ID och väljer sedan **installations IoT Edge Simulator** för att starta simulatorn med enhets anslutnings strängen.
 
-1. You can see the IoT Edge Simulator has been successfully set up by reading the progress detail in the integrated terminal.
+1. Du kan se att IoT Edge Simulator har kon figurer ATS genom att läsa informationen om förloppet i den integrerade terminalen.
 
-### <a name="build-and-run-container-for-debugging-and-debug-in-attach-mode"></a>Build and run container for debugging and debug in attach mode
+### <a name="build-and-run-container-for-debugging-and-debug-in-attach-mode"></a>Skapa och kör behållare för fel sökning och fel sökning i anslutnings läge
 
-1. Open your module file (`Program.cs`, `app.js`, `App.java`, or `<your module name>.cs`) and add a breakpoint.
+1. Öppna modul filen (`Program.cs`, `app.js`, `App.java`eller `<your module name>.cs`) och Lägg till en Bryt punkt.
 
-1. In the Visual Studio Code Explorer view, right-click the `deployment.debug.template.json` file for your solution and then select **Build and Run IoT Edge solution in Simulator**. You can watch all the module container logs in the same window. You can also navigate to the Docker view to watch container status.
+1. I vyn Visual Studio Code Explorer högerklickar du på `deployment.debug.template.json`-filen för din lösning och väljer sedan **skapa och kör IoT Edge lösning i simulatorn**. Du kan se alla behållar loggar i samma fönster. Du kan också navigera till Docker-vyn för att se container status.
 
-   ![Watch Variables](media/how-to-vs-code-develop-module/view-log.png)
+   ![Bevaka variabler](media/how-to-vs-code-develop-module/view-log.png)
 
-1. Navigate to the Visual Studio Code Debug view and select the debug configuration file for your module. The debug option name should be similar to ***&lt;your module name&gt;* Remote Debug**
+1. Navigera till vyn Visual Studio Code debug och välj fel söknings konfigurations filen för modulen. Namnet på fel söknings alternativet bör likna  ***&lt;ditt Modulnamn&gt;* fjärr fel sökning**
 
-1. Select **Start Debugging** or press **F5**. Select the process to attach to.
+1. Välj **Starta fel sökning** eller tryck på **F5**. Välj den process som du vill koppla till.
 
-1. In Visual Studio Code Debug view, you'll see the variables in the left panel.
+1. I Visual Studio Codes debug-vy ser du variablerna i den vänstra panelen.
 
-1. To stop the debugging session, first select the Stop button or press **Shift + F5**, and then select **Azure IoT Edge: Stop IoT Edge Simulator** from the command palette.
+1. Om du vill stoppa felsökningssessionen väljer du först knappen Stoppa eller trycker på **Shift + F5**och väljer sedan **Azure IoT Edge: stoppa IoT Edge Simulator** från kommando paletten.
 
 > [!NOTE]
-> The preceding example shows how to debug IoT Edge modules on containers. It added exposed ports to your module's container `createOptions` settings. After you finish debugging your modules, we recommend you remove these exposed ports for production-ready IoT Edge modules.
+> Föregående exempel visar hur du felsöker IoT Edge moduler på behållare. Den har lagt till exponerade portar till modulens behållare `createOptions` inställningar. När du har slutfört fel sökningen av dina moduler rekommenderar vi att du tar bort de exponerade portarna för produktions färdiga IoT Edge moduler.
 >
-> For modules written in C#, including Azure Functions, this example is based on the debug version of `Dockerfile.amd64.debug`, which includes the .NET Core command-line debugger (VSDBG) in your container image while building it. After you debug your C# modules, we recommend that you directly use the Dockerfile without VSDBG for production-ready IoT Edge modules.
+> För moduler som är C#skrivna i, inklusive Azure Functions, är det här exemplet baserat på fel söknings versionen av `Dockerfile.amd64.debug`, som innehåller .net Core kommando rads fel söknings program (VSDBG) i behållar avbildningen när du skapar den. När du har felsöker dina C# moduler rekommenderar vi att du direkt använder DOCKERFILE utan VSDBG för produktion färdiga IoT Edge moduler.
 
-## <a name="debug-a-module-with-the-iot-edge-runtime"></a>Debug a module with the IoT Edge runtime
+## <a name="debug-a-module-with-the-iot-edge-runtime"></a>Felsöka en modul med IoT Edge runtime
 
-In each module folder, there are several Docker files for different container types. Use any of the files that end with the extension **.debug** to build your module for testing.
+I varje modul finns det flera Docker-filer för olika behållar typer. Använd någon av filerna som slutar med tillägget **. debug** för att bygga modulen för testning.
 
-When debugging modules using this method, your modules are running on top of the IoT Edge runtime. The IoT Edge device and your Visual Studio Code can be on the same machine, or more typically, Visual Studio Code is on the development machine and the IoT Edge runtime and modules are running on another physical machine. In order to debug from Visual Studio Code, you must:
+När du felsöker moduler med den här metoden körs dina moduler ovanpå IoT Edge Runtime. IoT Edge-enheten och Visual Studio-koden kan finnas på samma dator, eller mer vanligt vis Visual Studio Code på utvecklings datorn och IoT Edge körning och moduler körs på en annan fysisk dator. För att kunna felsöka från Visual Studio Code måste du:
 
-- Set up your IoT Edge device, build your IoT Edge module(s) with the **.debug** Dockerfile, and then deploy to the IoT Edge device.
-- Expose the IP and port of the module so that the debugger can be attached.
-- Update the `launch.json` so that Visual Studio Code can attach to the process in the container on the remote machine. This file is located in the `.vscode` folder in your workspace and updates each time you add a new module that supports debugging.
+- Konfigurera din IoT Edge-enhet, skapa IoT Edge-modul (er) med **. debug** -Dockerfile och distribuera sedan till den IoT Edge enheten.
+- Exponera IP och port för modulen så att fel söknings programmet kan kopplas.
+- Uppdatera `launch.json` så att Visual Studio Code kan kopplas till processen i behållaren på fjärrdatorn. Den här filen finns i mappen `.vscode` på arbets ytan och uppdateringar varje gången du lägger till en ny modul som stöder fel sökning.
 
-### <a name="build-and-deploy-your-module-to-the-iot-edge-device"></a>Build and deploy your module to the IoT Edge device
+### <a name="build-and-deploy-your-module-to-the-iot-edge-device"></a>Bygg och distribuera modulen till den IoT Edge enheten
 
-1. In Visual Studio Code, open the `deployment.debug.template.json` file, which contains the debug version of your module images with the proper `createOptions` values set.
+1. I Visual Studio Code öppnar du `deployment.debug.template.json`-filen, som innehåller fel söknings versionen av modulens bilder med rätt `createOptions` värden som anges.
 
-1. If you're developing your module in Python, follow these steps before proceeding:
-   - Open the file `main.py` and add this code after the import section:
+1. Om du utvecklar din modul i python följer du de här stegen innan du fortsätter:
+   - Öppna filen `main.py` och Lägg till den här koden efter import avsnittet:
 
       ```python
       import ptvsd
       ptvsd.enable_attach(('0.0.0.0',  5678))
       ```
 
-   - Add the following single line of code to the callback you want to debug:
+   - Lägg till följande rad kod i motringningen som du vill felsöka:
 
       ```python
       ptvsd.break_into_debugger()
       ```
 
-     For example, if you want to debug the `receive_message_listener` function, you would insert that line of code as shown below:
+     Om du till exempel vill felsöka `receive_message_listener`-funktionen infogar du den kodrad som visas nedan:
 
       ```python
       def receive_message_listener(client):
@@ -289,79 +289,79 @@ When debugging modules using this method, your modules are running on top of the
               print("Message successfully forwarded")
       ```
 
-1. In the Visual Studio Code command palette:
-   1. Run the command **Azure IoT Edge: Build and Push IoT Edge solution**.
+1. I kommando rads verktyget Visual Studio Code:
+   1. Kör kommandot **Azure IoT Edge: skapa och Push IoT Edge-lösning**.
 
-   1. Select the `deployment.debug.template.json` file for your solution.
+   1. Välj `deployment.debug.template.json` filen för din lösning.
 
-1. In the **Azure IoT Hub Devices** section of the Visual Studio Code Explorer view:
-   1. Right-click an IoT Edge device ID and then select **Create Deployment for Single Device**.
+1. I avsnittet **Azure IoT Hub-enheter** i vyn Visual Studio Code Explorer:
+   1. Högerklicka på ett IoT Edge enhets-ID och välj sedan **skapa distribution för en enskild enhet**.
 
       > [!TIP]
-      > To confirm that the device you've chosen is an IoT Edge device, select it to expand the list of modules and verify the presence of **$edgeHub** and **$edgeAgent**. Every IoT Edge device includes these two modules.
+      > För att bekräfta att enheten du har valt är en IoT Edge enhet, väljer du den för att expandera listan över moduler och kontrollerar förekomsten av **$edgeHub** och **$edgeAgent**. Varje IoT Edge enhet innehåller dessa två moduler.
 
-   1. Navigate to your solution's **config** folder, select the `deployment.debug.amd64.json` file, and then select **Select Edge Deployment Manifest**.
+   1. Navigera till din lösnings **config** -mapp, Välj `deployment.debug.amd64.json`-filen och välj sedan **Välj gräns distributions manifest**.
 
-You'll see the deployment successfully created with a deployment ID in the integrated terminal.
+Du ser att distributionen har skapats med ett distributions-ID i den integrerade terminalen.
 
-You can check your container status by running the `docker ps` command in the terminal. If your Visual Studio Code and IoT Edge runtime are running on the same machine, you can also check the status in the Visual Studio Code Docker view.
+Du kan kontrol lera behållar status genom att köra kommandot `docker ps` i terminalen. Om din Visual Studio-kod och IoT Edge runtime körs på samma dator kan du också kontrol lera statusen i vyn Visual Studio Code Docker.
 
-### <a name="expose-the-ip-and-port-of-the-module-for-the-debugger"></a>Expose the IP and port of the module for the debugger
+### <a name="expose-the-ip-and-port-of-the-module-for-the-debugger"></a>Exponera IP och port för fel sökningens modul
 
-You can skip this section if your modules are running on the same machine as Visual Studio Code, as you are using localhost to attach to the container and already have the correct port settings in the **.debug** Dockerfile, module's container `createOptions` settings, and `launch.json` file. If your modules and Visual Studio Code are running on separate machines, follow the steps for your development language.
+Du kan hoppa över det här avsnittet om dina moduler körs på samma dator som Visual Studio Code, eftersom du använder localhost för att ansluta till behållaren och redan har rätt port inställningar i mappen **. debug** Dockerfile, modulens behållare `createOptions` inställningar och `launch.json` fil. Om dina moduler och Visual Studio-koden körs på separata datorer följer du stegen för ditt utvecklings språk.
 
-- **C#, including Azure Functions**
+- **C#, inklusive Azure Functions**
 
-  [Configure the SSH channel on your development machine and IoT Edge device](https://github.com/OmniSharp/omnisharp-vscode/wiki/Attaching-to-remote-processes) and then edit `launch.json` file to attach.
+  [Konfigurera SSH-kanalen på utvecklings datorn och IoT Edge enhet](https://github.com/OmniSharp/omnisharp-vscode/wiki/Attaching-to-remote-processes) och redigera sedan `launch.json` fil som ska bifogas.
 
 - **Node.js**
 
-  - Make sure the module on the machine to be debugged is running and ready for debuggers to attach, and that port 9229 is accessible externally. You can verify this by opening `http://<target-machine-IP>:9229/json` on the debugger machine. This URL should show information about the Node.js module to be debugged.
+  - Kontrol lera att modulen på datorn som ska felsökas körs och är redo för fel sökning och att den porten 9229 är tillgänglig externt. Du kan kontrol lera detta genom att öppna `http://<target-machine-IP>:9229/json` på fel söknings datorn. Den här URL: en ska visa information om Node. js-modulen som ska felsökas.
   
-  - On your development machine, open Visual Studio Code and then edit `launch.json` so that the address value of the ***&lt;your module name&gt;* Remote Debug (Node.js)** profile (or ***&lt;your module name&gt;* Remote Debug (Node.js in Windows Container)** profile if the module is running as a Windows container) is the IP of the machine being debugged.
+  - Öppna Visual Studio Code på utvecklings datorn och redigera `launch.json` så att det  ***&lt;ditt Modulnamn&gt;* fjärrfelsökning (Node. js)** -profil (eller  ***&lt;ditt Modulnamn&gt;* fjärrfelsökning (Node. js i Windows container)** om modulen körs som en Windows-behållare) är IP-adressen för den dator som ska felsökas.
 
 - **Java**
 
-  - Build an SSH tunnel to the machine to be debugged by running `ssh -f <username>@<target-machine> -L 5005:127.0.0.1:5005 -N`.
+  - Bygg en SSH-tunnel till datorn som ska felsökas genom att köra `ssh -f <username>@<target-machine> -L 5005:127.0.0.1:5005 -N`.
   
-  - On your development machine, open Visual Studio Code and edit the ***&lt;your module name&gt;* Remote Debug (Java)** profile in `launch.json` so that you can attach to the target machine. To learn more about editing `launch.json` and debugging Java with Visual Studio Code, see the section on [configuring the debugger](https://code.visualstudio.com/docs/java/java-debugging#_configuration).
+  - Öppna Visual Studio Code på utvecklings datorn och redigera  ***&lt;ditt Modulnamn&gt;* Remote debug (Java)-** profil i `launch.json` så att du kan ansluta till mål datorn. Mer information om hur du redigerar `launch.json` och felsöker Java med Visual Studio Code finns i avsnittet om hur [du konfigurerar fel sökning](https://code.visualstudio.com/docs/java/java-debugging#_configuration).
 
 - **Python**
 
-  - Make sure that port 5678 on the machine to be debugged is open and accessible.
+  - Kontrol lera att port 5678 på datorn som ska felsökas är öppen och tillgänglig.
 
-  - In the code `ptvsd.enable_attach(('0.0.0.0', 5678))` that you earlier inserted into `main.py`, change **0.0.0.0** to the IP address of the machine to be debugged. Build, push, and deploy your IoT Edge module again.
+  - I kod `ptvsd.enable_attach(('0.0.0.0', 5678))` som du tidigare infogade i `main.py`ändrar du **0.0.0.0** till IP-adressen för den dator som ska felsökas. Bygg, push och distribuera IoT Edge-modulen igen.
 
-  - On your development machine, open Visual Studio Code and then edit `launch.json` so that the `host` value of the ***&lt;your module name&gt;* Remote Debug (Python)** profile uses the IP address of the target machine instead of `localhost`.
+  - Öppna Visual Studio Code på utvecklings datorn och redigera `launch.json` så att `host`-värdet för  ***&lt;ditt Modulnamn&gt;* fjärrfelsökning (python)** använder IP-adressen för mål datorn i stället för `localhost`.
 
-### <a name="debug-your-module"></a>Debug your module
+### <a name="debug-your-module"></a>Felsöka modulen
 
-1. In the Visual Studio Code Debug view, select the debug configuration file for your module. The debug option name should be similar to ***&lt;your module name&gt;* Remote Debug**
+1. I Visual Studio Code debug-vyn väljer du fel söknings konfigurations filen för modulen. Namnet på fel söknings alternativet bör likna  ***&lt;ditt Modulnamn&gt;* fjärr fel sökning**
 
-1. Open the module file for your development language and add a breakpoint:
+1. Öppna modul filen för ditt utvecklings språk och Lägg till en Bryt punkt:
 
-   - **Azure Function (C#)** : Add your breakpoint to the file `<your module name>.cs`.
-   - **C#** : Add your breakpoint to the file `Program.cs`.
-   - **Node.js**: Add your breakpoint to the file `app.js`.
-   - **Java**: Add your breakpoint to the file `App.java`.
-   - **Python**: Add your breakpoint to the file `main.py`in the callback method where you added the `ptvsd.break_into_debugger()` line.
-   - **C**: Add your breakpoint to the file `main.c`.
+   - **Azure function (C#)** : Lägg till din Bryt punkt i filen `<your module name>.cs`.
+   - **C#** : Lägg till din Bryt punkt i filen `Program.cs`.
+   - **Node. js**: Lägg till din Bryt punkt i filen `app.js`.
+   - **Java**: Lägg till din Bryt punkt i filen `App.java`.
+   - **Python**: Lägg till din Bryt punkt i filen `main.py`i callback-metoden där du lade till `ptvsd.break_into_debugger()` raden.
+   - **C**: Lägg till din Bryt punkt i filen `main.c`.
 
-1. Select **Start Debugging** or select **F5**. Select the process to attach to.
+1. Välj **Starta fel sökning** eller Välj **F5**. Välj den process som du vill koppla till.
 
-1. In the Visual Studio Code Debug view, you'll see the variables in the left panel.
+1. I Visual Studio Codes debug-vy ser du variablerna i den vänstra panelen.
 
 > [!NOTE]
-> The preceding example shows how to debug IoT Edge modules on containers. It added exposed ports to your module's container `createOptions` settings. After you finish debugging your modules, we recommend you remove these exposed ports for production-ready IoT Edge modules.
+> Föregående exempel visar hur du felsöker IoT Edge moduler på behållare. Den har lagt till exponerade portar till modulens behållare `createOptions` inställningar. När du har slutfört fel sökningen av dina moduler rekommenderar vi att du tar bort de exponerade portarna för produktions färdiga IoT Edge moduler.
 
-## <a name="build-and-debug-a-module-remotely"></a>Build and debug a module remotely
+## <a name="build-and-debug-a-module-remotely"></a>Bygg och Felsök en modul via fjärr anslutning
 
-With recent changes in both the Docker and Moby engines to support SSH connections, and a new setting in Azure IoT Tools that enables injection of environment settings into the Visual Studio Code command palette and Azure IoT Edge terminals, you can now build and debug modules on remote devices.
+Med de senaste ändringarna i både Docker-och Moby-motorerna för att stödja SSH-anslutningar och en ny inställning i Azure IoT-verktyg som aktiverar inmatning av miljö inställningar i Visual Studio Code-kommando paletten och Azure IoT Edge terminaler, kan du nu skapa och felsöka moduler på fjärranslutna enheter.
 
-See this [IoT Developer blog entry](https://devblogs.microsoft.com/iotdev/easily-build-and-debug-iot-edge-modules-on-your-remote-device-with-azure-iot-edge-for-vs-code-1-9-0/) for more information and step-by-step instructions.
+Mer information och stegvisa anvisningar finns i blogg inlägget för [IoT-utvecklare](https://devblogs.microsoft.com/iotdev/easily-build-and-debug-iot-edge-modules-on-your-remote-device-with-azure-iot-edge-for-vs-code-1-9-0/) .
 
 ## <a name="next-steps"></a>Nästa steg
 
-After you've built your module, learn how to [deploy Azure IoT Edge modules from Visual Studio Code](how-to-deploy-modules-vscode.md).
+När du har skapat modulen lär du dig hur du [distribuerar Azure IoT Edge moduler från Visual Studio Code](how-to-deploy-modules-vscode.md).
 
-To develop modules for your IoT Edge devices, [Understand and use Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md).
+För att utveckla moduler för dina IoT Edge enheter, [förstå och använda Azure IoT Hub SDK](../iot-hub/iot-hub-devguide-sdks.md): er.

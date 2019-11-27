@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Use IoT Hub events to trigger Azure Logic Apps
-description: Tutorial - Using the event routing service of Azure Event Grid, create automated processes to perform Azure Logic Apps actions based on IoT Hub events.
+title: Självstudie – Använd IoT Hub händelser för att utlösa Azure Logic Apps
+description: Själv studie kurs – använda tjänsten för händelse dirigering i Azure Event Grid skapa automatiserade processer för att utföra Azure Logic Apps åtgärder baserat på IoT Hub händelser.
 services: iot-hub
 author: robinsh
 ms.service: iot-hub
@@ -14,11 +14,11 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74423731"
 ---
-# <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Tutorial: Send email notifications about Azure IoT Hub events using Event Grid and Logic Apps
+# <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Självstudie: skicka e-postaviseringar om Azure IoT Hub händelser med Event Grid och Logic Apps
 
 Med Azure Event Grid kan du reagera på händelser i IoT Hub genom att utlösa åtgärder i underordnade företagsprogram.
 
-This article walks through a sample configuration that uses IoT Hub and Event Grid. At the end, you have an Azure logic app set up to send a notification email every time a device is added to your IoT hub. 
+Den här artikeln beskriver en exempel konfiguration som använder IoT Hub och Event Grid. I slutet har du konfigurerat en Azure Logic app som skickar ett e-postmeddelande varje gång en enhet läggs till i IoT Hub. 
 
 ## <a name="prerequisites"></a>Krav
 
@@ -28,25 +28,25 @@ This article walks through a sample configuration that uses IoT Hub and Event Gr
 
 ## <a name="create-a-logic-app"></a>Skapa en logikapp
 
-First, create a logic app and add an event grid trigger that monitors the resource group for your virtual machine. 
+Börja med att skapa en Logic app och Lägg till en Event Grid-utlösare som övervakar resurs gruppen för den virtuella datorn. 
 
 ### <a name="create-a-logic-app-resource"></a>Skapa en resurs för en logikapp
 
-1. In the [Azure portal](https://portal.azure.com), select **Create a resource**, then type "logic app" in the search box and select return. Select **Logic App** from the results.
+1. I [Azure Portal](https://portal.azure.com)väljer du **skapa en resurs**och skriver sedan "Logic app" i sökrutan och väljer RETUR. Välj **Logic app** från resultaten.
 
    ![Skapa en logikapp](./media/publish-iot-hub-events-to-logic-apps/select-logic-app.png)
 
-1. On the next screen, select **Create**. 
+1. På nästa skärm väljer du **skapa**. 
 
 1. Ge logikappen ett namn som är unikt i din prenumeration och välj sedan samma prenumeration, resursgrupp och plats som din IoT-hubb. 
 
-   ![Fields for create logic app](./media/publish-iot-hub-events-to-logic-apps/create-logic-app-fields.png)
+   ![Fält för att skapa Logic app](./media/publish-iot-hub-events-to-logic-apps/create-logic-app-fields.png)
 
 1. Välj **Skapa**.
 
-1. När resursen har skapats går du till din logikapp. To do this, select **Resource groups**, then select the resource group you created for this tutorial. Then find the logic app in the list of resources and select it. 
+1. När resursen har skapats går du till din logikapp. Om du vill göra det väljer du **resurs grupper**och väljer sedan den resurs grupp som du skapade för den här självstudien. Leta sedan reda på Logic-appen i listan över resurser och markera den. 
 
-1. In the Logic Apps Designer, page down to see **Templates**. Choose **Blank Logic App** so that you can build your logic app from scratch.
+1. I Logic Apps designer går du nedåt för att se **mallarna**. Välj **Tom Logic app** så att du kan bygga din Logic app från grunden.
 
 ### <a name="select-a-trigger"></a>Välj en utlösare
 
@@ -116,7 +116,7 @@ En utlösare är en specifik händelse som startar din logikapp. I den här sjä
 
 Åtgärder är alla steg som utförs när utlösaren har startat logikappens arbetsflöde. I den här självstudiekursen är åtgärden att skicka ett e-postmeddelande från din e-postleverantör. 
 
-1. Välj **Nytt steg**. This opens a window to **Choose an action**.
+1. Välj **Nytt steg**. Då öppnas ett fönster där du kan **välja en åtgärd**.
 
 1. Sök efter **E-post**.
 
@@ -132,9 +132,9 @@ En utlösare är en specifik händelse som startar din logikapp. I den här sjä
 
    * **Till**: Ange e-postadressen som meddelandena ska skickas till. I den här självstudiekursen använder du ett e-postkonto som du kan komma åt för testning. 
 
-   * **Subject**: Fill in the text for the subject. When you click on the Subject text box, you can select dynamic content to include. For example, this tutorial uses `IoT Hub alert: {event Type}`. If you can't see Dynamic content, select the **Add dynamic content** hyperlink -- this toggles it on and off.
+   * **Subject**: Fyll i texten för ämnet. När du klickar på text rutan ämne kan du välja dynamiskt innehåll som ska inkluderas. I den här självstudien används till exempel `IoT Hub alert: {event Type}`. Om du inte kan se dynamiskt innehåll, väljer du hyperlänken **Lägg till dynamiskt innehåll** – detta växlar till och från.
 
-   * **Body**: Write the text for your email. Välj JSON-egenskaper från valverktyget för att ta med dynamiskt innehåll baserat på händelsedata. If you can't see the Dynamic content, select the **Add dynamic content** hyperlink under the **Body** text box. If it doesn't show you the fields you want, click *more* in the Dynamic content screen to include the fields from the previous action.
+   * **Brödtext**: Skriv texten för e-postmeddelandet. Välj JSON-egenskaper från valverktyget för att ta med dynamiskt innehåll baserat på händelsedata. Om du inte kan se det dynamiska innehållet väljer du hyperlänken **Lägg till dynamiskt innehåll** under text rutan **brödtext** . Om du inte ser de fält som du vill ha klickar du på *mer* på skärmen med dynamiskt innehåll för att ta med fälten från föregående åtgärd.
 
    Din e-postmall kanske liknar den i det här exemplet:
 
@@ -158,7 +158,7 @@ Innan du lämnar Logic Apps-designern kopierar du URL:en som används av dina lo
 
 I det här avsnittet ska du konfigurera din IoT-hubb så att den publicerar händelser när de inträffar. 
 
-1. Gå till din IoT-hubb på Azure Portal. You can do this by selecting **Resource groups**, then select the resource group for this tutorial, and then select your IoT hub from the list of resources.
+1. Gå till din IoT-hubb på Azure Portal. Du kan göra detta genom att välja **resurs grupper**och sedan välja resurs gruppen för den här själv studie kursen och sedan välja din IoT Hub i listan över resurser.
 
 2. Välj **Händelser**.
 
@@ -170,41 +170,41 @@ I det här avsnittet ska du konfigurera din IoT-hubb så att den publicerar hän
 
 4. Skapa händelseprenumerationen med följande värden: 
 
-   * **Event Subscription Details**: Provide a descriptive name and select **Event Grid Schema**.
+   * **Information om händelse prenumeration**: Ange ett beskrivande namn och välj **Event Grid schema**.
 
-   * **Event Types**: In the **Filter to Event Types**, uncheck all of the choices except **Device Created**.
+   * **Händelse typer**: Avmarkera alla val förutom **enheten som skapats**i **filtrera till händelse typer**.
 
-       ![subscription event types](./media/publish-iot-hub-events-to-logic-apps/subscription-event-types.png)
+       ![händelse typer för prenumeration](./media/publish-iot-hub-events-to-logic-apps/subscription-event-types.png)
 
-   * **Endpoint Details**: Select Endpoint Type as **Web Hook** and select *select an endpoint* and paste the URL that you copied from your logic app and confirm selection.
+   * **Slut punkts information**: Välj slut punkts typ som **Web Hook** och välj *Välj en slut punkt* och klistra in den URL som du kopierade från din Logic app och bekräfta valet.
 
      ![webbadress till vald slutpunkt](./media/publish-iot-hub-events-to-logic-apps/endpoint-webhook.png)
 
-   When you're done, the pane should look like the following example: 
+   När du är klar bör fönstret se ut som i följande exempel: 
 
     ![Exempelformulär för händelseprenumeration](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
 
-5. Du kan spara händelseprenumerationen här och få meddelanden för alla enheter som har skapats i IoT-hubben. I den här självstudien ska vi dock använda de valfria fälten för att filtrera efter specifika enheter. Select **Filters** at the top of the pane.
+5. Du kan spara händelseprenumerationen här och få meddelanden för alla enheter som har skapats i IoT-hubben. I den här självstudien ska vi dock använda de valfria fälten för att filtrera efter specifika enheter. Välj **filter** överst i fönstret.
 
-6. Select **Add new filter**. Fill in the fields with these values:
+6. Välj **Lägg till nytt filter**. Fyll i fälten med följande värden:
 
-   * **Key**: Select `Subject`.
+   * **Nyckel**: Välj `Subject`.
 
-   * **Operator**: Select `String begins with`.
+   * **Operator**: Välj `String begins with`.
 
-   * **Value**:  Enter `devices/Building1_` to filter for device events in building 1.
+   * **Värde**: Ange `devices/Building1_` för att filtrera efter enhets händelser i byggnad 1.
   
-   Add another filter with these values:
+   Lägg till ett annat filter med följande värden:
 
-   * **Key**: Select `Subject`.
+   * **Nyckel**: Välj `Subject`.
 
-   * **Operator**: Select `String ends with`.
+   * **Operator**: Välj `String ends with`.
 
-   * **Value**: Enter `_Temperature` to filter for device events related to temperature.
+   * **Värde**: Ange `_Temperature` för att filtrera efter enhets händelser relaterade till temperatur.
 
-   The **Filters** tab of your event subscription should now look similar to this image:
+   Fliken **filter** i din händelse prenumeration bör nu se ut ungefär som den här bilden:
 
-   ![Adding filters to event subscription](./media/publish-iot-hub-events-to-logic-apps/event-subscription-filters.png)
+   ![Lägga till filter i händelse prenumerationen](./media/publish-iot-hub-events-to-logic-apps/event-subscription-filters.png)
 
 7. Spara händelseprenumerationen genom att välja **Skapa**.
 
@@ -216,7 +216,7 @@ Testa logikappen genom att skapa en ny enhet för att utlösa ett e-postmeddelan
 
 2. Välj **Ny**.
 
-3. Ange `Building1_Floor1_Room1_Light` för **Enhets-ID**.
+3. Ange **för**Enhets-ID`Building1_Floor1_Room1_Light`.
 
 4. Välj **Spara**. 
 
@@ -227,27 +227,27 @@ Testa logikappen genom att skapa en ny enhet för att utlösa ett e-postmeddelan
    * Building2_Floor1_Room1_Temperature
    * Building2_Floor1_Room1_Light
 
-   If you added the four examples, your list of IoT devices should look like the following image:
+   Om du har lagt till de fyra exemplen bör listan över IoT-enheter se ut som på följande bild:
 
-   ![IoT Hub device list](./media/publish-iot-hub-events-to-logic-apps/iot-hub-device-list.png)
+   ![IoT Hub enhets lista](./media/publish-iot-hub-events-to-logic-apps/iot-hub-device-list.png)
 
 6. När du har lagt till några enheter till IoT-hubben öppnar du din e-post för att se vilka som utlöste logikappen. 
 
 ## <a name="use-the-azure-cli"></a>Använda Azure CLI
 
-Om du vill kan du utföra IoT Hub-stegen med hjälp av Azure CLI i stället för att använda Azure Portal. For details, see the Azure CLI pages for [creating an event subscription](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) and [creating an IoT device](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity).
+Om du vill kan du utföra IoT Hub-stegen med hjälp av Azure CLI i stället för att använda Azure Portal. Mer information finns i Azure CLI-sidorna för att [skapa en händelse prenumeration](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) och [skapa en IoT-enhet](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-I den här självstudiekursen användes resurser som medför kostnader för din Azure-prenumeration. When you're finished trying out the tutorial and testing your results, disable or delete resources that you don't want to keep. 
+I den här självstudiekursen användes resurser som medför kostnader för din Azure-prenumeration. När du är klar med att testa självstudien och testa dina resultat kan du inaktivera eller ta bort resurser som du inte vill behålla. 
 
-To delete all of the resources created in this tutorial, delete the resource group. 
+Ta bort resurs gruppen om du vill ta bort alla resurser som skapats i den här självstudien. 
 
-1. Select **Resource groups**, then select the resource group you created for this tutorial.
+1. Välj **resurs grupper**och välj sedan den resurs grupp som du skapade för den här självstudien.
 
-2. On the Resource group pane, select **Delete resource group**. You are prompted to enter the resource group name, and then you can delete it. All of the resources contained therein are also removed.
+2. I fönstret resurs grupp väljer du **ta bort resurs grupp**. Du uppmanas att ange namnet på resurs gruppen och sedan kan du ta bort det. Alla resurser som ingår däri tas också bort.
 
-If you don't want to remove all of the resources, you can manage them one by one. 
+Om du inte vill ta bort alla resurser kan du hantera dem en i taget. 
 
 Om du inte vill förlora det arbete du gjort i logikappen inaktiverar du den i stället för att ta bort den. 
 

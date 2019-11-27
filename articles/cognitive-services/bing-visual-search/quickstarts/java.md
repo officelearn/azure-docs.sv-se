@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Get image insights using the REST API and Java - Bing Visual Search'
+title: 'Snabb start: Hämta bild insikter med hjälp av REST API och Java-Visuell sökning i Bing'
 titleSuffix: Azure Cognitive Services
-description: Ta reda på hur du laddar upp en bild till API:et för visuell sökning i Bing och får information om den.
+description: Ta reda på hur du laddar du upp en bild till API för visuell sökning i Bing och får information om den.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -17,11 +17,11 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74383609"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-java"></a>Quickstart: Get image insights using the Bing Visual Search REST API and Java
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-java"></a>Snabb start: Hämta bild insikter med hjälp av Visuell sökning i Bing REST API och Java
 
-Use this quickstart to make your first call to the Bing Visual Search API and view the results. This Java application uploads an image to the API and displays the information it returns. Though this application is written in Java, the API is a RESTful Web service compatible with most programming languages.
+Använd den här snabb starten för att göra ditt första anrop till API för visuell sökning i Bing och visa resultatet. Java-programmet överför en avbildning till API: et och visar den information som returneras. Även om det här programmet är skrivet i Java är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-When you upload a local image, the form data must include the `Content-Disposition` header. You must set its `name` parameter to "image", and you can set the `filename` parameter to any string. The contents of the form include the binary data of the image. The maximum image size you can upload is 1 MB.
+När du laddar upp en lokal avbildning måste formulär data innehålla `Content-Disposition` rubriken. Du måste ange dess `name` parameter till "bild" och du kan ange parametern `filename` till valfri sträng. Innehållet i formuläret är en bilds binära data. Den maximala bild storlek som du kan ladda upp är 1 MB.
 
 ```
 --boundary_1234-abcd
@@ -34,15 +34,15 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
 ## <a name="prerequisites"></a>Krav
 
-* The [Java Development Kit (JDK) 7 or 8](https://aka.ms/azure-jdks)
-* The [Gson Java library](https://github.com/google/gson)
+* [Java Development Kit (JDK) 7 eller 8](https://aka.ms/azure-jdks)
+* [Gson Java-biblioteket](https://github.com/google/gson)
 * [Apache HttpComponents](https://hc.apache.org/downloads.cgi)
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Skapa och initiera ett projekt
 
-1. Create a new Java project in your favorite IDE or editor, and import the following libraries:
+1. Skapa ett nytt Java-projekt i din favorit-IDE eller-redigerare och importera följande bibliotek:
 
     ```java
     import java.util.*;
@@ -63,7 +63,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
     import org.apache.http.impl.client.HttpClientBuilder;
     ```
 
-2. Create variables for your API endpoint, subscription key, and the path to your image:
+2. Skapa variabler för API-slutpunkten, prenumerations nyckeln och sökvägen till din avbildning:
 
     ```java
     static String endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch";
@@ -73,7 +73,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
 ## <a name="create-the-json-parser"></a>Skapa JSON-parsern
 
-Create a method to make the JSON response from the API more readable using `JsonParser`:
+Skapa en metod för att göra JSON-svaret från API: et mer läsbart med `JsonParser`:
 
     ```java
     public static String prettify(String json_text) {
@@ -86,13 +86,13 @@ Create a method to make the JSON response from the API more readable using `Json
 
 ## <a name="construct-the-search-request-and-query"></a>Konstruera sökbegäran och fråga
 
-1. In the main method of your application, create an HTTP client using `HttpClientBuilder.create().build();`:
+1. I appens huvud metod skapar du en HTTP-klient med hjälp av `HttpClientBuilder.create().build();`:
 
     ```java
     CloseableHttpClient httpClient = HttpClientBuilder.create().build();
     ```
 
-2. Create an `HttpEntity` object to upload your image to the API:
+2. Skapa ett `HttpEntity`-objekt för att ladda upp avbildningen till API: et:
 
     ```java
     HttpEntity entity = MultipartEntityBuilder
@@ -101,7 +101,7 @@ Create a method to make the JSON response from the API more readable using `Json
         .build();
     ```
 
-3. Create an `httpPost` object with your endpoint, and set the header to use your subscription key:
+3. Skapa ett `httpPost`-objekt med din slut punkt och ange att rubriken ska använda din prenumerations nyckel:
 
     ```java
     HttpPost httpPost = new HttpPost(endpoint);
@@ -111,14 +111,14 @@ Create a method to make the JSON response from the API more readable using `Json
 
 ## <a name="receive-and-process-the-json-response"></a>Ta emot och bearbeta JSON-svaret
 
-1. Use the `HttpClient.execute()` method to send a request to the API, and store the response in an `InputStream` object:
+1. Använd metoden `HttpClient.execute()` om du vill skicka en begäran till API: et och lagra svaret i ett `InputStream`-objekt:
     
     ```java
     HttpResponse response = httpClient.execute(httpPost);
     InputStream stream = response.getEntity().getContent();
     ```
 
-2. Store the JSON string, and print the response:
+2. Lagra JSON-strängen och skriv ut svaret:
 
 ```java
 String json = new Scanner(stream).useDelimiter("\\A").next();
@@ -129,4 +129,4 @@ System.out.println(prettify(json));
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Build a Visual Search single-page web app](../tutorial-bing-visual-search-single-page-app.md)
+> [Bygg en Visuell sökning webb program med en enda sida](../tutorial-bing-visual-search-single-page-app.md)

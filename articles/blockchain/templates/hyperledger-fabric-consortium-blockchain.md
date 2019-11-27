@@ -1,6 +1,6 @@
 ---
-title: Deploy Hyperledger Fabric Consortium solution template on Azure
-description: How to deploy and configure the Hyperledger Fabric consortium network solution template on Azure
+title: Distribuera en lösnings mal len för huvud boks infrastrukturer i Azure
+description: Så här distribuerar och konfigurerar du mallen för den här nätverks lösningen för huvud boks infrastrukturs konsortiet i Azure
 ms.date: 05/09/2019
 ms.topic: article
 ms.reviewer: caleteet
@@ -11,132 +11,132 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74325138"
 ---
-# <a name="hyperledger-fabric-consortium-network"></a>Hyperledger Fabric consortium network
+# <a name="hyperledger-fabric-consortium-network"></a>Nätverk för redovisningssaldo i huvud boken
 
-You can use the Hyperledger Fabric consortium solution template to deploy and configure a Hyperledger Fabric consortium network on Azure.
+Du kan använda lösnings mal len för den här mallen för att distribuera och konfigurera ett nätverk för en huvud boks infrastruktur i Azure.
 
 När du har läst den här artikeln, kommer du att:
 
-- Obtain working knowledge of blockchain, Hyperledger Fabric, and more complicated consortium network architectures
-- Learn how to deploy and configure a Hyperledger Fabric consortium network from within the Azure portal
+- Få kunskaper om blockchain, redovisnings infrastruktur resurser och mer komplicerade konsortier nätverks arkitekturer
+- Lär dig hur du distribuerar och konfigurerar ett huvud nätverk i ett huvud nätverk från Azure Portal
 
-## <a name="about-blockchain"></a>About blockchain
+## <a name="about-blockchain"></a>Om blockchain
 
-If you are new to the blockchain community, this solution template is a great opportunity to learn about the technology in an easy and configurable manner on Azure. Blockchain is the underlying technology behind Bitcoin; however, it is much more than just an enabler for a virtual currency. It is a composite of existing database, distributed system, and cryptographic technologies that enables secure multi-party computation with guarantees around immutability, verifiability, auditability, and resiliency to attack. Different protocols employ different mechanisms to provide these attributes. [Hyperledger Fabric](https://github.com/hyperledger/fabric) is one such protocol.
+Om du är nybörjare på blockchain community är den här lösnings mal len en bra möjlighet att lära dig mer om tekniken på ett enkelt och konfigurerbart sätt i Azure. Blockchain är den underliggande tekniken bakom Bitcoin; Det är dock mycket mer än bara en aktivering för en virtuell valuta. Det är en sammansatt uppsättning av befintliga databaser, distribuerade system och kryptografiska tekniker som möjliggör säker beräkning av flera parter med garantier kring oföränderlighets, Verifiability, gransknings möjlighet och återhämtning till angrepp. Olika protokoll använder olika mekanismer för att tillhandahålla dessa attribut. [Ledger](https://github.com/hyperledger/fabric) är ett sådant protokoll.
 
-## <a name="consortium-architecture-on-azure"></a>Consortium architecture on Azure
+## <a name="consortium-architecture-on-azure"></a>Konsortiets arkitektur på Azure
 
-To enable Hyperledger Fabric in Azure, there are two primary deployment types that are supported. These deployments are designed to accommodate different topologies, based on desired target.
+Det finns två primära distributions typer som stöds för att aktivera huvud strukturs infrastruktur resurser i Azure. Dessa distributioner är utformade för att hantera olika topologier, baserat på önskat mål.
 
-- **Single virtual machine, developer server** - This deployment type is designed as a development environment used to build and test solutions built on Hyperledger Fabric.
-- **Multiple virtual machines, scale out deployment** - This deployment type is designed for environments that model a consortium of different participants leveraging a shared environment.
+- **Enskild virtuell dator, utvecklings Server** – den här distributions typen är utformad som en utvecklings miljö som används för att skapa och testa lösningar som bygger på huvud Plans infrastruktur.
+- **Flera virtuella datorer, skala ut distribution** – den här distributions typen är utformad för miljöer som modeller ett konsortium av olika deltagare som utnyttjar en delad miljö.
 
-In either deployment, the building blocks that are make the core of Hyperledger Fabric are the same.  The differences in the deployments are how these components are scaled out.
+I båda distributionerna är de bygg stenar som är kärnan i den inbyggda infrastrukturen i huvud gruppen samma.  Skillnaderna i distributionerna är hur dessa komponenter skalas ut.
 
-- **CA nodes**: A node running Certificate Authority that is used to generate certificates that are used for identities in the network.
-- **Orderer nodes**: A node running the communication service implementing a delivery guarantee, such as total order broadcast or atomic transactions.
-- **Peer nodes**: A node that commits transactions and maintains the state and a copy of the distributed ledger.
-- **CouchDB nodes**: A node that can run the CouchDB service that can hold the state database and provide rich querying of chaincode data, expanding from simple key/value to JSON type storage.
+- **Ca-noder**: en nod som kör certifikat utfärdare som används för att generera certifikat som används för identiteter i nätverket.
+- **Beställnings noder**: en nod som kör kommunikations tjänsten och implementerar en leverans garanti, t. ex. total order sändning eller atomiska transaktioner.
+- **Peer-noder**: en nod som genomför transaktioner och underhåller status och en kopia av den distribuerade redovisningen.
+- **Couchdb-noder**: en nod som kan köra couchdb-tjänsten som kan lagra tillstånds databasen och skicka frågor till chaincode-data, och utöka från enkel nyckel/värde till JSON-typ lagring.
 
-### <a name="single-virtual-machine-architecture"></a>Single virtual machine architecture
+### <a name="single-virtual-machine-architecture"></a>Arkitektur för enskild virtuell dator
 
-As mentioned previously the single virtual machine architecture is built for developers to have a low footprint server that is used to develop applications. All containers shown are running in a single virtual machine. The ordering service is using [SOLO](https://github.com/hyperledger/fabric/tree/master/orderer) for this configuration. This configuration is *not* a fault tolerant ordering service, but is designed to be lightweight for development purposes.
+Som tidigare nämnts är arkitekturen för en enskild virtuell dator utformad för utvecklare att ha en server med låg utrymme som används för att utveckla program. Alla behållare som visas körs på en enda virtuell dator. Beställnings tjänsten använder [Solo](https://github.com/hyperledger/fabric/tree/master/orderer) för den här konfigurationen. Den här konfigurationen är *inte* en feltolerant sorterings tjänst, men är utformad för att vara lätt att förstå i utvecklings syfte.
 
-![Single Virtual Machine architecture](./media/hyperledger-fabric-consortium-blockchain/hlf-single-arch.png)
+![Arkitektur för enskild virtuell dator](./media/hyperledger-fabric-consortium-blockchain/hlf-single-arch.png)
 
-### <a name="multiple-virtual-machine-architecture"></a>Multiple virtual machine architecture
+### <a name="multiple-virtual-machine-architecture"></a>Arkitektur för flera virtuella datorer
 
-The multiple virtual machine, scale-out architecture, is built with high availability and scaling of each component at the core. This architecture is much more suitable for production grade deployments.
+Den virtuella datorn, skalbar arkitektur, är byggd med hög tillgänglighet och skalning av varje komponent i kärnan. Den här arkitekturen är mycket lämpligare för distributioner av produktions klasser.
 
-![Multiple virtual machine architecture](./media/hyperledger-fabric-consortium-blockchain/hlf-multi-arch.png)
+![Arkitektur för flera virtuella datorer](./media/hyperledger-fabric-consortium-blockchain/hlf-multi-arch.png)
 
 ## <a name="getting-started"></a>Komma igång
 
-To begin, you need an Azure subscription that can support deploying several virtual machines and standard storage accounts. If you do not have an Azure subscription, you can [create a free Azure account](https://azure.microsoft.com/free/).
+För att börja måste du ha en Azure-prenumeration som har stöd för distribution av flera virtuella datorer och standard lagrings konton. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
 
-Once you have a subscription, go to the [Azure portal](https://portal.azure.com). Select **Create a resource > Blockchain > Hyperledger Fabric Consortium**.
+När du har en prenumeration går du till [Azure Portal](https://portal.azure.com). Välj **skapa en resurs > Blockchain > Ledger Fabric Consortium**.
 
-![Hyperledger Fabric Single Member Blockchain Marketplace template](./media/hyperledger-fabric-consortium-blockchain/marketplace-template.png)
+![Mall för en enskild medlem blockchain Marketplace för huvud boks infrastruktur](./media/hyperledger-fabric-consortium-blockchain/marketplace-template.png)
 
 ## <a name="deployment"></a>Distribution
 
-In the **Hyperledger Fabric Consortium** template, select **Create**.
+I mallen för den inbyggda mallen för **huvud boken i Fabric** väljer du **skapa**.
 
-The template deployment will walk you through configuring the multi-node [Hyperledger 1.3](https://hyperledger-fabric.readthedocs.io/en/release-1.3/) network. The deployment flow is divided into four steps: Basics, Consortium Network Settings, Fabric configuration, and Optional components.
+I mallen för mallar går vi igenom hur du konfigurerar ett nätverk med flera noder i [huvud boken 1,3](https://hyperledger-fabric.readthedocs.io/en/release-1.3/) . Distributions flödet är uppdelat i fyra steg: grundläggande, inställningar för konsortiet nätverk, infrastruktur konfiguration och valfria komponenter.
 
 ### <a name="basics"></a>Grundläggande inställningar
 
-In **Basics**, specify values for standard parameters for any deployment. Such as, subscription, resource group, and basic virtual machine properties.
+I **grunderna**anger du värden för standard parametrar för alla distributioner. Till exempel, prenumeration, resurs grupp och grundläggande egenskaper för virtuella datorer.
 
 ![Grundläggande inställningar](./media/hyperledger-fabric-consortium-blockchain/basics.png)
 
 | Parameternamn | Beskrivning | Tillåtna värden |
 |---|---|---|
-**Resource prefix** | Name prefix for resources provisioned as part of the deployment |6 characters or less |
-**Användarnamn** | The user name of the administrator for each of the virtual machines deployed for this member |1 - 64 characters |
-**Authentication type** | The method to authenticate to the virtual machine |Password or SSH public key|
-**Password (Authentication type = Password)** |The password for the administrator account for each of the virtual machines deployed. The password must contain three of the following character types: 1 upper case character, 1 lower case character, 1 number, and 1 special character<br /><br />While all VMs initially have the same password, you can change the password after provisioning|12 - 72 characters|
-**SSH key (Authentication type = SSH public key)** |The secure shell key used for remote login ||
-**Prenumeration** |The subscription to which to deploy ||
-**Resursgrupp** |The resource group to which to deploy the consortium network ||
-**Plats** |The Azure region to which to deploy the first member in ||
+**Resource prefix** | Namn prefix för resurser som har allokerats som en del av distributionen |6 tecken eller mindre |
+**Användarnamn** | Användar namnet för administratören för var och en av de virtuella datorer som har distribuerats för den här medlemmen |1-64 tecken |
+**Autentiseringstyp** | Metoden för att autentisera till den virtuella datorn |Lösen ord eller offentlig SSH-nyckel|
+**Lösen ord (autentiseringstyp = lösen ord)** |Lösen ordet för administratörs kontot för var och en av de virtuella datorerna som distribueras. Lösen ordet måste innehålla tre av följande Character-typer: 1 versal bokstav, 1 gemen bokstav, 1 siffra och 1 specialtecken<br /><br />Även om alla virtuella datorer ursprungligen har samma lösen ord, kan du ändra lösen ordet efter etableringen|12-72 tecken|
+**SSH-nyckel (autentiseringstyp = Offentlig SSH-nyckel)** |Den säkra shell-nyckel som används för fjärrinloggning ||
+**Prenumeration** |Prenumerationen som ska distribueras ||
+**Resursgrupp** |Den resurs grupp som konsortiet-nätverket ska distribueras till ||
+**Plats** |Den Azure-region som den första medlemmen ska distribueras till ||
 
 Välj **OK**.
 
-### <a name="consortium-network-settings"></a>Consortium Network Settings
+### <a name="consortium-network-settings"></a>Nätverks inställningar för konsortiet
 
-In **Network settings**, specify inputs for creating or joining an existing consortium network and configure your organization settings.
+I **nätverks inställningar**anger du indata för att skapa eller ansluta till ett befintligt konsortium-nätverk och konfigurera organisations inställningarna.
 
-![Consortium Network Settings](./media/hyperledger-fabric-consortium-blockchain/network-settings.png)
+![Nätverks inställningar för konsortiet](./media/hyperledger-fabric-consortium-blockchain/network-settings.png)
 
 | Parameternamn | Beskrivning | Tillåtna värden |
 |---|---|---|
-**Nätverkskonfiguration** |You can choose to create a new network or join an existing one. If you choose *Join existing*, you need to provide additional values. |New network <br/> Join existing |
-**HLF CA password** |A password used for the certificates generated by the certificate authorities that are created as part of the deployment. The password must contain three of the following character types: 1 upper case character, 1 lower case character, 1 number, and 1 special character.<br /><br />While all virtual machines initially have the same password, you can change the password after provisioning.|1 - 25 characters |
-**Organization setup** |You can customize your Organization's name and certificate or have default values to be used.|Standard <br/> Advanced |
-**VPN network settings** | Provision a VPN tunnel gateway for accessing the VMs | Ja <br/> Nej |
+**Nätverkskonfiguration** |Du kan välja att skapa ett nytt nätverk eller ansluta ett befintligt. Om du väljer *Anslut befintliga*måste du ange ytterligare värden. |Nytt nätverk <br/> Anslut till befintlig |
+**HLF CA-lösenord** |Ett lösen ord som används för de certifikat som genereras av certifikat utfärdarna som skapas som en del av distributionen. Lösen ordet måste innehålla tre av följande Character-typer: 1 versal bokstav, 1 gemen bokstav, 1 siffra och 1 specialtecken.<br /><br />Även om alla virtuella datorer ursprungligen har samma lösen ord, kan du ändra lösen ordet efter etableringen.|1-25 tecken |
+**Organisations konfiguration** |Du kan anpassa din organisations namn och certifikat eller ha standardvärden som ska användas.|Standard <br/> Avancerat |
+**VPN-nätverks inställningar** | Etablera en VPN-tunnel-Gateway för åtkomst till de virtuella datorerna | Ja <br/> Nej |
 
 Välj **OK**.
 
-### <a name="fabric-specific-settings"></a>Fabric-specific settings
+### <a name="fabric-specific-settings"></a>Fabric-/regionsspecifika inställningar
 
-In **Fabric configuration**, you configure network size and performance, and specify inputs for the availability of the network. Such as, number orderer and peer nodes, persistence engine used by each node, and the VM size.
+I **infrastruktur konfiguration**konfigurerar du nätverks storlek och prestanda och anger indata för nätverks tillgängligheten. Till exempel, Number beställare och peer-noder, beständig motor som används av varje nod och storleken på den virtuella datorn.
 
-![Fabric settings](./media/hyperledger-fabric-consortium-blockchain/fabric-specific-settings.png)
-
-| Parameternamn | Beskrivning | Tillåtna värden |
-|---|---|---|
-**Scale type** |The deployment type of either a single virtual machine with multiple containers or multiple virtual machines in a scale-out model.|Single VM or Multi VM |
-**VM Disk type** |The type of storage backing each of the deployed nodes. <br/> To learn more about the available disk types, visit [select a disk type](../../virtual-machines/windows/disks-types.md).|Standard SSD <br/> Premium SSD |
-
-### <a name="multiple-vm-deployment-additional-settings"></a>Multiple VM deployment (additional settings)
-
-![Fabric settings for multiple vm deployments](./media/hyperledger-fabric-consortium-blockchain/multiple-vm-deployment.png)
+![Infrastruktur inställningar](./media/hyperledger-fabric-consortium-blockchain/fabric-specific-settings.png)
 
 | Parameternamn | Beskrivning | Tillåtna värden |
 |---|---|---|
-**Number of orderer nodes** |The number of nodes that order (organize) transactions into a block. <br />For additional details on the ordering service, visit the Hyperledger [documentation](https://hyperledger-fabric.readthedocs.io/en/release-1.1/ordering-service-faq.html) |1-4 |
-**Orderer node virtual machine size** |The virtual machine size used for orderer nodes in the network|Standard Bs,<br />Standard Ds,<br />Standard FS |
-**Number of peer nodes** | Nodes that are owned by consortium members that execute transactions and maintain the state and a copy of the ledger.<br />For additional details on the ordering service, visit the Hyperledger [documentation](https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html).|1-4 |
-**Node state persistence** |The persistence engine used by the peer nodes. You can configure this engine per peer node. See details below for multiple peer nodes.|CouchDB <br />LevelDB |
-**Peer node virtual machine size** |The virtual machine size used for all nodes in the network|Standard Bs,<br />Standard Ds,<br />Standard FS |
+**Skalnings typ** |Distributions typen för en enskild virtuell dator med flera behållare eller flera virtuella datorer i en skalbar modell.|Enskild virtuell dator eller flera virtuella datorer |
+**Typ av virtuell dator disk** |Typ av lagring som används för att säkerhetskopiera var och en av de distribuerade noderna. <br/> Om du vill veta mer om tillgängliga disk typer går du till [Välj typ av disk](../../virtual-machines/windows/disks-types.md).|Standard SSD <br/> Premium SSD |
 
-### <a name="multiple-peer-node-configuration"></a>Multiple peer node configuration
+### <a name="multiple-vm-deployment-additional-settings"></a>Distribution av flera virtuella datorer (ytterligare inställningar)
 
-This template allows you to pick your persistence engine per peer node. For example, if you have three peer nodes you can use CouchDB on one and LevelDB on the other two.
+![Infrastruktur inställningar för flera VM-distributioner](./media/hyperledger-fabric-consortium-blockchain/multiple-vm-deployment.png)
 
-![Multiple peer node configuration](./media/hyperledger-fabric-consortium-blockchain/multiple-peer-nodes.png)
+| Parameternamn | Beskrivning | Tillåtna värden |
+|---|---|---|
+**Antal beställnings noder** |Antalet noder som beställer (strukturerar) transaktioner till ett block. <br />Mer information om beställnings tjänsten finns i den detaljerade [dokumentationen](https://hyperledger-fabric.readthedocs.io/en/release-1.1/ordering-service-faq.html) |1 – 4 |
+**Storlek på virtuell dator i beställnings nod** |Storleken på den virtuella datorn som används för beställnings noder i nätverket|Standard BS,<br />Standard DS,<br />Standard FS |
+**Antal peer-noder** | Noder som ägs av konsortiet medlemmar som utför transaktioner och som upprätthåller tillstånd och en kopia av redovisningen.<br />Mer information om beställnings tjänsten finns i den detaljerade [dokumentationen](https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html).|1 – 4 |
+**Persistence för Node-tillstånd** |Den beständiga motor som används av peer-noderna. Du kan konfigurera den här motorn per peer-nod. Se informationen nedan för flera peer-noder.|CouchDB <br />LevelDB |
+**Storlek på virtuell dator för peer-nod** |Storleken på den virtuella datorn som används för alla noder i nätverket|Standard BS,<br />Standard DS,<br />Standard FS |
+
+### <a name="multiple-peer-node-configuration"></a>Konfiguration av flera peer-noder
+
+Med den här mallen kan du välja en beständig motor per peer-nod. Om du till exempel har tre peer-noder kan du använda CouchDB på en och LevelDB på de andra två.
+
+![Konfiguration av flera peer-noder](./media/hyperledger-fabric-consortium-blockchain/multiple-peer-nodes.png)
 
 Välj **OK**.
 
 ### <a name="deploy"></a>Distribuera
 
-In **Summary**, review the inputs specified and to run basic pre-deployment validation.
+I **Sammanfattning**granskar du de indata som angetts och kör grundläggande verifiering före distribution.
 
 ![Sammanfattning](./media/hyperledger-fabric-consortium-blockchain/summary.png)
 
-Review legal and privacy terms and select **Purchase** to deploy. Depending on the number of VMs being provisioned, deployment time can vary from a few minutes to tens of minutes.
+Granska juridiska och sekretess villkor och välj **köp** att distribuera. Beroende på hur många virtuella datorer som har allokerats kan distributions tiden variera från några minuter till flera minuter.
 
 ## <a name="next-steps"></a>Nästa steg
 
-You are now ready to focus on application and chaincode development against your Hyperledger consortium blockchain network.
+Du är nu redo att fokusera på program-och chaincode utveckling mot ditt blockchain-nätverk i.

@@ -1,7 +1,7 @@
 ---
-title: Create a Load Balancer with zonal frontend - Azure PowerShell
+title: Skapa en Load Balancer med zonindelade-frontend-Azure PowerShell
 titleSuffix: Azure Load Balancer
-description: Learn how to create Standard Load Balancer with a zonal frontend using Azure PowerShell
+description: Lär dig hur du skapar Standard Load Balancer med en zonindelade-frontend med Azure PowerShell
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -21,14 +21,14 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74215125"
 ---
-#  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-powershell"></a>Create a Standard Load Balancer with zonal frontend using Azure PowerShell
+#  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-powershell"></a>Skapa en Standard Load Balancer med zonindelade-frontend med Azure PowerShell
 
-This article steps through creating a public [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) with a zonal frontend using a Public IP Standard address. To understand how availability zones work with Standard Load Balancer, see [Standard Load Balancer and Availability zones](load-balancer-standard-availability-zones.md). 
+Den här artikeln beskriver hur du skapar en offentlig [standard Load Balancer](https://aka.ms/azureloadbalancerstandard) med en zonindelade-frontend med en offentlig IP-standardadress. Information om hur tillgänglighets zoner fungerar med Standard Load Balancer finns i [standard Load Balancer och tillgänglighets zoner](load-balancer-standard-availability-zones.md). 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 > [!NOTE]
-> Support for Availability Zones is available for select Azure resources and regions, and VM size families. For more information on how to get started, and which Azure resources, regions, and VM size families you can try availability zones with, see [Overview of Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview). Du kan få support via [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) eller genom att [öppna ett Azure-supportärende](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+> Stöd för Tillgänglighetszoner är tillgänglig för väljer Azure-resurser och regioner och VM-storlekar. Mer information om hur du kommer igång och vilka Azure-resurser, regioner och VM-storlekar som du kan prova tillgänglighets zoner med finns i [Översikt över Tillgänglighetszoner](https://docs.microsoft.com/azure/availability-zones/az-overview). Du kan få support via [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) eller genom att [öppna ett Azure-supportärende](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -42,39 +42,39 @@ Connect-AzAccount
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp
 
-Create a Resource Group using the following command:
+Skapa en resursgrupp med hjälp av följande kommando:
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroupZLB -Location westeurope
 ```
 
-## <a name="create-a-public-ip-standard"></a>Create a public IP Standard 
-Create a Public IP Standard using the following command:
+## <a name="create-a-public-ip-standard"></a>Skapa en offentlig IP-Standard 
+Skapa en offentlig IP-Standard med följande kommando:
 
 ```azurepowershell-interactive
 $publicIp = New-AzPublicIpAddress -ResourceGroupName myResourceGroupZLB -Name 'myPublicIPZonal' `
   -Location westeurope -AllocationMethod Static -Sku Standard -zone 1
 ```
 
-## <a name="create-a-front-end-ip-configuration-for-the-website"></a>Create a front-end IP configuration for the website
+## <a name="create-a-front-end-ip-configuration-for-the-website"></a>Skapa en frontend IP-konfiguration för webbplatsen
 
-Create a frontend IP configuration using the following command:
+Skapa en frontend IP-konfiguration med hjälp av följande kommando:
 
 ```azurepowershell-interactive
 $feip = New-AzLoadBalancerFrontendIpConfig -Name 'myFrontEnd' -PublicIpAddress $publicIp
 ```
 
-## <a name="create-the-back-end-address-pool"></a>Create the back-end address pool
+## <a name="create-the-back-end-address-pool"></a>Skapa backend-adresspool
 
-Create a backend address pool using the following command:
+Skapa en backend-adresspool med följande kommando:
 
 ```azurepowershell-interactive
 $bepool = New-AzLoadBalancerBackendAddressPoolConfig -Name 'myBackEndPool'
 ```
 
-## <a name="create-a-load-balancer-probe-on-port-80"></a>Create a load balancer probe on port 80
+## <a name="create-a-load-balancer-probe-on-port-80"></a>Skapa en belastningsutjämnaravsökning på port 80
 
-Create a health probe on port 80 for the load balancer using the following command:
+Skapa en hälsoavsökning på port 80 för belastningsutjämnaren med följande kommando:
 
 ```azurepowershell-interactive
 $probe = New-AzLoadBalancerProbeConfig -Name 'myHealthProbe' -Protocol Http -Port 80 `
@@ -82,14 +82,14 @@ $probe = New-AzLoadBalancerProbeConfig -Name 'myHealthProbe' -Protocol Http -Por
 ```
 
 ## <a name="create-a-load-balancer-rule"></a>Skapa en lastbalanseringsregel
- Create a load balancer rule using the following command:
+ Skapa en regel för belastningsutjämnaren med följande kommando:
 
 ```azurepowershell-interactive
    $rule = New-AzLoadBalancerRuleConfig -Name HTTP -FrontendIpConfiguration $feip -BackendAddressPool  $bepool -Probe $probe -Protocol Tcp -FrontendPort 80 -BackendPort 80
 ```
 
 ## <a name="create-a-load-balancer"></a>Skapa en lastbalanserare
-Create a Standard Load Balancer using the following command:
+Skapa en Standard Load Balancer med hjälp av följande kommando:
 
 ```azurepowershell-interactive
 $lb = New-AzLoadBalancer -ResourceGroupName myResourceGroupZLB -Name 'MyLoadBalancer' -Location westeurope `
@@ -98,4 +98,4 @@ $lb = New-AzLoadBalancer -ResourceGroupName myResourceGroupZLB -Name 'MyLoadBala
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-- Learn more about [Standard Load Balancer and Availability zones](load-balancer-standard-availability-zones.md).
+- Läs mer om [standard Load Balancer-och tillgänglighets zoner](load-balancer-standard-availability-zones.md).

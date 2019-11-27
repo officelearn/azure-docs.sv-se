@@ -29,7 +29,7 @@ Genom att använda Azure Monitor kan du samla in anpassade mått via din program
 
 I den här självstudien distribuerar vi en virtuell Linux-dator som kör operativ systemet Ubuntu 16,04 LTS. Teleympkvistar-agenten stöds för de flesta Linux-operativsystem. Både Debian-och RPM-paket är tillgängliga tillsammans med unpaketerade Linux-binärfiler på [InfluxData nedladdnings Portal](https://portal.influxdata.com/downloads). I den här [installations guiden för netympkvistar](https://docs.influxdata.com/telegraf/v1.8/introduction/installation/) finns ytterligare installationsinstruktioner och alternativ. 
 
-Logga in på [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
 Skapa en ny virtuell Linux-dator: 
 

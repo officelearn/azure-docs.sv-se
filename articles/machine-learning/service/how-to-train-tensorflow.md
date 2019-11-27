@@ -242,7 +242,7 @@ estimator= TensorFlow(source_directory=project_folder,
 
 ### <a name="parameter-server"></a>Parameterserver
 
-Du kan också köra [intern distribuerade TensorFlow](https://www.tensorflow.org/deploy/distributed), som använder parametern server-modell. I den här metoden kan träna du i ett kluster med parametern-servrar och arbetare. ”Arbetarna” beräkna toningar vid träning, även om parametern servrar aggregera på toningar.
+Du kan också köra [inbyggda distribuerade TensorFlow](https://www.tensorflow.org/deploy/distributed)som använder parameter Server modellen. I den här metoden kan träna du i ett kluster med parametern-servrar och arbetare. ”Arbetarna” beräkna toningar vid träning, även om parametern servrar aggregera på toningar.
 
 Om du vill använda parameter Server metoden anger du ett [`TensorflowConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?view=azure-ml-py) objekt för parametern `distributed_training` i TensorFlow-konstruktorn.
 
@@ -270,7 +270,7 @@ run = exp.submit(tf_est)
 
 Du behöver också nätverks adresser och portar i klustret för [`tf.train.ClusterSpec`](https://www.tensorflow.org/api_docs/python/tf/train/ClusterSpec), så Azure Machine Learning anger miljövariabeln `TF_CONFIG`.
 
-Den `TF_CONFIG` miljövariabeln är en JSON-sträng. Här är ett exempel på variabeln för en parameterserver:
+`TF_CONFIG`-miljövariabeln är en JSON-sträng. Här är ett exempel på variabeln för en parameterserver:
 
 ```JSON
 TF_CONFIG='{
@@ -317,6 +317,6 @@ Den fullständiga [instruktionen att](how-to-deploy-and-where.md) distribuera i 
 
 I den här artikeln har du tränat och registrerat en TensorFlow-modell och lärt dig om distributions alternativen. Mer information om Azure Machine Learning finns i de här artiklarna.
 
-* [Spåra kör mått vid träning](how-to-track-experiments.md)
-* [Justering av hyperparametrar](how-to-tune-hyperparameters.md)
+* [Spåra körnings mått under träning](how-to-track-experiments.md)
+* [Justera disponeringsparametrarna](how-to-tune-hyperparameters.md)
 * [Referens arkitektur för distribuerad djup inlärnings utbildning i Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

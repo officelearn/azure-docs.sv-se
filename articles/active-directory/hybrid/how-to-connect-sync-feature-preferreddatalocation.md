@@ -43,7 +43,7 @@ Geografiska områden i Office 365 tillgängligt för multi-geo är:
 | Geografi | preferredDataLocation-värde |
 | --- | --- |
 | Asien och stillahavsområdet | APC |
-| Australien | ÖSTRA |
+| Australien | AUS |
 | Kanada | CAN |
 | Europeiska unionen | EUR |
 | Frankrike | FRA |
@@ -51,7 +51,7 @@ Geografiska områden i Office 365 tillgängligt för multi-geo är:
 | Japan | JPN |
 | Korea | KOR |
 | Sydafrika | ZAF |
-| Förenade Arabemiraten | TILLHANDAHÅLLS |
+| Förenade Arabemiraten | ARE |
 | Storbritannien och Nordirland | GBR |
 | USA | NAM |
 

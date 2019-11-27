@@ -1,6 +1,6 @@
 ---
-title: What is Blockchain Data Manager for Azure Blockchain Service
-description: Blockchain Data Manager to captures, transforms, and delivers blockchain data to Event Grid Topics.
+title: Vad är blockchain Data Manager för Azure blockchain-tjänsten
+description: Blockchain Data Manager för att avbilda, transformera och leverera blockchain-data till Event Grid ämnen.
 ms.date: 11/04/2019
 ms.topic: overview
 ms.reviewer: chroyal
@@ -13,34 +13,34 @@ ms.locfileid: "74326206"
 ---
 # <a name="what-is-blockchain-data-manager-for-azure-blockchain-service"></a>Vad är Blockchain Data Manager för Azure Blockchain Service?
 
-Blockchain Data Manager captures, transforms, and delivers Azure Blockchain Service transaction data to Azure Event Grid Topics providing reliable and scalable blockchain ledger integration with Azure services.
+Blockchain Data Manager fångar, transformerar och levererar Azure blockchain-tjänstens transaktions data till Azure Event Grid ämnen som tillhandahåller tillförlitlig och skalbar integrering av blockchain-redovisning med Azure-tjänster.
 
-In most enterprise blockchain scenarios, a blockchain ledger is one part of a solution. For example, to transfer an asset from one entity to another, you need a mechanism for submitting the transaction. You then need a mechanism for reading ledger data to ensure the transaction occurred, was accepted, and the resulting state changes are then integrated with your end-to-end solution. In this example, if you write a smart contract to transfer assets, you can use Blockchain Data Manager to integrate off-chain applications and data stores. For the asset transfer example, when an asset is transferred on the blockchain, events and property state changes are delivered by Blockchain Data Manager via Event Grid. You can then use multiple possible event handlers for Event Grid to store blockchain data off-chain or react to state changes in real time.
+I de flesta scenarier med företags blockchain är en blockchain-redovisning en del av en lösning. Om du till exempel vill överföra en till gång från en entitet till en annan, behöver du en mekanism för att skicka transaktionen. Sedan behöver du en mekanism för att läsa redovisnings data för att se till att transaktionen genomfördes, accepterades och de resulterande tillstånds ändringarna sedan integreras med din kompletta lösning. I det här exemplet kan du, om du skriver ett smart kontrakt för att överföra till gångar, använda blockchain Data Manager för att integrera program i andra kedjan och data lager. För till gångs överförings exemplet levereras när en till gång överförs till blockchain, och ändringar av händelser och egenskaps status levereras av blockchain Data Manager via Event Grid. Du kan sedan använda flera möjliga händelse hanterare för Event Grid för att lagra blockchain data från kedjan eller reagera på status ändringar i real tid.
 
-Blockchain Data Manager performs three main functions: capture, transform, and deliver.
+Blockchain Data Manager utför tre huvud funktioner: fånga, transformera och leverera.
 
-![Blockchain Data Manager functions](./media/data-manager/functions.png)
+![Blockchain Data Manager funktioner](./media/data-manager/functions.png)
 
 ## <a name="capture"></a>Capture
 
-Each Blockchain Data Manager instance connects to one Azure Blockchain Service member transaction node. Only users with access to the transaction node can create a connection ensuring proper access control to customer data. A Blockchain Data Manager instance reliably captures all raw block and raw transaction data from the transaction node and can scale to support enterprise workloads.
+Varje blockchain Data Manager-instans ansluter till en Azure blockchain service member Transaction-nod. Endast användare med åtkomst till Transaction-noden kan skapa en anslutning som garanterar korrekt åtkomst kontroll till kund information. En blockchain Data Manager instansen fångar tillförlitligt alla rå block-och rå transaktions data från Transaction-noden och kan skalas för att stödja företags arbets belastningar.
 
-## <a name="transform"></a>Transformera
+## <a name="transform"></a>Transformering
 
-You can use Blockchain Data Manager to decode event and property state by configuring smart contract applications within Blockchain Data Manager. To add a smart contract, you provide the contract ABI and bytecode. Blockchain Data Manager uses the smart contract artifacts to decode and discover contract addresses. After adding the blockchain application to the instance, Blockchain Data Manager dynamically discovers the smart contract address when the smart contract is deployed to the consortium and sends decoded event and property state to configured destinations.
+Du kan använda blockchain Data Manager för att avkoda händelse-och egenskaps tillstånd genom att konfigurera smarta kontrakt program i blockchain Data Manager. Om du vill lägga till ett smart kontrakt anger du kontrakt ABI och bytekod. Blockchain Data Manager använder de smarta kontrakts artefakterna för att avkoda och identifiera kontrakts adresser. När du har lagt till blockchain-programmet till instansen upptäcker blockchain Data Manager dynamiskt adressen när det smarta kontraktet distribueras till konsortiet och skickar avkodad händelse-och egenskaps status till konfigurerade mål.
 
 ## <a name="deliver"></a>Leverera
 
-Blockchain Data Manager supports multiple Event Grid Topic outbound connections for any given Blockchain Data Manager instance. You can send blockchain data to a single destination or send blockchain data to multiple destinations. Using Blockchain Data Manager, you can build a scalable event-based data publishing solution for any blockchain deployment.
+Blockchain Data Manager har stöd för flera Event Grid ämnen utgående anslutningar för en specifik blockchain Data Manager-instans. Du kan skicka blockchain-data till ett enda mål eller skicka blockchain-data till flera mål. Med blockchain Data Manager kan du bygga en skalbar händelse baserad data publicerings lösning för alla blockchain-distributioner.
 
 ## <a name="configuration-options"></a>Konfigurationsalternativ
 
-You can configure Blockchain Data Manager to meet the needs of your solution. For example, you can provision:
+Du kan konfigurera blockchain-Data Manager för att uppfylla behoven i din lösning. Du kan till exempel etablera:
 
-* A single Blockchain Data Manager instance for an Azure Blockchain Service member.
-* A Blockchain Data Manager instance per Azure Blockchain Service transaction node. For example, private transaction nodes can have their own Blockchain Data Manager instance to maintain confidentiality.
-* A Blockchain Data Manager instance can support multiple output connections. One Blockchain Data Manager instance can be used to manage all data publishing integration points for an Azure Blockchain Service member.
+* En enskild blockchain Data Manager instans för en Azure blockchain-tjänst medlem.
+* En blockchain Data Manager instans per Azure blockchain service Transaction-nod. Till exempel kan privata transaktions noder ha sina egna blockchain-Data Manager-instanser för att bibehålla konfidentialitet.
+* En blockchain Data Manager instans kan stödja flera utgående anslutningar. En blockchain Data Manager-instans kan användas för att hantera alla integrerings platser för data publicering för en Azure blockchain service-medlem.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Try [creating a Blockchain Data Manager instance](data-manager-portal.md) for an Azure Blockchain Service member.
+Försök att [skapa en Blockchain Data Manager instans](data-manager-portal.md) för en Azure blockchain-tjänst medlem.

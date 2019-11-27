@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: article
-ms.date: 09/12/2019
+ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 8261723f145c7b8ba01e27108e7a309f9f483d2c
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: cd0e77d1534bf540376fd397ee3e6d45bf8c424a
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993141"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546261"
 ---
 # <a name="configure-email-notifications-for-issues-in-azure-active-directory-domain-services"></a>Konfigurera e-postaviseringar för problem i Azure Active Directory Domain Services
 
@@ -33,7 +33,7 @@ Följande exempel på ett e-postmeddelande indikerar en kritisk varning eller av
 ![Exempel på e-postavisering](./media/active-directory-domain-services-alerts/email-alert.png)
 
 > [!WARNING]
-> Se alltid till att e-postmeddelandet kommer från en verifierad Microsoft-avsändare innan du klickar på länkarna i meddelandet. E-postaviseringarna kommer alltid `azure-noreply@microsoft.com` från adressen.
+> Se alltid till att e-postmeddelandet kommer från en verifierad Microsoft-avsändare innan du klickar på länkarna i meddelandet. E-postaviseringarna kommer alltid från `azure-noreply@microsoft.com`-adressen.
 
 ### <a name="why-would-i-receive-email-notifications"></a>Varför får jag e-postaviseringar?
 
@@ -78,7 +78,7 @@ Om du inte kan komma åt sidan meddelande inställningar i Azure Portal har du i
 
 ### <a name="i-dont-seem-to-be-receiving-email-notifications-even-though-i-provided-my-email-address-why"></a>Jag verkar inte ta emot e-postmeddelanden trots att jag har angett min e-postadress. Varför?
 
-Kontrol lera din skräp post eller skräppostmappen i din e-postadress för aviseringen och se till att tillåta `azure-noreply@microsoft.com`avsändaren.
+Kontrol lera din skräp post eller skräppostmappen i din e-postadress för aviseringen och se till att tillåta avsändaren av `azure-noreply@microsoft.com`.
 
 ## <a name="next-steps"></a>Nästa steg
 

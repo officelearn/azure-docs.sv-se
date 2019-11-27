@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5eefac10e2ab196affc4c4148348d19959fcfeec
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: bdc178661cf4db8505a444d1f5575bb3d0375979
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74266904"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547526"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administratörs roll behörigheter i Azure Active Directory
 
@@ -79,7 +79,7 @@ Användare med den här rollen kan ange eller återställa autentiseringsuppgift
 * Rapport läsare
 
 > [!IMPORTANT]
-> Användare med den här rollen kan ändra autentiseringsuppgifter för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra autentiseringsuppgifterna för en användare kan innebära att du förutsätter att användarens identitet och behörigheter. Exempel:
+> Användare med den här rollen kan ändra autentiseringsuppgifter för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra autentiseringsuppgifterna för en användare kan innebära att du förutsätter att användarens identitet och behörigheter. Till exempel:
 >
 >- Program registrering och företags program ägare, som kan hantera autentiseringsuppgifter för appar som de äger. De här apparna kan ha privilegierade behörigheter i Azure AD och inte beviljas till autentiserings administratörer. Genom den här sökvägen kan en administratörs administratör kunna ta hänsyn till identiteten för en program ägare och sedan ytterligare anta identiteten för ett privilegierat program genom att uppdatera autentiseringsuppgifterna för programmet.
 >- Azure-Prenumerationens ägare, som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i Azure.
@@ -265,7 +265,7 @@ Användare med den här rollen kan ändra lösen ord, ogiltig uppdatera tokens, 
 * Rapport läsare
 
 > [!IMPORTANT]
-> Användare med den här rollen kan ändra lösen ord för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra lösen ordet för en användare kan innebära att du antar användarens identitet och behörigheter. Exempel:
+> Användare med den här rollen kan ändra lösen ord för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra lösen ordet för en användare kan innebära att du antar användarens identitet och behörigheter. Till exempel:
 >
 >- Program registrering och företags program ägare, som kan hantera autentiseringsuppgifter för appar som de äger. De här apparna kan ha privilegierade behörigheter i Azure AD och beviljas ingen annan support administratör. Med hjälp av den här sökvägen kan IT-administratören kunna ta hänsyn till identiteten för en program ägare och sedan ytterligare utgå från identiteten för ett privilegierat program genom att uppdatera autentiseringsuppgifterna för programmet.
 >- Azure-Prenumerationens ägare, som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i Azure.
@@ -326,6 +326,10 @@ Användare med den här rollen har globala behörigheter inom Microsoft Power BI
 
 > [!NOTE]
 > I Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell identifieras den här rollen som "Power BI tjänst administratör". Det är "Power BI administratör" i [Azure Portal](https://portal.azure.com).
+
+### <a name="power-platform-administratorpower-platform-administrator-permissions"></a>[Power Platform-administratör](#power-platform-administrator-permissions)
+
+Användare med den här rollen kan skapa och hantera alla aspekter av miljöer, PowerApps, flöden och principer för data förlust skydd. Dessutom har användare med den här rollen möjlighet att hantera support biljetter och övervaka tjänstens hälsa.
 
 ### <a name="privileged-authentication-administratorprivileged-authentication-administrator-permissions"></a>[Administratör för privilegie rad autentisering](#privileged-authentication-administrator-permissions)
 
@@ -448,7 +452,7 @@ Användare med den här rollen kan skapa användare och hantera alla aspekter av
 |Endast på användare som inte är administratörer eller någon av följande begränsade administratörs roller:<ul><li>Katalog läsare<li>Gäst deltagare<li>Support administratör<li>Meddelande Center läsare<li>Rapport läsare<li>Användar administratör|<p>Ta bort och Återställ</p><p>Inaktivera och aktivera</p><p>Invalidera uppdateringstoken</p><p>Hantera alla användar egenskaper inklusive användarens huvud namn</p><p>Återställa lösenord</p><p>Uppdatera (FIDO) enhets nycklar</p>|
 
 > [!IMPORTANT]
-> Användare med den här rollen kan ändra lösen ord för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra lösen ordet för en användare kan innebära att du antar användarens identitet och behörigheter. Exempel:
+> Användare med den här rollen kan ändra lösen ord för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra lösen ordet för en användare kan innebära att du antar användarens identitet och behörigheter. Till exempel:
 >
 >- Program registrering och företags program ägare, som kan hantera autentiseringsuppgifter för appar som de äger. Dessa appar kan ha privilegierade behörigheter i Azure AD och inte beviljas till användar administratörer. Genom den här sökvägen kan en användar administratör kunna ta hänsyn till identiteten för en program ägare och sedan ytterligare anta identiteten för ett privilegierat program genom att uppdatera autentiseringsuppgifterna för programmet.
 >- Azure-Prenumerationens ägare, som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i Azure.
@@ -1345,12 +1349,31 @@ Kan hantera alla aspekter av den Power BI produkten.
 > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i roll beskrivning ovan.
 >
 >
-
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera support biljetter för Azure. |
 | microsoft.powerApps.powerBI/allEntities/allTasks | Hantera alla aspekter av Power BI. |
+| microsoft.office365.webPortal/allEntities/basic/read | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Läs och konfigurera Office 365 Service Health. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-support biljetter. |
+
+
+### <a name="power-platform-administrator-permissions"></a>Behörigheter för Power Platform-administratör
+
+Kan skapa och hantera alla aspekter av Microsoft Dynamics 365, PowerApps och Microsoft Flow. 
+
+> [!NOTE]
+> Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i roll beskrivning ovan.
+>
+>
+| **Åtgärder** | **Beskrivning** |
+| --- | --- |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera support biljetter för Azure. |
+| Microsoft. dynamics365/upplånade/allTasks | Hantera alla aspekter av Dynamics 365. |
+| Microsoft. Flow/upplånade/allTasks | Hantera alla aspekter av Microsoft Flow. |
+| Microsoft. powerApps/upplånade/allTasks | Hantera alla aspekter av PowerApps. |
 | microsoft.office365.webPortal/allEntities/basic/read | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Läs och konfigurera Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-support biljetter. |
@@ -1708,6 +1731,7 @@ Partnersupport, nivå 1 | Support för partner 1 | 4ba39ca4-527c-499a-b93d-d9b49
 Partnersupport, nivå 2 | Support för partner – nivå 2 | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
 Lösen ords administratör | Lösen ords administratör | 966707d0-3269-4727-9be2-8c3a10f19b9d
 Power BI tjänst administratör | Power BI administratör | a9ea8996-122f-4c74-9520-8edcd192826c
+Power Platform-administratör | Power-plattform administratör | 11648597-926c-4cf3-9c36-bcebb0ba8dcc
 Administratör för privilegie rad autentisering | Administratör för privilegie rad autentisering | 7be44c8a-adaf-4e2a-84d6-ab2649e08a13
 Privilegie rad roll administratör | Privilegie rad roll administratör | e8611ab8-c189-46e8-94e1-60213ab1f814
 Rapport läsare | Rapport läsare | 4a5d8f65-41da-4de4-8968-e035b65339cf

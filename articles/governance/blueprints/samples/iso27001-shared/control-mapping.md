@@ -1,14 +1,14 @@
 ---
-title: ISO 27001-skiss för delade tjänster – kontroll mappning
+title: ISO 27001-skisser för delade tjänster
 description: Kontroll mappning för ISO 27001-skiss exemplet för delade tjänster. Varje kontroll mappas till en eller flera Azure-principer som hjälper till med utvärderingen.
 ms.date: 11/18/2019
 ms.topic: sample
-ms.openlocfilehash: 9227b94ce4133d44f73e27c5008aa59d8ed2ea10
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: b484bdc2fdaa346e5137b31e3225dc913f43ed0c
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184435"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546716"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Kontroll mappning för ISO 27001-skiss exemplet för delade tjänster
 

@@ -1,7 +1,7 @@
 ---
-title: Use Speech Service container with Kubernetes and Helm
+title: Använda tal tjänst behållare med Kubernetes och Helm
 titleSuffix: Azure Cognitive Services
-description: Using Kubernetes and Helm to define the speech-to-text and text-to-speech container images, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises.
+description: Genom att använda Kubernetes och Helm för att definiera behållar avbildningarna tal-till-text och text till tal skapar vi ett Kubernetes-paket. Det här paketet kommer att distribueras till ett Kubernetes-kluster lokalt.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -17,40 +17,40 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74383656"
 ---
-# <a name="use-speech-service-container-with-kubernetes-and-helm"></a>Use Speech Service container with Kubernetes and Helm
+# <a name="use-speech-service-container-with-kubernetes-and-helm"></a>Använda tal tjänst behållare med Kubernetes och Helm
 
-One option to manage your Speech containers on-premises is to use Kubernetes and Helm. Using Kubernetes and Helm to define the speech-to-text and text-to-speech container images, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises. Finally, we'll explore how to test the deployed services and various configuration options. For more information about running Docker containers without Kubernetes orchestration, see [install and run Speech Service containers](speech-container-howto.md).
+Ett alternativ för att hantera dina tal behållare lokalt är att använda Kubernetes och Helm. Genom att använda Kubernetes och Helm för att definiera behållar avbildningarna tal-till-text och text till tal skapar vi ett Kubernetes-paket. Det här paketet kommer att distribueras till ett Kubernetes-kluster lokalt. Slutligen ska vi utforska hur du testar de distribuerade tjänsterna och olika konfigurations alternativ. Mer information om att köra Docker-behållare utan Kubernetes-dirigering finns i [Installera och köra tal tjänst behållare](speech-container-howto.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-The following prerequisites before using Speech containers on-premises:
+Följande krav gäller innan du använder tal behållare lokalt:
 
 |Krävs|Syfte|
 |--|--|
-| Azure Account | Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][free-azure-account] innan du börjar. |
-| Container Registry access | In order for Kubernetes to pull the docker images into the cluster, it will need access to the container registry. |
-| Kubernetes CLI | The [Kubernetes CLI][kubernetes-cli] is required for managing the shared credentials from the container registry. Kubernetes is also needed before Helm, which is the Kubernetes package manager. |
-| Helm CLI | As part of the [Helm CLI][helm-install] install, you'll also need to initialize Helm, which will install [Tiller][tiller-install]. |
-|Speech resource |In order to use these containers, you must have:<br><br>A _Speech_ Azure resource to get the associated billing key and billing endpoint URI. Both values are available on the Azure portal's **Speech** Overview and Keys pages and are required to start the container.<br><br>**{API_KEY}** : resource key<br><br>**{ENDPOINT_URI}** : endpoint URI example is: `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
+| Azure-konto | Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][free-azure-account] innan du börjar. |
+| Container Registry åtkomst | För att Kubernetes ska kunna hämta Docker-avbildningarna till klustret behöver den åtkomst till behållar registret. |
+| Kubernetes CLI | [KUBERNETES CLI][kubernetes-cli] krävs för att hantera delade autentiseringsuppgifter från behållar registret. Kubernetes krävs också innan Helm, som är Kubernetes Package Manager. |
+| Helm CLI | Som en del av [Helm CLI][helm-install] -installationen måste du också initiera Helm, som kommer att installera [till][tiller-install]. |
+|Tal resurs |Du måste ha följande för att kunna använda dessa behållare:<br><br>En _Azure-_ resurs för att hämta den associerade fakturerings nyckeln och URI för fakturerings slut punkt. Båda värdena är tillgängliga på Azure Portals **tal** översikt och nycklar sidor och krävs för att starta behållaren.<br><br>**{Api_key}** : resurs nyckel<br><br>**{ENDPOINT_URI}** : slut punkts-URI-exemplet är: `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
 
-## <a name="the-recommended-host-computer-configuration"></a>The recommended host computer configuration
+## <a name="the-recommended-host-computer-configuration"></a>Den rekommenderade värddator konfigurationen
 
-Refer to the [Speech Service container host computer][speech-container-host-computer] details as a reference. This *helm chart* automatically calculates CPU and memory requirements based on how many decodes (concurrent requests) that the user specifies. Additionally, it will adjust based on whether optimizations for audio/text input are configured as `enabled`. The helm chart defaults to, two concurrent requests and disabling optimization.
+Se information om [värddatorn för tal tjänst behållare][speech-container-host-computer] som en referens. Det här *Helm-diagrammet* BERÄKNAR automatiskt processor-och minnes krav baserat på hur många avkodningar (samtidiga begär Anden) som användaren anger. Dessutom justeras det baserat på om optimeringar för ljud-och text indata konfigureras som `enabled`. Helm-diagrammet använder som standard två samtidiga begär Anden och inaktiverar optimering.
 
-| Tjänst | CPU / Container | Memory / Container |
+| Tjänsten | PROCESSOR/container | Minne/container |
 |--|--|--|
-| **Speech-to-Text** | one decoder requires a minimum of 1,150 millicores. If the `optimizedForAudioFile` is enabled, then 1,950 millicores are required. (default: two decoders) | Required: 2 GB<br>Limited:  4 GB |
-| **Text till tal** | one concurrent request requires a minimum of 500 millicores. If the `optimizeForTurboMode` is enabled, then 1,000 millicores are required. (default: two concurrent requests) | Required: 1 GB<br> Limited: 2 GB |
+| **Tal till text** | en avkodare kräver minst 1 150 millicores. Om `optimizedForAudioFile` är aktive rad krävs 1 950 millicores. (standard: två avkodare) | Krävs: 2 GB<br>Begränsad: 4 GB |
+| **Text till tal** | en samtidig begäran kräver minst 500 millicores. Om `optimizeForTurboMode` är aktive rad krävs 1 000 millicores. (standard: två samtidiga begär Anden) | Krävs: 1 GB<br> Begränsad: 2 GB |
 
-## <a name="connect-to-the-kubernetes-cluster"></a>Connect to the Kubernetes cluster
+## <a name="connect-to-the-kubernetes-cluster"></a>Ansluta till Kubernetes-klustret
 
-The host computer is expected to have an available Kubernetes cluster. See this tutorial on [deploying a Kubernetes cluster](../../aks/tutorial-kubernetes-deploy-cluster.md) for a conceptual understanding of how to deploy a Kubernetes cluster to a host computer.
+Värddatorn förväntas ha ett tillgängligt Kubernetes-kluster. I den här självstudien om hur du [distribuerar ett Kubernetes-kluster](../../aks/tutorial-kubernetes-deploy-cluster.md) kan du få en uppfattning om hur du distribuerar ett Kubernetes-kluster till en värddator.
 
-### <a name="sharing-docker-credentials-with-the-kubernetes-cluster"></a>Sharing Docker credentials with the Kubernetes cluster
+### <a name="sharing-docker-credentials-with-the-kubernetes-cluster"></a>Dela Docker-autentiseringsuppgifter med Kubernetes-klustret
 
-To allow the Kubernetes cluster to `docker pull` the configured image(s) from the `mcr.microsoft.com` container registry, you need to transfer the docker credentials into the cluster. Execute the [`kubectl create`][kubectl-create] command below to create a *docker-registry secret* based on the credentials provided from the container registry access prerequisite.
+Om du vill tillåta att Kubernetes-klustret `docker pull` konfigurerade avbildningarna från `mcr.microsoft.com` container Registry, måste du överföra Docker-autentiseringsuppgifterna till klustret. Kör kommandot [`kubectl create`][kubectl-create] nedan om du vill skapa en *Docker-register hemlighet* baserat på de autentiseringsuppgifter som ges av åtkomst förutsättningen för behållar registret.
 
-From your command-line interface of choice, run the following command. Be sure to replace the `<username>`, `<password>`, and `<email-address>` with the container registry credentials.
+Kör följande kommando från det kommando rads gränssnitt du väljer. Se till att ersätta `<username>`, `<password>`och `<email-address>` med autentiseringsuppgifterna för behållar registret.
 
 ```console
 kubectl create secret docker-registry mcr \
@@ -61,41 +61,41 @@ kubectl create secret docker-registry mcr \
 ```
 
 > [!NOTE]
-> If you already have access to the `mcr.microsoft.com` container registry, you could create a Kubernetes secret using the generic flag instead. Consider the following command that executes against your Docker configuration JSON.
+> Om du redan har åtkomst till `mcr.microsoft.com` container Registry kan du skapa en Kubernetes-hemlighet med hjälp av den generiska flaggan i stället. Överväg följande kommando som körs mot din Docker-konfigurations-JSON.
 > ```console
 >  kubectl create secret generic mcr \
 >      --from-file=.dockerconfigjson=~/.docker/config.json \
 >      --type=kubernetes.io/dockerconfigjson
 > ```
 
-The following output is printed to the console when the secret has been successfully created.
+Följande utdata skrivs ut till-konsolen när hemligheten har skapats.
 
 ```console
 secret "mcr" created
 ```
 
-To verify that the secret has been created, execute the [`kubectl get`][kubectl-get] with the `secrets` flag.
+Verifiera att hemligheten har skapats genom att köra [`kubectl get`][kubectl-get] med flaggan `secrets`.
 
 ```console
 kubectl get secrets
 ```
 
-Executing the `kubectl get secrets` prints all the configured secrets.
+Om du kör `kubectl get secrets` skrivs alla konfigurerade hemligheter ut.
 
 ```console
 NAME    TYPE                              DATA    AGE
 mcr     kubernetes.io/dockerconfigjson    1       30s
 ```
 
-## <a name="configure-helm-chart-values-for-deployment"></a>Configure Helm chart values for deployment
+## <a name="configure-helm-chart-values-for-deployment"></a>Konfigurera Helm för distribution
 
-Visit the [Microsoft Helm Hub][ms-helm-hub] for all the publicly available helm charts offered by Microsoft. From the Microsoft Helm Hub, you'll find the **Cognitive Services Speech On-Premises Chart**. The **Cognitive Services Speech On-Premises** is the chart we'll install, but we must first create an `config-values.yaml` file with explicit configurations. Let's start by adding the Microsoft repository to our Helm instance.
+Besök [Microsoft Helm Hub][ms-helm-hub] för alla allmänt tillgängliga Helm-diagram som Microsoft erbjuder. I Microsoft Helm-hubben hittar du det **lokala diagrammet Cognitive Services tal**. **Cognitive Services talet lokalt** är det diagram vi kommer att installera, men vi måste först skapa en `config-values.yaml`-fil med explicita konfigurationer. Vi börjar med att lägga till Microsoft-lagringsplatsen till vår Helm-instans.
 
 ```console
 helm repo add microsoft https://microsoft.github.io/charts/repo
 ```
 
-Next, we'll configure our Helm chart values. Copy and paste the following YAML into a file named `config-values.yaml`. For more information on customizing the **Cognitive Services Speech On-Premises Helm Chart**, see [customize helm charts](#customize-helm-charts). Replace the `# {ENDPOINT_URI}` and `# {API_KEY}` comments with your own values.
+Nu ska vi konfigurera våra Helm-diagram värden. Kopiera och klistra in följande YAML i en fil med namnet `config-values.yaml`. Mer information om hur Cognitive Services du anpassar det **lokala Helm-diagrammet för tal**finns i [Anpassa Helm-diagram](#customize-helm-charts). Ersätt `# {ENDPOINT_URI}` och `# {API_KEY}` kommentarer med dina egna värden.
 
 ```yaml
 # These settings are deployment specific and users can provide customizations
@@ -134,19 +134,19 @@ textToSpeech:
 ```
 
 > [!IMPORTANT]
-> If the `billing` and `apikey` values are not provided, the services will expire after 15 min. Likewise, verification will fail as the services will not be available.
+> Om värdena för `billing` och `apikey` inte anges upphör tjänsterna att gälla efter 15 min. Det går inte heller att verifiera eftersom tjänsterna inte är tillgängliga.
 
-### <a name="the-kubernetes-package-helm-chart"></a>The Kubernetes package (Helm chart)
+### <a name="the-kubernetes-package-helm-chart"></a>Kubernetes-paketet (Helm-diagrammet)
 
-The *Helm chart* contains the configuration of which docker image(s) to pull from the `mcr.microsoft.com` container registry.
+*Helm-diagrammet* innehåller konfigurationen av vilka Docker-avbildningar som ska hämtas från `mcr.microsoft.com` container Registry.
 
-> A [Helm chart][helm-charts] is a collection of files that describe a related set of Kubernetes resources. A single chart might be used to deploy something simple, like a memcached pod, or something complex, like a full web app stack with HTTP servers, databases, caches, and so on.
+> Ett [Helm-diagram][helm-charts] är en samling filer som beskriver en relaterad uppsättning Kubernetes-resurser. Ett enkelt diagram kan användas för att distribuera något enkelt, t. ex. en memcached POD eller något komplext, t. ex. en fullständig webbapp med HTTP-servrar, databaser, cacheminnen och så vidare.
 
-The provided *Helm charts* pull the docker images of the Speech Service, both text-to-speech and the speech-to-text services from the `mcr.microsoft.com` container registry.
+De tillhandahållna *Helm-diagrammen* hämtar Docker-avbildningarna av röst tjänsten, både text till tal-och tal-till-text-tjänster från `mcr.microsoft.com` container Registry.
 
-## <a name="install-the-helm-chart-on-the-kubernetes-cluster"></a>Install the Helm chart on the Kubernetes cluster
+## <a name="install-the-helm-chart-on-the-kubernetes-cluster"></a>Installera Helm-diagrammet på Kubernetes-klustret
 
-To install the *helm chart* we'll need to execute the [`helm install`][helm-install-cmd] command, replacing the `<config-values.yaml>` with the appropriate path and file name argument. The `microsoft/cognitive-services-speech-onpremise` Helm chart referenced below is available on the [Microsoft Helm Hub here][ms-helm-hub-speech-chart].
+För att kunna installera *Helm-diagrammet* måste du köra kommandot [`helm install`][helm-install-cmd] och ersätta `<config-values.yaml>` med rätt sökväg och fil namns argument. Det `microsoft/cognitive-services-speech-onpremise` Helm-diagrammet som refereras nedan finns i [Microsoft Helm Hub här][ms-helm-hub-speech-chart].
 
 ```console
 helm install microsoft/cognitive-services-speech-onpremise \
@@ -155,7 +155,7 @@ helm install microsoft/cognitive-services-speech-onpremise \
     --name onprem-speech
 ```
 
-Here is an example output you might expect to see from a successful install execution:
+Här är ett exempel på utdata som du kan förväntas se från en lyckad installations körning:
 
 ```console
 NAME:   onprem-speech
@@ -197,13 +197,13 @@ cognitive-services-speech-onpremise has been installed!
 Release is named onprem-speech
 ```
 
-The Kubernetes deployment can take over several minutes to complete. To confirm that both pods and services are properly deployed and available, execute the following command:
+Kubernetes-distributionen kan ta flera minuter att slutföra. För att bekräfta att både poddar och tjänsterna är korrekt distribuerade och tillgängliga, kör du följande kommando:
 
 ```console
 kubectl get all
 ```
 
-You should expect to see something similar to the following output:
+Du bör förvänta dig att se något som liknar följande utdata:
 
 ```console
 NAME                                  READY     STATUS    RESTARTS   AGE
@@ -230,18 +230,18 @@ horizontalpodautoscaler.autoscaling/speech-to-text-autoscaler   Deployment/speec
 horizontalpodautoscaler.autoscaling/text-to-speech-autoscaler   Deployment/text-to-speech   0%/50%    2         10        2          34m
 ```
 
-### <a name="verify-helm-deployment-with-helm-tests"></a>Verify Helm deployment with Helm tests
+### <a name="verify-helm-deployment-with-helm-tests"></a>Verifiera Helm-distribution med Helm-tester
 
-The installed Helm charts define *Helm tests*, which serve as a convenience for verification. These tests validate service readiness. To verify both **speech-to-text** and **text-to-speech** services, we'll execute the [Helm test][helm-test] command.
+De installerade Helm-diagrammen definierar *Helm-tester*, vilket ger en bekvämlighet för verifiering. De här testerna verifierar tjänst beredskap. För att verifiera både **tal-till-text** -och **text till tal** -tjänster kör vi kommandot [Helm test][helm-test] .
 
 ```console
 helm test onprem-speech
 ```
 
 > [!IMPORTANT]
-> These tests will fail if the POD status is not `Running` or if the deployment is not listed under the `AVAILABLE` column. Be patient as this can take over ten minutes to complete.
+> Det går inte att utföra dessa tester om POD-status inte är `Running` eller om distributionen inte finns med i kolumnen `AVAILABLE`. Vara patient eftersom det kan ta mer än tio minuter att slutföra.
 
-These tests will output various status results:
+De här testerna kommer att resultera i olika status resultat:
 
 ```console
 RUNNING: speech-to-text-readiness-test
@@ -250,11 +250,11 @@ RUNNING: text-to-speech-readiness-test
 PASSED: text-to-speech-readiness-test
 ```
 
-As an alternative to executing the *helm tests*, you could collect the *External IP* addresses and corresponding ports from the `kubectl get all` command. Using the IP and port, open a web browser and navigate to `http://<external-ip>:<port>:/swagger/index.html` to view the API swagger page(s).
+Som ett alternativ till att köra *Helm-testerna*kan du samla in de *externa IP-* adresserna och motsvarande portar från kommandot `kubectl get all`. Med hjälp av IP och port öppnar du en webbläsare och navigerar till `http://<external-ip>:<port>:/swagger/index.html` för att visa sidan med API-Swagger.
 
-## <a name="customize-helm-charts"></a>Customize Helm charts
+## <a name="customize-helm-charts"></a>Anpassa Helm-diagram
 
-Helm charts are hierarchical. Being hierarchical allows for chart inheritance, it also caters to the concept of specificity, where settings that are more specific override inherited rules.
+Helm-diagram är hierarkiska. Om du är hierarkiskt tillåter det att diagrammet ärvs, och det omfattar även begreppet specificitet, där inställningar som är mer detaljerade åsidosätter ärvda regler.
 
 [!INCLUDE [Speech umbrella-helm-chart-config](includes/speech-umbrella-helm-chart-config.md)]
 
@@ -264,10 +264,10 @@ Helm charts are hierarchical. Being hierarchical allows for chart inheritance, i
 
 ## <a name="next-steps"></a>Nästa steg
 
-For more details on installing applications with Helm in Azure Kubernetes Service (AKS), [visit here][installing-helm-apps-in-aks].
+Mer information om hur du installerar program med Helm i Azure Kubernetes service (AKS) [finns här][installing-helm-apps-in-aks].
 
 > [!div class="nextstepaction"]
-> [Cognitive Services Containers][cog-svcs-containers]
+> [Cognitive Services behållare][cog-svcs-containers]
 
 <!-- LINKS - external -->
 [free-azure-account]: https://azure.microsoft.com/free

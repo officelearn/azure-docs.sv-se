@@ -1,6 +1,6 @@
 ---
-title: Self-service password reset for Windows - Azure Active Directory
-description: How to enable self-service password reset using forgot password at the Windows login screen
+title: Lösen ords återställning via självbetjäning för Windows-Azure Active Directory
+description: Aktivera självbetjäning för återställning av lösen ord med glömt lösen ord på Windows inloggnings skärm
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -18,46 +18,46 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74381234"
 ---
-# <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>How to: Enable password reset from the Windows login screen
+# <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Gör så här: Aktivera lösen ords återställning från Windows inloggnings skärm
 
-For machines running Windows 7, 8, 8.1, and 10 you can enable users to reset their password at the Windows login screen. Users no longer have to find a device with a web browser to access the [SSPR portal](https://aka.ms/sspr).
+För datorer som kör Windows 7, 8, 8,1 och 10 kan du göra det möjligt för användare att återställa sina lösen ord på Windows inloggnings skärm. Användare behöver inte längre hitta en enhet med en webbläsare för att få åtkomst till [SSPR-portalen](https://aka.ms/sspr).
 
-![Example Windows 7 and 10 login screens with SSPR link shown](./media/howto-sspr-windows/windows-reset-password.png)
+![Exempel på Windows 7-och 10 inloggnings skärmar med SSPR-länk visas](./media/howto-sspr-windows/windows-reset-password.png)
 
 ## <a name="general-limitations"></a>Allmänna begränsningar
 
-- Password reset is not currently supported from a Remote Desktop or from Hyper-V enhanced sessions.
+- Lösen ords återställning stöds för närvarande inte från ett fjärr skrivbord eller från utökade Hyper-V-sessioner.
 - Den här funktionen fungerar inte för nätverk som distribuerar nätverksautentisering 802.1x och alternativet ”Utför omedelbart innan användaren loggar in”. Nätverk med nätverksautentiseringen 802.1x distribuerad rekommenderas att använda datorautentisering för att aktivera funktionen.
-- Hybrid Azure AD joined machines must have network connectivity line of sight to a domain controller to use the new password and update cached credentials.
-- If using an image, prior to running sysprep ensure that the web cache is cleared for the built-in Administrator prior to performing the CopyProfile step. More information about this step can be found in the support article [Performance poor when using custom default user profile](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
-- The following settings are known to interfere with the ability to use and reset passwords on Windows 10 devices
-    - If Ctrl+Alt+Del is required by policy in versions of Windows 10 before v1809, **Reset password** will not work.
+- Hybrid Azure AD-anslutna datorer måste ha en nätverks anslutning till en domänkontrollant för att kunna använda det nya lösen ordet och uppdatera cachelagrade autentiseringsuppgifter.
+- Om du använder en avbildning innan du kör Sysprep kontrollerar du att webbcachen har rensats för den inbyggda administratören innan du utför CopyProfile-steget. Mer information om det här steget finns i Support artikeln [dåliga prestanda när du använder anpassad standard användar profil](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
+- Följande inställningar är kända för att störa möjligheten att använda och återställa lösen ord på Windows 10-enheter
+    - Om Ctrl + Alt + del krävs av en princip i versioner av Windows 10 innan v1809, kommer **Återställ lösen ord** inte att fungera.
     - Om meddelanden för låsskärmen är avstängda fungerar inte **Återställ lösenord**.
     - HideFastUserSwitching har angetts på aktiverat eller 1
     - DontDisplayLastUserName har angetts på aktiverat eller 1
     - NoLockScreen har angetts på aktiverat eller 1
     - EnableLostMode har angetts på enheten
     - Explorer.exe har ersatts med ett anpassat gränssnitt
-- The combination of the following specific three settings can cause this feature to not work.
-    - Interactive logon: Do not require CTRL+ALT+DEL = Disabled
-    - DisableLockScreenAppNotifications = 1 or Enabled
-    - IsContentDeliveryPolicyEnforced = 1 or True
+- Kombinationen av följande tre inställningar kan orsaka att funktionen inte fungerar.
+    - Interaktiv inloggning: Kräv inte CTRL + ALT + DEL = inaktive rad
+    - DisableLockScreenAppNotifications = 1 eller aktive rad
+    - IsContentDeliveryPolicyEnforced = 1 eller True
 
-## <a name="windows-10-password-reset"></a>Windows 10 password reset
+## <a name="windows-10-password-reset"></a>Lösen ords återställning för Windows 10
 
-### <a name="windows-10-prerequisites"></a>Windows 10 prerequisites
+### <a name="windows-10-prerequisites"></a>Krav för Windows 10
 
-- An administrator must enable Azure AD self-service password reset from the Azure portal.
-- **Users must register for SSPR before using this feature**
-- Network proxy requirements
-   - Windows 10 devices 
-       - Port 443 to `passwordreset.microsoftonline.com` and `ajax.aspnetcdn.com`
-       - Windows 10 devices only support machine-level proxy configuration
-- Run at least Windows 10, version April 2018 Update (v1803), and the devices must be either:
-    - Azure AD joined
-    - Hybrid Azure AD joined
+- En administratör måste aktivera lösen ords återställning via självbetjäning i Azure AD från Azure Portal.
+- **Användarna måste registrera sig för SSPR innan de kan använda den här funktionen**
+- Krav för nätverks proxy
+   - Windows 10-enheter 
+       - Port 443 till `passwordreset.microsoftonline.com` och `ajax.aspnetcdn.com`
+       - Windows 10-enheter stöder endast konfiguration av proxykonfigurationen på dator nivå
+- Kör minst Windows 10, version april 2018 Update (v1803) och enheterna måste vara antingen:
+    - Azure AD-ansluten
+    - Hybrid Azure AD-ansluten
 
-### <a name="enable-for-windows-10-using-intune"></a>Enable for Windows 10 using Intune
+### <a name="enable-for-windows-10-using-intune"></a>Aktivera för Windows 10 med Intune
 
 Att distribuera konfigurationsändringen för att aktivera lösenordsåterställning från inloggningsskärmen med Intune är den mest flexibla metoden. Med Intune kan du distribuera konfigurationsändringen till en särskild grupp av datorer som du definierar. Den här metoden kräver Intune-registrering av enheten.
 
@@ -79,9 +79,9 @@ Att distribuera konfigurationsändringen för att aktivera lösenordsåterställ
       - Klicka på **OK**
    - Klicka på **OK**
 1. Klicka på **Skapa**
-1. This policy can be assigned to specific users, devices, or groups. More information can be found in the article [Assign user and device profiles in Microsoft Intune](https://docs.microsoft.com/intune/device-profile-assign).
+1. Den här principen kan tilldelas till vissa användare, enheter eller grupper. Mer information hittar du i artikeln [Tilldela användar-och enhets profiler i Microsoft Intune](https://docs.microsoft.com/intune/device-profile-assign).
 
-### <a name="enable-for-windows-10-using-the-registry"></a>Enable for Windows 10 using the Registry
+### <a name="enable-for-windows-10-using-the-registry"></a>Aktivera för Windows 10 med hjälp av registret
 
 1. Logga in på Windows-datorn med autentiseringsuppgifterna för administratören
 1. Kör **regedit** som administratör
@@ -89,71 +89,71 @@ Att distribuera konfigurationsändringen för att aktivera lösenordsåterställ
    - `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AzureADAccount`
       - `"AllowPasswordReset"=dword:00000001`
 
-#### <a name="troubleshooting-windows-10-password-reset"></a>Troubleshooting Windows 10 password reset
+#### <a name="troubleshooting-windows-10-password-reset"></a>Fel sökning av lösen ords återställning i Windows 10
 
 Azure AD-granskningsloggen innehåller information om IP-adressen och klienttypen där lösenordsåterställningen har gjorts.
 
-![Example Windows 7 password reset in the Azure AD Audit log](media/howto-sspr-windows/windows-7-sspr-azure-ad-audit-log.png)
+![Exempel på lösen ords återställning i Windows 7 i Azure AD-gransknings loggen](media/howto-sspr-windows/windows-7-sspr-azure-ad-audit-log.png)
 
-When users reset their password from the login screen of a Windows 10 device, a low-privilege temporary account called `defaultuser1` is created. Det här kontot används för att skydda processen för lösenordsåterställning. Själva kontot har ett slumpmässigt genererat lösenord som inte visas för att logga in enheten och tas bort automatiskt när användaren återställer sitt lösenord. Multiple `defaultuser` profiles may exist but can be safely ignored.
+När användarna återställer sina lösen ord från inloggnings skärmen på en Windows 10-enhet skapas ett tillfälligt konto med låg behörighet med namnet `defaultuser1`. Det här kontot används för att skydda processen för lösenordsåterställning. Själva kontot har ett slumpmässigt genererat lösenord som inte visas för att logga in enheten och tas bort automatiskt när användaren återställer sitt lösenord. Det kan finnas flera `defaultuser` profiler, men de kan ignoreras på ett säkert sätt.
 
-## <a name="windows-7-8-and-81-password-reset"></a>Windows 7, 8, and 8.1 password reset
+## <a name="windows-7-8-and-81-password-reset"></a>Lösen ords återställning för Windows 7, 8 och 8,1
 
-### <a name="windows-7-8-and-81-prerequisites"></a>Windows 7, 8, and 8.1 prerequisites
+### <a name="windows-7-8-and-81-prerequisites"></a>Krav för Windows 7, 8 och 8,1
 
-- An administrator must enable Azure AD self-service password reset from the Azure portal.
-- **Users must register for SSPR before using this feature**
-- Network proxy requirements
-   - Windows 7, 8, and 8.1 devices
-       - Port 443 to `passwordreset.microsoftonline.com`
-- Patched Windows 7 or Windows 8.1 Operating System.
-- TLS 1.2 enabled using the guidance found in [Transport Layer Security (TLS) registry settings](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12).
-- If more than one 3rd party credential provider is enabled on your machine, users will see more than one user profile on the login screen.
+- En administratör måste aktivera lösen ords återställning via självbetjäning i Azure AD från Azure Portal.
+- **Användarna måste registrera sig för SSPR innan de kan använda den här funktionen**
+- Krav för nätverks proxy
+   - Windows 7-, 8-och 8,1-enheter
+       - Port 443 till `passwordreset.microsoftonline.com`
+- Operativ systemet Windows 7 eller Windows 8,1 har korrigerats.
+- TLS 1,2 aktiverat med hjälp av rikt linjer som finns i [register inställningarna för Transport Layer Security (TLS)](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12).
+- Om fler än en leverantör av autentiseringsuppgifter för tredje part är aktive rad på datorn visas fler än en användar profil på inloggnings skärmen.
 
 > [!WARNING]
-> TLS 1.2 must be enabled, not just set to auto negotiate
+> TLS 1,2 måste vara aktiverat, inte bara inställt på automatisk förhandling
 
 ### <a name="install"></a>Installera
 
-1. Download the appropriate installer for the version of Windows you would like to enable.
-   - Software is available on the Microsoft download center at [https://aka.ms/sspraddin](https://aka.ms/sspraddin)
-1. Sign in to the machine where you would like to install, and run the installer.
-1. After installation, a reboot is highly recommended.
-1. After the reboot, at the login screen choose a user and click "Forgot password?" to initiate the password reset workflow.
-1. Complete the workflow following the onscreen steps to reset your password.
+1. Hämta lämpligt installations program för den Windows-version som du vill aktivera.
+   - Program vara finns på Microsoft Download Center på [https://aka.ms/sspraddin](https://aka.ms/sspraddin)
+1. Logga in på den dator där du vill installera och kör installations programmet.
+1. Efter installationen rekommenderas du starkt att starta om.
+1. Efter omstarten väljer du en användare på inloggnings skärmen och klickar på "glömt lösen ord?" för att initiera arbets flödet för lösen ords återställning.
+1. Slutför arbets flödet genom att följa anvisningarna på skärmen för att återställa lösen ordet.
 
-![Example Windows 7 clicked "Forgot password?" SSPR flow](media/howto-sspr-windows/windows-7-sspr.png)
+![Exempel Windows 7 klickade på "glömt lösen ord?" SSPR-flöde](media/howto-sspr-windows/windows-7-sspr.png)
 
-#### <a name="silent-installation"></a>Silent installation
+#### <a name="silent-installation"></a>Tyst installation
 
-- For silent install, use the command “msiexec /i SsprWindowsLogon.PROD.msi /qn”
-- For silent uninstall, use the command “msiexec /x SsprWindowsLogon.PROD.msi /qn”
+- För tyst installation använder du kommandot "msiexec/i SsprWindowsLogon. PROD. msi/qn"
+- Vid tyst avinstallation använder du kommandot "msiexec/x SsprWindowsLogon. PROD. msi/qn"
 
-#### <a name="troubleshooting-windows-7-8-and-81-password-reset"></a>Troubleshooting Windows 7, 8, and 8.1 password reset
+#### <a name="troubleshooting-windows-7-8-and-81-password-reset"></a>Fel sökning av lösen ords återställning för Windows 7, 8 och 8,1
 
-Events will be logged both on the machine and in Azure AD. Azure AD Events will include information about the IP address and ClientType where the password reset occurred.
+Händelser loggas både på datorn och i Azure AD. Azure AD-händelser innehåller information om IP-adressen och ClientType där lösen ords återställningen utfördes.
 
-![Example Windows 7 password reset in the Azure AD Audit log](media/howto-sspr-windows/windows-7-sspr-azure-ad-audit-log.png)
+![Exempel på lösen ords återställning i Windows 7 i Azure AD-gransknings loggen](media/howto-sspr-windows/windows-7-sspr-azure-ad-audit-log.png)
 
-If additional logging is required, a registry key on the machine can be changed to enable verbose logging. Enable verbose logging for troubleshooting purposes only.
+Om ytterligare loggning krävs kan en register nyckel på datorn ändras för att aktivera utförlig loggning. Aktivera utförlig loggning enbart för fel söknings syfte.
 
 `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}`
 
-- To enable verbose logging, create a `REG_DWORD: “EnableLogging”`, and set it to 1.
-- To disable verbose logging, change the `REG_DWORD: “EnableLogging”` to 0.
+- Om du vill aktivera utförlig loggning skapar du en `REG_DWORD: “EnableLogging”`och anger den till 1.
+- Om du vill inaktivera utförlig loggning ändrar du `REG_DWORD: “EnableLogging”` till 0.
 
 ## <a name="what-do-users-see"></a>Vad ser användarna
 
-Now that you have configured password reset for your Windows devices, what changes for the user? Hur vet de att de kan återställa sitt lösenord på inloggningsskärmen?
+Nu när du har konfigurerat lösen ords återställning för dina Windows-enheter, vilka ändringar av användaren? Hur vet de att de kan återställa sitt lösenord på inloggningsskärmen?
 
-![Example Windows 7 and 10 login screens with SSPR link shown](./media/howto-sspr-windows/windows-reset-password.png)
+![Exempel på Windows 7-och 10 inloggnings skärmar med SSPR-länk visas](./media/howto-sspr-windows/windows-reset-password.png)
 
-When users attempt to sign in, they now see a **Reset password** or **Forgot password** link that opens the self-service password reset experience at the login screen. Via den här funktionen kan användarna återställa sina lösenord utan att de behöver använda en annan enhet för att få åtkomst till webbläsaren.
+När användarna försöker logga in ser de nu länken **Återställ lösen ord** eller **glömt lösen** ord som öppnar självbetjäningen för återställning av lösen ord på inloggnings skärmen. Via den här funktionen kan användarna återställa sina lösenord utan att de behöver använda en annan enhet för att få åtkomst till webbläsaren.
 
 Dina användare får hjälp med att använda funktionen i [Reset your work or school password](../user-help/active-directory-passwords-update-your-own-password.md) (Återställa ditt arbets- eller skollösenord)
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Plan authentication methods to allow](concept-authentication-methods.md)
+[Planera autentiseringsmetoder som ska tillåtas](concept-authentication-methods.md)
 
-[Configure Windows 10](https://docs.microsoft.com/windows/configuration/)
+[Konfigurera Windows 10](https://docs.microsoft.com/windows/configuration/)

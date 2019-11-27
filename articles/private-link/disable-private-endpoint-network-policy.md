@@ -1,6 +1,6 @@
 ---
-title: Disable network policies for private endpoints in Azure
-description: Learn how to disable network policies for private endpoints.
+title: Inaktivera nätverks principer för privata slut punkter i Azure
+description: Lär dig hur du inaktiverar nätverks principer för privata slut punkter.
 services: private-link
 author: asudbring
 ms.service: private-link
@@ -14,16 +14,16 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74224812"
 ---
-# <a name="disable-network-policies-for-private-endpoints"></a>Disable network policies for private endpoints
+# <a name="disable-network-policies-for-private-endpoints"></a>Inaktivera nätverks principer för privata slut punkter
 
-Network policies like network security groups (NSG) are not supported for private endpoints. In order to deploy a Private Endpoint on a given subnet, an explicit disable setting is required on that subnet. This setting is only applicable for the Private Endpoint. For other resources in the subnet, access is controlled based on Network Security Groups (NSG) security rules definition. 
+Nätverks principer som nätverks säkerhets grupper (NSG) stöds inte för privata slut punkter. För att kunna distribuera en privat slut punkt i ett angivet undernät krävs en explicit inaktivera inställning i det under nätet. Den här inställningen gäller bara för den privata slut punkten. För andra resurser i under nätet styrs åtkomsten baserat på säkerhets regel definitionen för nätverks säkerhets grupper (NSG). 
  
-When using the portal to create a private endpoint, this setting is automatically disabled as part of the create process. Deployment using other clients requires an additional step to change this setting. You can disable the setting using cloud shell from the Azure portal, or local installations of Azure PowerShell, Azure CLI, or use Azure Resource Manager templates.  
+När du använder portalen för att skapa en privat slut punkt inaktive ras den här inställningen automatiskt som en del av processen för att skapa. Distribution som använder andra klienter kräver ytterligare ett steg för att ändra den här inställningen. Du kan inaktivera inställningen med Cloud Shell från Azure Portal eller lokala installationer av Azure PowerShell, Azure CLI eller använda Azure Resource Manager mallar.  
  
-The following examples describe how to disable `PrivateEndpointNetworkPolicies` for a virtual network named *myVirtualNetwork* with a *default* subnet hosted in a resource group named *myResourceGroup*.
+I följande exempel beskrivs hur du inaktiverar `PrivateEndpointNetworkPolicies` för ett virtuellt nätverk med namnet *myVirtualNetwork* med ett *standard* -undernät som finns i en resurs grupp med namnet *myResourceGroup*.
 
 ## <a name="using-azure-powershell"></a>Använda Azure PowerShell
-This section describes how to disable subnet private endpoint policies using Azure PowerShell.
+I det här avsnittet beskrivs hur du inaktiverar privata slut punkts principer för undernät med Azure PowerShell.
 
 ```azurepowershell
 $virtualNetwork= Get-AzVirtualNetwork `
@@ -35,7 +35,7 @@ $virtualNetwork= Get-AzVirtualNetwork `
 $virtualNetwork | Set-AzVirtualNetwork 
 ```
 ## <a name="using-azure-cli"></a>Använda Azure CLI
-This section describes how to disable subnet private endpoint policies using Azure CLI.
+I det här avsnittet beskrivs hur du inaktiverar privata slut punkts principer för undernät med Azure CLI.
 ```azurecli
 az network vnet subnet update \ 
   --name default \ 
@@ -43,8 +43,8 @@ az network vnet subnet update \
   --vnet-name myVirtualNetwork \ 
   --disable-private-endpoint-network-policies true
 ```
-## <a name="using-a-template"></a>Using a template
-This section describes how to disable subnet private endpoint policies using Azure Resource Manager Template.
+## <a name="using-a-template"></a>Använda en mall
+I det här avsnittet beskrivs hur du inaktiverar privata slut punkts principer för undernät med Azure Resource Manager-mall.
 ```json
 { 
           "name": "myVirtualNetwork", 
@@ -70,5 +70,5 @@ This section describes how to disable subnet private endpoint policies using Azu
 } 
 ```
 ## <a name="next-steps"></a>Nästa steg
-- Learn more about [Azure private endpoint](private-endpoint-overview.md)
+- Läs mer om [privat Azure-slutpunkt](private-endpoint-overview.md)
  

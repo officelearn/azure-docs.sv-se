@@ -1,19 +1,14 @@
 ---
-title: Uppdatera behållare i Azure Container Instances
+title: Uppdatera behållar grupp
 description: Lär dig hur du uppdaterar pågående behållare i Azure Container Instances behållar grupper.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 09/03/2019
-ms.author: danlep
-ms.openlocfilehash: 3103fe7fbf7dcd587f43b673ef53f32893908ecb
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: f57ebcf050b5563b45f10af57c1721338df88ff9
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307720"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533304"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Uppdatera behållare i Azure Container Instances
 

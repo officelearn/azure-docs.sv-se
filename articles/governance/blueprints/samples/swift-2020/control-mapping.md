@@ -1,14 +1,14 @@
 ---
-title: Exempel – SWIFT CSP-CSCF v2020 skiss-Control Mapping
+title: SWIFT-CSCF v2020 skiss exempel kontroller
 description: Kontroll mappning för SWIFT-CSCF v2020 skiss-exemplet. Varje kontroll mappas till en eller flera Azure-principer som hjälper till med utvärderingen.
 ms.date: 09/24/2019
 ms.topic: sample
-ms.openlocfilehash: 0e5b45ec86acbe7c55aed0aa1611f499316e9118
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 1826e4820f06fc3a858ce6cd5f8906baaa9808cc
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037827"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546515"
 ---
 # <a name="control-mapping-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>Kontroll mappning för SWIFT CSP-CSCF v2020 skiss-exempel
 
@@ -85,9 +85,9 @@ Loggdata som samlas in av Azure Monitor lagras i en Log Analytics arbets yta som
 
 - \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
 - \[för hands version\]: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
-- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Linux-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
 - \[för hands version\]: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
-- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Windows-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
 
 ## <a name="22-27-and-64-response-to-audit-processing-failures"></a>2,2, 2,7 och 6,4 svar på gransknings bearbetnings problem
 
@@ -103,9 +103,9 @@ Loggdata som samlas in av Azure Monitor lagras i en Log Analytics arbets yta som
 
 - \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
 - \[för hands version\]: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
-- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Linux-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
 - \[för hands version\]: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
-- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Windows-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
 
 ## <a name="13-22-27-64-and-65a-audit-generation"></a>1,3, 2,2, 2,7, 6,4 och 6.5 en gransknings generation
 
@@ -113,9 +113,9 @@ Den här skissen hjälper dig att se till att system händelser loggas genom att
 
 - \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
 - \[för hands version\]: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
-- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Linux-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
 - \[för hands version\]: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
-- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Windows-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
 - Granska diagnostikinställning
 - Granska gransknings inställningar för SQL Server-nivå
 - Avancerad datasäkerhet bör aktiveras på dina SQL-servrar
@@ -272,9 +272,9 @@ Den här skissen hjälper dig att övervaka systemet genom att granska och framt
 
 - \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
 - \[för hands version\]: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
-- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Linux-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
 - \[för hands version\]: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
-- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Windows-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
 - Avancerad datasäkerhet bör aktiveras på dina SQL-servrar
 - Avancerade data säkerhets inställningar för SQL Server ska innehålla en e-postadress för att ta emot säkerhets aviseringar
 - Diagnostikloggar i Azure Stream Analytics ska vara aktive rad

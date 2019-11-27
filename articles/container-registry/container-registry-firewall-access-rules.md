@@ -1,6 +1,6 @@
 ---
-title: Firewall access rules
-description: Configure rules to access an Azure container registry from behind a firewall.
+title: Åtkomst regler för brand vägg
+description: Konfigurera regler för åtkomst till ett Azure Container Registry från bakom en brand vägg.
 ms.topic: article
 ms.date: 07/17/2019
 ms.openlocfilehash: 6a0a169f7e5a7e07771cb9fee474b7f4a9391a4e
@@ -10,39 +10,39 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74455181"
 ---
-# <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Configure rules to access an Azure container registry behind a firewall
+# <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Konfigurera regler för åtkomst till ett Azure Container Registry bakom en brand vägg
 
-This article explains how to configure rules on your firewall to allow access to an Azure container registry. For example, an Azure IoT Edge device behind a firewall or proxy server might need to access a container registry to pull a container image. Or, a locked-down server in an on-premises network might need access to push an image.
+Den här artikeln förklarar hur du konfigurerar regler i brand väggen för att tillåta åtkomst till ett Azure Container Registry. Till exempel kan en Azure IoT Edge enhet bakom en brand vägg eller proxyserver behöva komma åt ett behållar register för att hämta en behållar avbildning. Eller så kan en låst server i ett lokalt nätverk behöva åtkomst för att skicka en avbildning.
 
-If instead you want to configure inbound network access rules on a container registry to allow access only within an Azure virtual network or a public IP address range, see [Restrict access to an Azure container registry from a virtual network](container-registry-vnet.md).
+Om du i stället vill konfigurera regler för inkommande nätverks åtkomst i ett behållar register för att tillåta åtkomst endast inom ett virtuellt Azure-nätverk eller ett offentligt IP-adressintervall, se [begränsa åtkomsten till ett Azure Container Registry från ett virtuellt nätverk](container-registry-vnet.md).
 
-## <a name="about-registry-endpoints"></a>About registry endpoints
+## <a name="about-registry-endpoints"></a>Om register slut punkter
 
-To pull or push images or other artifacts to an Azure container registry, a client such as a Docker daemon needs to interact over HTTPS with two distinct endpoints.
+För att hämta eller skicka avbildningar eller andra artefakter till ett Azure Container Registry måste en klient, till exempel en Docker-daemon, interagera över HTTPS med två distinkta slut punkter.
 
-* **Registry REST API endpoint** - Authentication and registry management operations are handled through the registry's public REST API endpoint. This endpoint is the login server URL of the registry, or an associated IP address range. 
+* **Registrets REST API slut punkt** – autentiserings-och register hanterings åtgärder hanteras via registrets offentliga REST API-slutpunkt. Den här slut punkten är inloggnings serverns URL för registret eller ett associerat IP-adressintervall. 
 
-* **Storage endpoint** - Azure [allocates blob storage](container-registry-storage.md) in Azure storage accounts on behalf of each registry to manage container images and other artifacts. When a client accesses image layers in an Azure container registry, it makes requests using a storage account endpoint provided by the registry.
+* **Lagrings slut punkt** – Azure [allokerar blob-lagring](container-registry-storage.md) i Azure Storage-konton för varje registers räkning för att hantera behållar avbildningar och andra artefakter. När en klient ansluter till avbildnings lager i ett Azure Container Registry, begär det begär Anden med hjälp av en slut punkt för lagrings kontot som tillhandahålls av registret.
 
-If your registry is [geo-replicated](container-registry-geo-replication.md), a client might need to interact with REST and storage endpoints in a specific region or in multiple replicated regions.
+Om ditt register är [geo-replikerat](container-registry-geo-replication.md)kan en klient behöva INTERAGERA med rest-och lagrings slut punkter i en angiven region eller i flera replikerade regioner.
 
-## <a name="allow-access-to-rest-and-storage-urls"></a>Allow access to REST and storage URLs
+## <a name="allow-access-to-rest-and-storage-urls"></a>Tillåt åtkomst till REST-och lagrings-URL: er
 
-* **REST endpoint** - Allow access to the registry server URL, such as  `myregistry.azurecr.io`
-* **Storage endpoint** - Allow access to all Azure blob storage accounts using the wildcard `*.blob.core.windows.net`
+* **REST-slutpunkt** – Tillåt åtkomst till register serverns URL, till exempel `myregistry.azurecr.io`
+* **Lagrings slut punkt** – Tillåt åtkomst till alla Azure Blob Storage-konton med jokertecknet `*.blob.core.windows.net`
 
 
-## <a name="allow-access-by-ip-address-range"></a>Allow access by IP address range
+## <a name="allow-access-by-ip-address-range"></a>Tillåt åtkomst med IP-adressintervall
 
-If you need to allow access to specific IP addresses, download [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519).
+Om du behöver tillåta åtkomst till vissa IP-adresser laddar du ned [Azure IP-intervall och service märken – offentligt moln](https://www.microsoft.com/download/details.aspx?id=56519).
 
-To find the ACR REST endpoint IP ranges, search for **AzureContainerRegistry** in the JSON file.
+Du hittar IP-intervallen för ACR REST-slutpunkt genom att söka efter **AzureContainerRegistry** i JSON-filen.
 
 > [!IMPORTANT]
-> IP address ranges for Azure services can change, and updates are published weekly. Download the JSON file regularly, and make necessary updates in your access rules. If your scenario involves configuring network security group rules in an Azure virtual network to access Azure Container Registry, use the **AzureContainerRegistry** [service tag](#allow-access-by-service-tag) instead.
+> IP-adressintervall för Azure-tjänster kan ändras och uppdateringar publiceras varje vecka. Ladda ned JSON-filen regelbundet och gör nödvändiga uppdateringar i dina åtkomst regler. Om ditt scenario innefattar konfigurering av regler för nätverks säkerhets grupper i ett virtuellt Azure-nätverk för att få åtkomst till Azure Container Registry, använder du **AzureContainerRegistry** [-tjänst tag gen](#allow-access-by-service-tag) i stället.
 >
 
-### <a name="rest-ip-addresses-for-all-regions"></a>REST IP addresses for all regions
+### <a name="rest-ip-addresses-for-all-regions"></a>REST IP-adresser för alla regioner
 
 ```json
 {
@@ -58,9 +58,9 @@ To find the ACR REST endpoint IP ranges, search for **AzureContainerRegistry** i
     [...]
 ```
 
-### <a name="rest-ip-addresses-for-a-specific-region"></a>REST IP addresses for a specific region
+### <a name="rest-ip-addresses-for-a-specific-region"></a>REST IP-adresser för en angiven region
 
-Search for the specific region, such as **AzureContainerRegistry.AustraliaEast**.
+Sök efter den angivna regionen, till exempel **AzureContainerRegistry. AustraliaEast**.
 
 ```json
 {
@@ -76,7 +76,7 @@ Search for the specific region, such as **AzureContainerRegistry.AustraliaEast**
     [...]
 ```
 
-### <a name="storage-ip-addresses-for-all-regions"></a>Storage IP addresses for all regions
+### <a name="storage-ip-addresses-for-all-regions"></a>Lagrings-IP-adresser för alla regioner
 
 ```json
 {
@@ -92,9 +92,9 @@ Search for the specific region, such as **AzureContainerRegistry.AustraliaEast**
     [...]
 ```
 
-### <a name="storage-ip-addresses-for-specific-regions"></a>Storage IP addresses for specific regions
+### <a name="storage-ip-addresses-for-specific-regions"></a>Lagrings-IP-adresser för vissa regioner
 
-Search for the specific region, such as **Storage.AustraliaCentral**.
+Sök efter den angivna regionen, till exempel **Storage. AustraliaCentral**.
 
 ```json
 {
@@ -110,17 +110,17 @@ Search for the specific region, such as **Storage.AustraliaCentral**.
     [...]
 ```
 
-## <a name="allow-access-by-service-tag"></a>Allow access by service tag
+## <a name="allow-access-by-service-tag"></a>Tillåt åtkomst per service tag-tagg
 
-In an Azure virtual network, use network security rules to filter traffic from a resource such as a virtual machine to a container registry. To simplify the creation of the Azure network rules, use the **AzureContainerRegistry** [service tag](../virtual-network/security-overview.md#service-tags). A service tag represents a group of IP address prefixes to access an Azure service globally or per Azure region. The tag is automatically updated when addresses change. 
+I ett virtuellt Azure-nätverk använder du nätverks säkerhets regler för att filtrera trafik från en resurs, till exempel en virtuell dator i ett behållar register. För att förenkla skapandet av reglerna för Azure-nätverk använder du **AzureContainerRegistry** [service tag](../virtual-network/security-overview.md#service-tags). En service-tagg representerar en grupp IP-adressprefix för att få åtkomst till en Azure-tjänst globalt eller per Azure-region. Taggen uppdateras automatiskt när adresserna ändras. 
 
-For example, create an outbound network security group rule with destination **AzureContainerRegistry** to allow traffic to an Azure container registry. To allow access to the service tag only in a specific region, specify the region in the following format: **AzureContainerRegistry**.[*region name*].
+Du kan till exempel skapa en regel för utgående nätverks säkerhets grupp med mål- **AzureContainerRegistry** för att tillåta trafik till ett Azure Container Registry. Om du bara vill tillåta åtkomst till tjänst tag gen i en angiven region anger du regionen i följande format: **AzureContainerRegistry**. [*regions namn*].
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Learn about [Azure best practices for network security](../security/fundamentals/network-best-practices.md)
+* Lär dig mer om [Azures metod tips för nätverks säkerhet](../security/fundamentals/network-best-practices.md)
 
-* Learn more about [security groups](/azure/virtual-network/security-overview) in an Azure virtual network
+* Lär dig mer om [säkerhets grupper](/azure/virtual-network/security-overview) i ett virtuellt Azure-nätverk
 
 
 

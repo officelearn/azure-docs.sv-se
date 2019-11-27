@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory Identity Protection security overview
-description: Learn how the Security overview gives you an insight into your organization’s security posture.
+title: Översikt över Azure Active Directory Identity Protection säkerhet
+description: Lär dig hur säkerhets översikten ger dig en inblick i din organisations säkerhets position.
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
@@ -18,52 +18,52 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74382183"
 ---
-# <a name="azure-active-directory-identity-protection---security-overview"></a>Azure Active Directory Identity Protection - Security overview
+# <a name="azure-active-directory-identity-protection---security-overview"></a>Översikt över Azure Active Directory Identity Protection-säkerhet
 
-The [Security overview](https://aka.ms/IdentityProtectionRefresh) in the Azure portal gives you an insight into your organization’s security posture. It helps identify potential attacks and understand the effectiveness of your policies.
+I [säkerhets översikten](https://aka.ms/IdentityProtectionRefresh) i Azure Portal får du en inblick i din organisations säkerhets position. Det hjälper dig att identifiera potentiella attacker och förstå effektiviteten hos dina principer.
 
-The ‘Security overview’ is broadly divided into two sections:
+Säkerhets översikten är i stort sett uppdelad i två delar:
 
-- Trends, on the left, provide a timeline of risk in your organization.
-- Tiles, on the right, highlight the key ongoing issues in your organization and suggest how to quickly take action.
+- Trender, till vänster, ger en tids linje med risk i din organisation.
+- Panelerna till höger markerar du de viktiga pågående problemen i din organisation och föreslår hur du snabbt vidtar åtgärder.
 
 ![Säkerhetsöversikt](./media/concept-identity-protection-security-overview/01.png)
   
 ## <a name="trends"></a>Trender
 
-### <a name="new-risky-users-detected"></a>New risky users detected
+### <a name="new-risky-users-detected"></a>Nya riskfyllda användare har identifierats
 
-This chart shows the number of new risky users that were detected over the chosen time period. You can filter the view of this chart by user risk level (low, medium, high). Hover over the UTC date increments to see the number of risky users detected for that day. A click on this chart will bring you to the ‘Risky users’ report. To remediate users that are at risk, consider changing their password.
+Det här diagrammet visar antalet nya riskfyllda användare som identifierades under den valda tids perioden. Du kan filtrera visningen av det här diagrammet efter användar risk nivå (låg, medium, hög). Hovra över UTC-datumets steg för att se antalet riskfyllda användare som har identifierats för den dagen. Om du klickar på det här diagrammet visas rapporten riskfyllda användare. Överväg att ändra lösen ordet för att reparera användare som är utsatta för risk.
 
-### <a name="new-risky-sign-ins-detected"></a>New risky sign-ins detected
+### <a name="new-risky-sign-ins-detected"></a>Nya riskfyllda inloggningar upptäcktes
 
-This chart shows the number of risky sign-ins detected over the chosen time period. You can filter the view of this chart by the sign-in risk type (real-time or aggregate) and the sign-in risk level (low, medium, high). Unprotected sign-ins are successful real-time risk sign-ins that were not MFA challenged. (Note: Sign-ins that are risky because of offline detections cannot be protected in real-time by sign-in risk policies). Hover over the UTC date increments to see the number of sign-ins detected at risk for that day. A click on this chart will bring you to the ‘Risky sign-ins’ report.
+Det här diagrammet visar antalet riskfyllda inloggningar som har identifierats under den valda tids perioden. Du kan filtrera visningen av det här diagrammet efter inloggnings risk typ (i real tid eller mängd) och inloggnings risk nivån (låg, medium, hög). Oskyddade inloggningar har slutförts i real tids risk inloggningar som inte är MFA-anropade. (Obs! inloggnings program som är riskfyllda på grund av att det inte går att skydda dem i real tid med hjälp av inloggnings risk principer). Hovra över UTC-datumen för att se hur många inloggningar som har identifierats vid risk för den dagen. Om du klickar på det här diagrammet visas rapporten "riskfyllda inloggningar".
 
-## <a name="tiles"></a>Tiles
+## <a name="tiles"></a>Ordnar
  
-### <a name="high-risk-users"></a>High risk users
+### <a name="high-risk-users"></a>Användare med hög risk
 
-The ‘High risk users’ tile shows the latest count of users with high probability of identity compromise. These should be a top priority for investigation. A click on the ‘High risk users’ tile will redirect to a filtered view of the ‘Risky users’ report showing only users with a risk level of high. Using this report, you can learn more and remediate these users with a password reset.
+Panelen "hög risk användare" visar det senaste antalet användare med hög sannolikhet för identitets kompromisser. Dessa bör vara en högsta prioritet för undersökning. Ett klick på panelen "hög risk användare" kommer att omdirigeras till en filtrerad vy av rapporten "riskfyllda användare" som endast visar användare med risk nivån hög. Med den här rapporten kan du läsa mer och åtgärda dessa användare med lösen ords återställning.
 
 ![Säkerhetsöversikt](./media/concept-identity-protection-security-overview/02.png)
 
-### <a name="medium-risk-users"></a>Medium risk users
-The ‘Medium risk users’ tile shows the latest count of users with medium probability of identity compromise. A click on ‘Medium risk users’ tile will redirect to a filtered view of the ‘Risky users’ report showing only users with a risk level of medium. Using this report, you can further investigate and remediate these users.
+### <a name="medium-risk-users"></a>Medel stora risk användare
+Panelen "medel risk användare" visar det senaste antalet användare med medelhög sannolikhet för identitets kompromisser. Ett klick på panelen "medelhög risk användare" omdirigeras till en filtrerad vy av rapporten "riskfyllda användare" som endast visar användare med risk nivån medel. Med hjälp av den här rapporten kan du ytterligare undersöka och åtgärda dessa användare.
 
-### <a name="unprotected-risky-sign-ins"></a>Unprotected risky sign-ins
+### <a name="unprotected-risky-sign-ins"></a>Oskyddade inloggnings tillägg
 
-The ‘Unprotected risky sign-ins' tile shows the last week’s count of successful, real-time risky sign-ins that were not blocked or MFA challenged by a Conditional Access policy, Identity Protection risk policy, or per-user MFA. These are potentially compromised logins that were successful and not MFA challenged. To protect such sign-ins in future, apply a sign-in risk policy. A click on ‘Unprotected risky sign-ins' tile will redirect to the sign-in risk policy configuration blade where you can configure the sign-in risk policy to require MFA on a sign-in with a specified risk level.
+Panelen "oskyddade riskfyllda inloggningar" visar den senaste veckan antal lyckade, real tids riskfyllda inloggningar som inte blockerades eller MFA har anropats av en princip för villkorlig åtkomst, identitets skydds princip eller användarspecifika MFA. Detta är potentiellt komprometterade inloggningar som har lyckats och inte MFA-anrop. Använd en princip för inloggnings risker för att skydda sådana inloggningar i framtiden. Ett klick på panelen oskyddade riskfyllda inloggningar omdirigeras till bladet konfiguration av inloggnings risk princip där du kan konfigurera inloggnings risk principen så att den kräver MFA på en inloggning med en angiven risk nivå.
 
-### <a name="legacy-authentication"></a>Legacy authentication
+### <a name="legacy-authentication"></a>Äldre autentisering
 
-The ‘Legacy authentication’ tile shows the last week’s count of legacy authentications in your organization. Legacy authentication protocols do not support modern security methods such as an MFA. To prevent legacy authentication, you can apply a Conditional Access policy. A click on ‘Legacy authentication’ tile will redirect you to the ‘Identity Secure Score’.
+Panelen "äldre autentisering" visar den senaste veckans antal äldre autentiseringar i din organisation. Äldre autentiseringsprotokoll stöder inte modern säkerhets metoder, till exempel ett MFA. Du kan använda en princip för villkorlig åtkomst för att förhindra äldre autentisering. Klicka på panelen "äldre autentisering" för att omdirigera dig till "Identity Secure Scores".
 
-### <a name="identity-secure-score"></a>Identity Secure Score
+### <a name="identity-secure-score"></a>Identifiera säkra Poäng för identitet
 
-The Identity Secure Score measures and compares your security posture to industry patterns. If you click on ‘Identity Secure Score (Preview)’ tile, it will redirect to the ‘Identity Secure Score’ blade where you can learn more about improving your security posture.
+Mät värden för identiteten säker Poäng och jämför din säkerhets position med bransch mönster. Om du klickar på panelen identitets säkra poäng (förhands granskning) omdirigeras du till bladet "identitets säkra poäng" där du kan lära dig mer om att förbättra din säkerhets position.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [What is risk](concept-identity-protection-risks.md)
+- [Vad är risk?](concept-identity-protection-risks.md)
 
-- [Policies available to mitigate risks](concept-identity-protection-policies.md)
+- [Principer som är tillgängliga för att minimera risker](concept-identity-protection-policies.md)

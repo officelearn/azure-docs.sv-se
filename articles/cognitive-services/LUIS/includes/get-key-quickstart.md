@@ -1,5 +1,5 @@
 ---
-title: Get key for quickstart
+title: Hämta nyckel för snabb start
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: diberry
@@ -15,11 +15,11 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74414528"
 ---
-Keys and endpoints are provided in the LUIS portal in the **Manage Section** on the **Azure Resources** page. 
+Nycklar och slut punkter finns i LUIS-portalen i **avsnittet hantera** på sidan Azure- **resurser** . 
  
-1. Sign in to the [LUIS portal](https://preview.luis.ai/). 
-1. Create a new app, or select an existing app from the apps list.
-1. Select **Manage** then select **Azure Resources**. 
-1. Copy the values for the key and endpoint for the Starter resource. You'll need these to run the sample below.
+1. Logga in på [Luis-portalen](https://preview.luis.ai/). 
+1. Skapa en ny app eller Välj en befintlig app från listan appar.
+1. Välj **Hantera** och välj sedan **Azure-resurser**. 
+1. Kopiera värdena för nyckeln och slut punkten för start resursen. Du behöver dessa för att köra exemplet nedan.
    > [!NOTE]
-   > The **Starter** key allows free requests to the authoring API and up to 1000 queries to the prediction endpoint API per month for all your LUIS apps. 
+   > **Start** nyckeln tillåter kostnads fria förfrågningar till redigerings-API: et och upp till 1000 frågor till API: et för förutsägelse slut punkt per månad för alla dina Luis-appar. 

@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Deploy a machine learning model with the designer'
+title: 'Självstudie: Distribuera en maskin inlärnings modell med designern'
 titleSuffix: Azure Machine Learning
-description: This tutorial shows you how to build a predictive analytics solution in Azure Machine Learning designer (preview). Train, score, and deploy a machine learning model by using drag-and-drop modules.
+description: Den här självstudien visar hur du skapar en förutsägelse analys lösning i Azure Machine Learning designer (för hands version). Träna, score och distribuera en maskin inlärnings modell med hjälp av dra-och-släpp-moduler.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -16,105 +16,105 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74483304"
 ---
-# <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Tutorial: Deploy a machine learning model with the designer (preview)
+# <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Självstudie: Distribuera en maskin inlärnings modell med designer (för hands version)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-You can deploy the predictive model developed in [part one of the tutorial](tutorial-designer-automobile-price-train-score.md) to give others a chance to use it. In part one, you trained your model. Now, it's time to generate new predictions based on user input. I den här delen av självstudien får du göra följande:
+Du kan distribuera den förutsägande modellen som utvecklats i [del ett av självstudien](tutorial-designer-automobile-price-train-score.md) för att ge andra möjlighet att använda den. I del ett tränar du din modell. Nu är det dags att generera nya förutsägelser baserat på användarindata. I den här delen av självstudien får du göra följande:
 
 > [!div class="checklist"]
-> * Create a real-time inference pipeline.
-> * Create an inferencing cluster.
-> * Deploy the real-time endpoint.
-> * Test the real-time endpoint.
+> * Skapa en pipeline för real tids härledning.
+> * Skapa ett inferencing-kluster.
+> * Distribuera real tids slut punkten.
+> * Testa real tids slut punkten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Complete [part one of the tutorial](tutorial-designer-automobile-price-train-score.md) to learn how to train and score a machine learning model in the designer.
+Slutför [del ett av självstudien](tutorial-designer-automobile-price-train-score.md) och lär dig hur du tränar och poängs ätter en maskin inlärnings modell i designern.
 
-## <a name="create-a-real-time-inference-pipeline"></a>Create a real-time inference pipeline
+## <a name="create-a-real-time-inference-pipeline"></a>Skapa en pipeline för real tids härledning
 
-To deploy your pipeline, you must first convert the training pipeline into a real-time inference pipeline. This process removes training modules and adds inputs and outputs for inferencing requests.
+Om du vill distribuera din pipeline måste du först konvertera inlärnings pipelinen till en pipeline för real tids härledning. Den här processen tar bort moduler för utbildning och lägger till indata och utdata för inferencing-begäranden.
 
-### <a name="create-a-real-time-inference-pipeline"></a>Create a real-time inference pipeline
+### <a name="create-a-real-time-inference-pipeline"></a>Skapa en pipeline för real tids härledning
 
-1. Above the pipeline canvas, select **Create inference pipeline** > **Real-time inference pipeline**.
+1. Ovanför pipeline-arbetsytan väljer du **skapa en härlednings pipeline** > **real tids härlednings pipeline**.
 
-    Your pipeline should now look like this: 
+    Din pipeline bör nu se ut så här: 
 
-   ![Screenshot showing the expected configuration of the pipeline after preparing it for deployment](./media/tutorial-designer-automobile-price-deploy/real-time-inference-pipeline.png)
+   ![Skärm bild som visar den förväntade konfigurationen för pipelinen när den har förberedats för distribution](./media/tutorial-designer-automobile-price-deploy/real-time-inference-pipeline.png)
 
-    When you select **Create inference pipeline**, several things happen:
+    När du väljer **skapa en härlednings pipeline**inträffar flera saker:
     
-    * The trained model is stored as a **Dataset** module in the module palette. You can find it under **My Datasets**.
-    * Training modules like **Train Model** and **Split Data** are removed.
-    * The saved trained model is added back into the pipeline.
-    * **Web Service Input** and **Web Service Output** modules are added. These modules show where user data enters the model and where data is returned.
+    * Den tränade modellen lagras som en **data uppsättnings** modul i modulens palett. Du kan hitta den under **mina data uppsättningar**.
+    * Inlärnings moduler som **tränar modell** och **delade data** tas bort.
+    * Den sparade utbildade modellen läggs tillbaka i pipelinen.
+    * Moduler för **webb tjänst indata** och **webb tjänstens utdata** läggs till. De här modulerna visar var användar data går in i modellen och var data returneras.
 
     > [!NOTE]
-    > The *training pipeline* is saved under the new tab at the top of the pipeline canvas. It can also be found as a published pipeline in the designer.
+    > *Inlärnings pipelinen* sparas under den nya fliken överst i pipeline-arbetsytan. Det kan också finnas som en publicerad pipeline i designern.
     >
 
-1. Select **Run**, and use the same compute target and experiment that you used in part one.
+1. Välj **Kör**och Använd samma beräknings mål och experiment som du använde i del ett.
 
-1. Select the **Score Model** module.
+1. Välj modulen **Poäng modell** .
 
-1. In the properties pane, select **Outputs** > **Visualize** to verify the model is still working. You can see the original data is displayed along with the predicted price ("Scored Labels").
+1. I fönstret Egenskaper väljer du **utdata** > **visualisera** för att kontrol lera att modellen fortfarande fungerar. Du kan se att ursprungliga data visas tillsammans med det förväntade priset ("Poäng etiketter").
 
 1. Välj **Distribuera**.
 
-## <a name="create-an-inferencing-cluster"></a>Create an inferencing cluster
+## <a name="create-an-inferencing-cluster"></a>Skapa ett inferencing-kluster
 
-In the dialog box that appears, you can select from any existing Azure Kubernetes Service (AKS) clusters to deploy your model to. If you don't have an AKS cluster, use the following steps to create one.
+I dialog rutan som visas kan du välja från alla befintliga Azure Kubernetes service-kluster (AKS) för att distribuera din modell till. Om du inte har något AKS-kluster kan du använda följande steg för att skapa ett.
 
-1. Select **Compute** in the dialog box that appears to go to the **Compute** page.
+1. Välj **beräkning** i dialog rutan som visas för att gå till **beräknings** sidan.
 
-1. On the navigation ribbon, select **Inference Clusters** >  **+ New**.
+1. I menyfliksområdet navigering väljer du **härlednings kluster** >  **+ ny**.
 
-    ![Screenshot showing how to get to the new inference cluster pane](./media/tutorial-designer-automobile-price-deploy/new-inference-cluster.png)
+    ![Skärm bild som visar hur du kommer till fönstret nytt fönster för utgångs kluster](./media/tutorial-designer-automobile-price-deploy/new-inference-cluster.png)
 
-1. In the inference cluster pane, configure a new Kubernetes Service.
+1. Konfigurera en ny Kubernetes-tjänst i fönstret fönster för utlåsnings kluster.
 
-1. Enter *aks-compute* for the **Compute name**.
+1. Ange *AKS-Compute* för **beräknings namnet**.
     
-1. Select a nearby region that's available for the **Region**.
+1. Välj en närliggande region som är tillgänglig för **regionen**.
 
 1. Välj **Skapa**.
 
     > [!NOTE]
-    > It takes approximately 15 minutes to create a new AKS service. You can check the provisioning state on the **Inference Clusters** page.
+    > Det tar cirka 15 minuter att skapa en ny AKS-tjänst. Du kan kontrol lera etablerings statusen på sidan för att lösa **kluster** .
     >
 
-## <a name="deploy-the-real-time-endpoint"></a>Deploy the real-time endpoint
+## <a name="deploy-the-real-time-endpoint"></a>Distribuera real tids slut punkten
 
-After your AKS service has finished provisioning, return to the real-time inferencing pipeline to complete deployment.
+När din AKS-tjänst har slutfört etableringen återgår du till inferencing-pipeline i real tid för att slutföra distributionen.
 
-1. Select **Deploy** above the canvas.
+1. Välj **distribuera** ovanför arbets ytan.
 
-1. Select **Deploy new real-time endpoint**. 
+1. Välj **distribuera ny slut punkt i real tid**. 
 
-1. Select the AKS cluster you created.
+1. Välj det AKS-kluster som du skapade.
 
 1. Välj **Distribuera**.
 
-    ![Screenshot showing how to set up a new real-time endpoint](./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png)
+    ![Skärm bild som visar hur du konfigurerar en ny slut punkt för Real tid](./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png)
 
-    A success notification above the canvas appears after deployment finishes. It might take a few minutes.
+    Ett meddelande visas ovanför arbets ytan när distributionen är klar. Det kan ta några minuter.
 
-## <a name="test-the-real-time-endpoint"></a>Test the real-time endpoint
+## <a name="test-the-real-time-endpoint"></a>Testa real tids slut punkten
 
-After deployment finishes, you can test your real-time endpoint by going to the **Endpoints** page.
+När distributionen är klar kan du testa slut punkten för Real tid genom att gå till sidan **slut punkter** .
 
-1. On the **Endpoints** page, select the endpoint you deployed.
+1. På sidan **slut punkter** väljer du den slut punkt som du har distribuerat.
 
-    ![Screenshot showing the real-time endpoints tab with the recently created endpoint highlighted](./media/tutorial-designer-automobile-price-deploy/endpoints.png)
+    ![Skärm bild som visar fliken slut punkter i real tid med den nyligen skapade slut punkten markerad](./media/tutorial-designer-automobile-price-deploy/endpoints.png)
 
-1. Select **Test**.
+1. Välj **test**.
 
-1. You can manually input testing data or use the autofilled sample data, and select **Test**.
+1. Du kan manuellt ange test data eller använda de automatiskt ifyllda exempel data och välja **testa**.
 
-    The portal submits a test request to the endpoint and shows the results. Although a price value is generated for the input data, it isn't used to generate the prediction value.
+    Portalen skickar en testbegäran till slut punkten och visar resultatet. Även om ett pris värde genereras för indata används inte det för att generera förutsägelse värdet.
 
-    ![Screenshot showing how to test the real-time endpoint with the scored label for price highlighted](./media/tutorial-designer-automobile-price-deploy/test-endpoint.png)
+    ![Skärm bild som visar hur du testar real tids slut punkten med den visade etiketten för pris som marker ATS](./media/tutorial-designer-automobile-price-deploy/test-endpoint.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -122,7 +122,7 @@ After deployment finishes, you can test your real-time endpoint by going to the 
 
 ## <a name="next-steps"></a>Nästa steg
 
-In this tutorial, you learned the key steps in how to create, deploy, and consume a machine learning model in the designer. To learn more about how you can use the designer to solve other types of problems, see our other sample pipelines.
+I den här självstudien har du lärt dig viktiga steg i hur du skapar, distribuerar och använder en maskin inlärnings modell i designern. Mer information om hur du kan använda designern för att lösa andra typer av problem finns i våra andra exempel pipelines.
 
 > [!div class="nextstepaction"]
-> [Credit risk classification sample](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+> [Exempel på kredit risk klassificering](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)

@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot using the dsregcmd command - Azure Active Directory
-description: Using the output from dsregcmd to understand the state of devices in Azure AD
+title: Felsöka med hjälp av dsregcmd-kommandot – Azure Active Directory
+description: Använda utdata från dsregcmd för att förstå enhetens status i Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -18,30 +18,30 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74379204"
 ---
-# <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Troubleshooting devices using the dsregcmd command
+# <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Felsöka enheter med kommandot dsregcmd
 
-The dsregcmd /status utility must be run as a domain user account.
+Dsregcmd/status-verktyget måste köras som ett domän användar konto.
 
-## <a name="device-state"></a>Device state
+## <a name="device-state"></a>Enhets tillstånd
 
-This section lists the device join state parameters. The table below lists the criteria for the device to be in various join states.
+I det här avsnittet visas status parametrar för enhets anslutning. I tabellen nedan visas villkoren för enheten i olika anslutnings tillstånd.
 
-| AzureAdJoined | EnterpriseJoined | DomainJoined | Device state |
+| AzureAdJoined | EnterpriseJoined | DomainJoined | Enhets tillstånd |
 | ---   | ---   | ---   | ---   |
-| YES | NO | NO | Azure AD Joined |
-| NO | NO | YES | Domain Joined |
-| YES | NO | YES | Hybrid AD Joined |
-| NO | YES | YES | On-premises DRS Joined |
+| Ja | NO | NO | Azure AD-ansluten |
+| NO | NO | Ja | Domänanslutna |
+| Ja | NO | Ja | Hybrid AD-ansluten |
+| NO | Ja | Ja | Lokala DRS-anslutna |
 
 > [!NOTE]
-> Workplace Join (Azure AD registered) state is displayed in the "User State" section
+> Workplace Join (Azure AD-registrerad) visas i avsnittet "användar tillstånd"
 
-- **AzureAdJoined:** - Set to “YES” if the device is Joined to Azure AD. “NO” otherwise.
-- **EnterpriseJoined:** - Set to “YES” if the device is Joined to an on-premises DRS. A device cannot be both EnterpriseJoined and AzureAdJoined.
-- **DomainJoined:** - Set to “YES” if the device is joined to a domain (AD).
-- **DomainName:** - Set to the name of the domain if the device is joined to a domain.
+- **AzureAdJoined:** -anges till "Ja" om enheten är ansluten till Azure AD. "Nej" annars.
+- **EnterpriseJoined:** -anges till "Ja" om enheten är ansluten till en lokal DRS. En enhet kan inte vara både EnterpriseJoined och AzureAdJoined.
+- **DomainJoined:** -anges till "Ja" om enheten är ansluten till en domän (AD).
+- **Domän namn:** – ange namnet på domänen om enheten är ansluten till en domän.
 
-### <a name="sample-device-state-output"></a>Sample device state output
+### <a name="sample-device-state-output"></a>Exempel på enhets tillstånds utdata
 
 ```
 +----------------------------------------------------------------------+
@@ -54,18 +54,18 @@ This section lists the device join state parameters. The table below lists the c
 +----------------------------------------------------------------------+
 ```
 
-## <a name="device-details"></a>Device details
+## <a name="device-details"></a>Enhets information
 
-Displayed only when the device is Azure AD joined or hybrid Azure AD joined (not Azure AD registered). This section lists device identifying details stored in the cloud.
+Visas bara när enheten är Azure AD-ansluten eller en hybrid Azure AD-anslutning (inte Azure AD registrerad). I det här avsnittet visas enhets identifierings information som lagras i molnet.
 
-- **DeviceId:** - Unique ID of the device in the Azure AD tenant
-- **Thumbprint:** - Thumbprint of the device certificate 
-- **DeviceCertificateValidity:** - Validity of the device certificate
-- **KeyContainerId:** - ContainerId of the device private key associated with the device certificate
-- **KeyProvider:** - KeyProvider (Hardware/Software) used to store the device private key.
-- **TpmProtected:** - “YES” if the device private key is stored in a Hardware TPM.
+- **DeviceID:** -unikt ID för enheten i Azure AD-klienten
+- **Tumavtryck:** -tumavtryck för enhetens certifikat 
+- **DeviceCertificateValidity:** -giltigheten för enhets certifikatet
+- **KeyContainerId:** -ContainerId för enhetens privata nyckel som är kopplad till enhetens certifikat
+- Nyckel **utfärdare:** -nyckel tillhandahållare (maskin vara/program vara) som används för att lagra enhetens privata nyckel.
+- **TpmProtected:** -"Yes" om enhetens privata nyckel lagras i en maskinvaru-TPM.
 
-### <a name="sample-device-details-output"></a>Sample device details output
+### <a name="sample-device-details-output"></a>Exempel på enhets information
 
 ```
 +----------------------------------------------------------------------+
@@ -81,17 +81,17 @@ Displayed only when the device is Azure AD joined or hybrid Azure AD joined (not
 +----------------------------------------------------------------------+
 ```
 
-## <a name="tenant-details"></a>Tenant details
+## <a name="tenant-details"></a>Klient information
 
-Displayed only when the device is Azure AD joined or hybrid Azure AD joined (not Azure AD registered). This section lists the common tenant details when a device is joined to Azure AD.
-
-> [!NOTE]
-> If the MDM URLs in this section are empty, it indicates that the MDM was either not configured or current user is not in scope of MDM enrollment. Check the Mobility settings in Azure AD to review your MDM configuration.
+Visas bara när enheten är Azure AD-ansluten eller en hybrid Azure AD-anslutning (inte Azure AD registrerad). I det här avsnittet visas vanliga klient uppgifter när en enhet är ansluten till Azure AD.
 
 > [!NOTE]
-> Even if you see MDM URLs this does not mean that the device is managed by an MDM. The information is displayed if the tenant has MDM configuration for auto-enrollment even if the device itself is not managed. 
+> Om MDM-URL: er i det här avsnittet är tomma, betyder det att MDM antingen inte har kon figurer ATS eller att den aktuella användaren inte omfattas av MDM-registreringen. Kontrol lera inställningarna för mobilitet i Azure AD för att granska MDM-konfigurationen.
 
-### <a name="sample-tenant-details-output"></a>Sample tenant details output
+> [!NOTE]
+> Även om du ser MDM-URL: er betyder det inte att enheten hanteras av en MDM. Informationen visas om klienten har MDM-konfiguration för automatisk registrering även om själva enheten inte hanteras. 
+
+### <a name="sample-tenant-details-output"></a>Exempel på klient information
 
 ```
 +----------------------------------------------------------------------+
@@ -122,24 +122,24 @@ Displayed only when the device is Azure AD joined or hybrid Azure AD joined (not
 +----------------------------------------------------------------------+
 ```
 
-## <a name="user-state"></a>User state
+## <a name="user-state"></a>Användar tillstånd
 
-This section lists the status of various attributes for the user currently logged into the device.
+Det här avsnittet innehåller status för olika attribut för den användare som för närvarande är inloggad på enheten.
 
 > [!NOTE]
-> The command must run in a user context to retrieve valid status.
+> Kommandot måste köras i en användar kontext för att det ska gå att hämta giltig status.
 
-- **NgcSet:** - Set to “YES” if a Windows Hello key is set for the current logged on user.
-- **NgcKeyId:** - ID of the Windows Hello key if one is set for the current logged on user.
-- **CanReset:** - Denotes if the Windows Hello key can be reset by the user. 
-- **Possible values:** - DestructiveOnly, NonDestructiveOnly, DestructiveAndNonDestructive, or Unknown if error. 
-- **WorkplaceJoined:** - Set to “YES” if Azure AD registered accounts have been added to the device in the current NTUSER context.
-- **WamDefaultSet:** - Set to “YES” if a WAM default WebAccount is created for the logged in user. This field could display an error if dsreg /status is run in admin context. 
-- **WamDefaultAuthority:** - Set to “organizations” for Azure AD.
-- **WamDefaultId:** - Always “https://login.microsoft.com” for Azure AD.
-- **WamDefaultGUID:** - The WAM provider’s (Azure AD/Microsoft account) GUID for the default WAM WebAccount. 
+- **NgcSet:** -Ställ in på Ja om en Windows Hello-nyckel har angetts för den aktuella inloggade användaren.
+- **NgcKeyId:** -ID för Windows Hello-nyckeln om en har angetts för den aktuella inloggade användaren.
+- **CanReset:** -anger om Windows Hello-nyckeln kan återställas av användaren. 
+- **Möjliga värden:** -DestructiveOnly, NonDestructiveOnly, DestructiveAndNonDestructive eller Unknown IF error. 
+- **WorkplaceJoined:** -anges till "Ja" om registrerade Azure AD-konton har lagts till i enheten i den aktuella ntuser-kontexten.
+- **WamDefaultSet:** -Ställ in på Ja om ett standard-webbkonto för WAM skapas för den inloggade användaren. Det här fältet kan visa ett fel om dsreg/status körs i administratörs kontexten. 
+- **WamDefaultAuthority:** -inställt på "organisationer" för Azure AD.
+- **WamDefaultId:** -always https://login.microsoft.comför Azure AD.
+- **WamDefaultGUID:** -WAM-providerns (Azure AD/Microsoft-konto) GUID för standard-WAM-webbkontot. 
 
-### <a name="sample-user-state-output"></a>Sample user state output
+### <a name="sample-user-state-output"></a>Exempel på utdata från användar tillstånd
 
 ```
 +----------------------------------------------------------------------+
@@ -158,23 +158,23 @@ This section lists the status of various attributes for the user currently logge
 +----------------------------------------------------------------------+
 ```
 
-## <a name="sso-state"></a>SSO state
+## <a name="sso-state"></a>SSO-tillstånd
 
-This section can be ignored for Azure AD registered devices.
+Det här avsnittet kan ignoreras för registrerade Azure AD-enheter.
 
 > [!NOTE]
-> The command must run in a user context to retrieve valid status for that user.
+> Kommandot måste köras i en användar kontext för att det ska gå att hämta giltig status för användaren.
 
-- **AzureAdPrt:** - Set to “YES” if a PRT is present on the device for the logged-on user.
-- **AzureAdPrtUpdateTime:** - Set to the time in UTC when the PRT was last updated.
-- **AzureAdPrtExpiryTime:** - Set to the time in UTC when the PRT is going to expire if it is not renewed.
-- **AzureAdPrtAuthority:** - Azure AD authority URL
-- **EnterprisePrt:** - Set to “YES” if the device has PRT from on-premises ADFS. For hybrid Azure AD joined devices the device could have PRT from both Azure AD and on-premises AD simultaneously. On-premises joined devices will only have an Enterprise PRT.
-- **EnterprisePrtUpdateTime:** - Set to the time in UTC when the Enterprise PRT was last updated.
-- **EnterprisePrtExpiryTime:** - Set to the time in UTC when the PRT is going to expire if it is not renewed.
-- **EnterprisePrtAuthority:** - ADFS authority URL
+- **AzureAdPrt:** -Ställ in på Ja om det finns en PRT på enheten för den inloggade användaren.
+- **AzureAdPrtUpdateTime:** -Ställ in på tiden i UTC när PRT senast uppdaterades.
+- **AzureAdPrtExpiryTime:** -Ställ in på tid i UTC när PRT upphör att gälla om den inte förnyas.
+- **AzureAdPrtAuthority:** -Azure AD-auktoritets-URL
+- **EnterprisePrt:** -anges till "Ja" om enheten har PRT från den lokala ADFS-enheten. För Hybrid Azure AD-anslutna enheter kan enheten ha PRT från både Azure AD och lokala AD samtidigt. Lokala enheter som är anslutna till har endast en Enterprise-PRT.
+- **EnterprisePrtUpdateTime:** – Ställ in på tiden i UTC när företags-PRT senast uppdaterades.
+- **EnterprisePrtExpiryTime:** -Ställ in på tid i UTC när PRT upphör att gälla om den inte förnyas.
+- **EnterprisePrtAuthority:** -ADFS-auktoritets-URL
 
-### <a name="sample-sso-state-output"></a>Sample SSO state output
+### <a name="sample-sso-state-output"></a>Exempel på SSO State-utdata
 
 ```
 +----------------------------------------------------------------------+
@@ -193,37 +193,37 @@ This section can be ignored for Azure AD registered devices.
 +----------------------------------------------------------------------+
 ```
 
-## <a name="diagnostic-data"></a>Diagnostic data
+## <a name="diagnostic-data"></a>Diagnostikdata
 
-### <a name="pre-join-diagnostics"></a>Pre-join diagnostics
+### <a name="pre-join-diagnostics"></a>För koppling av diagnostik
 
-This section is displayed only if the device is domain joined and is unable to hybrid Azure AD join.
+Det här avsnittet visas endast om enheten är domänansluten och det inte går att ansluta till hybrid Azure AD Join.
 
-This section performs various tests to help diagnose join failures. This section also includes the details of the previous (?). This information includes the error phase, the error code, the server request ID, server response http status, server response error message.
+Det här avsnittet utför olika tester för att hjälpa till att diagnostisera kopplings fel. Det här avsnittet innehåller också information om föregående (?). Den här informationen omfattar fel fasen, felkoden, serverns begäran-ID, http-status för Server svar, fel meddelande för Server svar.
 
-- **User Context:** - The context in which the diagnostics are run. Possible values: SYSTEM, UN-ELEVATED User, ELEVATED User. 
+- **Användar kontext:** -kontexten som diagnostiken körs i. Möjliga värden: SYSTEM, icke-förhöjd användare, utökad användare. 
 
    > [!NOTE]
-   > Since the actual join is performed in SYSTEM context, running the diagnostics in SYSTEM context is closest to the actual join scenario. To run diagnostics in SYSTEM context, the dsregcmd /status command must be run from an elevated command prompt.
+   > Eftersom den faktiska kopplingen utförs i SYSTEM kontext, är körning av diagnostik i SYSTEM kontext närmast det faktiska kopplings scenariot. Om du vill köra diagnostik i SYSTEM kontexten måste kommandot dsregcmd/status köras från en upphöjd kommando tolk.
 
-- **Client Time:** - The system time in UTC.
-- **AD Connectivity Test:** - Test performs a connectivity test to the domain controller. Error in this test will likely result in Join errors in pre-check phase.
-- **AD Configuration Test:** - Test reads and verifies whether the SCP object is configured properly in the on-premises AD forest. Errors in this test would likely result in Join errors in the discover phase with the error code 0x801c001d.
-- **DRS Discovery Test:** - Test gets the DRS endpoints from discovery metadata endpoint and performs a user realm request. Errors in this test would likely result in Join errors in the discover phase.
-- **DRS Connectivity Test:** - Test performs basic connectivity test to the DRS endpoint.
-- **Token acquisition Test:** - Test tries to get an Azure AD authentication token if the user tenant is federated. Errors in this test would likely result in Join errors in the auth phase. If auth fails sync join will be attempted as fallback, unless fallback is explicitly disabled with a registry key.
-- **Fallback to Sync-Join:** - Set to “Enabled” if the registry key, to prevent the fallback to sync join with auth failures, is NOT present. This option is available from Windows 10 1803 and later.
-- **Previous Registration:** - Time the previous Join attempt occurred. Only failed Join attempts are logged.
-- **Error Phase:** - The stage of the join in which it was aborted. Possible values are pre-check, discover, auth, join.
-- **Client ErrorCode:** - Client error code returned (HRESULT).
-- **Server ErrorCode:** - Server error code if a request was sent to the server and server responded back with an error code. 
-- **Server Message:** - Server message returned along with the error code.
-- **Https Status:** - Http status returned by the server.
-- **Request ID:** - The client requestId sent to the server. Useful to correlate with server-side logs.
+- **Klient tid:** -system tiden i UTC.
+- **AD-anslutnings test:** -test utför ett anslutnings test till domänkontrollanten. Fel i det här testet kommer troligen att resultera i kopplings fel i för kontroll fasen.
+- **AD-konfiguration test:** -test läser och verifierar om SCP-objektet har kon figurer ATS korrekt i den lokala AD-skogen. Fel i det här testet skulle sannolikt leda till kopplings fel i identifierings fasen med felkoden 0x801c001d.
+- **DRS identifierings test:** -test hämtar DRS-slutpunkterna från slut punkten för identifiering av metadata och utför en användar sfär förfrågan. Fel i det här testet skulle sannolikt leda till kopplings fel i identifierings fasen.
+- **DRS anslutnings test:** -test utför grundläggande anslutnings test till DRS-slutpunkten.
+- **Test för token-hämtning:** -test försöker hämta en Azure AD-autentiseringstoken om användar klienten är federerad. Fel i det här testet skulle sannolikt leda till kopplings fel i auth-fasen. Om autentiseringen Miss lyckas försöker synkroniseringen bli reserv, om inte återställningen uttryckligen inaktive ras med en register nyckel.
+- **Återgå till Sync – Anslut:** -ange till "aktive rad" om register nyckeln för att förhindra återställningen till att synkronisera koppling med auth-HAVERIer inte finns. Det här alternativet är tillgängligt från Windows 10 1803 och senare.
+- **Tidigare registrering:** -tid då föregående anslutnings försök gjordes. Endast misslyckade anslutnings försök loggas.
+- **Fel fas:** -fasen för den koppling där den avbröts. Möjliga värden är för kontroll, identifiering, auth, Join.
+- **Klient felkod:** -klient fel kod som returnerades (HRESULT).
+- **Server felkod:** -Server fel kod om en begäran skickades till servern och servern svarade igen med en felkod. 
+- **Server meddelande:** – Server meddelande som returnerades tillsammans med felkoden.
+- **Https-status:** -http-status som returneras av servern.
+- **Begärande-ID:** -klient-RequestId skickas till servern. Användbart för att korrelera med loggar på Server sidan.
 
-### <a name="sample-pre-join-diagnostics-output"></a>Sample pre-join diagnostics output
+### <a name="sample-pre-join-diagnostics-output"></a>Exempel på utdata för att koppla från diagnostik
 
-The following example shows diagnostics test failing with a discovery error.
+I följande exempel visas diagnostiskt test med ett identifierings fel.
 
 ```
 +----------------------------------------------------------------------+
@@ -247,7 +247,7 @@ The following example shows diagnostics test failing with a discovery error.
 +----------------------------------------------------------------------+
 ```
 
-The following example shows diagnostics tests are passing but the registration attempt failed with a directory error, which is expected for sync join. Once the Azure AD Connect synchronization job completes, the device will be able to join.
+I följande exempel visas diagnostiska tester, men registrerings försöket misslyckades med ett katalog fel, vilket förväntas för sync-anslutning. När jobbet Azure AD Connect synkronisering har slutförts kommer enheten att kunna ansluta.
 
 ```
 +----------------------------------------------------------------------+
@@ -276,14 +276,14 @@ The following example shows diagnostics tests are passing but the registration a
 +----------------------------------------------------------------------+
 ```
 
-### <a name="post-join-diagnostics"></a>Post-join diagnostics
+### <a name="post-join-diagnostics"></a>Diagnostik efter koppling
 
-This section displays the output of sanity checks performed on a device joined to the cloud.
+I det här avsnittet visas utdata från Sanity-kontroller som utförs på en enhet som är ansluten till molnet.
 
-- **AadRecoveryEnabled:** - If “YES”, the keys stored in the device are not usable and the device is marked for recovery. The next sign in will trigger the recovery flow and re-register the device.
-- **KeySignTest:** - If “PASSED” the device keys are in good health. If KeySignTest fails, the device will usually be marked for recovery. The next sign in will trigger the recovery flow and re-register the device. For hybrid Azure AD joined devices the recovery is silent. While Azure AD joined or Azure AD registered, devices will prompt for user authentication to recover and re-register the device if necessary. **The KeySignTest requires elevated privileges.**
+- **AadRecoveryEnabled:** -om ja, kan nycklarna som lagras i enheten inte användas och enheten markeras för återställning. Nästa inloggning kommer att utlösa återställnings flödet och registrera enheten på nytt.
+- **KeySignTest:** -om "lyckades" enhets nycklarna har felfri hälsa. Om KeySignTest Miss lyckas markeras vanligt vis enheten för återställning. Nästa inloggning kommer att utlösa återställnings flödet och registrera enheten på nytt. För Hybrid Azure AD-anslutna enheter återställningen är tyst. När Azure AD anslöt eller Azure AD är registrerad, kommer enheter att uppmanas att använda användarautentisering för att återställa och omregistrera enheten vid behov. **KeySignTest kräver förhöjd behörighet.**
 
-#### <a name="sample-post-join-diagnostics-output"></a>Sample post-join diagnostics output
+#### <a name="sample-post-join-diagnostics-output"></a>Exempel på efter koppling av diagnostik
 
 ```
 +----------------------------------------------------------------------+
@@ -295,14 +295,14 @@ This section displays the output of sanity checks performed on a device joined t
 +----------------------------------------------------------------------+
 ```
 
-## <a name="ngc-prerequisite-check"></a>NGC prerequisite check
+## <a name="ngc-prerequisite-check"></a>Krav kontroll för NGC
 
-This section performs the perquisite checks for the provisioning of an NGC key. 
+Det här avsnittet utför kraven-kontrollerna för etablering av en NGC-nyckel. 
 
 > [!NOTE]
-> You may not see NGC pre-requisite check details in dsregcmd /status if the user already successfully configured NGC credentials.
+> Du kanske inte ser NGC pre-nödvändig kontroll information i dsregcmd/status om användaren redan har konfigurerat NGC-autentiseringsuppgifter.
 
-### <a name="sample-ngc-prerequisite-check-output"></a>Sample NGC prerequisite check output
+### <a name="sample-ngc-prerequisite-check-output"></a>Exempel på utdata från krav kontroll för NGC
 
 ```
 +----------------------------------------------------------------------+
@@ -325,4 +325,4 @@ This section performs the perquisite checks for the provisioning of an NGC key.
 
 ## <a name="next-steps"></a>Nästa steg
 
-For questions, see the [device management FAQ](faq.md)
+Frågor finns i [vanliga frågor och svar om enhets hantering](faq.md)

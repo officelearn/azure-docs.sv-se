@@ -1,5 +1,5 @@
 ---
-title: Get intent with REST call in Java
+title: Hämta avsikt med REST-anrop i Java
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: diberry
@@ -15,11 +15,11 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74414520"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [JDK SE](https://aka.ms/azure-jdks) (Java Development Kit, Standard Edition)
-* [Visual Studio Code](https://code.visualstudio.com/) or your favorite IDE
-* Public app ID: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
+* [Visual Studio Code](https://code.visualstudio.com/) eller din favorit-IDE
+* ID för offentlig app: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
 ## <a name="get-luis-key"></a>Hämta LUIS-nyckel
 
@@ -27,13 +27,13 @@ ms.locfileid: "74414520"
 
 ## <a name="get-intent-programmatically"></a>Hämta avsikter programmatiskt
 
-Use Java to query the [prediction endpoint](https://aka.ms/luis-apim-v3-prediction) and get a prediction result.
+Använd Java för att fråga efter [förutsägelse slut punkten](https://aka.ms/luis-apim-v3-prediction) och få ett förutsägelse resultat.
 
-1. Make a subdirectory named `lib` and copy in the following java libs:
+1. Skapa en under katalog med namnet `lib` och kopiera i följande Java-libs:
 
-    * [commons-logging-1.2.jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/commons-logging-1.2.jar)
-    * [httpclient-4.5.3.jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/httpclient-4.5.3.jar)
-    * [httpcore-4.4.6.jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/httpcore-4.4.6.jar)
+    * [Commons-Logging-1.2. jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/commons-logging-1.2.jar)
+    * [httpclient-4.5.3. jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/httpclient-4.5.3.jar)
+    * [httpcore-4.4.6. jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/httpcore-4.4.6.jar)
 
 1. Kopiera följande kod för att skapa en klass i en fil som heter `Predict.java`:
 
@@ -104,31 +104,31 @@ Use Java to query the [prediction endpoint](https://aka.ms/luis-apim-v3-predicti
     }    
     ```
 
-1. Replace the following values:
+1. Ersätt följande värden:
 
-    * `YOUR-KEY` with your starter key
-    * `YOUR-ENDPOINT` with your endpoint. Till exempel `westus2.api.cognitive.microsoft.com`.
+    * `YOUR-KEY` med din start nyckel
+    * `YOUR-ENDPOINT` med din slut punkt. Till exempel `westus2.api.cognitive.microsoft.com`.
 
 
-1. Compile the java program from the command line: 
+1. Kompilera Java-programmet från kommando raden: 
 
     ```console
     javac -cp ":lib/*" Predict.java
     ```
 
-1. Run the java program from the command line:
+1. Kör Java-programmet från kommando raden:
 
     ```console
     java -cp ":lib/*" Predict
     ```
 
-1. Review the prediction response, which is returned as JSON:
+1. Granska det förutsägelse svar som returneras som JSON:
 
     ```console
     {'query': 'turn on all lights', 'prediction': {'topIntent': 'HomeAutomation.TurnOn', 'intents': {'HomeAutomation.TurnOn': {'score': 0.5375382}, 'None': {'score': 0.08687421}, 'HomeAutomation.TurnOff': {'score': 0.0207554}}, 'entities': {'HomeAutomation.Operation': ['on'], '$instance': {'HomeAutomation.Operation': [{'type': 'HomeAutomation.Operation', 'text': 'on', 'startIndex': 5, 'length': 2, 'score': 0.724984169, 'modelTypeId': -1, 'modelType': 'Unknown', 'recognitionSources': ['model']}]}}}}
     ```
 
-    The JSON response formatted for readability: 
+    JSON-svaret formaterat för läsbarhet: 
 
     ```JSON
     {
@@ -177,9 +177,9 @@ Use Java to query the [prediction endpoint](https://aka.ms/luis-apim-v3-predicti
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-When you are finished with this quickstart, delete the file from the file system. 
+När du är färdig med den här snabb starten tar du bort filen från fil systemet. 
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Add utterances and train with Java](../get-started-get-model-rest-apis.md)
+> [Lägg till yttranden och träna med Java](../get-started-get-model-rest-apis.md)

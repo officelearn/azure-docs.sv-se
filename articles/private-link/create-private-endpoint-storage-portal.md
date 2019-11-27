@@ -34,9 +34,9 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och under nätet som ä
 1. Längst upp till vänster på skärmen väljer du **Skapa en resurs** > **Nätverk** > **Virtuellt nätverk**.
 1. I **Skapa virtuellt nätverk** anger eller väljer du följande information:
 
-    | Inställning | Värde |
+    | Inställning | Value |
     | ------- | ----- |
-    | Namn | Ange *MyVirtualNetwork*. |
+    | Name | Ange *MyVirtualNetwork*. |
     | Adressutrymme | Ange *10.1.0.0/16*. |
     | Prenumeration | Välj din prenumeration.|
     | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup* och välj sedan **OK**. |
@@ -53,7 +53,7 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och under nätet som ä
 
 1. I **Skapa en virtuell dator – grunder** anger eller väljer du följande information:
 
-    | Inställning | Värde |
+    | Inställning | Value |
     | ------- | ----- |
     | **PROJEKTINFORMATION** | |
     | Prenumeration | Välj din prenumeration. |
@@ -66,7 +66,7 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och under nätet som ä
     | Storlek | Lämna kvar standardinställningen **Standard DS1 v2**. |
     | **ADMINISTRATÖRSKONTO** |  |
     | Användarnamn | Ange ett användar namn som du väljer. |
-    | Lösenord | Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | lösenordsinställning | Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Bekräfta lösenord | Ange lösenordet igen. |
     | **REGLER FÖR INKOMMANDE PORTAR** |  |
     | Offentliga inkommande portar | Lämna kvar standardinställningen **Ingen**. |
@@ -80,11 +80,11 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och under nätet som ä
 
 1. I **Skapa en virtuell dator – nätverk** väljer du följande information:
 
-    | Inställning | Värde |
+    | Inställning | Value |
     | ------- | ----- |
     | Virtuellt nätverk | Lämna standard **MyVirtualNetwork**.  |
     | Adressutrymme | Lämna standard **10.1.0.0/24**.|
-    | Undernät | Lämna standard **under nätet (10.1.0.0/24)** .|
+    | Subnet | Lämna standard **under nätet (10.1.0.0/24)** .|
     | Offentlig IP-adress | Lämna standardinställningen **(ny) myVm-ip**. |
     | Offentliga inkommande portar | Välj **Tillåt valda portar**. |
     | Välj inkommande portar | Välj **HTTP** och **RDP**.|
@@ -101,7 +101,7 @@ I det här avsnittet ska du skapa ett privat lagrings konto med en privat slut p
 
 1. I **skapa lagrings konto – grunderna**anger eller väljer du den här informationen:
 
-    | Inställning | Värde |
+    | Inställning | Value |
     | ------- | ----- |
     | **PROJEKTINFORMATION** | |
     | Prenumeration | Välj din prenumeration. |
@@ -119,17 +119,17 @@ I det här avsnittet ska du skapa ett privat lagrings konto med en privat slut p
 5. I **skapa ett lagrings konto – nätverk**väljer du **Lägg till privat slut punkt**. 
 6. I **skapa privat slut punkt**anger eller väljer du den här informationen:
 
-    | Inställning | Värde |
+    | Inställning | Value |
     | ------- | ----- |
     | **PROJEKTINFORMATION** | |
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.|
     |Plats|Välj **WestCentralUS**.|
-    |Namn|Ange *myPrivateEndpoint*.  |
+    |Name|Ange *myPrivateEndpoint*.  |
     |Lagrings under resurs|Lämna standard- **bloben**. |
     | **NÄTVERK** |  |
     | Virtuellt nätverk  | Välj *MyVirtualNetwork* från resurs gruppen *myResourceGroup*. |
-    | Undernät | Välj *undernät*. |
+    | Subnet | Välj *undernät*. |
     | **PRIVAT DNS-INTEGRERING**|  |
     | Integrera med privat DNS-zon  | Låt standardinställningen vara **Ja**. |
     | Privat DNS-zon  | Lämna standardvärdet * * (New) privatelink.blob.core.windows.net * *. |

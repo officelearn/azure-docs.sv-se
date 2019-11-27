@@ -1,7 +1,7 @@
 ---
-title: Migrate to an Azure authoring resource
+title: Migrera till en Azure Authoring-resurs
 titleSuffix: Azure Cognitive Services
-description: Migrate to an Azure authoring resource.
+description: Migrera till en Azure Authoring-resurs.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -18,38 +18,38 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74221633"
 ---
-# <a name="steps-to-migrate-to-the-azure-authoring-resource"></a>Steps to migrate to the Azure authoring resource
+# <a name="steps-to-migrate-to-the-azure-authoring-resource"></a>Steg för att migrera till Azure Authoring-resursen
 
-From the Language Understanding (LUIS) portal, migrate all the apps you own to use the Azure authoring resource.
+Från Language Understanding-portalen (LUIS) migrerar du alla appar som du äger för att använda Azures redigerings resurs.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* **Optionally**, backup the apps from the LUIS portal's apps list by exporting each app or use the export [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40).
-* **Optionally**, save each app's collaborator's list. All collaborators can be sent an email as part of the migration process.
-* **Required**, you need to have an [Azure subscription](https://azure.microsoft.com/free/). A part of the subscription process does require billing information. However, you can use Free (F0) pricing tiers when you use LUIS. You may eventually find you need a paid tier, as your usage increases. 
+* **Du kan också**säkerhetskopiera apparna från Luis-portalens lista med appar genom att exportera varje app eller använda export- [API: et](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40).
+* **Du kan också**Spara varje apps collaborator's-lista. Alla medarbetare kan skicka ett e-postmeddelande som en del av migreringsprocessen.
+* **Krävs**måste du ha en Azure- [prenumeration](https://azure.microsoft.com/free/). En del av prenumerations processen kräver fakturerings information. Du kan dock använda kostnads fria (F0) pris nivåer när du använder LUIS. Du kanske upptäcker att du behöver en betald nivå, eftersom användningen ökar. 
 
-If you do not have an Azure subscription, [sign up](https://azure.microsoft.com/free/). 
+Om du inte har någon Azure-prenumeration kan du [Registrera dig](https://azure.microsoft.com/free/). 
 
-## <a name="access-the-migration-process"></a>Access the migration process
+## <a name="access-the-migration-process"></a>Åtkomst till migreringsprocessen
 
-On a weekly basis, you are prompted to migrate your apps. You can cancel this window without migrating. If you want to migrate before the next scheduled period, you can begin the migration process from the **Lock** icon on the top tool bar of the LUIS portal. 
+Varje vecka uppmanas du att migrera dina appar. Du kan avbryta det här fönstret utan att migrera. Om du vill migrera före nästa schemalagda period kan du starta migreringsprocessen från **Lås** ikonen i det övre verktygsfältet i Luis-portalen. 
 
-## <a name="app-owner-begins-the-migration-process"></a>App owner begins the migration process
+## <a name="app-owner-begins-the-migration-process"></a>Appens ägare börjar migreringsprocessen
 
-The migration process is available if you are the owner of any LUIS apps. 
+Migreringsprocessen är tillgänglig om du äger LUIS-appar. 
 
-1. Sign in to [LUIS portal](https://www.luis.ai) and agree to the terms of use.
-1. The migration pop-up window allows you to continue the migration or migrate later. Select **Migrate now**. If you choose to migrate later, you have 9 months to migrate to the new authoring key in Azure.
+1. Logga in på [Luis-portalen](https://www.luis.ai) och godkänn användnings villkoren.
+1. I popup-fönstret migrering kan du fortsätta migreringen eller migrera senare. Välj **migrera nu**. Om du väljer att migrera senare har du 9 månader på att migrera till den nya redigerings nyckeln i Azure.
 
-    ![First pop-up window in migration process, select Migrate now.](./media/migrate-authoring-key/migrate-now.png)
+    ![Första popup-fönstret i migreringsprocessen väljer du migrera nu.](./media/migrate-authoring-key/migrate-now.png)
 
-1. Optionally, if any of your apps have collaborators, you are prompted to **send them an email** letting them know about the migration. This is an optional step. 
+1. Om någon av dina appar har medarbetare, uppmanas du att **Skicka ett e-postmeddelande** till dem för att få veta om migreringen. Det här är ett valfritt steg. 
 
-    Once you have migrated your account to Azure, your apps will no longer be available to collaborators.
+    När du har migrerat ditt konto till Azure kommer dina appar inte längre att vara tillgängliga för medarbetare.
 
-    For each collaborator and app, the default email application opens with a lightly formatted email. You can edit the email before sending it.
+    För varje medarbetare och app öppnas standard programmet för e-post med ett ljust formaterat e-postmeddelande. Du kan redigera e-postmeddelandet innan du skickar det.
 
-    The email template includes the exact app ID and app name. 
+    E-postmallen innehåller det exakta app-ID och app-namn. 
 
     ```html
     Dear Sir/Madam,
@@ -62,58 +62,58 @@ The migration process is available if you are the owner of any LUIS apps.
     Thank you
     ```
 
-1. Choose to create a LUIS authoring resource by selecting **Start by creating an authoring resource to migrate your apps to**. 
+1. Välj att skapa en LUIS Authoring-resurs genom att välja **Start genom att skapa en redigerings resurs för att migrera dina appar till**. 
 
-    ![Create authoring resource](./media/migrate-authoring-key/choose-authoring-resource.png)
+    ![Skapa en redigerings resurs](./media/migrate-authoring-key/choose-authoring-resource.png)
 
-1. In the next window, enter your resource key information. After you enter the information, select **Create resource**. You can have 10 free authoring resources per region, per subscription.
+1. I nästa fönster anger du information om resurs nyckeln. När du har angett informationen väljer du **skapa resurs**. Du kan ha 10 kostnads fria redigerings resurser per region, per prenumeration.
 
-    ![Create authoring resource](./media/migrate-authoring-key/choose-authoring-resource-form.png)
+    ![Skapa en redigerings resurs](./media/migrate-authoring-key/choose-authoring-resource-form.png)
 
-    When **creating a new authoring resource**, provide the following information: 
+    När du **skapar en ny redigerings resurs**anger du följande information: 
 
-    * **Resource name** - a custom name you choose, used as part of the URL for your authoring and prediction endpoint queries.
-    * **Tenant** - the tenant your Azure subscription is associated with. 
-    * **Subscription name** - the subscription that will be billed for the resource.
-    * **Resource group** - a custom resource group name you choose or create. Resource groups allow you to group Azure resources for access and management. 
-    * **Location** - the location choice is based on the **resource group** selection.
-    * **Pricing tier** - the pricing tier determines the maximum transaction per second and month. 
+    * **Resurs namn** – ett anpassat namn som du väljer, används som en del av URL: en för din redigering och förutsägelse slut punkts frågor.
+    * **Klient** organisation – klienten som din Azure-prenumeration är associerad med. 
+    * **Prenumerations namn** – den prenumeration som ska faktureras för resursen.
+    * **Resurs grupp** – ett namn på en anpassad resurs grupp som du väljer eller skapar. Med resurs grupper kan du gruppera Azure-resurser för åtkomst och hantering. 
+    * **Plats** – plats valet baseras på **resurs grupps** valet.
+    * **Pris nivå** – pris nivån avgör den högsta transaktionen per sekund och månad. 
 
-1. Validate your authoring resource and **Migrate now**.
+1. Verifiera din redigerings resurs och **migrera nu**.
 
-    ![Create authoring resource](./media/migrate-authoring-key/choose-authoring-resource-and-migrate.png)
+    ![Skapa en redigerings resurs](./media/migrate-authoring-key/choose-authoring-resource-and-migrate.png)
 
-1. When the authoring resource is created, the success message is shown. Select **Close** to close the pop-up window.
+1. När en redigerings resurs skapas visas meddelandet lyckades. Välj **Stäng** för att stänga popup-fönstret.
 
-    ![Your authoring resource was successfully created.](./media/migrate-authoring-key/migration-success.png)
+    ![Din redigerings resurs har skapats.](./media/migrate-authoring-key/migration-success.png)
 
-    The **My apps** list shows the apps migrated to the new authoring resource. 
+    I listan **Mina appar** visas appar som migrerats till den nya redigerings resursen. 
 
-    You don't need to know the authoring resource's key to continue editing your apps in the LUIS portal. If you plan to edit your apps programmatically, you need the authoring key values. These values are displayed on the **Manage -> Azure resources** page in the LUIS portal and are also available in the Azure portal on the resource's **Keys** page.  
+    Du behöver inte känna till redigerings resursens nyckel för att fortsätta redigera dina appar i LUIS-portalen. Om du planerar att redigera dina appar program mässigt behöver du redigera nyckel värden. Dessa värden visas på sidan **Hantera-> Azure-resurser** på Luis-portalen och finns också i Azure Portal på resursens **nyckel** sida.  
 
-1. Before accessing your apps, select the subscription and LUIS authoring resource to see the apps you can author.
+1. Innan du får åtkomst till dina appar väljer du resursen prenumeration och LUIS Authoring för att se de appar som du kan redigera.
 
-    ![Select subscription and LUIS authoring resource to see the apps your can author.](./media/migrate-authoring-key/app-list-by-subscription-and-resource.png)
+    ![Välj prenumerations-och LUIS som skapar resurs för att se vilka appar som kan redigera.](./media/migrate-authoring-key/app-list-by-subscription-and-resource.png)
 
 
-## <a name="app-contributor-begins-the-migration-process"></a>App contributor begins the migration process
+## <a name="app-contributor-begins-the-migration-process"></a>App Contributor påbörjar migreringsprocessen
 
-Follow the same steps as the app owner for migration. The process creates a new authoring resource of kind `LUIS.Authoring`. 
+Följ samma steg som för program ägaren för migrering. Processen skapar en ny redigerings resurs av typen `LUIS.Authoring`. 
 
-You need to migrate your account in order to be added as a contributor to migrated apps owned by others.  
+Du måste migrera ditt konto för att kunna läggas till som deltagare i migrerade appar som ägs av andra.  
 
-## <a name="after-the-migration-process-add-contributors-to-your-authoring-resource"></a>After the migration process, add contributors to your authoring resource
+## <a name="after-the-migration-process-add-contributors-to-your-authoring-resource"></a>Efter migreringsprocessen lägger du till deltagare i din redigerings resurs
 
 [!INCLUDE [Manage contributors for the Azure authoring resource for language understanding](./includes/manage-contributors-authoring-resource.md)]
 
-Learn [how to add contributors](luis-how-to-collaborate.md). 
+Lär dig [hur du lägger till bidrags givare](luis-how-to-collaborate.md). 
 
-## <a name="troubleshooting-errors-with-the-migration-process"></a>Troubleshooting errors with the migration process
+## <a name="troubleshooting-errors-with-the-migration-process"></a>Felsöka fel med migreringsprocessen
 
-If you receive a `MissingSubscriptionRegistration` error in the LUIS portal with a red notification bar during the migration process, create a Cognitive Service resource in the [Azure portal](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) or [Azure CLI](luis-how-to-azure-subscription.md#create-resources-in-azure-cli). Learn more about [causes of this error](../../azure-resource-manager/resource-manager-register-provider-errors.md#cause).
+Om du får ett `MissingSubscriptionRegistration` fel i LUIS-portalen med ett rött meddelande fält under migreringsprocessen, skapar du en kognitiv tjänst resurs i [Azure Portal](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) eller [Azure CLI](luis-how-to-azure-subscription.md#create-resources-in-azure-cli). Läs mer om [orsaker till det här felet](../../azure-resource-manager/resource-manager-register-provider-errors.md#cause).
 
 ## <a name="next-steps"></a>Nästa steg
 
 
-* Review [concepts](luis-concept-keys.md) about authoring and runtime keys
-* Review [how to assign keys](luis-how-to-azure-subscription.md) and add [contributors](luis-how-to-collaborate.md)
+* Granska [begrepp](luis-concept-keys.md) om redigerings-och körnings nycklar
+* Granska [hur du tilldelar nycklar](luis-how-to-azure-subscription.md) och lägger till [deltagare](luis-how-to-collaborate.md)

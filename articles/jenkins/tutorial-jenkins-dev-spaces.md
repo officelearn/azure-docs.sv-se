@@ -26,7 +26,7 @@ I den här självstudien får du utföra följande uppgifter:
 
 Den här självstudien förutsätter mellanliggande kunskaper om grundläggande Azure-tjänster, AKS, ACR, Azure dev Spaces, Jenkins [pipelines](https://jenkins.io/doc/book/pipeline/) och plugin-program och GitHub. Grundläggande kunskaper om support verktyg som kubectl och Helm är till hjälp.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 

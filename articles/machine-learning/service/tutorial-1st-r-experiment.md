@@ -35,7 +35,7 @@ I den här självstudien kommer du att lära dig följande:
 
 Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 1. Följ [installations anvisningarna](https://azure.github.io/azureml-sdk-for-r/articles/installation.html) för att:
     + Installera Anaconda
@@ -70,7 +70,7 @@ Vi rekommenderar att du använder RStudio för att köra den här självstudien.
 > Om du har erfarenhet av RMarkdown kan du använda koden från filen.  Eller så kan du kopiera/klistra in kodfragment från där, eller från den här artikeln till ett R-skript eller kommando raden.
 
 
-## <a name="set-up-your-development-environment"></a>Ställ in din utvecklingsmiljö
+## <a name="set-up-your-development-environment"></a>Konfigurera utvecklingsmiljön
 Installations programmet för ditt utvecklings arbete i den här självstudien innehåller följande åtgärder:
 
 * Installera de paket som krävs

@@ -69,7 +69,7 @@ Exempel kod för att skapa en röst assistent finns på GitHub. Dessa exempel av
 * [Röst assistents exempel (SDK)](https://aka.ms/csspeech/samples)
 * [Självstudie: röst aktivera din assistent med talet SDK,C#](tutorial-voice-enable-your-bot-speech-sdk.md)
 
-## <a name="tutorial"></a>Självstudier
+## <a name="tutorial"></a>Självstudiekurs
 
 En själv studie kurs om hur du [aktiverar röst samtal till din assistent med hjälp av tal-SDK: n och den direkta rad igenkännings kanalen](tutorial-voice-enable-your-bot-speech-sdk.md).
 

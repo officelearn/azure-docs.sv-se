@@ -9,20 +9,22 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 1cfddf14d60b7d73bae283a18732c7c99ae22b4d
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: a943d2a8453cb727e9d01e35b12ca90d939ee5e8
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898235"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546315"
 ---
 # <a name="create-a-group-managed-service-account-gmsa-in-azure-ad-domain-services"></a>Skapa ett grupphanterat tjänst konto (gMSA) i Azure AD Domain Services
 
-Program och tjänster behöver ofta en identitet för att autentisera sig med andra resurser. En webb tjänst kan till exempel behöva autentisera med en databas tjänst. Om ett program eller en tjänst har flera instanser, till exempel en webb Server grupp, får du tids krävande att skapa och konfigurera identiteterna för dessa resurser. I stället kan ett grupphanterat tjänst konto (gMSA) skapas i den Azure Active Directory Domain Services (Azure AD DS)-hanterade domänen. Windows OS hanterar automatiskt autentiseringsuppgifterna för en gMSA, vilket fören klar hanteringen av stora grupper av resurser.
+Program och tjänster behöver ofta en identitet för att autentisera sig med andra resurser. En webb tjänst kan till exempel behöva autentisera med en databas tjänst. Om ett program eller en tjänst har flera instanser, till exempel en webb Server grupp, får du tids krävande att skapa och konfigurera identiteterna för dessa resurser.
 
-Den här artikeln visar hur du skapar en gMSA i en Azure AD DS-hanterad domän.
+I stället kan ett grupphanterat tjänst konto (gMSA) skapas i den Azure Active Directory Domain Services (Azure AD DS)-hanterade domänen. Windows OS hanterar automatiskt autentiseringsuppgifterna för en gMSA, vilket fören klar hanteringen av stora grupper av resurser.
+
+Den här artikeln visar hur du skapar en gMSA i en Azure AD DS-hanterad domän med hjälp av Azure PowerShell.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -59,6 +61,9 @@ Eftersom Azure AD DS-hanterade domäner är låsta och hanteras av Microsoft, fi
 ## <a name="create-a-gmsa"></a>Skapa en gMSA
 
 Skapa först en anpassad ORGANISATIONSENHET med cmdleten [New-ADOrganizationalUnit][New-AdOrganizationalUnit] . Mer information om hur du skapar och hanterar anpassade organisationsenheter finns [i anpassade organisationsenheter i Azure AD DS][create-custom-ou].
+
+> [!TIP]
+> Om du vill slutföra de här stegen för att skapa en gMSA [använder du den virtuella hanterings datorn][tutorial-create-management-vm]. Den här virtuella hanterings datorn ska redan ha de AD PowerShell-cmdletar som krävs och anslutning till den hanterade domänen.
 
 I följande exempel skapas en anpassad ORGANISATIONSENHET med namnet *myNewOU* i den hanterade Azure AD DS-domänen med namnet *contoso.com*. Använd din egen ORGANISATIONSENHET och ditt hanterade domän namn:
 

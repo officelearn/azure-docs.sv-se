@@ -1,10 +1,10 @@
 ---
-title: Introduction to Azure Dev Spaces
+title: Introduktion till Azure dev Spaces
 services: azure-dev-spaces
 ms.date: 05/07/2019
 ms.topic: overview
-description: Introduction to Azure Dev Spaces
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, kubectl, k8s
+description: Introduktion till Azure dev Spaces
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, kubectl, K8s
 manager: gwallace
 ms.openlocfilehash: 08214e4be866da592e4852ef718ee82fa2a27d08
 ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
@@ -13,39 +13,39 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74325797"
 ---
-# <a name="introduction-to-azure-dev-spaces"></a>Introduction to Azure Dev Spaces
+# <a name="introduction-to-azure-dev-spaces"></a>Introduktion till Azure dev Spaces
 
-Azure Dev Spaces provides a rapid, iterative Kubernetes development experience for teams in Azure Kubernetes Service (AKS) clusters. Azure Dev Spaces also allows you to debug and test all the components of your application in AKS with minimal development machine setup, without replicating or mocking up dependencies.
+Med Azure dev Spaces får du en snabb, iterativ Kubernetes utvecklings upplevelse för team i Azure Kubernetes service (AKS)-kluster. Med Azure dev Spaces kan du också felsöka och testa alla komponenter i ditt program i AKS med minimal installation av utvecklings datorer, utan att replikera eller modellera beroenden.
 
 ![](media/azure-dev-spaces/collaborate-graphic.gif)
 
 ## <a name="how-azure-dev-spaces-simplifies-kubernetes-development"></a>Så förenklas Kubernetes-utveckling av Azure Dev Spaces
 
-Azure Dev Spaces helps teams to focus on the development and rapid iteration of their microservice application by allowing teams to work directly with their entire microservices architecture or application running in AKS. Azure Dev Spaces also provides a way to independently update portions of your microservices architecture in isolation without affecting the rest of the AKS cluster or other developers. Azure Dev Spaces is for development and testing in lower-level development and testing environments and is not intended to run on production AKS clusters.
+Med Azure dev Spaces kan grupper fokusera på utveckling och snabb iteration av deras mikrotjänstprogram genom att låta grupper arbeta direkt med sin hela mikrotjänsters arkitektur eller program som körs i AKS. Azure dev Spaces är också ett sätt att uppdatera delar av mikrotjänsternas arkitektur i isolering utan att påverka resten av AKS-klustret eller andra utvecklare. Azure dev Spaces är för utveckling och testning i utvecklings-och testnings miljöer på lägre nivå och är inte avsedd att köras på produktions AKS-kluster.
 
-Since teams can work with the entire application and collaborate directly in AKS, Azure Dev Spaces:
+Eftersom team kan arbeta med hela programmet och samar beta direkt i AKS, Azure dev Spaces:
 
-* Minimizes local machine setup
-* Decreases setup time for new developers on the team
-* Increases a team's velocity through faster iteration
-* Reduces the number of redundant development and integration environments since team members can share a cluster
-* Removes the need to replicate or mock up dependencies
-* Improves collaboration across development teams as well as the teams they work with, such as DevOps teams
+* Minimerar installationen av den lokala datorn
+* Minskar installations tiden för nya utvecklare i teamet
+* Ökar en Teams hastighet genom snabbare upprepning
+* Minskar antalet redundanta miljöer för utveckling och integrering eftersom team medlemmar kan dela ett kluster
+* Tar bort behovet av att replikera eller modellera beroenden
+* Förbättrar samarbetet mellan utvecklings grupper och de team som de arbetar med, till exempel DevOps Teams
 
-Azure Dev Spaces provides tooling to generate Docker and Kubernetes assets for your projects. This tooling allows you to easily add new and existing applications to both a dev space and other AKS clusters.
+Azure dev Spaces innehåller verktyg för att skapa Docker-och Kubernetes-tillgångar för dina projekt. Med det här verktyget kan du enkelt lägga till nya och befintliga program i både ett dev-utrymme och andra AKS-kluster.
 
-For more information on how Azure Dev Spaces works, see [How Azure Dev Spaces works and is configured][how-dev-spaces-works].
+Mer information om hur Azure dev Spaces fungerar finns i [så här fungerar Azure dev Spaces och har kon figurer ATS][how-dev-spaces-works].
 
-## <a name="supported-regions-and-configurations"></a>Supported regions and configurations
+## <a name="supported-regions-and-configurations"></a>Regioner och konfigurationer som stöds
 
-Azure Dev Spaces is supported only by AKS clusters in the **East US**, **East US 2**, **Central US**, **South Central US**, **West US 2**, **North Europe**, **West Europe**, **UK South**, **East Asia**, **Southeast Asia**, **Australia East**, **Canada Central**, and **Canada East** regions. Azure Dev Spaces stöder användning av [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) eller [Visual Studio Code](https://code.visualstudio.com/download) med [Azure Dev Spaces-tillägget](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) som är installerat på Linux, MacOS och Windows 8 eller senare för att skapa och köra program på AKS. It also supports using [Visual Studio](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) installed on Windows 8 or greater. For Visual Studio 2019, you will need the Azure Development workload. For Visual Studio 2017, you will need the Web Development workload and [Visual Studio Tools for Kubernetes](https://aka.ms/get-vsk8stools).
+Azure dev Spaces stöds endast av AKS-kluster i **östra USA**, **östra USA 2**, **centrala USA**, **södra centrala**USA, **västra USA 2**, **norra Europa**, Västeuropa **,** **Storbritannien, södra**, **Asien, östra**, **Sydostasien**, **östra Australien**, **centrala Kanada**och **Östra Kanada** . Azure Dev Spaces stöder användning av [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) eller [Visual Studio Code](https://code.visualstudio.com/download) med [Azure Dev Spaces-tillägget](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) som är installerat på Linux, MacOS och Windows 8 eller senare för att skapa och köra program på AKS. Det stöder också användning av [Visual Studio](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) som är installerat på Windows 8 eller senare. För Visual Studio 2019 behöver du arbets belastningen Azure Development. För Visual Studio 2017 behöver du arbets belastningen webb utveckling och [Visual Studio Tools för Kubernetes](https://aka.ms/get-vsk8stools).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Learn more about rapid, iterative development for teams with Azure Dev Spaces with the team development quickstart.
+Lär dig mer om snabb och iterativ utveckling för team med Azure dev Spaces med snabb start för team utveckling.
 
 > [!div class="nextstepaction"]
-> [Team Development quickstart](quickstart-team-development.md)
+> [Snabb start för team utveckling](quickstart-team-development.md)
 
 
 [how-dev-spaces-works]: how-dev-spaces-works.md

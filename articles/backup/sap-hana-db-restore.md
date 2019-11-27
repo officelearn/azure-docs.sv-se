@@ -24,7 +24,7 @@ Azure Backup kan återställa SAP HANA databaser som körs på virtuella Azure-d
 
 * Återställ till en viss fullständig eller differentiell säkerhets kopia för att återställa till en viss återställnings punkt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Observera följande innan du återställer en databas:
 
@@ -56,7 +56,7 @@ Observera följande innan du återställer en databas:
 
 * Mer information om de återställnings typer som SAP HANA stöder finns i SAP HANA anmärkning [1642148](https://launchpad.support.sap.com/#/notes/1642148)
 
-## <a name="restore-a-database"></a>Återställ en databas
+## <a name="restore-a-database"></a>Återställa en databas
 
 * Öppna valvet där SAP HANA databas som ska återställas har registrerats
 

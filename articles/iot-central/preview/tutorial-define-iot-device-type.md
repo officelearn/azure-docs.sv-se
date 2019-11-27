@@ -1,6 +1,6 @@
 ---
-title: Define a new IoT device type in Azure IoT Central | Microsoft Docs
-description: This tutorial shows you, as a builder, how to create a new Azure IoT device template in your Azure IoT Central application. You define the telemetry, state, properties, and commands for your type.
+title: Definiera en ny IoT-enhets typ i Azure IoT Central | Microsoft Docs
+description: Den här självstudien visar dig som ett verktyg för att skapa en ny mall för Azure IoT-enheter i ditt Azure IoT Central-program. Du definierar telemetri, tillstånd, egenskaper och kommandon för din typ.
 author: rangv
 ms.author: rangv
 ms.date: 10/22/2019
@@ -16,427 +16,427 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74407009"
 ---
-# <a name="tutorial-define-a-new-iot-device-type-in-your-azure-iot-central-application-preview-features"></a>Tutorial: Define a new IoT device type in your Azure IoT Central application (preview features)
+# <a name="tutorial-define-a-new-iot-device-type-in-your-azure-iot-central-application-preview-features"></a>Självstudie: definiera en ny IoT-enhets typ i ditt Azure IoT Central-program (för hands versions funktioner)
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-A device template is a blueprint that defines the characteristics and behaviors of a type of device that connects to an Azure IoT Central application.
+En enhets mall är en skiss som definierar egenskaper och beteenden för en typ av enhet som ansluter till ett Azure IoT Central-program.
 
-For example, a builder can create a device template for a connected fan that has the following characteristics:
+Ett verktyg kan till exempel skapa en enhets mal len för en ansluten fläkt med följande egenskaper:
 
-- Sends temperature telemetry
-- Sends location property
-- Sends fan motor error events
-- Sends fan operating state
-- Provides a writeable fan speed property
-- Provides a command to restart the device
-- Gives you an overall view of the device via a dashboard
+- Skickar temperatur telemetri
+- Skickar plats egenskap
+- Skickar fel händelser för fläkt motor
+- Skickar fläkt drifts tillstånd
+- Tillhandahåller en skrivbar fläkt hastighets egenskap
+- Innehåller ett kommando för att starta om enheten
+- Ger dig en övergripande vy av enheten via en instrument panel
 
-From this device template, an operator can create and connect real fan devices. All these fans have measurements, properties, and commands that operators use to monitor and manage them. Operators use the device dashboards and forms to interact with the fan devices.
+Med den här enhets mal len kan en operatör skapa och ansluta Real fläkt enheter. Alla dessa fläktar har mått, egenskaper och kommandon som operatörer använder för att övervaka och hantera dem. Operatörer använder enhets instrument paneler och formulär för att interagera med fläkt enheterna.
 
 > [!NOTE]
-> Only builders and administrators can create, edit, and delete device templates. Any user can create devices on the **Devices** page from existing device templates.
+> Endast konstruktörer och administratörer kan skapa, redigera och ta bort mallar för enheter. Alla användare kan skapa enheter på sidan **enheter** från befintliga enhets mallar.
 
-[IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) enables IoT Central to integrate devices, without you writing any embedded device code. At the core of IoT Plug and Play is a device capability model schema that describes device capabilities. In an IoT Central Preview application, device templates use these IoT Plug and Play device capability models.
+[IoT plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) gör det möjligt för IoT Central att integrera enheter utan att du behöver skriva någon inbäddad enhets kod. I IoT-Plug and Play är ett modell schema för enhets kapacitet som beskriver enhets funktioner. I ett IoT Central för hands versions program använder enhets mallarna de här IoT-Plug and Play enhets kapacitets modeller.
 
-As a builder, you have several options for creating device templates:
+Som ett verktyg har du flera alternativ för att skapa enhets mallar:
 
-- Design the device template in IoT Central, and then implement its device capability model in your device code.
-- Import a device capability model from the [Azure Certified for IoT device catalog](https://aka.ms/iotdevcat). Then add any cloud properties, customizations, and dashboards your IoT Central application needs.
-- Create a device capability model by using Visual Studio Code. Implement your device code from the model. Manually import the device capability model into your IoT Central application, and then add any cloud properties, customizations, and dashboards your IoT Central application needs.
-- Create a device capability model by using Visual Studio Code. Implement your device code from the model, and connect your real device to your IoT Central application by using a device-first connection. IoT Central finds and imports the device capability model from the public repository for you. You can then add any cloud properties, customizations, and dashboards your IoT Central application needs to the device template.
+- Utforma enhets mal len i IoT Central och implementera sedan dess enhets kapacitets modell i enhets koden.
+- Importera en enhets kapacitets modell från [Azure-certifierad för IoT-katalogen](https://aka.ms/iotdevcat). Lägg sedan till eventuella moln egenskaper, anpassningar och instrument paneler som ditt IoT Central program behöver.
+- Skapa en enhets kapacitets modell med hjälp av Visual Studio Code. Implementera din enhets kod från modellen. Importera enhetens kapacitets modell manuellt till IoT Central programmet och Lägg sedan till eventuella moln egenskaper, anpassningar och instrument paneler som ditt IoT Central program behöver.
+- Skapa en enhets kapacitets modell med hjälp av Visual Studio Code. Implementera din enhets kod från modellen och Anslut din riktiga enhet till ditt IoT Central program genom att använda en enhets första anslutning. IoT Central hittar och importerar enhets kapacitets modellen från den offentliga lagrings platsen åt dig. Du kan sedan lägga till alla moln egenskaper, anpassningar och instrument paneler som ditt IoT Central program behöver för enhets mal len.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-To complete this tutorial, you need to [create an Azure IoT Central application](quick-deploy-iot-central.md).
+För att slutföra den här självstudien måste du [skapa ett Azure IoT Central-program](quick-deploy-iot-central.md).
 
-## <a name="create-a-device-template-from-the-device-catalog"></a>Create a device template from the device catalog
+## <a name="create-a-device-template-from-the-device-catalog"></a>Skapa en enhets mall från enhets katalogen
 
-As a builder, you can quickly start building out your solution by using an IoT Plug and Play certified device. See the list in the [Azure IoT Device Catalog](https://catalog.azureiotsolutions.com/alldevices). IoT Central integrates with the device catalog so you can import a device capability model from any of these IoT Plug and Play certified devices. To create a device template from one of these devices in IoT Central:
+Som ett verktyg kan du snabbt börja skapa din lösning med hjälp av en IoT Plug and Play-certifierad enhet. Se listan i [Azure IoT-katalogen](https://catalog.azureiotsolutions.com/alldevices). IoT Central integreras med enhets katalogen så att du kan importera en enhets kapacitets modell från någon av dessa IoT Plug and Play-certifierade enheter. Så här skapar du en enhets mal len från någon av dessa enheter i IoT Central:
 
-1. Go to the **Device Templates** page in your IoT Central application.
-1. Select **+ New**, and then select any of the IoT Plug and Play certified devices from the catalog. IoT Central creates a device template based on this device capability model.
-1. Add any cloud properties, customizations, or views to your device template.
-1. Select **Publish** to make the template available for operators to view and connect devices.
+1. Gå till sidan **Device templates** i ditt IoT Central-program.
+1. Välj **+ ny**och välj sedan någon av IoT-plug and Play certifierade enheter från katalogen. IoT Central skapar en enhets mal len baserat på enhetens kapacitets modell.
+1. Lägg till eventuella moln egenskaper, anpassningar eller vyer i din enhets mall.
+1. Välj **publicera** för att göra mallen tillgänglig för operatörer för att visa och ansluta enheter.
 
-## <a name="create-a-device-template-from-scratch"></a>Create a device template from scratch
+## <a name="create-a-device-template-from-scratch"></a>Skapa en enhets mal len från grunden
 
-A device template contains:
+En enhets mall innehåller:
 
-- A _device capability model_ that specifies the telemetry, properties, and commands that the device implements. These capabilities are organized into one or more interfaces.
-- _Cloud properties_ that define information that your IoT Central application stores about your devices. For example, a cloud property might record the date a device was last serviced. This information is never shared with the device.
-- _Customizations_ let the builder override some of the definitions in the device capability model. For example, the builder can override the name of a device property. Property names appear in IoT Central dashboards and forms.
-- _Dashboards and forms_ let the builder create a UI that lets operators monitor and manage the devices connected to your application.
+- En _modell för enhets kapacitet_ som anger telemetri, egenskaper och kommandon som enheten implementerar. Dessa funktioner är indelade i ett eller flera gränssnitt.
+- _Moln egenskaper_ som definierar information som IoT Central program lagrar om dina enheter. Till exempel kan en moln egenskap registrera datumet då enheten senast servades. Den här informationen delas aldrig med enheten.
+- _Anpassningar_ gör att verktyget åsidosätter vissa definitioner i enhetens kapacitets modell. Verktyget kan till exempel åsidosätta namnet på en enhets egenskap. Egenskaps namn visas i IoT Central instrument paneler och formulär.
+- _Instrument paneler och formulär_ gör att verktyget kan skapa ett användar gränssnitt som gör att operatörer kan övervaka och hantera de enheter som är anslutna till ditt program.
 
-To create a device template in IoT Central:
+Så här skapar du en enhets mal len i IoT Central:
 
-1. Go to the **Device Templates** page in your IoT Central application.
-1. Select **+ New** > **Custom**.
-1. Enter a name for your template, such as **Environmental Sensor**.
-1. Tryck på **RETUR**. IoT Central creates an empty device template.
+1. Gå till sidan **Device templates** i ditt IoT Central-program.
+1. Välj **+ ny** > **anpassad**.
+1. Ange ett namn för mallen, t. ex. **miljö sensor**.
+1. Tryck på **RETUR**. IoT Central skapar en tom enhets mal len.
 
-## <a name="manage-a-device-template"></a>Manage a device template
+## <a name="manage-a-device-template"></a>Hantera en enhets mall
 
-You can rename or delete a template from the template's home page.
+Du kan byta namn på eller ta bort en mall från mallens start sida.
 
-After you've added a device capability model to your template, you can publish it. Until you've published the template, you can't connect a device based on this template for your operators to see in the **Devices** page.
+När du har lagt till en enhets kapacitets modell i mallen kan du publicera den. Innan du har publicerat mallen kan du inte ansluta en enhet som baseras på den här mallen för dina operatörer att se på sidan **enheter** .
 
-## <a name="create-a-capability-model"></a>Create a capability model
+## <a name="create-a-capability-model"></a>Skapa en kapacitets modell
 
-To create a device capability model, you can:
+För att skapa en enhets kapacitets modell kan du:
 
-- Use IoT Central to create a custom model from scratch.
-- Import a model from a JSON file. A device builder might have used Visual Studio Code to author a device capability model for your application.
-- Select one of the devices from the Device Catalog. This option imports the device capability model that the manufacturer has published for this device. A device capability model imported like this is automatically published.
+- Använd IoT Central för att skapa en anpassad modell från grunden.
+- Importera en modell från en JSON-fil. En Device Builder kan använda Visual Studio Code för att skapa en enhets kapacitets modell för ditt program.
+- Välj en av enheterna i enhets katalogen. Med det här alternativet importeras enhetens kapacitets modell som tillverkaren har publicerat för den här enheten. En enhets funktions modell som importeras som detta publiceras automatiskt.
 
-## <a name="manage-a-capability-model"></a>Manage a capability model
+## <a name="manage-a-capability-model"></a>Hantera en kapacitets modell
 
-After you create a device capability model, you can:
+När du har skapat en enhets kapacitets modell kan du:
 
-- Add interfaces to the model. A model must have at least one interface.
-- Edit model metadata, such as its ID, namespace, and name.
-- Delete the model.
+- Lägg till gränssnitt i modellen. En modell måste ha minst ett gränssnitt.
+- Redigera modellens metadata, till exempel ID, namnrymd och namn.
+- Ta bort modellen.
 
-## <a name="create-an-interface"></a>Create an interface
+## <a name="create-an-interface"></a>Skapa ett gränssnitt
 
-A device capability must have at least one interface. An interface is a reusable collection of capabilities.
+En enhets kapacitet måste ha minst ett gränssnitt. Ett gränssnitt är en återanvändbar samling funktioner.
 
-To create an interface:
+Så här skapar du ett gränssnitt:
 
-1. Go to your device capability model, and choose **+ Add Interface**.
+1. Gå till enhetens funktions modell och välj **+ Lägg till gränssnitt**.
 
-1. On the **Select an Interface** page, you can:
+1. På sidan **Välj ett gränssnitt** kan du:
 
-    - Create a custom interface from scratch.
-    - Import an existing interface from a file. A device builder might have used Visual Studio Code to author an interface for your device.
-    - Choose one of the standard interfaces, such as the **Device Information** interface. Standard interfaces specify the capabilities common to many devices. These standard interfaces are published by Azure IoT, and can't be versioned or edited.
+    - Skapa ett anpassat gränssnitt från grunden.
+    - Importera ett befintligt gränssnitt från en fil. En Device Builder kan använda Visual Studio Code för att skapa ett gränssnitt för enheten.
+    - Välj ett standard gränssnitt, till exempel **enhets informations** gränssnittet. Standard gränssnitt anger de funktioner som är gemensamma för många enheter. Dessa standard gränssnitt publiceras av Azure IoT och kan inte installeras eller redige ras.
 
-1. After you create an interface, choose **Edit Identity** to change the display name of the interface.
+1. När du har skapat ett gränssnitt väljer du **Redigera identitet** för att ändra gränssnittets visnings namn.
 
-1. If you choose to create a custom interface from scratch, you can add your device's capabilities. Device capabilities are telemetry, properties, and commands.
+1. Om du väljer att skapa ett anpassat gränssnitt från grunden kan du lägga till enhetens funktioner. Enhets funktioner är telemetri, egenskaper och kommandon.
 
 ### <a name="telemetry"></a>Telemetri
 
-Telemetry is a stream of values sent from the device, typically from a sensor. For example, a sensor might report the ambient temperature.
+Telemetri är en data ström med värden som skickas från enheten, vanligt vis från en sensor. En sensor kan till exempel rapportera omgivnings temperatur.
 
-The following table shows the configuration settings for a telemetry capability:
+I följande tabell visas konfigurations inställningarna för en telemetri-funktion:
 
 | Fält | Beskrivning |
 | ----- | ----------- |
-| Visningsnamn | The display name for the telemetry value used on dashboards and forms. |
-| Namn | The name of the field in the telemetry message. IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. |
-| Capability Type | Telemetry. |
-| Semantic Type | The semantic type of the telemetry, such as temperature, state, or event. The choice of semantic type determines which of the following fields are available. |
-| Schema | The telemetry data type, such as double, string, or vector. The available choices are determined by the semantic type. Schema isn't available for the event and state semantic types. |
-| Allvarsgrad | Only available for the event semantic type. The severities are **Error**, **Information**, or **Warning**. |
-| State Values | Only available for the state semantic type. Define the possible state values, each of which has display name, name, enumeration type, and value. |
-| Enhet | A unit for the telemetry value, such as **mph**, **%** , or **&deg;C**. |
-| Display Unit | A display unit for use on dashboards and forms. |
-| Kommentar | Any comments about the telemetry capability. |
-| Beskrivning | A description of the telemetry capability. |
+| Visningsnamn | Visnings namnet för telemetri-värdet som används på instrument paneler och formulär. |
+| Name | Namnet på fältet i telemetri meddelandet. IoT Central genererar ett värde för det här fältet från visnings namnet, men du kan välja ett eget värde om det behövs. |
+| Funktions typ | Telemetridata. |
+| Semantisk typ | Den semantiska typen av telemetri, till exempel temperatur, tillstånd eller händelse. Valet av semantisk typ avgör vilka av följande fält som är tillgängliga. |
+| Schema | Data typen telemetri, till exempel Double, String eller Vector. De tillgängliga alternativen bestäms av semantisk typ. Schemat är inte tillgängligt för semantiska typer av händelse och tillstånd. |
+| Allvarlighetsgrad | Endast tillgängligt för den semantiska händelse typen. Allvarlighets graderna är **fel**, **information**eller **Varning**. |
+| Tillstånds värden | Endast tillgängligt för semantisk typ av tillstånd. Definiera möjliga tillstånds värden, som var och en har visnings namn, namn, uppräknings typ och värde. |
+| Enhet | En enhet för telemetri-värdet, till exempel **mph**, **%** eller **&deg;C**. |
+| Visa enhet | En visnings enhet för användning på instrument paneler och formulär. |
+| Kommentar | Eventuella kommentarer om telemetri-funktionerna. |
+| Beskrivning | En beskrivning av telemetri-funktionen. |
 
 ### <a name="properties"></a>Egenskaper
 
-Properties represent point-in-time values. For example, a device can use a property to report the target temperature it's trying to reach. You can set writeable properties from IoT Central.
+Egenskaperna representerar tidpunkts värden. En enhet kan till exempel använda en egenskap för att rapportera mål temperaturen som den försöker nå. Du kan ange skrivbara egenskaper från IoT Central.
 
-The following table shows the configuration settings for a property capability:
+I följande tabell visas konfigurations inställningarna för en egenskaps funktion:
 
 | Fält | Beskrivning |
 | ----- | ----------- |
-| Visningsnamn | The display name for the property value used on dashboards and forms. |
-| Namn | The name of the property. IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. |
-| Capability Type | Property. |
-| Semantic Type | The semantic type of the property, such as temperature, state, or event. The choice of semantic type determines which of the following fields are available. |
-| Schema | The property data type, such as double, string, or vector. The available choices are determined by the semantic type. Schema isn't available for the event and state semantic types. |
-| Writeable | If the property isn't writeable, the device can report property values to IoT Central. If the property is writeable, the device can report property values to IoT Central and IoT Central can send property updates to the device.
-| Allvarsgrad | Only available for the event semantic type. The severities are **Error**, **Information**, or **Warning**. |
-| State Values | Only available for the state semantic type. Define the possible state values, each of which has display name, name, enumeration type, and value. |
-| Enhet | A unit for the property value, such as **mph**, **%** , or **&deg;C**. |
-| Display Unit | A display unit for use on dashboards and forms. |
-| Kommentar | Any comments about the property capability. |
-| Beskrivning | A description of the property capability. |
+| Visningsnamn | Visnings namnet för egenskap svärdet som används på instrument paneler och formulär. |
+| Name | Egenskapens namn. IoT Central genererar ett värde för det här fältet från visnings namnet, men du kan välja ett eget värde om det behövs. |
+| Funktions typ | Immaterialrätt. |
+| Semantisk typ | Den semantiska typen för egenskapen, till exempel temperatur, tillstånd eller händelse. Valet av semantisk typ avgör vilka av följande fält som är tillgängliga. |
+| Schema | Egenskaps data typen, t. ex. Double, String eller Vector. De tillgängliga alternativen bestäms av semantisk typ. Schemat är inte tillgängligt för semantiska typer av händelse och tillstånd. |
+| Skrivbar | Om egenskapen inte är skrivbar kan enheten rapportera egenskaps värden till IoT Central. Om egenskapen är skrivbar kan enheten rapportera egenskaps värden till IoT Central och IoT Central kan skicka egenskaps uppdateringar till enheten.
+| Allvarlighetsgrad | Endast tillgängligt för den semantiska händelse typen. Allvarlighets graderna är **fel**, **information**eller **Varning**. |
+| Tillstånds värden | Endast tillgängligt för semantisk typ av tillstånd. Definiera möjliga tillstånds värden, som var och en har visnings namn, namn, uppräknings typ och värde. |
+| Enhet | En enhet för egenskap svärdet, till exempel **mph**, **%** eller **&deg;C**. |
+| Visa enhet | En visnings enhet för användning på instrument paneler och formulär. |
+| Kommentar | Kommentarer om egenskaps funktionen. |
+| Beskrivning | En beskrivning av egenskaps funktionen. |
 
 ### <a name="commands"></a>Kommandon
 
-You can call device commands from IoT Central. Commands optionally pass parameters to the device and receive a response from the device. For example, you can call a command to reboot a device in 10 seconds.
+Du kan anropa enhets kommandon från IoT Central. Kommandon kan skicka parametrar till enheten och få ett svar från enheten. Du kan till exempel anropa ett kommando för att starta om en enhet på 10 sekunder.
 
-The following table shows the configuration settings for a command capability:
+I följande tabell visas konfigurations inställningarna för en kommando funktion:
 
 | Fält | Beskrivning |
 | ----- | ----------- |
-| Visningsnamn | The display name for the command used on dashboards and forms. |
-| Namn | The name of the command. IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. |
-| Capability Type | Command. |
+| Visningsnamn | Visnings namnet för kommandot som används på instrument paneler och formulär. |
+| Name | Kommandots namn. IoT Central genererar ett värde för det här fältet från visnings namnet, men du kan välja ett eget värde om det behövs. |
+| Funktions typ | Kommandoprompt. |
 | Kommando | `SynchronousExecutionType`. |
-| Kommentar | Any comments about the command capability. |
-| Beskrivning | A description of the command capability. |
-| Förfrågan | If enabled, a definition of the request parameter, including: name, display name, schema, unit, and display unit. |
-| Svar | If enabled, a definition of the command response, including: name, display name, schema, unit, and display unit. |
+| Kommentar | Eventuella kommentarer om kommando funktionen. |
+| Beskrivning | En beskrivning av kommando funktionen. |
+| Förfrågan | Om aktive rad, en definition av Request-parametern, inklusive: namn, visnings namn, schema, enhet och visnings enhet. |
+| Svar | Om aktive rad, en definition av kommando svaret, inklusive: namn, visnings namn, schema, enhet och visnings enhet. |
 
-## <a name="manage-an-interface"></a>Manage an interface
+## <a name="manage-an-interface"></a>Hantera ett gränssnitt
 
-If you haven't published the interface, you can edit the capabilities defined by the interface. After you publish the interface, if you want to make any changes, you'll need to create a new version of the device template and version the interface. You can make changes that don't require versioning, such as display names or units, in the **Customize** section.
+Om du inte har publicerat gränssnittet kan du redigera funktionerna som definierats av gränssnittet. Om du vill göra ändringar när du har publicerat gränssnittet måste du skapa en ny version av enhets mal len och versionen av gränssnittet. Du kan göra ändringar som inte kräver versions hantering, till exempel visnings namn eller enheter, i avsnittet **Anpassa** .
 
-You can also export the interface as a JSON file if you want to reuse it in another capability model.
+Du kan också exportera gränssnittet som en JSON-fil om du vill återanvända det i en annan funktions modell.
 
-## <a name="add-cloud-properties"></a>Add cloud properties
+## <a name="add-cloud-properties"></a>Lägg till moln egenskaper
 
-Use cloud properties to store information about devices in IoT Central. Cloud properties are never sent to a device. For example, you can use cloud properties to store the name of the customer who has installed the device, or the device's last service date.
+Använd moln egenskaper för att lagra information om enheter i IoT Central. Moln egenskaper skickas aldrig till en enhet. Du kan till exempel använda moln egenskaper för att lagra namnet på kunden som har installerat enheten, eller enhetens senaste service datum.
 
-The following table shows the configuration settings for a cloud property:
+I följande tabell visas konfigurations inställningarna för en moln egenskap:
 
 | Fält | Beskrivning |
 | ----- | ----------- |
-| Visningsnamn | The display name for the cloud property value used on dashboards and forms. |
-| Namn | The name of the cloud property. IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. |
-| Semantic Type | The semantic type of the property, such as temperature, state, or event. The choice of semantic type determines which of the following fields are available. |
-| Schema | The cloud property data type, such as double, string, or vector. The available choices are determined by the semantic type. |
+| Visningsnamn | Visnings namnet för moln egenskap svärdet som används på instrument paneler och formulär. |
+| Name | Namnet på moln egenskapen. IoT Central genererar ett värde för det här fältet från visnings namnet, men du kan välja ett eget värde om det behövs. |
+| Semantisk typ | Den semantiska typen för egenskapen, till exempel temperatur, tillstånd eller händelse. Valet av semantisk typ avgör vilka av följande fält som är tillgängliga. |
+| Schema | Data typen Cloud Property, till exempel Double, String eller Vector. De tillgängliga alternativen bestäms av semantisk typ. |
 
-## <a name="add-customizations"></a>Add customizations
+## <a name="add-customizations"></a>Lägg till anpassningar
 
-Use customizations when you need to modify an imported interface or add IoT Central-specific features to a capability. You can only customize fields that don't break interface compatibility. Du kan till exempel:
+Använd anpassningar när du behöver ändra ett importerat gränssnitt eller lägga till IoT Central-/regionsspecifika funktioner till en funktion. Du kan bara anpassa fält som inte avbryter gränssnittets kompatibilitet. Du kan till exempel:
 
-- Customize the display name and units of a capability.
-- Add a default color to use when the value appears on a chart.
-- Specify initial, minimum, and maximum values for a property.
+- Anpassa visnings namn och enheter för en funktion.
+- Lägg till en standard färg som ska användas när värdet visas i ett diagram.
+- Ange start-, minimi-och max värden för en egenskap.
 
-You can't customize the capability name or capability type. If there are changes you can't make in the **Customize** section, you'll need to version your device template and interface to modify the capability.
+Du kan inte anpassa funktions namnet eller funktions typen. Om det finns ändringar som du inte kan göra i avsnittet **Anpassa** , måste du konfigurera din enhets mall och ditt gränssnitt för att ändra funktionen.
 
-### <a name="generate-default-views"></a>Generate default views
+### <a name="generate-default-views"></a>Generera standardvyer
 
-Generating default views is a quick way to visualize your important device information. You have up to three default views generated for your device template:
+Att generera standardvyer är ett snabbt sätt att visualisera viktig enhets information. Du har upp till tre standardvyer som skapats för din enhets mall:
 
-- **Commands** provides a view with device commands, and allows your operator to dispatch them to your device.
-- **Overview** provides a view with device telemetry, displaying charts and metrics.
-- **About** provides a view with device information, displaying device properties.
+- **Kommandona** visar en vy med enhets kommandon och låter operatören skicka dem till enheten.
+- **Översikt** innehåller en vy med enhets telemetri, som visar diagram och mått.
+- **Om** visar en vy med enhets information och visar enhets egenskaper.
 
-After you've selected **Generate default views**, you see that they have been automatically added under the **Views** section of your device template.
+När du har valt **generera standardvyer**ser du att de har lagts till automatiskt under avsnittet **vyer** i din enhets mall.
 
-## <a name="add-dashboards"></a>Add dashboards
+## <a name="add-dashboards"></a>Lägg till instrument paneler
 
-Add dashboards to a device template to enable operators to visualize a device by using charts and metrics. You can have multiple dashboards for a device template.
+Lägg till instrument paneler till en enhets mall för att aktivera operatörer för att visualisera en enhet med hjälp av diagram och mått. Du kan ha flera instrument paneler för en enhets mall.
 
-To add a dashboard to a device template:
+Lägga till en instrument panel i en enhets mall:
 
-1. Go to your device template, and select **Views**.
-1. Choose **Visualizing the Device**.
-1. Enter a name for your dashboard in **Dashboard Name**.
-1. Add tiles to your dashboard from the list of static, property, cloud property, telemetry, and command tiles. Drag and drop the tiles you want to add to your dashboard.
-1. To plot multiple telemetry values on a single chart tile, select the telemetry values, and then select **Combine**.
-1. Configure each tile you add to customize how it displays data. You can do this by selecting the gear icon, or by selecting **Change configuration** on your chart tile.
-1. Arrange and resize the tiles on your dashboard.
+1. Gå till din enhets mall och välj **vyer**.
+1. Välj **visualisera enheten**.
+1. Ange ett namn på instrument panelen i **instrument panelens namn**.
+1. Lägg till paneler på instrument panelen från listan över statiska, egenskaper, moln egenskaper, telemetri och kommando paneler. Dra och släpp de paneler som du vill lägga till på instrument panelen.
+1. Om du vill rita flera telemetri värden på en enda diagram panel väljer du telemetri-värden och väljer sedan **kombinera**.
+1. Konfigurera varje panel som du lägger till för att anpassa hur data visas. Du kan göra detta genom att välja kugg hjuls ikonen eller genom att välja **ändra konfiguration** på diagram panelen.
+1. Ordna och ändra storlek på panelerna på instrument panelen.
 1. Spara ändringarna.
 
-### <a name="configure-preview-device-to-view-dashboard"></a>Configure preview device to view dashboard
+### <a name="configure-preview-device-to-view-dashboard"></a>Konfigurera förhands gransknings enheten för att visa instrument panelen
 
-To view and test your dashboard, select **Configure preview device**. This enables you to see the dashboard as your operator sees it after it's published. Use this option to validate that your views show the correct data. You can choose from the following:
+Välj **Konfigurera för hands versions enhet**om du vill visa och testa din instrument panel. På så sätt kan du se instrument panelen när din operatör ser den när den har publicerats. Använd det här alternativet för att kontrol lera att dina vyer visar rätt data. Du kan välja bland följande:
 
-- No preview device.
-- The real test device you've configured for your device template.
-- An existing device in your application, by using the device ID.
+- Ingen förhands gransknings enhet.
+- Den riktiga testen het som du har konfigurerat för din enhets mall.
+- En befintlig enhet i programmet med hjälp av enhets-ID: t.
 
-## <a name="add-forms"></a>Add forms
+## <a name="add-forms"></a>Lägg till formulär
 
-Add forms to a device template to enable operators to manage a device by viewing and setting properties. Operators can only edit cloud properties and writeable device properties. You can have multiple forms for a device template.
+Lägg till formulär i en enhets mall för att aktivera operatörer för att hantera en enhet genom att visa och ange egenskaper. Operatörer kan bara redigera moln egenskaper och skrivbara enhets egenskaper. Du kan ha flera formulär för en enhets mall.
 
-To add a form to a device template:
+Så här lägger du till ett formulär i en enhets mal len:
 
-1. Go to your device template, and select **Views**.
-1. Choose **Editing Device and Cloud data**.
-1. Enter a name for your form in **Form Name**.
-1. Select the number of columns to use to lay out your form.
-1. Add properties to an existing section on your form, or select properties and choose **Add Section**. Use sections to group properties on your form. You can add a title to a section.
-1. Configure each property on the form to customize its behavior.
-1. Arrange the properties on your form.
+1. Gå till din enhets mall och välj **vyer**.
+1. Välj **Redigera enhets-och moln data**.
+1. Ange ett namn för ditt formulär i **formulär namn**.
+1. Välj hur många kolumner som ska användas för att utforma ditt formulär.
+1. Lägg till egenskaper till ett befintligt avsnitt i formuläret eller välj egenskaper och sedan **Lägg till avsnitt**. Använd avsnitt för att gruppera egenskaper i formuläret. Du kan lägga till en rubrik i ett avsnitt.
+1. Konfigurera varje egenskap i formuläret för att anpassa dess beteende.
+1. Ordna egenskaperna i formuläret.
 1. Spara ändringarna.
 
-## <a name="publish-a-device-template"></a>Publish a device template
+## <a name="publish-a-device-template"></a>Publicera en enhets mall
 
-Before you can connect a device that implements your device capability model, you must publish your device template.
+Innan du kan ansluta en enhet som implementerar din enhets kapacitets modell måste du publicera din enhets mall.
 
-After you publish a device template, you can only make limited changes to the device capability model. To modify an interface, you need to [create and publish a new version](./howto-version-device-template.md).
+När du har publicerat en enhets mall kan du bara göra begränsade ändringar i enhetens kapacitets modell. Om du vill ändra ett gränssnitt måste du [skapa och publicera en ny version](./howto-version-device-template.md).
 
-To publish a device template, go to you your device template, and select **Publish**.
+Om du vill publicera en enhets mal len går du till din enhets mall och väljer **publicera**.
 
-After you publish a device template, an operator can go to the **Devices** page, and add either real or simulated devices that use your device template. You can continue to modify and save your device template as you're making changes. When you want to push these changes out to the operator to view under the **Devices** page, you must select **Publish** each time.
+När du har publicerat en enhets mall kan en operatör gå till sidan **enheter** och lägga till antingen verkliga eller simulerade enheter som använder din enhets mall. Du kan fortsätta att ändra och spara din enhets mall när du gör ändringar. När du vill skicka ut dessa ändringar till operatören och visa dem på sidan **enheter** måste du välja **publicera** varje gång.
 
-## <a name="define-a-new-iot-gateway-device-type-preview-features"></a>Define a new IoT gateway device type (preview features)
+## <a name="define-a-new-iot-gateway-device-type-preview-features"></a>Definiera en ny enhets typ för IoT Gateway (för hands versions funktioner)
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-This tutorial shows you, as a builder, how to use a gateway device template to define a new type of IoT device in your IoT Central application. 
+I den här självstudien får du, som ett verktyg, använda en mall för en gateway-enhet för att definiera en ny typ av IoT-enhet i IoT Central programmet. 
 
-In this section, you create a **Smart Building** device template. A Smart Building gateway device:
+I det här avsnittet skapar du en mall för **Smart skapande** enhet. En enhet för smart skapande Gateway:
 
-* Sends telemetry, such as temperature and occupancy.
-* Responds to writeable properties when updated in the cloud, such as telemetry send interval.
-* Responds to commands, such as resetting temperature.
-* Allows relationships to other device capability models.
+* Skickar telemetri, till exempel temperatur och användning.
+* Svarar på skrivbara egenskaper när de uppdateras i molnet, till exempel intervall för att skicka telemetri.
+* Svarar på kommandon, t. ex. återställning av temperatur.
+* Tillåter relationer till andra enhets kapacitets modeller.
 
-### <a name="create-iot-device-templates"></a>Create IoT device templates
+### <a name="create-iot-device-templates"></a>Skapa mallar för IoT-enheter
 
-Here's how to create IoT device templates: 
+Så här skapar du mallar för IoT-enheter: 
 
-1. In the left navigation, select **Device Templates**. Then select **+ New**, and select the **IoT Device** tile and occupancy sensor tile. Select **Next: Customize**.
+1. I det vänstra navigerings fältet väljer du **enhets mallar**. Välj sedan **+ ny**och välj panel för **IoT-enhet** och beläggnings sensor. Välj **Nästa: anpassa**.
 
-   ![Screenshot of Device Templates page and options](./media/tutorial-define-iot-device-type/gateway-downstream-new.png)
+   ![Skärm bild av sidan mallar och alternativ för enhet](./media/tutorial-define-iot-device-type/gateway-downstream-new.png)
 
-1. On the **Review** page, select **Create**. 
+1. På sidan **Granska** väljer du **skapa**. 
 
-   ![Screenshot of Review page](./media/tutorial-define-iot-device-type/gateway-downstream-review.png)
+   ![Skärm bild av gransknings Sidan](./media/tutorial-define-iot-device-type/gateway-downstream-review.png)
 
-1. A new device template is created. 
+1. En ny enhets mall skapas. 
 
-   ![Screenshot of new device template](./media/tutorial-define-iot-device-type/occupancy-sensor.png)
+   ![Skärm bild av ny enhets mall](./media/tutorial-define-iot-device-type/occupancy-sensor.png)
 
-Here's how to create a device template for S1 Sensor:
+Så här skapar du en enhets mall för S1-sensor:
 
-1. In the left navigation, select **Device Templates**. Then select **+ New**, and select the **IoT Device** tile and select occupancy sensor tile. Select **Next: Customize**.
+1. I det vänstra navigerings fältet väljer du **enhets mallar**. Välj sedan **+ ny**och välj panelen **IoT-enhet** och välj beläggnings sensor panel. Välj **Nästa: anpassa**.
 
-   ![Screenshot of Device Templates page and options](./media/tutorial-define-iot-device-type/s1-sensor.png)
+   ![Skärm bild av sidan mallar och alternativ för enhet](./media/tutorial-define-iot-device-type/s1-sensor.png)
 
-1. On the **Review** page, select **Create**. 
+1. På sidan **Granska** väljer du **skapa**. 
 
-   ![Screenshot of Review page](./media/tutorial-define-iot-device-type/s1-review.png)
+   ![Skärm bild av gransknings Sidan](./media/tutorial-define-iot-device-type/s1-review.png)
 
-1. A new device template is created. 
+1. En ny enhets mall skapas. 
 
-   ![Screenshot of new device template](./media/tutorial-define-iot-device-type/s1-template.png)
+   ![Skärm bild av ny enhets mall](./media/tutorial-define-iot-device-type/s1-template.png)
 
-## <a name="create-an-iot-gateway-device-template"></a>Create an IoT gateway device template
+## <a name="create-an-iot-gateway-device-template"></a>Skapa en IoT Gateway-enhets mall
 
-You can choose to create an IoT gateway device template. The gateway device has relationships with downstream devices that connect into IoT Central through the gateway device. 
+Du kan välja att skapa en enhets mal len för IoT Gateway. Gateway-enheten har relationer med underordnade enheter som ansluter till IoT Central via gateway-enheten. 
 
-### <a name="downstream-device-relationships-with-gateway-device"></a>Downstream device relationships with gateway device
+### <a name="downstream-device-relationships-with-gateway-device"></a>Underordnade enhets relationer med gateway-enhet
 
-IoT devices can connect to an IoT gateway device.
+IoT-enheter kan ansluta till en IoT gateway-enhet.
 
-![Diagram of relationship between gateway device and downstream devices](./media/tutorial-define-iot-device-type/gatewaypattern.png)
+![Diagram över relationen mellan gateway-enheter och underordnade enheter](./media/tutorial-define-iot-device-type/gatewaypattern.png)
 
-As a builder, you can create and edit IoT gateway device templates in your application. After you publish a device template, you can connect real devices that implement the device template.
+Som ett verktyg kan du skapa och redigera IoT gateway-enhetens mallar i ditt program. När du har publicerat en enhets mall kan du ansluta riktiga enheter som implementerar enhets mal len.
 
-### <a name="select-a-device-template-type"></a>Select a device template type 
+### <a name="select-a-device-template-type"></a>Välj en typ av enhets mal len 
 
-To add a new device template to your application:
+Så här lägger du till en ny enhets mal len i programmet:
 
-1. From the left pane, select the **Device Templates** tab.
+1. I den vänstra rutan väljer du fliken **enhets mallar** .
 
-   ![Screenshot of Device templates page](./media/tutorial-define-iot-device-type/devicetemplate.png)
+   ![Skärm bild av sidan mallar för enheter](./media/tutorial-define-iot-device-type/devicetemplate.png)
 
-1. Select **+ New** to start creating a new device template.
+1. Välj **+ nytt** för att börja skapa en ny enhets mall.
 
-   ![Screenshot of Device templates page, with New highlighted](./media/tutorial-define-iot-device-type/devicetemplatenew.png)
+   ![Skärm bild av sidan enhets mallar med ny markerad](./media/tutorial-define-iot-device-type/devicetemplatenew.png)
 
-   ![Screenshot of Customize device page](./media/tutorial-define-iot-device-type/gateway-review.png)
+   ![Skärm bild av sidan Anpassa enhet](./media/tutorial-define-iot-device-type/gateway-review.png)
 
-1. On the **Select template type** page, select **Azure IoT**, and then select **Next: Customize**.
+1. På sidan **Välj Malltyp** väljer du **Azure IoT**och väljer sedan **Nästa: anpassa**.
 
-   ![Screenshot of Select template type page](./media/tutorial-define-iot-device-type/gateway-customize.png)
+   ![Skärm bild av sidan Välj Malltyp](./media/tutorial-define-iot-device-type/gateway-customize.png)
 
-1. Select the gateway check box, and select **Create**.
+1. Markera kryss rutan gateway och välj **skapa**.
 
-   ![Screenshot of Customize device page, with gateway highlighted](./media/tutorial-define-iot-device-type/gateway-review.png)
+   ![Skärm bild av sidan Anpassa enhet med Gateway markerad](./media/tutorial-define-iot-device-type/gateway-review.png)
 
-1. On the review page, select **Create**. 
+1. På sidan Granska väljer du **skapa**. 
 
-1. Enter the gateway template name, **Smart Building Gateway Template**. Select the **Custom** tile.
+1. Ange namnet på Gateway-mallen och **mallen för smart skapande Gateway**. Välj den **anpassade** panelen.
 
-1. Add a standard interface **Device Information**.
+1. Lägg till **enhets information**för standard gränssnitt.
 
-### <a name="add-relationships"></a>Add relationships
+### <a name="add-relationships"></a>Lägg till relationer
 
-You can add downstream relationships to device capability models for devices you connect to a gateway device.
+Du kan lägga till underordnade relationer till enhets kapacitets modeller för enheter som du ansluter till en gateway-enhet.
 
-Create relationships to downstream device capability models. Välj **Spara**.
+Skapa relationer till kapacitets modeller för underordnade enheter. Välj **Spara**.
 
-![Screenshot of Smart Building Gateway Template, with various options highlighted](./media/tutorial-define-iot-device-type/gateway-occupancy-s1-rel.png)
+![Skärm bild av mallen för smart Building Gateway, med olika alternativ markerade](./media/tutorial-define-iot-device-type/gateway-occupancy-s1-rel.png)
 
-### <a name="add-cloud-properties"></a>Add cloud properties
+### <a name="add-cloud-properties"></a>Lägg till moln egenskaper
 
-A device template can include cloud properties. Cloud properties only exist in the IoT Central application, and are never sent to, or received from, a device.
+En enhets mall kan innehålla moln egenskaper. Moln egenskaper finns bara i IoT Central programmet och skickas aldrig till eller tas emot från en enhet.
 
-1. Select **Cloud Properties** >  **+ Add Cloud Property**. Use the information in the following table to add a cloud property to your device template.
+1. Välj **moln egenskaper** >  **+ Lägg till moln egenskap**. Använd informationen i följande tabell för att lägga till en moln egenskap till din enhets mall.
 
-    | Visningsnamn      | Semantic type | Schema |
+    | Visningsnamn      | Semantisk typ | Schema |
     | ----------------- | ------------- | ------ |
-    | Senaste servicedatum | Inget          | Datum   |
-    | Customer name     | Inget          | Sträng |
+    | Senaste servicedatum | Inga          | Date   |
+    | Kund namn     | Inga          | Sträng |
 
 2. Välj **Spara**.
 
-### <a name="add-customizations"></a>Add customizations
+### <a name="add-customizations"></a>Lägg till anpassningar
 
-Use customizations to modify an interface, or to add IoT Central-specific features to a capability that doesn't require you to version your device capability model. You can customize fields when the capability model is in a draft or published state. You can only customize fields that don't break interface compatibility. Du kan till exempel:
+Använd anpassningar för att ändra ett gränssnitt eller lägga till IoT Central-/regionsspecifika funktioner till en funktion som inte kräver att du har version av enhetens kapacitets modell. Du kan anpassa fält när kapacitets modellen är i ett utkast eller publicerings tillstånd. Du kan bara anpassa fält som inte avbryter gränssnittets kompatibilitet. Du kan till exempel:
 
-- Customize the display name and units of a capability.
-- Add a default color to use when the value appears on a chart.
-- Specify initial, minimum, and maximum values for a property.
+- Anpassa visnings namn och enheter för en funktion.
+- Lägg till en standard färg som ska användas när värdet visas i ett diagram.
+- Ange start-, minimi-och max värden för en egenskap.
 
-You can't customize the capability name or capability type.
+Du kan inte anpassa funktions namnet eller funktions typen.
 
-When you're finished customizing, select **Save**.
+När du är klar med anpassningen väljer du **Spara**.
 
-### <a name="create-views"></a>Create views
+### <a name="create-views"></a>Skapa vyer
 
-As a builder, you can customize the application to display relevant information about the environmental sensor device to an operator. Your customizations enable the operator to manage the environmental sensor devices connected to the application. You can create two types of views for an operator to use to interact with devices:
+Som ett verktyg kan du anpassa programmet för att visa relevant information om miljö sensor enheten i en operatör. Dina anpassningar gör att operatören kan hantera miljö sensor enheter som är anslutna till programmet. Du kan skapa två typer av vyer för en operator som ska användas för att interagera med enheter:
 
-* Forms to view and edit device and cloud properties.
-* Dashboards to visualize devices.
+* Formulär för att visa och redigera egenskaper för enhet och moln.
+* Instrument paneler för att visualisera enheter.
 
-### <a name="generate-default-views"></a>Generate default views
+### <a name="generate-default-views"></a>Generera standardvyer
 
-If you select **Generate default views**, you can generate the **Overview** and **About** dashboards. 
+Om du väljer **generera standardvyer**kan du generera en **Översikt** och **om** instrument paneler. 
 
-## <a name="publish-a-device-template"></a>Publish a device template
+## <a name="publish-a-device-template"></a>Publicera en enhets mall
 
-Before you can create a simulated environmental sensor, or connect a real environmental sensor, you need to publish your device template.
+Innan du kan skapa en simulerad miljö sensor, eller ansluta en riktig miljö sensor, måste du publicera din enhets mall.
 
-To publish a device template:
+Så här publicerar du en enhets mal len:
 
-1. Go to your device template from the **Device Templates** page.
+1. Gå till din enhets mall från sidan **enhets mallar** .
 
 2. Välj **Publicera**.
 
-3. In the **Publish a Device Template** dialog box, choose **Publish**.
+3. I dialog rutan **publicera en enhets mall** väljer du **publicera**.
 
-After a device template is published, it's visible on the **Devices** page and to the operator. In a published device template, you can't edit a device capability model without creating a new version. However, you can make updates to cloud properties, customizations, and views, in a published device template. These updates don't cause a new version to be created. After making any changes, select **Publish**  to push those changes out to your operator.
+När en enhets mal len har publicerats visas den på sidan **enheter** och i operatorn. I en publicerad enhets mall kan du inte redigera en enhets kapacitets modell utan att skapa en ny version. Du kan dock göra uppdateringar av moln egenskaper, anpassningar och vyer i en publicerad enhets mall. De här uppdateringarna innebär inte att en ny version skapas. När du har gjort några ändringar väljer du **publicera** för att skicka ut ändringarna till din operatör.
 
-## <a name="create-a-gateway-simulated-device"></a>Create a gateway simulated device
+## <a name="create-a-gateway-simulated-device"></a>Skapa en simulerad gateway-enhet
 
-From the device explorer, create a simulated smart building gateway. 
+I enhets Utforskaren skapar du en simulerad Smart skapande Gateway. 
 
-![Screenshot of Create new device dialog box](./media/tutorial-define-iot-device-type/smartbuildingdevice.png)
+![Skärm bild av dialog rutan skapa ny enhet](./media/tutorial-define-iot-device-type/smartbuildingdevice.png)
 
-## <a name="create-downstream-simulated-devices"></a>Create downstream simulated devices
+## <a name="create-downstream-simulated-devices"></a>Skapa underordnade simulerade enheter
 
-From the device explorer, create a simulated occupancy sensor. 
+Skapa en simulerad beläggnings sensor från Device Explorer. 
 
-![Screenshot of Create new device dialog box](./media/tutorial-define-iot-device-type/occupancydevice.png)
+![Skärm bild av dialog rutan skapa ny enhet](./media/tutorial-define-iot-device-type/occupancydevice.png)
 
-From the device explorer, create a simulated S1 sensor. 
+Skapa en simulerad S1-sensor från Device Explorer. 
 
-![Screenshot of Create new device dialog box](./media/tutorial-define-iot-device-type/s1device.png)
+![Skärm bild av dialog rutan skapa ny enhet](./media/tutorial-define-iot-device-type/s1device.png)
 
-## <a name="add-downstream-devices-relationships-to-a-gateway-device"></a>Add downstream devices relationships to a gateway device
+## <a name="add-downstream-devices-relationships-to-a-gateway-device"></a>Lägg till underordnade enhets relationer till en gateway-enhet
 
-Select S1 Sensor and Occupancy Sensor, and select **Connect to gateway**. 
+Välj S1 sensor och beläggnings sensor och välj **Anslut till gateway**. 
 
-![Screenshot of Occupancy Sensor, with Connect to gateway highlighted](./media/tutorial-define-iot-device-type/connecttogateway.png)
+![Skärm bild av besittnings sensor med anslutning till gateway markerad](./media/tutorial-define-iot-device-type/connecttogateway.png)
 
-Select a gateway device template and gateway device instance, and select **Join**.
+Välj en mall för gateway-enhet och gateway-enhet och välj **Anslut**.
 
 ## <a name="next-steps"></a>Nästa steg
 
 I den här självstudiekursen lärde du dig att:
 
-* Create a new IoT gateway as a device template.
-* Create cloud properties.
-* Create customizations.
-* Define a visualization for the device telemetry.
-* Add relationships.
-* Publish your device template.
+* Skapa en ny IoT-gateway som en enhets mall.
+* Skapa moln egenskaper.
+* Skapa anpassningar.
+* Definiera en visualisering för enhetens telemetri.
+* Lägg till relationer.
+* Publicera din enhets mall.
 
-Next, you can:
+Sedan kan du:
 
 > [!div class="nextstepaction"]
-> [Connect a device](tutorial-connect-pnp-device.md)
+> [Anslut en enhet](tutorial-connect-pnp-device.md)

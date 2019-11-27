@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 712273ddfb8b6f781627e2cc7915a1f538f57b4d
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 4f9804ed0e7d6c83a4f6fc732f836fcecce1c2e7
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090633"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74548345"
 ---
 # <a name="streaming-ingestion-preview"></a>Strömnings inmatning (för hands version)
 
@@ -73,8 +73,7 @@ Det finns två typer av streaming-inmatningar som stöds:
 
 ## <a name="limitations"></a>Begränsningar
 
-* Strömnings kapacitet och kapacitets skalning med ökad storlek på virtuella datorer och kluster. Den rekommenderade belastningen för en enskild D14-nod är upp till 150 begär Anden per sekund.
-* För närvarande stöds endast 8-och 16-SKU: er (D13, D14, L8 och L16).
+* Strömnings kapacitet och kapacitets skalning med ökad storlek på virtuella datorer och kluster. Samtidiga inmatningar är begränsade till 6 inmatningar per kärna. För till exempel 16 core-SKU: er, till exempel D14 och L16, är den maximala belastningen som stöds 96 samtidiga inmatningar. För 2 kärn SKU: er, till exempel D11, är den maximala belastningen 12 samtidiga inmatningar.
 * Data storleks begränsningen per inmatnings förfrågan är 4 MB.
 * Schema uppdateringar, till exempel skapande och ändring av tabeller och inmatnings mappningar, kan ta upp till 5 minuter för strömnings tjänsten.
 * Att aktivera strömnings inmatning i ett kluster, även när data inte matas in via direkt uppspelning, använder en del av den lokala SSD-disken på kluster datorerna för strömnings inmatnings data och minskar lagrings utrymmet som är tillgängliga för varmt cacheminne.

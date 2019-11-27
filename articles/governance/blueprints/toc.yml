@@ -203,7 +203,7 @@
 - name: Felsöka
   displayName: 'errors, violation'
   href: ./troubleshoot/general.md
-- name: Referenser
+- name: Referens
   items:
     - name: Azure PowerShell
       href: '/powershell/module/az.blueprint/#blueprint'

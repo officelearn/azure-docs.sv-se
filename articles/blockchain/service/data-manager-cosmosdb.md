@@ -1,6 +1,6 @@
 ---
-title: Use Blockchain Data Manager to update Azure Cosmos DB - Azure Blockchain Service
-description: Use Blockchain Data Manager for Azure Blockchain Service to send blockchain data to Azure Cosmos DB
+title: Använd blockchain Data Manager för att uppdatera Azure Cosmos DB-Azure blockchain-tjänsten
+description: Använd blockchain Data Manager för Azure blockchain-tjänsten för att skicka blockchain-data till Azure Cosmos DB
 ms.date: 11/04/2019
 ms.topic: tutorial
 ms.reviewer: chroyal
@@ -11,288 +11,288 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74326250"
 ---
-# <a name="tutorial-use-blockchain-data-manager-to-send-data-to-azure-cosmos-db"></a>Tutorial: Use Blockchain Data Manager to send data to Azure Cosmos DB
+# <a name="tutorial-use-blockchain-data-manager-to-send-data-to-azure-cosmos-db"></a>Självstudie: Använd blockchain Data Manager för att skicka data till Azure Cosmos DB
 
-In this tutorial, you use Blockchain Data Manager for Azure Blockchain Service to record blockchain transaction data in Azure Cosmos DB. Blockchain Data Manager captures, transforms, and delivers blockchain ledger data to Azure Event Grid Topics. From Azure Event Grid, you use a Azure Logic App connector to create documents in an Azure Cosmos DB database. When finished with tutorial, you can explore blockchain transaction data in Azure Cosmos DB Data Explorer.
+I den här självstudien använder du blockchain Data Manager för Azure blockchain-tjänsten för att registrera blockchain transaktions data i Azure Cosmos DB. Blockchain Data Manager fångar, transformerar och levererar blockchain-redovisningsinformation till Azure Event Grid ämnen. Från Azure Event Grid använder du en Azure Logic app-anslutning för att skapa dokument i en Azure Cosmos DB-databas. När du är klar med självstudien kan du utforska blockchain-transaktions data i Azure Cosmos DB Datautforskaren.
 
-[![Blockchain transaction detail](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
+[information om ![blockchain-transaktioner](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
 
-I den här kursen får du:
+I den här kursen har du:
 
 > [!div class="checklist"]
-> * Create a Blockchain Data Manager instance
-> * Add a blockchain application to decode transaction properties and events
-> * Create an Azure Cosmos DB account and database to store transaction data
-> * Create an Azure Logic App to connect an Azure Event Grid Topic to Azure Cosmos DB
-> * Send a transaction to a blockchain ledger
-> * View the decoded transaction data in Azure Cosmos DB
+> * Skapa en blockchain Data Manager instans
+> * Lägg till ett blockchain-program för att avkoda transaktions egenskaper och händelser
+> * Skapa ett Azure Cosmos DB konto och en databas för att lagra transaktions data
+> * Skapa en Azure Logic-app för att ansluta ett Azure Event Grid ämne till Azure Cosmos DB
+> * Skicka en transaktion till en blockchain-redovisning
+> * Visa de avkodade transaktions data i Azure Cosmos DB
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* Complete [Quickstart: Create a blockchain member using the Azure portal](create-member.md) or [Quickstart: Create an Azure Blockchain Service blockchain member using Azure CLI](create-member-cli.md)
-* Complete [Quickstart: Use Visual Studio Code to connect to an Azure Blockchain Service consortium network](connect-vscode.md). The quickstart guides you though installing [Azure Blockchain Development Kit for Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) and setting up your blockchain development environment.
-* Complete [Tutorial: Use Visual Studio Code to create, build, and deploy smart contracts](send-transaction.md). The tutorial walks through creating a sample smart contract.
-* Create an [Event Grid Topic](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
-* Learn about [Event handlers in Azure Event Grid](../../event-grid/event-handlers.md)
+* Slutför [snabb start: skapa en blockchain-medlem med hjälp av Azure Portal](create-member.md) eller [snabb start: skapa en Azure blockchain service blockchain-medlem med Azure CLI](create-member-cli.md)
+* Slutför [snabb start: Använd Visual Studio Code för att ansluta till ett Azure blockchain service Consortium-nätverk](connect-vscode.md). Snabb starten guidar dig när du installerar [Azure blockchain Development Kit för Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) och ställer in din blockchain Development-miljö.
+* Fullständig [självstudie: Använd Visual Studio Code för att skapa, bygga och distribuera smarta kontrakt](send-transaction.md). I själv studie kursen får du hjälp med att skapa ett smart exempel kontrakt.
+* Skapa ett [Event Grid ämne](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
+* Lär dig mer om [händelse hanterare i Azure Event Grid](../../event-grid/event-handlers.md)
 
-## <a name="create-instance"></a>Create instance
+## <a name="create-instance"></a>Skapa instans
 
-A Blockchain Data Manager instance connects and monitors an Azure Blockchain Service transaction node. An instance captures all raw block and raw transaction data from the transaction node. An outbound connection sends blockchain data to Azure Event Grid. You configure a single outbound connection when you create the instance.
+En blockchain Data Manager-instans ansluter och övervakar en Azure blockchain service Transaction-nod. En instans fångar alla RAW-block och rå transaktions data från Transaction-noden. En utgående anslutning skickar blockchain-data till Azure Event Grid. Du konfigurerar en enda utgående anslutning när du skapar instansen.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Go to the Azure Blockchain Service member you created in the prerequisite [Quickstart: Create a blockchain member using the Azure portal](create-member.md). Select **Blockchain Data Manager**.
+1. Gå till den Azure blockchain service-medlem som du skapade i den nödvändiga [snabb starten: skapa en blockchain-medlem med hjälp av Azure Portal](create-member.md). Välj **Blockchain Data Manager**.
 1. Välj **Lägg till**.
 
-    ![Add Blockchain Data Manager](./media/data-manager-cosmosdb/add-instance.png)
+    ![Lägg till blockchain Data Manager](./media/data-manager-cosmosdb/add-instance.png)
 
     Ange följande uppgifter:
 
     Inställning | Exempel | Beskrivning
     --------|---------|------------
-    Namn | mywatcher | Enter a unique name for a connected Blockchain Data Manager.
-    Transaction node | myblockchainmember | Choose the default transaction node of the Azure Blockchain Service member you created in the prerequisite.
-    Anslutningsnamn | cosmosdb | Enter a unique name of the outbound connection where blockchain transaction data is sent.
-    Event grid endpoint | myTopic | Choose an event grid topic you created in the prerequisite. Note: The Blockchain Data Manager instance and the event grid topic must be in the same subscription.
+    Name | Watcher | Ange ett unikt namn för en ansluten blockchain Data Manager.
+    Transaction Node | myblockchainmember | Välj noden standard transaktion för den Azure blockchain service-medlem som du skapade i förutsättningen.
+    Anslutningsnamn | cosmosdb | Ange ett unikt namn på den utgående anslutningen där blockchain transaktions data skickas.
+    Event Grid-slutpunkt | Avsnittet | Välj ett event Grid-ämne som du skapade i förutsättningen. Obs! Data Manager blockchain-instansen och avsnittet Event Grid måste vara i samma prenumeration.
 
 1. Välj **OK**.
 
-    It takes less than a minute to create a Blockchain Data Manager instance. After the instance is deployed, it is automatically started. A running Blockchain Data Manager instance captures blockchain events from the transaction node and sends data to event grid.
+    Det tar mindre än en minut att skapa en blockchain Data Manager-instans. När instansen har distribuerats startas den automatiskt. En körning av en blockchain Data Manager-instans fångar blockchain-händelser från Transaction-noden och skickar data till Event Grid.
 
 ## <a name="add-application"></a>Lägga till ett program
 
-Add the **helloblockchain** blockchain application so that Blockchain Data Manager decodes event and property state. Blockchain Data Manager requires the smart contract ABI and bytecode file to add the application.
+Lägg till **helloblockchain** blockchain-programmet så att blockchain Data Manager avkodar händelse-och egenskaps tillstånd. Blockchain Data Manager kräver det smarta kontraktet ABI och bytekod-filen för att lägga till programmet.
 
-### <a name="get-contract-abi-and-bytecode"></a>Get contract ABI and bytecode
+### <a name="get-contract-abi-and-bytecode"></a>Hämta kontrakts ABI och bytekod
 
-The contract ABI defines the smart contract interfaces. It describes how to interact with the smart contract. You can use the [Azure Blockchain Development Kit for Ethereum extension](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) to copy the contract ABI to the clipboard.
+ABI för kontrakt definierar de smarta kontrakts gränssnitten. Den beskriver hur du interagerar med det smarta kontraktet. Du kan använda [Azure blockchain Development Kit för Ethereum-tillägget](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) för att kopiera kontrakts ABI till Urklipp.
 
-1. In the Visual Studio Code explorer pane, expand the **build/contracts** folder of the **helloblockchain** Solidity project you created in the prerequisite [Tutorial: Use Visual Studio Code to create, build, and deploy smart contracts](send-transaction.md).
-1. Right-click the contract metadata JSON file. The file name is the smart contract name followed by the **.json** extension.
-1. Select **Copy Contract ABI**.
+1. I fönstret Visual Studio Code Explorer expanderar du mappen **build/** Contracts i det **helloblockchain** -täcknings projekt som du skapade i den nödvändiga [självstudien: Använd Visual Studio Code för att skapa, bygga och distribuera smarta kontrakt](send-transaction.md).
+1. Högerklicka på JSON-filen för kontraktets metadata. Fil namnet är det smarta kontrakt namnet följt av **. JSON** -tillägget.
+1. Välj **kopiera kontrakt ABI**.
 
-    ![Visual Studio Code pane with the Copy Contract ABI selection](./media/data-manager-cosmosdb/abi-devkit.png)
+    ![Fönstret Visual Studio Code med alternativet kopiera kontrakt ABI](./media/data-manager-cosmosdb/abi-devkit.png)
 
-    The contract ABI is copied to the clipboard.
+    Kontraktets ABI kopieras till Urklipp.
 
-1. Save the **abi** array as a JSON file. For example, *abi.json*. You use the file in a later step.
+1. Spara **ABI** -matrisen som en JSON-fil. Till exempel *ABI. JSON*. Du använder filen i ett senare steg.
 
-Blockchain Data Manager requires the deployed bytecode for the smart contract. The deployed bytecode is different than the smart contract bytecode. You can get the deployed bytecode from the compiled contract metadata file.
+Blockchain-Data Manager kräver distribuerad bytekod för det smarta kontraktet. Den distribuerade bytekod-filen skiljer sig från det smarta kontraktets bytekod. Du kan hämta den distribuerade bytekod-filen från den kompilerade kontraktets metadatafil.
 
-1. Open the contract metadata file contained in the **build/contracts** folder of your Solidity project. The file name is the smart contract name followed by the **.json** extension.
-1. Find the **deployedBytecode** element in the JSON file.
-1. Copy the hexadecimal value without the quotes.
+1. Öppna den kontrakts ETA data fil som finns i mappen **build/kontrakt** i ditt projekt. Fil namnet är det smarta kontrakt namnet följt av **. JSON** -tillägget.
+1. Hitta **deployedBytecode** -ELEMENTET i JSON-filen.
+1. Kopiera det hexadecimala värdet utan citat tecken.
 
-    ![Visual Studio Code pane with bytecode in the metadata](./media/data-manager-portal/bytecode-metadata.png)
+    ![Visual Studio Code-fönstret med bytekod i metadata](./media/data-manager-portal/bytecode-metadata.png)
 
-1. Save the **bytecode** value as a JSON file. For example, *bytecode.json*. You use the file in a later step.
+1. Spara **bytekod** -värdet som en JSON-fil. Till exempel, *bytekod. JSON*. Du använder filen i ett senare steg.
 
-The following example shows *abi.json* and *bytecode.json* files open in the VS Code editor. Your files should look similar.
+I följande exempel visas *ABI. JSON* och *bytekod. JSON* -filer öppna i vs Code-redigeraren. Dina filer bör se ut ungefär så här.
 
-![Example of abi.json and bytecode.json files](./media/data-manager-cosmosdb/contract-files.png)
+![Exempel på ABI. JSON och bytekod. JSON-filer](./media/data-manager-cosmosdb/contract-files.png)
 
-### <a name="create-contract-abi-and-bytecode-url"></a>Create contract ABI and bytecode URL
+### <a name="create-contract-abi-and-bytecode-url"></a>Skapa kontrakts ABI och bytekod-URL
 
-Blockchain Data Manager requires the contract ABI and bytecode files to be accessible by a URL when adding an application. You can use an Azure Storage account to provide a privately accessible URL.
+Blockchain Data Manager kräver att kontrakts ABI och bytekod-filerna kan nås av en URL när du lägger till ett program. Du kan använda ett Azure Storage-konto för att tillhandahålla en privat tillgänglig URL.
 
 #### <a name="create-storage-account"></a>Skapa lagringskonto
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
-#### <a name="upload-contract-files"></a>Upload contract files
+#### <a name="upload-contract-files"></a>Ladda upp kontraktmallar
 
-1. Create a new container for the storage account. Select **Containers > Container**.
+1. Skapa en ny behållare för lagrings kontot. Välj **behållare > behållare**.
 
-    ![Create a storage account container](./media/data-manager-cosmosdb/create-container.png)
+    ![Skapa en lagrings konto behållare](./media/data-manager-cosmosdb/create-container.png)
 
     | Inställning | Beskrivning |
     |---------|-------------|
-    | Namn  | Name the container. For example, *smartcontract* |
-    | Public access level | Choose *Private (no anonymous access)* |
+    | Name  | Namnge behållaren. Till exempel *smartcontract* |
+    | Offentlig åtkomst nivå | Välj *privat (ingen anonym åtkomst)* |
 
 1. Klicka på **OK** för att skapa containern.
-1. Select the container then select **Upload**.
-1. Choose both JSON files you created in the [Get Contract ABI and bytecode](#get-contract-abi-and-bytecode) section.
+1. Välj behållaren och välj sedan **Ladda upp**.
+1. Välj båda JSON-filerna som du skapade i avsnittet [Hämta kontrakt ABI och bytekod](#get-contract-abi-and-bytecode) .
 
-    ![Upload blob](./media/data-manager-cosmosdb/upload-blobs.png)
+    ![Ladda upp BLOB](./media/data-manager-cosmosdb/upload-blobs.png)
 
     Välj **Överför**.
 
-#### <a name="generate-url"></a>Generate URL
+#### <a name="generate-url"></a>Generera URL
 
-For each blob, generate a shared access signature.
+Generera en signatur för delad åtkomst för varje blob.
 
-1. Select the ABI JSON blob.
-1. Select **Generate SAS**
-1. Set desired access signature expiration then select **Generate blob SAS token and URL**.
+1. Välj ABI JSON-blobben.
+1. Välj **generera SAS**
+1. Ange önskat förfallo datum för signaturen **och välj sedan generera BLOB SAS-token och URL**.
 
-    ![Generate SAS token](./media/data-manager-cosmosdb/generate-sas.png)
+    ![Generera SAS-token](./media/data-manager-cosmosdb/generate-sas.png)
 
-1. Copy the **Blob SAS URL** and save it for the next section.
-1. Repeat the [Generate URL](#generate-url) steps for the bytecode JSON blob.
+1. Kopiera **URL: en för BLOB SAS** och spara den för nästa avsnitt.
+1. Upprepa stegen för att [generera URL: er](#generate-url) för BYTEKOD-JSON-blobben.
 
-### <a name="add-helloblockchain-application-to-instance"></a>Add helloblockchain application to instance
+### <a name="add-helloblockchain-application-to-instance"></a>Lägg till helloblockchain-program till instans
 
-1. Select your Blockchain Data Manager instance from the instance list.
-1. Select **Blockchain applications**.
+1. Välj din blockchain-Data Manager instans från instans listan.
+1. Välj **blockchain-program**.
 1. Välj **Lägg till**.
 
-    ![Add a blockchain application](./media/data-manager-cosmosdb/add-application.png)
+    ![Lägg till ett blockchain-program](./media/data-manager-cosmosdb/add-application.png)
 
-    Enter the name of the blockchain application and the smart contract ABI and bytecode URLs.
+    Ange namnet på blockchain-programmet och URL: en för smart kontrakt ABI och bytekod.
 
     Inställning | Beskrivning
     --------|------------
-    Namn | Enter a unique name for the blockchain application to track.
-    Contract ABI | URL path to the Contract ABI file. For more information, see [Create contract ABI and bytecode URL](#create-contract-abi-and-bytecode-url).
-    Contract Bytecode | URL path to bytecode file. For more information, see [Create contract ABI and bytecode URL](#create-contract-abi-and-bytecode-url).
+    Name | Ange ett unikt namn för blockchain-programmet som ska spåras.
+    Kontrakt ABI | URL-sökväg till kontraktets ABI-fil. Mer information finns i [skapa kontrakts ABI och BYTEKOD URL](#create-contract-abi-and-bytecode-url).
+    Kontraktets bytekod | URL-sökväg till bytekod-fil. Mer information finns i [skapa kontrakts ABI och BYTEKOD URL](#create-contract-abi-and-bytecode-url).
 
 1. Välj **OK**.
 
-    Once the application is created, the application appears in the list of blockchain applications.
+    När programmet har skapats visas programmet i listan över blockchain-program.
 
-    ![Blockchain application list](./media/data-manager-cosmosdb/artifact-list.png)
+    ![Lista över blockchain program](./media/data-manager-cosmosdb/artifact-list.png)
 
-You can delete the Azure Storage account or use it to configure more blockchain applications. If you wish to delete the Azure Storage account, you can delete the resource group. När du tar bort resursgruppen raderas även det kopplade lagringskontot och eventuella andra resurser som är kopplade till resursgruppen.
+Du kan ta bort Azure Storage kontot eller använda det för att konfigurera fler blockchain-program. Om du vill ta bort Azure Storages kontot kan du ta bort resurs gruppen. När du tar bort resursgruppen raderas även det kopplade lagringskontot och eventuella andra resurser som är kopplade till resursgruppen.
 
-## <a name="create-azure-cosmos-db"></a>Create Azure Cosmos DB
+## <a name="create-azure-cosmos-db"></a>Skapa Azure Cosmos DB
 
 [!INCLUDE [cosmos-db-create-storage-account](../../../includes/cosmos-db-create-dbaccount.md)]
 
-### <a name="add-a-database-and-container"></a>Add a database and container
+### <a name="add-a-database-and-container"></a>Lägg till en databas och behållare
 
-You can use the Data Explorer in the Azure portal to create a database and container.
+Du kan använda Datautforskaren i Azure Portal för att skapa en databas och behållare.
 
-1. Select **Data Explorer** from the left navigation on your Azure Cosmos DB account page, and then select **New Container**.
-1. In the **Add container** pane, enter the settings for the new container.
+1. Välj **datautforskaren** i det vänstra navigerings fältet på ditt Azure Cosmos DB konto och välj sedan **ny behållare**.
+1. I fönstret **Lägg till behållare** anger du inställningarna för den nya behållaren.
 
-    ![Add container settings](./media/data-manager-cosmosdb/add-container.png)
+    ![Lägg till behållar inställningar](./media/data-manager-cosmosdb/add-container.png)
 
     | Inställning | Beskrivning
     |---------|-------------|
-    | Databas-id | Enter **blockchain-data** as the name for the new database. |
-    | Dataflöde | Leave the throughput at **400** request units per second (RU/s). Du kan skala upp dataflödet senare om du vill minska svarstiden.|
-    | Container ID | Enter **Messages** as the name for your new container. |
-    | Partitionsnyckeln | Use **/MessageType** as the partition key. |
+    | Databas-id | Ange **blockchain-data** som namn på den nya databasen. |
+    | Dataflöde | Lämna data flödet på **400** enheter för programbegäran per sekund (ru/s). Du kan skala upp dataflödet senare om du vill minska svarstiden.|
+    | Container-ID | Ange **meddelanden** som namn på den nya behållaren. |
+    | Partitionsnyckeln | Använd **/MessageType** som partitionsnyckel. |
 
-1. Välj **OK**. The Data Explorer displays the new database and the container that you created.
+1. Välj **OK**. Datautforskaren visar den nya databasen och den behållare som du skapade.
 
 ## <a name="create-logic-app"></a>Skapa en logikapp
 
-Azure Logic Apps helps you schedule and automate business processes and workflows when you need to integrate systems and services. You can use a logic app to connect Event Grid to Azure Cosmos DB.
+Azure Logic Apps hjälper dig att schemalägga och automatisera affärs processer och arbets flöden när du behöver integrera system och tjänster. Du kan använda en Logic app för att ansluta Event Grid till Azure Cosmos DB.
 
 1. På [Azure-portalen](https://portal.azure.com) väljer du **Skapa en resurs** > **Integrering** > **Logikapp**.
-1. Provide details on where to create your logic app. After you're done, select **Create**.
+1. Ange information om var du vill skapa din Logic app. När du är klar väljer du **skapa**.
 
-    For more information on creating logic apps, see [Create automated workflows with Azure Logic Apps](../../logic-apps/quickstart-create-first-logic-app-workflow.md).
+    Mer information om hur du skapar Logic Apps finns i [skapa automatiserade arbets flöden med Azure Logic Apps](../../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. After Azure deploys your app, select your logic app resource.
-1. In the Logic Apps Designer, under **Templates**, select **Blank Logic App**.
+1. När Azure har distribuerat din app väljer du din Logic app-resurs.
+1. I Logic Apps designer väljer du **Tom Logic app**under **mallar**.
 
-### <a name="add-event-grid-trigger"></a>Add Event Grid trigger
+### <a name="add-event-grid-trigger"></a>Lägg till Event Grid-utlösare
 
-Varje logikapp måste börja med en utlösare som utlöses när en specifik händelse sker eller när ett särskilt villkor uppfylls. Varje gång utlösaren körs skapar Logic Apps-motorn en logikappinstans som startar och kör ditt arbetsflöde. Use an Azure Event Grid trigger to sends blockchain transaction data from Event Grid to Cosmos DB.
+Varje logikapp måste börja med en utlösare som utlöses när en specifik händelse sker eller när ett särskilt villkor uppfylls. Varje gång utlösaren körs skapar Logic Apps-motorn en logikappinstans som startar och kör ditt arbetsflöde. Använd en Azure Event Grid-utlösare för att skicka blockchain transaktions data från Event Grid till Cosmos DB.
 
-1. In the Logic Apps Designer, search for and select the **Azure Event Grid** connector.
-1. From the **Triggers** tab, select **When a resource event occurs**.
-1. Create an API connection to your Event Grid Topic.
+1. I Logic Apps designer söker du efter och väljer **Azure Event Grid** -anslutningen.
+1. Välj **när en resurs händelse inträffar**från fliken **utlösare** .
+1. Skapa en API-anslutning till Event Grid ämnet.
 
-    ![Event grid trigger settings](./media/data-manager-cosmosdb/event-grid-trigger.png)
+    ![Inställningar för Event Grid-utlösare](./media/data-manager-cosmosdb/event-grid-trigger.png)
 
     | Inställning | Beskrivning
     |---------|-------------|
-    | Prenumeration | Choose the subscription that contains the Event Grid Topic. |
-    | Resurstyp | Choose **Microsoft.EventGrid.Topics**. |
-    | Resursnamn | Choose the name of the Event Grid Topic where Blockchain Data Manager is sending transaction data messages. |
+    | Prenumeration | Välj den prenumeration som innehåller Event Grid ämnet. |
+    | Resurstyp | Välj **Microsoft. EventGrid. ämnen**. |
+    | Resursnamn | Välj namnet på Event Grid ämnet där blockchain Data Manager skickar transaktions data meddelanden. |
 
-### <a name="add-cosmos-db-action"></a>Add Cosmos DB action
+### <a name="add-cosmos-db-action"></a>Lägg till Cosmos DB åtgärd
 
-Add an action to create a document in Cosmos DB for each transaction. Use the transaction message type as the partition key to categorize the messages.
+Lägg till en åtgärd för att skapa ett dokument i Cosmos DB för varje transaktion. Använd transaktions meddelande typen som partitionsnyckel för att kategorisera meddelandena.
 
 1. Välj **Nytt steg**.
-1. On **Choose an action**, search for **Azure Cosmos DB**.
-1. Choose **Azure Cosmos DB > Actions > Create or update document**.
-1. Create an API connection to your Cosmos DB database.
+1. I **Välj en åtgärd**söker du efter **Azure Cosmos DB**.
+1. Välj **Azure Cosmos DB > åtgärder > skapa eller uppdatera dokument**.
+1. Skapa en API-anslutning till Cosmos DB databasen.
 
-    ![Cosmos DB connection settings](./media/data-manager-cosmosdb/cosmosdb-connection.png)
+    ![Cosmos DB anslutnings inställningar](./media/data-manager-cosmosdb/cosmosdb-connection.png)
 
     | Inställning | Beskrivning
     |---------|-------------|
-    | Anslutningsnamn | Choose the subscription that contains the Event Grid Topic. |
-    | DocumentDB Account | Choose the DocumentDB account you created in the [Create Azure Cosmos DB account](#create-azure-cosmos-db) section. |
+    | Anslutningsnamn | Välj den prenumeration som innehåller Event Grid ämnet. |
+    | DocumentDB-konto | Välj det DocumentDB-konto som du skapade i avsnittet [skapa Azure Cosmos DB konto](#create-azure-cosmos-db) . |
 
-1. Enter the **Database ID** and **Collection ID** for your Azure Cosmos DB that you created previously in the [Add a database and container](#add-a-database-and-container) section.
+1. Ange **databas-ID** och **samlings-ID** för Azure Cosmos DB som du skapade tidigare i avsnittet [Lägg till en databas och container](#add-a-database-and-container) .
 
-1. Select the **Document** setting. In the *Add dynamic content* pop-out, select **Expression** and copy and paste the following expression:
+1. Välj **dokument** inställningen. I popup-fönstret *Lägg till dynamiskt innehåll* väljer du **uttryck** och kopiera och klistra in följande uttryck:
 
     ```
     addProperty(triggerBody()?['data'], 'id', utcNow())
     ```
 
-    The expression gets the data portion of the message and sets the ID  to a timestamp value.
+    Uttrycket hämtar data delen av meddelandet och anger ID: t till ett tidsstämpel-värde.
 
-1. Select **Add new parameter** and choose **Partition key value**.
-1. Set the **Partition key value** to `"@{triggerBody()['data']['MessageType']}"`. The value must be surrounded by double quotes.
+1. Välj **Lägg till ny parameter** och välj **partitionerings nyckel värde**.
+1. Ange **värdet för partitionsnyckel** till `"@{triggerBody()['data']['MessageType']}"`. Värdet måste omges av dubbla citat tecken.
 
-    ![Logic Apps Designer with Cosmos DB settings](./media/data-manager-cosmosdb/create-action.png)
+    ![Logic Apps designer med Cosmos DB inställningar](./media/data-manager-cosmosdb/create-action.png)
 
-    The value sets the partition key to the transaction message type.
+    Värdet anger partitionsnyckel till typ av transaktions meddelande.
 
 1. Välj **Spara**.
 
-The logic app monitors the Event Grid Topic. When a new transaction message is sent from Blockchain Data Manager, the logic app creates a document in Cosmos DB.
+Den logiska appen övervakar Event Grid ämnet. När ett nytt transaktions meddelande skickas från blockchain Data Manager, skapar Logic-appen ett dokument i Cosmos DB.
 
-## <a name="send-a-transaction"></a>Send a transaction
+## <a name="send-a-transaction"></a>Skicka en transaktion
 
-Next, send a transaction to the blockchain ledger to test what you created. Use the **sendrequest.js** script you created in the prerequisite [Tutorial: Use Visual Studio Code to create, build, and deploy smart contracts](send-transaction.md).
+Skicka sedan en transaktion till blockchain-redovisningen för att testa det du har skapat. Använd det **SendRequest. js** -skript som du skapade i den nödvändiga [självstudien: Använd Visual Studio Code för att skapa, bygga och distribuera smarta kontrakt](send-transaction.md).
 
-In VS Code's terminal pane, use Truffle to execute the script on your consortium blockchain network. In the terminal pane menu bar, select the **Terminal** tab and **PowerShell** in the dropdown.
+I rutan för VS-kodens terminalfönster använder du Truffle för att köra skriptet i ditt konsortium blockchain-nätverk. I meny raden i terminalfönstret väljer du fliken **Terminal** och **PowerShell** i list rutan.
 
 ``` PowerShell
 truffle exec sendrequest.js --network <blockchain network>
 ```
 
-Replace \<blockchain network\> with the name of the blockchain network defined in the **truffle-config.js**.
+Ersätt \<blockchain Network\> med namnet på blockchain-nätverket som definierats i **Truffle-config. js**.
 
-![Send transaction](./media/data-manager-cosmosdb/send-request.png)
+![Skicka transaktion](./media/data-manager-cosmosdb/send-request.png)
 
-## <a name="view-transaction-data"></a>View transaction data
+## <a name="view-transaction-data"></a>Visa transaktions data
 
-Now that you have connected your Blockchain Data Manager to Azure Cosmos DB, you can view the blockchain transaction messages in Cosmos DB Data Explorer.
+Nu när du har anslutit dina blockchain-Data Manager till Azure Cosmos DB kan du Visa blockchain transaktions meddelanden i Cosmos DB Datautforskaren.
 
-1. Go to the Cosmos DB Data Explorer view. For example, **cosmosdb-blockchain > Data Explorer > blockchain-data > Messages > Items**.
+1. Gå till vyn Cosmos DB Datautforskaren. Till exempel **cosmosdb-blockchain > Datautforskaren > blockchain – Data > meddelanden > objekt**.
 
-    ![Cosmos DB Data Explorer](./media/data-manager-cosmosdb/data-explorer.png)
+    ![Cosmos DB Datautforskaren](./media/data-manager-cosmosdb/data-explorer.png)
 
-    Data Explorer lists the blockchain data messages that were created in the Cosmos DB database.
+    Datautforskaren listar de blockchain-datameddelanden som skapades i Cosmos DB-databasen.
 
-1. Browse through the messages by selecting item ID and find the message with the matching transaction hash.
+1. Bläddra igenom meddelandena genom att välja objekt-ID och hitta meddelandet med den matchande transaktionens hash.
 
-    [![Blockchain transaction detail](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
+    [information om ![blockchain-transaktioner](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
 
-    The raw transaction message contains detail about the transaction. However, the property information is encrypted.
+    Meddelandet rå transaktion innehåller information om transaktionen. Men egenskaps informationen är krypterad.
 
-    Since you added the HelloBlockchain smart contract to the Blockchain Data Manager instance, a **ContractProperties** message type is also sent that contains decoded property information.
+    Eftersom du har lagt till det smarta HelloBlockchain-kontraktet till blockchain Data Manager-instansen, skickas även en **ContractProperties** meddelande typ som innehåller avkodad egenskaps information.
 
-1. Find the **ContractProperties** message for the transaction. It should be the next message in the list.
+1. Hitta **ContractProperties** -meddelandet för transaktionen. Det ska vara nästa meddelande i listan.
 
-    [![Blockchain transaction detail](./media/data-manager-cosmosdb/properties-msg.png)](./media/data-manager-cosmosdb/properties-msg.png#lightbox)
+    [information om ![blockchain-transaktioner](./media/data-manager-cosmosdb/properties-msg.png)](./media/data-manager-cosmosdb/properties-msg.png#lightbox)
 
-    The **DecodedProperties** array contains the properties of the transaction.
+    **DecodedProperties** -matrisen innehåller egenskaperna för transaktionen.
 
-Gratulerar! You have successfully created a transaction message explorer using Blockchain Data Manager and Azure Cosmos DB.
+Grattis! Du har skapat en transaktions meddelande Utforskare med blockchain Data Manager och Azure Cosmos DB.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-When no longer needed, you can delete the resources and resource groups you used for this tutorial. To delete a resource group:
+När de inte längre behövs kan du ta bort de resurser och resurs grupper som du använde för den här självstudien. Så här tar du bort en resurs grupp:
 
-1. In the Azure portal, navigate to **Resource group** in the left navigation pane and select the resource group you want to delete.
-1. Välj **Ta bort resursgrupp**. Verify deletion by entering the resource group name and select **Delete**.
+1. I Azure Portal navigerar du till **resurs grupp** i det vänstra navigerings fönstret och väljer den resurs grupp som du vill ta bort.
+1. Välj **Ta bort resursgrupp**. Verifiera borttagning genom att ange resurs gruppens namn och välj **ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Learn more about integrating with blockchain ledgers.
+Lär dig mer om integrering med blockchain-redovisning.
 
 > [!div class="nextstepaction"]
-> [Using the Ethereum Blockchain connector with Azure Logic Apps](ethereum-logic-app.md)
+> [Använda Ethereum blockchain-anslutningen med Azure Logic Apps](ethereum-logic-app.md)

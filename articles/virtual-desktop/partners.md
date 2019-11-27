@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop partner integrations - Azure
-description: Learn about Windows Virtual Desktop's partners and access documentation about how to integrate with them.
+title: Integration av Windows-partner för virtuella skriv bord – Azure
+description: Lär dig mer om Windows Virtual Desktops partner och åtkomst till dokumentation om hur du integrerar med dem.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -14,218 +14,218 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74384304"
 ---
-# <a name="windows-virtual-desktop-partner-integrations"></a>Windows Virtual Desktop partner integrations
+# <a name="windows-virtual-desktop-partner-integrations"></a>Integration av Windows-partner för virtuella skriv bord
 
-This article lists partners of Windows Virtual Desktop.
+Den här artikeln innehåller partner för virtuella Windows-datorer.
 
 ## <a name="citrix"></a>Citrix
 
-![Citrix logo](./media/partners/citrix.png)
+![Citrix-logotyp](./media/partners/citrix.png)
 
-Citrix is an approved provider that offers enterprises centralized hybrid management of virtual apps and desktops workloads in Azure, side by side with on-premises deployments. Citrix Workspace with the Virtual Apps and Desktops service allows users to access apps and desktops from any device, leveraging the advanced Citrix HDX protocol to deliver a high definition experience from anywhere.
+Citrix är en godkänd provider som erbjuder företag centraliserad hybrid hantering av virtuella appar och Station ära arbets belastningar i Azure, sida vid sida med lokala distributioner. Citrix-arbetsytan med tjänsten virtuella appar och skriv bord ger användare åtkomst till appar och skriv bord från vilken enhet som helst, med hjälp av det avancerade Citrix HDX-protokollet för att leverera en hög definitions upplevelse var som helst.
 
-Citrix extends the value of Windows Virtual Desktop with robust enterprise tools to improve user density and performance, provision workloads on demand, and simplify image and application management. IT can optimize costs with intelligent scaling tools, while delivering an incredible user experience that's field-tested against the toughest applications across industries. Additionally, Citrix Managed Desktops is a Windows Virtual Desktop-enabled desktops-as-a-service program that provides a simple, cloud-based management solution for delivering virtual apps and desktops to any device.
+Citrix utökar värdet för virtuella Windows-datorer med robusta Enterprise-verktyg för att förbättra användarens densitet och prestanda, etablera arbets belastningar på begäran och förenkla hanteringen av avbildningar och program. Det kan optimera kostnaderna med intelligenta skalnings verktyg, samtidigt som vi levererar en otrolig användar upplevelse som är testade mot de tuffaste programmen i olika branscher. Dessutom är Citrix Managed Station ära datorer ett Windows-program med virtuella skriv bord som en tjänst som tillhandahåller en enkel, molnbaserad hanterings lösning för att leverera virtuella appar och skriv bord till alla enheter.
 
-- [Go to the partner website](https://more.citrix.com/wvd).
+- [Gå till partner webbplatsen](https://more.citrix.com/wvd).
 
 ## <a name="cloudhouse"></a>Cloudhouse
 
-![Cloudhouse logo](./media/partners/cloudhouse.png)
+![CloudHouse-logotyp](./media/partners/cloudhouse.png)
 
-Cloudhouse is a Windows Virtual Desktop value-added services provider that offers customers a turnkey application migration service that can move all applications, including ones that are incompatible with modern Windows operating systems, to the Windows Virtual Desktop environment, allowing customers to truly leverage multi-session Windows 10. 
+CloudHouse är en Windows-Provider för mervärdes tjänster för virtuella datorer som erbjuder kunder en nyckel färdig tjänst för programmigrering som kan flytta alla program, inklusive de som inte är kompatibla med moderna Windows-operativsystem, till Windows Virtual Desktop-miljö, så att kunderna kan utnyttja multi-session Windows 10. 
 
-By leveraging proven Cloudhouse containerization technology, the Cloudhouse service takes all applications, including ones designed for Windows XP, Windows 7, or Windows 8, and deploys them to a modern Windows Virtual Desktop without needing to change code or impact user experience. Cloudhouse further adds to the value of Windows Virtual Desktop by isolating applications from the underlying operating system, allowing Windows Servicing updates to be rolled out without affecting the containerized application. 
+Genom att använda beprövad CloudHouse skapa behållare-teknik tar CloudHouse-tjänsten alla program, inklusive de som är utformade för Windows XP, Windows 7 eller Windows 8 och distribuerar dem till ett modernt virtuellt Windows-skrivbord utan att behöva ändra kod eller påverka användar upplevelsen. CloudHouse lägger ytterligare till värdet för virtuella Windows-datorer genom att isolera program från det underliggande operativ systemet, vilket gör att Windows Servicing-uppdateringar kan distribueras utan att programmet påverkas. 
 
-- [Go to the partner website](https://cloudhouse.com/resources/migrate-everything-to-windows-10-on-microsoft-windows-virtua).
+- [Gå till partner webbplatsen](https://cloudhouse.com/resources/migrate-everything-to-windows-10-on-microsoft-windows-virtua).
 
 ## <a name="vmware"></a>VMware
 
-![VMware Logo](./media/partners/vmware.png)
+![VMware-logotyp](./media/partners/vmware.png)
 
-VMware Horizon Cloud on Microsoft Azure gives organizations the ability to connect their own instance of Microsoft Azure to the simple, intuitive Horizon Cloud control plane, creating a secure, comprehensive, cloud-hosted solution for delivering virtualized Windows applications and desktops. With the release of Windows Virtual Desktop, VMware has partnered with Microsoft to extend the functionality of Windows Virtual Desktop to customers using Horizon Cloud on Microsoft Azure. This functionality will be available in Tech Preview by the end of 2019.
+VMwares Horisont moln på Microsoft Azure ger organisationer möjlighet att ansluta sin egen instans av Microsoft Azure till det enkla, intuitiva moln kontroll planet, vilket skapar en säker, omfattande och moln värd lösning för att leverera virtualiserad Windows-program och skriv bord. Med lanseringen av Windows Virtual Desktop har VMware samarbetat med Microsoft för att utöka funktionerna i Windows Virtual Desktop till kunder som använder Horisont moln på Microsoft Azure. Den här funktionen kommer att vara tillgänglig i Tech Preview i slutet av 2019.
  
-As an approved provider, the benefits of Windows Virtual Desktop will be extended to VMware Horizon Cloud on Microsoft Azure customers, including Windows 10 Enterprise for multi-session, Windows 7 with free Extended Security Updates for up to three years, and FSLogix. Additionally, customers will receive the enterprise-class features of Horizon Cloud, such as broad endpoint support; global, cloud-optimized brokering; flexible desktop options and configurations; user-environment management; and support for hybrid environments.
+Som godkänd leverantör kommer fördelarna med Windows Virtual Desktop att utökas till VMwares Horisont moln på Microsoft Azure kunder, inklusive Windows 10 Enterprise för multi-session, Windows 7 med kostnads fria utökade säkerhets uppdateringar i upp till tre år och FSLogix. Dessutom får kunderna företags funktioner i Horisont moln, t. ex. stöd för bred slut punkt. global, molnbaserad service utjämning; flexibla Skriv bords alternativ och konfigurationer; hantering av användar miljö; och stöd för Hybrid miljöer.
 
-- [Register for the Tech Preview of Horizon Cloud on Microsoft Azure](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html).
-- [Go to the partner website](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html).
+- [Registrera dig för den tekniska för hands versionen av Horisont moln på Microsoft Azure](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html).
+- [Gå till partner webbplatsen](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html).
 
 ## <a name="cloudjumper"></a>CloudJumper
 
-![CloudJumper Logo](./media/partners/cloudjumper.png)
+![CloudJumper-logotyp](./media/partners/cloudjumper.png)
 
-CloudJumper is a Windows Virtual Desktop value-added services provider that equips solution providers and enterprise IT with software to  provision and manage Windows Virtual Desktop environments holistically. With CloudJumper software, IT can manage every layer of a Windows Virtual Desktop deployment. Delivery of workloads and applications is automated, ensuring that users can quickly access their desktop anywhere on any device.
+CloudJumper är en Windows-Provider för mervärdes tjänster för virtuella datorer som förser lösnings leverantörer och företags IT med program vara för att etablera och hantera Windows Virtual Desktop-miljöer holistiskt. Med CloudJumper-programvara kan den hantera alla lager i en distribution av virtuella Windows-datorer. Leverans av arbets belastningar och program automatiseras och säkerställer att användarna snabbt kan komma åt sina datorer var som helst på valfri enhet.
 
-CloudJumper’s software, Cloud Workspace Management Suite extends the value of Windows Virtual Desktop by simplifying deployment and ongoing administration tasks in Azure. From a single pane of glass, IT can provision, manage, and optimize infrastructure for user workspaces. CloudJumper’s Simple Script Triggering Engine integrates with IT service platforms to automate tasks involved in provisioning Windows Virtual Desktop. Additionally, CloudJumper APIs allow further extensibility and integration with other enterprise systems like ServiceNow and BMC Ready.
+CloudJumper-programvaran, Cloud Workspace Management Suite utökar värdet för Windows Virtual Desktop genom att förenkla distribution och pågående administrations uppgifter i Azure. Från en enda ruta i glaset kan du etablera, hantera och optimera infrastrukturen för användar arbets ytor. CloudJumper för den enkla skript utlösaren integreras med IT-plattformar för att automatisera uppgifter som rör etablering av virtuella Windows-datorer. Dessutom tillåter CloudJumper-API: er ytterligare utökning och integrering med andra företags system som ServiceNow och BMC Ready.
 
-- [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mg).
-- [Go to the partner website](https://cloudjumper.com/wvd/).
+- [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mg).
+- [Gå till partner webbplatsen](https://cloudjumper.com/wvd/).
 
 ## <a name="controlup"></a>ControlUp
 
-![ControlUp Logo](./media/partners/controlup.png)
+![ControlUp-logotyp](./media/partners/controlup.png)
 
-ControlUp is a Windows Virtual Desktop value-added services provider that enables IT teams to monitor, troubleshoot, analyze, and directly remediate problems in their on-premises, hybrid cloud, and cloud infrastructure in real time from a single console. ControlUp’s analytics and management platform also allows IT to proactively automate fixes for a rapidly growing set of use cases.
+ControlUp är en Windows-Provider för mervärdes tjänster för virtuella datorer som gör det möjligt för IT-grupper att övervaka, felsöka, analysera och direkt åtgärda problem i sitt lokala, hybrid moln och moln infrastruktur i real tid från en enda konsol. ControlUps analys-och hanterings plattform gör det också möjligt för IT att proaktivt automatisera korrigeringar för en snabbt växande uppsättning användnings fall.
 
-When used with Windows Virtual Desktop, ControlUp provides additional capabilities to optimize Windows Virtual Desktop environments and the end-user experience. From the ControlUp console, IT gets end-user environment visibility to effectively monitor and troubleshoot performance issues. An intuitive dashboard provides insights and analytics for virtual desktop deployments, as well as options for automated reporting enriched with community benchmarks. ControlUp can manage multiple data sources and types, organizing them in high-performance data sets aggregated across compute, storage, and Windows Virtual Desktop infrastructure, allowing granular visibility from a single pane of glass.
+När det används med Windows Virtual Desktop tillhandahåller ControlUp ytterligare funktioner för att optimera Windows-miljöer för virtuella skriv bord och slutanvändaren. Från ControlUp-konsolen får du en miljö för slut användar miljö för att effektivt övervaka och felsöka prestanda problem. En intuitiv instrument panel ger insikter och analyser för distributioner av virtuella skriv bord, samt alternativ för automatiserad rapportering som berikas med community-benchmarks. ControlUp kan hantera flera data källor och-typer och organisera dem i data uppsättningar med hög prestanda som sammanställs i beräknings-, lagrings-och Windows-infrastruktur för virtuella datorer, vilket ger detaljerad insyn från en enda ruta i glaset.
 
-- [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3PUit).
-- [Go to the partner website](https://www.controlup.com/solutions/ms_wvd/).
+- [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3PUit).
+- [Gå till partner webbplatsen](https://www.controlup.com/solutions/ms_wvd/).
 
 ## <a name="devicetrust"></a>deviceTRUST
 
-![deviceTRUST Logo](./media/partners/devicetrust.png)
+![deviceTRUST-logotyp](./media/partners/devicetrust.png)
 
-deviceTRUST is a Windows Virtual Desktop value-added services provider that contextualizes the corporate enterprise. It allows users the freedom to access their Windows Virtual Desktop from any location, on any device, over any network, while giving IT departments the information and control they need to meet their governance requirements. 
+deviceTRUST är en Windows-Provider för mervärdes tjänster för virtuella datorer som contextualizes företags företaget. Det gör det möjligt för användarna att få åtkomst till sina virtuella Windows-datorer från vilken plats som helst, på alla enheter, över alla nätverk, samtidigt som de ger IT-avdelningen den information och kontroll de behöver för att uppfylla sina styrnings krav. 
 
-deviceTRUST extends the value of Windows Virtual Desktop with their contextual security technology. deviceTRUST enables conditional access for a secure Windows Virtual Desktop access, conditional application access within Windows Virtual Desktop and to apply conditional Windows Virtual Desktop policies without any additional infrastructure. Using deviceTRUST enables a mobile, flexible workspace that meets all security, compliance, and regulatory requirements. 
+deviceTRUST utökar värdet för virtuella Windows-datorer med deras sammanhangsbaserade säkerhets teknik. deviceTRUST möjliggör villkorlig åtkomst för en säker åtkomst till virtuella Windows-datorer, villkorlig program åtkomst i Windows Virtual Desktop och att tillämpa villkorliga Windows-principer för virtuella skriv bord utan ytterligare infrastruktur. Med deviceTRUST kan du använda en mobil, flexibel arbets yta som uppfyller alla krav på säkerhet, efterlevnad och regler. 
 
-- [Go to the partner website](https://devicetrust.com/wvd).
+- [Gå till partner webbplatsen](https://devicetrust.com/wvd).
 
 ## <a name="igel"></a>IGEL
 
-![IGEL logo](./media/partners/igel.png)
+![IGEL-logotyp](./media/partners/igel.png)
 
-IGEL is an approved and verified partner of Microsoft Azure and Windows Virtual Desktop services. IGEL offers IGEL OS, the next-gen edge OS for cloud workspaces designed to access virtual apps, desktops, and cloud workspaces from one or more user devices with a lightweight, simple, and secure Linux-based endpoint. A platform-independent software solution, IGEL OS and its server-based management and control software, IGEL Universal Management Suite (UMS), comprise an endpoint management and control solution that frees enterprises to take full advantage of Azure-based cloud instances and Windows Virtual Desktop desktops, including economical multi-session Windows Virtual Desktop, while reducing endpoint hardware and endpoint device management and operations costs.
+IGEL är en godkänd och verifierad partner av Microsoft Azure-och Windows-tjänster för virtuella skriv bord. IGEL erbjuder IGEL OS, nästa generations operativ system för moln arbets ytor som har utformats för att komma åt virtuella appar, skriv bords datorer och moln arbets ytor från en eller flera användar enheter med en enkel, enkel och säker Linux-baserad slut punkt. En plattforms oberoende program varu lösning, IGEL OS och dess serverbaserade hanterings-och kontroll program vara, IGEL Universal Management Suite (UMS) utgör en hanterings-och kontroll lösning för slut punkter som gör att företag kan dra full nytta av Azure-baserade moln instanser och Windows virtuella Skriv bords datorer, inklusive ekonomiskt virtuellt Windows-skrivbord med flera sessioner, samtidigt som du minskar kostnaderna för slut punkts maskin vara och drifts hanterings enheter.
  
-IGEL OS supports all popular virtual apps, desktops, and cloud workspace client protocols from Citrix, Microsoft, and VMware. It includes integrated technologies from 85 peripheral, interface, and protocol partners to help organizations quickly adopt Windows Virtual Desktop services into their own unique user environments. IGEL OS is a read-only, modular endpoint OS, which helps protect it from tampering. It now also includes a complete “chain of trust” that verifies the integrity of all key major processes running on the endpoint, from the endpoint hardware (some selected models) or UEFI process all the way to the Azure cloud and Windows Virtual Desktop services. With IGEL OS, enterprises can subscribe to Windows Virtual Desktop from the Azure cloud with full confidence in the integrity, security, and manageability of their users’ endpoint devices.
+IGEL OS stöder alla populära virtuella appar, Station ära datorer och klient protokoll för moln arbets ytor från Citrix, Microsoft och VMware. Den innehåller integrerad teknik från 85-kring utrustning, gränssnitt och protokoll för att hjälpa organisationer att snabbt använda Windows-tjänster för virtuella skriv bord i sina egna unika användar miljöer. IGEL OS är ett skrivskyddat, modulärt slut punkts operativ system som hjälper till att skydda det från manipulering. Nu finns det också en fullständig "förtroende kedja" som verifierar integriteten för alla viktiga huvud processer som körs på slut punkten, från slut punkts maskin varan (vissa valda modeller) eller UEFI-processen hela vägen till Azure-molnet och Windows-tjänster för virtuella skriv bord. Med IGEL OS kan företag prenumerera på virtuella Windows-datorer från Azure-molnet med fullt förtroende för integritet, säkerhet och hanterbarhet för användarnas slut punkts enheter.
 
-- [Go to the partner website.](https://www.igel.com/igel-os-universal-desktop-operating-system/)
+- [Gå till partner webbplatsen.](https://www.igel.com/igel-os-universal-desktop-operating-system/)
 
 ## <a name="ivanti"></a>Ivanti
 
-![Ivanti Logo](./media/partners/ivanti.png)
+![Ivanti-logotyp](./media/partners/ivanti.png)
 
-Ivanti User Workspace Manager is a Windows Virtual Desktop value-added service that eases desktop deployment and management by separating user data from the desktop for seamless portability. With Ivanti, users can deliver complex projects like migrating to Windows 10, adopting Office 365, or moving services to the cloud faster. 
+Ivanti User Workspace Manager är en Windows-tjänst för virtuella skriv bord som är till för att under lätta Skriv bords distribution och-hantering genom att skilja användar data från Skriv bordet till sömlös portabilitet. Med Ivanti kan användarna leverera komplexa projekt som att migrera till Windows 10, anta Office 365 eller flytta tjänster till molnet snabbare. 
 
-When used with Windows Virtual Desktop, Ivanti User Workspace Manager provides simple contextual management of the user desktop experience, eliminating long sign-in times and eradicating group policy nightmares. Ivanti User Workspace Manager out-of-the-box templates simplify installation for users through agents and the existing console. Ivanti User Workspace Manager delivers responsive, secure desktops that users love, saving money on servers, managing users more effectively, and reducing endpoint security risk. 
+När den används med Windows Virtual Desktop ger Ivanti User Workspace Manager enkel kontext hantering av användar Skriv bords miljö, vilket eliminerar långa inloggnings tider och utrotning av Nightmares för grup principer. Ivanti User Workspace Manager är färdiga mallar som fören klar installationen av användare via agenter och den befintliga konsolen. Ivanti User Workspace Manager ger svar, säkra skriv bord som användare älskar, sparar pengar på servrar, hanterar användare effektivare och minskar slut punkts säkerhets risken. 
 
-- [Go to the partner website](https://www.ivanti.com/products/user-workspace-manager).
+- [Gå till partner webbplatsen](https://www.ivanti.com/products/user-workspace-manager).
 
-## <a name="lakeside-software"></a>Lakeside Software
+## <a name="lakeside-software"></a>Lakeside-programvara
 
-![Lakeside Software Logo](./media/partners/lakeside.png)
+![Lakeside program varu logo typ](./media/partners/lakeside.png)
 
-Lakeside Software is a Windows Virtual Desktop value-added services provider that equips IT teams with software for monitoring performance and assessing Azure migration readiness of user workloads. With this software, IT gains clearer visibility into application usage and resource consumption to streamline the migration process. Lakeside Software collects data at every workspace to create a comprehensive report on user environments, enabling quick troubleshooting and optimization of assets.
+Lakeside-programvaran är en Windows-Provider med mervärdes tjänster för virtuella datorer som förser IT-grupper med program vara för att övervaka prestanda och utvärdera Azure migration readiness för användar arbets belastningar. Med den här program varan får du bättre insyn i program användning och resursförbrukning för att förenkla migreringsprocessen. Lakeside-program samlar in data på varje arbets yta för att skapa en omfattande rapport om användar miljöer, vilket möjliggör snabb fel sökning och optimering av till gångar.
 
-Lakeside Software’s digital experience monitoring solution, SysTrack, can help provide a great user experience by tracking performance and identifying ideal workloads for migration. SysTrack works to extend the value of Windows Virtual Desktop through right-sizing assessments and continuous monitoring of user environments.
+Lakeside-program varans övervaknings lösning för digital upplevelse, SysTrack, kan ge en bra användar upplevelse genom att spåra prestanda och identifiera ideala arbets belastningar för migrering. SysTrack fungerar för att utöka värdet för virtuella Windows-datorer via utvärderingar av storlek och kontinuerlig övervakning av användar miljöer.
 
-- [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oL8Q).
-- [Go to the partner website](https://www.lakesidesoftware.com/assessments/wvd).
+- [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oL8Q).
+- [Gå till partner webbplatsen](https://www.lakesidesoftware.com/assessments/wvd).
 
-## <a name="liquidware"></a>Liquidware
+## <a name="liquidware"></a>Vätskor
 
-![Liquidware Logo](./media/partners/liquidware.png)
+![Typ av vätske logo typ](./media/partners/liquidware.png)
 
-Liquidware is a Windows Virtual Desktop value-added services provider that delivers software that manages and optimizes Windows Virtual Desktop deployment. The Liquidware Essentials suite provides application delivery through layering, user environment management, and key user experience visibility and diagnostics. With solutions for assessing migration readiness and analyzing usage metrics, Liquidware provides a seamless virtual desktop experience for end users.
+Flytande program vara är en Windows-Provider för mervärdes tjänster för virtuella datorer som levererar program vara som hanterar och optimerar distributionen av virtuella Windows-datorer. Liquid Essentials Suite ger program leverans genom lager hantering, hantering av användar miljö och synlighet och diagnostik för viktiga användar upplevelser. Med lösningar för att utvärdera beredskap för migreringen och analysera användnings statistik ger likvida medel en sömlös virtuell Skriv bords upplevelse för slutanvändare.
 
-Liquidware Essentials extends the value of Windows Virtual Desktop by efficiently harvesting user profiles and gathering key user data to streamline migration of user environments to Azure. Additionally, Liquidware Essentials simplifies image management by unifying user profiles and layering apps based on configurable rights management settings.
+Likviditets Essentials utökar värdet för virtuella Windows-datorer genom att effektivt skörda användar profiler och samla in viktiga användar data för att förenkla migreringen av användar miljöer till Azure. Dessutom fören klar likviditets hand ledningen avbildnings hanteringen genom att sammanställa användar profiler och lager hanterings program baserat på konfigurerbara inställningar för Rights Management.
 
-- [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oSY1).
-- [Go to the partner website](https://www.liquidware.com/solutions/solutions-platform/microsoft).
+- [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oSY1).
+- [Gå till partner webbplatsen](https://www.liquidware.com/solutions/solutions-platform/microsoft).
 
-## <a name="login-vsi"></a>Login VSI
+## <a name="login-vsi"></a>Logga in VSI
 
-![Login VSI Logo](./media/partners/loginvsi.png)
+![Logo typ för inloggning VSI](./media/partners/loginvsi.png)
 
-Login VSI is a Windows Virtual Desktop value-added services provider and Microsoft partner delivering software for application performance testing in Windows Virtual Desktop environments. Customers moving their on-premises business services to Windows Virtual Desktop use Login VSI Enterprise Edition to evaluate and maintain optimal performance, scalability, and availability of Windows 10  Enterprise multi-session, Windows 10 Enterprise, and Windows 7 enabled with their business critical applications.
+Login VSI är en Windows Virtual Desktop-leverantör med mervärdes tjänster och Microsoft-partner som levererar program vara för program prestanda testning i Windows-miljöer för virtuella skriv bord. Kunder som flyttar sina lokala företags tjänster till Windows Virtual Desktop använder inloggning VSI Enterprise Edition för att utvärdera och upprätthålla optimala prestanda, skalbarhet och tillgänglighet för Windows 10 Enterprise multi-session, Windows 10 Enterprise och Windows 7 har Aktiver ATS med affärs kritiska program.
 
-- [Go to the partner website](https://www.loginvsi.com).
+- [Gå till partner webbplatsen](https://www.loginvsi.com).
 
 ## <a name="nerdio"></a>Nerdio
 
-![Nerdio Logo](./media/partners/nerdio.png)
+![Nerdio-logotyp](./media/partners/nerdio.png)
 
-Nerdio is an Azure IT automation platform that makes it easy to deploy and manage Windows Virtual Desktop. Nerdio provides the knowledge and technology to deploy, price, package, manage, and optimize customers’ Azure deployments—with Windows Virtual Desktop front-and-center.
+Nerdio är en Azure-plattform för IT-automatisering som gör det enkelt att distribuera och hantera virtuella Windows-datorer. Nerdio tillhandahåller kunskap och teknik för att distribuera, pris, paket, hantera och optimera kunders Azure-distributioner, med Windows Virtual Desktop frontend-och-Center.
 
-Nerdio extends the value of Windows Virtual Desktop by making it easy to provision Azure resources and streamline deployment. With Nerdio for Azure, IT can automatically deploy and manage a complete Azure environment, including Windows Virtual Desktop, in under two hours.
+Nerdio utökar värdet för virtuella Windows-datorer genom att göra det enkelt att etablera Azure-resurser och effektivisera distributionen. Med Nerdio för Azure kan den automatiskt distribuera och hantera en fullständig Azure-miljö, inklusive Windows Virtual Desktop, på under två timmar.
 
-- [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mh).
-- [Go to the partner website](https://getnerdio.com/windows-virtual-desktop/).
+- [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mh).
+- [Gå till partner webbplatsen](https://getnerdio.com/windows-virtual-desktop/).
 
 ## <a name="numecent"></a>Numecent
 
-![Numecent Logo](./media/partners/numecent.png)
+![Numecent-logotyp](./media/partners/numecent.png)
 
-Numecent is a Windows Virtual Desktop value-added services provider that significantly reduces the total operating costs through rapid onboarding and migration of complicated or incompatible Windows apps in Windows Virtual Desktop environments. Numecent also minimizes the amount of configuration that users need to do, reduces application updates, and simplifies complex processes. Because Numecent Cloudpaging supports more applications seamlessly than any other application delivery tool, it reduces time and IT workloads in environments with a diverse set of applications. 
+Numecent är en Windows Virtual Desktop-tjänst för mervärdes tjänster som avsevärt minskar den totala drift kostnaden genom snabb onboarding och migrering av komplicerade eller inkompatibla Windows-appar i Windows-miljöer för virtuella skriv bord. Numecent minimerar också mängden konfiguration som användarna behöver göra, minskar program uppdateringar och fören klar komplexa processer. Eftersom Numecent Cloudpaging har stöd för fler program än något annat program leverans verktyg minskar tiden och IT-arbetsbelastningar i miljöer med en mängd olika program. 
 
-When used with Windows Virtual Desktop, Cloudpaging further reduces costs by completing software asset lifecycle from deployment to upgrading, metering, and removing applications. Cloudpaging simplifies image management by dynamically provisioning apps as needed in real time to the Windows Virtual Desktop deployments. Cloudpaging helps applications run without administration or intervention through the periodic Windows 10 updates. Cloudpaging also reduces the licensing cost of expensive applications by enabling more efficient deployment and usage of these applications. 
+När det används med Windows Virtual Desktop minskar Cloudpaging ytterligare kostnader genom att slutföra livs cykeln för program varu till gång från distribution till uppgradering, avläsning och borttagning av program. Cloudpaging fören klar avbildnings hanteringen genom att dynamiskt konfigurera appar efter behov i real tid till Windows-distributioner av virtuella datorer. Cloudpaging gör det möjligt för program att köras utan administration eller åtgärder genom de periodiska Windows 10-uppdateringarna. Cloudpaging minskar också licens kostnaden för dyra program genom att aktivera effektivare distribution och användning av dessa program. 
 
-- [Go to the partner website](https://www.numecent.com/partners/cloudpaging-for-windows-applications-windows-virtual-desktop/).
+- [Gå till partner webbplatsen](https://www.numecent.com/partners/cloudpaging-for-windows-applications-windows-virtual-desktop/).
 
 ## <a name="policypak"></a>PolicyPak
 
-![PolicyPak Logo](./media/partners/policypak.png)
+![PolicyPak-logotyp](./media/partners/policypak.png)
 
-PolicyPak Software is a Windows Virtual Desktop partner that performs total settings management for applications, desktop, browsers, Java, and security settings. PolicyPak keeps your desktop, system, and security settings in compliance. PolicyPak enhances the value of Windows Virtual Desktop by adding a suite of components to enhance Windows’ built-in administration. Use your existing Active Directory Group Policy and/or Windows Intune to deliver PolicyPak’s settings and increase administrators’ ability to manage their Windows 10 machines. 
+PolicyPak-programvaran är en Windows-partner för virtuella datorer som utför total inställnings hantering för program, skriv bords-, webbläsare-, Java-och säkerhets inställningar. PolicyPak håller dina Skriv bords-, system-och säkerhets inställningar kompatibla. PolicyPak förbättrar värdet för det virtuella Windows-skrivbordet genom att lägga till en serie komponenter för att förbättra Windows inbyggda administration. Använd din befintliga Active Directory grupprincip och/eller Windows Intune för att leverera PolicyPak inställningar och öka administratörernas möjlighet att hantera sina Windows 10-datorer. 
 
-The top use cases for PolicyPak are to remove local admin rights and overcome UAC prompts, block Ransomware, manage multiple browsers, manage Internet Explorer’s Enterprise and Compatibility modes, reduce the number of GPOs, manage Windows 10 File Associations, manage Windows 10 Start Menu and Taskbar, and manage Windows 10 Features and Optional features.  
+De vanligaste användnings fallen för PolicyPak är att ta bort lokala administratörs rättigheter och lösa UAC-prompter, blockera utpressnings bara filer, hantera flera webbläsare, hantera Internet Explorers företags-och kompatibilitetsläge, minska antalet grup princip objekt, hantera Windows 10-filassociationer, hantera Windows 10-startmenyn och aktivitets fältet och hantera Windows 10-funktioner och valfria funktioner.  
 
-- [Go to partner website](https://www.policypak.com/integration/policypak-windows-virtual-desktop.html).
+- [Gå till partner webbplatsen](https://www.policypak.com/integration/policypak-windows-virtual-desktop.html).
 
 ## <a name="printerlogic"></a>PrinterLogic
 
-![PrinterLogic Logo](./media/partners/printerlogic.png)
+![PrinterLogic-logotyp](./media/partners/printerlogic.png)
 
-PrinterLogic is a Windows Virtual Desktop value-added service provider platform that empowers IT professionals to eliminate all print servers and deliver a highly available serverless printing infrastructure. PrinterLogic extends the value of Windows Virtual Desktop and Azure by making it easy to manage centrally and deploy printer objects to any printer or endpoint OS. 
+PrinterLogic är en Windows Virtual Desktop-tjänst för mervärdes tjänst leverantörer som gör det möjligt för IT-proffs att ta bort alla utskrifts servrar och leverera en server lös utskrifts infrastruktur med hög tillgänglighet. PrinterLogic utökar värdet för virtuella Windows-datorer och Azure genom att göra det enkelt att hantera ett centralt och distribuera skrivar objekt till valfri skrivare eller slut punkts operativ system. 
 
-Available as SaaS or as a web stack in your own private cloud, the PrinterLogic platform ensures users always have the right printers they need in their virtual sessions based on user ID, device name, or location. This functionality is complemented by a full suite of enterprise print management features such as print tracking and reporting, mobile printing, and secure badge release printing. 
+PrinterLogic-plattformen är tillgänglig som SaaS eller som en webbstack i ditt eget privata moln, men-plattformen ser till att användarna alltid har rätt skrivare de behöver i sina virtuella sessioner baserat på användar-ID, enhets namn eller plats. Den här funktionen kompletteras av en fullständig uppsättning funktioner för utskrifts hantering i företags form, till exempel utskrifts spårning och rapportering, mobil utskrift och säker utskrift av säkerhet för bricka. 
 
-- [Go to partner website](https://www.printerlogic.com).
+- [Gå till partner webbplatsen](https://www.printerlogic.com).
 
 ## <a name="printix"></a>Printix
 
-![Printix Logo](./media/partners/printix.png)
+![Printix-logotyp](./media/partners/printix.png)
 
-Printix is a Windows Virtual Desktop value-added service provider that automates user connection to office printing resources. As the missing piece in your customer Azure migration, Printix is the most cost-effective service available to remove infrastructure and IT tasks associated with supporting and optimizing print workflow for every user, regardless of location.
+Printix är ett Windows-tillägg för mervärdes tjänst leverantör för virtuella datorer som automatiserar användar anslutning till kontors utskrifts resurser. Som den saknade delen i din kund Azure-migrering är Printix den mest kostnads effektiva tjänsten som är tillgänglig för att ta bort infrastruktur och IT-uppgifter som är kopplade till stöd för och optimering av utskrifts arbets flöden för varje användare, oavsett plats.
 
-Printing is a fundamental task in just about every office and small business environment. In order to take full advantage of Windows Virtual Desktop and provide a great user experience, it's essential to ensure your users can connect to printers with minimum effort and maximum reliability. With Printix, you can get the most out of Windows Virtual Desktop through single sign-on (SSO), silent configuration, regular updates, and continuous monitoring of your print environment.
+Utskrift är en grundläggande uppgift om alla Office-och Small Business-miljöer. För att kunna dra full nytta av Windows Virtual Desktop och ge en bra användar upplevelse är det viktigt att se till att användarna kan ansluta till skrivare med minsta möjliga ansträngning och maximal tillförlitlighet. Med Printix kan du få ut mesta möjliga av Windows Virtual Desktop via enkel inloggning (SSO), tyst konfiguration, regelbundna uppdateringar och kontinuerlig övervakning av utskrifts miljön.
 
-- [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4aiK2)
-- [Go to the partner website](https://www.printix.net/printix-for-windows-virtual-desktop)
+- [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4aiK2)
+- [Gå till partner webbplatsen](https://www.printix.net/printix-for-windows-virtual-desktop)
 
 ## <a name="rdpsoft"></a>RDPSoft
 
-![RDPSoft logo](./media/partners/rdpsoft.png)
+![RDPSoft-logotyp](./media/partners/rdpsoft.png)
 
-RDPSoft is a Windows Virtual Desktop partner that provides powerful and inexpensive monitoring, management, and reporting solutions. Their Remote Desktop Commander offerings allow IT professionals to gain insight into the health, performance, user activity, licensing, and security of their Windows Virtual Desktop deployments. 
+RDPSoft är en Windows-partner för virtuella datorer som tillhandahåller kraftfulla och billiga lösningar för övervakning, hantering och rapportering. Med sina tjänster för fjärr skrivbords inbefälhavare kan IT-proffs få insikt i hälsa, prestanda, användar aktivitet, licensiering och säkerhet för Windows-distributioner av virtuella datorer. 
  
-RDPSoft's Remote Desktop Commander solutions enhance Windows Virtual Desktop administration. Premium Management features simplify delegation of Windows Virtual Desktop management tasks to support desk staff by providing remote assistance, user session, and process management. At the same time, the Remote Desktop Commander Suite collects rich metrics about per-user performance and load, user activity and auditing, Windows Virtual Desktop connection quality (latency and bandwidth), licensing, and security into a central Azure SQL database instance for review. With RDPSoft, rich historic reporting and comprehensive dashboards are just a click away.
+RDPSoft för fjärr skrivbords tjänster förbättrar Windows-administrationen för virtuella skriv bord. Premium Management-funktioner fören klar delegering av Windows hanterings uppgifter för virtuella skriv bord till support personal genom att tillhandahålla Fjärrhjälp, användarsessionen och process hantering. Samtidigt samlar Remote Desktop Commander-sviten omfattande statistik om prestanda och belastning för varje användare, användar aktivitet och granskning, Windows anslutning för virtuella Skriv bords anslutningar (latens och bandbredd), licensiering och säkerhet till en central Azure SQL databas instans för granskning. Med RDPSoft är utförlig historisk rapportering och omfattande instrument paneler bara ett klick bort.
 
-- [Go to the partner website](https://www.rdpsoft.com/products/remote-desktop-commander/suite/)
+- [Gå till partner webbplatsen](https://www.rdpsoft.com/products/remote-desktop-commander/suite/)
 
 ## <a name="thinprint"></a>ThinPrint
 
-![ThinPrint Logo](./media/partners/thinprint.png)
+![ThinPrint-logotyp](./media/partners/thinprint.png)
 
-ThinPrint is a Windows Virtual Desktop value-added services provider that delivers simple and secure cloud printing from Windows Virtual Desktop. With its services and software, existing print infrastructure can be utilized to print documents from the cloud. ThinPrint enables connection to both local and network printers, making it easy for users to print while at the office or working remotely.
+ThinPrint är en Windows-Provider med mervärdes tjänster för virtuella skriv bord som levererar enkel och säker moln utskrift från virtuella Windows-datorer. Med dess tjänster och program kan befintliga utskrifts infrastruktur användas för att skriva ut dokument från molnet. ThinPrint möjliggör anslutning till både lokala skrivare och nätverks skrivare, vilket gör det enkelt för användarna att skriva ut på kontoret eller arbeta via fjärr anslutning.
 
-ThinPrint’s ezeep solution extends the value of Windows Virtual Desktop by enabling the connection to existing enterprise print infrastructure. ezeep gives users control over printing in the enterprise no matter where they are. Using ezeep, users can bridge the gap between Windows Virtual Desktop and printing hardware.
+ThinPrint ezeep-lösningen utökar värdet för det virtuella Windows-skrivbordet genom att aktivera anslutningen till befintlig företags utskrifts infrastruktur. ezeep ger användare kontroll över utskrift i företaget oavsett var de befinner sig. Med hjälp av ezeep kan användare överbrygga luckan mellan Windows Virtual Desktop och utskrifts maskin vara.
 
-- [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oYas).
-- [Go to partner website](https://www.ezeep.com/wvd-printing).
+- [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oYas).
+- [Gå till partner webbplatsen](https://www.ezeep.com/wvd-printing).
 
 ## <a name="tricerat"></a>Tricerat
 
-![Tricerat Logo](./media/partners/tricerat.png)
+![Tricerat-logotyp](./media/partners/tricerat.png)
 
-Tricerat offers a superior print management solution for Windows Virtual Desktop and other desktop platforms. Tricerat software has robust functionality, offering a better experience for both users and administrators. Administrators gain efficiencies through complete driver management, simplified deployment of print queues, and consistent management across hybrid platforms. User experience improves with shorter sign-in times, intelligent print queues based on user, device, and network location, and self-service options for quick printer selection. 
+Tricerat erbjuder en överlägsen utskrifts hanterings lösning för virtuella Windows-datorer och andra Skriv bords plattformar. Tricerat-programvaran har robusta funktioner som ger en bättre upplevelse för både användare och administratörer. Administratörer får effektiv effektivitet genom fullständig driv rutins hantering, Förenklad distribution av utskrifts köer och konsekvent hantering över hybrid plattformar. Användar upplevelsen förbättras med kortare inloggnings tider, intelligenta utskrifts köer baserat på användare, enhet och nätverks plats, och självbetjänings alternativ för val av snabb utskrift. 
 
-With Tricerat, printing is seamless in Windows Virtual Desktop and beyond. Tricerat software allows administrators to easily connect on-premises printers to the cloud, extending enterprise print management from traditional environments to new, modern workspaces.
+Med Tricerat är utskriften sömlös i Windows Virtual Desktop och senare. Tricerat-programvaran gör det möjligt för administratörer att enkelt ansluta lokala skrivare till molnet, vilket utökar utskrifts hantering i företags miljö från traditionella miljöer till nya, moderna arbets ytor.
 
-- [Go to the partner website](https://www.tricerat.com/solutions/wvd-microsoft/).
+- [Gå till partner webbplatsen](https://www.tricerat.com/solutions/wvd-microsoft/).
 
 ## <a name="workspot"></a>Workspot
 
-![Workspot Logo](./media/partners/workspot.png)
+![Workspot-logotyp](./media/partners/workspot.png)
 
-Workspot is a Windows Virtual Desktop value-added services provider that equips enterprises with high-performance desktops and workstations in Azure. With Workspot, infrastructure provisioning is automated, which means users can access their Windows Virtual Desktop environment from anywhere around the world with high availability.
+Workspot är en Windows Virtual Desktop-tjänst för mervärdes tjänster som förser företag med högpresterande Station ära datorer och arbets stationer i Azure. Med Workspot automatiseras infrastruktur etableringen, vilket innebär att användare kan komma åt sina Windows Virtual Desktop-miljöer överallt i världen med hög tillgänglighet.
 
-Workspot extends the value of Windows Virtual Desktop by simplifying the provisioning process of cloud desktop infrastructure. With Workspot, resources can be easily scaled up and down to meet the needs of different users and uses cases. Workspot can optimize deployments for high-performance GPU workstations necessary for CAD and engineering users, as well as Windows applications and Windows 10 desktops for all business users.
+Workspot utökar värdet för virtuella Windows-datorer genom att förenkla etablerings processen för Cloud Desktop Infrastructure. Med Workspot kan resurser enkelt skalas upp och ned för att möta behoven hos olika användare och användnings fall. Workspot kan optimera distributioner för GPU-arbetsstationer med hög prestanda som krävs för CAD-och ingenjörs användare, samt Windows-program och Windows 10-datorer för alla företags användare.
 
-- [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oL8P).
-- [Go to partner website](https://www.workspot.com/wvd).
+- [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oL8P).
+- [Gå till partner webbplatsen](https://www.workspot.com/wvd).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Learn more about Windows Virtual Desktop](overview.md).
-- [Create a tenant in Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
+- [Läs mer om virtuella Windows-datorer](overview.md).
+- [Skapa en klient i det virtuella Windows-skrivbordet](tenant-setup-azure-active-directory.md).

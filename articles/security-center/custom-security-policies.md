@@ -1,6 +1,6 @@
 ---
-title: Create custom security policies in Azure Security Center | Microsoft Docs
-description: Azure custom policy definitions monitored by Azure Security Center.
+title: Skapa anpassade säkerhets principer i Azure Security Center | Microsoft Docs
+description: Azures anpassade princip definitioner övervakas av Azure Security Center.
 services: security-center
 author: memildin
 manager: rkarlin
@@ -15,60 +15,60 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74483961"
 ---
-# <a name="using-custom-security-policies-preview"></a>Using custom security policies (Preview)
+# <a name="using-custom-security-policies-preview"></a>Använda anpassade säkerhets principer (förhands granskning)
 
-To help secure your systems and environment, Azure Security Center generates security recommendations. These recommendations are based on industry best practices, which are incorporated into the generic, default security policy supplied to all customers. They can also come from Security Center's knowledge of industry and regulatory standards.
+Azure Security Center skapar säkerhets rekommendationer för att skydda dina system och miljöer. De här rekommendationerna baseras på bransch bästa praxis, som ingår i den allmänna, Standard säkerhets policy som tillhandahålls alla kunder. De kan också komma från Security Centers kunskaper om bransch-och reglerings standarder.
 
-With this preview feature, you can add your own *custom* initiatives. You'll then receive recommendations if your environment doesn't follow the policies you create.
+Med den här förhands gransknings funktionen kan du lägga till dina egna *anpassade* initiativ. Du får sedan rekommendationer om din miljö inte följer de principer som du skapar.
 
-As discussed [here](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#definition-location) in the Azure Policy documentation, when you specify a location for your custom initiative, it must be a management group or a subscription. 
+Som beskrivs [här](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#definition-location) i Azure policy-dokumentationen, när du anger en plats för ditt eget initiativ, måste det vara en hanterings grupp eller en prenumeration. 
 
-## <a name="to-add-a-custom-initiative-to-your-subscription"></a>To add a custom initiative to your subscription 
+## <a name="to-add-a-custom-initiative-to-your-subscription"></a>Lägga till ett anpassat initiativ i din prenumeration 
 
-1. From Security Center's sidebar, open the **Security policy** page.
+1. Öppna sidan **säkerhets princip** från Security Center marginal List.
 
-1. Select a subscription or Management Group to which you would like to add a custom initiative.
+1. Välj en prenumeration eller hanterings grupp till vilken du vill lägga till ett anpassat initiativ.
 
-    [![Selecting a subscription for which you'll create your custom policy](media/custom-security-policies/custom-policy-selecting-a-subscription.png)](media/custom-security-policies/custom-policy-selecting-a-subscription.png#lightbox)
+    [![att välja en prenumeration som du vill skapa en anpassad princip för](media/custom-security-policies/custom-policy-selecting-a-subscription.png)](media/custom-security-policies/custom-policy-selecting-a-subscription.png#lightbox)
 
     > [!NOTE]
-    > You must add custom standards at the subscription level (or higher) for them to be evaluated and displayed in Security Center. 
+    > Du måste lägga till anpassade standarder på prenumerations nivån (eller högre) för att de ska kunna utvärderas och visas i Security Center. 
     >
-    > When you add a custom standard, it assigns an *initiative* to that scope. We therefore recommend that you select the widest scope required for that assignment.
+    > När du lägger till en anpassad standard tilldelar den ett *initiativ* till det omfånget. Vi rekommenderar därför att du väljer det bredaste definitions område som krävs för tilldelningen.
 
-1. In the Security policy page, under Your custom initiatives (Preview), click **Add a custom initiative**.
+1. På sidan säkerhets princip under anpassade initiativ (för hands version) klickar du på **Lägg till ett anpassat initiativ**.
 
-    [![Click **Add a custom initiative**](media/custom-security-policies/custom-policy-add-initiative.png)](media/custom-security-policies/custom-policy-add-initiative.png#lightbox)
+    [![på * * Lägg till ett anpassat initiativ * *](media/custom-security-policies/custom-policy-add-initiative.png)](media/custom-security-policies/custom-policy-add-initiative.png#lightbox)
 
-    The following page appears:
+    Följande sida visas:
 
-    ![Create or add a policy](media/custom-security-policies/create-or-add-custom-policy.png)
+    ![Skapa eller Lägg till en princip](media/custom-security-policies/create-or-add-custom-policy.png)
 
-1. In the Add custom initiatives page, review the list of custom policies already created in your organization. If you see one you want to assign to your subscription, click **Add**. If there isn't an initiative in the list that meets your needs, skip this step.
+1. På sidan Lägg till anpassade initiativ granskar du listan över anpassade principer som redan har skapats i din organisation. Om du ser en som du vill tilldela till din prenumeration klickar du på **Lägg till**. Om det inte finns något initiativ i listan som uppfyller dina behov hoppar du över det här steget.
 
-1. To create a new custom initiative:
+1. Så här skapar du ett nytt anpassat initiativ:
 
-    1. Click **Create new**.
-    1. Enter the definition's location and name.
-    1. Select the policies to include and click **Add**.
-    1. Enter any desired parameters.
+    1. Klicka på **Skapa nytt**.
+    1. Ange definitionens plats och namn.
+    1. Välj de principer som ska inkluderas och klicka på **Lägg till**.
+    1. Ange önskade parametrar.
     1. Klicka på **Save** (Spara).
-    1. In the Add custom initiatives page, click refresh and your new initiative will be shown as available.
-    1. Click **Add** and assign it to your subscription.
+    1. På sidan Lägg till anpassade initiativ klickar du på uppdatera och ditt nya initiativ visas som tillgängligt.
+    1. Klicka på **Lägg till** och tilldela den till din prenumeration.
 
     > [!NOTE]
-    > Creating new initiatives requires subscription owner credentials. For more information about Azure roles, see [Permissions in Azure Security Center](security-center-permissions.md).
+    > Om du skapar nya initiativ krävs autentiseringsuppgifter för Prenumerationens ägare. Mer information om Azure-roller finns [i behörigheter i Azure Security Center](security-center-permissions.md).
 
-1. To see the resulting recommendations for your policy, click **Recommendations** from the sidebar to open the recommendations page. The recommendations will appear with a “Custom” label and be available within approximately one hour.
+1. Om du vill se de rekommendationer som finns i principen klickar du på **rekommendationer** från sid panelen för att öppna sidan rekommendationer. Rekommendationerna visas med etiketten "anpassad" och är tillgänglig inom cirka en timme.
 
-    [![Custom recommendations](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
+    [![anpassade rekommendationer](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-In this article, you learned how to create custom security policies. 
+I den här artikeln har du lärt dig hur du skapar anpassade säkerhets principer. 
 
-For other related material, see the following articles: 
+Information om annat relaterat material finns i följande artiklar: 
 
-- [The overview of security policies](tutorial-security-policy.md)
-- [A list of the built-in security policies](security-center-policy-definitions.md)
+- [Översikt över säkerhets principer](tutorial-security-policy.md)
+- [En lista över inbyggda säkerhets principer](security-center-policy-definitions.md)

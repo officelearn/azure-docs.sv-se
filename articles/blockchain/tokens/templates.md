@@ -1,6 +1,6 @@
 ---
-title: Azure Blockchain Tokens templates
-description: Azure Blockchain Tokens templates are standardized and reusable templates that simplify the creation and deployment of ledger-based tokens.
+title: Mallar för Azure blockchain-token
+description: Mallar för Azure blockchain-token är standardiserade och återanvändbara mallar som fören klar skapandet och distributionen av Ledger-baserade tokens.
 ms.date: 11/04/2019
 ms.topic: conceptual
 ms.reviewer: brendal
@@ -11,81 +11,81 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74324973"
 ---
-# <a name="azure-blockchain-tokens-templates"></a>Azure Blockchain Tokens templates
+# <a name="azure-blockchain-tokens-templates"></a>Mallar för Azure blockchain-token
 
 [!INCLUDE [Preview note](./includes/preview.md)]
 
-An Azure Blockchain Tokens template is a standardized and reusable template that simplifies the creation and deployment of ledger-based tokens. A template consists of a formula, which is based off the [Token Taxonomy Framework (TTF)](overview.md#token-taxonomy-framework) grammar. The grammar encompasses the base token type and the set of behaviors for the token.  
+En mall för Azure blockchain-token är en standardiserad och återanvändbar mall som fören klar skapandet och distributionen av redovisningsbaserade token. En mall består av en formel som baseras på grammatiken för [token for Framework (ttf)](overview.md#token-taxonomy-framework) . Grammatiken omfattar bastypen och uppsättningen beteenden för token.  
 
-For example, **τϜ{d,m,b,r}** token template describes a fungible base token that is sub-dividable, mintable, burnable, and has role support.
+Till exempel beskriver **τϜ {d, m, b, r}** en utbytbara-basadress som är underordnad, mintable, brännings och har roll stöd.
   
-## <a name="base-token-types"></a>Base token types
+## <a name="base-token-types"></a>Bas-token-typer
 
-When defining and creating the ledger-based token for your particular asset, it is important to consider what base token to use.
+När du definierar och skapar den redovisnings-baserade token för en viss till gång är det viktigt att fundera över vilken bas-token som ska användas.
 
-### <a name="fungible"></a>Fungible
+### <a name="fungible"></a>Utbytbara
 
-Fungible tokens (𝜏F) have interchangeable value with each other as long as they are in the same class or series. One token has the same value as another token or a given quantity of tokens has the same value as another equal quantity. For example, a dollar is a fungible token. If two people are each holding a dollar bill, they can exchange these dollar bills without consequence. The dollar bills have equal value. 
+Utbytbara-token (τF) har utbytbara värden med varandra så länge de är i samma klass eller serie. En token har samma värde som en annan token eller en specifik kvantitet token har samma värde som en annan lika stor kvantitet. En dollar är till exempel en utbytbara-token. Om två personer är anställda på en dollar faktura kan de byta ut dessa dollar räkningar utan att detta sker. Dollar räkningar har samma värde. 
 
-### <a name="non-fungible"></a>Non-Fungible
+### <a name="non-fungible"></a>Icke-utbytbara
 
-Non-fungible tokens (𝜏N) are not interchangeable with other tokens of the same type as they typically have different values. For example, a property title is a non-fungible token. Property titles to two different apartments in an apartment complex are not necessarily of equal value, due to either the location of the unit or which floor the unit is on. The perceived value of the two property title tokens are not equal.
+Icke-utbytbara token (τN) är inte utbytbara med andra tokens av samma typ som vanligt vis har olika värden. En egenskaps rubrik är till exempel en icke-utbytbara token. Egenskaps titlar till två olika lägenheter i en lägenhet komplex är inte nödvändigt vis lika värde, på grund av antingen platsen för enheten eller vilket golv enheten är på. Det uppfattade värdet för de två egenskaps rubrikens tokens är inte lika med.
 
 ### <a name="hybrid"></a>Hybrid
 
-Hybrid tokens are tokens that have components of both fungible tokens and non-fungible tokens. A hybrid token is a base token type that owns a class of the other token type.
+Hybrid-token är token som har komponenter med både utbytbara-token och icke-utbytbara-token. En hybrid-token är en grundläggande tokentyp som äger en klass av den andra tokentypen.
 
-#### <a name="hybrid-non-fungible-base-with-fungible-segments"></a>Hybrid non-fungible base with fungible segments
+#### <a name="hybrid-non-fungible-base-with-fungible-segments"></a>Hybrid icke-utbytbara Base med utbytbara segment
 
-A hybrid non-fungible base with fungible segments token has a non-fungible base with fungible token segments.
-For example, a concert ticket is a hybrid token where the date and time of the concert is the non-fungible base token. The tickets in various seating sections for the given concert are the segments with fungible tokens. The tickets are exchangeable in their individual seating sections, but not across sections.
+En hybrid icke-utbytbara Base med utbytbara segments-token har en icke-utbytbara Base med utbytbara token-segment.
+Till exempel är en konsert biljett en hybrid-token där datum och tid för konsert är den icke-utbytbara bas-token. Biljetterna i olika plats avsnitt för den aktuella konserten är segmenten med utbytbara-token. Biljetterna kan bytas ut mot sitt eget säte, men inte mellan avsnitt.
 
-#### <a name="hybrid-fungible-base-with-non-fungible-segments"></a>Hybrid fungible base with non-fungible segments
+#### <a name="hybrid-fungible-base-with-non-fungible-segments"></a>Hybrid utbytbara-bas med icke-utbytbara segment
 
-A hybrid fungible base with a non-fungible segments token has a fungible base with non-fungible token segments. For example, a mortgage backed security is a hybrid token where multiple owners are the fungible base that is split across many owners. The security is interchangeable. The individual mortgages are the non-fungible segments that represent the specific mortgage backed security.
+En hybrid utbytbara-bas med en icke-utbytbara segment-token har en utbytbara-bas med icke-utbytbara token-segment. En amorterings säkerhets kopia är till exempel en hybrid-token där flera ägare är utbytbara-basen som delas mellan många ägare. Säkerheten är utbytbar. De enskilda amorteringarna är de icke-utbytbara segment som representerar den specifika amorterings säkerheten.
 
-## <a name="token-behaviors"></a>Token behaviors
+## <a name="token-behaviors"></a>Token-beteenden
 
-A token behavior defines capabilities or restrictions of the token. The behavior includes supporting properties that are a part of the token definition. Behaviors can be applied across all token types or just one. Behaviors can be internal or external depending on what the behavior effects. An internal behavior enables or restricts properties on the token itself. An external behavior enables or restricts the invocation of the behavior from an external actor.
+Ett token-beteende definierar funktioner eller begränsningar för token. Beteendet omfattar stöd för egenskaper som ingår i definitions definitionen för token. Beteenden kan tillämpas på alla typer av token eller bara en. Beteenden kan vara interna eller externa beroende på vad beteendet påverkar. Ett internt beteende aktiverar eller begränsar egenskaperna för själva token. Ett externt beteende aktiverar eller begränsar anropet av beteendet från en extern aktör.
 
-For more information about Azure Blockchain Tokens supported Token Taxonomy Framework (TTF) token behaviors, see [token composability](composability.md).
+Mer information om Azure blockchain-token som stöds av TTF-token i token i token [i token](composability.md)
 
-## <a name="pre-built-token-templates"></a>Pre-built token templates
+## <a name="pre-built-token-templates"></a>Förbyggda token-mallar
 
-Azure Blockchain Tokens provides four pre-built token templates that can be used without modification. You can call into these pre-built templates for most use cases to get started creating, deploying, and managing your tokens quickly.
+Azure blockchain-token innehåller fyra förskapade token-mallar som kan användas utan ändringar. Du kan anropa dessa färdiga mallar för de flesta användnings fall för att komma igång med att skapa, distribuera och hantera dina tokens snabbt.
 
-### <a name="commodity-tokens"></a>Commodity tokens
+### <a name="commodity-tokens"></a>Token för råvaru
 
-Commodity tokens have consistent value and are transferrable. For example, a barrel of oil or a unit of energy.
+Token för token har konsekvent värde och kan deferres. Till exempel en FAT-eller enhets energi.
 
-**𝜏F{~d,t,m,b,r}** - fungible, whole, transferable, mintable, burnable, and have role support
+**τF {~ d, t, m, b, r}** -utbytbara, helhet, överförings bara, mintable, brännings bara och har stöd för roller
 
-Many blockchain scenarios require transparency and visibility across the supply chain or multiple organizations. Commodity tokens are based off these common use cases. The tokens are interchangeable and consistent. The commodity token template is flexible and customizable with metadata.
+Många blockchain-scenarier kräver genomskinlighet och insyn i leverans kedjan eller flera organisationer. Råvaru-token baseras på dessa vanliga användnings fall. Token är utbytbara och konsekventa. Råvaru token-mallen är flexibel och anpassningsbar med metadata.
 
-### <a name="qualified-tokens"></a>Qualified tokens
+### <a name="qualified-tokens"></a>Kvalificerade token
 
-Qualified tokens represent something earned and are usually associated with one entity and cannot be transferred. For example, a diploma or a parking violation.
+Kvalificerade token representerar ett intjänat och är vanligt vis kopplat till en entitet och kan inte överföras. Till exempel ett diplom eller en parkerings överträdelse.
 
-**𝜏N{s,~t}** - non-fungible, singleton, and non-transferable
+**τN {s, ~ t}** -icke-utbytbara, singleton och kan inte överföras
 
-Various audit and attestation scenarios require that the ownership of the token cannot be changed. There is a set of use cases, which have a need to provide a qualified token whether the association is good or bad.
+Olika gransknings-och attesterings scenarier kräver att ägarskapet till token inte kan ändras. Det finns en uppsättning användnings fall som måste tillhandahålla en kvalificerad token om associationen är bra eller felaktig.
 
-### <a name="asset-tokens"></a>Asset tokens
+### <a name="asset-tokens"></a>Till gångs-token
 
-Asset tokens have unique value dependent on the item and are not commoditized. For example, a museum artifact or a property title.
+Till gångs-token har unika värden beroende av objektet och är inte commoditized. Till exempel en Museum-artefakt eller en egenskaps rubrik.
 
-**𝜏N{s,t}** - non-fungible, singleton, and transferable
+**τN {s, t}** -icke-utbytbara, singleton och överförings bara
 
-Asset tokens may be confused with commodity tokens. The major difference between the two tokens is that asset tokens are inherently unique, and value is independent of the type of token it is. For example, a piece of art like an oil painting by an established artist is an asset token. However, an art print of the Mona Lisa is considered a commodity token. Similarly, a property title is an asset token since the value exists in the subjective qualities of the property.
+Till gångs-token kan vara förvirrande med token för råvaru. Den största skillnaden mellan de två tokens är att till gångens token är unika och att värdet är oberoende av vilken typ av token det är. Till exempel är en bild som en olje målning av en etablerad artist en till gångs-token. En art utskrift av Mona-Lisa betraktas dock som en token för en token. På samma sätt är en egenskaps rubrik en till gångs-token eftersom värdet finns i egenskapens egenskaper.
 
-### <a name="ticket-tokens"></a>Ticket tokens
+### <a name="ticket-tokens"></a>Biljett-token
 
-Ticket tokens have consistent value but typically expire. For example, a plane ticket.
+Biljett-token har konsekvent värde men går normalt ut. Till exempel en plan-biljett.
 
-**𝜏N{m,b,r}** - non-fungible, mintable, burnable, and have role support.
+**τN {m, b, r}** -icke-utbytbara, mintable, brännings bara och har stöd för roller.
 
-Ticket tokens typically have an expiry date that makes them different from a regular commodity token. For example, an airplane ticket, concert ticket, or sports ticket all have options of assigned seating with specific dates of use. You cannot easily interchange tickets between dates or seating areas.
+Biljett-token har vanligt vis ett utgångs datum som gör dem annorlunda än en vanlig token. Till exempel har ett flyg Plans biljett, en konsert biljett eller en idrotts biljett alla alternativ för tilldelad plats med angivna användnings datum. Det går inte att enkelt byta biljetter mellan datum eller plats områden.
 
 ## <a name="next-steps"></a>Nästa steg
 
-If you require more flexibility for your scenario, learn about creating your own token templates using [token composability](composability.md).
+Om du behöver mer flexibilitet för ditt scenario kan du läsa om hur du skapar dina egna tokens med hjälp av DataStore- [datasammansättning](composability.md).

@@ -15,18 +15,21 @@ ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: bc53ed3e3a7fd988464b9100df654920d5589596
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: f59e4b9ee85803ab5635e72b3607e82e958d9696
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036668"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534182"
 ---
 # <a name="configure-software-raid-on-linux"></a>Konfigurera programvaru-RAID på Linux
 Det är ett vanligt scenario att använda programvaru-RAID på virtuella Linux-datorer i Azure för att presentera flera anslutna data diskar som en enda RAID-enhet. Detta kan användas för att förbättra prestanda och möjliggöra bättre data flöde jämfört med att bara använda en enda disk.
 
 ## <a name="attaching-data-disks"></a>Kopplar data diskar
 Minst två tomma data diskar krävs för att konfigurera en RAID-enhet.  Den främsta anledningen till att skapa en RAID-enhet är att förbättra prestandan för din disk i/o.  Utifrån dina IO-behov kan du välja att koppla diskar som är lagrade i vår standard lagring, med upp till 500 IO/PS per disk eller vår Premium-lagring med upp till 5000 IO/PS per disk. Den här artikeln beskriver inte detaljerad information om hur du etablerar och ansluter data diskar till en virtuell Linux-dator.  Mer information om hur du ansluter en tom datadisk till en virtuell Linux-dator på Azure finns i Microsoft Azure artikeln [bifoga en disk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
+
+> [!IMPORTANT]
+>Blanda inte diskar av olika storlekar. Detta skulle resultera i att raidset-prestanda begränsas till den långsammaste disken. 
 
 ## <a name="install-the-mdadm-utility"></a>Installera mdadm-verktyget
 * **Ubuntu**

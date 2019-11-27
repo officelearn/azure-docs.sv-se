@@ -1,6 +1,6 @@
 ---
-title: 'Disable network policies for Azure Private Link service source IP address '
-description: Learn how to disable network policies for Azure private Link
+title: 'Inaktivera nätverks principer för Azures tjänst källa IP-adress för privat länk '
+description: Lär dig hur du inaktiverar nätverks principer för privat Azure-länk
 services: private-link
 author: asudbring
 ms.service: private-link
@@ -14,16 +14,16 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74228110"
 ---
-# <a name="disable-network-policies-for-private-link-service-source-ip"></a>Disable network policies for Private Link service source IP
+# <a name="disable-network-policies-for-private-link-service-source-ip"></a>Inaktivera nätverks principer för tjänst Källans IP-adress för privata länkar
 
-In order to choose a source IP address for your Private Link service, an explicit disable setting `privateLinkServiceNetworkPolicies` is required on the subnet. This setting is only applicable for the specific private IP address you chose as the source IP of the Private Link service. For other resources in the subnet, access is controlled based on Network Security Groups (NSG) security rules definition. 
+För att kunna välja en käll-IP-adress för din privata länk tjänst krävs en explicit inaktivera inställning `privateLinkServiceNetworkPolicies` i under nätet. Den här inställningen gäller bara för den angivna privata IP-adressen som du valde som käll-IP för den privata länk tjänsten. För andra resurser i under nätet styrs åtkomsten baserat på säkerhets regel definitionen för nätverks säkerhets grupper (NSG). 
  
-When using any Azure client (PowerShell, CLI or templates), an additional step is required to change this property. You can disable the policy using the cloud shell from the Azure portal, or local installations of Azure PowerShell, Azure CLI, or use Azure Resource Manager templates.  
+När du använder en Azure-klient (PowerShell, CLI eller mallar) krävs ett ytterligare steg för att ändra den här egenskapen. Du kan inaktivera principen med hjälp av Cloud Shell från Azure Portal eller lokala installationer av Azure PowerShell, Azure CLI eller använda Azure Resource Manager mallar.  
  
-Follow the steps below to disable private link service network policies for a virtual network named *myVirtualNetwork* with a *default* subnet hosted in a resource group named *myResourceGroup*. 
+Följ stegen nedan om du vill inaktivera nätverks principer för privata Länkar för ett virtuellt nätverk med namnet *myVirtualNetwork* med ett *standard* -undernät som finns i en resurs grupp med namnet *myResourceGroup*. 
 
 ## <a name="using-azure-powershell"></a>Använda Azure PowerShell
-This section describes how to disable subnet private endpoint policies using Azure PowerShell.
+I det här avsnittet beskrivs hur du inaktiverar privata slut punkts principer för undernät med Azure PowerShell.
 
 ```azurepowershell
 $virtualNetwork= Get-AzVirtualNetwork `
@@ -35,7 +35,7 @@ $virtualNetwork= Get-AzVirtualNetwork `
 $virtualNetwork | Set-AzVirtualNetwork 
 ```
 ## <a name="using-azure-cli"></a>Använda Azure CLI
-This section describes how to disable subnet private endpoint policies using Azure CLI.
+I det här avsnittet beskrivs hur du inaktiverar privata slut punkts principer för undernät med Azure CLI.
 ```azurecli
 az network vnet subnet update \ 
   --name default \ 
@@ -43,8 +43,8 @@ az network vnet subnet update \
   --vnet-name myVirtualNetwork \ 
   --disable-private-link-service-network-policies true 
 ```
-## <a name="using-a-template"></a>Using a template
-This section describes how to disable subnet private endpoint policies using Azure Resource Manager Template.
+## <a name="using-a-template"></a>Använda en mall
+I det här avsnittet beskrivs hur du inaktiverar privata slut punkts principer för undernät med Azure Resource Manager-mall.
 ```json
 { 
     "name": "myVirtualNetwork", 
@@ -71,5 +71,5 @@ This section describes how to disable subnet private endpoint policies using Azu
  
 ```
 ## <a name="next-steps"></a>Nästa steg
-- Learn more about [Azure Private Endpoint](private-endpoint-overview.md)
+- Läs mer om [privat Azure-slutpunkt](private-endpoint-overview.md)
  

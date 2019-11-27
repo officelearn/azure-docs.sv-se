@@ -3,8 +3,8 @@ title: Interagera med Windows-containrar
 services: azure-dev-spaces
 ms.date: 07/25/2019
 ms.topic: conceptual
-description: Learn how to run Azure Dev Spaces on an existing cluster with Windows containers
-keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Windows containers
+description: Lär dig hur du kör Azure dev Spaces i ett befintligt kluster med Windows-behållare
+keywords: Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes-tjänsten, behållare, Windows-behållare
 ms.openlocfilehash: 7410c0e38b84979f0977973b2d6ccf588e2b1230
 ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
@@ -12,15 +12,15 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74483993"
 ---
-# <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>Interact with Windows containers using Azure Dev Spaces
+# <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>Interagera med Windows-behållare med hjälp av Azure dev Spaces
 
-You can enable Azure Dev Spaces on both new and existing Kubernetes namespaces. Azure Dev Spaces will run and instrument services that run on Linux containers. Those services can also interact with applications that run on Windows containers in the same namespace. This article shows you how to use Dev Spaces to run services in a namespace with existing Windows containers.
+Du kan aktivera Azure dev Spaces på både nya och befintliga Kubernetes-namnområden. Azure dev Spaces kommer att köra och instrumentera tjänster som körs på Linux-behållare. Dessa tjänster kan också samverka med program som körs på Windows-behållare i samma namnrymd. Den här artikeln visar hur du använder dev Spaces för att köra tjänster i ett namn område med befintliga Windows-behållare.
 
-## <a name="set-up-your-cluster"></a>Set up your cluster
+## <a name="set-up-your-cluster"></a>Konfigurera ditt kluster
 
-This article assumes you already have a cluster with both Linux and Windows node pools. If you need to create a cluster with Linux and Windows node pools, you can follow the instructions [here][windows-container-cli].
+Den här artikeln förutsätter att du redan har ett kluster med både Linux-och Windows-adresspooler. Om du behöver skapa ett kluster med Linux-och Windows-adresspooler kan du följa instruktionerna [här][windows-container-cli].
 
-Connect to your cluster using [kubectl][kubectl], the Kubernetes command-line client. För att konfigurera `kubectl` till att ansluta till ditt Kubernetes-kluster använder du kommandot [az aks get-credentials][az-aks-get-credentials]. Det här kommandot laddar ned autentiseringsuppgifter och konfigurerar Kubernetes CLI för att använda dem.
+Anslut till klustret med [kubectl][kubectl], Kubernetes kommando rads klient. För att konfigurera `kubectl` till att ansluta till ditt Kubernetes-kluster använder du kommandot [az aks get-credentials][az-aks-get-credentials]. Det här kommandot laddar ned autentiseringsuppgifter och konfigurerar Kubernetes CLI för att använda dem.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -32,7 +32,7 @@ Du kan kontrollera anslutningen till klustret genom att köra kommandot [kubectl
 kubectl get nodes
 ```
 
-The following example output shows a cluster with both a Windows and Linux node. Make sure the status is *Ready* for each node before proceeding.
+Följande exempel på utdata visar ett kluster med både en Windows-och Linux-nod. Kontrol lera att statusen är *klar* för varje nod innan du fortsätter.
 
 ```console
 NAME                                STATUS   ROLES   AGE    VERSION
@@ -40,27 +40,27 @@ aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.1
 aksnpwin987654                      Ready    agent   108s   v1.14.1
 ```
 
-Apply a [taint][using-taints] to your Windows nodes. The taint on your Windows nodes prevents Dev Spaces from scheduling Linux containers to run on your Windows nodes. The following command example command applies a taint to the *aksnpwin987654* Windows node from the previous example.
+Använd en- [smak][using-taints] på dina Windows-noder. Bismaken på dina Windows-noder förhindrar att dev-rymder schemalägger att köra på dina Windows-noder. Följande kommando exempel använder en-utsmak till Windows-noden *aksnpwin987654* från föregående exempel.
 
 ```azurecli-interactive
 kubectl taint node aksnpwin987654 sku=win-node:NoSchedule
 ```
 
 > [!IMPORTANT]
-> When you apply a taint to a node, you must configure a matching toleration in your service's deployment template to run your service on that node. The sample application is already configured with a [matching toleration][sample-application-toleration-example] to the taint you configured in the previous command.
+> När du använder en-smak på en nod måste du konfigurera ett matchande tolerera i tjänstens Distributionsmall för att köra tjänsten på noden. Exempel programmet har redan kon figurer ATS med en [matchande tolererae][sample-application-toleration-example] till den smak som du konfigurerade i föregående kommando.
 
-## <a name="run-your-windows-service"></a>Run your Windows service
+## <a name="run-your-windows-service"></a>Kör din Windows-tjänst
 
-Run your Windows service on your AKS cluster and verify it is in a *Running* state. This article uses a [sample application][sample-application] to demonstrate a Windows and Linux service running on your cluster.
+Kör Windows-tjänsten på ditt AKS-kluster och kontrol lera att den är i ett *Kör* tillstånd. I den här artikeln används ett [exempel program][sample-application] för att demonstrera en Windows-och Linux-tjänst som körs i klustret.
 
-Clone the sample application from GitHub and navigate into the `dev-spaces/samples/existingWindowsBackend/mywebapi-windows` directory:
+Klona exempel programmet från GitHub och navigera till `dev-spaces/samples/existingWindowsBackend/mywebapi-windows`-katalogen:
 
 ```console
 git clone https://github.com/Azure/dev-spaces
 cd dev-spaces/samples/existingWindowsBackend/mywebapi-windows
 ```
 
-The sample application uses [Helm 2][helm-installed] to run the Windows service on your cluster. Install Helm on your cluster and grant it the correct permissions:
+Exempel programmet använder [Helm 2][helm-installed] för att köra Windows-tjänsten på klustret. Installera Helm på klustret och ge det rätt behörigheter:
 
 ```console
 helm init --wait
@@ -69,16 +69,16 @@ kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admi
 kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'
 ``` 
 
-Navigate to the `charts` directory and run the Windows service:
+Navigera till `charts` Directory och kör Windows-tjänsten:
 
 ```console
 cd charts/
 helm install . --namespace dev
 ```
 
-The above command uses Helm to run your Windows service in the *dev* namespace. If you don't have a namespace named *dev*, it will be created.
+Kommandot ovan använder Helm för att köra Windows-tjänsten i *dev* -namnområdet. Om du inte har ett namn område med namnet *dev*kommer det att skapas.
 
-Use the `kubectl get pods` command to verify your Windows service is running in your cluster. 
+Använd kommandot `kubectl get pods` för att kontrol lera att Windows-tjänsten körs i klustret. 
 
 ```console
 $ kubectl get pods --namespace dev --watch
@@ -88,19 +88,19 @@ myapi-4b9667d123-1a2b3   0/1     ContainerCreating   0          47s
 myapi-4b9667d123-1a2b3   1/1     Running             0          98s
 ```
 
-## <a name="enable-azure-dev-spaces"></a>Enable Azure Dev Spaces
+## <a name="enable-azure-dev-spaces"></a>Aktivera Azure dev Spaces
 
-Enable Dev Spaces in the same namespace you used to run your Windows service. The following command enables Dev Spaces in the *dev* namespace:
+Aktivera dev-utrymmen i samma namnrymd som du använde för att köra Windows-tjänsten. Följande kommando aktiverar dev-rymder i namn området för *utveckling* :
 
 ```console
 az aks use-dev-spaces -g myResourceGroup -n myAKSCluster --space dev --yes
 ```
 
-## <a name="update-your-windows-service-for-dev-spaces"></a>Update your Windows service for Dev Spaces
+## <a name="update-your-windows-service-for-dev-spaces"></a>Uppdatera din Windows-tjänst för dev Spaces
 
-When you enable Dev Spaces on an existing namespace with containers that are already running, by default, Dev Spaces will try and instrument any new containers that run in that namespace. Dev Spaces will also try and instrument any new containers created for service already running in the namespace. To prevent Dev Spaces from instrumenting a container running in your namespace, add the *no-proxy* header to the `deployment.yaml`.
+När du aktiverar dev Spaces i ett befintligt namn område med behållare som redan körs, kommer som standard att försöka utföra och instrumentera nya behållare som körs i namn området. Dev-utrymmen kommer också att prova och instrumentera nya behållare som skapats för tjänsten som redan körs i namn området. Om du vill förhindra att dev-Spaces instrumenterar en behållare som körs i namn området lägger du till huvudet *no-proxy* i `deployment.yaml`.
 
-Add `azds.io/no-proxy: "true"` to the `existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml` file:
+Lägg till `azds.io/no-proxy: "true"` i `existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml`-filen:
 
 ```yaml
 apiVersion: apps/v1
@@ -119,7 +119,7 @@ spec:
         azds.io/no-proxy: "true"
 ```
 
-Use `helm list` to list the deployment for your Windows service:
+Använd `helm list` för att Visa distributionen för din Windows-tjänst:
 
 ```cmd
 $ helm list
@@ -127,18 +127,18 @@ NAME            REVISION    UPDATED                     STATUS      CHART       
 gilded-jackal   1           Wed Jul 24 15:45:59 2019    DEPLOYED    mywebapi-0.1.0  1.0         dev  
 ```
 
-In the above example, the name of your deployment is *gilded-jackal*. Update your Windows service with the new configuration using `helm upgrade`:
+I ovanstående exempel är namnet på din distribution *Gilded-Jackal*. Uppdatera din Windows-tjänst med den nya konfigurationen med hjälp av `helm upgrade`:
 
 ```cmd
 $ helm upgrade gilded-jackal . --namespace dev
 Release "gilded-jackal" has been upgraded.
 ```
 
-Since you updated your `deployment.yaml`, Dev Spaces will not try and instrument your service.
+Eftersom du har uppdaterat din `deployment.yaml`kommer inte dev Spaces att försöka utföra och instrumentera din tjänst.
 
-## <a name="run-your-linux-application-with-azure-dev-spaces"></a>Run your Linux application with Azure Dev Spaces
+## <a name="run-your-linux-application-with-azure-dev-spaces"></a>Köra Linux-programmet med Azure dev Spaces
 
-Navigate to the `webfrontend` directory and use the `azds prep` and `azds up` commands to run your Linux application on your cluster.
+Navigera till `webfrontend` katalogen och Använd kommandot `azds prep` och `azds up` för att köra Linux-programmet i klustret.
 
 ```console
 cd ../../webfrontend-linux/
@@ -146,7 +146,7 @@ azds prep --public
 azds up
 ```
 
-The `azds prep --public` command generates the Helm chart and Dockerfiles for your application. The `azds up` command runs your service in the namespace.
+Kommandot `azds prep --public` genererar Helm-diagrammet och Dockerfiles för ditt program. Kommandot `azds up` kör tjänsten i namn området.
 
 ```console
 $ azds up
@@ -164,16 +164,16 @@ Service 'webfrontend' port 'http' is available at http://dev.webfrontend.abcdef0
 Service 'webfrontend' port 80 (http) is available via port forwarding at http://localhost:57648
 ```
 
-You can see the service running by opening the public URL, which is displayed in the output from the azds up command. In this example, the public URL is `http://dev.webfrontend.abcdef0123.eus.azds.io/`. Navigate to the service in a browser and click on *About* at the top. Verify you see a message from the *mywebapi* service containing the version of Windows the container is using.
+Du kan se den tjänst som körs genom att öppna den offentliga URL: en, som visas i utdata från kommandot azds up. I det här exemplet är den offentliga URL: en `http://dev.webfrontend.abcdef0123.eus.azds.io/`. Navigera till tjänsten i en webbläsare och *Klicka på överst* . Kontrol lera att du ser ett meddelande från *mywebapi* -tjänsten som innehåller den version av Windows som behållaren använder.
 
-![Sample app showing Windows version from mywebapi](../media/run-dev-spaces-windows-containers/sample-app.png)
+![Exempel program som visar Windows-version från mywebapi](../media/run-dev-spaces-windows-containers/sample-app.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Learn how Azure Dev Spaces helps you develop more complex applications across multiple containers, and how you can simplify collaborative development by working with different versions or branches of your code in different spaces.
+Lär dig hur Azure dev Spaces hjälper dig att utveckla mer komplexa program över flera behållare och hur du kan förenkla samarbets utveckling genom att arbeta med olika versioner eller grenar av koden i olika utrymmen.
 
 > [!div class="nextstepaction"]
-> [Team development in Azure Dev Spaces][team-development-qs]
+> [Grupp utveckling i Azure dev Spaces][team-development-qs]
 
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get

@@ -1,6 +1,6 @@
 ---
-title: How to stop monitoring your Azure Red Hat OpenShift cluster | Microsoft Docs
-description: This article describes how you can stop monitoring of your Azure Red Hat OpenShift cluster with Azure Monitor for containers.
+title: Så här stoppar du övervakningen av ditt Azure Red Hat OpenShift-kluster | Microsoft Docs
+description: Den här artikeln beskriver hur du kan stoppa övervakningen av ditt Azure Red Hat OpenShift-kluster med Azure Monitor för behållare.
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
@@ -14,19 +14,19 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74384336"
 ---
-# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-cluster-with-azure-monitor-for-containers"></a>How to stop monitoring your Azure Red Hat OpenShift cluster with Azure Monitor for containers
+# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-cluster-with-azure-monitor-for-containers"></a>Så här stoppar du övervakningen av ditt Azure Red Hat OpenShift-kluster med Azure Monitor för behållare
 
-After you enable monitoring of your Azure Red Hat OpenShift cluster, you can stop monitoring the cluster if you decide you no longer want to monitor it. This article shows how to accomplish this using the provided Azure Resource Manager templates.  
+När du har aktiverat övervakning av ditt Azure Red Hat OpenShift-kluster kan du stoppa övervakningen av klustret om du vill att du inte längre vill övervaka det. Den här artikeln visar hur du gör detta med hjälp av de tillhandahållna Azure Resource Manager mallarna.  
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager-mall
 
-Provided are two Azure Resource Manager template to support removing the solution resources consistently and repeatedly in your resource group. One is a JSON template specifying the configuration to stop monitoring and the other contains parameter values that you configure to specify the OpenShift cluster resource ID and Azure region that the cluster is deployed in. 
+Tillhandahållna är två Azure Resource Manager-mall för ta bort lösningsresurser konsekvent och upprepade gånger i resursgruppen. Det ena är en JSON-mall som anger konfigurationen för att stoppa övervakningen och den andra innehåller parameter värden som du konfigurerar för att ange det OpenShift-kluster resurs-ID och Azure-region som klustret har distribuerats i. 
 
-If you're unfamiliar with the concept of deploying resources by using a template, see:
+Om du inte är bekant med begreppet att distribuera resurser med hjälp av en mall, se:
 * [Distribuera resurser med Resource Manager-mallar och Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
-* [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [Distribuera resurser med Resource Manager-mallar och Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
-If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.65 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Om du väljer att använda Azure CLI, måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.65 eller senare. Du kan identifiera din version genom att köra `az --version`. Om du behöver installera eller uppgradera Azure CLI kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 ### <a name="create-template"></a>Skapa mallen
 
@@ -69,9 +69,9 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
     }
     ```
 
-2. Save this file as **OptOutTemplate.json** to a local folder.
+2. Spara filen som **OptOutTemplate. JSON** i en lokal mapp.
 
-3. Paste the following JSON syntax into your file:
+3. Klistra in följande JSON-syntax i filen:
 
     ```json
     {
@@ -88,17 +88,17 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
     }
     ```
 
-4. Edit the values for **aroResourceId** and **aroResourceLocation** by using the values of the OpenShift cluster, which you can find on the **Properties** page for the selected cluster.
+4. Redigera värdena för **aroResourceId** och **aroResourceLocation** med hjälp av värdena i OpenShift-klustret, som du kan hitta på **egenskaps** sidan för det valda klustret.
 
-    ![Container properties page](media/container-insights-optout-openshift/cluster-properties-page.png)
+    ![Egenskapssidan för behållare](media/container-insights-optout-openshift/cluster-properties-page.png)
 
-5. Save this file as **OptOutParam.json** to a local folder.
+5. Spara filen som **OptOutParam. JSON** i en lokal mapp.
 
 6. Nu är det dags att distribuera den här mallen. 
 
-### <a name="remove-the-solution-using-azure-cli"></a>Remove the solution using Azure CLI
+### <a name="remove-the-solution-using-azure-cli"></a>Ta bort lösningen med hjälp av Azure CLI
 
-Execute the following command with Azure CLI on Linux to remove the solution and clean up the configuration on your cluster.
+Kör följande kommando med Azure CLI i Linux för att ta bort lösningen och rensa konfigurationen på klustret.
 
 ```azurecli
 az login   
@@ -106,17 +106,17 @@ az account set --subscription "Subscription Name"
 az group deployment create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
 ```
 
-The configuration change can take a few minutes to complete. When it's completed, a message similar to the following that includes the result is returned:
+Konfigurationsändringen kan ta några minuter att slutföra. När det är klart, returneras ett meddelande som liknar följande som innehåller resultatet:
 
 ```azurecli
 ProvisioningState       : Succeeded
 ```
 
-### <a name="remove-the-solution-using-powershell"></a>Remove the solution using PowerShell
+### <a name="remove-the-solution-using-powershell"></a>Ta bort lösningen med hjälp av PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Execute the following PowerShell commands in the folder containing the template to remove the solution and clean up the configuration from your cluster.    
+Kör följande PowerShell-kommandon i mappen som innehåller mallen för att ta bort lösningen och rensa konfigurationen från klustret.    
 
 ```powershell
 Connect-AzAccount
@@ -124,7 +124,7 @@ Select-AzSubscription -SubscriptionName <yourSubscriptionName>
 New-AzResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGroupName> -TemplateFile .\OptOutTemplate.json -TemplateParameterFile .\OptOutParam.json
 ```
 
-The configuration change can take a few minutes to complete. When it's completed, a message similar to the following that includes the result is returned:
+Konfigurationsändringen kan ta några minuter att slutföra. När det är klart, returneras ett meddelande som liknar följande som innehåller resultatet:
 
 ```powershell
 ProvisioningState       : Succeeded
@@ -132,4 +132,4 @@ ProvisioningState       : Succeeded
 
 ## <a name="next-steps"></a>Nästa steg
 
-If the workspace was created only to support monitoring the cluster and it's no longer needed, you have to manually delete it. If you are not familiar with how to delete a workspace, see [Delete an Azure Log Analytics workspace](../../log-analytics/log-analytics-manage-del-workspace.md). 
+Om arbetsytan har skapats enbart för att stöd för övervakning av klustret och inte längre behövs kan behöva du manuellt ta bort den. Om du inte är bekant med hur du tar bort en arbets yta, se [ta bort en Azure Log Analytics-arbetsyta](../../log-analytics/log-analytics-manage-del-workspace.md). 

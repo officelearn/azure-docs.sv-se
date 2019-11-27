@@ -1,5 +1,5 @@
 ---
-title: Index fel och varningar
+title: Indexeringsfel och -varningar
 titleSuffix: Azure Cognitive Search
 description: Den här artikeln innehåller information och lösningar på vanliga fel och varningar som du kan stöta på under AI-anrikning i Azure Kognitiv sökning.
 manager: nitinme
@@ -35,8 +35,8 @@ Från och med API-versionen `2019-05-06`struktureras fel och varningar på objek
 | Egenskap | Beskrivning | Exempel |
 | --- | --- | --- |
 | key | Dokument-ID: t för dokumentet som påverkas av felet eller varningen. | https://coromsearch.blob.core.windows.net/jfk-1k/docid-32112954.pdf |
-| namn | Åtgärds namnet som beskriver var felet eller varningen uppstod. Detta genereras av följande struktur: [Category]. [under kategori]. [resourceType]. resourceName | DocumentExtraction. azureblob. myBlobContainerName-anrikning. WebApiSkill. mySkillName projektion. SearchIndex. OutputFieldMapping. myOutputFieldName projektion. SearchIndex. MergeOrUpload. myIndexName Projektion. KnowledgeStore. Table. myTableName |
-| meddelande | En övergripande beskrivning av felet eller varningen. | Det gick inte att köra kompetensen eftersom webb-API-begäran misslyckades. |
+| name | Åtgärds namnet som beskriver var felet eller varningen uppstod. Detta genereras av följande struktur: [Category]. [under kategori]. [resourceType]. resourceName | DocumentExtraction. azureblob. myBlobContainerName-anrikning. WebApiSkill. mySkillName projektion. SearchIndex. OutputFieldMapping. myOutputFieldName projektion. SearchIndex. MergeOrUpload. myIndexName Projektion. KnowledgeStore. Table. myTableName |
+| message | En övergripande beskrivning av felet eller varningen. | Det gick inte att köra kompetensen eftersom webb-API-begäran misslyckades. |
 | details | Ytterligare information som kan vara till hjälp för att diagnostisera problemet, till exempel WebApi-svar om det inte gick att köra en anpassad färdighet. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1-källa, Func`2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.`... rest av stack spårning... |
 | documentationLink | En länk till relevant dokumentation med detaljerad information för att felsöka och lösa problemet. Den här länken pekar ofta på ett av nedanstående avsnitt på den här sidan. | https://go.microsoft.com/fwlink/?linkid=2106475 |
 

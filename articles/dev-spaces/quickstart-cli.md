@@ -1,10 +1,10 @@
 ---
-title: Develop an application on Kubernetes
+title: Utveckla ett program på Kubernetes
 services: azure-dev-spaces
 ms.date: 07/08/2019
 ms.topic: quickstart
-description: Deploy a microservice on AKS with Azure Dev Spaces
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s
+description: Distribuera en mikrotjänst på AKS med Azure dev Spaces
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
 manager: gwallace
 ms.openlocfilehash: 932b25e277936a2efe6a3e037458fabd67b024c2
 ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
@@ -13,32 +13,32 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74325643"
 ---
-# <a name="quickstart-develop-an-application-on-kubernetes---azure-dev-spaces"></a>Quickstart: Develop an application on Kubernetes - Azure Dev Spaces
+# <a name="quickstart-develop-an-application-on-kubernetes---azure-dev-spaces"></a>Snabb start: utveckla ett program på Kubernetes – Azure dev Spaces
 I den här guiden får du lära dig hur du:
 
-- Ställa in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
-- Develop and run code in containers using the command line.
+- Ställer in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
+- Utveckla och kör kod i behållare med hjälp av kommando raden.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
 - [Azure CLI installerat](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="create-an-azure-kubernetes-service-cluster"></a>Create an Azure Kubernetes Service cluster
+## <a name="create-an-azure-kubernetes-service-cluster"></a>Skapa ett Azure Kubernetes service-kluster
 
-You need to create an AKS cluster in a [supported region][supported-regions]. The below commands create a resource group called *MyResourceGroup* and an AKS cluster called *MyAKS*.
+Du måste skapa ett AKS-kluster i en [region som stöds][supported-regions]. Kommandona nedan skapar en resurs grupp med namnet *MyResourceGroup* och ett AKS-kluster som kallas *MyAKS*.
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
 az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --generate-ssh-keys
 ```
 
-## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Enable Azure Dev Spaces on your AKS cluster
+## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Aktivera Azure dev Spaces i ditt AKS-kluster
 
-Use the `use-dev-spaces` command to enable Dev Spaces on your AKS cluster and follow the prompts. The below command enables Dev Spaces on the *MyAKS* cluster in the *MyResourceGroup* group and creates a *default* dev space.
+Använd kommandot `use-dev-spaces` för att aktivera dev Spaces i ditt AKS-kluster och följa anvisningarna. Kommandot nedan aktiverar dev-utrymmen i *MyAKS* -klustret i gruppen *MyResourceGroup* och skapar ett *standard* dev-utrymme.
 
 > [!NOTE]
-> The `use-dev-spaces` command will also install the Azure Dev Spaces CLI if its not already installed. You cannot install the Azure Dev Spaces CLI in the Azure Cloud Shell.
+> Kommandot `use-dev-spaces` installerar även Azure dev Spaces CLI om det inte redan är installerat. Det går inte att installera Azure dev Spaces CLI i Azure Cloud Shell.
 
 ```cmd
 $ az aks use-dev-spaces -g MyResourceGroup -n MyAKS
@@ -58,32 +58,32 @@ Configuring and selecting dev space 'default'...3s
 Managed Kubernetes cluster 'MyAKS' in resource group 'MyResourceGroup' is ready for development in dev space 'default'. Type `azds prep` to prepare a source directory for use with Azure Dev Spaces and `azds up` to run.
 ```
 
-## <a name="get-sample-application-code"></a>Get sample application code
+## <a name="get-sample-application-code"></a>Hämta exempel program kod
 
-In this article, you use the [Azure Dev Spaces sample application](https://github.com/Azure/dev-spaces) to demonstrate using Azure Dev Spaces.
+I den här artikeln använder du [exempel programmet Azure dev Spaces](https://github.com/Azure/dev-spaces) för att demonstrera användningen av Azure dev Spaces.
 
-Clone the application from GitHub and navigate into the *dev-spaces/samples/nodejs/getting-started/webfrontend* directory:
+Klona programmet från GitHub och navigera till katalogen *dev-Spaces/samples/NodeJS/komma igång/webfrontend* :
 
 ```cmd
 git clone https://github.com/Azure/dev-spaces
 cd dev-spaces/samples/nodejs/getting-started/webfrontend
 ```
 
-## <a name="prepare-the-application"></a>Prepare the application
+## <a name="prepare-the-application"></a>Förbereda programmet
 
-In order to run your application on Azure Dev Spaces, you need a Dockerfile and Helm chart. For some languages, such as [Java][java-quickstart], [.NET core][netcore-quickstart], and [Node.js][nodejs-quickstart], the Azure Dev Spaces client tooling can generate all the assets you need. For many other languages, such as Go, PHP, and Python, the client tooling can generate the Helm chart as long as you can provide a valid Dockerfile.
+För att kunna köra ditt program på Azure dev Spaces behöver du ett Dockerfile-och Helm-diagram. För vissa språk, till exempel [Java][java-quickstart], [.net Core][netcore-quickstart]och [Node. js][nodejs-quickstart], kan Azure dev Spaces client-verktyget generera alla de till gångar du behöver. För många andra språk, till exempel Go, PHP och python, kan klient verktyget generera Helm-diagrammet så länge du kan ange en giltig Dockerfile.
 
-Generate the Docker and Helm chart assets for running the application in Kubernetes using the `azds prep` command:
+Generera Docker-och Helm-diagrammets till gångar för att köra programmet i Kubernetes med kommandot `azds prep`:
 
 ```cmd
 azds prep --public
 ```
 
-You must run the `prep` command from the *dev-spaces/samples/nodejs/getting-started/webfrontend* directory to correctly generate the Docker and Helm chart assets.
+Du måste köra kommandot `prep` från katalogen *dev-Spaces/samples/NodeJS/kom-start/webfrontend* för att kunna generera Docker-och Helm-diagrammets till gångar.
 
 ## <a name="build-and-run-code-in-kubernetes"></a>Skapa och köra kod i Kubernetes
 
-Build and run your code in AKS using the `azds up` command:
+Skapa och kör koden i AKS med kommandot `azds up`:
 
 ```cmd
 $ azds up
@@ -107,26 +107,26 @@ Service 'webfrontend' port 80 (http) is available at http://localhost:54256
 ...
 ```
 
-You can see the service running by opening the public URL, which is displayed in the output from the `azds up` command. In this example, the public URL is *http://webfrontend.1234567890abcdef1234.eus.azds.io/* .
+Du kan se den tjänst som körs genom att öppna den offentliga URL: en, som visas i utdata från kommandot `azds up`. I det här exemplet är den offentliga URL: en *http://webfrontend.1234567890abcdef1234.eus.azds.io/* .
 
 > [!NOTE]
-> When you navigate to your service while running `azds up`, the HTTP request traces are also displayed in the output of the `azds up` command. These traces can help you troubleshoot and debug your service. You can disable these traces using `--disable-http-traces` when running `azds up`.
+> När du navigerar till tjänsten när du kör `azds up`, visas även spårning av HTTP-begäranden i utdata från kommandot `azds up`. De här spårningarna kan hjälpa dig att felsöka och felsöka tjänsten. Du kan inaktivera dessa spårningar med `--disable-http-traces` när du kör `azds up`.
 
-If you stop the `azds up` command using *Ctrl+c*, the service will continue to run in AKS, and the public URL will remain available.
+Om du stoppar `azds up` kommandot med *CTRL + c*fortsätter tjänsten att köras i AKS och den offentliga URL: en är tillgänglig.
 
 ## <a name="update-code"></a>Uppdatera kod
 
-To deploy an updated version of your service, you can update any file in your project and rerun the `azds up` command. Exempel:
+Om du vill distribuera en uppdaterad version av tjänsten kan du uppdatera alla filer i projektet och köra kommandot `azds up` igen. Exempel:
 
-1. If `azds up` is still running, press *Ctrl+c*.
-1. Update [line 13 in `server.js`](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13) to:
+1. Tryck på *CTRL + c*om `azds up` fortfarande körs.
+1. Uppdatera [rad 13 i `server.js`](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13) till:
     
     ```javascript
         res.send('Hello from webfrontend in Azure');
     ```
 
 1. Spara ändringarna.
-1. Rerun the `azds up` command:
+1. Kör `azds up` kommandot igen:
 
     ```cmd
     $ azds up
@@ -137,10 +137,10 @@ To deploy an updated version of your service, you can update any file in your pr
     ...    
     ```
 
-1. Navigate to your running service and observe your changes.
-1. Press *Ctrl+c* to stop the `azds up` command.
+1. Navigera till den tjänst som körs och observera dina ändringar.
+1. Tryck på *CTRL + c* för att stoppa kommandot `azds up`.
 
-## <a name="clean-up-your-azure-resources"></a>Clean up your Azure resources
+## <a name="clean-up-your-azure-resources"></a>Rensa dina Azure-resurser
 
 ```cmd
 az group delete --name MyResourceGroup --yes --no-wait
@@ -148,10 +148,10 @@ az group delete --name MyResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>Nästa steg
 
-Learn how Azure Dev Spaces helps you develop more complex applications across multiple containers, and how you can simplify collaborative development by working with different versions or branches of your code in different spaces.
+Lär dig hur Azure dev Spaces hjälper dig att utveckla mer komplexa program över flera behållare och hur du kan förenkla samarbets utveckling genom att arbeta med olika versioner eller grenar av koden i olika utrymmen.
 
 > [!div class="nextstepaction"]
-> [Team development in Azure Dev Spaces][team-quickstart]
+> [Grupp utveckling i Azure dev Spaces][team-quickstart]
 
 [java-quickstart]: quickstart-java.md
 [nodejs-quickstart]: quickstart-nodejs.md

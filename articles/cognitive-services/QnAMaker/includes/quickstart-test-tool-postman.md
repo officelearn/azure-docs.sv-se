@@ -19,7 +19,7 @@ ms.locfileid: "74424421"
 ---
 Denna Postmanbaserade snabbstart vägleder dig genom att hämta ett svar från en kunskapsbas.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Senaste [**Postman**](https://www.getpostman.com/).
 * Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md) och en [kunskapsbas med frågor och svar](../Tutorials/create-publish-query-in-portal.md). 
@@ -69,4 +69,4 @@ Utför följande steg för att generera ett svar med Postman:
 
 ## <a name="use-staging-endpoint"></a>Använda mellanlagringsslutpunkt
 
-If you want to get an answer from the staging endpoint, append the URL with the `isTest` body property.
+Om du vill få ett svar från mellanlagrings slut punkten lägger du till URL: en med egenskapen `isTest` Body.

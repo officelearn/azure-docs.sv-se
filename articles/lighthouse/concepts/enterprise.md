@@ -1,6 +1,6 @@
 ---
 title: Azure Lighthouse i företagsscenarier
-description: The capabilities of Azure Lighthouse can be used to simplify cross-tenant management within an enterprise which uses multiple Azure AD tenants.
+description: Funktionerna i Azure Lighthouse kan användas för att förenkla hanteringen av flera innehavare i ett företag som använder flera Azure AD-klienter.
 ms.date: 09/25/2019
 ms.topic: conceptual
 ms.openlocfilehash: f610f943ed7faa0d2ad64ff2f1554cdd41d76ee8
@@ -12,51 +12,51 @@ ms.locfileid: "74463910"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse i företagsscenarier
 
-The most common scenario for [Azure Lighthouse](../overview.md) is a service provider managing resources in its customers’ Azure  Active Directory (Azure AD) tenants. However, the capabilities of Azure Lighthouse can also be used to simplify cross-tenant management within an enterprise which uses multiple Azure AD tenants.
+Det vanligaste scenariot för [Azure Lighthouse](../overview.md) är en tjänst leverantör som hanterar resurser i sina kunders Azure Active Directory (Azure AD)-klient organisationer. Funktionerna i Azure Lighthouse kan dock också användas för att förenkla hanteringen av flera innehavare i ett företag som använder flera Azure AD-klienter.
 
-## <a name="single-vs-multiple-tenants"></a>Single vs. multiple tenants
+## <a name="single-vs-multiple-tenants"></a>En eller flera klienter
 
-For most organizations, management is easier with a single Azure AD tenant. Having all resources within one tenant allows centralization of management tasks by designated users, user groups, or service principals within that tenant. We recommend using one tenant for your organization whenever possible.
+För de flesta organisationer är hanteringen enklare med en enda Azure AD-klient. Med alla resurser inom en klient organisation kan centralisering hanterings uppgifter hanteras av användare, användar grupper eller tjänstens huvud namn inom den klient organisationen. Vi rekommenderar att du använder en klient organisation för din organisation närhelst det är möjligt.
 
-At the same time, there are situations that may require an organization to maintain multiple Azure AD tenants. In some cases, this may be a temporary situation, as when acquisitions have taken place and a long-term tenant consolidation strategy will take some time to define. An organization may also need to maintain multiple tenants on an ongoing basis (due to wholly independent subsidiaries, geographical or legal requirements, and so on). In cases where a multi-tenant architecture is required, Azure delegated resource management can be used to centralize and streamline management operations. Subscriptions from multiple tenants can be onboarded for [Azure delegated resource management](azure-delegated-resource-management.md), allowing designated users in a managing tenant to perform [cross-tenant management functions](cross-tenant-management-experience.md) in a centralized and scalable manner.
+På samma tid finns det situationer som kan kräva att en organisation underhåller flera Azure AD-klienter. I vissa fall kan detta vara en tillfällig situation, precis som när förvärv har ägt rum och en långsiktig konsoliderings strategi för innehavare kan ta lite tid att definiera. En organisation kan också behöva upprätthålla flera klient organisationer fort löp ande (på grund av helt oberoende dotter bolag, geografiska eller juridiska krav och så vidare). I de fall där en arkitektur för flera innehavare krävs kan Azure-delegerad resurs hantering användas för att centralisera och effektivisera hanterings åtgärder. Prenumerationer från flera klienter kan registreras för Azure- [delegerad resurs hantering](azure-delegated-resource-management.md), så att användare i en hanterings klient kan utföra [hanterings funktioner för flera innehavare](cross-tenant-management-experience.md) på ett centraliserat och skalbart sätt.
 
-## <a name="tenant-management-architecture"></a>Tenant management architecture
+## <a name="tenant-management-architecture"></a>Arkitektur för klient hantering
 
-When centralizing management operations across multiple tenants, you’ll need to determine which tenant will include the users performing management operations for the other tenants. In other words, you will need to determine which tenant will be the managing tenant for other tenants.
+När du centraliserar hanterings åtgärder över flera klienter måste du bestämma vilken klient som ska innehålla de användare som utför hanterings åtgärder för de andra klient organisationerna. Med andra ord måste du bestämma vilken klient som ska vara hanterings klient för andra klienter.
 
-For example, say your organization has a single tenant that we’ll call *Tenant A*. Your organization then acquires two additional tenants, *Tenant B* and *Tenant C*, and you have business reasons that require you to maintain them as separate tenants.
+Anta till exempel att din organisation har en enda klient som vi ska kalla *klient a*. Din organisation kommer sedan att förvärva ytterligare två klienter, *klient B* och *klient C*och du har affärs skäl som kräver att du underhåller dem som separata klienter.
 
-Your organization wants to use the same policy definitions, backup practices, and security processes across all tenants. Since you already have users (including user groups and service principals) that are responsible for performing these tasks within Tenant A, you can onboard all of the subscriptions within Tenant B and Tenant C so that those same users in Tenant A can perform those tasks.
+Organisationen vill använda samma princip definitioner, säkerhets kopierings metoder och säkerhets processer för alla klienter. Eftersom du redan har användare (inklusive användar grupper och tjänstens huvud namn) som ansvarar för att utföra dessa uppgifter i klient organisationen A, kan du publicera alla prenumerationer i klient B och klient C så att samma användare i klient organisationen kan utföra dessa uppgifter.
 
-![Users in Tenant A managing resources in Tenant B and Tenant C](../media/enterprise-azure-lighthouse.jpg)
+![Användare i klient organisation A hanterar resurser i klient B och klient organisation C](../media/enterprise-azure-lighthouse.jpg)
 
-## <a name="security-and-access-considerations"></a>Security and access considerations
+## <a name="security-and-access-considerations"></a>Säkerhets-och åtkomst överväganden
 
-In most enterprise scenarios, you’ll want to delegate a full subscription for Azure delegated resource management, although you can also delegate only specific resource groups within a subscription.
+I de flesta företags scenarier vill du delegera en fullständig prenumeration för Azure-delegerad resurs hantering, men du kan också delegera endast vissa resurs grupper i en prenumeration.
 
-Either way, be sure to [follow the principle of least privilege when defining which users will have access to resources](recommended-security-practices.md#assign-permissions-to-groups-using-the-principle-of-least-privilege). Doing so helps to ensure that users only have the permissions needed to perform the required tasks and reduces the chance of inadvertent errors.
+Något av följande sätt måste du [följa principen om minsta behörighet när du definierar vilka användare som ska ha åtkomst till resurser](recommended-security-practices.md#assign-permissions-to-groups-using-the-principle-of-least-privilege). På så sätt kan du se till att användarna bara har de behörigheter som krävs för att utföra de uppgifter som krävs och minskar risken för oavsiktliga fel.
 
-Azure Lighthouse and Azure delegated resource management only provide logical links between a managing tenant and managed tenants, rather than physically moving data or resources. Furthermore, the access always goes in only one direction, from the managing tenant to the managed tenants.  Users and groups in the managing tenant should continue to use multi-factor authentication when performing management operations on managed tenant resources.
+Azure-Lighthouse och Azure-delegerad resurs hantering tillhandahåller endast logiska länkar mellan en hanterande klient organisation och hanterade klienter, i stället för att fysiskt flytta data eller resurser. Dessutom går åtkomsten alltid i en riktning, från hanterings klienten till de hanterade klient organisationerna.  Användare och grupper i hanterings klienten bör fortsätta att använda Multi-Factor Authentication när de utför hanterings åtgärder på hanterade klient resurser.
 
-Enterprises with internal or external governance and compliance guardrails can use [Azure Activity logs](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview) to meet their transparency requirements. When enterprise tenants have established managing and managed tenant relationships, users in each tenant can monitor and gain visibility to actions taken by the users in the other tenant by viewing logged activity.
+Företag med interna eller externa styrnings-och guardrails kan använda [Azures aktivitets loggar](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview) för att uppfylla sina genomskinlighets krav. När företags klienter har upprättat hantera och hanterade klient relationer, kan användare i varje klient övervaka och få insyn i de åtgärder som vidtas av användarna i den andra klienten genom att Visa loggad aktivitet.
 
-## <a name="onboarding-process-considerations"></a>Onboarding process considerations
+## <a name="onboarding-process-considerations"></a>Att tänka på vid onboarding
 
-Subscriptions (or resource groups within a subscription) can be onboarded to Azure delegated resource management either by deploying Azure Resource Manager templates or through Managed Services offers published to Azure Marketplace, either privately or publicly.
+Prenumerationer (eller resurs grupper inom en prenumeration) kan registreras i Azure delegerad resurs hantering, antingen genom att distribuera Azure Resource Manager mallar eller genom hanterade tjänster, som publiceras på Azure Marketplace, antingen privat eller offentliggör.
 
-Since enterprise users will normally be able to gain direct access to the enterprise’s tenants, and there’s no need to market or promote a management offering, it’s generally faster and more straightforward to deploy directly with Azure Resource Manager templates. While we refer to service providers and customers in the [onboarding guidance](../how-to/onboard-customer.md), enterprises can use the same processes.
+Eftersom företags användare vanligt vis kommer att kunna få direkt åtkomst till företagets klienter, och det inte finns något behov av att marknadsföra eller marknadsföra ett hanterings erbjudande, är det vanligt vis snabbare och mer enkelt att distribuera direkt med Azure Resource Manager mallar. Även om vi refererar till tjänst leverantörer och kunder i [onboarding-vägledningen](../how-to/onboard-customer.md)kan företag använda samma processer.
 
-If you prefer, tenants within an enterprise can be onboarded by [publishing a Managed Services offer to Azure Marketplace](../how-to/publish-managed-services-offers.md). To ensure that the offer is only available to the appropriate tenants, be sure that your plans are marked as private. With a private plan, you can provide the subscription IDs for each tenant that you plan to onboard, and no one else will be able to get your offer.
+Om du vill kan klient organisationer inom ett företag registreras genom [att publicera ett erbjudande för hanterade tjänster på Azure Marketplace](../how-to/publish-managed-services-offers.md). För att säkerställa att erbjudandet endast är tillgängligt för lämpliga klienter, se till att dina planer är markerade som privata. Med en privat plan kan du ange prenumerations-ID: n för varje klient som du planerar att publicera, och ingen annan kan få ditt erbjudande.
 
-## <a name="terminology-notes"></a>Terminology notes
+## <a name="terminology-notes"></a>Terminologi-anteckningar
 
-For cross-tenant management within the enterprise, references to service providers in the Azure Lighthouse documentation can be understood to apply to the managing tenant within an enterprise—that is, the tenant that includes the users who will manage resources in other tenants through Azure delegated resource management. Similarly, references to customers can be understood to apply to the tenants that are delegating resources to be managed through users in the managing tenant.
+För hantering av flera innehavare i företaget kan referenser till tjänst leverantörer i Azure Lighthouse-dokumentationen förstås för hantering av klient organisationer i ett företag, det vill säga den klient som innehåller de användare som ska hantera resurser i andra klienter via Azure delegerad resurs hantering. På samma sätt kan referenser till kunder förstås för de klienter som delegerar resurser som ska hanteras via användare i hanterings klienten.
 
-For instance, in the example described above, Tenant A can be thought of as the service provider tenant (the managing tenant) and Tenant B and Tenant C can be thought of as the customer tenants.
+I det exempel som beskrivs ovan kan klient A betraktas som tjänst leverantörens klient organisation (hanterings klienten) och klient B och klient C kan betraktas som kund innehavare.
 
-In that example, Tenant A users with the appropriate permissions can [view and manage delegated resources](../how-to/view-manage-customers.md) in the **My customers** page of the Azure portal. Likewise, Tenant B and Tenant C users with the appropriate permissions can [view and manage the resources that have been delegated](../how-to/view-manage-service-providers.md) to Tenant A in the **Service providers** page of the Azure portal.
+I det exemplet kan klienter som har rätt behörighet [Visa och hantera delegerade resurser](../how-to/view-manage-customers.md) på sidan **mina kunder** i Azure Portal. På samma sätt kan klient B-och klient organisation C-användare med lämpliga behörigheter [Visa och hantera de resurser som har delegerats](../how-to/view-manage-service-providers.md) till klient organisation A på sidan **tjänst leverantörer** i Azure Portal.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Learn about [cross-tenant management experiences](cross-tenant-management-experience.md).
+- Lär dig mer om [hanterings upplevelser mellan flera innehavare](cross-tenant-management-experience.md).
 - Lär dig mer om [Azure-delegerad resurshantering](azure-delegated-resource-management.md).

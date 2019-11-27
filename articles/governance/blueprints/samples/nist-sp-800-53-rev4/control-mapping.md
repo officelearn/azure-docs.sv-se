@@ -1,14 +1,14 @@
 ---
-title: NIST SP 800-53 R4 skiss-kontroll mappning
+title: NIST SP 800-53 R4 skiss exempel kontroller
 description: Kontroll mappning av NIST SP 800-53 R4 skiss-exemplet. Varje kontroll mappas till en eller flera Azure-principer som hjälper till med utvärderingen.
 ms.date: 11/18/2019
 ms.topic: sample
-ms.openlocfilehash: 94011cf5bbebf0278fa66d4c2ad97e3918679ca4
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 104224ec96a5989a103f4d00310cf08b684b4d67
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184492"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546616"
 ---
 # <a name="control-mapping-of-the-nist-sp-800-53-r4-blueprint-sample"></a>Kontroll mappning av NIST SP 800-53 R4 skiss exempel
 
@@ -97,11 +97,11 @@ Loggdata som samlas in av Azure Monitor lagras i en Log Analytics arbets yta som
 
 - \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
 - \[för hands version\]: granska Log Analytics agent distribution i VMSS-VM-avbildningen (OS) visas inte
-- \[Förhandsversion av\]: granska Log Analytics-arbetsyta för virtuell dator – rapportera matchningsfel
+- \[för hands version\]: granska Log Analytics arbets yta för VM-rapportera fel
 - \[för hands version\]: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
-- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Linux-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
 - \[för hands version\]: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
-- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Windows-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
 
 ## <a name="au-5-response-to-audit-processing-failures"></a>AU-5-svar på gransknings bearbetnings problem
 
@@ -118,11 +118,11 @@ Loggdata som samlas in av Azure Monitor lagras i en Log Analytics arbets yta som
 
 - \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
 - \[för hands version\]: granska Log Analytics agent distribution i VMSS-VM-avbildningen (OS) visas inte
-- \[Förhandsversion av\]: granska Log Analytics-arbetsyta för virtuell dator – rapportera matchningsfel
+- \[för hands version\]: granska Log Analytics arbets yta för VM-rapportera fel
 - \[för hands version\]: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
-- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Linux-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
 - \[för hands version\]: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
-- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Windows-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
 
 ## <a name="au-12-audit-generation"></a>AU – 12 gransknings generation
 
@@ -130,11 +130,11 @@ Den här skissen hjälper dig att se till att system händelser loggas genom att
 
 - \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
 - \[för hands version\]: granska Log Analytics agent distribution i VMSS-VM-avbildningen (OS) visas inte
-- \[Förhandsversion av\]: granska Log Analytics-arbetsyta för virtuell dator – rapportera matchningsfel
+- \[för hands version\]: granska Log Analytics arbets yta för VM-rapportera fel
 - \[för hands version\]: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
-- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Linux-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
 - \[för hands version\]: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
-- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Windows-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
 - Granska diagnostikinställning
 - Granska gransknings inställningar för SQL Server-nivå
 - Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser
@@ -305,11 +305,11 @@ Den här skissen hjälper dig att övervaka systemet genom att granska och framt
 
 - \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
 - \[för hands version\]: granska Log Analytics agent distribution i VMSS-VM-avbildningen (OS) visas inte
-- \[Förhandsversion av\]: granska Log Analytics-arbetsyta för virtuell dator – rapportera matchningsfel
+- \[för hands version\]: granska Log Analytics arbets yta för VM-rapportera fel
 - \[för hands version\]: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
-- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Linux-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
 - \[för hands version\]: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
-- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Windows-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
 - Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser
 - Avancerad datasäkerhet bör aktiveras på dina SQL-servrar
 - Distribuera avancerad data säkerhet på SQL-servrar

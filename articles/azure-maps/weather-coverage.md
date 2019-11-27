@@ -197,7 +197,7 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Indien                             | ✓ |   |  ✓| 
 | Indonesien                         | ✓ |   |  ✓| 
 | Japan                             | ✓ | ✓ |  ✓| 
-| Kazakhstan                        | ✓ |   |  ✓| 
+| Kazakstan                        | ✓ |   |  ✓| 
 | Kiribati                          | ✓ |   |  ✓| 
 | Korea                             | ✓ | ✓ |  ✓| 
 | Kirgizistan                        | ✓ |   |  ✓| 

@@ -1,6 +1,6 @@
 ---
-title: Copy data from Amazon S3 to Azure Storage by using AzCopy | Microsoft Docs
-description: Transfer data with AzCopy and Amazon S3 buckets
+title: Kopiera data från Amazon S3 till Azure Storage med hjälp av AzCopy | Microsoft Docs
+description: Överföra data med AzCopy och Amazon S3-buckets
 services: storage
 author: normesta
 ms.service: storage
@@ -15,30 +15,30 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74327862"
 ---
-# <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>Copy data from Amazon S3 to Azure Storage by using AzCopy
+# <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>Kopiera data från Amazon S3 till Azure Storage med hjälp av AzCopy
 
-AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. This article helps you copy objects, directories, and buckets from Amazon Web Services (AWS) S3 to Azure blob storage by using AzCopy.
+AzCopy är ett kommando rads verktyg som du kan använda för att kopiera blobbar eller filer till eller från ett lagrings konto. Den här artikeln hjälper dig att kopiera objekt, kataloger och buckets från Amazon Web Services (AWS) S3 till Azure Blob Storage med hjälp av AzCopy.
 
-## <a name="choose-how-youll-provide-authorization-credentials"></a>Choose how you'll provide authorization credentials
+## <a name="choose-how-youll-provide-authorization-credentials"></a>Välj hur du ska ange autentiseringsuppgifter för auktorisering
 
-* To authorize with the Azure Storage, use Azure Active Directory (AD) or a Shared Access Signature (SAS) token.
+* Om du vill auktorisera med Azure Storage använder du Azure Active Directory (AD) eller en signatur för signatur för delad åtkomst (SAS).
 
-* To authorize with AWS S3, use an AWS access key and a secret access key.
+* Om du vill auktorisera med AWS S3 använder du en AWS-åtkomst nyckel och en hemlig åtkomst nyckel.
 
-### <a name="authorize-with-azure-storage"></a>Authorize with Azure Storage
+### <a name="authorize-with-azure-storage"></a>Auktorisera med Azure Storage
 
-See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy, and choose how you'll provide authorization credentials to the storage service.
+Se artikeln [Kom igång med AZCopy](storage-use-azcopy-v10.md) för att hämta AzCopy och välj hur du ska ange autentiseringsuppgifter för lagrings tjänsten.
 
 > [!NOTE]
-> The examples in this article assume that you've authenticated your identity by using the `AzCopy login` command. AzCopy then uses your Azure AD account to authorize access to data in Blob storage.
+> I exemplen i den här artikeln förutsätter vi att du har autentiserat din identitet med hjälp av kommandot `AzCopy login`. AzCopy använder sedan ditt Azure AD-konto för att ge åtkomst till data i Blob Storage.
 >
-> If you'd rather use a SAS token to authorize access to blob data, then you can append that token to the resource URL in each AzCopy command.
+> Om du hellre vill använda en SAS-token för att auktorisera åtkomst till BLOB-data kan du lägga till denna token i resurs-URL: en i varje AzCopy-kommando.
 >
 > Till exempel: `https://mystorageaccount.blob.core.windows.net/mycontainer?<SAS-token>`.
 
-### <a name="authorize-with-aws-s3"></a>Authorize with AWS S3
+### <a name="authorize-with-aws-s3"></a>Auktorisera med AWS S3
 
-Gather your AWS access key and secret access key, and then set the these environment variables:
+Samla in din AWS-åtkomst nyckel och den hemliga åtkomst nyckeln och ställ sedan in följande miljövariabler:
 
 | Operativsystem | Kommando  |
 |--------|-----------|
@@ -46,102 +46,102 @@ Gather your AWS access key and secret access key, and then set the these environ
 | **Linux** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>` |
 | **MacOS** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>`|
 
-## <a name="copy-objects-directories-and-buckets"></a>Copy objects, directories, and buckets
+## <a name="copy-objects-directories-and-buckets"></a>Kopiera objekt, kataloger och buckets
 
-AzCopy uses the [Put Block From URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API, so data is copied directly between AWS S3 and storage servers. These copy operations don't use the network bandwidth of your computer.
+AzCopy använder plats [blocket från URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) -API, så data kopieras direkt mellan AWS S3-och lagrings servrar. Dessa kopierings åtgärder använder inte datorns nätverks bandbredd.
 
 > [!IMPORTANT]
-> Den här funktionen är för närvarande en förhandsversion. If you decide to remove data from your S3 buckets after a copy operation, make sure to verify that the data was properly copied to your storage account before you remove the data.
+> Den här funktionen är för närvarande en förhandsversion. Om du bestämmer dig för att ta bort data från S3-buckets efter en kopierings åtgärd, kontrollerar du att data har kopierats korrekt till ditt lagrings konto innan du tar bort data.
 
 > [!TIP]
-> The examples in this section enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
+> Exemplen i det här avsnittet omger Sök vägs argument med enkla citat tecken (' '). Använd enkla citat tecken i alla kommando gränssnitt utom Windows Command Shell (cmd. exe). Om du använder ett Windows Command Shell (cmd. exe), omger Sök vägs argument med dubbla citat tecken ("") i stället för enkla citat tecken ().
 
-### <a name="copy-an-object"></a>Copy an object
+### <a name="copy-an-object"></a>Kopiera ett objekt
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<object-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>'` |
+| **Uttryck** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<object-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>'` |
 | **Exempel** | `azcopy copy 'https://s3.amazonaws.com/mybucket/myobject' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myblob'` |
 
 > [!NOTE]
-> Examples in this article use path-style URLs for AWS S3 buckets (For example: `http://s3.amazonaws.com/<bucket-name>`). 
+> I den här artikeln används URL: er för Sök vägs format för AWS S3-buckets (till exempel: `http://s3.amazonaws.com/<bucket-name>`). 
 >
-> You can also use virtual hosted-style URLs as well (For example: `http://bucket.s3.amazonaws.com`). 
+> Du kan också använda virtuella webb adresser för värdbaserade format (till exempel: `http://bucket.s3.amazonaws.com`). 
 >
-> To learn more about virtual hosting of buckets, see [Virtual Hosting of Buckets]](https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html).
+> Om du vill veta mer om virtuell värd för buckets, se [virtuell värd för buckets]] (https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html).
 
-### <a name="copy-a-directory"></a>Copy a directory
+### <a name="copy-a-directory"></a>Kopiera en katalog
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<directory-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true` |
+| **Uttryck** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<directory-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true` |
 | **Exempel** | `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 
-### <a name="copy-a-bucket"></a>Copy a bucket
+### <a name="copy-a-bucket"></a>Kopiera en Bucket
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>' --recursive=true` |
+| **Uttryck** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>' --recursive=true` |
 | **Exempel** | `azcopy copy 'https://s3.amazonaws.com/mybucket' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive=true` |
 
-### <a name="copy-all-buckets-in-all-regions"></a>Copy all buckets in all regions
+### <a name="copy-all-buckets-in-all-regions"></a>Kopiera alla buckets i alla regioner
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy 'https://s3.amazonaws.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
+| **Uttryck** | `azcopy copy 'https://s3.amazonaws.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
 | **Exempel** | `azcopy copy 'https://s3.amazonaws.com' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
 
-### <a name="copy-all-buckets-in-a-specific-s3-region"></a>Copy all buckets in a specific S3 region
+### <a name="copy-all-buckets-in-a-specific-s3-region"></a>Kopiera alla buckets i en angiven S3-region
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy 'https://s3-<region-name>.amazonaws.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
+| **Uttryck** | `azcopy copy 'https://s3-<region-name>.amazonaws.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
 | **Exempel** | `azcopy copy 'https://s3-rds.eu-north-1.amazonaws.com' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
 
-## <a name="handle-differences-in-object-naming-rules"></a>Handle differences in object naming rules
+## <a name="handle-differences-in-object-naming-rules"></a>Hantera skillnader i namngivnings regler för objekt
 
-AWS S3 has a different set of naming conventions for bucket names as compared to Azure blob containers. You can read about them [here](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules). If you choose to copy a group of buckets to an Azure storage account, the copy operation might fail because of naming differences.
+AWS S3 har en annan uppsättning namn konventioner för Bucket-namn jämfört med Azure Blob-behållare. Du kan läsa om dem [här](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules). Om du väljer att kopiera en grupp med buckets till ett Azure Storage-konto kan kopierings åtgärden Miss Miss kan uppstå på grund av namngivnings skillnader.
 
-AzCopy handles two of the most common issues that can arise; buckets that contain periods and buckets that contain consecutive hyphens. AWS S3 bucket names can contain periods and consecutive hyphens, but a container in Azure can't. AzCopy replaces periods with hyphens and consecutive hyphens with a number that represents the number of consecutive hyphens (For example: a bucket named `my----bucket` becomes `my-4-bucket`. 
+AzCopy hanterar två av de vanligaste problemen som kan uppstå. buckets som innehåller punkter och buckets som innehåller flera bindestreck. AWS S3 Bucket-namn kan innehålla punkter och flera bindestreck, men en behållare i Azure kan inte. AzCopy ersätter punkter med bindestreck och efterföljande bindestreck med ett tal som representerar antalet bindestreck i rad (till exempel: en Bucket med namnet `my----bucket` blir `my-4-bucket`. 
 
-Also, as AzCopy copies over files, it checks for naming collisions and attempts to resolve them. For example, if there are buckets with the name `bucket-name` and `bucket.name`, AzCopy resolves a bucket named `bucket.name` first to `bucket-name` and then to `bucket-name-2`.
+Som AzCopy kopior över filer söker den också efter namngivning av kollisioner och försöker lösa dem. Om det till exempel finns buckets med namnet `bucket-name` och `bucket.name`, löser AzCopy en Bucket som heter `bucket.name` först till `bucket-name` och sedan till `bucket-name-2`.
 
-## <a name="handle-differences-in-object-metadata"></a>Handle differences in object metadata
+## <a name="handle-differences-in-object-metadata"></a>Hantera skillnader i metadata för objekt
 
-AWS S3 and Azure allow different sets of characters in the names of object keys. You can read about the characters that AWS S3 uses [here](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys). On the Azure side, blob object keys adhere to the naming rules for [C# identifiers](https://docs.microsoft.com/dotnet/csharp/language-reference/).
+AWS S3 och Azure tillåter olika uppsättningar av tecken i namn på objekt nycklar. Du kan läsa om de tecken som AWS S3 använder [här](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys). På Azure-sidan följer BLOB-objekten namngivnings reglerna för [ C# identifierare](https://docs.microsoft.com/dotnet/csharp/language-reference/).
 
-As part of an AzCopy `copy` command, you can provide a value for optional the `s2s-invalid-metadata-handle` flag that specifies how you would like to handle files where the metadata of the file contains incompatible key names. The following table describes each flag value.
+Som en del av ett `copy` AzCopy-kommando kan du ange ett värde för valfri `s2s-invalid-metadata-handle`-flagga som anger hur du vill hantera filer där filens metadata innehåller inkompatibla nyckel namn. I följande tabell beskrivs varje flagg värde.
 
-| Flag value | Beskrivning  |
+| Flagg värde | Beskrivning  |
 |--------|-----------|
-| **ExcludeIfInvalid** | (Default option) The metadata isn't included in the transferred object. AzCopy logs a warning. |
-| **FailIfInvalid** | Objects aren't copied. AzCopy logs an error and includes that error in the failed count that appears in the transfer summary.  |
-| **RenameIfInvalid**  | AzCopy resolves the invalid metadata key, and copies the object to Azure using the resolved metadata key value pair. To learn exactly what steps AzCopy takes to rename object keys, see the [How AzCopy renames object keys](#rename-logic) section below. If AzCopy is unable to rename the key, then the object won't be copied. |
+| **ExcludeIfInvalid** | (Standard alternativet) Metadata ingår inte i det överförda objektet. AzCopy loggar en varning. |
+| **FailIfInvalid** | Objekt kopieras inte. AzCopy loggar ett fel och inkluderar det felet i det antal fel som visas i överförings sammanfattningen.  |
+| **RenameIfInvalid**  | AzCopy matchar den ogiltiga metadata-nyckeln och kopierar objektet till Azure med det matchade nyckel värde paret för metadata. Om du vill veta exakt vilka steg AzCopy tar för att byta namn på objekt nycklar, se avsnittet [hur AzCopy byter namn på objekt nycklar](#rename-logic) nedan. Om AzCopy inte kan byta namn på nyckeln kopieras inte objektet. |
 
 <a id="rename-logic" />
 
-### <a name="how-azcopy-renames-object-keys"></a>How AzCopy renames object keys
+### <a name="how-azcopy-renames-object-keys"></a>Hur AzCopy byter namn på objekt nycklar
 
-AzCopy performs these steps:
+AzCopy utför följande steg:
 
-1. Replaces invalid characters with '_'.
+1. Ersätter ogiltiga tecken med _.
 
-2. Adds the string `rename_` to the beginning of a new valid key.
+2. Lägger till sträng `rename_` till början av en ny giltig nyckel.
 
-   This key will be used to save the original metadata **value**.
+   Den här nyckeln används för att spara det ursprungliga metadata- **värdet**.
 
-3. Adds the string `rename_key_` to the beginning of a new valid key.
-   This key will be used to save original metadata invalid **key**.
-   You can use this key to try and recover the metadata in Azure side since metadata key is preserved as a value on the Blob storage service.
+3. Lägger till sträng `rename_key_` till början av en ny giltig nyckel.
+   Den här nyckeln används för att spara de ursprungliga metadata- **nyckeln**är ogiltig.
+   Du kan använda den här nyckeln för att försöka återställa metadata på Azure-sidan eftersom metadata-nyckeln bevaras som ett värde i Blob Storage-tjänsten.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Find more examples in any of these articles:
+Hitta fler exempel i någon av följande artiklar:
 
-- [Get started with AzCopy](storage-use-azcopy-v10.md)
+- [Kom igång med AzCopy](storage-use-azcopy-v10.md)
 
-- [Transfer data with AzCopy and blob storage](storage-use-azcopy-blobs.md)
+- [Överföra data med AzCopy och Blob Storage](storage-use-azcopy-blobs.md)
 
-- [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
+- [Överföra data med AzCopy och fil lagring](storage-use-azcopy-files.md)
 
-- [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
+- [Konfigurera, optimera och felsöka AzCopy](storage-use-azcopy-configure.md)

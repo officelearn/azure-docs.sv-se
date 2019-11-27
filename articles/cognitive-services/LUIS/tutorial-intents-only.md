@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Predict intentions - LUIS'
+title: 'Självstudie: förutsäga-LUIS'
 titleSuffix: Azure Cognitive Services
 description: I den här självstudien skapar du en anpassad app som förutspår en användares avsikt. Den här appen är den enklaste typen av LUIS-app eftersom den inte extraherar olika dataelement från yttranden, som e-postadresser eller datum.
 services: cognitive-services
@@ -18,9 +18,9 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74325928"
 ---
-# <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>Tutorial: Build a LUIS app to determine user intentions
+# <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>Självstudie: Bygg en LUIS-app för att fastställa användar avsikter
 
-In this tutorial, you create a custom app that predicts a user's intention based on the utterance (text). 
+I den här självstudien skapar du en anpassad app som förutsäger en användares avsikt baserat på uttryck (text). 
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
@@ -32,7 +32,7 @@ In this tutorial, you create a custom app that predicts a user's intention based
 > * Lägga till exempelyttranden
 > * Träna appen
 > * Publicera app
-> * Get intent prediction from endpoint
+> * Hämta förutsägelse för avsikt från slut punkt
 
 
 [!INCLUDE [LUIS Free account](includes/quickstart-tutorial-use-free-starter-key.md)]
@@ -47,10 +47,10 @@ Dessa syften är indelade i **avsikter**.
 
 |Avsikt|Syfte|
 |--|--|
-|`ModifyOrder`|Determine user's pizza order.|
-|`Greeting`|Begin bot conversation.|
-|`ConfirmOrder`|Confirm pizza order.|
-|`None`|Determine if user is asking something the app is not supposed to answer. Den här avsikten tillhandahålls som en del av att skapa appen och kan inte tas bort. |
+|`ModifyOrder`|Fastställa användarens pizza-ordning.|
+|`Greeting`|Starta bot-konversation.|
+|`ConfirmOrder`|Bekräfta pizza-ordningen.|
+|`None`|Ta reda på om användaren frågar något som appen inte ska svara på. Den här avsikten tillhandahålls som en del av att skapa appen och kan inte tas bort. |
 
 ## <a name="create-a-new-app"></a>Skapa en ny app
 
@@ -58,13 +58,13 @@ Dessa syften är indelade i **avsikter**.
 
 ## <a name="create-a-new-intent"></a>Skapa en ny avsikt 
 
-1. In the portal, inside the app's **Build** section, select **+ Create**. Enter the new intent name, `OrderPizza`, then select **Done**.
+1. I portalen, i appens **build** -avsnitt, väljer du **+ skapa**. Ange det nya namnet på avsikten `OrderPizza`och välj sedan **färdig**.
 
-    The `OrderPizza` intent is predicted when: a user wants to order a pizza. 
+    `OrderPizza` avsikten förutsägs när: en användare vill beställa en pizza. 
 
 1. Lägg till flera exempelyttranden till den här avsikten som du förväntar dig att en användare kan fråga:
 
-    |`OrderPizza` example utterances|
+    |`OrderPizza` exempel yttranden|
     |--|
     |`can i get a pepperoni pizza and a can of coke please`|
     |`can i get a small pizza with onions peppers and olives`|
@@ -78,11 +78,11 @@ Dessa syften är indelade i **avsikter**.
 
     [!INCLUDE [Do not use too few utterances](includes/do-not-use-too-few-utterances.md)]    
 
-## <a name="create-remaining-intents"></a>Create remaining intents
+## <a name="create-remaining-intents"></a>Skapa återstående avsikter
 
-1. Create the `Greeting` intent and add the following example utterances. This is the intent to determine if a user is beginning a new pizza order conversation.
+1. Skapa `Greeting` avsikten och Lägg till följande exempel yttranden. Detta är avsikten att avgöra om en användare påbörjar en ny pizza order-konversation.
 
-    |`Greeting` example utterances|
+    |`Greeting` exempel yttranden|
     |--|
     |`Hi`|
     |`Hello`|
@@ -90,9 +90,9 @@ Dessa syften är indelade i **avsikter**.
     |`Start`|
     |`Begin`|
 
-1. Create the `Confirm` intent and add the following example utterances. This is the intent to determine if a user is done ordering and accepts the order details. 
+1. Skapa `Confirm` avsikten och Lägg till följande exempel yttranden. Det här är avsikten att avgöra om en användare utför beställningar och godkänner beställnings detaljerna. 
 
-    |`Confirm` example utterances|
+    |`Confirm` exempel yttranden|
     |--|
     |`Go ahead`|
     |`ok`|
@@ -100,7 +100,7 @@ Dessa syften är indelade i **avsikter**.
     |`Sure`|
 
 
-## <a name="none-intent-example-utterances"></a>None intent example utterances
+## <a name="none-intent-example-utterances"></a>Ingen avsikts exempel yttranden
 
 [!INCLUDE [Follow these steps to add the None intent to the app](includes/add-example-utterances-none-intent.md)]
 
@@ -108,19 +108,19 @@ Dessa syften är indelade i **avsikter**.
 
 [!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
-## <a name="publish-the-app"></a>Publish the app 
+## <a name="publish-the-app"></a>Publicera appen 
 
 [!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)] 
 
-## <a name="get-intent-prediction"></a>Get intent prediction
+## <a name="get-intent-prediction"></a>Hämta avsikts förutsägelse
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Go to the end of the URL in the address bar and enter:
+1. Gå till slutet av webb adressen i adress fältet och ange:
 
     `get a medium vegetarian pizza for delivery` 
 
-    This is not exactly the same as an example utterance so it is a good test to see if LUIS can learn what should be predicted with this intent.
+    Detta är inte exakt detsamma som ett exempel på en uttryck, så det är ett bra test för att se om LUIS kan lära sig vad som ska förväntas i detta syfte.
 
     Den sista frågesträngsparametern är `query`, yttrande**frågan**. Det här yttrandet är inte identiskt med något av exempelyttrandena. Det är ett bra test och bör returnera avsikten `OrderPizza` som avsikten med högst poäng. 
 
@@ -148,15 +148,15 @@ Dessa syften är indelade i **avsikter**.
     }
     ```
 
-    The entities array is empty because this app currently does not have any entities (unit of data inside the utterance to extract). 
+    Entitets-matrisen är tom eftersom den här appen för närvarande inte har några entiteter (enhets data i uttryck som ska extraheras). 
 
-    I JSON-resultatet identifieras avsikten med högst poäng i egenskapen **`prediction.topIntent`** . All scores are between 1 and 0, with the better score being closer to 1. 
+    I JSON-resultatet identifieras avsikten med högst poäng i egenskapen **`prediction.topIntent`** . Alla resultat är mellan 1 och 0, med bättre poäng som är närmare 1. 
 
-1. Change the URL **query** parameter to target the **Greeting** intent:
+1. Ändra URL- **Frågeparametern** till riktad **hälsnings** avsikt:
 
     `Howdy`
 
-    This is not exactly the same as an example utterance so it is a good test to see if LUIS can learn what should be predicted with this intent. 
+    Detta är inte exakt detsamma som ett exempel på en uttryck, så det är ett bra test för att se om LUIS kan lära sig vad som ska förväntas i detta syfte. 
 
     ```json
     {
@@ -182,7 +182,7 @@ Dessa syften är indelade i **avsikter**.
     }    
     ```
  
-    This prediction has a 44% confidence score. To increase the confidence score, add between 15 and 30 example utterances.  
+    Den här förutsägelseen har en säkerhets poäng på 44%. Om du vill öka förtroende poängen lägger du till mellan 15 och 30 exempel yttranden.  
 
 ## <a name="client-application-next-steps"></a>Nästa steg för klientprogrammet
 
@@ -202,7 +202,7 @@ När LUIS returnerar JSON-svaret är LUIS färdig med förfrågningen. LUIS svar
 
 ## <a name="next-steps"></a>Nästa steg
 
-This tutorial created a LUIS app, created intents, added example utterances to each intent, added example utterances to the None intent, trained, published, and tested at the endpoint. Det här är de grundläggande stegen i att skapa en LUIS-modell. 
+I den här självstudien har du skapat en LUIS-app, skapat avsikter, lagt till exempel yttranden för varje avsikt, lagt till exempel yttranden i ingen avsikt, utbildad, publicerad och testad vid slut punkten. Det här är de grundläggande stegen i att skapa en LUIS-modell. 
 
 > [!div class="nextstepaction"]
-> [Add a decomposable entity to this app](tutorial-machine-learned-entity.md)
+> [Lägg till en desammansättnings bar entitet i den här appen](tutorial-machine-learned-entity.md)

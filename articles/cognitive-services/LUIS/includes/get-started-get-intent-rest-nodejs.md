@@ -1,5 +1,5 @@
 ---
-title: Get intent with REST call in Node.js
+title: Hämta avsikt med REST-anrop i Node. js
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: diberry
@@ -15,11 +15,11 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74414487"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Programmeringsspråket [Node.js](https://nodejs.org/) 
 * [Visual Studio-kod](https://code.visualstudio.com/)
-* Public app ID: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
+* ID för offentlig app: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
 ## <a name="get-luis-key"></a>Hämta LUIS-nyckel
 
@@ -27,9 +27,9 @@ ms.locfileid: "74414487"
 
 ## <a name="get-intent-programmatically"></a>Hämta avsikter programmatiskt
 
-Use Node.js to query the [prediction endpoint](https://aka.ms/luis-apim-v3-prediction) and get a prediction result.
+Använd Node. js för att fråga efter [förutsägelse slut punkten](https://aka.ms/luis-apim-v3-prediction) och få ett förutsägelse resultat.
 
-1. Copy the following code snippet to a file named `predict.js`:
+1. Kopiera följande kodfragment till en fil med namnet `predict.js`:
 
     ```javascript
     var request = require('request');
@@ -76,30 +76,30 @@ Use Node.js to query the [prediction endpoint](https://aka.ms/luis-apim-v3-predi
     getPrediction().then(()=>console.log("done")).catch((err)=>console.log(err));
     ```
 
-1. Replace the following values:
+1. Ersätt följande värden:
 
-    * `YOUR-KEY` to your starter key.
-    * `YOUR-ENDPOINT` to your endpoint URL. Till exempel `westus2.api.cognitive.microsoft.com`.
+    * `YOUR-KEY` till din start nyckel.
+    * `YOUR-ENDPOINT` till slut punkts-URL: en. Till exempel `westus2.api.cognitive.microsoft.com`.
 
-1. Install the `request`, `request-promise`, and `querystring` dependencies with this command: 
+1. Installera `request`, `request-promise`och `querystring` beroenden med det här kommandot: 
 
     ```console
     npm install request request-promise querystring
     ```
 
-1. Run your app with this command:
+1. Kör appen med det här kommandot:
 
     ```console
     node predict.js
     ```
 
- 1. Review the prediction response, which is returned as JSON:   
+ 1. Granska det förutsägelse svar som returneras som JSON:   
     
     ```console
     {"query":"turn on all lights","prediction":{"topIntent":"HomeAutomation.TurnOn","intents":{"HomeAutomation.TurnOn":{"score":0.5375382},"None":{"score":0.08687421},"HomeAutomation.TurnOff":{"score":0.0207554}},"entities":{"HomeAutomation.Operation":["on"],"$instance":{"HomeAutomation.Operation":[{"type":"HomeAutomation.Operation","text":"on","startIndex":5,"length":2,"score":0.724984169,"modelTypeId":-1,"modelType":"Unknown","recognitionSources":["model"]}]}}}}
     ```
 
-    The JSON response formatted for readability: 
+    JSON-svaret formaterat för läsbarhet: 
 
     ```JSON
     {
@@ -148,9 +148,9 @@ Use Node.js to query the [prediction endpoint](https://aka.ms/luis-apim-v3-predi
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-When you are finished with this quickstart, delete the file from the file system. 
+När du är färdig med den här snabb starten tar du bort filen från fil systemet. 
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Add utterances and train](../get-started-get-model-rest-apis.md)
+> [Lägg till yttranden och träna](../get-started-get-model-rest-apis.md)

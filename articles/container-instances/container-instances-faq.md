@@ -1,6 +1,6 @@
 ---
-title: Vanliga frågor
-description: Answers for frequently asked questions related to the Azure Container Instances service
+title: Vanliga frågor och svar
+description: Svar på vanliga frågor som rör Azure Container Instances tjänsten
 author: dkkapur
 ms.topic: article
 ms.date: 4/25/2019
@@ -11,91 +11,91 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74484136"
 ---
-# <a name="frequently-asked-questions-about-azure-container-instances"></a>Frequently asked questions about Azure Container Instances
+# <a name="frequently-asked-questions-about-azure-container-instances"></a>Vanliga frågor och svar om Azure Container Instances
 
-This article addresses frequently asked questions about Azure Container Instances.
+Den här artikeln handlar om vanliga frågor om Azure Container Instances.
 
 ## <a name="deployment"></a>Distribution
 
-### <a name="how-large-can-my-container-image-be"></a>How large can my container image be?
+### <a name="how-large-can-my-container-image-be"></a>Hur stor kan min behållar avbildning vara?
 
-The maximum size for a deployable container image on Azure Container Instances is 15 GB. You might be able to deploy larger images depending on the exact availability at the moment you deploy, but this is not guaranteed.
+Den maximala storleken för en distributions bara behållar avbildning på Azure Container Instances är 15 GB. Du kanske kan distribuera större avbildningar beroende på den exakta tillgängligheten när du distribuerar, men detta är inte garanterat.
 
-The size of your container image impacts how long it takes to deploy, so generally you want to keep your container images as small as possible.
+Storleken på behållar avbildningen påverkar hur lång tid det tar att distribuera, så normalt ska du behålla behållar avbildningarna så små som möjligt.
 
-### <a name="how-can-i-speed-up-the-deployment-of-my-container"></a>How can I speed up the deployment of my container?
+### <a name="how-can-i-speed-up-the-deployment-of-my-container"></a>Hur kan jag påskynda distributionen av min behållare?
 
-Because one of the main determinants of deployment times is the image size, look for ways to reduce the size. Remove layers you don't need, or reduce the size of layers in the image (by picking a lighter base OS image). For example, if you're running Linux containers, consider using Alpine as your base image rather than a full Ubuntu Server. Similarly, for Windows containers, use a Nano Server base image if possible. 
+Eftersom en av de huvudsakliga faktorerna för distributions tider är bild storleken kan du se till att minska storleken på olika sätt. Ta bort lager du inte behöver eller minska storleken på lagren i bilden (genom att välja en ljusare bas operativ system avbildning). Om du till exempel kör Linux-behållare bör du överväga att använda Alpine som bas avbildning i stället för en fullständig Ubuntu-Server. På samma sätt använder du en Nano Server-avbildning om det är möjligt för Windows-behållare. 
 
-You should also check the list of pre-cached images in Azure Container Images, available via the [List Cached Images](/rest/api/container-instances/listcachedimages) API. You might be able to switch out an image layer for one of the pre-cached images. 
+Du bör också kontrol lera listan över cachelagrade avbildningar i Azure Container images, som är tillgängliga via API: et för [cachelagrade avbildningar](/rest/api/container-instances/listcachedimages) . Du kanske kan byta ut ett bild lager för en av de förcachelagrade bilderna. 
 
-See more [detailed guidance](container-instances-troubleshooting.md#container-takes-a-long-time-to-start) on reducing container startup time.
+Mer [detaljerad](container-instances-troubleshooting.md#container-takes-a-long-time-to-start) information om hur du minskar start tiden för behållare.
 
-### <a name="what-windows-base-os-images-are-supported"></a>What Windows base OS images are supported?
+### <a name="what-windows-base-os-images-are-supported"></a>Vilka Windows Base OS-avbildningar stöds?
 
-#### <a name="windows-server-2016-base-images"></a>Windows Server 2016 base images
+#### <a name="windows-server-2016-base-images"></a>Bas avbildningar för Windows Server 2016
 
-* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `10.0.14393.x`, `sac2016`
-* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016`,  `10.0.14393.x`
+* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `10.0.14393.x``sac2016`
+* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016``10.0.14393.x`
 
 > [!NOTE]
-> Windows images based on Semi-Annual Channel release 1709 or 1803 are not supported.
+> Windows-avbildningar baserade på halvårs kanal version 1709 eller 1803 stöds inte.
 
-#### <a name="windows-server-2019-and-client-base-images-preview"></a>Windows Server 2019 and client base images (preview)
+#### <a name="windows-server-2019-and-client-base-images-preview"></a>Windows Server 2019 och client Base images (för hands version)
 
-* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `1809`, `10.0.17763.x`
-* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2019`, `1809`, `10.0.17763.x`
-* [Windows](https://hub.docker.com/_/microsoft-windows): `1809`, `10.0.17763.x` 
+* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `1809``10.0.17763.x`
+* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2019``1809``10.0.17763.x`
+* [Windows](https://hub.docker.com/_/microsoft-windows): `1809``10.0.17763.x` 
 
-### <a name="what-net-or-net-core-image-layer-should-i-use-in-my-container"></a>What .NET or .NET Core image layer should I use in my container? 
+### <a name="what-net-or-net-core-image-layer-should-i-use-in-my-container"></a>Vilket .NET-eller .NET Core-avbildnings lager ska jag använda i min behållare? 
 
-Use the smallest image that satisfies your requirements. For Linux, you could use a *runtime-alpine* .NET Core image, which has been supported since the release of .NET Core 2.1. For Windows, if you are using the full .NET Framework, then you need to use a Windows Server Core image (runtime-only image, such as  *4.7.2-windowsservercore-ltsc2016*). Runtime-only images are smaller but do not support workloads that require the .NET SDK.
+Använd den minsta avbildning som uppfyller dina krav. För Linux kan du använda en *runtime-Alpine* .net Core-avbildning, som har stöd för sedan lanseringen av .net Core 2,1. Om du använder den fullständiga .NET Framework för Windows måste du använda en Windows Server Core-avbildning (endast körnings avbildning, till exempel *4.7.2-windowsservercore-ltsc2016*). Endast körnings avbildningar är mindre, men har inte stöd för arbets belastningar som kräver .NET SDK.
 
-## <a name="availability-and-quotas"></a>Availability and quotas
+## <a name="availability-and-quotas"></a>Tillgänglighet och kvoter
 
-### <a name="how-many-cores-and-memory-should-i-allocate-for-my-containers-or-the-container-group"></a>How many cores and memory should I allocate for my containers or the container group?
+### <a name="how-many-cores-and-memory-should-i-allocate-for-my-containers-or-the-container-group"></a>Hur många kärnor och minne ska jag allokera för mina behållare eller behållar gruppen?
 
-This really depends on your workload. Start small and test performance to see how your containers do. [Monitor CPU and memory resource usage](container-instances-monitor.md), and then add cores or memory based on the kind of processes that you deploy in the container. 
+Det beror faktiskt på din arbets belastning. Starta små och test prestanda för att se hur dina behållare gör. [Övervaka användningen av processor-och minnes resurser](container-instances-monitor.md)och Lägg sedan till kärnor eller minne baserat på den typ av processer som du distribuerar i behållaren. 
 
-Make sure also to check the [resource availability](container-instances-region-availability.md#availability---general) for the region you are deploying in for the upper bounds on CPU cores and memory available per container group. 
+Se till att även kontrol lera [resurs tillgängligheten](container-instances-region-availability.md#availability---general) för den region som du distribuerar i för de övre gränserna för processor kärnor och tillgängligt minne per behållar grupp. 
 
-### <a name="what-underlying-infrastructure-does-aci-run-on"></a>What underlying infrastructure does ACI run on?
+### <a name="what-underlying-infrastructure-does-aci-run-on"></a>Vilken underliggande infrastruktur körs ACI på?
 
-Azure Container Instances aims to be a serverless containers-on-demand service, so we want you to be focused on developing your containers, and not worry about the infrastructure! For those that are curious or wanting to do comparisons on performance, ACI runs on sets of Azure VMs of various SKUs, primarily from the F and the D series. We expect this to change in the future as we continue to develop and optimize the service. 
+Azure Container Instances syftar på att vara en server lös behållare – på begäran, så vi vill att du ska fokusera på att utveckla dina behållare och inte bekymra dig om infrastrukturen! För de som är nyfiken på eller vill göra jämförelser av prestanda körs ACI på uppsättningar med virtuella Azure-datorer av olika SKU: er, främst från F och D-serien. Vi förväntar oss att ändra i framtiden när vi fortsätter att utveckla och optimera tjänsten. 
 
-### <a name="i-want-to-deploy-thousand-of-cores-on-aci---can-i-get-my-quota-increased"></a>I want to deploy thousand of cores on ACI - can I get my quota increased?
+### <a name="i-want-to-deploy-thousand-of-cores-on-aci---can-i-get-my-quota-increased"></a>Jag vill distribuera tusen kärnor på ACI – kan jag få min kvot utökad?
  
-Yes (sometimes). See the [quotas and limits](container-instances-quotas.md) article for current quotas and which limits can be increased by request.
+Ja (ibland). Se artikeln [kvoter och begränsningar](container-instances-quotas.md) för aktuella kvoter och vilka gränser som kan ökas på begäran.
 
-### <a name="can-i-deploy-with-more-than-4-cores-and-16-gb-of-ram"></a>Can I deploy with more than 4 cores and 16 GB of RAM?
+### <a name="can-i-deploy-with-more-than-4-cores-and-16-gb-of-ram"></a>Kan jag distribuera med fler än 4 kärnor och 16 GB RAM-minne?
 
-Not yet. Currently, these are the maximums for a container group. Contact Azure Support with specific requirements or requests. 
+Inte ännu. För närvarande är detta de maximala värdena för en behållar grupp. Kontakta Azure-supporten med särskilda krav eller begär Anden. 
 
-### <a name="when-will-aci-be-in-a-specific-region"></a>When will ACI be in a specific region?
+### <a name="when-will-aci-be-in-a-specific-region"></a>När kommer ACI finnas i en speciell region?
 
-Current region availability is published [here](container-instances-region-availability.md#availability---general). If you have a requirement for a specific region, contact Azure Support.
+Aktuell regions tillgänglighet publiceras [här](container-instances-region-availability.md#availability---general). Kontakta Azure-supporten om du har ett krav för en speciell region.
 
-## <a name="features-and-scenarios"></a>Features and scenarios
+## <a name="features-and-scenarios"></a>Funktioner och scenarier
 
-### <a name="how-do-i-scale-a-container-group"></a>How do I scale a container group?
+### <a name="how-do-i-scale-a-container-group"></a>Vill du Hur gör jag för att skala en behållar grupp?
 
-Currently, scaling is not available for containers or container groups. If you need to run more instances, use our API to automate and create more requests for container group creation to the service. 
+För närvarande är skalning inte tillgängligt för behållare eller behållar grupper. Om du behöver köra fler instanser använder du vårt API för att automatisera och skapa fler begär Anden för att skapa behållar grupper till tjänsten. 
 
-### <a name="what-features-are-available-to-instances-running-in-a-custom-vnet"></a>What features are available to instances running in a custom VNet?
+### <a name="what-features-are-available-to-instances-running-in-a-custom-vnet"></a>Vilka funktioner är tillgängliga för instanser som körs i ett anpassat VNet?
 
-You can deploy container groups in an Azure virtual network of your choice, and delegate private IPs to the container groups to route traffic within the VNet across your Azure resources. Deployment of a container group into a virtual network is currently in preview, and some aspects of this feature may change prior to general availability (GA). See [Preview limitations](container-instances-vnet.md#preview-limitations) for updated information.
+Du kan distribuera behållar grupper i ett virtuellt Azure-nätverk och delegera privata IP-adresser till behållar grupper för att dirigera trafik i VNet över dina Azure-resurser. Distribution av en behållar grupp i ett virtuellt nätverk är för närvarande en för hands version och vissa aspekter av den här funktionen kan ändras före allmän tillgänglighet (GA). Se [begränsningar för förhands granskning](container-instances-vnet.md#preview-limitations) för uppdaterad information.
 
 ## <a name="pricing"></a>Prissättning
 
-### <a name="when-does-the-meter-start-running"></a>When does the meter start running?
+### <a name="when-does-the-meter-start-running"></a>När körs mätaren?
 
-Container group duration is calculated from the time that we start to pull your first container's image (for a new deployment) or your container group is restarted (if already deployed), until the container group is stopped. See details at [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/).
+Varaktigheten för container gruppen beräknas från den tid som vi börjar hämta din första behållares avbildning (för en ny distribution) eller om din behållar grupp startas om (om det redan har distribuerats), tills behållar gruppen stoppas. Se information på [container instances priser](https://azure.microsoft.com/pricing/details/container-instances/).
 
-### <a name="do-i-stop-being-charged-when-my-containers-are-stopped"></a>Do I stop being charged when my containers are stopped?
+### <a name="do-i-stop-being-charged-when-my-containers-are-stopped"></a>Upphör jag att debiteras när mina behållare stoppas?
 
-Meters stop running once your entire container group is stopped. As long as a container in your container group is running, we hold the resources in case you want to start the containers up again. 
+Mätare slutar att köra när hela behållar gruppen har stoppats. Så länge som en behållare i din behållar grupp körs, ska vi lagra resurserna om du vill starta behållarna igen. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Learn more](container-instances-overview.md) about Azure Container Instances.
-* [Troubleshoot common issues](container-instances-troubleshooting.md) in Azure Container Instances.
+* [Läs mer](container-instances-overview.md) om Azure Container instances.
+* [Felsök vanliga problem](container-instances-troubleshooting.md) i Azure Container instances.

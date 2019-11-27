@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/12/2019
+ms.date: 11/26/2019
 ms.author: b-juche
-ms.openlocfilehash: 815ac261a29f710914347443f7882b9fe682229f
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 5e69df816e67ddc346ac8452c9bdc8bbd68fa426
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173593"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546944"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Vanliga frågor och svar om Azure NetApp Files
 
@@ -142,6 +142,10 @@ Om du använder Azure NetApp Files med Azure Active Directory Domain Services, �
 ### <a name="what-versions-of-windows-server-active-directory-are-supported"></a>Vilka versioner av Windows Server Active Directory stöds?
 
 Azure NetApp Files stöder Windows Server 2008r2SP1-2019-versioner av Active Directory Domain Services.
+
+### <a name="why-does-the-available-space-on-my-smb-client-not-show-the-provisioned-size"></a>Varför visar det tillgängliga utrymmet på min SMB-klient inte den etablerade storleken?
+
+Den volym storlek som rapporteras av SMB-klienten är den maximala storlek som Azure NetApp Files volymen kan växa till. Storleken på Azure NetApp Files volymen som det visas på SMB-klienten reflekterar inte volymens kvot eller storlek. Du kan få Azure NetApp Files volym storlek eller kvot genom Azure Portal eller API: et.
 
 ## <a name="capacity-management-faqs"></a>Vanliga frågor och svar om kapacitets hantering
 

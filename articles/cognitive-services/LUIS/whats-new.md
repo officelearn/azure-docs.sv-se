@@ -82,7 +82,7 @@ Följande funktioner släpptes på Build 2019-konferensen:
 
 [Bot Framework](https://blog.botframework.com/)
 
-## <a name="videos"></a>Videoklipp
+## <a name="videos"></a>Videor
 
 ### <a name="2019-build-videos"></a>2019 Bygg videor
 

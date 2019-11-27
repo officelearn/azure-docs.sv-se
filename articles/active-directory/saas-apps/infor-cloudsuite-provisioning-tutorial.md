@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure Infor CloudSuite for automatic user provisioning with Azure Active Directory | Microsoft Docs'
-description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Infor CloudSuite.
+title: 'Självstudie: Konfigurera information CloudSuite för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till information CloudSuite.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -22,163 +22,163 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74408721"
 ---
-# <a name="tutorial-configure-infor-cloudsuite-for-automatic-user-provisioning"></a>Tutorial: Configure Infor CloudSuite for automatic user provisioning
+# <a name="tutorial-configure-infor-cloudsuite-for-automatic-user-provisioning"></a>Självstudie: Konfigurera information CloudSuite för automatisk användar etablering
 
-The objective of this tutorial is to demonstrate the steps to be performed in Infor CloudSuite and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to Infor CloudSuite.
+Syftet med den här självstudien är att demonstrera de steg som ska utföras i infor CloudSuite och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till information CloudSuite.
 
 > [!NOTE]
-> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
+> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md).
 >
-> This connector is currently in Public Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Den här anslutningen är för närvarande en offentlig för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-The scenario outlined in this tutorial assumes that you already have the following prerequisites:
+Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
-* An Azure AD tenant
-* [A Infor CloudSuite tenant](https://www.infor.com/products/infor-os)
-* A user account in Infor CloudSuite with Admin permissions.
+* En Azure AD-klient
+* [En infor CloudSuite-klient](https://www.infor.com/products/infor-os)
+* Ett användar konto i information CloudSuite med administratörs behörighet.
 
-## <a name="assigning-users-to-infor-cloudsuite"></a>Assigning users to Infor CloudSuite
+## <a name="assigning-users-to-infor-cloudsuite"></a>Tilldela användare till information CloudSuite
 
-Azure Active Directory uses a concept called *assignments* to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been assigned to an application in Azure AD are synchronized.
+Azure Active Directory använder ett begrepp som kallas *tilldelningar* för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar etablering synkroniseras endast de användare och/eller grupper som har tilldelats till ett program i Azure AD.
 
-Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to Infor CloudSuite. Once decided, you can assign these users and/or groups to Infor CloudSuite by following the instructions here:
-* [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
+Innan du konfigurerar och aktiverar automatisk användar etablering bör du bestämma vilka användare och/eller grupper i Azure AD som behöver åtkomst till information CloudSuite. När du har bestämt dig kan du tilldela dessa användare och/eller grupper till information CloudSuite genom att följa anvisningarna här:
+* [Tilldela en användare eller grupp till en företags app](../manage-apps/assign-user-or-group-access-portal.md)
 
-## <a name="important-tips-for-assigning-users-to-infor-cloudsuite"></a>Important tips for assigning users to Infor CloudSuite
+## <a name="important-tips-for-assigning-users-to-infor-cloudsuite"></a>Viktiga tips för att tilldela användare till information CloudSuite
 
-* It is recommended that a single Azure AD user is assigned to Infor CloudSuite to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
+* Vi rekommenderar att en enskild Azure AD-användare tilldelas till information CloudSuite för att testa den automatiska konfigurationen av användar etablering. Ytterligare användare och/eller grupper kan tilldelas senare.
 
-* When assigning a user to Infor CloudSuite, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
+* När du tilldelar en användare till information CloudSuite måste du välja en giltig programspecifik roll (om tillgängligt) i tilldelnings dialog rutan. Användare med **standard åtkomst** rollen undantas från etablering.
 
-## <a name="set-up-infor-cloudsuite-for-provisioning"></a>Set up Infor CloudSuite for provisioning
+## <a name="set-up-infor-cloudsuite-for-provisioning"></a>Konfigurera information CloudSuite för etablering
 
-1. Sign in to your [Infor CloudSuite Admin Console](https://www.infor.com/customer-center). Click on the user icon and then navigate to **user management**.
+1. Logga in på din [infor-CloudSuite-administratörs konsol](https://www.infor.com/customer-center). Klicka på användar ikonen och gå sedan till **användar hantering**.
 
-    ![Infor CloudSuite Admin Console](media/infor-cloudsuite-provisioning-tutorial/admin.png)
+    ![Information CloudSuite-administratörs konsol](media/infor-cloudsuite-provisioning-tutorial/admin.png)
 
-2.  Click on the menu icon on the left top corner of the screen. Click on **Manage**.
+2.  Klicka på Meny ikonen i det vänstra övre hörnet på skärmen. Klicka på **Hantera**.
 
-    ![Infor CloudSuite Add SCIM](media/infor-cloudsuite-provisioning-tutorial/manage.png)
+    ![Information CloudSuite Lägg till SCIM](media/infor-cloudsuite-provisioning-tutorial/manage.png)
 
-3.  Navigate to **SCIM Accounts**.
+3.  Navigera till **scim-konton**.
 
-    ![Infor CloudSuite SCIM Account](media/infor-cloudsuite-provisioning-tutorial/scim.png)
+    ![Information CloudSuite SCIM-konto](media/infor-cloudsuite-provisioning-tutorial/scim.png)
 
-4.  Add an admin user by clicking on the plus icon. Provide a **SCIM Password** and type the same password under **Confirm Password**. Click on the folder icon to save the password. You will then see an **User Identifier** generated for the admin user.
+4.  Lägg till en administratörs användare genom att klicka på plus ikonen. Ange ett **scim lösen ord** och Skriv samma lösen ord under **Bekräfta lösen ord**. Klicka på mappikonen för att spara lösen ordet. Sedan visas en **användar identifierare** som skapats för administratörs användaren.
 
-    ![Infor CloudSuite Admin user](media/infor-cloudsuite-provisioning-tutorial/newuser.png)
+    ![Information CloudSuite admin-användare](media/infor-cloudsuite-provisioning-tutorial/newuser.png)
     
-    ![Infor CloudSuite password](media/infor-cloudsuite-provisioning-tutorial/password.png)
+    ![Information om CloudSuite-lösenord](media/infor-cloudsuite-provisioning-tutorial/password.png)
 
-    ![Infor CloudSuite identifier](media/infor-cloudsuite-provisioning-tutorial/identifier.png)
+    ![CloudSuite-ID för information](media/infor-cloudsuite-provisioning-tutorial/identifier.png)
 
-5. To generate the bearer token, copy the **User Identifier** and **SCIM Password**. Paste them in notepad++ separated by a colon. Encode the string value by navigating to **Plugins > MIME Tools > Basic64 Encode**. 
+5. Om du vill generera Bearer-token kopierar du **användar identifieraren** och **scim lösen ord**. Klistra in dem i anteckningar + + avgränsade med kolon. Koda strängvärdet genom att navigera till plugin-program **> MIME-verktyg > Basic64-koda**. 
 
-    ![Infor CloudSuite identifier](media/infor-cloudsuite-provisioning-tutorial/token.png)
+    ![CloudSuite-ID för information](media/infor-cloudsuite-provisioning-tutorial/token.png)
 
-3.  Copy the bearer token. This value will be entered in the Secret Token field in the Provisioning tab of your Infor CloudSuite application in the Azure portal.
+3.  Kopiera Bearer-token. Det här värdet anges i fältet Hemlig token på fliken etablering i CloudSuite-programmet i informationens program i Azure Portal.
 
-## <a name="add-infor-cloudsuite-from-the-gallery"></a>Add Infor CloudSuite from the gallery
+## <a name="add-infor-cloudsuite-from-the-gallery"></a>Lägg till information CloudSuite från galleriet
 
-Before configuring Infor CloudSuite for automatic user provisioning with Azure AD, you need to add Infor CloudSuite from the Azure AD application gallery to your list of managed SaaS applications.
+Innan du konfigurerar information CloudSuite för automatisk användar etablering med Azure AD måste du lägga till information CloudSuite från Azure AD-programgalleriet i listan över hanterade SaaS-program.
 
-**To add Infor CloudSuite from the Azure AD application gallery, perform the following steps:**
+**Utför följande steg för att lägga till information CloudSuite från Azure AD-programgalleriet:**
 
-1. In the **[Azure portal](https://portal.azure.com)** , in the left navigation panel, select **Azure Active Directory**.
+1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)** .
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Go to **Enterprise applications**, and then select **All applications**.
+2. Gå till **företags program**och välj sedan **alla program**.
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+    ![Bladet för Enterprise-program](common/enterprise-applications.png)
 
-3. To add a new application, select the **New application** button at the top of the pane.
+3. Om du vill lägga till ett nytt program väljer du knappen **nytt program** överst i fönstret.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. In the search box, enter **Infor CloudSuite**, select **Infor CloudSuite** in the results panel, and then click the **Add** button to add the application.
+4. I sökrutan anger du **information CloudSuite**, väljer **infor CloudSuite** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
-    ![Infor CloudSuite in the results list](common/search-new-app.png)
+    ![Information CloudSuite i resultat listan](common/search-new-app.png)
 
-## <a name="configuring-automatic-user-provisioning-to-infor-cloudsuite"></a>Configuring automatic user provisioning to Infor CloudSuite 
+## <a name="configuring-automatic-user-provisioning-to-infor-cloudsuite"></a>Konfigurera automatisk användar etablering till information CloudSuite 
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Infor CloudSuite based on user and/or group assignments in Azure AD.
+Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i information CloudSuite baserat på användar-och/eller grupp tilldelningar i Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Infor CloudSuite , following the instructions provided in the [Infor CloudSuite Single sign-on tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/infor-cloud-suite-tutorial). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för information CloudSuite, enligt anvisningarna i [självstudien om information CloudSuite för enkel inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/infor-cloud-suite-tutorial). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om dessa två funktioner är gemensamt.
 
 > [!NOTE]
-> To learn more about Infor CloudSuite's SCIM endpoint, refer [this](https://docs.infor.com/mingle/12.0.x/en-us/minceolh/jho1449382121585.html#).
+> Om du vill veta mer om SCIM-slutpunkten för infor CloudSuite, se [detta](https://docs.infor.com/mingle/12.0.x/en-us/minceolh/jho1449382121585.html#).
 
-### <a name="to-configure-automatic-user-provisioning-for-infor-cloudsuite-in-azure-ad"></a>To configure automatic user provisioning for Infor CloudSuite in Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-infor-cloudsuite-in-azure-ad"></a>Konfigurera automatisk användar etablering för information CloudSuite i Azure AD:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. In the applications list, select **Infor CloudSuite**.
+2. I listan program väljer du **information CloudSuite**.
 
-    ![The Infor CloudSuite link in the Applications list](common/all-applications.png)
+    ![Infor-CloudSuite-länken i program listan](common/all-applications.png)
 
-3. Select the **Provisioning** tab.
+3. Välj fliken **etablering** .
 
-    ![Provisioning tab](common/provisioning.png)
+    ![Fliken etablering](common/provisioning.png)
 
-4. Set the **Provisioning Mode** to **Automatic**.
+4. Ställ in **etablerings läget** på **automatiskt**.
 
-    ![Provisioning tab](common/provisioning-automatic.png)
+    ![Fliken etablering](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input `https://mingle-t20b-scim.mingle.awsdev.infor.com/INFORSTS_TST/v2/scim` in **Tenant URL**. Input the bearer token value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Infor CloudSuite. If the connection fails, ensure your Infor CloudSuite account has Admin permissions and try again.
+5. Under avsnittet **admin credentials** , in`https://mingle-t20b-scim.mingle.awsdev.infor.com/INFORSTS_TST/v2/scim` i **klient-URL**. Mata in värdet för Bearer-token som hämtades tidigare i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till information CloudSuite. Om anslutningen Miss lyckas kontrollerar du att ditt information CloudSuite-konto har administratörs behörighet och försöker igen.
 
-    ![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
+    ![Klient-URL + token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox - **Send an email notification when a failure occurs**.
+6. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan – **Skicka ett e-postmeddelande när ett fel uppstår**.
 
-    ![Notification Email](common/provisioning-notification-email.png)
+    ![E-postmeddelande](common/provisioning-notification-email.png)
 
 7. Klicka på **Save** (Spara).
 
-8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Infor CloudSuite**.
+8. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till information CloudSuite**.
 
-    ![Infor CloudSuite User Mappings](media/infor-cloudsuite-provisioning-tutorial/usermappings.png)
+    ![Information CloudSuite användar mappningar](media/infor-cloudsuite-provisioning-tutorial/usermappings.png)
 
-9. Review the user attributes that are synchronized from Azure AD to Infor CloudSuite in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Infor CloudSuite for update operations. Select the **Save** button to commit any changes.
+9. Granska de användarattribut som synkroniseras från Azure AD till information CloudSuite i avsnittet mappning av **attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i information CloudSuite för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
-    ![Infor CloudSuite User Attributes](media/infor-cloudsuite-provisioning-tutorial/userattributes.png)
+    ![Information CloudSuite-användarattribut](media/infor-cloudsuite-provisioning-tutorial/userattributes.png)
 
-10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Infor CloudSuite**.
+10. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory grupper till information CloudSuite**.
 
-    ![Infor CloudSuite Group Mappings](media/infor-cloudsuite-provisioning-tutorial/groupmappings.png)
+    ![Information CloudSuite Group-mappningar](media/infor-cloudsuite-provisioning-tutorial/groupmappings.png)
 
-11. Review the group attributes that are synchronized from Azure AD to Infor CloudSuite in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Infor CloudSuite for update operations. Select the **Save** button to commit any changes.
+11. Granska gruppattributen som synkroniseras från Azure AD till information CloudSuite i avsnittet **Mappning av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha grupperna i infor-CloudSuite för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
-    ![Infor CloudSuite Group Attributes](media/infor-cloudsuite-provisioning-tutorial/groupattributes.png)
+    ![Information CloudSuite Group attributes](media/infor-cloudsuite-provisioning-tutorial/groupattributes.png)
 
-12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. To enable the Azure AD provisioning service for Infor CloudSuite, change the **Provisioning Status** to **On** in the **Settings** section.
+13. Om du vill aktivera Azure AD Provisioning-tjänsten för information CloudSuite ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
-    ![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
+    ![Etablerings status växlad på](common/provisioning-toggle-on.png)
 
-14. Define the users and/or groups that you would like to provision to Infor CloudSuite by choosing the desired values in **Scope** in the **Settings** section.
+14. Definiera de användare och/eller grupper som du vill etablera till information-CloudSuite genom att välja önskade värden i **omfång** i avsnittet **Inställningar** .
 
-    ![Provisioning Scope](common/provisioning-scope.png)
+    ![Etablerings omfång](common/provisioning-scope.png)
 
-15. When you are ready to provision, click **Save**.
+15. När du är redo att etablera klickar du på **Spara**.
 
-    ![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
+    ![Etablerings konfigurationen sparas](common/provisioning-configuration-save.png)
 
-This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Infor CloudSuite.
+Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge Azure AD Provisioning-tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** för att övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på INFOER-CloudSuite.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
+Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantera användar konto etablering för företags program](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../manage-apps/check-status-user-account-provisioning.md)

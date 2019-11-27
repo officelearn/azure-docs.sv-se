@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 07/26/2019
-ms.openlocfilehash: 773e55bd1908c04e1c73d998348d36b685524715
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: df662353f7c9c788158ce2dfe05385f022289466
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075664"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539104"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Använd Azure Cosmos-emulatorn för lokal utveckling och testning
 
@@ -27,7 +27,7 @@ Azure Cosmos-emulatorn tillhandahåller en effektiv emulering av Azure Cosmos DB
 
 Du kan migrera data mellan Azure Cosmos-emulatorn och den Azure Cosmos DB tjänsten med hjälp av [verktyget Azure Cosmos DB datamigrering](https://github.com/azure/azure-documentdb-datamigrationtool).
 
-Du kan köra Azure Cosmos-emulatorn på Windows Docker-behållaren, se [Docker Hub](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/) för kommandot Docker pull och [GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker) för emulatorns källkod.
+Du kan köra Azure Cosmos-emulatorn på Windows Docker-behållaren, se [Docker Hub](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/) för kommandona Docker pull och [GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker) för `Dockerfile` och mer information.
 
 ## <a name="differences-between-the-emulator-and-the-service"></a>Skillnader mellan emulatorn och tjänsten
 
@@ -250,7 +250,7 @@ Om du vill visa en lista över alternativ skriver du `CosmosDB.Emulator.exe /?` 
 | EnableCassandraEndpoint | Aktiverar API för Cassandra | CosmosDB. emulator. exe/EnableCassandraEndpoint | |
 | CassandraPort | Anger det port nummer som ska användas för Cassandra-slutpunkten. Standardvärdet är 10350. | CosmosDB. emulator. exe/CassandraPort = \<CassandraPort\> | \<cassandraport\>: enskilt port nummer |
 | EnableGremlinEndpoint | Aktiverar Gremlin-API | CosmosDB. emulator. exe/EnableGremlinEndpoint | |
-| GremlinPort | Port nummer som ska användas för Gremlin-slutpunkten. Standardvärdet är 8901. | CosmosDB.Emulator.exe /GremlinPort=\<port\> | \<port\>: Enskilt portnummer |
+| GremlinPort | Port nummer som ska användas för Gremlin-slutpunkten. Standardvärdet är 8901. | CosmosDB. emulator. exe/GremlinPort =\<port\> | \<port\>: Enskilt portnummer |
 |EnableTableEndpoint | Aktiverar Azure Tabell-API | CosmosDB. emulator. exe/EnableTableEndpoint | |
 |TablePort | Port nummer som ska användas för Azure Table-slutpunkten. Standardvärdet är 8902. | CosmosDB. emulator. exe/TablePort =\<port\> | \<port\>: Enskilt portnummer|
 | KeyFile | Läs verifierings nyckel från den angivna filen. Använd alternativet/GenKeyFile för att generera en KeyFile | CosmosDB. emulator. exe/KeyFile =\<file_name\> | \<file_name\>: sökvägen till filen |
@@ -310,7 +310,7 @@ Här följer en sammanfattning av kommandon för att styra emulatorn från Power
 
 ### `Get-CosmosDbEmulatorStatus`
 
-**Syntax**
+**Uttryck**
 
 `Get-CosmosDbEmulatorStatus`
 
@@ -320,7 +320,7 @@ Returnerar någon av dessa ServiceControllerStatus-värden: ServiceControllerSta
 
 ### `Start-CosmosDbEmulator`
 
-**Syntax**
+**Uttryck**
 
 `Start-CosmosDbEmulator [-DataPath <string>] [-DefaultPartitionCount <uint16>] [-DirectPort <uint16[]>] [-MongoPort <uint16>] [-NoUI] [-NoWait] [-PartitionCount <uint16>] [-Port <uint16>] [<CommonParameters>]`
 
@@ -330,7 +330,7 @@ Startar emulatorn. Som standard väntar kommandot till emulatorn är redo att ta
 
 ### `Stop-CosmosDbEmulator`
 
-**Syntax**
+**Uttryck**
 
  `Stop-CosmosDbEmulator [-NoWait]`
 
@@ -340,7 +340,7 @@ Stoppar emulatorn. Som standard väntar kommandot tills emulatorn är helt avst�
 
 ### `Uninstall-CosmosDbEmulator`
 
-**Syntax**
+**Uttryck**
 
 `Uninstall-CosmosDbEmulator [-RemoveData]`
 

@@ -1,6 +1,6 @@
 ---
-title: Plan a virtual network for Azure HDInsight
-description: Learn how to plan an Azure Virtual Network deployment to connect HDInsight to other cloud resources, or resources in your datacenter.
+title: Planera ett virtuellt nätverk för Azure HDInsight
+description: Lär dig hur du planerar en Azure Virtual Network-distribution för att ansluta HDInsight till andra moln resurser eller resurser i ditt data Center.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -15,63 +15,63 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74228998"
 ---
-# <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Plan a virtual network for Azure HDInsight
+# <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planera ett virtuellt nätverk för Azure HDInsight
 
-This article provides background information on using [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md) with Azure HDInsight. It also discusses design and implementation decisions that must be made before you can implement a virtual network for your HDInsight cluster. Once the planning phase is finished, you can proceed to [Create virtual networks for Azure HDInsight clusters](hdinsight-create-virtual-network.md). For more information on HDInsight management IP addresses that are needed to properly configure network security groups and user-defined routes, see [HDInsight management IP addresses](hdinsight-management-ip-addresses.md).
+Den här artikeln innehåller bakgrunds information om hur du använder [virtuella Azure-nätverk](../virtual-network/virtual-networks-overview.md) med Azure HDInsight. Den diskuterar också design-och implementerings beslut som måste göras innan du kan implementera ett virtuellt nätverk för ditt HDInsight-kluster. När planerings fasen är färdig kan du fortsätta med att [skapa virtuella nätverk för Azure HDInsight-kluster](hdinsight-create-virtual-network.md). Mer information om hanterings-IP-adresser för HDInsight som behövs för att konfigurera nätverks säkerhets grupper och användardefinierade vägar finns i [hanterings-IP-adresser för HDInsight](hdinsight-management-ip-addresses.md).
 
-Using an Azure Virtual Network enables the following scenarios:
+Med hjälp av en Azure-Virtual Network kan du använda följande scenarier:
 
-* Connecting to HDInsight directly from an on-premises network.
-* Connecting HDInsight to data stores in an Azure Virtual network.
-* Directly accessing [Apache Hadoop](https://hadoop.apache.org/) services that are not available publicly over the internet. For example, [Apache Kafka](https://kafka.apache.org/) APIs or the [Apache HBase](https://hbase.apache.org/) Java API.
+* Ansluta till HDInsight direkt från ett lokalt nätverk.
+* Ansluta HDInsight till data lager i ett virtuellt Azure-nätverk.
+* Direkt åtkomst till [Apache Hadoop](https://hadoop.apache.org/) tjänster som inte är tillgängliga offentligt via Internet. Till exempel [Apache Kafka](https://kafka.apache.org/) API: er eller [Apache HBase](https://hbase.apache.org/) Java API.
 
 > [!IMPORTANT]
-> Creating an HDInsight cluster in a VNET will create several networking resources, such as NICs and load balancers. Do **not** delete these networking resources, as they are needed for your cluster to function correctly with the VNET.
+> När du skapar ett HDInsight-kluster i ett virtuellt nätverk skapas flera nätverks resurser, t. ex. nätverkskort och belastningsutjämnare. Ta **inte** bort de här nätverks resurserna eftersom de behövs för att klustret ska fungera korrekt med det virtuella nätverket.
 >
-> After Feb 28, 2019, the networking resources (such as NICs, LBs, etc) for NEW HDInsight clusters created in a VNET will be provisioned in the same HDInsight cluster resource group. Previously, these resources were provisioned in the VNET resource group. There is no change to the current running clusters and those clusters created without a VNET.
+> Efter den 28 feb 2019 kommer nätverks resurserna (t. ex. nätverkskort, pund osv.) för nya HDInsight-kluster som skapats i ett VNET att tillhandahållas i samma HDInsight-kluster resurs grupp. Tidigare etablerades dessa resurser i resurs gruppen VNET. Det finns ingen ändring i de aktuella kluster som körs och de kluster som skapats utan VNET.
 
 ## <a name="planning"></a>Planering
 
-The following are the questions that you must answer when planning to install HDInsight in a virtual network:
+Följande är de frågor som du måste besvara när du planerar att installera HDInsight i ett virtuellt nätverk:
 
-* Do you need to install HDInsight into an existing virtual network? Or are you creating a new network?
+* Behöver du installera HDInsight i ett befintligt virtuellt nätverk? Eller skapar du ett nytt nätverk?
 
-    If you are using an existing virtual network, you may need to modify the network configuration before you can install HDInsight. For more information, see the [add HDInsight to an existing virtual network](#existingvnet) section.
+    Om du använder ett befintligt virtuellt nätverk kan du behöva ändra nätverks konfigurationen innan du kan installera HDInsight. Mer information finns i avsnittet [Lägg till HDInsight till ett befintligt virtuellt nätverk](#existingvnet) .
 
-* Do you want to connect the virtual network containing HDInsight to another virtual network or your on-premises network?
+* Vill du ansluta det virtuella nätverket som innehåller HDInsight till ett annat virtuellt nätverk eller till ditt lokala nätverk?
 
-    To easily work with resources across networks, you may need to create a custom DNS and configure DNS forwarding. For more information, see the [connecting multiple networks](#multinet) section.
+    För att enkelt kunna arbeta med resurser i flera nätverk kan du behöva skapa en anpassad DNS och konfigurera DNS-vidarebefordran. Mer information finns i avsnittet [ansluta flera nätverk](#multinet) .
 
-* Do you want to restrict/redirect inbound or outbound traffic to HDInsight?
+* Vill du begränsa/dirigera inkommande eller utgående trafik till HDInsight?
 
-    HDInsight must have unrestricted communication with specific IP addresses in the Azure data center. There are also several ports that must be allowed through firewalls for client communication. For more information, see the [controlling network traffic](#networktraffic) section.
+    HDInsight måste ha obegränsad kommunikation med vissa IP-adresser i Azure Data Center. Det finns också flera portar som måste tillåtas genom brand väggar för klient kommunikation. Mer information finns i avsnittet [styra nätverks trafik](#networktraffic) .
 
-## <a id="existingvnet"></a>Add HDInsight to an existing virtual network
+## <a id="existingvnet"></a>Lägg till HDInsight i ett befintligt virtuellt nätverk
 
-Use the steps in this section to discover how to add a new HDInsight to an existing Azure Virtual Network.
+Använd stegen i det här avsnittet för att upptäcka hur du lägger till en ny HDInsight till en befintlig Azure-Virtual Network.
 
 > [!NOTE]  
-> You cannot add an existing HDInsight cluster into a virtual network.
+> Det går inte att lägga till ett befintligt HDInsight-kluster i ett virtuellt nätverk.
 
-1. Are you using a classic or Resource Manager deployment model for the virtual network?
+1. Använder du en klassisk distributions modell eller Resource Manager-distribution för det virtuella nätverket?
 
-    HDInsight 3.4 and greater requires a Resource Manager virtual network. Earlier versions of HDInsight required a classic virtual network.
+    HDInsight 3,4 och senare kräver ett virtuellt Resource Manager-nätverk. Tidigare versioner av HDInsight krävde ett klassiskt virtuellt nätverk.
 
-    If your existing network is a classic virtual network, then you must create a Resource Manager virtual network and then connect the two. [Connecting classic VNets to new VNets](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
+    Om ditt befintliga nätverk är ett klassiskt virtuellt nätverk måste du skapa ett virtuellt Resource Manager-nätverk och sedan ansluta de två. [Ansluta klassiska virtuella nätverk till nya virtuella nätverk](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
-    Once joined, HDInsight installed in the Resource Manager network can interact with resources in the classic network.
+    När den har anslutits kan HDInsight som installerats i Resource Manager-nätverket interagera med resurser i det klassiska nätverket.
 
-2. Do you use network security groups, user-defined routes, or Virtual Network Appliances to restrict traffic into or out of the virtual network?
+2. Använder du nätverks säkerhets grupper, användardefinierade vägar eller Virtual Network anordningar för att begränsa trafiken till eller från det virtuella nätverket?
 
-    As a managed service, HDInsight requires unrestricted access to several IP addresses in the Azure data center. To allow communication with these IP addresses, update any existing network security groups or user-defined routes.
+    Som en hanterad tjänst kräver HDInsight obegränsad åtkomst till flera IP-adresser i Azure Data Center. Om du vill tillåta kommunikation med de här IP-adresserna uppdaterar du alla befintliga nätverks säkerhets grupper eller användardefinierade vägar.
     
-    HDInsight  hosts multiple services, which use a variety of ports. Do not block traffic to these ports. For a list of ports to allow through virtual appliance firewalls, see the Security section.
+    HDInsight är värd för flera tjänster, som använder en mängd olika portar. Blockera inte trafik till dessa portar. En lista över portar som tillåts via brand väggar för virtuella installationer finns i avsnittet säkerhet.
     
-    To find your existing security configuration, use the following Azure PowerShell or Azure CLI commands:
+    Använd följande Azure PowerShell-eller Azure CLI-kommandon för att hitta din befintliga säkerhets konfiguration:
 
     * Nätverkssäkerhetsgrupper
 
-        Replace `RESOURCEGROUP` with the name of the resource group that contains the virtual network, and then enter the command:
+        Ersätt `RESOURCEGROUP` med namnet på den resurs grupp som innehåller det virtuella nätverket och ange sedan kommandot:
     
         ```powershell
         Get-AzNetworkSecurityGroup -ResourceGroupName  "RESOURCEGROUP"
@@ -81,14 +81,14 @@ Use the steps in this section to discover how to add a new HDInsight to an exist
         az network nsg list --resource-group RESOURCEGROUP
         ```
 
-        For more information, see the [Troubleshoot network security groups](../virtual-network/diagnose-network-traffic-filter-problem.md) document.
+        Mer information finns i avsnittet [Felsöka nätverks säkerhets grupper](../virtual-network/diagnose-network-traffic-filter-problem.md) .
 
         > [!IMPORTANT]  
-        > Network security group rules are applied in order based on rule priority. The first rule that matches the traffic pattern is applied, and no others are applied for that traffic. Order rules from most permissive to least permissive. For more information, see the [Filter network traffic with network security groups](../virtual-network/security-overview.md) document.
+        > Regler för nätverks säkerhets grupper tillämpas i ordning utifrån regel prioritet. Den första regeln som matchar trafik mönstret används och inga andra tillämpas för den trafiken. Beställ regler från de flesta tillstånd till minst tillåta. Mer information finns i dokumentet [filtrera nätverks trafik med nätverks säkerhets grupper](../virtual-network/security-overview.md) .
 
     * Användardefinierade vägar
 
-        Replace `RESOURCEGROUP` with the name of the resource group that contains the virtual network, and then enter the command:
+        Ersätt `RESOURCEGROUP` med namnet på den resurs grupp som innehåller det virtuella nätverket och ange sedan kommandot:
 
         ```powershell
         Get-AzRouteTable -ResourceGroupName "RESOURCEGROUP"
@@ -98,83 +98,83 @@ Use the steps in this section to discover how to add a new HDInsight to an exist
         az network route-table list --resource-group RESOURCEGROUP
         ```
 
-        For more information, see the [Troubleshoot routes](../virtual-network/diagnose-network-routing-problem.md) document.
+        Mer information finns i [fel sökning av cirkulations](../virtual-network/diagnose-network-routing-problem.md) dokument.
 
-3. Create an HDInsight cluster and select the Azure Virtual Network during configuration. Use the steps in the following documents to understand the cluster creation process:
+3. Skapa ett HDInsight-kluster och välj Azure-Virtual Network under konfigurationen. Använd stegen i följande dokument för att förstå processen för att skapa kluster:
 
     * [Create HDInsight using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md) (Skapa HDInsight med hjälp av Azure-portalen)
     * [Create HDInsight using Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) (Skapa HDInsight med hjälp av Azure PowerShell)
-    * [Create HDInsight using Azure Classic CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
-    * [Create HDInsight using an Azure Resource Manager template](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
+    * [Skapa HDInsight med hjälp av den klassiska Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
+    * [Skapa HDInsight med hjälp av en Azure Resource Manager mall](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
    > [!IMPORTANT]  
-   > Adding HDInsight to a virtual network is an optional configuration step. Be sure to select the virtual network when configuring the cluster.
+   > Att lägga till HDInsight i ett virtuellt nätverk är ett valfritt konfigurations steg. Se till att välja det virtuella nätverket när du konfigurerar klustret.
 
-## <a id="multinet"></a>Connecting multiple networks
+## <a id="multinet"></a>Ansluta flera nätverk
 
-The biggest challenge with a multi-network configuration is name resolution between the networks.
+Den största utmaningen med en konfiguration för flera nätverk är namn matchning mellan nätverken.
 
-Azure provides name resolution for Azure services that are installed in a virtual network. This built-in name resolution allows HDInsight to connect to the following resources by using a fully qualified domain name (FQDN):
+Azure tillhandahåller namn matchning för Azure-tjänster som är installerade i ett virtuellt nätverk. Med den här inbyggda namn matchningen kan HDInsight ansluta till följande resurser genom att använda ett fullständigt kvalificerat domän namn (FQDN):
 
-* Any resource that is available on the internet. For example, microsoft.com, windowsupdate.com.
+* Alla resurser som är tillgängliga på Internet. Till exempel microsoft.com, windowsupdate.com.
 
-* Any resource that is in the same Azure Virtual Network, by using the __internal DNS name__ of the resource. For example, when using the default name resolution, the following are examples of internal DNS names assigned to HDInsight worker nodes:
+* Alla resurser som finns i samma Azure-Virtual Network med hjälp av resursens __interna DNS-namn__ . Exempel: när du använder standard namn matchningen är följande exempel på interna DNS-namn som tilldelats till HDInsight Worker-noder:
 
   * wn0-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
   * wn2-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
 
-    Both these nodes can communicate directly with each other, and other nodes in HDInsight, by using internal DNS names.
+    Båda dessa noder kan kommunicera direkt med varandra, och andra noder i HDInsight, genom att använda interna DNS-namn.
 
-The default name resolution does __not__ allow HDInsight to resolve the names of resources in networks that are joined to the virtual network. For example, it is common to join your on-premises network to the virtual network. With only the default name resolution, HDInsight cannot access resources in the on-premises network by name. The opposite is also true, resources in your on-premises network cannot access resources in the virtual network by name.
+Standard namn matchningen tillåter __inte__ att HDInsight löser namnen på resurser i nätverk som är anslutna till det virtuella nätverket. Det är till exempel vanligt att ansluta ditt lokala nätverk till det virtuella nätverket. Med bara standard namn matchningen kan HDInsight inte komma åt resurser i det lokala nätverket efter namn. Det motsatta är också sant, resurser i det lokala nätverket kan inte komma åt resurser i det virtuella nätverket efter namn.
 
 > [!WARNING]  
-> You must create the custom DNS server and configure the virtual network to use it before creating the HDInsight cluster.
+> Du måste skapa en anpassad DNS-server och konfigurera det virtuella nätverket så att det används innan du skapar HDInsight-klustret.
 
-To enable name resolution between the virtual network and resources in joined networks, you must perform the following actions:
+Om du vill aktivera namn matchning mellan det virtuella nätverket och resurserna i anslutna nätverk måste du utföra följande åtgärder:
 
-1. Create a custom DNS server in the Azure Virtual Network where you plan to install HDInsight.
+1. Skapa en anpassad DNS-server i Azure-Virtual Network där du planerar att installera HDInsight.
 
-2. Configure the virtual network to use the custom DNS server.
+2. Konfigurera det virtuella nätverket så att det använder den anpassade DNS-servern.
 
-3. Find the Azure assigned DNS suffix for your virtual network. This value is similar to `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net`. For information on finding the DNS suffix, see the [Example: Custom DNS](hdinsight-create-virtual-network.md#example-dns) section.
+3. Hitta det Azure-tilldelade DNS-suffixet för det virtuella nätverket. Det här värdet liknar `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net`. Information om hur du hittar DNS-suffix finns i avsnittet [exempel: anpassad DNS](hdinsight-create-virtual-network.md#example-dns) .
 
-4. Configure forwarding between the DNS servers. The configuration depends on the type of remote network.
+4. Konfigurera vidarebefordring mellan DNS-servrarna. Konfigurationen beror på typen av fjärrnätverk.
 
-   * If the remote network is an on-premises network, configure DNS as follows:
+   * Om fjärrnätverket är ett lokalt nätverk konfigurerar du DNS på följande sätt:
         
-     * __Custom DNS__ (in the virtual network):
+     * __Anpassad DNS__ (i det virtuella nätverket):
 
-         * Forward requests for the DNS suffix of the virtual network to the Azure recursive resolver (168.63.129.16). Azure handles requests for resources in the virtual network
+         * Vidarebefordra begär Anden för DNS-suffixet för det virtuella nätverket till Azures rekursiva matchare (168.63.129.16). Azure hanterar begär Anden om resurser i det virtuella nätverket
 
-         * Forward all other requests to the on-premises DNS server. The on-premises DNS handles all other name resolution requests, even requests for internet resources such as Microsoft.com.
+         * Vidarebefordra alla andra begär anden till den lokala DNS-servern. Den lokala DNS-tjänsten hanterar alla andra namn matchnings begär Anden, även begär Anden för Internet resurser som Microsoft.com.
 
-     * __On-premises DNS__: Forward requests for the virtual network DNS suffix to the custom DNS server. The custom DNS server then forwards to the Azure recursive resolver.
+     * __Lokalt DNS__: vidarebefordra begär Anden för det virtuella nätverkets DNS-suffix till den anpassade DNS-servern. Den anpassade DNS-servern vidarebefordrar sedan till den rekursiva Azure-matcharen.
 
-       This configuration routes requests for fully qualified domain names that contain the DNS suffix of the virtual network to the custom DNS server. All other requests (even for public internet addresses) are handled by the on-premises DNS server.
+       Den här konfigurationen dirigerar begär Anden om fullständigt kvalificerade domän namn som innehåller det virtuella nätverkets DNS-suffix till den anpassade DNS-servern. Alla andra begär Anden (även för offentliga Internet adresser) hanteras av den lokala DNS-servern.
 
-   * If the remote network is another Azure Virtual Network, configure DNS as follows:
+   * Om fjärrnätverket är ett annat Azure-Virtual Network konfigurerar du DNS på följande sätt:
 
-     * __Custom DNS__ (in each virtual network):
+     * __Anpassad DNS__ (i varje virtuellt nätverk):
 
-         * Requests for the DNS suffix of the virtual networks are forwarded to the custom DNS servers. The DNS in each virtual network is responsible for resolving resources within its network.
+         * Begär Anden om DNS-suffix för de virtuella nätverken vidarebefordras till de anpassade DNS-servrarna. DNS i varje virtuellt nätverk ansvarar för att lösa resurser i sitt nätverk.
 
-         * Forward all other requests to the Azure recursive resolver. The recursive resolver is responsible for resolving local and internet resources.
+         * Vidarebefordra alla andra förfrågningar till den rekursiva Azure-matcharen. Den rekursiva matcharen ansvarar för att lösa lokala och Internet resurser.
 
-       The DNS server for each network forwards requests to the other, based on DNS suffix. Other requests are resolved using the Azure recursive resolver.
+       DNS-servern för varje nätverk vidarebefordrar begär anden till varandra, baserat på DNS-suffix. Andra begär Anden löses med Azures rekursiva lösare.
 
-     For an example of each configuration, see the [Example: Custom DNS](hdinsight-create-virtual-network.md#example-dns) section.
+     Ett exempel på varje konfiguration finns i avsnittet [exempel: anpassad DNS](hdinsight-create-virtual-network.md#example-dns) .
 
-For more information, see the [Name Resolution for VMs and Role Instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document.
+Mer information finns i dokumentet [namn matchning för virtuella datorer och roll instanser](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) .
 
-## <a name="directly-connect-to-apache-hadoop-services"></a>Directly connect to Apache Hadoop services
+## <a name="directly-connect-to-apache-hadoop-services"></a>Anslut direkt till Apache Hadoop tjänster
 
-You can connect to the cluster at `https://CLUSTERNAME.azurehdinsight.net`. This address uses a public IP, which may not be reachable if you have used NSGs to restrict incoming traffic from the internet. Additionally, when you deploy the cluster in a VNet you can access it using the private endpoint `https://CLUSTERNAME-int.azurehdinsight.net`. This endpoint resolves to a private IP inside the VNet for cluster access.
+Du kan ansluta till klustret på `https://CLUSTERNAME.azurehdinsight.net`. Den här adressen använder en offentlig IP-adress, som kanske inte kan kommas åt om du har använt NSG: er för att begränsa inkommande trafik från Internet. När du distribuerar klustret i ett virtuellt nätverk kan du dessutom komma åt det med hjälp av den privata slut punkten `https://CLUSTERNAME-int.azurehdinsight.net`. Den här slut punkten matchar en privat IP-adress i VNet för kluster åtkomst.
 
-To connect to Apache Ambari and other web pages through the virtual network, use the following steps:
+Använd följande steg för att ansluta till Apache Ambari och andra webb sidor via det virtuella nätverket:
 
-1. To discover the internal fully qualified domain names (FQDN) of the HDInsight cluster nodes, use one of the following methods:
+1. Använd någon av följande metoder för att identifiera interna fullständigt kvalificerade domän namn (FQDN) för HDInsight-klusternoderna:
 
-    Replace `RESOURCEGROUP` with the name of the resource group that contains the virtual network, and then enter the command:
+    Ersätt `RESOURCEGROUP` med namnet på den resurs grupp som innehåller det virtuella nätverket och ange sedan kommandot:
 
     ```powershell
     $clusterNICs = Get-AzNetworkInterface -ResourceGroupName "RESOURCEGROUP" | where-object {$_.Name -like "*node*"}
@@ -194,71 +194,71 @@ To connect to Apache Ambari and other web pages through the virtual network, use
     az network nic list --resource-group RESOURCEGROUP --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
     ```
 
-    In the list of nodes returned, find the FQDN for the head nodes and use the FQDNs to connect to Ambari and other web services. For example, use `http://<headnode-fqdn>:8080` to access Ambari.
+    I listan över noder som returneras hittar du FQDN för huvudnoderna och använder FQDN: er för att ansluta till Ambari och andra webb tjänster. Använd till exempel `http://<headnode-fqdn>:8080` för att få åtkomst till Ambari.
 
     > [!IMPORTANT]  
-    > Some services hosted on the head nodes are only active on one node at a time. If you try accessing a service on one head node and it returns a 404 error, switch to the other head node.
+    > Vissa tjänster som finns på huvudnoderna är bara aktiva på en nod i taget. Om du försöker komma åt en tjänst på en head-nod och den returnerar ett 404-fel växlar du till den andra Head-noden.
 
-2. To determine the node and port that a service is available on, see the [Ports used by Hadoop services on HDInsight](./hdinsight-hadoop-port-settings-for-services.md) document.
+2. Information om vilka noder och portar som en tjänst är tillgänglig på finns i [portarna som används av Hadoop-tjänster i HDInsight](./hdinsight-hadoop-port-settings-for-services.md) -dokument.
 
-## <a id="networktraffic"></a> Controlling network traffic
+## <a id="networktraffic"></a>Kontrol lera nätverks trafik
 
-### <a name="techniques-for-controlling-inbound-and-outbound-traffic-to-hdinsight-clusters"></a>Techniques for controlling inbound and outbound traffic to HDInsight clusters
+### <a name="techniques-for-controlling-inbound-and-outbound-traffic-to-hdinsight-clusters"></a>Tekniker för att kontrol lera inkommande och utgående trafik till HDInsight-kluster
 
-Network traffic in an Azure Virtual Networks can be controlled using the following methods:
+Nätverks trafik i virtuella Azure-nätverk kan kontrol leras med hjälp av följande metoder:
 
-* **Network security groups** (NSG) allow you to filter inbound and outbound traffic to the network. For more information, see the [Filter network traffic with network security groups](../virtual-network/security-overview.md) document.
+* Med **nätverks säkerhets grupper** (NSG) kan du filtrera inkommande och utgående trafik till nätverket. Mer information finns i dokumentet [filtrera nätverks trafik med nätverks säkerhets grupper](../virtual-network/security-overview.md) .
 
-* **Network virtual appliances** (NVA) can be used with outbound traffic only. NVAs replicate the functionality of devices such as firewalls and routers. For more information, see the [Network Appliances](https://azure.microsoft.com/solutions/network-appliances) document.
+* **Virtuella nätverks enheter** (NVA) kan endast användas med utgående trafik. NVA replikerar funktionaliteten för enheter som brand väggar och routrar. Mer information finns i dokumentet om [nätverks](https://azure.microsoft.com/solutions/network-appliances) installationer.
 
-As a managed service, HDInsight requires unrestricted access to the HDInsight health and management services both for incoming and outgoing traffic from the VNET. When using NSGs, you must ensure that these services can still communicate with HDInsight cluster.
+Som en hanterad tjänst kräver HDInsight obegränsad åtkomst till HDInsight-hälso-och hanterings tjänsterna både för inkommande och utgående trafik från det virtuella nätverket. När du använder NSG: er måste du se till att dessa tjänster fortfarande kan kommunicera med HDInsight-kluster.
 
-![Diagram of HDInsight entities created in Azure custom VNET](./media/hdinsight-plan-virtual-network-deployment/hdinsight-vnet-diagram.png)
+![Diagram över HDInsight-entiteter som skapats i Azure anpassat VNET](./media/hdinsight-plan-virtual-network-deployment/hdinsight-vnet-diagram.png)
 
-### <a name="hdinsight-with-network-security-groups"></a>HDInsight with network security groups
+### <a name="hdinsight-with-network-security-groups"></a>HDInsight med nätverks säkerhets grupper
 
-If you plan on using **network security groups** to control network traffic, perform the following actions before installing HDInsight:
+Om du planerar att använda **nätverks säkerhets grupper** för att kontrol lera nätverks trafiken utför du följande åtgärder innan du installerar HDInsight:
 
-1. Identify the Azure region that you plan to use for HDInsight.
+1. Identifiera den Azure-region som du planerar att använda för HDInsight.
 
-2. Identify the service tags required by HDInsight for your region. For more information, see [Network security group (NSG) service tags for Azure HDInsight](hdinsight-service-tags.md).
+2. Identifiera de tjänst koder som krävs av HDInsight för din region. Mer information finns i [tjänst taggar för nätverks säkerhets grupper (NSG) för Azure HDInsight](hdinsight-service-tags.md).
 
-3. Create or modify the network security groups for the subnet that you plan to install HDInsight into.
+3. Skapa eller ändra nätverks säkerhets grupper för det undernät som du planerar att installera HDInsight i.
 
-    * __Network security groups__: allow __inbound__ traffic on port __443__ from the IP addresses. This will ensure that HDInsight management services can reach the cluster from outside the virtual network.
+    * __Nätverks säkerhets grupper__: Tillåt __inkommande__ trafik på port __443__ från IP-adresserna. Detta säkerställer att HDInsight Management Services kan komma åt klustret utanför det virtuella nätverket.
 
-For more information on network security groups, see the [overview of network security groups](../virtual-network/security-overview.md).
+Mer information om nätverks säkerhets grupper finns i [Översikt över nätverks säkerhets grupper](../virtual-network/security-overview.md).
 
-### <a name="controlling-outbound-traffic-from-hdinsight-clusters"></a>Controlling outbound traffic from HDInsight clusters
+### <a name="controlling-outbound-traffic-from-hdinsight-clusters"></a>Kontrol lera utgående trafik från HDInsight-kluster
 
-For more information on controlling outbound traffic from HDInsight clusters, see [Configure outbound network traffic restriction for Azure HDInsight clusters](hdinsight-restrict-outbound-traffic.md).
+Mer information om hur du styr utgående trafik från HDInsight-kluster finns i [Konfigurera begränsning av utgående nätverks trafik för Azure HDInsight-kluster](hdinsight-restrict-outbound-traffic.md).
 
-#### <a name="forced-tunneling-to-on-premises"></a>Forced tunneling to on-premises
+#### <a name="forced-tunneling-to-on-premises"></a>Tvingad tunnel trafik till lokalt
 
-Forced tunneling is a user-defined routing configuration where all traffic from a subnet is forced to a specific network or location, such as your on-premises network. HDInsight does __not__ support forced tunneling of traffic to on-premises networks. 
+Tvingad tunnel trafik är en användardefinierad routningstabell där all trafik från ett undernät tvingas till ett nätverk eller en viss plats, till exempel ditt lokala nätverk. HDInsight har __inte__ stöd för Tvingad tunnel trafik till lokala nätverk. 
 
-## <a id="hdinsight-ip"></a> Required IP addresses
+## <a id="hdinsight-ip"></a>IP-adresser som krävs
 
-If you use network security groups or user-defined routes to control traffic, please see [HDInsight management IP addresses](hdinsight-management-ip-addresses.md).
+Om du använder nätverks säkerhets grupper eller användardefinierade vägar för att styra trafiken kan du se [IP-adresser för HDInsight-hantering](hdinsight-management-ip-addresses.md).
     
-## <a id="hdinsight-ports"></a> Required ports
+## <a id="hdinsight-ports"></a>Portar som krävs
 
-If you plan on using a **firewall** and access the cluster from outside on certain ports, you might need to allow traffic on those ports needed for your scenario. By default, no special whitelisting of ports is needed as long as the azure management traffic explained in the previous section is allowed to reach cluster on port 443.
+Om du planerar att använda en **brand vägg** och komma åt klustret utifrån vissa portar kan du behöva tillåta trafik på de portar som behövs för ditt scenario. Som standard behövs ingen särskild vit listning för portar så länge som den Azure-hanteringsserver som beskrivs i föregående avsnitt kan komma åt klustret på port 443.
 
-For a list of ports for specific services, see the [Ports used by Apache Hadoop services on HDInsight](hdinsight-hadoop-port-settings-for-services.md) document.
+En lista över portar för vissa tjänster finns i [portarna som används av Apache Hadoop Services i HDInsight](hdinsight-hadoop-port-settings-for-services.md) -dokument.
 
-For more information on firewall rules for virtual appliances, see the [virtual appliance scenario](../virtual-network/virtual-network-scenario-udr-gw-nva.md) document.
+Mer information om brand Väggs regler för virtuella enheter finns i [scenario](../virtual-network/virtual-network-scenario-udr-gw-nva.md) dokumentet för Virtual-installation.
 
 ## <a name="load-balancing"></a>Belastningsutjämning
 
-When you create an HDInsight cluster, a load balancer is created as well. The type of this load balancer is at the [basic SKU level](../load-balancer/load-balancer-overview.md#skus) which has certain constraints. One of these constraints is that if you have two virtual networks in different regions, you cannot connect to basic load balancers. See [virtual networks FAQ: constraints on global vnet peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers), for more information.
+När du skapar ett HDInsight-kluster skapas även en belastnings utjämning. Den här belastningsutjämnaren är på den [grundläggande SKU-nivån](../load-balancer/load-balancer-overview.md#skus) som har vissa begränsningar. Ett av de här begränsningarna är att om du har två virtuella nätverk i olika regioner kan du inte ansluta till grundläggande belastnings utjämning. Mer information finns i [vanliga frågor och svar om virtuella nätverk: begränsningar för global VNet-peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* For code samples and examples of creating Azure Virtual Networks, see [Create virtual networks for Azure HDInsight clusters](hdinsight-create-virtual-network.md).
-* For an end-to-end example of configuring HDInsight to connect to an on-premises network, see [Connect HDInsight to an on-premises network](./connect-on-premises-network.md).
-* For configuring Apache HBase clusters in Azure virtual networks, see [Create Apache HBase clusters on HDInsight in Azure Virtual Network](hbase/apache-hbase-provision-vnet.md).
-* For configuring Apache HBase geo-replication, see [Set up Apache HBase cluster replication in Azure virtual networks](hbase/apache-hbase-replication.md).
-* For more information on Azure virtual networks, see the [Azure Virtual Network overview](../virtual-network/virtual-networks-overview.md).
-* For more information on network security groups, see [Network security groups](../virtual-network/security-overview.md).
-* For more information on user-defined routes, see [User-defined routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md).
+* Kod exempel och exempel på hur du skapar virtuella Azure-nätverk finns i [skapa virtuella nätverk för Azure HDInsight-kluster](hdinsight-create-virtual-network.md).
+* Ett slut punkt till slut punkts exempel på hur du konfigurerar HDInsight för att ansluta till ett lokalt nätverk finns i [ansluta HDInsight till ett lokalt nätverk](./connect-on-premises-network.md).
+* Information om hur du konfigurerar Apache HBase-kluster i virtuella Azure-nätverk finns i [skapa Apache HBase-kluster i HDInsight i Azure Virtual Network](hbase/apache-hbase-provision-vnet.md).
+* Information om hur du konfigurerar Apache HBase geo-replikering finns i [Konfigurera Apache HBase Cluster Replication i virtuella Azure-nätverk](hbase/apache-hbase-replication.md).
+* Mer information om virtuella Azure-nätverk finns i [Översikt över Azure-Virtual Network](../virtual-network/virtual-networks-overview.md).
+* Mer information om nätverks säkerhets grupper finns i [nätverks säkerhets grupper](../virtual-network/security-overview.md).
+* Mer information om användardefinierade vägar finns i [användardefinierade vägar och IP-vidarebefordring](../virtual-network/virtual-networks-udr-overview.md).

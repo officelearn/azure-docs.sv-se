@@ -1,5 +1,5 @@
 ---
-title: Get intent with REST call in Go
+title: Kom avsikt med REST-anrop i farten
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: diberry
@@ -15,11 +15,11 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74414594"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Programmeringsspråket [Go](https://golang.org/)  
 * [Visual Studio-kod](https://code.visualstudio.com/)
-* Public app ID: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
+* ID för offentlig app: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
 ## <a name="get-luis-key"></a>Hämta LUIS-nyckel
 
@@ -27,7 +27,7 @@ ms.locfileid: "74414594"
 
 ## <a name="get-intent-programmatically"></a>Hämta avsikter programmatiskt
 
-Use Go to query the [prediction endpoint](https://aka.ms/luis-apim-v3-prediction) and get a prediction result.
+Använd Go för att fråga efter [förutsägelse slut punkten](https://aka.ms/luis-apim-v3-prediction) och få ett förutsägelse resultat.
 
 1. Skapa en ny fil med namnet `predict.go`. Lägg till följande kod:
     
@@ -83,12 +83,12 @@ Use Go to query the [prediction endpoint](https://aka.ms/luis-apim-v3-prediction
     }
     ```
 
-1. Replace the following values:
+1. Ersätt följande värden:
 
-    * `YOUR-KEY` with your starter key.
-    * `YOUR-ENDPOINT` with your endpoint. Till exempel `westus2.api.cognitive.microsoft.com`.
+    * `YOUR-KEY` med din start nyckel.
+    * `YOUR-ENDPOINT` med din slut punkt. Till exempel `westus2.api.cognitive.microsoft.com`.
 
-1. With a command prompt in the same directory as where you created the file, enter the following command to compile the Go file:
+1. Med en kommando tolk i samma katalog som den plats där du skapade filen, anger du följande kommando för att kompilera go-filen:
 
     ```console
     go build predict.go
@@ -111,7 +111,7 @@ Use Go to query the [prediction endpoint](https://aka.ms/luis-apim-v3-prediction
     {"query":"turn on all lights","prediction":{"topIntent":"HomeAutomation.TurnOn","intents":{"HomeAutomation.TurnOn":{"score":0.5375382},"None":{"score":0.08687421},"HomeAutomation.TurnOff":{"score":0.0207554}},"entities":{"HomeAutomation.Operation":["on"],"$instance":{"HomeAutomation.Operation":[{"type":"HomeAutomation.Operation","text":"on","startIndex":5,"length":2,"score":0.724984169,"modelTypeId":-1,"modelType":"Unknown","recognitionSources":["model"]}]}}}}
     ```
 
-    JSON formatted for readability:
+    JSON-formaterad för läsbarhet:
 
     ```json
     {
@@ -161,9 +161,9 @@ Use Go to query the [prediction endpoint](https://aka.ms/luis-apim-v3-prediction
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-When you are finished with this quickstart, delete the file from the file system. 
+När du är färdig med den här snabb starten tar du bort filen från fil systemet. 
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Add utterances and train](../get-started-get-model-rest-apis.md)
+> [Lägg till yttranden och träna](../get-started-get-model-rest-apis.md)

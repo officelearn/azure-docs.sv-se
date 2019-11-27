@@ -1,6 +1,6 @@
 ---
-title: Tutorial - add template functions
-description: Add template functions to your Azure Resource Manager template to construct values.
+title: Självstudie – Lägg till mall funktioner
+description: Lägg till mallar i Azure Resource Manager-mallen för att skapa värden.
 author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
@@ -12,41 +12,41 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74405964"
 ---
-# <a name="tutorial-add-template-functions-to-your-resource-manager-template"></a>Tutorial: Add template functions to your Resource Manager template
+# <a name="tutorial-add-template-functions-to-your-resource-manager-template"></a>Självstudie: Lägg till mallar i Resource Manager-mallen
 
-In this tutorial, you learn how to add [template functions](resource-group-template-functions.md) to your template. You use functions to dynamically construct values. In addition to these system-provided template functions, you can also create [user-defined functions](./template-user-defined-functions.md). This tutorial takes **7 minutes** to complete.
+I den här självstudien får du lära dig hur du lägger till [mallar](resource-group-template-functions.md) i mallen. Du använder funktioner för att dynamiskt konstruera värden. Förutom dessa funktioner som tillhandahålls av systemet kan du också skapa [användardefinierade funktioner](./template-user-defined-functions.md). Den här självstudien tar **7 minuter** att slutföra.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-We recommend that you complete the [tutorial about parameters](template-tutorial-add-parameters.md), but it's not required.
+Vi rekommenderar att du slutför [självstudien om parametrar](template-tutorial-add-parameters.md), men det är inte obligatoriskt.
 
-You must have Visual Studio Code with the Resource Manager Tools extension, and either Azure PowerShell or Azure CLI. For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
+Du måste ha Visual Studio Code med Resource Manager Tools-tillägget och antingen Azure PowerShell eller Azure CLI. Mer information finns i [verktyg för mallar](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-template"></a>Review template
+## <a name="review-template"></a>Granska mall
 
-At the end of the previous tutorial, your template had the following JSON:
+I slutet av den föregående själv studie kursen hade mallen följande JSON:
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json)]
 
-The location of the storage account is hard-coded to **East US**. However, you may need to deploy the storage account to other regions. You're again facing an issue of your template lacking flexibility. You could add a parameter for location, but it would be great if its default value made more sense than just a hard-coded value.
+Platsen för lagrings kontot är hårdkodad till **USA, östra**. Du kan dock behöva distribuera lagrings kontot till andra regioner. Du är återigen inriktad på ett problem med din mall som saknar flexibilitet. Du kan lägga till en parameter för platsen, men det skulle vara bra om standardvärdet har gjorts mer meningsfullt än bara ett hårdkodat värde.
 
-## <a name="use-function"></a>Use function
+## <a name="use-function"></a>Använd funktion
 
-If you've completed the previous tutorial in this series, you've already used a function. When you added **"[parameters('storageName')]"** , you used the [parameters](resource-group-template-functions-deployment.md#parameters) function. The brackets indicate that the syntax inside the brackets is a [template expression](template-expressions.md). Resource Manager resolves the syntax rather than treating it as a literal value.
+Om du har slutfört den föregående själv studie kursen i den här serien har du redan använt en funktion. När du lade till **"[parameters (' storageName ')]"** användes [parameter](resource-group-template-functions-deployment.md#parameters) funktionen. Hakparenteserna anger att syntaxen innanför hakparenteserna är ett [mall uttryck](template-expressions.md). Resource Manager matchar syntaxen i stället för att behandla den som ett litteralt värde.
 
-Functions add flexibility to your template by dynamically getting values during deployment. In this tutorial, you use a function to get the location of the resource group you're using for deployment.
+Funktioner ger dig flexibilitet i mallen genom att dynamiskt hämta värden under distributionen. I den här självstudien använder du en funktion för att hämta platsen för den resurs grupp som du använder för distribution.
 
-The following example highlights the changes to add a parameter called **location**.  The parameter default value calls the [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) function. This function returns an object with information about the resource group being used for deployment. One of the properties on the object is a location property. When you use the default value, the storage account location has the same location as the resource group. The resources inside a resource group don't have to share the same location. You can also provide a different location when needed.
+I följande exempel visas ändringarna för att lägga till en parameter med namnet **plats**.  Standardvärdet för parametern anropar funktionen [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) . Den här funktionen returnerar ett objekt med information om resurs gruppen som används för distribution. En av egenskaperna för objektet är en plats egenskap. När du använder standardvärdet har lagrings konto platsen samma plats som resurs gruppen. Resurserna i en resurs grupp behöver inte dela samma plats. Du kan också ange en annan plats när det behövs.
 
-Copy the whole file and replace your template with its contents.
+Kopiera hela filen och ersätt din mall med dess innehåll.
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-location/azuredeploy.json?range=1-44&highlight=24-27,34)]
 
 ## <a name="deploy-template"></a>Distribuera mallen
 
-In the previous tutorials, you created a storage account in East US, but your resource group was created in Central US. For this tutorial, your storage account is created in the same region as the resource group. Use the default value for location, so you don't need to provide that parameter value. You must provide a new name for the storage account because you're creating a storage account in a different location. For example, use **store2** as the prefix instead of **store1**.
+I de föregående självstudierna skapade du ett lagrings konto i östra USA, men resurs gruppen skapades i Central USA. I den här självstudien skapas ditt lagrings konto i samma region som resurs gruppen. Använd standardvärdet för plats, så du behöver inte ange detta parameter värde. Du måste ange ett nytt namn för lagrings kontot eftersom du skapar ett lagrings konto på en annan plats. Använd till exempel **store2** som prefix i stället för **store1**.
 
-If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the **templateFile** variable to the path to the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
+Om du inte har skapat resurs gruppen, se [skapa resurs grupp](template-tutorial-create-first-template.md#create-resource-group). Exemplet förutsätter att du har angett **templateFile** -variabeln till sökvägen till mallfilen, som du ser i den [första självstudien](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -72,18 +72,18 @@ az group deployment create \
 
 ## <a name="verify-deployment"></a>Verifiera distributionen
 
-You can verify the deployment by exploring the resource group from the Azure portal.
+Du kan kontrol lera distributionen genom att utforska resurs gruppen från Azure Portal.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. From the left menu, select **Resource groups**.
-1. Select the resource group you deployed to.
-1. You see that a storage account resource has been deployed and has the same location as the resource group.
+1. Välj **resurs grupper**på den vänstra menyn.
+1. Välj den resurs grupp som du har distribuerat till.
+1. Du ser att en lagrings konto resurs har distribuerats och har samma plats som resurs gruppen.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-If you're moving on to the next tutorial, you don't need to delete the resource group.
+Om du går vidare till nästa självstudie behöver du inte ta bort resurs gruppen.
 
-If you're stopping now, you might want to clean up the resources you deployed by deleting the resource group.
+Om du stoppar nu kanske du vill rensa de resurser som du har distribuerat genom att ta bort resurs gruppen.
 
 1. Från Azure-portalen väljer du **Resursgrupp** från den vänstra menyn.
 2. Ange resursgruppens namn i fältet **Filtrera efter namn**.
@@ -92,7 +92,7 @@ If you're stopping now, you might want to clean up the resources you deployed by
 
 ## <a name="next-steps"></a>Nästa steg
 
-In this tutorial, you used a function when defining the default value for a parameter. In this tutorial series, you'll continue using functions. By the end of the series, you'll add functions to every section of the template.
+I den här självstudien använde du en funktion när du definierade standardvärdet för en parameter. I den här självstudien ska du fortsätta använda functions. I slutet av serien lägger du till funktioner i alla avsnitt i mallen.
 
 > [!div class="nextstepaction"]
-> [Add variables](template-tutorial-add-variables.md)
+> [Lägg till variabler](template-tutorial-add-variables.md)

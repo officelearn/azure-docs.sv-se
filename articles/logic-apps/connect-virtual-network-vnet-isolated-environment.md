@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 07/26/2019
-ms.openlocfilehash: 883778360bd2315e1424f9f207cbfd994ec1a373
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.date: 11/27/2019
+ms.openlocfilehash: d38874e7cb3fc61e32bd4ecd1fee528c4e5053e8
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73901182"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547169"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ansluta till virtuella Azure-nätverk från Azure Logic Apps med hjälp av en integrerings tjänst miljö (ISE)
 
@@ -31,10 +31,8 @@ En ISE har ökat gränserna för körnings tid, lagrings kvarhållning, data fl�
 
 Den här artikeln visar hur du utför dessa uppgifter:
 
-* Se till att alla nödvändiga portar på det virtuella nätverket är öppna så att trafiken kan färdas genom din ISE över undernät i det virtuella nätverket.
-
+* Aktivera åtkomst för din ISE.
 * Skapa din ISE.
-
 * Lägg till extra kapacitet i ISE.
 
 > [!IMPORTANT]
@@ -44,7 +42,7 @@ Den här artikeln visar hur du utför dessa uppgifter:
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
-* Ett [virtuellt Azure-nätverk](../virtual-network/virtual-networks-overview.md). Om du inte har ett virtuellt nätverk kan du läsa om hur du [skapar ett virtuellt Azure-nätverk](../virtual-network/quick-create-portal.md). 
+* Ett [virtuellt Azure-nätverk](../virtual-network/virtual-networks-overview.md). Om du inte har ett virtuellt nätverk kan du läsa om hur du [skapar ett virtuellt Azure-nätverk](../virtual-network/quick-create-portal.md).
 
   * Ditt virtuella nätverk måste ha fyra *tomma* undernät för att skapa och distribuera resurser i din ISE. Du kan skapa dessa undernät i förväg eller vänta tills du har skapat din ISE där du kan skapa undernät på samma tid. Läs mer om [krav för undernät](#create-subnet).
 
@@ -52,7 +50,7 @@ Den här artikeln visar hur du utför dessa uppgifter:
   
   * Om du vill distribuera ISE via en Azure Resource Manager-mall ska du först kontrol lera att du delegerar ett tomt undernät till Microsoft. Logic/integrationServiceEnvironment. Du behöver inte utföra den här delegeringen när du distribuerar via Azure Portal.
 
-  * Kontrol lera att det virtuella nätverket [gör dessa portar tillgängliga](#ports) så att din ISE fungerar som den ska och är tillgänglig.
+  * Se till att ditt virtuella nätverk [ger åtkomst till din ISE](#enable-access) så att din ISE kan fungera korrekt och vara tillgänglig.
 
   * Om du använder [ExpressRoute](../expressroute/expressroute-introduction.md), som tillhandahåller en privat anslutning till Microsofts moln tjänster, måste du [skapa en](../virtual-network/manage-route-table.md) routningstabell som har följande väg och länka tabellen till varje undernät som används av din ISE:
 
@@ -65,23 +63,31 @@ Den här artikeln visar hur du utför dessa uppgifter:
   > [!IMPORTANT]
   > Om du ändrar inställningarna för DNS-servern efter att du har skapat en ISE måste du starta om ISE. Mer information om hur du hanterar DNS-serverinställningar finns i [skapa, ändra eller ta bort ett virtuellt nätverk](../virtual-network/manage-virtual-network.md#change-dns-servers).
 
-<a name="ports"></a>
+<a name="enable-access"></a>
 
-## <a name="check-network-ports"></a>Kontrol lera nätverks portarna
+## <a name="enable-access-for-ise"></a>Aktivera åtkomst för ISE
 
-När du använder en ISE med ett virtuellt Azure-nätverk har ett vanligt installations problem en eller flera blockerade portar. De anslutningar som du använder för att skapa anslutningar mellan din ISE och mål systemet kan också ha egna port krav. Om du till exempel kommunicerar med ett FTP-system med hjälp av FTP-anslutningen kontrollerar du att porten som du använder på FTP-systemet är tillgänglig, till exempel port 21 för att skicka kommandon. För att se till att din ISE är tillgänglig och kan fungera korrekt, öppnar du portarna som anges i tabellen nedan. Om några av de portar som krävs inte är tillgängliga, slutar även din ISE att fungera.
+När du använder en ISE med ett virtuellt Azure-nätverk har ett vanligt installations problem en eller flera blockerade portar. De anslutningar som du använder för att skapa anslutningar mellan ISE och mål system kan också ha egna port krav. Om du till exempel kommunicerar med ett FTP-system med hjälp av FTP-anslutningen måste den port som du använder på ditt FTP-system vara tillgänglig, till exempel port 21 för att skicka kommandon.
+
+För att se till att din ISE är tillgänglig och att Logi Kap par i som ISE kan kommunicera över undernät i det virtuella nätverket, [öppnar du portarna i den här tabellen](#network-ports-for-ise). Om några av de portar som krävs inte är tillgängliga fungerar inte din ISE som den ska.
+
+* Om du har flera ISEs och ditt virtuella nätverk använder [Azure-brandväggen](../firewall/overview.md) eller en [virtuell nätverks](../virtual-network/virtual-networks-overview.md#filter-network-traffic)installation kan du [Konfigurera en enskild, utgående, offentlig och förutsägbar IP-adress](connect-virtual-network-vnet-set-up-single-ip-address.md) för att kommunicera med mål systemen. På så sätt behöver du inte konfigurera ytterligare brand Väggs öppningar för varje ISE vid målet.
+
+* Om du har skapat ett nytt virtuellt Azure-nätverk och undernät utan några begränsningar behöver du inte konfigurera [nätverks säkerhets grupper (NSG: er)](../virtual-network/security-overview.md#network-security-groups) i det virtuella nätverket för att styra trafiken mellan undernät.
+
+* I ett befintligt virtuellt nätverk kan du *välja* att konfigurera NSG: er genom att [filtrera nätverks trafik över undernät](../virtual-network/tutorial-filter-network-traffic.md). Om du väljer den här vägen, i det virtuella nätverk där du vill konfigurera NSG: er, måste du [öppna portarna i den här tabellen](#network-ports-for-ise). Om du använder [NSG säkerhets regler](../virtual-network/security-overview.md#security-rules)behöver du både TCP-och UDP-protokoll.
+
+* Om du tidigare har en befintlig NSG: er, se till att du [öppnar portarna i den här tabellen](#network-ports-for-ise). Om du använder [NSG säkerhets regler](../virtual-network/security-overview.md#security-rules)behöver du både TCP-och UDP-protokoll.
+
+<a name="network-ports-for-ise"></a>
+
+### <a name="network-ports-used-by-your-ise"></a>Nätverks portar som används av din ISE
+
+I den här tabellen beskrivs de portar i ditt virtuella Azure-nätverk som används av ISE och var dessa portar används. [Resource Manager-tjänstens Taggar](../virtual-network/security-overview.md#service-tags) representerar en grupp IP-adressprefix som bidrar till att minimera komplexiteten när du skapar säkerhets regler.
 
 > [!IMPORTANT]
 > Käll portar är tillfälliga, så se till att du ställer in dem på `*` för alla regler.
 > För intern kommunikation i dina undernät kräver din ISE att du öppnar alla portar i dessa undernät.
-
-* Om du har skapat ett nytt virtuellt nätverk och undernät utan begränsningar behöver du inte konfigurera [nätverks säkerhets grupper (NSG: er)](../virtual-network/security-overview.md#network-security-groups) i det virtuella nätverket för att styra trafiken mellan undernät.
-
-* I ett befintligt virtuellt nätverk kan du *välja* att konfigurera NSG: er genom att [filtrera nätverks trafik över undernät](../virtual-network/tutorial-filter-network-traffic.md). Om du väljer den här vägen, i det virtuella nätverk där du vill konfigurera NSG: er, måste du öppna de portar som anges i tabellen nedan. Om du använder [NSG säkerhets regler](../virtual-network/security-overview.md#security-rules)behöver du både TCP-och UDP-protokoll.
-
-* Om du tidigare har en befintlig NSG: er eller brand vägg i ditt virtuella nätverk, se till att du öppnar de portar som anges i tabellen nedan. Om du använder [NSG säkerhets regler](../virtual-network/security-overview.md#security-rules)behöver du både TCP-och UDP-protokoll.
-
-Här är den tabell som beskriver de portar i ditt virtuella nätverk som används av ISE och var dessa portar används. [Resource Manager-tjänstens Taggar](../virtual-network/security-overview.md#service-tags) representerar en grupp IP-adressprefix som bidrar till att minimera komplexiteten när du skapar säkerhets regler.
 
 | Syfte | Riktning | Målportar | Käll tjänst tag gen | Måltjänsttagg | Anteckningar |
 |---------|-----------|-------------------|--------------------|-------------------------|-------|
@@ -89,8 +95,8 @@ Här är den tabell som beskriver de portar i ditt virtuella nätverk som använ
 | Azure Active Directory | Utgående | 80, 443 | VirtualNetwork | AzureActiveDirectory | |
 | Azure Storage beroende | Utgående | 80, 443 | VirtualNetwork | Storage | |
 | Kommunikation mellan undernät | Inkommande & utgående | 80, 443 | VirtualNetwork | VirtualNetwork | För kommunikation mellan undernät |
-| Kommunikation till Azure Logic Apps | Inkommande | 443 | Interna åtkomst slut punkter: <br>VirtualNetwork <p><p>Externa åtkomst slut punkter: <br>Internet <p><p>**Obs!** de här slut punkterna refererar till den slut punkts inställning som [valdes vid skapande av ISE](#create-environment). Mer information finns i [slut punkts åtkomst](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). | VirtualNetwork | IP-adressen för datorn eller tjänsten som anropar en begär ande utlösare eller en webhook som finns i din Logic app. Om du stänger eller blockerar den här porten förhindras HTTP-anrop till Logic Apps med begär ande utlösare. |
-| Körnings historik för Logic app | Inkommande | 443 | Interna åtkomst slut punkter: <br>VirtualNetwork <p><p>Externa åtkomst slut punkter: <br>Internet <p><p>**Obs!** de här slut punkterna refererar till den slut punkts inställning som [valdes vid skapande av ISE](#create-environment). Mer information finns i [slut punkts åtkomst](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). | VirtualNetwork | IP-adressen för den dator från vilken du visar den logiska appens körnings historik. Även om du stänger eller blockerar den här porten hindrar dig inte från att Visa körnings historiken kan du inte Visa indata och utdata för varje steg i den här körnings historiken. |
+| Kommunikation till Azure Logic Apps | Inkommande | 443 | Interna åtkomst slut punkter: <br>VirtualNetwork <p><p>Externa åtkomst slut punkter: <br>Internet <p><p>**Obs!** de här slut punkterna refererar till den slut punkts inställning som [valdes vid skapande av ISE](connect-virtual-network-vnet-isolated-environment.md#create-environment). Mer information finns i [slut punkts åtkomst](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). | VirtualNetwork | IP-adressen för datorn eller tjänsten som anropar en begär ande utlösare eller en webhook som finns i din Logic app. Om du stänger eller blockerar den här porten förhindras HTTP-anrop till Logic Apps med begär ande utlösare. |
+| Körnings historik för Logic app | Inkommande | 443 | Interna åtkomst slut punkter: <br>VirtualNetwork <p><p>Externa åtkomst slut punkter: <br>Internet <p><p>**Obs!** de här slut punkterna refererar till den slut punkts inställning som [valdes vid skapande av ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-environment). Mer information finns i [slut punkts åtkomst](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). | VirtualNetwork | IP-adressen för den dator från vilken du visar den logiska appens körnings historik. Även om du stänger eller blockerar den här porten hindrar dig inte från att Visa körnings historiken kan du inte Visa indata och utdata för varje steg i den här körnings historiken. |
 | Anslutnings hantering | Utgående | 443 | VirtualNetwork  | AppService | |
 | Publicera diagnostikloggar & mått | Utgående | 443 | VirtualNetwork  | AzureMonitor | |
 | Kommunikation från Azure Traffic Manager | Inkommande | 443 | AzureTrafficManager | VirtualNetwork | |
@@ -101,7 +107,7 @@ Här är den tabell som beskriver de portar i ditt virtuella nätverk som använ
 | Distribution av kopplings princip | Inkommande | 3443 | Internet | VirtualNetwork | Krävs för att distribuera och uppdatera anslutningar. Om du stänger eller blockerar den här porten kan ISE-distributioner Miss Missing och förhindrar anslutnings uppdateringar eller korrigeringar. |
 | Azure SQL-beroende | Utgående | 1433 | VirtualNetwork | SQL | |
 | Azure Resource Health | Utgående | 1886 | VirtualNetwork | AzureMonitor | För att publicera hälso status till Resource Health |
-| API Management hanterings slut punkt | Inkommande | 3443 | API Management | VirtualNetwork | |
+| API Management hanterings slut punkt | Inkommande | 3443 | APIManagement | VirtualNetwork | |
 | Beroende från logg till Event Hub-princip och övervaknings agent | Utgående | 5672 | VirtualNetwork | EventHub | |
 | Få åtkomst till Azure cache för Redis-instanser mellan roll instanser | Inkommande <br>Utgående | 6379-6383 | VirtualNetwork | VirtualNetwork | För att ISE ska fungera med Azure cache för Redis måste du också öppna de här [utgående och inkommande portarna som beskrivs i Azure cache för Redis vanliga frågor och svar](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
 | Azure Load Balancer | Inkommande | * | AzureLoadBalancer | VirtualNetwork | |
@@ -144,16 +150,16 @@ I rutan Sök anger du "integration service Environment" som filter.
    **Skapa undernät**
 
    För att skapa och distribuera resurser i din miljö behöver din ISE fyra *tomma* undernät som inte har delegerats till någon tjänst. Du *kan inte* ändra dessa under näts adresser när du har skapat din miljö.
-   
+
    > [!IMPORTANT]
    > 
    > Under näts namn måste börja med antingen ett alfabetiskt tecken eller ett under streck (inga siffror) och använder inte dessa tecken: `<`, `>`, `%`, `&`, `\\`, `?`, `/`.
-   
+
    Dessutom måste varje undernät uppfylla följande krav:
 
    * Använder [CIDR-format (Classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) och ett klass B-adressutrymme.
 
-   * Använder minst en `/27` i adress utrymmet eftersom varje undernät måste ha *minst* 32 adresser som *minst.* Exempel:
+   * Använder minst en `/27` i adress utrymmet eftersom varje undernät måste ha *minst* 32 adresser som *minst.* Till exempel:
 
      * `10.0.0.0/27` har 32 adresser eftersom 2<sup>(32-27)</sup> är 2<sup>5</sup> eller 32.
 

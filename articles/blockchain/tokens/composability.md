@@ -1,6 +1,6 @@
 ---
-title: Azure Blockchain Tokens composability
-description: Azure Blockchain Tokens composability provides flexibility to create tokens for advanced scenarios.
+title: Sammanställnings bar Azure blockchain-token
+description: Blockchain för Azure DataStore-token ger flexibilitet för att skapa token för avancerade scenarier.
 ms.date: 11/04/2019
 ms.topic: conceptual
 ms.reviewer: brendal
@@ -11,74 +11,74 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74325123"
 ---
-# <a name="azure-blockchain-tokens-composability"></a>Azure Blockchain Tokens composability
+# <a name="azure-blockchain-tokens-composability"></a>Sammanställnings bar Azure blockchain-token
 
 [!INCLUDE [Preview note](./includes/preview.md)]
 
-Token composability provides flexibility to create tokens for advanced scenarios. You may have a complex scenario that cannot be implemented using the [four pre-built token templates](templates.md#base-token-types). Token composability allows you to design your own token templates by adding or removing defined behaviors to build your own token template. When creating a new token template, Azure Blockchain Tokens verifies all token grammar rules. Composed templates are saved in Azure Blockchain Tokens service for issuing on connected blockchain networks.
+Det finns flexibilitet i att skapa token för avancerade scenarier. Du kan ha ett komplext scenario som inte kan implementeras med de [fyra förbyggda token-mallarna](templates.md#base-token-types). Med datafiler för token kan du skapa egna tokens genom att lägga till eller ta bort definierade beteenden för att skapa en egen token-mall. När du skapar en ny token-mall, verifierar Azure blockchain-token alla grammatiska regler för tokensignering. Sammansatta mallar sparas i Azure blockchain-token-tjänsten för utfärdande av anslutna blockchain-nätverk.
 
-You can use the [token behaviors](templates.md#token-behaviors) in the following sections to design your token template.
+Du kan använda [token-beteenden](templates.md#token-behaviors) i följande avsnitt för att utforma din token-mall.
 
-## <a name="burnable-b"></a>Burnable (b)
+## <a name="burnable-b"></a>Brännings bara (b)
 
-Ability to remove the tokens from supply.
+Möjlighet att ta bort token från aggregatet.
 
-For example, when you redeem online credit card points for a gift card, the credit card points are burned.
+När du t. ex. löser in kredit korts platser online för ett presentkort, bränns kredit korts platserna.
 
-## <a name="delegable-g"></a>Delegable (g)
+## <a name="delegable-g"></a>Kan delegeras (g)
 
-Ability to delegate the actions taken on the token that you own.
+Möjlighet att delegera de åtgärder som vidtas för den token som du äger.
 
-The delegate can perform actions as the owner of the token. For example, you could use a delegable token to implement a vote. A delegable token allows the vote token owner to have someone else vote on their behalf.
+Ombudet kan utföra åtgärder som ägare av token. Du kan till exempel använda en kan delegeras-token för att implementera en röst. Med en kan delegeras-token kan en röst-token-ägare ha någon annan röst för deras räkning.
 
 ## <a name="logable-l"></a>Logable (l)
 
-Ability to log.
+Möjlighet att logga.
 
-For example, you can issue a logable token for a movie distribution to each theater showing a specific movie. For the movie to be played, the showing must log a transaction for each showing because royalty payouts are per showing during the movie's release run. The actors build can use the movie tokens to validate payouts per movie showing per theater in the distribution.
+Du kan till exempel utfärda en logable-token för en film distribution till varje teater som visar en speciell film. För att filmen ska kunna spelas upp måste visningen logga en transaktion för varje visning eftersom royalty-utbetalningar per visning visas under filmens versions körning. Aktörerna som skapar kan använda film-token för att verifiera utbetalningar per film som visas per teater i distributionen.
 
-## <a name="mint-able-m"></a>Mint-able (m)
+## <a name="mint-able-m"></a>Mintgrön – kan (m)
 
-Ability to mint additional tokens for the token class. The minter role includes the mintable behavior.
+Möjlighet att mintgrön ytterligare token för klassen token. Minter-rollen innehåller beteendet mintable.
 
-For example, a retail company, which wants to implement a loyalty program can use mintable tokens for their loyalty program. They can mint additional loyalty points for their customers as their customer base grows.  
+Till exempel kan ett detalj handels företag, som vill implementera ett förmåns program, använda mintable-token för sina lojalitets program. De kan mintgrön ytterligare förmåns Poäng för kunderna när deras kund bas växer.  
 
-## <a name="non-subdividable-or-whole-d"></a>Non-subdividable or whole (~d)
+## <a name="non-subdividable-or-whole-d"></a>Icke-underdelad eller helhet (~ d)
 
-Restriction to prevent a token from being divided into smaller parts.
+Begränsning för att förhindra att en token delas upp i mindre delar.
 
-For example, a single art painting cannot be subdivided into multiple smaller parts. 
+En enda konst målning kan till exempel inte delas upp i flera mindre delar. 
 
-## <a name="non-transferable-t"></a>Non-transferable (~t)
+## <a name="non-transferable-t"></a>Det går inte att överföra (~ t)
 
-Restriction to prevent a change of ownership from the initial token owner.
+Begränsning för att förhindra en ändring av ägarskap från den inledande token-ägaren.
 
-For example, a university diploma is a non-transferable token. Once a diploma is given to a graduate, it cannot be transferred from the graduate to another person.
+Ett universitets diplom är till exempel en icke-överförbar token. När ett diplom har fått en examen kan det inte överföras från en annan persons examen.
 
-## <a name="roles-r"></a>Roles (r)
+## <a name="roles-r"></a>Roller (r)
 
-Ability to define roles within the token template class for specific behaviors.
+Möjlighet att definiera roller i klassen token för vissa beteenden.
 
-You can provide a list of role names that a token supports at the token creation time. When roles are specified, the user can assign roles to these behaviors. Currently, only the minter role is supported.
+Du kan ange en lista över roll namn som en token stöder vid skapande av token. När roller anges kan användaren tilldela roller till dessa beteenden. För närvarande stöds endast Minter-rollen.
 
 ## <a name="singleton-s"></a>Singleton (s)
 
-Restriction to allow a supply of one token.
+Begränsning för att tillåta en till gång till en token.
 
-For example, a museum artifact is a singleton token. Museum artifacts are unique. A token representing an artifact only has a single item in the supply.
+Till exempel är en Museum-artefakt en singleton-token. Museum-artefakter är unika. En token som representerar en artefakt har bara ett enda objekt i aggregatet.
 
-## <a name="subdividable-d"></a>Subdividable (d)
+## <a name="subdividable-d"></a>Subdivisionable (d)
 
-Ability to divide a token into smaller parts.
+Möjlighet att dela upp en token i mindre delar.
 
-For example, a dollar can be subdivided into cents.
+Till exempel kan en dollar delas upp i cent.
 
-## <a name="transferable-t"></a>Transferable (t)
+## <a name="transferable-t"></a>Överförings bara (t)
 
-Ability to transfer ownership of the token.
+Möjlighet att överföra ägarskapet för token.
 
-For example, a property title is a transferable token, which can be transferred from one person to another when the property is sold.
+En egenskaps rubrik är till exempel en överförings bara token som kan överföras från en person till en annan när egenskapen säljs.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Learn about [Azure Blockchain Tokens account management](account-management.md).
+Lär dig mer om [konto hantering för Azure blockchain-token](account-management.md).

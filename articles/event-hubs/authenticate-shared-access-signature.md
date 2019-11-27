@@ -6,14 +6,14 @@ ms.service: event-hubs
 documentationcenter: ''
 author: spelluru
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 11/26/2019
 ms.author: spelluru
-ms.openlocfilehash: cb5c53f3f473c10a3c9a12bb1aac20b109c06422
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: d17026dba26b3c1cb846d60967180c29563c425d
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992541"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74545591"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Autentisera åtkomst till Event Hubs resurser med signaturer för delad åtkomst (SAS)
 Signaturen för delad åtkomst (SAS) ger dig detaljerad kontroll över vilken typ av åtkomst du beviljar till de klienter som har signaturen för delad åtkomst. Här följer några av de kontroller som du kan ange i en SAS: 
@@ -24,7 +24,7 @@ Signaturen för delad åtkomst (SAS) ger dig detaljerad kontroll över vilken ty
 - En klient kan inte personifiera en annan klient.
 - En rouge-klient kan blockeras från att skicka data till en Event Hub.
 
-Den här artikeln beskriver hur du autentiserar åtkomsten till Event Hubs-resurser med hjälp av SAS. Mer information om hur du auktoriserar åtkomst till Event Hubs-resurser med hjälp av SAS finns i [den här artikeln](authorize-access-shared-access-signature.md). 
+Den här artikeln beskriver hur du autentiserar åtkomsten till Event Hubs-resurser med hjälp av SAS. Mer information om hur du **auktoriserar** åtkomst till Event Hubs-resurser med hjälp av SAS finns i [den här artikeln](authorize-access-shared-access-signature.md). 
 
 > [!NOTE]
 > Microsoft rekommenderar att du använder Azure AD-autentiseringsuppgifter när det är möjligt som en säkerhets åtgärd, i stället för att använda signaturer för delad åtkomst, vilket kan vara svårare att avslöja. Även om du kan fortsätta att använda signaturer för delad åtkomst (SAS) för att ge detaljerade åtkomst till dina Event Hubs-resurser, erbjuder Azure AD liknande funktioner utan att du behöver hantera SAS-token eller oroa dig för att återkalla en komprometterad SAS.
@@ -48,10 +48,10 @@ När du använder sendRuleNS kan klient program skicka till både EH1 och topic1
 ## <a name="generate-a-shared-access-signature-token"></a>Generera en token för signatur för delad åtkomst 
 Alla klienter som har åtkomst till namnet på ett namn för auktoriseringsregeln och en av dess signerings nycklar kan generera en SAS-token. Token genereras genom att en sträng skapas i följande format:
 
-- `se`– Token upphör att gälla omedelbart. Heltal som motsvarar sekunder sedan 1970 1 januari 00:00:00 UTC (UNIX-epok) när token upphör att gälla
-- `skn`– Namnet på auktoriseringsregeln, det vill säga SAS-nyckelns namn.
-- `sr`– URI för den resurs som används.
-- `sig`Signatur.
+- `se` – token upphör att gälla. Heltal som motsvarar sekunder sedan 1970 1 januari 00:00:00 UTC (UNIX-epok) när token upphör att gälla
+- `skn` – namnet på auktoriseringsregeln, det vill säga SAS-nyckelns namn.
+- `sr` – URI för den resurs som används.
+- `sig` – signatur.
 
 Signatur-String är SHA-256-hash som beräknats över resurs-URI: n (enligt beskrivningen i föregående avsnitt) och sträng representationen av token som upphör att gälla, avgränsade med CRLF.
 
@@ -63,13 +63,13 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 
 Token innehåller de värden som inte är hash-kodade, så att mottagaren kan beräkna hashen på samma parametrar och kontrol lera att utfärdaren har en giltig signerings nyckel.
 
-Resurs-URI är den fullständiga URI: n för den Service Bus resurs som åtkomst begärs till. Till exempel http://<namespace>. ServiceBus.Windows.net/<entityPath> eller `sb://<namespace>.servicebus.windows.net/<entityPath>;` dvs `http://contoso.servicebus.windows.net/eventhubs/eh1`.
+Resurs-URI är den fullständiga URI: n för den Service Bus resurs som åtkomst begärs till. Till exempel, http://<namespace>. servicebus.windows.net/<entityPath> eller `sb://<namespace>.servicebus.windows.net/<entityPath>;` `http://contoso.servicebus.windows.net/eventhubs/eh1`.
 
 URI: n måste vara i procent kodad.
 
 Den auktoriseringsregler för delad åtkomst som används för signering måste konfigureras på den entitet som anges av denna URI, eller av en av dess hierarkiska överordnade. Till exempel `http://contoso.servicebus.windows.net/eventhubs/eh1` eller `http://contoso.servicebus.windows.net` i föregående exempel.
 
-En SAS-token är giltig för alla resurser som har <resourceURI> prefixet som används i Signature-sträng.
+En SAS-token är giltig för alla resurser som föregås av de <resourceURI> som används i Signature-strängen.
 
 > [!NOTE]
 > Du genererar en åtkomsttoken för Event Hubs med hjälp av principen för delad åtkomst. Mer information finns i [auktoriseringsprincipen för delad åtkomst](authorize-access-shared-access-signature.md#shared-access-authorization-policies).
@@ -183,22 +183,33 @@ En händelseutfärdare definierar en virtuell slutpunkt för en händelsehubb. U
 
 En händelsehubb använder vanligtvis en utgivare per klient. Alla meddelanden som skickas till någon av utgivare av en händelsehubb är i kön i den händelsehubben. Utgivare möjliggör detaljerad åtkomst kontroll.
 
-Varje Event Hubs-klient tilldelas en unik token som överförts till klienten. Token skapas så att varje unik token beviljar åtkomst till en annan unik utgivare. En klient som innehåller en token kan bara skicka till en utgivare och ingen annan utgivare. Om flera klienter delar samma token, delar var och en av dem en utgivare.
+Varje Event Hubs-klient tilldelas en unik token som överförts till klienten. Token skapas så att varje unik token beviljar åtkomst till en annan unik utgivare. En klient som innehåller en token kan bara skicka till en utgivare och ingen annan utgivare. Om flera klienter delar samma token delar var och en av dem utgivaren.
 
-Alla tokens tilldelas med SAS-nycklar. Vanligtvis signeras alla token med samma nyckel. Klienterna är inte medvetna om nyckeln, vilket förhindrar andra klienter från att tillverka tokens. Klienterna använder samma token tills de upphör att gälla.
+Alla tokens tilldelas med SAS-nycklar. Vanligtvis signeras alla token med samma nyckel. Klienterna är inte medvetna om nyckeln, vilket förhindrar att klienterna tillverkar tokens. Klienterna använder samma token tills de upphör att gälla.
 
 Om du till exempel vill definiera auktoriseringsregler som är begränsade till att endast skicka/publicera till Event Hubs måste du definiera en auktoriseringsregel för att skicka. Detta kan göras på en namn områdes nivå eller ge mer detaljerad räckvidd till en viss entitet (Event Hub-instans eller ett ämne). En klient eller ett program som omfattas av den detaljerade åtkomsten kallas Event Hubs utgivare. Det gör du genom att följa dessa steg:
 
-1. Skapa en SAS-nyckel på den entitet som du vill publicera för att tilldela sändnings omfånget. Mer information finns i [Auktoriseringsprinciper för delad åtkomst](authorize-access-shared-access-signature.md#shared-access-authorization-policies).
+1. Skapa en SAS-nyckel på den entitet som du vill publicera för att tilldela **sändnings** omfånget. Mer information finns i [Auktoriseringsprinciper för delad åtkomst](authorize-access-shared-access-signature.md#shared-access-authorization-policies).
 2. Generera en SAS-token med en förfallo tid för en speciell utgivare genom att använda nyckeln som genererats i steg 1.
-3. Ange token till utgivar klienten, som bara kan skickas till den entitet som token beviljar åtkomst till.
-4. När token går ut förlorar klienten sin åtkomst till att skicka/publicera till entiteten. 
+
+    ```csharp
+    var sasToken = SharedAccessSignatureTokenProvider.GetPublisherSharedAccessSignature(
+                new Uri("Service-Bus-URI"),
+                "eventub-name",
+                "publisher-name",
+                "sas-key-name",
+                "sas-key",
+                TimeSpan.FromMinutes(30));
+    ```
+3. Ange token till utgivar klienten, som bara kan skickas till entiteten och utgivaren som token beviljar åtkomst till.
+
+    När token går ut förlorar klienten sin åtkomst till att skicka/publicera till entiteten. 
 
 
 > [!NOTE]
-> Även om det inte rekommenderas, är det möjligt att utrusta enheter med token som beviljar åtkomst till en Event Hub. Alla enheter som innehåller denna token kan skicka meddelanden direkt till den händelsehubben. Dessutom kan du Svartlistad enheten från att skicka till den händelsehubben.
+> Även om det inte rekommenderas, är det möjligt att utrusta enheter med token som beviljar åtkomst till en Event Hub eller ett namn område. Alla enheter som innehåller denna token kan skicka meddelanden direkt till den händelsehubben. Dessutom kan du Svartlistad enheten från att skicka till den händelsehubben.
 > 
-> Ovanstående beteende kan observeras när samma token distribueras till flera enheter, vilket ger dig åtkomst på namn områdes nivå. I så fall kan en rouge-enhet/utgivare inte isoleras och återkallas. Vi rekommenderar alltid att du ger vissa och detaljerade omfång.
+> Vi rekommenderar alltid att du ger vissa och detaljerade omfång.
 
 > [!IMPORTANT]
 > När token som har skapats kan etableras varje klient med sin egen unika token.
@@ -209,7 +220,7 @@ Om du till exempel vill definiera auktoriseringsregler som är begränsade till 
 
 
 ## <a name="authenticating-event-hubs-consumers-with-sas"></a>Autentisera Event Hubs konsumenter med SAS 
-För att autentisera backend-program som använder sig av data som genereras av Event Hubs-producenter, kräver Event Hubs token-autentisering att dess klienter antingen har behörigheten **Hantera** eller behörigheten **lyssna** till dess Event Hubs namn område eller Event Hub-instans eller ämne. Data förbrukas från Event Hubs med hjälp av konsument grupper. Medan SAS-principen ger dig detaljerad räckvidd, definieras denna omfattning endast på enhets nivå och inte på konsument nivå. Det innebär att behörigheterna som definierats på namn områdes nivån eller Event Hub-instansen eller ämnes nivån kommer att tillämpas på den entitetens konsument grupper.
+För att autentisera backend-program som använder sig av data som genereras av Event Hubs-producenter, kräver Event Hubs token-autentisering att dess klienter antingen har behörigheten **Hantera** eller behörigheten **lyssna** till dess Event Hubs-namnrymd eller Event Hub-instans eller ämne. Data förbrukas från Event Hubs med hjälp av konsument grupper. Medan SAS-principen ger dig detaljerad räckvidd, definieras denna omfattning endast på enhets nivå och inte på konsument nivå. Det innebär att behörigheterna som definierats på namn områdes nivån eller Event Hub-instansen eller ämnes nivån kommer att tillämpas på den entitetens konsument grupper.
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar:

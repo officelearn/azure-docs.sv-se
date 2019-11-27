@@ -1,6 +1,6 @@
 ---
-title: Use Azure CLI for files & ACLs in Azure Data Lake Storage Gen2 (preview)
-description: Use the Azure CLI to manage directories and file and directory access control lists (ACL) in storage accounts that have a hierarchical namespace.
+title: 'Använda Azure CLI för filer & ACL: er i Azure Data Lake Storage Gen2 (förhands granskning)'
+description: Använd Azure CLI för att hantera kataloger och åtkomst kontrol listor för kataloger och kataloger (ACL) i lagrings konton som har ett hierarkiskt namn område.
 services: storage
 author: normesta
 ms.service: storage
@@ -9,72 +9,72 @@ ms.topic: conceptual
 ms.date: 11/24/2019
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 95bb43f1531b6234ccb90eb7d66404ccc66f60f3
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: dcd75cfefd53b3c9104052146607869515e1c86e
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74485151"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534285"
 ---
-# <a name="use-azure-cli-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>Use Azure CLI for files & ACLs in Azure Data Lake Storage Gen2 (preview)
+# <a name="use-azure-cli-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>Använda Azure CLI för filer & ACL: er i Azure Data Lake Storage Gen2 (förhands granskning)
 
-This article shows you how to use the [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) to create and manage directories, files, and permissions in storage accounts that have a hierarchical namespace. 
+Den här artikeln visar hur du använder [Azures kommando rads gränssnitt (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) för att skapa och hantera kataloger, filer och behörigheter i lagrings konton som har ett hierarkiskt namn område. 
 
 > [!IMPORTANT]
-> The `storage-preview` extension that is featured in this article is currently in public preview.
+> `storage-preview` tillägget som finns i den här artikeln är för närvarande en offentlig för hands version.
 
-[Sample](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#adls-gen2-support) | [Gen1 to Gen2 mapping](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2) | [Give feedback](https://github.com/Azure/azure-cli-extensions/issues)
-## <a name="prerequisites"></a>Krav
+[Exempel](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#adls-gen2-support) [på | gen1 till Gen2-mappning](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2) | [ge feedback](https://github.com/Azure/azure-cli-extensions/issues)
+## <a name="prerequisites"></a>Förutsättningar
 
 > [!div class="checklist"]
 > * En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
-> * A storage account that has hierarchical namespace (HNS) enabled. Follow [these](data-lake-storage-quickstart-create-account.md) instructions to create one.
-> * Azure CLI version `2.0.67` or higher.
+> * Ett lagrings konto med hierarkiskt namn område (HNS) aktiverat. Följ [de här](data-lake-storage-quickstart-create-account.md) anvisningarna för att skapa en.
+> * Azure CLI-version `2.0.67` eller högre.
 
-## <a name="install-the-storage-cli-extension"></a>Install the storage CLI extension
+## <a name="install-the-storage-cli-extension"></a>Installera Storage CLI-tillägget
 
-1. Open the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest), or if you've [installed](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) the Azure CLI locally, open a command console application such as Windows PowerShell.
+1. Öppna [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest), eller om du har [installerat](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) Azure CLI lokalt öppnar du ett kommando konsol program, till exempel Windows PowerShell.
 
-2. Verify that the version of Azure CLI that have installed is `2.0.67` or higher by using the following command.
+2. Kontrol lera att den version av Azure CLI som är installerad `2.0.67` eller högre med hjälp av följande kommando.
 
    ```azurecli
     az --version
    ```
-   If your version of Azure CLI is lower than `2.0.67`, then install a later version. See [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+   Om din version av Azure CLI är lägre än `2.0.67`kan du installera en senare version. Se [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-3. Install the `storage-preview` extension.
+3. Installera `storage-preview`-tillägget.
 
    ```azurecli
    az extension add -n storage-preview
    ```
 
-## <a name="connect-to-the-account"></a>Connect to the account
+## <a name="connect-to-the-account"></a>Anslut till kontot
 
-1. If you're using Azure CLI locally, run the login command.
+1. Om du använder Azure CLI lokalt kan du köra inloggnings kommandot.
 
    ```azurecli
    az login
    ```
 
-   If the CLI can open your default browser, it will do so and load an Azure sign-in page.
+   Om CLI kan öppna din standard webbläsare så gör den det och läser in en Azure-inloggnings sida.
 
-   Otherwise, open a browser page at [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and enter the authorization code displayed in your terminal. Then, sign in with your account credentials in the browser.
+   Annars öppnar du en webb sida på [https://aka.ms/devicelogin](https://aka.ms/devicelogin) och anger den auktoriseringskod som visas i din terminal. Logga sedan in med dina konto uppgifter i webbläsaren.
 
-   To learn more about different authentication methods, see Sign in with Azure CLI.
+   Mer information om olika autentiseringsmetoder finns i Logga in med Azure CLI.
 
-2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that will host your static website.
+2. Om din identitet är associerad med fler än en prenumeration ställer du in din aktiva prenumeration på prenumerationen på det lagrings konto som ska vara värd för din statiska webbplats.
 
    ```azurecli
    az account set --subscription <subscription-id>
    ```
 
-   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
+   Ersätt `<subscription-id>` placeholder-värdet med ID: t för din prenumeration.
 
 ## <a name="create-a-file-system"></a>Skapa ett filsystem
 
-A file system acts as a container for your files. You can create one by using the `az storage container create` command. 
+Ett fil system fungerar som en behållare för dina filer. Du kan skapa ett med hjälp av kommandot `az storage container create`. 
 
-This example creates a file system named `my-file-system`.
+I det här exemplet skapas ett fil system med namnet `my-file-system`.
 
 ```azurecli
 az storage container create --name my-file-system
@@ -82,27 +82,27 @@ az storage container create --name my-file-system
 
 ## <a name="create-a-directory"></a>Skapa en katalog
 
-Create a directory reference by using the `az storage blob directory create` command. 
+Skapa en katalog referens med hjälp av kommandot `az storage blob directory create`. 
 
-This example adds a directory named `my-directory` to a file system named `my-file-system` that is located in an account named `mystorageaccount`.
+Det här exemplet lägger till en katalog med namnet `my-directory` till ett fil system med namnet `my-file-system` som finns i ett konto med namnet `mystorageaccount`.
 
 ```azurecli
 az storage blob directory create -c my-file-system -d my-directory --account-name mystorageaccount
 ```
 
-## <a name="show-directory-properties"></a>Show directory properties
+## <a name="show-directory-properties"></a>Visa katalog egenskaper
 
-You can print the properties of a directory to the console by using the `az storage blob show` command.
+Du kan skriva ut egenskaperna för en katalog till-konsolen med hjälp av kommandot `az storage blob show`.
 
 ```azurecli
 az storage blob directory show -c my-file-system -d my-directory --account-name mystorageaccount
 ```
 
-## <a name="rename-or-move-a-directory"></a>Rename or move a directory
+## <a name="rename-or-move-a-directory"></a>Byta namn på eller flytta en katalog
 
-Rename or move a directory by using the `az storage blob directory move` command.
+Byt namn på eller flytta en katalog med hjälp av kommandot `az storage blob directory move`.
 
-This example renames a directory from the name `my-directory` to the name `my-new-directory`.
+I det här exemplet byter namn på en katalog från namnet `my-directory` till namnet `my-new-directory`.
 
 ```azurecli
 az storage blob directory move -c my-file-system -d my-new-directory -s my-directory --account-name mystorageaccount
@@ -110,35 +110,35 @@ az storage blob directory move -c my-file-system -d my-new-directory -s my-direc
 
 ## <a name="delete-a-directory"></a>Ta bort en katalog
 
-Delete a directory by using the `az storage blob directory delete` command.
+Ta bort en katalog med hjälp av kommandot `az storage blob directory delete`.
 
-This example deletes a directory named `my-directory`. 
+I det här exemplet tas en katalog med namnet `my-directory`bort. 
 
 ```azurecli
 az storage blob directory delete -c my-file-system -d my-directory --account-name mystorageaccount 
 ```
 
-## <a name="check-if-a-directory-exists"></a>Check if a directory exists
+## <a name="check-if-a-directory-exists"></a>Kontrol lera om en katalog finns
 
-Determine if a specific directory exists in the file system by using the `az storage blob directory exist` command.
+Ta reda på om en katalog finns i fil systemet med hjälp av kommandot `az storage blob directory exist`.
 
-This example reveals whether a directory named `my-directory` exists in the `my-file-system` file system. 
+Det här exemplet visar om en katalog med namnet `my-directory` finns i `my-file-system` fil systemet. 
 
 ```azurecli
 az storage blob directory exists -c my-file-system -d my-directory --account-name mystorageaccount 
 ```
 
-## <a name="download-from-a-directory"></a>Download from a directory
+## <a name="download-from-a-directory"></a>Ladda ned från en katalog
 
-Download a file from a directory by using the `az storage blob directory download` command.
+Hämta en fil från en katalog med hjälp av kommandot `az storage blob directory download`.
 
-This example downloads a file named `upload.txt` from a directory named `my-directory`. 
+I det här exemplet hämtas en fil med namnet `upload.txt` från en katalog med namnet `my-directory`. 
 
 ```azurecli
 az storage blob directory download -c my-file-system --account-name mystorageaccount -s "my-directory/upload.txt" -d "C:\mylocalfolder\download.txt"
 ```
 
-This example downloads an entire directory.
+I det här exemplet hämtas en hel katalog.
 
 ```azurecli
 az storage blob directory download -c my-file-system --account-name mystorageaccount -s "my-directory/" -d "C:\mylocalfolder" --recursive
@@ -146,43 +146,43 @@ az storage blob directory download -c my-file-system --account-name mystorageacc
 
 ## <a name="list-directory-contents"></a>Lista kataloginnehåll
 
-List the contents of a directory by using the `az storage blob directory list` command.
+Lista innehållet i en katalog med hjälp av kommandot `az storage blob directory list`.
 
-This example lists the contents of a directory named `my-directory` that is located in the `my-file-system` file system of a storage account named `mystorageaccount`. 
+I det här exemplet visas innehållet i en katalog med namnet `my-directory` som finns i fil systemet `my-file-system` för ett lagrings konto med namnet `mystorageaccount`. 
 
 ```azurecli
 az storage blob directory list -c my-file-system -d my-directory --account-name mystorageaccount
 ```
 
-## <a name="upload-a-file-to-a-directory"></a>Upload a file to a directory
+## <a name="upload-a-file-to-a-directory"></a>Ladda upp en fil till en katalog
 
-Upload a file to a directory by using the `az storage blob directory upload` command.
+Ladda upp en fil till en katalog med hjälp av kommandot `az storage blob directory upload`.
 
-This example uploads a file named `upload.txt` to a directory named `my-directory`. 
+I det här exemplet överförs en fil med namnet `upload.txt` till en katalog med namnet `my-directory`. 
 
 ```azurecli
 az storage blob directory upload -c my-file-system --account-name mystorageaccount -s "C:\mylocaldirectory\upload.txt" -d my-directory
 ```
 
-This example uploads an entire directory.
+I det här exemplet överförs en hel katalog.
 
 ```azurecli
 az storage blob directory upload -c my-file-system --account-name mystorageaccount -s "C:\mylocaldirectory\" -d my-directory --recursive 
 ```
 
-## <a name="show-file-properties"></a>Show file properties
+## <a name="show-file-properties"></a>Visa fil egenskaper
 
-You can print the properties of a file to the console by using the `az storage blob show` command.
+Du kan skriva ut egenskaperna för en fil till-konsolen med hjälp av kommandot `az storage blob show`.
 
 ```azurecli
 az storage blob show -c my-file-system -b my-file.txt --account-name mystorageaccount
 ```
 
-## <a name="rename-or-move-a-file"></a>Rename or move a file
+## <a name="rename-or-move-a-file"></a>Byta namn på eller flytta en fil
 
-Rename or move a file by using the `az storage blob move` command.
+Byt namn på eller flytta en fil med hjälp av kommandot `az storage blob move`.
 
-This example renames a file from the name `my-file.txt` to the name `my-file-renamed.txt`.
+I det här exemplet byter namn på en fil från namnet `my-file.txt` till namnet `my-file-renamed.txt`.
 
 ```azurecli
 az storage blob move -c my-file-system -d my-file-renamed.txt -s my-file.txt --account-name mystorageaccount
@@ -190,107 +190,107 @@ az storage blob move -c my-file-system -d my-file-renamed.txt -s my-file.txt --a
 
 ## <a name="delete-a-file"></a>Ta bort en fil
 
-Delete a file by using the `az storage blob delete` command.
+Ta bort en fil med hjälp av kommandot `az storage blob delete`.
 
-This example deletes a file named `my-file.txt`
+Det här exemplet tar bort en fil med namnet `my-file.txt`
 
 ```azurecli
 az storage blob delete -c my-file-system -b my-file.txt --account-name mystorageaccount 
 ```
 
-## <a name="manage-permissions"></a>Manage permissions
+## <a name="manage-permissions"></a>Hantera behörigheter
 
-You can get, set, and update access permissions of directories and files.
+Du kan hämta, ange och uppdatera åtkomst behörigheter för kataloger och filer.
 
-### <a name="get-directory-and-file-permissions"></a>Get directory and file permissions
+### <a name="get-directory-and-file-permissions"></a>Hämta katalog-och fil behörigheter
 
-Get the ACL of a **directory** by using the `az storage blob directory access show` command.
+Hämta ACL för en **katalog** med hjälp av kommandot `az storage blob directory access show`.
 
-This example gets the ACL of a directory, and then prints the ACL to the console.
+Det här exemplet hämtar ACL: en för en katalog och skriver sedan ut ACL: en till-konsolen.
 
 ```azurecli
 az storage blob directory access show -d my-directory -c my-file-system --account-name mystorageaccount
 ```
 
-Get the access permissions of a **file** by using the `az storage blob access show` command. 
+Hämta åtkomst behörigheterna för en **fil** med hjälp av kommandot `az storage blob access show`. 
 
-This example gets the ACL of a file and then prints the ACL to the console.
+Det här exemplet hämtar ACL: en för en fil och skriver sedan ut ACL: en till-konsolen.
 
 ```azurecli
 az storage blob access show -b my-directory/upload.txt -c my-file-system --account-name mystorageaccount
 ```
 
-The following image shows the output after getting the ACL of a directory.
+Följande bild visar utdata när du har hämtat ACL för en katalog.
 
-![Get ACL output](./media/data-lake-storage-directory-file-acl-cli/get-acl.png)
+![Hämta ACL-utdata](./media/data-lake-storage-directory-file-acl-cli/get-acl.png)
 
-In this example, the owning user has read, write, and execute permissions. The owning group has only read and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+I det här exemplet har ägande användaren Läs-, skriv-och körnings behörighet. Den ägande gruppen har bara Läs-och körnings behörighet. Mer information om åtkomst kontrol listor finns i [åtkomst kontroll i Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
-### <a name="set-directory-and-file-permissions"></a>Set directory and file permissions
+### <a name="set-directory-and-file-permissions"></a>Ange katalog-och fil behörigheter
 
-Use the `az storage blob directory access set` command to set the ACL of a **directory**. 
+Använd `az storage blob directory access set`-kommandot för att ange ACL för en **katalog**. 
 
-This example sets the ACL on a directory for the owning user, owning group, or other users, and then prints the ACL to the console.
+I det här exemplet anges ACL: en för en katalog för ägande användare, ägande grupp eller andra användare, och sedan skrivs ACL: en ut till-konsolen.
 
 ```azurecli
 az storage blob directory access set -a "user::rw-,group::rw-,other::-wx" -d my-directory -c my-file-system --account-name mystorageaccount
 ```
 
-Use the `az storage blob access set` command to set the acl of a **file**. 
+Använd `az storage blob access set`-kommandot för att ange ACL för en **fil**. 
 
-This example sets the ACL on a file for the owning user, owning group, or other users, and then prints the ACL to the console.
+I det här exemplet anges ACL: en för en fil för ägande användare, ägande grupp eller andra användare, och sedan skrivs ACL: en ut till-konsolen.
 
 ```azurecli
 az storage blob access set -a "user::rw-,group::rw-,other::-wx" -b my-directory/upload.txt -c my-file-system --account-name mystorageaccount
 ```
-The following image shows the output after setting the ACL of a file.
+Följande bild visar utdata när du har angett ACL för en fil.
 
-![Get ACL output](./media/data-lake-storage-directory-file-acl-cli/set-acl-file.png)
+![Hämta ACL-utdata](./media/data-lake-storage-directory-file-acl-cli/set-acl-file.png)
 
-In this example, the owning user and owning group have only read and write permissions. All other users have write and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+I det här exemplet har ägande användare och ägande grupp bara Läs-och Skriv behörighet. Alla andra användare har Skriv-och körnings behörighet. Mer information om åtkomst kontrol listor finns i [åtkomst kontroll i Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
-### <a name="update-directory-and-file-permissions"></a>Update directory and file permissions
+### <a name="update-directory-and-file-permissions"></a>Uppdatera katalog-och fil behörigheter
 
-Another way to set this permission is to use the `az storage blob directory access update` or `az storage blob access update` command. 
+Ett annat sätt att ange den här behörigheten är att använda kommandot `az storage blob directory access update` eller `az storage blob access update`. 
 
-Update the ACL of a directory or file by setting the `-permissions` parameter to the short form of an ACL.
+Uppdatera ACL: en för en katalog eller fil genom att ange parametern `-permissions` till kort form för en ACL.
 
-This example updates the ACL of a **directory**.
+I det här exemplet uppdateras ACL: en för en **katalog**.
 
 ```azurecli
 az storage blob directory access update --permissions "rwxrwxrwx" -d my-directory -c my-file-system --account-name mystorageaccount
 ```
 
-This example updates the ACL of a **file**.
+I det här exemplet uppdateras ACL: en för en **fil**.
 
 ```azurecli
 az storage blob access update --permissions "rwxrwxrwx" -b my-directory/upload.txt -c my-file-system --account-name mystorageaccount
 ```
 
-You can also update the owning user and group of a directory or file by setting the `--owner` or `group` parameters to the entity ID or User Principal Name (UPN) of a user. 
+Du kan också uppdatera den ägande användaren och gruppen av en katalog eller fil genom att ange `--owner`-eller `group` parametrar till enhets-ID eller användarens huvud namn (UPN) för en användare. 
 
-This example changes the owner of a directory. 
+I det här exemplet ändras ägaren till en katalog. 
 
 ```azurecli
 az storage blob directory access update --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -d my-directory -c my-file-system --account-name mystorageaccount
 ```
 
-This example changes the owner of a file. 
+Det här exemplet ändrar ägaren till en fil. 
 
 ```azurecli
 az storage blob access update --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -b my-directory/upload.txt -c my-file-system --account-name mystorageaccount
 ```
-## <a name="manage-user-defined-metadata"></a>Manage user-defined metadata
+## <a name="manage-user-defined-metadata"></a>Hantera användardefinierade metadata
 
-You can add user-defined metadata to a file or directory by using the `az storage blob directory metadata update` command with one or more name-value pairs.
+Du kan lägga till användardefinierade metadata till en fil eller katalog med hjälp av kommandot `az storage blob directory metadata update` med ett eller flera namn-värde-par.
 
-This example adds user-defined metadata for a directory named `my-directory` directory.
+Det här exemplet lägger till användardefinierade metadata för en katalog med namnet `my-directory` Directory.
 
 ```azurecli
 az storage blob directory metadata update --metadata tag1=value1 tag2=value2 -c my-file-system -d my-directory --account-name mystorageaccount
 ```
 
-This example shows all user-defined metadata for directory named `my-directory`.
+I det här exemplet visas alla användardefinierade metadata för katalogen med namnet `my-directory`.
 
 ```azurecli
 az storage blob directory metadata show -c my-file-system -d my-directory --account-name mystorageaccount
@@ -299,8 +299,8 @@ az storage blob directory metadata show -c my-file-system -d my-directory --acco
 ## <a name="see-also"></a>Se också
 
 * [Exempel](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview)
-* [Gen1 to Gen2 mapping](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2)
+* [Gen1 till Gen2-mappning](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2)
 * [Ge feedback](https://github.com/Azure/azure-cli-extensions/issues)
-* [Known capability gaps](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
+* [Kända problem](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [Källkod](https://github.com/Azure/azure-cli-extensions/tree/master/src)
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/06/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4153e038228d7ec4631fc5fec81303966a12b01b
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: b241ac223fd1eb9df2b0a914726d8f37df5f4d88
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184086"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547364"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-using-azure-cli"></a>Tilldela en hanterad identitet åtkomst till en resurs med hjälp av Azure CLI
 
@@ -30,18 +30,18 @@ När du har konfigurerat en Azure-resurs med en hanterad identitet, kan du ge ha
 
 ## <a name="prerequisites"></a>Krav
 
-- Om du är bekant med hanterade identiteter för Azure-resurser kan du kolla den [översiktsavsnittet](overview.md). **Se till att granska den [skillnaden mellan en hanterad identitet systemtilldelade och användartilldelade](overview.md#how-does-it-work)** .
+- Om du inte känner till hanterade identiteter för Azure-resurser kan du läsa [avsnittet Översikt](overview.md). **Se till att granska [skillnaden mellan en tilldelad och användardefinierad hanterad identitet](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
 - Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
 - Om du vill köra CLI-exempelskript, finns det tre alternativ:
-    - Använd [Azure Cloud Shell](../../cloud-shell/overview.md) från Azure-portalen (se nästa avsnitt).
+    - Använd [Azure Cloud Shell](../../cloud-shell/overview.md) från Azure Portal (se nästa avsnitt).
     - Använd inbäddad Azure Cloud Shell via ”Prova” knappen, finns i det övre högra hörnet av varje kodblock.
-    - [Installera den senaste versionen av Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) om du föredrar att använda den lokala CLI-konsolen. 
+    - [Installera den senaste versionen av Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) om du föredrar att använda en lokal CLI-konsol. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="use-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Använd RBAC för att tilldela en hanterad identitet åtkomst till en annan resurs
 
-När du har aktiverat hanterad identitet på en Azure-resurs, till exempel en [Azure-dator](qs-configure-cli-windows-vm.md) eller [Azure virtual machine scale Sets](qs-configure-cli-windows-vmss.md): 
+När du har aktiverat hanterad identitet på en Azure-resurs, till exempel en [virtuell Azure-dator](qs-configure-cli-windows-vm.md) eller en [virtuell Azure-dators skalnings uppsättning](qs-configure-cli-windows-vmss.md): 
 
 1. Om du använder Azure CLI i en lokal konsol börjar du med att logga in i Azure med [az login](/cli/azure/reference-index#az-login). Använd ett konto som är associerade med Azure-prenumerationen som du vill distribuera skalningsuppsättningen för virtuell dator eller virtuell dator:
 
@@ -49,7 +49,7 @@ När du har aktiverat hanterad identitet på en Azure-resurs, till exempel en [A
    az login
    ```
 
-2. I det här exemplet ger vi en virtuell Azure-datoråtkomst till ett lagringskonto. Först använder vi [az resurslistan](/cli/azure/resource/#az-resource-list) att hämta tjänstens huvudnamn för den virtuella datorn med namnet myVM:
+2. I det här exemplet ger vi en virtuell Azure-datoråtkomst till ett lagringskonto. Först använder vi [AZ Resource List](/cli/azure/resource/#az-resource-list) för att hämta tjänstens huvud namn för den virtuella datorn med namnet myVM:
 
    ```azurecli-interactive
    spID=$(az resource list -n myVM --query [*].identity.principalId --out tsv)
@@ -60,7 +60,7 @@ När du har aktiverat hanterad identitet på en Azure-resurs, till exempel en [A
    spID=$(az resource list -n DevTestVMSS --query [*].identity.principalId --out tsv)
    ```
 
-3. När du har ID för tjänstens huvudnamn använder [az-rolltilldelning skapa](/cli/azure/role/assignment#az-role-assignment-create) att ge den virtuella datorn eller VM-skalningsuppsättningar kan du ange ”läsare” åtkomst till ett lagringskonto med namnet ”myStorageAcct”:
+3. När du har tjänstens huvud namn-ID använder du [AZ roll tilldelning skapa](/cli/azure/role/assignment#az-role-assignment-create) för att ge den virtuella datorn eller skalnings uppsättningen för den virtuella datorn åtkomst till ett lagrings konto med namnet "myStorageAcct":
 
    ```azurecli-interactive
    az role assignment create --assignee $spID --role 'Reader' --scope /subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/myStorageAcct
@@ -68,6 +68,6 @@ När du har aktiverat hanterad identitet på en Azure-resurs, till exempel en [A
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Hanterade identiteter för översikt över Azure-resurser](overview.md)
-- För att aktivera hanterad identitet på virtuella Azure-datorer, se [konfigurera hanterade identiteter för Azure-resurser på en Azure virtuell dator med Azure CLI](qs-configure-cli-windows-vm.md).
-- För att aktivera hanterad identitet på en Azure VM-skalningsuppsättning, se [konfigurera hanterade identiteter för Azure-resurser på en VM-skalningsuppsättning med Azure CLI](qs-configure-cli-windows-vmss.md).
+- [Översikt över hanterade identiteter för Azure-resurser](overview.md)
+- Information om hur du aktiverar hanterad identitet på en virtuell Azure-dator finns i [Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med Azure CLI](qs-configure-cli-windows-vm.md).
+- Om du vill aktivera hanterad identitet på en skalnings uppsättning för virtuella Azure-datorer, se [Konfigurera hanterade identiteter för Azure-resurser på en skalnings uppsättning för virtuella datorer med Azure CLI](qs-configure-cli-windows-vmss.md).

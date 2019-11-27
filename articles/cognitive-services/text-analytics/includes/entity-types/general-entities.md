@@ -24,7 +24,7 @@ Språk:
 
 | Under typs namn | Beskrivning             |
 |--------------|-------------------------|
-| Saknas          | Identifierade namn, till exempel `Bill Gates`, `Marie Curie` |
+| Gäller inte          | Identifierade namn, till exempel `Bill Gates`, `Marie Curie` |
 
 ### <a name="location"></a>Plats
 
@@ -37,7 +37,7 @@ Språk:
 
 | Under typs namn | Beskrivning                                                                                      |
 |--------------|--------------------------------------------------------------------------------------------------|
-| Saknas          | platser, till exempel `Atlantic Ocean`, `library`, `Eiffel Tower`, `Statue of Liberty` |
+| Gäller inte          | platser, till exempel `Atlantic Ocean`, `library`, `Eiffel Tower`, `Statue of Liberty` |
 
 ### <a name="organization"></a>Organisation  
 
@@ -47,7 +47,7 @@ Erkända organisationer, organisationer, organ och andra grupper av personer. Ex
 
 | Under typs namn | Beskrivning                                                                                      |
 |--------------|--------------------------------------------------------------------------------------------------|
-| Saknas          | organisationer, till exempel `Microsoft`, `NASA` `National Oceanic and Atmospheric Administration` |
+| Gäller inte          | organisationer, till exempel `Microsoft`, `NASA` `National Oceanic and Atmospheric Administration` |
 
 ### <a name="phone-number"></a>Telefonnummer
 
@@ -60,7 +60,7 @@ Språk:
 
 | Under typs namn | Beskrivning                                  |
 |----------|----------------------------------------------|
-| Saknas         | AMERIKANSKt telefonnummer, till exempel `(312) 555-0176`. |
+| Gäller inte         | AMERIKANSKt telefonnummer, till exempel `(312) 555-0176`. |
 
 ### <a name="email"></a>E-post
 
@@ -73,7 +73,7 @@ Språk:
 
 | Under typs namn | Beskrivning                                  |
 |----------|----------------------------------------------|
-| Saknas         | E-postadress, till exempel `support@contoso.com` |
+| Gäller inte         | E-postadress, till exempel `support@contoso.com` |
 
 ### <a name="url"></a>URL
 
@@ -86,9 +86,9 @@ Språk:
 
 | Under typs namn | Beskrivning                                           |
 |----------|-------------------------------------------------------|
-| Saknas         | URL: er till webbplatser, till exempel `https://www.bing.com`. |
+| Gäller inte         | URL: er till webbplatser, till exempel `https://www.bing.com`. |
 
-###  <a name="number"></a>Tal
+###  <a name="number"></a>Antal
 
 Siffror och numeriska kvantiteter. 
 
@@ -99,9 +99,9 @@ Språk:
 
 | Under typs namn    | Exempel                     |
 |-------------|------------------------------|
-| Saknas         | `6`, `six`                   |
+| Gäller inte         | `6`, `six`                   |
 | Procent  | `50%`, `fifty percent`       |
 | Ordningstal     | `2nd`, `second`              |
-| Valuta    | `$10.99`, `€30.00`           |
+| Currency    | `$10.99`, `€30.00`           |
 | Dimension   | `10 miles`, `40 cm`          |
 | Temperatur | `32 degrees`, `10°C`         |

@@ -39,7 +39,7 @@ Strömma resurs loggar i Azure till Event Hubs för att tillhandahålla följand
     CROSS APPLY GetArrayElements(e.records) AS records
     ```
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du måste [skapa en Event Hub](../../event-hubs/event-hubs-create.md) om du inte redan har en. Om du tidigare har strömmat resurs loggar till det här Event Hubs namn området, kommer den händelsehubben att återanvändas.
 
 Principen för delad åtkomst för namn området definierar de behörigheter som den strömmande mekanismen har. Strömning till Event Hubs kräver behörigheterna hantera, skicka och lyssna. Du kan skapa eller ändra principer för delad åtkomst i Azure Portal under fliken Konfigurera för ditt Event Hubs-namnområde.
@@ -64,8 +64,8 @@ När du använder resurs loggar från Event Hub är det JSON-format med elemente
 | category |Logg kategori för den här händelsen. |
 | resourceId |Resurs-ID för den resurs som skapade den här händelsen. |
 | operationName |Åtgärdens namn. |
-| level |Valfri. Anger händelse nivån för loggen. |
-| properties |Händelsens egenskaper. Dessa kan variera för varje Azure-tjänst enligt beskrivningen [ ]()i. |
+| nivå |Valfritt. Anger händelse nivån för loggen. |
+| Egenskaper |Händelsens egenskaper. Dessa kan variera för varje Azure-tjänst enligt beskrivningen [ ]()i. |
 
 
 Följande är exempel på utdata från Event Hubs:

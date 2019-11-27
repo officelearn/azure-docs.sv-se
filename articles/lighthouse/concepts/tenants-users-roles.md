@@ -1,6 +1,6 @@
 ---
-title: Tenants, roles, and users in Azure Lighthouse scenarios
-description: Understand the concepts of Azure Active Directory tenants, users, and roles, as well as how they can be used in Azure Lighthouse scenarios.
+title: Klienter, roller och användare i Azure Lighthouse-scenarier
+description: Förstå begreppen för Azure Active Directory klienter, användare och roller, samt hur de kan användas i Azure Lighthouse-scenarier.
 ms.date: 11/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: a1ad004c79f90f4642640405da9e8876b9202e98
@@ -10,36 +10,36 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74463938"
 ---
-# <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Tenants, roles, and users in Azure Lighthouse scenarios
+# <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Klienter, roller och användare i Azure Lighthouse-scenarier
 
-Before onboarding customers for [Azure delegated resource management](azure-delegated-resource-management.md), it's important to understand how Azure Active Directory (Azure AD) tenants, users, and roles work, as well as how they can be used in Azure Lighthouse scenarios.
+Innan du registrerar kunder för [Azure-delegerad resurs hantering](azure-delegated-resource-management.md)är det viktigt att förstå hur Azure Active Directory (Azure AD)-klienter, användare och roller fungerar, samt hur de kan användas i Azure Lighthouse-scenarier.
 
-A *tenant* is a dedicated and trusted instance of Azure AD. Typically, each tenant represents a single organization. Azure delegated resource management enables logical projection of resources from one tenant to another tenant. This allows users in the managing tenant (such as one belonging to a service provider) to access delegated resources in a customer's tenant, or lets [enterprises with multiple tenants centralize their management operations](enterprise.md).
+En *klient organisation* är en dedikerad och betrodd instans av Azure AD. Varje klient representerar vanligt vis en enda organisation. Azure-delegerad resurs hantering möjliggör logisk projektion av resurser från en klient till en annan klient organisation. Detta gör det möjligt för användare i hanterings klienten (till exempel en som tillhör en tjänst leverantör) att komma åt delegerade resurser i en kunds klient, eller låta [företag med flera innehavare centralisera sina hanterings åtgärder](enterprise.md).
 
-In order to achieve this logical projection, a subscription (or one or more resource groups within a subscription) in the customer tenant must be *onboarded* for Azure delegated resource management. This onboarding process can be done either [through Azure Resource Manager templates](../how-to/onboard-customer.md) or by [publishing a public or private offer to Azure Marketplace](../how-to/publish-managed-services-offers.md).
+För att uppnå den här logiska projektionen måste en prenumeration (eller en eller flera resurs grupper inom en prenumeration *) registreras för* Azure-delegerad resurs hantering. Den här onboarding-processen kan göras antingen [via Azure Resource Manager mallar](../how-to/onboard-customer.md) eller genom [att publicera ett offentligt eller privat erbjudande till Azure Marketplace](../how-to/publish-managed-services-offers.md).
 
-Whichever onboarding method you choose, you will need to define *authorizations*. Each authorization specifies a user account in the managing tenant which will have access to the delegated resources, and a built-in role that sets the permissions that each of these users will have for these resources.
+Vilken onboarding-metod du väljer måste du definiera *auktoriseringar*. Varje auktorisering anger ett användar konto i hanterings klienten som kommer att ha åtkomst till de delegerade resurserna och en inbyggd roll som anger de behörigheter som var och en av dessa användare kommer att ha för dessa resurser.
 
-## <a name="role-support-for-azure-delegated-resource-management"></a>Role support for Azure delegated resource management
+## <a name="role-support-for-azure-delegated-resource-management"></a>Roll stöd för Azure-delegerad resurs hantering
 
-When defining an authorization, each user account must be assigned one of the [role-based access control (RBAC) built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles). Custom roles and [classic subscription administrator roles](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) are not supported.
+När du definierar en auktorisering måste varje användar konto tilldelas en av de [inbyggda rollbaserade RBAC-rollerna (rollbaserad åtkomst kontroll)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles). Administratörs roller för anpassade roller och [klassiska prenumerationer](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) stöds inte.
 
-All [built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) are currently supported with Azure delegated resource management, with the following exceptions:
+Alla [inbyggda roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) stöds för närvarande med Azure-delegerad resurs hantering, med följande undantag:
 
-- The [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) role is not supported.
-- Any built-in roles with [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) permission are not supported.
-- The [User Access Administrator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) built-in role is supported, but only for the limited purpose of [assigning roles to a managed identity in the customer tenant](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant). No other permissions typically granted by this role will apply. If you define a user with this role, you must also specify the built-in role(s) that this user can assign to managed identities.
+- [Ägar](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) rollen stöds inte.
+- Inbyggda roller med [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) -behörighet stöds inte.
+- Den inbyggda rollen [administratör för användar åtkomst](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) stöds, men endast för det begränsade syftet med [att tilldela roller till en hanterad identitet i kund klienten](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant). Inga andra behörigheter som vanligt vis beviljas av den här rollen kommer att gälla. Om du definierar en användare med den här rollen måste du också ange de inbyggda roller som den här användaren kan tilldela till hanterade identiteter.
 
-## <a name="best-practices-for-defining-users-and-roles"></a>Best practices for defining users and roles
+## <a name="best-practices-for-defining-users-and-roles"></a>Metod tips för att definiera användare och roller
 
-When creating your authorizations, we recommend the following best practices:
+När du skapar dina auktoriseringar rekommenderar vi följande metod tips:
 
-- In most cases, you'll want to assign permissions to an Azure AD user group or service principal, rather than to a series of individual user accounts. This lets you add or remove access for individual users without having to update and republish the plan when your access requirements change.
-- Be sure to follow the principle of least privilege so that users only have the permissions needed to complete their job, helping to reduce the chance of inadvertent errors. For more info, see [Recommended security practices](../concepts/recommended-security-practices.md).
-- Include a user with the [Managed Services Registration Assignment Delete Role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-services-registration-assignment-delete-role) so that you can [remove access to the delegation](../how-to/onboard-customer.md#remove-access-to-a-delegation) later if needed. If this role is not assigned, delegated resources can only be removed by a user in the customer's tenant.
-- Be sure that any user who needs to [view the My customers page in the Azure portal](../how-to/view-manage-customers.md) has the [Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) role (or another built-in role which includes Reader access).
+- I de flesta fall vill du tilldela behörigheter till en användar grupp eller ett tjänst huvud namn i Azure AD, i stället för till en serie med enskilda användar konton. På så sätt kan du lägga till eller ta bort åtkomst för enskilda användare utan att behöva uppdatera och publicera om planen när dina åtkomst krav ändras.
+- Se till att du följer principen om minsta behörighet så att användarna bara har de behörigheter som krävs för att utföra sitt jobb, vilket bidrar till att minska risken för oavsiktliga fel. Mer information finns i [rekommenderade säkerhets metoder](../concepts/recommended-security-practices.md).
+- Ta med en användare med [tilldelnings rollen för hanterade tjänster](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-services-registration-assignment-delete-role) , så att du kan [ta bort åtkomsten till delegeringen](../how-to/onboard-customer.md#remove-access-to-a-delegation) senare om det behövs. Om den här rollen inte är tilldelad kan delegerade resurser bara tas bort av en användare i kundens klient organisation.
+- Se till att alla användare som behöver [Visa sidan mina kunder i Azure Portal](../how-to/view-manage-customers.md) har rollen [läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) (eller någon annan inbyggd roll som innehåller läsar åtkomst).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Learn about [recommended security practices for Azure delegated resource management](recommended-security-practices.md).
-- Onboard your customers to Azure delegated resource management, either by [using Azure Resource Manager templates](../how-to/onboard-customer.md) or by [publishing a private or public managed services offer to Azure Marketplace](../how-to/publish-managed-services-offers.md).
+- Lär dig mer om [rekommenderade säkerhets metoder för Azure-delegerad resurs hantering](recommended-security-practices.md).
+- Publicera dina kunder till Azure delegerad resurs hantering, antingen genom att [använda Azure Resource Manager mallar](../how-to/onboard-customer.md) eller genom [att publicera ett privat eller offentligt hanterat tjänst erbjudande på Azure Marketplace](../how-to/publish-managed-services-offers.md).

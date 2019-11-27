@@ -1,6 +1,6 @@
 ---
-title: Azure Functions geo-disaster recovery and high availability
-description: How to use geographical regions for redundancy and to fail over in Azure Functions.
+title: Azure Functions geo-haveri beredskap och hög tillgänglighet
+description: Hur du använder geografiska regioner för redundans och för att redundansväxla i Azure Functions.
 author: wesmc7777
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
@@ -13,48 +13,48 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74226961"
 ---
-# <a name="azure-functions-geo-disaster-recovery"></a>Azure Functions geo-disaster recovery
+# <a name="azure-functions-geo-disaster-recovery"></a>Azure Functions geo-haveri beredskap
 
-When entire Azure regions or datacenters experience downtime, it is critical for compute to continue processing in a different region.  This article will explain some of the strategies that you can use to deploy functions to allow for disaster recovery.
+När hela Azure-regioner eller data Center upplever drift stopp är det viktigt att data bearbetningen fortsätter i en annan region.  I den här artikeln förklaras några av de strategier som du kan använda för att distribuera funktioner som möjliggör katastrof återställning.
 
 ## <a name="basic-concepts"></a>Grundläggande begrepp
 
-Azure Functions run in a specific region.  To get higher availability, you can deploy the same functions to multiple regions.  When in multiple regions you can have your functions running in the *active/active* pattern or *active/passive* pattern.  
+Azure Functions köras i en angiven region.  Om du vill få högre tillgänglighet kan du distribuera samma funktioner till flera regioner.  När i flera regioner kan du köra dina funktioner i det *aktiva/aktiva* mönstret eller *aktivt/passivt* mönster.  
 
-* Aktiv/aktiv. Both regions are active and receiving events (duplicate or rotationally). Active/active is recommended for HTTPS functions in combination with Azure Front Door.
-* Active/passive. One region is active and receiving events, while a secondary is idle.  When failover is required, the secondary region is activated and takes over processing.  This is recommended for non-HTTP functions like Service Bus and Event Hubs.
+* Aktiv/aktiv. Båda regionerna är aktiva och tar emot händelser (dubbletter eller rotering). Active/Active rekommenderas för HTTPS-funktioner i kombination med Azures frontend-dörr.
+* Aktiv/passiv. En region är aktiv och tar emot händelser, medan en sekundär är inaktiv.  När redundans krävs aktive ras den sekundära regionen och bearbetningen sker.  Detta rekommenderas för icke-HTTP-funktioner som Service Bus och Event Hubs.
 
-Read how to [run apps in multiple regions](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region) for more information on multi-region deployments.
+Läs hur du [Kör appar i flera regioner](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region) för mer information om distributioner i flera regioner.
 
-## <a name="activeactive-for-https-functions"></a>Active/active for HTTPS functions
+## <a name="activeactive-for-https-functions"></a>Aktiva/aktiva för HTTPS-funktioner
 
-To achieve active/active deployments of functions, it requires some component that can coordinate the events between both regions.  For HTTPS functions, this coordination is accomplished using [Azure Front Door](../frontdoor/front-door-overview.md).  Azure Front Door can route and round-robin HTTPS requests between multiple regional functions.  It also periodically checks the health of each endpoint.  If a regional function stops responding to health checks, Azure Front Door will take it out of rotation and only forward traffic to healthy functions.  
+För att kunna uppnå aktiva/aktiva distributioner av funktioner krävs en del komponenter som kan koordinera händelserna mellan båda regionerna.  För HTTPS-funktioner utförs denna samordning med [Azures frontend-dörr](../frontdoor/front-door-overview.md).  Azures front dörr kan dirigera och avrunda HTTPS-begäranden mellan flera regionala funktioner.  Det kontrollerar också regelbundet hälso tillståndet för varje slut punkt.  Om en regional funktion slutar svara på hälso kontroller tar Azure-hemdörren bort den från rotationen och vidarebefordrar bara trafik till friska funktioner.  
 
-![Architecture for Azure Front Door and Function](media/functions-geo-dr/front-door.png)  
+![Arkitektur för Azures främre dörr och funktion](media/functions-geo-dr/front-door.png)  
 
-## <a name="activeactive-for-non-https-functions"></a>Active/active for non-HTTPS functions
+## <a name="activeactive-for-non-https-functions"></a>Aktiva/aktiva för icke-HTTPS-funktioner
 
-You can still achieve active/active deployments for non-HTTPS functions.  However, you need to consider how the two regions will interact or coordinate with one another.  If you deployed the same function app into two regions, each triggering on the same Service Bus queue, they would act as competing consumers on de-queueing that queue.  While this means each message is only being processed by one of the instances, it also means there is still a single point of failure on the single service bus.  If you deploy two service bus queues (one in a primary region, one in a secondary region), and the two function apps pointed to their region queue, the challenge now comes in how the queue messages are distributed between the two regions.  Often this means that each publisher attempts to publish a message to *both* regions, and each message is processed by both active function apps.  While this creates an active/active pattern, it creates other challenges around duplication of compute and when or how data is consolidated.  For these reasons, it is recommended for non-HTTPS triggers to use the active/passive pattern.
+Du kan fortfarande nå aktiva/aktiva distributioner för icke-HTTPS-funktioner.  Du måste dock överväga hur de två regionerna ska interagera eller koordineras med varandra.  Om du har distribuerat samma Function-app i två regioner, som varje utlöses i samma Service Bus kö, agerar de som konkurrerande konsumenter om att köa kön.  Det innebär att varje meddelande bara bearbetas av en av instanserna, men det innebär också att det fortfarande finns en enskild felpunkt på den enskilda Service Bus-bussen.  Om du distribuerar två Service Bus-köer (en i en primär region, en i en sekundär region) och de två Function-appar som pekar på sin regions Queue, kommer utmaningen nu att visas i hur Queue meddelanden distribueras mellan de två regionerna.  Det innebär ofta att varje utgivare försöker publicera ett meddelande till *båda* regionerna och varje meddelande bearbetas av båda aktiva funktions appar.  Även om detta skapar ett aktivt/aktivt mönster, skapar den andra utmaningar kring duplicering av beräkning och när eller hur data konsol IDE ras.  Av dessa skäl rekommenderar vi att icke-HTTPS-utlösare använder det aktiva/passiva mönstret.
 
-## <a name="activepassive-for-non-https-functions"></a>Active/passive for non-HTTPS functions
+## <a name="activepassive-for-non-https-functions"></a>Aktiva/passiva för icke-HTTPS-funktioner
 
-Active/passive provides a way for only a single function to process each message, but provides a mechanism to fail over to a secondary region in case of a disaster.  Azure Functions works alongside [Azure Service Bus geo-recovery](../service-bus-messaging/service-bus-geo-dr.md) and [Azure Event Hubs geo-recovery](../event-hubs/event-hubs-geo-dr.md).
+Active/passivt är ett sätt för endast en enda funktion att bearbeta varje meddelande, men tillhandahåller en mekanism för att redundansväxla till en sekundär region i händelse av en katastrof.  Azure Functions fungerar tillsammans med [Azure Service Bus geo-återställning](../service-bus-messaging/service-bus-geo-dr.md) och [Azure Event Hubs geo-återställning](../event-hubs/event-hubs-geo-dr.md).
 
-Using Azure Event Hubs triggers as an example, the active/passive pattern would involve the following:
+Med hjälp av Azure Event Hubs-utlösare som exempel skulle det aktiva/passiva mönstret omfatta följande:
 
-* Azure Event Hub deployed to both a primary and secondary region.
-* Geo-disaster enabled to pair the primary and secondary Event Hub.  This also creates an "alias" you can use to connect to event hubs and switch from primary to secondary without changing the connection info.
-* Function apps deployed to both a primary and secondary region.
-* The function apps are triggering on the *direct* (non-alias) connection string for its respective event hub. 
-* Publishers to the event hub should publish to the alias connection string. 
+* Azure Event Hub distribueras till både en primär och en sekundär region.
+* Geo-katastrof aktiverat för att koppla den primära och sekundära Händelsehubben.  Detta skapar också ett "alias" som du kan använda för att ansluta till händelse hubbar och växla från primär till sekundär utan att ändra anslutnings informationen.
+* Function-appar som distribueras till både en primär och en sekundär region.
+* Function-apparna utlöses på den *direkta* (icke-alias) anslutnings strängen för dess respektive Event Hub. 
+* Utgivare till händelsehubben ska publicera till aliasets anslutnings sträng. 
 
-![Active-passive example architecture](media/functions-geo-dr/active-passive.png)
+![Arkitektur för aktiv-passiv exempel](media/functions-geo-dr/active-passive.png)
 
-Before failover, publishers sending to the shared alias will route to the primary event hub.  The primary function app is listening exclusively to the primary event hub.  The secondary function app will be passive and idle.  As soon as failover is initiated, publishers sending to the shared alias will now route to the secondary event hub.  The secondary function app will now become active and start triggering automatically.  Effective failover to a secondary region can be driven entirely from the event hub, with the functions becoming active only when the respective event hub is active.
+Före redundans dirigeras utgivare som skickar till det delade aliaset till den primära händelsehubben.  Den primära Function-appen lyssnar uteslutande till den primära händelsehubben.  Den sekundära Function-appen kommer att vara passiv och inaktiv.  Så snart redundansväxlingen initieras kommer utgivare som skickar till det delade aliaset att dirigeras till den sekundära händelsehubben.  Den sekundära Function-appen aktive ras nu som aktiv och börjar utlösas automatiskt.  Effektiv redundans till en sekundär region kan köras helt från händelsehubben, och funktionerna blir bara aktiva när respektive händelsehubben är aktiv.
 
-Read more on information and considerations for failover with [service bus](../service-bus-messaging/service-bus-geo-dr.md) and [event hubs](../event-hubs/event-hubs-geo-dr.md).
+Läs mer om information och överväganden för redundans med [Service Bus](../service-bus-messaging/service-bus-geo-dr.md) och [Event Hub](../event-hubs/event-hubs-geo-dr.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Create Azure Front Door](../frontdoor/quickstart-create-front-door.md)
-* [Event Hubs failover considerations](../event-hubs/event-hubs-geo-dr.md#considerations)
+* [Skapa Azure-front dörr](../frontdoor/quickstart-create-front-door.md)
+* [Överväganden vid Event Hubs redundans](../event-hubs/event-hubs-geo-dr.md#considerations)

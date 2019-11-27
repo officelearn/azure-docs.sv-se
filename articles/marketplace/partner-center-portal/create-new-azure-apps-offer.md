@@ -179,7 +179,7 @@ Du måste definiera Marketplace-information (erbjudande namn, beskrivning, bilde
 > [!NOTE]
 > Erbjudande för List innehåll (till exempel beskrivning, dokument, skärm bilder, användnings villkor osv.) behöver inte vara på engelska, förutsatt att beskrivningen börjar med frasen, "det här programmet är endast tillgängligt på [språk som inte är engelska]". Det är också acceptabelt att tillhandahålla en *användbar länk-URL* för att erbjuda innehåll på ett annat språk än det som används i innehålls förteckningen för erbjudandet.
 
-### <a name="name"></a>Namn
+### <a name="name"></a>Name
 
 Det namn som du anger här visas för kunder som rubrik på din erbjudande lista. Det här fältet fylls i automatiskt med texten du angav för **erbjud alias** när du skapade erbjudandet, men du kan ändra det här värdet. Det här namnet kan vara ett varumärke (och du kan inkludera varumärkes-eller Copyright-symboler). Namnet får innehålla högst 50 tecken och får inte innehålla några emojis.
 
@@ -222,7 +222,7 @@ Ange URL: en till din organisations sekretess policy. Du ansvarar för att se ti
 
 Ange valfria kompletterande online-dokument om din lösning.  Lägg till ytterligare användbara länkar genom att klicka på **+ Lägg till en länk**.
 
-### <a name="contacts"></a>Contacts
+### <a name="contacts"></a>Kontakter
 
 I det här avsnittet måste du ange namn, e-postadress och telefonnummer för en **support kontakt** och en **teknisk kontakt**. Den här informationen visas inte för kunder, men är tillgänglig för Microsoft och kan tillhandahållas till CSP-partner.
 
@@ -244,7 +244,7 @@ Hjälte avbildningen är valfri. Om du anger ett värde måste du mäta 815 x 29
 
 Lägg till skärm bilder som visar hur ditt erbjudande fungerar. Du kan lägga till upp till fem skärm bilder. Alla skärm dum par måste vara 1280 x 720 bild punkter.
 
-#### <a name="videos"></a>Videoklipp
+#### <a name="videos"></a>Videor
 
 Du kan också lägga till upp till fem videor som demonstrerar ditt erbjudande. Dessa videor bör finnas på YouTube och/eller Vimeo. För var och en anger du videons namn, URL och en miniatyr bild av videon (1280 x 720 pixlar).
 
@@ -319,7 +319,7 @@ Azure Government Services hanterar data som omfattas av vissa myndighets bestäm
 
 På fliken **plan List** visas den plan-/regionsspecifika registrerings informationen som kan skilja sig mellan olika planer för samma erbjudande.
 
-### <a name="name"></a>Namn
+### <a name="name"></a>Name
 
 Fylldes i automatiskt baserat på ditt namn du tilldelade din plan när du skapade den.  Det här namnet visas som rubrik för den här "program planen" som visas i Marketplace.  Får innehålla upp till 100 tecken.
 
@@ -362,7 +362,7 @@ Varje plan måste vara tillgänglig på minst en marknad. Markera kryss rutan f�
 
 Om du redan har angett priser för din plan i USA dollar (USD) och lagt till en annan marknads plats kommer priset för den nya marknaden att beräknas enligt de aktuella växelkurserna. Granska alltid priset för varje marknad innan du publicerar. Priserna kan granskas med hjälp av länken "export priser (xlsx)" när du har sparat ändringarna.
 
-### <a name="pricing"></a>Priser
+### <a name="pricing"></a>Prissättning
 
 Ange priset per månad för den här planen.  Detta pris är utöver alla Azure-infrastrukturer eller program kostnader som du betalar per användning av de resurser som distribueras av den här lösningen.
 

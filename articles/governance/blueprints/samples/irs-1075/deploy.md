@@ -1,14 +1,14 @@
 ---
-title: IRS 1075 skiss exempel – distribuera steg
+title: Distribuera IRS 1075 skiss exempel
 description: Distribuera steg för skiss exemplet för IRS 1075 (Rev. 11-2016) som innehåller information om skiss artefakt parameter.
 ms.date: 11/20/2019
 ms.topic: sample
-ms.openlocfilehash: 033d4b38b7ccaf4d187615ec1df48c200fe5e683
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 15fcac5bfd11d889522d078853bd6f916eb54616
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279487"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546809"
 ---
 # <a name="deploy-the-irs-1075-blueprint-sample"></a>Distribuera IRS 1075-skiss exemplet
 

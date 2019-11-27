@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 11/26/2019
 ms.author: jingwang
-ms.openlocfilehash: 039176f2c546aa933d3a87ded8b6ded94e485d74
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: HT
+ms.openlocfilehash: c62a7de1f16a3d7d286f48500117c256804c0f24
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280650"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546934"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Hämta metadata-aktivitet i Azure Data Factory
 
@@ -32,7 +32,7 @@ Följande funktioner är tillgängliga i kontroll flödet:
 - Du kan använda utdata från aktiviteten hämta metadata i villkors uttryck för att utföra verifieringen.
 - Du kan utlösa en pipeline när ett villkor är uppfyllt genom att göra tills loopar.
 
-## <a name="capabilities"></a>Funktioner
+## <a name="capabilities"></a>Kapacitet
 
 Aktiviteten hämta metadata tar en data uppsättning som indata och returnerar metadatainformation som utdata. För närvarande stöds följande anslutningar och motsvarande hämtnings bara metadata. Den maximala storleken för returnerade metadata är 1 MB.
 
@@ -53,10 +53,11 @@ Aktiviteten hämta metadata tar en data uppsättning som indata och returnerar m
 | [Azure Files](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | [Filsystem](connector-file-system.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
-| [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x | x/x | √ | x | √ | √ | √/√ |
 
 - För Amazon S3 och Google Cloud Storage gäller `lastModified` för Bucket och nyckeln, men inte i den virtuella mappen, och `exists` gäller för Bucket och nyckeln, men inte till prefixet eller den virtuella mappen.
 - För Azure Blob Storage gäller `lastModified` för behållaren och blobben, men inte i den virtuella mappen.
+- `lastModified` filter används för närvarande för att filtrera underordnade objekt, men inte den angivna mappen/filen.
 - Wildcard-filter i mappar/filer stöds inte för aktiviteten hämta metadata.
 
 **Relations databas**

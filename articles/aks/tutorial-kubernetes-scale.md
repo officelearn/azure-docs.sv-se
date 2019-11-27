@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 7dd0000d6797411d56143f8a977e4c478d551858
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 951cd7ae8962d71f41899eca848ce0740d6395ad
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694742"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538758"
 ---
-# <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Självstudier: Skala program i Azure Kubernetes Service (AKS)
+# <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Självstudie: Skala program i Azure Kubernetes Service (AKS)
 
 Om du har följt självstudierna så har du ett fungerande Kubernetes-kluster i AKS och du har distribuerat Azure Voting-exempelappen. I den här självstudien, som är del fem av sju, skalar du ut poddarna i appen och provar autoskalning av poddar. Du får också lära dig hur du skalar ut antalet Azure VM-noder så att du ändrar klustrets kapacitet som värd för arbetsbelastningar. Lär dig att:
 
@@ -28,9 +28,9 @@ I ytterligare självstudier uppdateras Azure Vote-programmet till en ny version.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-I tidigare självstudier paketerades en app i en containeravbildning. Den här avbildningen laddades upp till Azure Container Registry, och du skapade ett AKS-kluster. Programmet distribuerades sedan till AKS-klustret. Om du inte har utfört dessa steg och vill följa med, börjar du med [självstudie 1 – Skapa behållar avbildningar][aks-tutorial-prepare-app].
+I tidigare självstudier paketerades en app i en containeravbildning. Den här avbildningen laddades upp till Azure Container Registry, och du skapade ett AKS-kluster. Appen distribuerades sedan till AKS-klustret. Om du inte har utfört dessa steg och vill följa med, börjar du med [självstudie 1 – Skapa behållar avbildningar][aks-tutorial-prepare-app].
 
-Den här självstudien kräver att du kör Azure CLI version 2.0.53 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
+I den här självstudien måste du köra Azure CLI version 2.0.53 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
 ## <a name="manually-scale-pods"></a>Skala poddar manuellt
 
@@ -73,7 +73,7 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 Kubernetes har stöd för [horisontell autoskalning av poddar][kubernetes-hpa] så att antalet poddar i en distribution justeras beroende på CPU-användningen eller något annat mått du väljer. [Mått servern][metrics-server] används för att tillhandahålla resursutnyttjande till Kubernetes och distribueras automatiskt i AKS-kluster version 1,10 och högre. Om du vill se versionen av AKS-klustret använder du kommandot [AZ AKS show][az-aks-show] , som du ser i följande exempel:
 
 ```azurecli
-az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion
+az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion --output table
 ```
 
 > [!NOTE]

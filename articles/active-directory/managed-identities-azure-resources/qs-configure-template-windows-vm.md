@@ -1,6 +1,6 @@
 ---
-title: Configure managed identities on Azure VM using template - Azure AD
-description: Step-by-step instructions for configuring managed identities for Azure resources on an Azure VM, using an Azure Resource Manager template.
+title: Konfigurera hanterade identiteter på virtuell Azure-dator med mall – Azure AD
+description: Stegvisa instruktioner för att konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med hjälp av en Azure Resource Manager-mall.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -15,48 +15,48 @@ ms.workload: identity
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67367d8e50cf0b0b8929dc398a059180d5cd7567
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 74bbc596321b4882ef99104e045ee2da752b125a
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224316"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547203"
 ---
-# <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Configure managed identities for Azure resources on an Azure VM using a templates
+# <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med hjälp av mallar
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Managed identities for Azure resources provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
+Hanterade identiteter för Azure-resurser tillhandahåller Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory. Du kan använda den här identiteten för att autentisera till en tjänst som stöder Azure AD-autentisering, utan att ha autentiseringsuppgifter i din kod. 
 
-In this article, using the Azure Resource Manager deployment template, you learn how to perform the following managed identities for Azure resources operations on an Azure VM:
+I den här artikeln, med hjälp av mallen för Azure Resource Manager distribution, lär du dig att utföra följande hanterade identiteter för Azure-resurser på en virtuell Azure-dator:
 
 ## <a name="prerequisites"></a>Krav
 
-- If you're unfamiliar with using Azure Resource Manager deployment template, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#how-does-it-work)** .
+- Om du inte känner till hur du använder mallen för Azure Resource Manager distribution kan du läsa [avsnittet Översikt](overview.md). **Se till att granska [skillnaden mellan en tilldelad och användardefinierad hanterad identitet](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
 - Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
 
 ## <a name="azure-resource-manager-templates"></a>Azure Resource Manager-mallar
 
-As with the Azure portal and scripting, [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) templates provide the ability to deploy new or modified resources defined by an Azure resource group. Several options are available for template editing and deployment, both local and portal-based, including:
+Precis som med Azure Portal och skript ger [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) mallar möjlighet att distribuera nya eller ändrade resurser som definieras av en Azure-resurs grupp. Det finns flera alternativ för att redigera och distribuera mallar, både lokalt och Portal-baserat, inklusive:
 
-   - Using a [custom template from the Azure Marketplace](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), which allows you to create a template from scratch, or base it on an existing common or [quickstart template](https://azure.microsoft.com/documentation/templates/).
-   - Deriving from an existing resource group, by exporting a template from either [the original deployment](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates), or from the [current state of the deployment](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates).
-   - Using a local [JSON editor (such as VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md), and then uploading and deploying by using PowerShell or CLI.
-   - Using the Visual Studio [Azure Resource Group project](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) to both create and deploy a template.  
+   - Med hjälp av en [anpassad mall från Azure Marketplace](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), som gör att du kan skapa en mall från grunden eller basera den på en befintlig gemensam eller [snabb starts mall](https://azure.microsoft.com/documentation/templates/).
+   - Härleda från en befintlig resurs grupp genom att exportera en mall från antingen [den ursprungliga distributionen](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)eller från det [aktuella läget för distributionen](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates).
+   - Använda en lokal [JSON-redigerare (till exempel vs-kod)](../../azure-resource-manager/resource-manager-create-first-template.md)och ladda upp och distribuera med hjälp av POWERSHELL eller cli.
+   - Använd Visual Studio [Azures resurs grupps projekt](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) för att både skapa och distribuera en mall.  
 
-Regardless of the option you choose, template syntax is the same during initial deployment and redeployment. Enabling a system or user-assigned managed identity on a new or existing VM is done in the same manner. Also, by default, Azure Resource Manager does an [incremental update](../../azure-resource-manager/deployment-modes.md) to deployments.
+Oavsett vilket alternativ du väljer, är mallens syntax detsamma vid den första distributionen och omdistributionen. Att aktivera en system-eller användardefinierad hanterad identitet på en ny eller befintlig virtuell dator görs på samma sätt. Som standard gör Azure Resource Manager också en [stegvis uppdatering](../../azure-resource-manager/deployment-modes.md) av distributioner.
 
-## <a name="system-assigned-managed-identity"></a>System-assigned managed identity
+## <a name="system-assigned-managed-identity"></a>Systemtilldelad hanterad identitet
 
-In this section, you will enable and disable a system-assigned managed identity using an Azure Resource Manager template.
+I det här avsnittet ska du aktivera och inaktivera en systemtilldelad hanterad identitet med hjälp av en Azure Resource Manager mall.
 
-### <a name="enable-system-assigned-managed-identity-during-creation-of-an-azure-vm-or-on-an-existing-vm"></a>Enable system-assigned managed identity during creation of an Azure VM or on an existing VM
+### <a name="enable-system-assigned-managed-identity-during-creation-of-an-azure-vm-or-on-an-existing-vm"></a>Aktivera systemtilldelad hanterad identitet när en virtuell Azure-dator skapas eller på en befintlig virtuell dator
 
-To enable system-assigned managed identity on a VM, your account needs the [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) role assignment.  No additional Azure AD directory role assignments are required.
+Om du vill aktivera systemtilldelad hanterad identitet på en virtuell dator måste ditt konto ha roll tilldelningen [virtuell dator deltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) .  Inga ytterligare roll tilldelningar för Azure AD-katalogen krävs.
 
-1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the VM.
+1. Oavsett om du loggar in på Azure lokalt eller via Azure Portal använder du ett konto som är associerat med den Azure-prenumeration som innehåller den virtuella datorn.
 
-2. To enable system-assigned managed identity, load the template into an editor, locate the `Microsoft.Compute/virtualMachines` resource of interest within the `resources` section and add the `"identity"` property at the same level as the `"type": "Microsoft.Compute/virtualMachines"` property. Use the following syntax:
+2. Om du vill aktivera systemtilldelad hanterad identitet läser du in mallen i en redigerare, letar reda på `Microsoft.Compute/virtualMachines` resurs av intresse i avsnittet `resources` och lägger till `"identity"`-egenskapen på samma nivå som `"type": "Microsoft.Compute/virtualMachines"`-egenskapen. Använd följande syntax:
 
    ```JSON
    "identity": { 
@@ -66,7 +66,7 @@ To enable system-assigned managed identity on a VM, your account needs the [Virt
 
 
 
-3. When you're done, the following sections should added to the `resource` section of your template and it should resemble the following:
+3. När du är klar ska följande avsnitt läggas till i avsnittet `resource` i mallen och det bör likna följande:
 
    ```JSON
    "resources": [
@@ -103,17 +103,17 @@ To enable system-assigned managed identity on a VM, your account needs the [Virt
     ]
    ```
 
-### <a name="assign-a-role-the-vms-system-assigned-managed-identity"></a>Assign a role the VM's system-assigned managed identity
+### <a name="assign-a-role-the-vms-system-assigned-managed-identity"></a>Tilldela en roll den systemtilldelade hanterade identiteten för den virtuella datorn
 
-After you have enabled system-assigned managed identity on your VM, you may want to grant it a role such as **Reader** access to the resource group in which it was created.
+När du har aktiverat systemtilldelad hanterad identitet på den virtuella datorn kanske du vill ge den en roll som **läsar** åtkomst till resurs gruppen där den skapades.
 
-To assign a role to your VM's system-assigned identity, your account needs the [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) role assignment.
+För att tilldela en roll till den virtuella datorns systemtilldelade identitet behöver ditt konto rollen som [administratör för användar åtkomst](/azure/role-based-access-control/built-in-roles#user-access-administrator) .
 
-1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the VM.
+1. Oavsett om du loggar in på Azure lokalt eller via Azure Portal använder du ett konto som är associerat med den Azure-prenumeration som innehåller den virtuella datorn.
  
-2. Load the template into an [editor](#azure-resource-manager-templates) and add the following information to give your VM **Reader** access to the resource group in which it was created.  Your template structure may vary depending on the editor and the deployment model you choose.
+2. Läs in mallen i ett [redigerings program](#azure-resource-manager-templates) och Lägg till följande information för att ge din VM- **läsare** åtkomst till den resurs grupp där den skapades.  Mallens struktur kan variera beroende på vilken redigerare och vilken distributions modell du väljer.
    
-   Under the `parameters` section add the following:
+   Lägg till följande under avsnittet `parameters`:
 
     ```JSON
     "builtInRoleType": {
@@ -125,13 +125,13 @@ To assign a role to your VM's system-assigned identity, your account needs the [
         }
     ```
 
-    Under the `variables` section add the following:
+    Lägg till följande under avsnittet `variables`:
 
     ```JSON
     "Reader": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
     ```
 
-    Under the `resources` section add the following:
+    Lägg till följande under avsnittet `resources`:
 
     ```JSON
     {
@@ -149,23 +149,23 @@ To assign a role to your VM's system-assigned identity, your account needs the [
     }
     ```
 
-### <a name="disable-a-system-assigned-managed-identity-from-an-azure-vm"></a>Disable a system-assigned managed identity from an Azure VM
+### <a name="disable-a-system-assigned-managed-identity-from-an-azure-vm"></a>Inaktivera en systemtilldelad hanterad identitet från en virtuell Azure-dator
 
-To remove system-assigned managed identity from a VM, your account needs the [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) role assignment.  No additional Azure AD directory role assignments are required.
+För att ta bort systemtilldelad hanterad identitet från en virtuell dator måste ditt konto ha roll tilldelningen [virtuell dator deltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) .  Inga ytterligare roll tilldelningar för Azure AD-katalogen krävs.
 
-1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the VM.
+1. Oavsett om du loggar in på Azure lokalt eller via Azure Portal använder du ett konto som är associerat med den Azure-prenumeration som innehåller den virtuella datorn.
 
-2. Load the template into an [editor](#azure-resource-manager-templates) and locate the `Microsoft.Compute/virtualMachines` resource of interest within the `resources` section. If you have a VM that only has system-assigned managed identity, you can disable it by changing the identity type to `None`.  
+2. Läs in mallen i ett [redigerings program](#azure-resource-manager-templates) och leta upp `Microsoft.Compute/virtualMachines` resurs av intresse i avsnittet `resources`. Om du har en virtuell dator som bara har systemtilldelad hanterad identitet kan du inaktivera den genom att ändra identitets typen till `None`.  
    
-   **Microsoft.Compute/virtualMachines API version 2018-06-01**
+   **Microsoft. Compute/virtualMachines API version 2018-06-01**
 
-   If your VM has both system and user-assigned managed identities, remove `SystemAssigned` from the identity type and keep `UserAssigned` along with the `userAssignedIdentities` dictionary values.
+   Om den virtuella datorn har både system-och användarspecifika hanterade identiteter tar du bort `SystemAssigned` från identitets typen och behåller `UserAssigned` tillsammans med värdena för `userAssignedIdentities`s ord lista.
 
-   **Microsoft.Compute/virtualMachines API version 2018-06-01**
+   **Microsoft. Compute/virtualMachines API version 2018-06-01**
    
-   If your `apiVersion` is `2017-12-01` and your VM has both system and user-assigned managed identities, remove `SystemAssigned` from the identity type and keep `UserAssigned` along with the `identityIds` array of the user-assigned managed identities.  
+   Om din `apiVersion` är `2017-12-01` och din virtuella dator har både system-och användarspecifika hanterade identiteter, tar du bort `SystemAssigned` från identitets typen och behåller `UserAssigned` tillsammans med `identityIds`-matrisen för de användare som tilldelats hanterade identiteter.  
    
-The following example shows you how remove a system-assigned managed identity from a VM with no user-assigned managed identities:
+I följande exempel visas hur du tar bort en systemtilldelad hanterad identitet från en virtuell dator utan användare tilldelade hanterade identiteter:
 
 ```JSON
 {
@@ -181,20 +181,20 @@ The following example shows you how remove a system-assigned managed identity fr
 
 ## <a name="user-assigned-managed-identity"></a>Användartilldelad hanterad identitet
 
-In this section, you assign a user-assigned managed identity to an Azure VM using Azure Resource Manager template.
+I det här avsnittet tilldelar du en användardefinierad hanterad identitet till en virtuell Azure-dator med hjälp av Azure Resource Manager mall.
 
 > [!Note]
-> To create a user-assigned managed identity using an Azure Resource Manager Template, see [Create a user-assigned managed identity](how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity).
+> Om du vill skapa en användardefinierad hanterad identitet med hjälp av en Azure Resource Manager mall, se [skapa en användardefinierad hanterad identitet](how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity).
 
-### <a name="assign-a-user-assigned-managed-identity-to-an-azure-vm"></a>Assign a user-assigned managed identity to an Azure VM
+### <a name="assign-a-user-assigned-managed-identity-to-an-azure-vm"></a>Tilldela en användardefinierad hanterad identitet till en virtuell Azure-dator
 
-To assign a user-assigned identity to a VM, your account needs the [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) and [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) role assignments. No additional Azure AD directory role assignments are required.
+För att tilldela en användardefinierad identitet till en virtuell dator måste ditt konto ha roll tilldelningarna [virtuell dator deltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) och [hanterad identitets operatör](/azure/role-based-access-control/built-in-roles#managed-identity-operator) . Inga ytterligare roll tilldelningar för Azure AD-katalogen krävs.
 
-1. Under the `resources` element, add the following entry to assign a user-assigned managed identity to your VM.  Be sure to replace `<USERASSIGNEDIDENTITY>` with the name of the user-assigned managed identity you created.
+1. Under `resources`-elementet lägger du till följande post för att tilldela en användardefinierad hanterad identitet till den virtuella datorn.  Se till att ersätta `<USERASSIGNEDIDENTITY>` med namnet på den användare-tilldelade hanterade identitet som du har skapat.
 
-   **Microsoft.Compute/virtualMachines API version 2018-06-01**
+   **Microsoft. Compute/virtualMachines API version 2018-06-01**
 
-   If your `apiVersion` is `2018-06-01`, your user-assigned managed identities are stored in the `userAssignedIdentities` dictionary format and the `<USERASSIGNEDIDENTITYNAME>` value must be stored in a variable defined in the `variables` section of your template.
+   Om din `apiVersion` är `2018-06-01`lagras dina användares tilldelade hanterade identiteter i `userAssignedIdentities` ord listans format och `<USERASSIGNEDIDENTITYNAME>`-värdet måste lagras i en variabel som definierats i `variables`-avsnittet i mallen.
 
    ```json
    {
@@ -211,9 +211,9 @@ To assign a user-assigned identity to a VM, your account needs the [Virtual Mach
    }
    ```
    
-   **Microsoft.Compute/virtualMachines API version 2017-12-01**
+   **Microsoft. Compute/virtualMachines API version 2017-12-01**
     
-   If your `apiVersion` is `2017-12-01`, your user-assigned managed identities are stored in the `identityIds` array and the `<USERASSIGNEDIDENTITYNAME>` value must be stored in a variable defined in the `variables` section of your template.
+   Om din `apiVersion` är `2017-12-01`lagras dina användares tilldelade hanterade identiteter i `identityIds` matrisen och `<USERASSIGNEDIDENTITYNAME>`-värdet måste lagras i en variabel som definierats i `variables`-avsnittet i mallen.
     
    ```json
    {
@@ -230,9 +230,9 @@ To assign a user-assigned identity to a VM, your account needs the [Virtual Mach
    }
    ```
        
-3. When you're done, the following sections should added to the `resource` section of your template and it should resemble the following:
+3. När du är klar ska följande avsnitt läggas till i avsnittet `resource` i mallen och det bör likna följande:
    
-   **Microsoft.Compute/virtualMachines API version 2018-06-01**    
+   **Microsoft. Compute/virtualMachines API version 2018-06-01**    
 
    ```JSON
    "resources": [
@@ -270,7 +270,7 @@ To assign a user-assigned identity to a VM, your account needs the [Virtual Mach
        }
     ]
    ```
-   **Microsoft.Compute/virtualMachines API version 2017-12-01**
+   **Microsoft. Compute/virtualMachines API version 2017-12-01**
    
    ```JSON
    "resources": [
@@ -310,15 +310,15 @@ To assign a user-assigned identity to a VM, your account needs the [Virtual Mach
     ]
    ```
 
-### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Remove a user-assigned managed identity from an Azure VM
+### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Ta bort en användare som tilldelats en hanterad identitet från en virtuell Azure-dator
 
-To remove a user-assigned identity from a VM, your account needs the [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) role assignment. No additional Azure AD directory role assignments are required.
+För att ta bort en tilldelad identitet från en virtuell dator måste ditt konto ha roll tilldelningen [virtuell dator deltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) . Inga ytterligare roll tilldelningar för Azure AD-katalogen krävs.
 
-1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the VM.
+1. Oavsett om du loggar in på Azure lokalt eller via Azure Portal använder du ett konto som är associerat med den Azure-prenumeration som innehåller den virtuella datorn.
 
-2. Load the template into an [editor](#azure-resource-manager-templates) and locate the `Microsoft.Compute/virtualMachines` resource of interest within the `resources` section. If you have a VM that only has user-assigned managed identity, you can disable it by changing the identity type to `None`.
+2. Läs in mallen i ett [redigerings program](#azure-resource-manager-templates) och leta upp `Microsoft.Compute/virtualMachines` resurs av intresse i avsnittet `resources`. Om du har en virtuell dator som bara har användardefinierad hanterad identitet kan du inaktivera den genom att ändra identitets typen till `None`.
  
-   The following example shows you how remove all user-assigned managed identities from a VM with no system-assigned managed identities:
+   I följande exempel visas hur du tar bort alla användare som tilldelats hanterade identiteter från en virtuell dator utan systemtilldelade hanterade identiteter:
    
    ```json
     {
@@ -332,19 +332,19 @@ To remove a user-assigned identity from a VM, your account needs the [Virtual Ma
     }
    ```
    
-   **Microsoft.Compute/virtualMachines API version 2018-06-01**
+   **Microsoft. Compute/virtualMachines API version 2018-06-01**
     
-   To remove a single user-assigned managed identity from a VM, remove it from the `useraAssignedIdentities` dictionary.
+   Om du vill ta bort en enskild användare som tilldelats en hanterad identitet från en virtuell dator tar du bort den från ord listan `useraAssignedIdentities`.
 
-   If you have a system-assigned managed identity, keep it in the in the `type` value under the `identity` value.
+   Om du har en systemtilldelad hanterad identitet behåller du den i `type` värdet under `identity` svärdet.
  
-   **Microsoft.Compute/virtualMachines API version 2017-12-01**
+   **Microsoft. Compute/virtualMachines API version 2017-12-01**
 
-   To remove a single user-assigned managed identity from a VM, remove it from the `identityIds` array.
+   Om du vill ta bort en enskild användare som tilldelats en hanterad identitet från en virtuell dator tar du bort den från `identityIds` matrisen.
 
-   If you have a system-assigned managed identity, keep it in the in the `type` value under the `identity` value.
+   Om du har en systemtilldelad hanterad identitet behåller du den i `type` värdet under `identity` svärdet.
    
 ## <a name="next-steps"></a>Nästa steg
 
-- [Managed identities for Azure resources overview](overview.md).
+- [Översikt över hanterade identiteter för Azure-resurser](overview.md).
 

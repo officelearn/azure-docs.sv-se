@@ -17,20 +17,20 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74325925"
 ---
-Klientprogrammet behöver veta om ett yttrande inte är meningsfullt eller lämpligt för programmet. The **None** intent is added to each application as part of the creation process to determine if an utterance shouldn't be answered by the client application.
+Klientprogrammet behöver veta om ett yttrande inte är meningsfullt eller lämpligt för programmet. **Ingen** avsikt har lagts till i varje program som en del i skapande processen för att avgöra om en uttryck inte ska besvaras av klient programmet.
 
 Om LUIS returnerar avsikten **Ingen** för ett yttrande kan klientprogrammet fråga om användaren vill avsluta konversationen eller ge fler anvisningar för att fortsätta konversationen. 
 
-If you leave the **None** intent empty, an utterance that should be predicted outside the subject domain will be predicted in one of the existing subject domain intents. The result is that the client application, such as a chat bot, will perform incorrect operations based on an incorrect prediction. 
+Om du lämnar **none** -avsikten tom, kommer en uttryck som ska förutsägas utanför ämnes domänen att förutsägas i ett av de befintliga ämnes domänernas avsikter. Resultatet är att klient programmet, till exempel en chat-robot, utför felaktiga åtgärder baserat på felaktig förutsägelse. 
 
 1. Välj **Intents** (Avsikter) på den vänstra panelen.
 
-1. Välj avsikten **None** (Ingen). Add three utterances that your user might enter but are not relevant to your Pizza ordering app:
+1. Välj avsikten **None** (Ingen). Lägg till tre yttranden som användaren kan ange men som inte är relevanta för din pizza-ordning:
 
-    |`None` example utterances|
+    |`None` exempel yttranden|
     |--|
     |`Barking dogs are annoying`|
     |`Order a pizza for me`|
     |`Penguins in the ocean`|
 
-    These examples shouldn't use words you expect in your subject domain such as `pizza`, `cheese`, `crust`, `pickup` `deliver`.
+    Dessa exempel bör inte använda ord som du förväntar dig i din ämnes domän, till exempel `pizza`, `cheese`, `crust``pickup` `deliver`.

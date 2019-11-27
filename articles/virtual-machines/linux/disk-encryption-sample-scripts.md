@@ -1,6 +1,6 @@
 ---
-title: Azure Disk Encryption sample scripts
-description: This article is the appendix for Microsoft Azure Disk Encryption for Linux VMs.
+title: Azure Disk Encryption exempel skript
+description: Den här artikeln är bilagan till Microsoft Azure disk kryptering för virtuella Linux-datorer.
 author: msmbaldwin
 ms.service: security
 ms.topic: article
@@ -14,15 +14,15 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74326353"
 ---
-# <a name="azure-disk-encryption-sample-scripts"></a>Azure Disk Encryption sample scripts 
+# <a name="azure-disk-encryption-sample-scripts"></a>Azure Disk Encryption exempel skript 
 
-This article provides sample scripts for preparing pre-encrypted VHDs and other tasks.
+Den här artikeln innehåller exempel skript för att förbereda förkrypterade virtuella hård diskar och andra uppgifter.
 
  
 
-## <a name="sample-powershell-scripts-for-azure-disk-encryption"></a>Sample PowerShell scripts for Azure Disk Encryption 
+## <a name="sample-powershell-scripts-for-azure-disk-encryption"></a>PowerShell-exempelskript för Azure Disk Encryption 
 
-- **List all encrypted VMs in your subscription**
+- **Lista alla krypterade virtuella datorer i din prenumeration**
 
      ```azurepowershell-interactive
      $osVolEncrypted = {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).OsVolumeEncrypted}
@@ -30,84 +30,84 @@ This article provides sample scripts for preparing pre-encrypted VHDs and other 
      Get-AzVm | Format-Table @{Label="MachineName"; Expression={$_.Name}}, @{Label="OsVolumeEncrypted"; Expression=$osVolEncrypted}, @{Label="DataVolumesEncrypted"; Expression=$dataVolEncrypted}
      ```
 
-- **List all disk encryption secrets used for encrypting VMs in a key vault** 
+- **Lista alla disk krypterings hemligheter som används för att kryptera virtuella datorer i ett nyckel valv** 
 
      ```azurepowershell-interactive
      Get-AzKeyVaultSecret -VaultName $KeyVaultName | where {$_.Tags.ContainsKey('DiskEncryptionKeyFileName')} | format-table @{Label="MachineName"; Expression={$_.Tags['MachineName']}}, @{Label="VolumeLetter"; Expression={$_.Tags['VolumeLetter']}}, @{Label="EncryptionKeyURL"; Expression={$_.Id}}
      ```
 
-### <a name="using-the-azure-disk-encryption-prerequisites-powershell-script"></a>Using the Azure Disk Encryption prerequisites PowerShell script
-If you're already familiar with the prerequisites for Azure Disk Encryption, you can use the [Azure Disk Encryption prerequisites PowerShell script](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). For an example of using this PowerShell script, see the [Encrypt a VM Quickstart](disk-encryption-powershell-quickstart.md). You can remove the comments from a section of the script, starting at line 211, to encrypt all disks for existing VMs in an existing resource group. 
+### <a name="using-the-azure-disk-encryption-prerequisites-powershell-script"></a>Använda PowerShell-skriptet Azure Disk Encryption krav
+Om du redan är bekant med kraven för Azure Disk Encryption kan du använda [PowerShell-skriptet Azure Disk Encryption krav](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Ett exempel på hur du använder PowerShell-skriptet finns i [kryptera en snabb start för virtuell dator](disk-encryption-powershell-quickstart.md). Du kan ta bort kommentarerna från en del av skriptet, med början på rad 211, att kryptera alla diskar för befintliga virtuella datorer i en befintlig resursgrupp. 
 
-The following table shows which parameters can be used in the PowerShell script: 
+I följande tabell visas vilka parametrar som kan användas i PowerShell-skriptet: 
 
 
-|Parameter|Beskrivning|Mandatory?|
+|Parameter|Beskrivning|Erforderlig?|
 |------|------|------|
-|$resourceGroupName| Name of the resource group to which the KeyVault belongs to.  A new resource group with this name will be created if one doesn't exist.| Sant|
-|$keyVaultName|Name of the KeyVault in which encryption keys are to be placed. A new vault with this name will be created if one doesn't exist.| Sant|
-|$location|Location of the KeyVault. Make sure the KeyVault and VMs to be encrypted are in the same location. Hämta en innehållsplatslista med `Get-AzLocation`.|Sant|
-|$subscriptionId|Identifier of the Azure subscription to be used.  Du kan hämta ditt prenumerations-ID med `Get-AzSubscription`.|Sant|
-|$aadAppName|Name of the Azure AD application that will be used to write secrets to KeyVault. Om det inte redan finns ett program med det namnet skapas ett nytt. If this app already exists, pass aadClientSecret parameter to the script.|Falskt|
-|$aadClientSecret|Client secret of the Azure AD application that was created earlier.|Falskt|
-|$keyEncryptionKeyName|Name of optional key encryption key in KeyVault. A new key with this name will be created if one doesn't exist.|Falskt|
+|$resourceGroupName| Namnet på resursgruppen som Nyckelvalvet tillhör.  En ny resursgrupp med det här namnet kommer att skapas om det inte finns.| Sant|
+|$keyVaultName|Namnet på Nyckelvalvet där krypteringsnycklarna nycklar är placeras. Ett nytt valv med det här namnet kommer att skapas om det inte finns.| Sant|
+|$location|Platsen för Nyckelvalvet. Kontrollera att Nyckelvalvet och virtuella datorer som ska krypteras finns på samma plats. Hämta en innehållsplatslista med `Get-AzLocation`.|Sant|
+|$subscriptionId|Identifierare för Azure-prenumeration som ska användas.  Du kan hämta ditt prenumerations-ID med `Get-AzSubscription`.|Sant|
+|$aadAppName|Namnet på Azure AD-programmet som ska användas för att skriva hemligheter KeyVault. Om det inte redan finns ett program med det namnet skapas ett nytt. Om den här appen finns redan, ange du aadClientSecret parameter till skriptet.|Falskt|
+|$aadClientSecret|Klienthemlighet för Azure AD-programmet som du skapade tidigare.|Falskt|
+|$keyEncryptionKeyName|Namnet på valfri nyckelkrypteringsnyckel i KeyVault. En ny nyckel med det här namnet kommer att skapas om det inte finns.|Falskt|
 
 
-### <a name="encrypt-or-decrypt-vms-without-an-azure-ad-app"></a>Encrypt or decrypt VMs without an Azure AD app
+### <a name="encrypt-or-decrypt-vms-without-an-azure-ad-app"></a>Kryptera eller dekryptera virtuella datorer utan en Azure AD-app
 
-- [Enable disk encryption on an existing or running Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)  
-- [Disable encryption on a running Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
-    - Disabling encryption is only allowed on Data volumes for Linux VMs.  
+- [Aktivera disk kryptering på en befintlig eller virtuell Linux-dator](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)  
+- [Inaktivera kryptering på en virtuell Linux-dator som körs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
+    - Inaktivera kryptering tillåts endast på datavolymer för virtuella Linux-datorer.  
 
-### <a name="encrypt-or-decrypt-vms-with-an-azure-ad-app-previous-release"></a>Encrypt or decrypt VMs with an Azure AD app (previous release) 
+### <a name="encrypt-or-decrypt-vms-with-an-azure-ad-app-previous-release"></a>Kryptera eller dekryptera virtuella datorer med en Azure AD-app (tidigare version) 
  
-- [Enable disk encryption on an existing or running Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm)    
+- [Aktivera disk kryptering på en befintlig eller virtuell Linux-dator](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm)    
 
 
--  [Disable encryption on a running Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm) 
-    - Disabling encryption is only allowed on Data volumes for Linux VMs. 
+-  [Inaktivera kryptering på en virtuell Linux-dator som körs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm) 
+    - Inaktivera kryptering tillåts endast på datavolymer för virtuella Linux-datorer. 
 
 
-- [Create a new encrypted managed disk from a pre-encrypted VHD/storage blob](https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
-    - Creates a new encrypted managed disk provided a pre-encrypted VHD and its corresponding encryption settings
+- [Skapa en ny krypterad hanterad disk från en förkrypterad VHD/Storage-BLOB](https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
+    - Skapar en ny krypterade hanterad disk som en förkrypterade virtuell Hårddisk och dess motsvarande krypteringsinställningar
 
 
 
 
 
-## <a name="encrypting-an-os-drive-on-a-running-linux-vm"></a>Encrypting an OS drive on a running Linux VM
+## <a name="encrypting-an-os-drive-on-a-running-linux-vm"></a>Kryptera en OS-enhet på en virtuell Linux-dator som körs
 
-### <a name="prerequisites-for-os-disk-encryption"></a>Prerequisites for OS disk encryption
+### <a name="prerequisites-for-os-disk-encryption"></a>Krav för OS-diskkryptering
 
-* The VM must be using a distribution compatible with OS disk encryption as listed in the [Azure Disk Encryption supported operating systems](disk-encryption-overview.md#supported-vm-sizes) 
-* The VM must be created from the Marketplace image in Azure Resource Manager.
-* Azure VM with at least 4 GB of RAM (recommended size is 7 GB).
-* (For RHEL and CentOS) Disable SELinux. To disable SELinux, see "4.4.2. Disabling SELinux" in the [SELinux User's and Administrator's Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) on the VM.
-* After you disable SELinux, reboot the VM at least once.
+* Den virtuella datorn måste använda en distribution som är kompatibel med disk kryptering för operativ system som anges i [Azure Disk Encryption operativ system som stöds](disk-encryption-overview.md#supported-vm-sizes) 
+* Den virtuella datorn måste skapas från Marketplace-avbildning i Azure Resource Manager.
+* Azure virtuell dator med minst 4 GB RAM (rekommenderas är 7 GB).
+* (För RHEL och CentOS) Inaktivera SELinux. Om du vill inaktivera SELinux, se ”4.4.2. Inaktivera SELinux i SELinux- [användarens och administratörs guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) på den virtuella datorn.
+* Starta om den virtuella datorn på minst en gång när du har inaktiverat SELinux.
 
 ### <a name="steps"></a>Steg
-1. Create a VM by using one of the distributions specified previously.
+1. Skapa en virtuell dator med någon av de distributioner som angavs tidigare.
 
-   For CentOS 7.2, OS disk encryption is supported via a special image. To use this image, specify "7.2n" as the SKU when you create the VM:
+   OS-diskkryptering stöds för 7.2 CentOS, via en särskild avbildning. Om du vill använda den här bilden anger du ”7.2n” som SKU: N när du skapar den virtuella datorn:
 
    ```powershell
     Set-AzVMSourceImage -VM $VirtualMachine -PublisherName "OpenLogic" -Offer "CentOS" -Skus "7.2n" -Version "latest"
    ```
-2. Configure the VM according to your needs. If you're going to encrypt all the (OS + data) drives, the data drives need to be specified and mountable from /etc/fstab.
+2. Konfigurera den virtuella datorn efter dina behov. Om du planerar att kryptera alla (OS + data) enheter finns i dataenheter måste vara angivna och monteras från/etc/fstab.
 
    > [!NOTE]
-   > Use UUID=... to specify data drives in /etc/fstab instead of specifying the block device name (for example, /dev/sdb1). During encryption, the order of drives changes on the VM. If your VM relies on a specific order of block devices, it will fail to mount them after encryption.
+   > Använd UUID =... Ange dataenheter för i/etc/fstab istället för att ange blockera enhetens namn (till exempel/dev/sdb1). Ordningen på enheter ändras på den virtuella datorn under krypteringen. Om den virtuella datorn är beroende av en viss ordning av blockenheterna, misslyckas den att montera dem efter kryptering.
 
-3. Sign out of the SSH sessions.
+3. Logga ut från SSH-sessioner.
 
-4. To encrypt the OS, specify volumeType as **All** or **OS** when you enable encryption.
+4. Om du vill kryptera operativ systemet anger du volumeType som **alla** eller **OS** när du aktiverar kryptering.
 
    > [!NOTE]
-   > All user-space processes that are not running as `systemd` services should be killed with a `SIGKILL`. Reboot the VM. When you enable OS disk encryption on a running VM, plan on VM downtime.
+   > Alla processer för användar utrymme som inte körs som `systemd`-tjänster ska avlivas med en `SIGKILL`. Starta om den virtuella datorn. När du aktiverar OS-diskkryptering på en aktiv virtuell dator kan du planera på stilleståndstid på virtuella datorer.
 
-5. Periodically monitor the progress of encryption by using the instructions in the [next section](#monitoring-os-encryption-progress).
+5. Övervaka regelbundet förloppet för krypteringen med hjälp av anvisningarna i [Nästa avsnitt](#monitoring-os-encryption-progress).
 
-6. After Get-AzVmDiskEncryptionStatus shows "VMRestartPending", restart your VM either by signing in to it or by using the portal, PowerShell, or CLI.
+6. När get-AzVmDiskEncryptionStatus visar "VMRestartPending" startar du om den virtuella datorn antingen genom att logga in på den eller med hjälp av portalen, PowerShell eller CLI.
     ```powershell
     C:\> Get-AzVmDiskEncryptionStatus  -ResourceGroupName $ResourceGroupName -VMName $VMName
     -ExtensionName $ExtensionName
@@ -117,23 +117,23 @@ The following table shows which parameters can be used in the PowerShell script:
     OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
     ProgressMessage            : OS disk successfully encrypted, reboot the VM
     ```
-   Before you reboot, we recommend that you save [boot diagnostics](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/) of the VM.
+   Innan du startar om rekommenderar vi att du sparar [startdiagnostiken](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/) för den virtuella datorn.
 
-## <a name="monitoring-os-encryption-progress"></a>Monitoring OS encryption progress
-You can monitor OS encryption progress in three ways:
+## <a name="monitoring-os-encryption-progress"></a>Övervaka förloppet för OS-kryptering
+Du kan övervaka förloppet för OS-kryptering på tre sätt:
 
-* Use the `Get-AzVmDiskEncryptionStatus` cmdlet and inspect the ProgressMessage field:
+* Använd `Get-AzVmDiskEncryptionStatus`-cmdlet och granska fältet ProgressMessage:
     ```powershell
     OsVolumeEncrypted          : EncryptionInProgress
     DataVolumesEncrypted       : NotMounted
     OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
     ProgressMessage            : OS disk encryption started
     ```
-  After the VM reaches "OS disk encryption started", it takes about 40 to 50 minutes on a Premium-storage backed VM.
+  När den virtuella datorn når ”OS diskkryptering igång”, det tar cirka 40 till 50 minuter på en Premium-lagring säkerhetskopieras VM.
 
-  Because of [issue #388](https://github.com/Azure/WALinuxAgent/issues/388) in WALinuxAgent, `OsVolumeEncrypted` and `DataVolumesEncrypted` show up as `Unknown` in some distributions. With WALinuxAgent version 2.1.5 and later, this issue is fixed automatically. If you see `Unknown` in the output, you can verify disk-encryption status by using the Azure Resource Explorer.
+  På grund av [problem #388](https://github.com/Azure/WALinuxAgent/issues/388) i WALinuxAgent, `OsVolumeEncrypted` och `DataVolumesEncrypted` visas som `Unknown` i vissa distributioner. Med WALinuxAgent version 2.1.5 och senare, det här problemet löses automatiskt. Om du ser `Unknown` i utdata kan du kontrol lera disk krypterings statusen med hjälp av Azure Resource Explorer.
 
-  Go to [Azure Resource Explorer](https://resources.azure.com/), and then expand this hierarchy in the selection panel on left:
+  Gå till [Azure Resource Explorer](https://resources.azure.com/)och expandera sedan den här hierarkin på urvals panelen till vänster:
 
   ~~~~
   |-- subscriptions
@@ -147,49 +147,49 @@ You can monitor OS encryption progress in three ways:
                                         |-- InstanceView
   ~~~~                
 
-  In the InstanceView, scroll down to see the encryption status of your drives.
+  Rulla ned för att se krypteringsstatus för dina enheter i InstanceView.
 
-  ![VM Instance View](./media/disk-encryption/vm-instanceview.png)
+  ![Instansvy för virtuell dator](./media/disk-encryption/vm-instanceview.png)
 
-* Look at [boot diagnostics](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). Messages from the ADE extension should be prefixed with `[AzureDiskEncryption]`.
+* Titta på [startdiagnostik](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). Meddelanden från ADE-tillägget ska föregås av `[AzureDiskEncryption]`.
 
-* Sign in to the VM via SSH, and get the extension log from:
+* Logga in på den virtuella datorn via SSH och hämta tilläggets logg från:
 
     /var/log/azure/Microsoft.Azure.Security.AzureDiskEncryptionForLinux
 
-  We recommend that you don't sign-in to the VM while OS encryption is in progress. Copy the logs only when the other two methods have failed.
+  Vi rekommenderar att du inte logga in på den virtuella datorn när OS-kryptering pågår. Kopiera loggarna bara när de två metoderna har misslyckats.
 
-## <a name="prepare-a-pre-encrypted-linux-vhd"></a>Prepare a pre-encrypted Linux VHD
-The preparation for pre-encrypted VHDs can vary depending on the distribution. Examples on preparing Ubuntu 16, openSUSE 13.2, and CentOS 7 are available. 
+## <a name="prepare-a-pre-encrypted-linux-vhd"></a>Förbereda en förkrypterad virtuell Linux-hårddisk
+Inför förkrypterade virtuella hårddiskar kan variera beroende på vilken distribution. Exempel på förberedelse av Ubuntu 16, openSUSE 13,2 och CentOS 7 är tillgängliga. 
 
 ### <a name="ubuntu-16"></a>Ubuntu 16
-Configure encryption during the distribution installation by doing the following steps:
+Konfigurera kryptering under installationen av distributionsplatsen genom att göra följande:
 
-1. Select **Configure encrypted volumes** when you partition the disks.
+1. Välj **Konfigurera krypterade volymer** när du partitionerar diskarna.
 
-   ![Ubuntu 16.04 Setup - Configure encrypted volumes](./media/disk-encryption/ubuntu-1604-preencrypted-fig1.png)
+   ![Ubuntu 16.04 konfigurera – konfigurera krypterade volymer](./media/disk-encryption/ubuntu-1604-preencrypted-fig1.png)
 
-2. Create a separate boot drive, which must not be encrypted. Encrypt your root drive.
+2. Skapa en separat startenheten som inte får vara krypterade. Kryptera din rotenhet.
 
-   ![Ubuntu 16.04 Setup - Select devices to encrypt](./media/disk-encryption/ubuntu-1604-preencrypted-fig2.png)
+   ![Ubuntu 16.04-installation - Välj enheter att kryptera](./media/disk-encryption/ubuntu-1604-preencrypted-fig2.png)
 
-3. Provide a passphrase. This is the passphrase that you uploaded to the key vault.
+3. Ange en lösenfras. Det här är det lösenord som du laddade upp till nyckelvalvet.
 
-   ![Ubuntu 16.04 Setup - Provide passphrase](./media/disk-encryption/ubuntu-1604-preencrypted-fig3.png)
+   ![Ubuntu 16.04 konfigurera – ange lösenfras](./media/disk-encryption/ubuntu-1604-preencrypted-fig3.png)
 
-4. Finish partitioning.
+4. Slut partitionering.
 
-   ![Ubuntu 16.04 Setup - Finish partitioning](./media/disk-encryption/ubuntu-1604-preencrypted-fig4.png)
+   ![Ubuntu 16.04 konfigurera – Slutför partitionering](./media/disk-encryption/ubuntu-1604-preencrypted-fig4.png)
 
-5. When you boot the VM and are asked for a passphrase, use the passphrase you provided in step 3.
+5. När du startar den virtuella datorn och ange en lösenfras, använder du den lösenfras som du angav i steg 3.
 
-   ![Ubuntu 16.04 Setup - Provide passphrase on boot](./media/disk-encryption/ubuntu-1604-preencrypted-fig5.png)
+   ![Ubuntu 16.04 konfigurera – ange lösenfras vid start](./media/disk-encryption/ubuntu-1604-preencrypted-fig5.png)
 
-6. Prepare the VM for uploading into Azure using [these instructions](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). Don't run the last step (deprovisioning the VM) yet.
+6. Förbered den virtuella datorn för uppladdning i Azure med hjälp av [de här anvisningarna](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). Kör inte det sista steget (avetablera den virtuella datorn) ännu.
 
-Configure encryption to work with Azure by doing the following steps:
+Konfigurera krypteringen ska fungera med Azure genom att göra följande:
 
-1. Create a file under /usr/local/sbin/azure_crypt_key.sh, with the content in the following script. Pay attention to the KeyFileName, because it's the passphrase file name used by Azure.
+1. Skapa en fil under /usr/local/sbin/azure_crypt_key.sh, med innehållet i skriptet nedan. Uppmärksam på KeyFileName, eftersom det är namnet på lösenfras-filen som används av Azure.
 
     ```bash
     #!/bin/sh
@@ -226,16 +226,16 @@ Configure encryption to work with Azure by doing the following steps:
     fi
    ```
 
-2. Change the crypt config in */etc/crypttab*. Det bör se ut så här:
+2. Ändra config config i */etc/crypttab*. Det bör se ut så här:
    ```
     xxx_crypt uuid=xxxxxxxxxxxxxxxxxxxxx none luks,discard,keyscript=/usr/local/sbin/azure_crypt_key.sh
     ```
 
-4. Add executable permissions to the script:
+4. Lägg till körrättigheter i skriptet:
    ```
     chmod +x /usr/local/sbin/azure_crypt_key.sh
    ```
-5. Edit */etc/initramfs-tools/modules* by appending lines:
+5. Redigera */etc/initramfs-tools/modules* genom att lägga till rader:
    ```
     vfat
     ntfs
@@ -243,32 +243,32 @@ Configure encryption to work with Azure by doing the following steps:
     nls_utf8
     nls_iso8859-1
    ```
-6. Run `update-initramfs -u -k all` to update the initramfs to make the `keyscript` take effect.
+6. Kör `update-initramfs -u -k all` för att uppdatera initramfs så att `keyscript` börjar gälla.
 
-7. Now you can deprovision the VM.
+7. Nu kan du avetablera den virtuella datorn.
 
-   ![Ubuntu 16.04 Setup - update-initramfs](./media/disk-encryption/ubuntu-1604-preencrypted-fig6.png)
+   ![Ubuntu 16.04-installation - update-initramfs](./media/disk-encryption/ubuntu-1604-preencrypted-fig6.png)
 
-8. Continue to the next step and upload your VHD into Azure.
+8. Fortsätt till nästa steg och överföra en virtuell Hårddisk till Azure.
 
 ### <a name="opensuse-132"></a>openSUSE 13.2
-To configure encryption during the distribution installation, do the following steps:
-1. When you partition the disks, select **Encrypt Volume Group**, and then enter a password. This is the password that you'll upload to your key vault.
+För att konfigurera kryptering under installationen av distributionsplatsen, gör du följande:
+1. När du partitionerar diskarna väljer du **kryptera volym grupp**och anger ett lösen ord. Det här är det lösenord som du överföra till ditt nyckelvalv.
 
-   ![openSUSE 13.2 Setup - Encrypt Volume Group](./media/disk-encryption/opensuse-encrypt-fig1.png)
+   ![openSUSE 13.2-installation - krypterar volym-grupp](./media/disk-encryption/opensuse-encrypt-fig1.png)
 
-2. Boot the VM using your password.
+2. Starta den virtuella datorn med ditt lösenord.
 
-   ![openSUSE 13.2 Setup - Provide passphrase on boot](./media/disk-encryption/opensuse-encrypt-fig2.png)
+   ![openSUSE 13.2 konfigurera – ange lösenfras vid start](./media/disk-encryption/opensuse-encrypt-fig2.png)
 
-3. Prepare the VM for uploading to Azure by following the instructions in [Prepare a SLES or openSUSE virtual machine for Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Don't run the last step (deprovisioning the VM) yet.
+3. Förbered den virtuella datorn för uppladdning till Azure genom att följa anvisningarna i [förbereda en virtuell SLES-eller openSUSE-dator för Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Kör inte det sista steget (avetablera den virtuella datorn) ännu.
 
-To configure encryption to work with Azure, do the following steps:
-1. Edit the /etc/dracut.conf, and add the following line:
+För att konfigurera krypteringen ska fungera med Azure, gör du följande:
+1. Redigera /etc/dracut.conf och Lägg till följande rad:
     ```
     add_drivers+=" vfat ntfs nls_cp437 nls_iso8859-1"
     ```
-2. Comment out these lines by the end of the file /usr/lib/dracut/modules.d/90crypt/module-setup.sh:
+2. Kommentera ut följande rader i slutet av filen /usr/lib/dracut/modules.d/90crypt/module-setup.sh:
    ```bash
     #        inst_multiple -o \
     #        $systemdutildir/system-generators/systemd-cryptsetup-generator \
@@ -281,11 +281,11 @@ To configure encryption to work with Azure, do the following steps:
     #        inst_script "$moddir"/crypt-run-generator.sh /sbin/crypt-run-generator
    ```
 
-3. Append the following line at the beginning of the file /usr/lib/dracut/modules.d/90crypt/parse-crypt.sh:
+3. Lägg till följande rad i början av filen /usr/lib/dracut/modules.d/90crypt/parse-crypt.sh:
    ```bash
     DRACUT_SYSTEMD=0
    ```
-   And change all occurrences of:
+   Och ändra alla förekomster av:
    ```bash
     if [ -z "$DRACUT_SYSTEMD" ]; then
    ```
@@ -293,7 +293,7 @@ To configure encryption to work with Azure, do the following steps:
    ```bash
     if [ 1 ]; then
    ```
-4. Edit /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh and append it to “# Open LUKS device”:
+4. Redigera /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh och lägger till dem i ”# öppna LUKS enhet”:
 
     ```bash
     MountPoint=/tmp-keydisk-mount
@@ -315,41 +315,41 @@ To configure encryption to work with Azure, do the following steps:
     fi
     done
     ```
-5. Run `/usr/sbin/dracut -f -v` to update the initrd.
+5. Kör `/usr/sbin/dracut -f -v` för att uppdatera initrd.
 
-6. Now you can deprovision the VM and upload your VHD into Azure.
+6. Nu kan du avetablera den virtuella datorn och överföra en virtuell Hårddisk till Azure.
 
-### <a name="centos-7-and-rhel-81"></a>CentOS 7 and RHEL 8.1
+### <a name="centos-7-and-rhel-81"></a>CentOS 7 och RHEL 8,1
 
-To configure encryption during the distribution installation, do the following steps:
-1. Select **Encrypt my data** when you partition disks.
+För att konfigurera kryptering under installationen av distributionsplatsen, gör du följande:
+1. Välj **kryptera mina data** när du partitionerar diskar.
 
-   ![CentOS 7 Setup -Installation destination](./media/disk-encryption/centos-encrypt-fig1.png)
+   ![CentOS 7 konfigurera - Installation-mål](./media/disk-encryption/centos-encrypt-fig1.png)
 
-2. Make sure **Encrypt** is selected for root partition.
+2. Kontrol lera att **kryptera** har valts för rotnoden.
 
-   ![CentOS 7 Setup -Select encrypt for root partition](./media/disk-encryption/centos-encrypt-fig2.png)
+   ![CentOS 7 konfigurera - Välj kryptera för rotpartitionen](./media/disk-encryption/centos-encrypt-fig2.png)
 
-3. Provide a passphrase. This is the passphrase that you'll upload to your key vault.
+3. Ange en lösenfras. Det här är det lösenord som du överföra till ditt nyckelvalv.
 
-   ![CentOS 7 Setup - provide passphrase](./media/disk-encryption/centos-encrypt-fig3.png)
+   ![CentOS 7-installation - ange lösenfras](./media/disk-encryption/centos-encrypt-fig3.png)
 
-4. When you boot the VM and are asked for a passphrase, use the passphrase you provided in step 3.
+4. När du startar den virtuella datorn och ange en lösenfras, använder du den lösenfras som du angav i steg 3.
 
-   ![CentOS 7 Setup - Enter passphrase on bootup](./media/disk-encryption/centos-encrypt-fig4.png)
+   ![CentOS 7 konfigurera – ange lösenfras på Start](./media/disk-encryption/centos-encrypt-fig4.png)
 
-5. Prepare the VM for uploading into Azure by using the "CentOS 7.0+" instructions in [Prepare a CentOS-based virtual machine for Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). Don't run the last step (deprovisioning the VM) yet.
+5. Förbered den virtuella datorn för uppladdning i Azure med hjälp av anvisningarna "CentOS 7.0 +" i [förbereda en CentOS-baserad virtuell dator för Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). Kör inte det sista steget (avetablera den virtuella datorn) ännu.
 
-6. Now you can deprovision the VM and upload your VHD into Azure.
+6. Nu kan du avetablera den virtuella datorn och överföra en virtuell Hårddisk till Azure.
 
-To configure encryption to work with Azure, do the following steps:
+För att konfigurera krypteringen ska fungera med Azure, gör du följande:
 
-1. Edit the /etc/dracut.conf, and add the following line:
+1. Redigera /etc/dracut.conf och Lägg till följande rad:
     ```
     add_drivers+=" vfat ntfs nls_cp437 nls_iso8859-1"
     ```
 
-2. Comment out these lines by the end of the file /usr/lib/dracut/modules.d/90crypt/module-setup.sh:
+2. Kommentera ut följande rader i slutet av filen /usr/lib/dracut/modules.d/90crypt/module-setup.sh:
    ```bash
     #        inst_multiple -o \
     #        $systemdutildir/system-generators/systemd-cryptsetup-generator \
@@ -362,11 +362,11 @@ To configure encryption to work with Azure, do the following steps:
     #        inst_script "$moddir"/crypt-run-generator.sh /sbin/crypt-run-generator
    ```
 
-3. Append the following line at the beginning of the file /usr/lib/dracut/modules.d/90crypt/parse-crypt.sh:
+3. Lägg till följande rad i början av filen /usr/lib/dracut/modules.d/90crypt/parse-crypt.sh:
    ```bash
     DRACUT_SYSTEMD=0
    ```
-   And change all occurrences of:
+   Och ändra alla förekomster av:
    ```bash
     if [ -z "$DRACUT_SYSTEMD" ]; then
    ```
@@ -374,7 +374,7 @@ To configure encryption to work with Azure, do the following steps:
    ```bash
     if [ 1 ]; then
    ```
-4. Edit /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh and append the following after the “# Open LUKS device”:
+4. Redigera /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh och Lägg till nedanstående efter ”# öppna LUKS enhet”:
     ```bash
     MountPoint=/tmp-keydisk-mount
     KeyFileName=LinuxPassPhraseFileName
@@ -395,17 +395,17 @@ To configure encryption to work with Azure, do the following steps:
     fi
     done
     ```    
-5. Run the “/usr/sbin/dracut -f -v” to update the initrd.
+5. Kör den ”/ usr/sbin/dracut - f - v” att uppdatera initrd.
 
-    ![CentOS 7 Setup - run /usr/sbin/dracut -f -v](./media/disk-encryption/centos-encrypt-fig5.png)
+    ![CentOS 7-installation - kör /usr/sbin/dracut -f - v](./media/disk-encryption/centos-encrypt-fig5.png)
 
-## <a name="upload-encrypted-vhd-to-an-azure-storage-account"></a>Upload encrypted VHD to an Azure storage account
-After DM-Crypt encryption is enabled, the local encrypted VHD needs to be uploaded to your storage account.
+## <a name="upload-encrypted-vhd-to-an-azure-storage-account"></a>Ladda upp krypterad virtuell hård disk till ett Azure Storage-konto
+När DM-crypt-kryptering har Aktiver ATS måste den lokala krypterade virtuella hård disken överföras till ditt lagrings konto.
 ```powershell
     Add-AzVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo> [[-NumberOfUploaderThreads] <Int32> ] [[-BaseImageUriToPatch] <Uri> ] [[-OverWrite]] [ <CommonParameters>]
 ```
-## <a name="upload-the-secret-for-the-pre-encrypted-vm-to-your-key-vault"></a>Upload the secret for the pre-encrypted VM to your key vault
-When encrypting using an Azure AD app (previous release), the disk-encryption secret that you obtained previously must be uploaded as a secret in your key vault. The key vault needs to have disk encryption and permissions enabled for your Azure AD client.
+## <a name="upload-the-secret-for-the-pre-encrypted-vm-to-your-key-vault"></a>Överför hemligheten för den förkrypterade virtuella datorn till ditt nyckel valv
+När du krypterar med hjälp av Azure AD-app (tidigare version), måste diskkryptering hemligheten som du fick tidigare laddas upp som en hemlighet i nyckelvalvet. Nyckelvalvet måste ha diskkryptering och behörigheter som har aktiverats för din Azure AD-klient.
 
 ```powershell 
  $AadClientId = "My-AAD-Client-Id"
@@ -417,8 +417,8 @@ When encrypting using an Azure AD app (previous release), the disk-encryption se
  Set-AzKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $ResourceGroupName -EnabledForDiskEncryption
 ``` 
 
-### <a name="disk-encryption-secret-not-encrypted-with-a-kek"></a>Disk encryption secret not encrypted with a KEK
-To set up the secret in your key vault, use [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret). The passphrase is encoded as a base64 string and then uploaded to the key vault. In addition, make sure that the following tags are set when you create the secret in the key vault.
+### <a name="disk-encryption-secret-not-encrypted-with-a-kek"></a>Disk krypterings hemligheten är inte krypterad med en KEK
+Använd [set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret)för att ställa in hemligheten i nyckel valvet. Lösen frasen kodas som en Base64-sträng och överförs sedan till nyckel valvet. Kontrollera dessutom att följande taggar är inställda när du skapar hemligheten i nyckelvalvet.
 
 ```powershell
 
@@ -435,10 +435,10 @@ To set up the secret in your key vault, use [Set-AzKeyVaultSecret](/powershell/m
 ```
 
 
-Use the `$secretUrl` in the next step for [attaching the OS disk without using KEK](#without-using-a-kek).
+Använd `$secretUrl` i nästa steg för att [koppla OS-disken utan att använda KEK](#without-using-a-kek).
 
-### <a name="disk-encryption-secret-encrypted-with-a-kek"></a>Disk encryption secret encrypted with a KEK
-Before you upload the secret to the key vault, you can optionally encrypt it by using a key encryption key. Use the wrap [API](https://msdn.microsoft.com/library/azure/dn878066.aspx) to first encrypt the secret using the key encryption key. The output of this wrap operation is a base64 URL encoded string, which you can then upload as a secret by using the [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet.
+### <a name="disk-encryption-secret-encrypted-with-a-kek"></a>Disk krypterings hemlighet krypterad med en KEK
+Innan du laddar upp hemligheten till nyckelvalvet kryptera du om du vill det med hjälp av en nyckelkrypteringsnyckel. Använd wrap- [API: et](https://msdn.microsoft.com/library/azure/dn878066.aspx) för att först kryptera hemligheten med nyckel krypterings nyckeln. Utdata från den här figur sättningen är en Base64-kodad sträng, som du sedan kan ladda upp som en hemlighet med hjälp av [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) -cmdleten.
 
 ```powershell
     # This is the passphrase that was provided for encryption during the distribution installation
@@ -528,12 +528,12 @@ Before you upload the secret to the key vault, you can optionally encrypt it by 
     $secretUrl = $response.id
 ```
 
-Use `$KeyEncryptionKey` and `$secretUrl` in the next step for [attaching the OS disk using KEK](#using-a-kek).
+Använd `$KeyEncryptionKey` och `$secretUrl` i nästa steg för att [koppla OS-disken med KEK](#using-a-kek).
 
-##  <a name="specify-a-secret-url-when-you-attach-an-os-disk"></a>Specify a secret URL when you attach an OS disk
+##  <a name="specify-a-secret-url-when-you-attach-an-os-disk"></a>Ange en hemlig URL när du ansluter en OS-disk
 
-###  <a name="without-using-a-kek"></a>Without using a KEK
-While you're attaching the OS disk, you need to pass `$secretUrl`. The URL was generated in the "Disk-encryption secret not encrypted with a KEK" section.
+###  <a name="without-using-a-kek"></a>Utan att använda en KEK
+När du ansluter OS-disken måste du skicka `$secretUrl`. URL: en har genererats i avsnittet ”diskkryptering hemlighet som inte är krypterade med en KEK”.
 ```powershell
     Set-AzVMOSDisk `
             -VM $VirtualMachine `
@@ -545,8 +545,8 @@ While you're attaching the OS disk, you need to pass `$secretUrl`. The URL was g
             -DiskEncryptionKeyVaultId $KeyVault.ResourceId `
             -DiskEncryptionKeyUrl $SecretUrl
 ```
-### <a name="using-a-kek"></a>Using a KEK
-When you attach the OS disk, pass `$KeyEncryptionKey` and `$secretUrl`. The URL was generated in the "Disk encryption secret encrypted with a KEK" section.
+### <a name="using-a-kek"></a>Använda en KEK
+När du ansluter OS-disken skickar du `$KeyEncryptionKey` och `$secretUrl`. URL: en har genererats i avsnittet ”diskkrypteringshemlighet krypterade med en KEK”.
 ```powershell
     Set-AzVMOSDisk `
             -VM $VirtualMachine `

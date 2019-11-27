@@ -1,6 +1,6 @@
 ---
 title: Distribuera en princip som kan åtgärdas
-description: Learn how to onboard a customer to Azure delegated resource management, allowing their resources to be accessed and managed through your own tenant.
+description: Lär dig att publicera en kund till Azure-delegerad resurs hantering, så att deras resurser kan nås och hanteras via din egen klient.
 ms.date: 10/11/2019
 ms.topic: conceptual
 ms.openlocfilehash: 4522c9ebad741f5ec0cb7e56e68467312ef8f037
@@ -10,19 +10,19 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74463872"
 ---
-# <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Deploy a policy that can be remediated within a delegated subscription
+# <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Distribuera en princip som kan åtgärdas inom en delegerad prenumeration
 
-[Azure Lighthouse](../overview.md) allows service providers to create and edit policy definitions within a delegated subscription. However, to deploy policies that use a [remediation task](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources) (that is, policies with the [deployIfNotExists](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deployifnotexists) or [modify](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify) effect), you’ll need to create a [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) in the customer tenant. This managed identity can be used by Azure Policy to deploy the template within the policy. There are steps required to enable this scenario, both when you onboard the customer for Azure delegated resource management, and when you deploy the policy itself.
+Med [Azure-Lighthouse](../overview.md) kan tjänst leverantörer skapa och redigera princip definitioner i en delegerad prenumeration. Men om du vill distribuera principer som använder en [reparations uppgift](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources) (det vill säga principer med [deployIfNotExists](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deployifnotexists) eller [ändra](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify) -effekter) måste du skapa en [hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) i kund klienten. Den här hanterade identiteten kan användas av Azure Policy för att distribuera mallen i principen. Det finns åtgärder som krävs för att aktivera det här scenariot, både när du registrerar kunden för Azure-delegerad resurs hantering och när du distribuerar själva principen.
 
-## <a name="create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant"></a>Create a user who can assign roles to a managed identity in the customer tenant
+## <a name="create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant"></a>Skapa en användare som kan tilldela roller till en hanterad identitet i kund klienten
 
-When you onboard a customer for Azure delegated resource management, you use an [Azure Resource Manager template](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer#create-an-azure-resource-manager-template) along with a parameters file that defines the users, user groups, and service principals in your managing tenant that will be able to access the delegated resources in the customer tenant. In your parameters file, each of these users (**principalId**) is assigned a [built-in role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) (**roleDefinitionId**) that defines the level of access.
+När du registrerar en kund för Azure-delegerad resurs hantering, använder du en [Azure Resource Manager-mall](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer#create-an-azure-resource-manager-template) tillsammans med en parameter fil som definierar användare, användar grupper och tjänstens huvud namn i den hanterande klienten som kommer att kunna komma åt de delegerade resurserna i kund klienten. I parameter filen tilldelas var och en av dessa användare (**principalId**) en [inbyggd roll](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) (**roleDefinitionId**) som definierar åtkomst nivån.
 
-To allow a **principalId** to create a managed identity in the customer tenant, you must set its **roleDefinitionId** to **User Access Administrator**. While this role is not generally supported, it can be used in this specific scenario, allowing the users with this permission to assign one or more specific built-in roles to managed identities. These roles are defined in the **delegatedRoleDefinitionIds** property. You can include any built-in role here except for User Access Administrator or Owner.
+Om du vill tillåta en **principalId** att skapa en hanterad identitet i kundens klient organisation måste du ange dess **RoleDefinitionId** till **användar åtkomst administratör**. Även om den här rollen inte stöds i allmänhet, kan den användas i det här scenariot, så att användare med den här behörigheten kan tilldela en eller flera angivna inbyggda roller till hanterade identiteter. De här rollerna definieras i egenskapen **delegatedRoleDefinitionIds** . Du kan inkludera valfri inbyggd roll här, förutom administratör för användar åtkomst eller ägare.
 
-After the customer is onboarded, the **principalId** created in this authorization will be able to assign these built-in roles to managed identities in the customer tenant. However, they will not have any other permissions normally associated with the User Access Administrator role.
+När kunden har registrerats kommer **principalId** som skapats i det här tillståndet att kunna tilldela de inbyggda rollerna till hanterade identiteter i kund klienten. De kommer dock inte att ha några andra behörigheter som vanligt vis är associerade med rollen administratör för användar åtkomst.
 
-The example below shows a **principalId** who will have the User Access Administrator role. This user will be able to assign two built-in roles to managed identities in the customer tenant: Contributor and Log Analytics Contributor.
+Exemplet nedan visar en **principalId** som kommer att ha rollen administratör för användar åtkomst. Den här användaren kan tilldela två inbyggda roller till hanterade identiteter i kund klienten: bidrags givare och Log Analytics deltagare.
 
 ```json
 {
@@ -36,15 +36,15 @@ The example below shows a **principalId** who will have the User Access Administ
 }
 ```
 
-## <a name="deploy-policies-that-can-be-remediated"></a>Deploy policies that can be remediated
+## <a name="deploy-policies-that-can-be-remediated"></a>Distribuera principer som kan åtgärdas
 
-Once you have created the user with the necessary permissions as described above, that user can deploy policies in the customer tenant that use remediation tasks.
+När du har skapat användaren med nödvändiga behörigheter enligt beskrivningen ovan, kan den användaren distribuera principer i kund innehavaren som använder reparations aktiviteter.
 
-For example, let’s say you wanted to enable diagnostics on Azure Key Vault resources in the customer tenant, as illustrated in this [sample](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/policy-enforce-keyvault-monitoring). A user in the managing tenant with the appropriate permissions (as described above) would deploy an [Azure Resource Manager template](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/policy-enforce-keyvault-monitoring/enforceAzureMonitoredKeyVault.json) to enable this scenario.
+Anta till exempel att du vill aktivera diagnostik på Azure Key Vault resurser i kund klienten, som du ser i det här [exemplet](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/policy-enforce-keyvault-monitoring). En användare i hanterings klienten med rätt behörigheter (enligt beskrivningen ovan) distribuerar en Azure Resource Manager- [mall](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/policy-enforce-keyvault-monitoring/enforceAzureMonitoredKeyVault.json) för att aktivera det här scenariot.
 
-Note that creating the policy assignment to use with a delegated subscription must currently be done through APIs, not in the Azure portal. When doing so, the **apiVersion** must be set to **2019-04-01-preview**, which includes the new **delegatedManagedIdentityResourceId** property. This property allows you to include a managed identity that resides in the customer tenant (in a subscription or resource group which has been onboarded to Azure delegated resource management).
+Observera att när du skapar princip tilldelningen som ska användas med en delegerad prenumeration måste den för närvarande utföras via API: er, inte i Azure Portal. När du gör det måste **API version** anges till **2019-04-01-Preview**, som innehåller den nya **delegatedManagedIdentityResourceId** -egenskapen. Med den här egenskapen kan du ta med en hanterad identitet som finns i kund klient organisationen (i en prenumeration eller resurs grupp som har publicerats till Azure delegerad resurs hantering).
 
-The following example shows a role assignment with a **delegatedManagedIdentityResourceId**.
+I följande exempel visas en roll tilldelning med en **delegatedManagedIdentityResourceId**.
 
 ```json
 "type": "Microsoft.Authorization/roleAssignments",
@@ -62,9 +62,9 @@ The following example shows a role assignment with a **delegatedManagedIdentityR
 ```
 
 > [!TIP]
-> A [similar sample](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/policy-add-or-replace-tag) is available to demonstrate how to deploy a policy that adds or removes a tag (using the modify effect) to a delegated subscription.
+> Ett [liknande exempel](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/policy-add-or-replace-tag) är tillgängligt för att demonstrera hur du distribuerar en princip som lägger till eller tar bort en tagg (med hjälp av ändra-effekter) till en delegerad prenumeration.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Learn about [Azure Policy](https://docs.microsoft.com/azure/governance/policy/).
-- Learn about [managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+- Läs mer om [Azure policy](https://docs.microsoft.com/azure/governance/policy/).
+- Lär dig mer om [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).

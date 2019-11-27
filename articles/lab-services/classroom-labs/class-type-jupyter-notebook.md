@@ -1,6 +1,6 @@
 ---
-title: Set up a lab to teach data science with Python and Jupyter Notebooks | Microsoft Docs
-description: Learn how to set up a lab to teach data science using Python and Jupyter Notebooks.
+title: Konfigurera ett labb för att lära data vetenskap med python-och Jupyter-anteckningsböcker | Microsoft Docs
+description: Lär dig hur du konfigurerar ett labb för att lära data vetenskap med python-och Jupyter-anteckningsböcker.
 services: lab-services
 documentationcenter: na
 author: emaher
@@ -20,60 +20,60 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74383984"
 ---
-# <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Set up a lab to teach data science with Python and Jupyter Notebooks
+# <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Konfigurera ett labb för att lära data vetenskap med python-och Jupyter-anteckningsböcker
 
-This article outlines how to set up a template machine in Lab Services with the tools needed to teach students how to use [Jupyter Notebooks](http://jupyter-notebook.readthedocs.io).  Jupyter Notebooks is an open-source project that lets you easily combine rich text and executable [Python](https://www.python.org/) source code on a single canvas called a notebook.  Running a notebook results in a linear record of inputs and outputs.  Those outputs can include text, tables of information, scatter plots, and more.
+Den här artikeln beskriver hur du konfigurerar en mallfil i labb tjänster med de verktyg som behövs för att lära eleverna hur de använder [Jupyter Notebooks](http://jupyter-notebook.readthedocs.io).  Jupyter Notebooks är ett projekt med öppen källkod som gör att du enkelt kan kombinera text och körbara [python](https://www.python.org/) -källkod på en enda arbets yta som kallas för en bärbar dator.  Att köra en bärbar dator resulterar i en linjär inspelning av indata och utdata.  Dessa utdata kan innehålla text, tabeller med information, punkt diagram med mera.
 
-## <a name="lab-configuration"></a>Lab configuration
+## <a name="lab-configuration"></a>Labb konfiguration
 
-To set up this lab, you need an Azure subscription and lab account to get started. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. Once you get an Azure subscription, you can create a new lab account in Azure Lab Services. For more information about creating a new lab account, see [tutorial to setup a lab account](tutorial-setup-lab-account.md).  You can also use an existing lab account.
+För att kunna konfigurera det här labbet behöver du ett Azure-prenumerations-och labb konto för att komma igång. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. När du har skaffat en Azure-prenumeration kan du skapa ett nytt labb konto i Azure Lab Services. Mer information om hur du skapar ett nytt labb konto finns i [självstudier för att konfigurera ett labb konto](tutorial-setup-lab-account.md).  Du kan också använda ett befintligt labb konto.
 
-### <a name="lab-account-settings"></a>Lab Account Settings
+### <a name="lab-account-settings"></a>Labb konto inställningar
 
-Enable the settings described in the table below for the lab account. For more information about how to enable marketplace images, see [specify marketplace images available to lab creators](tutorial-setup-lab-account.md#specify-marketplace-images-available-to-lab-creators).
+Aktivera inställningarna som beskrivs i tabellen nedan för labb kontot. Mer information om hur du aktiverar Marketplace-avbildningar finns i [Ange Marketplace-avbildningar som är tillgängliga för labb skapare](tutorial-setup-lab-account.md#specify-marketplace-images-available-to-lab-creators).
 
-| Lab account setting | Instruktioner |
+| Inställning för labb konto | Instruktioner |
 | ------------------- | ------------ |
-| Marketplace image | Enable the [Data Science Virtual Machine - Windows 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) image for use within your lab account. |
+| Marketplace-avbildning | Aktivera [data science Virtual Machine-Windows 2016-](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) avbildningen för användning i ditt labb konto. |
 
 >[!TIP]
->This article will focus on configuring a template machine that uses the Windows Server operating system.  It's also possible to set up a data science class with Python and Jupyter Notebooks using [Data Science Virtual Machine for Linux (CentOS)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm) or [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu) images from the Azure Marketplace.
+>Den här artikeln fokuserar på att konfigurera en mall som använder operativ systemet Windows Server.  Det är också möjligt att ställa in en data vetenskaps klass med python-och Jupyter-anteckningsböcker med [data science Virtual Machine för Linux (CentOS)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm) eller [data science Virtual Machine för Linux-avbildningar (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu) från Azure Marketplace.
 
-### <a name="lab-settings"></a>Lab settings
+### <a name="lab-settings"></a>Labb inställningar
 
-Use the settings in the table below when setting up a classroom lab.  For more information how to create a classroom lab, see [set up a classroom lab tutorial](tutorial-setup-classroom-lab.md).
+Använd inställningarna i tabellen nedan när du konfigurerar ett klass rums labb.  Mer information om hur du skapar ett klass rums labb finns i [Konfigurera en labb Guide för klass rummet](tutorial-setup-classroom-lab.md).
 
-| Lab settings | Value/instructions |
+| Labb inställningar | Värde/anvisningar |
 | ------------ | ------------------ |
-|Virtual Machine Size| Small GPU (Compute). This size is best suited for compute-intensive and network-intensive applications like Artificial Intelligence and Deep Learning. |
-|Virtual Machine Image| SQL Server 2019 Standard on Windows Server 2019|
+|Storlek på virtuell dator| Liten GPU (Compute). Den här storleken passar bäst för beräknings intensiva och nätverks intensiva program som artificiell intelligens och djup inlärning. |
+|Avbildning av virtuell dator| SQL Server 2019 standard på Windows Server 2019|
 
-## <a name="template-machine"></a>Template machine
+## <a name="template-machine"></a>Mall dator
 
-The [Data Science Virtual Machine - Windows 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) image provides the necessary deep learning frameworks and tools required for this type of class.  The image includes Jupyter Notebooks and Visual Studio Code.  [Jupyter Notebooks](http://jupyter-notebook.readthedocs.io) is a web application that allows data scientists to take raw data, run computations, and see the results all in the same environment.  For our template machine, the web application will be running locally.  [Visual Studio Code](https://code.visualstudio.com/) is an IDE that provides a rich interactive experience when writing and testing a notebook.  For more information, see [Working with Jupyter Notebooks in Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support).
+[Data science Virtual Machine-Windows 2016-](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) avbildningen ger de nödvändiga ramverk för djup inlärning och de verktyg som krävs för den här typen av klass.  Avbildningen innehåller Jupyter-anteckningsböcker och Visual Studio Code.  [Jupyter-anteckningsböcker](http://jupyter-notebook.readthedocs.io) är ett webb program som gör det möjligt för data experter att ta rå data, köra beräkningar och se alla resultat i samma miljö.  Webb programmet kommer att köras lokalt för vår mall.  [Visual Studio Code](https://code.visualstudio.com/) är en IDE som ger en omfattande interaktiv upplevelse när du skriver och testar en bärbar dator.  Mer information finns i [arbeta med antecknings böcker i Jupyter i Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support).
 
-The remaining task to set up the class is to provide local notebooks.  For instructions how to use the Azure Machine Learning samples, see [how to configure an environment with Jupyter Notebooks](../../machine-learning/service/how-to-configure-environment.md#jupyter).  You can also provide your own notebooks on the template machine.  The notebooks will be copied to all student machines when the template is published.
+Den återstående aktiviteten för att konfigurera klassen är att tillhandahålla lokala antecknings böcker.  Instruktioner för hur du använder Azure Machine Learning exempel finns i [så här konfigurerar du en miljö med Jupyter-anteckningsböcker](../../machine-learning/service/how-to-configure-environment.md#jupyter).  Du kan också ange egna antecknings böcker på den mall datorn.  Antecknings böckerna kommer att kopieras till alla elev maskiner när mallen publiceras.
 
 ## <a name="cost-estimate"></a>Kostnadsuppskattning
 
-Let's cover a possible cost estimate for this class.  We'll use a class of 25 students.  There are 20 hours of scheduled class time.  Also, each student gets 10 hours quota for homework or assignments outside scheduled class time.  The virtual machine size we chose was small gpu (compute), which is 139 lab units.
+Vi ska se en möjlig kostnads uppskattning för den här klassen.  Vi använder en klass av 25 studenter.  Det finns 20 timmar med den schemalagda klass tiden.  Dessutom får varje student en kvot på 10 timmar för läxor eller tilldelningar utanför schemalagda klass tider.  Storleken på den virtuella datorn som vi valde var liten GPU (Compute), vilket är 139 lab-enheter.
 
-Here is an example of a possible cost estimate for this class:
+Här är ett exempel på en möjlig kostnads uppskattning för den här klassen:
 
-25 students \* (20 scheduled hours + 10 quota hours) \* 139 lab units \*  0.01 USD per hour  = 1042.5 USD
+25 studenter \* (20 schemalagda timmar + 10 kvot timmar) \* 139 lab-enheter \* 0,01 USD per timme = 1042,5 USD
 
-Further more details on pricing, see [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).
+Mer detaljerad information om priser finns [Azure Lab Services prissättning](https://azure.microsoft.com/pricing/details/lab-services/).
 
 ## <a name="conclusion"></a>Sammanfattning
 
-In this article, we walked through the steps to create a lab for a Jupyter Notebooks class. You can use a similar setup for other machine learning classes.
+I den här artikeln gick vi igenom stegen för att skapa ett labb för en Jupyter Notebooks-klass. Du kan använda en liknande installation för andra maskin inlärnings klasser.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Next steps are common to setting up any lab.
+Nästa steg är vanliga för att ställa in alla labb.
 
-- [Create and manage a template](how-to-create-manage-template.md)
+- [Skapa och hantera en mall](how-to-create-manage-template.md)
 - [Lägga till användare](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
-- [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
-- [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
-- [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users)
+- [Ange kvot](how-to-configure-student-usage.md#set-quotas-for-users)
+- [Ange ett schema](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
+- [E-postregistrering länkar till studenter](how-to-configure-student-usage.md#send-invitations-to-users)

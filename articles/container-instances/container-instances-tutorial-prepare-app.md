@@ -1,22 +1,17 @@
 ---
-title: Självstudie – Förbereda containeravbildning för Azure Container Instances
+title: Självstudie – förbereda behållar avbildning för distribution
 description: Självstudie om Azure Container Instances, del 1 av 3 – Förbereda en app i en containeravbildning för distribution till Azure Container Instances
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
-ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 719237f63d387cf56ab7947f8f168e0aa4351376
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 487dca97dc47bf214bedf38f44b2d29a71567cbb
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68325570"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533331"
 ---
-# <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>Självstudie: Skapa en containeravbildning för distribution till Azure Container Instances
+# <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>Självstudie: skapa en behållar avbildning för distribution till Azure Container Instances
 
 Azure Container Instances möjliggör distribution av Docker-behållare till en Azure-infrastruktur utan att tillhandahålla några virtuella datorer eller anpassa eventuella tjänster på högre nivå. I den här självstudiekursen får du paketera ett enkelt Node.js-webbprogram i en behållaravbildning som kan köras med Azure Container Instances.
 

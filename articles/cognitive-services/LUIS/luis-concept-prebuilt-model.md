@@ -28,7 +28,7 @@ LUIS tillhandahåller tre typer av förinställda modeller. Varje modell kan lä
 
 |Modelltypen|Inkluderar|
 |--|--|
-|[Domän](luis-reference-prebuilt-domains.md)|Avsikter yttranden, entiteter|
+|[Domänsuffix](luis-reference-prebuilt-domains.md)|Avsikter yttranden, entiteter|
 |Avsikter|Avsikter yttranden|
 |[Poster](luis-reference-prebuilt-entities.md)|Endast entiteter| 
 
@@ -40,13 +40,13 @@ Fördefinierade domäner är tränade och redo att lägga till i din LUIS-app. A
 
 > [!TIP]
 > Avsikter och entiteter i en fördefinierade domän fungerar bäst tillsammans. Är det bättre att kombinera avsikter och entiteter från samma domän när det är möjligt.
-> Den färdiga verktyg-domänen har avsikter som du kan anpassa för användning i valfri domän. Du kan till exempel lägga till `Utilities.Repeat` till din app och träna identifiera vilka åtgärder som användaren kanske vill upprepa i ditt program. 
+> Den färdiga verktyg-domänen har avsikter som du kan anpassa för användning i valfri domän. Du kan till exempel lägga till `Utilities.Repeat` i din app och träna den att identifiera vilka åtgärder som användaren kan vilja upprepa i ditt program. 
 
 ### <a name="changing-the-behavior-of-a-prebuilt-domain-intent"></a>Ändra beteendet för en fördefinierade domän avsikt
 
 Du kanske upptäcker att en fördefinierade domän innehåller ett intent som liknar ett intent som du vill ha i din LUIS-app, men du vill att den fungerar på olika sätt. **Till exempel** tillhandahåller en fördefinierad domän en `MakeReservation` avsikt för att skapa en restaurang reservation, men du vill att appen ska använda den avsikten för att göra hotell reservationer. I så fall kan du ändra beteendet för avsikten genom att lägga till exempel yttranden i avsikten med att göra Hotell Bokningar och sedan träna appen. 
 
-Du hittar en fullständig lista över fördefinierade domäner i den [fördefinierade domäner referens](./luis-reference-prebuilt-domains.md).
+Du hittar en fullständig lista över de förinställda domänerna i den [fördefinierade domän referensen](./luis-reference-prebuilt-domains.md).
 
 ## <a name="prebuilt-intents"></a>Fördefinierade avsikter
 
@@ -54,13 +54,13 @@ LUIS tillhandahåller färdiga syften och deras yttranden för varje fördefinie
 
 ## <a name="prebuilt-entities"></a>Fördefinierade entiteter
 
-LUIS innehåller en uppsättning fördefinierade entiteter för att identifiera vanliga typer av information som datum, tider, nummer, mätning av faktisk användning och valuta. Fördefinierade entitet support varierar beroende på kultur LUIS-appen. En fullständig lista över de fördefinierade entiteter som LUIS stöder, bland annat stöd av kulturen, finns i den [fördefinierade Entitetsreferens](./luis-reference-prebuilt-entities.md).
+LUIS innehåller en uppsättning fördefinierade entiteter för att identifiera vanliga typer av information som datum, tider, nummer, mätning av faktisk användning och valuta. Fördefinierade entitet support varierar beroende på kultur LUIS-appen. En fullständig lista över de färdiga entiteter som LUIS stöder, inklusive stöd för kultur, finns i den [fördefinierade enhets referensen](./luis-reference-prebuilt-entities.md).
 
-När en entitet som är färdiga ingår i ditt program, med dess förutsägelser i ditt publicerade program. Beteendet för förskapade entiteter är förtränade och **kan** ändras. 
+När en entitet som är färdiga ingår i ditt program, med dess förutsägelser i ditt publicerade program. Beteendet för förinställda entiteter är förtränat och **kan inte** ändras. 
 
 > [!NOTE]
-> **Builtin.datetime** är inaktuell. Ersätter [ **builtin.datetimeV2**](luis-reference-prebuilt-datetimev2.md), som tillhandahåller igenkänning av datum- och tidsintervall, samt bättre tolkning av tvetydiga datum och tider.
+> **Builtin. DateTime** är föråldrad. Den ersätts av [**Builtin. datetimeV2**](luis-reference-prebuilt-datetimev2.md), som ger igenkänning av datum-och tidsintervall, samt förbättrad igenkänning av tvetydiga datum och tider.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du [Lägg till fördefinierade entiteter](luis-prebuilt-entities.md) till din app.
+Lär dig hur du [lägger till fördefinierade entiteter](luis-prebuilt-entities.md) i din app.

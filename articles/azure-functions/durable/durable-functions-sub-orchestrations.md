@@ -1,6 +1,6 @@
 ---
-title: Sub-orchestrations for Durable Functions - Azure
-description: How to call orchestrations from orchestrations in the Durable Functions extension for Azure Functions.
+title: Under dirigering för Durable Functions – Azure
+description: Så här anropar du dirigeringar från dirigering i Durable Functions-tillägget för Azure Functions.
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
@@ -11,16 +11,16 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74231300"
 ---
-# <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Sub-orchestrations in Durable Functions (Azure Functions)
+# <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Under dirigering i Durable Functions (Azure Functions)
 
-In addition to calling activity functions, orchestrator functions can call other orchestrator functions. For example, you can build a larger orchestration out of a library of smaller orchestrator functions. Or you can run multiple instances of an orchestrator function in parallel.
+Förutom att anropa aktivitets funktioner kan Orchestrator-funktioner anropa andra Orchestrator-funktioner. Du kan till exempel bygga ett större dirigering av ett bibliotek med mindre Orchestrator-funktioner. Du kan också köra flera instanser av en Orchestrator-funktion parallellt.
 
-An orchestrator function can call another orchestrator function using the `CallSubOrchestratorAsync` or the `CallSubOrchestratorWithRetryAsync` methods in .NET, or the `callSubOrchestrator` or `callSubOrchestratorWithRetry` methods in JavaScript. The [Error Handling & Compensation](durable-functions-error-handling.md#automatic-retry-on-failure) article has more information on automatic retry.
+En Orchestrator-funktion kan anropa en annan Orchestrator-funktion med hjälp av `CallSubOrchestratorAsync` eller `CallSubOrchestratorWithRetryAsync` metoder i .NET, eller `callSubOrchestrator` eller `callSubOrchestratorWithRetry` metoder i Java Script. Artikeln [fel hantering &s kompensation](durable-functions-error-handling.md#automatic-retry-on-failure) innehåller mer information om automatiskt återförsök.
 
-Sub-orchestrator functions behave just like activity functions from the caller's perspective. They can return a value, throw an exception, and can be awaited by the parent orchestrator function. 
+Under Orchestrator-funktioner fungerar precis som aktivitets funktioner från anroparens perspektiv. De kan returnera ett värde, utlösa ett undantag och kan förväntas av den överordnade Orchestrator-funktionen. 
 ## <a name="example"></a>Exempel
 
-The following example illustrates an IoT ("Internet of Things") scenario where there are multiple devices that need to be provisioned. The following function represents the provisioning workflow that needs to be executed for each device:
+I följande exempel illustreras ett IoT-scenario ("Sakernas Internet") där det finns flera enheter som måste tillhandahållas. Följande funktion representerar det etablerings arbets flöde som måste utföras för varje enhet:
 
 ### <a name="c"></a>C#
 
@@ -43,7 +43,7 @@ public static async Task DeviceProvisioningOrchestration(
 }
 ```
 
-### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 only)
+### <a name="javascript-functions-20-only"></a>Java Script (endast Functions 2,0)
 
 ```javascript
 const df = require("durable-functions");
@@ -64,9 +64,9 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-This orchestrator function can be used as-is for one-off device provisioning or it can be part of a larger orchestration. In the latter case, the parent orchestrator function can schedule instances of `DeviceProvisioningOrchestration` using the `CallSubOrchestratorAsync` (.NET) or `callSubOrchestrator` (JavaScript) API.
+Den här Orchestrator-funktionen kan användas som-är för en-off-enhets etablering eller kan ingå i ett större Dirigerings steg. I det senare fallet kan den överordnade Orchestrator-funktionen schemalägga instanser av `DeviceProvisioningOrchestration` med hjälp av API: et för `CallSubOrchestratorAsync` (.NET) eller `callSubOrchestrator` (Java Script).
 
-Here is an example that shows how to run multiple orchestrator functions in parallel.
+Här är ett exempel som visar hur du kör flera Orchestrator-funktioner parallellt.
 
 ### <a name="c"></a>C#
 
@@ -92,9 +92,9 @@ public static async Task ProvisionNewDevices(
 ```
 
 > [!NOTE]
-> The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> Föregående C# exempel är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
-### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 only)
+### <a name="javascript-functions-20-only"></a>Java Script (endast Functions 2,0)
 
 ```javascript
 const df = require("durable-functions");
@@ -119,9 +119,9 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!NOTE]
-> Sub-orchestrations must be defined in the same function app as the parent orchestration. If you need to call and wait for orchestrations in another function app, consider using the built-in support for HTTP APIs and the HTTP 202 polling consumer pattern. For more information, see the [HTTP Features](durable-functions-http-features.md) topic.
+> Under dirigering måste definieras i samma Function-app som den överordnade samordningen. Om du behöver anropa och vänta på dirigeringar i en annan Function-app, bör du överväga att använda det inbyggda stödet för HTTP API: er och HTTP 202-avsökningens konsument mönster. Mer information finns i avsnittet om [http-funktioner](durable-functions-http-features.md) .
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Learn how to set a custom orchestration status](durable-functions-custom-orchestration-status.md)
+> [Lär dig hur du anger en anpassad Dirigerings status](durable-functions-custom-orchestration-status.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Extract image details with the REST API and C# - Bing Image Search'
+title: 'Självstudie: extrahera avbildnings information med REST API och C# -bildsökning i Bing'
 titleSuffix: Azure Cognitive Services
 description: Använd den här artikeln om du vill skapa ett C#-program som extraherar avbildningsinformation med hjälp av API för bildsökning i Bing.
 services: cognitive-services
@@ -36,7 +36,7 @@ Källkoden till det här exemplet finns på [GitHub](https://github.com/Azure-Sa
 
 ## <a name="prerequisites"></a>Krav
 
-* Any edition of [Visual studio 2017 or later](https://visualstudio.microsoft.com/downloads/).
+* En version av [Visual studio 2017 eller senare](https://visualstudio.microsoft.com/downloads/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
@@ -98,7 +98,7 @@ Det här JSON-svaret kan sedan skrivas ut till konsolen.
 
 ## <a name="use-an-image-insights-token-in-a-request"></a>Använda en avbildningsinsiktstoken i en begäran
 
-Om du vill använda `ImageInsightsToken` som returnerades med resultatet av en `POST`, så kan du lägga till den i en `GET` begäran. Exempel:
+Om du vill använda `ImageInsightsToken` som returnerades med resultatet av en `POST`, så kan du lägga till den i en `GET` begäran. Till exempel:
 
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/details?InsightsToken="bcid_A2C4BB81AA2C9EF8E049C5933C546449*ccid_osS7gaos*mid_BF7CC4FC4A882A3C3D56E644685BFF7B8BACEAF2
@@ -111,6 +111,6 @@ Om det finns identifierbara personer eller platser på bilden returnerar begära
 > [!div class="nextstepaction"]
 > [Visa bilder och sökalternativ i en enda enskild webbapp ](tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
-* [Referens för API för bildsökning i Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [API-referens för bildsökning i Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

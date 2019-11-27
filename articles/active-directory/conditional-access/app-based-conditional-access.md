@@ -1,6 +1,6 @@
 ---
-title: Approved client apps with Conditional Access - Azure Active Directory
-description: Learn how to require approved client apps for cloud app access with Conditional Access in Azure Active Directory.
+title: Godkända klient program med villkorlig åtkomst – Azure Active Directory
+description: Lär dig hur du kräver godkända klient program för Cloud app-åtkomst med villkorlig åtkomst i Azure Active Directory.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -18,252 +18,252 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74381123"
 ---
-# <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>How To: Require approved client apps for cloud app access with Conditional Access 
+# <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Gör så här: Kräv godkända klient program för Cloud app-åtkomst med villkorlig åtkomst 
 
-Your employees use mobile devices for both personal and work tasks. While making sure your employees can be productive, you also want to prevent data loss. With Azure Active Directory (Azure AD) Conditional Access, you can restrict access to your cloud apps to approved client apps that can protect your corporate data.  
+Dina anställda använder mobila enheter för både personliga och arbetsrelaterade uppgifter. När du ser till att dina anställda kan vara produktiva vill du även förhindra data förlust. Med Azure Active Directory (Azure AD) villkorlig åtkomst kan du begränsa åtkomsten till dina molnappar till godkända klient program som kan skydda företagets data.  
 
-This topic explains how to configure condition access policies that require approved client apps.
+I det här avsnittet beskrivs hur du konfigurerar villkor för åtkomst principer som kräver godkända klient program.
 
 ## <a name="overview"></a>Översikt
 
-With [Azure AD Conditional Access](overview.md), you can fine-tune how authorized users can access your resources. For example, you can limit the access to your cloud apps to trusted devices.
+Med [villkorlig åtkomst i Azure AD](overview.md)kan du finjustera hur behöriga användare kan komma åt dina resurser. Du kan till exempel begränsa åtkomsten till dina molnappar till betrodda enheter.
 
-You can use [Intune app protection policies](https://docs.microsoft.com/intune/app-protection-policy) to help protect your company’s data. Intune app protection policies don't require mobile-device management (MDM) solution, which enables you to protect your company’s data with or without enrolling devices in a device management solution.
+Du kan använda [Intune App Protection-principer](https://docs.microsoft.com/intune/app-protection-policy) för att skydda företagets data. Intune App Protection-principer kräver inte hanterings lösning för mobila enheter (MDM), vilket gör att du kan skydda företagets data med eller utan att registrera enheter i en enhets hanterings lösning.
 
-Azure Active Directory Conditional Access enables you to limit access to your cloud apps to client apps that support Intune app protection policies. For example, you can restrict access to Exchange Online to the Outlook app.
+Med Azure Active Directory villkorlig åtkomst kan du begränsa åtkomsten till dina molnappar till klient program som stöder Intune App Protection-principer. Du kan till exempel begränsa åtkomsten till Exchange Online till Outlook-appen.
 
-In the Conditional Access terminology, these client apps are known as **approved client apps**.  
+I terminologin för villkorlig åtkomst kallas dessa klient appar **godkända klient program**.  
 
 ![Villkorlig åtkomst](./media/app-based-conditional-access/05.png)
 
-For a list of approved client apps, see [approved client app requirement](technical-reference.md#approved-client-app-requirement).
+En lista över godkända klient program finns i [godkända klient program krav](technical-reference.md#approved-client-app-requirement).
 
-You can combine app-based Conditional Access policies with other policies such as [device-based Conditional Access policies](require-managed-devices.md) to provide flexibility in how to protect data for both personal and corporate devices.
+Du kan kombinera app-baserade villkorliga åtkomst principer med andra principer, till exempel [enhets principer för villkorlig åtkomst](require-managed-devices.md) för att ge flexibilitet i hur du skyddar data för både personliga och företags enheter.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-This topic assumes that you are familiar with:
+Det här avsnittet förutsätter att du är bekant med:
 
-- The [approved client app requirement](technical-reference.md#approved-client-app-requirement) technical reference.
-- The basic concepts of [Conditional Access in Azure Active Directory](overview.md).
-- How to [configure a Conditional Access policy](app-based-mfa.md).
-- The [migration of Conditional Access policies](best-practices.md#policy-migration).
+- Den tekniska referensen för [godkända klient program krav](technical-reference.md#approved-client-app-requirement) .
+- Grundläggande begrepp för [villkorlig åtkomst i Azure Active Directory](overview.md).
+- Så här [konfigurerar du en princip för villkorlig åtkomst](app-based-mfa.md).
+- [Migreringen av principer för villkorlig åtkomst](best-practices.md#policy-migration).
 
 ## <a name="prerequisites"></a>Krav
 
-To create an app-based Conditional Access policy, you must have an Enterprise Mobility + Security or an Azure Active Directory premium subscription, and the users must be licensed for EMS or Azure AD. 
+Om du vill skapa en app-baserad villkorlig åtkomst princip måste du ha en Enterprise Mobility + Security eller en Azure Active Directory Premium-prenumeration och användarna måste ha licens för EMS eller Azure AD. 
 
-## <a name="exchange-online-policy"></a>Exchange Online policy 
+## <a name="exchange-online-policy"></a>Exchange Online-princip 
 
-This scenario consists of an app-based Conditional Access policy for access to Exchange Online.
+Det här scenariot består av en app-baserad villkorlig åtkomst princip för åtkomst till Exchange Online.
 
-### <a name="scenario-playbook"></a>Scenario playbook
+### <a name="scenario-playbook"></a>Scenario Spelbok
 
-This scenario assumes that a user:
+Det här scenariot förutsätter att en användare:
 
-- Configures email using a native mail application on iOS or Android to connect to Exchange
-- Receives an email that indicates that access is only available using Outlook app
-- Downloads the application with the link
-- Opens the Outlook application and signs in with the Azure AD credentials
-- Is prompted to install either Authenticator (iOS) or Company Portal (Android) to continue
-- Installs the application and can return to the Outlook app to continue
-- Is prompted to register a device
-- Is able to access email
+- Konfigurerar e-post med hjälp av ett internt e-postprogram på iOS eller Android för att ansluta till Exchange
+- Tar emot ett e-postmeddelande som anger att åtkomst endast är tillgänglig med Outlook-appen
+- Laddar ned programmet med länken
+- Öppnar Outlook-programmet och loggar in med autentiseringsuppgifter för Azure AD
+- Uppmanas att installera antingen Authenticator (iOS) eller Företagsportal (Android) för att fortsätta
+- Installerar programmet och kan gå tillbaka till Outlook-appen för att fortsätta
+- Uppmanas att registrera en enhet
+- Kan komma åt e-post
 
-Any Intune app protection policies are activated at the time the access corporate data and may prompt the user to restart the application, use an additional PIN etc. (if configured for the application and platform).
+Alla Intunes skydds principer aktive ras vid tiden för åtkomst till företags data och användaren uppmanas att starta om programmet, använda ytterligare en PIN-kod osv. (om det har kon figurer ATS för programmet och plattformen).
 
 ### <a name="configuration"></a>Konfiguration 
 
-**Step 1 - Configure an Azure AD Conditional Access policy for Exchange Online**
+**Steg 1 – Konfigurera en princip för villkorlig åtkomst för Azure AD för Exchange Online**
 
-For the Conditional Access policy in this step, you need to configure the following components:
+För principen för villkorlig åtkomst i det här steget måste du konfigurera följande komponenter:
 
-1. The **Name** of your Conditional Access policy.
-1. **Users and groups**: Each Conditional Access policy must have at least one user or group selected.
-1. **Cloud apps:** As cloud apps, you need to select **Office 365 Exchange Online**.
-1. **Conditions:** As **Conditions**, you need to configure **Device platforms** and **Client apps**:
-   1. As **Device platforms**, select **Android** and **iOS**.
-   1. As **Client apps (preview)** , select **Mobile apps and desktop apps** and **Modern authentication clients**.
-1. As **Access controls**, you need to have **Require approved client app (preview)** selected.
+1. **Namnet** på den villkorliga åtkomst principen.
+1. **Användare och grupper**: varje princip för villkorlig åtkomst måste ha minst en vald användare eller grupp.
+1. **Molnappar:** Som molnappar måste du välja **Office 365 Exchange Online**.
+1. **Villkor:** Som **villkor**måste du konfigurera **enhets plattformar** och **klient program**:
+   1. Som **enhets plattformar**väljer du **Android** och **iOS**.
+   1. Som **klient program (för hands version)** väljer du **mobilappar och skrivbordsappar** och **moderna autentiserade klienter**.
+1. Som **åtkomst kontroller**måste du ha valt **Kräv godkänd klient app (för hands version)** .
 
    ![Villkorlig åtkomst](./media/app-based-conditional-access/05.png)
 
-**Step 2 - Configure an Azure AD Conditional Access policy for Exchange Online with Active Sync (EAS)**
+**Steg 2 – Konfigurera en Azure AD-princip för villkorlig åtkomst för Exchange Online med Active Sync (EAS)**
 
-For the Conditional Access policy in this step, you need to configure the following components:
+För principen för villkorlig åtkomst i det här steget måste du konfigurera följande komponenter:
 
-1. The **Name** of your Conditional Access policy.
-1. **Users and groups**: Each Conditional Access policy must have at least one user or group selected.
-1. **Cloud apps:** As cloud apps, you need to select **Office 365 Exchange Online**.
-1. **Conditions:** As **Conditions**, you need to configure **Client apps (preview)** . 
-   1. As **Client apps (preview)** , select **Mobile apps and desktop clients** and **Exchange ActiveSync clients**.
-   1. As **Access controls**, you need to have **Require approved client app (preview)** selected.
+1. **Namnet** på den villkorliga åtkomst principen.
+1. **Användare och grupper**: varje princip för villkorlig åtkomst måste ha minst en vald användare eller grupp.
+1. **Molnappar:** Som molnappar måste du välja **Office 365 Exchange Online**.
+1. **Villkor:** Som **villkor**måste du konfigurera **klient program (för hands version)** . 
+   1. Som **klient program (för hands version)** väljer du **mobilappar och skriv bords klienter** och **Exchange ActiveSync-klienter**.
+   1. Som **åtkomst kontroller**måste du ha valt **Kräv godkänd klient app (för hands version)** .
 
       ![Villkorlig åtkomst](./media/app-based-conditional-access/05.png)
 
-**Step 3 - Configure Intune app protection policy for iOS and Android client applications**
+**Steg 3 – Konfigurera Intune-appens skydds princip för iOS-och Android-klientprogram**
 
-See [Protect apps and data with Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune) for more information.
+Mer information finns i [Skydda appar och data med Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune) .
 
-## <a name="exchange-online-and-sharepoint-online-policy"></a>Exchange Online and SharePoint Online policy
+## <a name="exchange-online-and-sharepoint-online-policy"></a>Exchange Online-och SharePoint Online-princip
 
-This scenario consists of a Conditional Access with mobile app management policy for access to Exchange Online and SharePoint Online with approved apps.
+Det här scenariot består av en villkorlig åtkomst med hanterings principer för mobilappar för åtkomst till Exchange Online och SharePoint Online med godkända appar.
 
-### <a name="scenario-playbook"></a>Scenario playbook
+### <a name="scenario-playbook"></a>Scenario Spelbok
 
-This scenario assumes that a user:
+Det här scenariot förutsätter att en användare:
 
-- Tries to use the SharePoint app to connect and also to view their corporate sites
-- Attempts to sign in with the same credentials as the Outlook app credentials
-- Does not have to re-register and can get access to the resources
+- Försöker använda SharePoint-appen för att ansluta och även visa sina företags webbplatser
+- Försöker logga in med samma autentiseringsuppgifter som Outlook-appens autentiseringsuppgifter
+- Behöver inte registrera igen och få till gång till resurserna
 
 ### <a name="configuration"></a>Konfiguration
 
-**Step 1 - Configure an Azure AD Conditional Access policy for Exchange Online and SharePoint Online**
+**Steg 1 – Konfigurera en princip för villkorlig åtkomst för Azure AD för Exchange Online och SharePoint Online**
 
-For the Conditional Access policy in this step, you need to configure the following components:
+För principen för villkorlig åtkomst i det här steget måste du konfigurera följande komponenter:
 
-1. The **Name** of your Conditional Access policy.
-1. **Users and groups**: Each Conditional Access policy must have at least one user or group selected.
-1. **Cloud apps:** As cloud apps, you need to select **Office 365 Exchange Online** and **Office 365 SharePoint Online**. 
-1. **Conditions:** As **Conditions**, you need to configure **Device platforms** and **Client apps**:
-   1. As **Device platforms**, select **Android** and **iOS**.
-   1. As **Client apps (preview)** , select **Mobile apps and desktop clients** and **Modern authentication clients**.
-1. As **Access controls**, you need to have **Require approved client app (preview)** selected.
+1. **Namnet** på den villkorliga åtkomst principen.
+1. **Användare och grupper**: varje princip för villkorlig åtkomst måste ha minst en vald användare eller grupp.
+1. **Molnappar:** Som molnappar måste du välja **Office 365 Exchange Online** och **Office 365 SharePoint Online**. 
+1. **Villkor:** Som **villkor**måste du konfigurera **enhets plattformar** och **klient program**:
+   1. Som **enhets plattformar**väljer du **Android** och **iOS**.
+   1. Som **klient program (för hands version)** väljer du **mobilappar och skriv bords klienter** och **moderna autentiserade klienter**.
+1. Som **åtkomst kontroller**måste du ha valt **Kräv godkänd klient app (för hands version)** .
 
    ![Villkorlig åtkomst](./media/app-based-conditional-access/05.png)
 
-**Step 2 - Configure an Azure AD Conditional Access policy for Exchange Online with Active Sync (EAS)**
+**Steg 2 – Konfigurera en Azure AD-princip för villkorlig åtkomst för Exchange Online med Active Sync (EAS)**
 
-For the Conditional Access policy in this step, you need to configure the following components:
+För principen för villkorlig åtkomst i det här steget måste du konfigurera följande komponenter:
 
-1. The **Name** of your Conditional Access policy.
-1. **Users and groups**: Each Conditional Access policy must have at least one user or group selected.
-1. **Cloud apps:** As cloud apps, you need to select **Office 365 Exchange Online**. Online 
-1. **Conditions:** As **Conditions**, you need to configure **Client apps**:
-   1. As **Client apps (preview)** , select **Mobile apps and desktop clients** and **Exchange ActiveSync clients**.
-   1. As **Access controls**, you need to have **Require approved client app (preview)** selected.
+1. **Namnet** på den villkorliga åtkomst principen.
+1. **Användare och grupper**: varje princip för villkorlig åtkomst måste ha minst en vald användare eller grupp.
+1. **Molnappar:** Som molnappar måste du välja **Office 365 Exchange Online**. Online 
+1. **Villkor:** Som **villkor**måste du konfigurera- **klient program**:
+   1. Som **klient program (för hands version)** väljer du **mobilappar och skriv bords klienter** och **Exchange ActiveSync-klienter**.
+   1. Som **åtkomst kontroller**måste du ha valt **Kräv godkänd klient app (för hands version)** .
 
       ![Villkorlig åtkomst](./media/app-based-conditional-access/05.png)
 
-**Step 3 - Configure Intune app protection policy for iOS and Android client applications**
+**Steg 3 – Konfigurera Intune-appens skydds princip för iOS-och Android-klientprogram**
 
 ![Villkorlig åtkomst](./media/app-based-conditional-access/09.png)
 
-See [Protect apps and data with Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune) for more information.
+Mer information finns i [Skydda appar och data med Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune) .
 
-## <a name="app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>App-based or compliant device policy for Exchange Online and SharePoint Online
+## <a name="app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>App-baserad eller kompatibel enhets princip för Exchange Online och SharePoint Online
 
-This scenario consists of an app-based or compliant device Conditional Access policy for access to Exchange Online.
+Det här scenariot består av en app-baserad eller kompatibel enhets princip för villkorlig åtkomst för åtkomst till Exchange Online.
 
-### <a name="scenario-playbook"></a>Scenario playbook
+### <a name="scenario-playbook"></a>Scenario Spelbok
 
-This scenario assumes that:
+Det här scenariot förutsätter att:
  
-- Some users are already enrolled (with or without corporate devices)
-- Users who are not enrolled and registered with Azure AD using an app protected application need to register a device to access resources
-- Enrolled users using the app protected application don't have to re-register the device
+- Vissa användare har redan registrerats (med eller utan företags enheter)
+- Användare som inte har registrerats och registrerats med Azure AD med hjälp av ett app-skyddat program behöver registrera en enhet för att få åtkomst till resurser
+- Registrerade användare som använder appens skyddade program behöver inte registrera enheten på nytt
 
 ### <a name="configuration"></a>Konfiguration
 
-**Step 1 - Configure an Azure AD Conditional Access policy for Exchange Online and SharePoint Online**
+**Steg 1 – Konfigurera en princip för villkorlig åtkomst för Azure AD för Exchange Online och SharePoint Online**
 
-For the Conditional Access policy in this step, you need to configure the following components:
+För principen för villkorlig åtkomst i det här steget måste du konfigurera följande komponenter:
 
-1. The **Name** of your Conditional Access policy.
-1. **Users and groups**: Each Conditional Access policy must have at least one user or group selected.
-1. **Cloud apps:** As cloud apps, you need to select **Office 365 Exchange Online** and **Office 365 SharePoint Online**. 
-1. **Conditions:** As **Conditions**, you need to configure **Device platforms** and **Client apps**. 
-   1. As **Device platforms**, select **Android** and **iOS**.
-   1. As **Client apps (preview)** , select **Mobile apps and desktop clients** and **Modern authentication clients**.
-1. As **Access controls**, you need to have the following selected:
-   - **Require device to be marked as compliant**
-   - **Require approved client app (preview)**
-   - **Require one of the selected controls**   
+1. **Namnet** på den villkorliga åtkomst principen.
+1. **Användare och grupper**: varje princip för villkorlig åtkomst måste ha minst en vald användare eller grupp.
+1. **Molnappar:** Som molnappar måste du välja **Office 365 Exchange Online** och **Office 365 SharePoint Online**. 
+1. **Villkor:** Som **villkor**måste du konfigurera **enhets plattformar** och **klient program**. 
+   1. Som **enhets plattformar**väljer du **Android** och **iOS**.
+   1. Som **klient program (för hands version)** väljer du **mobilappar och skriv bords klienter** och **moderna autentiserade klienter**.
+1. Som **åtkomst kontroller**måste du ha följande valt:
+   - **Kräv att enheten ska markeras som kompatibel**
+   - **Kräv godkänd klient app (för hands version)**
+   - **Kräv en av de valda kontrollerna**   
  
       ![Villkorlig åtkomst](./media/app-based-conditional-access/11.png)
 
-**Step 2 - Configure an Azure AD Conditional Access policy for Exchange Online with Active Sync (EAS)**
+**Steg 2 – Konfigurera en Azure AD-princip för villkorlig åtkomst för Exchange Online med Active Sync (EAS)**
 
-For the Conditional Access policy in this step, you need to configure the following components:
+För principen för villkorlig åtkomst i det här steget måste du konfigurera följande komponenter:
 
-1. The **Name** of your Conditional Access policy.
-1. **Users and groups**: Each Conditional Access policy must have at least one user or group selected.
-1. **Cloud apps:** As cloud apps, you need to select **Office 365 Exchange Online**. 
-1. **Conditions:** As **Conditions**, you need to configure **Client apps**. 
-   1. As **Client apps (preview)** , select **Mobile apps and desktop clients** and **Exchange ActiveSync clients**.
-1. As **Access controls**, you need to have **Require approved client app (preview)** selected.
+1. **Namnet** på den villkorliga åtkomst principen.
+1. **Användare och grupper**: varje princip för villkorlig åtkomst måste ha minst en vald användare eller grupp.
+1. **Molnappar:** Som molnappar måste du välja **Office 365 Exchange Online**. 
+1. **Villkor:** Som **villkor**måste du konfigurera- **klient program**. 
+   1. Som **klient program (för hands version)** väljer du **mobilappar och skriv bords klienter** och **Exchange ActiveSync-klienter**.
+1. Som **åtkomst kontroller**måste du ha valt **Kräv godkänd klient app (för hands version)** .
  
    ![Villkorlig åtkomst](./media/app-based-conditional-access/11.png)
 
-**Step 3 - Configure Intune app protection policy for iOS and Android client applications**
+**Steg 3 – Konfigurera Intune-appens skydds princip för iOS-och Android-klientprogram**
 
 ![Villkorlig åtkomst](./media/app-based-conditional-access/09.png)
 
-See [Protect apps and data with Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune) for more information.
+Mer information finns i [Skydda appar och data med Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune) .
 
-## <a name="app-based-and-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>App-based and compliant device policy for Exchange Online and SharePoint Online
+## <a name="app-based-and-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>App-baserad och kompatibel enhets princip för Exchange Online och SharePoint Online
 
-This scenario consists of an app-based and compliant device Conditional Access policy for access to Exchange Online.
+Det här scenariot består av en app-baserad och kompatibel enhets princip för villkorlig åtkomst för åtkomst till Exchange Online.
 
-### <a name="scenario-playbook"></a>Scenario playbook
+### <a name="scenario-playbook"></a>Scenario Spelbok
 
-This scenario assumes that a user:
+Det här scenariot förutsätter att en användare:
  
-- Configures email using a native mail application on iOS or Android to connect to Exchange
-- Receives an email that indicates that access requires your device to be enrolled
-- Downloads the company portal and signs in to company portal
-- Checks mail and is asked to use the Outlook app
-- Downloads the Outlook app
-- Opens the Outlook app and enters the credentials used in the enrollment
-- User is able to access email
+- Konfigurerar e-post med hjälp av ett internt e-postprogram på iOS eller Android för att ansluta till Exchange
+- Tar emot ett e-postmeddelande som anger att enheten måste registreras
+- Laddar ned företags portalen och loggar in på företags portalen
+- Söker efter e-post och uppmanas att använda Outlook-appen
+- Hämtar Outlook-appen
+- Öppnar Outlook-appen och anger de autentiseringsuppgifter som används i registreringen
+- Användaren kan komma åt e-post
 
-Any Intune app protection policies are activated at the time of access to the corporate data and may prompt the user to restart the application, use an additional PIN etc. (if configured for the application and platform)
+Alla principer för Intune App Protection aktive ras vid tidpunkten för åtkomst till företags data och användaren uppmanas att starta om programmet, använda ytterligare en PIN-kod osv. (om det har kon figurer ATS för programmet och plattformen)
 
 ### <a name="configuration"></a>Konfiguration
 
-**Step 1 - Configure an Azure AD Conditional Access policy for Exchange Online and SharePoint Online**
+**Steg 1 – Konfigurera en princip för villkorlig åtkomst för Azure AD för Exchange Online och SharePoint Online**
 
-For the Conditional Access policy in this step, you need to configure the following components:
+För principen för villkorlig åtkomst i det här steget måste du konfigurera följande komponenter:
 
-1. The **Name** of your Conditional Access policy.
-1. **Users and groups**: Each Conditional Access policy must have at least one user or group selected.
-1. **Cloud apps:** As cloud apps, you need to select **Office 365 Exchange Online** and **Office 365 SharePoint Online**. 
-1. **Conditions:** As **Conditions**, you need to configure **Device platforms** and **Client apps**. 
-   1. As **Device platforms**, select **Android** and **iOS**.
-   1. As **Client apps (preview)** , select **Mobile apps and desktop apps** and **Modern authentication clients**.
-1. As **Access controls**, you need to have the following selected:
-   - **Require device to be marked as compliant**
-   - **Require approved client app (preview)**
-   - **Require all the selected controls**   
+1. **Namnet** på den villkorliga åtkomst principen.
+1. **Användare och grupper**: varje princip för villkorlig åtkomst måste ha minst en vald användare eller grupp.
+1. **Molnappar:** Som molnappar måste du välja **Office 365 Exchange Online** och **Office 365 SharePoint Online**. 
+1. **Villkor:** Som **villkor**måste du konfigurera **enhets plattformar** och **klient program**. 
+   1. Som **enhets plattformar**väljer du **Android** och **iOS**.
+   1. Som **klient program (för hands version)** väljer du **mobilappar och skrivbordsappar** och **moderna autentiserade klienter**.
+1. Som **åtkomst kontroller**måste du ha följande valt:
+   - **Kräv att enheten ska markeras som kompatibel**
+   - **Kräv godkänd klient app (för hands version)**
+   - **Kräv alla markerade kontroller**   
  
       ![Villkorlig åtkomst](./media/app-based-conditional-access/13.png)
 
-**Step 2 - Configure an Azure AD Conditional Access policy for Exchange Online with Active Sync (EAS)**
+**Steg 2 – Konfigurera en Azure AD-princip för villkorlig åtkomst för Exchange Online med Active Sync (EAS)**
 
-For the Conditional Access policy in this step, you need to configure the following components:
+För principen för villkorlig åtkomst i det här steget måste du konfigurera följande komponenter:
 
-1. The **Name** of your Conditional Access policy.
-1. **Users and groups**: Each Conditional Access policy must have at least one user or group selected.
-1. **Cloud apps:** As cloud apps, you need to select **Office 365 Exchange Online**. 
-1. **Conditions:** As **Conditions**, you need to configure **Client apps (preview)** . 
-   1. As **Client apps (preview)** , select **Mobile apps and desktop clients** and **Exchange ActiveSync clients**.
+1. **Namnet** på den villkorliga åtkomst principen.
+1. **Användare och grupper**: varje princip för villkorlig åtkomst måste ha minst en vald användare eller grupp.
+1. **Molnappar:** Som molnappar måste du välja **Office 365 Exchange Online**. 
+1. **Villkor:** Som **villkor**måste du konfigurera **klient program (för hands version)** . 
+   1. Som **klient program (för hands version)** väljer du **mobilappar och skriv bords klienter** och **Exchange ActiveSync-klienter**.
 
    ![Villkorlig åtkomst](./media/app-based-conditional-access/92.png)
 
-1. As **Access controls**, you need to have the following selected:
-   - **Require device to be marked as compliant**
-   - **Require approved client app (preview)**
-   - **Require all the selected controls**   
+1. Som **åtkomst kontroller**måste du ha följande valt:
+   - **Kräv att enheten ska markeras som kompatibel**
+   - **Kräv godkänd klient app (för hands version)**
+   - **Kräv alla markerade kontroller**   
 
-**Step 3 - Configure Intune app protection policy for iOS and Android client applications**
+**Steg 3 – Konfigurera Intune-appens skydds princip för iOS-och Android-klientprogram**
 
 ![Villkorlig åtkomst](./media/app-based-conditional-access/09.png)
 
-See [Protect apps and data with Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune) for more information.
+Mer information finns i [Skydda appar och data med Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune) .
 
 ## <a name="next-steps"></a>Nästa steg
 
-If you want to know how to configure a Conditional Access policy, see [Require MFA for specific apps with Azure Active Directory Conditional Access](app-based-mfa.md).
+Om du vill veta hur du konfigurerar en princip för villkorlig åtkomst, se [KRÄV MFA för vissa appar med Azure Active Directory villkorlig åtkomst](app-based-mfa.md).
 
-If you are ready to configure Conditional Access policies for your environment, see the [best practices for Conditional Access in Azure Active Directory](best-practices.md). 
+Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö, se [metod tips för villkorlig åtkomst i Azure Active Directory](best-practices.md). 

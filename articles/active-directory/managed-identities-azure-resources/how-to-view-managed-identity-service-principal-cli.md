@@ -1,6 +1,6 @@
 ---
-title: View service principal of a managed identity - Azure CLI - Azure AD
-description: Step-by-step instructions for viewing the service principal of a managed identity using Azure CLI.
+title: Visa tjänstens huvud namn för en hanterad identitet – Azure CLI – Azure AD
+description: Stegvisa instruktioner för att Visa tjänstens huvud namn för en hanterad identitet med Azure CLI.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -22,27 +22,27 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74224611"
 ---
-# <a name="view-the-service-principal-of-a-managed-identity-using-azure-cli"></a>View the service principal of a managed identity using Azure CLI
+# <a name="view-the-service-principal-of-a-managed-identity-using-azure-cli"></a>Visa tjänstens huvud namn för en hanterad identitet med Azure CLI
 
-Managed identities for Azure resources provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication without having credentials in your code. 
+Hanterade identiteter för Azure-resurser tillhandahåller Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory. Du kan använda den här identiteten för att autentisera till en tjänst som stöder Azure AD-autentisering utan att ha autentiseringsuppgifter i din kod. 
 
-In this article, you learn how to view the service principal of a managed identity using Azure CLI.
+I den här artikeln får du lära dig hur du visar tjänstens huvud namn för en hanterad identitet med hjälp av Azure CLI.
 
 ## <a name="prerequisites"></a>Krav
 
-- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md).
-- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/).
-- Enable [system assigned identity on a virtual machine](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) or [application](/azure/app-service/overview-managed-identity#adding-a-system-assigned-identity).
-- To run the CLI script examples, you have three options:
-    - Use [Azure Cloud Shell](../../cloud-shell/overview.md) from the Azure portal (see next section).
-    - Use the embedded Azure Cloud Shell via the "Try It" button, located in the top right corner of each code block.
-    - [Install the latest version of the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) if you prefer to use a local CLI console and sign in to Azure using `az login`
+- Om du inte känner till hanterade identiteter för Azure-resurser kan du läsa [avsnittet Översikt](overview.md).
+- Om du inte redan har ett Azure-konto kan du [Registrera dig för ett kostnads fritt konto](https://azure.microsoft.com/free/).
+- Aktivera [systemtilldelad identitet på en virtuell dator eller ett](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) [program](/azure/app-service/overview-managed-identity#adding-a-system-assigned-identity).
+- Om du vill köra CLI-exempelskript, finns det tre alternativ:
+    - Använd [Azure Cloud Shell](../../cloud-shell/overview.md) från Azure Portal (se nästa avsnitt).
+    - Använd inbäddad Azure Cloud Shell via ”Prova” knappen, finns i det övre högra hörnet av varje kodblock.
+    - [Installera den senaste versionen av Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) om du föredrar att använda en lokal CLI-konsol och logga in på Azure med hjälp av `az login`
  
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="view-the-service-principal"></a>View the service principal
+## <a name="view-the-service-principal"></a>Visa tjänstens huvud namn
 
-This following command demonstrates how to view the service principal of a VM or application with managed identity enabled. Replace `<VM or application name>` with your own values. 
+Följande kommando visar hur du visar tjänstens huvud namn för en virtuell dator eller ett program med hanterad identitet aktive rad. Ersätt `<VM or application name>` med dina egna värden. 
 
 ```azurecli-interactive
 az ad sp list --display-name <VM or application name>
@@ -50,6 +50,6 @@ az ad sp list --display-name <VM or application name>
 
 ## <a name="next-steps"></a>Nästa steg
 
-For more information on managing Azure AD service principals using Azure CLI, see [az ad sp](/cli/azure/ad/sp).
+Mer information om hur du hanterar Azure AD-tjänstens huvud namn med Azure CLI finns i [AZ AD SP](/cli/azure/ad/sp).
 
 

@@ -121,7 +121,7 @@ Om du vill returnera formulär numret i svars förutsägelsens svar måste formu
    ![Ange reguljärt uttryck för entitet](./media/get-started-portal-build-app/create-regular-expression-entity-with-expression.png)
 
 
-## <a name="add-example-utterances-to-the-none-intent"></a>Lägg till exempel på yttranden i avsikten Ingen
+## <a name="add-example-utterances-to-the-none-intent"></a>Lägg till exempelyttranden till avsikten Ingen
 
 **Ingen** avsikt är återställnings avsikten och får inte vara tom. Avsikten bör innehålla en uttryck för varje 10-exempel yttranden som du har lagt till för andra avsikter av appen.
 

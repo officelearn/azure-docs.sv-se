@@ -1,6 +1,6 @@
 ---
 title: Exempel – Principinitiativ för faktureringstaggar
-description: This sample policy initiative (policy set) requires specified tag values defined in parameters for cost center and product name.
+description: Det här exemplet på policy initiativ (princip uppsättning) kräver att angivna taggattribut definieras i parametrarna för kostnads ställe och produkt namn.
 ms.date: 01/23/2019
 ms.topic: sample
 ms.openlocfilehash: 449909b160c2b811c62cd8c6592e74dd0f714e41
@@ -20,7 +20,7 @@ Den här principuppsättningen kräver angivna taggvärden för kostnadsställe 
 
 [!code-json[main](../../../../policy-templates/samples/PolicyInitiatives/multiple-billing-tags/azurepolicyset.json "Billing Tags Policy Initiative")]
 
-You can deploy this template with [PowerShell](#deploy-with-powershell).
+Du kan distribuera den här mallen med [PowerShell](#deploy-with-powershell).
 
 ## <a name="deploy-with-powershell"></a>Distribuera med PowerShell
 
@@ -62,4 +62,4 @@ foreach ($r in $resources) {
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska fler exempel under [Exempel på Azure-princip](index.md)
+- Granska fler exempel under [Azure Policy-exempel](index.md)

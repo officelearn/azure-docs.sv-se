@@ -73,7 +73,7 @@ Det kan ta några minuter innan opt-in-åtgärden börjar gälla. Sedan kommer e
 1.  Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för Azure AD.
 2.  I navigerings fönstret väljer du **Azure Active Directory**.
 3.  Under **Hantera**väljer du **organisations relationer**.
-4.  Välj **inställningar**.
+4.  Välj **Inställningar**.
 5.  Under **Aktivera e-post med eng ång slö sen ord för gäster (för hands version)** väljer du **Ja**.
  
 ### <a name="to-opt-in-using-powershell"></a>Välja att använda PowerShell
@@ -140,7 +140,7 @@ Det kan ta några minuter innan den opt-out-åtgärden börjar gälla. Om du ina
 1.  Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för Azure AD.
 2.  I navigerings fönstret väljer du **Azure Active Directory**.
 3.  Under **Hantera**väljer du **organisations relationer**.
-4.  Välj **inställningar**.
+4.  Välj **Inställningar**.
 5.  Under **Aktivera e-post med eng ång slö sen ord för gäster (för hands version)** väljer du **Nej**.
 
 ### <a name="to-turn-off-the-preview-using-powershell"></a>Så här stänger du av för hands versionen med PowerShell

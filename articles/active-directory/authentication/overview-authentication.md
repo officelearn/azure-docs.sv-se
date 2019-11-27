@@ -1,5 +1,5 @@
 ---
-title: Authenticating and securing users - Azure Active Directory
+title: Autentisera och skydda användare – Azure Active Directory
 description: Hur kan jag som Azure AD-administratör skydda användarautentisering och samtidigt minska påverkan för slutanvändarna?
 services: active-directory
 ms.service: active-directory
@@ -47,7 +47,7 @@ Självåterställning av lösenord inkluderar:
 * **Lösenordsåterställning:** Jag kan inte logga in, och jag vill återställa lösenordet med hjälp av en eller flera godkända autentiseringsmetoder.
 * **Kontoupplåsning:** Jag kan inte logga in eftersom mitt konto är låst, och jag vill låsa upp det med hjälp av en eller flera godkända autentiseringsmetoder.
 
-## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+## <a name="multi-factor-authentication"></a>Multifaktorautentisering
 
 Azure Multi-Factor Authentication (MFA) är Microsofts verifieringslösning i två steg. Med autentiseringsmetoder som är godkända av administratör hjälper Azure MFA till att skydda din åtkomst till data och program, samtidigt som behovet av en enkel inloggningsprocess uppfylls.
 

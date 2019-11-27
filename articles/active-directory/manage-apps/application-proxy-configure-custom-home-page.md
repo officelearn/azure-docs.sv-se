@@ -37,7 +37,7 @@ Här är ett scenario som förklarar varför företaget skulle ange en anpassad 
 - Du vill ange `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx` som start sidans URL i stället, så att en extern användare ser inloggnings sidan först.
 
 > [!NOTE]
-> När du ger användare åtkomst till publicerade appar appar visas i den [Azure AD-åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md) och [Office 365-appstartaren](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/).
+> När du ger användare åtkomst till publicerade appar visas apparna i [Azure AD-åtkomst panelen](../user-help/my-apps-portal-end-user-access.md) och [Office 365 App Launcher](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/).
 
 ## <a name="before-you-start"></a>Innan du börjar
 
@@ -75,7 +75,7 @@ Om du vill konfigurera start sidan för en app med hjälp av PowerShell måste d
 
 ### <a name="install-the-azure-ad-powershell-module"></a>Installera Azure AD PowerShell-modulen
 
-Installera Azure AD PowerShell-modulen innan du definierar en anpassad URL-Adressen med hjälp av PowerShell.Du kan hämta paketet från [PowerShell-galleriet](https://www.powershellgallery.com/packages/AzureAD/2.0.2.16)som använder Graph API-slutpunkten.
+Installera Azure AD PowerShell-modulen innan du definierar en anpassad URL-Adressen med hjälp av PowerShell. Du kan hämta paketet från [PowerShell-galleriet](https://www.powershellgallery.com/packages/AzureAD/2.0.2.16)som använder Graph API-slutpunkten.
 
 Följ dessa steg för att installera paketet:
 
@@ -85,7 +85,7 @@ Följ dessa steg för att installera paketet:
    Install-Module -Name AzureAD
    ```
 
-    Om du använder kommandot som en icke-administratörer kan använda den `-scope currentuser` alternativet.
+    Om du kör kommandot som en icke-administratör använder du alternativet `-scope currentuser`.
 
 1. Under installationen väljer du **Y** för att installera två paket från NuGet.org. Båda paketen krävs.
 
@@ -147,7 +147,7 @@ Skapa URL: en för start sidan och uppdatera din app med det värdet. Fortsätt 
    $appnew = New-Object "Microsoft.Open.AzureAD.Model.Application"
    ```
 
-1. Ange URL till startsidan till det värde som du vill. Värdet måste vara en underdomän sökväg till den publicerade appen. Exempel: Om du ändrar den URL-Adressen från `https://sharepoint-iddemo.msappproxy.net/` till `https://sharepoint-iddemo.msappproxy.net/hybrid/`, app-användare gå direkt till anpassad startsida.
+1. Ange URL till startsidan till det värde som du vill. Värdet måste vara en underdomän sökväg till den publicerade appen. Om du till exempel ändrar Start sidans URL från `https://sharepoint-iddemo.msappproxy.net/` till `https://sharepoint-iddemo.msappproxy.net/hybrid/`går det direkt till den anpassade start sidan.
 
    ```powershell
    $homepage = "https://sharepoint-iddemo.msappproxy.net/hybrid/"
@@ -180,5 +180,5 @@ Skapa URL: en för start sidan och uppdatera din app med det värdet. Fortsätt 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Aktivera fjärråtkomst till SharePoint med Azure AD Application Proxy](application-proxy-integrate-with-sharepoint-server.md)
+- [Aktivera fjärråtkomst till SharePoint med Azure AD-programproxy](application-proxy-integrate-with-sharepoint-server.md)
 - [Självstudie: Lägg till ett lokalt program för fjärråtkomst via Application Proxy i Azure Active Directory](application-proxy-add-on-premises-application.md)

@@ -1,6 +1,6 @@
 ---
-title: Connect CEF data to Azure Sentinel Preview| Microsoft Docs
-description: Learn how to connect CEF data to Azure Sentinel.
+title: Anslut CEF-data till Azure Sentinel Preview | Microsoft Docs
+description: Lär dig hur du ansluter CEF-data till Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -21,110 +21,110 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74463970"
 ---
-# <a name="connect-your-external-solution-using-common-event-format"></a>Connect your external solution using Common Event Format
+# <a name="connect-your-external-solution-using-common-event-format"></a>Ansluta din externa lösning med hjälp av vanligt händelse format
 
 
 
-This article explains how to connect Azure Sentinel with your external security solutions that send Common Event Format (CEF) messages on top of Syslog. 
+Den här artikeln förklarar hur du ansluter Azure Sentinel med dina externa säkerhetslösningar som skickar CEF-meddelanden (common Event format) ovanpå syslog. 
 
 > [!NOTE] 
-> Data is stored in the geographic location of the workspace on which you are running Azure Sentinel.
+> Data lagras på den geografiska platsen för den arbets yta där du kör Azure Sentinel.
 
-## <a name="how-it-works"></a>Så här fungerar det
+## <a name="how-it-works"></a>Hur det fungerar
 
-You need to deploy an agent on a dedicated Linux machine (VM or on premises) to support the communication between the appliance and Azure Sentinel. The following diagram describes the setup in the event of a Linux VM in Azure.
+Du måste distribuera en agent på en särskild Linux-dator (VM eller lokalt) för att stödja kommunikationen mellan-enheten och Azure Sentinel. Följande diagram beskriver installationen i händelse av en virtuell Linux-dator i Azure.
 
- ![CEF in Azure](./media/connect-cef/cef-syslog-azure.png)
+ ![CEF i Azure](./media/connect-cef/cef-syslog-azure.png)
 
-Alternatively, this setup will exist if you use a VM in another cloud, or an on-premises machine. 
+Detta kan också finnas om du använder en virtuell dator i ett annat moln eller på en lokal dator. 
 
- ![CEF on premises](./media/connect-cef/cef-syslog-onprem.png)
+ ![CEF lokalt](./media/connect-cef/cef-syslog-onprem.png)
 
 
 ## <a name="security-considerations"></a>Säkerhetsöverväganden
 
-Make sure to configure the machine's security according to your organization's security policy. For example, you can configure your network to align with your corporate network security policy and change the ports and protocols in the daemon to align with your requirements. You can use the following instructions to improve your machine security configuration:  [Secure VM in Azure](../virtual-machines/linux/security-policy.md), [Best practices for Network security](../security/fundamentals/network-best-practices.md).
+Se till att konfigurera datorns säkerhet enligt din organisations säkerhets princip. Du kan till exempel konfigurera nätverket så att det överensstämmer med företagets nätverks säkerhets princip och ändra portarna och protokollen i daemonen så att de överensstämmer med dina krav. Du kan använda följande instruktioner för att förbättra datorns säkerhets konfiguration:  [säker virtuell dator i Azure](../virtual-machines/linux/security-policy.md), [metod tips för nätverks säkerhet](../security/fundamentals/network-best-practices.md).
 
-To use TLS communication between the security solution and the Syslog machine, you will need to configure the Syslog daemon (rsyslog or syslog-ng) to communicate in TLS: [Encrypting Syslog Traffic with TLS -rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), [Encrypting log messages with TLS –syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298).
+Om du vill använda TLS-kommunikation mellan säkerhets lösningen och syslog-datorn måste du konfigurera syslog-daemonen (rsyslog eller syslog-ng) för att kommunicera i TLS: [kryptera syslog-trafik med TLS-rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), [kryptera logg meddelanden med TLS – syslog – ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298).
 
  
 ## <a name="prerequisites"></a>Krav
-Make sure the Linux machine you use as a proxy is running one of the following operating systems:
+Kontrol lera att Linux-datorn som du använder som proxy kör något av följande operativ system:
 
-- 64-bit
-  - CentOS 6 and 7
-  - Amazon Linux 2017.09
-  - Oracle Linux 6 and 7
-  - Red Hat Enterprise Linux Server 6 and 7
-  - Debian GNU/Linux 8 and 9
-  - Ubuntu Linux 14.04 LTS, 16.04 LTS and 18.04 LTS
+- 64-bitars
+  - CentOS 6 och 7
+  - Amazon Linux 2017,09
+  - Oracle Linux 6 och 7
+  - Red Hat Enterprise Linux Server 6 och 7
+  - Debian GNU/Linux 8 och 9
+  - Ubuntu Linux 14,04 LTS 16,04 LTS och 18,04 LTS
   - SUSE Linux Enterprise Server 12
-- 32-bit
+- 32-bitars
    - CentOS 6
    - Oracle Linux 6
    - Red Hat Enterprise Linux Server 6
-   - Debian GNU/Linux 8 and 9
-   - Ubuntu Linux 14.04 LTS and 16.04 LTS
+   - Debian GNU/Linux 8 och 9
+   - Ubuntu Linux 14,04 LTS och 16,04 LTS
  
- - Daemon versions
-   - Syslog-ng: 2.1 - 3.22.1
-   - Rsyslog: v8
+ - Daemon-versioner
+   - Syslog-ng: 2,1-3.22.1
+   - Rsyslog: V8
   
- - Syslog RFCs supported
+ - Syslog-RFC stöds
    - Syslog RFC 3164
    - Syslog RFC 5424
  
-Make sure your machine also meets the following requirements: 
+Kontrol lera att datorn också uppfyller följande krav: 
 - Behörigheter
-    - You must have elevated permissions (sudo) on your machine. 
+    - Du måste ha förhöjd behörighet (sudo) på datorn. 
 - Programvarukrav
-    - Make sure you have Python running on your machine
-## <a name="step-1-deploy-the-agent"></a>STEP 1: Deploy the agent
+    - Kontrol lera att du har python igång på datorn
+## <a name="step-1-deploy-the-agent"></a>STEG 1: Distribuera agenten
 
-In this step, you need to select the Linux machine that will act as a proxy between Azure Sentinel and your security solution. You will have to run a script on the proxy machine that:
-- Installs the Log Analytics agent and configures it as needed to listen for Syslog messages.
-- Configures the Syslog daemon to listen to Syslog messages using TCP port 514 and then forwards only the CEF messages to the Log Analytics agent using TCP port 25226.
-- Sets the Syslog agent to collect the data and send it securely to Azure Sentinel, where it is parsed and enriched.
+I det här steget måste du välja den Linux-dator som ska fungera som en proxy mellan Azure Sentinel och din säkerhets lösning. Du måste köra ett skript på den proxyserver som:
+- Installerar den Log Analytics agenten och konfigurerar den efter behov för att lyssna efter syslog-meddelanden.
+- Konfigurerar syslog-daemonen att lyssna på syslog-meddelanden med TCP-port 514 och vidarebefordrar sedan endast CEF-meddelanden till Log Analytics agent med TCP-port 25226.
+- Ställer in syslog-agenten för att samla in data och skicka dem säkert till Azure Sentinel, där det är parsat och berikat.
  
  
-1. In the Azure Sentinel portal, click **Data connectors** and select **Common Event Format (CEF)** and then **Open connector page**. 
+1. I Azure Sentinel-portalen klickar du på **data kopplingar** och väljer **vanligt händelse format (CEF)** och **öppnar sedan kopplings sidan**. 
 
-1. Under **Install and configure the Syslog agent**, select your machine type, either Azure, other cloud, or on-premises. 
+1. Under **Installera och konfigurera syslog-agenten**väljer du dator typ, antingen Azure, annat moln eller lokalt. 
    > [!NOTE]
-   > Because the script in the next step installs the Log Analytics agent and connects the machine to your Azure Sentinel workspace, make sure this machine is not connected to any other workspace.
-1. You must have elevated permissions (sudo) on your machine. Make sure that you have Python on your machine using the following command: `python –version`
+   > Eftersom skriptet i nästa steg installerar Log Analytics agenten och ansluter datorn till din Azure Sentinel-arbetsyta, kontrol lera att datorn inte är ansluten till någon annan arbets yta.
+1. Du måste ha förhöjd behörighet (sudo) på datorn. Se till att du har python på datorn med hjälp av följande kommando: `python –version`
 
-1. Run the following script on your proxy machine.
+1. Kör följande skript på din proxyserver.
    `sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]`
-1. While the script is running, check to make sure you don't get any error or warning messages.
+1. Kontrol lera att du inte får några fel eller varnings meddelanden medan skriptet körs.
 
 
-## <a name="step-2-configure-your-security-solution-to-send-cef-messages"></a>STEP 2: Configure your security solution to send CEF messages
+## <a name="step-2-configure-your-security-solution-to-send-cef-messages"></a>STEG 2: Konfigurera säkerhets lösningen för att skicka CEF-meddelanden
 
-1. On the appliance you need to set these values so that the appliance sends the necessary logs in the necessary format to the Azure Sentinel Syslog agent, based on the Log Analytics agent. You can modify these parameters in your appliance, as long as you also modify them in the Syslog daemon on the Azure Sentinel agent.
-    - Protocol = TCP
+1. På den här enheten måste du ange dessa värden så att installations programmet skickar nödvändiga loggar i det format som krävs till Azure Sentinel syslog-agenten, baserat på Log Analytics agenten. Du kan ändra dessa parametrar i din installation så länge du också ändrar dem i syslog-daemonen på Azure Sentinel-agenten.
+    - Protokoll = TCP
     - Port = 514
     - Format = CEF
-    - IP address - make sure to send the CEF messages to the IP address of the virtual machine you dedicated for this purpose.
+    - IP-adress – se till att skicka CEF-meddelanden till IP-adressen för den virtuella dator som du dedikerat för detta ändamål.
 
    > [!NOTE]
-   > This solution supports Syslog RFC 3164 or RFC 5424.
+   > Den här lösningen stöder Syslog RFC 3164 eller RFC 5424.
 
 
-1. To use the relevant schema in Log Analytics for the CEF events, search for `CommonSecurityLog`.
+1. Om du vill använda det relevanta schemat i Log Analytics för CEF-händelserna söker du efter `CommonSecurityLog`.
 
-## <a name="step-3-validate-connectivity"></a>STEP 3: Validate connectivity
+## <a name="step-3-validate-connectivity"></a>STEG 3: verifiera anslutningen
 
-1. Open Log Analytics to make sure that logs are received using the CommonSecurityLog schema.<br> It may take upwards of 20 minutes until your logs start to appear in Log Analytics. 
+1. Öppna Log Analytics för att se till att loggarna tas emot med CommonSecurityLog-schemat.<br> Det kan ta upp till 20 minuter innan loggarna börjar visas i Log Analytics. 
 
-1. Before you run the script, we recommend that you send messages from your security solution to make sure they are being forwarded to the Syslog proxy machine you configured. 
-1. You must have elevated permissions (sudo) on your machine. Make sure that you have Python on your machine using the following command: `python –version`
-1. Run the following script to check connectivity between the agent, Azure Sentinel, and your security solution. It checks that the daemon forwarding is properly configured, listens on the correct ports, and that nothing is blocking communication between the daemon and the Log Analytics agent. The script also sends mock messages 'TestCommonEventFormat' to check end-to-end connectivity. <br>
+1. Innan du kör skriptet rekommenderar vi att du skickar meddelanden från din säkerhetslösning för att se till att de vidarebefordras till den syslog-proxyserver som du har konfigurerat. 
+1. Du måste ha förhöjd behörighet (sudo) på datorn. Se till att du har python på datorn med hjälp av följande kommando: `python –version`
+1. Kör följande skript för att kontrol lera anslutningen mellan agenten, Azure Sentinel och din säkerhets lösning. Den kontrollerar att daemon-vidarebefordran har kon figurer ATS korrekt, lyssnar på rätt portar och att ingenting blockerar kommunikationen mellan daemonen och den Log Analytics agenten. Skriptet skickar även de blå meddelandena "TestCommonEventFormat" för att kontrol lera anslutning från slut punkt till slut punkt. <br>
  `sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]`
 
 
 ## <a name="next-steps"></a>Nästa steg
-In this document, you learned how to connect CEF appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).
+I det här dokumentet har du lärt dig hur du ansluter CEF-enheter till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
+- Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
+- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats.md).
 

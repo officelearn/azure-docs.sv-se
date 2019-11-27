@@ -12,13 +12,13 @@ ms.locfileid: "74277566"
 ---
 # <a name="create-and-clone-projects"></a>Skapa och klona projekt
 
-Azure anteckningsböcker ordnar dina Jupyter-anteckningsböcker och relaterade filer i logiska grupper som kallas *projekt*. Du skapar ett projekt först som en behållare och sedan skapa eller klona en eller flera datorer i en mapp tillsammans med andra projektfiler. (Den här processen visas i den [självstudien](tutorial-create-run-jupyter-notebook.md).)
+Azure Notebooks ordnar dina Jupyter-anteckningsböcker och relaterade filer i logiska grupper som kallas *projekt*. Du skapar ett projekt först som en behållare och sedan skapa eller klona en eller flera datorer i en mapp tillsammans med andra projektfiler. (Den här processen visas i [självstudien](tutorial-create-run-jupyter-notebook.md).)
 
-Ett projekt har också enhetsspecifika metadata och andra konfigurationsinställningar som påverkar servern på vilken anteckningsböcker som körs, inklusive steg för anpassad konfiguration och installation av paket. Mer information finns i [hantera och konfigurera projekt](configure-manage-azure-notebooks-projects.md).
+Ett projekt har också enhetsspecifika metadata och andra konfigurationsinställningar som påverkar servern på vilken anteckningsböcker som körs, inklusive steg för anpassad konfiguration och installation av paket. Mer information finns i [Hantera och konfigurera projekt](configure-manage-azure-notebooks-projects.md).
 
 ## <a name="use-the-my-projects-dashboard"></a>Använd instrumentpanelen för Mina projekt
 
-Din **Mina projekt** instrumentpanelen på `https://notebooks.azure.com/<userID>/projects` kan du visa, hantera, och skapa projekt:
+På instrument panelen för **Mina projekt** i `https://notebooks.azure.com/<userID>/projects` kan du Visa, hantera och skapa projekt:
 
 [![instrument panelen för mina projekt i Azure Notebooks](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
 
@@ -26,18 +26,18 @@ Vad du kan göra på instrumentpanelen beror på om du har loggat in med kontot 
 
 | Kommando | Tillgänglig för | Beskrivning |
 | --- | --- | --- |
-| **Kör** | Ägare | Startar projektserver och öppnar projektmappen i Jupyter. (Vanligare, du navigerar till en projektmapp först och sedan starta en anteckningsbok därifrån.) |
-| **Ladda ner** | Vem som helst | Laddar ned en kopia av det valda projektet som en ZIP-fil. |
-| **Dela** | Vem som helst | Visar delningsapplikationen popup-fönstret genom vilka du kan hämta en URL till ett valt projekt, dela till sociala medier, skicka ett e-postmeddelande med URL-Adressen och hämta HTML- eller Markdown-kod för med en ”dagbok Start”-märket (se [skaffa en start-märket](#obtain-a-launch-badge)) med URL-Adressen. |
+| **Fungerar** | Ägare | Startar projektserver och öppnar projektmappen i Jupyter. (Vanligare, du navigerar till en projektmapp först och sedan starta en anteckningsbok därifrån.) |
+| **Ladda ned** | Vem som helst | Laddar ned en kopia av det valda projektet som en ZIP-fil. |
+| **Dela** | Vem som helst | Visar popup-fönstret för delning som du kan använda för att hämta en URL till ett valt projekt, dela till sociala medier, skicka ett e-postmeddelande med URL: en och hämta både HTML-eller markdown-kod för med ett "lansera antecknings bok"-märke (se [Hämta en start-märke](#obtain-a-launch-badge)) med URL: en. |
 | **Ta bort** | Ägare | Tar bort det valda projektet. Du kan inte ångra den här åtgärden. |
 | **Terminal** | Ägare | Startar projektserver, och sedan öppnas ett nytt webbläsarfönster med bash terminal för den här servern. |
 | **+ Nytt projekt** | Ägare | Skapar ett nytt projekt. Se [skapa ett nytt projekt](#create-a-new-project). |
 | **Ladda upp GitHub lagrings platsen** | Ägare | Importerar en projektet från GitHub. [Importera ett projekt från GitHub](#import-a-project-from-github). |
-| **Klona** | Vem som helst | Kopierar ett valt projekt till ditt eget konto. Du uppmanas att logga in om den inte redan. Se [klona en projektet](#clone-a-project). |
+| **Kopiera** | Vem som helst | Kopierar ett valt projekt till ditt eget konto. Du uppmanas att logga in om den inte redan. Se [klona ett projekt](#clone-a-project). |
 
 ### <a name="obtain-a-launch-badge"></a>Hämta en start-märket
 
-När du använder den **resursen** kommandot och välj den **bädda in** fliken kan du kopiera HTML-kod eller Markdown som skapar en ”dagbok Start” symbol:
+När du använder kommandot **dela** och väljer fliken **bädda in** , kan du kopiera antingen HTML-kod eller markdown som skapar en "starta antecknings bok"-märke:
 
 ![Starta notebook märket](https://notebooks.azure.com/launch.png)
 
@@ -53,14 +53,14 @@ Om du inte har ett projekt med Azure-datorer kan skapa du en länk som klonar fr
 
 ## <a name="create-a-new-project"></a>Skapa ett nytt projekt
 
-När du använder den **+ nytt projekt** kommandot Azure anteckningsböcker visar en **Skapa nytt projekt** popup-fönstret. Ange följande information i det här popup-fönstret och välj sedan **skapa**:
+När du använder kommandot **+ nytt projekt** visas Azure Notebooks popup-fönstret **Skapa nytt projekt** . Ange följande information i den här popup-menyn och välj sedan **skapa**:
 
 | Fält | Beskrivning |
 | --- | --- |
 | Projektnamn | Ett eget namn för ditt projekt som Azure-datorer använder för visning. Till exempel "mitt Notebook-projekt". |
-| Projekt-ID | En anpassad identifierare som blir en del av URL: en som du använder för att dela ett projekt (formuläret är `https://notebooks.azure.com/<user_id>/projects/<project_id>`). Detta ID får endast använda bokstäver, siffror och bindestreck, får innehålla högst 30 tecken och får inte vara ett [reserverat projekt-ID](#reserved-project-ids). Om du är osäker vad du använder, är en gemensam konvention att använda en gemen version av ditt projektnamn där blanksteg är aktiverade i bindestreck, till exempel ”min-notebook-projekt” (trunkerad vid behov för att passa längdbegränsningen). |
+| Projekt-ID | En anpassad identifierare som blir en del av den URL som du använder för att dela ett projekt (formuläret är `https://notebooks.azure.com/<user_id>/projects/<project_id>`). Detta ID får endast använda bokstäver, siffror och bindestreck, får innehålla högst 30 tecken och får inte vara ett [reserverat projekt-ID](#reserved-project-ids). Om du är osäker vad du använder, är en gemensam konvention att använda en gemen version av ditt projektnamn där blanksteg är aktiverade i bindestreck, till exempel ”min-notebook-projekt” (trunkerad vid behov för att passa längdbegränsningen). |
 | Offentligt | Om ange, kan vem som helst med en länk till projektet. När du skapar ett privat projekt kan du avmarkera det här alternativet. |
-| Initiera det här projektet med ett viktigt | Om angetts, skapas ett *README.md* filen i projektet. En *README.md* fil ger du dokumentationen för ditt projekt, om så önskas. |
+| Initiera det här projektet med ett viktigt | Om det här alternativet anges skapas en standard- *Readme.MD* -fil i projektet. I en *Readme.MD* -fil kan du ange dokumentation för ditt projekt om du vill. |
 
 ### <a name="reserved-project-ids"></a>Reserverade projekt-ID: n
 
@@ -80,14 +80,14 @@ Eftersom ett projekt-ID också är en del av ett projekts webb adress kan Ad Blo
 
 ## <a name="import-a-project-from-github"></a>Importera ett projekt från GitHub
 
-Du kan enkelt importera en hel offentliga GitHub-lagringsplatsen som ett projekt, inklusive alla data och *README.md* filer. Använd den **överför GitHub-lagringsplatsen** kommandot, anger du följande information i popup-fönstret och välj sedan **Import**:
+Du kan enkelt importera en hel offentlig GitHub-lagrings platsen som ett projekt, inklusive data-och *Readme.MD* -filer. Använd kommandot **upload GitHub lagrings platsen** och ange följande information på popup-menyn och välj sedan **Importera**:
 
 | Fält | Beskrivning |
 | --- | --- |
-| GitHub-lagringsplats | Namnet på källdatabasen på github.com. Till exempel för att klona Jupyter-anteckningsböcker för Azure Cognitive Services på [ https://github.com/Microsoft/cognitive-services-notebooks ](https://github.com/Microsoft/cognitive-services-notebooks), ange ”Microsoft/cognitive-services-bärbara datorer”.  |
+| GitHub-lagringsplats | Namnet på källdatabasen på github.com. Om du till exempel vill klona Jupyter-anteckningsböcker för Azure Cognitive Services på [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks), anger du "Microsoft/kognitiv-Services-Notebooks".  |
 | Klona rekursivt | GitHub-lagringsplatser kan innehålla flera underordnade databaser. Ange det här alternativet om du vill klona överordnade databasen och alla dess underordnade. Eftersom det är möjligt för en databas har många underordnade låter du avmarkera alternativet om du inte vet du behöver den. |
 | Projektnamn | Ett eget namn för ditt projekt som Azure-datorer använder för visning. |
-| Projekt-ID | En anpassad identifierare som blir en del av URL: en som du använder för att dela ett projekt (formuläret är `https://notebooks.azure.com/<user_id>/projects/<project_id>`). Detta ID får endast använda bokstäver, siffror och bindestreck, får innehålla högst 30 tecken och får inte vara ett [reserverat projekt-ID](#reserved-project-ids). Om du är osäker vad du använder, är en gemensam konvention att använda en gemen version av ditt projektnamn där blanksteg är aktiverade i bindestreck, till exempel ”min-notebook-projekt” (trunkerad vid behov för att passa längdbegränsningen). |
+| Projekt-ID | En anpassad identifierare som blir en del av den URL som du använder för att dela ett projekt (formuläret är `https://notebooks.azure.com/<user_id>/projects/<project_id>`). Detta ID får endast använda bokstäver, siffror och bindestreck, får innehålla högst 30 tecken och får inte vara ett [reserverat projekt-ID](#reserved-project-ids). Om du är osäker vad du använder, är en gemensam konvention att använda en gemen version av ditt projektnamn där blanksteg är aktiverade i bindestreck, till exempel ”min-notebook-projekt” (trunkerad vid behov för att passa längdbegränsningen). |
 | Offentligt | Om ange, kan vem som helst med en länk till projektet. När du skapar ett privat projekt kan du avmarkera det här alternativet. |
 
 Importera en databas från GitHub importerar även dess historik. Du kan använda standard Git-kommandon från terminalen för att genomföra nya ändringar, hämta ändringarna från GitHub och så vidare.
@@ -98,22 +98,22 @@ Kloning av skapar en kopia av ett befintligt projekt i ditt eget konto där du k
 
 Att klona ett projekt:
 
-1. På den **Mina projekt** instrumentpanelen, högerklicka på önskad projektet och välj **klona** (kortkommandot: c).
+1. På instrument panelen för **Mina projekt** högerklickar du på önskat projekt och väljer **kloning** (kortkommando: c).
 
     ![Kloningskommandot på snabbmenyn för projektet](media/clone-command.png)
 
-1. I den **klona projektet** popup-fönstret, ange ett namn och ID för klonade och ange om klonen är offentliga. De här inställningarna är samma som för en [nytt projekt](#create-a-new-project).
+1. I popup-fönstret **klona projekt** anger du ett namn och ID för klonen och anger om klonen är offentlig. De här inställningarna är desamma som för ett [nytt projekt](#create-a-new-project).
 
     ![Klona projektet popup-fönstret](media/clone-project.png)
 
-1. När du har valt den **klona** knappen, Azure anteckningsböcker navigerar direkt till kopian.
+1. När du har valt knappen **kloning** går Azure Notebooks direkt till kopian.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Utforska notebook-exempelfiler](azure-notebooks-samples.md)
-- [Så här: konfigurera och hantera projekt](configure-manage-azure-notebooks-projects.md)
-- [Så här: Installera paket från inom en anteckningsbok](install-packages-jupyter-notebook.md)
-- [Så här: presentera ett bildspel](present-jupyter-notebooks-slideshow.md)
-- [Så här: arbeta med filer](work-with-project-data-files.md)
-- [Så här: åtkomst till dataresurser](access-data-resources-jupyter-notebooks.md)
+- [Gör så här: Konfigurera och hantera projekt](configure-manage-azure-notebooks-projects.md)
+- [Gör så här: installera paket inifrån en bärbar dator](install-packages-jupyter-notebook.md)
+- [Så här gör du: Visa ett bild spel](present-jupyter-notebooks-slideshow.md)
+- [Gör så här: arbeta med datafiler](work-with-project-data-files.md)
+- [Så här gör du: åtkomst till data resurser](access-data-resources-jupyter-notebooks.md)
 - [Gör så här: använda Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)

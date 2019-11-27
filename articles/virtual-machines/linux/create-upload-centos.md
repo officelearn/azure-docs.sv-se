@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 05/04/2018
+ms.date: 11/25/2019
 ms.author: szark
-ms.openlocfilehash: 6c3bb16e249d84f1da94b6b827bbaf6f8e9df1a1
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 1ac2b24649363538d2728f302941b5a4bf5dd357
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73171257"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534148"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Förbered en CentOS-baserad virtuell dator för Azure
 
@@ -43,7 +43,7 @@ Den här artikeln förutsätter att du redan har installerat ett Linux-operativs
 * Konfigurera inte en swap-partition på OS-disken. Linux-agenten kan konfigureras för att skapa en växlings fil på den tillfälliga resurs disken.  Mer information om detta finns i stegen nedan.
 * Alla virtuella hård diskar på Azure måste ha en virtuell storlek som är justerad till 1 MB. När du konverterar från en RAW-disk till VHD måste du se till att den råa disk storleken är en multipel av 1 MB före konverteringen. Mer information finns i [installations information för Linux](create-upload-generic.md#general-linux-installation-notes) .
 
-## <a name="centos-6x"></a>CentOS 6. x
+## <a name="centos-6x"></a>CentOS 6.x
 
 1. Välj den virtuella datorn i Hyper-V Manager.
 
@@ -229,7 +229,7 @@ Den här artikeln förutsätter att du redan har installerat ett Linux-operativs
 
 
 
-## <a name="centos-70"></a>CentOS 7.0 +
+## <a name="centos-70"></a>CentOS 7.0+
 
 **Ändringar i CentOS 7 (och liknande derivat)**
 
@@ -355,7 +355,7 @@ Att förbereda en virtuell CentOS 7-dator för Azure liknar CentOS 6, men det fi
     Redigera `/etc/dracut.conf`, Lägg till innehåll:
 
     ```console
-    add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+    add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
     ```
 
     Återskapa initramfs:

@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create a blueprint in the portal'
-description: In this quickstart, you use Azure Blueprints to create, define, and deploy artifacts through the Azure portal.
+title: 'Snabb start: skapa en skiss i portalen'
+description: I den här snabb starten använder du Azure-ritningar för att skapa, definiera och distribuera artefakter via Azure Portal.
 ms.date: 11/21/2019
 ms.topic: quickstart
 ms.openlocfilehash: efef8db6086f050829b60b5051ad683bbae9ab75
@@ -10,9 +10,9 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74321930"
 ---
-# <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Quickstart: Define and assign a blueprint in the portal
+# <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Snabb start: definiera och tilldela en skiss i portalen
 
-When you learn how to create and assign blueprints, you can define common patterns to develop reusable and rapidly deployable configurations based on Azure Resource Manager templates, policy, security, and more. In this tutorial, you learn to use Azure Blueprints to do some of the common tasks related to creating, publishing, and assigning a blueprint within your organization. These tasks include:
+När du lär dig hur du skapar och tilldelar ritningar kan du definiera vanliga mönster för att utveckla återanvändbara och snabbt distributions bara konfigurationer baserat på Azure Resource Manager mallar, principer, säkerhet och mycket annat. I den här självstudien får du lära dig att använda Azure-ritningar för att utföra några av de vanligaste uppgifterna för att skapa, publicera och tilldela en skiss i din organisation. Följande uppgifter är:
 
 ## <a name="prerequisites"></a>Krav
 
@@ -20,74 +20,74 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="create-a-blueprint"></a>Skapa en skiss
 
-Det första steget när du definierar ett standardmönster för efterlevnad är att skapa en skiss från de tillgängliga resurserna. In this example, create a new blueprint named **MyBlueprint** to configure role and policy assignments for the subscription. Then add a new resource group, and create a Resource Manager template and role assignment on the new resource group.
+Det första steget när du definierar ett standardmönster för efterlevnad är att skapa en skiss från de tillgängliga resurserna. I det här exemplet skapar du en ny skiss som heter min **skiss** för att konfigurera roll-och princip tilldelningar för prenumerationen. Lägg sedan till en ny resurs grupp och skapa en Resource Manager-mall och roll tilldelning i den nya resurs gruppen.
 
 1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
 
-1. Select **Blueprint definitions** from the page on the left and select the **+ Create blueprint** button at the top of the page.
+1. Välj **skiss definitioner** på sidan till vänster och välj knappen **+ skapa skiss** överst på sidan.
 
-   Or, select **Create** from the **Getting started** page to go straight to creating a blueprint.
+   Eller Välj **skapa** från sidan **komma igång** för att gå direkt till att skapa en skiss.
 
-   ![Create a blueprint from the Blueprint definitions page](./media/create-blueprint-portal/create-blueprint-button.png)
+   ![Skapa en skiss från sidan skiss definitioner](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. Provide a **Blueprint name** such as **MyBlueprint**. (Use up to 48 letters and numbers, but no spaces or special characters). Leave **Blueprint description** blank for now.
+1. Ange ett **skiss namn** , till exempel min **skiss**. (Använd upp till 48 bokstäver och siffror, men inga blank steg eller specialtecken). Lämna **skiss beskrivningen** tom för tillfället.
 
-1. In the **Definition location** box, select the ellipsis on the right, select the [management group](../management-groups/overview.md) or subscription where you want to save the blueprint, and choose **Select**.
+1. I rutan **definitions plats** väljer du ellipsen till höger, väljer [hanterings gruppen](../management-groups/overview.md) eller prenumerationen där du vill spara skissen och väljer **Välj**.
 
-1. Verify that the information is correct. The **Blueprint name** and **Definition location** fields can't be changed later. Then select **Next : Artifacts** at the bottom of the page or the **Artifacts** tab at the top of the page.
+1. Kontrol lera att informationen är korrekt. Fälten **skiss namn** och **definitions plats** kan inte ändras senare. Välj sedan **Nästa: artefakter** längst ned på sidan eller på fliken **artefakter** högst upp på sidan.
 
-1. Add a role assignment at the subscription level:
+1. Lägg till en roll tilldelning på prenumerations nivån:
 
-   1. Select the **+ Add artifact** row under **Subscription**. The **Add artifact** window opens on the right side of the browser.
+   1. Välj raden **+ Lägg till artefakt** under **prenumeration**. Fönstret **Lägg till artefakt** öppnas på höger sida av webbläsaren.
 
-   1. Select **Role assignment** for **Artifact type**.
+   1. Välj **roll tilldelning** för **artefakt typ**.
 
-   1. Under **Role**, select **Contributor**. Leave the **Add user, app or group** box with the check box that indicates a dynamic parameter.
+   1. Under **roll**väljer du **deltagare**. Lämna rutan **Lägg till användare, app eller grupp** med kryss rutan som anger en dynamisk parameter.
 
-   1. Select **Add** to add this artifact to the blueprint.
+   1. Välj **Lägg** till för att lägga till den här artefakten i skissen.
 
-   ![Role assignment for a blueprint artifact](./media/create-blueprint-portal/add-role-assignment.png)
+   ![Roll tilldelning för en skiss artefakt](./media/create-blueprint-portal/add-role-assignment.png)
 
    > [!NOTE]
-   > Most artifacts support parameters. A parameter that's assigned a value during blueprint creation is a *static parameter*. If the parameter is assigned during blueprint assignment, it's a *dynamic parameter*. Mer information finns [Skissparametrar](./concepts/parameters.md).
+   > De flesta artefakter stöder parametrar. En parameter som tilldelas ett värde när skissen skapas är en *statisk parameter*. Om parametern tilldelas under skiss tilldelningen, är det en *dynamisk parameter*. Mer information finns [Skissparametrar](./concepts/parameters.md).
 
-1. Add a policy assignment at the subscription level:
+1. Lägg till en princip tilldelning på prenumerations nivån:
 
-   1. Select the **+ Add artifact** row under the role assignment artifact.
+   1. Välj raden **+ Lägg till artefakt** under roll tilldelnings artefakten.
 
-   1. Select **Policy assignment** for **Artifact type**.
+   1. Välj **princip tilldelning** för **artefakt typ**.
 
-   1. Change **Type** to **Built-in**. In **Search**, enter **tag**.
+   1. Ändra **typ** till **inbyggd**. I **Sök**anger du **tagg**.
 
-   1. Klicka på **Sök** om du vill genomföra filtrering. Select **Append tag and its default value to resource groups**.
+   1. Klicka på **Sök** om du vill genomföra filtrering. Välj **Lägg till tagg och dess standardvärde till resurs grupper**.
 
-   1. Select **Add** to add this artifact to the blueprint.
+   1. Välj **Lägg** till för att lägga till den här artefakten i skissen.
 
-1. Select the row of the policy assignment **Append tag and its default value to resource groups**.
+1. Välj raden för princip tilldelningens **Lägg till-tagg och dess standardvärde till resurs grupper**.
 
-1. The window to provide parameters to the artifact as part of the blueprint definition opens and allows setting the parameters for all assignments (static parameters) based on this blueprint instead of during assignment (dynamic parameters). This example uses dynamic parameters during blueprint assignment, so leave the defaults and select **Cancel**.
+1. Fönstret för att tillhandahålla parametrar till artefakten som en del av skiss definitionen öppnas och gör det möjligt att ange parametrar för alla tilldelningar (statiska parametrar) baserat på den här skissen i stället för under tilldelning (dynamiska parametrar). I det här exemplet används dynamiska parametrar under skiss tilldelningen, så lämna standardvärdena och välj **Avbryt**.
 
-1. Add a resource group at the subscription level:
+1. Lägg till en resurs grupp på prenumerations nivån:
 
-   1. Select the **+ Add artifact** row under **Subscription**.
+   1. Välj raden **+ Lägg till artefakt** under **prenumeration**.
 
-   1. Select **Resource group** for **Artifact type**.
+   1. Välj **resurs grupp** för **artefakt typ**.
 
-   1. Leave the **Artifact display name**, **Resource Group Name**, and **Location** boxes blank, but make sure that the check box is checked for each parameter property to make them dynamic parameters.
+   1. Lämna rutorna för **artefakt visnings namn**, **resurs grupp namn**och **plats** tomma, men se till att kryss rutan är markerad för varje parameter egenskap för att göra dem dynamiska parametrar.
 
-   1. Select **Add** to add this artifact to the blueprint.
+   1. Välj **Lägg** till för att lägga till den här artefakten i skissen.
 
-1. Add a template under the resource group:
+1. Lägg till en mall under resurs gruppen:
 
-   1. Select the **+ Add artifact** row under the **ResourceGroup** entry.
+   1. Välj raden **+ Lägg till artefakt** under posten **ResourceGroup** .
 
-   1. Select **Azure Resource Manager template** for **Artifact type**, set **Artifact display name** to **StorageAccount**, and leave **Description** blank.
+   1. Välj **Azure Resource Manager mall** för **artefakt typ**, ange **artefakt visnings namnet** till **StorageAccount**och lämna **beskrivningen** tom.
 
    1. Klistra in följande Resource Manager-mall i redigeringsrutan på fliken **Mall**.
-      After you paste the template, select the **Parameters** tab and note that the template parameters **storageAccountType** and **location** were detected. Each parameter was automatically detected and populated, but configured as a dynamic parameter.
+      När du har klistrat in mallen väljer du fliken **parametrar** och Observera att parametrarna **storageAccountType** och **location** har identifierats. Varje parameter identifierades automatiskt och fylldes i, men konfigureras som en dynamisk parameter.
 
       > [!IMPORTANT]
-      > If you're importing the template, ensure that the file is only JSON and doesn't include HTML. When you're pointing to a URL on GitHub, ensure that you have selected **RAW** to get the pure JSON file and not the one wrapped with HTML for display on GitHub. Ett fel inträffar om den importerade mallen inte är ren JSON.
+      > Om du importerar mallen kontrollerar du att filen endast är JSON och inkluderar inte HTML. När du pekar på en URL på GitHub bör du se till att du har valt **RAW** för att hämta den rena JSON-filen och inte den som är FIGURSATT med HTML för visning på GitHub. Ett fel inträffar om den importerade mallen inte är ren JSON.
 
       ```json
       {
@@ -138,72 +138,72 @@ Det första steget när du definierar ett standardmönster för efterlevnad är 
       }
       ```
 
-   1. Clear the **storageAccountType** check box and note that the drop-down list contains only values included in the Resource Manager template under **allowedValues**. Select the box to set it back to a dynamic parameter.
+   1. Avmarkera kryss rutan **storageAccountType** och Observera att den nedrullningsbara listan bara innehåller värden som ingår i Resource Manager-mallen under **allowedValues**. Markera rutan för att återställa den till en dynamisk parameter.
 
-   1. Select **Add** to add this artifact to the blueprint.
+   1. Välj **Lägg** till för att lägga till den här artefakten i skissen.
 
-   ![Resource Manager template for the blueprint artifact](./media/create-blueprint-portal/add-resource-manager-template.png)
+   ![Resource Manager-mall för skiss artefakten](./media/create-blueprint-portal/add-resource-manager-template.png)
 
-1. Din färdiga skiss bör se ut som i det följande. Notice that each artifact has **_x_ out of _y_ parameters populated** in the **Parameters** column. The dynamic parameters are set during each assignment of the blueprint.
+1. Din färdiga skiss bör se ut som i det följande. Observera att varje artefakt har  **_x_ out of _y_ -parametrar** som är ifylld i kolumnen **parametrar** . De dynamiska parametrarna anges under varje tilldelning av skissen.
 
-   ![Completed blueprint definition](./media/create-blueprint-portal/completed-blueprint.png)
+   ![Färdig skiss definition](./media/create-blueprint-portal/completed-blueprint.png)
 
-1. Now that all planned artifacts have been added, select **Save Draft** at the bottom of the page.
+1. Nu när alla planerade artefakter har lagts till väljer du **Spara utkast** längst ned på sidan.
 
 ## <a name="edit-a-blueprint"></a>Redigera en skiss
 
-In [Create a blueprint](#create-a-blueprint), you didn't provide a description or add the role assignment to the new resource group. You can fix both by following these steps:
+I [skapa en skiss](#create-a-blueprint)angav du inte någon beskrivning eller lägger till roll tilldelningen i den nya resurs gruppen. Du kan åtgärda båda genom att följa dessa steg:
 
 1. Välj **Skissdefinitioner** till vänster på sidan.
 
-1. In the list of blueprints, right-click the one that you previously created and select **Edit blueprint**.
+1. I listan över skisser högerklickar du på den som du skapade tidigare och väljer **Redigera skiss**.
 
-1. I **Skissbeskrivning** anger du information om skissen och de artefakter som ingår i den. In this case, enter something like: **This blueprint sets tag policy and role assignment on the subscription, creates a ResourceGroup, and deploys a resource template and role assignment to that ResourceGroup.**
+1. I **Skissbeskrivning** anger du information om skissen och de artefakter som ingår i den. I det här fallet anger du något som: **den här skissen anger tag-princip och roll tilldelning för prenumerationen, skapar en ResourceGroup och distribuerar en resurs mal len och roll tilldelningen till den ResourceGroup.**
 
-1. Select **Next : Artifacts** at the bottom of the page or the **Artifacts** tab at the top of the page.
+1. Välj **Nästa: artefakter** längst ned på sidan eller på fliken **artefakter** högst upp på sidan.
 
-1. Add a role assignment under the resource group:
+1. Lägg till en roll tilldelning under resurs gruppen:
 
-   1. Select the **+ Add artifact** row directly under the **ResourceGroup** entry.
+   1. Välj raden **+ Lägg till artefakt** direkt under posten **ResourceGroup** .
 
-   1. Select **Role assignment** for **Artifact type**.
+   1. Välj **roll tilldelning** för **artefakt typ**.
 
-   1. Under **Role**, select **Owner**, and clear the check box under the **Add user, app or group** box.
+   1. Under **roll**väljer du **ägare**och avmarkerar kryss rutan under rutan **Lägg till användare, app eller grupp** .
 
-   1. Search for and select a user, app, or group to add. This artifact uses a static parameter set the same in every assignment of this blueprint.
+   1. Sök efter och välj en användare, app eller grupp som ska läggas till. Den här artefakten använder en statisk parameter som anges i varje tilldelning av den här skissen.
 
-   e. Select **Add** to add this artifact to the blueprint.
+   e. Välj **Lägg** till för att lägga till den här artefakten i skissen.
 
-   ![Second role assignment for the blueprint artifact](./media/create-blueprint-portal/add-role-assignment-2.png)
+   ![Andra roll tilldelningen för skiss artefakten](./media/create-blueprint-portal/add-role-assignment-2.png)
 
-1. Din färdiga skiss bör se ut som i det följande. Notice that the newly added role assignment shows **1 out of 1 parameters populated**. That means it's a static parameter.
+1. Din färdiga skiss bör se ut som i det följande. Observera att den nyligen tillagda roll tilldelningen visar **1 av 1 parametrar har fyllts**i. Det innebär att det är en statisk parameter.
 
-   ![Second definition for the completed blueprint](./media/create-blueprint-portal/completed-blueprint-2.png)
+   ![Andra definitionen för den färdiga skissen](./media/create-blueprint-portal/completed-blueprint-2.png)
 
-1. Select **Save Draft** now that it has been updated.
+1. Välj **Spara utkast** nu som det har uppdaterats.
 
 ## <a name="publish-a-blueprint"></a>Publicera en skiss
 
 Nu när alla de planerade artefakterna har lagts till i skissen är det dags att publicera den.
-Publishing makes the blueprint available to be assigned to a subscription.
+Med publicering blir skissen tillgänglig för att tilldelas en prenumeration.
 
 1. Välj **Skissdefinitioner** till vänster på sidan.
 
-1. In the list of blueprints, right-click the one you previously created and select **Publish blueprint**.
+1. Högerklicka på den som du skapade tidigare i listan med skisser och välj **publicera skiss**.
 
-1. In the pane that opens, provide a **Version** (letters, numbers, and hyphens with a maximum length of 20 characters), such as **v1**. Optionally, enter text in **Change notes**, such as **First publish**.
+1. I fönstret som öppnas anger du en **version** (bokstäver, siffror och bindestreck med en maximal längd på 20 tecken), till exempel **v1**. Du kan också ange text i **ändrings anteckningar**, till exempel **första publiceringen**.
 
-1. Select **Publish** at the bottom of the page.
+1. Välj **publicera** längst ned på sidan.
 
 ## <a name="assign-a-blueprint"></a>Tilldela en skiss
 
-After a blueprint has been published, it can be assigned to a subscription. Assign the blueprint that you created to one of the subscriptions under your management group hierarchy. Om skissen sparas till en prenumeration kan den endast tilldelas till den prenumerationen.
+När en skiss har publicerats kan den tilldelas en prenumeration. Tilldela skissen som du skapade till en av prenumerationerna under din hanterings grupp hierarki. Om skissen sparas till en prenumeration kan den endast tilldelas till den prenumerationen.
 
 1. Välj **Skissdefinitioner** till vänster på sidan.
 
-1. In the list of blueprints, right-click the one that you previously created (or select the ellipsis) and select **Assign blueprint**.
+1. I listan över skisser högerklickar du på den som du skapade tidigare (eller väljer ellipsen) och väljer **tilldela skiss**.
 
-1. On the **Assign blueprint** page, in the **Subscription** drop-down list, select the subscriptions that you want to deploy this blueprint to.
+1. På sidan **tilldela skiss** i list rutan **prenumeration** väljer du de prenumerationer som du vill distribuera den här skissen till.
 
    Om det finns Enterprise-erbjudanden som stöds tillgängliga från [Azure-fakturering](../../billing/index.md) aktiveras länken **Skapa nytt** under rutan **Prenumeration**. Följ de här stegen:
 
@@ -211,86 +211,86 @@ After a blueprint has been published, it can be assigned to a subscription. Assi
 
    1. Ange ett **Visningsnamn** för den nya prenumerationen.
 
-   1. Select the available **Offer** from the drop-down list.
+   1. Välj det tillgängliga **erbjudandet** i list rutan.
 
-   1. Use the ellipsis to select the [management group](../management-groups/overview.md) that the subscription will be a child of.
+   1. Använd ellipsen för att välja den [hanterings grupp](../management-groups/overview.md) som prenumerationen ska vara underordnad.
 
    1. Välj **Skapa** längst ned på sidan.
 
-   ![Create a subscription for a blueprint assignment subscription](./media/create-blueprint-portal/assignment-create-subscription.png)
+   ![Skapa en prenumeration för en prenumeration på skiss tilldelning](./media/create-blueprint-portal/assignment-create-subscription.png)
 
    > [!IMPORTANT]
-   > The new subscription is created immediately after you select **Create**.
+   > Den nya prenumerationen skapas direkt efter att du har valt **skapa**.
 
    > [!NOTE]
-   > An assignment is created for each subscription that you select. You can make changes to a single subscription assignment at a later time without forcing changes on the remainder of the selected subscriptions.
+   > En tilldelning skapas för varje prenumeration som du väljer. Du kan göra ändringar i en enskild prenumerations tilldelning vid ett senare tillfälle utan att framtvinga ändringar i resten av de valda prenumerationerna.
 
-1. For **Assignment name**, provide a unique name for this assignment.
+1. Ange ett unikt namn för tilldelningen för **tilldelnings namn**.
 
-1. In **Location**, select a region for the managed identity and subscription deployment object to be created in. Azure Blueprint använder den här hanterade identiteten för att distribuera alla artefakter i den tilldelade skissen. Mer information finns i [Hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md).
+1. I **plats**väljer du en region för det hanterade identitet-och prenumerations objekt som ska skapas i. Azure Blueprint använder den här hanterade identiteten för att distribuera alla artefakter i den tilldelade skissen. Mer information finns i [Hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md).
 
-1. Leave the **Blueprint definition version** drop-down selection of **Published** versions on the **v1** entry. (The default is the most recently published version.)
+1. Lämna List rutan för **skiss definitions versions** val av **publicerade** versioner på **v1** -posten. (Standardinställningen är den senast publicerade versionen.)
 
-1. Låt standardvärdet **Lås inte** vara för **Lås tilldelning**. For more information, see [Blueprints resource locking](./concepts/resource-locking.md).
+1. Låt standardvärdet **Lås inte** vara för **Lås tilldelning**. Mer information finns i [resurs låsning för ritningar](./concepts/resource-locking.md).
 
-   ![Locking and managed identities for the assignment](./media/create-blueprint-portal/assignment-locking-mi.png)
+   ![Låsning och hanterade identiteter för tilldelningen](./media/create-blueprint-portal/assignment-locking-mi.png)
 
-1. Under **Managed Identity**, leave the default of **System assigned**.
+1. Under **hanterad identitet**lämnar du standardvärdet **system Assigned**.
 
 1. För prenumerationsnivåns rolltilldelning **[Användargrupp eller programnamn]: Deltagare**, så sök efter och välj en användare, en app eller grupp.
 
-1. For the subscription level policy assignment, set **Tag Name** to **CostCenter** and the **Tag Value** to **ContosoIT**.
+1. För princip tilldelningen på prenumerations nivå anger du **taggnamnet** till **CostCenter** och **ContosoIT**.
 
-1. For **ResourceGroup**, provide a **Name** of **StorageAccount** and a **Location** of **East US 2** from the drop-down list.
+1. För **ResourceGroup**anger du **namnet** på **STORAGEACCOUNT** och en **plats** för **USA, östra 2** i list rutan.
 
    > [!NOTE]
-   > For each artifact that you added under the resource group during blueprint definition, that artifact is indented to align with the resource group or object that you'll deploy it with.
-   > Artifacts that either don't take parameters or have no parameters to be defined at assignment are listed only for contextual information.
+   > För varje artefakt som du lagt till under resurs gruppen under skiss definitionen, dras den artefakten till att överensstämma med den resurs grupp eller det objekt som du ska distribuera den med.
+   > Artefakter som antingen inte tar parametrar eller som inte har några parametrar som ska definieras vid tilldelningen visas bara för sammanhangsbaserad information.
 
-1. On the Azure Resource Manager template **StorageAccount**, select **Standard_GRS** for the **storageAccountType** parameter.
+1. På Azure Resource Manager mal len **StorageAccount**väljer du **Standard_GRS** för parametern **storageAccountType** .
 
-1. Read the information box at the bottom of the page, and then select **Assign**.
+1. Läs rutan information längst ned på sidan och välj sedan **tilldela**.
 
 ## <a name="track-deployment-of-a-blueprint"></a>Spåra distributionen av en skiss
 
 När en skiss har tilldelats till en eller flera prenumerationer händer två saker:
 
-- The blueprint is added to the **Assigned blueprints** page for each subscription.
-- The process of deploying all the artifacts defined by the blueprint begins.
+- Skissen läggs till på sidan **tilldelade ritningar** för varje prenumeration.
+- Processen för att distribuera alla artefakter som definieras av skissen börjar.
 
-Now that the blueprint has been assigned to a subscription, verify the progress of the deployment:
+Nu när skissen har tilldelats en prenumeration kontrollerar du förloppet för distributionen:
 
 1. Välj **Tilldelade skisser** på sidan till vänster.
 
-1. In the list of blueprints, right-click the one that you previously assigned and select **View assignment details**.
+1. I listan över skisser högerklickar du på den som du tidigare tilldelade och väljer **Visa tilldelnings information**.
 
-   ![View assignment details from the Assigned blueprints page](./media/create-blueprint-portal/view-assignment-details.png)
+   ![Visa tilldelnings information från sidan tilldelade modeller](./media/create-blueprint-portal/view-assignment-details.png)
 
-1. On the **Blueprint assignment** page, validate that all artifacts were successfully deployed and that there were no errors during the deployment. If errors occurred, see [Troubleshooting blueprints](./troubleshoot/general.md) for steps to determine what went wrong.
+1. På sidan **skiss tilldelning** kontrollerar du att alla artefakter lyckades distribueras och att det inte fanns några fel under distributionen. Om det uppstår fel, se [fel sökning av ritningar](./troubleshoot/general.md) för att avgöra vad som gått fel.
 
 ## <a name="unassign-a-blueprint"></a>Ta bort en skisstilldelning
 
-If you no longer need a blueprint assignment, remove it from a subscription. The blueprint might have been replaced by a newer blueprint with updated patterns, policies, and designs. När en skiss tas bort blir artefakterna som tilldelats som en del av skissen kvar. Följ dessa steg om du vill ta bort en skisstilldelning:
+Om du inte längre behöver en skiss tilldelning tar du bort den från en prenumeration. Skissen kan ha ersatts av en nyare skiss med uppdaterade mönster, principer och design. När en skiss tas bort blir artefakterna som tilldelats som en del av skissen kvar. Följ dessa steg om du vill ta bort en skisstilldelning:
 
 1. Välj **Tilldelade skisser** på sidan till vänster.
 
-1. In the list of blueprints, select the blueprint that you want to unassign. Then select the **Unassign blueprint** button at the top of the page.
+1. I listan över ritningar väljer du den skiss som du vill ta bort tilldelningen för. Välj sedan knappen **ta bort tilldelning av skisser** högst upp på sidan.
 
-1. Read the confirmation message and then select **OK**.
+1. Läs bekräftelse meddelandet och välj sedan **OK**.
 
 ## <a name="delete-a-blueprint"></a>Ta bort en skiss
 
 1. Välj **Skissdefinitioner** till vänster på sidan.
 
-1. Right-click the blueprint that you want to delete, and select **Delete blueprint**. Then select **Yes** in the confirmation dialog box.
+1. Högerklicka på den skiss som du vill ta bort och välj **ta bort skiss**. Välj **Ja** i bekräftelse dialog rutan.
 
 > [!NOTE]
-> Deleting a blueprint in this method also deletes all published versions of the selected blueprint.
-> To delete a single version, open the blueprint, select the **Published versions** tab, select the version that you want to delete, and then select **Delete This Version**. Also, you can't delete a blueprint until you've deleted all blueprint assignment of that blueprint definition.
+> Om du tar bort en skiss i den här metoden raderas även alla publicerade versioner av den valda skissen.
+> Om du vill ta bort en enda version öppnar du skissen, väljer fliken **publicerade versioner** , väljer den version som du vill ta bort och väljer sedan **ta bort den här versionen**. Du kan inte heller ta bort en skiss förrän du har tagit bort all skiss tilldelning av skiss definitionen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-In this quickstart, you've created, assigned, and removed a blueprint with Azure portal. To learn more about Azure Blueprints, continue to the blueprint lifecycle article.
+I den här snabb starten har du skapat, tilldelat och tagit bort en skiss med Azure Portal. Om du vill veta mer om Azure-ritningar kan du fortsätta till ritnings livs cykel artikeln.
 
 > [!div class="nextstepaction"]
-> [Learn about the blueprint lifecycle](./concepts/lifecycle.md)
+> [Lär dig mer om skiss livs cykeln](./concepts/lifecycle.md)

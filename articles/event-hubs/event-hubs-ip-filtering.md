@@ -22,7 +22,7 @@ ms.locfileid: "74279674"
 
 För scenarier där Azure Event Hubs endast ska vara tillgängligt från vissa välkända platser, kan du konfigurera regler för att acceptera trafik från specifika IPv4-adresser med hjälp av brand Väggs regler. Dessa adresser kan exempelvis vara de för en företagets NAT-gateway.
 
-## <a name="when-to-use"></a>Används till att
+## <a name="when-to-use"></a>När du ska använda detta
 
 Om du vill konfigurera Event Hubs namn området så att det endast ska ta emot trafik från ett visst intervall med IP-adresser och neka allt annat, kan du utnyttja en *brand Väggs regel* för att blockera Event Hub-slutpunkter från andra IP-adresser. Om du till exempel använder Event Hubs med [Azure Express Route][express-route]kan du skapa en *brand Väggs regel* för att begränsa trafiken från dina lokala infrastruktur-IP-adresser.
 
@@ -34,7 +34,7 @@ Eventuella anslutnings försök från en IP-adress som inte matchar en tillåten
 
 ## <a name="default-setting"></a>Standardinställningen
 
-Som standard den **IP-adressfilter** rutnätet i portalen för Event Hubs är tomt. Den här standardinställningen innebär att din händelsehubb tar emot anslutningar från alla IP-adresser. Den här standardinställningen motsvarar en regel som accepterar 0.0.0.0/0 IP-adressintervall.
+Som standard är rutnätet för **IP-filter** i portalen för Event Hubs tomt. Den här standardinställningen innebär att din händelsehubb tar emot anslutningar från alla IP-adresser. Den här standardinställningen motsvarar en regel som accepterar 0.0.0.0/0 IP-adressintervall.
 
 ## <a name="ip-filter-rule-evaluation"></a>IP-filter rule utvärdering
 

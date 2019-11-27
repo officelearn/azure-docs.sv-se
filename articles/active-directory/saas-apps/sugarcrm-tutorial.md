@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Sugar CRM | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Sugar CRM.
+title: 'Självstudie: Azure Active Directory enkel inloggning (SSO) med socker i CRM | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och socker CRM.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -23,67 +23,67 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74231965"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sugar-crm"></a>Tutorial: Azure Active Directory single sign-on (SSO) integration with Sugar CRM
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sugar-crm"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med socker i CRM
 
-In this tutorial, you'll learn how to integrate Sugar CRM with Azure Active Directory (Azure AD). When you integrate Sugar CRM with Azure AD, you can:
+I den här självstudien får du lära dig att integrera socker CRM med Azure Active Directory (Azure AD). När du integrerar socker i Azure med Azure AD kan du:
 
-* Control in Azure AD who has access to Sugar CRM.
-* Enable your users to be automatically signed-in to Sugar CRM with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Kontroll i Azure AD som har till gång till socker-CRM.
+* Gör det möjligt för användarna att logga in automatiskt till socker till Azure med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Krav
 
-To get started, you need the following items:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* Sugar CRM single sign-on (SSO) enabled subscription.
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* En prenumeration med enkel inloggning (SSO) för den här funktionen i CRM.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-* Sugar CRM supports **SP** initiated SSO
+* Socker i CRM stöder **SP** -INITIERAd SSO
 
 > [!NOTE]
-> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+> ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
 
-## <a name="adding-sugar-crm-from-the-gallery"></a>Adding Sugar CRM from the gallery
+## <a name="adding-sugar-crm-from-the-gallery"></a>Lägga till socker i CRM från galleriet
 
-To configure the integration of Sugar CRM into Azure AD, you need to add Sugar CRM from the gallery to your list of managed SaaS apps.
+Om du vill konfigurera en integrering av socker-CRM i Azure AD måste du lägga till socker-CRM från galleriet i listan över hanterade SaaS-appar.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
-1. In the **Add from the gallery** section, type **Sugar CRM** in the search box.
-1. Select **Sugar CRM** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** skriver du **socker** i rutan Sök.
+1. Välj **socker CRM** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-sugar-crm"></a>Configure and test Azure AD single sign-on for Sugar CRM
+## <a name="configure-and-test-azure-ad-single-sign-on-for-sugar-crm"></a>Konfigurera och testa enkel inloggning med Azure AD för socker-CRM
 
-Configure and test Azure AD SSO with Sugar CRM using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Sugar CRM.
+Konfigurera och testa Azure AD SSO med socker CRM med en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i socker CRM.
 
-To configure and test Azure AD SSO with Sugar CRM, complete the following building blocks:
+Om du vill konfigurera och testa Azure AD SSO med socker CRM slutför du följande Bygg stenar:
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure Sugar CRM SSO](#configure-sugar-crm-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Sugar CRM test user](#create-sugar-crm-test-user)** - to have a counterpart of B.Simon in Sugar CRM that is linked to the Azure AD representation of user.
-1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
+    1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+1. **[Konfigurera socker](#configure-sugar-crm-sso)** för enkel inloggning för att konfigurera enkel inloggnings inställningar på program sidan.
+    1. **[Skapa test användare av socker i CRM](#create-sugar-crm-test-user)** för att få en motsvarighet till B. Simon i socker CRM som är länkad till Azure AD-representation av användare.
+1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
-## <a name="configure-azure-ad-sso"></a>Configure Azure AD SSO
+## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Sugar CRM** application integration page, find the **Manage** section and select **single sign-on**.
-1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **socker CRM** och letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, enter the values for the following fields:
+1. I avsnittet **grundläggande SAML-konfiguration** anger du värden för följande fält:
 
     a. I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster:
 
@@ -101,118 +101,118 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | `https://<companyname>.trial.sugarcrm.eu/<companyname>`|
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med en faktisk inloggnings-URL och svars-URL. Contact [Sugar CRM Client support team](https://support.sugarcrm.com/) to get these values. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med en faktisk inloggnings-URL och svars-URL. Kontakta [socker support teamet](https://support.sugarcrm.com/) för att få dessa värden. Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-1. On the **Set up Sugar CRM** section, copy the appropriate URL(s) based on your requirement.
+1. I avsnittet **Konfigurera socker CRM** kopierar du lämpliga URL: er baserat på ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
 1. Välj **Ny användare** överst på skärmen.
-1. In the **User** properties, follow these steps:
+1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Sugar CRM.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till socker CRM.
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **Sugar CRM**.
-1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **socker CRM**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
-    ![The Add User link](common/add-assign-user.png)
+    ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-## <a name="configure-sugar-crm-sso"></a>Configure Sugar CRM SSO
+## <a name="configure-sugar-crm-sso"></a>Konfigurera socker för enkel inloggning i CRM
 
-1. In a different web browser window, sign in to your Sugar CRM company site as an administrator.
+1. Logga in på företagets företags webbplats som administratör i ett annat webbläsarfönster.
 
-1. Go to **Admin**.
+1. Gå till **admin**.
 
-    ![Admin](./media/sugarcrm-tutorial/ic795888.png "Admin")
+    ![Innehavaradministration](./media/sugarcrm-tutorial/ic795888.png "Admin")
 
-1. In the **Administration** section, click **Password Management**.
+1. I avsnittet **Administration** klickar du på **lösen ords hantering**.
 
-    ![Administration](./media/sugarcrm-tutorial/ic795889.png "Administration")
+    ![Administrationsverktyg](./media/sugarcrm-tutorial/ic795889.png "Administration")
 
-1. Select **Enable SAML Authentication**.
+1. Välj **Aktivera SAML-autentisering**.
 
-    ![Administration](./media/sugarcrm-tutorial/ic795890.png "Administration")
+    ![Administrationsverktyg](./media/sugarcrm-tutorial/ic795890.png "Administration")
 
 1. Gör följande i avsnittet **SAML-autentisering**:
 
-    ![SAML Authentication](./media/sugarcrm-tutorial/ic795891.png "SAML Authentication")  
+    ![SAML-autentisering](./media/sugarcrm-tutorial/ic795891.png "SAML-autentisering")  
 
-    a. In the **Login URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
+    a. I text rutan **inloggnings-URL** klistrar du in värdet för **inloggnings-URL: en**som du har kopierat från Azure Portal.
   
-    b. In the **SLO URL** textbox, paste the value of **Logout URL**, which you have copied from Azure portal.
+    b. I text rutan **service nivå mål** klistrar du in värdet för **URL för utloggning**som du har kopierat från Azure Portal.
   
-    c. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste the entire Certificate into **X.509 Certificate** textbox.
+    c. Öppna ditt bas-64-kodade certifikat i anteckningar, kopiera innehållet i det till Urklipp och klistra sedan in hela certifikatet i text rutan för **X. 509-certifikat** .
   
     d. Klicka på **Save** (Spara).
 
-### <a name="create-sugar-crm-test-user"></a>Create Sugar CRM test user
+### <a name="create-sugar-crm-test-user"></a>Skapa test användare av socker i CRM
 
-In order to enable Azure AD users to sign in to Sugar CRM, they must be provisioned to Sugar CRM. In the case of Sugar CRM, provisioning is a manual task.
+För att Azure AD-användare ska kunna logga in på socker i Azure måste de tillhandahållas till socker-CRM. När det gäller socker CRM är etableringen en manuell uppgift.
 
 **Utför följande steg för att etablera ett användarkonto:**
 
-1. Sign in to your **Sugar CRM** company site as administrator.
+1. Logga in på din företags webbplats för ditt **socker** som administratör.
 
-1. Go to **Admin**.
+1. Gå till **admin**.
 
-    ![Admin](./media/sugarcrm-tutorial/ic795888.png "Admin")
+    ![Innehavaradministration](./media/sugarcrm-tutorial/ic795888.png "Admin")
 
-1. In the **Administration** section, click **User Management**.
+1. I avsnittet **Administration** klickar du på **användar hantering**.
 
-    ![Administration](./media/sugarcrm-tutorial/ic795893.png "Administration")
+    ![Administrationsverktyg](./media/sugarcrm-tutorial/ic795893.png "Administration")
 
-1. Go to **Users \> Create New User**.
+1. Gå till **användare \> skapa ny användare**.
 
-    ![Create New User](./media/sugarcrm-tutorial/ic795894.png "Create New User")
+    ![Skapa ny användare](./media/sugarcrm-tutorial/ic795894.png "Skapa ny användare")
 
-1. On the **User Profile** tab, perform the following steps:
+1. Utför följande steg på fliken **användar profil** :
 
-    ![New User](./media/sugarcrm-tutorial/ic795895.png "New User")
+    ![Ny användare](./media/sugarcrm-tutorial/ic795895.png "Ny användare")
 
-    * Type the **user name**, **last name**, and **email address** of a valid Azure Active Directory user into the related textboxes.
+    * Ange **användar namn**, **efter namn**och **e-postadress** för en giltig Azure Active Directory användare i de relaterade text rutorna.
   
-1. As **Status**, select **Active**.
+1. Som **status**väljer du **aktiv**.
 
-1. On the Password tab, perform the following steps:
+1. Utför följande steg på fliken lösen ord:
 
-    ![New User](./media/sugarcrm-tutorial/ic795896.png "New User")
+    ![Ny användare](./media/sugarcrm-tutorial/ic795896.png "Ny användare")
 
-    a. Type the password into the related textbox.
+    a. Skriv in lösen ordet i den relaterade text rutan.
 
     b. Klicka på **Save** (Spara).
 
 > [!NOTE]
-> You can use any other Sugar CRM user account creation tools or APIs provided by Sugar CRM to provision Azure AD user accounts.
+> Du kan använda andra verktyg för att skapa Azure-användarkonton eller API: er från socker för Azure för att etablera Azure AD-användarkonton.
 
-## <a name="test-sso"></a>Test SSO 
+## <a name="test-sso"></a>Testa SSO 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-When you click the Sugar CRM tile in the Access Panel, you should be automatically signed in to the Sugar CRM for which you set up SSO. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på fliken socker-CRM i åtkomst panelen, bör du loggas in automatiskt på den socker-CRM som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -222,5 +222,5 @@ When you click the Sugar CRM tile in the Access Panel, you should be automatical
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Try Sugar CRM with Azure AD](https://aad.portal.azure.com/)
+- [Prova socker i CRM med Azure AD](https://aad.portal.azure.com/)
 

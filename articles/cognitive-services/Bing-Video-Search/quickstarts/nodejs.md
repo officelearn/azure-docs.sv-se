@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Search for videos using the REST API and Node.js - Bing Video Search'
+title: 'Snabb start: söka efter videor med hjälp av REST API och Node. js-Videosökning i Bing'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten för att skicka videosökningsbegäranden till REST API för videosökning i Bing med hjälp av JavaScript.
 services: cognitive-services
@@ -17,9 +17,9 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74383800"
 ---
-# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>Quickstart: Search for videos using the Bing Video Search REST API and Node.js
+# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>Snabb start: söka efter videor med hjälp av Videosökning i Bing REST API och Node. js
 
-Använd den här snabbstarten för att skicka ditt första anrop till API:et för videosökning i Bing och visa ett sökresultat från JSON-svaret. Det här enkla JavaScript-programmet skickar en HTTP-videosökfråga till API:et och visar svaret. Även om det här programmet är skrivet i JavaScript och använder Node.js, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingVideoSearchv7.js) tillsammans med ytterligare kommentarer om hantering av fel och kodanteckningar.
+Använd den här snabbstarten för att skicka ditt första anrop till API:et för videosökning i Bing och få ett JSON-svar. Det här enkla JavaScript-programmet skickar en HTTP-videosökfråga till API:et och visar svaret. Även om det här programmet är skrivet i JavaScript och använder Node.js, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingVideoSearchv7.js) tillsammans med ytterligare kommentarer om hantering av fel och kodanteckningar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -30,7 +30,7 @@ Använd den här snabbstarten för att skicka ditt första anrop till API:et fö
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
-## <a name="initialize-the-application"></a>Initiera programmet
+## <a name="initialize-the-application"></a>Initiera appen
 
 1. Skapa en ny JavaScript-fil i valfri IDE eller valfritt redigeringsprogram. Ange strikthet och lägg till följande krav:
 
@@ -210,6 +210,6 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Skapa en enkelsidig webbapp](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Se också 
+## <a name="see-also"></a>Se även 
 
  [Vad är API för videosökning i Bing?](../overview.md)

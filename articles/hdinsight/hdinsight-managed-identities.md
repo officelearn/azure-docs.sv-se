@@ -1,6 +1,6 @@
 ---
-title: Managed identities in Azure HDInsight
-description: Provides an overview of the implementation of managed identities in Azure HDInsight.
+title: Hanterade identiteter i Azure HDInsight
+description: Innehåller en översikt över implementeringen av hanterade identiteter i Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -15,32 +15,32 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74327371"
 ---
-# <a name="managed-identities-in-azure-hdinsight"></a>Managed identities in Azure HDInsight
+# <a name="managed-identities-in-azure-hdinsight"></a>Hanterade identiteter i Azure HDInsight
 
-A managed identity is an identity registered in Azure Active Directory (Azure AD) whose credentials are managed by Azure. With managed identities, you don't need to register service principals in Azure AD, or maintain credentials such as certificates.
+En hanterad identitet är en identitet som registrerats i Azure Active Directory (Azure AD) vars autentiseringsuppgifter hanteras av Azure. Med hanterade identiteter behöver du inte registrera tjänstens huvud namn i Azure AD eller upprätthålla autentiseringsuppgifter, till exempel certifikat.
 
-Managed identities can be used in Azure HDInsight to allow your clusters to access Azure AD domain services, access Azure Key Vault, or access files in Azure Data Lake Storage Gen2.
+Hanterade identiteter kan användas i Azure HDInsight för att tillåta att dina kluster får åtkomst till Azure AD Domain Services, åtkomst Azure Key Vault eller åtkomst till filer i Azure Data Lake Storage Gen2.
 
-There are two types of managed identities: user-assigned and system-assigned. Azure HDInsight uses user-assigned managed identities. A user-assigned managed identity is created as a standalone Azure resource, which you can then assign to one or more Azure service instances. In contrast, a system-assigned managed identity is created in Azure AD and then enabled directly on a particular Azure service instance automatically. The life of that system-assigned managed identity is then tied to the life of the service instance that it's enabled on.
+Det finns två typer av hanterade identiteter: användare tilldelade och tilldelade system. Azure HDInsight använder användarspecifika hanterade identiteter. En användare som tilldelats en hanterad identitet skapas som en fristående Azure-resurs, som du sedan kan tilldela till en eller flera Azure Service-instanser. Däremot skapas en systemtilldelad hanterad identitet i Azure AD och aktive ras sedan direkt på en viss Azure-tjänstinstans automatiskt. Livs längden för den systemtilldelade hanterade identiteten är sedan knuten till livs längden för den tjänst instans som den är aktive rad för.
 
-## <a name="hdinsight-managed-identity-implementation"></a>HDInsight managed identity implementation
+## <a name="hdinsight-managed-identity-implementation"></a>HDInsight-hanterad identitets implementering
 
-In Azure HDInsight, managed identities are provisioned on each node of the cluster. These identity components, however, are only usable by the HDInsight service. There's currently no supported method for you to generate access tokens using the managed identities installed on HDInsight cluster nodes. For some Azure services, managed identities are implemented with an endpoint that you can use to acquire access tokens for interacting with other Azure services on your own.
+I Azure HDInsight är hanterade identiteter etablerade på varje nod i klustret. Dessa identitets komponenter kan dock endast användas av HDInsight-tjänsten. Det finns för närvarande ingen metod som stöds för att generera åtkomsttoken med hjälp av hanterade identiteter som är installerade på HDInsight-klusternoder. För vissa Azure-tjänster implementeras hanterade identiteter med en slut punkt som du kan använda för att hämta åtkomsttoken för att interagera med andra Azure-tjänster på egen hand.
 
-## <a name="create-a-managed-identity"></a>Create a managed identity
+## <a name="create-a-managed-identity"></a>Skapa en hanterad identitet
 
-Managed identities can be created with any of the following methods:
+Hanterade identiteter kan skapas med någon av följande metoder:
 
-* [Azure-portalen](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
+* [Azure Portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
 * [Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)
 * [Azure Resource Manager](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md)
 * [Azure CLI](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)
 
-The remaining steps for configuring the managed identity depend on the scenario where it will be used.
+De återstående stegen för att konfigurera den hanterade identiteten beror på scenariot där den ska användas.
 
-## <a name="managed-identity-scenarios-in-azure-hdinsight"></a>Managed identity scenarios in Azure HDInsight
+## <a name="managed-identity-scenarios-in-azure-hdinsight"></a>Hanterade identitets scenarier i Azure HDInsight
 
-Managed identities are used in Azure HDInsight in multiple scenarios. See the related documents for detailed setup and configuration instructions:
+Hanterade identiteter används i Azure HDInsight i flera scenarier. Se relaterade dokument för detaljerade installations-och konfigurations anvisningar:
 
 * [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md#create-a-user-assigned-managed-identity)
 * [Enterprise Security Package](domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-and-authorize-a-managed-identity)

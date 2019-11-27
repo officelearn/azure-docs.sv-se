@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Send a search request to the REST API using PHP - Bing Entity Search'
+title: 'Snabb start: skicka en Sök förfrågan till REST API med PHP-Entitetssökning i Bing'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten om du vill skicka en begäran till REST API för entitetssökning i Bing med hjälp av PHP och få ett JSON-svar.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74323587"
 ---
-# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-php"></a>Quickstart: Send a search request to the Bing Entity Search REST API using PHP
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-php"></a>Snabb start: skicka en Sök förfrågan till Entitetssökning i Bing REST API med PHP
 
 Använd den här snabbstarten för att göra ditt första anrop till API för entitetssökning i Bing och visa JSON-svaret. Det här enkla PHP-programmet skickar en nyhetssökfråga till API:et och visar svaret. 
 
@@ -31,7 +31,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
 
 ## <a name="search-entities"></a>Entitetssökning
 
-Följ dessa steg om du vill köra programmet.
+Följ dessa steg om du vill köra programmet:
 
 1. Skapa ett nytt PHP-projekt i valfri IDE.
 2. Lägg till koden nedan.

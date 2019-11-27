@@ -26,9 +26,9 @@ Om du vill köra en icke HTTP-utlöst funktion behöver du ett sätt att skicka 
 
 ![Definiera platsen för begäran: värdnamn och mappsökväg + funktionsnamn](./media/functions-manually-run-non-http/azure-functions-admin-url-anatomy.png)
 
-- **Host name:** The function app's public location that is made up from the function app's name plus *azurewebsites.net* or your custom domain.
-- **Folder path:** To access non HTTP-triggered functions via an HTTP request, you have to send the request through the folders *admin/functions*.
-- **Function name:** The name of the function you want to run.
+- **Värdnamn:** Funktions appens offentliga plats som består av Function-appens namn plus *azurewebsites.net* eller din anpassade domän.
+- **Mappsökväg:** För att få åtkomst till icke-HTTP-utlösta funktioner via en HTTP-begäran måste du skicka begäran via mapparna *admin/Functions*.
+- **Funktions namn:** Namnet på den funktion som du vill köra.
 
 Du kan använda den här platsen för begäran i Postman tillsammans med funktionens huvudnyckel i förfrågan till Azure om att köra funktionen.
 
@@ -41,7 +41,7 @@ Gå till din funktion på Azure-portalen och klicka på **Hantera** och leta upp
 
 ![Kopiera huvudnyckeln från hanteringsfunktionsskärmen](./media/functions-manually-run-non-http/azure-portal-functions-master-key.png)
 
-Klicka på funktionsnamnet att återgå till kodfilfönstret när du har kopierat huvudnyckeln. Next, click on the **Logs** tab. You'll see messages from the function logged here when you manually run the function from Postman.
+Klicka på funktionsnamnet att återgå till kodfilfönstret när du har kopierat huvudnyckeln. Klicka sedan på fliken **loggar** . Du ser meddelanden från funktionen som loggas här när du kör funktionen från Postman manuellt.
 
 > [!CAUTION]  
 > På grund av de utökade behörigheterna i din funktionsapp som beviljats av huvudnyckeln bör du inte dela den här nyckeln med tredje part eller distribuera den i ett program.

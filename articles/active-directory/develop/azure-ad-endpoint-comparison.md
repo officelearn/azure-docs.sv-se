@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 11/26/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 975c7f18da9797305b0af3f81b00acca1ba14a1a
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: e5a000d08afb3afba06d82aae4414e87b61e502f
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200327"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533043"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Varför ska du uppdatera till Microsoft Identity Platform (v 2.0)?
 
@@ -62,9 +62,9 @@ Administratörs medgivande som gjorts för en organisations räkning kräver for
 
 ## <a name="scopes-not-resources"></a>Omfattningar, inte resurser
 
-För appar som använder v 1.0-slutpunkten kan en app beter sig som en **resurs**eller en mottagare av tokens. En resurs kan definiera ett antal **omfattningar** eller **oAuth2Permissions** som den förstår, vilket gör det möjligt för klient program att begära token från den resursen för en viss uppsättning omfång. Överväg att använda Azure AD Graph API som ett exempel på en resurs:
+För appar som använder v 1.0-slutpunkten kan en app beter sig som en **resurs**eller en mottagare av tokens. En resurs kan definiera ett antal **omfattningar** eller **oAuth2Permissions** som den förstår, vilket gör det möjligt för klient program att begära token från den resursen för en viss uppsättning omfång. Överväg Microsoft Graph-API: et som ett exempel på en resurs:
 
-* Resurs-ID eller `AppID URI`: `https://graph.windows.net/`
+* Resurs-ID eller `AppID URI`: `https://graph.microsoft.com/`
 * Omfattningar eller `oAuth2Permissions`: `Directory.Read`, `Directory.Write`och så vidare.
 
 Detta gäller för Microsoft Identity Platform-slutpunkten. En app kan fortfarande fungera som en resurs, definiera omfång och identifieras av en URI. Klient program kan fortfarande begära åtkomst till dessa scope. Men det kan vara så att en klient begär dessa behörigheter.
@@ -103,7 +103,7 @@ Om du vill veta mer om OAuth 2,0, `refresh_tokens`och `access_tokens`kan du titt
 
 ### <a name="openid-profile-and-email"></a>OpenID, profil och e-post
 
-Tidigare var det mest grundläggande OpenID Connect-inloggnings flödet med Microsoft Identity Platform en mycket information om användaren i den resulterande *id_token*. Anspråken i en id_token kan innehålla användarens namn, önskat användar namn, e-postadress, objekt-ID med mera.
+Tidigare var det mest grundläggande OpenID Connect-inloggnings flödet med Microsoft Identity Platform en mycket information om användaren i den resulterande *id_token*. Anspråk i en id_token kan innehålla användarens namn, önskat användar namn, e-postadress, objekt-ID med mera.
 
 Den information som `openid` omfattning ger åtkomst till appen är nu begränsad. `openid`s omfånget tillåter bara att din app loggar in användaren och tar emot en app-Specific Identifier för användaren. Om du vill hämta personliga data om användaren i din app måste appen begära ytterligare behörigheter från användaren. Med två nya omfattningar, `email` och `profile`, kan du begära ytterligare behörigheter.
 
@@ -117,7 +117,7 @@ Med de här omfången kan du koda din app på ett minimalt sätt så att du bara
 Slut punkten för Microsoft Identity Platform utfärdar en mindre uppsättning anspråk i sina tokens som standard för att bevara nytto laster små. Om du har appar och tjänster som har ett beroende på ett visst anspråk i en v 1.0-token som inte längre anges som standard i en Microsoft Identity Platform-token, bör du överväga att använda funktionen [valfria anspråk](active-directory-optional-claims.md) för att ta med detta anspråk.
 
 > [!IMPORTANT]
-> v 1.0-och v 2.0-token kan utfärdas av både v 1.0-och v 2.0-slutpunkter! id_tokens matchar *alltid* den slut punkt som de begär från, och åtkomsttoken matchar *alltid* det format som förväntas av webb-API: et som klienten anropar med denna token.  Så om din app använder v 2.0-slutpunkten för att hämta en token för att anropa Microsoft Graph, vilket förväntar sig ett token för v 1.0-format, får appen en token i formatet v 1.0.  
+> v 1.0-och v 2.0-token kan utfärdas av både v 1.0-och v 2.0-slutpunkter! id_tokens *alltid* matcha den slut punkt som de begär från, och åtkomsttoken matchar *alltid* det format som förväntas av webb-API: et som klienten anropar med denna token.  Så om din app använder v 2.0-slutpunkten för att hämta en token för att anropa Microsoft Graph, vilket förväntar sig ett token för v 1.0-format, får appen en token i formatet v 1.0.  
 
 ## <a name="limitations"></a>Begränsningar
 

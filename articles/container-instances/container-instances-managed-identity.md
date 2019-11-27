@@ -1,20 +1,14 @@
 ---
-title: Använd en hanterad identitet med Azure Container Instances
-description: Lär dig hur du använder en hanterad identitet för att autentisera med andra Azure-tjänster från Azure Container Instances.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
+title: Aktivera hanterad identitet i behållar gruppen
+description: Lär dig hur du aktiverar en hanterad identitet i Azure Container Instances som kan autentiseras med andra Azure-tjänster
 ms.topic: article
 ms.date: 10/22/2018
-ms.author: danlep
-ms.custom: ''
-ms.openlocfilehash: 773650e5e5e85d4a5fca0b3755f3730921cc5f2e
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: b5546e8c4b512b584a57e8e4c2ff46c52ab856a0
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325927"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533682"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Använda hanterade identiteter med Azure Container Instances
 
@@ -48,13 +42,13 @@ Azure Container Instances stöder båda typerna av hanterade Azure-identiteter: 
 
 * En **användare som tilldelats** en hanterad identitet skapas som en fristående Azure-resurs i Azure AD-klienten som är betrodd av den prenumeration som används. När identiteten har skapats kan identiteten tilldelas till en eller flera Azure-resurser (i Azure Container Instances eller andra Azure-tjänster). Livs cykeln för en användardefinierad identitet hanteras separat från livs cykeln för de behållar grupper eller andra tjänst resurser som den är tilldelad till. Det här beteendet är särskilt användbart i Azure Container Instances. Eftersom identiteten sträcker sig utanför livs längden för en behållar grupp kan du återanvända den tillsammans med andra standardinställningar för att göra distributionerna i behållar gruppen hög repeterbara.
 
-* En systemtilldelad hanterad identitet aktive ras direkt i en behållar grupp i Azure Container instances. När den är aktive rad skapar Azure en identitet för gruppen i Azure AD-klienten som är betrodd av instansens prenumeration. När identiteten har skapats är autentiseringsuppgifterna etablerade i varje behållare i behållar gruppen. Livs cykeln för en tilldelad identitet är direkt knuten till den behållar grupp som den är aktive rad för. När gruppen tas bort rensar Azure automatiskt autentiseringsuppgifterna och identiteten i Azure AD.
+* En **systemtilldelad** hanterad identitet aktive ras direkt i en behållar grupp i Azure Container instances. När den är aktive rad skapar Azure en identitet för gruppen i Azure AD-klienten som är betrodd av instansens prenumeration. När identiteten har skapats är autentiseringsuppgifterna etablerade i varje behållare i behållar gruppen. Livs cykeln för en tilldelad identitet är direkt knuten till den behållar grupp som den är aktive rad för. När gruppen tas bort rensar Azure automatiskt autentiseringsuppgifterna och identiteten i Azure AD.
 
 ### <a name="use-a-managed-identity"></a>Använda en hanterad identitet
 
 Om du vill använda en hanterad identitet måste identiteten först beviljas åtkomst till en eller flera Azure-tjänst resurser (till exempel en webbapp, ett Key Vault eller ett lagrings konto) i prenumerationen. För att få åtkomst till Azure-resurser från en behållare som körs måste din kod hämta en *åtkomsttoken* från en Azure AD-slutpunkt. Koden skickar sedan åtkomsttoken på ett anrop till en tjänst som stöder Azure AD-autentisering. 
 
-Att använda en hanterad identitet i en pågående behållare är i stort sett detsamma som att använda en identitet i en virtuell Azure-dator. Se vägledningen för virtuella datorer för [](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)att använda en token, [Azure POWERSHELL eller Azure CLI](../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md)eller [Azure SDK](../active-directory/managed-identities-azure-resources/how-to-use-vm-sdk.md): er.
+Att använda en hanterad identitet i en pågående behållare är i stort sett detsamma som att använda en identitet i en virtuell Azure-dator. Se vägledningen för virtuella datorer för att använda en [token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md), [Azure POWERSHELL eller Azure CLI](../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md)eller [Azure SDK](../active-directory/managed-identities-azure-resources/how-to-use-vm-sdk.md): er.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -106,7 +100,7 @@ resourceID=$(az identity show --resource-group myResourceGroup --name myACIId --
 
 ### <a name="enable-a-user-assigned-identity-on-a-container-group"></a>Aktivera en användardefinierad identitet i en behållar grupp
 
-Kör följande [AZ container Create](/cli/azure/container?view=azure-cli-latest#az-container-create) -kommando för att skapa en behållar instans baserat på Ubuntu-servern. I det här exemplet finns en grupp med en behållare som du kan använda för att interaktivt få åtkomst till andra Azure-tjänster. `--assign-identity` Parametern skickar din användarspecifika hanterade identitet till gruppen. Kommandot med lång körning håller behållaren igång. I det här exemplet används samma resurs grupp som användes för att skapa Key Vault, men du kan ange en annan.
+Kör följande [AZ container Create](/cli/azure/container?view=azure-cli-latest#az-container-create) -kommando för att skapa en behållar instans baserat på Ubuntu-servern. I det här exemplet finns en grupp med en behållare som du kan använda för att interaktivt få åtkomst till andra Azure-tjänster. Parametern `--assign-identity` skickar den användar tilldelnings hanterade identiteten till gruppen. Kommandot med lång körning håller behållaren igång. I det här exemplet används samma resurs grupp som användes för att skapa Key Vault, men du kan ange en annan.
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --name mycontainer --image microsoft/azure-cli --assign-identity $resourceID --command-line "tail -f /dev/null"
@@ -118,7 +112,7 @@ Inom några sekunder bör du få ett svar från Azure CLI om att distributionen 
 az container show --resource-group myResourceGroup --name mycontainer
 ```
 
-`identity` Avsnittet i utdata ser ut ungefär så här, som visar identiteten i behållar gruppen. `principalID` Under`userAssignedIdentities` är tjänstens huvud namn för den identitet som du skapade i Azure Active Directory:
+Avsnittet `identity` i utdata ser ut ungefär så här, och visar identiteten som anges i behållar gruppen. `principalID` under `userAssignedIdentities` är tjänstens huvud namn för den identitet som du skapade i Azure Active Directory:
 
 ```console
 ...
@@ -187,7 +181,7 @@ Svaret ser ut ungefär så här, vilket visar hemligheten. I din kod kan du pars
 
 ### <a name="enable-a-system-assigned-identity-on-a-container-group"></a>Aktivera en systemtilldelad identitet i en behållar grupp
 
-Kör följande [AZ container Create](/cli/azure/container?view=azure-cli-latest#az-container-create) -kommando för att skapa en behållar instans baserat på Ubuntu-servern. I det här exemplet finns en grupp med en behållare som du kan använda för att interaktivt få åtkomst till andra Azure-tjänster. `--assign-identity` Parametern utan ytterligare värde aktiverar en systemtilldelad hanterad identitet i gruppen. Kommandot med lång körning håller behållaren igång. I det här exemplet används samma resurs grupp som användes för att skapa Key Vault, men du kan ange en annan.
+Kör följande [AZ container Create](/cli/azure/container?view=azure-cli-latest#az-container-create) -kommando för att skapa en behållar instans baserat på Ubuntu-servern. I det här exemplet finns en grupp med en behållare som du kan använda för att interaktivt få åtkomst till andra Azure-tjänster. Parametern `--assign-identity` utan ytterligare värde aktiverar en systemtilldelad hanterad identitet i gruppen. Kommandot med lång körning håller behållaren igång. I det här exemplet används samma resurs grupp som användes för att skapa Key Vault, men du kan ange en annan.
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --name mycontainer --image microsoft/azure-cli --assign-identity --command-line "tail -f /dev/null"
@@ -199,7 +193,7 @@ Inom några sekunder bör du få ett svar från Azure CLI om att distributionen 
 az container show --resource-group myResourceGroup --name mycontainer
 ```
 
-`identity` Avsnittet i utdata ser ut ungefär så här, vilket visar att en systemtilldelad identitet skapas i Azure Active Directory:
+Avsnittet `identity` i resultatet ser ut ungefär så här, vilket visar att en systemtilldelad identitet skapas i Azure Active Directory:
 
 ```console
 ...
@@ -212,7 +206,7 @@ az container show --resource-group myResourceGroup --name mycontainer
 ...
 ```
 
-Ange en variabel till värdet för `principalId` (tjänstens huvud namns-ID) för identiteten, som ska användas i senare steg.
+Ange en variabel till värdet för `principalId` (tjänstens huvud namns-ID) för identiteten som ska användas i senare steg.
 
 ```azurecli-interactive
 spID=$(az container show --resource-group myResourceGroup --name mycontainer --query identity.principalId --out tsv)
@@ -253,7 +247,7 @@ token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=
 
 ```
 
-Använd nu åtkomsttoken för att autentisera till Key Vault och läsa en hemlighet. Se till att du byter namn på nyckel valvet i URL: en (*https\/:/mykeyvault.Vault.Azure.net/...* ):
+Använd nu åtkomsttoken för att autentisera till Key Vault och läsa en hemlighet. Se till att du byter namn på nyckel valvet i URL: en (*https:\//mykeyvault.Vault.Azure.net/...* ):
 
 ```bash
 curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $token"
@@ -267,7 +261,7 @@ Svaret ser ut ungefär så här, vilket visar hemligheten. I din kod kan du pars
 
 ## <a name="enable-managed-identity-using-resource-manager-template"></a>Aktivera hanterad identitet med Resource Manager-mall
 
-Om du vill aktivera en hanterad identitet i en behållar grupp med hjälp av `identity` en [Resource Manager-mall](container-instances-multi-container-group.md)anger `ContainerGroupIdentity` du egenskapen för `Microsoft.ContainerInstance/containerGroups` objektet med ett objekt. Följande kodfragment visar `identity` egenskapen som kon figurer ATS för olika scenarier. Se [referens för Resource Manager-mall](/azure/templates/microsoft.containerinstance/containergroups). Ange en `apiVersion` av `2018-10-01`.
+Om du vill aktivera en hanterad identitet i en behållar grupp med hjälp av en [Resource Manager-mall](container-instances-multi-container-group.md)anger du egenskapen `identity` för `Microsoft.ContainerInstance/containerGroups`-objektet med ett `ContainerGroupIdentity`-objekt. Följande kodfragment visar `identity`-egenskapen som kon figurer ATS för olika scenarier. Se [referens för Resource Manager-mall](/azure/templates/microsoft.containerinstance/containergroups). Ange en `apiVersion` av `2018-10-01`.
 
 ### <a name="user-assigned-identity"></a>Användare tilldelad identitet
 

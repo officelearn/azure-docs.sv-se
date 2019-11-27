@@ -1,6 +1,6 @@
 ---
-title: Use Microsoft identity platform to sign in users on browser-less devices | Azure
-description: Build embedded and browser-less authentication flows using the device authorization grant.
+title: Använd Microsoft Identity Platform för att logga in användare i webbläsare-enheter som är mindre | Azure
+description: Bygg inbäddade och webbläsar lösa autentiserings flöden med hjälp av enhets godkännande.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -24,30 +24,30 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74207610"
 ---
-# <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Microsoft identity platform and the OAuth 2.0 device authorization grant flow
+# <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Microsoft Identity Platform och OAuth 2,0-enhetens Authorization-flöde
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-The Microsoft identity platform supports the [device authorization grant](https://tools.ietf.org/html/rfc8628), which allows users to sign in to input-constrained devices such as a smart TV, IoT device, or printer.  To enable this flow, the device has the user visit a webpage in their browser on another device to sign in.  Once the user signs in, the device is able to get access tokens and refresh tokens as needed.  
+Microsoft Identity Platform stöder auktorisering av [enhets behörighet](https://tools.ietf.org/html/rfc8628), vilket gör att användarna kan logga in på inmatade enheter, till exempel en smart TV, IoT-enhet eller skrivare.  Om du vill aktivera det här flödet har enheten användaren besöka en webb sida i webbläsaren på en annan enhet för att logga in.  När användaren loggar in kan enheten hämta åtkomsttoken och uppdatera tokens efter behov.  
 
-This article describes how to program directly against the protocol in your application.  When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL) instead to [acquire tokens and call secured web APIs](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Also take a look at the [sample apps that use MSAL](sample-v2-code.md).
+Den här artikeln beskriver hur du programmerar direkt mot protokollet i ditt program.  När det är möjligt rekommenderar vi att du använder MSAL (Microsoft Authentication Libraries) i stället för att [Hämta tokens och anropa säkra webb-API: er](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Ta också en titt på de [exempel appar som använder MSAL](sample-v2-code.md).
 
 > [!NOTE]
-> The Microsoft identity platform endpoint doesn't support all Azure Active Directory scenarios and features. To determine whether you should use the Microsoft identity platform endpoint, read about [Microsoft identity platform limitations](active-directory-v2-limitations.md).
+> Slut punkten för Microsoft Identity Platform stöder inte alla Azure Active Directory scenarier och funktioner. För att avgöra om du ska använda Microsoft Identity Platform-slutpunkten läser du om [begränsningar för Microsoft Identity Platform](active-directory-v2-limitations.md).
 
-## <a name="protocol-diagram"></a>Protocol diagram
+## <a name="protocol-diagram"></a>Protokoll diagram
 
-The entire device code flow looks similar to the next diagram. We describe each of the steps later in this article.
+Hela enhets kod flödet ser ut ungefär som nästa diagram. Vi beskriver vart och ett av stegen längre fram i den här artikeln.
 
-![Device code flow](./media/v2-oauth2-device-code/v2-oauth-device-flow.svg)
+![Enhets kod flöde](./media/v2-oauth2-device-code/v2-oauth-device-flow.svg)
 
-## <a name="device-authorization-request"></a>Device authorization request
+## <a name="device-authorization-request"></a>Begäran om enhets godkännande
 
-The client must first check with the authentication server for a device and user code that's used to initiate authentication. The client collects this request from the `/devicecode` endpoint. In this request, the client should also include the permissions it needs to acquire from the user. From the moment this request is sent, the user has only 15 minutes to sign in (the usual value for `expires_in`), so only make this request when the user has indicated they're ready to sign in.
+Klienten måste först kontrol lera med autentiseringsservern för en enhet och användar kod som används för att initiera autentiseringen. Klienten samlar in den här begäran från `/devicecode` slut punkten. I den här begäran ska klienten även innehålla de behörigheter som krävs för att hämta från användaren. Från den tidpunkt då den här begäran skickas har användaren bara 15 minuter på sig att logga in (det vanligaste värdet för `expires_in`), så gör bara denna begäran när användaren har angett att de är redo att logga in.
 
 > [!TIP]
-> Try executing this request in Postman!
-> [![Try running this request in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Försök att köra denna begäran i Postman!
+> [Försök att köra denna begäran i Postman ![](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ```
 // Line breaks are for legibility only.
@@ -62,33 +62,33 @@ scope=user.read%20openid%20profile
 
 | Parameter | Tillstånd | Beskrivning |
 | --- | --- | --- |
-| `tenant` | Krävs | Can be /common, /consumers, or /organizations.  It can also be the directory tenant that you want to request permission from in GUID or friendly name format.  |
-| `client_id` | Krävs | The **Application (client) ID** that the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app. |
-| `scope` | Rekommenderad | A space-separated list of [scopes](v2-permissions-and-consent.md) that you want the user to consent to.  |
+| `tenant` | Krävs | Kan vara/vanliga,/consumers eller/organizations.  Det kan också vara den katalog klient som du vill begära behörighet från i GUID eller eget namn format.  |
+| `client_id` | Krävs | **Program-ID: t (klienten)** som [Azure Portal – Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen som har tilldelats din app. |
+| `scope` | Rekommenderas | En blankstegsavgränsad lista med [omfattningar](v2-permissions-and-consent.md) som du vill att användaren ska godkänna.  |
 
-### <a name="device-authorization-response"></a>Device authorization response
+### <a name="device-authorization-response"></a>Svar på enhets auktorisering
 
-A successful response will be a JSON object containing the required information to allow the user to sign in.  
+Ett lyckat svar är ett JSON-objekt som innehåller den information som krävs för att tillåta användaren att logga in.  
 
 | Parameter | Format | Beskrivning |
 | ---              | --- | --- |
-|`device_code`     | Sträng | A long string used to verify the session between the client and the authorization server. The client uses this parameter to request the access token from the authorization server. |
-|`user_code`       | Sträng | A short string shown to the user that's used to identify the session on a secondary device.|
-|`verification_uri`| URI | The URI the user should go to with the `user_code` in order to sign in. |
-|`expires_in`      | int | The number of seconds before the `device_code` and `user_code` expire. |
-|`interval`        | int | The number of seconds the client should wait between polling requests. |
-| `message`        | Sträng | A human-readable string with instructions for the user. This can be localized by including a **query parameter** in the request of the form `?mkt=xx-XX`, filling in the appropriate language culture code. |
+|`device_code`     | Sträng | En lång sträng som används för att verifiera sessionen mellan klienten och auktoriseringsservern. Klienten använder den här parametern för att begära åtkomsttoken från auktoriseringsservern. |
+|`user_code`       | Sträng | En kort sträng som visas för den användare som används för att identifiera sessionen på en sekundär enhet.|
+|`verification_uri`| URI | Den URI som användaren ska gå till med `user_code` för att kunna logga in. |
+|`expires_in`      | int | Antalet sekunder innan `device_code` och `user_code` upphör att gälla. |
+|`interval`        | int | Antalet sekunder som klienten ska vänta mellan avsöknings begär Anden. |
+| `message`        | Sträng | En läslig sträng med instruktioner för användaren. Detta kan lokaliseras genom att inkludera en **frågeparameter** i formulärets begäran `?mkt=xx-XX`, fylla i lämplig språk kultur kod. |
 
 > [!NOTE]
-> The `verification_uri_complete` response field is not included or supported at this time.  We mention this because if you read the [standard](https://tools.ietf.org/html/rfc8628) you see that `verification_uri_complete` is listed as an optional part of the device code flow standard.
+> `verification_uri_complete` svars fältet ingår inte eller stöds inte för tillfället.  Vi nämner detta eftersom om du läser [standarden](https://tools.ietf.org/html/rfc8628) ser du att `verification_uri_complete` visas som en valfri del av enhetens kod flödes standard.
 
-## <a name="authenticating-the-user"></a>Authenticating the user
+## <a name="authenticating-the-user"></a>Autentisera användaren
 
-After receiving the `user_code` and `verification_uri`, the client displays these to the user, instructing them to sign in using their mobile phone or PC browser.
+När du har tagit emot `user_code` och `verification_uri`, visar klienten dessa för användaren och instruerar dem att logga in med sin mobil telefon eller PC-webbläsare.
 
-If the user authenticates with a personal account (on /common or /consumers), they will be asked to sign in again in order to transfer authentication state to the device.  They will also be asked to provide consent, to ensure they are aware of the permissions being granted.  This does not apply to work or school accounts used to authenticate. 
+Om användaren autentiseras med ett personligt konto (på/vanliga eller/consumers) kommer de att uppmanas att logga in igen för att kunna överföra autentiserings tillstånd till enheten.  De kommer också att uppmanas att ge sitt medgivande, för att säkerställa att de är medvetna om de behörigheter som beviljas.  Detta gäller inte för arbets-eller skol konton som används för att autentisera. 
 
-While the user is authenticating at the `verification_uri`, the client should be polling the `/token` endpoint for the requested token using the `device_code`.
+När användaren autentiseras vid `verification_uri`ska klienten avsöka `/token` slut punkten för den begärda token med hjälp av `device_code`.
 
 ``` 
 POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
@@ -101,25 +101,25 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 
 | Parameter | Krävs | Beskrivning|
 | -------- | -------- | ---------- |
-| `tenant`  | Krävs | The same tenant or tenant alias used in the initial request. | 
-| `grant_type` | Krävs | Must be `urn:ietf:params:oauth:grant-type:device_code`|
-| `client_id`  | Krävs | Must match the `client_id` used in the initial request. |
-| `device_code`| Krävs | The `device_code` returned in the device authorization request.  |
+| `tenant`  | Krävs | Samma klient organisation eller klient Ali Aset som används i den första begäran. | 
+| `grant_type` | Krävs | Måste vara `urn:ietf:params:oauth:grant-type:device_code`|
+| `client_id`  | Krävs | Måste matcha de `client_id` som används i den första begäran. |
+| `device_code`| Krävs | `device_code` som returnerades i begäran om enhets godkännande.  |
 
-### <a name="expected-errors"></a>Expected errors
+### <a name="expected-errors"></a>Förväntade fel
 
-The device code flow is a polling protocol so your client must expect to receive errors before the user has finished authenticating.  
+Enhets kod flödet är ett avsöknings protokoll så att klienten måste vänta på att få fel innan användaren har autentiserats.  
 
-| Fel | Beskrivning | Client Action |
+| Fel | Beskrivning | Klient åtgärd |
 | ------ | ----------- | -------------|
-| `authorization_pending` | The user hasn't finished authenticating, but hasn't canceled the flow. | Repeat the request after at least `interval` seconds. |
-| `authorization_declined` | The end user denied the authorization request.| Stop polling, and revert to an unauthenticated state.  |
-| `bad_verification_code`| The `device_code` sent to the `/token` endpoint wasn't recognized. | Verify that the client is sending the correct `device_code` in the request. |
-| `expired_token` | At least `expires_in` seconds have passed, and authentication is no longer possible with this `device_code`. | Stop polling and revert to an unauthenticated state. |   
+| `authorization_pending` | Användaren har inte autentiserat autentisering, men har inte avbrutit flödet. | Upprepa begäran efter minst `interval` sekunder. |
+| `authorization_declined` | Slutanvändaren nekade begäran om auktorisering.| Stoppa avsökningen och återgå till ett oautentiserat tillstånd.  |
+| `bad_verification_code`| Det `device_code` som skickats till `/token`s slut punkt kändes inte igen. | Kontrol lera att klienten skickar rätt `device_code` i begäran. |
+| `expired_token` | Minst `expires_in` sekunder har passerat och autentisering är inte längre möjligt med den här `device_code`. | Stoppa avsökningen och återgå till ett oautentiserat tillstånd. |   
 
-### <a name="successful-authentication-response"></a>Successful authentication response
+### <a name="successful-authentication-response"></a>Godkänt autentiserings svar
 
-A successful token response will look like:
+Ett lyckat svar på token kommer att se ut så här:
 
 ```json
 {
@@ -134,11 +134,11 @@ A successful token response will look like:
 
 | Parameter | Format | Beskrivning |
 | --------- | ------ | ----------- |
-| `token_type` | Sträng| Always "Bearer. |
-| `scope` | Space separated strings | If an access token was returned, this lists the scopes the access token is valid for. |
-| `expires_in`| int | Number of seconds before the included access token is valid for. |
-| `access_token`| Opaque string | Issued for the [scopes](v2-permissions-and-consent.md) that were requested.  |
-| `id_token`   | JWT | Issued if the original `scope` parameter included the `openid` scope.  |
-| `refresh_token` | Opaque string | Issued if the original `scope` parameter included `offline_access`.  |
+| `token_type` | Sträng| Alltid "Bearer. |
+| `scope` | Separerade blankstegsavgränsad strängar | Om en åtkomsttoken returnerades listar det de omfattningar som åtkomsttoken är giltig för. |
+| `expires_in`| int | Antal sekunder innan den inkluderade åtkomsttoken är giltig för. |
+| `access_token`| Ogenomskinlig sträng | Utfärdat för de [omfattningar](v2-permissions-and-consent.md) som begärdes.  |
+| `id_token`   | JWT | Utfärdas om den ursprungliga `scope`-parametern innehöll `openid`s området.  |
+| `refresh_token` | Ogenomskinlig sträng | Utfärdas om den ursprungliga `scope` parametern ingår `offline_access`.  |
 
-You can use the refresh token to acquire new access tokens and refresh tokens using the same flow documented in the [OAuth Code flow documentation](v2-oauth2-auth-code-flow.md#refresh-the-access-token).  
+Du kan använda uppdateringstoken för att hämta nya åtkomsttoken och uppdatera tokens med samma flöde som dokumenteras i dokumentationen för OAuth- [kodaren](v2-oauth2-auth-code-flow.md#refresh-the-access-token).  

@@ -46,7 +46,7 @@ I den här artikeln väljer du något av de här alternativen som passar dina be
 > Utvärderings perioden startar omedelbart när följande steg har slutförts.
 
 1. Gå till [testa kognitiva tjänster](https://azure.microsoft.com/try/cognitive-services/).
-1. Välj den **tal-API: er** fliken.
+1. Välj fliken **Speech-API: er** .
 1. Välj **Hämta API-nyckel**.
 
 Du kommer att visas med fakturerings alternativ. Välj alternativet gratis och Läs och godkänn användar avtalet. Du kommer att visas med nycklar som du kan använda för att testa tal tjänsten under en begränsad tid.
@@ -64,15 +64,15 @@ När du har en Microsoft-konto går du till [sidan för Azure-registrering](http
 
 Lägga till en tal-tjänstresurs (kostnadsfritt eller betalt nivå) på Azure-kontot:
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com/) med ditt Microsoft-konto.
+1. Logga in på [Azure Portal](https://portal.azure.com/) med din Microsoft-konto.
 
-1. Välj **skapa en resurs** på upp till vänster på portalen. Om du inte ser **skapa en resurs**, kan du alltid hitta den genom att välja menyn komprimerad i det övre vänstra hörnet:
+1. Välj **skapa en resurs** längst upp till vänster i portalen. Om du inte ser **skapa en resurs**, kan du alltid hitta den genom att välja menyn komprimerad i det övre vänstra hörnet:
 
    ![minimerad navigerings knapp](media/index/collapsed-nav.png)
 
 1. Skriv "tal" i rutan Sök i det **nya** fönstret och tryck på RETUR.
 
-1. I sökresultaten väljer **tal**.
+1. I Sök resultaten väljer du **tal**.
 
    ![tal Sök Resultat](media/index/speech-search.png)
 
@@ -96,8 +96,8 @@ Om du vill växla från en prenumeration till en annan, Ersätt till exempel nä
 
 ## <a name="about-regions"></a>Om regioner
 
-- Om programmet använder ett [tal SDK](speech-sdk.md), ange regionskod, t.ex `westus`, när du skapar en tal-konfiguration.
-- Om ditt program använder en av Speech-tjänsten [REST API: er](rest-apis.md), regionen är en del av slutpunkten URI som du använder när du gör förfrågningar.
+- Om programmet använder ett [tal-SDK](speech-sdk.md)anger du regions koden, till exempel `westus`, när du skapar en tal konfiguration.
+- Om ditt program använder en av de olika tal tjänstens [REST-API: er](rest-apis.md)är regionen en del av slut punkts-URI: n som du använder när du gör förfrågningar.
 - Nycklar som har skapats för en region är endast giltiga i den regionen. Försök att använda dem med andra regioner leder autentiseringsfel.
 
 ## <a name="next-steps"></a>Nästa steg
@@ -105,5 +105,5 @@ Om du vill växla från en prenumeration till en annan, Ersätt till exempel nä
 Gör något av våra snabbstarter på 10 minuter eller Kolla in våra SDK-exempel:
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Känna igen tal i C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
+> [Snabb start: identifiera tal C# i](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
 > [tal SDK-exempel](speech-sdk.md#get-the-samples)

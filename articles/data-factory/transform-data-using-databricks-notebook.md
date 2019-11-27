@@ -1,5 +1,5 @@
 ---
-title: Run a Databricks Notebook with the Databricks Notebook activity
+title: Kör en Databricks-anteckningsbok med Databricks Notebook-aktiviteten
 description: Lär dig hur du kan använda Databricks Notebook-aktiviteten i Azure Data Factory för att köra en Databricks Notebook mot Databricks-jobbklustret.
 services: data-factory
 ms.service: data-factory
@@ -44,7 +44,7 @@ Om du vill se en introduktion och demonstration av den här funktionen rekommend
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1.  Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
+1.  Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Data Factory-användargränssnittet stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
 
 1.  Välj **Skapa en resurs** på den vänstra menyn, välj **Analys** och välj sedan **Data Factory**.
 
@@ -150,7 +150,7 @@ I det här avsnittet skapar du en Databricks-länkad tjänst. Den här länkade 
 
           ![Skapa en ny mapp](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png)
 
-       1. [Create a new notebook](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python), let’s call it **mynotebook** under **adftutorial** Folder, click **Create.**
+       1. [Skapa en ny Notebook](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (python), låt oss kalla den till min **bärbara dator** under mappen **adftutorial** Klicka på **skapa.**
 
           ![Skapa en ny notebook](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
 
@@ -178,7 +178,7 @@ I det här avsnittet skapar du en Databricks-länkad tjänst. Den här länkade 
 
        ![Lägg till parameter](media/transform-data-using-databricks-notebook/new-adf-parameters.png)
 
-    b.  Name the parameter as **input** and provide the value as expression **\@pipeline().parameters.name**.
+    b.  Namnge parametern som **inmatad** och ange värdet som uttryck **\@pipeliner (). Parameters. name**.
 
 1.  Verifiera pipelinen genom att välja knappen **Verifiera** i verktygsfältet. Klicka på knappen **\>\>** (högerpil) för att stänga verifieringsfönstret.
 
@@ -188,7 +188,7 @@ I det här avsnittet skapar du en Databricks-länkad tjänst. Den här länkade 
 
     ![Publicera de nya datafabriksentiteterna](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image19.png)
 
-## <a name="trigger-a-pipeline-run"></a>Utlös en pipelinekörning
+## <a name="trigger-a-pipeline-run"></a>Utlösa en pipelinekörning
 
 Välj **Utlös** i verktygsfältet och sedan **Trigger Now** (Utlös nu).
 
@@ -200,7 +200,7 @@ Dialogrutan **Kör pipeline** efterfrågar parametern **namn**. Använd **/path/
 
 ## <a name="monitor-the-pipeline-run"></a>Övervaka pipelinekörningen
 
-1.  Switch to the **Monitor** tab. Confirm that you see a pipeline run. Det tar cirka 5–8 minuter att skapa ett Databricks-jobbkluster där en notebook körs.
+1.  Växla till fliken **övervakare** . bekräfta att du ser en pipeline-körning. Det tar cirka 5–8 minuter att skapa ett Databricks-jobbkluster där en notebook körs.
 
     ![Övervaka pipeline](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image22.png)
 

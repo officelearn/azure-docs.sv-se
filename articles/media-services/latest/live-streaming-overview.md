@@ -75,7 +75,7 @@ Direkt avskrift är en funktion som du kan använda med Live-händelser som anti
 För att förstå Live streaming-arbetsflödet i Media Services v3 måste du först granska och förstå följande begrepp: 
 
 - [Slutpunkter för direktuppspelning](streaming-endpoint-concept.md)
-- [Livehändelser och liveutdata](live-events-outputs-concept.md)
+- [Livehändelser och liveresultat](live-events-outputs-concept.md)
 - [Positionerare för direktuppspelning](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>Allmänna steg

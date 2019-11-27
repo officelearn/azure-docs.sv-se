@@ -1,6 +1,6 @@
 ---
-title: Problem signing in to on-premises app using Azure AD app proxy | Microsoft Docs
-description: Troubleshooting common issues faced when you are unable to sign in to an on-premises application integrated with Azure AD using the Azure AD Application Proxy
+title: Problem med att logga in till en lokal app med Azure AD App proxy | Microsoft Docs
+description: Felsöka vanliga problem som är riktade mot att du inte kan logga in på ett lokalt program som är integrerat med Azure AD med hjälp av Azure-AD-programproxy
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -22,9 +22,9 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74232331"
 ---
-# <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problems signing in to an on-premises application using the Azure AD application proxy
+# <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problem med att logga in till ett lokalt program med Azure AD-programproxyn
 
-If you are having problems signing in an on-premises application, you can try following the steps below to resolving your problem.
+Om du har problem med att logga in i ett lokalt program kan du prova att följa stegen nedan för att lösa problemet.
 
 ## <a name="i-can-load-my-application-but-something-on-the-page-looks-broken"></a>Jag kan läsa in mitt program, men något på sidan verkar skadat
 

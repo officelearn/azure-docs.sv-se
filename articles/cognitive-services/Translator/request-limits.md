@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 11/25/2019
 ms.author: swmachan
-ms.openlocfilehash: 79cf87cef4e58cf4e5a2039f30289d55038c8b92
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 3694c8cb34b2a050c9e18265c8cc0a0198456076
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671953"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533712"
 ---
 # <a name="request-limits-for-translator-text"></a>Begär ande gränser för Translator Text
 
@@ -29,10 +29,10 @@ I följande tabell visas mat ris element och Character-gränser för varje åtg�
 
 | Åtgärd | Maximal storlek för mat ris element |   Maximalt antal mat ris element |  Maximal begär ande storlek (tecken) |
 |:----|:----|:----|:----|
-| Translate | 5,000 | 100   | 5,000 |
-| Transliterate | 5,000 | 10    | 5,000 |
-| Detect | 10 000 | 100 |   50,000 |
-| BreakSentence | 10 000    | 100 | 50,000 |
+| Översätt | 5 000 | 100   | 5 000 |
+| Transkribera | 5 000 | 10    | 5 000 |
+| Upptäcka | 10 000 | 100 |   50 000 |
+| BreakSentence | 10 000    | 100 | 50 000 |
 | Slå upp i ordlista| 100 |  10  | 1,000 |
 | Ordlisteexempel | 100 för text och 100 för översättning (totalt 200)| 10|   2,000 |
 
@@ -58,7 +58,7 @@ Dessa gränser är begränsade till Microsofts standard översättnings modeller
 
 ## <a name="latency"></a>Svarstid
 
-Translator Text API har en maximal fördröjning på 15 sekunder med standard modeller. Översättning med anpassade modeller har en maximal fördröjning på 25 sekunder. Vid den här tidpunkten har du fått ett resultat eller ett timeout-svar. Normalt returneras svar i 150 millisekunder till 300 millisekunder. Svars tiderna varierar beroende på storleken på begäran och språk paret. Om du inte får någon översättning eller ett [fel svar](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) inom den tids ramen bör du kontrol lera nätverks anslutningen och försöka igen.
+Translator Text API har en maximal fördröjning på 15 sekunder med standard modeller och 120 sekunder när du använder anpassade modeller. Vanligt vis returneras svar *för text på 100 tecken* i 150 millisekunder till 300 millisekunder. De anpassade översättnings modellerna har liknande svars tids krav för den varaktiga begär ande frekvensen och kan ha en högre latens när din begär ande frekvens är intermittent. Svars tiderna varierar beroende på storleken på begäran och språk paret. Om du inte får någon översättning eller ett [felsvar](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) inom den tids ramen, kontrol lera din kod, din nätverks anslutning och försök igen. 
 
 ## <a name="sentence-length-limits"></a>Längd begränsningar för mening
 

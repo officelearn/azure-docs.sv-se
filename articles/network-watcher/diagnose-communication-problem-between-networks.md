@@ -1,7 +1,7 @@
 ---
-title: Tutorial - Diagnose communication problem between networks using the Azure portal
+title: Självstudie – diagnostisera kommunikations problem mellan nätverk med hjälp av Azure Portal
 titleSuffix: Azure Network Watcher
-description: In this tutorial, learn how to diagnose a communication problem between an Azure virtual network connected to an on-premises, or other virtual network, through an Azure virtual network gateway, using Network Watcher's VPN diagnostics capability.
+description: I den här självstudien får du lära dig hur du diagnostiserar ett kommunikations problem mellan ett virtuellt Azure-nätverk som är anslutet till ett lokalt eller annat virtuellt nätverk, via en virtuell Azure-nätverksgateway med hjälp av Network Watcher funktion för VPN-diagnostik.
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -25,7 +25,7 @@ ms.locfileid: "74419732"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Självstudier: Diagnostisera kommunikationsproblem mellan nätverk med hjälp av Azure Portal
 
-En virtuell nätverksgateway ansluter ett virtuellt Azure-nätverk till ett lokalt nätverk eller till ett annat virtuellt nätverk. I den här guiden får du lära dig att:
+En virtuell nätverksgateway ansluter ett virtuellt Azure-nätverk till ett lokalt nätverk eller till ett annat virtuellt nätverk. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Diagnostisera problem med en virtuell nätverksgateway med funktionen VPN-diagnostik i Network Watcher
@@ -40,14 +40,14 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 ## <a name="prerequisites"></a>Krav
 
 Du måste ha en befintlig, aktiv VPN-gateway för att kunna använda VPN-diagnostik. Om du inte har en befintlig VPN-gateway att diagnostisera kan du distribuera en med hjälp av ett [PowerShell-skript](../vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Du kan köra PowerShell-skriptet från:
-- **A local PowerShell installation**: The script requires the Azure PowerShell `Az` module. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera modulen läser du avsnittet [Installera Azure PowerShell](/powershell/azure/install-Az-ps). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
+- **En lokal PowerShell-installation**: skriptet kräver modulen Azure PowerShell `Az`. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera modulen läser du avsnittet [Installera Azure PowerShell](/powershell/azure/install-Az-ps). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 - **Azure Cloud Shell**: Den senaste versionen av PowerShell är installerad och konfigurerad i [Azure Cloud Shell](https://shell.azure.com/powershell) och loggar in dig automatiskt i Azure.
 
 Det tar ungefär en timme att skapa en VPN-gateway med skriptet. I de återstående stegen förutsätter vi att den gateway som du diagnostiserar är den som distribuerats med det här skriptet. Om du diagnostiserar en egen befintlig gateway i stället, kan resultatet variera.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
 ## <a name="enable-network-watcher"></a>Aktivera Network Watcher
 
@@ -62,7 +62,7 @@ Om du redan har en aktiv nätverksbevakare i regionen Östra USA går du vidare 
 
 ## <a name="diagnose-a-gateway"></a>Diagnostisera en gateway
 
-1. Välj **Alla tjänster** till vänster i portalen.
+1. Välj **Alla tjänster** till vänster på portalen.
 2. Börja skriva *network watcher* i **filterrutan**. När **Network Watcher** visas i sökresultatet väljer du posten.
 3. Välj **VPN-diagnostik** under **DIAGNOSTISKA VERKTYG FÖR NÄTVERK**.
 4. Välj **Lagringskonto** och välj sedan det lagringskonto som du vill skriva diagnostikinformation till.

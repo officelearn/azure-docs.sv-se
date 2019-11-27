@@ -1,6 +1,6 @@
 ---
-title: Understand deny assignments for Azure resources | Microsoft Docs
-description: Learn about deny assignments in role-based access control (RBAC) for Azure resources.
+title: Förstå neka-tilldelningar för Azure-resurser | Microsoft Docs
+description: Lär dig mer om att neka tilldelningar i rollbaserad åtkomst kontroll (RBAC) för Azure-resurser.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -22,57 +22,57 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74479366"
 ---
-# <a name="understand-deny-assignments-for-azure-resources"></a>Understand deny assignments for Azure resources
+# <a name="understand-deny-assignments-for-azure-resources"></a>Förstå neka-tilldelningar för Azure-resurser
 
-Similar to a role assignment, a *deny assignment* attaches a set of deny actions to a user, group, or service principal at a particular scope for the purpose of denying access. Deny assignments block users from performing specific Azure resource actions even if a role assignment grants them access.
+I likhet med en roll tilldelning bifogar en *neka-tilldelning* en uppsättning neka-åtgärder till en användare, grupp eller tjänstens huvud namn i ett visst omfång för att neka åtkomst. Neka tilldelningar blockera användare från att utföra vissa åtgärder för Azure-resurser även om en roll tilldelning ger dem åtkomst.
 
-This article describes how deny assignments are defined.
+I den här artikeln beskrivs hur neka-tilldelningar definieras.
 
-## <a name="how-deny-assignments-are-created"></a>How deny assignments are created
+## <a name="how-deny-assignments-are-created"></a>Hur neka-tilldelningar skapas
 
-Deny assignments are created and managed by Azure to protect resources. Azure Blueprints and Azure managed apps use deny assignments to protect system-managed resources. Azure Blueprints and Azure managed apps are the only way that deny assignments can be created. You can't directly create your own deny assignments.  For more information, see [Protect new resources with Azure Blueprints resource locks](../governance/blueprints/tutorials/protect-new-resources.md).
+Neka-tilldelningar skapas och hanteras av Azure för att skydda resurser. Azure-ritningar och Azure-hanterade appar använder neka-tilldelningar för att skydda systemhanterade resurser. Azure-ritningar och Azure-hanterade appar är det enda sättet som nekar tilldelningar kan skapas. Du kan inte skapa egna neka-tilldelningar direkt.  Mer information finns i [skydda nya resurser med resurs lås för Azure-ritningar](../governance/blueprints/tutorials/protect-new-resources.md).
 
 > [!NOTE]
-> You can't directly create your own deny assignments.
+> Du kan inte skapa egna neka-tilldelningar direkt.
 
-## <a name="compare-role-assignments-and-deny-assignments"></a>Compare role assignments and deny assignments
+## <a name="compare-role-assignments-and-deny-assignments"></a>Jämför roll tilldelningar och neka tilldelningar
 
-Deny assignments follow a similar pattern as role assignments, but also have some differences.
+Neka tilldelningar följer ett liknande mönster som roll tilldelningar, men har också vissa skillnader.
 
-| Kapacitet | Rolltilldelning | Deny assignment |
+| Funktion | Rolltilldelning | Neka tilldelning |
 | --- | --- | --- |
 | Bevilja åtkomst | :heavy_check_mark: |  |
 | Neka åtkomst |  | :heavy_check_mark: |
-| Can be directly created | :heavy_check_mark: |  |
-| Apply at a scope | :heavy_check_mark: | :heavy_check_mark: |
-| Exclude principals |  | :heavy_check_mark: |
-| Prevent inheritance to child scopes |  | :heavy_check_mark: |
-| Apply to [classic subscription administrator](rbac-and-directory-admin-roles.md) assignments |  | :heavy_check_mark: |
+| Kan skapas direkt | :heavy_check_mark: |  |
+| Tillämpa i ett omfång | :heavy_check_mark: | :heavy_check_mark: |
+| Exkludera huvud konton |  | :heavy_check_mark: |
+| Förhindra arv av underordnade omfattningar |  | :heavy_check_mark: |
+| Tillämpa på [Administratörs](rbac-and-directory-admin-roles.md) tilldelningar för klassisk prenumeration |  | :heavy_check_mark: |
 
-## <a name="deny-assignment-properties"></a>Deny assignment properties
+## <a name="deny-assignment-properties"></a>Egenskaper för neka tilldelning
 
- A deny assignment has the following properties:
+ En neka-tilldelning har följande egenskaper:
 
 > [!div class="mx-tableFixed"]
 > | Egenskap | Krävs | Typ | Beskrivning |
 > | --- | --- | --- | --- |
-> | `DenyAssignmentName` | Ja | Sträng | The display name of the deny assignment. Names must be unique for a given scope. |
-> | `Description` | Nej | Sträng | The description of the deny assignment. |
-> | `Permissions.Actions` | At least one Actions or one DataActions | String[] | An array of strings that specify the management operations to which the deny assignment blocks access. |
-> | `Permissions.NotActions` | Nej | String[] | An array of strings that specify the management operations to exclude from the deny assignment. |
-> | `Permissions.DataActions` | At least one Actions or one DataActions | String[] | An array of strings that specify the data operations to which the deny assignment blocks access. |
-> | `Permissions.NotDataActions` | Nej | String[] | An array of strings that specify the data operations to exclude from the deny assignment. |
-> | `Scope` | Nej | Sträng | A string that specifies the scope that the deny assignment applies to. |
-> | `DoNotApplyToChildScopes` | Nej | Boolesk | Specifies whether the deny assignment applies to child scopes. Default value is false. |
-> | `Principals[i].Id` | Ja | String[] | An array of Azure AD principal object IDs (user, group, service principal, or managed identity) to which the deny assignment applies. Set to an empty GUID `00000000-0000-0000-0000-000000000000` to represent all principals. |
-> | `Principals[i].Type` | Nej | String[] | An array of object types represented by Principals[i].Id. Set to `SystemDefined` to represent all principals. |
-> | `ExcludePrincipals[i].Id` | Nej | String[] | An array of Azure AD principal object IDs (user, group, service principal, or managed identity) to which the deny assignment does not apply. |
-> | `ExcludePrincipals[i].Type` | Nej | String[] | An array of object types represented by ExcludePrincipals[i].Id. |
-> | `IsSystemProtected` | Nej | Boolesk | Specifies whether this deny assignment was created by Azure and cannot be edited or deleted. Currently, all deny assignments are system protected. |
+> | `DenyAssignmentName` | Ja | Sträng | Visnings namnet för neka-tilldelningen. Namn måste vara unika för ett angivet omfång. |
+> | `Description` | Nej | Sträng | Beskrivningen av neka-tilldelningen. |
+> | `Permissions.Actions` | Minst en åtgärd eller en DataActions | String[] | En sträng mat ris som anger vilka hanterings åtgärder som neka tilldelning blockerar åtkomsten till. |
+> | `Permissions.NotActions` | Nej | String[] | En sträng mat ris som anger vilka hanterings åtgärder som ska undantas från neka-tilldelningen. |
+> | `Permissions.DataActions` | Minst en åtgärd eller en DataActions | String[] | En sträng mat ris som anger de data åtgärder som neka tilldelning blockerar åtkomsten till. |
+> | `Permissions.NotDataActions` | Nej | String[] | En sträng mat ris som anger de data åtgärder som ska undantas från neka-tilldelningen. |
+> | `Scope` | Nej | Sträng | En sträng som anger omfattningen som neka-tilldelningen gäller för. |
+> | `DoNotApplyToChildScopes` | Nej | Boolesk | Anger om neka-tilldelningen gäller för underordnade omfång. Standardvärdet är false. |
+> | `Principals[i].Id` | Ja | String[] | En matris med objekt-ID: n för Azure AD-huvudobjektet (användare, grupp, tjänstens huvud namn eller hanterad identitet) som neka-tilldelningen gäller. Ange ett tomt GUID `00000000-0000-0000-0000-000000000000` som representerar alla huvud konton. |
+> | `Principals[i].Type` | Nej | String[] | En matris med objekt typer som representeras av huvud konton [i]. ID. set till `SystemDefined` som representerar alla huvud konton. |
+> | `ExcludePrincipals[i].Id` | Nej | String[] | En matris med objekt-ID: n för Azure AD-huvudobjektet (användare, grupp, tjänstens huvud namn eller hanterad identitet) som neka-tilldelningen inte gäller för. |
+> | `ExcludePrincipals[i].Type` | Nej | String[] | En matris med objekt typer som representeras av ExcludePrincipals [i]. ID. |
+> | `IsSystemProtected` | Nej | Boolesk | Anger om den här nekande tilldelningen skapades av Azure och inte kan redige ras eller tas bort. För närvarande är alla nekade tilldelningar skyddade av systemet. |
 
-## <a name="the-all-principals-principal"></a>The All Principals principal
+## <a name="the-all-principals-principal"></a>Huvudobjektet alla huvud konton
 
-To support deny assignments, a system-defined principal named *All Principals* has been introduced. This principal represents all users, groups, service principals, and managed identities in an Azure AD directory. If the principal ID is a zero GUID `00000000-0000-0000-0000-000000000000` and the principal type is `SystemDefined`, the principal represents all principals. In Azure PowerShell output, All Principals looks like the following:
+För att stödja neka-tilldelningar har ett Systemdefinierat objekt med namnet *alla huvud konton* introducerats. Detta huvud konto representerar alla användare, grupper, tjänstens huvud namn och hanterade identiteter i en Azure AD-katalog. Om ägar-ID: t är ett noll GUID `00000000-0000-0000-0000-000000000000` och huvud konto typen är `SystemDefined`, representerar huvudobjektet alla huvud konton. I Azure PowerShell utdata ser alla huvud konton ut så här:
 
 ```azurepowershell
 Principals              : {
@@ -82,12 +82,12 @@ Principals              : {
                           }
 ```
 
-All Principals can be combined with `ExcludePrincipals` to deny all principals except some users. All Principals has the following constraints:
+Alla huvud konton kan kombineras med `ExcludePrincipals` för att neka alla huvud konton förutom vissa användare. Alla huvud konton har följande begränsningar:
 
-- Can be used only in `Principals` and cannot be used in `ExcludePrincipals`.
-- `Principals[i].Type` must be set to `SystemDefined`.
+- Kan endast användas i `Principals` och kan inte användas i `ExcludePrincipals`.
+- `Principals[i].Type` måste anges till `SystemDefined`.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [List deny assignments for Azure resources using the Azure portal](deny-assignments-portal.md)
-* [Understand role definitions for Azure resources](role-definitions.md)
+* [Visa lista över nekade tilldelningar för Azure-resurser med hjälp av Azure Portal](deny-assignments-portal.md)
+* [Förstå roll definitioner för Azure-resurser](role-definitions.md)

@@ -69,7 +69,7 @@ I det här avsnittet skapar du ett interaktivt Query-kluster i HDInsight med hj�
 
 ## <a name="access-the-grafana-dashboard"></a>Öppna Grafana-instrumentpanelen
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 2. Välj **HDInsight-kluster**och välj sedan det kluster namn som du skapade i det sista avsnittet.
 

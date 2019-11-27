@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Check spelling with the REST API and PHP - Bing Spell Check'
+title: 'Snabb start: kontrol lera stavningen med REST API och PHP-Stavningskontroll i Bing'
 titleSuffix: Azure Cognitive Services
-description: This simple PHP application sends a request to the Bing Spell Check API and returns a list of suggested corrections.
+description: Detta enkla PHP-program skickar en begäran till API för stavningskontroll i Bing och returnerar en lista med föreslagna korrigeringar.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -17,9 +17,9 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74383854"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-php"></a>Quickstart: Check spelling with the Bing Spell Check REST API and PHP
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-php"></a>Snabb start: kontrol lera stavningen med Stavningskontroll i Bing REST API och PHP
 
-Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. This simple PHP application sends a request to the API and returns a list of suggested corrections. Även om det här programmet är skrivet i PHP är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. Detta enkla PHP-program skickar en begäran till API: et och returnerar en lista med föreslagna korrigeringar. Även om det här programmet är skrivet i PHP är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -136,5 +136,5 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Skapa en webbapp med en sida](../tutorials/spellcheck.md)
 
-- [Vad är API för stavningskontroll i Bing?](../overview.md)
+- [Vad är API:et för stavningskontroll i Bing?](../overview.md)
 - [API-referens för stavningskontroll i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

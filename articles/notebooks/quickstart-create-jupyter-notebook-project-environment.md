@@ -16,55 +16,55 @@ Ett projekt i Azure-datorer är en samling av filer, till exempel bärbara dator
 
 ## <a name="create-a-project"></a>Skapa ett projekt
 
-1. Gå till [Azure anteckningsböcker](https://notebooks.azure.com) och logga in. (Mer information finns i [Snabbstart – logga in på Azure-anteckningsböcker](quickstart-sign-in-azure-notebooks.md)).
+1. Gå till [Azure Notebooks](https://notebooks.azure.com) och logga in. (Mer information finns i [snabb start – logga in till Azure Notebooks](quickstart-sign-in-azure-notebooks.md)).
 
-1. Din offentliga profil-sida väljer du **Mina projekt** överst på sidan:
+1. Från din offentliga profil sida väljer du **Mina projekt** överst på sidan:
 
     ![Mina projekt länk överst i webbläsarfönstret](media/quickstarts/my-projects-link.png)
 
-1. På den **Mina projekt** väljer **+ nytt projekt** (kortkommandot: n); knappen kan visas endast som **+** om webbläsaren är smal:
+1. På sidan **Mina projekt** väljer du **+ nytt projekt** (kortkommando: n); knappen får bara visas som **+** om webbläsarfönstret är smalare:
 
     ![Nytt projekt-kommando på sidan Mina projekt](media/quickstarts/new-project-command.png)
 
-1. I den **Skapa nytt projekt** popup-fönstret som visas, ange eller ange följande information och välj sedan **skapa**:
+1. I popup-fönstret **Skapa nytt projekt** som visas anger eller anger du följande information och väljer sedan **skapa**:
 
-    - **Projektnamnet**: projekt med anpassad miljö
-    - **Projektet ID**: projekt-anpassad-miljö
-    - **Offentliga projekt**: (avmarkerad)
-    - **Skapa en README.md**: (avmarkerad)
+    - **Projekt namn**: projekt med en anpassad miljö
+    - **Projekt-ID**: projekt-anpassad – miljö
+    - **Offentligt projekt**: (avmarkerat)
+    - **Skapa en README.MD**: (avmarkerad)
 
-1. Efter en liten stund navigerar du till det nya projektet i Azure-anteckningsböcker. Lägg till en anteckningsbok i projektet genom att välja den **+ ny** listrutan (som kan visas bara **+** ), sedan välja **Notebook**.
+1. Efter en liten stund navigerar du till det nya projektet i Azure-anteckningsböcker. Lägg till en antecknings bok i projektet genom att markera List rutan **+ ny** (som kan visas som endast **+** ) och sedan välja **antecknings bok**.
 
-1. Ge anteckningsboken ett namn som liknar *anpassade environment.ipynb*väljer **Python 3.6** för språk och väljer **New**.
+1. Ge antecknings boken ett namn som *anpassad miljö. ipynb*, välj **python 3,6** för språket och välj **ny**.
 
 ## <a name="add-a-custom-setup-step"></a>Lägg till en anpassad installation steg
 
-1. På projektsidan väljer **Projektinställningar**.
+1. På sidan projekt väljer du **projekt inställningar**.
 
     ![Kommandot för projekt-settings](media/quickstarts/project-settings-command.png)
 
-1. I den **Projektinställningar** popup-fönstret väljer den **miljö** fliken sedan under **steg för konfiguration av miljö**väljer **+ Lägg till**:
+1. I popup-fönstret **projekt inställningar** väljer du fliken **miljö** . under **miljö konfigurations steg**väljer du **+ Lägg till**:
 
     ![Att lägga till en ny miljö installationssteget](media/quickstarts/environment-add-command.png)
 
-1. Den **+ Lägg till** kommandot skapar ett steg som definieras av en åtgärd och en målfil som väljs från filerna i projektet. Följande åtgärder stöds:
+1. Kommandot **+ Add** skapar ett steg som definieras av en åtgärd och en målfil som väljs från filerna i projektet. Följande åtgärder stöds:
 
     | Åtgärd | Beskrivning |
     | --- | --- |
-    | Requirements.txt | Python-projekt definiera beroenden i en requirements.txt-fil. Markera rätt fil från listan över filer i projektets med det här alternativet, och även välja Python-version i ytterligare listrutan som visas. Om det behövs väljer **Avbryt** för att återgå till projektet, ladda upp eller skapa filen och sedan gå tillbaka till den **Projektinställningar** > **miljö** fliken och skapa en nytt steg. Det här steget på plats körs som kör en anteckningsbok i projektet automatiskt `pip install -r <file>` |
-    | Shell-skript | Används för att indikera ett bash-kommandoskript (vanligtvis en fil med det *.sh* tillägget) som innehåller alla kommandon som du vill köra för att initiera miljön. |
-    | Environment.yml | Ett Python-projekt som använder conda för hantering av en miljö använder en *environments.yml* fil att beskriva beroenden. Markera rätt fil från listan över filer i projektets med det här alternativet. |
+    | Requirements.txt | Python-projekt definiera beroenden i en requirements.txt-fil. Markera rätt fil från listan över filer i projektets med det här alternativet, och även välja Python-version i ytterligare listrutan som visas. Om det behövs väljer du **Avbryt** för att återgå till projektet, laddar upp eller skapar filen och återgår sedan till fliken **projekt inställningar** > - **miljö** och skapar ett nytt steg. Med det här steget på plats körs en antecknings bok i projektet automatiskt `pip install -r <file>` |
+    | Shell-skript | Används för att ange ett bash-gränssnitts skript (vanligt vis en fil med fil namns tillägget *. sh* ) som innehåller alla kommandon som du vill köra för att initiera miljön. |
+    | Environment.yml | Ett python-projekt som använder Conda för att hantera en miljö använder en miljö *. yml* -fil för att beskriva beroenden. Markera rätt fil från listan över filer i projektets med det här alternativet. |
 
-1. Om du vill ta bort något steg i installationen, Välj den **X** till höger om steget.
+1. Om du vill ta bort ett installations steg väljer du **X** till höger om steget.
 
-1. När alla konfigurationssteg är på plats, Välj **spara**. (Välj **Avbryt** ignorera ändringar).
+1. När alla installations steg är på plats väljer du **Spara**. (Välj **Avbryt** om du vill ignorera ändringarna).
 
-1. Om du vill testa din miljö, skapa och köra en ny anteckningsbok och sedan skapa en kodcell med instruktioner som är beroende av ett paket i miljön, till exempel med hjälp av ett Python `import` instruktionen. Om instruktionen lyckas, har sedan det nödvändiga paketet installerats i miljön.
+1. Testa din miljö genom att skapa och köra en ny antecknings bok och sedan skapa en Code-cell med instruktioner som är beroende av ett paket i miljön, till exempel att använda en python `import`-instruktion. Om instruktionen lyckas, har sedan det nödvändiga paketet installerats i miljön.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Hantera och konfigurera projekt i Azure-anteckningsböcker](configure-manage-azure-notebooks-projects.md)
+> [Hantera och konfigurera projekt i Azure Notebooks](configure-manage-azure-notebooks-projects.md)
 
 > [!div class="nextstepaction"]
-> [Självstudier: skapa en kör en Jupyter-anteckningsbok för att göra linjär regression](tutorial-create-run-jupyter-notebook.md)
+> [Självstudie: skapa en kör en Jupyter-anteckningsbok för att göra linjär regression](tutorial-create-run-jupyter-notebook.md)

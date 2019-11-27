@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Deputy | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory integration med vice | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Deputy.
 services: active-directory
 documentationCenter: na
@@ -23,7 +23,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74227591"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Tutorial: Azure Active Directory integration with Deputy
+# <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Självstudie: Azure Active Directory integrering med vice
 
 I den här självstudien lär du dig att integrera Deputy med Azure Active Directory (AD Azure).
 Integreringen av Deputy med Azure AD medför följande fördelar:
@@ -39,7 +39,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 För att konfigurera Azure AD-integrering med Deputy behöver du följande:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
 * Deputy-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -54,7 +54,7 @@ För att konfigurera integrering av Deputy i Azure AD behöver du lägga till De
 
 **Utför följande steg för att lägga till Deputy från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -79,7 +79,7 @@ För att konfigurera och testa enkel inloggning för Azure AD med Deputy behöve
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning för Deputy](#configure-deputy-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa Deputy-testanvändare](#create-deputy-test-user)** – för att ha en motsvarighet för Britta Simon i Deputy som är länkad till Azure AD-representationen av användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
@@ -92,7 +92,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för De
 
 1. I [Azure-portalen](https://portal.azure.com/) går du till programintegreringssidan för **Deputy** och väljer **Enkel inloggning**.
 
-    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -150,13 +150,13 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för De
 
     ![Deputy-domän och information om URL:er för enkel inloggning](common/metadata-upload-additional-signon.png)
 
-    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<your-subdomain>.<region>.deputy.com`
+    I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<your-subdomain>.<region>.deputy.com`
 
     >[!NOTE]
     > Deputy-regionssuffixet är valfritt, eller så bör det använda något av följande: au | na | eu | as | la |af |an | ent-au | ent-na | ent-eu | ent-as | ent-la | ent-af | ent-an
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [kundsupporten för Deputy](https://www.deputy.com/call-centers-customer-support-scheduling-software) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [kundsupporten för Deputy](https://www.deputy.com/call-centers-customer-support-scheduling-software) och be om dessa värden. Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 6. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
@@ -212,7 +212,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -231,7 +231,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
     ![Länken för Deputy i programlistan](common/all-applications.png)
 
-3. I menyn till vänster väljer du **Användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -255,15 +255,15 @@ För att Azure AD-användare ska kunna logga in i Deputy måste de etableras til
 
 2. I navigeringsfönstret längst upp klickar du på **Personer**.
    
-    ![People](./media/deputy-tutorial/tutorial_deputy_001.png "Personer")
+    ![Användar](./media/deputy-tutorial/tutorial_deputy_001.png "People")
 
 3. Klicka på knappen **Lägg till personer** och sedan på **Add a single person** (Lägg till en enskild person).
    
-    ![Add People](./media/deputy-tutorial/tutorial_deputy_002.png "Add People")
+    ![Lägg till personer](./media/deputy-tutorial/tutorial_deputy_002.png "Lägg till personer")
 
 4. Utför följande steg och klicka på **Save & Invite** (Spara och bjud in).
    
-    ![New User](./media/deputy-tutorial/tutorial_deputy_003.png "New User")
+    ![Ny användare](./media/deputy-tutorial/tutorial_deputy_003.png "Ny användare")
 
     a. I textrutan **Namn** skriver du namnet på användaren: **BrittaSimon**.
    
@@ -273,13 +273,13 @@ För att Azure AD-användare ska kunna logga in i Deputy måste de etableras til
    
     d. Klicka knappen **Save & Invite** (Spara och bjud in).
 
-5. The Azure AD account holder receives an email and follows a link to confirm their account before it becomes active. You can use any other Deputy user account creation tools or APIs provided by Deputy to provision Azure AD user accounts.
+5. Azure AD-kontonamnet tar emot ett e-postmeddelande och följer en länk för att bekräfta sitt konto innan det blir aktivt. Du kan använda andra verktyg för att skapa användar konton eller API: er som tillhandahålls av vice för att etablera Azure AD-användarkonton.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Deputy-panelen i åtkomstpanelen bör du automatiskt loggas in på Deputy som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på Deputy-panelen i åtkomstpanelen bör du automatiskt loggas in på Deputy som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -287,5 +287,5 @@ När du klickar på Deputy-panelen i åtkomstpanelen bör du automatiskt loggas 
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

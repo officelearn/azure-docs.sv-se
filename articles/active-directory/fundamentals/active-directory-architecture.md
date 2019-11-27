@@ -13,41 +13,45 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b124475b44778ef3bb0dc9eba0c59bb3a277b85a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7d0511f008a3d5bc39a0fb2d9406d33b72dbede6
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562057"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74532950"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Vad är Azure Active Directory-arkitekturen?
+
 Med Azure AD (Active Directory Azure) kan du på ett säkert sätt hantera åtkomsten till Azure-tjänster och -resurser för dina användare. En komplett uppsättning identitetshanteringsfunktioner ingår i Azure AD. Information om funktionerna i Azure AD finns i [Vad är Azure Active Directory?](active-directory-whatis.md)
 
 Med Azure AD kan du skapa och hantera användare och grupper och aktivera behörigheter för att tillåta och neka åtkomst till företagsresurser. Information om identitetshantering finns i [The fundamentals of Azure identity management](active-directory-whatis.md) (Grunderna om Azure-identitetshantering).
 
 ## <a name="azure-ad-architecture"></a>Azure AD-arkitekturen
+
 Azure Active Directorys geografiskt distribuerade arkitektur kombinerar omfattande övervakning, automatisk omdirigering, redundans och funktioner, vilket ger en företagsomfattande tillgänglighet och prestanda för kunder.
 
 Följande arkitekturelement beskrivs i den här artikeln:
- *  Tjänstarkitekturens design
- *  Skalbarhet
- *  Kontinuerlig tillgänglighet
- *  Datacenter
+
+*   Tjänstarkitekturens design
+*   Skalbarhet
+*   Kontinuerlig tillgänglighet
+*   Datacenter
 
 ### <a name="service-architecture-design"></a>Tjänstarkitekturens design
-Det vanligaste sättet att bygga ett tillgängligt och användbart, data omfattande system är genom oberoende Bygg stenar eller skalnings enheter. För data nivån för Azure AD kallas skalnings enheter *partitioner*. 
 
-Datanivån har flera frontend-tjänster som tillhandahåller läs-och skrivfunktioner. Diagrammet nedan visar hur komponenterna i en partition med en enda katalog levereras i geografiskt distribuerade Data Center. 
+Det vanligaste sättet att bygga ett tillgängligt och användbart, data omfattande system är genom oberoende Bygg stenar eller skalnings enheter. För data nivån för Azure AD kallas skalnings enheter *partitioner*.
+
+Datanivån har flera frontend-tjänster som tillhandahåller läs-och skrivfunktioner. Diagrammet nedan visar hur komponenterna i en partition med en enda katalog levereras i geografiskt distribuerade Data Center.
 
   ![Partition diagram med en enda katalog](./media/active-directory-architecture/active-directory-architecture.png)
 
 Komponenterna i Azure AD-arkitekturen består av en primär replik och flera sekundära repliker.
 
-**Primär replik**
+#### <a name="primary-replica"></a>Primär replik
 
 Den *primära repliken* tar emot alla *skrivningar* för den partition som den tillhör. Alla skrivåtgärder replikeras omedelbart till en sekundär replik i ett annat datacenter innan anroparen får en bekräftelse om att åtgärden lyckades. Den här metoden garanterar geo-redundant hållbarhet för skrivningar.
 
-**Sekundära repliker**
+#### <a name="secondary-replicas"></a>Sekundära repliker
 
 Alla katalog *läsningar* betjänas från *sekundära repliker*, som finns på Data Center som är fysiskt placerade i olika geografiska områden. Det finns många sekundära repliker eftersom data replikeras asynkront. Katalog läsningar, till exempel autentiseringsbegäranden, betjänas från data Center som är nära kunder. De sekundära replikerna ansvarar för läsningarnas skalbarhet.
 
@@ -65,19 +69,20 @@ Tillgängligheten (eller drifttiden) syftar på ett systems möjlighet att köra
 
 Azure Active Directorys partitionsdesign är förenklad jämfört med AD-företagsdesignen, med hjälp av en enskild design som innehåller en noggrant styrd och deterministisk primärreplik redundansväxling.
 
-**Feltolerans**
+#### <a name="fault-tolerance"></a>Feltolerans
 
-Ett system är mer tillgängligt om det är tolerant för maskinvaru-, nätverks- och programvarurelaterade fel. För varje partition i katalogen finns en huvud replik med hög tillgänglighet: Den primära repliken. Endast skrivningar till partitionen utförs på den här repliken. Repliken övervakas kontinuerligt och noggrant, och skrivningar kan omedelbart växlas till en annan replik (som blir den nya primära repliken) om det uppstår ett fel. Under en redundansväxling kan det uppstå ett avbrott i skrivtillgängligheten på 1 till 2 minuter. Lästillgängligheten påverkas inte under den här tiden.
+Ett system är mer tillgängligt om det är tolerant för maskinvaru-, nätverks- och programvarurelaterade fel. För varje partition i katalogen finns det en huvudreplik med hög tillgänglighet: den primära repliken. Endast skrivningar till partitionen utförs på den här repliken. Repliken övervakas kontinuerligt och noggrant, och skrivningar kan omedelbart växlas till en annan replik (som blir den nya primära repliken) om det uppstår ett fel. Under en redundansväxling kan det uppstå ett avbrott i skrivtillgängligheten på 1 till 2 minuter. Lästillgängligheten påverkas inte under den här tiden.
 
 Läsåtgärder (som är avsevärt många fler än skrivåtgärderna) skickas endast till sekundära repliker. Eftersom sekundära repliker är idempotenta kompenseras förlusten av en replik i en viss partition enkelt genom att läsningarna dirigeras till en annan replik, vanligtvis i samma datacenter.
 
-**Datahållbarhet**
+#### <a name="data-durability"></a>Data hållbarhet
 
 Varaktigt allokeras till minst två Data Center innan det bekräftas. Detta inträffar när du först genomför skrivningen på den primära servern och sedan omedelbart replikerar skrivningen till minst ett annat data Center. Den här Skriv åtgärden garanterar att en potentiell förlust av data Center som är värd för den primära inte leder till data förlust.
 
-Azure Active Directorys noll [Recovery mål för återställningstid (RTO)](https://en.wikipedia.org/wiki/Recovery_time_objective) att inte data går förlorade vid redundansväxlingar. Det här omfattar:
--  Utfärdande av token och directory läsningar
--  Så att bara cirka 5 minuter RTO för directory-skrivningar
+Azure AD har ett tomt [återställnings tids mål (RTO)](https://en.wikipedia.org/wiki/Recovery_time_objective) för att inte förlora data vid redundans. Det här omfattar:
+
+* Utfärdande av token och directory läsningar
+* Så att bara cirka 5 minuter RTO för directory-skrivningar
 
 ### <a name="datacenters"></a>Datacenter
 
@@ -85,11 +90,11 @@ Azure Active Directorys repliker lagras i datacenter runtom i världen. Mer info
 
 Azure AD fungerar i Data Center med följande egenskaper:
 
- * Autentisering, Graph och andra AD-tjänster finns bakom en Gateway-tjänsten. Gatewaytjänsten hanterar belastningsutjämningen av dessa tjänster. Den växlar över automatiskt om alla servrar som innehåller fel identifieras med hjälp av transaktionella hälsotillståndsavsökningar. Utifrån dessa hälso avsökningar dirigerar gatewayen trafiken dynamiskt till felfria data Center.
- * För *läsningar*har katalogen sekundära repliker och motsvarande front-end-tjänster i en aktiv-aktiv konfiguration i flera data Center. Om det uppstår ett problem med ett helt data Center dirigeras trafiken automatiskt till ett annat data Center.
- *  För *skrivningar*växlar katalogen över primär replik (Master) över data Center via planerat (ny primär synkroniseras till gammal primär) eller nödfall. Data hållbarhet uppnås genom att du replikerar varje incheckning till minst två Data Center.
+* Autentisering, Graph och andra AD-tjänster finns bakom en Gateway-tjänsten. Gatewaytjänsten hanterar belastningsutjämningen av dessa tjänster. Den växlar över automatiskt om alla servrar som innehåller fel identifieras med hjälp av transaktionella hälsotillståndsavsökningar. Utifrån dessa hälso avsökningar dirigerar gatewayen trafiken dynamiskt till felfria data Center.
+* För *läsningar*har katalogen sekundära repliker och motsvarande front-end-tjänster i en aktiv-aktiv konfiguration i flera data Center. Om det uppstår ett problem med ett helt data Center dirigeras trafiken automatiskt till ett annat data Center.
+ \* För *skrivningar*växlar katalogen över den primära repliken (Master) över data Center via planerat (ny primär synkroniseras till gammal primär) eller nödfall. Data hållbarhet uppnås genom att du replikerar varje incheckning till minst två Data Center.
 
-**Datakonsekvens**
+#### <a name="data-consistency"></a>Datakonsekvens
 
 Directory-modellen är en av eventuell konsekvenser. Ett typiskt problem med distribuerade asynkrona replikeringssystem är att de data som returneras från en ”viss” replik inte kanske är uppdaterad. 
 
@@ -99,24 +104,23 @@ Programskrivningar som använder Graph-API:et för Azure AD abstraheras från ti
 
  >[!NOTE]
  >Skrivningar replikeras direkt till den sekundära repliken som den logiska sessionens läsningar skickades till.
- >
 
-**Skydd av säkerhetskopior**
+#### <a name="backup-protection"></a>Säkerhets kopierings skydd
 
-Katalogen implementerar mjuka borttagningar, i stället för hårda borttagningar, för användare och klientorganisationer så att oavsiktliga borttagningar av en kund enkelt kan återställas. Om din Innehavaradministratör oavsiktligt tar bort användare, kan de enkelt ångra och återställa de borttagna användarna. 
+Katalogen implementerar mjuka borttagningar, i stället för hårda borttagningar, för användare och klientorganisationer så att oavsiktliga borttagningar av en kund enkelt kan återställas. Om din Innehavaradministratör oavsiktligt tar bort användare, kan de enkelt ångra och återställa de borttagna användarna.
 
 Azure AD implementerar dagliga säkerhetskopieringar av alla data och kan därför auktoritativt återställa data i händelse av logiska borttagningar eller skadade data. Datanivån använder korrigera koder, så att den kan söka efter fel och automatiskt korrigering av särskilda typer av diskfel.
 
-**Mätvärden och övervakare**
+#### <a name="metrics-and-monitors"></a>Mått och övervakare
 
 Körning av en tjänst med hög tillgänglighet kräver förstklassiga mät- och övervakningsfunktioner. Azure AD analyserar och rapporterar kontinuerligt viktiga mätvärden och framgångskriterier rörande tjänsternas hälsa för var och en av dess tjänster. Det finns också kontinuerlig utveckling och justering av mått och övervakning och avisering för varje scenario i varje Azure AD-tjänsten och för alla tjänster.
 
 Om alla Azure AD-tjänsten inte fungerar som förväntat, åtgärd omedelbart att återställa funktionerna så snabbt som möjligt. De viktigaste måttet som Azure AD spårar är hur snabbt live-webbplatsen problem kan identifieras och undvikas för kunder. Vi har gjort stora investeringar inom övervakning och avisering för att minimera tiden för upptäckt (målsättning: < 5 minuter) och inom systemberedskap för att minimera tiden för avhjälpande åtgärder (målsättning: < 30 minuter).
 
-**Säkra åtgärder**
+#### <a name="secure-operations"></a>Säkra åtgärder
 
 Använder operativa kontroller, till exempel multifaktorautentisering (MFA) för alla åtgärder, samt granskning av alla åtgärder. Dessutom använder en just-in-time-utvärderingssystem för att bevilja nödvändig tillfällig åtkomst för alla operativa uppgiften på begäran med jämna mellanrum. Mer information finns i [The Trusted Cloud](https://azure.microsoft.com/support/trust-center) (Det säkra molnet).
 
 ## <a name="next-steps"></a>Nästa steg
-[Utvecklarhandbok för Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
 
+[Utvecklarhandbok för Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop)

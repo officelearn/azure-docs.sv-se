@@ -1,6 +1,6 @@
 ---
-title: Configure group settings using PowerShell - Azure AD | Microsoft Docs
-description: How manage the settings for groups using Azure Active Directory cmdlets
+title: Konfigurera grupp inställningar med PowerShell – Azure AD | Microsoft Docs
+description: Hantera inställningarna för grupper med hjälp av Azure Active Directory cmdlets
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -23,16 +23,16 @@ ms.locfileid: "74382976"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Azure Active Directory-cmdletar för att konfigurera gruppinställningar
 
-This article contains instructions for using Azure Active Directory (Azure AD) PowerShell cmdlets to create and update groups. This content applies only to Office 365 groups (sometimes called unified groups).
+Den här artikeln innehåller instruktioner för att använda PowerShell-cmdlets för Azure Active Directory (Azure AD) för att skapa och uppdatera grupper. Det här innehållet gäller endast för Office 365-grupper (kallas ibland enhetliga grupper).
 
 > [!IMPORTANT]
-> Some settings require an Azure Active Directory Premium P1 license. For more information, see the [Template settings](#template-settings) table.
+> Vissa inställningar kräver en licens för Azure Active Directory Premium P1. Mer information finns i tabellen [mall inställningar](#template-settings) .
 
-For more information on how to prevent non-administrator users from creating security groups, set `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False` as described in [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
+Mer information om hur du hindrar icke-administratörer från att skapa säkerhets grupper får du genom att ange `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False` enligt beskrivningen i [set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 
-Office 365 Groups settings are configured using a Settings object and a SettingsTemplate object. Initially, you don't see any Settings objects in your directory, because your directory is configured with the default settings. To change the default settings, you must create a new settings object using a settings template. Settings templates are defined by Microsoft. There are several different settings templates. To configure Office 365 group settings for your directory, you use the template named "Group.Unified". To configure Office 365 group settings on a single group, use the template named "Group.Unified.Guest". This template is used to manage guest access to an Office 365 group. 
+Inställningarna för Office 365-grupper konfigureras med ett inställnings objekt och ett SettingsTemplate-objekt. Inlednings vis ser du inte några inställnings objekt i katalogen, eftersom din katalog är konfigurerad med standardinställningarna. Om du vill ändra standardinställningarna måste du skapa ett nytt inställnings objekt med hjälp av en mall för inställningar. Inställningar mallar definieras av Microsoft. Det finns flera olika inställnings mallar. Om du vill konfigurera inställningar för Office 365-grupper för din katalog använder du mallen "Group. Unified". Om du vill konfigurera inställningar för Office 365-grupper i en enskild grupp använder du mallen "Group. Unified. Guest". Den här mallen används för att hantera gäst åtkomst till en Office 365-grupp. 
 
-The cmdlets are part of the Azure Active Directory PowerShell V2 module. For instructions how to download and install the module on your computer, see the article [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azuread/). You can install the version 2 release of the module from [the PowerShell gallery](https://www.powershellgallery.com/packages/AzureAD/).
+Cmdletarna är en del av modulen Azure Active Directory PowerShell V2. Instruktioner för hur du hämtar och installerar modulen på datorn finns i artikeln [Azure Active Directory PowerShell version 2](https://docs.microsoft.com/powershell/azuread/). Du kan installera version 2 av modulen från [PowerShell-galleriet](https://www.powershellgallery.com/packages/AzureAD/).
 
 ## <a name="install-powershell-cmdlets"></a>Installera PowerShell-cmdletar
 
@@ -52,16 +52,16 @@ Se till att avinstallera äldre versioner av Azure Active Directory PowerShell f
    Install-Module AzureADPreview
    ```
    
-## <a name="create-settings-at-the-directory-level"></a>Create settings at the directory level
-These steps create settings at directory level, which apply to all Office 365 groups in the directory. The Get-AzureADDirectorySettingTemplate cmdlet is available only in the [Azure AD PowerShell Preview module for Graph](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
+## <a name="create-settings-at-the-directory-level"></a>Skapa inställningar på katalog nivå
+De här stegen skapar inställningar på katalog nivå, som gäller för alla Office 365-grupper i katalogen. Cmdlet: en get-AzureADDirectorySettingTemplate är bara tillgänglig i [för hands versionen av Azure AD PowerShell för Graph](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
-1. In the DirectorySettings cmdlets, you must specify the ID of the SettingsTemplate you want to use. If you do not know this ID, this cmdlet returns the list of all settings templates:
+1. I DirectorySettings-cmdletar måste du ange ID: t för den SettingsTemplate som du vill använda. Om du inte känner till det här ID: t returnerar denna cmdlet listan över alla mallar för inställningar:
   
    ```powershell
    Get-AzureADDirectorySettingTemplate
 
    ```
-   This cmdlet call returns all templates that are available:
+   Detta cmdlet-anrop returnerar alla tillgängliga mallar:
   
    ```powershell
    Id                                   DisplayName         Description
@@ -73,120 +73,120 @@ These steps create settings at directory level, which apply to all Office 365 gr
    898f1161-d651-43d1-805c-3b0b388a9fc2 Custom Policy       Settings ...
    5cf42378-d67d-4f36-ba46-e8b86229381d Password Rule       Settings ...
    ```
-2. To add a usage guideline URL, first you need to get the SettingsTemplate object that defines the usage guideline URL value; that is, the Group.Unified template:
+2. Om du vill lägga till en URL för användnings rikt linjer måste du först hämta SettingsTemplate-objektet som definierar URL-värdet för användnings rikt linjer; det vill säga mallen Group. Unified:
   
    ```powershell
    $Template = Get-AzureADDirectorySettingTemplate -Id 62375ab9-6b52-47ed-826b-58e47e0e304b
    ```
-3. Next, create a new settings object based on that template:
+3. Skapa sedan ett nytt inställnings objekt baserat på mallen:
   
    ```powershell
    $Setting = $template.CreateDirectorySetting()
    ```  
-4. Then update the usage guideline value:
+4. Uppdatera sedan användnings rikt linje svärdet:
   
    ```powershell
    $Setting["UsageGuidelinesUrl"] = "https://guideline.example.com"
    ```  
-5. Then apply the setting:
+5. Använd sedan inställningen:
   
    ```powershell
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
-6. You can read the values using:
+6. Du kan läsa värdena med:
 
    ```powershell
    $Setting.Values
    ```  
-## <a name="update-settings-at-the-directory-level"></a>Update settings at the directory level
-To update the value for UsageGuideLinesUrl in the setting template, simply edit the URL with Step 4 above, then perform Step 5 to set the new value.
+## <a name="update-settings-at-the-directory-level"></a>Uppdatera inställningar på katalog nivå
+Om du vill uppdatera värdet för UsageGuideLinesUrl i inställnings mal len redigerar du bara URL: en med steg 4 ovan och utför sedan steg 5 för att ange det nya värdet.
 
-To remove the value of UsageGuideLinesUrl, edit the URL to be an empty string using Step 4 above:
+Om du vill ta bort värdet för UsageGuideLinesUrl redigerar du webb adressen som en tom sträng med steg 4 ovan:
 
    ```powershell
    $Setting["UsageGuidelinesUrl"] = ""
    ```  
-Then perform Step 5 to set the new value.
+Utför sedan steg 5 för att ange det nya värdet.
 
-## <a name="template-settings"></a>Template settings
-Here are the settings defined in the Group.Unified SettingsTemplate. Unless otherwise indicated, these features require an Azure Active Directory Premium P1 license. 
+## <a name="template-settings"></a>Mal lin ställningar
+Här är inställningarna som definierats i gruppen. Unified SettingsTemplate. Om inget annat anges kräver dessa funktioner en licens för Azure Active Directory Premium P1. 
 
 | **Inställning** | **Beskrivning** |
 | --- | --- |
-|  <ul><li>EnableGroupCreation<li>Type: Boolean<li>Default: True |The flag indicating whether Office 365 group creation is allowed in the directory by non-admin users. This setting does not require an Azure Active Directory Premium P1 license.|
-|  <ul><li>GroupCreationAllowedGroupId<li>Typ: Sträng<li>Default: “” |GUID of the security group for which the members are allowed to create Office 365 groups even when EnableGroupCreation == false. |
-|  <ul><li>UsageGuidelinesUrl<li>Typ: Sträng<li>Default: “” |A link to the Group Usage Guidelines. |
-|  <ul><li>ClassificationDescriptions<li>Typ: Sträng<li>Default: “” | A comma-delimited list of classification descriptions. The value of ClassificationDescriptions is only valid in this format:<br>$setting[“ClassificationDescriptions”] ="Classification:Description,Classification:Description"<br>where Classification matches the strings in the ClassificationList.<br>This setting does not apply when EnableMIPLabels == True.|
-|  <ul><li>DefaultClassification<li>Typ: Sträng<li>Default: “” | The classification that is to be used as the default classification for a group if none was specified.<br>This setting does not apply when EnableMIPLabels == True.|
-|  <ul><li>PrefixSuffixNamingRequirement<li>Typ: Sträng<li>Default: “” | String of a maximum length of 64 characters that defines the naming convention configured for Office 365 groups. For more information, see [Enforce a naming policy for Office 365 groups](groups-naming-policy.md). |
-| <ul><li>CustomBlockedWordsList<li>Typ: Sträng<li>Default: “” | Comma-separated string of phrases that users will not be permitted to use in group names or aliases. For more information, see [Enforce a naming policy for Office 365 groups](groups-naming-policy.md). |
-| <ul><li>EnableMSStandardBlockedWords<li>Type: Boolean<li>Default: “False” | Do not use
-|  <ul><li>AllowGuestsToBeGroupOwner<li>Type: Boolean<li>Default: False | Boolean indicating whether or not a guest user can be an owner of groups. |
-|  <ul><li>AllowGuestsToAccessGroups<li>Type: Boolean<li>Default: True | Boolean indicating whether or not a guest user can have access to Office 365 groups content.  This setting does not require an Azure Active Directory Premium P1 license.|
-|  <ul><li>GuestUsageGuidelinesUrl<li>Typ: Sträng<li>Default: “” | The url of a link to the guest usage guidelines. |
-|  <ul><li>AllowToAddGuests<li>Type: Boolean<li>Default: True | A boolean indicating whether or not is allowed to add guests to this directory. <br>This setting may be overridden and become read-only if *EnableMIPLabels* is set to *True* and a guest policy is associated with the sensitivity label assigned to the group. |
-|  <ul><li>ClassificationList<li>Typ: Sträng<li>Default: “” |A comma-delimited list of valid classification values that can be applied to Office 365 Groups. <br>This setting does not apply when EnableMIPLabels == True.|
-|  <ul><li>EnableMIPLabels<li>Type: Boolean<li>Default: “False” |The flag indicating whether sensitivity labels published in Microsoft 365 Compliance Center can be applied to Office 365 Groups. For more information, see [Assign Sensitivity Labels for Office 365 groups](groups-assign-sensitivity-labels.md). |
+|  <ul><li>EnableGroupCreation<li>Typ: boolesk<li>Standard: sant |Flaggan indikerar om Office 365-gruppen ska kunna skapas i katalogen av användare som inte är administratörer. Den här inställningen kräver inte en licens för Azure Active Directory Premium P1.|
+|  <ul><li>GroupCreationAllowedGroupId<li>Typ: Sträng<li>Standard: "" |GUID för den säkerhets grupp för vilken medlemmarna får skapa Office 365-grupper även när EnableGroupCreation = = false. |
+|  <ul><li>UsageGuidelinesUrl<li>Typ: Sträng<li>Standard: "" |En länk till rikt linjerna för grupp användning. |
+|  <ul><li>ClassificationDescriptions<li>Typ: Sträng<li>Standard: "" | En kommaavgränsad lista över klassificerings beskrivningar. Värdet för ClassificationDescriptions är endast giltigt i det här formatet:<br>$setting ["ClassificationDescriptions"] = "klassificering: Beskrivning, klassificering: Beskrivning"<br>där klassificering matchar strängarna i ClassificationList.<br>Den här inställningen gäller inte när EnableMIPLabels = = True.|
+|  <ul><li>DefaultClassification<li>Typ: Sträng<li>Standard: "" | Klassificeringen som ska användas som standard klassificering för en grupp om inget har angetts.<br>Den här inställningen gäller inte när EnableMIPLabels = = True.|
+|  <ul><li>PrefixSuffixNamingRequirement<li>Typ: Sträng<li>Standard: "" | Sträng med en maximal längd på 64 tecken som definierar den namngivnings konvention som har kon figurer ATS för Office 365-grupper. Mer information finns i [framtvinga en namngivnings princip för Office 365-grupper](groups-naming-policy.md). |
+| <ul><li>CustomBlockedWordsList<li>Typ: Sträng<li>Standard: "" | Kommaavgränsad sträng med fraser som användarna inte får använda i grupp namn eller alias. Mer information finns i [framtvinga en namngivnings princip för Office 365-grupper](groups-naming-policy.md). |
+| <ul><li>EnableMSStandardBlockedWords<li>Typ: boolesk<li>Standard: "falskt" | Använd inte
+|  <ul><li>AllowGuestsToBeGroupOwner<li>Typ: boolesk<li>Standard: falskt | Booleskt värde som anger om en gäst användare kan vara ägare till grupper. |
+|  <ul><li>AllowGuestsToAccessGroups<li>Typ: boolesk<li>Standard: sant | Booleskt värde som anger om en gäst användare får åtkomst till Office 365-grupp innehåll.  Den här inställningen kräver inte en licens för Azure Active Directory Premium P1.|
+|  <ul><li>GuestUsageGuidelinesUrl<li>Typ: Sträng<li>Standard: "" | URL-adressen till en länk till gäst användnings rikt linjerna. |
+|  <ul><li>AllowToAddGuests<li>Typ: boolesk<li>Standard: sant | Ett booleskt värde som anger om gäster ska läggas till i katalogen eller inte. <br>Den här inställningen kan åsidosättas och bli skrivskyddad om *EnableMIPLabels* har värdet *True* och en gäst policy är associerad med den känslighets etikett som tilldelats gruppen. |
+|  <ul><li>ClassificationList<li>Typ: Sträng<li>Standard: "" |En kommaavgränsad lista över giltiga klassificerings värden som kan tillämpas på Office 365-grupper. <br>Den här inställningen gäller inte när EnableMIPLabels = = True.|
+|  <ul><li>EnableMIPLabels<li>Typ: boolesk<li>Standard: "falskt" |Flaggan som anger om känslighets etiketter som publiceras i Microsoft 365 Compliance Center kan tillämpas på Office 365-grupper. Mer information finns i [tilldela känslighets etiketter för Office 365-grupper](groups-assign-sensitivity-labels.md). |
 
-## <a name="example-configure-guest-policy-for-groups-at-the-directory-level"></a>Example: Configure Guest policy for groups at the directory level
-1. Get all the setting templates:
+## <a name="example-configure-guest-policy-for-groups-at-the-directory-level"></a>Exempel: Konfigurera gäst princip för grupper på katalog nivå
+1. Hämta alla mallar för inställningar:
    ```powershell
    Get-AzureADDirectorySettingTemplate
    ```
-2. To set guest policy for groups at the directory level, you need Group.Unified template
+2. Om du vill ange gäst policy för grupper på katalog nivå behöver du Group. Unified Template
    ```powershell
    $Template = Get-AzureADDirectorySettingTemplate -Id 62375ab9-6b52-47ed-826b-58e47e0e304b
    ```
-3. Next, create a new settings object based on that template:
+3. Skapa sedan ett nytt inställnings objekt baserat på mallen:
   
    ```powershell
    $Setting = $template.CreateDirectorySetting()
    ```  
-4. Then update AllowAddGuests setting
+4. Uppdatera AllowAddGuests-inställningen
    ```powershell
    $Setting["AllowAddGuests"] = $False
    ```  
-5. Then apply the setting:
+5. Använd sedan inställningen:
   
    ```powershell
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
-6. You can read the values using:
+6. Du kan läsa värdena med:
 
    ```powershell
    $Setting.Values
    ```   
 
-## <a name="read-settings-at-the-directory-level"></a>Read settings at the directory level
+## <a name="read-settings-at-the-directory-level"></a>Läsa inställningar på katalog nivå
 
-If you know the name of the setting you want to retrieve, you can use the below cmdlet to retrieve the current settings value. In this example, we're retrieving the value for a setting named "UsageGuidelinesUrl." 
+Om du känner till namnet på den inställning som du vill hämta kan du använda nedanstående cmdlet för att hämta värdet för aktuella inställningar. I det här exemplet hämtar vi värdet för en inställning med namnet "UsageGuidelinesUrl". 
 
    ```powershell
    (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value UsageGuidelinesUrl -EQ
    ```
-These steps read settings at directory level, which apply to all Office groups in the directory.
+De här stegen läser inställningar på katalog nivå, som gäller för alla Office-grupper i katalogen.
 
-1. Read all existing directory settings:
+1. Läs alla befintliga katalog inställningar:
    ```powershell
    Get-AzureADDirectorySetting -All $True
    ```
-   This cmdlet returns a list of all directory settings:
+   Denna cmdlet returnerar en lista över alla katalog inställningar:
    ```powershell
    Id                                   DisplayName   TemplateId                           Values
    --                                   -----------   ----------                           ------
    c391b57d-5783-4c53-9236-cefb5c6ef323 Group.Unified 62375ab9-6b52-47ed-826b-58e47e0e304b {class SettingValue {...
    ```
 
-2. Read all settings for a specific group:
+2. Läs alla inställningar för en speciell grupp:
    ```powershell
    Get-AzureADObjectSetting -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -TargetType Groups
    ```
 
-3. Read all directory settings values of a specific directory settings object, using Settings ID GUID:
+3. Läsa alla katalog inställnings värden för ett bestämt katalog inställnings objekt med hjälp av inställningar ID GUID:
    ```powershell
    (Get-AzureADDirectorySetting -Id c391b57d-5783-4c53-9236-cefb5c6ef323).values
    ```
-   This cmdlet returns the names and values in this settings object for this specific group:
+   Den här cmdleten returnerar namn och värden i detta inställnings objekt för den här gruppen:
    ```powershell
    Name                          Value
    ----                          -----
@@ -204,15 +204,15 @@ These steps read settings at directory level, which apply to all Office groups i
    EnableGroupCreation           True
    ```
 
-## <a name="remove-settings-at-the-directory-level"></a>Remove settings at the directory level
-This step removes settings at directory level, which apply to all Office groups in the directory.
+## <a name="remove-settings-at-the-directory-level"></a>Ta bort inställningar på katalog nivå
+Det här steget tar bort inställningar på katalog nivå, som gäller för alla Office-grupper i katalogen.
    ```powershell
    Remove-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323c
    ```
 
-## <a name="create-settings-for-a-specific-group"></a>Create settings for a specific group
+## <a name="create-settings-for-a-specific-group"></a>Skapa inställningar för en speciell grupp
 
-1. Search for the settings template named "Groups.Unified.Guest"
+1. Sök efter inställnings mal len "Groups. Unified. Guest"
    ```powershell
    Get-AzureADDirectorySettingTemplate
   
@@ -224,68 +224,68 @@ This step removes settings at directory level, which apply to all Office groups 
    898f1161-d651-43d1-805c-3b0b388a9fc2 Custom Policy Settings ...
    5cf42378-d67d-4f36-ba46-e8b86229381d Password Rule Settings ...
    ```
-2. Retrieve the template object for the Groups.Unified.Guest template:
+2. Hämta mallobjektet för mallen Groups. Unified. Guest:
    ```powershell
    $Template1 = Get-AzureADDirectorySettingTemplate -Id 08d542b9-071f-4e16-94b0-74abb372e3d9
    ```
-3. Create a new settings object from the template:
+3. Skapa ett nytt inställnings objekt från mallen:
    ```powershell
    $SettingCopy = $Template1.CreateDirectorySetting()
    ```
 
-4. Set the setting to the required value:
+4. Ställ in inställningen på det obligatoriska värdet:
    ```powershell
    $SettingCopy["AllowAddGuests"]=$False
    ```
-5. Get the ID of the group you want to apply this setting to:
+5. Hämta ID: t för den grupp som du vill använda den här inställningen för:
    ```powershell
    $groupID= (Get-AzureADGroup -SearchString "YourGroupName").ObjectId
    ```
-6. Create the new setting for the required group in the directory:
+6. Skapa den nya inställningen för den obligatoriska gruppen i katalogen:
    ```powershell
    New-AzureADObjectSetting -TargetType Groups -TargetObjectId $groupID -DirectorySetting $SettingCopy
    ```
-7. To verify the settings, run this command:
+7. Verifiera inställningarna genom att köra det här kommandot:
    ```powershell
    Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups | fl Values
    ```
 
-## <a name="update-settings-for-a-specific-group"></a>Update settings for a specific group
-1. Get the ID of the group whose setting you want to update:
+## <a name="update-settings-for-a-specific-group"></a>Uppdatera inställningar för en speciell grupp
+1. Hämta ID för den grupp vars inställning du vill uppdatera:
    ```powershell
    $groupID= (Get-AzureADGroup -SearchString "YourGroupName").ObjectId
    ```
-2. Retrieve the setting of the group:
+2. Hämta inställningen för gruppen:
    ```powershell
    $Setting = Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups
    ```
-3. Update the setting of the group as you need, e.g.
+3. Uppdatera inställningen för gruppen efter behov, t. ex.
    ```powershell
    $Setting["AllowAddGuests"] = $True
    ```
-4. Then get the ID of the setting for this specific group:
+4. Hämta sedan ID: t för inställningen för den här gruppen:
    ```powershell
    Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups
    ```
-   You will get a response similar to this:
+   Du får ett svar som liknar detta:
    ```powershell
    Id                                   DisplayName            TemplateId                             Values
    --                                   -----------            -----------                            ----------
    2dbee4ca-c3b6-4f0d-9610-d15569639e1a Group.Unified.Guest    08d542b9-071f-4e16-94b0-74abb372e3d9   {class SettingValue {...
    ```
-5. Then you can set the new value for this setting:
+5. Sedan kan du ange det nya värdet för den här inställningen:
    ```powershell
    Set-AzureADObjectSetting -TargetType Groups -TargetObjectId $groupID -Id 2dbee4ca-c3b6-4f0d-9610-d15569639e1a -DirectorySetting $Setting
    ```
-6. You can read the value of the setting to make sure it has been updated correctly:
+6. Du kan läsa värdet för inställningen för att kontrol lera att det har uppdaterats korrekt:
    ```powershell
    Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups | fl Values
    ```
 
-## <a name="cmdlet-syntax-reference"></a>Cmdlet syntax reference
-You can find more Azure Active Directory PowerShell documentation at [Azure Active Directory Cmdlets](/powershell/azure/install-adv2?view=azureadps-2.0).
+## <a name="cmdlet-syntax-reference"></a>Cmdlet-syntax-referens
+Du kan hitta mer Azure Active Directory PowerShell-dokumentation på [Azure Active Directory-cmdletar](/powershell/azure/install-adv2?view=azureadps-2.0).
 
-## <a name="additional-reading"></a>Additional reading
+## <a name="additional-reading"></a>Ytterligare resurser
 
 * [Hantera åtkomst till resurser med Azure Active Directory-grupper](../fundamentals/active-directory-manage-groups.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

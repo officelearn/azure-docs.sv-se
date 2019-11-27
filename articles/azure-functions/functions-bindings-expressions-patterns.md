@@ -1,6 +1,6 @@
 ---
-title: Azure Functions bindings expressions and patterns
-description: Learn to create different Azure Functions binding expressions based on common patterns.
+title: Azure Functions bindnings uttryck och mönster
+description: Lär dig att skapa olika Azure Functions bindnings uttryck baserat på vanliga mönster.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2019
@@ -12,34 +12,34 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74227226"
 ---
-# <a name="azure-functions-binding-expression-patterns"></a>Azure Functions binding expression patterns
+# <a name="azure-functions-binding-expression-patterns"></a>Mönster för Azure Functions bindnings uttryck
 
-One of the most powerful features of [triggers and bindings](./functions-triggers-bindings.md) is *binding expressions*. In the *function.json* file and in function parameters and code, you can use expressions that resolve to values from various sources.
+En av de mest kraftfulla funktionerna i [utlösare och bindningar](./functions-triggers-bindings.md) är *bindnings uttryck*. I *Function. JSON* -filen och i funktions parametrar och kod kan du använda uttryck som matchar värden från olika källor.
 
-Most expressions are identified by wrapping them in curly braces. For example, in a queue trigger function, `{queueTrigger}` resolves to the queue message text. If the `path` property for a blob output binding is `container/{queueTrigger}` and the function is triggered by a queue message `HelloWorld`, a blob named `HelloWorld` is created.
+De flesta uttryck identifieras genom att de omges av klammerparenteser. I en kö utlösnings funktion kan `{queueTrigger}` till exempel matchas mot meddelande texten i kön. Om `path`-egenskapen för en BLOB-utgående bindning är `container/{queueTrigger}` och funktionen utlöses av ett Queue-meddelande `HelloWorld`skapas en blob med namnet `HelloWorld`.
 
-Types of binding expressions
+Typer av bindnings uttryck
 
-* [App settings](#binding-expressions---app-settings)
-* [Trigger file name](#trigger-file-name)
-* [Trigger metadata](#trigger-metadata)
-* [JSON payloads](#json-payloads)
-* [New GUID](#create-guids)
-* [Current date and time](#current-time)
+* [Appinställningar](#binding-expressions---app-settings)
+* [Utlösarens fil namn](#trigger-file-name)
+* [Utlös ande metadata](#trigger-metadata)
+* [JSON-nyttolaster](#json-payloads)
+* [Nytt GUID](#create-guids)
+* [Aktuellt datum och aktuell tid](#current-time)
 
-## <a name="binding-expressions---app-settings"></a>Binding expressions - app settings
+## <a name="binding-expressions---app-settings"></a>Bindnings uttryck – app-inställningar
 
-As a best practice, secrets and connection strings should be managed using app settings, rather than configuration files. This limits access to these secrets and makes it safe to store files such as *function.json* in public source control repositories.
+Som bästa praxis bör hemligheter och anslutnings strängar hanteras med hjälp av appinställningar, i stället för konfigurationsfiler. Detta begränsar åtkomsten till dessa hemligheter och gör det säkert att lagra filer som *Function. JSON* i offentliga käll kontrolls databaser.
 
-App settings are also useful whenever you want to change configuration based on the environment. For example, in a test environment, you may want to monitor a different queue or blob storage container.
+Appinställningar är också användbara när du vill ändra konfigurationen baserat på miljön. I en test miljö kan du till exempel vilja övervaka en annan kö eller behållare för blob-lagring.
 
-App setting binding expressions are identified differently from other binding expressions: they are wrapped in percent signs rather than curly braces. For example if the blob output binding path is `%Environment%/newblob.txt` and the `Environment` app setting value is `Development`, a blob will be created in the `Development` container.
+Bindnings uttryck för program inställning identifieras annorlunda än andra bindnings uttryck: de omsluts av procent tecken i stället för klammerparenteser. Om du till exempel anger sökvägen för BLOB-utgående bindning `%Environment%/newblob.txt` och värdet för `Environment`-appens värde är `Development`skapas en BLOB i `Development` containern.
 
-When a function is running locally, app setting values come from the *local.settings.json* file.
+När en funktion körs lokalt kommer appens inställnings värden från den *lokala. Settings. JSON* -filen.
 
-Note that the `connection` property of triggers and bindings is a special case and automatically resolves values as app settings, without percent signs. 
+Observera att egenskapen `connection` för utlösare och bindningar är ett specialfall och automatiskt löser värden som appinställningar, utan procent tecken. 
 
-The following example is an Azure Queue Storage trigger that uses an app setting `%input-queue-name%` to define the queue to trigger on.
+I följande exempel är en Azure Queue Storage-utlösare som använder en app-inställning `%input-queue-name%` för att definiera kön som ska aktive ras.
 
 ```json
 {
@@ -55,7 +55,7 @@ The following example is an Azure Queue Storage trigger that uses an app setting
 }
 ```
 
-You can use the same approach in class libraries:
+Du kan använda samma metod i klass bibliotek:
 
 ```csharp
 [FunctionName("QueueTrigger")]
@@ -67,11 +67,11 @@ public static void Run(
 }
 ```
 
-## <a name="trigger-file-name"></a>Trigger file name
+## <a name="trigger-file-name"></a>Utlösarens fil namn
 
-The `path` for a Blob trigger can be a pattern that lets you refer to the name of the triggering blob in other bindings and function code. The pattern can also include filtering criteria that specify which blobs can trigger a function invocation.
+`path` för en BLOB-utlösare kan vara ett mönster som gör att du kan referera till namnet på den Utlös ande blobben i andra bindningar och funktions kod. Mönstret kan även innehålla filter villkor som anger vilka blobbar som kan utlösa ett funktions anrop.
 
-For example, in the following Blob trigger binding, the `path` pattern is `sample-images/{filename}`, which creates a binding expression named `filename`:
+I följande exempel för BLOB-utlösare är `path` mönstret `sample-images/{filename}`, vilket skapar ett bindnings uttryck med namnet `filename`:
 
 ```json
 {
@@ -86,7 +86,7 @@ For example, in the following Blob trigger binding, the `path` pattern is `sampl
     ...
 ```
 
-The expression `filename` can then be used in an output binding to specify the name of the blob being created:
+Uttrycket `filename` kan sedan användas i en utgående bindning för att ange namnet på den blob som skapas:
 
 ```json
     ...
@@ -101,7 +101,7 @@ The expression `filename` can then be used in an output binding to specify the n
 }
 ```
 
-Function code has access to this same value by using `filename` as a parameter name:
+Funktions koden har åtkomst till samma värde genom att använda `filename` som parameter namn:
 
 ```csharp
 // C# example of binding to {filename}
@@ -115,7 +115,7 @@ public static void Run(Stream image, string filename, Stream imageSmall, ILogger
 <!--TODO: add JavaScript example -->
 <!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
 
-The same ability to use binding expressions and patterns applies to attributes in class libraries. In the following example, the attribute constructor parameters are the same `path` values as the preceding *function.json* examples: 
+Samma möjlighet att använda bindnings uttryck och mönster gäller för attribut i klass bibliotek. I följande exempel är attributhierarkin parametrarna samma `path` värden som föregående *funktion. JSON* -exempel: 
 
 ```csharp
 [FunctionName("ResizeImage")]
@@ -131,23 +131,23 @@ public static void Run(
 
 ```
 
-You can also create expressions for parts of the file name such as the extension. For more information on how to use expressions and patterns in the Blob path string, see the [Storage blob binding reference](functions-bindings-storage-blob.md).
+Du kan också skapa uttryck för delar av fil namnet, till exempel tillägget. Mer information om hur du använder uttryck och mönster i BLOB Path-strängen finns i [bindnings referens för Storage BLOB](functions-bindings-storage-blob.md).
 
-## <a name="trigger-metadata"></a>Trigger metadata
+## <a name="trigger-metadata"></a>Utlös ande metadata
 
-In addition to the data payload provided by a trigger (such as the content of the queue message that triggered a function), many triggers provide additional metadata values. These values can be used as input parameters in C# and F# or properties on the `context.bindings` object in JavaScript. 
+Förutom den data nytto last som tillhandahålls av en utlösare (t. ex. innehållet i köobjektet som utlöste en funktion) tillhandahåller många utlösare ytterligare metadata-värden. Dessa värden kan användas som indataparametrar i C# och F# eller egenskaper för `context.bindings`-objektet i Java Script. 
 
-For example, an Azure Queue storage trigger supports the following properties:
+En Azure Queue Storage-utlösare stöder till exempel följande egenskaper:
 
-* QueueTrigger - triggering message content if a valid string
+* QueueTrigger – utlöser meddelande innehåll om en giltig sträng
 * DequeueCount
-* ExpirationTime
+* expirationTime
 * Id
 * InsertionTime
 * NextVisibleTime
 * PopReceipt
 
-These metadata values are accessible in *function.json* file properties. For example, suppose you use a queue trigger and the queue message contains the name of a blob you want to read. In the *function.json* file, you can use `queueTrigger` metadata property in the blob `path` property, as shown in the following example:
+Dessa metadata-värden är tillgängliga i egenskaperna *Function. JSON* -fil. Anta till exempel att du använder en utlösare för kön och att Queue-meddelandet innehåller namnet på en blob som du vill läsa. I *Function. JSON* -filen kan du använda egenskapen `queueTrigger` metadata i egenskapen BLOB `path`, som du ser i följande exempel:
 
 ```json
   "bindings": [
@@ -167,13 +167,13 @@ These metadata values are accessible in *function.json* file properties. For exa
   ]
 ```
 
-Details of metadata properties for each trigger are described in the corresponding reference article. For an example, see [queue trigger metadata](functions-bindings-storage-queue.md#trigger---message-metadata). Documentation is also available in the **Integrate** tab of the portal, in the **Documentation** section below the binding configuration area.  
+Information om metadata-egenskaper för varje utlösare beskrivs i motsvarande referens artikel. Ett exempel finns i [kö-utlösarens metadata](functions-bindings-storage-queue.md#trigger---message-metadata). Dokumentation finns också på fliken **integrera** i portalen i avsnittet **dokumentation** under området för bindnings konfiguration.  
 
-## <a name="json-payloads"></a>JSON payloads
+## <a name="json-payloads"></a>JSON-nyttolaster
 
-When a trigger payload is JSON, you can refer to its properties in configuration for other bindings in the same function and in function code.
+När en utlösare nytto Last är JSON kan du referera till dess egenskaper i konfigurationen för andra bindningar i samma funktion och i funktions kod.
 
-The following example shows the *function.json* file for a webhook function that receives a blob name in JSON: `{"BlobName":"HelloWorld.txt"}`. A Blob input binding reads the blob, and the HTTP output binding returns the blob contents in the HTTP response. Notice that the Blob input binding gets the blob name by referring directly to the `BlobName` property (`"path": "strings/{BlobName}"`)
+I följande exempel visas *Function. JSON* -filen för en webhook-funktion som tar emot ett BLOB-namn i json: `{"BlobName":"HelloWorld.txt"}`. En BLOB-databindning läser bloben och HTTP-databindningen returnerar BLOB-innehållet i HTTP-svaret. Observera att BLOB-databindningen hämtar BLOB-namnet genom att referera direkt till `BlobName`-egenskapen (`"path": "strings/{BlobName}"`)
 
 ```json
 {
@@ -200,7 +200,7 @@ The following example shows the *function.json* file for a webhook function that
 }
 ```
 
-For this to work in C# and F#, you need a class that defines the fields to be deserialized, as in the following example:
+För att detta ska fungera C# i F#och behöver du en klass som definierar de fält som ska deserialiseras, som i följande exempel:
 
 ```csharp
 using System.Net;
@@ -225,7 +225,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, str
 }
 ```
 
-In JavaScript, JSON deserialization is automatically performed.
+I Java Script utförs JSON-deserialisering automatiskt.
 
 ```javascript
 module.exports = function (context, info) {
@@ -243,9 +243,9 @@ module.exports = function (context, info) {
 }
 ```
 
-### <a name="dot-notation"></a>Dot notation
+### <a name="dot-notation"></a>Punkt notation
 
-If some of the properties in your JSON payload are objects with properties, you can refer to those directly by using dot notation. For example, suppose your JSON looks like this:
+Om några av egenskaperna i JSON-nyttolasten är objekt med egenskaper kan du referera till dem direkt med hjälp av punkt notation. Anta till exempel att din JSON ser ut så här:
 
 ```json
 {
@@ -256,13 +256,13 @@ If some of the properties in your JSON payload are objects with properties, you 
 }
 ```
 
-You can refer directly to `FileName` as `BlobName.FileName`. With this JSON format, here's what the `path` property in the preceding example would look like:
+Du kan referera direkt till `FileName` som `BlobName.FileName`. Med det här JSON-formatet ser du hur `path`-egenskapen i föregående exempel ser ut så här:
 
 ```json
 "path": "strings/{BlobName.FileName}.{BlobName.Extension}",
 ```
 
-In C#, you would need two classes:
+I C#behöver du två klasser:
 
 ```csharp
 public class BlobInfo
@@ -276,9 +276,9 @@ public class BlobName
 }
 ```
 
-## <a name="create-guids"></a>Create GUIDs
+## <a name="create-guids"></a>Skapa GUID
 
-The `{rand-guid}` binding expression creates a GUID. The following blob path in a `function.json` file creates a blob with a name like *50710cb5-84b9-4d87-9d83-a03d6976a682.txt*.
+Ett GUID skapas i `{rand-guid}` binding-uttryck. Följande BLOB-sökväg i en `function.json`-fil skapar en blob med ett namn som *50710cb5-84b9-4d87-9d83-a03d6976a682. txt*.
 
 ```json
 {
@@ -289,9 +289,9 @@ The `{rand-guid}` binding expression creates a GUID. The following blob path in 
 }
 ```
 
-## <a name="current-time"></a>Current time
+## <a name="current-time"></a>Aktuell tid
 
-The binding expression `DateTime` resolves to `DateTime.UtcNow`. The following blob path in a `function.json` file creates a blob with a name like *2018-02-16T17-59-55Z.txt*.
+Bindnings uttrycket `DateTime` matchar `DateTime.UtcNow`. Följande BLOB-sökväg i en `function.json`-fil skapar en blob med ett namn som *2018-02-16T17-59 -55z. txt*.
 
 ```json
 {
@@ -301,10 +301,10 @@ The binding expression `DateTime` resolves to `DateTime.UtcNow`. The following b
   "path": "my-output-container/{DateTime}"
 }
 ```
-## <a name="binding-at-runtime"></a>Binding at runtime
+## <a name="binding-at-runtime"></a>Bindning vid körning
 
-In C# and other .NET languages, you can use an imperative binding pattern, as opposed to the declarative bindings in *function.json* and attributes. Imperative binding is useful when binding parameters need to be computed at runtime rather than design time. To learn more, see the [C# developer reference](functions-dotnet-class-library.md#binding-at-runtime) or the [C# script developer reference](functions-reference-csharp.md#binding-at-runtime).
+I C# och andra .net-språk kan du använda ett tvingande bindnings mönster, till skillnad från deklarativ bindningar i *Function. JSON* och attribut. Tvingande bindning är användbart när bindnings parametrar måste beräknas vid körning i stället för design tid. Mer information finns i referens för [ C# utvecklare](functions-dotnet-class-library.md#binding-at-runtime) eller [ C# skript utvecklare](functions-reference-csharp.md#binding-at-runtime).
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
-> [Using the Azure Function return value](./functions-bindings-return-value.md)
+> [Använda Azures funktions retur värde](./functions-bindings-return-value.md)

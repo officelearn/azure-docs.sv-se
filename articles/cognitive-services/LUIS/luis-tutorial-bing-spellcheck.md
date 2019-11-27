@@ -1,7 +1,7 @@
 ---
-title: Correct misspelled words - LUIS
+title: Korrigera felstavade ord – LUIS
 titleSuffix: Azure Cognitive Services
-description: Correct misspelled words in utterances by adding Bing Spell Check API V7 to LUIS endpoint queries.
+description: Rätta felstavade ord i yttranden genom att lägga till Bing stavningskontroll kontrollera API V7 LUIS endpoint frågor.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -18,69 +18,69 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74225455"
 ---
-# <a name="correct-misspelled-words-with-bing-spell-check"></a>Correct misspelled words with Bing Spell Check
+# <a name="correct-misspelled-words-with-bing-spell-check"></a>Rätta felstavade ord med stavningskontroll i Bing
 
-You can integrate your LUIS app with [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) to correct misspelled words in utterances before LUIS predicts the score and entities of the utterance. 
+Du kan integrera din LUIS-app med [API för stavningskontroll i Bing v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) för att korrigera felstavade ord i yttranden innan Luis förutsäger poängen och entiteterna i uttryck. 
 
 [!INCLUDE [Not supported in V3 API prediction endpoint](./includes/v2-support-only.md)]
 
 
-## <a name="create-first-key-for-bing-spell-check-v7"></a>Create first key for Bing Spell Check V7
+## <a name="create-first-key-for-bing-spell-check-v7"></a>Skapa första nyckeln för Bing stavningskontroll kontrollera V7
 
-Your [first Bing Spell Check API v7 key](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api) is free. 
+Din [första API för stavningskontroll i Bing v7-nyckeln](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api) är kostnads fri. 
 
-![Create free key](./media/luis-tutorial-bing-spellcheck/free-key.png)
+![Skapa kostnadsfria nyckel](./media/luis-tutorial-bing-spellcheck/free-key.png)
 
 <a name="create-subscription-key"></a>
 
-## <a name="create-endpoint-key"></a>Create Endpoint key
-If your free key expired, create an endpoint key.
+## <a name="create-endpoint-key"></a>Skapa slutpunktsnyckel
+Om din kostnadsfria nyckel har gått ut kan du skapa en slutpunktsnyckel.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). 
 
-2. Select **Create a resource** in the top left corner.
+2. Välj **skapa en resurs** i det övre vänstra hörnet.
 
 3. Skriv `Bing Spell Check API V7` i sökrutan.
 
-    ![Search for Bing Spell Check API V7](./media/luis-tutorial-bing-spellcheck/portal-search.png)
+    ![Sök efter för stavningskontroll i Bing Kontrollera API V7](./media/luis-tutorial-bing-spellcheck/portal-search.png)
 
-4. Select the service. 
+4. Välj tjänsten. 
 
-5. An information panel appears to the right containing information including the Legal Notice. Select **Create** to begin the subscription creation process. 
+5. En panelen visas till höger som innehåller information inklusive juridiskt meddelande. Välj **skapa** för att starta processen för att skapa prenumerationer. 
 
-6. In the next panel, enter your service settings. Wait for service creation process to finish.
+6. Ange inställningar i nästa panel. Vänta tills tjänsten skapandeprocessen ska slutföras.
 
-    ![Enter service settings](./media/luis-tutorial-bing-spellcheck/subscription-settings.png)
+    ![Ange inställningar för tjänsten](./media/luis-tutorial-bing-spellcheck/subscription-settings.png)
 
-7. Select **All resources** under the **Favorites** title on the left side navigation.
+7. Välj **alla resurser** under rubriken **Favoriter** i navigerings sidan till vänster.
 
-8. Select the new service. Its type is **Cognitive Services** and the location is **global**. 
+8. Välj den nya tjänsten. Dess typ är **Cognitive Services** och platsen är **Global**. 
 
-9. In the main panel, select **Keys** to see your new keys.
+9. I huvud panelen väljer du **nycklar** för att se dina nya nycklar.
 
-    ![Grab keys](./media/luis-tutorial-bing-spellcheck/grab-keys.png)
+    ![Hämta nycklar](./media/luis-tutorial-bing-spellcheck/grab-keys.png)
 
-10. Copy the first key. You only need one of the two keys. 
+10. Kopiera den första nyckeln. Du behöver bara en av två nycklar. 
 
 <!--
 ## Using the key in LUIS test panel
 There are two places in LUIS to use the key. The first is in the [test panel](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). The key isn't saved into LUIS but instead is a session variable. You need to set the key every time you want the test panel to apply the Bing Spell Check API v7 service to the utterance. See [instructions](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel) in the test panel for setting the key.
 -->
-## <a name="adding-the-key-to-the-endpoint-url"></a>Adding the key to the endpoint URL
-The endpoint query needs the key passed in the query string parameters for each query you want to apply spelling correction. You may have a chatbot that calls LUIS or you may call the LUIS endpoint API directly. Regardless of how the endpoint is called, each and every call must include the required information for spelling corrections to work properly.
+## <a name="adding-the-key-to-the-endpoint-url"></a>Att lägga till nyckeln till slutpunkts-URL
+Slutpunkt-frågan måste nyckeln som har skickats frågesträngparametrarna för varje fråga som du vill använda stavning korrigering. Du kan ha en chattrobot som anropar LUIS eller du kan anropa LUIS slutpunkten API direkt. Oavsett hur slutpunkten som anropas, måste varje anrop innehålla information som behövs för stavningskorrigeringar ska fungera korrekt.
 
-The endpoint URL has several values that need to be passed correctly. The Bing Spell Check API v7 key is just another one of these. You must set the **spellCheck** parameter to true and you must set the value of **bing-spell-check-subscription-key** to the key value:
+Slutpunkten URL: en har flera värden som ska skickas på rätt sätt. Stavningskontroll i Bing v7 nyckeln är bara en av dessa. Du måste ange parametern för **stavnings** kontroll till true och du måste ange värdet för **Bing-stavning-check-Subscription-Key** till nyckelvärdet:
 
 `https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appID}?subscription-key={luisKey}&spellCheck=**true**&bing-spell-check-subscription-key=**{bingKey}**&verbose=true&timezoneOffset=0&q={utterance}`
 
-## <a name="send-misspelled-utterance-to-luis"></a>Send misspelled utterance to LUIS
-1. In a web browser, copy the preceding string and replace the `region`, `appId`, `luisKey`, and `bingKey` with your own values. Make sure to use the endpoint region, if it is different from your publishing [region](luis-reference-regions.md).
+## <a name="send-misspelled-utterance-to-luis"></a>Skicka felstavade uttryck till LUIS
+1. Kopiera föregående sträng i en webbläsare och ersätt `region`, `appId`, `luisKey`och `bingKey` med dina egna värden. Se till att använda slut punkts regionen, om det skiljer sig från publicerings [regionen](luis-reference-regions.md).
 
-2. Add a misspelled utterance such as "How far is the mountainn?". In English, `mountain`, with one `n`, is the correct spelling. 
+2. Lägg till en felstavade uttryck som ”hur långt är mountainn”?. På engelska är `mountain`, med en `n`, rätt stavning. 
 
-3. Select enter to send the query to LUIS.
+3. Välj ange för att skicka frågan till LUIS.
 
-4. LUIS responds with a JSON result for `How far is the mountain?`. If Bing Spell Check API v7 detects a misspelling, the `query` field in the LUIS app's JSON response contains the original query, and the `alteredQuery` field contains the corrected query sent to LUIS.
+4. LUIS svarar med ett JSON-resultat för `How far is the mountain?`. Om API för stavningskontroll i Bing v7 identifierar ett stavfel, innehåller fältet `query` i LUIS-appens JSON-svar den ursprungliga frågan och fältet `alteredQuery` innehåller den korrigerade frågan som skickats till LUIS.
 
 ```json
 {
@@ -94,17 +94,17 @@ The endpoint URL has several values that need to be passed correctly. The Bing S
 }
 ```
 
-## <a name="ignore-spelling-mistakes"></a>Ignore spelling mistakes
+## <a name="ignore-spelling-mistakes"></a>Ignorera stavfel
 
-If you don't want to use the Bing Spell Check API v7 service, you need to add the correct and incorrect spelling. 
+Om du inte vill använda tjänsten API för stavningskontroll i Bing v7 måste du lägga till korrekt och felaktig stavning. 
 
-Two solutions are:
+Två lösningar:
 
-* Label example utterances that have the all the different spellings so that LUIS can learn proper spelling as well as typos. This option requires more labeling effort than using a spell checker.
-* Create a phrase list with all variations of the word. With this solution, you do not need to label the word variations in the example utterances. 
+* Label-exempel yttranden som har alla olika stavningar så att LUIS kan lära sig korrekt stavning och skrivfel. Det här alternativet kräver mer etikettering av dig än att använda en stavningskontroll.
+* Skapa en fras lista med alla varianter av ordet. Med den här lösningen behöver du inte märka ord variationerna i exemplet yttranden. 
 
-## <a name="publishing-page"></a>Publishing page
-The [publishing](luis-how-to-publish-app.md) page has an **Enable Bing spell checker** checkbox. This is a convenience to create the key and understand how the endpoint URL changes. You still have to use the correct endpoint parameters in order to have spelling corrected for each utterance. 
+## <a name="publishing-page"></a>Publiceringssida
+Kryss rutan **Aktivera Bing-stavnings kontroll har Aktiver** ATS på sidan [publicering](luis-how-to-publish-app.md) . Det här är att underlätta för att skapa nyckeln och förstå hur slutpunkts-URL ändras. Du måste använda rätt slutpunkt-parametrar för att få stavning korrigerad för varje uttryck. 
 
 > [!div class="nextstepaction"]
-> [Learn more about example utterances](luis-how-to-add-example-utterances.md)
+> [Läs mer om exempel yttranden](luis-how-to-add-example-utterances.md)

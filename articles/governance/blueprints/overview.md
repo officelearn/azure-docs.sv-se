@@ -1,6 +1,6 @@
 ---
 title: Översikt över Azure Blueprint
-description: Understand how the Azure Blueprints service enables you to create, define, and deploy artifacts in your Azure environment.
+description: Förstå hur tjänsten Azure-ritningar ger dig möjlighet att skapa, definiera och distribuera artefakter i din Azure-miljö.
 ms.date: 11/21/2019
 ms.topic: overview
 ms.openlocfilehash: 07d84d658d88e977cd73176861e5c5e080c02857
@@ -51,7 +51,7 @@ En skiss består av _artefakter_. Skisser stöder för närvarande följande res
 |Resurs  | Hierarkialternativ| Beskrivning  |
 |---------|---------|---------|
 |Resursgrupper | Prenumeration | Skapa en ny resursgrupp för användning av andra artefakter i skissen.  Med de här platshållarresursgrupperna kan du organisera resurser precis som du vill att de struktureras, och de ger en omfångsbegränsning för inkluderade princip- och rolltilldelningsartefakter samt Azure Resource Manager-mallar. |
-|Azure Resource Manager-mall | Prenumeration, resursgrupp | Templates, including nested and linked templates, are used to compose complex environments. Exempelmiljöer: en SharePoint-servergrupp, Azure Automation State Configuration eller en Log Analytics-arbetsyta. |
+|Azure Resource Manager-mall | Prenumeration, resursgrupp | Mallar, inklusive kapslade och länkade mallar, används för att skapa komplexa miljöer. Exempelmiljöer: en SharePoint-servergrupp, Azure Automation State Configuration eller en Log Analytics-arbetsyta. |
 |Principtilldelning | Prenumeration, resursgrupp | Tillåter tilldelning av en princip eller ett initiativ till den prenumeration som skissen är tilldelad till. Principen eller initiativet måste vara inom omfånget för skissdefinitionens plats. Om principen eller initiativet har parametrar kan de parametrarna tilldelas vid skapandet av skissen eller under skisstilldelningen. |
 |Rolltilldelning | Prenumeration, resursgrupp | Lägg till en befintlig användare eller grupp till en inbyggd roll för att se till att rätt personer alltid har rätt åtkomst till dina resurser. Rolltilldelningar kan definieras för hela prenumerationen eller kapslade till en specifik resursgrupp som ingår i skissen. |
 
@@ -72,12 +72,12 @@ Mer information finns [Skissparametrar](./concepts/parameters.md).
 
 ### <a name="blueprint-publishing"></a>Publicering av skiss
 
-När en skiss först skapas betraktas den som att den är i **utkastläge**. När den är redo att tilldelas måste den vara **publicerad**. Publicering kräver att du definierar en **versionssträng** (bokstäver, siffror och bindestreck med en maximal längd på 20 tecken) tillsammans med valfria **Ändra anteckningar**. **Versionen** särskiljer den från framtida ändringar i samma skiss och gör att varje version ska tilldelas. Den här versionshanteringen innebär också att olika **versioner** i samma skiss kan tilldelas till samma prenumeration. When additional changes are made to the blueprint, the **Published**
-**Version** still exists, as do the **Unpublished changes**. När ändringarna har slutförts är den uppdaterade skissen **publicerad** med en ny och unik **version** och kan nu också tilldelas.
+När en skiss först skapas betraktas den som att den är i **utkastläge**. När den är redo att tilldelas måste den vara **publicerad**. Publicering kräver att du definierar en **versionssträng** (bokstäver, siffror och bindestreck med en maximal längd på 20 tecken) tillsammans med valfria **Ändra anteckningar**. **Versionen** särskiljer den från framtida ändringar i samma skiss och gör att varje version ska tilldelas. Den här versionshanteringen innebär också att olika **versioner** i samma skiss kan tilldelas till samma prenumeration. När ytterligare ändringar görs i skissen finns den **publicerade**
+- **versionen** fortfarande, precis som de **opublicerade ändringarna**. När ändringarna har slutförts är den uppdaterade skissen **publicerad** med en ny och unik **version** och kan nu också tilldelas.
 
 ## <a name="blueprint-assignment"></a>Skisstilldelning
 
-Each **Published** **Version** of a blueprint can be assigned (with a max name length of 90 characters) to an existing subscription. I portalen får skissen som standard den **version** som **publicerades** senast. Om det finns artefaktparametrar (eller skissparametrar) definieras sedan parametrarna under tilldelningen.
+Varje **publicerad** **version** av en skiss kan tilldelas (med en maximal namn längd på 90 tecken) till en befintlig prenumeration. I portalen får skissen som standard den **version** som **publicerades** senast. Om det finns artefaktparametrar (eller skissparametrar) definieras sedan parametrarna under tilldelningen.
 
 ## <a name="permissions-in-azure-blueprints"></a>Behörigheter i Azure Blueprint
 
@@ -104,30 +104,30 @@ Om du vill tilldela eller ta bort tilldelningar av skisser måste ditt konto ha 
 > [!NOTE]
 > Tilldelningar för skissen skapas på en prenumeration. Behörigheterna för tilldelning och för att ta bort tilldelning av behörigheter måste beviljas för eller ärvas till en prenumerationsomfattning.
 
-The following built-in roles are available:
+Följande inbyggda roller är tillgängliga:
 
-|RBAC Role | Beskrivning |
+|RBAC-roll | Beskrivning |
 |-|-|
-|[Ägare](../../role-based-access-control/built-in-roles.md#owner) | In addition to other permissions, includes all Azure Blueprint related permissions. |
-|[Deltagare](../../role-based-access-control/built-in-roles.md#contributor) | In addition to other permissions, can create and delete blueprint definitions, but doesn't have blueprint assignment permissions. |
-|[Blueprint Contributor](../../role-based-access-control/built-in-roles.md#blueprint-contributor) | Can manage blueprint definitions, but not assign them. |
-|[Blueprint Operator](../../role-based-access-control/built-in-roles.md#blueprint-operator) | Can assign existing published blueprints, but can't create new blueprint definitions. Blueprint assignment only works if the assignment is done with a user-assigned managed identity. |
+|[Ägare](../../role-based-access-control/built-in-roles.md#owner) | Förutom andra behörigheter innehåller alla Azure Blueprint-relaterade behörigheter. |
+|[Deltagare](../../role-based-access-control/built-in-roles.md#contributor) | Förutom andra behörigheter kan skapa och ta bort skiss definitioner, men har inte behörighet för skiss tilldelning. |
+|[Skiss deltagare](../../role-based-access-control/built-in-roles.md#blueprint-contributor) | Kan hantera skiss definitioner, men tilldela dem inte. |
+|[Skiss operator](../../role-based-access-control/built-in-roles.md#blueprint-operator) | Kan tilldela befintliga publicerade ritningar, men kan inte skapa nya skiss definitioner. Skiss tilldelning fungerar bara om tilldelningen görs med en tilldelad hanterad identitet. |
 
 Om dessa inbyggda roller inte motsvarar dina behov kan du skapa en [anpassad roll](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
-> If using a system-assigned managed identity, the service principal for Azure Blueprints requires the **Owner** role on the assigned subscription in order to enable deployment. Om du använder portalen är den här rollen automatiskt beviljad och återkallad för distributionen. Om du använder REST API måste den här rollen måste beviljas manuellt, men återkallas fortfarande automatiskt när distributionen är klar. If using a user-assigned managed identity, only the user creating the blueprint assignment needs the `Microsoft.Blueprint/blueprintAssignments/write` permission, which is included in both the **Owner** and **Blueprint Operator** built-in roles.
+> Om du använder en systemtilldelad hanterad identitet, kräver tjänstens huvud namn för Azure-ritningar **ägar** rollen för den tilldelade prenumerationen för att distributionen ska kunna aktive ras. Om du använder portalen är den här rollen automatiskt beviljad och återkallad för distributionen. Om du använder REST API måste den här rollen måste beviljas manuellt, men återkallas fortfarande automatiskt när distributionen är klar. Om du använder en användardefinierad hanterad identitet behöver endast användaren som skapar skiss tilldelningen `Microsoft.Blueprint/blueprintAssignments/write` behörighet, som ingår i båda de inbyggda rollerna **ägare** och **skiss** .
 
-## <a name="naming-limits"></a>Naming limits
+## <a name="naming-limits"></a>Namngivnings gränser
 
-The following limitations exist for certain fields:
+Följande begränsningar finns för vissa fält:
 
-|Objekt|Fält|Allowed Characters|Max. Längd|
+|Objekt|Fält|Tillåtna tecken|Max. Längd|
 |-|-|-|-|
-|Blueprint|Namn|letters, numbers, hyphens, and periods|48|
-|Blueprint|Version|letters, numbers, hyphens, and periods|20|
-|Skisstilldelning|Namn|letters, numbers, hyphens, and periods|90|
-|Blueprint artifact|Namn|letters, numbers, hyphens, and periods|48|
+|Skiss|Namn|bokstäver, siffror, bindestreck och punkter|48|
+|Skiss|Version|bokstäver, siffror, bindestreck och punkter|20|
+|Skisstilldelning|Namn|bokstäver, siffror, bindestreck och punkter|90|
+|Skiss artefakt|Namn|bokstäver, siffror, bindestreck och punkter|48|
 
 ## <a name="video-overview"></a>Videoöversikt
 
@@ -137,6 +137,6 @@ Följande översikt över Azure Blueprints kommer från Azure Fridays. En nedlad
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Create a blueprint - Portal](./create-blueprint-portal.md).
-- [Create a blueprint - PowerShell](./create-blueprint-powershell.md).
-- [Create a blueprint - REST API](./create-blueprint-rest-api.md).
+- [Skapa en skiss – Portal](./create-blueprint-portal.md).
+- [Skapa en skiss – PowerShell](./create-blueprint-powershell.md).
+- [Skapa en skiss-REST API](./create-blueprint-rest-api.md).

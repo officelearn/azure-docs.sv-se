@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Check spelling with the REST API and Java - Bing Spell Check'
+title: 'Snabb start: kontrol lera stavningen med REST API och Java-Stavningskontroll i Bing'
 titleSuffix: Azure Cognitive Services
 description: Kom igång med REST API för stavningskontroll i Bing för att kontrollera stavning och grammatik.
 services: cognitive-services
@@ -17,21 +17,21 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74383879"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>Quickstart: Check spelling with the Bing Spell Check REST API and Java
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>Snabb start: kontrol lera stavningen med Stavningskontroll i Bing REST API och Java
 
-Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. Det här enkla Java-programmet skickar en begäran till API:et och returnerar en lista över föreslagna korrigeringar. Även om det här programmet är skrivet i Java, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden för det här programmet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingSpellCheckv7.java).
+Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. Det här enkla Java-programmet skickar en begäran till API:et och returnerar en lista över föreslagna korrigeringar. Även om det här programmet är skrivet i Java, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden till det här programmet finns [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingSpellCheckv7.java).
 
 ## <a name="prerequisites"></a>Krav
 
 * Java Development Kit (JDK) 7 eller senare.
 
-* Import the [gson-2.8.5.jar](https://libraries.io/maven/com.google.code.gson%3Agson) or the most current [Gson](https://github.com/google/gson) version. For command line execution, add the `.jar` to your Java folder with the main class.
+* Importera [Gson--2.8.5. jar](https://libraries.io/maven/com.google.code.gson%3Agson) -eller den mest aktuella [Gson](https://github.com/google/gson) -versionen. För kommando rads körning lägger du till `.jar` i din Java-mapp med huvud klassen.
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
 ## <a name="create-and-initialize-an-application"></a>Skapa och initiera ett program
 
-1. Create a new Java Project in your favorite IDE or editor with a class name of your choosing, and then import the following packages.
+1. Skapa ett nytt Java-projekt i din favorit-IDE eller-redigerare med ett klass namn som du väljer och importera sedan följande paket.
 
     ```java
     import java.io.*;
@@ -64,7 +64,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
    }
    ```
 
-2. Skapa en URL genom att kombinera slutpunktens värd, sökväg och parametersträng. Create a new `HttpsURLConnection` object.
+2. Skapa en URL genom att kombinera slutpunktens värd, sökväg och parametersträng. Skapa ett nytt `HttpsURLConnection`-objekt.
 
     ```java
     URL url = new URL(host + path + params);
@@ -89,9 +89,9 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
         wr.close();
     ```
 
-## <a name="format-and-read-the-api-response"></a>Format and read the API response
+## <a name="format-and-read-the-api-response"></a>Formatera och Läs API-svar
 
-1. Add this method to your class. It formats the JSON for a more readable output.
+1. Lägg till den här metoden i klassen. Den formaterar JSON för en mer läsbar utdata.
 
     ``` java
     // This function prettifies the json response.
@@ -117,7 +117,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
 
 ## <a name="call-the-api"></a>Anropa API
 
-In the main function of your application, call your check() method created above.
+I programmets huvud funktion anropar du metoden check () som skapats ovan.
 ```java
         public static void main(String[] args) {
             try {
@@ -131,16 +131,16 @@ In the main function of your application, call your check() method created above
 
 ## <a name="run-the-application"></a>Köra programmet
 
-Build and run your project.
+Skapa och kör ditt projekt.
 
-If you're using the command line, use the following commands to build and run the application.
+Om du använder kommando raden använder du följande kommandon för att skapa och köra programmet.
 
-**Build:**
+**Konstruktion**
 ```bash
 javac -classpath .;gson-2.2.2.jar\* <CLASS_NAME>.java
 ```
 
-**Run:**
+**Fungerar**
 ```bash
 java -cp .;gson-2.2.2.jar\* <CLASS_NAME>
 ```
@@ -192,5 +192,5 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Skapa en enkelsidig webbapp](../tutorials/spellcheck.md)
 
-- [Vad är API för stavningskontroll i Bing?](../overview.md)
+- [Vad är API:et för stavningskontroll i Bing?](../overview.md)
 - [API-referens för stavningskontroll i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

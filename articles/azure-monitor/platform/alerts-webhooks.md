@@ -79,7 +79,7 @@ POST-åtgärden innehåller följande JSON-nyttolast och schema för alla Metric
 | description |Y | |En beskrivning av aviseringen. |
 | conditionType |Y |Mått, händelse |Två typer av aviseringar stöds: Metric och event. Mått varningar baseras på ett mått villkor. Händelse aviseringar baseras på en händelse i aktivitets loggen. Använd det här värdet för att kontrol lera om aviseringen baseras på ett mått eller en händelse. |
 | condition |Y | |De speciella fälten som ska kontrol leras baserat på **conditionType** -värdet. |
-| MetricName |För mått varningar | |Namnet på måttet som definierar vad regeln övervakar. |
+| metricName |För mått varningar | |Namnet på måttet som definierar vad regeln övervakar. |
 | metricUnit |För mått varningar |Byte, BytesPerSecond, antal, CountPerSecond, procent, sekunder |Enheten som tillåts i måttet. Se [tillåtna värden](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
 | metricValue |För mått varningar | |Det faktiska värdet för det mått som orsakade aviseringen. |
 | threshold |För mått varningar | |Tröskelvärdet då aviseringen aktive ras. |

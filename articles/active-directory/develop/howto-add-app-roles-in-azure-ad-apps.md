@@ -18,12 +18,12 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c838c6fe256e2960842c5b40f58f8a5d5b1fdf3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 84275be5c85570a44d968dca8887b448fce09979
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473776"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546845"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Gör så här: Lägg till app-roller i ditt program och ta emot dem i token
 
@@ -39,16 +39,12 @@ Dessa program roller definieras i [Azure Portal](https://portal.azure.com) i pro
 
 ### <a name="declare-app-roles-using-azure-portal"></a>Deklarera rollbaserade appar med hjälp av Azure Portal
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. I det översta fältet väljer du ditt konto och byter sedan **katalog**.
 1. När fönstret **katalog + prenumeration** öppnas väljer du den Active Directory klient organisation där du vill registrera ditt program, från listan **Favoriter** eller **alla kataloger** .
 1. Välj **alla tjänster** i det vänstra navigerings fältet och välj **Azure Active Directory**.
-1. I fönstret **Azure Active Directory** väljer du **Appregistreringar (äldre)** om du vill visa en lista över alla dina program.
-
-     Om du inte ser det program som du vill visa här, använder du de olika filtren överst i listan **Appregistreringar (äldre)** för att begränsa listan eller bläddra nedåt i listan för att hitta programmet.
-
-1. Välj det program som du vill definiera app-roller i.
-1. Välj **manifest**i bladet för ditt program.
+1. I fönstret **Azure Active Directory** väljer du **Appregistreringar** för att visa en lista över alla dina program.
+1. Välj det program som du vill definiera app-roller i. Välj sedan **manifest**.
 1. Redigera appens manifest genom att leta upp `appRoles`s inställningen och lägga till alla dina program roller.
 
      > [!NOTE]

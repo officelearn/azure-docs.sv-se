@@ -1,6 +1,6 @@
 ---
-title: Quickstart - View the access a user has to Azure resources
-description: In this QuickStart, learn how to view the access a user or other security principal has to Azure resources using role-based access control (RBAC) and the Azure portal.
+title: Snabb start – Visa en användares åtkomst till Azure-resurser
+description: I den här snabb starten får du lära dig hur du visar åtkomsten till en användare eller ett annat säkerhets objekt som har till gång till Azure-resurser med hjälp av rollbaserad åtkomst kontroll (RBAC) och Azure Portal.
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -21,7 +21,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74419616"
 ---
-# <a name="quickstart-view-the-access-a-user-has-to-azure-resources"></a>Quickstart: View the access a user has to Azure resources
+# <a name="quickstart-view-the-access-a-user-has-to-azure-resources"></a>Snabb start: Visa en användares åtkomst till Azure-resurser
 
 Du kan använda bladet **Åtkomstkontroll (IAM)** i [rollbaserad åtkomstkontroll (RBAC)](overview.md) för att visa den åtkomst som en användare eller ett annat säkerhetsobjekt har till Azure-resurser. Ibland behöver du dock bara snabbt visa åtkomsten för en enskild användare eller ett annat säkerhetsobjekt. Det enklaste sättet att göra det är att använda funktionen **Kontrollera åtkomst** på Azure-portalen.
 
@@ -54,4 +54,4 @@ Du kan använda bladet **Åtkomstkontroll (IAM)** i [rollbaserad åtkomstkontrol
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Tutorial: Grant a user access to Azure resources using RBAC and the Azure portal](quickstart-assign-role-user-portal.md)
+> [Självstudie: ge en användare åtkomst till Azure-resurser med RBAC och Azure Portal](quickstart-assign-role-user-portal.md)

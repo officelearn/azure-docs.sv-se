@@ -1,6 +1,6 @@
 ---
-title: Handling external events in Durable Functions - Azure
-description: Learn how to handle external events in the Durable Functions extension for Azure Functions.
+title: Hantera externa händelser i Durable Functions – Azure
+description: Lär dig hur du hanterar externa händelser i Durable Functions-tillägget för Azure Functions.
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
@@ -11,16 +11,16 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74232886"
 ---
-# <a name="handling-external-events-in-durable-functions-azure-functions"></a>Handling external events in Durable Functions (Azure Functions)
+# <a name="handling-external-events-in-durable-functions-azure-functions"></a>Hantera externa händelser i Durable Functions (Azure Functions)
 
-Orchestrator functions have the ability to wait and listen for external events. This feature of [Durable Functions](durable-functions-overview.md) is often useful for handling human interaction or other external triggers.
+Orchestrator-funktioner kan vänta och lyssna efter externa händelser. Den här funktionen i [Durable Functions](durable-functions-overview.md) är ofta användbar för att hantera mänsklig interaktion eller andra externa utlösare.
 
 > [!NOTE]
-> External events are one-way asynchronous operations. They are not suitable for situations where the client sending the event needs a synchronous response from the orchestrator function.
+> Externa händelser är enkelriktade asynkrona åtgärder. De är inte lämpliga för situationer där klienten som skickar händelsen behöver ett synkront svar från Orchestrator-funktionen.
 
-## <a name="wait-for-events"></a>Wait for events
+## <a name="wait-for-events"></a>Vänta på händelser
 
-The `WaitForExternalEvent` (.NET) and `waitForExternalEvent` (JavaScript) methods of the [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger) allows an orchestrator function to asynchronously wait and listen for an external event. The listening orchestrator function declares the *name* of the event and the *shape of the data* it expects to receive.
+Metoderna `WaitForExternalEvent` (.NET) och `waitForExternalEvent` (Java Script) i [bindnings utlösaren](durable-functions-bindings.md#orchestration-trigger) gör att en Orchestrator-funktion asynkront kan vänta och lyssna efter en extern händelse. Den lyssnande Orchestrator-funktionen deklarerar *namnet* på händelsen och *formen på de data* som det förväntar sig att ta emot.
 
 ### <a name="c"></a>C#
 
@@ -42,9 +42,9 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> Föregående C# kod är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
-### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 only)
+### <a name="javascript-functions-20-only"></a>Java Script (endast Functions 2,0)
 
 ```javascript
 const df = require("durable-functions");
@@ -59,9 +59,9 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-The preceding example listens for a specific single event and takes action when it's received.
+Föregående exempel lyssnar efter en viss enskild händelse och vidtar åtgärder när den tas emot.
 
-You can listen for multiple events concurrently, like in the following example, which waits for one of three possible event notifications.
+Du kan lyssna efter flera händelser samtidigt, som i följande exempel, vilket väntar på ett av tre möjliga händelse meddelanden.
 
 #### <a name="c"></a>C#
 
@@ -91,9 +91,9 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> Föregående C# kod är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
-#### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 only)
+#### <a name="javascript-functions-20-only"></a>Java Script (endast Functions 2,0)
 
 ```javascript
 const df = require("durable-functions");
@@ -114,7 +114,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-The previous example listens for *any* of multiple events. It's also possible to wait for *all* events.
+Föregående exempel *lyssnar efter flera* händelser. Det är också möjligt att vänta på *alla* händelser.
 
 #### <a name="c"></a>C#
 
@@ -137,9 +137,9 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> The previous code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> Föregående kod är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
-#### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 only)
+#### <a name="javascript-functions-20-only"></a>Java Script (endast Functions 2,0)
 
 ```javascript
 const df = require("durable-functions");
@@ -158,18 +158,18 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-`WaitForExternalEvent` waits indefinitely for some input.  The function app can be safely unloaded while waiting. If and when an event arrives for this orchestration instance, it is awakened automatically and immediately processes the event.
+`WaitForExternalEvent` väntar oändligt för vissa ingångar.  Function-appen kan tas bort på ett säkert sätt vid väntan. Om och när en händelse tas emot för den här Orchestration-instansen, är den aktive ras automatiskt och bearbetar händelsen omedelbart.
 
 > [!NOTE]
-> If your function app uses the Consumption Plan, no billing charges are incurred while an orchestrator function is awaiting a task from `WaitForExternalEvent` (.NET) or `waitForExternalEvent` (JavaScript), no matter how long it waits.
+> Om din Function-app använder förbruknings planen uppstår inga fakturerings avgifter medan en Orchestrator-funktion väntar på en aktivitet från `WaitForExternalEvent` (.NET) eller `waitForExternalEvent` (Java Script), oavsett hur lång tid det väntar.
 
-In .NET, if the event payload cannot be converted into the expected type `T`, an exception is thrown.
+I .NET, om händelse nytto lasten inte kan konverteras till den förväntade typen `T`, genereras ett undantag.
 
 ## <a name="send-events"></a>Skicka händelser
 
-The `RaiseEventAsync` (.NET) or `raiseEvent` (JavaScript) method of the [orchestration client binding](durable-functions-bindings.md#orchestration-client) sends the events that `WaitForExternalEvent` (.NET) or `waitForExternalEvent` (JavaScript) waits for.  The `RaiseEventAsync` method takes *eventName* and *eventData* as parameters. The event data must be JSON-serializable.
+Metoden `RaiseEventAsync` (.NET) eller `raiseEvent` (Java Script) i [Dirigerings klient bindningen](durable-functions-bindings.md#orchestration-client) skickar händelser som `WaitForExternalEvent` (.net) eller `waitForExternalEvent` (Java Script) väntar på.  Metoden `RaiseEventAsync` använder sig av parametrarna *EventName* och *eventData* som parametrar. Händelse data måste vara JSON-serialiserbar.
 
-Below is an example queue-triggered function that sends an "Approval" event to an orchestrator function instance. The orchestration instance ID comes from the body of the queue message.
+Nedan visas ett exempel på en Queue-utlöst funktion som skickar en "godkännande"-händelse till en Orchestrator Function-instans. Dirigerings instansens ID kommer från bröd texten i Queue-meddelandet.
 
 ### <a name="c"></a>C#
 
@@ -184,9 +184,9 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> Föregående C# kod är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `OrchestrationClient` attribut i stället för attributet `DurableClient` och du måste använda `DurableOrchestrationClient` parameter typ i stället för `IDurableOrchestrationClient`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
-### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 only)
+### <a name="javascript-functions-20-only"></a>Java Script (endast Functions 2,0)
 
 ```javascript
 const df = require("durable-functions");
@@ -197,15 +197,15 @@ module.exports = async function(context, instanceId) {
 };
 ```
 
-Internally, `RaiseEventAsync` (.NET) or `raiseEvent` (JavaScript) enqueues a message that gets picked up by the waiting orchestrator function. If the instance is not waiting on the specified *event name,* the event message is added to an in-memory queue. If the orchestration instance later begins listening for that *event name,* it will check the queue for event messages.
+Internt, `RaiseEventAsync` (.NET) eller `raiseEvent` (Java Script) i kö ett meddelande som hämtas av den väntande Orchestrator-funktionen. Om instansen inte väntar på det angivna *händelse namnet* läggs händelse meddelandet till i en kö i minnet. Om Orchestration-instansen senare börjar lyssna efter detta *händelse namn,* kommer den att söka efter händelse meddelanden i kön.
 
 > [!NOTE]
-> If there is no orchestration instance with the specified *instance ID*, the event message is discarded.
+> Om det inte finns någon Dirigerings instans med angivet *instans-ID*, ignoreras händelse meddelandet.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Learn how to implement error handling](durable-functions-error-handling.md)
+> [Lär dig hur du implementerar fel hantering](durable-functions-error-handling.md)
 
 > [!div class="nextstepaction"]
-> [Run a sample that waits for human interaction](durable-functions-phone-verification.md)
+> [Kör ett exempel som väntar på mänsklig interaktion](durable-functions-phone-verification.md)

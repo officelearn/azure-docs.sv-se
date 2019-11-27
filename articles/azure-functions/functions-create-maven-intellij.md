@@ -44,7 +44,7 @@ Om du vill utveckla en funktion med Java och IntelliJ installerar du följande p
 1. I fönstret **nytt projekt** väljer du **maven** i det vänstra fönstret.
 1. Markera kryss rutan **skapa från archetype** och välj sedan **Lägg till archetype** för [Azure-Functions-archetype](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype).
 1. I fönstret **Lägg till archetype** fyller du i fälten enligt följande:
-    - _GroupId_: com.microsoft.azure
+    - _Multiport: com_. Microsoft. Azure
     - _ArtifactId_: Azure-Functions-archetype
     - _Version_: Använd den senaste versionen **1,22** från [den centrala lagrings platsen](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
     ![skapa ett Maven-projekt från archetype i IntelliJ idé](media/functions-create-first-java-intellij/functions-create-intellij.png)  

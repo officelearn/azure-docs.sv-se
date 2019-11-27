@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Get image insights using the REST API and Python - Bing Visual Search'
+title: 'Snabb start: Hämta bild insikter med hjälp av REST API och python-Visuell sökning i Bing'
 titleSuffix: Azure Cognitive Services
-description: Ta reda på hur du laddar upp en bild till API:et för visuell sökning i Bing och får information om den.
+description: Ta reda på hur du laddar du upp en bild till API för visuell sökning i Bing och får information om den.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -17,11 +17,11 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74383184"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-python"></a>Quickstart: Get image insights using the Bing Visual Search REST API and Python
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-python"></a>Snabb start: Hämta bild insikter med hjälp av Visuell sökning i Bing REST API och python
 
-Use this quickstart to make your first call to the Bing Visual Search API and view the results. This Python application uploads an image to the API and displays the information it returns. Though this application is written in Python, the API is a RESTful Web service compatible with most programming languages.
+Använd den här snabb starten för att göra ditt första anrop till API för visuell sökning i Bing och visa resultatet. Det här python-programmet laddar upp en avbildning till API: et och visar den information som returneras. Även om det här programmet är skrivet i python är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-When you upload a local image, the form data must include the `Content-Disposition` header. You must set its `name` parameter to "image", and you can set the `filename` parameter to any string. The contents of the form include the binary data of the image. The maximum image size you can upload is 1 MB.
+När du laddar upp en lokal avbildning måste formulär data innehålla `Content-Disposition` rubriken. Du måste ange dess `name` parameter till "bild" och du kan ange parametern `filename` till valfri sträng. Innehållet i formuläret är en bilds binära data. Den maximala bild storlek som du kan ladda upp är 1 MB.
 
 ```
 --boundary_1234-abcd
@@ -38,15 +38,15 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## <a name="initialize-the-application"></a>Initiera programmet
+## <a name="initialize-the-application"></a>Initiera appen
 
-1. Create a new Python file in your favorite IDE or editor, and add the following `import` statement:
+1. Skapa en ny python-fil i din favorit-IDE eller-redigerare och Lägg till följande `import`-instruktion:
 
     ```python
     import requests, json
     ```
 
-2. Create variables for your subscription key, endpoint, and the path to the image you're uploading:
+2. Skapa variabler för din prenumerations nyckel, slut punkt och sökvägen till den avbildning som du överför:
 
     ```python
 
@@ -55,21 +55,21 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
     imagePath = 'your-image-path'
     ```
 
-3. Create a dictionary object to hold your request's header information. Bind your subscription key to the string `Ocp-Apim-Subscription-Key`, as shown below:
+3. Skapa ett Dictionary-objekt för att lagra din begärans huvud information. Bind din prenumerations nyckel till sträng `Ocp-Apim-Subscription-Key`, som du ser nedan:
 
     ```python
     HEADERS = {'Ocp-Apim-Subscription-Key': SUBSCRIPTION_KEY}
     ```
 
-4. Create another dictionary to contain your image, which is opened and uploaded when you send the request:
+4. Skapa en annan ord lista som innehåller din avbildning, som öppnas och laddas upp när du skickar begäran:
 
     ```python
     file = {'image' : ('myfile', open(imagePath, 'rb'))}
     ```
 
-## <a name="parse-the-json-response"></a>Tolka JSON-svar
+## <a name="parse-the-json-response"></a>Tolka JSON-svaret
 
-1. Create a method called `print_json()` to take in the API response, and print the JSON:
+1. Skapa en metod som heter `print_json()` som ska utföras i API-svaret och skriv ut JSON:
 
     ```python
     def print_json(obj):
@@ -79,7 +79,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
 ## <a name="send-the-request"></a>Skicka begäran
 
-1. Använd `requests.post()` för att skicka en begäran till API:et för webbsökning i Bing. Inkludera strängen för din slutpunkt, huvud och filinformation. Print `response.json()` with `print_json()`:
+1. Använd `requests.post()` för att skicka en begäran till API:et för webbsökning i Bing. Inkludera strängen för din slutpunkt, huvud och filinformation. Skriv ut `response.json()` med `print_json()`:
 
     ```python
     try:
@@ -94,4 +94,4 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Create a Visual Search single-page web app](../tutorial-bing-visual-search-single-page-app.md)
+> [Skapa en Visuell sökning webb program med en enda sida](../tutorial-bing-visual-search-single-page-app.md)

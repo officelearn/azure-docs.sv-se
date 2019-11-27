@@ -1,6 +1,6 @@
 ---
-title: How to plan your Azure Active Directory join implementation
-description: Explains the steps that are required to implement Azure AD joined devices in your environment.
+title: Planera implementeringen av Azure Active Directory Join
+description: Förklarar de steg som krävs för att implementera Azure AD-anslutna enheter i din miljö.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -18,285 +18,285 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74379600"
 ---
-# <a name="how-to-plan-your-azure-ad-join-implementation"></a>How to: Plan your Azure AD join implementation
+# <a name="how-to-plan-your-azure-ad-join-implementation"></a>Gör så här: planera din Azure AD Join-implementering
 
-Azure AD join allows you to join devices directly to Azure AD without the need to join to on-premises Active Directory while keeping your users productive and secure. Azure AD join is enterprise-ready for both at-scale and scoped deployments.   
+Med Azure AD Join kan du ansluta enheter direkt till Azure AD utan att behöva ansluta till lokala Active Directory samtidigt som användarna är produktiva och säkra. Azure AD Join är företags klart för både storskaliga och omfångs distributioner.   
 
-This article provides you with the information you need to plan your Azure AD join implementation.
+Den här artikeln innehåller den information du behöver för att planera din Azure AD Join-implementering.
  
 ## <a name="prerequisites"></a>Krav
 
-This article assumes that you are familiar with the [Introduction to device management in Azure Active Directory](../device-management-introduction.md).
+Den här artikeln förutsätter att du är bekant med [introduktionen till enhets hantering i Azure Active Directory](../device-management-introduction.md).
 
 ## <a name="plan-your-implementation"></a>Planera implementeringen
 
-To plan your Azure AD join implementation, you should familiarize yourself with:
+För att planera implementeringen av Azure AD Join bör du bekanta dig med:
 
 |   |   |
 |---|---|
-|![Markera][1]|Review your scenarios|
-|![Markera][1]|Review your identity infrastructure|
-|![Markera][1]|Assess your device management|
-|![Markera][1]|Understand considerations for applications and resources|
-|![Markera][1]|Understand your provisioning options|
-|![Markera][1]|Configure enterprise state roaming|
-|![Markera][1]|Configure Conditional Access|
+|![Markera][1]|Granska dina scenarier|
+|![Markera][1]|Granska din identitets infrastruktur|
+|![Markera][1]|Utvärdera din enhets hantering|
+|![Markera][1]|Förstå överväganden för program och resurser|
+|![Markera][1]|Förstå dina etablerings alternativ|
+|![Markera][1]|Konfigurera roaming för företags tillstånd|
+|![Markera][1]|Konfigurera villkorlig åtkomst|
 
-## <a name="review-your-scenarios"></a>Review your scenarios 
+## <a name="review-your-scenarios"></a>Granska dina scenarier 
 
-While Hybrid Azure AD join may be preferred for certain scenarios, Azure AD join enables you to transition towards a cloud-first model with Windows. If you are planning to modernize your devices management and reduce device-related IT costs, Azure AD join provides a great foundation towards achieving those objectives.  
+Även om hybrid Azure AD Join kan föredras för vissa scenarier kan du med Azure AD Join gå över till en molnbaserad modell med Windows. Om du planerar att modernisera din enhets hantering och minska enhets relaterade IT-kostnader ger Azure AD Join en bra grund för att uppnå dessa mål.  
  
-You should consider Azure AD join if your goals align with the following criteria:
+Du bör överväga att använda Azure AD Join om dina mål överensstämmer med följande kriterier:
 
-- You are adopting Microsoft 365 as the productivity suite for your users.
-- You want to manage devices with a cloud device management solution.
-- You want to simplify device provisioning for geographically distributed users.
-- You plan to modernize your application infrastructure.
+- Du antar Microsoft 365 som produktivitets Svit för dina användare.
+- Du vill hantera enheter med en hanterings lösning för moln enheter.
+- Du vill förenkla enhets etableringen för geografiskt distribuerade användare.
+- Du planerar att modernisera din program infrastruktur.
 
-## <a name="review-your-identity-infrastructure"></a>Review your identity infrastructure  
+## <a name="review-your-identity-infrastructure"></a>Granska din identitets infrastruktur  
 
-Azure AD join works with both, managed and federated environments.  
+Azure AD Join fungerar med både hanterade och federerade miljöer.  
 
-### <a name="managed-environment"></a>Managed environment
+### <a name="managed-environment"></a>Hanterad miljö
 
-A managed environment can be deployed either through [Password Hash Sync](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) or [Pass Through Authentication](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) with Seamless Single Sign On.
+En hanterad miljö kan distribueras antingen via [hash-synkronisering av lösen ord](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) eller [genom att passera](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) med sömlös enkel inloggning.
 
-These scenarios don't require you to configure a federation server for authentication.
+De här scenarierna kräver inte att du konfigurerar en Federations Server för autentisering.
 
-### <a name="federated-environment"></a>Federated environment
+### <a name="federated-environment"></a>Federerad miljö
 
-A federated environment should have an identity provider that supports both WS-Trust and WS-Fed protocols:
+En federerad miljö bör ha en identitets leverantör som stöder både WS-Trust och WS-utfodras protokoll:
 
-- **WS-Fed:** This protocol is required to join a device to Azure AD.
-- **WS-Trust:** This protocol is required to sign in to an Azure AD joined device.
+- **WS-utfodras:** Det här protokollet krävs för att ansluta en enhet till Azure AD.
+- **WS-förtroende:** Det här protokollet krävs för att logga in på en Azure AD-ansluten enhet.
 
-When you're using AD FS, you need to enable the following WS-Trust endpoints: `/adfs/services/trust/2005/usernamemixed`
+När du använder AD FS måste du aktivera följande WS-Trust-slutpunkter: `/adfs/services/trust/2005/usernamemixed`
  `/adfs/services/trust/13/usernamemixed`
  `/adfs/services/trust/2005/certificatemixed`
  `/adfs/services/trust/13/certificatemixed`
 
-If your identity provider does not support these protocols, Azure AD join does not work natively. Beginning with  Windows 10 1809, your users can sign in to an Azure AD joined device with a SAML-based identity provider through [web sign-in on Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Currently, web sign-in is a preview feature and is not recommended for production deployments.
+Om din identitetsprovider inte stöder dessa protokoll fungerar inte Azure AD Join. Från och med Windows 10 1809 kan användarna logga in på en Azure AD-ansluten enhet med en SAML-baserad identitets leverantör via [webb inloggning i Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). För närvarande är webb inloggning en förhands gransknings funktion och rekommenderas inte för produktions distributioner.
 
 >[!NOTE]
-> Currently, Azure AD join does not work with [AD FS 2019 configured with external authentication providers as the primary authentication method](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). Azure AD join defaults to password authentication as the primary method, which results in authentication failures in this scenario
+> Azure AD Join fungerar för närvarande inte med [AD FS 2019 som kon figurer ATS med externa autentiseringsproviders som primär autentiseringsmetod](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). Azure AD Join-standardvärden för lösenordsautentisering som den primära metoden, vilket resulterar i autentiseringsfel i det här scenariot
 
 
-### <a name="smartcards-and-certificate-based-authentication"></a>Smartcards and certificate-based authentication
+### <a name="smartcards-and-certificate-based-authentication"></a>Smartkort och certifikatbaserad autentisering
 
-You can't use smartcards or certificate-based authentication to join devices to Azure AD. However, smartcards can be used to sign in to Azure AD joined devices if you have AD FS configured.
+Du kan inte använda smartkort eller certifikatbaserad autentisering för att ansluta enheter till Azure AD. Smartkort kan dock användas för att logga in på Azure AD-anslutna enheter om du har AD FS konfigurerat.
 
-**Recommendation:** Implement Windows Hello for Business for strong, password-less authentication to Windows 10 devices.
+**Rekommendation:** Implementera Windows Hello för företag för stark, lösen ords lös autentisering för Windows 10-enheter.
 
-### <a name="user-configuration"></a>User configuration
+### <a name="user-configuration"></a>Användar konfiguration
 
-If you create users in your:
+Om du skapar användare i din:
 
-- **On-premises Active Directory**, you need to synchronize them to Azure AD using [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis). 
-- **Azure AD**, no additional setup is required.
+- **Lokala Active Directory**måste du synkronisera dem till Azure AD med hjälp av [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis). 
+- **Azure AD**krävs ingen ytterligare konfiguration.
 
-On-premises UPNs that are different from Azure AD UPNs are not supported on Azure AD joined devices. If your users use an on-premises UPN, you should plan to switch to using their primary UPN in Azure AD.
+Lokala UPN: er som skiljer sig från Azure AD-UPN: er stöds inte på Azure AD-anslutna enheter. Om användarna använder ett lokalt UPN bör du planera att växla till att använda deras primära UPN i Azure AD.
 
-## <a name="assess-your-device-management"></a>Assess your device management
+## <a name="assess-your-device-management"></a>Utvärdera din enhets hantering
 
 ### <a name="supported-devices"></a>Enheter som stöds
 
-Azure AD join:
+Azure AD-anslutning:
 
-- Is only applicable to Windows 10 devices. 
-- Is not applicable to previous versions of Windows or other operating systems. If you have Windows 7/8.1 devices, you must upgrade to Windows 10 to deploy Azure AD join.
-- Is not supported on devices with TPM in FIPS mode.
+- Gäller endast för Windows 10-enheter. 
+- Gäller inte tidigare versioner av Windows eller andra operativ system. Om du har Windows 7/8.1-enheter måste du uppgradera till Windows 10 för att distribuera Azure AD Join.
+- Stöds inte på enheter med TPM i FIPS-läge.
  
-**Recommendation:** Always use the latest Windows 10 release to take advantage of updated features.
+**Rekommendation:** Använd alltid den senaste versionen av Windows 10 för att dra nytta av uppdaterade funktioner.
 
-### <a name="management-platform"></a>Management platform
+### <a name="management-platform"></a>Hanterings plattform
 
-Device management for Azure AD joined devices is based on an MDM platform such as Intune, and MDM CSPs. Windows 10 has a built-in MDM agent that works with all compatible MDM solutions.
+Enhets hantering för Azure AD-anslutna enheter baseras på en MDM-plattform som Intune och MDM-CSP: er. Windows 10 har en inbyggd MDM-agent som fungerar med alla kompatibla MDM-lösningar.
 
 > [!NOTE]
-> Group policies are not supported in Azure AD joined devices as they are not connected to on-premises Active Directory. Management of Azure AD joined devices is only possible through MDM
+> Grup principer stöds inte i Azure AD-anslutna enheter eftersom de inte är anslutna till lokala Active Directory. Hantering av Azure AD-anslutna enheter är bara möjlig via MDM
 
-There are two approaches for managing Azure AD joined devices:
+Det finns två metoder för att hantera Azure AD-anslutna enheter:
 
-- **MDM-only** - A device is exclusively managed by an MDM provider like Intune. All policies are delivered as part of the MDM enrollment process. For Azure AD Premium or EMS customers, MDM enrollment is an automated step that is part of an Azure AD join.
-- **Co-management** -  A device is managed by an MDM provider and SCCM. In this approach, the SCCM agent is installed on an MDM-managed device to administer certain aspects.
+- **Endast MDM** – en enhet hanteras exklusivt av en MDM-provider som Intune. Alla principer levereras som en del av processen för MDM-registrering. För Azure AD Premium-eller EMS-kunder är MDM-registrering ett automatiserat steg som ingår i en Azure AD-anslutning.
+- **Co-Management** – en enhet hanteras av en MDM-Provider och SCCM. I den här metoden installeras SCCM-agenten på en MDM-hanterad enhet för att administrera vissa aspekter.
 
-If you are using group policies, evaluate your MDM policy parity by using the [MDM Migration Analysis Tool (MMAT)](https://github.com/WindowsDeviceManagement/MMAT). 
+Om du använder grup principer utvärderar du MDM-principens paritet med hjälp av [MDM-verktyget för migrations analys (MMAT)](https://github.com/WindowsDeviceManagement/MMAT). 
 
-Review supported and unsupported policies to determine whether you can use an MDM solution instead of Group policies. For unsupported policies, consider the following:
+Granska principer som stöds och som inte stöds för att avgöra om du kan använda en MDM-lösning i stället för grup principer. Tänk på följande för principer som inte stöds:
 
-- Are the unsupported policies necessary for Azure AD joined devices or users?
-- Are the unsupported policies applicable in a cloud driven deployment?
+- Krävs de principer som inte stöds för Azure AD-anslutna enheter eller användare?
+- Är de principer som inte stöds tillämpliga i en molnbaserad distribution?
 
-If your MDM solution is not available through the Azure AD app gallery, you can add it following the process outlined in [Azure Active Directory integration with MDM](https://docs.microsoft.com/windows/client-management/mdm/azure-active-directory-integration-with-mdm). 
+Om MDM-lösningen inte är tillgänglig via Azure AD App-galleriet kan du lägga till den enligt den process som beskrivs i [Azure Active Directory integration med MDM](https://docs.microsoft.com/windows/client-management/mdm/azure-active-directory-integration-with-mdm). 
 
-Through co-management, you can use SCCM to manage certain aspects of your devices while policies are delivered through your MDM platform. Microsoft Intune enables co-management with SCCM. For more information, see [Co-management for Windows 10 devices](https://docs.microsoft.com/sccm/core/clients/manage/co-management-overview). If you use an MDM product other than Intune, please check with your MDM provider on applicable co-management scenarios.
+Genom samhantering kan du använda SCCM för att hantera vissa aspekter av dina enheter medan principer levereras via din MDM-plattform. Microsoft Intune möjliggör samhantering med SCCM. Mer information finns i [Co-Management för Windows 10-enheter](https://docs.microsoft.com/sccm/core/clients/manage/co-management-overview). Om du använder en annan MDM-produkt än Intune bör du kontrol lera med MDM-providern om tillämpliga samhanterings scenarier.
 
-**Recommendation:** Consider MDM only management for Azure AD joined devices.
+**Rekommendation:** Överväg endast MDM-hantering för Azure AD-anslutna enheter.
 
-## <a name="understand-considerations-for-applications-and-resources"></a>Understand considerations for applications and resources
+## <a name="understand-considerations-for-applications-and-resources"></a>Förstå överväganden för program och resurser
 
-We recommend migrating applications from on-premises to cloud for a better user experience and access control. However, Azure AD joined devices can seamlessly provide access to both, on-premises and cloud applications. For more information, see [How SSO to on-premises resources works on Azure AD joined devices](azuread-join-sso.md).
+Vi rekommenderar att du migrerar program från en lokal plats till molnet för en bättre användar upplevelse och åtkomst kontroll. Azure AD-anslutna enheter kan dock sömlöst ge åtkomst till både lokala program och moln program. Mer information finns i [hur SSO till lokala resurser fungerar på Azure AD-anslutna enheter](azuread-join-sso.md).
 
-The following sections list considerations for different types of applications and resources.
+I följande avsnitt listas överväganden för olika typer av program och resurser.
 
-### <a name="cloud-based-applications"></a>Cloud-based applications
+### <a name="cloud-based-applications"></a>Molnbaserade program
 
-If an application is added to Azure AD app gallery, users get SSO through Azure AD joined devices. No additional configuration is required. Users get SSO on both, Microsoft Edge and Chrome browsers. For Chrome, you need to deploy the [Windows 10 Accounts extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). 
+Om ett program läggs till i Azure AD App-galleriet får användarna enkel inloggning via Azure AD-anslutna enheter. Ingen ytterligare konfiguration krävs. Användarna får SSO i både Microsoft Edge-och Chrome-webbläsarna. För Chrome måste du distribuera [tillägget Windows 10-konton](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). 
 
-All Win32 applications that:
+Alla Win32-program som:
 
-- Rely on Web Account Manager (WAM) for token requests also get SSO on Azure AD joined devices. 
-- Don't rely on WAM may prompt users for authentication. 
+- Förlita dig på webb konto hanteraren (WAM) för token-förfrågningar får även SSO på Azure AD-anslutna enheter. 
+- Förlita dig inte på WAM kan uppmana användarna att autentisera sig. 
 
-### <a name="on-premises-web-applications"></a>On-premises web applications
+### <a name="on-premises-web-applications"></a>Lokala webb program
 
-If your apps are custom built and/or hosted on-premises, you need to add them to your browser’s trusted sites to:
+Om dina appar är anpassade och/eller värdbaserade lokalt, måste du lägga till dem i webbläsarens betrodda platser för att:
 
-- Enable Windows integrated authentication to work 
-- Provide a no-prompt SSO experience to users. 
+- Aktivera Windows-integrerad autentisering för arbete 
+- Ge användarna en enkel SSO-upplevelse. 
 
-If you use AD FS, see [Verify and manage single sign-on with AD FS](https://docs.microsoft.com/previous-versions/azure/azure-services/jj151809(v%3dazure.100)). 
+Om du använder AD FS, se [Verifiera och hantera enkel inloggning med AD FS](https://docs.microsoft.com/previous-versions/azure/azure-services/jj151809(v%3dazure.100)). 
 
-**Recommendation:** Consider hosting in the cloud (for example, Azure) and integrating with Azure AD for a better experience.
+**Rekommendation:** Överväg att vara värd i molnet (till exempel Azure) och integrera med Azure AD för att få en bättre upplevelse.
 
-### <a name="on-premises-applications-relying-on-legacy-protocols"></a>On-premises applications relying on legacy protocols
+### <a name="on-premises-applications-relying-on-legacy-protocols"></a>Lokala program som förlitar sig på äldre protokoll
 
-Users get SSO from Azure AD joined devices if the device has access to a domain controller. 
+Användare får SSO från Azure AD-anslutna enheter om enheten har åtkomst till en domänkontrollant. 
 
-**Recommendation:** Deploy [Azure AD App proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) to enable secure access for these applications.
+**Rekommendation:** Distribuera [Azure AD App proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) för att aktivera säker åtkomst för dessa program.
 
-### <a name="on-premises-network-shares"></a>On-premises network shares
+### <a name="on-premises-network-shares"></a>Lokala nätverks resurser
 
-Your users have SSO from Azure AD joined devices when a device has access to an on-premises domain controller.
+Användarna har SSO från Azure AD-anslutna enheter när en enhet har åtkomst till en lokal domänkontrollant.
 
-### <a name="printers"></a>Printers
+### <a name="printers"></a>Skriva
 
-For printers, you need to deploy [hybrid cloud print](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) for discovering printers on Azure AD joined devices. 
+För skrivare måste du distribuera [hybrid moln utskrift](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) för att identifiera skrivare på Azure AD-anslutna enheter. 
 
-While printers can't be automatically discovered in a cloud only environment, your users can also use the printers’ UNC path to directly add them. 
+Även om skrivare inte kan identifieras automatiskt i en moln miljö kan användarna också använda skrivarens UNC-sökväg för att lägga till dem direkt. 
 
-### <a name="on-premises-applications-relying-on-machine-authentication"></a>On-premises applications relying on machine authentication
+### <a name="on-premises-applications-relying-on-machine-authentication"></a>Lokala program som förlitar sig på datorautentisering
 
-Azure AD joined devices don't support on-premises applications relying on machine authentication. 
+Azure AD-anslutna enheter stöder inte lokala program som förlitar sig på datorautentisering. 
 
-**Recommendation:** Consider retiring these applications and moving to their modern alternatives.
+**Rekommendation:** Överväg att dra tillbaka de här programmen och flytta till de moderna alternativen.
 
 ### <a name="remote-desktop-services"></a>Fjärrskrivbordstjänster
 
-Remote desktop connection to an Azure AD joined devices requires the host machine to be either Azure AD joined or Hybrid Azure AD joined. Remote desktop from an unjoined or non-Windows device is not supported. For more information, see [Connect to remote Azure AD joined pc](https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc)
+Anslutning till fjärr skrivbord till en Azure AD-ansluten enhet kräver att värddatorn antingen är Azure AD-ansluten eller hybrid Azure AD-ansluten. Fjärr skrivbord från en frånkopplad eller icke-Windows-enhet stöds inte. Mer information finns i [ansluta till en fjärran sluten Azure AD-ansluten dator](https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc)
 
-## <a name="understand-your-provisioning-options"></a>Understand your provisioning options
+## <a name="understand-your-provisioning-options"></a>Förstå dina etablerings alternativ
 
-You can provision Azure AD join using the following approaches:
+Du kan etablera Azure AD Join med hjälp av följande metoder:
 
-- **Self-service in OOBE/Settings** - In the self-service mode, users go through the Azure AD join process either during Windows Out of Box Experience (OOBE) or from Windows Settings. For more information, see [Join your work device to your organization's network](https://docs.microsoft.com/azure/active-directory/user-help/user-help-join-device-on-network). 
-- **Windows Autopilot** - Windows Autopilot enables pre-configuration of devices for a smoother experience in OOBE to perform an Azure AD join. For more information, see the [Overview of Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot). 
-- **Bulk enrollment** - Bulk enrollment enables an administrator driven Azure AD join by using a bulk provisioning tool to configure devices. For more information, see [Bulk enrollment for Windows devices](https://docs.microsoft.com/intune/windows-bulk-enroll).
+- **Självbetjäning i OOBE/Settings** – i självbetjänings läget går användarna igenom Azure AD Join-processen antingen under Windows OOBE (out of Box Experience) eller från Windows-inställningar. Mer information finns i [ansluta din arbets enhet till din organisations nätverk](https://docs.microsoft.com/azure/active-directory/user-help/user-help-join-device-on-network). 
+- **Windows autopilot** – Windows autopilot möjliggör för konfigurering av enheter för en smidig upplevelse i OOBE för att utföra en Azure AD-anslutning. Mer information finns i [Översikt över Windows autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot). 
+- **Mass** registrering – Mass registrering gör det möjligt för en administratör att använda Azure AD-anslutning med hjälp av ett Mass etablerings verktyg för att konfigurera enheter. Mer information finns i [Mass registrering för Windows-enheter](https://docs.microsoft.com/intune/windows-bulk-enroll).
  
-Here’s a comparison of these three approaches 
+Här är en jämförelse av dessa tre metoder 
  
-|   | Self-service setup | Windows Autopilot | Bulk enrollment |
+|   | Installation av självbetjäning | Windows autopilot | Mass registrering |
 | --- | --- | --- | --- |
-| Require user interaction to set up | Ja | Ja | Nej |
-| Require IT effort | Nej | Ja | Ja |
-| Applicable flows | OOBE & Settings | OOBE only | OOBE only |
-| Local admin rights to primary user | Yes, by default | Configurable | Nej |
-| Require device OEM support | Nej | Ja | Nej |
-| Versioner som stöds | 1511+ | 1709+ | 1703+ |
+| Kräv användar interaktion för att konfigurera | Ja | Ja | Nej |
+| Kräv IT-ansträngning | Nej | Ja | Ja |
+| Tillämpliga flöden | Inställningar för OOBE-& | Endast OOBE | Endast OOBE |
+| Lokal administratörs behörighet till primär användare | Ja, som standard | Konfigurerbara | Nej |
+| Kräv enhets-OEM-support | Nej | Ja | Nej |
+| Versioner som stöds | 1511+ | 1709+ | 1703 + |
  
-Choose your deployment approach or approaches by reviewing the table above and reviewing the following considerations for adopting either approach:  
+Välj distributions metod eller-metoder genom att granska tabellen ovan och granska följande överväganden för att införa någon av metoderna:  
 
-- Are your users tech savvy to go through the setup themselves? 
-   - Self-service can work best for these users. Consider Windows Autopilot to enhance the user experience.  
-- Are your users remote or within corporate premises? 
-   - Self-service or Autopilot work best for remote users for a hassle-free setup. 
-- Do you prefer a user driven or an admin-managed configuration? 
-   - Bulk enrollment works better for admin driven deployment to set up devices before handing over to users.     
-- Do you purchase devices from 1-2 OEMS, or do you have a wide distribution of OEM devices?  
-   - If purchasing from limited OEMs who also support Autopilot, you can benefit from tighter integration with Autopilot. 
+- Är dina användare Tech-smarta att gå igenom själva installationen? 
+   - Självbetjäning kan fungera bäst för dessa användare. Överväg Windows autopilot för att förbättra användar upplevelsen.  
+- Är dina användare fjärranslutna eller inom företagets lokaler? 
+   - Självbetjänings-eller autopilot fungerar bäst för fjärran vändare för en smidig och kostnads fri installation. 
+- Föredrar du en användare som är driven eller en administrativ hanterad konfiguration? 
+   - Mass registrering fungerar bättre för administratörs driven distribution för att konfigurera enheter innan de överlämnas till användarna.     
+- Köper du enheter från 1-2 OEM-tillverkare eller har du en bred distribution av OEM-enheter?  
+   - Om du köper från begränsade OEM-tillverkare som också stöder autopilot kan du dra nytta av tätare integrering med autopilot. 
 
-## <a name="configure-your-device-settings"></a>Configure your device settings
+## <a name="configure-your-device-settings"></a>Konfigurera enhets inställningar
 
-The Azure portal allows you to control the deployment of Azure AD joined devices in your organization. To configure the related settings, on the **Azure Active Directory page**, select `Devices > Device settings`.
+Med Azure Portal kan du styra distributionen av Azure AD-anslutna enheter i din organisation. Om du vill konfigurera de relaterade inställningarna väljer du `Devices > Device settings`på **sidan Azure Active Directory**.
 
-### <a name="users-may-join-devices-to-azure-ad"></a>Users may join devices to Azure AD
+### <a name="users-may-join-devices-to-azure-ad"></a>Användare kan ansluta enheter till Azure AD
 
-Set this option to **All** or **Selected** based on the scope of your deployment and who you want to allow to setup an Azure AD joined device. 
+Ange det här alternativet till **alla** eller **valt** baserat på distributionens omfattning och vem du vill tillåta att en Azure AD-ansluten enhet konfigureras. 
 
-![Users may join devices to Azure AD](./media/azureadjoin-plan/01.png)
+![Användare kan ansluta enheter till Azure AD](./media/azureadjoin-plan/01.png)
 
-### <a name="additional-local-administrators-on-azure-ad-joined-devices"></a>Additional local administrators on Azure AD joined devices
+### <a name="additional-local-administrators-on-azure-ad-joined-devices"></a>Ytterligare lokala administratörer på Azure AD-anslutna enheter
 
-Choose **Selected** and selects the users you want to add to the local administrators’ group on all Azure AD joined devices. 
+Välj **markerade** och välj de användare som du vill lägga till i gruppen lokala administratörer på alla Azure AD-anslutna enheter. 
 
-![Additional local administrators on Azure AD joined devices](./media/azureadjoin-plan/02.png)
+![Ytterligare lokala administratörer på Azure AD-anslutna enheter](./media/azureadjoin-plan/02.png)
 
-### <a name="require-multi-factor-auth-to-join-devices"></a>Require multi-factor Auth to join devices
+### <a name="require-multi-factor-auth-to-join-devices"></a>Kräv Multi-factor auth för att ansluta enheter
 
-Select **“Yes** if you require users to perform MFA while joining devices to Azure AD. For the users joining devices to Azure AD using MFA, the device itself becomes a 2nd factor.
+Välj **Ja** om du vill att användarna ska kunna utföra MFA när de ansluter till enheter till Azure AD. För att användarna ska kunna ansluta enheter till Azure AD med MFA blir själva enheten en andra faktor.
 
-![Require multi-factor Auth to join devices](./media/azureadjoin-plan/03.png)
+![Kräv Multi-factor auth för att ansluta enheter](./media/azureadjoin-plan/03.png)
 
-## <a name="configure-your-mobility-settings"></a>Configure your mobility settings
+## <a name="configure-your-mobility-settings"></a>Konfigurera dina mobilitets inställningar
 
-Before you can configure your mobility settings, you may have to add an MDM provider, first.
+Innan du kan konfigurera dina mobilitets inställningar kan du behöva lägga till en MDM-Provider först.
 
-**To add an MDM provider**:
+**Så här lägger du till en MDM-Provider**:
 
-1. On the **Azure Active Directory page**, in the **Manage** section, click `Mobility (MDM and MAM)`. 
-1. Click **Add application**.
-1. Select your MDM provider from the list.
+1. Klicka på `Mobility (MDM and MAM)`i avsnittet **Hantera** på **sidan Azure Active Directory**. 
+1. Klicka på **Lägg till program**.
+1. Välj MDM-providern i listan.
 
    ![Lägga till ett program](./media/azureadjoin-plan/04.png)
 
-Select your MDM provider to configure the related settings. 
+Välj MDM-providern för att konfigurera de relaterade inställningarna. 
 
-### <a name="mdm-user-scope"></a>MDM user scope
+### <a name="mdm-user-scope"></a>Användar omfång för MDM
 
-Select **Some** or **All** based on the scope of your deployment. 
+Välj **en** eller **flera** baserat på distributionens omfattning. 
 
-![MDM user scope](./media/azureadjoin-plan/05.png)
+![Användar omfång för MDM](./media/azureadjoin-plan/05.png)
 
-Based on your scope, one of the following happens: 
+Beroende på ditt omfång händer något av följande: 
 
-- **User is in MDM scope**: If you have an Azure AD Premium subscription, MDM enrollment is automated along with Azure AD join. All scoped users must have an appropriate license for your MDM. If MDM enrollment fails in this scenario, Azure AD join will also be rolled back.
-- **User is not in MDM scope**: If users are not in MDM scope, Azure AD join completes without any MDM enrollment. This results in an unmanaged device.
+- **Användaren är i MDM-omfattning**: om du har en Azure AD Premium prenumeration automatiseras MDM-registreringen tillsammans med Azure AD Join. Alla omfångs användare måste ha en lämplig licens för din MDM. Om MDM-registreringen Miss lyckas i det här scenariot kommer Azure AD Join också att återställas.
+- **Användaren är inte i MDM-omfattning**: om användarna inte är i MDM-omfattningen slutförs Azure AD Join utan någon MDM-registrering. Detta resulterar i en ohanterad enhet.
 
-### <a name="mdm-urls"></a>MDM URLs
+### <a name="mdm-urls"></a>MDM-URL: er
 
-There are three URLs that are related to your MDM configuration:
+Det finns tre URL: er som är relaterade till din MDM-konfiguration:
 
-- MDM terms of use URL
-- MDM discovery URL 
-- MDM compliance URL
+- URL för MDM-användning
+- URL för MDM-identifiering 
+- URL för MDM-kompatibilitet
 
 ![Lägga till ett program](./media/azureadjoin-plan/06.png)
 
-Each URL has a predefined default value. If these fields are empty, please contact your MDM provider for more information.
+Varje URL har ett fördefinierat standardvärde. Om dessa fält är tomma kontaktar du MDM-providern för mer information.
 
-### <a name="mam-settings"></a>MAM settings
+### <a name="mam-settings"></a>MAM-inställningar
 
-MAM does not apply to Azure AD join. 
+MAM gäller inte för Azure AD Join. 
 
-## <a name="configure-enterprise-state-roaming"></a>Configure enterprise state roaming
+## <a name="configure-enterprise-state-roaming"></a>Konfigurera roaming för företags tillstånd
 
-If you want to enable state roaming to Azure AD so that users can sync their settings across devices, see [Enable Enterprise State Roaming in Azure Active Directory](enterprise-state-roaming-enable.md). 
+Om du vill aktivera tillstånds växling till Azure AD så att användarna kan synkronisera sina inställningar på olika enheter, se [aktivera Enterprise State roaming i Azure Active Directory](enterprise-state-roaming-enable.md). 
 
-**Recommendation**: Enable this setting even for hybrid Azure AD joined devices.
+**Rekommendation**: Aktivera den här inställningen även för Hybrid Azure AD-anslutna enheter.
 
-## <a name="configure-conditional-access"></a>Configure Conditional Access
+## <a name="configure-conditional-access"></a>Konfigurera villkorlig åtkomst
 
-If you have an MDM provider configured for your Azure AD joined devices, the provider flags the device as compliant as soon as the device is under management. 
+Om du har en MDM-provider som kon figurer ATS för Azure AD-anslutna enheter, flaggar providern som kompatibel så snart enheten hanteras. 
 
 ![Kompatibel enhet](./media/azureadjoin-plan/46.png)
 
-You can use this implementation to [require managed devices for cloud app access with Conditional Access](../conditional-access/require-managed-devices.md).
+Du kan använda den här implementeringen för att [kräva hanterade enheter för Cloud app-åtkomst med villkorlig åtkomst](../conditional-access/require-managed-devices.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Join a new Windows 10 device with Azure AD during a first run](azuread-joined-devices-frx.md)
-> [Join your work device to your organization's network](https://docs.microsoft.com/azure/active-directory/user-help/user-help-join-device-on-network)
+> [Anslut en ny Windows 10-enhet med Azure AD under en första körning](azuread-joined-devices-frx.md)
+> [ansluta din arbets enhet till din organisations nätverk](https://docs.microsoft.com/azure/active-directory/user-help/user-help-join-device-on-network)
 
 <!--Image references-->
 [1]: ./media/azureadjoin-plan/12.png

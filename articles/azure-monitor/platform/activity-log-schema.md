@@ -122,7 +122,7 @@ Den här kategorin innehåller posten över alla åtgärder för att skapa, uppd
 | eventName | Eget namn på den administrativa händelsen. |
 | category | Alltid "administrativ" |
 | httpRequest |BLOB som beskriver http-begäran. Innehåller vanligt vis "clientRequestId", "clientIpAddress" och "Method" (HTTP-metod. Till exempel placering). |
-| level |Händelsens nivå. Ett av följande värden: "kritisk", "fel", "varning" och "information" |
+| nivå |Händelsens nivå. Ett av följande värden: "kritisk", "fel", "varning" och "information" |
 | resourceGroupName |Namnet på resurs gruppen för den påverkade resursen. |
 | resourceProviderName |Namnet på resurs leverantören för den påverkade resursen |
 | resourceType | Den typ av resurs som påverkades av en administrativ händelse. |
@@ -265,7 +265,7 @@ Den här kategorin innehåller posten för eventuella resurs hälso händelser s
 | eventDataId |Unikt ID för aviserings händelsen. |
 | category | Always "ResourceHealth" |
 | eventTimestamp |Tidsstämpel när händelsen genererades av Azure-tjänsten som bearbetar begäran som motsvarar händelsen. |
-| level |Händelsens nivå. Ett av följande värden: "kritisk", "fel", "varning", "information" och "utförlig" |
+| nivå |Händelsens nivå. Ett av följande värden: "kritisk", "fel", "varning", "information" och "utförlig" |
 | operationId |Ett GUID som delas mellan de händelser som motsvarar en enskild åtgärd. |
 | operationName |Åtgärdens namn. |
 | resourceGroupName |Namnet på den resurs grupp som innehåller resursen. |
@@ -359,7 +359,7 @@ Den här kategorin innehåller posten över alla aktiveringar av Azure-avisering
 | description |Statisk text Beskrivning av aviserings händelsen. |
 | eventDataId |Unikt ID för aviserings händelsen. |
 | category | Alltid "varning" |
-| level |Händelsens nivå. Ett av följande värden: "kritisk", "fel", "varning" och "information" |
+| nivå |Händelsens nivå. Ett av följande värden: "kritisk", "fel", "varning" och "information" |
 | resourceGroupName |Namnet på resurs gruppen för den påverkade resursen, om det är en mått varning. För andra aviserings typer är det namnet på den resurs grupp som innehåller själva aviseringen. |
 | resourceProviderName |Namnet på resurs leverantören för den påverkade resursen, om det är en mått varning. För andra aviserings typer är det namnet på resurs leverantören för själva aviseringen. |
 | resourceId | Namnet på resurs-ID för den påverkade resursen, om det är en mått varning. För andra aviserings typer är det resurs-ID för själva aviserings resursen. |
@@ -468,7 +468,7 @@ Den här kategorin innehåller posten för alla händelser som rör driften av a
 | correlationId | Ett GUID i sträng formatet. |
 | description |Statisk text Beskrivning av händelsen autoskalning. |
 | eventDataId |Unikt ID för autoskalning-händelsen. |
-| level |Händelsens nivå. Ett av följande värden: "kritisk", "fel", "varning" och "information" |
+| nivå |Händelsens nivå. Ett av följande värden: "kritisk", "fel", "varning" och "information" |
 | resourceGroupName |Namnet på resurs gruppen för den automatiska skalnings inställningen. |
 | resourceProviderName |Namnet på resurs leverantören för den automatiska skalnings inställningen. |
 | resourceId |Resurs-ID för den automatiska skalnings inställningen. |
@@ -559,7 +559,7 @@ Den här kategorin innehåller de aviseringar som genererats av Azure Security C
 | eventName |Eget namn på säkerhets händelsen. |
 | category | Alltid "säkerhet" |
 | id |Unikt resurs-ID för säkerhets händelsen. |
-| level |Händelsens nivå. Ett av följande värden: "kritisk", "fel", "varning" eller "information" |
+| nivå |Händelsens nivå. Ett av följande värden: "kritisk", "fel", "varning" eller "information" |
 | resourceGroupName |Namnet på resurs gruppen för resursen. |
 | resourceProviderName |Namnet på resurs leverantören för Azure Security Center. Alltid "Microsoft. Security". |
 | resourceType |Den typ av resurs som skapade säkerhets händelsen, till exempel "Microsoft. Security/locations/Alerts" |
@@ -639,7 +639,7 @@ Den här kategorin innehåller posten för eventuella nya rekommendationer som g
 | eventDataId | Unikt ID för rekommendations händelsen. |
 | category | Alltid "rekommendation" |
 | id |Unikt resurs-ID för rekommendations händelsen. |
-| level |Händelsens nivå. Ett av följande värden: "kritisk", "fel", "varning" eller "information" |
+| nivå |Händelsens nivå. Ett av följande värden: "kritisk", "fel", "varning" eller "information" |
 | operationName |Åtgärdens namn.  Always Microsoft. Advisor/generateRecommendations/Action|
 | resourceGroupName |Namnet på resurs gruppen för resursen. |
 | resourceProviderName |Namnet på resurs leverantören för den resurs som den här rekommendationen gäller för, till exempel "MICROSOFT. Compute" |
@@ -754,7 +754,7 @@ Den här kategorin innehåller poster med åtgärder som utförs av alla åtgär
 | category | Deklarerar aktivitets logg händelsen som tillhöra "princip". |
 | eventTimestamp | Tidsstämpel när händelsen genererades av Azure-tjänsten som bearbetar begäran som motsvarar händelsen. |
 | id | Unikt ID för händelsen för den specifika resursen. |
-| level | Händelsens nivå. Granskningen använder "varning" och neka använder "Error". Ett auditIfNotExists-eller deployIfNotExists-fel kan generera "varning" eller "fel" beroende på allvarlighets grad. Alla andra princip händelser använder "information". |
+| nivå | Händelsens nivå. Granskningen använder "varning" och neka använder "Error". Ett auditIfNotExists-eller deployIfNotExists-fel kan generera "varning" eller "fel" beroende på allvarlighets grad. Alla andra princip händelser använder "information". |
 | operationId | Ett GUID som delas mellan de händelser som motsvarar en enskild åtgärd. |
 | operationName | Namnet på åtgärden och korrelerar direkt till princip påverkan. |
 | resourceGroupName | Namnet på resurs gruppen för den utvärderade resursen. |

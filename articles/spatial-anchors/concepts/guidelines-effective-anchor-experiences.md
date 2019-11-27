@@ -82,7 +82,7 @@ I mål scenariot kan foton hjälpa dig. Om du visar användare ett foto av det a
 
 ![Illustration av ett ankare som visar ett foto av målet på en användares mobila enhet](./media/start-here-edit.png)
 
-### <a name="rooms"></a>kylrum
+### <a name="rooms"></a>Kylrum
 
 I rums scenariot anger användarna ett utrymme som bara känner till att det finns ett ankare här någonstans. Användarna genomsöker utrymmet med sin enhet och snabbt hittar fäst punkten.
 

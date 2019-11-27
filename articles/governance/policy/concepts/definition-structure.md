@@ -69,14 +69,14 @@ Alla Azure Policys exempel finns på [Azure policy exempel](../samples/index.md)
 
 ### <a name="resource-manager-modes"></a>Lägen i Resource Manager
 
-Den **läge** avgör vilka typer av resurser kommer att utvärderas för en princip. De stödda lägena är:
+**Läget** avgör vilka resurs typer som ska utvärderas för en princip. De stödda lägena är:
 
-- `all`: utvärdera resursgrupper och alla resurstyper
-- `indexed`: endast utvärdera resurstyper som stöder taggar och plats
+- `all`: utvärdera resurs grupper och alla resurs typer
+- `indexed`: utvärdera endast resurs typer som stöder taggar och platser
 
-Vi rekommenderar att du ställer in **läge** till `all` i de flesta fall. Alla principdefinitioner som skapats via portalen användning i `all` läge. Om du använder PowerShell eller Azure CLI kan du ange den **läge** parametern manuellt. Om principdefinitionen inte innehåller en **läge** , den standardvärdet `all` i Azure PowerShell och till `null` i Azure CLI. En `null` läge är detsamma som att använda `indexed` att stödja bakåtkompatibilitet kompatibilitet.
+Vi rekommenderar att du ställer in **läget** till `all` i de flesta fall. Alla princip definitioner som skapats via portalen använder `all` läge. Om du använder PowerShell eller Azure CLI kan du ange **läges** parametern manuellt. Om princip definitionen inte innehåller ett **läges** värde, används standardvärdet `all` i Azure PowerShell och `null` i Azure CLI. Ett `null` läge är detsamma som att använda `indexed` för att ge stöd för bakåtkompatibilitet.
 
-`indexed` ska användas när du skapar principer som tillämpar taggar eller platser. Även om det inte krävs, förhindrar det att resurser som inte stöder taggar och platser visas som icke-kompatibla i resultatet av efterlevnaden. Undantaget är **resursgrupper**. Principer som framtvinga plats eller taggar på en resursgrupp bör ange **läge** till `all` och specifikt mål den `Microsoft.Resources/subscriptions/resourceGroups` typen. Ett exempel finns i [framtvinga grupp resurstaggar](../samples/enforce-tag-rg.md). En lista över resurser som stöder taggar finns i [tagga stöd för Azure-resurser](../../../azure-resource-manager/tag-support.md).
+`indexed` bör användas när du skapar principer som tvingar taggar eller platser. Även om det inte krävs, förhindrar det att resurser som inte stöder taggar och platser visas som icke-kompatibla i resultatet av efterlevnaden. Undantag är **resurs grupper**. Principer som tvingar plats eller taggar i en resurs grupp bör ange **läge** till `all` och särskilt rikta `Microsoft.Resources/subscriptions/resourceGroups` typen. Ett exempel finns i [tvinga resurs grupps Taggar](../samples/enforce-tag-rg.md). En lista över resurser som stöder taggar finns i [tagga stöd för Azure-resurser](../../../azure-resource-manager/tag-support.md).
 
 ### <a name="a-nameresource-provider-modes-resource-provider-modes-preview"></a>läge för <a name="resource-provider-modes" />resurs leverantör (förhands granskning)
 
@@ -92,7 +92,7 @@ Följande resurs leverantörs lägen stöds för närvarande under för hands ve
 
 ## <a name="parameters"></a>Parametrar
 
-Parametrar underlätta hanteringen av principer genom att minska antalet principdefinitioner. Tänk på parametrar som fält i ett formulär – `name`, `address`, `city`, `state`. Dessa parametrar desamma alltid, men deras värden ändras baserat på enskilda fyller i formuläret.
+Parametrar underlätta hanteringen av principer genom att minska antalet principdefinitioner. Tänk på parametrar som fälten i ett formulär – `name`, `address`, `city`, `state`. Dessa parametrar desamma alltid, men deras värden ändras baserat på enskilda fyller i formuläret.
 Parametrar fungerar på samma sätt som när du skapar principer. Du kan återanvända principen för olika scenarier med hjälp av olika värden genom att lägga till parametrar i en principdefinition.
 
 > [!NOTE]
@@ -149,7 +149,7 @@ Det här exemplet refererar till den **allowedLocations** -parameter som visades
 
 ### <a name="strongtype"></a>strongType
 
-I `metadata`-egenskapen kan du använda **strongType** för att ange en lista över alternativ i Azure Portal som innehåller flera alternativ. Tillåtna värden för **strongType** nu:
+I `metadata`-egenskapen kan du använda **strongType** för att ange en lista över alternativ i Azure Portal som innehåller flera alternativ. Tillåtna värden för **strongType** är för närvarande:
 
 - `location`
 - `resourceTypes`
@@ -169,18 +169,18 @@ När du skapar ett initiativ- eller är det nödvändigt att ange platsen för d
 
 Om den definition lagras a:
 
-- **Prenumeration** – endast resurser inom den prenumerationen kan tilldelas principen.
-- **Hanteringsgruppen** – endast resurser i underordnade hanteringsgrupper och underordnade prenumerationer kan du tilldela principen. Om du planerar att använda principdefinitionen till flera prenumerationer, måste platsen vara en hanteringsgrupp som innehåller dessa prenumerationer.
+- Endast **prenumerations** resurser i den prenumerationen kan tilldelas principen.
+- **Hanterings grupp** – endast resurser inom underordnade hanterings grupper och underordnade prenumerationer kan tilldelas principen. Om du planerar att använda principdefinitionen till flera prenumerationer, måste platsen vara en hanteringsgrupp som innehåller dessa prenumerationer.
 
 ## <a name="display-name-and-description"></a>Namn och beskrivning
 
-Du använder **displayName** och **beskrivning** identifiera principdefinitionen och ge ett sammanhang för när den används. **DisplayName** får innehålla högst _128_ tecken och **beskrivningen** får bestå av högst _512_ tecken.
+Du kan använda **DisplayName** och **Description** för att identifiera princip definitionen och tillhandahålla kontext när den används. **DisplayName** får innehålla högst _128_ tecken och **beskrivningen** får bestå av högst _512_ tecken.
 
 ## <a name="policy-rule"></a>Principregel
 
-Principregeln består av **om** och **sedan** block. I den **om** block, definierar du en eller flera villkor som anger när principen tillämpas. Du kan använda logiska operatorer för dessa villkor för att ange exakt scenariot för en princip.
+Princip regeln består av **IF** och **then** -block. I **IF** -blocket definierar du ett eller flera villkor som anger när principen tillämpas. Du kan använda logiska operatorer för dessa villkor för att ange exakt scenariot för en princip.
 
-I den **sedan** block, definierar du den effekt som händer när den **om** villkor är uppfyllda.
+I blocket **then** definierar du den påverkan som inträffar när **IF** -villkoren är uppfyllda.
 
 ```json
 {
@@ -201,9 +201,9 @@ Logiska operatorer som stöds är:
 - `"allOf": [{condition or operator},{condition or operator}]`
 - `"anyOf": [{condition or operator},{condition or operator}]`
 
-Den **inte** syntax inverterar resultatet av villkoret. Den **allOf** syntax (liknar den logiska **och** åtgärden) kräver att alla villkor vara uppfyllda. Den **anyOf** syntax (liknar den logiska **eller** åtgärden) kräver en eller flera villkor vara uppfyllda.
+Syntaxen **not** inverterar resultatet av villkoret. **AllOf** -syntaxen (liknar logisk **och** åtgärd) kräver att alla villkor är sanna. **AnyOf** -syntaxen (liknar logisk **eller** åtgärd) kräver att ett eller flera villkor är sanna.
 
-Du kan kapsla logiska operatorer. I följande exempel visas en **inte** åtgärd som är kapslade i en **allOf** igen.
+Du kan kapsla logiska operatorer. I följande exempel visas en åtgärd som är kapslad i en **allOf** **-åtgärd.**
 
 ```json
 "if": {
@@ -245,8 +245,8 @@ Ett villkor utvärderar om ett **fält** eller **värde** accessor uppfyller vis
 - `"greaterOrEquals": "value"`
 - `"exists": "bool"`
 
-När du använder den **som** och **notLike** villkor du anger ett jokertecken `*` i värdet.
-Värdet får inte innehålla fler än ett jokertecken `*`.
+När du använder **gilla** -och **notLike** -villkoren anger du ett jokertecken `*` i värdet.
+Värdet får inte ha fler än ett jokertecken `*`.
 
 När du använder **matchnings** -och **notMatch** -villkor, anger du `#` för att matcha en siffra, `?` för en bokstav `.` matcha eventuella tecken och andra tecken för att matcha det faktiska tecknet.
 **matchnings** -och **notMatch** är Skift läges känsliga. Skift läges känsliga alternativ är tillgängliga i **matchInsensitively** och **notMatchInsensitively**. Exempel finns i [Tillåt flera namn mönster](../samples/allow-multiple-name-patterns.md).
@@ -269,13 +269,13 @@ Följande fält stöds:
 - `tags`
 - `tags['<tagName>']`
   - Den här klammerns syntax stöder taggnamn som har skiljetecken, till exempel bindestreck, punkter eller blank steg.
-  - Där **\<tagName\>** är namnet på taggen för att verifiera villkoret för.
+  - Där **\<tagName\>** är namnet på taggen som verifierar villkoret för.
   - Exempel: `tags['Acct.CostCenter']` där **acct. CostCenter** är namnet på taggen.
 - `tags['''<tagName>''']`
   - Den här klammerns syntax stöder taggnamn som har apostrofer i den genom att använda dubbla apostrofer.
   - Där **"\<tagName\>"** är namnet på taggen som verifierar villkoret för.
   - Exempel: `tags['''My.Apostrophe.Tag''']` där **' My. apostrof. tag '** är namnet på taggen.
-- Egenskapen alias – en lista i [alias](#aliases).
+- egenskaps Ali Aset – en lista finns i [alias](#aliases).
 
 > [!NOTE]
 > `tags.<tagName>`, `tags[tagName]`och `tags[tag.with.dots]` är fortfarande acceptabla sätt att deklarera ett Tags-fält. De prioriterade uttrycken är dock de som anges ovan.
@@ -398,12 +398,12 @@ Med den ändrade regel regeln `if()` kontrollerar längden på **namnet** innan 
 
 Azure Policy stöder följande typer av påverkan:
 
-- **Lägg till**: lägger till en definierad uppsättning fält på begäran
-- **Granska**: genererar en varning-händelse i aktivitetsloggen men inte misslyckas begäran
+- **APPEND**: lägger till den definierade fält uppsättningen i begäran
+- **Granskning**: genererar en varnings händelse i aktivitets loggen men misslyckade begäran
 - **AuditIfNotExists**: genererar en varnings händelse i aktivitets loggen om en relaterad resurs inte finns
-- **Neka**: Generera en händelse i aktivitetsloggen och misslyckas begäran
+- **Neka**: genererar en händelse i aktivitets loggen och Miss lyckas med begäran
 - **DeployIfNotExists**: distribuerar en relaterad resurs om den inte redan finns
-- **Inaktiverad**: inte utvärdera resurser för principregeln
+- **Disabled**: utvärderar inte resurser för efterlevnad för princip regeln
 - **EnforceOPAConstraint** (för hands version): konfigurerar hanterings styrenheten för öppna Policy Agent med Gatekeeper v3 för självhanterade Kubernetes-kluster på Azure (för hands version)
 - **EnforceRegoPolicy** (för hands version): konfigurerar kontrollanten för att öppna princip agenter med Gatekeeper v2 i Azure Kubernetes-tjänsten
 - **Ändra**: lägger till, uppdaterar eller tar bort definierade taggar från en resurs
@@ -432,11 +432,11 @@ Följande funktioner är tillgängliga för användning i en princip regel, men 
 - utcNow () – till skillnad från en Resource Manager-mall kan detta användas utanför defaultValue.
   - Returnerar en sträng som har angetts till aktuellt datum och aktuell tid i universellt ISO 8601 DateTime-format ' ÅÅÅÅ-MM-ddTHH: mm: SS. fffffffZ '
 
-Dessutom kan den `field` funktionen är tillgänglig för hanteringsprincipregler (MPR). `field` används främst med **AuditIfNotExists** och **DeployIfNotExists** till referensfält på resursen som utvärderas. Ett exempel på den här användningen visas på den [DeployIfNotExists exempel](effects.md#deployifnotexists-example).
+Dessutom är funktionen `field` tillgänglig för princip regler. `field` används främst med **AuditIfNotExists** och **DeployIfNotExists** för att referera till fält på den resurs som utvärderas. Ett exempel på den här användningen kan visas i [DeployIfNotExists-exemplet](effects.md#deployifnotexists-example).
 
 #### <a name="policy-function-example"></a>Exempel på princip funktion
 
-Den här principen regelexempel använder den `resourceGroup` resurs-funktionen för att hämta den **namn** egenskapen tillsammans med den `concat` matris och objekt-funktionen för att skapa en `like` villkor som tillämpar resursnamnet att starta med resursgruppens namn.
+Den här princip regel exemplet använder funktionen `resourceGroup` resurs för att hämta egenskapen **Name** , kombinerat med funktionen `concat` matris och objekt för att skapa ett `like` villkor som tvingar resurs namnet att starta med resurs gruppens namn.
 
 ```json
 {
@@ -490,7 +490,7 @@ Lista över alla alias växer. Använd någon av följande metoder för att hitt
 
 ### <a name="understanding-the--alias"></a>Förstå alias [*]
 
-Flera av de alias som är tillgängliga har en version som visas som ett ”normal” namn och en annan som har **[\*]** kopplade till den. Exempel:
+Flera av de tillgängliga aliasen har en version som visas som ett normalt namn och en annan som har **[\*]** kopplad till den. Till exempel:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
@@ -525,7 +525,7 @@ Mer information finns i avsnittet [om att utvärdera [\*]-aliaset](../how-to/aut
 
 Initiativ kan du gruppera flera relaterade principdefinitioner för att förenkla tilldelningar och hantering eftersom du arbetar med en grupp som ett enskilt objekt. Du kan exempelvis gruppera relaterade taggning principdefinitioner i ett enda initiativ. I stället för att tilldela varje princip individuellt kan använda du initiativ.
 
-I följande exempel illustrerar hur du skapar ett initiativ för att hantera två taggar: `costCenter` och `productName`. Två inbyggda principer används för att tillämpa taggen standardvärdet.
+I följande exempel visas hur du skapar ett initiativ för att hantera två Taggar: `costCenter` och `productName`. Två inbyggda principer används för att tillämpa taggen standardvärdet.
 
 ```json
 {

@@ -1,6 +1,6 @@
 ---
-title: Understand Azure Cost Management data | Microsoft Docs
-description: This article helps you better understand data that's included in Azure Cost Management and how frequently it's processed, collected, shown, and closed.
+title: Förstå Azure Cost Management data | Microsoft Docs
+description: Den här artikeln hjälper dig att bättre förstå data som ingår i Azure Cost Management och hur ofta de bearbetas, hämtas, visas och stängs.
 services: cost-management
 keywords: ''
 author: bandersmsft
@@ -19,135 +19,135 @@ ms.locfileid: "74229752"
 ---
 # <a name="understand-cost-management-data"></a>Förstå Cost Management-data
 
-This article helps you better understand Azure cost and usage data that's included in Azure Cost Management. It explains how frequently data is processed, collected, shown, and closed. You're billed for Azure usage monthly. Although billing cycles are monthly periods, cycle start and end dates vary by subscription type. How often Cost Management receives usage data varies based on different factors. Such factors include how long it takes to process the data and how frequently Azure services emit usage to the billing system.
+Den här artikeln hjälper dig att få bättre förståelse för Azures kostnads-och användnings data som ingår i Azure Cost Management. Det förklarar hur ofta data bearbetas, samlas in, visas och stängs. Du faktureras för Azure-användning varje månad. Även om fakturerings cykler är månads perioder varierar cykelns start-och slutdatum efter prenumerations typ. Hur ofta Cost Management tar emot användnings data varierar beroende på olika faktorer. Dessa faktorer omfattar hur lång tid det tar att bearbeta data och hur ofta Azure-tjänster genererar användning till fakturerings systemet.
 
-Cost Management includes all usage and purchases, including reservations and third-party offerings for Enterprise Agreement (EA) accounts. Microsoft Customer Agreement accounts and individual subscriptions with pay-as-you-go rates  only include usage from Azure and Marketplace services. Support and other costs are not included. Costs are estimated until an invoice is generated and do not factor in credits.
+Cost Management omfattar all användning och alla inköp, inklusive reservationer och erbjudanden från tredje part för Enterprise-avtal-konton (EA). Microsofts kund avtals konton och enskilda prenumerationer med priser enligt principen betala per användning omfattar bara användning från Azure-och Marketplace-tjänster. Support och andra kostnader ingår inte. Kostnaderna beräknas tills en faktura genereras och inte är en faktor i kredit.
 
-## <a name="supported-microsoft-azure-offers"></a>Supported Microsoft Azure offers
+## <a name="supported-microsoft-azure-offers"></a>Microsoft Azure erbjudanden som stöds
 
-The following information shows the currently supported [Microsoft Azure offers](https://azure.microsoft.com/support/legal/offer-details/) in Azure Cost Management. An Azure offer is the type of the Azure subscription that you have. Data is available in Cost Management starting on the **Data available from** date. If a subscription changes offers, costs before the offer change date will not be available.
+Följande information visar de [Microsoft Azure erbjudanden](https://azure.microsoft.com/support/legal/offer-details/) som stöds för närvarande i Azure Cost Management. Ett Azure-erbjudande är den typ av Azure-prenumeration du har. Data är tillgängliga i Cost Management som startar på **tillgängliga data från** datum. Om en prenumeration ändras får kostnader innan det ändrings datumet för erbjudandet inte är tillgängliga.
 
-| **Kategori**  | **Offer name** | **Quota ID** | **Offer number** | **Data available from** |
+| **Kategori**  | **Erbjudandets namn** | **Kvot-ID** | **Erbjudande nummer** | **Data tillgängliga från** |
 | --- | --- | --- | --- | --- |
-| **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P | May 2014<sup>1</sup> |
-| **Enterprise Agreement (EA)** | Enterprise – utveckling/testning                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P | May 2014<sup>1</sup> |
-| **Enterprise Agreement (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P | May 2014<sup>1</sup> |
-| **Microsoft-kundavtal** | [Microsoft Azure Plan](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | Gäller inte | March 2019<sup>3</sup> |
-| **Microsoft-kundavtal** | [Microsoft Azure Plan for Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148g) | MSDNDevTest_2014-09-01 | Gäller inte | March 2019<sup>3</sup> |
-| **Microsoft Customer Agreement supported by partners** | Microsoft Azure Plan | CSP_2015-05-01, CSP_MG_2017-12-01, and CSPDEVTEST_2018-05-01<br><br>The quota ID is reused for Microsoft Customer Agreement and legacy CSP subscriptions. Currently, only Microsoft Customer Agreement subscriptions are supported. | Gäller inte | Oktober 2019 |
-| **Microsoft Developer Network (MSDN)** | [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p)<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0062P | October 2, 2018<sup>2</sup> |
-| **Betala per användning** | [Betala per användning](https://azure.microsoft.com/offers/ms-azr-0003p)                  | PayAsYouGo_2014-09-01 | MS-AZR-0003P | October 2, 2018<sup>2</sup> |
-| **Betala per användning** | [Dev/Test – betala per användning](https://azure.microsoft.com/offers/ms-azr-0023p)         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | October 2, 2018<sup>2</sup> |
-| **Betala per användning** | [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p)      | MPN_2014-09-01 | MS-AZR-0025P | October 2, 2018<sup>2</sup> |
-| **Betala per användning** | [Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p)<sup>4</sup>         | FreeTrial_2014-09-01 | MS-AZR-0044P | October 2, 2018<sup>2</sup> |
-| **Betala per användning** | [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p)<sup>4</sup>      | AzureInOpen_2014-09-01 | MS-AZR-0111P | October 2, 2018<sup>2</sup> |
-| **Betala per användning** | Azure Pass<sup>4</sup>                                                            | AzurePass_2014-09-01 | MS-AZR-0120P, MS-AZR-0122P - MS-AZR-0125P, MS-AZR-0128P - MS-AZR-0130P | October 2, 2018<sup>2</sup> |
-| **Visual Studio** | [Visual Studio Enterprise – MPN](https://azure.microsoft.com/offers/ms-azr-0029p)<sup>4</sup>     | MPN_2014-09-01 | MS-AZR-0029P | October 2, 2018<sup>2</sup> |
-| **Visual Studio** | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p)<sup>4</sup>         | MSDN_2014-09-01 | MS-AZR-0059P | October 2, 2018<sup>2</sup> |
-| **Visual Studio** | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p)<sup>4</sup>    | MSDNDevTest_2014-09-01 | MS-AZR-0060P | October 2, 2018<sup>2</sup> |
-| **Visual Studio** | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p)<sup>4</sup>           | MSDN_2014-09-01 | MS-AZR-0063P | October 2, 2018<sup>2</sup> |
-| **Visual Studio** | [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p)<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0064P | October 2, 2018<sup>2</sup> |
+| **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P | Maj 2014<sup>1</sup> |
+| **Enterprise-avtal (EA)** | Enterprise Dev/Test                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P | Maj 2014<sup>1</sup> |
+| **Enterprise-avtal (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P | Maj 2014<sup>1</sup> |
+| **Microsoft-kundavtal** | [Microsoft Azure plan](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | Saknas | Mars 2019<sup>3</sup> |
+| **Microsoft-kundavtal** | [Microsoft Azure plan för utveckling/testning](https://azure.microsoft.com/offers/ms-azr-0148g) | MSDNDevTest_2014-09-01 | Saknas | Mars 2019<sup>3</sup> |
+| **Microsofts kund avtal som stöds av partners** | Microsoft Azure Plan | CSP_2015-05-01, CSP_MG_2017-12-01 och CSPDEVTEST_2018-05-01<br><br>Kvot-ID: t används återanvänds för Microsofts kund avtal och tidigare CSP-prenumerationer. För närvarande stöds endast prenumerationer av Microsoft-kundavtal. | Saknas | Oktober 2019 |
+| **Microsoft Developer Network (MSDN)** | [MSDN-plattformar](https://azure.microsoft.com/offers/ms-azr-0062p)<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0062P | 2 oktober 2018<sup>2</sup> |
+| **Betala per användning** | [Betala per användning](https://azure.microsoft.com/offers/ms-azr-0003p)                  | PayAsYouGo_2014-09-01 | MS-AZR-0003P | 2 oktober 2018<sup>2</sup> |
+| **Betala per användning** | [Dev/Test – betala per användning](https://azure.microsoft.com/offers/ms-azr-0023p)         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | 2 oktober 2018<sup>2</sup> |
+| **Betala per användning** | [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p)      | MPN_2014-09-01 | MS-AZR-0025P | 2 oktober 2018<sup>2</sup> |
+| **Betala per användning** | [Kostnads fri utvärderings version](https://azure.microsoft.com/offers/ms-azr-0044p)<sup>4</sup>         | FreeTrial_2014-09-01 | MS-AZR-0044P | 2 oktober 2018<sup>2</sup> |
+| **Betala per användning** | [Azure i Open](https://azure.microsoft.com/offers/ms-azr-0111p)<sup>4</sup>      | AzureInOpen_2014-09-01 | MS-AZR-0111P | 2 oktober 2018<sup>2</sup> |
+| **Betala per användning** | Azure-pass<sup>4</sup>                                                            | AzurePass_2014-09-01 | MS-AZR-0120P, MS-AZR-0122P - MS-AZR-0125P, MS-AZR-0128P - MS-AZR-0130P | 2 oktober 2018<sup>2</sup> |
+| **Visual Studio** | [Visual Studio Enterprise – MPN](https://azure.microsoft.com/offers/ms-azr-0029p)<sup>4</sup>     | MPN_2014-09-01 | MS-AZR-0029P | 2 oktober 2018<sup>2</sup> |
+| **Visual Studio** | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p)<sup>4</sup>         | MSDN_2014-09-01 | MS-AZR-0059P | 2 oktober 2018<sup>2</sup> |
+| **Visual Studio** | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p)<sup>4</sup>    | MSDNDevTest_2014-09-01 | MS-AZR-0060P | 2 oktober 2018<sup>2</sup> |
+| **Visual Studio** | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p)<sup>4</sup>           | MSDN_2014-09-01 | MS-AZR-0063P | 2 oktober 2018<sup>2</sup> |
+| **Visual Studio** | [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p)<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0064P | 2 oktober 2018<sup>2</sup> |
 
-_<sup>**1**</sup> For data before May 2014, visit the [Azure Enterprise portal](https://ea.azure.com)._
+_<sup>**1**</sup> för data före maj 2014 går du till [Azure Enterprise Portal](https://ea.azure.com)._
 
-_<sup>**2**</sup> For data before October 2, 2018, visit the [Azure Account Center](https://account.azure.com/subscriptions)._
+_<sup>**2**</sup> för data före den 2 oktober 2018 går du till [Azure-kontocenter](https://account.azure.com/subscriptions)._
 
-_<sup>**3**</sup> Microsoft Customer Agreements started in March 2019 and do not have any historical data before this point._
+_<sup>**3**</sup> kund avtal från Microsoft startade i mars 2019 och har inga historiska data innan den här punkten._
 
-_<sup>**4**</sup> Historical data for credit-based and pay-in-advance subscriptions might not match your invoice. See [Historical data may not match invoice](#historical-data-might-not-match-invoice) below._
+_<sup>**4**</sup> historiska data för kreditbaserade och betala i förväg-prenumerationer kanske inte matchar din faktura. Se [historiska data kanske inte överensstämmer med fakturan](#historical-data-might-not-match-invoice) nedan._
 
-The following offers are not supported yet:
+Följande erbjudanden stöds inte än:
 
-| Kategori  | **Offer name** | **Quota ID** | **Offer number** |
+| Kategori  | **Erbjudandets namn** | **Kvot-ID** | **Erbjudande nummer** |
 | --- | --- | --- | --- |
-| **Azure Germany** | [Azure Germany Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-de-0003p) | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
+| **Azure Germany** | [Azure Germany – betala per användning](https://azure.microsoft.com/offers/ms-azr-de-0003p) | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
 | **Azure Government** | Azure Government – Betala per användning | PayAsYouGo_2014-09-01 | MS-AZR-USGOV-0003P |
-| **Cloud Solution Provider (CSP)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
-| **Cloud Solution Provider (CSP)** | Azure Government CSP                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
-| **Cloud Solution Provider (CSP)** | Azure Tyskland i CSP för Microsoft Cloud i Tyskland   | CSP_2015-05-01 | MS-AZR-DE-0145P |
-| **Betala per användning**                 | Startprogrammet för Azure för studenter | DreamSpark_2015-02-01 | MS-AZR-0144P |
-| **Betala per användning** | [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p)<sup>4</sup> | AzureForStudents_2018-01-01 | MS-AZR-0170P |
-| **Betala per användning**                 | [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) | Sponsored_2016-01-01 | MS-AZR-0036P |
+| **Leverantör av moln lösningar (CSP)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
+| **Leverantör av moln lösningar (CSP)** | Azure Government CSP                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
+| **Leverantör av moln lösningar (CSP)** | Azure Tyskland i CSP för Microsoft Cloud i Tyskland   | CSP_2015-05-01 | MS-AZR-DE-0145P |
+| **Betala per användning**                 | Microsoft Azure for Students Starter | DreamSpark_2015-02-01 | MS-AZR-0144P |
+| **Betala per användning** | [Azure för studenter](https://azure.microsoft.com/offers/ms-azr-0170p)<sup>4</sup> | AzureForStudents_2018-01-01 | MS-AZR-0170P |
+| **Betala per användning**                 | [Microsoft Azure-sponsring](https://azure.microsoft.com/offers/ms-azr-0036p/) | Sponsored_2016-01-01 | MS-AZR-0036P |
 | **Supportavtal** | Standard Support                    | Default_2014-09-01 | MS-AZR-0041P |
 | **Supportavtal** | Professional Direct support         | Default_2014-09-01 | MS-AZR-0042P |
-| **Supportavtal** | Developer support                   | Default_2014-09-01 | MS-AZR-0043P |
-| **Supportavtal** | Germany support plan                | Default_2014-09-01 | MS-AZR-DE-0043P |
+| **Supportavtal** | Support för utvecklare                   | Default_2014-09-01 | MS-AZR-0043P |
+| **Supportavtal** | Plan för Tyskland-support                | Default_2014-09-01 | MS-AZR-DE-0043P |
 | **Supportavtal** | Azure Government Standard Support   | Default_2014-09-01 | MS-AZR-USGOV-0041P |
-| **Supportavtal** | Azure Government Pro-Direct Support | Default_2014-09-01 | MS-AZR-USGOV-0042P |
+| **Supportavtal** | Azure Government Pro-Direct-support | Default_2014-09-01 | MS-AZR-USGOV-0042P |
 | **Supportavtal** | Azure Government Developer Support  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
 
-## <a name="determine-your-offer-type"></a>Determine your offer type
-If you don't see data for a subscription and you want to determine if your subscription falls under the supported offers, you can validate that your subscription is supported. To validate that an Azure subscription is supported, sign-in to the [Azure portal](https://portal.azure.com). Then select **All Services** in the left menu pane. In the list of services, select **Subscriptions**. In the subscription list menu, click on the subscription that you want to verify. Your subscription is shown on the Overview tab and you can see the **Offer** and **Offer ID**. I följande bild visas ett exempel.
+## <a name="determine-your-offer-type"></a>Fastställ din erbjudande typ
+Om du inte ser data för en prenumeration och vill ta reda på om din prenumeration omfattas av de erbjudanden som stöds, kan du kontrol lera att din prenumeration stöds. Om du vill kontrol lera att en Azure-prenumeration stöds loggar du in på [Azure Portal](https://portal.azure.com). Välj sedan **alla tjänster** i den vänstra meny rutan. I listan över tjänster väljer du **prenumerationer**. I menyn prenumerations lista klickar du på den prenumeration som du vill verifiera. Din prenumeration visas på fliken Översikt och du kan se **erbjudandet** och **erbjudande-ID**. I följande bild visas ett exempel.
 
-![Example of the Subscription Overview tab showing Offer and Offer ID](./media/understand-cost-mgt-data/offer-and-offer-id.png)
+![Exempel på fliken prenumerations översikt som visar erbjudande och erbjudande-ID](./media/understand-cost-mgt-data/offer-and-offer-id.png)
 
-## <a name="costs-included-in-cost-management"></a>Costs included in Cost Management
+## <a name="costs-included-in-cost-management"></a>Kostnader som ingår i Cost Management
 
-The following tables show data that's included or isn't in Cost Management. All costs are estimated until an invoice is generated. Costs shown do not include free and prepaid credits.
+Följande tabeller visar data som ingår eller som inte finns i Cost Management. Alla kostnader beräknas tills en faktura genereras. De kostnader som visas omfattar inte kostnads fria och förutbetalda krediter.
 
-**Cost and usage data**
+**Kostnader och användnings data**
 
-| **Included** | **Not included** |
+| **Inbegrip** | **Ingår inte** |
 | --- | --- |
-| Azure service usage<sup>5</sup>        | Support charges - For more information, see [Invoice terms explained](../billing/billing-understand-your-invoice.md). |
-| Marketplace offering usage<sup>6</sup> | Taxes - For more information, see [Invoice terms explained](../billing/billing-understand-your-invoice.md). |
-| Marketplace purchases<sup>6</sup>      | Credits - For more information, see [Invoice terms explained](../billing/billing-understand-your-invoice.md). |
-| Reservation purchases<sup>7</sup>      |  |
-| Amortization of reservation purchases<sup>7</sup>      |  |
+| Azure Service-användning<sup>5</sup>        | Support avgifter – mer information finns i [förklaring av faktura villkor](../billing/billing-understand-your-invoice.md). |
+| Användning av Marketplace<sup>6</sup> | Skatter – mer information finns i [förklaring av faktura villkor](../billing/billing-understand-your-invoice.md). |
+| Marketplace-köp<sup>6</sup>      | Krediter – mer information finns i [förklaring av faktura villkor](../billing/billing-understand-your-invoice.md). |
+| Reservations köp<sup>7</sup>      |  |
+| Amortering av reservations köp<sup>7</sup>      |  |
 
-_<sup>**5**</sup> Azure service usage is based on reservation and negotiated prices._
+_<sup>**5**</sup> användning av Azure-tjänster baseras på reservationer och förhandlade priser._
 
-_<sup>**6**</sup> Marketplace purchases are not available for Pay-As-You-Go, MSDN, and Visual Studio offers at this time._
+_<sup>**6**</sup> marknads plats köp är inte tillgängliga för erbjudandet betala per användning, MSDN och Visual Studio för närvarande._
 
-_<sup>**7**</sup> Reservation purchases are only available for Enterprise Agreement (EA) accounts at this time._
+_<sup>**7**</sup> reservations köp är bara tillgängliga för Enterprise-avtal-konton (EA) för tillfället._
 
-**Metadata**
+**Metadatatjänst**
 
-| **Included** | **Not included** |
+| **Inbegrip** | **Ingår inte** |
 | --- | --- |
-| Resource tags<sup>8</sup> | Resource group tags |
+| Resurs etiketter<sup>8</sup> | Resurs grupps Taggar |
 
-_<sup>**8**</sup> Resource tags are applied as usage is emitted from each service and aren't available retroactively to historical usage._
+_<sup>**8**</sup> resurs Taggar används när användning genereras från varje tjänst och är inte tillgänglig retroaktivt för historisk användning._
 
-## <a name="rated-usage-data-refresh-schedule"></a>Rated usage data refresh schedule
+## <a name="rated-usage-data-refresh-schedule"></a>Schema för data uppdatering av klassificerad användning
 
-Cost and usage data is available in Cost Management + Billing in the Azure portal and [supporting APIs](index.yml). Keep the following points in mind as you review costs:
+Information om kostnader och användning finns i Cost Management + fakturering i Azure Portal och [stödda API: er](index.yml). Tänk på följande när du granskar kostnader:
 
-- Estimated charges for the current billing period are updated six times per day.
-- Estimated charges for the current billing period can change as you incur more usage.
-- Each update is cumulative and includes all the line items and information from the previous update.
-- Azure finalizes or _closes_ the current billing period up to 72 hours (three calendar days) after the billing period ends.
+- Uppskattade avgifter för den aktuella fakturerings perioden uppdateras sex gånger per dag.
+- Uppskattade avgifter för den aktuella fakturerings perioden kan ändras när du förbrukar mer användning.
+- Varje uppdatering är kumulativ och innehåller alla rad objekt och information från den tidigare uppdateringen.
+- Azure Slutför eller _stänger_ den aktuella fakturerings perioden upp till 72 timmar (tre Kalender dagar) när fakturerings perioden är slut.
 
-The following examples illustrate how billing periods could end.
+I följande exempel visas hur fakturerings perioder kan sluta.
 
-Enterprise Agreement (EA) subscriptions – If the billing month ends on March 31, estimated charges are updated up to 72 hours later. In this example, by midnight (UTC) April 4.
+Enterprise-avtal (EA)-prenumerationer – om fakturerings månaden upphör den 31 mars, uppdateras de uppskattade kostnaderna upp till 72 timmar senare. I det här exemplet, efter midnatt (UTC) 4 april.
 
-Pay-as-you-go subscriptions – If the billing month ends on May 15, then the estimated charges might get updated up to 72 hours later. In this example, by midnight (UTC) May 19.
+Betala per användning-prenumerationer – om fakturerings månaden slutar den 15 maj kan de uppskattade kostnaderna uppdateras upp till 72 timmar senare. I det här exemplet, efter midnatt (UTC) 19 maj.
 
-### <a name="rerated-data"></a>Rerated data
+### <a name="rerated-data"></a>Klassificerade data
 
-Whether you use the [Cost Management APIs](index.yml), Power BI, or the Azure portal to retrieve data, expect the current billing period's charges to get rerated, and consequently change, until the invoice is closed.
+Oavsett om du använder [Cost Management-API: er](index.yml), Power BI eller Azure Portal för att hämta data, förväntas den aktuella fakturerings periodens kostnader för att få en omklassificering och därmed ändras tills fakturan stängs.
 
-## <a name="usage-data-update-frequency-varies"></a>Usage data update frequency varies
+## <a name="usage-data-update-frequency-varies"></a>Uppdaterings frekvensen för användnings data varierar
 
-The availability of your incurred usage data in Cost Management depends on a couple of factors, including:
+Tillgängligheten för dina inaktuella användnings data i Cost Management är beroende av ett par faktorer, inklusive:
 
-- How frequently Azure services (such as Storage, Compute, CDN, and SQL) emit usage.
-- The time taken to process the usage data through the rating engine and cost management pipelines.
+- Hur ofta Azure-tjänster (till exempel lagring, beräkning, CDN och SQL) genererar användning.
+- Den tid det tar att bearbeta användnings data via pipeliner för klassificerings motor och kostnads hantering.
 
-Some services emit usage more frequently than others. So, you might see data in Cost Management for some services sooner than other services that emit data less frequently. Typically, usage for services takes 8-24 hours to appear in Cost Management. Keep in mind that data for an open month gets refreshed as you incur more usage because updates are cumulative.
+Vissa tjänster genererar användning oftare än andra. Därför kan du se data i Cost Management för vissa tjänster tidigare än andra tjänster som genererar data mindre ofta. Normalt tar användningen av tjänster 8-24 timmar innan den visas i Cost Management. Tänk på att data för en öppen månad uppdateras när du förbrukar mer användning eftersom uppdateringarna är kumulativa.
 
-## <a name="historical-data-might-not-match-invoice"></a>Historical data might not match invoice
+## <a name="historical-data-might-not-match-invoice"></a>Historiska data kanske inte matchar fakturan
 
-Historical data for credit-based and pay-in-advance offers might not match your invoice. Some Azure pay-as-you-go, MSDN, and Visual Studio offers can have Azure credits and advanced payments applied to the invoice. However, the historical data shown in Cost Management is based on your estimated consumption charges only. Cost Management historical data doesn't include payments and credits. As a result, the historical data shown for the following offers may not match exactly with your invoice.
+Historiska data för kreditbaserade och betala in-Advance-erbjudanden kanske inte överensstämmer med din faktura. Vissa Azure-prenumerationer, MSDN-och Visual Studio-erbjudanden kan ha Azure-krediter och avancerade betalningar som tillämpas på fakturan. Men historiska data som visas i Cost Management baseras bara på dina beräknade förbruknings avgifter. Cost Management historiska data inkluderar inte betalningar och krediter. Det innebär att historiska data som visas för följande erbjudanden kanske inte överensstämmer exakt med din faktura.
 
-- Azure for Students (MS-AZR-0170P)
-- Azure in Open (MS-AZR-0111P)
-- Azure Pass (MS-AZR-0120P, MS-AZR-0123P, MS-AZR-0125P, MS-AZR-0128P, MS-AZR-0129P)
-- Free Trial (MS-AZR-0044P)
+- Azure för studenter (MS-AZR-0170P)
+- Azure i Open (MS-AZR-0111P)
+- Azure-pass (MS-AZR-0120P, MS-AZR-0123P, MS-AZR-0125P, MS-AZR-0128P, MS-AZR-0129P)
+- Kostnads fri utvärdering (MS-AZR-0044P)
 - MSDN (MS-AZR-0062P)
 - Visual Studio (MS-AZR-0029P, MS-AZR-0059P, MS-AZR-0060P, MS-AZR-0063P, MS-AZR-0064P)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
-- If you haven't already completed the first quickstart for Cost Management, read it at [Start analyzing costs](quick-acm-cost-analysis.md).
+- Om du inte redan har slutfört den första snabb starten för Cost Management läser du den för att [börja analysera kostnaderna](quick-acm-cost-analysis.md).

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Send a search request to the REST API using Ruby - Bing Entity Search'
+title: 'Snabb start: skicka en Sök förfrågan till REST API med hjälp av ruby-Entitetssökning i Bing'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten om du vill skicka en begäran till REST API för entitetssökning i Bing med hjälp av Ruby och få ett JSON-svar.
 services: cognitive-services
@@ -19,7 +19,7 @@ ms.locfileid: "74323561"
 ---
 # <a name="quickstart-for-bing-entity-search-api-with-ruby"></a>Snabbstart för API för entitetssökning i Bing med Ruby
 
-Använd den här snabbstarten för att göra ditt första anrop till API för entitetssökning i Bing och visa JSON-svaret. Det här enkla Ruby-programmet skickar en nyhetssökfråga till API:et och visar svaret. Källkoden för det här programmet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingEntitySearchv7.rb).
+Använd den här snabbstarten för att göra ditt första anrop till API för entitetssökning i Bing och visa JSON-svaret. Det här enkla Ruby-programmet skickar en nyhetssökfråga till API:et och visar svaret. Källkoden till det här programmet finns [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingEntitySearchv7.rb).
 
 Även om det här programmet är skrivet i Ruby, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
@@ -65,7 +65,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
     request['Ocp-Apim-Subscription-Key'] = subscriptionKey
     ```
 
-3. Send the request, and print the response
+3. Skicka begäran och skriv ut svaret
 
     ```ruby
     response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|

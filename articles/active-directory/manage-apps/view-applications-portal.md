@@ -1,6 +1,6 @@
 ---
-title: Quickstart - View tenant applications using Azure Active Directory
-description: In this Quickstart, use the Azure portal to view the applications in your Azure Active Directory (Azure AD) tenant.
+title: Snabb start – Visa klient program med hjälp av Azure Active Directory
+description: I den här snabb starten använder du Azure Portal för att Visa programmen i din Azure Active Directory (Azure AD)-klient.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -23,7 +23,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74421817"
 ---
-# <a name="quickstart-view-your-azure-active-directory-tenant-applications"></a>Quickstart: View your Azure Active Directory tenant applications
+# <a name="quickstart-view-your-azure-active-directory-tenant-applications"></a>Snabb start: Visa Azure Active Directory klient program
 
 I den här snabbstarten använder du Azure Portal för att visa programmen i din Azure Active Directory-klientorganisation (Azure AD).
 
@@ -39,16 +39,16 @@ Du kan se programmen i din Azure AD-klientorganisation i avsnittet **Företagspr
 
 Så här hittar du programmen i din klientorganisation:
 
-1. In the **[Azure portal](https://portal.azure.com)** , on the left navigation panel, select **Azure Active Directory**.
-1. In the **Azure Active Directory** pane, select **Enterprise applications**.
-1. From the **Application Type** drop-down menu, select **All Applications**, and choose **Apply**. Ett slumpmässigt urval av programmen i din klientorganisation visas.
-1. To view more applications, select **Load more** at the bottom of the list. Om det finns många program i din klientorganisation kan det vara enklare att [söka efter ett visst program](#search-for-a-tenant-application), i stället för att bläddra i listan.
+1. Välj **Azure Active Directory**på den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)** .
+1. I fönstret **Azure Active Directory** väljer du **företags program**.
+1. I list rutan **program typ** väljer du **alla program**och sedan **Använd**. Ett slumpmässigt urval av programmen i din klientorganisation visas.
+1. Om du vill visa fler program väljer du **Läs in mer** längst ned i listan. Om det finns många program i din klientorganisation kan det vara enklare att [söka efter ett visst program](#search-for-a-tenant-application), i stället för att bläddra i listan.
 
 ## <a name="select-viewing-options"></a>Välj visningsalternativ
 
-Select options according to what you're looking for.
+Välj alternativ enligt vad du letar efter.
 
-1. You can view the applications by **Application Type**, **Application Status**, and **Application visibility**.
+1. Du kan visa programmen efter **program typ**, **program status**och **program synlighet**.
 1. Välj något av följande alternativ under **Programtyp**:
 
     - **Företagsprogram** visar andra program än Microsoft-program.
@@ -56,27 +56,27 @@ Select options according to what you're looking for.
     - **Alla program** visar både Microsoft-program och andra program.
 
 1. Välj **Alla**, **Inaktiverade** eller **Aktiverade** under **Programstatus**. Alternativet **Alla** omfattar både inaktiverade och aktiverade program.
-1. Välj **Alla** eller **Dolda** under **Synlighet för program**. The **Hidden** option shows applications that are in the tenant, but aren't visible to users.
-1. After choosing the options you want, select **Apply**.
+1. Välj **Alla** eller **Dolda** under **Synlighet för program**. Alternativet **dold** visar program som finns i klienten, men som inte är synliga för användare.
+1. När du har valt de alternativ som du vill använda väljer du **Använd**.
 
 ## <a name="search-for-a-tenant-application"></a>Söka efter ett klientprogram
 
-To search for a particular application:
+Så här söker du efter ett visst program:
 
-1. In the **Application Type** menu, select **All applications**, and choose **Apply**.
-1. Ange namnet på det program som du vill söka efter. If the application has been added to your Azure AD tenant, it appears in the search results. This example shows that GitHub hasn't been added to the tenant applications.
+1. I menyn **program typ** väljer du **alla program**och sedan **Använd**.
+1. Ange namnet på det program som du vill söka efter. Om programmet har lagts till i din Azure AD-klient visas det i Sök resultaten. Det här exemplet visar att GitHub inte har lagts till i klient programmet.
 
-    ![Example shows an app hasn't been added to the tenant](media/view-applications-portal/search-for-tenant-application.png)
+    ![Exempel visar att en app inte har lagts till i klient organisationen](media/view-applications-portal/search-for-tenant-application.png)
 
 1. Prova att skriva de första bokstäverna i ett programnamn. I det här exemplet visas alla program som börjar med **Sales**.
 
-    ![Example shows all apps that start with Sales](media/view-applications-portal/search-by-prefix.png)
+    ![Exempel visar alla appar som börjar med Sales](media/view-applications-portal/search-by-prefix.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-In this quickstart, you learned how to view the applications in your Azure AD tenant. You learned how to filter the list of applications by application type, status, and visibility. Du har också lärt dig hur du söker efter ett specifikt program.
+I den här snabb starten har du lärt dig hur du visar programmen i din Azure AD-klient. Du har lärt dig hur du filtrerar listan över program efter program typ, status och synlighet. Du har också lärt dig hur du söker efter ett specifikt program.
 
-Now that you've found the application you were looking for, you can continue to [Add more applications to your tenant](add-application-portal.md). Or, you can select the application to view or edit properties and configuration options. Du kan till exempel konfigurera enkel inloggning.
+Nu när du har hittat det program som du letade efter kan du fortsätta att [lägga till fler program till din klient organisation](add-application-portal.md). Du kan också välja programmet för att visa eller redigera egenskaper och konfigurations alternativ. Du kan till exempel konfigurera enkel inloggning.
 
 > [!div class="nextstepaction"]
 > [Konfigurera enkel inloggning](configure-single-sign-on-non-gallery-applications.md)

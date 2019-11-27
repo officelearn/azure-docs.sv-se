@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Coupa | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory integration med kopplings funktion | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Coupa.
 services: active-directory
 documentationCenter: na
@@ -23,7 +23,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74227654"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Tutorial: Azure Active Directory integration with Coupa
+# <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Självstudie: Azure Active Directory integration med koppling
 
 I den här självstudien lär du dig att integrera Coupa med Azure Active Directory (AD Azure).
 Integreringen av Coupa med Azure AD medför följande fördelar:
@@ -39,7 +39,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 För att konfigurera Azure AD-integrering med Coupa behöver du följande:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
 * Coupa-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -54,7 +54,7 @@ För att konfigurera integreringen av Coupa i Azure AD måste du lägga till Cou
 
 **Utför följande steg för att lägga till Coupa från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -79,7 +79,7 @@ För att konfigurera och testa enkel inloggning med Azure AD med Coupa behöver 
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning för Coupa](#configure-coupa-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa Coupa-testanvändare](#create-coupa-test-user)** – för att skapa en motsvarighet till Britta Simon i Coupa som är länkad till Azure AD-representationen av användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
@@ -92,7 +92,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Coupa
 
 1. I [Azure-portalen](https://portal.azure.com/) går du till sidan för **Coupa**-programintegrering och väljer **Enkel inloggning**.
 
-    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -106,7 +106,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Coupa
 
     ![Information om enkel inloggning med Coupa-domän och -URL:er](common/sp-identifier-reply.png)
 
-    a. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<companyname>.coupahost.com`
+    a. Skriv en URL med följande mönster i textrutan **Inloggnings-URL**: `https://<companyname>.coupahost.com`
 
     > [!NOTE]
     > Inloggnings-URL-värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [kundsupporten för Coupa](https://success.coupa.com/Support/Contact_Us?) och be om det här värdet.
@@ -147,11 +147,11 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Coupa
 
 2. Gå till **Setup \> Security Control** (Konfiguration > Säkerhetskontroll).
 
-    ![Security Controls](./media/coupa-tutorial/ic791900.png "Security Controls")
+    ![Säkerhets kontroller](./media/coupa-tutorial/ic791900.png "Säkerhets kontroller")
 
 3. I avsnittet **Log in using Coupa credentials** (Logga in med autentiseringsuppgifter för Coupa) utför du följande steg:
 
-    ![Coupa SP metadata](./media/coupa-tutorial/ic791901.png "Coupa SP metadata")
+    ![Kopplings-SP-metadata](./media/coupa-tutorial/ic791901.png "Kopplings-SP-metadata")
 
     a. Välj **Log in using SAML** (Logga in med hjälp av SAML).
 
@@ -177,7 +177,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -196,7 +196,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
     ![Länken för Coupa i programlistan](common/all-applications.png)
 
-3. I menyn till vänster väljer du **Användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -226,11 +226,11 @@ För att Azure AD-användare ska kunna logga in i Coupa måste de etableras till
 
 3. Klicka på **Skapa**.
 
-    ![Skapa användare](./media/coupa-tutorial/ic791909.png "Create Users")
+    ![Skapa användare](./media/coupa-tutorial/ic791909.png "Skapa användare")
 
 4. I avsnittet **Skapa användare** utför du följande steg:
 
-    ![User Details](./media/coupa-tutorial/ic791910.png "User Details")
+    ![Användar information](./media/coupa-tutorial/ic791910.png "Användar information")
 
     a. Skriv attributen **Inloggning**, **Förnamn**, **Efternamn**, **ID för enkel inloggning** och **E-post** för ett giltigt Azure Active Directory-konto som du vill etablera i de relaterade textrutorna.
 
@@ -241,13 +241,13 @@ För att Azure AD-användare ska kunna logga in i Coupa måste de etableras till
     >
 
 >[!NOTE]
->You can use any other Coupa user account creation tools or APIs provided by Coupa to provision Azure AD user accounts.
+>Du kan använda andra verktyg för skapande av användar konton eller API: er som tillhandahålls av kopplings verktyg för att etablera Azure AD-användarkonton.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Coupa-panelen i åtkomstpanelen bör du automatiskt loggas in på Coupa som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på Coupa-panelen i åtkomstpanelen bör du automatiskt loggas in på Coupa som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -255,5 +255,5 @@ När du klickar på Coupa-panelen i åtkomstpanelen bör du automatiskt loggas i
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

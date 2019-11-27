@@ -1,29 +1,19 @@
 ---
-title: Skapa en Azure-funktion som ansluter till Azure Storage | Microsoft Docs
+title: Skapa en Function-app med ansluten lagring – Azure CLI
 description: Exempel på Azure CLI-skript – Skapa en Azure-funktion som ansluter till Azure Storage
-services: functions
-documentationcenter: functions
-author: ggailey777
-manager: jeconnoc
-ms.assetid: ''
-ms.service: azure-functions
-ms.devlang: azurecli
 ms.topic: sample
 ms.date: 04/20/2017
-ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 48f6124373d80d22766d319ec58ed4ad7adaf6f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9c2a70066e673bfa164a58884891f29e220c7bd6
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325671"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74532823"
 ---
-# <a name="create-a-function-app-that-connects-to-an-azure-storage-account"></a>Skapa en funktionsapp som ansluter till ett Azure Storage-konto
+# <a name="create-a-function-app-with-a-named-storage-account-connection"></a>Skapa en Function-app med en namngiven lagrings konto anslutning 
 
 Det här exempelskriptet för Azure Functions skapar en funktionsapp och ansluter funktionen till ett Azure Storage-konto. Appinställningen som skapas och som innehåller anslutningen kan användas med en [lagringsutlösare eller lagringsbindning](../functions-bindings-storage-blob.md). 
-
-[!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -37,11 +27,6 @@ Det här exemplet skapar en Azure-funktionsapp och lägger till anslutningssträ
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-storage/create-function-app-connect-to-storage-account.sh "Integrate Function App into Azure Storage Account")]
 
-
-## <a name="clean-up-deployment"></a>Rensa distribution
-
-När skriptet har körts kan följande kommando köras för att ta bort resursgruppen och alla relaterade resurser:
-
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## <a name="script-explanation"></a>Förklaring av skript
@@ -50,12 +35,14 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 | Kommando | Anteckningar |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Skapa en resursgrupp med en plats. |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | Skapa ett lagringskonto. |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | Skapar en funktionsapp i den serverfria [förbrukningsplanen](../functions-scale.md#consumption-plan). |
+| [az group create](/cli/azure/group#az-group-create) | Skapa en resursgrupp med en plats. |
+| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Skapa ett lagringskonto. |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Skapar en funktionsapp i den serverfria [förbrukningsplanen](../functions-scale.md#consumption-plan). |
+| [AZ lagrings konto show-Connection-String](/cli/azure/storage/account#az-storage-account-show-connection-string) | Hämtar anslutningssträngen för kontot. |
+| [AZ functionapp config appSettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) | Anger anslutnings strängen som en app-inställning i Function-appen. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure).
 
 Ytterligare CLI-skriptexempel för Azure Functions finns i [Azure Functions-dokumentationen](../functions-cli-samples.md).

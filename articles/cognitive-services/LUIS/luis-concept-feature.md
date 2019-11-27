@@ -87,8 +87,8 @@ En entitet (A) bör läggas till som en funktion till en annan entitet (B) när 
 Om t. ex. entiteten gatuadress (A) har identifierats lägger du till en vikt till förutsägelsen för entiteten leverans adress (B) genom att söka efter gatuadressen (A). 
 
 ## <a name="best-practices"></a>Bästa praxis
-Lär dig [bästa praxis](luis-concept-best-practices.md).
+Lär dig [metod tips](luis-concept-best-practices.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se [Lägg till funktioner](luis-how-to-add-features.md) mer information om hur du lägger till funktioner till din LUIS-app.
+Se [Lägg till funktioner](luis-how-to-add-features.md) för att lära dig mer om hur du lägger till funktioner i Luis-appen.

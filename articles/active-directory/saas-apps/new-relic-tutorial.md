@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with New Relic | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and New Relic.
+title: 'Självstudie: Azure Active Directory integrering med New Relic | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och nya Relic.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -22,13 +22,13 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74233522"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-new-relic"></a>Tutorial: Azure Active Directory integration with New Relic
+# <a name="tutorial-azure-active-directory-integration-with-new-relic"></a>Självstudie: Azure Active Directory integrering med nya Relic
 
-In this tutorial, you learn how to integrate New Relic with Azure Active Directory (Azure AD).
-Integrating New Relic with Azure AD provides you with the following benefits:
+I den här självstudien får du lära dig att integrera nya Relic med Azure Active Directory (Azure AD).
+Genom att integrera nya Relic med Azure AD får du följande fördelar:
 
-* You can control in Azure AD who has access to New Relic.
-* You can enable your users to be automatically signed-in to New Relic (Single Sign-On) with their Azure AD accounts.
+* Du kan styra Azure AD som har åtkomst till nya Relic.
+* Du kan göra det möjligt för användarna att logga in automatiskt till nya Relic (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -36,24 +36,24 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="prerequisites"></a>Krav
 
-To configure Azure AD integration with New Relic, you need the following items:
+Om du vill konfigurera Azure AD-integrering med nya Relic behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* New Relic single sign-on enabled subscription
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Ny Relic-aktiverad prenumeration med enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* New Relic supports **SP** initiated SSO
+* New Relic stöder **SP** -INITIERAd SSO
 
-## <a name="adding-new-relic-from-the-gallery"></a>Adding New Relic from the gallery
+## <a name="adding-new-relic-from-the-gallery"></a>Lägga till nya Relic från galleriet
 
-To configure the integration of New Relic into Azure AD, you need to add New Relic from the gallery to your list of managed SaaS apps.
+Om du vill konfigurera integrering av nya Relic i Azure AD måste du lägga till nya Relic från galleriet i listan över hanterade SaaS-appar.
 
-**To add New Relic from the gallery, perform the following steps:**
+**Utför följande steg för att lägga till nya Relic från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -65,33 +65,33 @@ To configure the integration of New Relic into Azure AD, you need to add New Rel
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. In the search box, type **New Relic**, select **New Relic** from result panel then click **Add** button to add the application.
+4. I sökrutan skriver du in **New Relic**, väljer **ny Relic** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-     ![New Relic in the results list](common/search-new-app.png)
+     ![Ny Relic i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-In this section, you configure and test Azure AD single sign-on with New Relic based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in New Relic needs to be established.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med nya Relic baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i nya Relic upprättas.
 
-To configure and test Azure AD single sign-on with New Relic, you need to complete the following building blocks:
+Om du vill konfigurera och testa enkel inloggning med Azure AD med nya Relic måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Configure New Relic Single Sign-On](#configure-new-relic-single-sign-on)** - to configure the Single Sign-On settings on application side.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+2. **[Konfigurera en ny Relic-enkel inloggning](#configure-new-relic-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Create New Relic test user](#create-new-relic-test-user)** - to have a counterpart of Britta Simon in New Relic that is linked to the Azure AD representation of user.
+5. **[Skapa en ny Relic-test](#create-new-relic-test-user)** för att få en motsvarighet till Britta Simon i New Relic som är länkad till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-To configure Azure AD single sign-on with New Relic, perform the following steps:
+Utför följande steg för att konfigurera enkel inloggning med Azure AD med nya Relic:
 
-1. In the [Azure portal](https://portal.azure.com/), on the **New Relic** application integration page, select **Single sign-on**.
+1. I [Azure Portal](https://portal.azure.com/)på sidan **ny Relic** program integration väljer du **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -103,9 +103,9 @@ To configure Azure AD single sign-on with New Relic, perform the following steps
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![New Relic Domain and URLs single sign-on information](common/sp-identifier.png)
+    ![Ny information om enkel inloggning för Relic-domän och URL: er](common/sp-identifier.png)
 
-    a. In the **Sign on URL** text box, type a URL using the following pattern: `https://rpm.newrelic.com/accounts/{acc_id}/sso/saml/login` - Be sure to substitute your own New Relic Account ID.
+    a. I text rutan **inloggnings-URL** skriver du en URL med följande mönster: `https://rpm.newrelic.com/accounts/{acc_id}/sso/saml/login` – se till att du ersätter ditt eget nya konto-ID för Relic.
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL: `rpm.newrelic.com`
 
@@ -113,7 +113,7 @@ To configure Azure AD single sign-on with New Relic, perform the following steps
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-6. On the **Set up New Relic** section, copy the appropriate URL(s) as per your requirement.
+6. I avsnittet **Konfigurera nya Relic** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -123,29 +123,29 @@ To configure Azure AD single sign-on with New Relic, perform the following steps
 
     c. Utloggnings-URL
 
-### <a name="configure-new-relic-single-sign-on"></a>Configure New Relic Single Sign-On
+### <a name="configure-new-relic-single-sign-on"></a>Konfigurera ny Relic enkel inloggning
 
-1. In a different web browser window, sign on to your **New Relic** company site as administrator.
+1. Logga in på din **nya Relic** företags webbplats som administratör i ett annat webbläsarfönster.
 
-2. In the menu on the top, click **Account Settings**.
+2. Klicka på **konto inställningar**på menyn högst upp.
    
-    ![Account Settings](./media/new-relic-tutorial/ic797036.png "Account Settings")
+    ![Konto inställningar](./media/new-relic-tutorial/ic797036.png "Konto inställningar")
 
-3. Click the **Security and authentication** tab, and then click the **Single sign on** tab.
+3. Klicka på fliken **säkerhet och autentisering** och klicka sedan på fliken **enkel inloggning** .
    
-    ![Single Sign-On](./media/new-relic-tutorial/ic797037.png "för Aha!")
+    ![Enkel inloggning](./media/new-relic-tutorial/ic797037.png "för Aha!")
 
-4. On the SAML dialog page, perform the following steps:
+4. Utför följande steg på sidan SAML-dialog:
    
     ![SAML](./media/new-relic-tutorial/ic797038.png "SAML")
    
-    a. Click **Choose File** to upload your downloaded Azure Active Directory certificate.
+    a. Klicka på **Välj fil** för att ladda upp ditt hämtade Azure Active Directory certifikat.
 
-    b. In the **Remote login URL** textbox,  paste the value of **Login URL**, which you have copied from Azure portal.
+    b. I text rutan **fjärrinloggnings-URL** klistrar du in värdet för **inloggnings-URL: en**som du har kopierat från Azure Portal.
    
-    c. In the **Logout landing URL** textbox, paste the value of **Logout URL**, which you have copied from Azure portal.
+    c. I text rutan **Logga ut landnings-URL** klistrar du in värdet för **utloggnings-URL**, som du har kopierat från Azure Portal.
 
-    d. Click **Save my changes**.
+    d. Klicka på **Spara mina ändringar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -165,7 +165,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -174,17 +174,17 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to New Relic.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till nya Relic.
 
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **New Relic**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **ny Relic**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. In the applications list, select **New Relic**.
+2. I listan program väljer du **ny Relic**.
 
-    ![The New Relic link in the Applications list](common/all-applications.png)
+    ![Den nya Relic-länken i program listan](common/all-applications.png)
 
-3. I menyn till vänster väljer du **Användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -198,41 +198,41 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-new-relic-test-user"></a>Create New Relic test user
+### <a name="create-new-relic-test-user"></a>Skapa en ny Relic-test användare
 
-In order to enable Azure Active Directory users to log in to New Relic, they must be provisioned into New Relic. In the case of New Relic, provisioning is a manual task.
+För att Azure Active Directory användare ska kunna logga in på nya Relic måste de tillhandahållas i nya Relic. När det gäller nya Relic är etableringen en manuell uppgift.
 
-**To provision a user account to New Relic, perform the following steps:**
+**Utför följande steg för att etablera ett användar konto till en ny Relic:**
 
-1. Log in to your **New Relic** company site as administrator.
+1. Logga in på den **nya Relic** företags webbplatsen som administratör.
 
-2. In the menu on the top, click **Account Settings**.
+2. Klicka på **konto inställningar**på menyn högst upp.
    
-    ![Account Settings](./media/new-relic-tutorial/ic797040.png "Account Settings")
+    ![Konto inställningar](./media/new-relic-tutorial/ic797040.png "Konto inställningar")
 
-3. In the **Account** pane on the left side, click **Summary**, and then click **Add user**.
+3. I fönstret **konto** till vänster klickar du på **Sammanfattning**och sedan på **Lägg till användare**.
    
-    ![Account Settings](./media/new-relic-tutorial/ic797041.png "Account Settings")
+    ![Konto inställningar](./media/new-relic-tutorial/ic797041.png "Konto inställningar")
 
-4. On the **Active users** dialog, perform the following steps:
+4. I dialog rutan **aktiva användare** utför du följande steg:
    
-    ![Active Users](./media/new-relic-tutorial/ic797042.png "Aktiva användare")
+    ![Aktiva användare](./media/new-relic-tutorial/ic797042.png "Aktiva användare")
    
-    a. In the **Email** textbox, type the email address of a valid Azure Active Directory user you want to provision.
+    a. I text rutan **e-post** anger du e-postadressen till en giltig Azure Active Directory användare som du vill etablera.
 
-    b. As **Role** select **User**.
+    b. Som **roll** väljer du **användare**.
 
-    c. Click **Add this user**.
+    c. Klicka på **Lägg till den här användaren**.
 
 >[!NOTE]
->You can use any other New Relic user account creation tools or APIs provided by New Relic to provision Azure AD user accounts.
+>Du kan använda andra nya Relic-verktyg för användar konton eller API: er som tillhandahålls av New Relic för att etablera Azure AD-användarkonton.
 > 
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-When you click the New Relic tile in the Access Panel, you should be automatically signed in to the New Relic for which you set up SSO. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på panelen ny Relic på åtkomst panelen, bör du loggas in automatiskt på den nya Relic som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -240,5 +240,5 @@ When you click the New Relic tile in the Access Panel, you should be automatical
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

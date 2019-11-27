@@ -1,6 +1,6 @@
 ---
-title: Enable SQL TDE with Azure Key Vault
-description: Learn how to configure an Azure SQL Database and Data Warehouse to start using Transparent Data Encryption (TDE) for encryption-at-rest using PowerShell or CLI.
+title: Aktivera SQL-TDE med Azure Key Vault
+description: Lär dig hur du konfigurerar en Azure SQL Database och ett informations lager för att börja använda transparent datakryptering (TDE) för kryptering vid vila med hjälp av PowerShell eller CLI.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -18,69 +18,69 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74422459"
 ---
-# <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell and CLI: Enable Transparent Data Encryption with customer-managed key from Azure Key Vault
+# <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell och CLI: Aktivera transparent datakryptering med kundhanterad nyckel från Azure Key Vault
 
-This article walks through how to use a key from Azure Key Vault for Transparent Data Encryption (TDE) on a SQL Database or Data Warehouse. To learn more about the TDE with Azure Key Vault integration - Bring Your Own Key (BYOK) Support, visit [TDE with customer-managed keys in Azure Key Vault](transparent-data-encryption-byok-azure-sql.md).
+Den här artikeln beskriver hur du använder en nyckel från Azure Key Vault för transparent datakryptering (TDE) på en SQL Database eller ett informations lager. Om du vill veta mer om TDE med stöd för Azure Key Vault integration-Bring Your Own Key (BYOK) går du till [TDE med Kundhanterade nycklar i Azure Key Vault](transparent-data-encryption-byok-azure-sql.md).
 
-## <a name="prerequisites-for-powershell"></a>Prerequisites for PowerShell
+## <a name="prerequisites-for-powershell"></a>Krav för PowerShell
 
-- You must have an Azure subscription and be an administrator on that subscription.
-- [Recommended but Optional] Have a hardware security module (HSM) or local key store for creating a local copy of the TDE Protector key material.
-- You must have Azure PowerShell installed and running.
-- Create an Azure Key Vault and Key to use for TDE.
-  - [Instructions for using a hardware security module (HSM) and Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
-    - The key vault must have the following property to be used for TDE:
-  - [soft-delete](../key-vault/key-vault-ovw-soft-delete.md) and purge protection
-- The key must have the following attributes to be used for TDE:
-   - No expiration date
-   - Not disabled
-   - Able to perform *get*, *wrap key*, *unwrap key* operations
+- Du måste ha en Azure-prenumeration och vara administratör för den prenumerationen.
+- [Rekommenderas men valfritt] Ha en maskinvaru-säkerhetsmodul (HSM) eller lokal nyckel lagring för att skapa en lokal kopia av TDE skydds nyckel materialet.
+- Du måste ha Azure PowerShell installerat och igång.
+- Skapa en Azure Key Vault och nyckel som ska användas för TDE.
+  - [Instruktioner för att använda en maskinvaru-säkerhetsmodul (HSM) och Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
+    - Nyckel valvet måste ha följande egenskap för att kunna användas för TDE:
+  - [mjukt borttagnings-](../key-vault/key-vault-ovw-soft-delete.md) och rensnings skydd
+- Nyckeln måste ha följande attribut för att kunna användas för TDE:
+   - Inget förfallo datum
+   - Inte inaktiverat
+   - Kan utföra *Get*-, *wrap*-och *unwrap Key* -åtgärder
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Instruktioner för installation av Az-modulen finns i [Installera Azure PowerShell](/powershell/azure/install-az-ps). For specific cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/).
+Instruktioner för installation av Az-modulen finns i [Installera Azure PowerShell](/powershell/azure/install-az-ps). För vissa cmdlets, se [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/).
 
-For specifics on Key Vault, see [PowerShell instructions from Key Vault](../key-vault/quick-create-powershell.md) and [How to use Key Vault soft-delete with PowerShell](../key-vault/key-vault-soft-delete-powershell.md).
+Mer information om Key Vault finns i [PowerShell-instruktioner från Key Vault](../key-vault/quick-create-powershell.md) och [hur du använder Key Vault mjuk borttagning med PowerShell](../key-vault/key-vault-soft-delete-powershell.md).
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager (RM) module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
+> PowerShell-modulen Azure Resource Manager (RM) stöds fortfarande av Azure SQL Database, men all framtida utveckling är för AZ. SQL-modulen. AzureRM-modulen kommer att fortsätta att ta emot fel korrigeringar fram till minst december 2020.  Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska. Mer information om deras kompatibilitet finns i [Introduktion till den nya Azure PowerShell AZ-modulen](/powershell/azure/new-azureps-module-az).
 
-## <a name="assign-an-azure-ad-identity-to-your-server"></a>Assign an Azure AD identity to your server
+## <a name="assign-an-azure-ad-identity-to-your-server"></a>Tilldela en Azure AD-identitet till servern
 
-If you have an existing server, use the following to add an Azure AD identity to your server:
+Om du har en befintlig server kan du använda följande för att lägga till en Azure AD-identitet på servern:
 
    ```powershell
    $server = Set-AzSqlServer -ResourceGroupName <SQLDatabaseResourceGroupName> -ServerName <LogicalServerName> -AssignIdentity
    ```
 
-If you are creating a server, use the [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) cmdlet with the tag -Identity to add an Azure AD identity during server creation:
+Om du skapar en server använder du cmdleten [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) med taggen tag identitet för att lägga till en Azure AD-identitet när servern skapas:
 
    ```powershell
    $server = New-AzSqlServer -ResourceGroupName <SQLDatabaseResourceGroupName> -Location <RegionName> `
        -ServerName <LogicalServerName> -ServerVersion "12.0" -SqlAdministratorCredentials <PSCredential> -AssignIdentity
    ```
 
-## <a name="grant-key-vault-permissions-to-your-server"></a>Grant Key Vault permissions to your server
+## <a name="grant-key-vault-permissions-to-your-server"></a>Bevilja Key Vault behörigheter till servern
 
-Use the [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet to grant your server access to the key vault before using a key from it for TDE.
+Använd cmdleten [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) för att ge servern åtkomst till nyckel valvet innan du använder en nyckel från den för TDE.
 
    ```powershell
    Set-AzKeyVaultAccessPolicy -VaultName <KeyVaultName> `
        -ObjectId $server.Identity.PrincipalId -PermissionsToKeys get, wrapKey, unwrapKey
    ```
 
-## <a name="add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>Add the Key Vault key to the server and set the TDE Protector
+## <a name="add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>Lägg till Key Vault-nyckeln till servern och ange TDE-skyddet
 
-- Use the [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey?view=azps-2.4.0) cmdlet to retrieve the key ID from key vault
-- Use the [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) cmdlet to add the key from the Key Vault to the server.
-- Use the [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlet to set the key as the TDE protector for all server resources.
-- Use the [Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) cmdlet to confirm that the TDE protector was configured as intended.
+- Använd cmdleten [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey?view=azps-2.4.0) för att hämta nyckel-ID: t från Key Vault
+- Använd cmdleten [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) för att lägga till nyckeln från Key Vault på servern.
+- Använd cmdleten [set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) för att ange nyckeln som TDE-skydd för alla server resurser.
+- Använd cmdleten [Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) för att bekräfta att TDE-skyddet har kon figurer ATS som avsett.
 
 > [!NOTE]
-> The combined length for the key vault name and key name cannot exceed 94 characters.
+> Den kombinerade längden för Key Vault-namnet och nyckel namnet får inte överskrida 94 tecken.
 
 > [!TIP]
-> An example KeyId from Key Vault: https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
+> Ett exempel på KeyId från Key Vault: https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
 
 ```powershell
 # add the key from Key Vault to the server
@@ -94,20 +94,20 @@ Set-AzSqlServerTransparentDataEncryptionProtector -ResourceGroupName <SQLDatabas
 Get-AzSqlServerTransparentDataEncryptionProtector -ResourceGroupName <SQLDatabaseResourceGroupName> -ServerName <LogicalServerName>
 ```
 
-## <a name="turn-on-tde"></a>Turn on TDE
+## <a name="turn-on-tde"></a>Aktivera TDE
 
-Use the [Set-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) cmdlet to turn on TDE.
+Använd cmdleten [set-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) för att aktivera TDE.
 
 ```powershell
 Set-AzSqlDatabaseTransparentDataEncryption -ResourceGroupName <SQLDatabaseResourceGroupName> `
    -ServerName <LogicalServerName> -DatabaseName <DatabaseName> -State "Enabled"
 ```
 
-Now the database or data warehouse has TDE enabled with an encryption key in Key Vault.
+Databasen eller informations lagret har nu TDE Aktiver ATS med en krypterings nyckel i Key Vault.
 
-## <a name="check-the-encryption-state-and-encryption-activity"></a>Check the encryption state and encryption activity
+## <a name="check-the-encryption-state-and-encryption-activity"></a>Kontrol lera krypterings tillstånd och krypterings aktivitet
 
-Use the [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption) to get the encryption state and the [Get-AzSqlDatabaseTransparentDataEncryptionActivity](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryptionactivity) to check the encryption progress for a database or data warehouse.
+Använd [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption) för att hämta krypterings tillstånd och [Get-AzSqlDatabaseTransparentDataEncryptionActivity](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryptionactivity) för att kontrol lera krypterings förloppet för en databas eller ett informations lager.
 
 ```powershell
 # get the encryption state
@@ -121,11 +121,11 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-To install the required Command-Line Interface version 2.0 or later and connect to your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Om du vill installera den nödvändiga kommando rads gränssnittet version 2,0 eller senare och ansluta till din Azure-prenumeration, se [Installera och konfigurera Azures plattforms oberoende kommando rads gränssnitt 2,0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-For specifics on Key Vault, see [Manage Key Vault using CLI 2.0](../key-vault/key-vault-manage-with-cli2.md) and [How to use Key Vault soft-delete with CLI](../key-vault/key-vault-soft-delete-cli.md).
+Mer information om Key Vault finns i [hantera Key Vault med cli 2,0](../key-vault/key-vault-manage-with-cli2.md) och [hur du använder Key Vault mjuk borttagning med CLI](../key-vault/key-vault-soft-delete-cli.md).
 
-## <a name="assign-an-azure-ad-identity-to-your-server"></a>Assign an Azure AD identity to your server
+## <a name="assign-an-azure-ad-identity-to-your-server"></a>Tilldela en Azure AD-identitet till servern
 
 ```powershell
 # create server (with identity) and database
@@ -134,9 +134,9 @@ az sql db create --name <dbname> --server <servername> --resource-group <rgname>
 ```
 
 > [!TIP]
-> Keep the "principalID" from creating the server, it is the object id used to assign key vault permissions in the next step
+> Behåll "principalID" från att skapa servern, det är det objekt-ID som används för att tilldela Key Vault-behörigheter i nästa steg
 
-## <a name="grant-key-vault-permissions-to-your-server"></a>Grant Key Vault permissions to your server
+## <a name="grant-key-vault-permissions-to-your-server"></a>Bevilja Key Vault behörigheter till servern
 
 ```powershell
 # create key vault, key and grant permission
@@ -146,9 +146,9 @@ az keyvault set-policy --name <kvname>  --object-id <objectid> --resource-group 
 ```
 
 > [!TIP]
-> Keep the key URI or keyID of the new key for the next step, for example: https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
+> Behåll nyckel-URI: n eller keyID för den nya nyckeln för nästa steg, till exempel: https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
 
-## <a name="add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>Add the Key Vault key to the server and set the TDE Protector
+## <a name="add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>Lägg till Key Vault-nyckeln till servern och ange TDE-skyddet
 
 ```powershell
 # add server key and update encryption protector
@@ -157,18 +157,18 @@ az sql server tde-key set --server <servername> --server-key-type AzureKeyVault 
 ```
 
 > [!NOTE]
-> The combined length for the key vault name and key name cannot exceed 94 characters.
+> Den kombinerade längden för Key Vault-namnet och nyckel namnet får inte överskrida 94 tecken.
 
-## <a name="turn-on-tde"></a>Turn on TDE
+## <a name="turn-on-tde"></a>Aktivera TDE
 
 ```powershell
 # enable encryption
 az sql db tde set --database <dbname> --server <servername> --resource-group <rgname> --status Enabled
 ```
 
-Now the database or data warehouse has TDE enabled with a customer-managed encryption key in Azure Key Vault.
+Databasen eller informations lagret har nu TDE Aktiver ATS med en kundhanterad krypterings nyckel i Azure Key Vault.
 
-## <a name="check-the-encryption-state-and-encryption-activity"></a>Check the encryption state and encryption activity
+## <a name="check-the-encryption-state-and-encryption-activity"></a>Kontrol lera krypterings tillstånd och krypterings aktivitet
 
 ```powershell
 # get encryption scan progress
@@ -180,25 +180,25 @@ az sql db tde show --database <dbname> --server <servername> --resource-group <r
 
 * * *
 
-## <a name="useful-powershell-cmdlets"></a>Useful PowerShell cmdlets
+## <a name="useful-powershell-cmdlets"></a>Användbara PowerShell-cmdletar
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-- Use the [Set-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) cmdlet to turn off TDE.
+- Använd cmdleten [set-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) för att inaktivera TDE.
 
    ```powershell
    Set-AzSqlDatabaseTransparentDataEncryption -ServerName <LogicalServerName> -ResourceGroupName <SQLDatabaseResourceGroupName> `
       -DatabaseName <DatabaseName> -State "Disabled”
    ```
 
-- Use the [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) cmdlet to return the list of Key Vault keys added to the server.
+- Använd cmdleten [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) för att returnera listan över Key Vault nycklar som har lagts till på servern.
 
    ```powershell
    # KeyId is an optional parameter, to return a specific key version
    Get-AzSqlServerKeyVaultKey -ServerName <LogicalServerName> -ResourceGroupName <SQLDatabaseResourceGroupName>
    ```
 
-- Use the [Remove-AzSqlServerKeyVaultKey](/powershell/module/az.sql/remove-azsqlserverkeyvaultkey) to remove a Key Vault key from the server.
+- Använd [Remove-AzSqlServerKeyVaultKey](/powershell/module/az.sql/remove-azsqlserverkeyvaultkey) om du vill ta bort en Key Vault nyckel från servern.
 
    ```powershell
    # the key set as the TDE Protector cannot be removed
@@ -207,19 +207,19 @@ az sql db tde show --database <dbname> --server <servername> --resource-group <r
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-- For general database settings, see [az sql](/cli/azure/sql).
+- Allmänna databas inställningar finns i [AZ SQL](/cli/azure/sql).
 
-- For vault key settings, see [az sql server key](/cli/azure/sql/server/key).
+- För nyckel inställningar för valv, se [AZ SQL Server Key](/cli/azure/sql/server/key).
 
-- For TDE settings, see [az sql server tde-key](/cli/azure/sql/server/tde-key) and [az sql db tde](/cli/azure/sql/db/tde).
+- TDE-inställningar finns i [AZ SQL Server TDE-Key](/cli/azure/sql/server/tde-key) och [AZ SQL DB TDE](/cli/azure/sql/db/tde).
 
 * * *
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
-Check the following if an issue occurs:
+Kontrol lera följande om ett problem inträffar:
 
-- If the key vault cannot be found, make sure you're in the right subscription.
+- Om det inte går att hitta nyckel valvet ser du till att du har rätt prenumeration.
 
    # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -235,11 +235,11 @@ Check the following if an issue occurs:
 
    * * *
 
-- If the new key cannot be added to the server, or the new key cannot be updated as the TDE Protector, check the following:
-   - The key should not have an expiration date
-   - The key must have the *get*, *wrap key*, and *unwrap key* operations enabled.
+- Om den nya nyckeln inte kan läggas till på servern, eller om den nya nyckeln inte kan uppdateras som TDE-skydd, kontrollerar du följande:
+   - Nyckeln ska inte ha ett utgångs datum
+   - Nyckeln måste ha de *Get*-, *wrap*-och *unwrap* -nycklar som är aktiverade.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Learn how to rotate the TDE Protector of a server to comply with security requirements: [Rotate the Transparent Data Encryption protector Using PowerShell](transparent-data-encryption-byok-azure-sql-key-rotation.md).
-- In case of a security risk, learn how to remove a potentially compromised TDE Protector: [Remove a potentially compromised key](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md).
+- Lär dig hur du roterar TDE-skyddet för en server för att uppfylla säkerhets kraven: [rotera Transparent datakryptering-skyddet med hjälp av PowerShell](transparent-data-encryption-byok-azure-sql-key-rotation.md).
+- I händelse av en säkerhets risk lär du dig hur du tar bort ett potentiellt komprometterat TDE-skydd: [ta bort en potentiellt komprometterad nyckel](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md).

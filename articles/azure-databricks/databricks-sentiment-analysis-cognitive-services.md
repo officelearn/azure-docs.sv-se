@@ -57,7 +57,7 @@ Du kan uppfylla dessa krav genom att slutföra stegen i artikeln [Skapa ett Azur
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/?WT.mc_id=sparkeventhubs-docs-alehall).
+Logga in på [Azure Portal](https://portal.azure.com/?WT.mc_id=sparkeventhubs-docs-alehall).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Skapa en Azure Databricks-arbetsyta
 
@@ -160,7 +160,7 @@ I den här självstudien använder du Twitter-API:er för att skicka tweets till
 
 I den här självstudien använder du [Azure Cognitive Services textanalys-API: er](../cognitive-services/text-analytics/overview.md) för att köra sentiment analys på en ström med tweets i nära real tid. Innan du använder API: erna måste du skapa ett Azure Cognitive Services-konto på Azure och hämta en åtkomst nyckel för att använda de Textanalys API: erna.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/?WT.mc_id=sparkeventhubs-docs-alehall).
+1. Logga in på [Azure Portal](https://portal.azure.com/?WT.mc_id=sparkeventhubs-docs-alehall).
 
 2. Välj **+ Skapa en resurs**.
 
@@ -439,7 +439,7 @@ Utdatan liknar nu följande kodfragment:
     ...
     ...
 
-Nu har du strömmat data från Azure Event Hubs till Azure Databricks nästan i realtid med hjälp av Event Hubs-anslutningsappen för Apache Spark. Mer information om hur du använder Event Hubs-anslutningsprogrammet för Apache Spark finns i [dokumentationen till anslutningsprogrammet](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs?WT.mc_id=sparkeventhubs-docs-alehall).
+Nu har du strömmat data från Azure Event Hubs till Azure Databricks nästan i realtid med hjälp av Event Hubs-anslutningsappen för Apache Spark. Mer information om hur du använder Event Hubs-kopplingen för Apache Spark finns i [kopplingsdokumentationen](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs?WT.mc_id=sparkeventhubs-docs-alehall).
 
 ## <a name="run-sentiment-analysis-on-tweets"></a>Kör attitydanalys på tweets
 

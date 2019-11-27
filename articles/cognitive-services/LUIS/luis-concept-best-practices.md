@@ -38,13 +38,13 @@ I följande lista innehåller metodtips för LUIS appar:
 
 |Gör följande|Gör inte följande|
 |--|--|
-|[Definiera olika avsikter](#do-define-distinct-intents)<br>[Lägg till beskrivningar till avsikter](#do-add-descriptors-to-intents) |[Lägg till många exempel yttranden till avsikter](#dont-add-many-example-utterances-to-intents)<br>[Använd få eller enkla entiteter](#dont-use-few-or-simple-entities) |
-|[Hitta en plats för söta mellan för Allmänt och för specifika för varje avsikt](#do-find-sweet-spot-for-intents)|[Använd LUIS som en plattform för utbildning](#dont-use-luis-as-a-training-platform)|
-|[Bygg din app iterativt med versioner](#do-build-your-app-iteratively-with-versions)<br>[Bygg entiteter för modell nedbrytning](#do-build-for-model-decomposition)|[Lägg till många exempel yttranden i samma format som ignorerar andra format](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
+|[Definiera distinkta avsikter](#do-define-distinct-intents)<br>[Lägg till beskrivningar till avsikter](#do-add-descriptors-to-intents) |[Lägg till många exempel yttranden till avsikter](#dont-add-many-example-utterances-to-intents)<br>[Använd få eller enkla entiteter](#dont-use-few-or-simple-entities) |
+|[Hitta en söt punkt mellan för allmän och för varje avsikt](#do-find-sweet-spot-for-intents)|[Använd LUIS som utbildnings plattform](#dont-use-luis-as-a-training-platform)|
+|[Bygg din app iterativt med versioner](#do-build-your-app-iteratively-with-versions)<br>[Bygg entiteter för modell nedbrytning](#do-build-for-model-decomposition)|[Lägg till många exempel yttranden i samma format, ignorera andra format](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
 |[Lägga till mönster i senare iterationer](#do-add-patterns-in-later-iterations)|[Blanda definitionen av avsikter och entiteter](#dont-mix-the-definition-of-intents-and-entities)|
-|[Balansera din yttranden för alla syften](#balance-your-utterances-across-all-intents) förutom ingen avsikt.<br>[Lägg till exempel yttranden NONE avsikt](#do-add-example-utterances-to-none-intent)|[Skapa beskrivningar med alla möjliga värden](#dont-create-descriptors-with-all-the-possible-values)|
-|[Utnyttja funktionen Föreslå för aktiv inlärning](#do-leverage-the-suggest-feature-for-active-learning)|[Lägg till för många mönster](#dont-add-many-patterns)|
-|[Övervaka appens prestanda med batch-testning](#do-monitor-the-performance-of-your-app)|[Träna och publicera med varje enskild exempel-uttryck som har lagts till](#dont-train-and-publish-with-every-single-example-utterance)|
+|[Balansera din yttranden för alla syften](#balance-your-utterances-across-all-intents) förutom ingen avsikt.<br>[Lägg till exempel yttranden i ingen avsikt](#do-add-example-utterances-to-none-intent)|[Skapa beskrivningar med alla möjliga värden](#dont-create-descriptors-with-all-the-possible-values)|
+|[Dra nytta av funktionen föreslå för aktiv inlärning](#do-leverage-the-suggest-feature-for-active-learning)|[Lägg till för många mönster](#dont-add-many-patterns)|
+|[Övervaka appens prestanda med batch-testning](#do-monitor-the-performance-of-your-app)|[Träna och publicera med varje enda exempel-uttryck tillagt](#dont-train-and-publish-with-every-single-example-utterance)|
 
 ## <a name="do-define-distinct-intents"></a>Definiera olika avsikter
 Kontrollera att ordförråd för varje avsikten är bara för detta syfte och inte överlappande med en annan typ av avsikt. Om du till exempel vill ha en app som hanterar rese arrangemang som flyg bolags flygningar och hotell kan du välja att ha dessa ämnes områden som separata avsikter eller samma avsikt med entiteter för särskilda data inuti uttryck.
@@ -141,7 +141,7 @@ Avsikten är återställnings avsikten, vilket indikerar allt utanför ditt prog
 
 ## <a name="do-leverage-the-suggest-feature-for-active-learning"></a>Utnyttja funktionen Föreslå för aktiv inlärning
 
-Använd [aktiv inlärning](luis-how-to-review-endpoint-utterances.md)'s **granska endpoint yttranden** regelbundet, i stället för att lägga till fler exempel yttranden avsikter. Eftersom appen ständigt tar emot endpoint yttranden, den här listan växer och ändra.
+Använd den [aktiva utbildnings](luis-how-to-review-endpoint-utterances.md) **slut punkten yttranden** regelbundet, i stället för att lägga till fler exempel yttranden till avsikter. Eftersom appen ständigt tar emot endpoint yttranden, den här listan växer och ändra.
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>Att övervaka prestanda för din app
 
@@ -175,7 +175,7 @@ Den andra kolumnen använder olika verb (köp, Reservera, bok), olika kvantitete
 
 Skapa ett intent för alla åtgärder som tar din robot. Använd entiteter som parametrar som gör det möjligt att åtgärden. 
 
-För en robot som ska boka flyg Plans flygningar skapar du en **BookFlight** avsikt. Skapa inte en avsikt för varje flygbolag eller varje mål. Använd dessa delar av data som [entiteter](luis-concept-entity-types.md) och markera dem i exempel-yttranden. 
+För en robot som ska boka flyg Plans flygningar skapar du en **BookFlight** avsikt. Skapa inte en avsikt för varje flygbolag eller varje mål. Använd dessa delar av data som [entiteter](luis-concept-entity-types.md) och markera dem i exemplet yttranden. 
 
 ## <a name="dont-create-descriptors-with-all-the-possible-values"></a>Skapa inte beskrivningar med alla möjliga värden
 
@@ -191,4 +191,4 @@ Lägg till 10 eller 15 yttranden innan utbildnings- och publicering. Där du kan
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig hur du [planera din app](luis-how-plan-your-app.md) i LUIS-appen.
+* Lär dig hur du [planerar din app](luis-how-plan-your-app.md) i Luis-appen.

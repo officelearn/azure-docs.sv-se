@@ -1,23 +1,18 @@
 ---
-title: 'Snabb start: Distribuera Docker-behållare till Azure Container Instances – Azure CLI'
+title: Snabb start – distribuera Docker-behållare till container instance – Azure CLI
 description: I den här snabb starten använder du Azure CLI för att snabbt distribuera en container-webbapp som körs i en isolerad Azure Container instance
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: quickstart
 ms.date: 03/21/2019
-ms.author: danlep
 ms.custom:
 - seo-python-october2019
 - seodec18
 - mvc
-ms.openlocfilehash: 65c067792499017a7e00fdbb6199e591981683f8
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: ab079c7ad5d741d5a569e042ae8939cbeeff203b
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429196"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533585"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>Snabb start: Distribuera en behållar instans i Azure med hjälp av Azure CLI
 
@@ -49,7 +44,7 @@ Nu när du har en resursgrupp kan du köra en container i Azure. Om du vill skap
 
 Du kan exponera dina containrar till internet genom att ange en eller flera portar som ska öppnas, en DNS-namnetikett eller båda. I den här snabbstarten distribuerar du en container med en DNS-namnetikett så att webbappen kan nås offentligt.
 
-Kör ett kommando som liknar följande för att starta en behållar instans. Ange ett värde för `--dns-name-label` som är unikt i den Azure-region där du skapar instansen. Om du får felmeddelandet ”DNS name label not available” (DNS-namnetikett inte tillgänglig) kan du prova en annan DNS-namnetikett.
+Kör ett kommando som liknar följande för att starta en behållar instans. Ange ett `--dns-name-label` värde som är unikt inom den Azure-region där du skapar instansen. Om du får felmeddelandet ”DNS name label not available” (DNS-namnetikett inte tillgänglig) kan du prova en annan DNS-namnetikett.
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --name mycontainer --image mcr.microsoft.com/azuredocs/aci-helloworld --dns-name-label aci-demo --ports 80
@@ -150,7 +145,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten skapade du en Azure Container instance med hjälp av en offentlig Microsoft-avbildning. Om du vill skapa en avbildning av en container och distribuera den från ett privat Azure-containerregister, går du vidare till självstudien för Azure Container Instances.
+I den här snabb starten skapade du en Azure Container instance med hjälp av en offentlig Microsoft-avbildning. Om du vill skapa en container på egen hand och distribuera den från ett privat Azure-containerregister går du vidare till självstudien för Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances-självstudie](./container-instances-tutorial-prepare-app.md)

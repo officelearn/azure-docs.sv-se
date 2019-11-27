@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Search for videos using the REST API and Python - Bing Video Search'
+title: 'Snabb start: söka efter videor med hjälp av REST API och python-Videosökning i Bing'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten för att skicka videosökningsbegäranden till REST API för videosökning i Bing med Python.
 services: cognitive-services
@@ -17,9 +17,9 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74383778"
 ---
-# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-python"></a>Quickstart: Search for videos using the Bing Video Search REST API and Python
+# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-python"></a>Snabb start: söka efter videor med hjälp av Videosökning i Bing REST API och python
 
-Använd den här snabbstarten för att skicka ditt första anrop till API:et för videosökning i Bing och visa ett sökresultat från JSON-svaret. Det här enkla Python-programmet skickar en HTTP-videosökfråga till API:et och visar svaret. Även om det här programmet är skrivet i Python, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingVideoSearchv7.py) tillsammans med ytterligare kommentarer om hantering av fel och kodanteckningar.
+Använd den här snabbstarten för att skicka ditt första anrop till API:et för videosökning i Bing och få ett JSON-svar. Det här enkla Python-programmet skickar en HTTP-videosökfråga till API:et och visar svaret. Även om det här programmet är skrivet i Python, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingVideoSearchv7.py) tillsammans med ytterligare kommentarer om hantering av fel och kodanteckningar.
 
 Du kan köra det här exemplet som en Jupyter Notebook på [MyBinder](https://mybinder.org) genom att klicka på ikonen för att starta Binder: 
 
@@ -28,11 +28,11 @@ Du kan köra det här exemplet som en Jupyter Notebook på [MyBinder](https://my
 
 ## <a name="prerequisites"></a>Krav
 
-* Python [2.x eller 3.x](https://python.org)
+* Python[ 2.x eller 3.x](https://python.org)
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
-## <a name="initialize-the-application"></a>Initiera programmet
+## <a name="initialize-the-application"></a>Initiera appen
 
 1. Skapa en ny Python-fil i valfri IDE eller redigeringsprogram och importera följande bibliotek,
 
@@ -193,6 +193,6 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Skapa en enkelsidig webbapp](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Se också 
+## <a name="see-also"></a>Se även 
 
  [Vad är API för videosökning i Bing?](../overview.md)

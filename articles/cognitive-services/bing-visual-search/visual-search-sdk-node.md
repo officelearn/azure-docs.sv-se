@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Get image insights using the SDK for Node.js - Bing Visual Search'
+title: 'Snabb start: Hämta image Insights med SDK för Node. js – Visuell sökning i Bing'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten om du vill få information om bilder från den visuella söktjänsten i Bing med hjälp av Node.js SDK.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74383570"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-nodejs"></a>Quickstart: Get image insights using the Bing Visual Search SDK for Node.js
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-nodejs"></a>Snabb start: Hämta bild insikter med hjälp av Visuell sökning i Bing SDK för Node. js
 
 Använd den här snabbstarten om du vill få information om bilder från den visuella söktjänsten i Bing med hjälp av Node.js SDK. Även om den visuella sökningen i Bing har ett REST API som är kompatibelt med de flesta programmeringsspråk så tillhandahåller SDK:n ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js). 
 

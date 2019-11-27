@@ -1,6 +1,6 @@
 ---
-title: Understanding Cloudyn cost management reports in Azure | Microsoft Docs
-description: This article helps you understand Cloudyn cost management reports basic structure and functions.
+title: Förstå Cloudyn kostnad rapporter i Azure | Microsoft Docs
+description: Den här artikeln hjälper dig att förstå grundläggande struktur för Cloudyn cost management-rapporter och funktioner.
 services: cost-management
 keywords: ''
 author: bandersmsft
@@ -17,191 +17,191 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74229771"
 ---
-# <a name="understanding-cloudyn-cost-management-reports"></a>Understanding Cloudyn cost management reports
+# <a name="understanding-cloudyn-cost-management-reports"></a>Förstå Cloudyn kostnad rapporter
 
-This article helps you understand Cloudyn cost management reports basic structure and functions. Most Cloudyn reports are intuitive and have a uniform look and feel. After you read this article, are ready to use all the cost management reports. Many standard features are available throughout the various reports, allowing you to navigate the reports with ease. Reports are customizable, and you can select from several options to calculate and display results.
+Den här artikeln hjälper dig att förstå grundläggande struktur för Cloudyn cost management-rapporter och funktioner. De flesta Cloudyn-rapporter är intuitivt och har ett enhetligt utseende. När du har läst den här artikeln är du redo att använda alla kostnadshanteringsrapporter. Många standard-funktionerna är tillgängliga i hela olika rapporter, så att du kan navigera rapporter enkelt. Rapporter kan anpassas och du kan välja mellan flera alternativ för att beräkna och visa resultat.
 
-## <a name="report-fields-and-options"></a>Report fields and options
+## <a name="report-fields-and-options"></a>Rapportfält och alternativ
 
-Here's a look at an example of the Cost Over Time report. Most Cloudyn reports have a similar layout.
+Här är en titt på ett exempel på rapport för kostnad över tid. De flesta Cloudyn-rapporter har en liknande layout.
 
-![Example of the Cost Over Time report with numbered areas corresponding to descriptions](./media/understanding-cost-reports/sample-report.png)
+![Exempel på Cost Over Time-rapport med numrerade områden som motsvarar beskrivningar](./media/understanding-cost-reports/sample-report.png)
 
-Each numbered area in the preceding image is described in detail in the following information:
+Varje numrerad område i den föregående bilden beskrivs i detalj i följande information:
 
-1. **Date Range**
+1. **Datum intervall**
 
-    Use the Date Range list to define a report time interval using a preset or custom.
-2. **Saved Filter**
+    Använd datumintervall listan för att definiera ett tidsintervall för rapporten med hjälp av en förinställning eller anpassat.
+2. **Sparat filter**
 
-    Use the Saved Filter list to save the current groups and filters that are applied to the report. Saved filters are available across cost and performance reports, including:
+    Använd listan sparade Filter för att spara aktuella grupper och filter som tillämpas på rapporten. Sparade filter finns tillgängliga och kostnad och prestanda rapporter, till exempel:
 
-      - Cost Analysis
-      - Allocation
+      - Kostnadsanalys
+      - Allokering
       - Tillgångshantering
       - Optimering
 
-   Type a filter name and the click **Save**.
+   Skriv ett filter namn och klicka på **Spara**.
 
 3. **Taggar**
 
-    Use the Tags area to group by tag categories. Tags listed in the menu are Azure department or cost center tags or they are Cloudyn's cost entity and subscription tags. Select tags to filter results. You can also type a tag name (keyword) to filter results.
+    Använd området taggar till gruppen efter taggkategorier. Taggar som visas på menyn är Azure-avdelning eller kostnaden center taggar eller om de är Cloudyns kostnaden entitets- och prenumeration taggar. Välj taggar för att filtrera resultat. Du kan också skriva ett taggnamn (nyckelord) för att filtrera resultaten.
 
-    ![Example of a list of tags to filter results by](./media/understanding-cost-reports/select-options.png)
+    ![Exempel på en lista över taggar om du vill filtrera resultaten efter](./media/understanding-cost-reports/select-options.png)
 
-    Click **Add** to add a new filter.
+    Klicka på **Lägg** till för att lägga till ett nytt filter.
 
-    ![Add filter box showing options and conditions to filter by](./media/understanding-cost-reports/add-filter.png)
+    ![Lägg till filter-ruta som visar alternativ och villkor för att filtrera efter](./media/understanding-cost-reports/add-filter.png)
 
-    Tag grouping or filtering does not relate to Azure resources or resource group tags.
+    Taggen gruppering och filtrering rör inte Azure-resurser eller grupp resurstaggar.
 
-    Cost allocation tag grouping and filtering are available in the **Groups** menu option.
+    Gruppering och filtrering av kostnads tilldelnings taggar är tillgängliga i meny alternativet **grupper** .
 
-4. **Groups in reports**
+4. **Grupper i rapporter**
 
-    Use groups in Cost Analysis reports to show standard, itemized categories from billing data in your report.  However, groups in Cost Allocation reports show view tag-based categories. Tag-based categories are defined in the cost allocation model and standard itemized categories from billing data.
+    Använda grupper i kostnadsanalys rapporter för att visa standard, uppdelat kategorier från faktureringsdata i rapporten.  Grupper i kostnadsallokering visas Visa dock kodspråk kategorier. Tagg-baserade kategorier har definierats i modellen för kostnadsallokering och standard specificerade kategorier från faktureringsinformation.
 
-    ![First example list of tags that you can group by](./media/understanding-cost-reports/groups-tags01.png)
+    ![Den första exemplet lista över taggar som du kan gruppera efter](./media/understanding-cost-reports/groups-tags01.png)
 
-    ![Second example list of tags that you can group by](./media/understanding-cost-reports/groups-tags02.png)
+    ![Andra exempel lista över taggar som du kan gruppera efter](./media/understanding-cost-reports/groups-tags02.png)
 
-    In Cost Allocation Reports, groups in tag-based group categories might include:
+    Grupper i tagg-baserade kategorierna i Cost Allocation rapporter kan innehålla:
       - Taggar
-      - resource group tags
-      - Cloudyn cost entity tags
-      - Subscription tag categories for cost allocation purposes
+      - gruppen resurstaggar
+      - Cloudyn kostnad entitetstaggar
+      - Prenumeration taggkategorier för cost allocation
 
-   Examples might include:
+   Exempel kan vara:
    - Kostnadsställe
    - Avdelning
    - Program
    - Miljö
-   - Cost code
+   - Kostnad kod
 
-     Here's a list of built-in groups available in reports:
+     Här är en lista över inbyggda grupper i rapporter:
 
-     - **Cost Type**
-     - Select a cost type or multiple cost types, or select all. Cost types include:
-       - One-Time Fee
+     - **Kostnads typ**
+     - Välj en kostnadstyp eller flera kostnadstyper eller markera alla. Kostnadstyper är:
+       - Avgift
        - Support
-       - Usage Cost
-     - **Customer**
-       - Select a specific customer, multiple customers, or select all customers.
-     - **Account Name**
-       - The account or subscription name. In Azure, it is the name of the Azure subscription.
-     - **Account No**
-       - Select an account, multiple accounts, or all accounts. In Azure, it is the Azure subscription’s GUID.
-     - **Parent Account**
-       - Select the parent account, multiple accounts, or select all.
+       - Förbrukningskostnad
+     - **Kund**
+       - Välj en viss kund, flera kunder, eller alla kunder.
+     - **Konto namn**
+       - Namnet på konto eller prenumeration. I Azure är det namnet på den Azure-prenumerationen.
+     - **Konto nr**
+       - Välj ett konto, flera konton eller alla konton. I Azure är det Azure-prenumerations-GUID.
+     - **Överordnat konto**
+       - Välj det överordnade kontot, flera konton eller välj.
      - **Tjänst**
-       - Select a service, multiple services, or select all services.
+       - Välj en tjänst, flera tjänster, eller alla tjänster.
      - **Leverantör**
-       - The cloud provider where assets and expenses are associated.
+       - Den molnleverantören där tillgångar och utgifter som är associerade.
      - **Region**
-       - Region where the resource is hosted.
-     - **Availability Zone**
-       - AWS isolated locations within a region.
+       - Regionen där resursen finns.
+     - **Tillgänglighets zon**
+       - AWS separat platser inom en region.
      - **Resurstyp**
-       - The type of resource in use.
-     - **Sub-Type**
-       - Select the sub-type.
+       - Typ av resurs som används.
+     - **Undertyp**
+       - Välj undertyp.
      - **Åtgärd**
-       - Select the operation or **Show all**.
-     - **Price Model**
-       - All Upfront
-       - No Upfront
-       - Partial Upfront
+       - Välj åtgärden eller **Visa alla**.
+     - **Pris modell**
+       - Alla förskott
+       - Ingen startavgift
+       - Partiellt förskott
        - På begäran
        - Reservation
-       - Spot
-     - **Charge Type**
-       - Select Negative or Positive charge type or both.
-     - **Tenancy**
-       - Whether a machine is running as a dedicated machine.
-     - **Usage Type**
-       - Usage type can be one-time fees or recurring fees.
+       - Plats
+     - **Avgifts typ**
+       - Markera som är negativa eller positiva tilläggstyp eller båda.
+     - **Multitenans**
+       - Om en dator körs som en dedikerad dator.
+     - **Användnings typ**
+       - Användningstyp kan vara engångsavgifter eller återkommande avgifter.
 
-5. **Filters**
+5. **Visningsobjektets**
 
-    Use single or multi-select filters to set ranges to selected values. To set a filter, click **Add** and then select filter categories and values.
+    Använd enkel eller välja flera filter för att ange intervall till valda värden. Om du vill ange ett filter klickar du på **Lägg till** och väljer sedan filtrera kategorier och värden.
 
-6. **Cost Model**
+6. **Kostnads modell**
 
-    Use Cost Model to select a cost model that you previously created with Cost Allocation 360. You might have multiple Cloudyn cost models, depending on your cost allocation requirements. Some of your organizational teams might have cost allocation requirements that differ from others. Each team can have their own dedicated cost model.
+    Använd kostnadsmodell för att välja en kostnadsmodell som du skapade tidigare med Cost Allocation 360. Du kan ha flera Cloudyn kostnadsmodeller, beroende på dina krav för allokering av kostnader. Några av dina organisationens team kan kosta allokering krav som skiljer sig från andra. Varje team kan ha sina egna dedikerade kostnadsmodell.
 
-    For information about creating a cost allocation model definition, see [Use custom tags to allocate costs](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs).
+    Information om hur du skapar en modell definition för kostnads fördelning finns i [använda anpassade taggar för att allokera kostnader](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs).
 
-7. **Amortization**
+7. **Amortering**
 
-    Use Amortization in Cost Allocation reports to view non-usage based service fees or one-time payable costs and spread their cost over time evenly during their lifespan. Examples of one-time fees might include:
-    - Annual support fees
-    - Annual security components fees
-    - Reserved instances purchase fees
-    - Some Azure Marketplace items.
+    Använd amorteringen i kostnadsallokering rapporter att visa icke-usage baserat serviceavgifter eller betalas engångskostnad och sprida kostnad över tid jämnt under deras livslängd. Exempel på engångsavgifter kan innehålla:
+    - Årlig supportavgifter
+    - Årlig security komponenter avgifter
+    - Avgifter för köp av reserverade instanser
+    - Vissa Azure Marketplace-objekt.
 
-   Under Amortization, select **Amortized cost** or **Actual Cost**.
+   Under amortering väljer du **periodiserad kostnad** eller **verklig kostnad**.
 
-8. **Resolution**
+8. **Lösning**
 
-    Use Resolution to select the time resolution within the selected date range. Your time resolution determines how units are displayed in the report and can be:
+    Använd lösning för att välja tid lösning inom det valda datumintervallet. Time-lösningen avgör hur enheter visas i rapporten och kan vara:
     - Dagligen
     - Varje vecka
     - Månadsvis
-    - Quarterly
+    - Varje kvartal
     - Årlig
 
-9. **Allocation rules**
+9. **Allokeringsregler**
 
-    Use Allocation Rules to apply or disable the cost allocation cost recalculation. You can enable or disable the cost allocation recalculation for billing data. The recalculation applies to the selected categories in the report. It allows you to assess the cost allocation recalculation impact against raw billing data.
+    Använd allokeringsregler för att tillämpa eller inaktivera kostnadsfördelning kostnaden beräknas. Du kan aktivera eller inaktivera cost allocation omberäkningen för faktureringsinformation. Omberäkningen gäller för de valda kategorierna i rapporten. Det kan du utvärdera kostnaden allokering omberäkning effekten mot fakturering rådata.
 
-10. **Uncategorized**
+10. **Okategoriserade**
 
-    Use Uncategorized to include or exclude uncategorized costs in the report.
+    Använd Ej kategoriserade att inkludera eller exkludera Ej kategoriserade kostnader i rapporten.
 
-11. **Show/hide fields**
+11. **Visa/Dölj fält**
 
-    The Show/hide option does not have any effect in reports.
+    Visa/Dölj-alternativet har inte någon effekt i rapporter.
 
-12. **Display formats**
+12. **Visnings format**
 
-    Use Display formats to select various graph or table views.
+    Använd format för att välja olika vyer för diagrammet eller tabellen.
 
-    ![Symbols of display formats that you can select](./media/understanding-cost-reports/display-formats.png)
+    ![Symbolerna i format som du kan välja](./media/understanding-cost-reports/display-formats.png)
 
-13. **Multi-color**
+13. **Flera färger**
 
-    Use Multi-color to set the color of charts in your report.
+    Använda flera färg för att ange färgen på diagram i rapporten.
 
 14. **Åtgärder**
 
-    Use Actions to save, export, or schedule the report.
+    Använda åtgärder för att spara, exportera eller schemalägger rapporten.
 
 15. **Princip**
 
-    Although not pictured, some reports include a projected cost calculation policy. In those reports, the **Consolidated** policy shows recommendations for all accounts and subscriptions under the current entity such as Microsoft enrollment or AWS payer. The **Standalone** policy shows recommendations for one account or subscription as if no other subscriptions exist. The policy that you select varies on the optimization strategy used by your organization. Cost projections are based on the last 30 days of usage.
+    Även om inte visas i bilden, innehålla vissa rapporter en princip för beräkning av beräknade kostnaden. I dessa rapporter visar den **konsoliderade** principen rekommendationer för alla konton och prenumerationer under den aktuella entiteten, till exempel Microsoft-registrering eller AWS-betalare. Den **fristående** principen visar rekommendationer för ett konto eller en prenumeration som om det inte finns några andra prenumerationer. Den princip som du väljer beror på den optimering strategi som används av din organisation. Kostnad projektioner baseras på de senaste 30 dagarna användning.
 
-## <a name="save-and-schedule-reports"></a>Save and schedule reports
+## <a name="save-and-schedule-reports"></a>Spara och schemalägga rapporter
 
-After you create a report, you can save it for future use. Saved reports are available in **My Tools** > **My Reports**. If you make changes to an existing report and save it, the report is saved as a new version. Or, you can save it as a new report.
+När du skapar en rapport kan spara du den för framtida användning. Sparade rapporter är tillgängliga i **Mina verktyg** > **Mina rapporter**. Om du gör ändringar i en befintlig rapport och spara den sparas rapporten som en ny version. Eller så kan du spara den som en ny rapport.
 
-### <a name="save-a-report-to-the-cloudyn-portal"></a>Save a report to the Cloudyn portal
+### <a name="save-a-report-to-the-cloudyn-portal"></a>Spara en rapport i Cloudyn-portalen
 
-While viewing any report, click **Actions** and then select **Save to my reports**. Name the report and then either add a your own URL or use the automatically created URL. You can optionally **Share** the report publicly with others in your organization or you can share it to your entity. If you do not share the report, it remains a personal report and that only you can view. Spara rapporten.
+När du visar en rapport klickar du på **åtgärder** och väljer sedan **Spara till Mina rapporter**. Namnge rapporten och sedan antingen lägga till en din egen URL eller Använd den automatiskt skapade URL: en. Du kan också **dela** rapporten offentligt med andra i din organisation eller dela den med din entitet. Om du inte delar rapporten, den är en personlig rapport och att endast du kan visa. Spara rapporten.
 
 
-### <a name="save-a-report-to-cloud-provider-storage"></a>Save a report to cloud provider storage
+### <a name="save-a-report-to-cloud-provider-storage"></a>Spara en rapport till molnlagring av provider
 
-In order to save a report to your cloud service provider, you must have already configured a storage account. While viewing any report, click **Actions** and then select **Schedule report**. Name the report and then either add a your own URL or use the automatically created URL. Select **Save to storage** and then select the storage account or add a new one. Enter a prefix that gets appended to the report file name. Select a CSV or JSON file format and then save the report.
+För att spara en rapport i din molntjänstleverantör, måste du redan ha konfigurerat en storage-konto. När du visar en rapport klickar du på **åtgärder** och väljer sedan **Schemalägg rapport**. Namnge rapporten och sedan antingen lägga till en din egen URL eller Använd den automatiskt skapade URL: en. Välj **Spara till lagring** och välj sedan lagrings kontot eller Lägg till ett nytt. Ange ett prefix som kommer att läggas till filnamnet för rapporten. Välj ett CSV-eller JSON-filformat och spara sedan rapporten.
 
-### <a name="schedule-a-report"></a>Schedule a report
+### <a name="schedule-a-report"></a>Schemalägg en rapport
 
-You can run reports at scheduled intervals and you can sent them to a recipient list or cloud service provider storage account. While viewing any report, click **Actions** and then select **Schedule report**. You can send the report by email and save to a storage account. Under **Schedule**, select the interval (daily, weekly or monthly). For weekly and monthly, select the day or dates to deliver and select the time. Spara den schemalagda rapporten. If you select the Excel report format, the report is sent as an attachment. When you select email content format, report results that are displayed in chart format are delivered as a graph.
+Du kan köra rapporter med schemalagda intervall och det går att skicka dem till en mottagare lista eller cloud service provider storage-konto. När du visar en rapport klickar du på **åtgärder** och väljer sedan **Schemalägg rapport**. Du kan skicka rapporten via e-post och spara till ett lagringskonto. Under **schema**väljer du intervallet (varje dag, varje vecka eller varje månad). Välj dag eller datum att leverera och väljer du tid för varje vecka och per månad. Spara den schemalagda rapporten. Om du väljer formatet Excel-rapporten skickas rapporten som en bifogad fil. När du väljer e-innehållsformat levereras rapportresultat som visas i diagramformat som ett diagram.
 
-### <a name="export-a-report-as-a-csv-file"></a>Export a report as a CSV file
+### <a name="export-a-report-as-a-csv-file"></a>Exportera en rapport som en CSV-fil
 
-While viewing any report, click **Actions** and then select **Export all report data**. A pop-up window appears and a CSV file is downloaded.
+När du visar en rapport klickar du på **åtgärder** och väljer **Exportera alla rapport data**. Ett popup-fönster visas en CSV-fil har överförts.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Learn about the reports that are included in Cloudyn at [Use Cloudyn reports](use-reports.md).
-- Learn about how to use reports to create [dashboards](dashboards.md).
+- Lär dig mer om de rapporter som ingår i Cloudyn vid [användning av Cloudyn-rapporter](use-reports.md).
+- Lär dig mer om hur du använder rapporter för att skapa [instrument paneler](dashboards.md).

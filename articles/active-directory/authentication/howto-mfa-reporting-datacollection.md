@@ -1,6 +1,6 @@
 ---
-title: Azure MFA user data collection - Azure Active Directory
-description: What information is used to help authenticate users by Azure Multi-Factor Authentication?
+title: Azure MFA-insamling av användar data – Azure Active Directory
+description: Vilken information används för att autentisera användare med Azure Multi-Factor Authentication?
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -18,176 +18,176 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74381769"
 ---
-# <a name="azure-multi-factor-authentication-user-data-collection"></a>Azure Multi-Factor Authentication user data collection
+# <a name="azure-multi-factor-authentication-user-data-collection"></a>Data insamling för Azure Multi-Factor Authentication-användare
 
-This document explains how to find user information collected by Azure Multi-Factor Authentication Server (MFA Server) and Azure MFA (Cloud-based) in the event you would like to remove it.
+Det här dokumentet beskriver hur du hittar användar information som samlats in av Azure Multi-Factor Authentication-server (MFA Server) och Azure MFA (molnbaserad) i händelse av att du vill ta bort den.
 
 [!INCLUDE [gdpr-hybrid-note](../../../includes/gdpr-hybrid-note.md)]
 
-## <a name="information-collected"></a>Information collected
+## <a name="information-collected"></a>Information som samlas in
 
-MFA Server, the NPS Extension, and the Windows Server 2016 Azure MFA AD FS Adapter collect and store the following information for 90 days.
+MFA Server, NPS-tillägget och Windows Server 2016 Azure MFA AD FS adapter samlar in och lagrar följande information i 90 dagar.
 
-Authentication Attempts (used for reporting and troubleshooting):
+Autentiseringsförsök (används för rapportering och fel sökning):
 
 - Tidsstämpel
 - Användarnamn
 - Förnamn
 - Efternamn
-- Email Address
-- User Group
-- Authentication Method (Phone Call, Text Message, Mobile App, OATH Token)
-- Phone Call Mode (Standard, PIN)
-- Text Message Direction (One-Way, Two-Way)
-- Text Message Mode (OTP, OTP + PIN)
-- Mobile App Mode (Standard, PIN)
-- OATH Token Mode (Standard, PIN)
-- Authentication Type
+- E-postadress
+- Användar grupp
+- Autentiseringsmetod (telefonsamtal, textmeddelande, mobilapp, OATH-token)
+- Telefonsamtals läge (standard, PIN-kod)
+- Text meddelande riktning (envägs, tvåvägs)
+- SMS-läge (text meddelande) (eng ång slö sen ord)
+- Mobilt app-läge (standard, PIN)
+- OATH-token-läge (standard, PIN)
+- Autentiseringstyp
 - Programnamn
-- Primary Call Country Code
-- Primary Call Phone Number
-- Primary Call Extension
-- Primary Call Authenticated
-- Primary Call Result
-- Backup Call Country Code
-- Backup Call Phone Number
-- Backup Call Extension
-- Backup Call Authenticated
-- Backup Call Result
-- Overall Authenticated
-- Overall Result
+- Lands nummer för primär samtal
+- Telefonnummer för primär samtal
+- Primärt anrops tillägg
+- Primärt anrop autentiserat
+- Primärt anrops resultat
+- Landskod för säkerhets kopierings nummer
+- Telefonnummer till säkerhets kopierings samtal
+- Säkerhetskopiera samtals tillägg
+- Säkerhets kopierings anrop autentiserat
+- Resultat av säkerhets kopierings anrop
+- Totalt autentiserat
+- Övergripande resultat
 - Resultat
-- Authenticated
+- Autentiserad
 - Resultat
-- Initiating IP Address
+- Initierar IP-adress
 - Enheter
-- Device Token
-- Device Type
-- Mobile App Version
+- Enhets-token
+- Enhets typ
+- Mobil program version
 - OS-version
 - Resultat
-- Used Check for Notification
+- Använd kontroll för meddelande
 
-Activations (attempts to activate an account in the Microsoft Authenticator mobile app):
+Aktiveringar (försöker aktivera ett konto i Microsoft Authenticator mobilappen):
 - Användarnamn
 - Kontonamn
 - Tidsstämpel
-- Get Activation Code Result
-- Activate Success
-- Activate Error
-- Activation Status Result
-- Device  Name
-- Device Type
-- App Version
-- OATH Token Enabled
+- Hämta aktiverings kod resultat
+- Aktiveringen lyckades
+- Aktivera fel
+- Aktiverings status resultat
+- Enhets namn
+- Enhets typ
+- App-version
+- OATH-token har Aktiver ATS
 
-Blocks (used to determine blocked state and for reporting):
+Block (används för att fastställa blockerat tillstånd och för rapportering):
 
-- Block Timestamp
-- Block By Username
+- Blockera tidsstämpel
+- Blockera efter användar namn
 - Användarnamn
 - Landskod
 - Telefonnummer
-- Phone Number Formatted
-- Tillägg
-- Clean Extension
-- Blocked
-- Block Reason
-- Completion Timestamp
-- Completion Reason
+- Telefonnummer formaterat
+- Anknytning
+- Rensa tillägg
+- Blockeras
+- Orsak till blockering
+- Tidsstämpel för slutförande
+- Orsak till slut för ande
 - Kontoutelåsning
-- Fraud Alert
-- Fraud Alert Not Blocked
+- Bedrägeri avisering
+- Bedrägeri varning blockeras inte
 - Språk
 
-Bypasses (used for reporting):
+Kringgås (används för rapportering):
 
-- Bypass Timestamp
-- Bypass Seconds
-- Bypass By Username
+- Kringgå tidsstämpel
+- Kringgå sekunder
+- Kringgå användar namn
 - Användarnamn
 - Landskod
 - Telefonnummer
-- Phone Number Formatted
-- Tillägg
-- Clean Extension
-- Bypass Reason
-- Completion Timestamp
-- Completion Reason
-- Bypass Used
+- Telefonnummer formaterat
+- Anknytning
+- Rensa tillägg
+- Kringgå orsak
+- Tidsstämpel för slutförande
+- Orsak till slut för ande
+- Förbikoppling används
 
-Changes (used to sync user changes to MFA Server or Azure AD):
+Ändringar (används för att synkronisera användar ändringar till MFA Server eller Azure AD):
 
-- Change Timestamp
+- Ändra tidsstämpel
 - Användarnamn
-- New Country Code
-- New Phone Number
-- New Extension
-- New Backup Country Code
-- New Backup Phone Number
-- New Backup Extension
-- New PIN
-- PIN Change Required
-- Old Device Token
-- New Device Token
+- Ny landskod
+- Nytt telefonnummer
+- Nytt tillägg
+- Ny kod för säkerhets kopierings land
+- Nytt reserv telefonnummer
+- Nytt säkerhets kopierings tillägg
+- Ny PIN-kod
+- PIN-koden måste ändras
+- Gammal enhets-token
+- Ny enhets-token
 
-## <a name="gather-data-from-mfa-server"></a>Gather data from MFA Server
+## <a name="gather-data-from-mfa-server"></a>Samla in data från MFA Server
 
-For MFA Server version 8.0 or higher the following process allows administrators to export all data for users:
+För MFA Server version 8,0 eller senare kan administratörer exportera alla data för användare med hjälp av följande process:
 
-- Log in to your MFA Server, navigate to the **Users** tab, select the user in question, and click the **Edit** button. Take screenshots (Alt-PrtScn) of each tab to provide the user their current MFA settings.
-- From the command line of the MFA Server, run the following command changing the path according to your installation `C:\Program Files\Multi-Factor Authentication Server\MultiFactorAuthGdpr.exe export <username>` to produce a JSON formatted file.
-- Administrators can also use the Web Service SDK GetUserGdpr operation as an option to export all MFA cloud service information collected for a given user or  incorporate into a larger reporting solution.
-- Search `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` and any backups for “\<username>” (include the quotes in the search) to find all instances of the user record being added or changed.
-   - These records can be limited (but not eliminated) by unchecking **“Log user changes”** in the MFA Server UX, Logging section, Log Files tab.
-   - If syslog is configured, and **“Log user changes”** is checked in the MFA Server UX, Logging section, Syslog tab, then the log entries can be gathered from syslog instead.
-- Other occurrences of the username in MultiFactorAuthSvc.log and other MFA Server log files pertaining to authentication attempts are considered operational and duplicative to the information provided using MultiFactorAuthGdpr.exe export or Web Service SDK GetUserGdpr.
+- Logga in på MFA-servern, navigera till fliken **användare** , Välj användaren i fråga och klicka på knappen **Redigera** . Ta skärm bilder (ALT-PrintScrn) på varje flik för att ge användaren sina aktuella MFA-inställningar.
+- Kör följande kommando från kommando raden för MFA-servern och ändra sökvägen enligt installations `C:\Program Files\Multi-Factor Authentication Server\MultiFactorAuthGdpr.exe export <username>` för att skapa en JSON-formaterad fil.
+- Administratörer kan också använda GetUserGdpr-åtgärden för webbtjänst-SDK som ett alternativ för att exportera all information om MFA-molntjänster som samlats in för en specifik användare eller inkludera i en större rapporterings lösning.
+- Sök `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` och säkerhets kopior för "\<användar namn >" (inklusive citat tecken i sökningen) för att hitta alla instanser av användar posten som läggs till eller ändras.
+   - Dessa poster kan begränsas (men inte elimineras) genom att avmarkera **Logga användar ändringar** i avsnittet MFA Server UX, loggning, fliken loggfiler.
+   - Om syslog är konfigurerat och **"Logga användar ändringar"** är markerat i avsnittet MFA Server UX, loggning, fliken syslog och sedan kan logg posterna samlas in från syslog i stället.
+- Andra förekomster av användar namnet i MultiFactorAuthSvc. log och andra MFA Server-loggfiler som rör autentiseringsförsök anses vara operativa och duplicerad till den information som anges med hjälp av MultiFactorAuthGdpr. exe export eller webbtjänst-SDK GetUserGdpr.
 
-## <a name="delete-data-from-mfa-server"></a>Delete data from MFA Server
+## <a name="delete-data-from-mfa-server"></a>Ta bort data från MFA Server
 
-From the command line of the MFA Server, run the following command changing the path according to your installation `C:\Program Files\Multi-Factor Authentication Server\MultiFactorAuthGdpr.exe delete <username>` to delete all MFA cloud service information collected for this user.
+Kör följande kommando från kommando raden för MFA-servern och ändra sökvägen enligt installationen `C:\Program Files\Multi-Factor Authentication Server\MultiFactorAuthGdpr.exe delete <username>` för att ta bort all MFA-resursinformation som samlats in för den här användaren.
 
-- Data included in the export is deleted in real time, but it may take up to 30 days for operational or duplicative data to be fully removed.
-- Administrators can also use the Web Service SDK DeleteUserGdpr operation as an option to delete all MFA cloud service information collected for a given user or incorporate into a larger reporting solution.
+- Data som ingår i exporten tas bort i real tid, men det kan ta upp till 30 dagar innan operativ-eller duplicerade data tas bort helt.
+- Administratörer kan också använda DeleteUserGdpr-åtgärden för webbtjänst-SDK som ett alternativ för att ta bort all information om MFA-molntjänster som samlats in för en specifik användare eller inkludera i en större rapporterings lösning.
 
-## <a name="gather-data-from-nps-extension"></a>Gather data from NPS Extension
+## <a name="gather-data-from-nps-extension"></a>Samla in data från NPS-tillägg
 
-Use the [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) to make a request for Export.
+Använd [Microsofts sekretess Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) för att göra en begäran om export.
 
-- MFA information is included in the export, which may take hours or days to complete.
-- Occurrences of the username in the AzureMfa/AuthN/AuthNOptCh, AzureMfa/AuthZ/AuthZAdminCh, and AzureMfa/AuthZ/AuthZOptCh event logs are considered operational and duplicative to the information provided in the export.
+- MFA-information ingår i exporten, vilket kan ta flera timmar eller dagar att slutföra.
+- Förekomster av användar namnet i händelse loggarna AzureMfa/authn/AuthNOptCh, AzureMfa/AuthZ/AuthZAdminCh och AzureMfa/AuthZ/AuthZOptCh betraktas som operativa och duplicerad till den information som anges i exporten.
 
-## <a name="delete-data-from-nps-extension"></a>Delete data from NPS Extension
+## <a name="delete-data-from-nps-extension"></a>Ta bort data från NPS-tillägg
 
-Use the [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) to make a request for Account Close to delete all MFA cloud service information collected for this user.
+Använd [Microsofts sekretess Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) för att göra en begäran om konto nära borttagning av all information om MFA-molntjänster som samlas in för den här användaren.
 
-- It may take up to 30 days for data to be fully removed.
+- Det kan ta upp till 30 dagar innan data tas bort helt.
 
-## <a name="gather-data-from-windows-server-2016-azure-mfa-ad-fs-adapter"></a>Gather data from Windows Server 2016 Azure MFA AD FS Adapter
+## <a name="gather-data-from-windows-server-2016-azure-mfa-ad-fs-adapter"></a>Samla in data från Windows Server 2016 Azure MFA AD FS adapter
 
-Use the [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) to make a request for Export. 
+Använd [Microsofts sekretess Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) för att göra en begäran om export. 
 
-- MFA information is included in the export, which may take hours or days to complete.
-- Occurrences of the username in the AD FS Tracing/Debug event logs (if enabled) are considered operational and duplicative to the information provided in the export.
+- MFA-information ingår i exporten, vilket kan ta flera timmar eller dagar att slutföra.
+- Förekomster av användar namnet i AD FS spårnings-eller fel söknings händelse loggar (om de är aktiverade) betraktas som operativa och duplicerat till den information som anges i exporten.
 
-## <a name="delete-data-from-windows-server-2016-azure-mfa-ad-fs-adapter"></a>Delete data from Windows Server 2016 Azure MFA AD FS Adapter
+## <a name="delete-data-from-windows-server-2016-azure-mfa-ad-fs-adapter"></a>Ta bort data från Windows Server 2016 Azure MFA AD FS adapter
 
-Use the [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) to make a request for Account Close to delete all MFA cloud service information collected for this user.
+Använd [Microsofts sekretess Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) för att göra en begäran om konto nära borttagning av all information om MFA-molntjänster som samlas in för den här användaren.
 
-- It may take up to 30 days for data to be fully removed.
+- Det kan ta upp till 30 dagar innan data tas bort helt.
 
-## <a name="gather-data-for-azure-mfa"></a>Gather data for Azure MFA
+## <a name="gather-data-for-azure-mfa"></a>Samla in data för Azure MFA
 
-Use the [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) to make a request for Export.
+Använd [Microsofts sekretess Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) för att göra en begäran om export.
 
-- MFA information is included in the export, which may take hours or days to complete.
+- MFA-information ingår i exporten, vilket kan ta flera timmar eller dagar att slutföra.
 
-## <a name="delete-data-for-azure-mfa"></a>Delete Data for Azure MFA
+## <a name="delete-data-for-azure-mfa"></a>Ta bort data för Azure MFA
 
-Use the [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) to make a request for Account Close to delete all MFA cloud service information collected for this user.
+Använd [Microsofts sekretess Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) för att göra en begäran om konto nära borttagning av all information om MFA-molntjänster som samlas in för den här användaren.
 
-- It may take up to 30 days for data to be fully removed.
+- Det kan ta upp till 30 dagar innan data tas bort helt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[MFA Server reporting](howto-mfa-reporting.md)
+[MFA Server repor ting](howto-mfa-reporting.md)

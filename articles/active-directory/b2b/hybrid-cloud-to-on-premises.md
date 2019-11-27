@@ -61,7 +61,7 @@ Följande diagram innehåller en översikt över hur Azure AD-programproxy och g
 
 ### <a name="lifecycle-management-policies"></a>Principer för livs cykel hantering
 
-Du kan hantera lokala B2B-användar objekt via principer för livs cykel hantering. Exempel:
+Du kan hantera lokala B2B-användar objekt via principer för livs cykel hantering. Till exempel:
 
 - Du kan ställa in Multi-Factor Authentication-principer (MFA) för gäst användaren så att MFA används vid autentisering i Application Proxy. Mer information finns i [villkorlig åtkomst för B2B-samarbets användare](conditional-access.md).
 - Alla sponsring, åtkomst granskningar, konto verifieringar osv. som utförs i Cloud B2B-användaren gäller för lokala användare. Om till exempel moln användaren tas bort via livs cykel hanterings principerna, tas den lokala användaren också bort av MIM Sync eller genom Azure AD Connect Sync. Mer information finns i [Hantera gäst åtkomst med åtkomst granskningar för Azure AD](../governance/manage-guest-access-with-access-reviews.md).

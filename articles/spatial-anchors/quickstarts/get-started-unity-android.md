@@ -50,7 +50,7 @@ Kontrollera att du har följande för genomföra den här snabbstarten:
 
 [!INCLUDE [Android Unity Build Settings](../../../includes/spatial-anchors-unity-android-build-settings.md)]
 
-## <a name="configure-account-identifier-and-key"></a>Konfigurera konto-ID och -nyckel
+## <a name="configure-account-identifier-and-key"></a>Konfigurera kontoidentifierare och nyckel
 
 I fönstret **Projekt** går du till `Assets/AzureSpatialAnchors.Examples/Scenes` och öppnar scenfilen `AzureSpatialAnchorsBasicDemo.unity`.
 

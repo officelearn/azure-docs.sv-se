@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Grant access to an ASP.NET Core web API from a single-page application - Azure Active Directory B2C
-description: In this tutorial, learn how to use Active Directory B2C to protect a .NET Core web API and call the API from a single-page Node.js application.
+title: Självstudie – bevilja åtkomst till ett ASP.NET Core webb-API från ett program med en sida – Azure Active Directory B2C
+description: 'I den här självstudien får du lära dig hur du använder Active Directory B2C för att skydda ett .NET Core webb-API och anropa API: et från ett enda-Page Node. js-program.'
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -17,11 +17,11 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74420336"
 ---
-# <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>Tutorial: Grant access to an ASP.NET Core web API from a single-page application using Azure Active Directory B2C
+# <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>Självstudie: bevilja åtkomst till ett ASP.NET Core webb-API från ett program med en sida med hjälp av Azure Active Directory B2C
 
-This tutorial shows you how to call an Azure Active Directory B2C (Azure AD B2C)-protected ASP.NET Core web API resource from a single-page application.
+Den här självstudien visar hur du anropar en Azure Active Directory B2C (Azure AD B2C)-skyddad ASP.NET Core webb-API-resurs från ett program på en sida.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Lägga till ett program för webb-API
@@ -31,9 +31,9 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Krav
 
-* Complete the steps and prerequisites in [Tutorial: Enable authentication in a single-page application using Azure Active Directory B2C](active-directory-b2c-tutorials-spa.md).
-* Visual Studio 2019 or later, or Visual Studio Code
-* .NET Core 2.2 or later
+* Slutför stegen och kraven i [Självstudier: aktivera autentisering i ett program med en enda sida med hjälp av Azure Active Directory B2C](active-directory-b2c-tutorials-spa.md).
+* Visual Studio 2019 eller senare, eller Visual Studio Code
+* .NET Core 2,2 eller senare
 * Node.js
 
 ## <a name="add-a-web-api-application"></a>Lägga till ett program för webb-API
@@ -42,27 +42,27 @@ I den här guiden får du lära dig att:
 
 ## <a name="configure-scopes"></a>Konfigurera omfång
 
-Omfång är ett sätt att styra åtkomsten till skyddade resurser. Omfång används av webb-API för att implementera omfångsbaserad åtkomststyrning. Vissa användare kan till exempel ha både läs- och skrivåtkomst medan andra bara har skrivskyddad åtkomst. In this tutorial, you define both read and write permissions for the web API.
+Omfång är ett sätt att styra åtkomsten till skyddade resurser. Omfång används av webb-API för att implementera omfångsbaserad åtkomststyrning. Vissa användare kan till exempel ha både läs- och skrivåtkomst medan andra bara har skrivskyddad åtkomst. I den här självstudien definierar du både Läs-och Skriv behörighet för webb-API: et.
 
 [!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
-Record the value under **SCOPES** for the `demo.read` scope to use in a later step when you configure the single-page application. The full scope value is similar to `https://contosob2c.onmicrosoft.com/api/demo.read`.
+Registrera värdet under **omfattningar** för `demo.read` omfång som ska användas i ett senare steg när du konfigurerar ett program med en enda sida. Det fullständiga värdet för omfattning liknar `https://contosob2c.onmicrosoft.com/api/demo.read`.
 
 ## <a name="grant-permissions"></a>Bevilja behörigheter
 
-To call a protected web API from another application, you need to grant that application permissions to the web API.
+Om du vill anropa ett skyddat webb-API från ett annat program måste du ge den program behörighet till webb-API: et.
 
-In the prerequisite tutorial, you created a web application named *webapp1*. In this tutorial, you configure that application to call the web API you created in a previous section, *webapi1*.
+I den nödvändiga självstudien har du skapat ett webb program med namnet *webapp1*. I den här självstudien konfigurerar du programmet för att anropa det webb-API som du skapade i ett tidigare avsnitt, *webapi1*.
 
 [!INCLUDE [active-directory-b2c-permissions-api](../../includes/active-directory-b2c-permissions-api.md)]
 
-Your single-page web application is registered to call the protected web API. A user authenticates with Azure AD B2C to use the single-page application. The single-page app obtains an authorization grant from Azure AD B2C to access the protected web API.
+Webb programmet med en sida är registrerat för att anropa det skyddade webb-API: et. En användare autentiseras med Azure AD B2C för att använda ett program med en sida. En app med en enda sida får en auktorisering från Azure AD B2C för åtkomst till det skyddade webb-API: et.
 
 ## <a name="configure-the-sample"></a>Konfigurera exemplet
 
-När webb-API:t är registrerat och har ett definierat omfång måste du konfigurera webb-API-koden så att den använder din Azure AD B2C-klientorganisation. In this tutorial, you configure a sample .NET Core web application you download from GitHub.
+När webb-API:et är registrerat och har ett definierat omfång måste du konfigurera webb-API-koden så den använder din Azure AD B2C-klientorganisation. I den här självstudien konfigurerar du ett exempel på ett .NET Core-webbprogram som du hämtar från GitHub.
 
-[Download a \*.zip archive](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi/archive/master.zip) or clone the sample web API project from GitHub.
+[Hämta ett \*. zip-arkiv](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi/archive/master.zip) eller klona exempel webb-API-projektet från GitHub.
 
 ```console
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi.git
@@ -70,8 +70,8 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
 
 ### <a name="configure-the-web-api"></a>Konfigurera webb-API
 
-1. Open the <em>B2C-WebApi/**appsettings.json**</em> file in Visual Studio or Visual Studio Code.
-1. Modify the `AzureAdB2C` block to reflect your tenant name, the application ID of the web API application, the name of your sign-up/sign-in policy, and the scopes you defined earlier. The block should look similar to the following example (with appropriate `Tenant` and `ClientId` values):
+1. Öppna filen <em>B2C-WebAPI/**appSettings. JSON**</em>  i Visual Studio eller Visual Studio Code.
+1. Ändra `AzureAdB2C` blocket så att det återspeglar ditt klient namn, program-ID för webb-API-programmet, namnet på din registrerings-/inloggnings princip och de omfattningar som du definierade tidigare. Blocket bör se ut ungefär som i följande exempel (med lämpliga `Tenant` och `ClientId` värden):
 
     ```json
     "AzureAdB2C": {
@@ -86,9 +86,9 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
 
 #### <a name="enable-cors"></a>Aktivera CORS
 
-To allow your single-page application to call the ASP.NET Core web API, you need to enable [CORS](https://docs.microsoft.com/aspnet/core/security/cors) in the web API.
+Du måste aktivera [CORS](https://docs.microsoft.com/aspnet/core/security/cors) i webb-API: et om du vill tillåta att ett program med en enda sida anropar ASP.net Core webb-API.
 
-1. Lägg till CORS till metoden `ConfigureServices()` i *Startup.cs*.
+1. Lägg till CORS till metoden *i*Startup.cs`ConfigureServices()`.
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -96,15 +96,15 @@ To allow your single-page application to call the ASP.NET Core web API, you need
         services.AddCors();
     ```
 
-1. Also within the `ConfigureServices()` method, set the `jwtOptions.Authority` value to the following token issuer URI.
+1. Ange också `jwtOptions.Authority`-värdet till följande token för token-utfärdare i `ConfigureServices()`-metoden.
 
-    Replace `<your-tenant-name>` with the name of your B2C tenant.
+    Ersätt `<your-tenant-name>` med namnet på din B2C-klient.
 
     ```csharp
     jwtOptions.Authority = $"https://<your-tenant-name>.b2clogin.com/{Configuration["AzureAdB2C:Tenant"]}/{Configuration["AzureAdB2C:Policy"]}/v2.0";
     ```
 
-1. In the `Configure()` method, configure CORS.
+1. Konfigurera CORS i metoden `Configure()`.
 
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -113,8 +113,8 @@ To allow your single-page application to call the ASP.NET Core web API, you need
             builder.WithOrigins("http://localhost:6420").AllowAnyHeader().AllowAnyMethod());
     ```
 
-1. (Visual Studio only) Under **Properties** in the Solution Explorer, open the *launchSettings.json* file, then find the `iisExpress` block.
-1. (Visual Studio only) Update the `applicationURL` value with the port number you specified when you registered the *webapi1* application in an earlier step. Exempel:
+1. (Endast Visual Studio) Öppna filen *launchSettings. JSON* under **Egenskaper** i Solution Explorer och leta upp `iisExpress` blocket.
+1. (Endast Visual Studio) Uppdatera `applicationURL`-värdet med det port nummer du angav när du registrerade *webapi1* -programmet i ett tidigare steg. Till exempel:
 
     ```json
     "iisExpress": {
@@ -123,20 +123,20 @@ To allow your single-page application to call the ASP.NET Core web API, you need
     }
     ```
 
-### <a name="configure-the-single-page-application"></a>Configure the single-page application
+### <a name="configure-the-single-page-application"></a>Konfigurera ett program med en sida
 
-The single-page application (SPA) from the [previous tutorial](active-directory-b2c-tutorials-spa.md) in the series uses Azure AD B2C for user sign-up and sign-in, and calls the ASP.NET Core web API protected by the *frabrikamb2c* demo tenant.
+En Enkels Ides applikation (SPA) från [föregående självstudie](active-directory-b2c-tutorials-spa.md) i serien använder Azure AD B2C för användarens registrering och inloggning, och anropar det ASP.net Core webb-API som skyddas av *frabrikamb2c* demo-klienten.
 
-In this section, you update the single-page application to call the ASP.NET Core web API protected by *your* Azure AD B2C tenant and which you run on your local machine.
+I det här avsnittet ska du uppdatera det enkla programmet för att anropa det ASP.NET Core webb-API som skyddas av *din* Azure AD B2C klient och som du kör på den lokala datorn.
 
-To change the settings in the SPA:
+Ändra inställningarna i SPA:
 
-1. Open the *index.html* file in the [active-directory-b2c-javascript-msal-singlepageapp][github-js-spa] project you downloaded or cloned in the previous tutorial.
-1. Configure the sample with the URI for the *demo.read* scope you created earlier and the URL of the web API.
-    1. In the `appConfig` definition, replace the `b2cScopes` value with the full URI for the scope (the **SCOPE** value you recorded earlier).
-    1. Change the `webApi` value to the redirect URI you added when you registered the web API application in an earlier step.
+1. Öppna filen *index. html* i [Active-Directory-B2C-JavaScript-msal-singlepageapp][github-js-spa] -projektet som du laddade ned eller klonade i föregående självstudie.
+1. Konfigurera exemplet med URI: n för *demonstrationen. Läs* omfattning som du skapade tidigare och URL: en för webb-API: et.
+    1. I `appConfig` definition ersätter du `b2cScopes`-värdet med den fullständiga URI: n för omfånget (det **omfattnings** värde som du registrerade tidigare).
+    1. Ändra `webApi` värde till den omdirigerings-URI som du lade till när du registrerade webb-API-programmet i ett tidigare steg.
 
-    The `appConfig` definition should look similar to the following code block (with your tenant name in the place of `<your-tenant-name>`):
+    `appConfig` definitionen bör likna följande kodblock (med ditt klient namn i `<your-tenant-name>`):
 
     ```javascript
     // The current application coordinates were pre-registered in a B2C tenant.
@@ -146,25 +146,25 @@ To change the settings in the SPA:
     };
     ```
 
-## <a name="run-the-spa-and-web-api"></a>Run the SPA and web API
+## <a name="run-the-spa-and-web-api"></a>Köra SPA-och webb-API: et
 
-Finally, you run both the ASP.NET Core web API and the Node.js single-page application on your local machine. Then, you sign in to the single-page application and press a button to initiate a request to the protected API.
+Slutligen kör du både webb-API: et för ASP.NET Core och Node. js-programmet på den lokala datorn. Sedan loggar du in på ett program med en enda sida och trycker på en knapp för att initiera en begäran till det skyddade API: et.
 
-Although both applications run locally in this tutorial, they use Azure AD B2C for secure sign-up/sign-in and to grant access to the protected web API.
+Även om båda programmen körs lokalt i den här självstudien använder de Azure AD B2C för säker registrering/inloggning och för att bevilja åtkomst till det skyddade webb-API: et.
 
-### <a name="run-the-aspnet-core-web-api"></a>Run the ASP.NET Core web API
+### <a name="run-the-aspnet-core-web-api"></a>Kör ASP.NET Core webb-API
 
-In Visual Studio, press **F5** to build and debug the *B2C-WebAPI.sln* solution. When the project launches, a web page is displayed in your default browser announcing the web API is available for requests.
+I Visual Studio trycker du på **F5** för att bygga och felsöka lösningen *WebAPI. SLN* . När projektet startas visas en webb sida i din standard webbläsare som visar att webb-API: et är tillgängligt för förfrågningar.
 
-If you prefer to use the `dotnet` CLI instead of Visual Studio:
+Om du föredrar att använda `dotnet` CLI i stället för Visual Studio:
 
-1. Open a console window and change to the directory containing the *\*.csproj* file. Exempel:
+1. Öppna ett konsol fönster och ändra till den katalog som innehåller filen *\*. CSPROJ* . Till exempel:
 
     `cd active-directory-b2c-dotnetcore-webapi/B2C-WebApi`
 
-1. Build and run the web API by executing `dotnet run`.
+1. Skapa och kör webb-API genom att köra `dotnet run`.
 
-    When the API is up and running, you should see output similar to the following (for the tutorial, you can safely ignore any `NETSDK1059` warnings):
+    När API: et är igång bör du se utdata som liknar följande (för självstudien kan du ignorera eventuella `NETSDK1059` varningar):
 
     ```console
     $ dotnet run
@@ -176,7 +176,7 @@ If you prefer to use the `dotnet` CLI instead of Visual Studio:
 
 ### <a name="run-the-single-page-app"></a>Kör ensidesappen
 
-1. Open a console window and change to the directory containing the Node.js sample. Exempel:
+1. Öppna ett konsol fönster och ändra till den katalog som innehåller Node. js-exemplet. Till exempel:
 
     `cd active-directory-b2c-javascript-msal-singlepageapp`
 
@@ -193,9 +193,9 @@ If you prefer to use the `dotnet` CLI instead of Visual Studio:
     Listening on port 6420...
     ```
 
-1. Navigate to `http://localhost:6420` in your browser to view the application.
-1. Sign in using the email address and password you used in the [previous tutorial](active-directory-b2c-tutorials-spa.md). Upon successful login, you should see the `User 'Your Username' logged-in` message.
-1. Select the **Call Web API** button. The SPA obtains an authorization grant from Azure AD B2C, then accesses the protected web API to display the contents of its index page:
+1. Navigera till `http://localhost:6420` i webbläsaren om du vill visa programmet.
+1. Logga in med e-postadressen och lösen ordet som du använde i [föregående självstudie](active-directory-b2c-tutorials-spa.md). Vid lyckad inloggning bör du se `User 'Your Username' logged-in`-meddelandet.
+1. Klicka på knappen **anropa webb-API** . SPA får ett bemyndigande från Azure AD B2C och ansluter sedan till det skyddade webb-API: et för att visa innehållet på index sidan:
 
     ```Output
     Web APi returned:
@@ -212,10 +212,10 @@ I den här självstudiekursen lärde du dig att:
 > * Ge behörigheter till webb-API:t
 > * Konfigurera exemplet för att använda programmet
 
-Now that you've seen an SPA request a resource from a protected web API, gain a deeper understanding of how these application types interact with each other and with Azure AD B2C.
+Nu när du har sett en SPA-begäran en resurs från ett skyddat webb-API, får du en djupare förståelse för hur dessa program typer interagerar med varandra och med Azure AD B2C.
 
 > [!div class="nextstepaction"]
-> [Application types that can be used in Active Directory B2C >](active-directory-b2c-apps.md)
+> [Program typer som kan användas i Active Directory B2C >](active-directory-b2c-apps.md)
 
 <!-- Links - EXTERNAL -->
 [github-js-spa]: https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp

@@ -19,9 +19,9 @@ Den här artikeln beskriver steg för steg hur du ansluter till SQL-databasen i 
 
 ## <a name="prerequisites"></a>Krav
 
-* Download [Power BI Desktop](https://aka.ms/pbidesktopstore).
+* Ladda ned [Power BI Desktop](https://aka.ms/pbidesktopstore).
 
-## <a name="connecting-power-bi-to-data-in-azure-blockchain-workbench"></a>Connecting Power BI to data in Azure Blockchain Workbench
+## <a name="connecting-power-bi-to-data-in-azure-blockchain-workbench"></a>Ansluta Power BI till data i Azure blockchain Workbench
 
 1.  Öppna Power BI Desktop.
 2.  Välj **Hämta data**.
@@ -43,7 +43,7 @@ Den här artikeln beskriver steg för steg hur du ansluter till SQL-databasen i 
 
     ![Navigatör](./media/data-powerbi/navigator.png)
 
-7.  Välj de vyer som du vill ta med. For demonstration purposes, we include **vwContractAction**, which provides details on the actions that have taken place on a contract.
+7.  Välj de vyer som du vill ta med. I demonstrations syfte omfattar vi **vwContractAction**, som innehåller information om de åtgärder som har vidtagits i ett avtal.
 
     ![Välja vyer](./media/data-powerbi/select-views.png)
 

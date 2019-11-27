@@ -1,6 +1,6 @@
 ---
-title: Create a blockchain application - Azure Blockchain Workbench
-description: Tutorial on how to create a blockchain application for Azure Blockchain Workbench Preview.
+title: Skapa ett blockchain-program – Azure blockchain Workbench
+description: Självstudie om hur du skapar ett blockchain-program för för hands versionen av Azure blockchain Workbench.
 ms.date: 10/14/2019
 ms.topic: tutorial
 ms.reviewer: brendal
@@ -11,7 +11,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74324810"
 ---
-# <a name="tutorial-create-a-blockchain-application-for-azure-blockchain-workbench"></a>Tutorial: Create a blockchain application for Azure Blockchain Workbench
+# <a name="tutorial-create-a-blockchain-application-for-azure-blockchain-workbench"></a>Självstudie: skapa ett blockchain-program för Azure blockchain Workbench
 
 Du kan använda Azure Blockchain Workbench för att skapa blockkedjeprogram som representerar arbetsflöden med flera parter som definieras av konfiguration och smart kontaktkod.
 
@@ -281,7 +281,7 @@ Lägg till konstruktorfunktionen i ditt kontrakt i filen `HelloBlockchain.sol` m
     }
 ```
 
-### <a name="functions"></a>Functions
+### <a name="functions"></a>Funktioner
 
 Funktioner är körbara enheter med affärslogik i ett kontrakt. Obligatoriska parametrar för funktionen definieras som funktionsparametrar i konfigurationsfilen. Antalet, ordningen och typen av parametrar måste stämma överens i båda filerna. Funktioner är associerade med övergångar i ett Blockchain Workbench-arbetsflöde i konfigurationsfilen. En övergång är en åtgärd som utförs för en flytt till nästa steg i ett programs arbetsflöde enligt vad som bestäms av kontraktet.
 

@@ -76,7 +76,7 @@ ML pipelines skapas från flera **steg**, som är distinkta beräknings enheter 
 Använd avsnitten nedan för att konfigurera dessa beräknings mål:
 
 * [Lokal dator](#local)
-* [Azure Machine Learning-beräkning](#amlcompute)
+* [Azure Machine Learning Compute](#amlcompute)
 * [Virtuella fjärrdatorer](#vm)
 * [Azure HDInsight](#hdinsight)
 
@@ -91,7 +91,7 @@ Använd avsnitten nedan för att konfigurera dessa beräknings mål:
 
 Nu när du har kopplat beräkningen och konfigurerat din körning är nästa steg att [Skicka utbildningen](#submit).
 
-### <a id="amlcompute"></a>Azure Machine Learning-beräkning
+### <a id="amlcompute"></a>Azure Machine Learning Compute
 
 Azure Machine Learning Compute är en hanterad beräknings infrastruktur som gör det möjligt för användaren att enkelt skapa en enda eller beräkning med flera noder. Beräkningen skapas i arbets ytans region som en resurs som kan delas med andra användare i din arbets yta. Beräkningen skalas upp automatiskt när ett jobb skickas och kan placeras i ett Azure-Virtual Network. Beräkningen körs i en behållare miljö och paketerar dina modell beroenden i en [Docker-behållare](https://www.docker.com/why-docker).
 
@@ -347,7 +347,7 @@ Följ stegen som beskrivs ovan för att visa listan över beräknings mål. Anv�
     > Microsoft rekommenderar att du använder SSH-nycklar, som är säkrare än lösen ord. Lösen ord är utsatta för angrepp med brute force. SSH-nycklar är beroende av kryptografiska signaturer. Information om hur du skapar SSH-nycklar för användning med Azure Virtual Machines finns i följande dokument:
     >
     > * [Skapa och använda SSH-nycklar på Linux eller macOS](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
-    > * [Skapa och använda SSH-nycklar i Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
+    > * [Skapa och Använd SSH-nycklar i Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
 
 1. Välj __bifoga__. 
 1. Visa status för åtgärden Anslut genom att välja Compute-målet i listan.
@@ -504,8 +504,8 @@ När du startar en utbildning som kör där käll katalogen är en lokal git-lag
 ## <a name="notebook-examples"></a>Exempel på bärbara datorer
 
 Se dessa antecknings böcker för exempel på utbildning med olika beräknings mål:
-* [How-to-till-användning – azureml/utbildning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
-* [självstudier/img-klassificering – del 1 – training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
+* [instruktion för att använda – azureml/utbildning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
+* [Självstudier/img-Classification-part1-Training. ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

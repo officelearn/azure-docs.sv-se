@@ -277,5 +277,5 @@ Läs [dokumentations översikten över klientens autentiseringsuppgifter](https:
 
 | Exempel | Plattform |Beskrivning |
 |--------|----------|------------|
-|[active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) | .NET Core 2,1-konsol | Ett enkelt .NET Core-program som visar användare av en klient som frågar Microsoft Graph som använder appens identitet, i stället för för en användares räkning. Exemplet illustrerar också variationen med hjälp av certifikat för autentisering. |
-|[active-directory-dotnet-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)|ASP.NET MVC | Ett webb program som synkroniserar data från Microsoft Graph med appens identitet, i stället för för en användares räkning. |
+|[Active-Directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) | .NET Core 2,1-konsol | Ett enkelt .NET Core-program som visar användare av en klient som frågar Microsoft Graph som använder appens identitet, i stället för för en användares räkning. Exemplet illustrerar också variationen med hjälp av certifikat för autentisering. |
+|[Active Directory-Dotnet-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)|ASP.NET MVC | Ett webb program som synkroniserar data från Microsoft Graph med appens identitet, i stället för för en användares räkning. |

@@ -99,5 +99,5 @@ När du har slutfört de här stegen, men det är din app ska vara igång. Så h
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Hur tillhandahåller Azure AD Application Proxy enkel inloggning?](application-proxy-single-sign-on.md)
-- [Felsöka programproxyn](application-proxy-troubleshoot.md)
+- [Hur ger Azure AD-programproxy enkel inloggning?](application-proxy-single-sign-on.md)
+- [Felsöka programproxy](application-proxy-troubleshoot.md)

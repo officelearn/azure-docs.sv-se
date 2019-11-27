@@ -1,5 +1,5 @@
 ---
-title: Query Azure Blockchain Workbench data using SQL Server Management Studio
+title: Fråga Azure blockchain Workbench-data med SQL Server Management Studio
 description: Lär dig hur du ansluter till SQL Database i Azure Blockchain Workbench från SQL Server Management Studio.
 ms.date: 11/20/2019
 ms.topic: article
@@ -14,7 +14,7 @@ ms.locfileid: "74326028"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-sql-server-management-studio"></a>Använda Azure Blockchain Workbench Data med SQL Server Management Studio
 
-Microsoft SQL Server Management Studio provides the ability to rapidly write and test queries against Azure Blockchain Workbench's SQL DB. This section contains a step-by-step walkthrough of how to connect to Azure Blockchain Workbench's SQL Database from within SQL Server Management Studio.
+Microsoft SQL Server Management Studio ger möjlighet att snabbt skriva och testa frågor mot Azure blockchain Workbench SQL DB. Det här avsnittet innehåller en stegvis genom gång av hur du ansluter till Azure blockchain Workbenchs SQL Database inifrån SQL Server Management Studio.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -38,7 +38,7 @@ Microsoft SQL Server Management Studio provides the ability to rapidly write and
       ![Lista över databaser](./media/data-sql-management-studio/db-list.png)
 
 5. Om du vill visa data som associeras med någon av databasvyerna kan du automatiskt generera en select-instruktion genom att följa stegen nedan.
-6. Right-click any of the database views in the Object Explorer.
+6. Högerklicka på någon av databas vyerna i Object Explorer.
 7. Välj **Skriptvy som**.
 8. Välj **SELECT to** (SELECT till).
 9. Välj **Nytt frågeredigeringsfönster**.

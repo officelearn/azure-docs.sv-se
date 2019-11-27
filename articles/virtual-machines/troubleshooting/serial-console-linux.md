@@ -38,7 +38,7 @@ Information om en dokumentation för Windows i serie konsolen finns i [serie kon
 
 - Ditt konto som använder en serie konsol måste ha [rollen virtuell dator deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) för den virtuella datorn och lagrings kontot för [startdiagnostik](boot-diagnostics.md)
 
-- Den virtuella datorn eller den virtuella datorns skalnings uppsättnings instans måste ha en lösenordsbaserad användare. Du kan skapa en med den [Återställ lösenord](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) funktion av access-tillägg för virtuell dator. Välj **Återställ lösenord** från den **Support och felsökning** avsnittet.
+- Den virtuella datorn eller den virtuella datorns skalnings uppsättnings instans måste ha en lösenordsbaserad användare. Du kan skapa en med funktionen [Återställ lösen ord](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) för VM Access-tillägget. Välj **Återställ lösen ord** i avsnittet **support och fel sökning** .
 
 - Startdiagnostik måste vara aktiverat på den virtuella datorn eller [](boot-diagnostics.md) den virtuella datorns skalnings uppsättnings instans.
 
@@ -92,13 +92,13 @@ Som standard har alla prenumerationer åtkomst till seriell konsol. Du kan inakt
 ## <a name="serial-console-security"></a>Seriell konsol-säkerhet
 
 ### <a name="access-security"></a>Åtkomstsäkerhet
-Åtkomst till seriekonsol är begränsad till användare som har en åtkomstroll av [virtuell Datordeltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) eller högre för att den virtuella datorn. Om din Azure Active Directory-klient kräver multifaktorautentisering (MFA) och åtkomst till seriell konsol måste också MFA att Seriell konsol åtkomst sker via det [Azure-portalen](https://portal.azure.com).
+Åtkomst till serie konsolen är begränsad till användare som har åtkomst rollen [virtuell dator deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) eller högre till den virtuella datorn. Om din Azure Active Directory klient kräver Multi-Factor Authentication (MFA) behöver åtkomst till serie konsolen även MFA eftersom den seriella konsolens åtkomst sker via [Azure Portal](https://portal.azure.com).
 
 ### <a name="channel-security"></a>Kanalsäkerhet
 Alla data som skickas fram och tillbaka krypteras under överföringen.
 
 ### <a name="audit-logs"></a>Granskningsloggar
-All åtkomst till seriekonsol för tillfället är inloggad på [startdiagnostik](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) loggarna för den virtuella datorn. Åtkomst till de här loggarna ägs och kontrolleras av administratören för Azure virtuella datorer.
+All åtkomst till serie konsolen är för närvarande inloggad i [Start](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) -diagnostikloggar för den virtuella datorn. Åtkomst till de här loggarna ägs och kontrolleras av administratören för Azure virtuella datorer.
 
 > [!CAUTION]
 > Inga lösenord för åtkomst för konsolen loggas. Men om kommandon körs i konsolen innehåller eller utgående lösenord, hemligheter, användarnamn eller någon annan form av personligt identifierbar information (PII), skrivs de till diagnostikloggar för VM-start. De skrivs tillsammans med alla andra synlig text, som en del av implementeringen av Seriell konsol rullar tillbaka funktion. Dessa loggar är cirkulär och endast personer med läsbehörighet till lagringskontot för diagnostik ha åtkomst till dem. Vi rekommenderar dock följa bästa praxis för att använda Remote Desktop för allt som kan omfatta hemligheter och/eller personligt identifierbar information.
@@ -113,7 +113,7 @@ Om en användare är ansluten till seriekonsol och en annan användare begär ha
 Hjälpmedel är en viktig fokus för Azures serie konsol. Vi har därför säkerställt att serie konsolen är fullständigt tillgänglig.
 
 ### <a name="keyboard-navigation"></a>Tangentbordsnavigering
-Använd den **fliken** på tangentbordet för att navigera i gränssnittet Seriell konsol från Azure-portalen. Din plats kommer vara markerad på skärmen. Om du vill lämna seriekonsolfönstret fokus trycker du på **Ctrl**+**F6** på tangentbordet.
+Använd **TABB** -tangenten på tangent bordet för att navigera i gränssnittet för den seriella konsolen från Azure Portal. Din plats kommer vara markerad på skärmen. Om du vill lämna fönstret för serie konsolen trycker du på **Ctrl**+**F6** på tangent bordet.
 
 ### <a name="use-serial-console-with-a-screen-reader"></a>Använda en-serie konsol med en skärm läsare
 Seriekonsolen har inbyggt stöd för Skärmläsaren. Navigera med en skärmläsare aktiveras kan alternativ text för knappen är markerade som ska läsas upp av Skärmläsaren.
@@ -123,7 +123,7 @@ Vi är medvetna om några problem med serie konsolen och den virtuella datorns o
 
 Problem                           |   Åtgärd
 :---------------------------------|:--------------------------------------------|
-Att trycka på **RETUR** när anslutningen popup-meddelandet inte orsakar en uppmaning som ska visas. | Mer information finns i [Hitting ange ingenting](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Det här problemet kan uppstå om du kör en anpassad virtuell dator, en härdnings apparat eller en GRUB-konfiguration som gör att Linux inte kan ansluta till den seriella porten.
+Om du trycker på **RETUR** efter det att anslutningens banderoll inte leder till att en inloggnings tolk visas. | För mer information, se att [trycka på RETUR gör ingenting](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Det här problemet kan uppstå om du kör en anpassad virtuell dator, en härdnings apparat eller en GRUB-konfiguration som gör att Linux inte kan ansluta till den seriella porten.
 Seriell konsol text tar bara upp en del av skärm storleken (ofta efter att ha använt en text redigerare). | Serie konsoler har inte stöd för förhandling om fönster storlek ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), vilket innebär att ingen SIGWINCH-signal skickas till uppdateringens skärm storlek och att den virtuella datorn inte kommer att ha någon kunskap om din Terminals storlek. Installera xterm eller ett liknande verktyg för att ge dig kommandot `resize` och kör `resize`.
 Klistra in lång sträng fungerar inte. | Seriekonsolen begränsar längden på strängar som klistras in i terminalen för att 2048 tecken för att förhindra överbelastning serieport bandbredd.
 Oförutsägbara inmatade tangenter i SLES BYOS-avbildningar. Tangent bords inskrivning känns bara igen sporadiskt. | Detta är ett problem med Plymouth-paketet. Plymouth bör inte köras i Azure eftersom du inte behöver en välkomst skärm och Plymouth stör plattforms möjligheten att använda serie konsol. Ta bort Plymouth med `sudo zypper remove plymouth` och starta sedan om. Du kan också ändra kernel-raden för GRUB-konfigurationen genom att lägga till `plymouth.enable=0` i slutet av raden. Du kan göra detta genom att [Redigera start posten vid start](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles), eller genom att redigera GRUB_CMDLINE_LINUX rad i `/etc/default/grub`, återskapa GRUB med `grub2-mkconfig -o /boot/grub2/grub.cfg`och sedan starta om.
@@ -133,11 +133,11 @@ Oförutsägbara inmatade tangenter i SLES BYOS-avbildningar. Tangent bords inskr
 
 **F. Hur gör jag för att skicka feedback?**
 
-A. Ge feedback genom att skapa ett GitHub-problem på https://aka.ms/serialconsolefeedback. Du kan också (mindre rekommenderas), kan du skicka feedback via azserialhelp@microsoft.com eller i kategorin virtuell dator för https://feedback.azure.com.
+A. Ge feedback genom att skapa ett GitHub-problem på https://aka.ms/serialconsolefeedback. Alternativt (mindre önskad) kan du skicka feedback via azserialhelp@microsoft.com eller i kategorin virtuell dator för https://feedback.azure.com.
 
 **F. har serie konsolen stöd för kopiera/klistra in?**
 
-A. Ja. Använd **Ctrl**+**SKIFT**+**C** och **Ctrl**+**SKIFT** + **V** kopiera och klistra in i terminalen.
+A. Ja. Använd **Ctrl**+**Shift**+**C** och **CTRL**+**SKIFT**+**V** för att kopiera och klistra in i terminalen.
 
 **F. kan jag använda en serie konsol i stället för en SSH-anslutning?**
 

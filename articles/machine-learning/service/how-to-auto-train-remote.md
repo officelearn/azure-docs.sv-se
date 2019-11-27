@@ -32,7 +32,7 @@ I den här artikeln får du lära dig hur du skapar en modell med hjälp av auto
 
 I självstudien "[träna en klassificerings modell med automatisk maskin inlärning](tutorial-auto-train-models.md)" lär du dig hur du använder en lokal dator för att träna en modell med automatiserad ml. Arbetsflödet när utbildning lokalt gäller även för samt fjärranslutna mål. Men med remote beräkning körs automatiserade iterationer av experiment ML asynkront. Den här funktionen kan du avbryta en viss iteration, se status för körning eller fortsätta att arbeta med andra celler i Jupyter-anteckningsboken. För att kunna träna via fjärr anslutning skapar du först ett fjärrberäknings mål som AmlCompute. Sedan konfigurerar om fjärresursen och skicka koden där.
 
-Den här artikeln visar de extra steg som krävs för att köra ett automatiserat ML-experiment på ett fjärran slutet AmlCompute-mål. Objektet arbetsytan `ws`, från självstudierna används i hela koden här.
+Den här artikeln visar de extra steg som krävs för att köra ett automatiserat ML-experiment på ett fjärran slutet AmlCompute-mål. Objektet arbets yta `ws`från självstudien används i hela koden här.
 
 ```python
 ws = Workspace.from_config()
@@ -62,11 +62,11 @@ compute_target.wait_for_completion(
     show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
 
-Du kan nu använda den `compute_target` -objektet som den fjärranslutna beräkningsmål.
+Du kan nu använda `compute_target`-objektet som fjärrberäknings mål.
 
 Kluster namns begränsningarna är:
 + Måste vara kortare än 64 tecken.
-+ Får inte innehålla följande tecken: `\` ~! @ # $ % ^ & * () = + _ [] {} \\ \\ |;: \' \\”, < > /?. `
++ Det får inte finnas något av följande tecken: `\` ~! @ # $% ^ & * () = + _ [] {} \\\\ |; : \' \\, < >/?. `
 
 ## <a name="access-data-using-tabulardataset-function"></a>Åtkomst till data med funktionen TabularDataset
 
@@ -126,7 +126,7 @@ run_config.environment.python.conda_dependencies = dependencies
 I den här [exempel antecknings boken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb) finns ytterligare ett exempel på det här design mönstret.
 
 ## <a name="configure-experiment"></a>Konfigurera experiment
-Ange inställningar för `AutoMLConfig`.  (Finns i en [fullständig lista över parametrar](how-to-configure-auto-train.md#configure-experiment) och deras möjliga värden.)
+Ange inställningarna för `AutoMLConfig`.  (Se en [fullständig lista över parametrar](how-to-configure-auto-train.md#configure-experiment) och deras möjliga värden.)
 
 ```python
 from azureml.train.automl import AutoMLConfig

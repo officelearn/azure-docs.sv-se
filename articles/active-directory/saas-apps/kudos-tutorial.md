@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Kudos | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Kudos.
+title: 'Självstudie: Azure Active Directory integrering med Kudos | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Kudos.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -22,13 +22,13 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74227472"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-kudos"></a>Tutorial: Azure Active Directory integration with Kudos
+# <a name="tutorial-azure-active-directory-integration-with-kudos"></a>Självstudie: Azure Active Directory integrering med Kudos
 
-In this tutorial, you learn how to integrate Kudos with Azure Active Directory (Azure AD).
-Integrating Kudos with Azure AD provides you with the following benefits:
+I den här självstudien får du lära dig hur du integrerar Kudos med Azure Active Directory (Azure AD).
+Genom att integrera Kudos med Azure AD får du följande fördelar:
 
-* You can control in Azure AD who has access to Kudos.
-* You can enable your users to be automatically signed-in to Kudos (Single Sign-On) with their Azure AD accounts.
+* Du kan styra i Azure AD som har åtkomst till Kudos.
+* Du kan göra det möjligt för användarna att logga in automatiskt till Kudos (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -36,24 +36,24 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="prerequisites"></a>Krav
 
-To configure Azure AD integration with Kudos, you need the following items:
+Om du vill konfigurera Azure AD-integrering med Kudos behöver du följande objekt:
 
-* En Azure AD-prenumeration. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
-* Kudos single sign-on enabled subscription
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/)
+* Kudos-aktiverad prenumeration med enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Kudos supports **SP** initiated SSO
+* Kudos stöder **SP** -INITIERAd SSO
 
-## <a name="adding-kudos-from-the-gallery"></a>Adding Kudos from the gallery
+## <a name="adding-kudos-from-the-gallery"></a>Lägga till Kudos från galleriet
 
-To configure the integration of Kudos into Azure AD, you need to add Kudos from the gallery to your list of managed SaaS apps.
+Om du vill konfigurera integreringen av Kudos i Azure AD måste du lägga till Kudos från galleriet i listan över hanterade SaaS-appar.
 
-**To add Kudos from the gallery, perform the following steps:**
+**Utför följande steg för att lägga till Kudos från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -65,33 +65,33 @@ To configure the integration of Kudos into Azure AD, you need to add Kudos from 
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. In the search box, type **Kudos**, select **Kudos** from result panel then click **Add** button to add the application.
+4. I rutan Sök skriver du **Kudos**, väljer **Kudos** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-     ![Kudos in the results list](common/search-new-app.png)
+     ![Kudos i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-In this section, you configure and test Azure AD single sign-on with Kudos based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in Kudos needs to be established.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Kudos baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i Kudos upprättas.
 
-To configure and test Azure AD single sign-on with Kudos, you need to complete the following building blocks:
+Om du vill konfigurera och testa enkel inloggning med Kudos i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Configure Kudos Single Sign-On](#configure-kudos-single-sign-on)** - to configure the Single Sign-On settings on application side.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+2. **[Konfigurera Kudos-enkel inloggning](#configure-kudos-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Create Kudos test user](#create-kudos-test-user)** - to have a counterpart of Britta Simon in Kudos that is linked to the Azure AD representation of user.
+5. **[Skapa Kudos test User](#create-kudos-test-user)** – om du vill ha en motsvarighet till Britta Simon i Kudos som är länkad till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-To configure Azure AD single sign-on with Kudos, perform the following steps:
+Utför följande steg för att konfigurera enkel inloggning med Kudos i Azure AD:
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Kudos** application integration page, select **Single sign-on**.
+1. Välj **enkel inloggning**på sidan **Kudos** Application Integration i [Azure Portal](https://portal.azure.com/).
 
-    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -103,18 +103,18 @@ To configure Azure AD single sign-on with Kudos, perform the following steps:
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Kudos Domain and URLs single sign-on information](common/sp-signonurl.png)
+    ![Information om enkel inloggning för Kudos-domän och URL: er](common/sp-signonurl.png)
 
-    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<company>.kudosnow.com`
+    I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<company>.kudosnow.com`
 
     > [!NOTE]
-    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Contact [Kudos Client support team](http://success.kudosnow.com/home) to get the value. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Kudos client support team](http://success.kudosnow.com/home) för att hämta värdet. Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-6. On the **Set up Kudos** section, copy the appropriate URL(s) as per your requirement.
+6. I avsnittet **Konfigurera Kudos** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -124,25 +124,25 @@ To configure Azure AD single sign-on with Kudos, perform the following steps:
 
     c. Utloggnings-URL
 
-### <a name="configure-kudos-single-sign-on"></a>Configure Kudos Single Sign-On
+### <a name="configure-kudos-single-sign-on"></a>Konfigurera Kudos enkel inloggning
 
-1. In a different web browser window, sign into your Kudos company site as an administrator.
+1. Logga in på din Kudos-företags webbplats som administratör i ett annat webbläsarfönster.
 
-1. In the menu on the top, click **Settings icon**.
+1. I menyn högst upp klickar du på **ikonen Inställningar**.
 
     ![Inställningar](./media/kudos-tutorial/ic787806.png "Inställningar")
 
-1. Click **Integrations > SSO** and perform the following steps:
+1. Klicka på **integration > SSO** och utför följande steg:
 
-    ![SSO](./media/kudos-tutorial/ic787807.png "SSO")
+    ![DEFINITION](./media/kudos-tutorial/ic787807.png "SSO")
 
-    a. In **Sign on URL** textbox, paste the value of  **Login URL** which you have copied from Azure portal.
+    a. I text rutan för **inloggnings-URL** klistrar du in värdet för **inloggnings-URL: en** som du har kopierat från Azure Portal.
 
-    b. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **X.509 certificate** textbox
+    b. Öppna ditt bas-64-kodade certifikat i anteckningar, kopiera innehållet i det till Urklipp och klistra in det i rutan **X. 509-certifikat**
 
-    c. In **Logout To URL** textbox, paste the value of  **Logout URL** which you have copied from Azure portal.
+    c. I text rutan **Logga ut till URL** klistrar du in värdet för den **utloggnings-URL** som du har kopierat från Azure Portal.
 
-    d. In the **Your Kudos URL** textbox, type your company name.
+    d. Skriv ditt företags namn i text rutan för **din Kudos-URL** .
 
     e. Klicka på **Save** (Spara).
 
@@ -164,7 +164,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. In the **User name** field type `brittasimon@yourcompanydomain.extension`  
+    b. I fältet **användar namn** anger `brittasimon@yourcompanydomain.extension`  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -173,17 +173,17 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Kudos.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Kudos.
 
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Kudos**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **Kudos**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. In the applications list, select **Kudos**.
+2. I listan program väljer du **Kudos**.
 
-    ![The Kudos link in the Applications list](common/all-applications.png)
+    ![Kudos-länken i program listan](common/all-applications.png)
 
-3. I menyn till vänster väljer du **Användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -197,40 +197,40 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-kudos-test-user"></a>Create Kudos test user
+### <a name="create-kudos-test-user"></a>Skapa Kudos test användare
 
-In order to enable Azure AD users to sign in to Kudos, they must be provisioned into Kudos. In the case of Kudos, provisioning is a manual task.
+För att Azure AD-användare ska kunna logga in på Kudos måste de tillhandahållas i Kudos. När det gäller Kudos är etableringen en manuell uppgift.
 
 **Utför följande steg för att etablera ett användarkonto:**
 
-1. Sign in to your **Kudos** company site as administrator.
+1. Logga in på din **Kudos** företags webbplats som administratör.
 
-1. In the menu on the top, click **Settings icon**.
+1. I menyn högst upp klickar du på **ikonen Inställningar**.
 
    ![Inställningar](./media/kudos-tutorial/ic787806.png "Inställningar")
 
-1. Click **User Admin**.
+1. Klicka på **användar administratör**.
 
-1. Click the **Users** tab, and then click **Add a User**.
+1. Klicka på fliken **användare** och sedan på **Lägg till en användare**.
 
-   ![User Admin](./media/kudos-tutorial/ic787809.png "User Admin")
+   ![Användar administratör](./media/kudos-tutorial/ic787809.png "Användar administratör")
 
-1. In the **Add a User** section, perform the following steps:
+1. I avsnittet **Lägg till en användare** utför du följande steg:
 
-    ![Add a User](./media/kudos-tutorial/ic787810.png "Add a User")
+    ![Lägg till en användare](./media/kudos-tutorial/ic787810.png "Lägg till en användare")
 
-    a. Type the **First Name**, **Last Name**, **Email** and other details of a valid Azure Active Directory account you want to provision into the related textboxes.
+    a. Ange **förnamn**, **efter namn**, **e-post** och annan information om ett giltigt Azure Active Directory-konto som du vill etablera i de relaterade text rutorna.
 
     b. Klicka på **Skapa användare**.
 
 > [!NOTE]
-> You can use any other Kudos user account creation tools or APIs provided by Kudos to provision Azure AD user accounts.
+> Du kan använda andra verktyg för Kudos av användar konton eller API: er som tillhandahålls av Kudos för att etablera Azure AD-användarkonton.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-When you click the Kudos tile in the Access Panel, you should be automatically signed in to the Kudos for which you set up SSO. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på panelen Kudos på åtkomst panelen, bör du loggas in automatiskt på den Kudos som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -238,4 +238,4 @@ When you click the Kudos tile in the Access Panel, you should be automatically s
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

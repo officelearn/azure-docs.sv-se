@@ -48,7 +48,7 @@ Kontrollera att du har följande för genomföra den här snabbstarten:
 
 [!INCLUDE [iOS Unity Build Settings](../../../includes/spatial-anchors-unity-ios-build-settings.md)]
 
-## <a name="configure-account-identifier-and-key"></a>Konfigurera konto-ID och -nyckel
+## <a name="configure-account-identifier-and-key"></a>Konfigurera kontoidentifierare och nyckel
 
 I fönstret **Projekt** går du till `Assets/AzureSpatialAnchors.Examples/Scenes` och öppnar scenfilen `AzureSpatialAnchorsBasicDemo.unity`.
 

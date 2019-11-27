@@ -1,6 +1,6 @@
 ---
-title: Use Microsoft identity platform to sign in users using resource owner password credential (ROPC) grant | Azure
-description: Support browser-less authentication flows using the resource owner password credential grant.
+title: Använd Microsoft Identity Platform för att logga in användare som använder ROPC-beviljande (Resource Owner Password Credential) | Azure
+description: Stöd webbläsare – mindre autentiseringar flödar med hjälp av autentiseringsuppgifter för resurs ägarens lösen ord.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -24,34 +24,34 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74207771"
 ---
-# <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credentials"></a>Microsoft identity platform and the OAuth 2.0 Resource Owner Password Credentials
+# <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credentials"></a>Microsoft Identity Platform och OAuth-autentiseringsuppgifter för resurs ägar lösen ord för OAuth 2,0
 
-Microsoft identity platform supports the [OAuth 2.0 Resource Owner Password Credentials (ROPC) grant](https://tools.ietf.org/html/rfc6749#section-4.3), which allows an application to sign in the user by directly handling their password.  This article describes how to program directly against the protocol in your application.  When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL) instead to [acquire tokens and call secured web APIs](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Also take a look at the [sample apps that use MSAL](sample-v2-code.md).
+Microsoft Identity Platform stöder [OAuth 2,0-ROPC (Resource Owner Password Credential)](https://tools.ietf.org/html/rfc6749#section-4.3)som gör att ett program kan logga in användaren genom att direkt hantera lösen ordet.  Den här artikeln beskriver hur du programmerar direkt mot protokollet i ditt program.  När det är möjligt rekommenderar vi att du använder MSAL (Microsoft Authentication Libraries) i stället för att [Hämta tokens och anropa säkra webb-API: er](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Ta också en titt på de [exempel appar som använder MSAL](sample-v2-code.md).
 
 > [!WARNING]
-> Microsoft recommends you do _not_ use the ROPC flow. In most scenarios, more secure alternatives are available and recommended. This flow requires a very high degree of trust in the application, and carries risks which are not present in other flows. You should only use this flow when other more secure flows can't be used.
+> Microsoft rekommenderar att du _inte_ använder ROPC-flödet. I de flesta fall är fler säkra alternativ tillgängliga och rekommenderade. Det här flödet kräver en mycket hög förtroende nivå i programmet och medför risker som inte finns i andra flöden. Du bör endast använda det här flödet när det inte går att använda andra säkrare flöden.
 
 > [!IMPORTANT]
 >
-> * The Microsoft identity platform endpoint only supports ROPC for Azure AD tenants, not personal accounts. This means that you must use a tenant-specific endpoint (`https://login.microsoftonline.com/{TenantId_or_Name}`) or the `organizations` endpoint.
-> * Personal accounts that are invited to an Azure AD tenant can't use ROPC.
-> * Accounts that don't have passwords can't sign in through ROPC. For this scenario, we recommend that you use a different flow for your app instead.
-> * If users need to use multi-factor authentication (MFA) to log in to the application, they will be blocked instead.
-> * ROPC is not supported in [hybrid identity federation](/azure/active-directory/hybrid/whatis-fed) scenarios (for example, Azure AD and ADFS used to authenticate on-premises accounts). If users are full-page redirected to an on-premises identity providers, Azure AD is not able to test the username and password against that identity provider. [Pass-through authentication](/azure/active-directory/hybrid/how-to-connect-pta) is supported with ROPC, however.
+> * Slut punkten för Microsoft Identity Platform stöder endast ROPC för Azure AD-klienter, inte personliga konton. Det innebär att du måste använda en klient-/regionsspecifika slut punkt (`https://login.microsoftonline.com/{TenantId_or_Name}`) eller `organizations` slut punkten.
+> * Personliga konton som bjuds in till en Azure AD-klient kan inte använda ROPC.
+> * Konton som inte har lösen ord kan inte logga in via ROPC. I det här scenariot rekommenderar vi att du använder ett annat flöde för appen i stället.
+> * Om användarna behöver använda Multi-Factor Authentication (MFA) för att logga in i programmet kommer de att blockeras i stället.
+> * ROPC stöds inte i scenarier med [hybrid identitets Federation](/azure/active-directory/hybrid/whatis-fed) (till exempel Azure AD och ADFS som används för att autentisera lokala konton). Om användarna är fulla omdirigerade till en lokal identitets leverantör kan inte Azure AD testa användar namn och lösen ord mot identitets leverantören. [Direktautentisering](/azure/active-directory/hybrid/how-to-connect-pta) stöds med ROPC, men.
 
-## <a name="protocol-diagram"></a>Protocol diagram
+## <a name="protocol-diagram"></a>Protokoll diagram
 
-The following diagram shows the ROPC flow.
+I följande diagram visas ROPC-flödet.
 
-![Diagram showing the resource owner password credential flow](./media/v2-oauth2-ropc/v2-oauth-ropc.svg)
+![Diagram som visar autentiseringsuppgifter för resurs ägarens lösen ord](./media/v2-oauth2-ropc/v2-oauth-ropc.svg)
 
-## <a name="authorization-request"></a>Authorization request
+## <a name="authorization-request"></a>Auktoriseringsbegäran
 
-The ROPC flow is a single request: it sends the client identification and user's credentials to the IDP, and then receives tokens in return. The client must request the user's email address (UPN) and password before doing so. Immediately after a successful request, the client should securely release the user's credentials from memory. It must never save them.
+ROPC-flödet är en enskild begäran: den skickar klient identifieringen och användarens autentiseringsuppgifter till IDP och tar sedan emot tokens i retur. Klienten måste begära användarens e-postadress (UPN) och lösen ord innan du gör detta. Omedelbart efter en lyckad begäran bör klienten på ett säkert sätt släppa användarens autentiseringsuppgifter från minnet. Det får aldrig spara dem.
 
 > [!TIP]
-> Try executing this request in Postman!
-> [![Try running this request in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Försök att köra denna begäran i Postman!
+> [Försök att köra denna begäran i Postman ![](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 
 ```
@@ -70,18 +70,18 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parameter | Tillstånd | Beskrivning |
 | --- | --- | --- |
-| `tenant` | Krävs | The directory tenant that you want to log the user into. This can be in GUID or friendly name format. This parameter can't be set to `common` or `consumers`, but may be set to `organizations`. |
-| `client_id` | Krävs | The Application (client) ID that the [Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page assigned to your app. | 
-| `grant_type` | Krävs | Must be set to `password`. |
-| `username` | Krävs | The user's email address. |
-| `password` | Krävs | The user's password. |
-| `scope` | Rekommenderad | A space-separated list of [scopes](v2-permissions-and-consent.md), or permissions, that the app requires. In an interactive flow, the admin or the user must consent to these scopes ahead of time. |
-| `client_secret`| Sometimes required | If your app is a public client, then the `client_secret` or `client_assertion` cannot be included.  If the app is a confidential client, then it must be included. | 
-| `client_assertion` | Sometimes required | A different form of `client_secret`, generated using a certificate.  See [certificate credentials](active-directory-certificate-credentials.md) for more details. | 
+| `tenant` | Krävs | Den katalog klient som du vill logga in användaren i. Detta kan vara i ett GUID eller eget namn format. Den här parametern kan inte anges till `common` eller `consumers`, men kan vara inställd på `organizations`. |
+| `client_id` | Krävs | Det program (klient)-ID som den [Azure Portal-Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan har tilldelats till din app. | 
+| `grant_type` | Krävs | Måste anges till `password`. |
+| `username` | Krävs | Användarens e-postadress. |
+| `password` | Krävs | Användarens lösen ord. |
+| `scope` | Rekommenderas | En blankstegsavgränsad lista med [omfattningar](v2-permissions-and-consent.md)eller behörigheter som appen kräver. I ett interaktivt flöde måste administratören eller användaren samtycka till dessa omfattningar i förväg. |
+| `client_secret`| Krävs ibland | Om din app är en offentlig klient kan `client_secret` eller `client_assertion` inte tas med.  Om appen är en konfidentiell klient måste den tas med. | 
+| `client_assertion` | Krävs ibland | En annan form av `client_secret`som genereras med hjälp av ett certifikat.  Se [autentiseringsuppgifter för certifikat](active-directory-certificate-credentials.md) för mer information. | 
 
-### <a name="successful-authentication-response"></a>Successful authentication response
+### <a name="successful-authentication-response"></a>Godkänt autentiserings svar
 
-The following example shows a successful token response:
+I följande exempel visas ett lyckat svar på token:
 
 ```json
 {
@@ -96,25 +96,25 @@ The following example shows a successful token response:
 
 | Parameter | Format | Beskrivning |
 | --------- | ------ | ----------- |
-| `token_type` | Sträng | Always set to `Bearer`. |
-| `scope` | Space separated strings | If an access token was returned, this parameter lists the scopes the access token is valid for. |
-| `expires_in`| int | Number of seconds that the included access token is valid for. |
-| `access_token`| Opaque string | Issued for the [scopes](v2-permissions-and-consent.md) that were requested. |
-| `id_token` | JWT | Issued if the original `scope` parameter included the `openid` scope. |
-| `refresh_token` | Opaque string | Issued if the original `scope` parameter included `offline_access`. |
+| `token_type` | Sträng | Ange alltid till `Bearer`. |
+| `scope` | Separerade blankstegsavgränsad strängar | Om en åtkomsttoken returnerades listar den här parametern de omfattningar som åtkomsttoken är giltig för. |
+| `expires_in`| int | Antal sekunder som den inkluderade åtkomsttoken är giltig för. |
+| `access_token`| Ogenomskinlig sträng | Utfärdat för de [omfattningar](v2-permissions-and-consent.md) som begärdes. |
+| `id_token` | JWT | Utfärdas om den ursprungliga `scope`-parametern innehöll `openid`s området. |
+| `refresh_token` | Ogenomskinlig sträng | Utfärdas om den ursprungliga `scope` parametern ingår `offline_access`. |
 
-You can use the refresh token to acquire new access tokens and refresh tokens using the same flow described in the [OAuth Code flow documentation](v2-oauth2-auth-code-flow.md#refresh-the-access-token).
+Du kan använda uppdateringstoken för att hämta nya åtkomsttoken och uppdatera tokens med samma flöde som beskrivs i [dokumentationen för OAuth-kod flödet](v2-oauth2-auth-code-flow.md#refresh-the-access-token).
 
-### <a name="error-response"></a>Error response
+### <a name="error-response"></a>Fel svar
 
-If the user hasn't provided the correct username or password, or the client hasn't received the requested consent, authentication will fail.
+Om användaren inte har angett rätt användar namn eller lösen ord, eller om klienten inte har fått det begärda godkännandet, kommer autentiseringen att Miss sen.
 
-| Fel | Beskrivning | Client action |
+| Fel | Beskrivning | Klient åtgärd |
 |------ | ----------- | -------------|
-| `invalid_grant` | The authentication failed | The credentials were incorrect or the client doesn't have consent for the requested scopes. If the scopes aren't granted, a `consent_required` error will be returned. If this occurs, the client should send the user to an interactive prompt using a webview or browser. |
-| `invalid_request` | The request was improperly constructed | The grant type isn't supported on the `/common` or `/consumers` authentication contexts.  Use `/organizations` or a tenant ID instead. |
+| `invalid_grant` | Autentiseringen misslyckades | Autentiseringsuppgifterna var felaktiga eller så har klienten inte tillstånd för de begärda omfattningarna. Om omfången inte beviljas returneras ett `consent_required` fel. Om detta inträffar ska klienten skicka användaren till en interaktiv prompt med en webbvy eller webbläsare. |
+| `invalid_request` | Begäran har inte konstruerats korrekt | Anslags typen stöds inte på `/common` eller `/consumers` autentiserings kontexter.  Använd `/organizations` eller ett klient-ID i stället. |
 
 ## <a name="learn-more"></a>Läs mer
 
-* Try out ROPC for yourself using the [sample console application](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2).
-* To determine whether you should use the v2.0 endpoint, read about [Microsoft identity platform limitations](active-directory-v2-limitations.md).
+* Testa ROPC för dig själv med [exempel konsol programmet](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2).
+* För att avgöra om du ska använda v 2.0-slutpunkten läser du om [begränsningar för Microsoft Identity Platform](active-directory-v2-limitations.md).

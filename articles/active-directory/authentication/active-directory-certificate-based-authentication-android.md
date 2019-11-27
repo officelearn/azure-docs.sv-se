@@ -1,6 +1,6 @@
 ---
-title: Android certificate-based authentication - Azure Active Directory
-description: Learn about the supported scenarios and the requirements for configuring certificate-based authentication in solutions with Android devices
+title: Autentisering baserad på Android-certifikat Azure Active Directory
+description: Lär dig mer om de scenarier som stöds och kraven för att konfigurera certifikatbaserad autentisering i lösningar med Android-enheter
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -18,66 +18,66 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74381990"
 ---
-# <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Azure Active Directory certificate-based authentication on Android
+# <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Azure Active Directory certifikatbaserad autentisering på Android
 
-Android devices can use certificate-based authentication (CBA) to authenticate to Azure Active Directory using a client certificate on their device when connecting to:
+Android-enheter kan använda certifikatbaserad autentisering (CBA) för att autentisera till Azure Active Directory att använda ett klient certifikat på sin enhet vid anslutning till:
 
-* Office mobile applications such as Microsoft Outlook and Microsoft Word
-* Exchange ActiveSync (EAS) clients
+* Office Mobile-program som Microsoft Outlook och Microsoft Word
+* Exchange ActiveSync-klienter (EAS)
 
-Configuring this feature eliminates the need to enter a username and password combination into certain mail and Microsoft Office applications on your mobile device.
+Genom att konfigurera den här funktionen slipper du ange en kombination av användar namn och lösen ord i vissa e-post-och Microsoft Office program på din mobila enhet.
 
-This topic provides you with the requirements and the supported scenarios for configuring CBA on an iOS(Android) device for users of tenants in Office 365 Enterprise, Business, Education, US Government, China, and Germany plans.
+Det här avsnittet innehåller kraven och de scenarier som stöds för att konfigurera CBA på en iOS-enhet (Android) för användare av klienter i Office 365 Enterprise, Business, Education, amerikanska myndigheter, Kina och tyska planer.
 
-This feature is available in preview in Office 365 US Government Defense and Federal plans.
+Den här funktionen är tillgänglig i för hands versionen i Office 365 amerikanska myndigheter och federala planer.
 
-## <a name="microsoft-mobile-applications-support"></a>Microsoft mobile applications support
+## <a name="microsoft-mobile-applications-support"></a>Stöd för Microsoft Mobile Applications
 
-| Appar | Support |
+| Program | Support |
 | --- | --- |
-| Azure Information Protection app |![Check mark signifying support for this application][1] |
-| Intune Company Portal |![Check mark signifying support for this application][1] |
-| Microsoft Teams |![Check mark signifying support for this application][1] |
-| OneNote |![Check mark signifying support for this application][1] |
-| OneDrive |![Check mark signifying support for this application][1] |
-| Outlook |![Check mark signifying support for this application][1] |
-| Power BI |![Check mark signifying support for this application][1] |
-| Skype för företag |![Check mark signifying support for this application][1] |
-| Word / Excel / PowerPoint |![Check mark signifying support for this application][1] |
-| Yammer |![Check mark signifying support for this application][1] |
+| Azure Information Protection app |![Bock för att ange stöd för det här programmet][1] |
+| Intune-företagsportal |![Bock för att ange stöd för det här programmet][1] |
+| Microsoft Teams |![Bock för att ange stöd för det här programmet][1] |
+| OneNote |![Bock för att ange stöd för det här programmet][1] |
+| OneDrive |![Bock för att ange stöd för det här programmet][1] |
+| Outlook |![Bock för att ange stöd för det här programmet][1] |
+| Power BI |![Bock för att ange stöd för det här programmet][1] |
+| Skype för företag |![Bock för att ange stöd för det här programmet][1] |
+| Word/Excel/PowerPoint |![Bock för att ange stöd för det här programmet][1] |
+| Yammer |![Bock för att ange stöd för det här programmet][1] |
 
-### <a name="implementation-requirements"></a>Implementation requirements
+### <a name="implementation-requirements"></a>Implementerings krav
 
-The device OS version must be Android 5.0 (Lollipop) and above.
+Enhetens OS-version måste vara Android 5,0 (Lollipop) och högre.
 
-A federation server must be configured.
+En Federations Server måste konfigureras.
 
-For Azure Active Directory to revoke a client certificate, the ADFS token must have the following claims:
+För att Azure Active Directory återkalla ett klient certifikat måste ADFS-token ha följande anspråk:
 
-* `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>` (The serial number of the client certificate)
-* `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>` (The string for the issuer of the client certificate)
+* `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>` (serie numret för klient certifikatet)
+* `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>` (strängen för utfärdaren av klient certifikatet)
 
-Azure Active Directory adds these claims to the refresh token if they are available in the ADFS token (or any other SAML token). When the refresh token needs to be validated, this information is used to check the revocation.
+Azure Active Directory lägger till dessa anspråk till uppdateringstoken om de är tillgängliga i ADFS-token (eller någon annan SAML-token). När uppdateringstoken behöver verifieras används den här informationen för att kontrol lera återkallning.
 
-As a best practice, you should update your organization's ADFS error pages with the following information:
+Vi rekommenderar att du uppdaterar organisationens ADFS-felsidor med följande information:
 
-* The requirement for installing the Microsoft Authenticator on Android.
-* Instructions on how to get a user certificate.
+* Kravet på att installera Microsoft Authenticator på Android.
+* Instruktioner om hur du hämtar ett användar certifikat.
 
-For more information, see [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx).
+Mer information finns i [anpassa AD FS inloggnings sidor](https://technet.microsoft.com/library/dn280950.aspx).
 
-Some Office apps (with modern authentication enabled) send ‘*prompt=login*’ to Azure AD in their request. By default, Azure AD translates ‘*prompt=login*’ in the request to ADFS as ‘*wauth=usernamepassworduri*’ (asks ADFS to do U/P Auth) and ‘*wfresh=0*’ (asks ADFS to ignore SSO state and do a fresh authentication). If you want to enable certificate-based authentication for these apps, you need to modify the default Azure AD behavior. Set the ‘*PromptLoginBehavior*’ in your federated domain settings to ‘*Disabled*‘.
-You can use the [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) cmdlet to perform this task:
+Vissa Office-appar (med modern autentisering aktive rad) skicka '*prompt = inloggning*' till Azure AD i sin begäran. Som standard översätter Azure AD "*prompt = login*" i begäran till ADFS som "*WAUTH = usernamepassworduri*" (uppmanar ADFS att göra U/P auth) och "*wfresh = 0*" (uppmanar ADFS att ignorera SSO-tillstånd och gör en ny autentisering). Om du vill aktivera certifikatbaserad autentisering för de här apparna måste du ändra standard beteendet för Azure AD. Ange "*PromptLoginBehavior*" i dina federerade domän inställningar till "*inaktive rad*".
+Du kan använda [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) -cmdlet: en för att utföra den här uppgiften:
 
 `Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled`
 
-## <a name="exchange-activesync-clients-support"></a>Exchange ActiveSync clients support
+## <a name="exchange-activesync-clients-support"></a>Stöd för Exchange ActiveSync-klienter
 
-Certain Exchange ActiveSync applications on Android 5.0 (Lollipop) or later are supported. To determine if your email application does support this feature, contact your application developer.
+Vissa Exchange ActiveSync-program på Android 5,0 (Lollipop) eller senare stöds. Kontakta programutvecklaren för att ta reda på om ditt e-postprogram stöder den här funktionen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-If you want to configure certificate-based authentication in your environment, see [Get started with certificate-based authentication on Android](active-directory-certificate-based-authentication-get-started.md) for instructions.
+Om du vill konfigurera certifikatbaserad autentisering i din miljö, se [Kom igång med certifikatbaserad autentisering på Android](active-directory-certificate-based-authentication-get-started.md) för instruktioner.
 
 <!--Image references-->
 [1]: ./media/active-directory-certificate-based-authentication-android/ic195031.png

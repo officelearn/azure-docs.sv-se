@@ -1,6 +1,6 @@
 ---
-title: Set up staging environments for web apps in Azure App Service | Microsoft Docs
-description: Learn how to use staged publishing for web apps in Azure App Service.
+title: Konfigurera mellanlagrings miljöer för webbappar i Azure App Service | Microsoft Docs
+description: Lär dig hur du använder mellanlagrad publicering för webb program i Azure App Service.
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -22,188 +22,188 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74382269"
 ---
-# <a name="set-up-staging-environments-in-azure-app-service"></a>Set up staging environments in Azure App Service
+# <a name="set-up-staging-environments-in-azure-app-service"></a>Konfigurera mellanlagrings miljöer i Azure App Service
 <a name="Overview"></a>
 
-When you deploy your web app, web app on Linux, mobile back end, or API app to [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714), you can use a separate deployment slot instead of the default production slot when you're running in the **Standard**, **Premium**, or **Isolated** App Service plan tier. Deployment slots are live apps with their own host names. App content and configurations elements can be swapped between two deployment slots, including the production slot. 
+När du distribuerar din webbapp, webbapp på Linux, mobil Server del eller API-app till [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)kan du använda en separat distributions plats i stället för standard produktions platsen när du kör som **standard**, **Premium**eller **isolerad** App Service plan nivå. Distributions platser är Live-appar med sina egna värdnamn. App-innehåll och konfigurations element kan växlas mellan två distributions platser, inklusive produktions platsen. 
 
-Deploying your application to a non-production slot has the following benefits:
+Distribution av ditt program till en icke-produktions plats har följande fördelar:
 
-* You can validate app changes in a staging deployment slot before swapping it with the production slot.
-* Deploying an app to a slot first and swapping it into production makes sure that all instances of the slot are warmed up before being swapped into production. This eliminates downtime when you deploy your app. The traffic redirection is seamless, and no requests are dropped because of swap operations. You can automate this entire workflow by configuring [auto swap](#Auto-Swap) when pre-swap validation isn't needed.
-* After a swap, the slot with previously staged app now has the previous production app. If the changes swapped into the production slot aren't as you expect, you can perform the same swap immediately to get your "last known good site" back.
+* Du kan validera ändringar av appar på en mellanlagrings plats innan du växlar med produktions platsen.
+* Om du distribuerar en app till en plats och byter ut den till produktion ser du till att alla instanser av facket har värmts upp innan du växlar till produktion. Detta eliminerar nedtid när du distribuerar din app. Omdirigeringen av trafiken är sömlös och inga förfrågningar tas bort på grund av växlings åtgärder. Du kan automatisera hela arbets flödet genom att konfigurera [Automatisk växling](#Auto-Swap) när det inte behövs för verifiering före växling.
+* Efter en växling har facket med den tidigare mellanlagrade appen nu den tidigare produktions appen. Om ändringarna som utbyts till produktions platsen inte är som du förväntar dig kan du utföra samma växling direkt för att få tillbaka din "senast fungerande webbplats".
 
-Each App Service plan tier supports a different number of deployment slots. There's no additional charge for using deployment slots. To find out the number of slots your app's tier supports, see [App Service limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits). 
+Varje App Service plan nivå har stöd för ett annat antal distributions platser. Det kostar inget extra att använda distributions platser. För att ta reda på antalet platser som din apps-nivå stöder, se [App Service gränser](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits). 
 
-To scale your app to a different tier, make sure that the target tier supports the number of slots your app already uses. For example, if your app has more than five slots, you can't scale it down to the **Standard** tier, because the **Standard** tier supports only five deployment slots. 
+Om du vill skala din app till en annan nivå ser du till att mål nivån stöder antalet platser som appen redan använder. Om din app till exempel har fler än fem platser kan du inte skala ned den till **standard** nivån eftersom **standard** nivån endast stöder fem distributions fack. 
 
 <a name="Add"></a>
 
-## <a name="add-a-slot"></a>Add a slot
-The app must be running in the **Standard**, **Premium**, or **Isolated** tier in order for you to enable multiple deployment slots.
+## <a name="add-a-slot"></a>Lägg till en plats
+Appen måste köras på nivån **standard**, **Premium**eller **isolerad** för att du ska kunna aktivera flera distributions platser.
 
-1. In the [Azure portal](https://portal.azure.com/), open your app's [resource page](../azure-resource-manager/manage-resources-portal.md#manage-resources).
+1. Öppna appens [resurs sida](../azure-resource-manager/manage-resources-portal.md#manage-resources)i [Azure Portal](https://portal.azure.com/).
 
-2. In the left pane, select **Deployment slots** > **Add Slot**.
+2. I det vänstra fönstret väljer du **distributions platser** > **Lägg till plats**.
    
-    ![Add a new deployment slot](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
+    ![Lägg till en ny distributions plats](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
    
    > [!NOTE]
-   > If the app isn't already in the **Standard**, **Premium**, or **Isolated** tier, you receive a message that indicates the supported tiers for enabling staged publishing. At this point, you have the option to select **Upgrade** and go to the **Scale** tab of your app before continuing.
+   > Om appen inte redan finns på **standard**-, **Premium**-eller den **isolerade** nivån får du ett meddelande som anger vilka nivåer som stöds för aktivering av mellanlagrad publicering. Nu har du möjlighet att välja **uppgradering** och gå till fliken **Scale (skala** ) i appen innan du fortsätter.
    > 
 
-3. In the **Add a slot** dialog box, give the slot a name, and select whether to clone an app configuration from another deployment slot. Select **Add** to continue.
+3. I dialog rutan **Lägg till en plats** anger du platsens namn och anger om du vill klona en app-konfiguration från en annan distributions plats. Välj **Lägg till** för att fortsätta.
    
-    ![Configuration source](./media/web-sites-staged-publishing/ConfigurationSource1.png)
+    ![Konfigurations källa](./media/web-sites-staged-publishing/ConfigurationSource1.png)
    
-    You can clone a configuration from any existing slot. Settings that can be cloned include app settings, connection strings, language framework versions, web sockets, HTTP version, and platform bitness.
+    Du kan klona en konfiguration från en befintlig plats. Inställningar som kan klonas är inställningar för appar, anslutnings strängar, språk Ramverks versioner, Web Sockets, HTTP-version och plattforms bitness.
 
-4. After the slot is added, select **Close** to close the dialog box. The new slot is now shown on the **Deployment slots** page. By default, **Traffic %** is set to 0 for the new slot, with all customer traffic routed to the production slot.
+4. När platsen har lagts till väljer du **Stäng** för att stänga dialog rutan. Den nya platsen visas nu på sidan **distributions platser** . Som standard är **trafik%** inställd på 0 för den nya platsen, där all kund trafik dirigeras till produktions platsen.
 
-5. Select the new deployment slot to open that slot's resource page.
+5. Välj den nya distributions platsen för att öppna platsens resurs sida.
    
-    ![Deployment slot title](./media/web-sites-staged-publishing/StagingTitle.png)
+    ![Rubrik för distributions plats](./media/web-sites-staged-publishing/StagingTitle.png)
 
-    The staging slot has a management page just like any other App Service app. You can change the slot's configuration. The name of the slot is shown at the top of the page to remind you that you're viewing the deployment slot.
+    Mellanlagringsplatsen har en hanterings sida precis som andra App Service-appar. Du kan ändra platsens konfiguration. Namnet på facket visas längst upp på sidan för att påminna dig om att du visar distributions platsen.
 
-6. Select the app URL on the slot's resource page. The deployment slot has its own host name and is also a live app. To limit public access to the deployment slot, see [Azure App Service IP restrictions](app-service-ip-restrictions.md).
+6. Välj appens URL på platsens resurs sida. Distributions platsen har sitt eget värdnamn och är även en Live-app. Information om hur du begränsar offentlig åtkomst till distributions platsen finns i [Azure App Service IP-begränsningar](app-service-ip-restrictions.md).
 
-The new deployment slot has no content, even if you clone the settings from a different slot. For example, you can [publish to this slot with Git](app-service-deploy-local-git.md). You can deploy to the slot from a different repository branch or a different repository. 
+Den nya distributions platsen har inget innehåll, även om du klonar inställningarna från en annan plats. Du kan till exempel [Publicera till den här platsen med git](app-service-deploy-local-git.md). Du kan distribuera till platsen från en annan databas gren eller en annan lagrings plats. 
 
 <a name="AboutConfiguration"></a>
 
-## <a name="what-happens-during-a-swap"></a>What happens during a swap
+## <a name="what-happens-during-a-swap"></a>Vad händer under en växling
 
-### <a name="swap-operation-steps"></a>Swap operation steps
+### <a name="swap-operation-steps"></a>Steg för växlings åtgärd
 
-When you swap two slots (usually from a staging slot into the production slot), App Service does the following to ensure that the target slot doesn't experience downtime:
+När du växlar två platser (vanligt vis från en mellanlagringsplats till produktions platsen) gör App Service följande för att se till att mål platsen inte upplever drift stopp:
 
-1. Apply the following settings from the target slot (for example, the production slot) to all instances of the source slot: 
-    - [Slot-specific](#which-settings-are-swapped) app settings and connection strings, if applicable.
-    - [Continuous deployment](deploy-continuous-deployment.md) settings, if enabled.
-    - [App Service authentication](overview-authentication-authorization.md) settings, if enabled.
+1. Använd följande inställningar från mål platsen (till exempel produktions platsen) till alla instanser av käll platsen: 
+    - [Platsspecifika appinställningar och](#which-settings-are-swapped) anslutnings strängar, om tillämpligt.
+    - Inställningar för [kontinuerlig distribution](deploy-continuous-deployment.md) , om aktive rad.
+    - [App Service autentiseringsinställningarna](overview-authentication-authorization.md) om det är aktiverat.
     
-    Any of these cases trigger all instances in the source slot to restart. During [swap with preview](#Multi-Phase), this marks the end of the first phase. The swap operation is paused, and you can validate that the source slot works correctly with the target slot's settings.
+    Alla dessa fall utlöser alla instanser på käll platsen för omstart. Vid [växling med förhands granskning](#Multi-Phase)markerar detta slutet av den första fasen. Växlings åtgärden har pausats och du kan kontrol lera att käll platsen fungerar korrekt med mål platsens inställningar.
 
-1. Wait for every instance in the source slot to complete its restart. If any instance fails to restart, the swap operation reverts all changes to the source slot and stops the operation.
+1. Vänta tills varje instans på käll platsen har startats om. Om någon instans inte kan starta om återställer växlings åtgärden alla ändringar till käll platsen och stoppar åtgärden.
 
-1. If [local cache](overview-local-cache.md) is enabled, trigger local cache initialization by making an HTTP request to the application root ("/") on each instance of the source slot. Wait until each instance returns any HTTP response. Local cache initialization causes another restart on each instance.
+1. Om [lokal cache](overview-local-cache.md) har Aktiver ATS utlöser du initiering av lokalt cacheminne genom att göra en http-begäran till program roten ("/") på varje instans av käll platsen. Vänta tills varje instans returnerar HTTP-svar. Initiering av lokal cache orsakar en omstart av varje instans.
 
-1. If [auto swap](#Auto-Swap) is enabled with [custom warm-up](#Warm-up), trigger [Application Initiation](https://docs.microsoft.com/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) by making an HTTP request to the application root ("/") on each instance of the source slot.
+1. Om [Automatisk växling](#Auto-Swap) har Aktiver ATS med [anpassad uppvärmning](#Warm-up), Utlös [program initiering](https://docs.microsoft.com/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) genom att göra en http-begäran till program roten ("/") på varje instans av käll platsen.
 
-    If `applicationInitialization` isn't specified, trigger an HTTP request to the application root of the source slot on each instance. 
+    Om `applicationInitialization` inte anges utlöses en HTTP-begäran till käll platsens program rot på varje instans. 
     
-    If an instance returns any HTTP response, it's considered to be warmed up.
+    Om en instans returnerar ett HTTP-svar anses det vara värmat.
 
-1. If all instances on the source slot are warmed up successfully, swap the two slots by switching the routing rules for the two slots. After this step, the target slot (for example, the production slot) has the app that's previously warmed up in the source slot.
+1. Om alla instanser på käll platsen har värmts upp korrekt byter du ut de två platserna genom att växla routningsregler för de två platserna. Efter det här steget har mål platsen (till exempel produktions platsen) den app som tidigare har förvärmts på käll platsen.
 
-1. Now that the source slot has the pre-swap app previously in the target slot, perform the same operation by applying all settings and restarting the instances.
+1. Nu när käll platsen har för hands växlings appen tidigare på mål platsen, utför du samma åtgärd genom att tillämpa alla inställningar och starta om instanserna.
 
-At any point of the swap operation, all work of initializing the swapped apps happens on the source slot. The target slot remains online while the source slot is being prepared and warmed up, regardless of where the swap succeeds or fails. To swap a staging slot with the production slot, make sure that the production slot is always the target slot. This way, the swap operation doesn't affect your production app.
+När som helst i växlings åtgärden sker allt arbete vid initiering av de växlade apparna på käll platsen. Mål platsen är online medan käll platsen förbereds och förvärmas, oavsett var växlingen lyckas eller Miss lyckas. Om du vill byta mellan en mellanlagringsplats med produktions platsen kontrollerar du att produktions platsen alltid är mål platsen. På så sätt kommer växlings åtgärden inte att påverka din produktions program.
 
-### <a name="which-settings-are-swapped"></a>Which settings are swapped?
+### <a name="which-settings-are-swapped"></a>Vilka inställningar byts ut?
 
 [!INCLUDE [app-service-deployment-slots-settings](../../includes/app-service-deployment-slots-settings.md)]
 
-To configure an app setting or connection string to stick to a specific slot (not swapped), go to the **Configuration** page for that slot. Add or edit a setting, and then select **deployment slot setting**. Selecting this check box tells App Service that the setting is not swappable. 
+Om du vill konfigurera en app-inställning eller anslutnings sträng för att fästa mot en angiven plats (som inte växlas) går du till sidan **konfiguration** för den platsen. Lägg till eller redigera en inställning och välj sedan **distributions plats inställning**. Om du markerar den här kryss rutan visas App Service att inställningen inte kan växlas. 
 
-![Slot setting](./media/web-sites-staged-publishing/SlotSetting.png)
+![Plats inställning](./media/web-sites-staged-publishing/SlotSetting.png)
 
 <a name="Swap"></a>
 
-## <a name="swap-two-slots"></a>Swap two slots 
-You can swap deployment slots on your app's **Deployment slots** page and the **Overview** page. For technical details on the slot swap, see [What happens during swap](#AboutConfiguration).
+## <a name="swap-two-slots"></a>Växla två platser 
+Du kan växla distributions platser på sidan **distributions platser** för appar och **översikts** sidan. Teknisk information om plats växlingen finns i [vad som händer under växlingen](#AboutConfiguration).
 
 > [!IMPORTANT]
-> Before you swap an app from a deployment slot into production, make sure that production is your target slot and that all settings in the source slot are configured exactly as you want to have them in production.
+> Innan du byter ut en app från en distributions plats i produktion kontrollerar du att produktionen är mål platsen och att alla inställningar i käll platsen är konfigurerade exakt som du vill ha dem i produktion.
 > 
 > 
 
-To swap deployment slots:
+Växla mellan distributions platser:
 
-1. Go to your app's **Deployment slots** page and select **Swap**.
+1. Gå till sidan **distributions platser** för appen och välj **Byt**.
    
-    ![Swap button](./media/web-sites-staged-publishing/SwapButtonBar.png)
+    ![Växlings knapp](./media/web-sites-staged-publishing/SwapButtonBar.png)
 
-    The **Swap** dialog box shows settings in the selected source and target slots that will be changed.
+    Dialog rutan **Växla** visar inställningar i de valda käll-och mål platserna som ska ändras.
 
-2. Select the desired **Source** and **Target** slots. Usually, the target is the production slot. Also, select the **Source Changes** and **Target Changes** tabs and verify that the configuration changes are expected. When you're finished, you can swap the slots immediately by selecting **Swap**.
+2. Välj önskade **käll** -och **mål** platser. Normalt är målet produktions platsen. Välj också flikarna **käll ändringar** och **mål ändringar** och kontrol lera att konfigurations ändringarna förväntas. När du är klar kan du växla platserna direkt genom att välja **Växla**.
 
     ![Slutföra växlingen](./media/web-sites-staged-publishing/SwapImmediately.png)
 
-    To see how your target slot would run with the new settings before the swap actually happens, don't select **Swap**, but follow the instructions in [Swap with preview](#Multi-Phase).
+    Om du vill se hur mål platsen kommer att köras med de nya inställningarna innan växlingen faktiskt sker väljer du inte **växling**, utan följer anvisningarna i [Växla med förhands granskning](#Multi-Phase).
 
-3. When you're finished, close the dialog box by selecting **Close**.
+3. När du är klar stänger du dialog rutan genom att välja **Stäng**.
 
-If you have any problems, see [Troubleshoot swaps](#troubleshoot-swaps).
+Om du har problem kan du läsa [Felsöka växlingar](#troubleshoot-swaps).
 
 <a name="Multi-Phase"></a>
 
-### <a name="swap-with-preview-multi-phase-swap"></a>Swap with preview (multi-phase swap)
+### <a name="swap-with-preview-multi-phase-swap"></a>Växla med förhands granskning (växling i flera faser)
 
-Before you swap into production as the target slot, validate that the app runs with the swapped settings. The source slot is also warmed up before the swap completion, which is desirable for mission-critical applications.
+Innan du byter till produktion som mål plats kontrollerar du att appen körs med de växlade inställningarna. Käll platsen har också förvärmts innan växlings förslutning, vilket är önskvärt för verksamhets kritiska program.
 
-When you perform a swap with preview, App Service performs the same [swap operation](#AboutConfiguration) but pauses after the first step. You can then verify the result on the staging slot before completing the swap. 
+När du utför en växling med för hands versionen utför App Service samma [växlings åtgärd](#AboutConfiguration) men pausas efter det första steget. Du kan sedan verifiera resultatet på mellanlagringsplatsen innan du slutför växlingen. 
 
-If you cancel the swap, App Service reapplies configuration elements to the source slot.
+Om du avbryter växlingen App Service återanvänder konfigurations elementen på käll platsen.
 
-To swap with preview:
+För att växla med för hands version:
 
-1. Follow the steps in [Swap deployment slots](#Swap) but select **Perform swap with preview**.
+1. Följ stegen i [Växla distributions fack](#Swap) men Välj **utför växling med förhands granskning**.
 
-    ![Swap with preview](./media/web-sites-staged-publishing/SwapWithPreview.png)
+    ![Växla med för hands version](./media/web-sites-staged-publishing/SwapWithPreview.png)
 
-    The dialog box shows you how the configuration in the source slot changes in phase 1, and how the source and target slot change in phase 2.
+    I dialog rutan visas hur konfigurationen i käll platsen ändras i fas 1, och hur käll-och mål platsen ändras i fas 2.
 
-2. When you're ready to start the swap, select **Start Swap**.
+2. När du är redo att starta växlingen väljer du **Starta växling**.
 
-    When phase 1 finishes, you're notified in the dialog box. Preview the swap in the source slot by going to `https://<app_name>-<source-slot-name>.azurewebsites.net`. 
+    När fas 1 är klar får du ett meddelande i dialog rutan. Förhandsgranska växlingen på käll platsen genom att gå till `https://<app_name>-<source-slot-name>.azurewebsites.net`. 
 
-3. When you're ready to complete the pending swap, select **Complete Swap** in **Swap action** and select **Complete Swap**.
+3. När du är redo att slutföra den väntande växlingen väljer du **fullständig växling** i **växlings åtgärd** och väljer **Slutför växling**.
 
-    To cancel a pending swap, select **Cancel Swap** instead.
+    Om du vill avbryta en väntande växling väljer du **Avbryt växling** i stället.
 
-4. When you're finished, close the dialog box by selecting **Close**.
+4. När du är klar stänger du dialog rutan genom att välja **Stäng**.
 
-If you have any problems, see [Troubleshoot swaps](#troubleshoot-swaps).
+Om du har problem kan du läsa [Felsöka växlingar](#troubleshoot-swaps).
 
-To automate a multi-phase swap, see [Automate with PowerShell](#automate-with-powershell).
+Om du vill automatisera en växling i flera faser, se [Automatisera med PowerShell](#automate-with-powershell).
 
 <a name="Rollback"></a>
 
-## <a name="roll-back-a-swap"></a>Roll back a swap
-If any errors occur in the target slot (for example, the production slot) after a slot swap, restore the slots to their pre-swap states by swapping the same two slots immediately.
+## <a name="roll-back-a-swap"></a>Återställa en växling
+Om några fel inträffar på mål platsen (t. ex. produktions platsen) efter en plats växling, återställer du platserna till deras före växlings tillstånd genom att växla samma två platser direkt.
 
 <a name="Auto-Swap"></a>
 
-## <a name="configure-auto-swap"></a>Configure auto swap
+## <a name="configure-auto-swap"></a>Konfigurera automatisk växling
 
 > [!NOTE]
-> Auto swap isn't supported in web apps on Linux.
+> Automatisk växling stöds inte i Web Apps på Linux.
 
-Auto swap streamlines Azure DevOps scenarios where you want to deploy your app continuously with zero cold starts and zero downtime for customers of the app. When auto swap is enabled from a slot into production, every time you push your code changes to that slot, App Service automatically [swaps the app into production](#swap-operation-steps) after it's warmed up in the source slot.
+Automatisk växling effektiviserar Azure DevOps-scenarier där du vill distribuera din app kontinuerligt med noll som kall startar och noll nedtid för kunder i appen. När automatisk växling har Aktiver ATS från en plats till produktion, byter App Service automatiskt [appen till produktion](#swap-operation-steps) när den har värmts upp på käll platsen när du skickar kod ändringarna till den platsen.
 
    > [!NOTE]
-   > Before you configure auto swap for the production slot, consider testing auto swap on a non-production target slot.
+   > Innan du konfigurerar automatisk växling för produktions platsen bör du överväga att testa automatisk växling på ett mål fack som inte är för produktion.
    > 
 
-To configure auto swap:
+Så här konfigurerar du automatisk växling:
 
-1. Go to your app's resource page. Select **Deployment slots** >  *\<desired source slot>*  > **Configuration** > **General settings**.
+1. Gå till appens resurs sida. Välj **distributions platser** >  *\<önskad käll plats >*  > **konfiguration** > **allmänna inställningar**.
    
-2. For **Auto swap enabled**, select **On**. Then select the desired target slot for **Auto swap deployment slot**, and select **Save** on the command bar. 
+2. För **Automatisk växling aktive rad**väljer du **på**. Välj sedan önskad mål plats för **Automatisk växling distributions plats**och välj **Spara** i kommando fältet. 
    
-    ![Selections for configuring auto swap](./media/web-sites-staged-publishing/AutoSwap02.png)
+    ![Alternativ för att konfigurera automatisk växling](./media/web-sites-staged-publishing/AutoSwap02.png)
 
-3. Execute a code push to the source slot. Auto swap happens after a short time, and the update is reflected at your target slot's URL.
+3. Kör en kod push till käll platsen. Automatisk växling sker efter en kort tid och uppdateringen återspeglas på mål platsens URL.
 
-If you have any problems, see [Troubleshoot swaps](#troubleshoot-swaps).
+Om du har problem kan du läsa [Felsöka växlingar](#troubleshoot-swaps).
 
 <a name="Warm-up"></a>
 
-## <a name="specify-custom-warm-up"></a>Specify custom warm-up
+## <a name="specify-custom-warm-up"></a>Ange anpassad uppvärmning
 
-Some apps might require custom warm-up actions before the swap. The `applicationInitialization` configuration element in web.config lets you specify custom initialization actions. The [swap operation](#AboutConfiguration) waits for this custom warm-up to finish before swapping with the target slot. Here's a sample web.config fragment.
+Vissa appar kan kräva anpassade värme åtgärder innan växlingen. Med konfigurations elementet `applicationInitialization` i Web. config kan du ange anpassade initierings åtgärder. [Växlings åtgärden](#AboutConfiguration) väntar på att den här anpassade uppvärmningen ska slutföras innan den växlar till mål platsen. Här är ett exempel på Web. config-fragment.
 
     <system.webServer>
         <applicationInitialization>
@@ -212,75 +212,75 @@ Some apps might require custom warm-up actions before the swap. The `application
         </applicationInitialization>
     </system.webServer>
 
-For more information on customizing the `applicationInitialization` element, see [Most common deployment slot swap failures and how to fix them](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
+Mer information om hur du anpassar `applicationInitialization`-elementet finns i [de flesta vanliga växlings fel i distributions fack och hur du åtgärdar dem](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
 
-You can also customize the warm-up behavior with one or both of the following [app settings](configure-common.md):
+Du kan också anpassa det varmaste sättet med en eller båda av följande [appinställningar](configure-common.md):
 
-- `WEBSITE_SWAP_WARMUP_PING_PATH`: The path to ping to warm up your site. Add this app setting by specifying a custom path that begins with a slash as the value. Ett exempel är `/statuscheck`. The default value is `/`. 
-- `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Valid HTTP response codes for the warm-up operation. Add this app setting with a comma-separated list of HTTP codes. An example is `200,202` . If the returned status code isn't in the list, the warmup and swap operations are stopped. By default, all response codes are valid.
+- `WEBSITE_SWAP_WARMUP_PING_PATH`: sökvägen till ping för att värma upp platsen. Lägg till den här appens inställningen genom att ange en anpassad sökväg som börjar med ett snedstreck som värde. Ett exempel är `/statuscheck`. Standardvärdet är `/`. 
+- `WEBSITE_SWAP_WARMUP_PING_STATUSES`: giltiga HTTP-svars koder för den varmande åtgärden. Lägg till den här appens inställningen med en kommaavgränsad lista över HTTP-koder. Ett exempel är `200,202`. Om den returnerade status koden inte finns i listan stoppas uppvärmnings och växlings åtgärder. Som standard är alla svars koder giltiga.
 
 > [!NOTE]
-> The `<applicationInitialization>` configuration element is part of each app start-up, whereas the two warm-up behavior app settings apply only to slot swaps.
+> Konfigurations elementet `<applicationInitialization>` är en del av varje app-Start, medan de två app-inställningarna för inläsnings beteende endast gäller för fack växlingar.
 
-If you have any problems, see [Troubleshoot swaps](#troubleshoot-swaps).
+Om du har problem kan du läsa [Felsöka växlingar](#troubleshoot-swaps).
 
-## <a name="monitor-a-swap"></a>Monitor a swap
+## <a name="monitor-a-swap"></a>Övervaka en växling
 
-If the [swap operation](#AboutConfiguration) takes a long time to complete, you can get information on the swap operation in the [activity log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Om [växlings åtgärden](#AboutConfiguration) tar lång tid att slutföra kan du få information om växlings åtgärden i [aktivitets loggen](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 
-On your app's resource page in the portal, in the left pane, select **Activity log**.
+På appens resurs sida i portalen väljer du **aktivitets logg**i det vänstra fönstret.
 
-A swap operation appears in the log query as `Swap Web App Slots`. You can expand it and select one of the suboperations or errors to see the details.
+En växlings åtgärd visas i logg frågan som `Swap Web App Slots`. Du kan expandera den och välja en av under åtgärder eller fel för att se information.
 
-## <a name="route-traffic"></a>Route traffic
+## <a name="route-traffic"></a>Dirigera trafik
 
-By default, all client requests to the app's production URL (`http://<app_name>.azurewebsites.net`) are routed to the production slot. You can route a portion of the traffic to another slot. This feature is useful if you need user feedback for a new update, but you're not ready to release it to production.
+Som standard dirigeras alla klient begär anden till appens produktions-URL (`http://<app_name>.azurewebsites.net`) till produktions platsen. Du kan dirigera en del av trafiken till en annan plats. Den här funktionen är användbar om du behöver feedback från användaren för en ny uppdatering, men du inte är redo att släppa den på produktionen.
 
-### <a name="route-production-traffic-automatically"></a>Route production traffic automatically
+### <a name="route-production-traffic-automatically"></a>Dirigera produktions trafik automatiskt
 
-To route production traffic automatically:
+Så här dirigerar du produktions trafiken automatiskt:
 
-1. Go to your app's resource page and select **Deployment slots**.
+1. Gå till appens resurs sida och välj **distributions platser**.
 
-2. In the **Traffic %** column of the slot you want to route to, specify a percentage (between 0 and 100) to represent the amount of total traffic you want to route. Välj **Spara**.
+2. I kolumnen **Traffic%** på den plats som du vill dirigera till anger du ett procenttal (mellan 0 och 100) för att representera den totala trafik som du vill dirigera. Välj **Spara**.
 
-    ![Setting a traffic percentage](./media/web-sites-staged-publishing/RouteTraffic.png)
+    ![Ange en trafik procent](./media/web-sites-staged-publishing/RouteTraffic.png)
 
-After the setting is saved, the specified percentage of clients is randomly routed to the non-production slot. 
+När inställningen har sparats dirigeras den angivna procent andelen av klienter slumpmässigt till den icke-produktions platsen. 
 
-After a client is automatically routed to a specific slot, it's "pinned" to that slot for the life of that client session. On the client browser, you can see which slot your session is pinned to by looking at the `x-ms-routing-name` cookie in your HTTP headers. A request that's routed to the "staging" slot has the cookie `x-ms-routing-name=staging`. A request that's routed to the production slot has the cookie `x-ms-routing-name=self`.
+När en klient dirigeras automatiskt till en speciell plats, är den "fäst" på den platsen under den aktuella klient sessionen. I klientens webbläsare kan du se vilka platser som din session fästs på genom att titta på `x-ms-routing-name` cookie i dina HTTP-huvuden. En begäran som dirigeras till "mellanlagring"-platsen har cookie-`x-ms-routing-name=staging`. En begäran som dirigeras till produktions platsen har cookien `x-ms-routing-name=self`.
 
    > [!NOTE]
-   > Next to the Azure Portal, you can also use the [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az-webapp-traffic-routing-set) command in the Azure CLI to set the routing percentages from CI/CD tools like DevOps pipelines or other automation systems.
+   > Bredvid Azure-portalen kan du också använda kommandot [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az-webapp-traffic-routing-set) i Azure CLI för att ställa in procent andelar från CI/CD-verktyg som DevOps pipelines eller andra Automation-system.
    > 
 
-### <a name="route-production-traffic-manually"></a>Route production traffic manually
+### <a name="route-production-traffic-manually"></a>Dirigera produktions trafik manuellt
 
-In addition to automatic traffic routing, App Service can route requests to a specific slot. This is useful when you want your users to be able to opt in to or opt out of your beta app. To route production traffic manually, you use the `x-ms-routing-name` query parameter.
+Förutom automatisk trafik dirigering kan App Service dirigera begär anden till en angiven plats. Detta är användbart när du vill att användarna ska kunna välja eller avanmäla din Beta-app. Om du vill dirigera produktions trafiken manuellt använder du parametern `x-ms-routing-name` fråga.
 
-To let users opt out of your beta app, for example, you can put this link on your webpage:
+Du kan till exempel använda den här länken på din webb sida om du vill låta användarna välja att använda beta appen:
 
 ```HTML
 <a href="<webappname>.azurewebsites.net/?x-ms-routing-name=self">Go back to production app</a>
 ```
 
-The string `x-ms-routing-name=self` specifies the production slot. After the client browser accesses the link, it's redirected to the production slot. Every subsequent request has the `x-ms-routing-name=self` cookie that pins the session to the production slot.
+Strängen `x-ms-routing-name=self` anger produktions platsen. När klient läsaren har åtkomst till länken omdirigeras den till produktions platsen. Varje efterföljande begäran har `x-ms-routing-name=self` cookie som fäster sessionen på produktions platsen.
 
-To let users opt in to your beta app, set the same query parameter to the name of the non-production slot. Här är ett exempel:
+Om du vill låta användarna välja beta-appen ställer du in samma frågeparameter till namnet på den plats som inte är för produktion. Här är ett exempel:
 
 ```
 <webappname>.azurewebsites.net/?x-ms-routing-name=staging
 ```
 
-By default, new slots are given a routing rule of `0%`, shown in grey. When you explicitly set this value to `0%` (shown in black text), your users can access the staging slot manually by using the `x-ms-routing-name` query parameter. But they won't be routed to the slot automatically because the routing percentage is set to 0. This is an advanced scenario where you can "hide" your staging slot from the public while allowing internal teams to test changes on the slot.
+Som standard tilldelas nya platser en regel för routning av `0%`, som visas i grått. När du uttryckligen ställer in det här värdet på `0%` (visas i svart text) kan användarna komma åt mellanlagringsplatsen manuellt med hjälp av `x-ms-routing-name` Frågeparametern. Men de dirigeras inte till facket automatiskt eftersom routningsdomänens procents ATS är inställd på 0. Det här är ett avancerat scenario där du kan "dölja" mellanlagringsplatsen från allmänheten samtidigt som du tillåter interna team att testa ändringar på platsen.
 
 <a name="Delete"></a>
 
-## <a name="delete-a-slot"></a>Delete a slot
+## <a name="delete-a-slot"></a>Ta bort en plats
 
-Go to your app's resource page. Select **Deployment slots** >  *\<slot to delete>*  > **Overview**. Select **Delete** on the command bar.  
+Gå till appens resurs sida. Välj **distributions platser** >  *\<plats för att ta bort >*  > **Översikt**. Välj **ta bort** i kommando fältet.  
 
-![Delete a deployment slot](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
+![Ta bort ett distributions fack](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 
 <!-- ======== AZURE POWERSHELL CMDLETS =========== -->
 
@@ -290,63 +290,63 @@ Go to your app's resource page. Select **Deployment slots** >  *\<slot to delete
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell, including support for managing deployment slots in Azure App Service.
+Azure PowerShell är en modul som tillhandahåller cmdlets för att hantera Azure via Windows PowerShell, inklusive stöd för att hantera distributions platser i Azure App Service.
 
-For information on installing and configuring Azure PowerShell, and on authenticating Azure PowerShell with your Azure subscription, see [How to install and configure Microsoft Azure PowerShell](/powershell/azure/overview).  
+Information om hur du installerar och konfigurerar Azure PowerShell och hur du autentiserar Azure PowerShell med din Azure-prenumeration finns i [så här installerar och konfigurerar du Microsoft Azure PowerShell](/powershell/azure/overview).  
 
 ---
-### <a name="create-a-web-app"></a>Skapa ett webbprogram
+### <a name="create-a-web-app"></a>Skapa en webbapp
 ```powershell
 New-AzWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
 ```
 
 ---
-### <a name="create-a-slot"></a>Create a slot
+### <a name="create-a-slot"></a>Skapa en plats
 ```powershell
 New-AzWebAppSlot -ResourceGroupName [resource group name] -Name [app name] -Slot [deployment slot name] -AppServicePlan [app service plan name]
 ```
 
 ---
-### <a name="initiate-a-swap-with-a-preview-multi-phase-swap-and-apply-destination-slot-configuration-to-the-source-slot"></a>Initiate a swap with a preview (multi-phase swap), and apply destination slot configuration to the source slot
+### <a name="initiate-a-swap-with-a-preview-multi-phase-swap-and-apply-destination-slot-configuration-to-the-source-slot"></a>Påbörja en växling med en förhands granskning (växling vid flera faser) och Använd destinations plats konfigurationen för käll platsen
 ```powershell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 
 ---
-### <a name="cancel-a-pending-swap-swap-with-review-and-restore-the-source-slot-configuration"></a>Cancel a pending swap (swap with review) and restore the source slot configuration
+### <a name="cancel-a-pending-swap-swap-with-review-and-restore-the-source-slot-configuration"></a>Avbryt en väntande växling (Byt till granskning) och Återställ käll plats konfigurationen
 ```powershell
 Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01
 ```
 
 ---
-### <a name="swap-deployment-slots"></a>Swap deployment slots
+### <a name="swap-deployment-slots"></a>Växla distributions fack
 ```powershell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 
-### <a name="monitor-swap-events-in-the-activity-log"></a>Monitor swap events in the activity log
+### <a name="monitor-swap-events-in-the-activity-log"></a>Övervaka växlings händelser i aktivitets loggen
 ```powershell
 Get-AzLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller SlotSwapJobProcessor  
 ```
 
 ---
-### <a name="delete-a-slot"></a>Delete a slot
+### <a name="delete-a-slot"></a>Ta bort en plats
 ```powershell
 Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
 ```
 
-## <a name="automate-with-arm-templates"></a>Automate with ARM templates
+## <a name="automate-with-arm-templates"></a>Automatisera med ARM-mallar
 
-[ARM Templates](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview) are declarative JSON files used to automate the deployment and configuration of Azure resources. To swap slots using ARM templates, you will set two properties on the *Microsoft.Web/sites/slots* and *Microsoft.Web/sites* resources:
+[Arm-mallar](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview) är deklarativ JSON-filer som används för att automatisera distributionen och konfigurationen av Azure-resurser. Om du vill byta plats på platser med ARM-mallar anger du två egenskaper för resurserna *Microsoft. Web/Sites/fackes* och *Microsoft. Web/Sites* :
 
-- `buildVersion`: this is a string property which represents the current version of the app deployed in the slot. For example: "v1", "1.0.0.1", or "2019-09-20T11:53:25.2887393-07:00".
-- `targetBuildVersion`: this is a string property that specifies what `buildVersion` the slot should have. If the targetBuildVersion does not equal the current `buildVersion`, then this will trigger the swap operation by finding the slot which has the specified `buildVersion`.
+- `buildVersion`: det här är en sträng egenskap som representerar den aktuella versionen av appen som distribuerats på platsen. Exempel: "v1", "1.0.0.1" eller "2019-09-20T11:53:25.2887393-07:00".
+- `targetBuildVersion`: det här är en sträng egenskap som anger vad `buildVersion` platsen ska ha. Om targetBuildVersion inte är samma som den aktuella `buildVersion`, utlöser detta växlings åtgärden genom att söka efter platsen som har den angivna `buildVersion`.
 
-### <a name="example-arm-template"></a>Example ARM Template
+### <a name="example-arm-template"></a>Exempel ARM-mall
 
-The following ARM template will update the `buildVersion` of the staging slot and set the `targetBuildVersion` on the production slot. This will swap the two slots. The template assumes you already have a webapp created with a slot named "staging".
+Följande ARM-mall kommer att uppdatera `buildVersion` för mellanlagringsplatsen och ange `targetBuildVersion` på produktions platsen. Detta byter ut de två platserna. Mallen förutsätter att du redan har en webapp som skapats med en plats med namnet "mellanlagring".
 
 ```json
 {
@@ -390,27 +390,27 @@ The following ARM template will update the `buildVersion` of the staging slot an
 }
 ```
 
-This ARM template is idempotent, meaning that it can be executed repeatedly and produce the same state of the slots. After the first execution, `targetBuildVersion` will match the current `buildVersion`, so a swap will not be triggered.
+Den här ARM-mallen är idempotenta, vilket innebär att den kan köras upprepade gånger och producera samma tillstånd för platserna. Efter den första körningen kommer `targetBuildVersion` att matcha den aktuella `buildVersion`, så en växling kommer inte att utlösas.
 
 <!-- ======== Azure CLI =========== -->
 
 <a name="CLI"></a>
 
-## <a name="automate-with-the-cli"></a>Automate with the CLI
+## <a name="automate-with-the-cli"></a>Automatisera med CLI
 
-For [Azure CLI](https://github.com/Azure/azure-cli) commands for deployment slots, see [az webapp deployment slot](/cli/azure/webapp/deployment/slot).
+[Azure CLI](https://github.com/Azure/azure-cli) -kommandon för distributions platser finns i [AZ webapp Deployment slot](/cli/azure/webapp/deployment/slot).
 
-## <a name="troubleshoot-swaps"></a>Troubleshoot swaps
+## <a name="troubleshoot-swaps"></a>Felsöka växlingar
 
-If any error occurs during a [slot swap](#AboutConfiguration), it's logged in *D:\home\LogFiles\eventlog.xml*. It's also logged in the application-specific error log.
+Om ett fel inträffar under en [plats växling](#AboutConfiguration)är det inloggat i *D:\home\LogFiles\eventlog.XML*. Den är också inloggad i den programspecifika fel loggen.
 
-Here are some common swap errors:
+Här följer några vanliga växlings fel:
 
-- An HTTP request to the application root is timed. The swap operation waits for 90 seconds for each HTTP request, and retries up to 5 times. If all retries are timed out, the swap operation is stopped.
+- En HTTP-begäran till program roten har uppnåtts. Växlings åtgärden väntar i 90 sekunder för varje HTTP-begäran och försöker upp till 5 gånger. Om alla nya försök har överskridits stoppas växlings åtgärden.
 
-- Local cache initialization might fail when the app content exceeds the local disk quota specified for the local cache. For more information, see [Local cache overview](overview-local-cache.md).
+- Initieringen av den lokala cachen kan Miss förfalla när innehållet i appen överskrider den lokala disk kvoten som angetts för den lokala cachen Mer information finns i [Översikt över Local cache](overview-local-cache.md).
 
-- During [custom warm-up](#Warm-up), the HTTP requests are made internally (without going through the external URL). They can fail with certain URL rewrite rules in *Web.config*. For example, rules for redirecting domain names or enforcing HTTPS can prevent warm-up requests from reaching the app code. To work around this issue, modify your rewrite rules by adding the following two conditions:
+- Vid [anpassad uppvärmning](#Warm-up)görs HTTP-begäranden internt (utan att gå via den externa URL: en). De kan inte utföras med vissa regler för URL-omskrivning i *Web. config*. Till exempel kan regler för omdirigering av domän namn eller tvingande HTTPS förhindra att värme begär Anden når appens kod. Undvik det här problemet genom att ändra dina omskrivnings regler genom att lägga till följande två villkor:
 
     ```xml
     <conditions>
@@ -419,7 +419,7 @@ Here are some common swap errors:
       ...
     </conditions>
     ```
-- Without a custom warm-up, the URL rewrite rules can still block HTTP requests. To work around this issue, modify your rewrite rules by adding the following condition:
+- Utan en anpassad värme kan du fortfarande blockera HTTP-förfrågningar om reglerna för URL-omskrivning. Undvik det här problemet genom att ändra reglerna för att skriva om genom att lägga till följande villkor:
 
     ```xml
     <conditions>
@@ -427,9 +427,9 @@ Here are some common swap errors:
       ...
     </conditions>
     ```
-- Some [IP restriction rules](app-service-ip-restrictions.md) might prevent the swap operation from sending HTTP requests to your app. IPv4 address ranges that start with `10.` and `100.` are internal to your deployment. You should allow them to connect to your app.
+- Vissa [regler för IP-begränsning](app-service-ip-restrictions.md) kan förhindra att växlings åtgärden skickar HTTP-förfrågningar till din app. IPv4-adress intervall som börjar med `10.` och `100.` är interna för distributionen. Du bör tillåta dem att ansluta till din app.
 
-- After slot swaps, the app may experience unexpected restarts. This is because after a swap, the hostname binding configuration goes out of sync, which by itself doesn't cause restarts. However, certain underlying storage events (such as storage volume failovers) may detect these discrepancies and force all worker processes to restart. To minimize these types of restarts, set the [`WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1` app setting](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) on *all slots*. However, this app setting does *not* work with Windows Communication Foundation (WCF) apps.
+- När plats växlingen har växlats kan appen uppleva oväntade omstarter. Detta beror på att när du har växlat över bindningen för värdnamn, är bindnings bindningen inte synkroniserad, vilket inte leder till omstarter. Vissa underliggande lagrings händelser (till exempel lagrings volym växling vid fel) kan dock identifiera dessa avvikelser och tvinga alla arbets processer att starta om. Om du vill minimera de här typerna av omstarter ställer du in [inställningen för`WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1` app](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) på *alla platser*. Den här appens inställning fungerar dock *inte* med Windows Communication Foundation (WCF)-appar.
 
 ## <a name="next-steps"></a>Nästa steg
-[Block access to non-production slots](app-service-ip-restrictions.md)
+[Blockera åtkomst till platser som inte är för produktion](app-service-ip-restrictions.md)

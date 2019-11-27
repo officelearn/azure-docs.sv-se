@@ -1,6 +1,6 @@
 ---
-title: Locking down App Service Environment outbound traffic - Azure
-description: Describes how to integrate with Azure Firewall to secure outbound traffic
+title: Låsa App Service-miljön utgående trafik – Azure
+description: Beskriver hur du integrerar med Azure-brandväggen för att skydda utgående trafik
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -20,93 +20,93 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74405661"
 ---
-# <a name="locking-down-an-app-service-environment"></a>Locking down an App Service Environment
+# <a name="locking-down-an-app-service-environment"></a>Låsa en App Service-miljön
 
-The App Service Environment (ASE) has a number of external dependencies that it requires access to in order to function properly. The ASE lives in the customer Azure Virtual Network (VNet). Customers must allow the ASE dependency traffic, which is a problem for customers that want to lock down all egress from their VNet.
+App Service-miljön (ASE) har ett antal externa beroenden som krävs för åtkomst till för att fungera korrekt. ASE finns i kundens Azure-Virtual Network (VNet). Kunderna måste tillåta ASE-beroende trafik, vilket är ett problem för kunder som vill låsa upp alla utgående data från sitt VNet.
 
-There are a number of inbound dependencies that an ASE has. The inbound management traffic cannot be sent through a firewall device. The source addresses for this traffic are known and are published in the [App Service Environment management addresses](https://docs.microsoft.com/azure/app-service/environment/management-addresses) document. You can create Network Security Group rules with that information to secure inbound traffic.
+Det finns ett antal inkommande beroenden som en ASE har. Inkommande hanterings trafik kan inte skickas via en brand Väggs enhet. Käll adresserna för den här trafiken är kända och publiceras i dokumentet för [App Service-miljön hanterings adresser](https://docs.microsoft.com/azure/app-service/environment/management-addresses) . Du kan skapa regler för nätverks säkerhets grupper med den informationen för att skydda inkommande trafik.
 
-The ASE outbound dependencies are almost entirely defined with FQDNs, which do not have static addresses behind them. The lack of static addresses means that Network Security Groups (NSGs) cannot be used to lock down the outbound traffic from an ASE. The addresses change often enough that one cannot set up rules based on the current resolution and use that to create NSGs. 
+ASE utgående beroenden är nästan helt definierade med FQDN, som inte har statiska adresser bakom dem. Bristen på statiska adresser innebär att nätverks säkerhets grupper (NSG: er) inte kan användas för att låsa utgående trafik från en ASE. Adresserna ändras ofta nog för att det inte går att skapa regler baserat på den aktuella upplösningen och använda den för att skapa NSG: er. 
 
-The solution to securing outbound addresses lies in use of a firewall device that can control outbound traffic based on domain names. Azure Firewall can restrict outbound HTTP and HTTPS traffic based on the FQDN of the destination.  
+Lösningen för att skydda utgående adresser är att använda en brand Väggs enhet som kan styra utgående trafik baserat på domän namn. Azure-brandväggen kan begränsa utgående HTTP-och HTTPS-trafik baserat på målets FQDN.  
 
 > [!NOTE]
-> At this moment, we can't fully lockdown the outbound connection currently.
+> För närvarande går det inte att helt kunna låsning av utgående anslutningar.
 
-## <a name="system-architecture"></a>System architecture
+## <a name="system-architecture"></a>System arkitektur
 
-Deploying an ASE with outbound traffic going through a firewall device requires changing routes on the ASE subnet. Routes operate at an IP level. If you are not careful in defining your routes, you can force TCP reply traffic to source from another address. When your reply address is different from the address traffic was sent to, the problem is called asymmetric routing and it will break TCP.
+Distribution av en ASE med utgående trafik som går via en brand Väggs enhet kräver ändring av vägar i ASE-undernätet. Vägar använder en IP-nivå. Om du inte är försiktig med att definiera dina vägar kan du tvinga TCP-svars trafik till källa från en annan adress. När din svars adress skiljer sig från den adress trafik som skickades till, kallas problemet för asymmetrisk Routning och den kommer att avbryta TCP.
 
-There must be routes defined so that inbound traffic to the ASE can reply back the same way the traffic came in. Routes must be defined for inbound management requests and for inbound application requests.
+Det måste finnas definierade vägar så att inkommande trafik till ASE kan svara på samma sätt som trafiken kom ifrån. Vägar måste definieras för inkommande hanterings begär Anden och för inkommande program begär Anden.
 
-The traffic to and from an ASE must abide by the following conventions
+Trafiken till och från en ASE måste följa följande konventioner
 
-* The traffic to Azure SQL, Storage, and Event Hub are not supported with use of a firewall device. This traffic must be sent directly to those services. The way to make that happen is to configure service endpoints for those three services. 
-* Route table rules must be defined that send inbound management traffic back from where it came.
-* Route table rules must be defined that send inbound application traffic back from where it came. 
-* All other traffic leaving the ASE can be sent to your firewall device with a route table rule.
+* Trafiken till Azure SQL, Storage och Event Hub stöds inte med hjälp av en brand Väggs enhet. Trafiken måste skickas direkt till tjänsterna. Det kan vara bra att konfigurera tjänst slut punkter för de tre tjänsterna. 
+* Regler för routningstabellen måste definieras som skickar inkommande hanterings trafik tillbaka från den plats där den kom.
+* Regler för routningstabellen måste definieras som skickar inkommande program trafik tillbaka från den plats där den kom. 
+* All annan trafik som lämnar ASE kan skickas till din brand Väggs enhet med en väg tabell regel.
 
-![ASE with Azure Firewall connection flow][5]
+![ASE med anslutnings flöde för Azure-brandväggen][5]
 
-## <a name="configuring-azure-firewall-with-your-ase"></a>Configuring Azure Firewall with your ASE 
+## <a name="configuring-azure-firewall-with-your-ase"></a>Konfigurera Azure-brandväggen med din ASE 
 
-The steps to lock down egress from your existing ASE with Azure Firewall are:
+De steg som krävs för att låsa utgående från din befintliga ASE med Azure Firewall är:
 
-1. Enable service endpoints to SQL, Storage, and Event Hub on your ASE subnet. To enable service endpoints, go into the networking portal > subnets and select Microsoft.EventHub, Microsoft.SQL and Microsoft.Storage from the Service endpoints dropdown. When you have service endpoints enabled to Azure SQL, any Azure SQL dependencies that your apps have must be configured with service endpoints as well. 
+1. Aktivera tjänstens slut punkter till SQL, Storage och Event Hub i ASE-undernätet. Om du vill aktivera tjänstens slut punkter går du till nätverks portalen > undernät och väljer Microsoft. EventHub, Microsoft. SQL och Microsoft. Storage i list rutan tjänst slut punkter. När du har aktiverat tjänstens slut punkter för Azure SQL måste alla Azure SQL-beroenden som dina appar har kon figurer ATS med tjänstens slut punkter också. 
 
-   ![select service endpoints][2]
+   ![Välj tjänst slut punkter][2]
   
-1. Create a subnet named AzureFirewallSubnet in the VNet where your ASE exists. Follow the directions in the [Azure Firewall documentation](https://docs.microsoft.com/azure/firewall/) to create your Azure Firewall.
-1. From the Azure Firewall UI > Rules > Application rule collection, select Add application rule collection. Provide a name, priority, and set Allow. In the FQDN tags section, provide a name, set the source addresses to * and select the App Service Environment FQDN Tag and the Windows Update. 
+1. Skapa ett undernät med namnet AzureFirewallSubnet i det virtuella nätverk där din ASE finns. Följ anvisningarna i dokumentationen för [Azure-brandväggen](https://docs.microsoft.com/azure/firewall/) för att skapa din Azure-brandvägg.
+1. Välj Lägg till program regel samling i Azure Firewall UI > regler > program regel samling. Ange ett namn, prioritet och ange Tillåt. I avsnittet FQDN-Taggar anger du ett namn, anger käll adresserna till * och väljer App Service-miljön FQDN-tagg och Windows Update. 
    
-   ![Add application rule][1]
+   ![Lägg till program regel][1]
    
-1. From the Azure Firewall UI > Rules > Network rule collection, select Add network rule collection. Provide a name, priority, and set Allow. In the Rules section, provide a name, select **Any**, set * to Source and Destination addresses, and set the ports to 123. This rule allows the system to perform clock sync using NTP. Create another rule the same way to port 12000 to help triage any system issues.
+1. I användar gränssnittet för Azure-brandväggen > regler > nätverks regel samling väljer du Lägg till nätverks regel samling. Ange ett namn, prioritet och ange Tillåt. I avsnittet regler anger du ett namn, väljer **valfri**, anger * till käll-och mål adresser och anger portarna till 123. Med den här regeln kan systemet utföra klock synkronisering med NTP. Skapa en annan regel på samma sätt som port 12000 för att hjälpa prioritering eventuella system problem.
 
-   ![Add NTP network rule][3]
+   ![Lägg till NTP-nätverksanslutning][3]
 
-1. Create a route table with the management addresses from [App Service Environment management addresses]( https://docs.microsoft.com/azure/app-service/environment/management-addresses) with a next hop of Internet. The route table entries are required to avoid asymmetric routing problems. Add routes for the IP address dependencies noted below in the IP address dependencies with a next hop of Internet. Add a Virtual Appliance route to your route table for 0.0.0.0/0 with the next hop being your Azure Firewall private IP address. 
+1. Skapa en routningstabell med hanterings adresserna från [App Service-miljön hanterings adresser]( https://docs.microsoft.com/azure/app-service/environment/management-addresses) med nästa hopp på Internet. Posterna i routningstabellen krävs för att undvika problem med asymmetrisk routning. Lägg till vägar för IP-adresserna som anges nedan i IP-adress beroenden med nästa hopp på Internet. Lägg till en virtuell installations väg i routningstabellen för 0.0.0.0/0 med nästa hopp som din Azure Firewall-privata IP-adress. 
 
-   ![Creating a route table][4]
+   ![Skapa en routningstabell][4]
    
-1. Assign the route table you created to your ASE subnet.
+1. Tilldela routningstabellen som du har skapat till ditt ASE-undernät.
 
-#### <a name="deploying-your-ase-behind-a-firewall"></a>Deploying your ASE behind a firewall
+#### <a name="deploying-your-ase-behind-a-firewall"></a>Distribuera din ASE bakom en brand vägg
 
-The steps to deploy your ASE behind a firewall are the same as configuring your existing ASE with an Azure Firewall except you will need to create your ASE subnet and then follow the previous steps. To create your ASE in a pre-existing subnet, you need to use a Resource Manager template as described in the document on [Creating your ASE with a Resource Manager template](https://docs.microsoft.com/azure/app-service/environment/create-from-template).
+Stegen för att distribuera ASE bakom en brand vägg är samma som att konfigurera befintliga ASE med en Azure-brandvägg, förutom att du behöver skapa ditt ASE-undernät och sedan följa föregående steg. Om du vill skapa din ASE i ett befintligt undernät måste du använda en Resource Manager-mall enligt beskrivningen i dokumentet om [att skapa din ASE med en Resource Manager-mall](https://docs.microsoft.com/azure/app-service/environment/create-from-template).
 
-## <a name="application-traffic"></a>Application traffic 
+## <a name="application-traffic"></a>Program trafik 
 
-The above steps will allow your ASE to operate without problems. You still need to configure things to accommodate your application needs. There are two problems for applications in an ASE that is configured with Azure Firewall.  
+Ovanstående steg gör att dina ASE kan användas utan problem. Du måste fortfarande konfigurera saker för att passa dina program behov. Det finns två problem med program i en ASE som har kon figurer ATS med Azure-brandväggen.  
 
-- Application dependencies must be added to the Azure Firewall or the route table. 
-- Routes must be created for the application traffic to avoid asymmetric routing issues
+- Program beroenden måste läggas till i Azure-brandväggen eller i routningstabellen. 
+- Vägar måste skapas för att program trafiken ska undvika problem med asymmetrisk routning
 
-If your applications have dependencies, they need to be added to your Azure Firewall. Create Application rules to allow HTTP/HTTPS traffic and Network rules for everything else. 
+Om dina program har beroenden måste de läggas till i din Azure-brandvägg. Skapa program regler för att tillåta HTTP/HTTPS-trafik och nätverks regler för allt annat. 
 
-If you know the address range that your application request traffic will come from, you can add that to the route table that is assigned to your ASE subnet. If the address range is large or unspecified, then you can use a network appliance like the Application Gateway to give you one address to add to your route table. For details on configuring an Application Gateway with your ILB ASE, read [Integrating your ILB ASE with an Application Gateway](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway)
+Om du känner till adress intervallet som din program begär trafik kommer från, kan du lägga till det i routningstabellen som är tilldelat ditt ASE-undernät. Om adress intervallet är stort eller ospecificerat kan du använda en nätverks enhet som Application Gateway för att ge dig en adress som du kan lägga till i routningstabellen. Mer information om hur du konfigurerar en Application Gateway med din ILB-ASE finns i [integrera din ILB-ASE med en Application Gateway](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway)
 
-This use of the Application Gateway is just one example of how to configure your system. If you did follow this path, then you would need to add a route to the ASE subnet route table so the reply traffic sent to the Application Gateway would go there directly. 
+Den här användningen av Application Gateway är bara ett exempel på hur du konfigurerar systemet. Om du följer den här sökvägen måste du lägga till en väg i ASE för under nätet, så att svars trafiken som skickas till Application Gateway skulle gå dit direkt. 
 
 ## <a name="logging"></a>Loggning 
 
-Azure Firewall can send logs to Azure Storage, Event Hub, or Azure Monitor logs. To integrate your app with any supported destination, go to the Azure Firewall portal > Diagnostic Logs and enable the logs for your desired destination. If you integrate with Azure Monitor logs, then you can see logging for any traffic sent to Azure Firewall. To see the traffic that is being denied, open your Log Analytics workspace portal > Logs and enter a query like 
+Azure-brandväggen kan skicka loggar till Azure Storage-, Event Hub-eller Azure Monitor-loggar. Om du vill integrera din app med ett mål som stöds går du till Azure Firewall-portalen > diagnostikloggar och aktiverar loggarna för önskad destination. Om du integrerar med Azure Monitor loggar kan du se loggning för all trafik som skickas till Azure-brandväggen. Om du vill se den trafik som nekas öppnar du Log Analytics arbetsyte Portal > loggar och anger en fråga som 
 
     AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
  
-Integrating your Azure Firewall with Azure Monitor logs is useful when first getting an application working when you are not aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+Att integrera din Azure-brandvägg med Azure Monitor loggar är användbart när du först får ett program att fungera när du inte är medveten om alla program beroenden. Du kan lära dig mer om Azure Monitor loggar från [analysera loggdata i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
  
 ## <a name="dependencies"></a>Beroenden
 
-The following information is only required if you wish to configure a firewall appliance other than Azure Firewall. 
+Följande information krävs bara om du vill konfigurera en annan brand vägg än Azure-brandväggen. 
 
-- Service Endpoint capable services should be configured with service endpoints.
-- IP Address dependencies are for non-HTTP/S traffic (both TCP and UDP traffic)
-- FQDN HTTP/HTTPS endpoints can be placed in your firewall device.
-- Wildcard HTTP/HTTPS endpoints are dependencies that can vary with your ASE based on a number of qualifiers. 
-- Linux dependencies are only a concern if you are deploying Linux apps into your ASE. If you are not deploying Linux apps into your ASE, then these addresses do not need to be added to your firewall. 
+- Tjänst slut punkts tjänster som stöder tjänster måste konfigureras med tjänst slut punkter.
+- IP-adress beroenden är för trafik som inte är HTTP/S (både TCP-och UDP-trafik)
+- FQDN HTTP/HTTPS-slutpunkter kan placeras i brand Väggs enheten.
+- HTTP/HTTPS-slutpunkter med jokertecken är beroenden som kan variera med din ASE baserat på ett antal kvalificerare. 
+- Linux-beroenden är bara ett problem om du distribuerar Linux-appar till din ASE. Om du inte distribuerar Linux-appar till dina ASE behöver dessa adresser inte läggas till i brand väggen. 
 
-#### <a name="service-endpoint-capable-dependencies"></a>Service Endpoint capable dependencies 
+#### <a name="service-endpoint-capable-dependencies"></a>Tjänst slut punkt kompatibla beroenden 
 
 | Slutpunkt |
 |----------|
@@ -114,24 +114,24 @@ The following information is only required if you wish to configure a firewall a
 | Azure Storage |
 | Azure Event Hub |
 
-#### <a name="ip-address-dependencies"></a>IP Address dependencies
+#### <a name="ip-address-dependencies"></a>IP-adress beroenden
 
-| Slutpunkt | Information |
+| Slutpunkt | Detaljer |
 |----------| ----- |
-| \*:123 | NTP clock check. Traffic is checked at multiple endpoints on port 123 |
-| \*:12000 | This port is used for some system monitoring. If blocked, then some issues will be harder to triage but your ASE will continue to operate |
-| 40.77.24.27:80 | Needed to monitor and alert on ASE problems |
-| 40.77.24.27:443 | Needed to monitor and alert on ASE problems |
-| 13.90.249.229:80 | Needed to monitor and alert on ASE problems |
-| 13.90.249.229:443 | Needed to monitor and alert on ASE problems |
-| 104.45.230.69:80 | Needed to monitor and alert on ASE problems |
-| 104.45.230.69:443 | Needed to monitor and alert on ASE problems |
-| 13.82.184.151:80 | Needed to monitor and alert on ASE problems |
-| 13.82.184.151:443 | Needed to monitor and alert on ASE problems |
+| \*: 123 | Kontroll av NTP-klocka. Trafiken kontrol leras på flera slut punkter på port 123 |
+| \*: 12000 | Den här porten används för viss system övervakning. Om den blockeras kommer vissa problem att vara svårare att prioritering, men ASE kommer att fortsätta att arbeta |
+| 40.77.24.27:80 | Krävs för att övervaka och varna för ASE-problem |
+| 40.77.24.27:443 | Krävs för att övervaka och varna för ASE-problem |
+| 13.90.249.229:80 | Krävs för att övervaka och varna för ASE-problem |
+| 13.90.249.229:443 | Krävs för att övervaka och varna för ASE-problem |
+| 104.45.230.69:80 | Krävs för att övervaka och varna för ASE-problem |
+| 104.45.230.69:443 | Krävs för att övervaka och varna för ASE-problem |
+| 13.82.184.151:80 | Krävs för att övervaka och varna för ASE-problem |
+| 13.82.184.151:443 | Krävs för att övervaka och varna för ASE-problem |
 
-With an Azure Firewall, you automatically get everything below configured with the FQDN tags. 
+Med en Azure-brandvägg får du automatiskt allt nedan konfigurerat med FQDN-taggarna. 
 
-#### <a name="fqdn-httphttps-dependencies"></a>FQDN HTTP/HTTPS dependencies 
+#### <a name="fqdn-httphttps-dependencies"></a>FQDN HTTP/HTTPS-beroenden 
 
 | Slutpunkt |
 |----------|
@@ -212,17 +212,17 @@ With an Azure Firewall, you automatically get everything below configured with t
 |gmstorageprodsn1.table.core.windows.net:443 |
 |rteventservice.trafficmanager.net:443 |
 
-#### <a name="wildcard-httphttps-dependencies"></a>Wildcard HTTP/HTTPS dependencies 
+#### <a name="wildcard-httphttps-dependencies"></a>Jokertecken för HTTP/HTTPS 
 
 | Slutpunkt |
 |----------|
-|gr-Prod-\*.cloudapp.net:443 |
-| \*.management.azure.com:443 |
-| \*.update.microsoft.com:443 |
-| \*.windowsupdate.microsoft.com:443 |
-| \*.identity.azure.net:443 |
+|gr-Prod-\*. cloudapp.net:443 |
+| \*. management.azure.com:443 |
+| \*. update.microsoft.com:443 |
+| \*. windowsupdate.microsoft.com:443 |
+| \*. identity.azure.net:443 |
 
-#### <a name="linux-dependencies"></a>Linux dependencies 
+#### <a name="linux-dependencies"></a>Linux-beroenden 
 
 | Slutpunkt |
 |----------|
@@ -235,7 +235,7 @@ With an Azure Firewall, you automatically get everything below configured with t
 |download.mono-project.com:80 |
 |packages.treasuredata.com:80|
 |security.ubuntu.com:80 |
-| \*.cdn.mscr.io:443 |
+| \*. cdn.mscr.io:443 |
 |mcr.microsoft.com:443 |
 |packages.fluentbit.io:80 |
 |packages.fluentbit.io:443 |
@@ -252,15 +252,15 @@ With an Azure Firewall, you automatically get everything below configured with t
 |40.76.35.62:11371 |
 |104.215.95.108:11371 |
 
-## <a name="us-gov-dependencies"></a>US Gov dependencies
+## <a name="us-gov-dependencies"></a>US Gov beroenden
 
-For US Gov you still need to set service endpoints for Storage, SQL and Event Hub.  You can also use Azure Firewall with the instructions earlier in this document. If you need to use your own egress firewall device, the endpoints are listed below.
+För US Gov behöver du fortfarande ange tjänstens slut punkter för lagring, SQL och Event Hub.  Du kan också använda Azure-brandväggen med instruktionerna tidigare i det här dokumentet. Om du behöver använda din egen utgående brand Väggs enhet visas slut punkterna nedan.
 
 | Slutpunkt |
 |----------|
-| \*.ctldl.windowsupdate.com:80 |
-| \*.management.usgovcloudapi.net:80 |
-| \*.update.microsoft.com:80 |
+| \*. ctldl.windowsupdate.com:80 |
+| \*. management.usgovcloudapi.net:80 |
+| \*. update.microsoft.com:80 |
 |admin.core.usgovcloudapi.net:80 |
 |azperfmerges.blob.core.windows.net:80 |
 |azperfmerges.blob.core.windows.net:80 |
@@ -303,9 +303,9 @@ For US Gov you still need to set service endpoints for Storage, SQL and Event Hu
 |management.usgovcloudapi.net:80 |
 |maupdateaccountff.blob.core.usgovcloudapi.net:80 |
 |mscrl.microsoft.com
-|ocsp.digicert.0 |
+|OCSP. DigiCert. 0 |
 |ocsp.msocsp.co|
-|ocsp.verisign.0 |
+|OCSP. VeriSign. 0 |
 |rteventse.trafficmanager.net:80 |
 |settings-n.data.microsoft.com:80 |
 |shavamafestcdnprod1.azureedge.net:80 |
@@ -317,8 +317,8 @@ For US Gov you still need to set service endpoints for Storage, SQL and Event Hu
 |www.msftconnecttest.com:80 |
 |www.thawte.com:80 |
 |\*ctldl.windowsupdate.com:443 |
-|\*.management.usgovcloudapi.net:443 |
-|\*.update.microsoft.com:443 |
+|\*. management.usgovcloudapi.net:443 |
+|\*. update.microsoft.com:443 |
 |admin.core.usgovcloudapi.net:443 |
 |azperfmerges.blob.core.windows.net:443 |
 |azperfmerges.blob.core.windows.net:443 |

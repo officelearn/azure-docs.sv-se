@@ -34,15 +34,15 @@ Alla program som har tilldelats en anslutningsgrupp. Om du inte skapa grupper, t
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill gruppera dina anslutningar, du måste se till att du [installerade flera kopplingar](application-proxy-add-on-premises-application.md). När du installerar en ny anslutning kan den automatiskt ansluter till den **standard** anslutningsgrupp.
+Om du vill gruppera dina anslutningar måste du kontrol lera att du har [installerat flera kopplingar](application-proxy-add-on-premises-application.md). När du installerar en ny anslutning kopplas den automatiskt till **standard** anslutnings gruppen.
 
 ## <a name="create-connector-groups"></a>Skapa anslutningsapp-grupper
 
 Följ dessa steg för att skapa så många anslutningsapp-grupper som du vill ha.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Välj **Azure Active Directory** > **företagsprogram** > **programproxy**.
-1. Välj **ny anslutningsgrupp**. Ny Anslutningsgrupp bladet visas.
+1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Välj **Azure Active Directory** > **Enterprise-program** > **Application Proxy**.
+1. Välj **ny anslutnings grupp**. Ny Anslutningsgrupp bladet visas.
 
    ![Visar skärmen för att välja en ny anslutnings grupp](./media/application-proxy-connector-groups/new-group.png)
 
@@ -53,9 +53,9 @@ Följ dessa steg för att skapa så många anslutningsapp-grupper som du vill ha
 
 Följ dessa steg för varje program som du har publicerat med programproxyn. Du kan tilldela ett program till en anslutningsprogramgrupp när du publicerar den, eller du kan använda de här stegen för att ändra tilldelningen när som helst.
 
-1. Hanteringspanel för din katalog väljer du **företagsprogram** > **alla program** > program som du vill tilldela till en anslutningsprogramgrupp > **Programproxy**.
-1. Använd den **Anslutningsgrupp** går du till menyn och välj den grupp du vill att programmet använder.
-1. Välj **spara** tillämpa ändringen.
+1. Från hanterings instrument panelen för din katalog väljer du **företags program** > **alla program** > det program som du vill tilldela till en anslutnings grupp > **Application Proxy**.
+1. Använd List Rute menyn för **kopplings grupper** för att välja den grupp som du vill att programmet ska använda.
+1. Välj **Spara** för att tillämpa ändringen.
 
 ## <a name="use-cases-for-connector-groups"></a>Användningsområden för anslutningsapp-grupper
 
@@ -128,5 +128,5 @@ I exemplet nedan har två datacenter, A och B, med två kopplingar som betjänar
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Förstå Azure AD Application Proxy-anslutningar](application-proxy-connectors.md)
+* [Förstå Azure AD-programproxy-kopplingar](application-proxy-connectors.md)
 * [Aktivera enkel inloggning](what-is-single-sign-on.md)

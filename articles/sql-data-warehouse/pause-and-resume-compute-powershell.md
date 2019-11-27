@@ -11,16 +11,16 @@ ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 2ad83e51a11e08373f2132e861ec1c8f3ac20458
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 148f3f99aac5ce01bd88f1efaecb5821ae94f50a
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686006"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539168"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-azure-powershell"></a>Snabb start: pausa och återuppta beräkning i Azure SQL Data Warehouse med Azure PowerShell
 
-Använd PowerShell för att pausa beräkning i Azure SQL Data Warehouse för att spara kostnader. [Återuppta beräkning](sql-data-warehouse-manage-compute-overview.md) när du är redo att använda data lagret.
+Använd Azure PowerShell för att pausa beräknings Azure SQL Data Warehouse för att spara kostnader. [Återuppta beräkning](sql-data-warehouse-manage-compute-overview.md) när du är redo att använda data lagret.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 

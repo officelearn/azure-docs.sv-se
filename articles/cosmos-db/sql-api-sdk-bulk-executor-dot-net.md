@@ -19,14 +19,14 @@ ms.locfileid: "74306752"
 
 > [!div class="op_single_selector"]
 > * [NET](sql-api-sdk-dotnet.md)
-> * [.NET-Ändringsfeed](sql-api-sdk-dotnet-changefeed.md)
+> * [.NET-ändra feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
-> * [REST-resursprovider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
+> * [REST-resursleverantör](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
 > * [Mass utförar – .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Mass utförar – Java](sql-api-sdk-bulk-executor-java.md)
@@ -34,11 +34,11 @@ ms.locfileid: "74306752"
 | |  |
 |---|---|
 | **Beskrivning**| Med .net bulk utförar-biblioteket kan klient program utföra Mass åtgärder på Azure Cosmos DB-konton. Det här biblioteket innehåller BulkImport-, BulkUpdate-och BulkDelete-namnrymder. BulkImport-modulen kan samla in dokument på ett optimerat sätt, så att det data flöde som har allokerats för en samling förbrukas i maximal omfattning. BulkUpdate-modulen kan massredigera befintliga data i Azure Cosmos-behållare som korrigeringsfiler. BulkDelete-modulen kan Mass ta bort dokument på ett optimerat sätt, så att det data flöde som har allokerats för en samling förbrukas i maximal omfattning.|
-|**Hämta SDK**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
+|**SDK-hämtning**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
 | **Mass utförar-bibliotek i GitHub**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
-|**API-dokumentation**|[.NET API-referensdokumentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|
-|**Komma igång**|[Kom igång med bulk utförar Library .NET SDK](bulk-executor-dot-net.md)|
-| **Aktuella framework som stöds**| Microsoft .NET Framework 4.5.2, 4.6.1 och .NET standard 2,0 |
+|**API-dokumentation**|[Dokumentation om .NET API-referens](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|
+|**Kom igång**|[Kom igång med bulk utförar Library .NET SDK](bulk-executor-dot-net.md)|
+| **Aktuellt ramverk som stöds**| Microsoft .NET Framework 4.5.2, 4.6.1 och .NET standard 2,0 |
 
 > [!NOTE]
 > Om du använder Mass utförar kan du se den senaste versionen 3. x av [.NET SDK](tutorial-sql-api-dotnet-bulk-import.md), som har en grupp utförar inbyggd i SDK: n. 
@@ -69,7 +69,7 @@ ms.locfileid: "74306752"
 
 * Inklusive MongoBulkExecutor som stöder .NET standard 2,0. Den här funktionen gör att den fungerar som likvärdig med 1.3.0-versionen, med ytterligare stöd för .NET standard 2,0 som mål ramverk.
 
-### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-Preview
+### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0 – för hands version
 
 * .NET standard 2,0 har lagts till som en av de mål ramverk som stöds för att utförar-biblioteket ska fungera med .NET Core-program.
 

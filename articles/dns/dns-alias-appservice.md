@@ -1,6 +1,6 @@
 ---
-title: Host load-balanced Azure web apps at the zone apex
-description: Use an Azure DNS alias record to host load-balanced web apps at the zone apex
+title: Värd belastnings utjämning av Azure-Webbappar i zon Apex
+description: Använd en Azure DNS Ali Aset för att vara värd för belastningsutjämnade webbappar i zonen Apex
 services: dns
 author: asudbring
 ms.service: dns
@@ -14,15 +14,15 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74212369"
 ---
-# <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Host load-balanced Azure web apps at the zone apex
+# <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Värd belastnings utjämning av Azure-Webbappar i zon Apex
 
-The DNS protocol prevents the assignment of anything other than an A or AAAA record at the zone apex. An example zone apex is contoso.com. This restriction presents a problem for application owners who have load-balanced applications behind Traffic Manager. It isn't possible to point at the Traffic Manager profile from the zone apex record. As a result, application owners must use a workaround. A redirect at the application layer must redirect from the zone apex to another domain. An example is a redirect from contoso.com to www\.contoso.com. This arrangement presents a single point of failure for the redirect function.
+DNS-protokollet förhindrar tilldelning av något annat än en A-eller AAAA-post i zonens Apex. Ett exempel på en zons Apex är contoso.com. Den här begränsningen utgör ett problem för program ägare som har belastningsutjämnade program bakom Traffic Manager. Det går inte att peka på Traffic Manager profilen från zonens Apex-post. Därför måste program ägare använda en lösning. En omdirigering på program nivån måste omdirigeras från zonens Apex till en annan domän. Ett exempel är en omdirigering från contoso.com till www\.contoso.com. Den här ordningen visar en enskild felpunkt för omdirigerings funktionen.
 
-With alias records, this problem no longer exists. Now application owners can point their zone apex record to a Traffic Manager profile that has external endpoints. Application owners can point to the same Traffic Manager profile that's used for any other domain within their DNS zone.
+Det här problemet finns inte längre med Ali Aset poster. Nu kan program ägare peka sin zon Apex-post till en Traffic Manager profil som har externa slut punkter. Program ägare kan peka på samma Traffic Manager profil som används för alla andra domäner i DNS-zonen.
 
-For example, contoso.com and www\.contoso.com can point to the same Traffic Manager profile. This is the case as long as the Traffic Manager profile has only external endpoints configured.
+Till exempel kan contoso.com och www\.contoso.com peka på samma Traffic Manager profil. Detta är fallet så länge den Traffic Manager profilen bara har konfigurerat externa slut punkter.
 
-In this article, you learn how to create an alias record for your domain apex, and configure your Traffic Manager profile end points for your web apps.
+I den här artikeln får du lära dig hur du skapar en aliasresurspost för din domän Apex och konfigurerar Traffic Manager profil slut punkter för dina webb program.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -36,73 +36,73 @@ Den exempeldomän som används i den här självstudien är contoso.com, men du 
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Create a resource group to hold all the resources used in this article.
+Skapa en resurs grupp som innehåller alla resurser som används i den här artikeln.
 
-## <a name="create-app-service-plans"></a>Create App Service plans
+## <a name="create-app-service-plans"></a>Skapa App Services planer
 
-Create two Web App Service plans in your resource group using the following table for configuration information. For more information about creating an App Service plan, see [Manage an App Service plan in Azure](../app-service/app-service-plan-manage.md).
+Skapa två Webb App Services planer i resurs gruppen med hjälp av följande tabell för konfigurations information. Mer information om hur du skapar en App Service plan finns i [hantera ett App Service plan i Azure](../app-service/app-service-plan-manage.md).
 
 
 |Namn  |Operativsystem  |Plats  |Prisnivå  |
 |---------|---------|---------|---------|
-|ASP-01     |Windows|USA, östra|Dev/Test D1-Shared|
-|ASP-02     |Windows|USA, centrala|Dev/Test D1-Shared|
+|ASP-01     |Windows|Östra USA|Dev/test D1 – delad|
+|ASP-02     |Windows|Centrala USA|Dev/test D1 – delad|
 
-## <a name="create-app-services"></a>Create App Services
+## <a name="create-app-services"></a>Skapa App Services
 
-Create two web apps, one in each App Service plan.
+Skapa två webb program, en i varje App Service plan.
 
-1. On upper left corner of the Azure portal page, select **Create a resource**.
-2. Type **Web app** in the search bar and press Enter.
-3. Select **Web App**.
+1. I det övre vänstra hörnet på sidan Azure Portal väljer du **skapa en resurs**.
+2. Skriv in **webbapp** i Sök fältet och tryck på RETUR.
+3. Välj **webbapp**.
 4. Välj **Skapa**.
-5. Accept the defaults, and use the following table to configure the two web apps:
+5. Acceptera standardinställningarna och Använd följande tabell för att konfigurera de två webbapparna:
 
-   |Namn<br>(must be unique within .azurewebsites.net)|Resursgrupp |Runtime stack|Region|App Service Plan/Location
+   |Namn<br>(måste vara unikt inom. azurewebsites.net)|Resursgrupp |Körnings stack|Region|App Service plan/plats
    |---------|---------|-|-|-------|
-   |App-01|Use existing<br>Välj din resursgrupp|.NET Core 2.2|USA, östra|ASP-01(D1)|
-   |App-02|Use existing<br>Välj din resursgrupp|.NET Core 2.2|USA, centrala|ASP-02(D1)|
+   |App-01|Använd befintlig<br>Välj din resursgrupp|.NET Core 2.2|Östra USA|ASP-01 (D1)|
+   |App-02|Använd befintlig<br>Välj din resursgrupp|.NET Core 2.2|Centrala USA|ASP-02 (D1)|
 
-### <a name="gather-some-details"></a>Gather some details
+### <a name="gather-some-details"></a>Samla in viss information
 
-Now you need to note the IP address and host name for the web apps.
+Nu måste du anteckna IP-adressen och värd namnet för webbapparna.
 
-1. Open your resource group and select your first web app (**App-01** in this example).
-2. In the left column, select **Properties**.
-3. Note the address under **URL**, and under **Outbound IP Addresses** note the first IP address in the list. You'll use this information later when you configure your Traffic Manager end points.
-4. Repeat for **App-02**.
+1. Öppna resurs gruppen och välj din första webbapp (**app-01** i det här exemplet).
+2. I den vänstra kolumnen väljer du **Egenskaper**.
+3. Anteckna adressen under **URL**och under **utgående IP-adresser** noterar du den första IP-adressen i listan. Du kommer att använda den här informationen senare när du konfigurerar Traffic Manager slut punkter.
+4. Upprepa för **app-02**.
 
 ## <a name="create-a-traffic-manager-profile"></a>Skapa en Traffic Manager-profil
 
-Create a Traffic Manager profile in your resource group. Use the defaults and type a unique name within the trafficmanager.net namespace.
+Skapa en Traffic Manager-profil i din resurs grupp. Använd standardinställningarna och ange ett unikt namn i namn området trafficmanager.net.
 
-For information about creating a Traffic Manager profile, see [Quickstart: Create a Traffic Manager profile for a highly available web application](../traffic-manager/quickstart-create-traffic-manager-profile.md).
+Information om hur du skapar en Traffic Manager-profil finns i [snabb start: skapa en Traffic Manager profil för ett webb program med hög tillgänglighet](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 
 ### <a name="create-endpoints"></a>Skapa slutpunkter
 
-Now you can create the endpoints for the two web apps.
+Nu kan du skapa slut punkter för de två webbapparna.
 
-1. Open your resource group and select your Traffic Manager profile.
-2. In the left column, select **Endpoints**.
+1. Öppna resurs gruppen och välj din Traffic Manager profil.
+2. Välj **slut punkter**i den vänstra kolumnen.
 3. Välj **Lägg till**.
-4. Use the following table to configure the endpoints:
+4. Använd följande tabell för att konfigurera slut punkterna:
 
-   |Typ  |Namn  |Målinrikta  |Plats  |Custom Header settings|
+   |Typ  |Namn  |Mål  |Plats  |Anpassade huvud inställningar|
    |---------|---------|---------|---------|---------|
-   |External endpoint     |End-01|IP address you recorded for App-01|USA, östra|host:\<the URL you recorded for App-01\><br>Example: **host:app-01.azurewebsites.net**|
-   |External endpoint     |End-02|IP address you recorded for App-02|USA, centrala|host:\<the URL you recorded for App-02\><br>Example: **host:app-02.azurewebsites.net**
+   |Extern slut punkt     |Slut – 01|IP-adress som du har spelat in för app-01|Östra USA|värd:\<den URL som du registrerade för app-01-\><br>Exempel: **värd: app-01.azurewebsites.net**|
+   |Extern slut punkt     |End-02|IP-adress som du har spelat in för app-02|Centrala USA|värd:\<den URL som du registrerade för app-02-\><br>Exempel: **värd: app-02.azurewebsites.net**
 
-## <a name="create-dns-zone"></a>Create DNS zone
+## <a name="create-dns-zone"></a>Skapa DNS-zon
 
-You can either use an existing DNS zone for testing, or you can create a new zone. To create and delegate a new DNS zone in Azure, see [Tutorial: Host your domain in Azure DNS](dns-delegate-domain-azure-dns.md).
+Du kan antingen använda en befintlig DNS-zon för testning, eller så kan du skapa en ny zon. Information om hur du skapar och delegerar en ny DNS-zon i Azure finns i [Självstudier: värd för din domän i Azure DNS](dns-delegate-domain-azure-dns.md).
 
-## <a name="add-a-txt-record-for-custom-domain-validation"></a>Add a TXT record for custom domain validation
+## <a name="add-a-txt-record-for-custom-domain-validation"></a>Lägg till en TXT-post för anpassad domän verifiering
 
-When you add a custom hostname to your web apps, it will look for a specific TXT record to validate your domain.
+När du lägger till ett anpassat värdnamn i dina webbappar söker det efter en angiven TXT-post för att verifiera din domän.
 
-1. Open your resource group and select the DNS zone.
+1. Öppna resurs gruppen och välj DNS-zonen.
 2. Välj **Postuppsättning**.
-3. Add the record set using the following table. For the value, use the actual web app URL that you previously recorded:
+3. Lägg till post uppsättningen i följande tabell. För värdet använder du den faktiska webb program-URL som du tidigare har registrerat:
 
    |Namn  |Typ  |Värde|
    |---------|---------|-|
@@ -111,53 +111,53 @@ When you add a custom hostname to your web apps, it will look for a specific TXT
 
 ## <a name="add-a-custom-domain"></a>Lägga till en anpassad domän
 
-Add a custom domain for both web apps.
+Lägg till en anpassad domän för båda webbapparna.
 
-1. Open your resource group and select your first web app.
-2. In the left column, select **Custom domains**.
-3. Under **Custom Domains**, select **Add custom domain**.
-4. Under **Custom domain**, type your custom domain name. For example, contoso.com.
+1. Öppna resurs gruppen och välj din första webbapp.
+2. Välj **anpassade domäner**i den vänstra kolumnen.
+3. Under **anpassade domäner**väljer du **Lägg till anpassad domän**.
+4. Under **anpassad domän**anger du ditt anpassade domän namn. Till exempel contoso.com.
 5. Välj **Verifiera**.
 
-   Your domain should pass validation and show green check marks next to **Hostname availability** and **Domain ownership**.
+   Din domän bör klara verifiering och Visa gröna kryss markeringar bredvid **värd namns tillgänglighet** och **domän ägarskap**.
 5. Välj **Lägg till en anpassad domän**.
-6. To see the new hostname under **Hostnames assigned to site**, refresh your browser. The refresh on the page doesn't always show changes right away.
-7. Repeat this procedure for your second web app.
+6. Uppdatera webbläsaren om du vill se det nya värd namnet under **värdnamn som har tilldelats till platsen**. Uppdateringen på sidan visar inte alltid ändringar direkt.
+7. Upprepa proceduren för den andra webb programmet.
 
-## <a name="add-the-alias-record-set"></a>Add the alias record set
+## <a name="add-the-alias-record-set"></a>Lägg till post uppsättningen alias
 
-Now add an alias record for the zone apex.
+Lägg nu till en aliasresurspost för zonens Apex.
 
-1. Open your resource group and select the DNS zone.
+1. Öppna resurs gruppen och välj DNS-zonen.
 2. Välj **Postuppsättning**.
-3. Add the record set using the following table:
+3. Lägg till post uppsättningen i följande tabell:
 
-   |Namn  |Typ  |Alias record set  |Alias type  |Azure resource|
+   |Namn  |Typ  |Aliasuppsättning för post uppsättning  |Typ av alias  |Azure-resurs|
    |---------|---------|---------|---------|-----|
-   |@     |A|Ja|Azure resource|Traffic Manager - your profile|
+   |@     |A|Ja|Azure-resurs|Traffic Manager – din profil|
 
 
-## <a name="test-your-web-apps"></a>Test your web apps
+## <a name="test-your-web-apps"></a>Testa dina webb program
 
-Now you can test to make sure you can reach your web app and that it's being load balanced.
+Nu kan du testa för att kontrol lera att du kan komma åt din webbapp och att den är belastningsutjämnad.
 
-1. Open a web browser and browse to your domain. For example, contoso.com. You should see the default web app page.
-2. Stop your first web app.
-3. Close your web browser, and wait a few minutes.
-4. Start your web browser and browse to your domain. You should still see the default web app page.
-5. Stop your second web app.
-6. Close your web browser, and wait a few minutes.
-7. Start your web browser and browse to your domain. You should see Error 403, indicating that the web app is stopped.
-8. Start your second web app.
-9. Close your web browser, and wait a few minutes.
-10. Start your web browser and browse to your domain. You should see the default web app page again.
+1. Öppna en webbläsare och bläddra till din domän. Till exempel contoso.com. Du bör se sidan standard webb program.
+2. Stoppa din första webbapp.
+3. Stäng webbläsaren och vänta några minuter.
+4. Starta webbläsaren och bläddra till din domän. Du bör fortfarande se sidan standard webb program.
+5. Stoppa den andra webbappen.
+6. Stäng webbläsaren och vänta några minuter.
+7. Starta webbläsaren och bläddra till din domän. Du bör se fel 403, vilket indikerar att webbappen har stoppats.
+8. Starta din andra webbapp.
+9. Stäng webbläsaren och vänta några minuter.
+10. Starta webbläsaren och bläddra till din domän. Du bör se sidan standard webb program igen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-To learn more about alias records, see the following articles:
+Mer information om aliin poster finns i följande artiklar:
 
-- [Tutorial: Configure an alias record to refer to an Azure public IP address](tutorial-alias-pip.md)
-- [Tutorial: Configure an alias record to support apex domain names with Traffic Manager](tutorial-alias-tm.md)
+- [Självstudie: Konfigurera en aliasresurspost för att referera till en offentlig Azure-IP-adress](tutorial-alias-pip.md)
+- [Självstudie: Konfigurera en aliasresurspost som stöder spetsiga domän namn med Traffic Manager](tutorial-alias-tm.md)
 - [Vanliga frågor och svar om DNS](https://docs.microsoft.com/azure/dns/dns-faq#alias-records)
 
-To learn how to migrate an active DNS name, see [Migrate an active DNS name to Azure App Service](../app-service/manage-custom-dns-migrate-domain.md).
+Information om hur du migrerar ett aktivt DNS-namn finns i [Migrera ett aktivt DNS-namn till Azure App Service](../app-service/manage-custom-dns-migrate-domain.md).

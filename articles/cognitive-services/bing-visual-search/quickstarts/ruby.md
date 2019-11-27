@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Get image insights using the REST API and Ruby - Bing Visual Search'
+title: 'Snabb start: Hämta bild insikter med hjälp av REST API och ruby-Visuell sökning i Bing'
 titleSuffix: Azure Cognitive Services
-description: Ta reda på hur du laddar upp en bild till API:et för visuell sökning i Bing och får information om den.
+description: Ta reda på hur du laddar du upp en bild till API för visuell sökning i Bing och får information om den.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -17,22 +17,22 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74383119"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-ruby"></a>Quickstart: Get image insights using the Bing Visual Search REST API and Ruby
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-ruby"></a>Snabb start: Hämta bild insikter med hjälp av Visuell sökning i Bing REST API och ruby
 
-This quickstart uses the Ruby programming language to call Bing Visual Search and display results. A POST request uploads an image to the API endpoint. The results include URLs and descriptive information about images similar to the uploaded image.
+I den här snabb starten används ruby-programmeringsspråket för att anropa Visuell sökning i Bing och Visa resultat. En POST-begäran laddar upp en avbildning till API-slutpunkten. Resultaten innehåller URL: er och beskrivande information om bilder som liknar den överförda avbildningen.
 
 ## <a name="prerequisites"></a>Krav
 
-To run this quickstart:
+Så här kör du den här snabb starten:
 
-* Install [Ruby 2.4 or later](https://www.ruby-lang.org/en/downloads/)
-* Get a subscription key:
+* Installera [Ruby 2,4 eller senare](https://www.ruby-lang.org/en/downloads/)
+* Hämta en prenumerations nyckel:
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
-## <a name="project-and-required-modules"></a>Project and required modules
+## <a name="project-and-required-modules"></a>Projekt och obligatoriska moduler
 
-Create a new Ruby project in your IDE or editor. Import `net/http`, `uri` , and `json` to handle the JSON text of results. The `base64` library is used to encode the file name string: 
+Skapa ett nytt ruby-projekt i din IDE eller redigeraren. Importera `net/http`, `uri` och `json` för att hantera JSON-texten för resultat. `base64`s biblioteket används för att koda fil namn strängen: 
 
 ```
 require 'net/https'
@@ -44,7 +44,7 @@ require 'base64'
 
 ## <a name="define-variables"></a>Definiera variabler
 
-The following code assigns required variables. Confirm that the endpoint is correct and replace the `accessKey` value with a subscription key from your Azure account.  The `batchNumber` is a GUID required for leading and trailing boundaries of the POST data.  The `fileName` variable identifies the image file for the POST.  The `if` block tests for a valid subscription key.
+Följande kod tilldelar obligatoriska variabler. Bekräfta att slut punkten är korrekt och ersätt `accessKey`-värdet med en prenumerations nyckel från ditt Azure-konto.  `batchNumber` är ett GUID som krävs för inledande och avslutande gränser för POST-data.  Variabeln `fileName` identifierar bild filen för inlägget.  `if` block-test för en giltig prenumerations nyckel.
 
 ```
 accessKey = "ACCESS-KEY"
@@ -61,9 +61,9 @@ end
 
 ```
 
-## <a name="form-data-for-post-request"></a>Form data for POST request
+## <a name="form-data-for-post-request"></a>Formulär data för POST-begäran
 
-The image data to POST is enclosed by leading and trailing boundaries. The following functions set the boundaries:
+De avbildnings data som ska ANSLÅs omges av inledande och avslutande gränser. Följande funktioner anger gränserna:
 
 ```
 def BuildFormDataStart(batNum, fileName)
@@ -76,7 +76,7 @@ def BuildFormDataEnd(batNum)
 end
 ```
 
-Next, construct the endpoint URI and an array to contain the POST body.  Use the previous function to load the start boundary into the array. Read the image file into the array. Then, read the end boundary into the array:
+Skapa sedan slut punkts-URI och en matris som innehåller POST texten.  Använd funktionen Previous för att läsa in start gränser i matrisen. Läs avbildnings filen till matrisen. Läs sedan slut gränserna till matrisen:
 
 ```
 uri = URI(uri + path)
@@ -92,9 +92,9 @@ post_body << File.read(fileName) #Base64.encode64(File.read(fileName))
 post_body << BuildFormDataEnd(batchNumber)
 ```
 
-## <a name="create-the-http-request"></a>Create the HTTP request
+## <a name="create-the-http-request"></a>Skapa HTTP-begäran
 
-Set the `Ocp-Apim-Subscription-Key` header.  Skapa begäran. Then, assign the header and content type. Join the POST body created previously to the request:
+Ange `Ocp-Apim-Subscription-Key`s huvudet.  Skapa begäran. Tilldela sedan rubriken och innehålls typen. Delta i INLÄGGs texten som skapades tidigare till begäran:
 
 ```
 header = {'Ocp-Apim-Subscription-Key': accessKey}
@@ -106,9 +106,9 @@ request.body = post_body.join
 
 ```
 
-## <a name="request-and-response"></a>Request and response
+## <a name="request-and-response"></a>Begäran och svar
 
-Ruby sends the request and gets the response with the following line of code:
+Ruby skickar begäran och hämtar svaret med följande kodrad:
 
 ```
 response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
@@ -117,9 +117,9 @@ end
 
 ```
 
-## <a name="print-the-results"></a>Print the results
+## <a name="print-the-results"></a>Skriv ut resultaten
 
-Print the headers of the response, and use the JSON library to format output:
+Skriv ut rubrikerna för svaret och Använd JSON-biblioteket för att formatera utdata:
 
 ```
 puts "\nRelevant Headers:\n\n"
@@ -136,7 +136,7 @@ puts JSON::pretty_generate(JSON(response.body))
 
 ## <a name="results"></a>Resultat
 
-The following JSON is a segment of the output:
+Följande JSON är ett segment av utdata:
 
 ```
 Relevant Headers:
@@ -284,5 +284,5 @@ JSON Response:
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Bing Visual Search overview](../overview.md)
-> [Build a Visual Search single-page web app](../tutorial-bing-visual-search-single-page-app.md)
+> [Visuell sökning i Bing översikt](../overview.md)
+> [bygga en visuell sökning-webbapp](../tutorial-bing-visual-search-single-page-app.md) med en sida

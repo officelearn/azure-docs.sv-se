@@ -20,7 +20,7 @@ ms.locfileid: "74280889"
 ---
 # <a name="intents-in-your-luis-app"></a>Avsikter i din LUIS-app
 
-Ett intent som representerar en aktivitet eller åtgärd du vill utföra. Det är en syfte eller målet som uttrycks i en användares [uttryck](luis-concept-utterance.md).
+Ett intent som representerar en aktivitet eller åtgärd du vill utföra. Det är ett syfte eller mål som uttrycks i en användares [uttryck](luis-concept-utterance.md).
 
 Definiera en uppsättning avsikter som motsvarar för åtgärder som användare vill dra i ditt program. Exempelvis definierar en reseapp flera avsikter:
 
@@ -55,8 +55,8 @@ Skapa en avsikt när användarens _avsikt_ skulle utlösa en åtgärd i klient p
 
 |Avsikt   | Entitet | Exempeluttryck   | 
 |------------------|------------------------------|------------------------------|
-| CheckWeather | {”type”: ”plats”, ”enhet”: ”seattle”}<br>{”type”: ”builtin.datetimeV2.date","entity”: ”morgon”, ”lösning”: ”2018-05-23”} | Vad är vädret som i `Seattle` `tomorrow`? |
-| CheckWeather | {”type”: ”date_range”, ”enhet”: ”den här helgen”} | Visa mig prognosen för `this weekend` | 
+| CheckWeather | {”type”: ”plats”, ”enhet”: ”seattle”}<br>{”type”: ”builtin.datetimeV2.date","entity”: ”morgon”, ”lösning”: ”2018-05-23”} | Vad är det som är väder i `Seattle` `tomorrow`? |
+| CheckWeather | {”type”: ”date_range”, ”enhet”: ”den här helgen”} | Visa prognosen för `this weekend` | 
 ||||
 
 ## <a name="prebuilt-domain-intents"></a>Fördefinierade domän avsikter
@@ -65,14 +65,14 @@ Skapa en avsikt när användarens _avsikt_ skulle utlösa en åtgärd i klient p
 
 ## <a name="none-intent"></a>Avsikten Ingen
 
-Den **ingen** avsikt skapas, men lämnas tomt avsiktligt. Den **ingen** avsikten är en obligatorisk avsikten och kan inte tas bort eller bytt namn. Fyll den med yttranden som är utanför din domän.
+**None** -avsikten skapas men lämnas tomt i syfte. **Ingen** avsikt är en obligatorisk avsikt och kan inte tas bort eller byta namn. Fyll den med yttranden som är utanför din domän.
 
-**Ingen** avsikt är till gång till återställnings avsikten, viktigt i varje app och bör ha 10% av den totala yttranden. Den används för att lära LUIS yttranden som inte är viktiga i programdomänen (ämnesområde). Om du inte lägger till yttranden för den **ingen** avsikt, LUIS tvingar ett uttryck som ligger utanför domänen till en domän avsikter. Detta kommer förskjuta förutsägelse poängen med undervisar LUIS fel syftet för uttryck. 
+**Ingen** avsikt är till gång till återställnings avsikten, viktigt i varje app och bör ha 10% av den totala yttranden. Den används för att lära LUIS yttranden som inte är viktiga i programdomänen (ämnesområde). Om du inte lägger till några yttranden för **none** -LUIS tvingar en uttryck som ligger utanför domänen i en av domän syftena. Detta kommer förskjuta förutsägelse poängen med undervisar LUIS fel syftet för uttryck. 
 
 När en uttryck förutsägs som none-avsikt kan klient programmet ställa frågor till fler frågor eller ange en meny för att dirigera användaren till giltiga val. 
 
 ## <a name="negative-intentions"></a>Negativt avsikter 
-Om du vill fastställa negativa och positiva avsikter som ”jag **vill** en bil” och ”jag **inte** vill ha en bil”, du kan skapa två avsikter (en positiv och en negativ) och Lägg till lämpliga yttranden för varje. Eller du kan skapa en enda avsikten och markera två olika positiva och negativa villkoren som en entitet.  
+Om du vill fastställa negativa och positiva avsikter, till exempel "Jag **vill ha** en bil" och "Jag vill **inte** ha en bil", kan du skapa två avsikter (ett positivt och ett negativt) och lägga till lämpliga yttranden för var och en. Eller du kan skapa en enda avsikten och markera två olika positiva och negativa villkoren som en entitet.  
 
 ## <a name="intents-and-patterns"></a>Avsikter och mönster
 
@@ -81,12 +81,12 @@ Om du har ett exempel på yttranden, som kan definieras delvis eller helt som et
 Om du använder en entitet med reguljära uttryck garanteras data extraheringen så att mönstret matchas. Mönster matchningen garanterar att en exakt avsikt returneras. 
 
 ## <a name="intent-balance"></a>Avsiktshantering saldo
-Domän avsikter ska ha en balans mellan yttranden över varje avsikt. Har inte en avsikt med 10 yttranden och en annan avsikten med 500 yttranden. Detta är inte balanserade. Om du har den här situationen kan du granska avsikten med 500 yttranden att se om många av avsikter kan att ordna i en [mönstret](luis-concept-patterns.md). 
+Domän avsikter ska ha en balans mellan yttranden över varje avsikt. Har inte en avsikt med 10 yttranden och en annan avsikten med 500 yttranden. Detta är inte balanserade. Om du har den här situationen kan du granska avsikten med 500 yttranden för att se om många av syftet kan omorganiseras i ett [mönster](luis-concept-patterns.md). 
 
-Den **ingen** avsikt ingår inte i saldot. Detta syfte ska innehålla 10% av de totala yttranden i appen.
+**None** -avsikten ingår inte i saldot. Detta syfte ska innehålla 10% av de totala yttranden i appen.
 
 ## <a name="intent-limits"></a>Avsiktshantering gränser
-Granska [gränser](luis-boundaries.md#model-boundaries) för att förstå hur många avsikter som du kan lägga till en modell. 
+Granska [gränser](luis-boundaries.md#model-boundaries) för att förstå hur många avsikter du kan lägga till i en modell. 
 
 ### <a name="if-you-need-more-than-the-maximum-number-of-intents"></a>Om du behöver mer än det maximala antalet avsikter 
 Först bör övervägas om datorn är för många avsikter. 
@@ -95,13 +95,13 @@ Först bör övervägas om datorn är för många avsikter.
 Avsikter som liknar för kan göra det svårare för LUIS för att skilja dem åt. Avsikter ska vara olika tillräckligt för att avbilda de viktigaste uppgifterna som du frågar efter, men de behöver att samla in varje sökväg som tar din kod. Till exempel BookFlight och FlightCustomerService kanske separat avsikter i en reseapp, men BookInternationalFlight och BookDomesticFlight liknar för. Om systemet måste skilja dem, använda entiteter eller andra logic snarare än avsikter. 
 
 ### <a name="dispatcher-model"></a>Dispatchern modell
-Läs mer om hur du kombinerar LUIS och QnA maker-appar med den [dispatch modellen](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps). 
+Lär dig mer om att kombinera LUIS-och QnA Maker-appar med [sändnings modellen](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps). 
 
 ### <a name="request-help-for-apps-with-significant-number-of-intents"></a>Be om hjälp för appar med betydande antal avsikter
-Om du minskar antalet avsikter eller att dela upp dina avsikter i flera appar inte fungerar för dig, kontakta supporten. Om din Azure-prenumeration innehåller supporttjänster, kontakta [teknisk support för Azure](https://azure.microsoft.com/support/options/). 
+Om du minskar antalet avsikter eller att dela upp dina avsikter i flera appar inte fungerar för dig, kontakta supporten. Om din Azure-prenumeration innehåller support tjänster kontaktar du [teknisk support för Azure](https://azure.microsoft.com/support/options/). 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om [entiteter](luis-concept-entity-types.md), vilket är viktigt ord som är relevanta för avsikter
-* Lär dig hur du [lägga till och hantera avsikter](luis-how-to-add-intents.md) i LUIS-appen.
-* Granska avsikt [bästa praxis](luis-concept-best-practices.md)
+* Lär dig mer om [entiteter](luis-concept-entity-types.md)som är viktiga ord som är relevanta för avsikter
+* Lär dig hur du [lägger till och hanterar avsikter](luis-how-to-add-intents.md) i din Luis-app.
+* Granska [metod tips](luis-concept-best-practices.md)

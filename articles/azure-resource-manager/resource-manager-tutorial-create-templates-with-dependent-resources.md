@@ -1,5 +1,5 @@
 ---
-title: Template with dependent resources
+title: Mall med beroende resurser
 description: Lär dig hur du skapar en Azure Resource Manager-mall med flera resurser samt hur du distribuerar den med hjälp av Azure-portalen
 author: mumian
 ms.date: 03/04/2019
@@ -14,11 +14,11 @@ ms.locfileid: "74325395"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Självstudie: Skapa Azure Resource Manager-mallar med beroende resurser
 
-Learn how to create an Azure Resource Manager template to deploy multiple resources and configure the deployment order. När du har skapat mallen distribuerar du mallen med hjälp av Cloud Shell från Azure-portalen.
+Lär dig hur du skapar en Azure Resource Manager-mall för att distribuera flera resurser och konfigurera distributions ordningen. När du har skapat mallen distribuerar du mallen med hjälp av Cloud Shell från Azure-portalen.
 
 I den här självstudien skapar du ett lagringskonto, en virtuell dator, ett virtuellt nätverk och några andra beroende resurser. Vissa resurser kan inte distribueras förrän en annan resurs finns. Till exempel kan du inte skapa den virtuella datorn förrän dess lagringskonto och nätverksgränssnitt finns. Du kan definiera den här relationen genom att göra en resurs beroende av de andra resurserna. Resource Manager utvärderar beroenden mellan resurser och distribuerar dem i beroendeordning. När resurserna inte är beroende av varandra distribuerar Resource Manager dem parallellt. Mer information finns på sidan om att [definiera ordningen för distribution av resurser i Azure Resource Manager-mallar](./resource-group-define-dependencies.md).
 
-![resource manager template dependent resources deployment order diagram](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-dependent-resources-diagram.png)
+![distributions ordnings diagram för resurser i Resource Manager-mall](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-dependent-resources-diagram.png)
 
 Den här självstudien omfattar följande uppgifter:
 
@@ -33,7 +33,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 För att kunna följa stegen i den här artikeln behöver du:
 
-* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](./resource-manager-tools-vs-code.md).
+* Visual Studio Code med Resource Manager Tools-tillägg. [Skapa Azure Resource Manager mallar i använda Visual Studio Code](./resource-manager-tools-vs-code.md).
 * För att förbättra säkerheten bör du använda ett genererat lösenord för den virtuella datorns administratörskonto. Här är ett exempel för att generera ett lösenord:
 
     ```azurecli-interactive
@@ -75,7 +75,7 @@ När du utforskar mallen i det här avsnittet kan du försöka besvara följande
    * `Microsoft.Network/networkInterfaces`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
    * `Microsoft.Compute/virtualMachines`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
 
-     Det är bra att få lite grundläggande förståelse av mallen innan den anpassas.
+     Det är bra att få viss grundläggande förståelse av mallen innan den anpassas.
 
 2. Expandera den första resursen. Det är ett lagringskonto. Jämför resursdefinitionen med [mallreferensen](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
 

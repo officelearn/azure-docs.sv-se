@@ -1,6 +1,6 @@
 ---
-title: Manage your organization's access to apps & groups - Azure AD
-description: Learn how to perform an access review to manage security access for your organization's apps and groups from the My Apps portal.
+title: Hantera organisationens åtkomst till appar & grupper – Azure AD
+description: Lär dig hur du utför en åtkomst granskning för att hantera säkerhets åtkomst för din organisations appar och grupper från portalen Mina appar.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -20,62 +20,62 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74231841"
 ---
-# <a name="perform-an-access-review-from-the-my-apps-portal"></a>Perform an access review from the My Apps portal
+# <a name="perform-an-access-review-from-the-my-apps-portal"></a>Utföra en åtkomst granskning från portalen Mina appar
 
-You can use your work or school account with the web-based **My Apps** portal, to view and start many of your organization’s cloud-based apps, to update some of your profile and account information, to see your **Groups** information, and to perform **access reviews** for your apps and groups. If you don’t have access to the **My Apps** portal, you must contact your Helpdesk for permission.
+Du kan använda ditt arbets-eller skol konto med den webbaserade **min Apps** -portalen för att visa och starta många av organisationens molnbaserade appar för att uppdatera viss profil-och konto information, för att se din **grupp** information och utföra  **åtkomst granskningar** för dina appar och grupper. Om du inte har åtkomst till portalen för **Mina appar** måste du kontakta supportavdelningen för att få behörighet.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
->Innehållet är avsett för användare. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](https://docs.microsoft.com/azure/active-directory/manage-apps).
+>Innehållet är avsett för användare. Om du är administratör kan du hitta mer information om hur du konfigurerar och hanterar dina molnbaserade appar i [program hanterings dokumentationen](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
-## <a name="manage-access-reviews"></a>Manage access reviews
+## <a name="manage-access-reviews"></a>Hantera åtkomst granskningar
 
-If your administrator has given you permission to perform your own access reviews, you can manage your groups or apps access from the **Access reviews** tile on the **My Apps** portal page.
+Om din administratör har gett dig behörighet att utföra dina egna åtkomst granskningar kan du hantera dina grupper eller appar åtkomst från panelen **åtkomst granskningar** på Portal sidan **Mina appar** .
 
 >[!Note]
->If you don't see the **Access reviews** tile it either means that you don't have permission to perform access reviews, or that you don't have any pending reviews waiting for your approval. If you think you should have access to the tile, contact your Help desk for assistance.
+>Om du inte ser panelen **åtkomst granskningar** innebär det antingen att du inte har behörighet att utföra åtkomst granskningar eller att du inte har några väntande granskningar som väntar på ditt godkännande. Om du tror att du borde ha åtkomst till panelen kan du kontakta supportavdelningen om du behöver hjälp.
 
-### <a name="to-perform-your-access-reviews"></a>To perform your access reviews
+### <a name="to-perform-your-access-reviews"></a>Så här utför du åtkomst granskningar
 
-1. Sign in to your work or school account.
+1. Logga in på ditt arbets-eller skol konto.
 
-2. Open your web browser and go to https://myapps.microsoft.com, or use the link provided by your organization. For example, you might be directed to a customized page for your organization, such as https://myapps.microsoft.com/contoso.com.
+2. Öppna webbläsaren och gå till https://myapps.microsoft.com, eller Använd länken som tillhandahålls av din organisation. Du kan till exempel dirigeras till en anpassad sida för din organisation, till exempel https://myapps.microsoft.com/contoso.com.
 
-    The **Apps** page appears, showing all the cloud-based apps owned by your organization and available for you to use.
+    Sidan **appar** visas och visar alla molnbaserade appar som ägs av din organisation och som du kan använda.
 
-    ![Apps page in the My Apps portal](media/my-apps-portal/my-apps-portal-apps-page-access-review-tile.png)
+    ![Sidan appar i portalen Mina appar](media/my-apps-portal/my-apps-portal-apps-page-access-review-tile.png)
 
-3. Select the **Access reviews** tile to see a list of access reviews waiting for your approval.
+3. Välj panelen **åtkomst granskningar** för att se en lista över åtkomst granskningar som väntar på ditt godkännande.
 
-    ![Access reviews page with pending access reviews for the organization](media/my-apps-portal/my-apps-portal-access-reviews-page.png)
+    ![Sidan åtkomst granskningar med väntande åtkomst granskningar för organisationen](media/my-apps-portal/my-apps-portal-access-reviews-page.png)
 
-4. Select **Begin review** to start your access review.
+4. Välj **Starta granskning** för att starta åtkomst granskningen.
 
-5. Review your access and determine whether it's still necessary.
+5. Granska din åtkomst och ta reda på om det fortfarande är nödvändigt.
 
-    ![Access review page, showing the review details](media/my-apps-portal/my-apps-portal-perform-access-reviews-page.png)
+    ![Sidan åtkomst granskning, som visar gransknings informationen](media/my-apps-portal/my-apps-portal-perform-access-reviews-page.png)
 
     >[!Note]
-    >If you're an administrator, and allowed to review your organization's access to groups and apps, you'll see a different page. For more information about reviewing groups or apps for your organization, see [Review access to groups or applications in Azure AD Access Reviews](https://docs.microsoft.com/azure/active-directory/governance/perform-access-review).
+    >Om du är administratör och har behörighet att granska organisationens åtkomst till grupper och appar, ser du en annan sida. Mer information om hur du granskar grupper eller appar för din organisation finns i [Granska åtkomst till grupper eller program i åtkomst granskningar i Azure AD](https://docs.microsoft.com/azure/active-directory/governance/perform-access-review).
 
-6. Select **Yes** to keep your access or **No** to remove your access.
+6. Välj **Ja** om du vill behålla åtkomsten eller **Nej** om du vill ta bort åtkomsten.
 
-    If you select **Yes**, you might need to specify a justification in the **Reason** box.
+    Om du väljer **Ja**kan du behöva ange en motivering i rutan **orsak** .
 
-    ![Access review page, showing the Reason box with sample text](media/my-apps-portal/my-apps-portal-perform-access-reviews-reason-box.png)
+    ![Sidan åtkomst granskning, som visar rutan orsak med exempel text](media/my-apps-portal/my-apps-portal-perform-access-reviews-reason-box.png)
 
 7. Välj **Skicka**.
 
-    Your access review is complete and you return to the **My Apps** portal.
+    Åtkomst granskningen är klar och du kommer tillbaka till portalen för **Mina appar** .
 
     >[!Note]
-    >You can change your access at any time until your access review period ends. If you remove your access to an app or group, it's not removed immediately. The removal happens when the access review period ends or when an administrator closes the review.
+    >Du kan när som helst ändra din åtkomst tills din åtkomst gransknings period är slut. Om du tar bort din åtkomst till en app eller grupp tas den inte bort omedelbart. Borttagningen sker när åtkomst gransknings perioden är slut eller när en administratör stänger granskningen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Access and use apps on the My Apps portal](my-apps-portal-end-user-access.md).
+- [Få åtkomst till och använda appar på Mina appar-portalen](my-apps-portal-end-user-access.md).
 
-- [Change your profile information](my-apps-portal-end-user-update-profile.md).
+- [Ändra din profil information](my-apps-portal-end-user-update-profile.md).
 
-- [View and update your groups-related information](my-apps-portal-end-user-groups.md).
+- [Visa och uppdatera dina grupper – relaterad information](my-apps-portal-end-user-groups.md).

@@ -1,28 +1,23 @@
 ---
-title: Självstudie – distribuera en grupp med flera behållare i Azure Container Instances-YAML
+title: Självstudie – distribuera grupp med flera behållare – YAML
 description: I den här självstudien får du lära dig hur du distribuerar en behållar grupp med flera behållare i Azure Container Instances genom att använda en YAML-fil med Azure CLI.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 04/03/2019
-ms.author: danlep
-ms.openlocfilehash: a38b0cfe7072975e4bcaf61b65ab7733694f714c
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: cce98ec56ee1d84c087150ba486b9482515b46f0
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178563"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533596"
 ---
-# <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Självstudier: Distribuera en grupp med flera behållare med hjälp av en YAML-fil
+# <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Självstudie: Distribuera en grupp med flera behållare med hjälp av en YAML-fil
 
 > [!div class="op_single_selector"]
 > * [YAML](container-instances-multi-container-yaml.md)
 > * [Resource Manager](container-instances-multi-container-group.md)
 >
 
-Azure Container Instances stöder distribution av flera behållare till en enda värd med hjälp av en behållar [grupp](container-instances-container-groups.md). En behållar grupp är användbar när du skapar en program-sidvagn för loggning, övervakning eller andra konfigurationer där en tjänst behöver en andra ansluten process.
+Azure Container Instances stöder distribution av flera behållare till en enda värd med hjälp av en [behållar grupp](container-instances-container-groups.md). En behållar grupp är användbar när du skapar en program-sidvagn för loggning, övervakning eller andra konfigurationer där en tjänst behöver en andra ansluten process.
 
 I den här självstudien följer du steg för steg hur du kör en enkel sidvagn-konfiguration med två behållare genom att distribuera en [yaml-fil](container-instances-reference-yaml.md) med hjälp av Azure CLI. En YAML-fil ger ett koncist format för att ange instans inställningarna. Lär dig att:
 
@@ -85,7 +80,7 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Om du vill använda ett privat behållar avbildnings register lägger du till `imageRegistryCredentials` egenskapen i behållar gruppen med värden som har ändrats för din miljö:
+Om du vill använda ett privat behållar avbildnings register lägger du till egenskapen `imageRegistryCredentials` i behållar gruppen med värden som har ändrats för din miljö:
 
 ```YAML
   imageRegistryCredentials:
@@ -118,7 +113,7 @@ Om du vill visa status för distributionen använder du följande [AZ container 
 az container show --resource-group myResourceGroup --name myContainerGroup --output table
 ```
 
-Om du vill visa det program som körs, navigerar du till dess IP-adress i webbläsaren. IP-adressen är `52.168.26.124` till exempel utdata i följande exempel:
+Om du vill visa det program som körs, navigerar du till dess IP-adress i webbläsaren. IP-adressen `52.168.26.124` till exempel utdata i följande exempel:
 
 ```bash
 Name              ResourceGroup    Status    Image                                                                                               IP:ports              Network    CPU/Memory       OsType    Location
@@ -128,7 +123,7 @@ myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tut
 
 ## <a name="view-container-logs"></a>Visa containerloggar
 
-Visa logg resultatet för en behållare med hjälp av kommandot [AZ container logs][az-container-logs] . `--container-name` Argumentet anger den behållare från vilken du vill hämta loggar. I det här exemplet `aci-tutorial-app` anges containern.
+Visa logg resultatet för en behållare med hjälp av kommandot [AZ container logs][az-container-logs] . Argumentet `--container-name` anger den behållare från vilken du vill hämta loggar. I det här exemplet anges `aci-tutorial-app` container.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
@@ -143,7 +138,7 @@ listening on port 80
 ::1 - - [21/Mar/2019:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
-Om du vill se loggarna för den sidvagn behållaren kör du ett liknande kommando `aci-tutorial-sidecar` som anger behållaren.
+Om du vill se loggarna för den sidvagn behållaren kör du ett liknande kommando som anger `aci-tutorial-sidecar` container.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
@@ -169,7 +164,7 @@ Date: Thu, 21 Mar 2019 20:36:41 GMT
 Connection: keep-alive
 ```
 
-Som du kan se gör den sidvagn regelbundet en HTTP-begäran till huvud webb programmet via gruppens lokala nätverk för att säkerställa att det körs. Detta sidvagn-exempel kan utökas för att utlösa en avisering om den fick en HTTP-svarskod `200 OK`än.
+Som du kan se gör den sidvagn regelbundet en HTTP-begäran till huvud webb programmet via gruppens lokala nätverk för att säkerställa att det körs. Detta sidvagn-exempel kan utökas för att utlösa en avisering om den fick en HTTP-svarskod som inte är `200 OK`.
 
 ## <a name="next-steps"></a>Nästa steg
 

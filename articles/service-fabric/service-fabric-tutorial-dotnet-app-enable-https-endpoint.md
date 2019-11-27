@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 07/22/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 69aa140fcecae13aae0d7a165c9f7bea0ab87ca1
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: e38822e1d774cc32590a13239edb34d7a15e2d02
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71301028"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74545767"
 ---
-# <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Självstudier: Lägga till en HTTPS-slutpunkt i en klienttjänst i webb-API:et för ASP.NET Core med hjälp av Kestrel
+# <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Självstudie: Lägga till en HTTPS-slutpunkt i en klienttjänst i webb-API:t för ASP.NET Core med hjälp av Kestrel
 
 Den här självstudiekursen är den tredje delen i en serie.  Du får lära dig att aktivera HTTPS i en ASP.NET Core-tjänst som körs på Service Fabric. När du är färdig har du ett röstningsprogram med en HTTPS-aktiverad webbklientdel i ASP.NET Core som lyssnar på port 443. Om du inte vill skapa röstningsprogrammet manuellt i [Skapa ett .NET Service Fabric-program](service-fabric-tutorial-deploy-app-to-party-cluster.md) kan du [ladda ned källkoden](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) till det färdiga programmet.
 
-I den tredje delen i serien får du lära dig att:
+I den tredje delen i serien får du lära dig hur du:
 
 > [!div class="checklist"]
 > * Definiera en HTTPS-slutpunkt i tjänsten
@@ -42,16 +42,16 @@ I den här självstudieserien får du lära du dig att:
 > * [Distribuera programmet till ett fjärrkluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * Lägga till en HTTPS-slutpunkt i en klienttjänst i ASP.NET Core
 > * [Konfigurera CI/CD med hjälp av Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
-> * [konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md)
+> * [Konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md)
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här självstudien:
 
-* om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Installera Visual Studio 2019](https://www.visualstudio.com/) version 15,5 eller senare med arbets belastningarna **Azure Development** och **ASP.net och webb utveckling** .
 * [Installera Service Fabric SDK](service-fabric-get-started.md)
 
@@ -164,7 +164,7 @@ serviceContext =>
 Lägg även till följande metod så att Kestrel kan hitta certifikatet i `Cert:\LocalMachine\My`-lagret med hjälp av ämnet.  
 
 Ersätt ”&lt;your_CN_value&gt;” med ”mytestcert” om du har skapat ett självsignerat certifikat med föregående PowerShell-kommando. Använd annars CN för ditt certifikat.
-Tänk på att när det gäller lokal distribution till `localhost` det är det bättre att använda "CN = localhost" för att undvika undantag för autentisering.
+Tänk på att när det gäller lokal distribution för att `localhost` det föredras att använda "CN = localhost" för att undvika undantag för autentisering.
 
 ```csharp
 private X509Certificate2 GetHttpsCertificateFromStore()
@@ -346,7 +346,7 @@ I avsnittet **ServiceManifestImport** för VotingWebPkg ska du sedan konfigurera
 
 ## <a name="run-the-application-locally"></a>Kör programmet lokalt
 
-I Solution Explorer väljer du röstnings programmet och anger egenskapen för **program-URL** till "https\/:/localhost: 443".
+I Solution Explorer väljer du **röstnings** programmet och anger egenskapen för **program-URL** till "https:\//localhost: 443".
 
 Spara alla filer och tryck på F5 för att köra programmet lokalt.  När programmet har distribuerats öppnas en webbläsare till https:\//localhost: 443. Om du använder ett självsignerat certifikat visas en varning om att datorn inte har förtroende för den här webbplatsens säkerhet.  Fortsätt till webbsidan.
 
@@ -362,47 +362,10 @@ Exportera först certifikatet till en PFX-fil. Öppna programmet certlm.msc och 
 
 I exportguiden väljer du **Ja, exportera den privata nyckeln** och sedan formatet PFX (Personal Information Exchange).  Exportera filen till *C:\Users\sfuser\votingappcert.pfx*.
 
-Sedan installerar du certifikatet på fjärrklustret med cmdleten [Add-AzServiceFabricApplicationCertificate](/powershell/module/az.servicefabric/Add-azServiceFabricApplicationCertificate) .
+Sedan installerar du certifikatet på fjärrklustret med hjälp av [de här angivna PowerShell-skripten](./scripts/service-fabric-powershell-add-application-certificate.md).
 
 > [!Warning]
 > Ett självsignerat certifikat räcker för utveckling och testning. För produktionsprogram ska du använda ett certifikat från en [certifikatutfärdare (CA)](https://wikipedia.org/wiki/Certificate_authority) istället för ett självsignerat certifikat.
-
-```powershell
-Connect-AzAccount
-
-$vaultname="sftestvault"
-$certname="VotingAppPFX"
-$certpw="!Password321#"
-$groupname="voting_RG"
-$clustername = "votinghttps"
-$ExistingPfxFilePath="C:\Users\sfuser\votingappcert.pfx"
-
-$appcertpwd = ConvertTo-SecureString -String $certpw -AsPlainText -Force
-
-Write-Host "Reading pfx file from $ExistingPfxFilePath"
-$cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2 $ExistingPfxFilePath, $certpw
-
-$bytes = [System.IO.File]::ReadAllBytes($ExistingPfxFilePath)
-$base64 = [System.Convert]::ToBase64String($bytes)
-
-$jsonBlob = @{
-   data = $base64
-   dataType = 'pfx'
-   password = $certpw
-   } | ConvertTo-Json
-
-$contentbytes = [System.Text.Encoding]::UTF8.GetBytes($jsonBlob)
-$content = [System.Convert]::ToBase64String($contentbytes)
-
-$secretValue = ConvertTo-SecureString -String $content -AsPlainText -Force
-
-# Upload the certificate to the key vault as a secret
-Write-Host "Writing secret to $certname in vault $vaultname"
-$secret = Set-AzureKeyVaultSecret -VaultName $vaultname -Name $certname -SecretValue $secretValue
-
-# Add a certificate to all the VMs in the cluster.
-Add-AzServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $clustername -SecretIdentifier $secret.Id -Verbose
-```
 
 ## <a name="open-port-443-in-the-azure-load-balancer"></a>Öppna port 443 i Azure-lastbalanseraren
 

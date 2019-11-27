@@ -106,7 +106,7 @@ Alternativt kan du aktivera etableringen av grupp objekt från Azure AD till sla
 
 Detta resulterar i att alla grupp objekt som tilldelats slack i avsnittet **användare och grupper** är fullständigt synkroniserade från Azure AD till slack. Du kan använda avsnittet **synkroniseringsinformation** för att övervaka förloppet och följa länkar till etablering av aktivitets loggar, som beskriver alla åtgärder som utförs av etablerings tjänsten i din slack-app.
 
-Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
+Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Kopplings begränsningar
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Monitor an IoT device space - Azure Digital Twins| Microsoft Docs'
+title: 'Självstudie: övervaka ett IoT-enhets utrymme – Azure Digitals flätar | Microsoft Docs'
 description: Lär dig mer om att etablera rumsliga resurser och övervaka arbetsvillkor med Azure Digital Twins med hjälp av stegen i den här självstudien.
 services: digital-twins
 ms.author: alinast
@@ -16,11 +16,11 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74383227"
 ---
-# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Tutorial: Provision your building and monitor working conditions with Azure Digital Twins Preview
+# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Självstudie: etablera dina arbets villkor för bygge och övervakning med Azure Digitals för hands version
 
-This tutorial demonstrates how to use Azure Digital Twins Preview to monitor your spaces for desired temperature conditions and comfort level. När du har [konfigurerat exempelbyggnaden](tutorial-facilities-setup.md) kan du etablera din byggnad och köra egna funktioner på dina sensordata med hjälp av stegen i den här självstudien.
+Den här självstudien visar hur du använder Azure Digital-förhands granskning för att övervaka dina utrymmen för önskade temperatur villkor och bekvämlighets nivåer. När du har [konfigurerat exempelbyggnaden](tutorial-facilities-setup.md) kan du etablera din byggnad och köra egna funktioner på dina sensordata med hjälp av stegen i den här självstudien.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Definiera villkor för övervakning.
@@ -39,7 +39,7 @@ Den här självstudien förutsätter att du har [slutfört Azure Digital Twins-k
 - [Visual Studio Code](https://code.visualstudio.com/) för att utforska exempelkoden. 
 
 > [!TIP]
-> Use a unique Digital Twins instance name if you're provisioning a new instance.
+> Använd ett unikt digitalt namn på en delad instans om du skapar en ny instans.
 
 ## <a name="define-conditions-to-monitor"></a>Definiera villkor för övervakning
 
@@ -54,13 +54,13 @@ Lägg till följande matchare under de befintliga matcharna. Kontrollera att nyc
         dataTypeValue: Temperature
 ```
 
-This matcher will track the `SAMPLE_SENSOR_TEMPERATURE` sensor that you added in [the first tutorial](tutorial-facilities-setup.md). 
+Den här matcharen spårar den `SAMPLE_SENSOR_TEMPERATURE` sensor som du lade till i [den första självstudien](tutorial-facilities-setup.md). 
 
 ## <a name="create-a-user-defined-function"></a>Skapa en användardefinierad funktion
 
 Du kan använda användardefinierade funktioner för att anpassa bearbetningen av dina sensordata. De är anpassad JavaScript-kod som kan köras i din Azure Digital Twins-instans när vissa villkor som beskrivs av matchare sker. Du kan skapa matchare och användardefinierade funktioner för varje sensor som du vill övervaka. Mer information finns i [Databearbetning och användardefinierade funktioner](concepts-user-defined-functions.md). 
 
-In the sample *provisionSample.yaml* file, look for a section that begins with the type **userdefinedfunctions**. I det här avsnittet etableras en användardefinierad funktion med ett angivet **namn**. Den här användardefinierade funktionen fungerar som listan över matchare under **matcherNames**. Lägg märke till hur du kan ange en egen JavaScript-fil för den användardefinierade funktionen som **skriptet**.
+Leta upp ett avsnitt som börjar med typen **userdefinedfunctions**i filen sample *provisionSample. yaml* . I det här avsnittet etableras en användardefinierad funktion med ett angivet **namn**. Den här användardefinierade funktionen fungerar som listan över matchare under **matcherNames**. Lägg märke till hur du kan ange en egen JavaScript-fil för den användardefinierade funktionen som **skriptet**.
 
 Lägg också märke till avsnittet **roleassignments**. Det tilldelar rollen Space Administrator (Utrymmesadministratör) till den användardefinierade funktionen. Med den här rollen kommer den åt de händelser som kommer från någon av de etablerade utrymmena. 
 
@@ -70,7 +70,7 @@ Lägg också märke till avsnittet **roleassignments**. Det tilldelar rollen Spa
             - Matcher Temperature
     ```
 
-1. Öppna filen **src\actions\userDefinedFunctions\availability.js** i redigeringsprogrammet. This is the file referenced in the **script** element of *provisionSample.yaml*. Den användardefinierade funktionen i den här filen söker efter villkor när ingen rörelse identifieras i rummet, samt när koldioxidnivåerna är under 1 000 ppm. 
+1. Öppna filen **src\actions\userDefinedFunctions\availability.js** i redigeringsprogrammet. Detta är den fil som refereras till i **skript** elementet för *provisionSample. yaml*. Den användardefinierade funktionen i den här filen söker efter villkor när ingen rörelse identifieras i rummet, samt när koldioxidnivåerna är under 1 000 ppm. 
 
    Ändra JavaScript-filen för att övervaka temperatur och andra villkor. Lägg till följande rader med kod för att leta efter villkor när inga rörelse identifieras i rummet, koldioxidnivåerna är lägre än 1 000 ppm och temperaturen är lägre än cirka 25 grader Celsius (78 grader Fahrenheit).
 
@@ -181,11 +181,11 @@ Lägg också märke till avsnittet **roleassignments**. Det tilldelar rollen Spa
    > [!IMPORTANT]
    > För att förhindra obehörig åtkomst till hanterings-API:et för Digital Twins kräver programmet **occupancy-quickstart** att du loggar in med autentiseringsuppgifterna för ditt Azure-konto. Dina autentiseringsuppgifter sparas under en kort period, så du kanske inte måste logga in varje gång. Första gången som programmet körs, och när dina sparade autentiseringsuppgifter upphör att gälla efter det, dirigerar programmet dig till en inloggningssida och ger en sessionsspecifik kod att ange på den sidan. Följ anvisningarna för att logga in på ditt Azure-konto.
 
-1. After your account is authenticated, the application starts creating a sample spatial graph as configured in *provisionSample.yaml*. Vänta tills etableringen har slutförts. Det tar några minuter. Därefter ska du notera meddelandena i kommandofönstret och hur den rumsliga grafen har skapats. Observera hur programmet skapar en IoT-hubb på rotnoden eller i `Venue`.
+1. När ditt konto har autentiserats börjar programmet skapa ett exempel på spatial graf enligt konfigurationen i *provisionSample. yaml*. Vänta tills etableringen har slutförts. Det tar några minuter. Därefter ska du notera meddelandena i kommandofönstret och hur den rumsliga grafen har skapats. Observera hur programmet skapar en IoT-hubb på rotnoden eller i `Venue`.
 
 1. Från utdata i kommandofönstret kopierar du värdet för `ConnectionString` under avsnittet `Devices` till Urklipp. Du behöver det här värdet för att simulera enhetsanslutning i nästa avsnitt.
 
-    [![Provision sample](./media/tutorial-facilities-udf/run-provision-sample.png)](./media/tutorial-facilities-udf/run-provision-sample.png#lightbox)
+    [exempel på ![provision](./media/tutorial-facilities-udf/run-provision-sample.png)](./media/tutorial-facilities-udf/run-provision-sample.png#lightbox)
 
 > [!TIP]
 > Om du får ett felmeddelande liknande ”I/O-åtgärden avbröts eftersom en tråd avslutades eller på grund av att ett program begärde det” under etableringen kan du försöka att köra kommandot igen. Detta kan inträffa om HTTP-klientens tidsgräns gått ut på grund av ett nätverksproblem.
@@ -206,9 +206,9 @@ I det här avsnittet använder du ett projekt med namnet *device-connectivity* i
 
    a. **DeviceConnectionString**: tilldela värdet för `ConnectionString` i utdatafönstret i föregående avsnitt. Kopiera strängen helt, inom citattecknen, så att simulatorn kan ansluta till IoT-hubben.
 
-   b. **HardwareId** within the **Sensors** array: Because you're simulating events from sensors provisioned to your Azure Digital Twins instance, the hardware ID and the names of the sensors in this file should match the `sensors` node of the *provisionSample.yaml* file.
+   b. **HardwareId** inom **sensor** mat ris: eftersom du simulerar händelser från sensorer som har skapats till din Azure Digital-instansen, ska maskinvaru-ID: t och namnen på sensorer i den här filen matcha `sensors`-noden i filen *provisionSample. yaml* .
 
-      Lägg till en ny post för temperatursensorn. The **Sensors** node in *appsettings.json* should look like the following:
+      Lägg till en ny post för temperatursensorn. Noden **sensorer** i *appSettings. JSON* bör se ut så här:
 
       ```JSON
       "Sensors": [{
@@ -246,7 +246,7 @@ Den användardefinierade funktionen körs varje gång din instans tar emot data 
 
 Utdatafönstret visar hur den användardefinierade funktionen körs och fångar upp händelser från enhetssimuleringen. 
 
-   [![Output for the UDF](./media/tutorial-facilities-udf/udf-running.png)](./media/tutorial-facilities-udf/udf-running.png#lightbox)
+   [![utdata för UDF-filen](./media/tutorial-facilities-udf/udf-running.png)](./media/tutorial-facilities-udf/udf-running.png#lightbox)
 
 Om det övervakade villkoret uppfylls anger den användardefinierade funktionen värdet för utrymmet med relevant meddelande, som vi såg [tidigare](#create-a-user-defined-function). Funktionen `GetAvailableAndFreshSpaces` skriver ut meddelandet på konsolen.
 
@@ -269,4 +269,4 @@ Nu när du har etablerat dina utrymmen och skapat ett ramverk för att utlösa a
 > [Självstudie: Ta emot meddelanden från dina Azure Digital Twins-utrymmen med hjälp av Logic Apps](tutorial-facilities-events.md)
 
 > [!div class="nextstepaction"]
-> [Självstudie: Visualisera och analysera händelser från dina Azure Digital Twins -utrymmen med hjälp av Time Series Insights](tutorial-facilities-analyze.md)
+> [Självstudie: Visualisera och analysera händelser från dina Azure Digital Twins-utrymmen med hjälp av Time Series Insights](tutorial-facilities-analyze.md)

@@ -25,7 +25,7 @@ Azure App-konfigurationen sparar poster av exakta tider när ett nytt nyckel/vä
 
 ## <a name="key-value-retrieval"></a>Hämtning av nyckelvärde
 
-Om du vill hämta tidigare nyckel värden anger du en tidpunkt då nyckel värden är ögonblicks bilder i HTTP-huvudet för ett REST API-anrop. Exempel:
+Om du vill hämta tidigare nyckel värden anger du en tidpunkt då nyckel värden är ögonblicks bilder i HTTP-huvudet för ett REST API-anrop. Till exempel:
 
         GET /kv HTTP/1.1
         Accept-Datetime: Sat, 1 Jan 2019 02:10:00 GMT

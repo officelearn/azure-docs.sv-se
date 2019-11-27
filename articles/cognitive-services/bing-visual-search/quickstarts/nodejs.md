@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Get image insights using the REST API and Node.js - Bing Visual Search'
+title: 'Snabb start: Hämta bild insikter med hjälp av REST API och Node. js-Visuell sökning i Bing'
 titleSuffix: Azure Cognitive Services
-description: Ta reda på hur du laddar upp en bild till API:et för visuell sökning i Bing och får information om den.
+description: Ta reda på hur du laddar du upp en bild till API för visuell sökning i Bing och får information om den.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -17,11 +17,11 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74383197"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-nodejs"></a>Quickstart: Get image insights using the Bing Visual Search REST API and Node.js
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-nodejs"></a>Snabb start: Hämta bild insikter med hjälp av Visuell sökning i Bing REST API och Node. js
 
-Använd den här snabbstarten för att skicka ditt första anrop till API:et för visuell sökning i Bing och visa sökresultaten. Det här enkla JavaScript-programmet laddar upp en bild till API:et och visar den information som returneras om den. Även om det här programmet är skrivet i JavaScript är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabbstarten för att skicka ditt första anrop till API för visuell sökning i Bing och visa sökresultaten. Det här enkla JavaScript-programmet laddar upp en bild till API:et och visar den information som returneras om den. Även om det här programmet är skrivet i JavaScript, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-When uploading a local image, the form data must include the `Content-Disposition` header. You must set its `name` parameter to "image", and the `filename` parameter can be set to any string. The contents of the form include the binary data of the image. Den maximala bildstorlek som du kan ladda upp är 1 MB.
+När du laddar upp en lokal avbildning måste formulär data innehålla `Content-Disposition`s huvudet. Du måste ange dess `name` parameter till "bild" och parametern `filename` kan anges till valfri sträng. Innehållet i formuläret är en bilds binära data. Den maximala bildstorlek som du kan ladda upp är 1 MB.
 
 ```
 --boundary_1234-abcd
@@ -35,14 +35,14 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 ## <a name="prerequisites"></a>Krav
 
 * [Node.js](https://nodejs.org/en/download/)
-* The Request module for JavaScript. You can use `npm install request` command to install the module.
-* The form-data module. You can use the `npm install form-data` command to install the module. 
+* Modulen för begäran för Java Script. Du kan använda kommandot `npm install request` för att installera modulen.
+* Modulen formulär-data. Du kan använda kommandot `npm install form-data` för att installera modulen. 
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## <a name="initialize-the-application"></a>Initiera programmet
+## <a name="initialize-the-application"></a>Initiera appen
 
-1. Create a JavaScript file in your favorite IDE or editor, and set the following requirements:
+1. Skapa en JavaScript-fil i din favorit-IDE eller-redigerare och ange följande krav:
 
     ```javascript
     var request = require('request');
@@ -50,7 +50,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
     var fs = require('fs');
     ```
 
-2. Create variables for your API endpoint, subscription key, and the path to your image:
+2. Skapa variabler för API-slutpunkten, prenumerations nyckeln och sökvägen till din avbildning:
 
     ```javascript
     var baseUri = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch';
@@ -58,7 +58,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
     var imagePath = "path-to-your-image";
     ```
 
-3. Create a function named `requestCallback()` to print the response from the API:
+3. Skapa en funktion med namnet `requestCallback()` för att skriva ut svaret från API: et:
 
     ```javascript
     function requestCallback(err, res, body) {
@@ -68,14 +68,14 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
 ## <a name="construct-and-send-the-search-request"></a>Skapa och skicka sökbegäran
 
-1. Create a new **FormData** object using `FormData()`, and append your image path to it, using `fs.createReadStream()`:
+1. Skapa ett nytt **formdata** -objekt med `FormData()`och Lägg till sökvägen till din avbildning med hjälp av `fs.createReadStream()`:
     
     ```javascript
     var form = new FormData();
     form.append("image", fs.createReadStream(imagePath));
     ```
 
-2. Use the request library to upload the image, and call `requestCallback()` to print the response. Be sure to add your subscription key to the request header:
+2. Använd biblioteket för begäran för att ladda upp avbildningen och anropa `requestCallback()` för att skriva ut svaret. Se till att lägga till din prenumerations nyckel i begär ande huvudet:
 
     ```javascript
     form.getLength(function(err, length){
@@ -91,4 +91,4 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Build a Visual Search single-page web app](../tutorial-bing-visual-search-single-page-app.md)
+> [Bygg en Visuell sökning webb program med en enda sida](../tutorial-bing-visual-search-single-page-app.md)

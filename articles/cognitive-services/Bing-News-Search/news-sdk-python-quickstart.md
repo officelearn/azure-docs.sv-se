@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Perform a news search using the SDK for Python - Bing News Search'
+title: 'Snabb start: utföra en nyhets sökning med SDK för python – Nyhetssökning i Bing'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten för att söka efter nyheter med SDK för nyhetssökning i Bing för Python och bearbeta svaret.
 services: cognitive-services
@@ -18,7 +18,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74379059"
 ---
-# <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-python"></a>Quickstart: Perform a news search with the Bing News Search SDK for Python
+# <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-python"></a>Snabb start: utföra en nyhets sökning med Nyhetssökning i Bing SDK för python
 
 Använd den här snabbstarten om du vill börja söka efter nyheter med SDK för nyhetssökning i Bing för Python. Även om Nyhetssökning i Bing har ett REST API som är kompatibelt med de flesta programmeringsspråk så tillhandahåller SDK:n ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/news_search_samples.py).
 
@@ -53,7 +53,7 @@ python -m pip install azure-cognitiveservices-search-newssearch
 
 ## <a name="initialize-the-client-and-send-a-request"></a>Initiera klienten och skicka en begäran
 
-1. Skapa en instans av `CognitiveServicesCredentials`. Instansiera klienten:
+1. Skapa en instans av `CognitiveServicesCredentials`. Instantiera klienten:
     
     ```python
     client = NewsSearchAPI(CognitiveServicesCredentials(subscription_key))

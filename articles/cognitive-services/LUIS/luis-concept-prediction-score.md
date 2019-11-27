@@ -68,7 +68,7 @@ Du kan inaktivera **icke-deterministisk utbildning** genom att [träna med alla 
 
 ## <a name="e-exponent-notation"></a>E (exponent)-format
 
-Förutsägelse poäng kan använda exponent notation _visas_ ovan 0 – 1 intervall, till exempel `9.910309E-07`. Det här resultatet är en indikation på en mycket **små** tal.
+Förutsägelse resultat kan använda exponent notation, som _visas_ ovanför intervallet 0-1, till exempel `9.910309E-07`. Den här poängen är en indikation på ett mycket **litet** tal.
 
 |E-notering poäng |Faktiska poäng|
 |--|--|
@@ -80,4 +80,4 @@ Förutsägelse poäng kan använda exponent notation _visas_ ovan 0 – 1 interv
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se [Lägg till entiteter](luis-how-to-add-entities.md) mer information om hur du lägger till entiteter i din LUIS-app.
+Se [Lägg till entiteter](luis-how-to-add-entities.md) för att lära dig mer om hur du lägger till entiteter i Luis-appen.

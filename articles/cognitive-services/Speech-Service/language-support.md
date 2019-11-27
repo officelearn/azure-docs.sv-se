@@ -182,7 +182,7 @@ Nationell inställning | Språk | Kön | Fullständig tjänst namns mappning | K
 | | | Kvinna | ”Microsoft Server tal Text till tal-röst (zh-TW, HanHanRUS)” | "zh-TW-HanHanRUS"
 | | | Man | ”Microsoft Server tal Text till tal-röst (zh-TW, Zhiwei, Apollo)” | "zh-TW-Zhiwei-Apollo"
 
-&dagger; *ar T.ex stöder moderna Standard arabiska (MSA).*
+&dagger; *ar-tex stöder modern standard arabiska (MSA).*
 
 > [!NOTE]
 > Du kan antingen använda den fullständiga tjänst namns mappningen eller det korta röst namnet i ditt tal syntes begär Anden.
@@ -196,7 +196,7 @@ Röst anpassning är tillgänglig för `de-DE`, `en-GB`, `en-IN`, `en-US`, `es-M
 
 ## <a name="speech-translation"></a>Talöversättning
 
-Den **Talöversättning** API har stöd för olika språk för översättning av tal-till-tal- och tal till text. Käll språket måste alltid vara från språk tabellen för tal till text. Tillgängliga mål språk beror på om translation målet är tal eller text. Du kan översätta inkommande tal i mer än [60 språk](https://www.microsoft.com/translator/business/languages/). Det finns en delmängd av språk som är tillgängliga för [tal syntes](language-support.md#text-languages).
+API: et för **tal översättning** stöder olika språk för översättning av tal till tal och tal till text. Käll språket måste alltid vara från språk tabellen för tal till text. Tillgängliga mål språk beror på om translation målet är tal eller text. Du kan översätta inkommande tal till fler än [60 språk](https://www.microsoft.com/translator/business/languages/). Det finns en delmängd av språk som är tillgängliga för [tal syntes](language-support.md#text-languages).
 
 ### <a name="text-languages"></a>Språken för mobilapptext
 
@@ -270,4 +270,4 @@ Den **Talöversättning** API har stöd för olika språk för översättning av
 ## <a name="next-steps"></a>Nästa steg
 
 * [Hämta en kostnadsfri utvärderingsprenumeration på Speech Services](https://azure.microsoft.com/try/cognitive-services/)
-* [Se hur du kan känna igen tal i C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)
+* [Se identifiera tal iC#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)

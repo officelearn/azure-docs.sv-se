@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Deploy a preview environment and spatial graph - Azure Digital Twins| Microsoft Docs'
+title: 'Självstudie: Distribuera en förhands gransknings miljö och ett spatial diagram – Azure Digitals flätade | Microsoft Docs'
 description: Lär dig hur du distribuerar din instans av Azure Digital Twins och konfigurerar rumsliga resurser med hjälp av den här självstudien.
 services: digital-twins
 ms.author: alinast
@@ -16,9 +16,9 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74383032"
 ---
-# <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Tutorial: Deploy Azure Digital Twins Preview and configure a spatial graph
+# <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Självstudie: Distribuera Azure Digitals förhands granskning och konfigurera ett spatial diagram
 
-You can use the Azure Digital Twins Preview service to bring together people, places, and devices in a coherent spatial system. Den här serien med självstudier visar hur du använder Azure Digital Twins för att identifiera rumsbeläggning med optimala förhållanden för temperatur och luftkvalitet. 
+Du kan använda Azure Digital-förhands gransknings tjänsten för att samla ihop människor, platser och enheter i ett sammanhängande avstånds system. Den här serien med självstudier visar hur du använder Azure Digital Twins för att identifiera rumsbeläggning med optimala förhållanden för temperatur och luftkvalitet. 
 
 Dessa självstudier går igenom ett .NET-konsolprogram för att skapa ett scenario för en kontorsbyggnad. Den här byggnaden har flera våningar och rum på varje våning. Rummen innehåller enheter med kopplade sensorer som identifierar rörelse, omgivningstemperatur och luftkvalitet. 
 
@@ -150,7 +150,7 @@ Filen **provisionSample.yaml** innehåller följande noder:
 
 - **devices** (enheter): Utrymmen kan innehålla `devices`, som är fysiska eller virtuella enheter som hanterar ett antal sensorer. Till exempel kan en enhet vara en användares telefon, en Raspberry Pi-sensor eller en gateway. I den föreställda byggnaden i exemplet kan du observera hur rummet med namnet **Focus Room** innehåller en **Raspberry Pi 3 A1**-enhet. Varje enhetsnod identifieras med ett unikt `hardwareId`, som är hårdkodat i exemplet. Om du vill konfigurera det här exemplet för faktisk produktion ersätter du dessa med värden från konfigurationen.  
 
-- **sensors** (sensorer): en enhet kan innehålla flera `sensors`. De kan identifiera och registrera fysiska förändringar som temperatur, rörelse och batterinivå. Each sensor node is uniquely identified by a `hardwareId`, hardcoded here. För en faktisk app ersätter du dessa med hjälp av de unika identifierarna för sensorerna i konfigurationen. Filen provisionSample.yaml har två sensorer för att registrera *Motion* (Rörelse) och *CarbonDioxide* (Koldioxid). Lägg till en annan sensor för att registrera *Temperature* (Temperatur) genom att lägga till följande rader, nedanför raderna för CarbonDioxide-sensorn (Koldioxidsensorn). Observera att dessa tillhandahålls i provisionSample.yaml som kommenterade rader. Du kan ta bort kommentaren från dem genom att ta bort tecknet `#` före varje rad. 
+- **sensors** (sensorer): en enhet kan innehålla flera `sensors`. De kan identifiera och registrera fysiska förändringar som temperatur, rörelse och batterinivå. Varje sensornod har unikt identifierats av ett `hardwareId`, hårdkodat här. För en faktisk app ersätter du dessa med hjälp av de unika identifierarna för sensorerna i konfigurationen. Filen provisionSample.yaml har två sensorer för att registrera *Motion* (Rörelse) och *CarbonDioxide* (Koldioxid). Lägg till en annan sensor för att registrera *Temperature* (Temperatur) genom att lägga till följande rader, nedanför raderna för CarbonDioxide-sensorn (Koldioxidsensorn). Observera att dessa tillhandahålls i provisionSample.yaml som kommenterade rader. Du kan ta bort kommentaren från dem genom att ta bort tecknet `#` före varje rad. 
 
     ```yaml
             - dataType: Temperature

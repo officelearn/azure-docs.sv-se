@@ -72,8 +72,6 @@
           href: how-to-enable-remote-desktop-linux.md
         - name: Aktivera kapslad virtualisering på en virtuell malldator
           href: how-to-enable-nested-virtualization-template-vm.md
-        - name: Skapa en miljö med flera virtuella datorer i en mall för virtuella datorer
-          href: how-to-enable-multi-vm-environment.md
     - name: Ansluta till virtuella datorer i klassrumslabb (elev)
       items:
         - name: Åtkomst till klassrumslabb

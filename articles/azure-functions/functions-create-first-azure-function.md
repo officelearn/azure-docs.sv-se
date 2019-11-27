@@ -1,5 +1,5 @@
 ---
-title: Create your first serverless function from the Azure portal
+title: Skapa din första server lös funktion från Azure Portal
 description: Lär dig hur du skapar din första Azure-funktion för serverfri körning i Azure Portal.
 ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.topic: quickstart
@@ -12,16 +12,16 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74230835"
 ---
-# <a name="create-your-first-function-in-the-azure-portal"></a>Skapa din första funktion på Azure Portal
+# <a name="create-your-first-function-in-the-azure-portal"></a>Skapa din första funktion i Azure Portal
 
-Med Azure Functions kan du köra kod i en [serverfri](https://azure.microsoft.com/solutions/serverless/) miljö utan att först behöva skapa en virtuell dator eller publicera en webbapp. In this article, learn how to use Functions to create a "hello world" function in the Azure portal.
+Med Azure Functions kan du köra kod i en [serverfri](https://azure.microsoft.com/solutions/serverless/) miljö utan att först behöva skapa en virtuell dator eller publicera en webbapp. I den här artikeln får du lära dig hur du använder Functions för att skapa en "Hello World"-funktion i Azure Portal.
 
 ![Skapa en funktionsapp i Azure Portal](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 > [!NOTE]
-> C# developers should consider [creating your first function in Visual Studio 2019](functions-create-your-first-function-visual-studio.md) instead of in the portal. 
+> C#utvecklare bör överväga att [skapa din första funktion i Visual Studio 2019](functions-create-your-first-function-visual-studio.md) i stället för i portalen. 
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
@@ -39,7 +39,7 @@ Därefter skapar du en funktion i den nya funktionsappen.
 
 1. Expandera den nya funktionsappen. Välj knappen **+** intill knappen **Functions**, välj **I portalen** och välj **Fortsätt**.
 
-    ![Functions quickstart for choosing a platform.](./media/functions-create-first-azure-function/function-app-quickstart-choose-portal.png)
+    ![Snabb start för funktioner för att välja en plattform.](./media/functions-create-first-azure-function/function-app-quickstart-choose-portal.png)
 
 1. Välj **WebHook + API** och välj sedan **Skapa**.
 
@@ -73,7 +73,7 @@ Nu kan du köra den nya funktionen genom att skicka en HTTP-begäran.
 
 ## <a name="next-steps"></a>Nästa steg
 
-You've created a function app with a simple HTTP triggered function.  
+Du har skapat en Function-app med en enkel HTTP-utlöst funktion.  
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 

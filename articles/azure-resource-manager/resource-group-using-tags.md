@@ -1,6 +1,6 @@
 ---
-title: Tag resources for logical organization
-description: Shows how to apply tags to organize Azure resources for billing and managing.
+title: Tagga resurser för logisk organisation
+description: Visar hur du använder taggar för att organisera Azure-resurser för fakturering och hantering.
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.openlocfilehash: f3fca2030d33ba5a52d43924ff542801d435e4de
@@ -14,13 +14,13 @@ ms.locfileid: "74484277"
 
 [!INCLUDE [resource-manager-governance-tags](../../includes/resource-manager-governance-tags.md)]
 
-To apply tags to resources, the user must have write access to that resource type. To apply tags to all resource types, use the [Contributor](../role-based-access-control/built-in-roles.md#contributor) role. To apply tags to only one resource type, use the contributor role for that resource. For example, to apply tags to virtual machines, use the [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
+Om du vill använda taggar för resurser måste användaren ha Skriv behörighet till den resurs typen. Använd [deltagar](../role-based-access-control/built-in-roles.md#contributor) rollen om du vill använda taggar för alla resurs typer. Använd deltagar rollen för den resursen om du bara vill använda taggar för en resurs typ. Om du till exempel vill använda taggar för virtuella datorer använder du den [virtuella dator deltagaren](../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
-## <a name="policies"></a>Policy
+## <a name="policies"></a>Principer
 
-You can use [Azure Policy](../governance/policy/overview.md) to enforce tagging rules and conventions. By creating a policy, you avoid the scenario of resources being deployed to your subscription that don't comply with the expected tags for your organization. Instead of manually applying tags or searching for resources that aren't compliant, you can create a policy that automatically applies the needed tags during deployment. Tags can also now be applied to existing resources with the new [Modify](../governance/policy/concepts/effects.md#modify) effect and a [remediation task](../governance/policy/how-to/remediate-resources.md). The following section shows example policies for tags.
+Du kan använda [Azure policy](../governance/policy/overview.md) för att tillämpa taggnings regler och konventioner. Genom att skapa en princip undviker du syftet med resurser som distribueras till din prenumeration som inte följer de förväntade taggarna för din organisation. I stället för att manuellt tillämpa taggar eller söka efter resurser som inte är kompatibla, kan du skapa en princip som automatiskt tillämpar de taggar som krävs under distributionen. Taggar kan nu också tillämpas på befintliga resurser med den nya [ändra](../governance/policy/concepts/effects.md#modify) -effekt och en [reparations uppgift](../governance/policy/how-to/remediate-resources.md). I följande avsnitt visas exempel principer för taggar.
 
 [!INCLUDE [Tag policies](../../includes/azure-policy-samples-general-tags.md)]
 
@@ -67,7 +67,7 @@ Om du vill hämta *resurser som har en specifik tagg* använder du:
 (Get-AzResource -Tag @{ Dept="Finance"}).Name
 ```
 
-To get *resources that have a specific tag name*, use:
+Om du vill hämta *resurser som har ett visst taggnamn*använder du:
 
 ```azurepowershell-interactive
 (Get-AzResource -TagName Dept).Name
@@ -104,7 +104,7 @@ $r.Tags.Add("Status", "Approved")
 Set-AzResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
 ```
 
-To apply all tags from a resource group to its resources, and *not keep existing tags on the resources*, use the following script:
+Använd följande skript om du vill tillämpa alla Taggar från en resurs grupp på dess resurser och *inte behålla befintliga taggar på resurserna*:
 
 ```azurepowershell-interactive
 $groups = Get-AzResourceGroup
@@ -114,7 +114,7 @@ foreach ($g in $groups)
 }
 ```
 
-To apply all tags from a resource group to its resources, and *keep existing tags on resources that aren't duplicates*, use the following script:
+Använd följande skript om du vill tillämpa alla Taggar från en resurs grupp på dess resurser och *behålla befintliga taggar för resurser som inte är dubbletter*:
 
 ```azurepowershell-interactive
 $group = Get-AzResourceGroup "examplegroup"
@@ -165,25 +165,25 @@ Skriptet returnerar följande format:
 }
 ```
 
-Or, to see the existing tags for a *resource that has a specified name, type, and resource group*, use:
+Eller, om du vill visa de befintliga taggarna för en *resurs som har ett angivet namn, typ och resurs grupp*, använder du:
 
 ```azurecli
 az resource show -n examplevnet -g examplegroup --resource-type "Microsoft.Network/virtualNetworks" --query tags
 ```
 
-When looping through a collection of resources, you might want to show the resource by resource ID. A complete example is shown later in this article. Om du vill visa de befintliga taggarna för en *resurs som har ett angivet resurs-ID* använder du:
+När du går igenom en samling resurser kanske du vill visa resursen efter resurs-ID. Ett fullständigt exempel visas senare i den här artikeln. Om du vill visa de befintliga taggarna för en *resurs som har ett angivet resurs-ID* använder du:
 
 ```azurecli
 az resource show --id <resource-id> --query tags
 ```
 
-To get resource groups that have a specific tag, use `az group list`:
+Använd `az group list`för att hämta resurs grupper som har en angiven tagg:
 
 ```azurecli
 az group list --tag Dept=IT
 ```
 
-To get all the resources that have a particular tag and value, use `az resource list`:
+Använd `az resource list`för att hämta alla resurser som har en viss tagg och ett visst värde:
 
 ```azurecli
 az resource list --tag Dept=Finance
@@ -203,7 +203,7 @@ Om du vill lägga till taggar till en *resurs utan befintliga taggar* använder 
 az resource tag --tags Dept=IT Environment=Test -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-To add tags to a resource that already has tags, retrieve the existing tags, reformat that value, and reapply the existing and new tags:
+Om du vill lägga till taggar till en resurs som redan har taggar, hämtar du de befintliga taggarna, formaterar det värdet och tillämpar de befintliga och nya taggarna igen:
 
 ```azurecli
 jsonrtag=$(az resource show -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks" --query tags -o json)
@@ -211,7 +211,7 @@ rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
 az resource tag --tags $rt Project=Redesign -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-To apply all tags from a resource group to its resources, and *not keep existing tags on the resources*, use the following script:
+Använd följande skript om du vill tillämpa alla Taggar från en resurs grupp på dess resurser och *inte behålla befintliga taggar på resurserna*:
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -227,7 +227,7 @@ do
 done
 ```
 
-To apply all tags from a resource group to its resources, and *keep existing tags on resources*, use the following script:
+Använd följande skript om du vill tillämpa alla Taggar från en resurs grupp på dess resurser och *behålla befintliga taggar för resurser*:
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -247,7 +247,7 @@ done
 
 ## <a name="templates"></a>Mallar
 
-To tag a resource during deployment, add the `tags` element to the resource you're deploying. Ange namn och värde för taggen.
+Om du vill tagga en resurs under distributionen lägger du till `tags`-elementet till den resurs som du distribuerar. Ange namn och värde för taggen.
 
 ### <a name="apply-a-literal-value-to-the-tag-name"></a>Lägga till ett literalvärde till taggnamnet
 
@@ -283,7 +283,7 @@ I följande exempel visas ett lagringskonto med två taggar (`Dept` och `Environ
 }
 ```
 
-To set a tag to a datetime value, use the [utcNow function](resource-group-template-functions-string.md#utcnow).
+Om du vill ange en tagg till ett datetime-värde använder du [funktionen utcNow](resource-group-template-functions-string.md#utcnow).
 
 ### <a name="apply-an-object-to-the-tag-element"></a>Lägga till ett objekt till taggelementet
 
@@ -325,7 +325,7 @@ Du kan definiera en objektparameter som lagrar flera taggar, och använda det ob
 
 ### <a name="apply-a-json-string-to-the-tag-name"></a>Lägga till en JSON-sträng till taggnamnet
 
-Du kan lagra flera värden i en enskild tagg genom att använda en JSON-sträng som representerar värdena. The entire JSON string is stored as one tag that can't exceed 256 characters. I följande exempel finns en enskild tagg med namnet `CostCenter` som innehåller flera värden från en JSON-sträng:  
+Du kan lagra flera värden i en enskild tagg genom att använda en JSON-sträng som representerar värdena. Hela JSON-strängen lagras som en tagg som inte får innehålla fler än 256 tecken. I följande exempel finns en enskild tagg med namnet `CostCenter` som innehåller flera värden från en JSON-sträng:  
 
 ```json
 {
@@ -356,9 +356,9 @@ Du kan lagra flera värden i en enskild tagg genom att använda en JSON-sträng 
 }
 ```
 
-### <a name="apply-tags-from-resource-group"></a>Apply tags from resource group
+### <a name="apply-tags-from-resource-group"></a>Använd taggar från resurs gruppen
 
-To apply tags from a resource group to a resource, use the [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) function. When getting the tag value, use the `tags.[tag-name]` syntax instead of the `tags.tag-name` syntax, because some characters aren't parsed correctly in the dot notation.
+Använd funktionen [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) för att lägga till taggar från en resurs grupp till en resurs. När du hämtar taggnamnet använder du `tags.[tag-name]` syntax i stället för `tags.tag-name` syntax, eftersom vissa tecken inte tolkas korrekt i punkt notationen.
 
 ```json
 {
@@ -390,23 +390,23 @@ To apply tags from a resource group to a resource, use the [resourceGroup](resou
 }
 ```
 
-## <a name="portal"></a>Portalen
+## <a name="portal"></a>Portal
 
 [!INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
 
 ## <a name="rest-api"></a>REST-API
 
-The Azure portal and PowerShell both use the [Resource Manager REST API](https://docs.microsoft.com/rest/api/resources/) behind the scenes. If you need to integrate tagging into another environment, you can get tags by using **GET** on the resource ID and update the set of tags by using a **PATCH** call.
+Azure Portal och PowerShell använder båda [Resource Manager-REST API](https://docs.microsoft.com/rest/api/resources/) i bakgrunden. Om du behöver integrera taggning i en annan miljö kan du hämta Taggar genom att använda **Hämta** i resurs-ID och uppdatera uppsättningen med Taggar med hjälp av ett **korrigerings** anrop.
 
-## <a name="tags-and-billing"></a>Tags and billing
+## <a name="tags-and-billing"></a>Taggar och fakturering
 
-You can use tags to group your billing data. For example, if you're running multiple VMs for different organizations, use the tags to group usage by cost center. You can also use tags to categorize costs by runtime environment, such as the billing usage for VMs running in the production environment.
+Du kan använda taggar för att gruppera dina fakturerings data. Om du till exempel kör flera virtuella datorer för olika organisationer använder du taggarna för att gruppera användning efter kostnads ställe. Du kan också använda taggar för att kategorisera kostnader efter körnings miljö, till exempel fakturerings användningen för virtuella datorer som körs i produktions miljön.
 
-You can retrieve information about tags through the [Azure Resource Usage and RateCard APIs](../billing/billing-usage-rate-card-overview.md) or the usage comma-separated values (CSV) file. You download the usage file from the [Azure Account Center](https://account.azure.com/Subscriptions) or Azure portal. For more information, see [Download or view your Azure billing invoice and daily usage data](../billing/billing-download-azure-invoice-daily-usage-date.md). When downloading the usage file from the Azure Account Center, select **Version 2**. For services that support tags with billing, the tags appear in the **Tags** column.
+Du kan hämta information om Taggar via [Azures resursanvändning och ratecard-API: er](../billing/billing-usage-rate-card-overview.md) eller CSV-fil (fil med kommaavgränsade värden). Du hämtar användnings filen från [Azure-kontocenter](https://account.azure.com/Subscriptions) eller Azure Portal. Mer information finns i [Hämta eller Visa din fakturerings faktura för Azure och användnings data per dag](../billing/billing-download-azure-invoice-daily-usage-date.md). När du laddar ned användnings filen från Azure-kontocenter väljer du **version 2**. För tjänster som stöder taggar med fakturering visas taggarna i kolumnen **taggar** .
 
-For REST API operations, see [Azure Billing REST API Reference](/rest/api/billing/).
+REST API åtgärder finns i [referens för Azure-fakturerings REST API](/rest/api/billing/).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Not all resource types support tags. To determine if you can apply a tag to a resource type, see [Tag support for Azure resources](tag-support.md).
-* For an introduction to using the portal, see [Using the Azure portal to manage your Azure resources](manage-resource-groups-portal.md).  
+* Inte alla resurs typer stöder taggar. Information om hur du kan använda en tagg för en resurs typ finns i [tagga stöd för Azure-resurser](tag-support.md).
+* En introduktion till att använda portalen finns i [använda Azure Portal för att hantera dina Azure-resurser](manage-resource-groups-portal.md).  

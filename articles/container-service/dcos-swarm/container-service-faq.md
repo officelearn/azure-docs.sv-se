@@ -104,7 +104,7 @@ Du hittar anslutningssträngen i Azure Portal eller med hjälp av Azure-kommando
 
 4. Det finns flera klusterlänkar under **Utdata** på sidan **Sammanfattning**. **SSHMaster0** ger en SSH-anslutningssträng till den första huvudservern i containertjänstklustret. 
 
-Som vi nämnde tidigare kan du också använda Azure-verktyg för att hitta det fullständiga domännamnet för huvudservern. Skapa en SSH-anslutning till huvudservern med det fullständiga domännamnet för huvudservern och det användarnamn som du angav när klustret skapades. Exempel:
+Som vi nämnde tidigare kan du också använda Azure-verktyg för att hitta det fullständiga domännamnet för huvudservern. Skapa en SSH-anslutning till huvudservern med det fullständiga domännamnet för huvudservern och det användarnamn som du angav när klustret skapades. Till exempel:
 
 ```bash
 ssh userName@masterFQDN –A –p 22 

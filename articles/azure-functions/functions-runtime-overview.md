@@ -1,6 +1,6 @@
 ---
-title: Azure Functions Runtime Overview
-description: Overview of the Azure Functions Runtime Preview
+title: Översikt över Körmiljö för Azure Functions
+description: Översikt över Körmiljö för Azure Functions för hands version
 author: apwestgarth
 ms.topic: conceptual
 ms.date: 11/28/2017
@@ -12,40 +12,40 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74226630"
 ---
-# <a name="azure-functions-runtime-overview-preview"></a>Azure Functions Runtime Overview (preview)
+# <a name="azure-functions-runtime-overview-preview"></a>Översikt över Körmiljö för Azure Functions (för hands version)
 
 [!INCLUDE [intro](../../includes/functions-runtime-preview-note.md)]
 
-The Azure Functions Runtime (preview) provides a new way for you to take advantage of the simplicity and flexibility of the Azure Functions programming model on-premises. Built on the same open source roots as Azure Functions, Azure Functions Runtime is deployed on-premises to provide a nearly identical development experience as the cloud service.
+Körmiljö för Azure Functions (för hands version) är ett nytt sätt att dra nytta av den enklare och flexibiliteten i den Azure Functions Programmerings modellen lokalt. Körmiljö för Azure Functions har byggts med samma rötter för öppen källkod som Azure Functions, och har distribuerats lokalt för att ge en nästan identisk utvecklings upplevelse som moln tjänst.
 
-![Azure Functions Runtime Preview Portal][1]
+![Körmiljö för Azure Functions för hands versions portalen][1]
 
-The Azure Functions Runtime provides a way for you to experience Azure Functions before committing to the cloud. In this way, the code assets you build can then be taken with you to the cloud when you migrate.  The runtime also opens up new options for you, such as using the spare compute power of your on-premises computers to run batch processes overnight. You can also use devices within your organization to conditionally send data to other systems, both on-premises and in the cloud.
+Körmiljö för Azure Functions är ett sätt för dig att uppleva Azure Functions innan du genomför det i molnet. På så sätt kan de kod till gångar som du skapar sedan tas med dig till molnet när du migrerar.  Körningen öppnar också nya alternativ åt dig, till exempel att använda den extra beräknings kraften hos dina lokala datorer för att köra batch-processer över natten. Du kan också använda enheter i din organisation för att villkorligt skicka data till andra system, både lokalt och i molnet.
 
-The Azure Functions Runtime consists of two pieces:
+Körmiljö för Azure Functions består av två delar:
 
-* Azure Functions Runtime Management Role
-* Azure Functions Runtime Worker Role
+* Körmiljö för Azure Functions hanterings roll
+* Körmiljö för Azure Functions arbets roll
 
-## <a name="azure-functions-management-role"></a>Azure Functions Management Role
+## <a name="azure-functions-management-role"></a>Azure Functions hanterings roll
 
-The Azure Functions Management Role provides a host for the management of your Functions on-premises. This role performs the following tasks:
+Rollen Azure Functions hantering tillhandahåller en värd för hantering av dina funktioner lokalt. Den här rollen utför följande uppgifter:
 
-* Hosting of the Azure Functions Management Portal, which is the same one you see in the [Azure portal](https://portal.azure.com). The portal provides a consistent experience that lets you develop your functions in the same way as you would in the Azure portal.
-* Distributing functions across multiple Functions workers.
-* Providing a publishing endpoint so that you can publish your functions direct from Microsoft Visual Studio by downloading and importing the publishing profile.
+* Värd för Azure Functions Hanteringsportal, som är samma som visas i [Azure Portal](https://portal.azure.com). Portalen ger en enhetlig upplevelse som gör att du kan utveckla dina funktioner på samma sätt som du skulle göra i Azure Portal.
+* Distribuera funktioner över flera funktions arbetare.
+* Tillhandahålla en publicerings slut punkt så att du kan publicera dina funktioner direkt från Microsoft Visual Studio genom att hämta och importera publicerings profilen.
 
-## <a name="azure-functions-worker-role"></a>Azure Functions Worker Role
+## <a name="azure-functions-worker-role"></a>Azure Functions arbets roll
 
-The Azure Functions Worker Roles are deployed in Windows Containers and are where your function code executes.  You can deploy multiple Worker Roles throughout your organization and this option is a key way in which customers can make use of spare compute power.  One example of where spare compute exists in many organizations is machines powered on constantly but not being used for large periods of time.
+Azure Functions Worker-roller distribueras i Windows-behållare och är där funktions koden körs.  Du kan distribuera flera arbets roller i organisationen och det här alternativet är ett viktigt sätt för kunderna att använda reserv beräknings kraft.  Ett exempel på var reserv beräkning finns i många organisationer är datorer som drivs ständigt men inte används under stora tids perioder.
 
-## <a name="minimum-requirements"></a>Minimum Requirements
+## <a name="minimum-requirements"></a>Minimi krav
 
-To get started with the Azure Functions Runtime, you must have a machine with Windows Server 2016 or Windows 10 Creators Update with access to a SQL Server instance.
+För att komma igång med Körmiljö för Azure Functions måste du ha en dator med Windows Server 2016 eller Windows 10 Creators Update med åtkomst till en SQL Server-instans.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Install the [Azure Functions Runtime preview](https://aka.ms/azafrdoc)
+Installera [körmiljö för Azure Functions för hands version](https://aka.ms/azafrdoc)
 
 <!--Image references-->
 [1]: ./media/functions-runtime-overview/AzureFunctionsRuntime_Portal.png

@@ -20,7 +20,7 @@ Lär dig hur du skapar en funktion som utlöses när data läggs till eller änd
 
 ## <a name="prerequisites"></a>Krav
 
-För att slutföra den här självstudien behöver du:
+För att slutföra den här kursen behöver du:
 
 + Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -53,7 +53,7 @@ Därefter skapar du en funktion i den nya funktionsappen.
 
 1. Skriv `cosmos` i sökfältet och välj sedan mallen **Azure Cosmos DB-utlösare**.
 
-1. If prompted, select **Install** to install the Azure Cosmos DB extension in the function app. När installationen är klar väljer du **Fortsätt**.
+1. Om du uppmanas väljer du **Installera** för att installera Azure Cosmos DB tillägget i Function-appen. När installationen är klar väljer du **Fortsätt**.
 
     ![Installera bindningstillägg](./media/functions-create-cosmos-db-triggered-function/functions-create-cosmos-db-trigger-portal.png)
 

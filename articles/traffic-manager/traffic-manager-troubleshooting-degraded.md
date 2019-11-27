@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting degraded status on Azure Traffic Manager
-description: How to troubleshoot Traffic Manager profiles when it shows as degraded status.
+title: Felsöka försämrad status på Azure Traffic Manager
+description: Så här felsöker du Traffic Manager profiler när de visas som degraderad status.
 services: traffic-manager
 documentationcenter: ''
 author: asudbring
@@ -19,36 +19,36 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74227721"
 ---
-# <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Troubleshooting degraded state on Azure Traffic Manager
+# <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Felsöka degraderat tillstånd på Azure Traffic Manager
 
-This article describes how to troubleshoot an Azure Traffic Manager profile that is showing a degraded status. As a first step in troubleshooting a Azure Traffic Manager degraded state is to enable diagnostic logging.  Refer to [Enable diagnostic logs](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs) for more information. For this scenario, consider that you have configured a Traffic Manager profile pointing to some of your cloudapp.net hosted services. If the health of your Traffic Manager displays a **Degraded** status, then the status of one or more endpoints may be **Degraded**:
+Den här artikeln beskriver hur du felsöker en Azure Traffic Manager-profil som visar en degraderad status. Det första steget i att felsöka ett Azure-Traffic Manager degraderat tillstånd är att aktivera diagnostisk loggning.  Mer information hittar du i [Aktivera diagnostikloggar](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs) . I det här scenariot bör du tänka på att du har konfigurerat en Traffic Manager-profil som pekar på några av dina cloudapp.net-värdbaserade tjänster. Om hälso tillståndet för Traffic Manager visar **degraderad** status kan statusen för en eller flera slut punkter **försämras**:
 
-![degraded endpoint status](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png)
+![status för degraderad slut punkt](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png)
 
-If the health of your Traffic Manager displays an **Inactive** status, then both end points may be **Disabled**:
+Om hälso tillståndet för Traffic Manager visar **inaktiv** status kan båda slut punkterna vara **inaktiverade**:
 
-![Inactive Traffic Manager status](./media/traffic-manager-troubleshooting-degraded/traffic-manager-inactive.png)
+![Status för inaktiva Traffic Manager](./media/traffic-manager-troubleshooting-degraded/traffic-manager-inactive.png)
 
-## <a name="understanding-traffic-manager-probes"></a>Understanding Traffic Manager probes
+## <a name="understanding-traffic-manager-probes"></a>Förstå Traffic Manager avsökningar
 
-* Traffic Manager considers an endpoint to be ONLINE only when the probe receives an HTTP 200 response back from the probe path. If you application returns any other HTTP response code you should add that response code to [Expected status code ranges](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) of your Traffic Manager profile.
-* A 30x redirect response is treated as failure unless you have specified this as a valid response code in [Expected status code ranges](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) of your Traffic Manager profile. Traffic Manager does not probe the redirection target.
-* For HTTPs probes, certificate errors are ignored.
-* The actual content of the probe path doesn't matter, as long as a 200 is returned. Probing a URL to some static content like "/favicon.ico" is a common technique. Dynamic content, like the ASP pages, may not always return 200, even when the application is healthy.
-* A best practice is to set the probe path to something that has enough logic to determine that the site is up or down. In the previous example, by setting the path to "/favicon.ico", you are only testing that w3wp.exe is responding. This probe may not indicate that your web application is healthy. A better option would be to set a path to a something such as "/Probe.aspx" that has logic to determine the health of the site. For example, you could use performance counters to CPU utilization or measure the number of failed requests. Or you could attempt to access database resources or session state to make sure that the web application is working.
-* If all endpoints in a profile are degraded, then Traffic Manager treats all endpoints as healthy and routes traffic to all endpoints. This behavior ensures that problems with the probing mechanism do not result in a complete outage of your service.
+* Traffic Manager anser att en slut punkt endast är ONLINE när avsökningen får ett HTTP 200-svar tillbaka från avsöknings Sök vägen. Om du returnerar en annan HTTP-svarskod måste du lägga till den svars koden till [förväntade status kod intervall](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) i Traffic Manager profilen.
+* Ett 30 omdirigerings svar behandlas som ett haveri om du inte har angett en giltig svarskod i [förväntade status kod intervall](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) för din Traffic Manager profil. Traffic Manager avsöker inte omdirigerings målet.
+* Certifikat fel ignoreras för HTTPs-avsökningar.
+* Det faktiska innehållet i avsöknings Sök vägen spelar ingen roll, så länge som en 200 returneras. Avsökning av en URL till ett statiskt innehåll, t. ex. "/favicon.ico" är en vanlig teknik. Dynamiskt innehåll, som ASP-sidor, kan inte alltid returnera 200, även om programmet är felfritt.
+* Ett bra tips är att ställa in avsöknings Sök vägen till något som har tillräckligt med logik för att avgöra om platsen är aktiv eller inte. I föregående exempel, genom att ange sökvägen till "/favicon.ico", testar du bara att W3wp. exe svarar. Den här avsökningen kanske inte indikerar att webb programmet är felfritt. Ett bättre alternativ är att ange en sökväg till något som "/PROBE.aspx" som har logik för att fastställa webbplatsens hälso tillstånd. Du kan till exempel använda prestanda räknare för processor användning eller mäta antalet misslyckade förfrågningar. Eller så kan du försöka få åtkomst till databas resurser eller sessionstillstånd för att kontrol lera att webb programmet fungerar.
+* Om alla slut punkter i en profil är degraderade Traffic Manager behandlar alla slut punkter som felfria och dirigerar trafik till alla slut punkter. Det här beteendet säkerställer att problem med avsöknings mekanismen inte resulterar i ett fullständigt avbrott i tjänsten.
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
-To troubleshoot a probe failure, you need a tool that shows the HTTP status code return from the probe URL. There are many tools available that show you the raw HTTP response.
+Om du vill felsöka ett avsöknings fel behöver du ett verktyg som visar HTTP-statuskoden från avsöknings-URL: en. Det finns många tillgängliga verktyg som visar RAW HTTP-svaret.
 
 * [Fiddler](https://www.telerik.com/fiddler)
-* [curl](https://curl.haxx.se/)
+* [klammerparentes](https://curl.haxx.se/)
 * [wget](http://gnuwin32.sourceforge.net/packages/wget.htm)
 
-Also, you can use the Network tab of the F12 Debugging Tools in Internet Explorer to view the HTTP responses.
+Du kan också använda fliken nätverk i verktyget F12-felsökning i Internet Explorer för att Visa HTTP-svar.
 
-For this example we want to see the response from our probe URL: http:\//watestsdp2008r2.cloudapp.net:80/Probe. The following PowerShell example illustrates the problem.
+I det här exemplet vill vi se svaret från vår avsöknings-URL: http:\//watestsdp2008r2.cloudapp.net:80/Probe. I följande PowerShell-exempel visas problemet.
 
 ```powershell
 Invoke-WebRequest 'http://watestsdp2008r2.cloudapp.net/Probe' -MaximumRedirection 0 -ErrorAction SilentlyContinue | Select-Object StatusCode,StatusDescription
@@ -60,9 +60,9 @@ Exempel på utdata:
     ---------- -----------------
            301 Moved Permanently
 
-Notice that we received a redirect response. As stated previously, any StatusCode other than 200 is considered a failure. Traffic Manager changes the endpoint status to Offline. To resolve the problem, check the website configuration to ensure that the proper StatusCode can be returned from the probe path. Reconfigure the Traffic Manager probe to point to a path that returns a 200.
+Observera att vi har fått ett omdirigerings svar. Som tidigare nämnts anses en annan StatusCode som inte är 200. Traffic Manager ändrar slut punkts statusen till offline. Lös problemet genom att kontrol lera webbplats konfigurationen för att se till att rätt StatusCode kan returneras från avsöknings Sök vägen. Konfigurera om Traffic Manager-avsökningen så att den pekar på en sökväg som returnerar en 200.
 
-If your probe is using the HTTPS protocol, you may need to disable certificate checking to avoid SSL/TLS errors during your test. The following PowerShell statements disable certificate validation for the current PowerShell session:
+Om avsökningen använder HTTPS-protokollet kan du behöva inaktivera certifikat kontroll för att undvika SSL/TLS-fel under testet. Följande PowerShell-uttryck inaktiverar certifikat validering för den aktuella PowerShell-sessionen:
 
 ```powershell
 add-type @"
@@ -81,9 +81,9 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 ## <a name="next-steps"></a>Nästa steg
 
-[About Traffic Manager traffic routing methods](traffic-manager-routing-methods.md)
+[Om Traffic Manager Traffic routing-metoder](traffic-manager-routing-methods.md)
 
-[What is Traffic Manager](traffic-manager-overview.md)
+[Vad är Traffic Manager](traffic-manager-overview.md)
 
 [Cloud Services](https://go.microsoft.com/fwlink/?LinkId=314074)
 
@@ -91,6 +91,6 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 [Åtgärder för Traffic Manager (REST API-referens)](https://go.microsoft.com/fwlink/?LinkId=313584)
 
-[Azure Traffic Manager Cmdlets][1]
+[Azure Traffic Manager-cmdletar][1]
 
 [1]: https://docs.microsoft.com/powershell/module/az.trafficmanager

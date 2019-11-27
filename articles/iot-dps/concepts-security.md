@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub Device Provisioning Service - Security concepts
-description: Describes security provisioning concepts specific to devices with Device Provisioning Service and IoT Hub
+title: Azure IoT Hub Device Provisioning Service – säkerhets koncept
+description: Beskriver säkerhets etablerings begrepp som är relaterade till enheter med enhets etablerings tjänsten och IoT Hub
 author: nberdy
 ms.author: nberdy
 ms.date: 04/04/2019
@@ -14,93 +14,93 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74228816"
 ---
-# <a name="iot-hub-device-provisioning-service-security-concepts"></a>IoT Hub Device Provisioning Service security concepts 
+# <a name="iot-hub-device-provisioning-service-security-concepts"></a>IoT Hub Device Provisioning Service säkerhets koncept 
 
-IoT Hub Device Provisioning Service is a helper service for IoT Hub that you use to configure zero-touch device provisioning to a specified IoT hub. With the Device Provisioning Service, you can [auto-provision](concepts-auto-provisioning.md) millions of devices in a secure and scalable manner. This article gives an overview of the *security* concepts involved in device provisioning. This article is relevant to all personas involved in getting a device ready for deployment.
+IoT Hub Device Provisioning Service är en hjälp tjänst för IoT Hub som du använder för att konfigurera enhets etablering med noll touch till en angiven IoT-hubb. Med enhets etablerings tjänsten kan du [automatiskt etablera](concepts-auto-provisioning.md) miljon tals enheter på ett säkert och skalbart sätt. Den här artikeln ger en översikt över de *säkerhets* begrepp som ingår i enhets etableringen. Den här artikeln är relevant för alla personer som ingår i att få en enhet redo för distribution.
 
-## <a name="attestation-mechanism"></a>Attestation mechanism
+## <a name="attestation-mechanism"></a>Mekanism för attestering
 
-The attestation mechanism is the method used for confirming a device's identity. The attestation mechanism is also relevant to the enrollment list, which tells the provisioning service which method of attestation to use with a given device.
+Mekanismen för attestering är den metod som används för att bekräfta en enhets identitet. Mekanismen för attestering är också relevant för registrerings listan, som talar om för etablerings tjänsten vilken metod som attesteringen ska använda med en specifik enhet.
 
 > [!NOTE]
-> IoT Hub uses "authentication scheme" for a similar concept in that service.
+> IoT Hub använder "autentiseringsschema" för ett liknande koncept i den tjänsten.
 
-Device Provisioning Service supports the following forms of attestation:
-* **X.509 certificates** based on the standard X.509 certificate authentication flow.
-* **Trusted Platform Module (TPM)** based on a nonce challenge, using the TPM standard for keys to present a signed Shared Access Signature (SAS) token. This form of attestation does not require a physical TPM on the device, but the service expects to attest using the endorsement key per the [TPM spec](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
-* **Symmetric Key**  based on shared access signature (SAS) [Security tokens](../iot-hub/iot-hub-devguide-security.md#security-tokens), which include a hashed signature and an embedded expiration. For more information, see [Symmetric key attestation](concepts-symmetric-key-attestation.md).
+Enhets etablerings tjänsten stöder följande former av attestering:
+* **X. 509-certifikat** som baseras på flödet för standard-x. 509-certifikatautentisering.
+* **Trusted Platform Module (TPM)** baserat på en nonce-utmaning med TPM-standarden för nycklar för att presentera en signerad SAS-token (signatur för delad åtkomst). Den här typen av attestering kräver ingen fysisk TPM på enheten, men tjänsten förväntar sig attestering med bekräftelse nyckeln enligt [TPM-specifikationen](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
+* **Symmetrisk nyckel** baserat på SAS- [säkerhetstoken](../iot-hub/iot-hub-devguide-security.md#security-tokens)(signatur för delad åtkomst), som innehåller en hashad signatur och en inbäddad förfallo tid. Mer information finns i den [symmetriska nyckeln attestering](concepts-symmetric-key-attestation.md).
 
 
-## <a name="hardware-security-module"></a>Hardware security module
+## <a name="hardware-security-module"></a>Modul för maskin varu säkerhet
 
-The hardware security module, or HSM, is used for secure, hardware-based storage of device secrets, and is the most secure form of secret storage. Both X.509 certificates and SAS tokens can be stored in the HSM. HSMs can be used with both attestation mechanisms the provisioning supports.
+Modulen för maskin varu säkerhet, eller HSM, används för säker, maskinvarubaserad lagring av enhets hemligheter och är den säkraste formen av hemlig lagring. Både X. 509-certifikat och SAS-token kan lagras i HSM. HSM: er kan användas med båda mekanismerna som etableringen stöder.
 
 > [!TIP]
-> We strongly recommend using an HSM with devices to securely store secrets on your devices.
+> Vi rekommenderar starkt att du använder en HSM med enheter för att säkert lagra hemligheter på dina enheter.
 
-Device secrets may also be stored in software (memory), but it is a less secure form of storage than an HSM.
+Enhets hemligheter kan också lagras i program vara (minne), men det är en mindre säker form av lagring än en HSM.
 
 ## <a name="trusted-platform-module"></a>Trusted Platform Module
 
-TPM can refer to a standard for securely storing keys used to authenticate the platform, or it can refer to the I/O interface used to interact with the modules implementing the standard. TPMs can exist as discrete hardware, integrated hardware, firmware-based, or software-based. Learn more about [TPMs and TPM attestation](/windows-server/identity/ad-ds/manage/component-updates/tpm-key-attestation). Device Provisioning Service only supports TPM 2.0.
+TPM kan referera till en standard för säker lagring av nycklar som används för att autentisera plattformen, eller så kan den referera till i/O-gränssnittet som används för att interagera med de moduler som implementerar standarden. TPM: er kan finnas som diskret maskin vara, integrerad maskin vara, inbyggd program vara eller programvarubaserad. Läs mer om TPM [och TPM-attestering](/windows-server/identity/ad-ds/manage/component-updates/tpm-key-attestation). Enhets etablerings tjänsten stöder endast TPM 2,0.
 
-TPM attestation is based on a nonce challenge, which uses the endorsement and storage root keys to present a signed Shared Access Signature (SAS) token.
+TPM-attestering baseras på en nonce-utmaning, som använder sig av bekräftelse-och lagrings rot nycklar för att presentera en signerad SAS-token (signatur för delad åtkomst).
 
-### <a name="endorsement-key"></a>Endorsement key
+### <a name="endorsement-key"></a>Bekräftelse nyckel
 
-The endorsement key is an asymmetric key contained inside the TPM, which was internally generated or injected at manufacturing time and is unique for every TPM. The endorsement key cannot be changed or removed. The private portion of the endorsement key is never released outside of the TPM, while the public portion of the endorsement key is used to recognize a genuine TPM. Learn more about the [endorsement key](https://technet.microsoft.com/library/cc770443(v=ws.11).aspx).
+Bekräftelse nyckeln är en asymmetrisk nyckel som finns inuti TPM: en, som internt genererades eller injiceras vid tillverknings tillfället och är unik för varje TPM. Det går inte att ändra eller ta bort bekräftelse nyckeln. Den privata delen av bekräftelse nyckeln frigörs aldrig utanför TPM, medan den offentliga delen av bekräftelse nyckeln används för att identifiera en äkta TPM. Läs mer om [bekräftelse nyckeln](https://technet.microsoft.com/library/cc770443(v=ws.11).aspx).
 
-### <a name="storage-root-key"></a>Storage root key
+### <a name="storage-root-key"></a>Lagrings rot nyckel
 
-The storage root key is stored in the TPM and is used to protect TPM keys created by applications, so that these keys cannot be used without the TPM. The storage root key is generated when you take ownership of the TPM; when you clear the TPM so a new user can take ownership, a new storage root key is generated. Learn more about the [storage root key](https://technet.microsoft.com/library/cc753560(v=ws.11).aspx).
+Lagrings rot nyckeln lagras i TPM: en och används för att skydda TPM-nycklar som skapats av program, så att nycklarna inte kan användas utan TPM. Lagrings rot nyckeln genereras när du blir ägare till TPM: en. När du rensar TPM: en så att en ny användare kan bli ägare skapas en ny lagrings rot nyckel. Läs mer om [lagrings rot nyckeln](https://technet.microsoft.com/library/cc753560(v=ws.11).aspx).
 
-## <a name="x509-certificates"></a>X.509 certificates
+## <a name="x509-certificates"></a>X. 509-certifikat
 
-Using X.509 certificates as an attestation mechanism is an excellent way to scale production and simplify device provisioning. X.509 certificates are typically arranged in a certificate chain of trust in which each certificate in the chain is signed by the private key of the next higher certificate, and so on, terminating in a self-signed root certificate. This arrangement establishes a delegated chain of trust from the root certificate generated by a trusted root certificate authority (CA) down through each intermediate CA to the end-entity "leaf" certificate installed on a device. To learn more, see [Device Authentication using X.509 CA Certificates](/azure/iot-hub/iot-hub-x509ca-overview). 
+Att använda X. 509-certifikat som en mekanism för attestering är ett utmärkt sätt att skala produktion och förenkla enhets etablering. X. 509-certifikat ordnas vanligt vis i en certifikat kedja med förtroende där varje certifikat i kedjan signeras av den privata nyckeln för nästa högre certifikat, och så vidare, och sedan avslutas i ett självsignerat rot certifikat. Den här överenskommelsen upprättar en delegerad förtroende kedja från rot certifikatet som genererats av en betrodd rot certifikat utfärdare (CA) via varje mellanliggande certifikat utfärdare till certifikatet "löv" som har installerats på en enhet. Mer information finns i [enhets autentisering med X. 509 CA-certifikat](/azure/iot-hub/iot-hub-x509ca-overview). 
 
-Often the certificate chain represents some logical or physical hierarchy associated with devices. For example, a manufacturer may:
-- issue a self-signed root CA certificate
-- use the root certificate to generate a unique intermediate CA certificate for each factory
-- use each factory's certificate to generate a unique intermediate CA certificate for each production line in the plant
-- and finally use the production line certificate, to generate a unique device (end-entity) certificate for each device manufactured on the line. 
+Certifikat kedjan representerar ofta vissa logiska eller fysiska hierarkier som är kopplade till enheter. En tillverkare kan till exempel:
+- utfärda ett självsignerat certifikat för rot certifikat utfärdare
+- Använd rot certifikatet för att generera ett unikt mellanliggande CA-certifikat för varje fabrik
+- Använd varje fabriks certifikat för att generera ett unikt mellanliggande CA-certifikat för varje produktions linje i anläggningen
+- och Använd slutligen produktions rads certifikatet för att generera ett unikt enhets certifikat (slutenhet) för varje enhet som tillverkas på linjen. 
 
-To learn more, see [Conceptual understanding of X.509 CA certificates in the IoT industry](/azure/iot-hub/iot-hub-x509ca-concept). 
+Mer information finns i [konceptuell förståelse av X. 509 CA-certifikat i IoT-branschen](/azure/iot-hub/iot-hub-x509ca-concept). 
 
-### <a name="root-certificate"></a>Root certificate
+### <a name="root-certificate"></a>Rot certifikat
 
-A root certificate is a self-signed X.509 certificate representing a certificate authority (CA). It is the terminus, or trust anchor, of the certificate chain. Root certificates can be self-issued by an organization or purchased from a root certificate authority. To learn more, see [Get X.509 CA certificates](/azure/iot-hub/iot-hub-security-x509-get-started#get-x509-ca-certificates). The root certificate can also be referred to as a root CA certificate.
+Ett rot certifikat är ett självsignerat X. 509-certifikat som representerar en certifikat utfärdare (CA). Det är upphör, eller förtroende ankare, för certifikat kedjan. Rot certifikat kan vara självutfärdade av en organisation eller köpas från en rot certifikat utfärdare. Läs mer i [Hämta X. 509 CA-certifikat](/azure/iot-hub/iot-hub-security-x509-get-started#get-x509-ca-certificates). Rot certifikatet kan också kallas för ett rot certifikat för certifikat UTFÄRDAre.
 
-### <a name="intermediate-certificate"></a>Intermediate certificate
+### <a name="intermediate-certificate"></a>Mellanliggande certifikat
 
-An intermediate certificate is an X.509 certificate, which has been signed by the root certificate (or by another intermediate certificate with the root certificate in its chain). The last intermediate certificate in a chain is used to sign the leaf certificate. An intermediate certificate can also be referred to as an intermediate CA certificate.
+Ett mellanliggande certifikat är ett X. 509-certifikat som har signerats av rot certifikatet (eller ett annat mellanliggande certifikat med rot certifikatet i kedjan). Det sista mellanliggande certifikatet i en kedja används för att signera löv certifikatet. Ett mellanliggande certifikat kan också kallas ett mellanliggande CA-certifikat.
 
-### <a name="end-entity-leaf-certificate"></a>End-entity "leaf" certificate
+### <a name="end-entity-leaf-certificate"></a>"Löv"-certifikat för slutanvändare
 
-The leaf certificate, or end-entity certificate, identifies the certificate holder. It has the root certificate in its certificate chain as well as zero or more intermediate certificates. The leaf certificate is not used to sign any other certificates. It uniquely identifies the device to the provisioning service and is sometimes referred to as the device certificate. During authentication, the device uses the private key associated with this certificate to respond to a proof of possession challenge from the service.
+Löv certifikatet eller certifikatet för slutentiteten identifierar certifikat innehavaren. Den har rot certifikatet i sin certifikat kedja samt noll eller flera mellanliggande certifikat. Löv certifikatet används inte för att signera andra certifikat. Den identifierar enheten unikt för etablerings tjänsten och kallas ibland för enhets certifikatet. Vid autentiseringen använder enheten den privata nyckel som är kopplad till det här certifikatet för att svara på ett bevis på innehav av en utmaning från tjänsten.
 
-Leaf certificates used with an [Individual enrollment](./concepts-service.md#individual-enrollment) entry have a requirement that the **Subject Name** must be set to the registration ID of the Individual Enrollment entry. Leaf certificates used with an [Enrollment group](./concepts-service.md#enrollment-group) entry should have the **Subject Name** set to the desired device ID which will be shown in the **Registration Records** for the authenticated device in the enrollment group.
+Löv certifikat som används med en [enskild registrerings](./concepts-service.md#individual-enrollment) post har ett krav på att **ämnes namnet** måste anges till registrerings-ID för den enskilda registrerings posten. Löv certifikat som används med en [registrerings grupp](./concepts-service.md#enrollment-group) post ska ha **ämnes namnet** inställt på önskat enhets-ID som visas i **registrerings posterna** för den autentiserade enheten i registrerings gruppen.
 
-To learn more, see [Authenticating devices signed with X.509 CA certificates](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
+Mer information finns i [autentisera enheter som är signerade med X. 509 CA-certifikat](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
 
-## <a name="controlling-device-access-to-the-provisioning-service-with-x509-certificates"></a>Controlling device access to the provisioning service with X.509 certificates
+## <a name="controlling-device-access-to-the-provisioning-service-with-x509-certificates"></a>Kontrol lera enhets åtkomst till etablerings tjänsten med X. 509-certifikat
 
-The provisioning service exposes two types of enrollment entry that you can use to control access for devices that use the X.509 attestation mechanism:  
+Etablerings tjänsten exponerar två typer av registrerings poster som du kan använda för att kontrol lera åtkomsten för enheter som använder mekanismen för 509-attestering i X.:  
 
-- [Individual enrollment](./concepts-service.md#individual-enrollment) entries are configured with the device certificate associated with a specific device. These entries control enrollments for specific devices.
-- [Enrollment group](./concepts-service.md#enrollment-group) entries are associated with a specific intermediate or root CA certificate. These entries control enrollments for all devices that have that intermediate or root certificate in their certificate chain. 
+- [Enskilda registrerings](./concepts-service.md#individual-enrollment) poster konfigureras med enhets certifikatet som är associerat med en viss enhet. Dessa poster styr registreringar för vissa enheter.
+- [Registrerings grupps](./concepts-service.md#enrollment-group) poster är associerade med ett angivet mellanliggande eller rotcertifikatutfärdarcertifikat. Dessa poster styr registreringar för alla enheter som har samma mellanliggande eller rot certifikat i certifikat kedjan. 
 
-When a device connects to the provisioning service, the service prioritizes more specific enrollment entries over less specific enrollment entries. That is, if an individual enrollment for the device exists, the provisioning service applies that entry. If there is no individual enrollment for the device and an enrollment group for the first intermediate certificate in the device's certificate chain exists, the service applies that entry, and so on, up the chain to the root. The service applies the first applicable entry that it finds, such that:
+När en enhet ansluter till etablerings tjänsten prioriterar tjänsten mer detaljerade registrerings poster över mindre angivna registrerings poster. Det vill säga, om det finns en enskild registrering för enheten, använder etablerings tjänsten den posten. Om det inte finns någon individuell registrering för enheten och en registrerings grupp för det första mellanliggande certifikatet i enhetens certifikat kedja finns, tillämpar tjänsten den posten och så vidare, så att kedjan placeras i roten. Tjänsten använder den första tillämpliga posten som den hittar, till exempel:
 
-- If the first enrollment entry found is enabled, the service provisions the device.
-- If the first enrollment entry found is disabled, the service does not provision the device.  
-- If no enrollment entry is found for any of the certificates in the device's certificate chain, the service does not provision the device. 
+- Om den första registrerings posten som hittas är aktive rad, etablerar enheten enheten.
+- Om den första registrerings posten som hittas är inaktive rad, etablerar inte tjänsten enheten.  
+- Om ingen registrerings post hittas för något av certifikaten i enhetens certifikat kedja, etablerar inte tjänsten enheten. 
 
-This mechanism and the hierarchical structure of certificate chains provides powerful flexibility in how you can control access for individual devices as well as for groups of devices. For example, imagine five devices with the following certificate chains: 
+Den här mekanismen och den hierarkiska strukturen i certifikat kedjor ger kraftfull flexibilitet i hur du kan styra åtkomsten för enskilda enheter samt för grupper av enheter. Tänk dig till exempel fem enheter med följande certifikat kedjor: 
 
-- *Device 1*: root certificate -> certificate A -> device 1 certificate
-- *Device 2*: root certificate -> certificate A -> device 2 certificate
-- *Device 3*: root certificate -> certificate A -> device 3 certificate
-- *Device 4*: root certificate -> certificate B -> device 4 certificate
-- *Device 5*: root certificate -> certificate B -> device 5 certificate
+- *Enhet 1*: rot certifikat-> certifikat A-> enhet 1 certifikat
+- *Enhet 2*: rot certifikat-> certifikat A-> enhet 2 certifikat
+- *Enhet 3*: rot certifikat-> certifikat A-> enhet 3 certifikat
+- *Enhet 4*: rot certifikat – > certifikat B – > Device 4-certifikat
+- *Enhet 5*: rot certifikat-> certifikat B-> enhet 5-certifikat
 
-Initially, you can create a single enabled group enrollment entry for the root certificate to enable access for all five devices. If certificate B later becomes compromised, you can create a disabled enrollment group entry for certificate B to prevent *Device 4* and *Device 5* from enrolling. If still later *Device 3* becomes compromised, you can create a disabled individual enrollment entry for its certificate. This revokes access for *Device 3*, but still allows *Device 1* and *Device 2* to enroll.
+Du kan börja med att skapa en enda aktive rad grupp registrerings post för rot certifikatet för att aktivera åtkomst för alla fem enheterna. Om certifikat B senare blir komprometterade kan du skapa en inaktive rad registrerings grupp för certifikat B för att förhindra att *enhet 4* och *enhet 5* registreras. Om du fortfarande har en senare *enhet 3* kan du skapa en inaktive rad enskild registrerings post för certifikatet. Detta återkallar åtkomst för *enhet 3*, men tillåter fortfarande att *enhet 1* och *enhet 2* registreras.

@@ -35,7 +35,7 @@ Diagnostisk loggning aktive ras separat för *varje* NSG som du vill samla in di
 
 Du kan använda [Azure Portal](#azure-portal), [POWERSHELL](#powershell)eller [Azure CLI](#azure-cli) för att aktivera diagnostisk loggning.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
 1. Logga in på [portalen](https://portal.azure.com).
 2. Välj **alla tjänster**och skriv sedan *nätverks säkerhets grupper*. När **nätverks säkerhets grupper** visas i Sök resultaten väljer du den.

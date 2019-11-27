@@ -1,6 +1,6 @@
 ---
-title: Best Practices for Azure Functions
-description: Learn best practices and patterns for Azure Functions.
+title: Metod tips för Azure Functions
+description: Lär dig metod tips och mönster för Azure Functions.
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 10/16/2017
@@ -12,99 +12,99 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74227372"
 ---
-# <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimize the performance and reliability of Azure Functions
+# <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimera prestanda och tillförlitlighet för Azure Functions
 
-This article provides guidance to improve the performance and reliability of your [serverless](https://azure.microsoft.com/solutions/serverless/) function apps.  
+Den här artikeln innehåller rikt linjer för att förbättra prestanda och tillförlitlighet för dina program utan [Server](https://azure.microsoft.com/solutions/serverless/) funktioner.  
 
 ## <a name="general-best-practices"></a>Allmän bästa praxis
 
-The following are best practices in how you build and architect your serverless solutions using Azure Functions.
+Följande är metod tips för hur du skapar och utvecklar lösningar utan server med hjälp av Azure Functions.
 
-### <a name="avoid-long-running-functions"></a>Avoid long running functions
+### <a name="avoid-long-running-functions"></a>Undvik tids krävande funktioner
 
-Large, long-running functions can cause unexpected timeout issues. To learn more about the timeouts for a given hosting plan, see [function app timeout duration](functions-scale.md#timeout). 
+Stora, långvariga funktioner kan orsaka oväntade timeout-problem. Om du vill veta mer om tids gränsen för en specifik värd plan, se [funktion appens timeout-varaktighet](functions-scale.md#timeout). 
 
-A function can become large because of many Node.js dependencies. Importing dependencies can also cause increased load times that result in unexpected timeouts. Dependencies are loaded both explicitly and implicitly. A single module loaded by your code may load its own additional modules. 
+En funktion kan bli stor på grund av många Node. js-beroenden. Att importera beroenden kan också orsaka ökade inläsnings tider som leder till oväntade tids gränser. Beroenden läses in både explicit och implicit. En enda modul som läses in av koden kan läsa in sina egna ytterligare moduler. 
 
-Whenever possible, refactor large functions into smaller function sets that work together and return responses fast. For example, a webhook or HTTP trigger function might require an acknowledgment response within a certain time limit; it's common for webhooks to require an immediate response. You can pass the HTTP trigger payload into a queue to be processed by a queue trigger function. This approach lets you defer the actual work and return an immediate response.
-
-
-### <a name="cross-function-communication"></a>Cross function communication
-
-[Durable Functions](durable/durable-functions-overview.md) and [Azure Logic Apps](../logic-apps/logic-apps-overview.md) are built to manage state transitions and communication between multiple functions.
-
-If not using Durable Functions or Logic Apps to integrate with multiple functions, it's best to use storage queues for cross-function communication. The main reason is that storage queues are cheaper and much easier to provision than other storage options. 
-
-Individual messages in a storage queue are limited in size to 64 KB. If you need to pass larger messages between functions, an Azure Service Bus queue could be used to support message sizes up to 256 KB in the Standard tier, and up to 1 MB in the Premium tier.
-
-Service Bus topics are useful if you require message filtering before processing.
-
-Event hubs are useful to support high volume communications.
+När det är möjligt kan åter förfalla stora funktioner till mindre funktions uppsättningar som arbetar tillsammans och returnerar svar snabbt. En webhook-eller HTTP-utlösnings funktion kan till exempel kräva ett bekräftelse svar inom en viss tids gräns. Det är vanligt att webhookar kräver omedelbara svar. Du kan skicka HTTP-utlösaren till en kö som ska bearbetas av en funktion i en Queue-utlösare. Med den här metoden kan du skjuta upp det faktiska arbetet och returnera ett omedelbart svar.
 
 
-### <a name="write-functions-to-be-stateless"></a>Write functions to be stateless 
+### <a name="cross-function-communication"></a>Kors funktions kommunikation
 
-Functions should be stateless and idempotent if possible. Associate any required state information with your data. For example, an order being processed would likely have an associated `state` member. A function could process an order based on that state while the function itself remains stateless. 
+[Durable Functions](durable/durable-functions-overview.md) och [Azure Logic Apps](../logic-apps/logic-apps-overview.md) är utformade för att hantera tillstånds över gångar och kommunikation mellan flera funktioner.
 
-Idempotent functions are especially recommended with timer triggers. For example, if you have something that absolutely must run once a day, write it so it can run anytime during the day with the same results. The function can exit when there's no work for a particular day. Also if a previous run failed to complete, the next run should pick up where it left off.
+Om du inte använder Durable Functions eller Logic Apps för att integrera med flera funktioner, är det bäst att använda lagrings köer för kommunikation mellan funktioner. Huvud orsaken är att lagrings köer är billigare och enklare att etablera än andra lagrings alternativ. 
+
+Enskilda meddelanden i en lagrings kö har begränsad storlek till 64 KB. Om du behöver skicka större meddelanden mellan funktioner kan en Azure Service Bus kö användas för att stödja meddelande storlekar upp till 256 KB på standard nivån och upp till 1 MB på Premium nivån.
+
+Service Bus ämnen är användbara om du behöver filtrering av meddelanden före bearbetning.
+
+Event Hub är användbara för att stödja hög volym kommunikation.
 
 
-### <a name="write-defensive-functions"></a>Write defensive functions
+### <a name="write-functions-to-be-stateless"></a>Skriv funktioner som tillstånds lösa 
 
-Assume your function could encounter an exception at any time. Design your functions with the ability to continue from a previous fail point during the next execution. Consider a scenario that requires the following actions:
+Funktioner ska vara tillstånds lösa och idempotenta om möjligt. Koppla all nödvändig statusinformation till dina data. En beställning som bearbetas skulle till exempel ha en associerad `state` medlem. En funktion kan bearbeta en ordning baserat på det läget, medan själva funktionen fortfarande är tillstånds lös. 
 
-1. Query for 10,000 rows in a database.
-2. Create a queue message for each of those rows to process further down the line.
+Idempotenta-funktioner rekommenderas särskilt för timer-utlösare. Om du till exempel har något som är absolut måste köra en gång om dagen skriver du det så att det kan köras när som helst under dagen med samma resultat. Funktionen kan avslutas när det inte finns något arbete för en viss dag. Även om en tidigare körning inte kunde slutföras, ska nästa körning fortsätta där den slutade.
+
+
+### <a name="write-defensive-functions"></a>Skriv försvars funktioner
+
+Anta att din funktion kan stöta på ett undantag när som helst. Utforma dina funktioner med möjlighet att fortsätta från en tidigare misslyckad punkt under nästa körning. Överväg ett scenario som kräver följande åtgärder:
+
+1. Fråga efter 10 000 rader i en databas.
+2. Skapa ett Queue-meddelande för var och en av dessa rader för att bearbeta ytterligare en rad.
  
-Depending on how complex your system is, you may have: involved downstream services behaving badly, networking outages, or quota limits reached, etc. All of these can affect your function at any time. You need to design your functions to be prepared for it.
+Beroende på hur komplex systemet är kan du ha: berörda underordnade tjänster fungerar dåligt, nätverks avbrott eller kvot gränser, osv. Alla dessa kan påverka din funktion när som helst. Du måste utforma dina funktioner för att förbereda dig för den.
 
-How does your code react if a failure occurs after inserting 5,000 of those items into a queue for processing? Track items in a set that you’ve completed. Otherwise, you might insert them again next time. This double-insertion can have a serious impact on your work flow, so [make your functions idempotent](functions-idempotent.md). 
+Hur reagerar din kod om ett fel inträffar när du har infogat 5 000 av dessa objekt i en kö för bearbetning? Spåra objekt i en uppsättning som du har slutfört. Annars kan du infoga dem igen nästa gång. Den här dubbel infogningen kan ha en allvarlig inverkan på ditt arbets flöde, så [gör dina funktioner idempotenta](functions-idempotent.md). 
 
-If a queue item was already processed, allow your function to be a no-op.
+Om ett köobjekt redan bearbetats kan du tillåta att din funktion är en no-op.
 
-Take advantage of defensive measures already provided for components you use in the Azure Functions platform. For example, see **Handling poison queue messages** in the documentation for [Azure Storage Queue triggers and bindings](functions-bindings-storage-queue.md#trigger---poison-messages). 
+Dra nytta av försvars åtgärder som redan har angetts för komponenter som du använder i Azure Functionss plattformen. Se till exempel **hantering av meddelanden om Poison-kön** i dokumentationen för [Azure Storage köa utlösare och bindningar](functions-bindings-storage-queue.md#trigger---poison-messages). 
 
-## <a name="scalability-best-practices"></a>Scalability best practices
+## <a name="scalability-best-practices"></a>Metod tips för skalbarhet
 
-There are a number of factors that impact how instances of your function app scale. The details are provided in the documentation for [function scaling](functions-scale.md).  The following are some best practices to ensure optimal scalability of a function app.
+Det finns ett antal faktorer som påverkar hur instanser av Function-appen skalas. Informationen finns i dokumentationen för [funktions skalning](functions-scale.md).  Här följer några metod tips för att säkerställa optimal skalbarhet för en Function-app.
 
-### <a name="share-and-manage-connections"></a>Share and manage connections
+### <a name="share-and-manage-connections"></a>Dela och hantera anslutningar
 
-Reuse connections to external resources whenever possible.  See [how to manage connections in Azure Functions](./manage-connections.md).
+Återanvänd anslutningar till externa resurser när det är möjligt.  Se [hantera anslutningar i Azure Functions](./manage-connections.md).
 
-### <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>Don't mix test and production code in the same function app
+### <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>Blanda inte test-och produktions kod i samma Function-app
 
-Functions within a function app share resources. For example, memory is shared. If you're using a function app in production, don't add test-related functions and resources to it. It can cause unexpected overhead during production code execution.
+Funktioner i en Function-app delar resurser. Till exempel delas minnet. Om du använder en Function-app i produktion ska du inte lägga till test-relaterade funktioner och resurser i den. Det kan orsaka oväntad kostnader vid körning av produktions kod.
 
-Be careful what you load in your production function apps. Memory is averaged across each function in the app.
+Se till att du läser in dina produktions funktions appar. Minne är genomsnittet för varje funktion i appen.
 
-If you have a shared assembly referenced in multiple .NET functions, put it in a common shared folder. Otherwise, you could accidentally deploy multiple versions of the same binary that behave differently between functions.
+Om du har en delad sammansättning som refereras i flera .NET-funktioner kan du använda den i en gemensam delad mapp. Annars kan du av misstag distribuera flera versioner av samma binärfil som beter sig annorlunda mellan functions.
 
-Don't use verbose logging in production code, which has a negative performance impact.
+Använd inte utförlig loggning i produktions kod, vilket ger en negativ inverkan på prestanda.
 
-### <a name="use-async-code-but-avoid-blocking-calls"></a>Use async code but avoid blocking calls
+### <a name="use-async-code-but-avoid-blocking-calls"></a>Använd asynkron kod men Undvik att blockera anrop
 
-Asynchronous programming is a recommended best practice. However, always avoid referencing the `Result` property or calling `Wait` method on a `Task` instance. This approach can lead to thread exhaustion.
+Asynkron programmering är en rekommenderad metod. Undvik dock alltid att referera till `Result` egenskapen eller anropa `Wait` metod på en `Task` instans. Den här metoden kan leda till tråd överbelastning.
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
-### <a name="receive-messages-in-batch-whenever-possible"></a>Receive messages in batch whenever possible
+### <a name="receive-messages-in-batch-whenever-possible"></a>Ta emot meddelanden i batch när det är möjligt
 
-Some triggers like Event Hub enable receiving a batch of messages on a single invocation.  Batching messages has much better performance.  You can configure the max batch size in the `host.json` file as detailed in the [host.json reference documentation](functions-host-json.md)
+Vissa utlösare som Event Hub aktiverar att ta emot en batch med meddelanden på ett enda anrop.  Batching-meddelanden har mycket bättre prestanda.  Du kan konfigurera Max storleken för batch i `host.json`-filen enligt beskrivningen i [Host. JSON-referens dokumentation](functions-host-json.md)
 
-For C# functions, you can change the type to a strongly-typed array.  For example, instead of `EventData sensorEvent` the method signature could be `EventData[] sensorEvent`.  For other languages, you'll need to explicitly set the cardinality property in your `function.json` to `many` in order to enable batching [as shown here](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10).
+För C# funktioner kan du ändra typen till en starkt angiven matris.  I stället för att `EventData sensorEvent` metoden signaturen kan `EventData[] sensorEvent`.  För andra språk måste du uttryckligen ange egenskapen kardinalitet i `function.json` för att `many` för att aktivera batchering [så som visas här](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10).
 
-### <a name="configure-host-behaviors-to-better-handle-concurrency"></a>Configure host behaviors to better handle concurrency
+### <a name="configure-host-behaviors-to-better-handle-concurrency"></a>Konfigurera värd beteenden för att bättre hantera samtidighet
 
-The `host.json` file in the function app allows for configuration of host runtime and trigger behaviors.  In addition to batching behaviors, you can manage concurrency for a number of triggers. Often adjusting the values in these options can help each instance scale appropriately for the demands of the invoked functions.
+`host.json`-filen i Function-appen gör det möjligt att konfigurera värd körning och utlösnings beteenden.  Förutom batching-beteenden kan du hantera samtidighet för ett antal utlösare. Att justera värdena i dessa alternativ kan ofta hjälpa varje instans skala på lämpligt sätt för kraven hos de anropade funktionerna.
 
-Settings in the host.json file apply across all functions within the app, within a *single instance* of the function. For example, if you had a function app with two HTTP functions and [`maxConcurrentRequests`](functions-bindings-http-webhook.md#hostjson-settings) requests set to 25, a request to either HTTP trigger would count towards the shared 25 concurrent requests.  When that function app is scaled to 10 instances, the two functions effectively allow 250 concurrent requests (10 instances * 25 concurrent requests per instance). 
+Inställningarna i Host. JSON-filen tillämpas på alla funktioner i appen, inom en *enda instans* av funktionen. Om du till exempel har en Function-app med två HTTP-funktioner och [`maxConcurrentRequests`](functions-bindings-http-webhook.md#hostjson-settings) begär Anden som är 25, räknas en begäran till http-utlösaren mot de delade 25 samtidiga förfrågningarna.  När den här funktionen är skalad till 10 instanser, tillåter de två funktionerna att 250 samtidiga begär Anden på ett effektivt sätt (10 instanser * 25 samtidiga begär Anden per instans). 
 
-Other host configuration options are found in the [host.json configuration article](functions-host-json.md).
+Andra värd konfigurations alternativ finns i [artikeln Host. JSON-konfiguration](functions-host-json.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information finns i följande resurser:
 
-* [How to manage connections in Azure Functions](manage-connections.md)
-* [Azure App Service best practices](../app-service/app-service-best-practices.md)
+* [Hantera anslutningar i Azure Functions](manage-connections.md)
+* [Metod tips för Azure App Service](../app-service/app-service-best-practices.md)

@@ -1,6 +1,6 @@
 ---
-title: Host reverse DNS lookup zones in Azure DNS | Microsoft Docs
-description: Learn how to use Azure DNS to host the reverse DNS lookup zones for your IP ranges
+title: Värd för omvänd DNS-sökning zoner i Azure DNS | Microsoft Docs
+description: Lär dig hur du använder Azure DNS för att vara värd för zoner för omvänd DNS-sökning för dina IP-intervall
 services: dns
 documentationcenter: na
 author: asudbring
@@ -19,45 +19,45 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74211249"
 ---
-# <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Host reverse DNS lookup zones in Azure DNS
+# <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Värd zoner för omvänd DNS-sökning i Azure DNS
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-This article explains how to host the reverse DNS lookup zones for your assigned IP ranges in Azure DNS. The IP ranges represented by the reverse lookup zones must be assigned to your organization, typically by your ISP.
+I den här artikeln förklaras hur du kan vara värd för zoner för omvänd DNS-sökning för dina tilldelade IP-intervall i Azure DNS. IP-intervallen som representeras av zonerna för omvänd sökning måste tilldelas till din organisation, vanligt vis av din Internet leverantör.
 
-To configure reverse DNS for an Azure-owned IP address that's assigned to your Azure service, see [Configure reverse DNS for services hosted in Azure](dns-reverse-dns-for-azure-services.md).
+Information om hur du konfigurerar omvänd DNS för en Azure-ägd IP-adress som är tilldelad till din Azure-tjänst finns i [Konfigurera omvänd DNS för tjänster som finns i Azure](dns-reverse-dns-for-azure-services.md).
 
-Before you read this article, you should be familiar with the [overview of reverse DNS and support in Azure](dns-reverse-dns-overview.md).
+Innan du läser den här artikeln bör du känna till [översikten över omvänd DNS och support i Azure](dns-reverse-dns-overview.md).
 
-This article walks you through the steps to create your first reverse lookup DNS zone and record by using the Azure portal, Azure PowerShell, Azure classic CLI, or Azure CLI.
+Den här artikeln vägleder dig genom stegen för att skapa din första DNS-zon och-post med omvänd sökning med hjälp av Azure Portal, Azure PowerShell, klassisk Azure-CLI eller Azure CLI.
 
-## <a name="create-a-reverse-lookup-dns-zone"></a>Create a reverse lookup DNS zone
+## <a name="create-a-reverse-lookup-dns-zone"></a>Skapa en DNS-zon för omvänd sökning
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. On the **Hub** menu, select **New** > **Networking**, and then select **DNS zone**.
+1. Logga in på [Azure Portal](https://portal.azure.com).
+1. På menyn **hubb** väljer du **nytt** > **nätverk**och väljer sedan **DNS-zon**.
 
-   !["DNS zone" selection](./media/dns-reverse-dns-hosting/figure1.png)
+   ![Val av DNS-zon](./media/dns-reverse-dns-hosting/figure1.png)
 
-1. In the **Create DNS zone** pane, name your DNS zone. The name of the zone is crafted differently for IPv4 and IPv6 prefixes. Use the instructions for [IPv4](#ipv4) or [IPv6](#ipv6) to name your zone. When you're finished, select **Create** to create the zone.
+1. I fönstret **Skapa DNS-zon** namnger du din DNS-zon. Namnet på zonen fungerar annorlunda för IPv4-och IPv6-prefix. Använd instruktionerna för [IPv4](#ipv4) eller [IPv6](#ipv6) för att namnge din zon. När du är klar väljer du **skapa** för att skapa zonen.
 
 ### <a name="ipv4"></a>IPv4
 
-The name of an IPv4 reverse lookup zone is based on the IP range that it represents. It should be in the following format: `<IPv4 network prefix in reverse order>.in-addr.arpa`. For examples, see [Overview of reverse DNS and support in Azure](dns-reverse-dns-overview.md#ipv4).
+Namnet på en IPv4-zon för omvänd sökning baseras på det IP-adressintervall som den representerar. Den bör ha följande format: `<IPv4 network prefix in reverse order>.in-addr.arpa`. Exempel finns i [Översikt över omvänd DNS och support i Azure](dns-reverse-dns-overview.md#ipv4).
 
 > [!NOTE]
-> When you're creating classless reverse DNS lookup zones in Azure DNS, you must use a hyphen (`-`) rather than a forward slash (`/`) in the zone name.
+> När du skapar klassbaserade zoner för omvänd DNS-sökning i Azure DNS måste du använda ett bindestreck (`-`) i stället för ett snedstreck (`/`) i zon namnet.
 >
-> For example, for the IP range 192.0.2.128/26, you must use `128-26.2.0.192.in-addr.arpa` as the zone name instead of `128/26.2.0.192.in-addr.arpa`.
+> För IP-intervallet 192.0.2.128/26 måste du till exempel använda `128-26.2.0.192.in-addr.arpa` som zonnamn i stället för `128/26.2.0.192.in-addr.arpa`.
 >
-> Although the DNS standards support both methods, Azure DNS doesn't support DNS zone names that contain for forward slash (`/`) character.
+> Även om DNS-standarder stöder båda metoderna stöder Azure DNS inte DNS-zonnamn som innehåller för snedstreck (`/`).
 
-The following example shows how to create a Class C reverse DNS zone named `2.0.192.in-addr.arpa` in Azure DNS via the Azure portal:
+I följande exempel visas hur du skapar en omvänd DNS-zon i klass C med namnet `2.0.192.in-addr.arpa` i Azure DNS via Azure Portal:
 
- !["Create DNS zone" pane, with boxes filled in](./media/dns-reverse-dns-hosting/figure2.png)
+ ![Fönstret "skapa DNS-zon" med ifyllda rutor](./media/dns-reverse-dns-hosting/figure2.png)
 
-**Resource group location** defines the location for the resource group. It has no impact on the DNS zone. Platsen för DNS-zonen är alltid ”global” och visas inte.
+**Resurs gruppens plats** definierar platsen för resurs gruppen. Den har ingen inverkan på DNS-zonen. Platsen för DNS-zonen är alltid ”global” och visas inte.
 
-The following examples show how to complete this task by using Azure PowerShell and Azure CLI.
+I följande exempel visas hur du utför den här uppgiften med hjälp av Azure PowerShell och Azure CLI.
 
 #### <a name="powershell"></a>PowerShell
 
@@ -79,16 +79,16 @@ az network dns zone create -g MyResourceGroup -n 2.0.192.in-addr.arpa
 
 ### <a name="ipv6"></a>IPv6
 
-The name of an IPv6 reverse lookup zone should be in the following form: `<IPv6 network prefix in reverse order>.ip6.arpa`.  For examples, see [Overview of reverse DNS and support in Azure](dns-reverse-dns-overview.md#ipv6).
+Namnet på en IPv6-zon för omvänd sökning ska ha följande format: `<IPv6 network prefix in reverse order>.ip6.arpa`.  Exempel finns i [Översikt över omvänd DNS och support i Azure](dns-reverse-dns-overview.md#ipv6).
 
 
-The following example shows how to create an IPv6 reverse DNS lookup zone named `0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa` in Azure DNS via the Azure portal:
+I följande exempel visas hur du skapar en IPv6-zon för omvänd DNS-sökning med namnet `0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa` i Azure DNS via Azure Portal:
 
- !["Create DNS zone" pane, with boxes filled in](./media/dns-reverse-dns-hosting/figure3.png)
+ ![Fönstret "skapa DNS-zon" med ifyllda rutor](./media/dns-reverse-dns-hosting/figure3.png)
 
-**Resource group location** defines the location for the resource group. It has no impact on the DNS zone. Platsen för DNS-zonen är alltid ”global” och visas inte.
+**Resurs gruppens plats** definierar platsen för resurs gruppen. Den har ingen inverkan på DNS-zonen. Platsen för DNS-zonen är alltid ”global” och visas inte.
 
-The following examples show how to complete this task by using Azure PowerShell and Azure CLI.
+I följande exempel visas hur du utför den här uppgiften med hjälp av Azure PowerShell och Azure CLI.
 
 #### <a name="powershell"></a>PowerShell
 
@@ -108,32 +108,32 @@ azure network dns zone create MyResourceGroup 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip
 az network dns zone create -g MyResourceGroup -n 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa
 ```
 
-## <a name="delegate-a-reverse-dns-lookup-zone"></a>Delegate a reverse DNS lookup zone
+## <a name="delegate-a-reverse-dns-lookup-zone"></a>Delegera en omvänd DNS-sökning zon
 
-Now that you've created your reverse DNS lookup zone, you must ensure that the zone is delegated from the parent zone. DNS delegation enables the DNS name resolution process to find the name servers that host your reverse DNS lookup zone. Those name servers can then answer DNS reverse queries for the IP addresses in your address range.
+Nu när du har skapat din zon för omvänd DNS-sökning måste du se till att zonen är delegerad från den överordnade zonen. DNS-delegering gör det möjligt för DNS-namnmatchning att hitta namnservrarna som är värdar för den omvända zonen för DNS-sökning. Namnservrarna kan sedan svara DNS-omvända frågor för IP-adresserna i adress intervallet.
 
-For forward lookup zones, the process of delegating a DNS zone is described in [Delegate your domain to Azure DNS](dns-delegate-domain-azure-dns.md). Delegation for reverse lookup zones works the same way. The only difference is that you need to configure the name servers with the ISP that provided your IP range, rather than your domain name registrar.
+För zoner för vanlig sökning beskrivs processen för att delegera en DNS-zon i [delegera din domän till Azure DNS](dns-delegate-domain-azure-dns.md). Delegering för zoner för omvänd sökning fungerar på samma sätt. Den enda skillnaden är att du måste konfigurera namnservrarna med Internet leverantören som tillhandahöll ditt IP-adressintervall i stället för domän namns registratorn.
 
-## <a name="create-a-dns-ptr-record"></a>Create a DNS PTR record
+## <a name="create-a-dns-ptr-record"></a>Skapa en DNS PTR-post
 
 ### <a name="ipv4"></a>IPv4
 
-The following example walks you through the process of creating a PTR record in a reverse DNS zone in Azure DNS. Information om andra posttyper och hur du ändrar befintliga poster finns i [Hantera DNS-poster och postuppsättningar med Azure Portal](dns-operations-recordsets-portal.md) (på engelska).
+Följande exempel vägleder dig genom processen att skapa en PTR-post i en omvänd DNS-zon i Azure DNS. Information om andra posttyper och hur du ändrar befintliga poster finns i [Hantera DNS-poster och postuppsättningar med Azure Portal](dns-operations-recordsets-portal.md) (på engelska).
 
-1. At the top of the **DNS zone** pane, select **+ Record set** to open the **Add record set** pane.
+1. Välj **+ post uppsättning** längst upp i fönstret **DNS-zon** för att öppna fönstret **Lägg till uppsättning av poster** .
 
-   ![Button for creating a record set](./media/dns-reverse-dns-hosting/figure4.png)
+   ![Knapp för att skapa en post uppsättning](./media/dns-reverse-dns-hosting/figure4.png)
 
-1. The name of the record set for a PTR record needs to be the rest of the IPv4 address in reverse order. 
+1. Namnet på post uppsättningen för en PTR-post måste vara resten av IPv4-adressen i omvänd ordning. 
 
-   In this example, the first three octets are already populated as part of the zone name (.2.0.192). Therefore, only the last octet is supplied in the **Name** box. For example, you might name your record set **15** for a resource whose IP address is 192.0.2.15.  
-1. For **Type**, select **PTR**.  
-1. For **DOMAIN NAME**, enter the fully qualified domain name (FQDN) of the resource that uses the IP.
-1. Select **OK** at the bottom of the pane to create the DNS record.
+   I det här exemplet är de tre första oktetterna redan ifyllda som en del av zon namnet (. 2.0.192). Därför anges bara den sista oktetten i rutan **namn** . Du kan till exempel namnge posten uppsättning **15** för en resurs vars IP-adress är 192.0.2.15.  
+1. I **typ**väljer du **PTR**.  
+1. För **domän namn**anger du det fullständigt kvalificerade domän namnet (FQDN) för den resurs som använder IP-adressen.
+1. Klicka på **OK** längst ned i fönstret för att skapa DNS-posten.
 
-   !["Add record set" pane, with boxes filled in](./media/dns-reverse-dns-hosting/figure5.png)
+   ![Fönstret Lägg till uppsättning av poster med ifyllda rutor i](./media/dns-reverse-dns-hosting/figure5.png)
 
-The following examples show how to complete this task by using PowerShell or Azure CLI.
+I följande exempel visas hur du utför den här uppgiften med hjälp av PowerShell eller Azure CLI.
 
 #### <a name="powershell"></a>PowerShell
 
@@ -154,22 +154,22 @@ azure network dns record-set add-record MyResourceGroup 2.0.192.in-addr.arpa 15 
 
 ### <a name="ipv6"></a>IPv6
 
-The following example walks you through the process of creating new PTR record. Information om andra posttyper och hur du ändrar befintliga poster finns i [Hantera DNS-poster och postuppsättningar med Azure Portal](dns-operations-recordsets-portal.md) (på engelska).
+Följande exempel vägleder dig genom processen med att skapa en ny PTR-post. Information om andra posttyper och hur du ändrar befintliga poster finns i [Hantera DNS-poster och postuppsättningar med Azure Portal](dns-operations-recordsets-portal.md) (på engelska).
 
-1. At the top of the **DNS zone** pane, select **+ Record set** to open the **Add record set** pane.
+1. Välj **+ post uppsättning** längst upp i fönstret **DNS-zon** för att öppna fönstret **Lägg till uppsättning av poster** .
 
-   ![Button for creating a record set](./media/dns-reverse-dns-hosting/figure6.png)
+   ![Knapp för att skapa en post uppsättning](./media/dns-reverse-dns-hosting/figure6.png)
 
-2. The name of the record set for a PTR record needs to be the rest of the IPv6 address in reverse order. It must not include any zero compression. 
+2. Namnet på post uppsättningen för en PTR-post måste vara resten av IPv6-adressen i omvänd ordning. Det får inte innehålla noll komprimering. 
 
-   In this example, the first 64 bits of the IPv6 are already populated as part of the zone name (0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa). Therefore, only the last 64 bits are supplied in the **Name** box. The last 64 bits of the IP address are entered in reverse order, with a period as the delimiter between each hexadecimal number. For example, you might name your record set **e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f** for a resource whose IP address is 2001:0db8:abdc:0000:f524:10bc:1af9:405e.  
-3. For **Type**, select **PTR**.  
-4. For **DOMAIN NAME**, enter the FQDN of the resource that uses the IP.
-5. Select **OK** at the bottom of the pane to create the DNS record.
+   I det här exemplet är de första 64 bitarna i IPv6 redan ifyllda som en del av zon namnet (0.0.0.0. c. d. b. a. 8. b. d. 0.1.0.0.2. ip6. arpa). Därför anges bara de sista 64 bitarna i rutan **namn** . De sista 64 bitarna i IP-adressen anges i omvänd ordning med en punkt som avgränsare mellan varje hexadecimalt tal. Du kan till exempel namnge din post uppsättning **e. 5.0.4.9. f. a. 1. c. b. 0.1.4.2.5. f** för en resurs vars IP-adress är 2001:0DB8: ABDC: 0000: f524:10bc: 1af9:405e.  
+3. I **typ**väljer du **PTR**.  
+4. För **domän namn**anger du FQDN för den resurs som använder IP-adressen.
+5. Klicka på **OK** längst ned i fönstret för att skapa DNS-posten.
 
-!["Add record set" pane, with boxes filled in](./media/dns-reverse-dns-hosting/figure7.png)
+![Fönstret Lägg till uppsättning av poster med ifyllda rutor i](./media/dns-reverse-dns-hosting/figure7.png)
 
-The following examples show how to complete this task by using PowerShell or Azure CLI.
+I följande exempel visas hur du utför den här uppgiften med hjälp av PowerShell eller Azure CLI.
 
 #### <a name="powershell"></a>PowerShell
 
@@ -191,15 +191,15 @@ azure network dns record-set add-record MyResourceGroup 0.0.0.0.c.d.b.a.8.b.d.0.
 
 ## <a name="view-records"></a>Visa poster
 
-To view the records that you created, browse to your DNS zone in the Azure portal. In the lower part of the **DNS zone** pane, you can see the records for the DNS zone. You should see the default NS and SOA records, plus any new records that you've created. The NS and SOA records are created in every zone. 
+Om du vill visa de poster som du har skapat bläddrar du till din DNS-zon i Azure Portal. I den nedre delen av fönstret **DNS-zon** kan du se posterna för DNS-zonen. Du bör se standard NS-och SOA-poster samt eventuella nya poster som du har skapat. NS-och SOA-posterna skapas i varje zon. 
 
 ### <a name="ipv4"></a>IPv4
 
-The **DNS zone** pane shows the IPv4 PTR records:
+Fönstret **DNS-zon** visar IPv4 PTR-poster:
 
-!["DNS zone" pane with IPv4 records](./media/dns-reverse-dns-hosting/figure8.png)
+![Fönstret DNS-zon med IPv4-poster](./media/dns-reverse-dns-hosting/figure8.png)
 
-The following examples show how to view the PTR records by using PowerShell or Azure CLI.
+I följande exempel visas hur du visar PTR-poster med hjälp av PowerShell eller Azure CLI.
 
 #### <a name="powershell"></a>PowerShell
 
@@ -221,11 +221,11 @@ Get-AzDnsRecordSet -ZoneName 2.0.192.in-addr.arpa -ResourceGroupName MyResourceG
 
 ### <a name="ipv6"></a>IPv6
 
-The **DNS zone** pane shows the IPv6 PTR records:
+Fönstret **DNS-zon** visar IPv6 PTR-poster:
 
-!["DNS zone" pane with IPv6 records](./media/dns-reverse-dns-hosting/figure9.png)
+![Fönstret DNS-zon med IPv6-poster](./media/dns-reverse-dns-hosting/figure9.png)
 
-The following examples show how to view the records by using PowerShell or Azure CLI.
+I följande exempel visas hur du visar posterna med hjälp av PowerShell eller Azure CLI.
 
 #### <a name="powershell"></a>PowerShell
 
@@ -245,30 +245,30 @@ Get-AzDnsRecordSet -ZoneName 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceG
     azure network dns record-set list -g MyResourceGroup -z 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa
 ```
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
-### <a name="can-i-host-reverse-dns-lookup-zones-for-my-isp-assigned-ip-blocks-on-azure-dns"></a>Can I host reverse DNS lookup zones for my ISP-assigned IP blocks on Azure DNS?
+### <a name="can-i-host-reverse-dns-lookup-zones-for-my-isp-assigned-ip-blocks-on-azure-dns"></a>Kan jag vara värd för omvänd DNS-sökning zoner för mina Internet-tilldelade IP-block på Azure DNS?
 
-Ja. Hosting the reverse lookup (ARPA) zones for your own IP ranges in Azure DNS is fully supported.
+Ja. Att vara värd för zonerna för omvänd sökning (ARPA) för dina egna IP-intervall i Azure DNS stöds fullt ut.
 
-Create the reverse lookup zone in Azure DNS as explained in this article, and then work with your ISP to [delegate the zone](dns-domain-delegation.md). You can then manage the PTR records for each reverse lookup in the same way as other record types.
+Skapa zonen för omvänd sökning i Azure DNS enligt beskrivningen i den här artikeln och samar beta med din Internet-leverantör för att [delegera zonen](dns-domain-delegation.md). Du kan sedan hantera PTR-posterna för varje omvänd sökning på samma sätt som andra post typer.
 
-### <a name="how-much-does-hosting-my-reverse-dns-lookup-zone-cost"></a>How much does hosting my reverse DNS lookup zone cost?
+### <a name="how-much-does-hosting-my-reverse-dns-lookup-zone-cost"></a>Hur mycket är kostnaden för omvänd DNS-sökning zon?
 
-Hosting the reverse DNS lookup zone for your ISP-assigned IP block in Azure DNS is charged at [standard Azure DNS rates](https://azure.microsoft.com/pricing/details/dns/).
+Att vara värd för den omvända DNS-sökzonen för det ISP-tilldelade IP-blocket i Azure DNS debiteras enligt [standard pris Azure DNS](https://azure.microsoft.com/pricing/details/dns/).
 
-### <a name="can-i-host-reverse-dns-lookup-zones-for-both-ipv4-and-ipv6-addresses-in-azure-dns"></a>Can I host reverse DNS lookup zones for both IPv4 and IPv6 addresses in Azure DNS?
+### <a name="can-i-host-reverse-dns-lookup-zones-for-both-ipv4-and-ipv6-addresses-in-azure-dns"></a>Kan jag vara värd för zoner för omvänd DNS-sökning för både IPv4-och IPv6-adresser i Azure DNS?
 
-Ja. This article explains how to create both IPv4 and IPv6 reverse DNS lookup zones in Azure DNS.
+Ja. Den här artikeln beskriver hur du skapar både IPv4-och IPv6-zoner för omvänd DNS-sökning i Azure DNS.
 
-### <a name="can-i-import-an-existing-reverse-dns-lookup-zone"></a>Can I import an existing reverse DNS lookup zone?
+### <a name="can-i-import-an-existing-reverse-dns-lookup-zone"></a>Kan jag importera en befintlig zon för omvänd DNS-sökning?
 
-Ja. You can use Azure CLI to import existing DNS zones into Azure DNS. This method works for both forward lookup zones and reverse lookup zones.
+Ja. Du kan använda Azure CLI för att importera befintliga DNS-zoner till Azure DNS. Den här metoden fungerar för både zoner för vanlig sökning och zoner för omvänd sökning.
 
-For more information, see [Import and export a DNS zone file using Azure CLI](dns-import-export.md).
+Mer information finns i [Importera och exportera en DNS-zonfil med Azure CLI](dns-import-export.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-For more information on reverse DNS, see [reverse DNS lookup on Wikipedia](https://en.wikipedia.org/wiki/Reverse_DNS_lookup).
+Mer information om omvänd DNS finns i [Omvänd DNS-sökning på Wikipedia](https://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>
-Learn how to [manage reverse DNS records for your Azure services](dns-reverse-dns-for-azure-services.md).
+Lär dig att [Hantera omvända DNS-poster för dina Azure-tjänster](dns-reverse-dns-for-azure-services.md).

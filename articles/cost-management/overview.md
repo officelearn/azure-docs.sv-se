@@ -25,42 +25,42 @@ En introduktionsvideo finns i [Introduction to Azure Cloudyn ](https://azure.mic
 
 Azure Cost Management innehåller liknande funktioner som Cloudyn. Azure Cost Management är en lösning för intern kostnadshantering i Azure. Du får hjälp att analysera kostnader, skapa och hantera budgetar, exportera data samt granska och arbeta med optimeringsrekommendationer för att spara pengar. Mer information finns i [Azure Cost Management](overview-cost-mgt.md).
 
-Watch the [Azure Cost Management and Cloudyn video](https://www.youtube.com/watch?v=PmwFWwSluh8) to see recommendations when you should use either Azure Cost Management or Cloudyn, based on your business needs.
+Titta på [Azure Cost Management-och Cloudyn-videon](https://www.youtube.com/watch?v=PmwFWwSluh8) för att se rekommendationer när du ska använda antingen Azure Cost Management eller Cloudyn, baserat på dina affärs behov.
 
 >[!VIDEO https://www.youtube.com/embed/PmwFWwSluh8]
 
-## <a name="cloudyn-features-moving-to-azure-cost-management"></a>Cloudyn features moving to Azure Cost Management
+## <a name="cloudyn-features-moving-to-azure-cost-management"></a>Cloudyn-funktioner flyttas till Azure Cost Management
 
-Microsoft acquired Cloudyn and is migrating its cost management features from the Cloudyn portal natively into Azure. To use the new features, sign-in to the Azure portal and navigate to [Cost Management and Billing](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) in the list of Azure services. Compared to Cloudyn, the native experience offers improved performance and lower data latency of about eight hours.
+Microsoft har förvärvat Cloudyn och migrerar kostnads hanterings funktionerna från Cloudyn-portalen internt till Azure. Om du vill använda de nya funktionerna loggar du in på Azure Portal och navigerar till [Cost Management och fakturering](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) i listan över Azure-tjänster. Jämfört med Cloudyn erbjuder den inbyggda upplevelsen förbättrade prestanda och lägre data fördröjning på ungefär åtta timmar.
 
-Key feature migration for Enterprise Agreement, Pay-As-You-Go, and MSDN offer categories to Azure Cost Management is complete. CSP subscriptions are in the process of being migrated over to Azure Cost Management.
+Migrering av nyckel funktioner för Enterprise-avtal, betala per användning och MSDN-erbjudande kategorier till Azure Cost Management har slutförts. CSP-prenumerationer håller på att migreras till Azure Cost Management.
 
-If you have an offer category not yet migrated, you should continue to use the Cloudyn portal. Everyone else can use Azure Cost Management.
+Om du har en erbjudande kategori som ännu inte har migrerats bör du fortsätta att använda Cloudyn-portalen. Alla andra kan använda Azure Cost Management.
 
-| Microsoft Azure offers and features | Recommended cost management service |
+| Microsoft Azure erbjudanden och funktioner | Rekommenderad kostnads hanterings tjänst |
 | --- | --- |
-| Azure Enterprise Agreement | [Azure Cost Management](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) |
+| Azure-Enterprise-avtal | [Azure Cost Management](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) |
 | Azure Web Direct (PAYG/MSDN) | [Azure Cost Management](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) |
 | Azure Government | [Azure Cost Management](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) |
 | Azure CSP | [Cloudyn](https://azure.cloudyn.com) |
-| Cross-cloud cost analysis support for AWS (in preview) | [Azure Cost Management](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) |
-| AWS recommendations | [Cloudyn](https://azure.cloudyn.com) |
+| Stöd för kostnads analys mellan moln för AWS (i för hands version) | [Azure Cost Management](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) |
+| AWS-rekommendationer | [Cloudyn](https://azure.cloudyn.com) |
 
-Some of the following features are available in Cloudyn, but all of them are available now in Azure Cost Management.
+Några av följande funktioner är tillgängliga i Cloudyn, men alla är tillgängliga nu i Azure Cost Management.
 
 - API:er
-- Azure compute recommendations
-- Azure Reservation recommendations
+- Rekommendationer för Azure Compute
+- Rekommendationer för Azure-reservation
 - Budgetar
 - Kostnadsanalys
-- Export data to an Azure storage account
+- Exportera data till ett Azure Storage-konto
 - Mindre fördröjning
-- Power BI content pack and connector
-- Resource tag support
+- Power BI innehålls paket och anslutning
+- Stöd för resurs tag
 
 ## <a name="monitor-usage-and-spending"></a>Övervaka användning och utgifter
 
-Det är mycket viktigt att övervaka användning och utgifter för molninfrastrukturer, eftersom företag betalar för de resurser de förbrukar över tid. När användningen överskrider avtalets trösklar kan det gå snabbt att få oväntade överförbrukningskostnader. A few important factors can make ad hoc monitoring difficult. Kostnadsprognoser baserat på genomsnittlig användning antar att förbrukningen förblir konsekvent under en viss faktureringsperiod. För det andra är det viktigt att du får förebyggande aviseringar för att kunna anpassa utgifterna om kostnaderna ligger nära eller överskrider din budget. Dessutom kanske inte molntjänstleverantörer erbjuder kostnadsprognoser i förhållande till trösklar eller jämförelserapporter för olika perioder.
+Det är mycket viktigt att övervaka användning och utgifter för molninfrastrukturer, eftersom företag betalar för de resurser de förbrukar över tid. När användningen överskrider avtalets trösklar kan det gå snabbt att få oväntade överförbrukningskostnader. Några viktiga faktorer kan göra det svårt att övervaka ad hoc. Kostnadsprognoser baserat på genomsnittlig användning antar att förbrukningen förblir konsekvent under en viss faktureringsperiod. För det andra är det viktigt att du får förebyggande aviseringar för att kunna anpassa utgifterna om kostnaderna ligger nära eller överskrider din budget. Dessutom kanske inte molntjänstleverantörer erbjuder kostnadsprognoser i förhållande till trösklar eller jämförelserapporter för olika perioder.
 
 Rapporterna hjälper dig att övervaka utgifterna för att kunna analysera och följa molnanvändning, kostnader och trender. Med hjälp av rapporter för tidsperioder kan du upptäcka avvikelser som skiljer sig från normala trender. Ineffektivitet i molndistributionen syns i optimeringsrapporterna. Du kan även se ineffektivitet i kostnadsanalysrapporterna.
 

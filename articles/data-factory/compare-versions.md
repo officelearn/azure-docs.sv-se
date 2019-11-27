@@ -130,7 +130,7 @@ SDK:erna som har uppdaterats i den aktuella versionen är inte bakåtkompatibla 
 
 | &nbsp; | V2 | V1 |
 | ------ | -- | -- | 
-| Azure portal | [Ja](quickstart-create-data-factory-portal.md) | Nej |
+| Azure Portal | [Ja](quickstart-create-data-factory-portal.md) | Nej |
 | Azure PowerShell | [Ja](quickstart-create-data-factory-powershell.md) | [Ja](data-factory-build-your-first-pipeline-using-powershell.md) |
 | .NET SDK | [Ja](quickstart-create-data-factory-dot-net.md) | [Ja](data-factory-build-your-first-pipeline-using-vs.md) |
 | REST-API | [Ja](quickstart-create-data-factory-rest-api.md) | [Ja](data-factory-build-your-first-pipeline-using-rest-api.md) |

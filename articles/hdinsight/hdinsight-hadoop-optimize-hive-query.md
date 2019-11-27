@@ -1,6 +1,6 @@
 ---
-title: Optimize Hive queries in Azure HDInsight
-description: This article describes how to optimize your Apache Hive queries for Hadoop in HDInsight.
+title: Optimera Hive-frågor i Azure HDInsight
+description: Den här artikeln beskriver hur du optimerar dina Apache Hive frågor för Hadoop i HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -15,65 +15,65 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74215799"
 ---
-# <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optimize Apache Hive queries in Azure HDInsight
+# <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optimera Apache Hive frågor i Azure HDInsight
 
-In Azure HDInsight, there are several cluster types and technologies that can run Apache Hive queries. When you create your HDInsight cluster, choose the appropriate cluster type to help optimize performance for your workload needs.
+I Azure HDInsight finns det flera kluster typer och tekniker som kan köra Apache Hive-frågor. När du skapar ett HDInsight-kluster väljer du lämplig kluster typ för att optimera prestanda för dina arbets belastnings behov.
 
-For example, choose **Interactive Query** cluster type to optimize for ad hoc, interactive queries. Choose Apache **Hadoop** cluster type to optimize for Hive queries used as a batch process. **Spark** and **HBase** cluster types can also run Hive queries. For more information on running Hive queries on various HDInsight cluster types, see [What is Apache Hive and HiveQL on Azure HDInsight?](hadoop/hdinsight-use-hive.md).
+Välj till exempel **interaktiv fråga** kluster typ för att optimera för ad hoc, interaktiva frågor. Välj Apache **Hadoop** kluster typ för att optimera för Hive-frågor som används som en batch-process. **Spark** -och **HBase** -kluster typer kan också köra Hive-frågor. Mer information om att köra Hive-frågor på olika typer av HDInsight-kluster finns i [Vad är Apache Hive och HiveQL på Azure HDInsight?](hadoop/hdinsight-use-hive.md).
 
-HDInsight clusters of Hadoop cluster type aren't optimized for performance by default. This article describes some of the most common Hive performance optimization methods that you can apply to your queries.
+HDInsight-kluster av typen Hadoop-kluster är inte optimerade för prestanda som standard. I den här artikeln beskrivs några av de vanligaste prestanda optimerings metoderna i Hive som du kan använda för dina frågor.
 
-## <a name="scale-out-worker-nodes"></a>Scale out worker nodes
+## <a name="scale-out-worker-nodes"></a>Skala ut arbetsnoder
 
-Increasing the number of worker nodes in an HDInsight cluster allows the work to leverage more mappers and reducers to be run in parallel. There are two ways you can increase scale out in HDInsight:
+Genom att öka antalet arbetsnoder i ett HDInsight-kluster kan arbetet använda fler mappningar och Minskare för att köras parallellt. Det finns två sätt att öka utskalning i HDInsight:
 
-* At the time when you create a cluster, you can specify the number of worker nodes using the Azure portal, Azure PowerShell, or command-line interface.  Mer information finns i [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md). The following screenshot shows the worker node configuration on the Azure portal:
+* När du skapar ett kluster kan du ange antalet arbetsnoder med hjälp av Azure Portal, Azure PowerShell eller kommando rads gränssnittet.  Mer information finns i [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md). Följande skärm bild visar konfigurationen för arbetsnoden på Azure Portal:
   
-    ![Azure portal cluster size nodes](./media/hdinsight-hadoop-optimize-hive-query/azure-portal-cluster-configuration-pricing-hadoop.png "scaleout_1")
+    ![Noder i Azure Portal kluster storlek](./media/hdinsight-hadoop-optimize-hive-query/azure-portal-cluster-configuration-pricing-hadoop.png "scaleout_1")
 
-* After creation, you can also edit the number of worker nodes to scale out a cluster further without recreating one:
+* När du har skapat kan du också redigera antalet arbetsnoder för att skala ut ett kluster ytterligare utan att skapa ett nytt:
 
-    ![Azure portal scale cluster size](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-scaleout-2.png "scaleout_2")
+    ![Azure Portal skalnings kluster storlek](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-scaleout-2.png "scaleout_2")
 
-For more information about scaling HDInsight, see [Scale HDInsight clusters](hdinsight-scaling-best-practices.md)
+Mer information om hur du skalar HDInsight finns i [skala HDInsight-kluster](hdinsight-scaling-best-practices.md)
 
-## <a name="use-apache-tez-instead-of-map-reduce"></a>Use Apache Tez instead of Map Reduce
+## <a name="use-apache-tez-instead-of-map-reduce"></a>Använd Apache Tez i stället för kart minskning
 
-[Apache Tez](https://tez.apache.org/) is an alternative execution engine to the MapReduce engine. Linux-based HDInsight clusters have Tez enabled by default.
+[Apache Tez](https://tez.apache.org/) är en alternativ körnings motor till MapReduce-motorn. Linux-baserade HDInsight-kluster har Tez aktiverat som standard.
 
-![HDInsight Apache Tez overview diagram](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-tez-engine.png)
+![HDInsight Apache Tez-översikt diagram](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-tez-engine.png)
 
-Tez is faster because:
+Tez är snabbare eftersom:
 
-* **Execute Directed Acyclic Graph (DAG) as a single job in the MapReduce engine**. The DAG requires each set of mappers to be followed by one set of reducers. This causes multiple MapReduce jobs to be spun off for each Hive query. Tez doesn't have such constraint and can process complex DAG as one job thus minimizing job startup overhead.
-* **Avoids unnecessary writes**. Multiple jobs are used to process the same Hive query in the MapReduce engine. The output of each MapReduce job is written to HDFS for intermediate data. Since Tez minimizes number of jobs for each Hive query, it's able to avoid unnecessary writes.
-* **Minimizes start-up delays**. Tez is better able to minimize start-up delay by reducing the number of mappers it needs to start and also improving optimization throughout.
-* **Reuses containers**. Whenever possible Tez is able to reuse containers to ensure that latency due to starting up containers is reduced.
-* **Continuous optimization techniques**. Traditionally optimization was done during compilation phase. However more information about the inputs is available that allow for better optimization during runtime. Tez uses continuous optimization techniques that allow it to optimize the plan further into the runtime phase.
+* **Kör riktat acykliska diagram (dag) som ett enda jobb i MapReduce-motorn**. DAG kräver att varje uppsättning med mappningar ska följas av en uppsättning med reducerare. Detta gör att flera MapReduce-jobb kan läsas av för varje Hive-fråga. Tez har inte någon sådan begränsning och kan bearbeta komplexa DAG som ett jobb, vilket minimerar jobbets start kostnader.
+* **Undviker onödiga skrivningar**. Flera jobb används för att bearbeta samma Hive-fråga i MapReduce-motorn. Utdata från varje MapReduce-jobb skrivs till HDFS för mellanliggande data. Eftersom Tez minimerar antalet jobb för varje Hive-fråga, kan det undvika onödiga skrivningar.
+* **Minimerar start fördröjningar**. Tez kan förbättra start fördröjningen genom att minska antalet mappningar som krävs för att starta och även förbättra optimeringen i hela.
+* **Återåteranvänd behållare**. När möjligt Tez kan återanvända behållare för att se till att svars tiden på grund av att en behållare startar, minskas.
+* **Metoder för kontinuerlig optimering**. Traditionellt gjorda optimering skedde under kompilerings fasen. Det finns dock mer information om indata som möjliggör bättre optimering under körning. Tez använder kontinuerlig optimerings teknik som gör det möjligt att optimera planen ytterligare i körnings fasen.
 
-For more information on these concepts, see [Apache TEZ](https://tez.apache.org/).
+Mer information om dessa begrepp finns i [Apache TEZ](https://tez.apache.org/).
 
-You can make any Hive query Tez enabled by prefixing the query with the following set command:
+Du kan göra eventuella Hive-Tez aktiverade genom att aktivera frågan med följande set-kommando:
 
 ```hive
 set hive.execution.engine=tez;
 ```
 
-## <a name="hive-partitioning"></a>Hive partitioning
+## <a name="hive-partitioning"></a>Hive-partitionering
 
-I/O operations are the major performance bottleneck for running Hive queries. The performance can be improved if the amount of data that needs to be read can be reduced. By default, Hive queries scan entire Hive tables. However for queries that only need to scan a small amount of data (for example, queries with filtering), this behavior creates unnecessary overhead. Hive partitioning allows Hive queries to access only the necessary amount of data in Hive tables.
+I/O-åtgärder är den stora prestanda Flask halsen för att köra Hive-frågor. Prestanda kan förbättras om mängden data som behöver läsas kan minskas. Hive-frågor söker som standard igenom hela Hive-tabeller. Men för frågor som bara behöver söka igenom en liten mängd data (till exempel frågor med filtrering), skapar det här beteendet onödig omkostnader. Hive-partitionering gör det möjligt för Hive-frågor att endast komma åt den nödvändiga mängden data i Hive-tabeller.
 
-Hive partitioning is implemented by reorganizing the raw data into new directories. Each partition has its own file directory. The partitioning is defined by the user. The following diagram illustrates partitioning a Hive table by the column *Year*. A new directory is created for each year.
+Hive-partitionering implementeras genom att organisera om rå data i nya kataloger. Varje partition har en egen fil katalog. Partitioneringen definieras av användaren. Följande diagram illustrerar partitionering av en Hive-tabell efter kolumn *året*. En ny katalog skapas för varje år.
 
-![HDInsight Apache Hive partitioning](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-partitioning.png)
+![HDInsight Apache Hive partitionering](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-partitioning.png)
 
-Some partitioning considerations:
+Några partitionering överväganden:
 
-* **Do not under partition** - Partitioning on columns with only a few values can cause few partitions. For example, partitioning on gender only creates two partitions to be created (male and female), thus only reduce the latency by a maximum of half.
-* **Do not over partition** - On the other extreme, creating a partition on a column with a unique value (for example, userid) causes multiple partitions. Over partition causes much stress on the cluster namenode as it has to handle the large number of directories.
-* **Avoid data skew** - Choose your partitioning key wisely so that all partitions are even size. For example, partitioning on *State* column may skew the distribution of data. Since the state of California has a population almost 30x that of Vermont, the partition size is potentially skewed and performance may vary tremendously.
+* **Under partitionerings** partitionering i kolumner med bara några få värden kan det uppstå några partitioner. Partitionering på kön skapar till exempel bara två partitioner som ska skapas (hane och hona) och minskar därför bara svars tiden med högst hälften.
+* Om du **inte använder partition** – på de andra extrema, skapar en partition i en kolumn med ett unikt värde (till exempel UserID) flera partitioner. Över-partitionen orsakar mycket stress på klustrets namenode eftersom det måste hantera det stora antalet kataloger.
+* **Undvik data skevning** – Välj partitionerings nyckeln på ett bra sätt så att alla partitioner är jämnt utformade. Till exempel kan partitionering i kolumnen *State* snedställa data fördelningen. Eftersom status för California har en population som är nästan 30 i Vermont, är partitionsstorleken potentiellt skevad och prestandan kan variera med stor mängd.
 
-To create a partition table, use the *Partitioned By* clause:
+Om du vill skapa en partitionstabell använder du den *partitionerade by* -satsen:
 
 ```sql
 CREATE TABLE lineitem_part
@@ -87,9 +87,9 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
 STORED AS TEXTFILE;
 ```
 
-Once the partitioned table is created, you can either create static partitioning or dynamic partitioning.
+När den partitionerade tabellen har skapats kan du antingen skapa statisk partitionering eller dynamisk partitionering.
 
-* **Static partitioning** means that you have already sharded data in the appropriate directories. With static partitions, you add Hive partitions manually based on the directory location. The following code snippet is an example.
+* **Statisk partitionering** innebär att du redan har shardade data i lämpliga kataloger. Med statiska partitioner lägger du till Hive-partitioner manuellt utifrån katalogens plats. Följande kodfragment är ett exempel.
   
    ```sql
    INSERT OVERWRITE TABLE lineitem_part
@@ -101,7 +101,7 @@ Once the partitioned table is created, you can either create static partitioning
    LOCATION 'wasb://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
    ```
 
-* **Dynamic partitioning** means that you want Hive to create partitions automatically for you. Since you've already created the partitioning table from the staging table, all you need to do is insert data to the partitioned table:
+* **Dynamisk partitionering** innebär att du vill att Hive ska skapa partitioner automatiskt åt dig. Eftersom du redan har skapat partitionerings tabellen från mellanlagrings tabellen behöver du bara infoga data i den partitionerade tabellen:
   
    ```hive
    SET hive.exec.dynamic.partition = true;
@@ -118,24 +118,24 @@ Once the partitioned table is created, you can either create static partitioning
        L_COMMENT as L_COMMENT, L_SHIPDATE as L_SHIPDATE FROM lineitem;
    ```
 
-For more information, see [Partitioned Tables](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables).
+Mer information finns i [partitionerade tabeller](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables).
 
-## <a name="use-the-orcfile-format"></a>Use the ORCFile format
+## <a name="use-the-orcfile-format"></a>Använd ORCFile-formatet
 
-Hive supports different file formats. Exempel:
+Hive stöder olika fil format. Till exempel:
 
-* **Text**: the default file format and works with most scenarios.
-* **Avro**: works well for interoperability scenarios.
-* **ORC/Parquet**: best suited for performance.
+* **Text**: standard fil formatet och fungerar med de flesta scenarier.
+* **Avro**: fungerar bra för samverkans scenarier.
+* **Orc/Parquet**: passar bäst för prestanda.
 
-ORC (Optimized Row Columnar) format is a highly efficient way to store Hive data. Compared to other formats, ORC has the following advantages:
+ORC-formatet (optimerad rad kolumn) är ett mycket effektivt sätt att lagra Hive-data på. Jämfört med andra format har ORC följande fördelar:
 
-* support for complex types including DateTime and complex and semi-structured types.
-* up to 70% compression.
-* indexes every 10,000 rows, which allow skipping rows.
-* a significant drop in run-time execution.
+* stöd för komplexa typer inklusive DateTime och komplexa och halv strukturerade typer.
+* upp till 70% komprimering.
+* indexerar varje 10 000 rader, vilket tillåter att rader hoppas över.
+* en betydande minskning av körningen av körnings tid.
 
-To enable ORC format, you first create a table with the clause *Stored as ORC*:
+Om du vill aktivera ORC-formatet skapar du först en tabell med satsen *lagrad som Orc*:
 
 ```sql
 CREATE TABLE lineitem_orc_part
@@ -148,7 +148,7 @@ PARTITIONED BY(L_SHIPDATE STRING)
 STORED AS ORC;
 ```
 
-Next, you insert data to the ORC table from the staging table. Exempel:
+Sedan infogar du data i tabellen ORC från mellanlagrings tabellen. Till exempel:
 
 ```sql
 INSERT INTO TABLE lineitem_orc
@@ -171,32 +171,32 @@ SELECT L_ORDERKEY as L_ORDERKEY,
 FROM lineitem;
 ```
 
-You can read more on the ORC format in the [Apache Hive Language manual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC).
+Du kan läsa mer om ORC-formatet i [språk hand boken för Apache Hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC).
 
 ## <a name="vectorization"></a>Vectorization
 
-Vectorization allows Hive to process a batch of 1024 rows together instead of processing one row at a time. It means that simple operations are done faster because less internal code needs to run.
+Vectorization tillåter att Hive bearbetar en batch med 1024 rader i stället för att bearbeta en rad i taget. Det innebär att enkla åtgärder utförs snabbare eftersom mindre intern kod måste köras.
 
-To enable vectorization prefix your Hive query with the following setting:
+Så här aktiverar du vectorization-prefix för Hive-frågan med följande inställning:
 
 ```hive
 set hive.vectorized.execution.enabled = true;
 ```
 
-For more information, see [Vectorized query execution](https://cwiki.apache.org/confluence/display/Hive/Vectorized+Query+Execution).
+Mer information finns i [Vector Query Execution](https://cwiki.apache.org/confluence/display/Hive/Vectorized+Query+Execution).
 
-## <a name="other-optimization-methods"></a>Other optimization methods
+## <a name="other-optimization-methods"></a>Andra optimerings metoder
 
-There are more optimization methods that you can consider, for example:
+Det finns fler optimerings metoder som du kan överväga, till exempel:
 
-* **Hive bucketing:** a technique that allows to cluster or segment large sets of data to optimize query performance.
-* **Join optimization:** optimization of Hive's query execution planning to improve the efficiency of joins and reduce the need for user hints. For more information, see [Join optimization](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization).
-* **Increase Reducers**.
+* **Hive-Bucket:** en teknik som gör det möjligt att klustra eller segmentera stora data uppsättningar för att optimera prestanda för frågor.
+* **Delta i optimering:** optimering av Hive-planering för att förbättra effektiviteten i kopplingar och minska behovet av användar tips. Mer information finns i [delta optimering](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization).
+* **Öka minskaren**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-In this article, you have learned several common Hive query optimization methods. To learn more, see the following articles:
+I den här artikeln har du lärt dig flera vanliga optimerings metoder för Hive-frågor. Mer information finns i följande artiklar:
 
-* [Use Apache Hive in HDInsight](hadoop/hdinsight-use-hive.md)
-* [Analyze flight delay data by using Interactive Query in HDInsight](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
-* [Analyze Twitter data using Apache Hive in HDInsight](hdinsight-analyze-twitter-data-linux.md)
+* [Använda Apache Hive i HDInsight](hadoop/hdinsight-use-hive.md)
+* [Analysera flyg fördröjnings data med hjälp av interaktiv fråga i HDInsight](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
+* [Analysera Twitter-data med Apache Hive i HDInsight](hdinsight-analyze-twitter-data-linux.md)

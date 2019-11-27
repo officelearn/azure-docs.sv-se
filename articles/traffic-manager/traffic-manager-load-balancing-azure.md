@@ -1,6 +1,6 @@
 ---
-title: Using load-balancing services in Azure | Microsoft Docs
-description: 'This tutorial shows you how to create a scenario by using the Azure load-balancing portfolio: Traffic Manager, Application Gateway, and Load Balancer.'
+title: Använda belastnings Utjämnings tjänster i Azure | Microsoft Docs
+description: 'Den här självstudien visar hur du skapar ett scenario med hjälp av Azures belastnings Utjämnings portfölj: Traffic Manager, Application Gateway och Load Balancer.'
 services: traffic-manager
 documentationcenter: ''
 author: asudbring
@@ -23,192 +23,192 @@ ms.locfileid: "74227778"
 
 ## <a name="introduction"></a>Introduktion
 
-Microsoft Azure provides multiple services for managing how network traffic is distributed and load balanced. You can use these services individually or combine their methods, depending on your needs, to build the optimal solution.
+Microsoft Azure tillhandahåller flera tjänster för att hantera hur nätverks trafiken distribueras och belastnings utjämning. Du kan använda dessa tjänster individuellt eller kombinera deras metoder, beroende på dina behov, för att bygga den optimala lösningen.
 
-In this tutorial, we first define a customer use case and see how it can be made more robust and performant by using the following Azure load-balancing portfolio: Traffic Manager, Application Gateway, and Load Balancer. We then provide step-by-step instructions for creating a deployment that is geographically redundant, distributes traffic to VMs, and helps you manage different types of requests.
+I den här självstudien definierar vi först ett kund användnings fall och ser hur det kan göras mer robust och prestera med hjälp av följande Azure-belastnings Utjämnings portfölj: Traffic Manager, Application Gateway och Load Balancer. Vi tillhandahåller sedan stegvisa instruktioner för att skapa en distribution som är geografiskt redundant, distribuerar trafik till virtuella datorer och hjälper dig att hantera olika typer av begär Anden.
 
-At a conceptual level, each of these services plays a distinct role in the load-balancing hierarchy.
+På en konceptuell nivå spelar var och en av dessa tjänster en tydlig roll i hierarkin för belastnings utjämning.
 
-* **Traffic Manager** provides global DNS load balancing. It looks at incoming DNS requests and responds with a healthy endpoint, in accordance with the routing policy the customer has selected. Options for routing methods are:
-  * Performance routing to send the requestor to the closest endpoint in terms of latency.
-  * Priority routing to direct all traffic to an endpoint, with other endpoints as backup.
-  * Weighted round-robin routing, which distributes traffic based on the weighting that is assigned to each endpoint.
-  * Geography-based routing to distribute the traffic to your application endpoints based on geographic location of the user.
-  * Subnet-based routing to distribute the traffic to your application endpoints based on the subnet (IP address range) of the user.
-  * Multi Value routing that enable you to send IP addresses of more than one application endpoints in a single DNS response.
+* **Traffic Manager** tillhandahåller global belastnings utjämning för DNS. Den söker efter inkommande DNS-begäranden och svarar med en felfri slut punkt, i enlighet med Routningsprincipen som kunden har valt. Alternativen för routningsmetoder är:
+  * Routning av prestanda för att skicka begär anden till den närmaste slut punkten i svars tider.
+  * Prioritera routning för att dirigera all trafik till en slut punkt, med andra slut punkter som säkerhets kopiering.
+  * Viktad resursallokering, som distribuerar trafik baserat på den viktning som tilldelas varje slut punkt.
+  * Geografisk routning för att distribuera trafiken till dina program slut punkter baserat på användarens geografiska plats.
+  * Subnet-baserad routning för att distribuera trafiken till dina program slut punkter baserat på användarens undernät (IP-adressintervall).
+  * Routning med flera värden som gör att du kan skicka IP-adresser för fler än en program slut punkt i ett enda DNS-svar.
 
-  The client connects directly to the endpoint returned by Traffic Manager. Azure Traffic Manager detects when an endpoint is unhealthy and then redirects the clients to another healthy instance. Refer to [Azure Traffic Manager documentation](traffic-manager-overview.md) to learn more about the service.
-* **Application Gateway** provides application delivery controller (ADC) as a service, offering various Layer 7 load-balancing capabilities for your application. It allows customers to optimize web farm productivity by offloading CPU-intensive SSL termination to the application gateway. Other Layer 7 routing capabilities include round-robin distribution of incoming traffic, cookie-based session affinity, URL path-based routing, and the ability to host multiple websites behind a single application gateway. Application Gateway can be configured as an Internet-facing gateway, an internal-only gateway, or a combination of both. Application Gateway is fully Azure managed, scalable, and highly available. För att få en bättre hantering ingår en omfattande uppsättning diagnostik- och loggningsfunktioner.
-* **Load Balancer** is an integral part of the Azure SDN stack, providing high-performance, low-latency Layer 4 load-balancing services for all UDP and TCP protocols. It manages inbound and outbound connections. You can configure public and internal load-balanced endpoints and define rules to map inbound connections to back-end pool destinations by using TCP and HTTP health-probing options to manage service availability.
+  Klienten ansluter direkt till slut punkten som returnerades av Traffic Manager. Azure Traffic Manager identifierar när en slut punkt inte är felfri och dirigerar sedan om klienterna till en annan felordnad instans. Mer information om tjänsten hittar du i [Azure Traffic Manager-dokumentationen](traffic-manager-overview.md) .
+* **Application Gateway** tillhandahåller program leverans kontroll (ADC) som en tjänst som erbjuder olika Layer 7 belastnings Utjämnings funktioner för ditt program. Det gör det möjligt för kunder att optimera webb server gruppens produktivitet genom att avlasta CPU-intensiv SSL-avslutning till Application Gateway. Andra funktioner för Layer 7-routning omfattar resursallokerings distribution av inkommande trafik, cookie-baserad sessionsgräns, URL-sökväg baserad Routning och möjligheten att vara värd för flera webbplatser bakom en enda Programgateway. Application Gateway kan konfigureras som en Internetbaserad Gateway, en intern gateway eller en kombination av båda. Application Gateway är helt Azure-hanterad, skalbar och hög tillgänglig. För att få en bättre hantering ingår en omfattande uppsättning diagnostik- och loggningsfunktioner.
+* **Load Balancer** är en integrerad del av Azure SDN-stacken som tillhandahåller högpresterande Layer 4-belastnings Utjämnings tjänster med låg latens för alla UDP-och TCP-protokoll. Den hanterar inkommande och utgående anslutningar. Du kan konfigurera offentliga och interna belastningsutjämnade slut punkter och definiera regler för att mappa inkommande anslutningar till backend-poolens destinationer genom att använda TCP-och HTTP-hälso tillstånds alternativ för att hantera tjänstens tillgänglighet.
 
 ## <a name="scenario"></a>Scenario
 
-In this example scenario, we use a simple website that serves two types of content: images and dynamically rendered webpages. The website must be geographically redundant, and it should serve its users from the closest (lowest latency) location to them. The application developer has decided that any URLs that match the pattern /images/* are served from a dedicated pool of VMs that are different from the rest of the web farm.
+I det här exempel scenariot använder vi en enkel webbplats som hanterar två typer av innehåll: bilder och dynamiskt återgivna webb sidor. Webbplatsen måste vara geografiskt redundant och den bör betjäna sina användare från den närmaste platsen (lägsta latens) till dem. Programutvecklaren har beslutat att alla URL: er som matchar mönstret/images/* hanteras från en dedikerad pool av virtuella datorer som skiljer sig från resten av webb server gruppen.
 
-Additionally, the default VM pool serving the dynamic content needs to talk to a back-end database that is hosted on a high-availability cluster. The entire deployment is set up through Azure Resource Manager.
+Dessutom måste standard-VM-poolen som hanterar det dynamiska innehållet kommunicera med en backend-databas som finns i ett kluster med hög tillgänglighet. Hela distributionen konfigureras via Azure Resource Manager.
 
-Using Traffic Manager, Application Gateway, and Load Balancer allows this website to achieve these design goals:
+Genom att använda Traffic Manager, Application Gateway och Load Balancer kan denna webbplats uppnå dessa design mål:
 
-* **Multi-geo redundancy**: If one region goes down, Traffic Manager routes traffic seamlessly to the closest region without any intervention from the application owner.
-* **Reduced latency**: Because Traffic Manager automatically directs the customer to the closest region, the customer experiences lower latency when requesting the webpage contents.
-* **Independent scalability**: Because the web application workload is separated by type of content, the application owner can scale the request workloads independent of each other. Application Gateway ensures that the traffic is routed to the right pools based on the specified rules and the health of the application.
-* **Internal load balancing**: Because Load Balancer is in front of the high-availability cluster, only the active and healthy endpoint for a database is exposed to the application. Additionally, a database administrator can optimize the workload by distributing active and passive replicas across the cluster independent of the front-end application. Load Balancer delivers connections to the high-availability cluster and ensures that only healthy databases receive connection requests.
+* **Multi-GEO-redundans**: om en region slutar fungera Traffic Manager dirigera trafiken sömlöst till den närmaste regionen utan att någon åtgärd från program ägaren.
+* **Minskad latens**: eftersom Traffic Manager automatiskt dirigerar kunden till den närmaste regionen, får kunden lägre svars tid när innehållet i webb sidan begärs.
+* **Oberoende skalbarhet**: eftersom arbets belastningen för webb program skiljs åt av innehålls typen kan program ägaren skala arbets belastningarna oberoende av varandra. Application Gateway säkerställer att trafiken dirigeras till rätt pooler baserat på de angivna reglerna och hälso tillståndet för programmet.
+* **Intern belastnings utjämning**: eftersom Load Balancer ligger framför klustret med hög tillgänglighet är det bara den aktiva och felfria slut punkten för en databas som exponeras för programmet. Dessutom kan en databas administratör optimera arbets belastningen genom att distribuera aktiva och passiva repliker i klustret oberoende av klient programmet. Load Balancer levererar anslutningar till klustret med hög tillgänglighet och ser till att endast felfria databaser får anslutnings begär Anden.
 
-The following diagram shows the architecture of this scenario:
+Följande diagram visar arkitekturen för det här scenariot:
 
-![Diagram of load-balancing architecture](./media/traffic-manager-load-balancing-azure/scenario-diagram.png)
+![Diagram över belastnings Utjämnings arkitektur](./media/traffic-manager-load-balancing-azure/scenario-diagram.png)
 
 > [!NOTE]
-> This example is only one of many possible configurations of the load-balancing services that Azure offers. Traffic Manager, Application Gateway, and Load Balancer can be mixed and matched to best suit your load-balancing needs. For example, if SSL offload or Layer 7 processing is not necessary, Load Balancer can be used in place of Application Gateway.
+> Det här exemplet är bara en av många möjliga konfigurationer av de belastnings Utjämnings tjänster som Azure erbjuder. Traffic Manager, Application Gateway och Load Balancer kan kombineras och matchas så att de passar bäst för dina belastnings Utjämnings behov. Om t. ex. SSL-avlastning eller bearbetning av lager 7 inte behövs kan Load Balancer användas i stället för Application Gateway.
 
-## <a name="setting-up-the-load-balancing-stack"></a>Setting up the load-balancing stack
+## <a name="setting-up-the-load-balancing-stack"></a>Konfigurera belastnings Utjämnings stacken
 
-### <a name="step-1-create-a-traffic-manager-profile"></a>Step 1: Create a Traffic Manager profile
+### <a name="step-1-create-a-traffic-manager-profile"></a>Steg 1: skapa en Traffic Manager-profil
 
-1. In the Azure portal, click **Create a resource** > **Networking** > **Traffic Manager profile** > **Create**.
-2. Enter the following basic information:
+1. Klicka på **skapa en resurs** > **nätverk** > **Traffic Manager profil** > **skapa**i Azure Portal.
+2. Ange följande grundläggande information:
 
-   * **Name**: Give your Traffic Manager profile a DNS prefix name.
-   * **Routing method**: Select the traffic-routing method policy. For more information about the methods, see [About Traffic Manager traffic routing methods](traffic-manager-routing-methods.md).
-   * **Subscription**: Select the subscription that contains the profile.
-   * **Resource group**: Select the resource group that contains the profile. It can be a new or existing resource group.
-   * **Resource group location**: Traffic Manager service is global and not bound to a location. However, you must specify a region for the group where the metadata associated with the Traffic Manager profile resides. This location has no impact on the runtime availability of the profile.
+   * **Namn**: ge din Traffic Manager-profil ett DNS-prefix.
+   * **Routningsmetod**: Välj principen för trafik-routningsmetod. Mer information om metoderna finns i [about Traffic Manager Traffic routing-metoder](traffic-manager-routing-methods.md).
+   * **Prenumeration**: Välj den prenumeration som innehåller profilen.
+   * **Resurs grupp**: Välj den resurs grupp som innehåller profilen. Det kan vara en ny eller befintlig resurs grupp.
+   * **Resurs grupps plats**: Traffic Manager tjänsten är global och inte kopplad till någon plats. Du måste dock ange en region för gruppen där de metadata som är associerade med Traffic Manager profilen finns. Den här platsen påverkar inte profilens körnings tillgänglighet.
 
-3. Click **Create** to generate the Traffic Manager profile.
+3. Klicka på **skapa** för att generera Traffic Manager profilen.
 
-   !["Create Traffic Manager" blade](./media/traffic-manager-load-balancing-azure/s1-create-tm-blade.png)
+   ![Bladet skapa Traffic Manager](./media/traffic-manager-load-balancing-azure/s1-create-tm-blade.png)
 
-### <a name="step-2-create-the-application-gateways"></a>Step 2: Create the application gateways
+### <a name="step-2-create-the-application-gateways"></a>Steg 2: skapa programgatewayer
 
-1. In the Azure portal, in the left pane, click **Create a resource** > **Networking** > **Application Gateway**.
-2. Enter the following basic information about the application gateway:
+1. Klicka på **skapa en resurs** > **nätverk** > **Application Gateway**i rutan till vänster i Azure Portal.
+2. Ange följande grundläggande information om Application Gateway:
 
-   * **Name**: The name of the application gateway.
-   * **SKU size**: The size of the application gateway, available as Small, Medium, or Large.
-   * **Instance count**: The number of instances, a value from 2 through 10.
-   * **Resource group**: The resource group that holds the application gateway. It can be an existing resource group or a new one.
-   * **Location**: The region for the application gateway, which is the same location as the resource group. The location is important, because the virtual network and public IP must be in the same location as the gateway.
-3. Klicka på **OK**
-4. Define the virtual network, subnet, front-end IP, and listener configurations for the application gateway. In this scenario, the front-end IP address is **Public**, which allows it to be added as an endpoint to the Traffic Manager profile later on.
-5. Configure the listener with one of the following options:
-    * If you use HTTP, there is nothing to configure. Klicka på **OK**
-    * If you use HTTPS, further configuration is required. Refer to [Create an application gateway](../application-gateway/application-gateway-create-gateway-portal.md), starting at step 9. When you have completed the configuration, click **OK**.
+   * **Namn**: namnet på Application Gateway.
+   * **SKU-storlek**: storleken på Application Gateway, som är tillgänglig som liten, medel eller stor.
+   * **Instans antal**: antalet instanser, ett värde mellan 2 och 10.
+   * **Resurs grupp**: den resurs grupp som innehåller programgatewayen. Det kan vara en befintlig resurs grupp eller en ny.
+   * **Plats**: regionen för Application Gateway, som är samma plats som resurs gruppen. Platsen är viktig eftersom det virtuella nätverket och den offentliga IP-adressen måste finnas på samma plats som gatewayen.
+3. Klicka på **OK**.
+4. Definiera det virtuella nätverket, under nätet, klient delens IP-adress och Listener-konfigurationer för Application Gateway. I det här scenariot är klient delens IP-adress **offentlig**, vilket gör att den kan läggas till som en slut punkt till Traffic Manager profilen senare.
+5. Konfigurera lyssnaren med något av följande alternativ:
+    * Om du använder HTTP finns det inget att konfigurera. Klicka på **OK**.
+    * Om du använder HTTPS krävs ytterligare konfiguration. Se [skapa en Programgateway](../application-gateway/application-gateway-create-gateway-portal.md)från och med steg 9. När du har slutfört konfigurationen klickar du på **OK**.
 
-#### <a name="configure-url-routing-for-application-gateways"></a>Configure URL routing for application gateways
+#### <a name="configure-url-routing-for-application-gateways"></a>Konfigurera URL-routning för programgatewayer
 
-When you choose a back-end pool, an application gateway that's configured with a path-based rule takes a path pattern of the request URL in addition to round-robin distribution. In this scenario, we are adding a path-based rule to direct any URL with "/images/\*" to the image server pool. For more information about configuring URL path-based routing for an application gateway, refer to [Create a path-based rule for an application gateway](../application-gateway/application-gateway-create-url-route-portal.md).
+När du väljer en backend-pool, tar en Programgateway som kon figurer ATS med en Sök vägs-baserad regel över ett Sök vägs mönster för URL: en för begäran förutom resursallokering-distribution. I det här scenariot lägger vi till en Sök vägs baserad regel för att dirigera en URL med "/images/\*" till avbildnings serverns pool. Mer information om hur du konfigurerar URL Path-baserad routning för en Programgateway finns i [skapa en Sök vägs baserad regel för en Programgateway](../application-gateway/application-gateway-create-url-route-portal.md).
 
-![Application Gateway web-tier diagram](./media/traffic-manager-load-balancing-azure/web-tier-diagram.png)
+![Application Gateway webb nivå diagram](./media/traffic-manager-load-balancing-azure/web-tier-diagram.png)
 
-1. From your resource group, go to the instance of the application gateway that you created in the preceding section.
-2. Under **Settings**, select **Backend pools**, and then select **Add** to add the VMs that you want to associate with the web-tier back-end pools.
-3. Enter the name of the back-end pool and all the IP addresses of the machines that reside in the pool. In this scenario, we are connecting two back-end server pools of virtual machines.
+1. Från resurs gruppen går du till den instans av Application Gateway som du skapade i föregående avsnitt.
+2. Under **Inställningar**väljer du **Server dels pooler**och väljer sedan **Lägg** till för att lägga till de virtuella datorer som du vill koppla till webb nivåns backend-pooler.
+3. Ange namnet på backend-poolen och alla IP-adresser för de datorer som finns i poolen. I det här scenariot ansluter vi två backend-pooler för virtuella datorer.
 
-   ![Application Gateway "Add backend pool"](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
+   ![Application Gateway "Lägg till backend-pool"](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
 
-4. Under **Settings** of the application gateway, select **Rules**, and then click the **Path based** button to add a rule.
+4. Under **Inställningar** för Application Gateway väljer du **regler**och klickar sedan på knappen **sökväg baserad** för att lägga till en regel.
 
-   ![Application Gateway Rules "Path based" button](./media/traffic-manager-load-balancing-azure/s2-appgw-add-pathrule.png)
+   ![Knappen "sökväg baserad" för Application Gateway regler](./media/traffic-manager-load-balancing-azure/s2-appgw-add-pathrule.png)
 
-5. Configure the rule by providing the following information.
+5. Konfigurera regeln genom att ange följande information.
 
-   Basic settings:
+   Grundläggande inställningar:
 
-   + **Name**: The friendly name of the rule that is accessible in the portal.
-   + **Listener**: The listener that is used for the rule.
-   + **Default backend pool**: The back-end pool to be used with the default rule.
-   + **Default HTTP settings**: The HTTP settings to be used with the default rule.
+   + **Namn**: det egna namnet på den regel som är tillgänglig i portalen.
+   + **Lyssnare**: den lyssnare som används för regeln.
+   + **Standardpool för Server delen**: den backend-pool som ska användas med standard regeln.
+   + **Standard-HTTP-inställningar**: de http-inställningar som ska användas med standard regeln.
 
-   Path-based rules:
+   Sök vägs-baserade regler:
 
-   + **Name**: The friendly name of the path-based rule.
-   + **Paths**: The path rule that is used for forwarding traffic.
-   + **Backend Pool**: The back-end pool to be used with this rule.
-   + **HTTP Setting**: The HTTP settings to be used with this rule.
+   + **Namn**: det egna namnet på den Sök vägs baserade regeln.
+   + **Sökvägar**: Sök vägs regeln som används för vidarebefordran av trafik.
+   + **Backend-pool**: den backend-pool som ska användas med den här regeln.
+   + **Http-inställning**: de http-inställningar som ska användas med den här regeln.
 
    > [!IMPORTANT]
-   > Paths: Valid paths must start with "/". The wildcard "\*" is allowed only at the end. Valid examples are /xyz, /xyz\*, or /xyz/\*.
+   > Sökvägar: giltiga sökvägar måste börja med "/". Jokertecknet "\*" tillåts endast i slutet. Giltiga exempel är/XYZ,/XYZ\*eller/XYZ/\*.
 
-   ![Application Gateway "Add path-based rule" blade](./media/traffic-manager-load-balancing-azure/s2-appgw-pathrule-blade.png)
+   ![Application Gateway bladet "Lägg till Sök vägs regel"](./media/traffic-manager-load-balancing-azure/s2-appgw-pathrule-blade.png)
 
-### <a name="step-3-add-application-gateways-to-the-traffic-manager-endpoints"></a>Step 3: Add application gateways to the Traffic Manager endpoints
+### <a name="step-3-add-application-gateways-to-the-traffic-manager-endpoints"></a>Steg 3: lägga till programgatewayer i Traffic Manager slut punkter
 
-In this scenario, Traffic Manager is connected to application gateways (as configured in the preceding steps) that reside in different regions. Now that the application gateways are configured, the next step is to connect them to your Traffic Manager profile.
+I det här scenariot är Traffic Manager anslutna till programgatewayer (enligt beskrivningen i föregående steg) som finns i olika regioner. Nu när programgatewayerna har kon figurer ATS är nästa steg att ansluta dem till din Traffic Manager-profil.
 
-1. Open your Traffic Manager profile. To do so, look in your resource group or search for the name of the Traffic Manager profile from **All Resources**.
-2. In the left pane, select **Endpoints**, and then click **Add** to add an endpoint.
+1. Öppna din Traffic Manager-profil. Det gör du genom att titta i din resurs grupp eller söka efter namnet på den Traffic Manager profilen från **alla resurser**.
+2. I det vänstra fönstret väljer du **slut punkter**och klickar sedan på **Lägg** till för att lägga till en slut punkt.
 
-   ![Traffic Manager Endpoints "Add" button](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
+   ![Traffic Manager slut punkts knappen Lägg till](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
 
-3. Create an endpoint by entering the following information:
+3. Skapa en slut punkt genom att ange följande information:
 
-   * **Type**: Select the type of endpoint to load-balance. In this scenario, select **Azure endpoint** because we are connecting it to the application gateway instances that were configured previously.
-   * **Name**: Enter the name of the endpoint.
-   * **Target resource type**: Select **Public IP address** and then, under **Target resource**, select the public IP of the application gateway that was configured previously.
+   * **Typ**: Välj typ av slut punkt för belastnings utjämning. I det här scenariot väljer du **Azure-slutpunkt** eftersom vi ansluter till den Application Gateway-instans som har kon figurer ATS tidigare.
+   * **Namn**: Ange namnet på slut punkten.
+   * **Mål resurs typ**: Välj **offentlig IP-adress** och välj sedan den offentliga IP-adressen för programgatewayen som kon figurer ATS tidigare under **mål resurs**.
 
-   ![Traffic Manager "Add endpoint"](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
+   ![Traffic Manager "Lägg till slut punkt"](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
 
-4. Now you can test your setup by accessing it with the DNS of your Traffic Manager profile (in this example: TrafficManagerScenario.trafficmanager.net). You can resend requests, bring up or bring down VMs and web servers that were created in different regions, and change the Traffic Manager profile settings to test your setup.
+4. Nu kan du testa installationen genom att komma åt den med DNS för din Traffic Manager-profil (i det här exemplet: TrafficManagerScenario.trafficmanager.net). Du kan skicka om begär Anden, ta fram eller ta bort virtuella datorer och webb servrar som har skapats i olika regioner och ändra Traffic Manager profil inställningar för att testa installationen.
 
-### <a name="step-4-create-a-load-balancer"></a>Step 4: Create a load balancer
+### <a name="step-4-create-a-load-balancer"></a>Steg 4: skapa en belastningsutjämnare
 
-In this scenario, Load Balancer distributes connections from the web tier to the databases within a high-availability cluster.
+I det här scenariot distribuerar Load Balancer anslutningar från webb nivån till databaserna i ett kluster med hög tillgänglighet.
 
-If your high-availability database cluster is using SQL Server AlwaysOn, refer to [Configure one or more Always On Availability Group Listeners](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) for step-by-step instructions.
+Om databas klustret med hög tillgänglighet använder SQL Server AlwaysOn, se [Konfigurera en eller flera Always on tillgänglighets grupps lyssnare](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) för steg-för-steg-instruktioner.
 
-For more information about configuring an internal load balancer, see [Create an Internal load balancer in the Azure portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md).
+Mer information om hur du konfigurerar en intern belastningsutjämnare finns [i skapa en intern belastningsutjämnare i Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md).
 
-1. In the Azure portal, in the left pane, click **Create a resource** > **Networking** > **Load balancer**.
-2. Choose a name for your load balancer.
-3. Set the **Type** to **Internal**, and choose the appropriate virtual network and subnet for the load balancer to reside in.
-4. Under **IP address assignment**, select either **Dynamic** or **Static**.
-5. Under **Resource group**, choose the resource group for the load balancer.
-6. Under **Location**, choose the appropriate region for the load balancer.
-7. Click **Create** to generate the load balancer.
+1. Klicka på **skapa en resurs** > **nätverk** > **belastningsutjämnare**i den vänstra rutan i Azure Portal.
+2. Välj ett namn för belastningsutjämnaren.
+3. Ange **typen** **internt**och välj lämpligt virtuellt nätverk och undernät som belastningsutjämnaren ska finnas i.
+4. Under **IP-adresstilldelning**väljer du antingen **dynamisk** eller **statisk**.
+5. Under **resurs grupp**väljer du resurs gruppen för belastningsutjämnaren.
+6. Under **plats**väljer du lämplig region för belastningsutjämnaren.
+7. Klicka på **skapa** för att generera belastningsutjämnaren.
 
-#### <a name="connect-a-back-end-database-tier-to-the-load-balancer"></a>Connect a back-end database tier to the load balancer
+#### <a name="connect-a-back-end-database-tier-to-the-load-balancer"></a>Anslut databas nivån på Server sidan till belastningsutjämnaren
 
-1. From your resource group, find the load balancer that was created in the previous steps.
-2. Under **Settings**, click **Backend pools**, and then click **Add** to add a back-end pool.
+1. I din resurs grupp letar du reda på belastningsutjämnaren som skapades i föregående steg.
+2. Under **Inställningar**klickar du på **backend-pooler**och klickar sedan på **Lägg** till för att lägga till en backend-pool.
 
-   ![Load Balancer "Add backend pool"](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
+   ![Load Balancer "Lägg till backend-pool"](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
 
-3. Enter the name of the back-end pool.
-4. Add either individual machines or an availability set to the back-end pool.
+3. Ange namnet på backend-poolen.
+4. Lägg till antingen enskilda datorer eller en tillgänglighets uppsättning i backend-poolen.
 
-#### <a name="configure-a-probe"></a>Configure a probe
+#### <a name="configure-a-probe"></a>Konfigurera en avsökning
 
-1. In your load balancer, under **Settings**, select **Probes**, and then click **Add** to add a probe.
+1. I belastningsutjämnaren väljer du **avsökningar**under **Inställningar**och klickar sedan på **Lägg** till för att lägga till en avsökning.
 
-   ![Load Balancer "Add probe"](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
+   ![Load Balancer "Lägg till avsökning"](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
 
-2. Enter the name for the probe.
-3. Select the **Protocol** for the probe. For a database, you might want a TCP probe rather than an HTTP probe. To learn more about load-balancer probes, refer to [Understand load balancer probes](../load-balancer/load-balancer-custom-probe-overview.md).
-4. Enter the **Port** of your database to be used for accessing the probe.
-5. Under **Interval**, specify how frequently to probe the application.
-6. Under **Unhealthy threshold**, specify the number of continuous probe failures that must occur for the back-end VM to be considered unhealthy.
-7. Click **OK** to create the probe.
+2. Ange namnet på avsökningen.
+3. Välj **protokollet** för avsökningen. För en databas kanske du vill ha en TCP-avsökning i stället för en HTTP-avsökning. Mer information om belastnings Utjämnings avsökningar finns i [förstå belastnings Utjämnings avsökningar](../load-balancer/load-balancer-custom-probe-overview.md).
+4. Ange vilken **port** i databasen som ska användas för att komma åt avsökningen.
+5. Under **intervall**anger du hur ofta programmet ska avsökas.
+6. Under fel **tröskel**anger du antalet kontinuerliga avsöknings fel som måste inträffa för att backend-datorn ska anses vara ohälsosam.
+7. Klicka på **OK** för att skapa avsökningen.
 
-#### <a name="configure-the-load-balancing-rules"></a>Configure the load-balancing rules
+#### <a name="configure-the-load-balancing-rules"></a>Konfigurera regler för belastnings utjämning
 
-1. Under **Settings** of your load balancer, select **Load balancing rules**, and then click **Add** to create a rule.
-2. Enter the **Name** for the load-balancing rule.
-3. Choose the **Frontend IP Address** of the load balancer, **Protocol**, and **Port**.
-4. Under **Backend port**, specify the port to be used in the back-end pool.
-5. Select the **Backend pool** and the **Probe** that were created in the previous steps to apply the rule to.
-6. Under **Session persistence**, choose how you want the sessions to persist.
-7. Under **Idle timeouts**, specify the number of minutes before an idle timeout.
-8. Under **Floating IP**, select either **Disabled** or **Enabled**.
+1. Under **Inställningar** för belastningsutjämnaren väljer du **belastnings Utjämnings regler**och klickar sedan på **Lägg till** för att skapa en regel.
+2. Ange **namnet** på belastnings Utjämnings regeln.
+3. Välj **klient delens IP-adress** för belastningsutjämnaren, **protokoll**och **port**.
+4. Under **backend-port**anger du den port som ska användas i backend-poolen.
+5. Välj **backend-poolen** och **avsökningen** som skapades i föregående steg för att tillämpa regeln på.
+6. Välj hur du vill att sessionerna ska behållas under **sessionen beständighet**.
+7. Under **tids gränser för inaktivitet**anger du antalet minuter innan tids gränsen för inaktivitet.
+8. Under **flytande IP**väljer du antingen **inaktive rad** eller **aktive rad**.
 9. Skapa regeln genom att klicka på **OK**.
 
-### <a name="step-5-connect-web-tier-vms-to-the-load-balancer"></a>Step 5: Connect web-tier VMs to the load balancer
+### <a name="step-5-connect-web-tier-vms-to-the-load-balancer"></a>Steg 5: Anslut virtuella datorer på webb nivå till belastningsutjämnaren
 
-Now we configure the IP address and load-balancer front-end port in the applications that are running on your web-tier VMs for any database connections. This configuration is specific to the applications that run on these VMs. To configure the destination IP address and port, refer to the application documentation. To find the IP address of the front end, in the Azure portal, go to the front-end IP pool on the **Load balancer settings**.
+Nu konfigurerar vi IP-adressen och belastnings Utjämnings klientens frontend-port i de program som körs på dina virtuella datorer på webb nivå för alla databas anslutningar. Den här konfigurationen är speciell för de program som körs på de här virtuella datorerna. Information om hur du konfigurerar målets IP-adress och port finns i program dokumentationen. Du hittar IP-adressen för klient delen genom att gå till klient delens IP-pool på **belastnings Utjämnings inställningarna**i Azure Portal.
 
-![Load Balancer "Frontend IP pool" navigation pane](./media/traffic-manager-load-balancing-azure/s5-ilb-frontend-ippool.png)
+![Navigerings fönstret för "klient delens IP-pool" Load Balancer](./media/traffic-manager-load-balancing-azure/s5-ilb-frontend-ippool.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Översikt över Traffic Manager](traffic-manager-overview.md)
-* [Application Gateway overview](../application-gateway/application-gateway-introduction.md)
+* [Översikt över Application Gateway](../application-gateway/application-gateway-introduction.md)
 * [Översikt över Azure Load Balancer](../load-balancer/load-balancer-overview.md)

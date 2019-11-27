@@ -105,7 +105,7 @@ Så här definieras en pipeline i JSON-format:
 }
 ```
 
-Tagg | Beskrivning | Typ | Krävs
+Tagga | Beskrivning | Typ | Krävs
 --- | ----------- | ---- | --------
 namn | Namnet på pipeline. Ange ett namn som representerar åtgärden som pipeline utför. <br/><ul><li>Maximalt antal tecken: 140</li><li>Måste börja med en bokstav, en siffra eller ett under streck (\_)</li><li>Följande tecken är inte tillåtna: ”.”, ”+”, ”?”, ”/”, ”<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | Sträng | Ja
 description | Ange texten som beskriver vad pipeline används till. | Sträng | Nej
@@ -140,7 +140,7 @@ I körningsaktiviteter ingår [dataförflyttning](#data-movement-activities) och
 
 I följande tabell beskrivs egenskaperna i definitionen för aktivitets-JSON:
 
-Tagg | Beskrivning | Krävs
+Tagga | Beskrivning | Krävs
 --- | ----------- | ---------
 namn | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför. <br/><ul><li>Maximalt antal tecken: 55</li><li>Måste börja med en bokstavs siffra eller ett under streck (\_)</li><li>Följande tecken är inte tillåtna: ”.”, ”+”, ”?”, ”/”, ”<”,”>”,”*”,”%”,”&”,”:”,”\” | Ja</li></ul>
 description | Text som beskriver vad aktiviteten används till | Ja
@@ -205,7 +205,7 @@ Kontrollaktiviteter har följande toppnivåstruktur:
 }
 ```
 
-Tagg | Beskrivning | Krävs
+Tagga | Beskrivning | Krävs
 --- | ----------- | --------
 namn | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför.<br/><ul><li>Maximalt antal tecken: 55</li><li>Måste börja med en bokstavs siffra eller ett under streck (\_)</li><li>Följande tecken är inte tillåtna: ”.”, ”+”, ”?”, ”/”, ”<”,”>”,”*”,”%”,”&”,”:”,”\” | Ja</li><ul>
 description | Text som beskriver vad aktiviteten används till | Ja

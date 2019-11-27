@@ -1,6 +1,6 @@
 ---
-title: Restore a database from a backup
-description: Learn about point-in-time restore, which enables you to roll back an Azure SQL database up to 35 days.
+title: Återställa en databas från en säkerhets kopia
+description: Lär dig mer om återställning vid tidpunkter, vilket gör att du kan återställa en Azure SQL-databas upp till 35 dagar.
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -18,187 +18,187 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74228034"
 ---
-# <a name="recover-an-azure-sql-database-by-using-automated-database-backups"></a>Recover an Azure SQL database by using automated database backups
+# <a name="recover-an-azure-sql-database-by-using-automated-database-backups"></a>Återställa en Azure SQL-databas med hjälp av automatisk säkerhets kopiering av databasen
 
-By default, Azure SQL Database backups are stored in geo-replicated blob storage (RA-GRS storage type). The following options are available for database recovery by using [automated database backups](sql-database-automated-backups.md). Du kan:
+Som standard lagras Azure SQL Database säkerhets kopior i Geo-replikerad Blob Storage (RA-GRS lagrings typ). Följande alternativ är tillgängliga för databas återställning med hjälp av [automatiska databas säkerhets kopieringar](sql-database-automated-backups.md). Du kan:
 
-- Create a new database on the same SQL Database server, recovered to a specified point in time within the retention period.
-- Create a database on the same SQL Database server, recovered to the deletion time for a deleted database.
-- Create a new database on any SQL Database server in the same region, recovered to the point of the most recent backups.
-- Create a new database on any SQL Database server in any other region, recovered to the point of the most recent replicated backups.
+- Skapa en ny databas på samma SQL Database Server, återställt till en angiven tidpunkt inom kvarhållningsperioden.
+- Skapa en databas på samma SQL Database-Server, återställd till borttagnings tiden för en borttagen databas.
+- Skapa en ny databas på alla SQL Database-servrar i samma region, återställda till de senaste säkerhets kopiorna.
+- Skapa en ny databas på valfri SQL Database Server i någon annan region, återställd till platsen för de senaste replikerade säkerhets kopiorna.
 
-If you configured [backup long-term retention](sql-database-long-term-retention.md), you can also create a new database from any long-term retention backup on any SQL Database server.
+Om du har konfigurerat [långsiktig kvarhållning av säkerhets kopia](sql-database-long-term-retention.md)kan du också skapa en ny databas från valfri långsiktig kvarhållning på alla SQL Database-servrar.
 
 > [!IMPORTANT]
-> You can't overwrite an existing database during restore.
+> Du kan inte skriva över en befintlig databas under återställningen.
 
-When you're using the Standard or Premium service tiers, your database restore might incur an extra storage cost. The extra cost is incurred when the maximum size of the restored database is greater than the amount of storage included with the target database's service tier and performance level. For pricing details of extra storage, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/). If the actual amount of used space is less than the amount of storage included, you can avoid this extra cost by setting the maximum database size to the included amount.
+När du använder standard-eller premium-tjänst nivåerna kan databas återställningen medföra en extra lagrings kostnad. Den extra kostnaden uppkommer när den återställda databasens maximala storlek är större än den mängd lagrings utrymme som ingår i mål databasens tjänste nivå och prestanda nivå. Pris information för extra lagrings utrymme finns på [sidan SQL Database priser](https://azure.microsoft.com/pricing/details/sql-database/). Om den faktiska mängden använt utrymme är mindre än den mängd lagring som ingår, kan du undvika den här extra kostnaden genom att ställa in den maximala databas storleken på den inkluderade mängden.
 
-## <a name="recovery-time"></a>Recovery time
+## <a name="recovery-time"></a>Återställnings tid
 
-The recovery time to restore a database by using automated database backups is affected by several factors:
+Återställnings tiden för att återställa en databas med hjälp av automatisk säkerhets kopiering av databasen påverkas av flera faktorer:
 
-- The size of the database.
-- The compute size of the database.
-- The number of transaction logs involved.
-- The amount of activity that needs to be replayed to recover to the restore point.
-- The network bandwidth if the restore is to a different region.
-- The number of concurrent restore requests being processed in the target region.
+- Databasens storlek.
+- Databasens beräknings storlek.
+- Antalet transaktions loggar som ingår.
+- Den mängd aktivitet som behöver upprepas för att återställas till återställnings punkten.
+- Nätverks bandbredden om återställningen är till en annan region.
+- Antalet samtidiga återställnings begär Anden som bearbetas i mål regionen.
 
-For a large or very active database, the restore might take several hours. If there is a prolonged outage in a region, it's possible that a high number of geo-restore requests will be initiated for disaster recovery. When there are many requests, the recovery time for individual databases can increase. Most database restores complete in less than 12 hours.
+För en stor eller mycket aktiv databas kan återställningen ta flera timmar. Om det finns ett långvarigt avbrott i en region, är det möjligt att ett stort antal geo-återställnings begär Anden kommer att initieras för haveri beredskap. När det finns många begär Anden kan återställnings tiden för enskilda databaser öka. De flesta databas återställningar har slutförts på mindre än 12 timmar.
 
-For a single subscription, there are limitations on the number of concurrent restore requests. These limitations apply to any combination of point-in-time restores, geo-restores, and restores from long-term retention backup.
+För en enskild prenumeration finns det begränsningar för antalet samtidiga återställnings begär Anden. Dessa begränsningar gäller för valfri kombination av återställningar av tidpunkter, geo-Restore och återställningar från säkerhets kopia med långsiktig kvarhållning.
 
-| | **Max # of concurrent requests being processed** | **Max # of concurrent requests being submitted** |
+| | **Max antal samtidiga begär Anden som bearbetas** | **Max antal samtidiga förfrågningar som skickas** |
 | :--- | --: | --: |
-|Single database (per subscription)|10|60|
-|Elastic pool (per pool)|4|200|
+|Enkel databas (per prenumeration)|10|60|
+|Elastisk pool (per pool)|4|200|
 ||||
 
-There isn't a built-in method to restore the entire server. For an example of how to accomplish this task, see [Azure SQL Database: Full Server Recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666).
+Det finns inte någon inbyggd metod för att återställa hela servern. Ett exempel på hur du utför den här uppgiften finns [Azure SQL Database: fullständig Server återställning](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666).
 
 > [!IMPORTANT]
-> To recover by using automated backups, you must be a member of the SQL Server contributor role in the subscription, or be the subscription owner. For more information, see [RBAC: Built-in roles](../role-based-access-control/built-in-roles.md). You can recover by using the Azure portal, PowerShell, or the REST API. You can't use Transact-SQL.
+> Om du vill återställa med hjälp av automatiska säkerhets kopieringar måste du vara medlem i rollen SQL Server deltagare i prenumerationen eller vara prenumerations ägare. Mer information finns i [RBAC: inbyggda roller](../role-based-access-control/built-in-roles.md). Du kan återställa med hjälp av Azure Portal, PowerShell eller REST API. Du kan inte använda Transact-SQL.
 
-## <a name="point-in-time-restore"></a>Återställning av lagring vid olika tidpunkter
+## <a name="point-in-time-restore"></a>Återställning från tidpunkt
 
-You can restore a standalone, pooled, or instance database to an earlier point in time by using the Azure portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase), or the [REST API](https://docs.microsoft.com/rest/api/sql/databases). The request can specify any service tier or compute size for the restored database. Ensure that you have sufficient resources on the server to which you are restoring the database. When complete, the restore creates a new database on the same server as the original database. The restored database is charged at normal rates, based on its service tier and compute size. You don't incur charges until the database restore is complete.
+Du kan återställa en fristående, poolad eller instans databas till en tidigare tidpunkt med hjälp av Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)eller [REST API](https://docs.microsoft.com/rest/api/sql/databases). Begäran kan ange valfri tjänst nivå eller beräknings storlek för den återställda databasen. Se till att du har tillräckligt med resurser på den server som du återställer databasen till. När du är klar skapar återställningen en ny databas på samma server som den ursprungliga databasen. Den återställda databasen debiteras enligt normal taxa, baserat på tjänst nivå och beräknings storlek. Du debiteras inte förrän databas återställningen är klar.
 
-You generally restore a database to an earlier point for recovery purposes. You can treat the restored database as a replacement for the original database, or use it as a data source to update the original database.
+Du återställer vanligt vis en databas till en tidigare tidpunkt för återställnings syfte. Du kan hantera den återställda databasen som en ersättning för den ursprungliga databasen eller använda den som en data källa för att uppdatera den ursprungliga databasen.
 
-- **Database replacement**
+- **Databas utbyte**
 
-  If you intend the restored database to be a replacement for the original database, you should specify the original database's compute size and service tier. You can then rename the original database, and give the restored database the original name by using the [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) command in T-SQL.
+  Om du vill att den återställda databasen ska ersätta den ursprungliga databasen, bör du ange den ursprungliga databasens beräknings storlek och tjänst nivå. Du kan sedan byta namn på den ursprungliga databasen och ge den återställda databasen det ursprungliga namnet med hjälp av kommandot [Alter Database](/sql/t-sql/statements/alter-database-azure-sql-database) i T-SQL.
 
-- **Data recovery**
+- **Data återställning**
 
-  If you plan to retrieve data from the restored database to recover from a user or application error, you need to write and execute a  data recovery script that extracts data from the restored database and applies to the original database. Although the restore operation may take a long time to complete, the restoring database is visible in the database list throughout the restore process. If you delete the database during the restore, the restore operation will be canceled and you will not be charged for the database that did not complete the restore.
+  Om du planerar att hämta data från den återställda databasen för att återställa från ett användar-eller program fel måste du skriva och köra ett data återställnings skript som extraherar data från den återställda databasen och gäller för den ursprungliga databasen. Även om återställnings åtgärden kan ta lång tid att slutföra, visas återställnings databasen i databas listan under hela återställnings processen. Om du tar bort databasen under återställningen avbryts återställnings åtgärden och du debiteras inte för den databas som inte slutförde återställningen.
   
-### <a name="point-in-time-restore-by-using-azure-portal"></a>Point-in-time restore by using Azure portal
+### <a name="point-in-time-restore-by-using-azure-portal"></a>Återställning av tidpunkt med hjälp av Azure Portal
 
-You can recover a single SQL database or instance database to a point in time from the overview blade of the database you want to restore in the Azure portal.
+Du kan återställa en enskild SQL-databas eller instans databas till en tidpunkt från översikts bladet för den databas som du vill återställa i Azure Portal.
 
-#### <a name="single-azure-sql-database"></a>Single Azure SQL database
+#### <a name="single-azure-sql-database"></a>Enskild Azure SQL-databas
 
-To recover a single or pooled database to a point in time by using the Azure portal, open the database overview page, and select **Restore** on the toolbar. Choose the backup source, and select the point-in-time backup point from which a new database will be created. 
+Om du vill återställa en enskild databas eller en mellanliggande databas till en tidpunkt genom att använda Azure Portal öppnar du sidan databas översikt och väljer **Återställ** i verktygsfältet. Välj säkerhets kopierings källa och välj den tidpunkt för säkerhets kopiering som en ny databas ska skapas från. 
 
-  ![Screenshot of database restore options](./media/sql-database-recovery-using-backups/pitr-backup-sql-database-annotated.png)
+  ![Skärm bild av alternativ för databas återställning](./media/sql-database-recovery-using-backups/pitr-backup-sql-database-annotated.png)
 
-#### <a name="managed-instance-database"></a>Managed instance database
+#### <a name="managed-instance-database"></a>Hanterad instans databas
 
-To recover a managed instance database to a point in time by using the Azure portal, open the database overview page, and select **Restore** on the toolbar. Choose the point-in-time backup point from which a new database will be created. 
+Om du vill återställa en hanterad instans databas till en tidpunkt genom att använda Azure Portal öppnar du sidan databas översikt och väljer **Återställ** i verktygsfältet. Välj den säkerhets kopierings punkt för tidpunkt från vilken en ny databas ska skapas. 
 
-  ![Screenshot of database restore options](./media/sql-database-recovery-using-backups/pitr-backup-managed-instance-annotated.png)
+  ![Skärm bild av alternativ för databas återställning](./media/sql-database-recovery-using-backups/pitr-backup-managed-instance-annotated.png)
 
 > [!TIP]
-> To programmatically restore a database from a backup, see [Programmatically performing recovery using automated backups](sql-database-recovery-using-backups.md).
+> För att program mässigt återställa en databas från en säkerhets kopia, se [program mässigt utföra återställning med automatiska säkerhets kopieringar](sql-database-recovery-using-backups.md).
 
-## <a name="deleted-database-restore"></a>Deleted database restore
+## <a name="deleted-database-restore"></a>Återställning av borttagen databas
 
-You can restore a deleted database to the deletion time, or an earlier point in time, on the same SQL Database server or the same managed instance. You can accomplish this through the Azure portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase), or the [REST (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate). You restore a deleted database by creating a new database from the backup.
+Du kan återställa en borttagen databas till borttagnings tiden eller en tidigare tidpunkt, på samma SQL Database Server eller samma hanterade instans. Du kan göra detta via Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)eller [rest (CreateMode = Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate). Du återställer en borttagen databas genom att skapa en ny databas från säkerhets kopian.
 
 > [!IMPORTANT]
-> If you delete an Azure SQL Database server or managed instance, all its databases are also deleted, and can't be recovered. You can't restore a deleted server or managed instance.
+> Om du tar bort en Azure SQL Database-Server eller en hanterad instans, tas alla dess databaser också bort och kan inte återställas. Du kan inte återställa en borttagen Server eller hanterad instans.
 
-### <a name="deleted-database-restore-by-using-the-azure-portal"></a>Deleted database restore by using the Azure portal
+### <a name="deleted-database-restore-by-using-the-azure-portal"></a>Återställningen av databasen har tagits bort med hjälp av Azure Portal
 
-You restore deleted databases from the Azure portal from the server and instance resource.
+Du återställer borttagna databaser från Azure Portal från servern och instans resursen.
 
-#### <a name="single-azure-sql-database"></a>Single Azure SQL database
+#### <a name="single-azure-sql-database"></a>Enskild Azure SQL-databas
 
-To recover a single or pooled deleted database to the deletion time by using the Azure portal, open the server overview page, and select **Deleted databases**. Select a deleted database that you want to restore, and type the name for the new database that will be created with data restored from the backup.
+Om du vill återställa en enskild eller fristående borttagen databas till borttagnings tiden genom att använda Azure Portal öppnar du sidan Server översikt och väljer **borttagna databaser**. Välj en borttagen databas som du vill återställa och skriv namnet på den nya databasen som ska skapas med data som återställs från säkerhets kopian.
 
-  ![Screenshot of restore deleted Azure SQL database](./media/sql-database-recovery-using-backups/restore-deleted-sql-database-annotated.png)
+  ![Skärm bild av återställa borttagen Azure SQL Database](./media/sql-database-recovery-using-backups/restore-deleted-sql-database-annotated.png)
 
-#### <a name="managed-instance-database"></a>Managed instance database
+#### <a name="managed-instance-database"></a>Hanterad instans databas
 
-To recover a managed database by using the Azure portal, open the managed instance overview page, and select **Deleted databases**. Select a deleted database that you want to restore, and type the name for the new database that will be created with data restored from the backup.
+Om du vill återställa en hanterad databas med hjälp av Azure Portal öppnar du översikts sidan för hanterade instanser och väljer **borttagna databaser**. Välj en borttagen databas som du vill återställa och skriv namnet på den nya databasen som ska skapas med data som återställs från säkerhets kopian.
 
-  ![Screenshot of restore deleted Azure SQL instance database](./media/sql-database-recovery-using-backups/restore-deleted-sql-managed-instance-annotated.png)
+  ![Skärm bild av Återställ borttagen Azure SQL-instans databas](./media/sql-database-recovery-using-backups/restore-deleted-sql-managed-instance-annotated.png)
 
-### <a name="deleted-database-restore-by-using-powershell"></a>Deleted database restore by using PowerShell
+### <a name="deleted-database-restore-by-using-powershell"></a>Borttagen databas återställning med hjälp av PowerShell
 
-Use the following sample scripts to restore a deleted database for Azure SQL Database and a managed instance by using PowerShell.
+Använd följande exempel skript för att återställa en borttagen databas för Azure SQL Database och en hanterad instans med hjälp av PowerShell.
 
-#### <a name="single-azure-sql-database"></a>Single Azure SQL database
+#### <a name="single-azure-sql-database"></a>Enskild Azure SQL-databas
 
-For a sample PowerShell script showing how to restore a deleted Azure SQL database, see [Restore a SQL database using PowerShell](scripts/sql-database-restore-database-powershell.md).
+Ett exempel på PowerShell-skript som visar hur du återställer en borttagen Azure SQL-databas finns i [återställa en SQL-databas med hjälp av PowerShell](scripts/sql-database-restore-database-powershell.md).
 
-#### <a name="managed-instance-database"></a>Managed instance database
+#### <a name="managed-instance-database"></a>Hanterad instans databas
 
-For a sample PowerShell script showing how to restore a deleted instance database, see [Restore deleted database on managed instance using PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance). 
+Ett exempel på PowerShell-skript som visar hur du återställer en borttagen instans databas finns i [återställa borttagna databaser på den hanterade instansen med PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance). 
 
 > [!TIP]
-> To programmatically restore a deleted database, see [Programmatically performing recovery using automated backups](sql-database-recovery-using-backups.md).
+> För att program mässigt återställa en borttagen databas, se [program mässigt utföra återställning med automatiska säkerhets kopieringar](sql-database-recovery-using-backups.md).
 
 ## <a name="geo-restore"></a>Geo-återställning
 
-You can restore a SQL database on any server in any Azure region from the most recent geo-replicated backups. Geo-restore uses a geo-replicated backup as its source. You can request geo-restore even if the database or datacenter is inaccessible due to an outage.
+Du kan återställa en SQL-databas på valfri server i valfri Azure-region från de senaste geo-replikerade säkerhets kopiorna. Geo-återställning använder en geo-replikerad säkerhets kopiering som källa. Du kan begära geo-återställning även om databasen eller data centret inte går att komma åt på grund av ett avbrott.
 
-Geo-restore is the default recovery option when your database is unavailable because of an incident in the hosting region. You can restore the database to a server in any other region. There is a delay between when a backup is taken and when it is geo-replicated to an Azure blob in a different region. As a result, the restored database can be up to one hour behind the original database. The following illustration shows a database restore from the last available backup in another region.
+Geo-återställning är standard alternativet för återställning när databasen inte är tillgänglig på grund av en incident i värd regionen. Du kan återställa databasen till en server i en annan region. Det uppstår en fördröjning mellan när en säkerhets kopia tas och när den är geo-replikerad till en Azure-blob i en annan region. Det innebär att den återställda databasen kan vara upp till en timme bakom den ursprungliga databasen. Följande bild visar en databas återställning från den senaste tillgängliga säkerhets kopian i en annan region.
 
-![Graphic of geo-restore](./media/sql-database-geo-restore/geo-restore-2.png)
+![Grafik för geo-återställning](./media/sql-database-geo-restore/geo-restore-2.png)
 
-### <a name="geo-restore-by-using-the-azure-portal"></a>Geo-restore by using the Azure portal
+### <a name="geo-restore-by-using-the-azure-portal"></a>Geo-återställning med hjälp av Azure Portal
 
-From the Azure portal, you create a new single or managed instance database, and select an available geo-restore backup. The newly created database contains the geo-restored backup data.
+Från Azure Portal skapar du en ny databas för enkel eller hanterad instans och väljer en tillgänglig säkerhets kopia för geo-återställning. Den nyligen skapade databasen innehåller geo-återställda säkerhets kopierings data.
 
-#### <a name="single-azure-sql-database"></a>Single Azure SQL database
+#### <a name="single-azure-sql-database"></a>Enskild Azure SQL-databas
 
-To geo-restore a single SQL database from the Azure portal in the region and server of your choice, follow these steps:
+Om du vill geo-återställa en enskild SQL-databas från Azure Portal i den region och server du väljer, följer du dessa steg:
 
-1. From **Dashboard**, select **Add** > **Create SQL Database**. On the **Basics** tab, enter the required information.
-2. Select **Additional settings**.
-3. For **Use existing data**, select **Backup**.
-4. For **Backup**, select a backup from the list of available geo-restore backups.
+1. Från **instrument panelen**väljer du **Lägg till** > **skapa SQL Database**. Ange den information som krävs på fliken **grundläggande** .
+2. Välj **ytterligare inställningar**.
+3. Om du vill **använda befintliga data**väljer du **säkerhets kopiering**.
+4. För **säkerhets kopiering**väljer du en säkerhets kopia i listan över tillgängliga säkerhets kopior för geo-återställning.
 
-    ![Screenshot of Create SQL Database options](./media/sql-database-recovery-using-backups/geo-restore-azure-sql-database-list-annotated.png)
+    ![Skärm bild av alternativen för att skapa SQL Database](./media/sql-database-recovery-using-backups/geo-restore-azure-sql-database-list-annotated.png)
 
-Complete the process of creating a new database from the backup. When you create the single Azure SQL database, it contains the restored geo-restore backup.
+Slutför processen med att skapa en ny databas från säkerhets kopian. När du skapar en enskild Azure SQL-databas innehåller den återställda geo-återställning-säkerhetskopiering.
 
-#### <a name="managed-instance-database"></a>Managed instance database
+#### <a name="managed-instance-database"></a>Hanterad instans databas
 
-To geo-restore a managed instance database from the Azure portal to an existing managed instance in a region of your choice, select a managed instance on which you want a database to be restored. Följ de här stegen:
+Om du vill geo-återställa en hanterad instans databas från Azure Portal till en befintlig hanterad instans i valfri region väljer du en hanterad instans som du vill att en databas ska återställas på. Följ de här stegen:
 
-1. Select **New database**.
-2. Type a desired database name.
-3. Under **Use existing data**, select **Backup**.
-4. Select a backup from the list of available geo-restore backups.
+1. Välj **ny databas**.
+2. Ange önskat databas namn.
+3. Under **Använd befintliga data**väljer du **säkerhets kopiering**.
+4. Välj en säkerhets kopia i listan över tillgängliga säkerhets kopior för geo-återställning.
 
-    ![Screenshot of New database options](./media/sql-database-recovery-using-backups/geo-restore-sql-managed-instance-list-annotated.png)
+    ![Skärm bild av nya databas alternativ](./media/sql-database-recovery-using-backups/geo-restore-sql-managed-instance-list-annotated.png)
 
-Complete the process of creating a new database. When you create the instance database, it contains the restored geo-restore backup.
+Slutför processen med att skapa en ny databas. När du skapar instans databasen innehåller den återställda säkerhets kopiering med geo-återställning.
 
-### <a name="geo-restore-by-using-powershell"></a>Geo-restore by using PowerShell
+### <a name="geo-restore-by-using-powershell"></a>Geo-återställning med hjälp av PowerShell
 
-#### <a name="single-azure-sql-database"></a>Single Azure SQL database
+#### <a name="single-azure-sql-database"></a>Enskild Azure SQL-databas
 
-For a PowerShell script that shows how to perform geo-restore for a single SQL database, see [Use PowerShell to restore an Azure SQL single database to an earlier point in time](scripts/sql-database-restore-database-powershell.md).
+Ett PowerShell-skript som visar hur du utför geo-återställning för en enskild SQL-databas finns i [använda PowerShell för att återställa en enkel Azure SQL-databas till en tidigare tidpunkt](scripts/sql-database-restore-database-powershell.md).
 
-#### <a name="managed-instance-database"></a>Managed instance database
+#### <a name="managed-instance-database"></a>Hanterad instans databas
 
-For a PowerShell script that shows how to perform geo-restore for a managed instance database, see [Use PowerShell to restore a managed instance database to another geo-region](scripts/sql-managed-instance-restore-geo-backup.md).
+Ett PowerShell-skript som visar hur du utför geo-återställning för en hanterad instans databas finns i [använda PowerShell för att återställa en hanterad instans databas till en annan geo-region](scripts/sql-managed-instance-restore-geo-backup.md).
 
-### <a name="geo-restore-considerations"></a>Geo-restore considerations
+### <a name="geo-restore-considerations"></a>Överväganden för geo-återställning
 
-You can't perform a point-in-time restore on a geo-secondary database. You can only do so on a primary database. For detailed information about using geo-restore to recover from an outage, see [Recover from an outage](sql-database-disaster-recovery.md).
+Du kan inte utföra en tidpunkts återställning på en geo-sekundär databas. Du kan bara göra det på en primär databas. Detaljerad information om hur du använder geo-återställning för att återställa från ett avbrott finns i [återställa från ett avbrott](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
-> Geo-restore is the most basic disaster recovery solution available in SQL Database. It relies on automatically created geo-replicated backups with recovery point objective (RPO) equal to 1 hour, and the estimated recovery time of up to 12 hours. It doesn't guarantee that the target region will have the capacity to restore your databases after a regional outage, because a sharp increase of demand is likely. If your application uses relatively small databases and is not critical to the business, geo-restore is an appropriate disaster recovery solution. For business-critical applications that require large databases and must ensure business continuity, use [Auto-failover groups](sql-database-auto-failover-group.md). It offers a much lower RPO and recovery time objective, and the capacity is always guaranteed. For more information on business continuity choices, see [Overview of business continuity](sql-database-business-continuity.md).
+> Geo-återställning är den mest grundläggande katastrof återställnings lösningen som finns i SQL Database. Den förlitar sig på automatiskt skapade geo-replikerade säkerhets kopior med återställnings punkt mål (återställnings punkt mål) som är lika med 1 timme och den beräknade återställnings tiden på upp till 12 timmar Det garanterar inte att mål regionen har kapaciteten att återställa dina databaser efter ett regionalt avbrott, eftersom en kraftig ökning av efter frågan är sannolik. Om ditt program använder relativt små databaser och inte är kritiskt för verksamheten, är geo-återställning en lämplig lösning för katastrof återställning. För verksamhets kritiska program som kräver stora databaser och som måste garantera affärs kontinuitet, använder du [grupper för automatisk redundans](sql-database-auto-failover-group.md). Det erbjuder ett mycket lägre drift-och återställnings mål och kapaciteten är alltid garanterad. Mer information om val av affärs kontinuitet finns i [Översikt över affärs kontinuitet](sql-database-business-continuity.md).
 
-## <a name="programmatically-performing-recovery-by-using-automated-backups"></a>Programmatically performing recovery by using automated backups
+## <a name="programmatically-performing-recovery-by-using-automated-backups"></a>Utföra återställning program mässigt med hjälp av automatiska säkerhets kopieringar
 
-You can also use Azure PowerShell or the REST API for recovery. The following tables describe the set of commands available.
+Du kan också använda Azure PowerShell eller REST API för återställning. I följande tabeller beskrivs en uppsättning kommandon som är tillgängliga.
 
 ### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Arguments for the commands in the Az module and in AzureRm modules are to a great extent identical.
+> PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i gott grad identiska.
 
-#### <a name="single-azure-sql-database"></a>Single Azure SQL database
+#### <a name="single-azure-sql-database"></a>Enskild Azure SQL-databas
 
-To restore a standalone or pooled database, see [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase).
+Information om hur du återställer en fristående databas eller en databas finns i [restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase).
 
   | Cmdlet | Beskrivning |
   | --- | --- |
@@ -208,44 +208,44 @@ To restore a standalone or pooled database, see [Restore-AzSqlDatabase](/powersh
   | [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase) |Återställer en SQL-databas. |
 
   > [!TIP]
-  > For a sample PowerShell script that shows how to perform a point-in-time restore of a database, see [Restore a SQL database using PowerShell](scripts/sql-database-restore-database-powershell.md).
+  > Ett exempel på ett PowerShell-skript som visar hur du utför en tidpunkts återställning av en databas finns i [återställa en SQL-databas med hjälp av PowerShell](scripts/sql-database-restore-database-powershell.md).
 
-#### <a name="managed-instance-database"></a>Managed instance database
+#### <a name="managed-instance-database"></a>Hanterad instans databas
 
-To restore a managed instance database, see [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase).
+Information om hur du återställer en hanterad instans databas finns i [restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase).
 
   | Cmdlet | Beskrivning |
   | --- | --- |
-  | [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance) |Gets one or more managed instances. |
-  | [Get-AzSqlInstanceDatabase](/powershell/module/az.sql/get-azsqlinstancedatabase) | Gets an instance database. |
-  | [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase) |Restores an instance database. |
+  | [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance) |Hämtar en eller flera hanterade instanser. |
+  | [Get-AzSqlInstanceDatabase](/powershell/module/az.sql/get-azsqlinstancedatabase) | Hämtar en instans databas. |
+  | [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase) |Återställer en instans databas. |
 
 ### <a name="rest-api"></a>REST-API
 
-To restore a single or pooled database by using the REST API:
+Så här återställer du en enskild databas eller en pool med hjälp av REST API:
 
 | API | Beskrivning |
 | --- | --- |
-| [REST (createMode=Recovery)](https://docs.microsoft.com/rest/api/sql/databases) |Restores a database. |
-| [Get Create or Update Database Status](https://docs.microsoft.com/rest/api/sql/operations) |Returns the status during a restore operation. |
+| [REST (createMode = återställning)](https://docs.microsoft.com/rest/api/sql/databases) |Återställer en databas. |
+| [Hämta databas status för att skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/operations) |Returnerar status under en återställnings åtgärd. |
 
 ### <a name="azure-cli"></a>Azure CLI
 
-#### <a name="single-azure-sql-database"></a>Single Azure SQL database
+#### <a name="single-azure-sql-database"></a>Enskild Azure SQL-databas
 
-To restore a single or pooled database by using the Azure CLI, see [az sql db restore](/cli/azure/sql/db#az-sql-db-restore).
+Information om hur du återställer en enskild databas eller en pool med hjälp av Azure CLI finns i [AZ SQL DB Restore](/cli/azure/sql/db#az-sql-db-restore).
 
-#### <a name="managed-instance-database"></a>Managed instance database
+#### <a name="managed-instance-database"></a>Hanterad instans databas
 
-To restore a managed instance database by using the Azure CLI, see [az sql midb restore](/cli/azure/sql/midb#az-sql-midb-restore).
+Om du vill återställa en hanterad instans databas med hjälp av Azure CLI, se [AZ SQL EXTEXTB Restore](/cli/azure/sql/midb#az-sql-midb-restore).
 
 ## <a name="summary"></a>Sammanfattning
 
-Automatic backups protect your databases from user and application errors, accidental database deletion, and prolonged outages. This built-in capability is available for all service tiers and compute sizes.
+Automatiska säkerhets kopieringar skyddar dina databaser från användar-och program fel, oavsiktlig databas borttagning och långvariga avbrott. Den här inbyggda funktionen är tillgänglig för alla tjänst nivåer och beräknings storlekar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Business continuity overview](sql-database-business-continuity.md)
-- [SQL Database automated backups](sql-database-automated-backups.md)
+- [Översikt över affärs kontinuitet](sql-database-business-continuity.md)
+- [SQL Database automatiserade säkerhets kopieringar](sql-database-automated-backups.md)
 - [Långsiktig kvarhållning](sql-database-long-term-retention.md)
-- To learn about faster recovery options, see [Active geo-replication](sql-database-active-geo-replication.md) or [Auto-failover groups](sql-database-auto-failover-group.md).
+- Mer information om snabbare återställnings alternativ finns i [Active geo-replikering](sql-database-active-geo-replication.md) eller [grupper för automatisk redundans](sql-database-auto-failover-group.md).

@@ -1,5 +1,5 @@
 ---
-title: Create an Azure internal Load Balancer by using PowerShell
+title: Skapa en Azure intern belastningsutjämnare med hjälp av PowerShell
 titleSuffix: Azure Load Balancer
 description: Ta reda på hur du skapar en intern lastbalanserare med hjälp av Azure PowerShell-modulen i Azure Resource Manager
 services: load-balancer
@@ -23,7 +23,7 @@ ms.locfileid: "74225394"
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Skapa en intern lastbalanserare med hjälp av Azure PowerShell-modulen
 
 > [!div class="op_single_selector"]
-> * [Azure-portalen](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Mall](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
@@ -90,7 +90,7 @@ Skapa en ny resursgrupp för lastbalanseraren. Hoppa över det här steget om du
 New-AzResourceGroup -Name NRP-RG -location "West US"
 ```
 
-Azure Resource Manager kräver att alla resursgrupper definierar en plats. Den här platsen används som standard för alla resurser i resursgruppen. Använd alltid samma resursgrupp för alla kommandon som används när du skapar en lastbalanserare.
+Azure Resource Manager kräver att alla resursgrupper anger en plats. Den här platsen används som standard för alla resurser i resursgruppen. Använd alltid samma resursgrupp för alla kommandon som används när du skapar en lastbalanserare.
 
 I exemplet ovan skapade vi resursgruppen **NRP-RG** och platsen USA, västra.
 
@@ -251,7 +251,7 @@ När den virtuella datorn har skapats kan du lägga till nätverksgränssnittet.
 
 ### <a name="step-1-store-the-load-balancer-resource"></a>Steg 1: Lagra lastbalanseringsresursen
 
-Lagra lastbalanseringsresursen i en variabel (om du inte har gjort det redan). We're using the variable name **$lb**. For the attribute values in the script, use the names for the load balancer resources that were created in the previous steps.
+Lagra lastbalanseringsresursen i en variabel (om du inte har gjort det redan). Vi använder variabel namnet **$lb**. För attributvärden i skriptet använder du namnen på de belastnings Utjämnings resurser som skapades i föregående steg.
 
 ```azurepowershell-interactive
 $lb = Get-AzLoadBalancer –name NRP-LB -resourcegroupname NRP-RG

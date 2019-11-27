@@ -33,7 +33,7 @@ Innan du kopplar diskar till din virtuella dator kan du läsa följande tips:
 
 
 ## <a name="find-the-virtual-machine"></a>Hitta den virtuella datorn
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Klicka på **Virtual Machines**på den vänstra menyn.
 3. Välj den virtuella datorn i listan.
 4. På sidan virtuella datorer i **Essentials**klickar du på **diskar**.

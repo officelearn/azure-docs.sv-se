@@ -27,7 +27,7 @@ Alla data Factory-körningar visas i webbläsarens lokala tidszon. Om du ändrar
 
 Vyn standard övervakning är en lista över pipelines som körs under den valda tids perioden. Följande kolumner visas:
 
-| **Kolumnnamn** | **Beskrivning** |
+| **Kolumn namn** | **Beskrivning** |
 | --- | --- |
 | Pipeline-namn | Namn på pipelinen |
 | Åtgärder | Ikoner som låter dig Visa aktivitets information, avbryta eller köra pipelinen igen |
@@ -50,7 +50,7 @@ Du måste manuellt välja knappen **Uppdatera** för att uppdatera listan över 
 
 Om du vill visa aktivitets körningar för varje pipeline-körning väljer du ikonen **Visa aktivitet körs** under kolumnen **åtgärder** . Listvyn visar aktivitets körningar som motsvarar varje pipeline-körning.
 
-| **Kolumnnamn** | **Beskrivning** |
+| **Kolumn namn** | **Beskrivning** |
 | --- | --- |
 | Aktivitets namn | Namn på aktiviteten inuti pipelinen |
 | Aktivitets typ | Typ av aktivitet, till exempel **copy**, **ExecuteDataFlow**eller **AzureMLExecutePipeline** |
@@ -88,7 +88,7 @@ När du har skapat användar egenskaperna kan du övervaka dem i vyerna i överv
 
 Växla om pipeline-körningar ska ske i fallande eller stigande ordning enligt körningens start tid. Filtrera Pipeline-körningar med hjälp av följande kolumner:
 
-| **Kolumnnamn** | **Beskrivning** |
+| **Kolumn namn** | **Beskrivning** |
 | --- | --- |
 | Pipeline-namn | Filtrera efter namnet på pipelinen. |
 | Kör Start |  Bestäm tidsintervallet för pipelinen som visas. Alternativen inkluderar snabb filter för de **senaste 24 timmarna**, **senaste veckan**och de **senaste 30 dagarna** , eller för att välja ett anpassat datum och tid. |

@@ -1,6 +1,6 @@
 ---
-title: PHP (Laravel) with MySQL - Azure App Service | Microsoft Docs
-description: Lär dig hur du får igång en PHP-app i Azure med anslutning till en MySQL-databas i Azure. Laravel is used in the tutorial.
+title: PHP (Laravel) med MySQL-Azure App Service | Microsoft Docs
+description: Lär dig hur du får igång en PHP-app i Azure med anslutning till en MySQL-databas i Azure. Laravel används i självstudien.
 services: app-service\web
 documentationcenter: php
 author: cephalin
@@ -22,7 +22,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74480953"
 ---
-# <a name="tutorial-build-a-php-and-mysql-app-in-azure"></a>Tutorial: Build a PHP and MySQL app in Azure
+# <a name="tutorial-build-a-php-and-mysql-app-in-azure"></a>Självstudie: bygga en PHP-och MySQL-app i Azure
 
 > [!NOTE]
 > I den här artikeln distribueras en app till App Service i Windows. Om du vill distribuera en app till App Service i _Linux_ kan du läsa [Skapa en PHP- och MySQL-app i Azure App Service på Linux](./containers/tutorial-php-mysql-app.md).
@@ -32,7 +32,7 @@ Med [Azure App Service](overview.md) får du en automatiskt uppdaterad webbvärd
 
 ![PHP-app som körs i Azure App Service](./media/app-service-web-tutorial-php-mysql/complete-checkbox-published.png)
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa en MySQL-databas i Azure
@@ -46,7 +46,7 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Krav
 
-För att slutföra den här självstudien behöver du:
+För att slutföra den här kursen behöver du:
 
 * [Installera Git](https://git-scm.com/)
 * [Installera PHP 5.6.4 eller senare](https://php.net/downloads.php)
@@ -60,7 +60,7 @@ I det här steget skapar du en databas för självstudien på din lokala MySQL-s
 
 ### <a name="connect-to-local-mysql-server"></a>Ansluta till en lokal MySQL-server
 
-Öppna ett terminalfönster och anslut till din lokala MySQL-server. Du kan använda det här terminalfönstret för att köra alla kommandon i den här självstudien.
+Anslut till din lokala MySQL-server via ett terminalfönster. Du kan använda det här terminalfönstret för att köra alla kommandon i den här självstudien.
 
 ```bash
 mysql -u root -p
@@ -107,7 +107,7 @@ cd laravel-tasks
 composer install
 ```
 
-### <a name="configure-mysql-connection"></a>Konfigurera MySQL-anslutning
+### <a name="configure-mysql-connection"></a>Konfigurera MySQL-anslutningen
 
 Skapa en textfil med namnet *.env* i lagringsplatsens rot. Kopiera in följande variabler i *.env*-filen. Ersätt platshållaren _&lt;root_password>_ med MySQL-rotanvändarens lösenord.
 
@@ -139,7 +139,7 @@ Generera en ny Laravel-programnyckel.
 php artisan key:generate
 ```
 
-Kör appen.
+Kör programmet.
 
 ```bash
 php artisan serve
@@ -345,7 +345,7 @@ I det här steget distribuerar du din MySQL-anslutna PHP-app till Azure App Serv
 [!INCLUDE [Create app service plan no h](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
 <a name="create"></a>
-### <a name="create-a-web-app"></a>Skapa ett webbprogram
+### <a name="create-a-web-app"></a>Skapa en webbapp
 
 [!INCLUDE [Create web app no h](../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
@@ -489,7 +489,7 @@ Visa det lokala terminalfönstret och kör Laravel-databasemigreringar för att 
 php artisan migrate
 ```
 
-Modellen `Task` (se _app/Task.php_) mappar till `tasks`-tabellen som standard, baserat på [Laravel-namngivningskonventionen](https://laravel.com/docs/5.4/eloquent#defining-models).
+Modellen [ (se ](https://laravel.com/docs/5.4/eloquent#defining-models)app/Task.php`Task`) mappar till _-tabellen som standard, baserat på_ Laravel-namngivningskonventionen`tasks`.
 
 ### <a name="update-application-logic"></a>Uppdatera programlogik
 
@@ -569,7 +569,7 @@ Gå till det lokala terminalfönstret och kör Laravel-databasmigreringar med pr
 php artisan migrate --env=production --force
 ```
 
-Spara alla ändringar på Git och skicka sedan kodändringarna till Azure.
+Genomför alla ändringar på Git och skicka sedan kodändringarna till Azure.
 
 ```bash
 git add .
@@ -612,7 +612,7 @@ I den vänstra menyn, klickar du på **App Services** och därefter på namnet p
 
 ![Portalnavigering till Azure-app](./media/app-service-web-tutorial-php-mysql/access-portal.png)
 
-Du ser din apps översiktssida. Här kan du utföra grundläggande hanteringsåtgärder som att stoppa, starta, starta om, bläddra och ta bort.
+Nu visas översiktssidan för din app. Här kan du utföra grundläggande hanteringsåtgärder som att stoppa, starta, starta om, bläddra och ta bort.
 
 Menyn till vänster innehåller sidor för att konfigurera appen.
 

@@ -22,7 +22,7 @@ Den här självstudien visar hur du använder Functions med Logic Apps och Cogni
 
 ![bild på de första två stegen för en app i Logikappdesignern](media/functions-twitter-email/00-logic-app-overview.png)
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa en API-resurs för Cognitive Services.
@@ -43,7 +43,7 @@ Om du inte redan har gjort detta måste du slutföra stegen för att skapa din f
 
 API:erna för Cognitive Services är tillgängliga i Azure som enskilda resurser. Använd API för textanalys för att identifiera tweetsentimenten som övervakas.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 2. Klicka på **Skapa en resurs** längst upp till vänster i Azure Portal.
 
@@ -54,7 +54,7 @@ API:erna för Cognitive Services är tillgängliga i Azure som enskilda resurser
     | Inställning      |  Föreslaget värde   | Beskrivning                                        |
     | --- | --- | --- |
     | **Namn** | MyCognitiveServicesAccnt | Välj ett unikt kontonamn. |
-    | **Plats** | USA, västra | Använd platsen som är närmast dig. |
+    | **Plats** | Västra USA | Använd platsen som är närmast dig. |
     | **prisnivå** | F0 | Börja med den lägsta nivån. Om du får slut på anrop skalar du till en högre nivå.|
     | **Resursgrupp** | myResourceGroup | Använd samma resursgrupp för alla tjänster i självstudien.|
 
@@ -121,7 +121,7 @@ Med Functions får du ett bra sätt att avlasta pågående uppgifter i ett logik
     ```
     Den här funktionskoden returnerar en färgkategori baserat på sentimentets poäng från begäran. 
 
-4. To test the function, click **Test** at the far right to expand the Test tab. Type a value of `0.2` for the **Request body**, and then click **Run**. Värdet **RED** (Röd) returneras i brödtexten i svaret. 
+4. Testa funktionen genom att klicka på **test** längst till höger för att expandera fliken test. Ange ett värde för `0.2` för **begär ande texten**och klicka sedan på **Kör**. Värdet **RED** (Röd) returneras i brödtexten i svaret. 
 
     ![Testa funktionen i Azure Portal](./media/functions-twitter-email/07-function-test.png)
 
@@ -141,7 +141,7 @@ Nu har du en funktion som kategoriserar sentimentpoäng. Därefter skapar du en 
     | ----------------- | ------------ | ------------- |
     | **Namn** | TweetSentiment | Välj ett lämpligt namn för din app. |
     | **Resursgrupp** | myResourceGroup | Välj samma befintliga resursgrupp som tidigare. |
-    | **Plats** | USA, östra | Välj en plats i närheten av dig. |    
+    | **Plats** | Östra USA | Välj en plats i närheten av dig. |    
 
 4. När du har angett rätt inställningsvärden klickar du på **Skapa** för att skapa logikappen. 
 

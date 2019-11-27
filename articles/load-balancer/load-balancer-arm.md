@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager support for Load Balancer
-description: In this article, use Azure PowerShell and templates with Azure Load Balancer
+title: Azure Resource Manager stöd för Load Balancer
+description: I den här artikeln använder du Azure PowerShell och mallar med Azure Load Balancer
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -18,63 +18,63 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74215389"
 ---
-# <a name="azure-resource-manager-support-with-azure-load-balancer"></a>Azure Resource Manager support with Azure Load Balancer
+# <a name="azure-resource-manager-support-with-azure-load-balancer"></a>Azure Resource Manager stöd med Azure Load Balancer
 
 
 
-Azure Resource Manager is the preferred management framework for services in Azure. Azure Load Balancer can be managed using Azure Resource Manager-based APIs and tools.
+Azure Resource Manager är det prioriterade hanterings ramverket för tjänster i Azure. Azure Load Balancer kan hanteras med Azure Resource Manager-baserade API: er och verktyg.
 
-## <a name="concepts"></a>Koncept
+## <a name="concepts"></a>Begrepp
 
-With Resource Manager, Azure Load Balancer contains the following child resources:
+Med Resource Manager innehåller Azure Load Balancer följande underordnade resurser:
 
-* Front-end IP configuration – a load balancer can include one or more frontend IP addresses, otherwise known as a virtual IPs (VIPs). Dessa IP-adresser fungerar som ingresser för trafiken.
-* Back-end address pool – This pool is a collection of IP addresses associated with the virtual machine Network Interface Card (NIC) to which load is distributed.
-* Load-balancing rules – a rule property maps a given frontend IP and port combination to a set of back-end IP addresses and port combination. A single load balancer can have multiple load-balancing rules. Each rule is a combination of a frontend IP and port and back-end IP and port associated with VMs.
-* Probes – probes enable you to keep track of the health of VM instances. If a health probe fails, the VM instance is taken out of rotation automatically.
-* Inbound NAT rules – NAT rules defining the inbound traffic flowing through the frontend IP and distributed to the back-end IP.
+* IP-konfiguration på klient sidan – en belastningsutjämnare kan innehålla en eller flera klient dels-IP-adresser, annars kallas virtuella IP-adresser (VIP). Dessa IP-adresser fungerar som ingresser för trafiken.
+* Backend-adresspool – den här poolen är en samling IP-adresser som är kopplade till den virtuella datorns nätverks gränssnitts kort (NIC) till vilken belastningen distribueras.
+* Belastnings Utjämnings regler – en regel egenskap mappar en specifik kombination av klient dels-IP och-port till en uppsättning backend-IP-adresser och port kombination. En enda belastningsutjämnare kan ha flera regler för belastnings utjämning. Varje regel är en kombination av en klient dels-IP och port och backend-IP och port som är kopplad till virtuella datorer.
+* Avsökningar – avsökningar gör att du kan hålla reda på hälso tillståndet för VM-instanser. Om en hälso avsökning Miss lyckas tas den virtuella dator instansen bort från rotationen automatiskt.
+* Inkommande NAT-regler – NAT-regler som definierar den inkommande trafik som flödar genom klient delens IP-adress och distribueras till backend-IP.
 
 ![](./media/load-balancer-arm/load-balancer-arm.png)
 
 ## <a name="quickstart-templates"></a>Snabbstartsmallar
 
-Med Azure Resource Manager kan du etablera dina program med hjälp av en deklarativ mall. I samma mall kan du distribuera flera tjänster tillsammans med deras beroenden. Du använder samma mall för att upprepade gånger distribuera ditt program i varje fas av programmets livscykel.
+Med Azure Resource Manager kan du etablera dina program med hjälp av en deklarativ mall. I samma mall kan du distribuera flera tjänster tillsammans med deras beroenden. Du använder samma mall till att upprepade gånger distribuera ditt program i varje fas av programmets livscykel.
 
-Templates may include definitions for:
+Mallar kan innehålla definitioner för:
 * **Virtuella datorer**
 * **Virtuella nätverk**
 * **Tillgänglighetsuppsättningar**
-* **Network interfaces (NICs)**
+* **Nätverks gränssnitt (NIC)**
 * **Lagringskonton**
 * **Lastbalanserare**
 * **Nätverkssäkerhetsgrupper**
-* **Public IPs.** 
+* **Offentliga IP-adresser.** 
 
-With templates, you can create everything you need for a complex application. The template file can be checked into content management system for version control and collaboration.
+Med mallar kan du skapa allt du behöver för ett komplext program. Mallfilen kan kontrol leras i innehålls hanterings system för versions kontroll och samarbete.
 
-[Learn more about templates](../azure-resource-manager/resource-manager-template-walkthrough.md)
+[Lär dig mer om mallar](../azure-resource-manager/resource-manager-template-walkthrough.md)
 
-[Learn more about Network Resources](../networking/networking-overview.md)
+[Läs mer om nätverks resurser](../networking/networking-overview.md)
 
-For Quickstart templates using Azure Load Balancer, see the [GitHub repository](https://github.com/Azure/azure-quickstart-templates) that hosts a set of community-generated templates.
+För snabb starts mallar som använder Azure Load Balancer, se [GitHub-lagringsplatsen](https://github.com/Azure/azure-quickstart-templates) som är värd för en uppsättning community-genererade mallar.
 
-Examples of templates:
+Exempel på mallar:
 
-* [2 VMs in a Load Balancer and load balancing rules](https://go.microsoft.com/fwlink/?LinkId=544799)
-* [2 VMs in a VNET with an Internal Load Balancer and load balancer rules](https://go.microsoft.com/fwlink/?LinkId=544800)
-* [2 VMs in a load balancer and configure NAT rules on the LB](https://go.microsoft.com/fwlink/?LinkId=544801)
+* [2 virtuella datorer i en Load Balancer och belastnings Utjämnings regler](https://go.microsoft.com/fwlink/?LinkId=544799)
+* [2 virtuella datorer i ett VNET med interna Load Balancer-och belastnings Utjämnings regler](https://go.microsoft.com/fwlink/?LinkId=544800)
+* [2 virtuella datorer i en belastningsutjämnare och konfigurera NAT-regler på LB](https://go.microsoft.com/fwlink/?LinkId=544801)
 
-## <a name="setting-up-azure-load-balancer-with-a-powershell-or-cli"></a>Setting up Azure Load Balancer with a PowerShell or CLI
+## <a name="setting-up-azure-load-balancer-with-a-powershell-or-cli"></a>Konfigurera Azure Load Balancer med PowerShell eller CLI
 
-Get started with Azure Resource Manager cmdlets, command-line tools, and REST APIs
+Kom igång med Azure Resource Manager cmdlets, kommando rads verktyg och REST API: er
 
-* [Azure Networking Cmdlets](https://docs.microsoft.com/powershell/module/az.network#networking) can be used to create a Load Balancer.
-* [How to create a load balancer using Azure Resource Manager](load-balancer-get-started-ilb-arm-ps.md)
-* [Using the Azure CLI with Azure Resource Management](../xplat-cli-azure-resource-manager.md)
-* [Load Balancer REST APIs](https://msdn.microsoft.com/library/azure/mt163651.aspx)
+* [Azure Networking-cmdletar](https://docs.microsoft.com/powershell/module/az.network#networking) kan användas för att skapa en Load Balancer.
+* [Så här skapar du en belastningsutjämnare med hjälp av Azure Resource Manager](load-balancer-get-started-ilb-arm-ps.md)
+* [Använda Azure CLI med Azure Resource Management](../xplat-cli-azure-resource-manager.md)
+* [Load Balancer REST-API: er](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Get started creating an Internet facing load balancer](load-balancer-get-started-internet-arm-ps.md) and configure the type of [distribution mode](load-balancer-distribution-mode.md) for specific network traffic behavior.
+[Kom igång med att skapa en belastningsutjämnare för Internet](load-balancer-get-started-internet-arm-ps.md) och konfigurera typen av [distributions läge](load-balancer-distribution-mode.md) för vissa nätverks trafik beteenden.
 
-Learn how to manage [idle TCP timeout settings for a load balancer](load-balancer-tcp-idle-timeout.md). These settings are important when your application needs to keep connections alive for servers behind a load balancer.
+Lär dig hur du hanterar [timeout-inställningar för inaktiv TCP för en belastningsutjämnare](load-balancer-tcp-idle-timeout.md). De här inställningarna är viktiga när ditt program måste hålla anslutningarna Alive för servrar bakom en belastningsutjämnare.

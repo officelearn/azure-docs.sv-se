@@ -1,6 +1,6 @@
 ---
-title: Create automatic deployments from Azure portal - Azure IoT Edge | Microsoft Docs
-description: Use the Azure portal to create automatic deployments for groups of IoT Edge devices
+title: Skapa automatiska distributioner från Azure portal – Azure IoT Edge | Microsoft Docs
+description: Använda Azure portal för att skapa automatiska distributioner för grupper av IoT Edge-enheter
 keywords: ''
 author: kgremban
 manager: philmea
@@ -16,15 +16,15 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74457359"
 ---
-# <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Deploy and monitor IoT Edge modules at scale using the Azure portal
+# <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Distribuera och övervaka IoT Edge-moduler i stor skala med Azure portal
 
-Create an **IoT Edge automatic deployment** in the Azure portal to manage ongoing deployments for many devices at once. Automatic deployments for IoT Edge are part of the [automatic device management](/azure/iot-hub/iot-hub-automatic-device-management) feature of IoT Hub. Deployments are dynamic processes that enable you to deploy multiple modules to multiple devices, track the status and health of the modules, and make changes when necessary. 
+Skapa en **IoT Edge automatisk distribution** i Azure Portal för att hantera pågående distributioner för många enheter samtidigt. Automatiska distributioner för IoT Edge ingår i funktionen [Automatisk enhets hantering](/azure/iot-hub/iot-hub-automatic-device-management) i IoT Hub. Distributioner är dynamiska processer som gör att du kan distribuera flera moduler till flera enheter, spåra status och hälsa för modulerna och göra ändringar när det behövs. 
 
-For more information, see [Understand IoT Edge automatic deployments for single devices or at scale](module-deployment-monitoring.md).
+Mer information finns i [förstå IoT Edge automatiska distributioner för enskilda enheter eller i skala](module-deployment-monitoring.md).
 
-## <a name="identify-devices-using-tags"></a>Identify devices using tags
+## <a name="identify-devices-using-tags"></a>Identifiera enheter med hjälp av taggar
 
-Before you can create a deployment, you have to be able to specify which devices you want to affect. Azure IoT Edge identifies devices using **tags** in the device twin. Each device can have multiple tags that you define in any way that makes sense for your solution. For example, if you manage a campus of smart buildings, you might add the following tags to a device:
+Innan du kan skapa en distribution måste ha för att kunna ange vilka enheter som du vill påverka. Azure IoT Edge identifierar enheter med hjälp av **taggar** i enheten med dubbla. Varje enhet kan ha flera taggar som du definierar på ett sätt som passar din lösning. Om du hanterar en campus av smarta byggnader kan du lägga till följande taggar till en enhet:
 
 ```json
 "tags":{
@@ -37,178 +37,178 @@ Before you can create a deployment, you have to be able to specify which devices
 }
 ```
 
-For more information about device twins and tags, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
+Mer information om enhets sammanflätade och taggar finns i [förstå och använda enhets uppIoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
 
-## <a name="create-a-deployment"></a>Create a deployment
+## <a name="create-a-deployment"></a>Skapa en distribution
 
-1. In the [Azure portal](https://portal.azure.com), go to your IoT hub. 
-1. Select **IoT Edge**.
-1. Select **Add IoT Edge Deployment**.
+1. I [Azure Portal](https://portal.azure.com)går du till din IoT-hubb. 
+1. Välj **IoT Edge**.
+1. Välj **Lägg till IoT Edge distribution**.
 
-There are five steps to create a deployment. The following sections walk through each one. 
+Det finns fem steg för att skapa en distribution. I följande avsnitt beskriver var och en. 
 
-### <a name="step-1-name-and-label"></a>Step 1: Name and Label
+### <a name="step-1-name-and-label"></a>Steg 1: Namn och etikett
 
-1. Give your deployment a unique name that is up to 128 lowercase letters. Avoid spaces and the following invalid characters: `& ^ [ ] { } \ | " < > /`.
-1. You can add labels as key-value pairs to help track your deployments. For example, **HostPlatform** and **Linux**, or **Version** and **3.0.1**.
-1. Select **Next** to move to step two. 
+1. Ge distributionen ett unikt namn som är upp till 128 gemener. Undvik blank steg och följande ogiltiga tecken: `& ^ [ ] { } \ | " < > /`.
+1. Du kan lägga till etiketter som nyckel/värde-par som hjälper dig att spåra dina distributioner. Till exempel **HostPlatform** och **Linux**, eller **version** och **3.0.1**.
+1. Välj **Nästa** för att gå vidare till steg två. 
 
-### <a name="step-2-add-modules-optional"></a>Step 2: Add Modules (optional)
+### <a name="step-2-add-modules-optional"></a>Steg 2: Lägg till moduler (valfritt)
 
-You can add up to 20 modules to a deployment. 
+Du kan lägga till upp till 20 moduler i en distribution. 
 
-If you create a deployment with no modules, it removes any current modules from the target devices. 
+Om du skapar en distribution utan moduler tas alla aktuella moduler bort från mål enheterna. 
 
-To add a module from Azure Stream Analytics, follow these steps:
+Följ dessa steg för att lägga till en modul från Azure Stream Analytics:
 
-1. In the **Deployment Modules** section of the page, click **Add**.
-1. Select **Azure Stream Analytics module**.
-1. Choose your **Subscription** from the drop-down menu.
-1. Choose your IoT **Edge job** from the drop-down menu.
-1. Select **Save** to add your module to the deployment. 
+1. I avsnittet **distributions moduler** på sidan klickar du på **Lägg till**.
+1. Välj **Azure Stream Analytics modul**.
+1. Välj din **prenumeration** på den nedrullningsbara menyn.
+1. Välj ditt IoT **Edge-jobb** på den nedrullningsbara menyn.
+1. Välj **Spara** för att lägga till modulen i distributionen. 
 
-To add custom code as a module, or to manually add an Azure service module, follow these steps:
+Lägga till anpassad kod som en modul, eller att manuellt lägga till en Azure-tjänst-modul, gör du följande:
 
-1. In the **Container Registry Settings** section of the page, provide the names and credentials for any private container registries that contain the module images for this deployment. The IoT Edge Agent will report error 500 if it can't find the container registry credential for a Docker image.
-1. In the **Deployment Modules** section of the page, click **Add**.
-1. Select **IoT Edge Module**.
-1. Give your module a **Name**.
-1. For the **Image URI** field, enter the container image for your module. 
-1. Specify any **Container Create Options** that should be passed to the container. For more information, see [docker create](https://docs.docker.com/engine/reference/commandline/create/).
-1. Use the drop-down menu to select a **Restart policy**. Choose from the following options: 
-   * **Always** - The module always restarts if it shuts down for any reason.
-   * **never** - The module never restarts if it shuts down for any reason.
-   * **on-failure** - The module restarts if it crashes, but not if it shuts down cleanly. 
-   * **on-unhealthy** - The module restarts if it crashes or returns an unhealthy status. It's up to each module to implement the health status function. 
-1. Use the drop-down menu to select the **Desired Status** for the module. Choose from the following options:
-   * **running** - Running is the default option. The module will start running immediately after being deployed.
-   * **stopped** - After being deployed, the module will remain idle until called upon to start by you or another module.
-1. Select **Set module twin's desired properties** if you want to add tags or other properties to the module twin.
-1. Enter **Environment Variables** for this module. Environment variables provide configuration information to a module.
-1. Select **Save** to add your module to the deployment. 
+1. I avsnittet **container Registry inställningar** på sidan anger du namn och autentiseringsuppgifter för alla privata behållar register som innehåller modulens avbildningar för den här distributionen. IoT Edge-agenten rapporterar fel 500 om den inte kan hitta autentiseringsuppgifterna för behållar registret för en Docker-avbildning.
+1. I avsnittet **distributions moduler** på sidan klickar du på **Lägg till**.
+1. Välj **IoT Edge modul**.
+1. Ge din modul ett **namn**.
+1. I fältet **bild-URI** anger du behållar avbildningen för modulen. 
+1. Ange eventuella **skapande alternativ för behållare** som ska skickas till behållaren. Mer information finns i [Docker skapa](https://docs.docker.com/engine/reference/commandline/create/).
+1. Använd den nedrullningsbara menyn för att välja en **princip för omstart**. Välj bland följande alternativ: 
+   * **Always** -modulen startar alltid om den stängs av av någon anledning.
+   * **aldrig** -modulen startar aldrig om, om den stängs av av någon anledning.
+   * **vid fel** – modulen startas om om den kraschar, men inte om den stängs av på ett säkert sätt. 
+   * **on-ohälsosamt** -modulen startar om om den kraschar eller returnerar en felaktig status. Det är upp till varje modul att implementera funktionen hälsotillstånd status. 
+1. Använd den nedrullningsbara menyn för att välja **önskad status** för modulen. Välj bland följande alternativ:
+   * **körning** – körs är standard alternativet. Modulen ska börja köras omedelbart efter att ha distribuerats.
+   * **stoppad** – när modulen har distribuerats förblir modulen inaktiv tills den anropas av dig eller någon annan modul.
+1. Välj **Ange önskade egenskaper för modulens egenskaper** om du vill lägga till taggar eller andra egenskaper i modulen.
+1. Ange **miljövariabler** för den här modulen. Miljövariabler ger konfigurations information till en modul.
+1. Välj **Spara** för att lägga till modulen i distributionen. 
 
-Once you have all the modules for a deployment configured, select **Next** to move to step three.
+När du har konfigurerat alla moduler för en konfigurerad distribution väljer du **Nästa** för att gå till steg tre.
 
-### <a name="step-3-specify-routes-optional"></a>Step 3: Specify Routes (optional)
+### <a name="step-3-specify-routes-optional"></a>Steg 3: Ange vägar (valfritt)
 
-Routes define how modules communicate with each other within a deployment. By default the wizard gives you a route called **route** and defined as **FROM /* INTO $upstream**, which means that any messages output by any modules are sent to your IoT hub.  
+Vägar definierar hur moduler kommunicerar med varandra i en distribution. Som standard ger guiden en väg som kallas **väg** och definieras som **från/* till $upstream * *, vilket innebär att alla meddelanden som skickas av alla moduler skickas till din IoT-hubb.  
 
-Add or update the routes with information from [Declare routes](module-composition.md#declare-routes), then select **Next** to continue to the review section.
+Lägg till eller uppdatera vägarna med information från [deklarera vägar](module-composition.md#declare-routes), och välj sedan **Nästa** för att fortsätta till gransknings avsnittet.
 
-### <a name="step-4-specify-metrics-optional"></a>Step 4: Specify Metrics (optional)
+### <a name="step-4-specify-metrics-optional"></a>Steg 4: ange mått (valfritt)
 
-Metrics provide summary counts of the various states that a device may report back as a result of applying configuration content.
+Mått tillhandahåller sammanfattande antal i de olika tillstånd som en enhet kan rapportera tillbaka till följd av att konfigurations innehåll tillämpas.
 
-1. Enter a name for **Metric Name**.
+1. Ange ett namn för **måttets namn**.
 
-1. Enter a query for **Metric Criteria**. The query is based on IoT Edge hub module twin [reported properties](module-edgeagent-edgehub.md#edgehub-reported-properties). The metric represents the number of rows returned by the query.
+1. Ange en fråga för **mått villkor**. Frågan baseras på IoT Edge Hub-modulens dubbla [rapporterade egenskaper](module-edgeagent-edgehub.md#edgehub-reported-properties). Måttet representerar antalet rader som returneras av frågan.
 
-   Exempel:
+   Till exempel:
 
    ```sql
    SELECT deviceId FROM devices
      WHERE properties.reported.lastDesiredStatus.code = 200
    ```
 
-### <a name="step-5-target-devices"></a>Step 5: Target Devices
+### <a name="step-5-target-devices"></a>Steg 5: mål enheter
 
-Use the tags property from your devices to target the specific devices that should receive this deployment. 
+Använd egenskapen taggar från dina enheter för att fokusera på specifika enheter som ska ta emot den här distributionen. 
 
-Since multiple deployments may target the same device, you should give each deployment a priority number. If there's ever a conflict, the deployment with the highest priority (larger values indicate higher priority) wins. If two deployments have the same priority number, the one that was created most recently wins. 
+Eftersom flera distributioner kan samma enhet som mål, bör du ge varje distribution flera prioritet. Om det finns en konflikt är distributionen med högst prioritet (större värden anger högre prioritet) WINS. Om två distributioner har samma prioritetsnummer, det som har skapats i de flesta WINS-nyligen. 
 
-1. Enter a positive integer for the deployment **Priority**.
-1. Enter a **Target condition** to determine which devices will be targeted with this deployment. The condition is based on device twin tags or device twin reported properties and should match the expression format. For example, `tags.environment='test'` or `properties.reported.devicemodel='4000x'`. 
-1. Select **Next** to move on to the final step.
+1. Ange ett positivt heltal för distributions **prioriteten**.
+1. Ange ett **mål villkor** för att avgöra vilka enheter som ska vara mål för distributionen. Villkoret baseras på enhetens dubbla taggar eller enhets egenskaper med dubbla rapporter och ska överensstämma med uttrycks formatet. Till exempel `tags.environment='test'` eller `properties.reported.devicemodel='4000x'`. 
+1. Välj **Nästa** för att gå vidare till det sista steget.
 
-### <a name="step-6-review-deployment"></a>Step 6: Review Deployment
+### <a name="step-6-review-deployment"></a>Steg 6: granska distribution
 
-Review your deployment information, then select **Submit**.
+Granska distributions informationen och välj sedan **Skicka**.
 
-## <a name="deploy-modules-from-azure-marketplace"></a>Deploy modules from Azure Marketplace
+## <a name="deploy-modules-from-azure-marketplace"></a>Distribuera moduler från Azure Marketplace
 
-Azure Marketplace is an online applications and services marketplace where you can browse through a wide range of enterprise applications and solutions that are certified and optimized to run on Azure, including [IoT Edge modules](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). Azure Marketplace can also be accessed through the Azure portal under **Create a Resource**.
+Azure Marketplace är ett online-program och tjänster för tjänster där du kan bläddra igenom en rad olika företags program och-lösningar som är certifierade och optimerade för att köras på Azure, inklusive [IoT Edge moduler](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). Azure Marketplace kan också nås via Azure Portal under **skapa en resurs**.
 
-You can deploy an IoT Edge module from either Azure Marketplace or the Azure portal:
+Du kan distribuera en IoT Edge modul från antingen Azure Marketplace eller Azure Portal:
 
-1. Find a module and begin the deployment process.
+1. Hitta en modul och påbörja distributions processen.
 
-   * Azure portal: Find a module and select **Create**.
+   * Azure Portal: Leta reda på en modul och välj **skapa**.
 
    * Azure Marketplace:
 
-     1. Find a module and select **Get it now**.
-     1. Acknowledge the provider's terms of use and privacy policy by selecting **Continue**.
+     1. Hitta en modul och välj **Hämta den nu**.
+     1. Bekräfta providerns användnings villkor och sekretess policy genom att välja **Fortsätt**.
 
-1. Choose your subscription and the IoT Hub to which the target device is attached.
+1. Välj din prenumeration och den IoT Hub som mål enheten är ansluten till.
 
-1. Choose **Deploy at Scale**.
+1. Välj **distribuera i skala**.
 
-1. Choose whether to add the module to a new deployment or to a clone of an existing deployment; if cloning, select the existing deployment from the list.
+1. Välj om du vill lägga till modulen i en ny distribution eller en klon av en befintlig distribution. om kloning väljer du den befintliga distributionen i listan.
 
-1. Select **Create** to continue the process of creating a deployment at scale. You'll be able to specify the same details as you would for any deployment.
+1. Välj **skapa** för att fortsätta processen med att skapa en distribution i stor skala. Du kommer att kunna ange samma information som för alla distributioner.
 
-## <a name="monitor-a-deployment"></a>Monitor a deployment
+## <a name="monitor-a-deployment"></a>Övervaka en distribution
 
-To view the details of a deployment and monitor the devices running it, use the following steps:
+Använd följande steg för att visa information om en distribution och övervakning av enheter som kör den:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub. 
-1. Select **IoT Edge**.
-1. Select **IoT Edge deployments**. 
+1. Logga in på [Azure Portal](https://portal.azure.com) och navigera till din IoT-hubb. 
+1. Välj **IoT Edge**.
+1. Välj **IoT Edge distributioner**. 
 
-   ![View IoT Edge deployments](./media/how-to-deploy-monitor/iot-edge-deployments.png)
+   ![Visa IoT Edge-distributioner](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
-1. Inspect the deployment list. For each deployment, you can view the following details:
-   * **ID** - the name of the deployment.
-   * **Target condition** - the tag used to define targeted devices.
-   * **Priority** - the priority number assigned to the deployment.
-   * **System metrics** - **Targeted** specifies the number of device twins in IoT Hub that match the targeting condition, and **Applied** specifies the number of devices that have had the deployment content applied to their module twins in IoT Hub. 
-   * **Device metrics** - the number of IoT Edge devices in the deployment reporting success or errors from the IoT Edge client runtime.
-   * **Custom metrics** - the number of IoT Edge devices in the deployment reporting data for any metrics that you defined for the deployment.
-   * **Creation time** - the timestamp from when the deployment was created. This timestamp is used to break ties when two deployments have the same priority. 
-1. Select the deployment that you want to monitor.  
-1. Inspect the deployment details. You can use tabs to review the details of the deployment.
+1. Granska listan över distributionen. För varje distribution kan du se följande information:
+   * **ID** – distributionens namn.
+   * **Mål villkor** – den tagg som används för att definiera mål enheter.
+   * **Prioritet** – prioritets numret som tilldelats distributionen.
+   * **System mått** - Target anger antalet enheter i IoT Hub som matchar mål villkoret och **används** **anger det** antal enheter som har haft det distributions innehåll som tillämpats på deras modul i IoT Hub. 
+   * **Enhets mått** – antalet IoT Edge enheter i distributions rapporteringen lyckades eller fel från IoT Edge klient körning.
+   * **Anpassade mått** – antalet IoT Edge enheter i distributions rapporterings data för alla mät värden som du har definierat för distributionen.
+   * **Skapelse tid** : tidsstämpeln från när distributionen skapades. Den här tidsstämpeln används för att bryta ties när två distributioner har samma prioritet. 
+1. Välj distributionen som du vill övervaka.  
+1. Kontrollera distributionen. Du kan använda flikarna för att få mer information om distributionen.
 
-## <a name="modify-a-deployment"></a>Modify a deployment
+## <a name="modify-a-deployment"></a>Ändra en distribution
 
-When you modify a deployment, the changes immediately replicate to all targeted devices. 
+När du ändrar en distribution kan replikera ändringarna direkt till alla målriktade enheter. 
 
-If you update the target condition, the following updates occur:
+Om du uppdaterar målvillkoret, inträffar följande uppdateringar:
 
-* If a device didn't meet the old target condition, but meets the new target condition and this deployment is the highest priority for that device, then this deployment is applied to the device. 
-* If a device currently running this deployment no longer meets the target condition, it uninstalls this deployment and takes on the next highest priority deployment. 
-* If a device currently running this deployment no longer meets the target condition and doesn't meet the target condition of any other deployments, then no change occurs on the device. The device continues running its current modules in their current state, but is not managed as part of this deployment anymore. Once it meets the target condition of any other deployment, it uninstalls this deployment and takes on the new one. 
+* Om en enhet inte uppfyllde gamla målvillkoret, men uppfyller nya målvillkor och den här distributionen är den högsta prioriteten för enheten, tillämpas den här distributionen på enheten. 
+* Om en enhet som körs på den här distributionen inte längre uppfyller målvillkoret, avinstallerar den här distributionen och tar på nästa distributionen med högst prioritet. 
+* Om en enhet som körs på den här distributionen inte längre uppfyller målvillkoret och uppfyller inte target villkoret för alla andra distributioner, sker ingen ändring på enheten. Enheten fortsätter att köra dess aktuella moduler i det aktuella tillståndet, men hanteras inte som en del av den här distributionen längre. När den uppfyller målvillkoret för alla andra distributioner, avinstallerar den här distributionen och tar på den nya servern. 
 
-To modify a deployment, use the following steps: 
+Om du vill ändra en distribution, använder du följande steg: 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub. 
-1. Select **IoT Edge**.
-1. Select **IoT Edge deployments**. 
+1. Logga in på [Azure Portal](https://portal.azure.com) och navigera till din IoT-hubb. 
+1. Välj **IoT Edge**.
+1. Välj **IoT Edge distributioner**. 
 
-   ![View IoT Edge deployments](./media/how-to-deploy-monitor/iot-edge-deployments.png)
+   ![Visa IoT Edge-distributioner](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
-1. Select the deployment that you want to modify. 
-1. Make updates to the following fields: 
-   * Target condition
-   * Metrics - you can modify or delete metrics you've defined, or add new ones.
+1. Välj distributionen som du vill ändra. 
+1. Gör uppdateringar i följande fält: 
+   * Målvillkor
+   * Mått – du kan ändra eller ta bort mått som du har definierat eller lägga till nya.
    * Etiketter
    * Prioritet
 1. Välj **Spara**.
-1. Follow the steps in [Monitor a deployment](#monitor-a-deployment) to watch the changes roll out. 
+1. Följ stegen i [övervaka en distribution](#monitor-a-deployment) för att se att ändringarna distribueras. 
 
-## <a name="delete-a-deployment"></a>Delete a deployment
+## <a name="delete-a-deployment"></a>Ta bort en distribution
 
-When you delete a deployment, any devices take on their next highest priority deployment. If your devices don't meet the target condition of any other deployment, then the modules are not removed when the deployment is deleted. 
+När du tar bort en distribution kan ta några enheter på deras nästa högsta prioritet distribution. Om din enhet inte uppfyller målvillkoret för alla andra distributioner, tas sedan moduler inte bort när distributionen har tagits bort. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub. 
-1. Select **IoT Edge**.
-1. Select **IoT Edge deployments**. 
+1. Logga in på [Azure Portal](https://portal.azure.com) och navigera till din IoT-hubb. 
+1. Välj **IoT Edge**.
+1. Välj **IoT Edge distributioner**. 
 
-   ![View IoT Edge deployments](./media/how-to-deploy-monitor/iot-edge-deployments.png)
+   ![Visa IoT Edge-distributioner](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
-1. Use the checkbox to select the deployment that you want to delete. 
+1. Använd kryssrutan för att välja den distribution som du vill ta bort. 
 1. Välj **Ta bort**.
-1. A prompt will inform you that this action will delete this deployment and revert to the previous state for all devices.  This means that a deployment with a lower priority will apply.  If no other deployment is targeted, no modules will be removed. If you want to remove all modules from your device, create a deployment with zero modules and deploy it to the same devices. Select **Yes** to continue. 
+1. En uppmaning informerar om att den här åtgärden tar bort den här distributionen och återgå till det tidigare tillståndet för alla enheter.  Det innebär att en distribution med lägre prioritet kommer att gälla.  Om ingen annan distribution är avsedd tas inga moduler bort. Om du vill ta bort alla moduler från din enhet, skapa en distribution med noll moduler och distribuera den till samma enheter. Välj **Ja** om du vill fortsätta. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Learn more about [Deploying modules to IoT Edge devices](module-deployment-monitoring.md).
+Lär dig mer om [att distribuera moduler till IoT Edge enheter](module-deployment-monitoring.md).

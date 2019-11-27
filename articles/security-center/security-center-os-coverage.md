@@ -95,7 +95,7 @@ Följande Azure PaaS-resurser stöds av Azure Security Center:
 * Funktion
 * Molntjänst
 * VNet
-* Subnet
+* Undernät
 * NIC
 * NSG
 * Batch-konto

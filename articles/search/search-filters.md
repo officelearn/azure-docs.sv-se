@@ -1,7 +1,7 @@
 ---
-title: Filter on search results
+title: Filtrera efter Sök Resultat
 titleSuffix: Azure Cognitive Search
-description: Filter by user security identity, language, geo-location, or numeric values to reduce search results on queries in Azure Cognitive Search, a hosted cloud search service on Microsoft Azure.
+description: Filtrera efter användarens säkerhets identitet, språk, Geo-Location eller numeriska värden för att minska Sök resultaten för frågor i Azure Kognitiv sökning, en värdbaserad Sök tjänst i molnet på Microsoft Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -15,59 +15,59 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74406751"
 ---
-# <a name="filters-in-azure-cognitive-search"></a>Filters in Azure Cognitive Search 
+# <a name="filters-in-azure-cognitive-search"></a>Filter i Azure Kognitiv sökning 
 
-A *filter* provides criteria for selecting documents used in an Azure Cognitive Search query. Unfiltered search includes all documents in the index. A filter scopes a search query to a subset of documents. For example, a filter could restrict full text search to just those products having a specific brand or color, at price points above a certain threshold.
+Ett *filter* innehåller kriterier för att välja dokument som används i en Azure kognitiv sökning-fråga. Ofiltrerad sökning innehåller alla dokument i indexet. Ett filter omfångerar en Sök fråga till en delmängd av dokumenten. Ett filter kan till exempel begränsa full texts ökningen till enbart de produkter som har ett specifikt märke eller en viss färg, vid pris punkter över ett visst tröskelvärde.
 
-Some search experiences impose filter requirements as part of the implementation, but you can use filters anytime you want to constrain search using *value-based* criteria (scoping search to product type "books" for category "non-fiction" published by "Simon & Schuster").
+Vissa Sök upplevelser har filter krav som en del av implementeringen, men du kan använda filter när som helst när du vill begränsa sökningen med hjälp av *värdebaserade* villkor (omfattnings sökning till produkt typ "böcker" för kategorin "icke-fiktion" Publicerad av "Simon & Schuster").
 
-If instead your goal is targeted search on specific data *structures* (scoping search to a customer-reviews field), there are alternative methods, described below.
+Om målet i stället är riktad sökning efter specifika data *strukturer* (omfattnings sökning i ett kund gransknings fält) finns det alternativa metoder, som beskrivs nedan.
 
-## <a name="when-to-use-a-filter"></a>When to use a filter
+## <a name="when-to-use-a-filter"></a>När du ska använda ett filter
 
-Filters are foundational to several search experiences, including "find near me", faceted navigation, and security filters that show only  those documents a user is allowed to see. If you implement any one of these experiences, a filter is required. It's the filter attached to the search query that provides the geolocation coordinates, the facet category selected by the user, or the security ID of the requestor.
+Filter är grundläggande för flera Sök upplevelser, inklusive "hitta nära mig", fasett-navigering och säkerhets filter som endast visar de dokument som en användare får se. Om du implementerar något av dessa upplevelser krävs ett filter. Det är filtret som är kopplat till Sök frågan som tillhandahåller koordinaterna för geolokalisering, den aspekt kategori som användaren har valt eller säkerhets-ID: t för beställaren.
 
-Example scenarios include the following:
+Exempel scenarier är följande:
 
-1. Use a filter to slice your index based on data values in the index. Given a schema with city, housing type, and amenities, you might create a filter to explicitly select documents that satisfy your criteria (in Seattle, condos, waterfront). 
+1. Använd ett filter för att segmentera ditt index baserat på data värden i indexet. Med tanke på ett schema med stad, typ av bostad och bekvämligheterna kan du skapa ett filter för att explicit välja dokument som uppfyller dina kriterier (i Seattle, Condos, Waterfront). 
 
-   Full text search with the same inputs often produces similar results, but a filter is more precise in that it requires an exact match of the filter term against content in your index. 
+   Full texts ökning med samma indata ger ofta liknande resultat, men ett filter är mer exakt eftersom det kräver en exakt matchning av filter termen mot innehåll i ditt index. 
 
-2. Use a filter if the search experience comes with a filter requirement:
+2. Använd ett filter om Sök funktionen innehåller ett filter krav:
 
-   * [Faceted navigation](search-faceted-navigation.md) uses a filter to pass back the facet category selected by the user.
-   * Geo-search uses a filter to pass coordinates of the current location in "find near me" apps. 
-   * Security filters pass security identifiers as filter criteria, where a match in the index serves as a proxy for access rights to the document.
+   * [Fasettisk navigering](search-faceted-navigation.md) använder ett filter för att skicka tillbaka den aspekt kategori som valts av användaren.
+   * Geo-search använder ett filter för att skicka koordinater för den aktuella platsen i "hitta nära mig"-appar. 
+   * Säkerhets filter skickar säkerhets identifierare som filter villkor, där en matchning i indexet fungerar som en proxy för åtkomst behörighet till dokumentet.
 
-3. Use a filter if you want search criteria on a numeric field. 
+3. Använd ett filter om du vill använda Sök villkor i ett numeriskt fält. 
 
-   Numeric fields are retrievable in the document and can appear in search results, but they are not searchable (subject to full text search) individually. If you need selection criteria based on numeric data, use a filter.
+   Numeriska fält kan hämtas i dokumentet och kan visas i Sök resultat, men de är inte sökbara (undersöknings texts ökning) individuellt. Om du behöver urvals villkor baserat på numeriska data använder du ett filter.
 
-### <a name="alternative-methods-for-reducing-scope"></a>Alternative methods for reducing scope
+### <a name="alternative-methods-for-reducing-scope"></a>Alternativa metoder för att minska omfattningen
 
-If you want a narrowing effect in your search results, filters are not your only choice. These alternatives could be a better fit, depending on your objective:
+Om du vill ha en begränsad inverkan i dina Sök resultat kan du inte välja filter. De här alternativen kan vara en bättre anpassning, beroende på ditt mål:
 
- + `searchFields` query parameter pegs search to specific fields. For example, if your index provides separate fields for English and Spanish descriptions, you can use searchFields to target which fields to use for full text search. 
+ + `searchFields` Frågeparametern pegs söka till vissa fält. Om ditt index t. ex. innehåller separata fält för engelska och spanska beskrivningar, kan du använda searchFields för att ange vilka fält som ska användas för full texts ökning. 
 
-+ `$select` parameter is used to specify which fields to include in a result set, effectively trimming the response before sending it to the calling application. This parameter does not refine the query or reduce the document collection, but if a smaller response is your goal, this parameter is an option to consider. 
++ `$select` parameter används för att ange vilka fält som ska ingå i en resultat uppsättning, vilket effektivt rensar svaret innan det skickas till det anropande programmet. Den här parametern kan inte förfina frågan eller minska dokument samlingen, men om ett mindre svar är ditt mål är den här parametern ett alternativ att tänka på. 
 
-For more information about either parameter, see [Search Documents > Request > Query parameters](https://docs.microsoft.com/rest/api/searchservice/search-documents#request).
+Mer information om någon av parametrarna finns i [Sök efter dokument > begäran > frågeparametrar](https://docs.microsoft.com/rest/api/searchservice/search-documents#request).
 
 
-## <a name="how-filters-are-executed"></a>How filters are executed
+## <a name="how-filters-are-executed"></a>Hur filter körs
 
-At query time, a filter parser accepts criteria as input, converts the expression into atomic Boolean expressions represented as a tree, and then evaluates the filter tree over filterable fields in an index.
+Vid tidpunkten i frågan accepterar en filter tolkare villkor som inmatade, konverterar uttrycket till atomiska booleska uttryck som visas som ett träd och utvärderar filter trädet över filter bara fält i ett index.
 
-Filtering occurs in tandem with search, qualifying which documents to include in downstream processing for document retrieval and relevance scoring. When paired with a search string, the filter effectively reduces the recall set of the subsequent search operation. When used alone (for example, when the query string is empty where `search=*`), the filter criteria is the sole input. 
+Filtrering sker i tandem med sökning och kvalificerar vilka dokument som ska inkluderas i underordnad bearbetning för dokument hämtning och relevans-poäng. När de kombineras med en Sök sträng minskar filtret åter kallelse uppsättningen för efterföljande Sök åtgärder. När den används enskilt (till exempel när frågesträngen är tom där `search=*`), är filter villkoret den enda ingången. 
 
-## <a name="defining-filters"></a>Defining filters
-Filters are OData expressions, articulated using a [subset of OData V4 syntax supported in Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
+## <a name="defining-filters"></a>Definiera filter
+Filter är OData-uttryck, som har ledats med en [delmängd av OData v4-syntax som stöds i Azure kognitiv sökning](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
 
-You can specify one filter for each **search** operation, but the filter itself can include multiple fields, multiple criteria, and if you use an **ismatch** function, multiple full-text search expressions. In a multi-part filter expression, you can specify predicates in any order (subject to the rules of operator precedence). There is no appreciable gain in performance if you try to rearrange predicates in a particular sequence.
+Du kan ange ett filter för varje **Sök** åtgärd, men själva filtret kan innehålla flera fält, flera kriterier och om du använder en **ismatch** -funktion, flera full texts öknings uttryck. I ett filter uttryck med flera delar kan du ange predikat i valfri ordning (enligt reglerna för Operator prioritet). Det finns ingen märkbar vinst i prestanda om du försöker arrangera om predikat i en viss sekvens.
 
-One of the limits on a filter expression is the maximum size limit of the request. The entire request, inclusive of the filter, can be a maximum of 16 MB for POST, or 8 KB for GET. There is also a limit on the number of clauses in your filter expression. A good rule of thumb is that if you have hundreds of clauses, you are at risk of running into the limit. We recommend designing your application in such a way that it does not generate filters of unbounded size.
+En av gränserna för ett filter uttryck är den maximala storleks gränsen för begäran. Hela förfrågan, inklusive filtret, kan vara högst 16 MB för POST eller 8 KB för GET. Det finns också en gräns för antalet satser i filter uttrycket. En lämplig tumregel är att om du har hundratals satser kan du vara utsatt för att kunna köra gränsen. Vi rekommenderar att du utformar ditt program på ett sådant sätt att det inte genererar filter av obegränsad storlek.
 
-The following examples represent prototypical filter definitions in several APIs.
+Följande exempel representerar prototyp filter definitioner i flera API: er.
 
 ```http
 # Option 1:  Use $filter for GET
@@ -93,23 +93,23 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
     var results = searchIndexClient.Documents.Search("*", parameters);
 ```
 
-## <a name="filter-usage-patterns"></a>Filter usage patterns
+## <a name="filter-usage-patterns"></a>Filtrera användnings mönster
 
-The following examples illustrate several usage patterns for filter scenarios. For more ideas, see [OData expression syntax > Examples](https://docs.microsoft.com/azure/search/search-query-odata-filter#examples).
+I följande exempel visas flera användnings mönster för filter scenarier. Fler idéer finns i [syntax för OData-uttryck > exempel](https://docs.microsoft.com/azure/search/search-query-odata-filter#examples).
 
-+ Standalone **$filter**, without a query string, useful when the filter expression is able to fully qualify documents of interest. Without a query string, there is no lexical or linguistic analysis, no scoring, and no ranking. Notice the search string is just an asterisk, which means "match all documents".
++ Fristående **$filter**, utan en frågesträng, användbart när filter uttrycket fullständigt kvalificerar dokument av intresse. Utan en frågesträng finns det ingen lexikalisk eller språklig analys, ingen poäng och ingen rangordning. Observera att Sök strängen bara är en asterisk, vilket innebär "matcha alla dokument".
 
    ```
    search=*&$filter=Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Honolulu'
    ```
 
-+ Combination of query string and **$filter**, where the filter creates the subset, and the query string provides the term inputs for full text search over the filtered subset. The addition of terms (walking distance theaters) introduces search scores in the results, where documents that best match the terms are ranked higher. Using a filter with a query string is the most common usage pattern.
++ En kombination av frågesträng och **$filter**, där filtret skapar delmängd och frågesträngen innehåller term inmatningar för full texts ökning över den filtrerade del mängden. Genom att lägga till villkor (promenads avstånds biograf) införs Sök resultat i resultaten, där dokument som bäst matchar villkoren rangordnas högre. Att använda ett filter med en frågesträng är det vanligaste användnings mönstret.
 
    ```
   search=walking distance theaters&$filter=Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Seattle'&$count=true
    ```
 
-+ Compound queries, separated by "or", each with its own filter criteria (for example, 'beagles' in 'dog' or 'siamese' in 'cat'). Expressions combined with `or` are evaluated individually, with the union of documents matching each expression sent back in the response. This usage pattern is achieved through the `search.ismatchscoring` function. You can also use the non-scoring version, `search.ismatch`.
++ Sammansatta frågor, separerade med "eller", var och en med sina egna filter villkor (till exempel "Beagles" i "hund" eller "Siamese" i "katt"). Uttryck som kombineras med `or` utvärderas individuellt, med en union av dokument som matchar varje uttryck som skickas tillbaka i svaret. Det här användnings mönstret uppnås med hjälp av funktionen `search.ismatchscoring`. Du kan också använda den icke-bedömnings versionen `search.ismatch`.
 
    ```
    # Match on hostels rated higher than 4 OR 5-star motels.
@@ -119,7 +119,7 @@ The following examples illustrate several usage patterns for filter scenarios. F
    $filter=search.ismatchscoring('luxury | high-end', 'Description') or Category eq 'Luxury'&$count=true
    ```
 
-  It is also possible to combine full-text search via `search.ismatchscoring` with filters using `and` instead of `or`, but this is functionally equivalent to using the `search` and `$filter` parameters in a search request. For example, the following two queries produce the same result:
+  Det är också möjligt att kombinera full texts ökning via `search.ismatchscoring` med filter som använder `and` i stället för `or`, men det är detsamma som att använda parametrarna `search` och `$filter` i en Sök förfrågan. Följande två frågor ger till exempel samma resultat:
 
   ```
   $filter=search.ismatchscoring('pool') and Rating ge 4
@@ -127,50 +127,50 @@ The following examples illustrate several usage patterns for filter scenarios. F
   search=pool&$filter=Rating ge 4
   ```
 
-Follow up with these articles for comprehensive guidance on specific use cases:
+Följ upp med de här artiklarna för utförlig vägledning om speciella användnings fall:
 
 + [Facet-filter](search-filters-facets.md)
 + [Språkfilter](search-filters-language.md)
 + [Säkerhetsoptimering](search-security-trimming-for-azure-search.md) 
 
-## <a name="field-requirements-for-filtering"></a>Field requirements for filtering
+## <a name="field-requirements-for-filtering"></a>Fält krav för filtrering
 
-In the REST API, filterable is *on* by default for simple fields. Filterable fields increase index size; be sure to set `"filterable": false` for fields that you don't plan to actually use in a filter. For more information about settings for field definitions, see [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
+I REST API är filtrerings bara *aktiverat* som standard för enkla fält. Filter bara fält ökar index storleken. Se till att ange `"filterable": false` för fält som du inte planerar att använda i ett filter. Mer information om inställningar för fält definitioner finns i [skapa index](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
-In the .NET SDK, the filterable is *off* by default. You can make a field filterable by setting the [IsFilterable property](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet) of the corresponding [Field](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field?view=azure-dotnet) object to `true`. You can also do this declaratively by using the [IsFilterable attribute](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.isfilterableattribute). In the example below, the attribute is set on the `BaseRate` property of a model class that maps to the index definition.
+I .NET SDK är filtrerings funktionen *avstängd* som standard. Du kan göra ett fält filter bara genom att ange [egenskapen IsFilterable](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet) för motsvarande [fält](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field?view=azure-dotnet) objekt till `true`. Du kan också göra detta med hjälp av [attributet IsFilterable](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.isfilterableattribute). I exemplet nedan anges attributet i `BaseRate`-egenskapen för en modell klass som mappar till index definitionen.
 
 ```csharp
     [IsFilterable, IsSortable, IsFacetable]
     public double? BaseRate { get; set; }
 ```
 
-### <a name="making-an-existing-field-filterable"></a>Making an existing field filterable
+### <a name="making-an-existing-field-filterable"></a>Göra ett befintligt fält filter bara
 
-You can't modify existing fields to make them filterable. Instead, you need to add a new field, or rebuild the index. For more information about rebuilding an index or repopulating fields, see [How to rebuild an Azure Cognitive Search index](search-howto-reindex.md).
+Du kan inte ändra befintliga fält så att de filtreras. I stället måste du lägga till ett nytt fält eller återskapa indexet. Mer information om hur du återskapar ett index eller fyller i fält finns i [så här återskapar du ett Azure kognitiv sökning-index](search-howto-reindex.md).
 
-## <a name="text-filter-fundamentals"></a>Text filter fundamentals
+## <a name="text-filter-fundamentals"></a>Grundläggande text filter
 
-Text filters match string fields against literal strings that you provide in the filter. Unlike full-text search, there is no lexical analysis or word-breaking for text filters, so comparisons are for exact matches only. For example, assume a field *f* contains "sunny day", `$filter=f eq 'Sunny'` does not match, but `$filter=f eq 'sunny day'` will. 
+Text filter matchar sträng fält mot literala strängar som du anger i filtret. Till skillnad från full texts ökning finns det ingen lexikal analys eller ord brytning för text filter, så jämförelser är enbart för exakta matchningar. Anta till exempel att ett fält *f* innehåller "solig Day", `$filter=f eq 'Sunny'` inte matchar, men `$filter=f eq 'sunny day'`. 
 
-Text strings are case-sensitive. There is no lower-casing of upper-cased words: `$filter=f eq 'Sunny day'` will not find "sunny day".
+Text strängar är Skift läges känsliga. Det finns inget gement versaler på bokstäver ord: `$filter=f eq 'Sunny day'` inte att hitta "solig Day".
 
-### <a name="approaches-for-filtering-on-text"></a>Approaches for filtering on text
+### <a name="approaches-for-filtering-on-text"></a>Metoder för filtrering av text
 
-| Approach | Beskrivning | Används till att |
+| Metoden | Beskrivning | När du ska använda detta |
 |----------|-------------|-------------|
-| [`search.in`](search-query-odata-search-in-function.md) | A function that matches a field against a delimited list of strings. | Recommended for [security filters](search-security-trimming-for-azure-search.md) and for any filters where many raw text values need to be matched with a string field. The **search.in** function is designed for speed and is much faster than explicitly comparing the field against each string using `eq` and `or`. | 
-| [`search.ismatch`](search-query-odata-full-text-search-functions.md) | A function that allows you to mix full-text search operations with strictly Boolean filter operations in the same filter expression. | Use **search.ismatch** (or its scoring equivalent, **search.ismatchscoring**) when you want multiple search-filter combinations in one request. You can also use it for a *contains* filter to filter on a partial string within a larger string. |
-| [`$filter=field operator string`](search-query-odata-comparison-operators.md) | A user-defined expression composed of fields, operators, and values. | Use this when you want to find exact matches between a string field and a string value. |
+| [`search.in`](search-query-odata-search-in-function.md) | En funktion som matchar ett fält mot en avgränsad lista med strängar. | Rekommenderas för [säkerhets filter](search-security-trimming-for-azure-search.md) och för alla filter där många rå text värden måste matchas med ett sträng fält. **Search.in** -funktionen är utformad för snabbhet och är mycket snabbare än att explicit jämföra fältet mot varje sträng med hjälp av `eq` och `or`. | 
+| [`search.ismatch`](search-query-odata-full-text-search-functions.md) | En funktion som gör att du kan blanda full texts öknings åtgärder med strikta booleska filter åtgärder i samma filter uttryck. | Använd **search. ismatch** (eller dess bedömnings motsvarighet, **search. ismatchscoring**) när du vill ha flera Sök filter kombinationer i en begäran. Du kan också använda det för a *innehåller* filter för att filtrera på en delvis sträng inom en större sträng. |
+| [`$filter=field operator string`](search-query-odata-comparison-operators.md) | Ett användardefinierat uttryck bestående av fält, operatorer och värden. | Använd det här när du vill hitta exakta matchningar mellan ett sträng fält och ett sträng värde. |
 
-## <a name="numeric-filter-fundamentals"></a>Numeric filter fundamentals
+## <a name="numeric-filter-fundamentals"></a>Numeriska filter grunderna
 
-Numeric fields are not `searchable` in the context of full text search. Only strings are subject to full text search. For example, if you enter 99.99 as a search term, you won't get back items priced at $99.99. Instead, you would see items that have the number 99 in string fields of the document. Thus, if you have numeric data, the assumption is that you will use them for filters, including ranges, facets, groups, and so forth. 
+Numeriska fält `searchable` inte i kontexten för full texts ökning. Endast strängar omfattas av full texts ökning. Om du till exempel anger 99,99 som Sök villkor får du inte tillbaka dina objekt pris till $99,99. I stället visas objekt med nummer 99 i sträng fält i dokumentet. Om du däremot har numeriska data, är det att du kommer att använda dem för filter, inklusive intervall, ansikte, grupper och så vidare. 
 
-Documents that contain numeric fields (price, size, SKU, ID) provide those values in search results if the field is marked `retrievable`. The point here is that full text search itself is not applicable to numeric field types.
+Dokument som innehåller numeriska fält (pris, storlek, SKU, ID) tillhandahåller dessa värden i Sök resultat om fältet är markerat `retrievable`. Punkten här är att ingen fullständig texts ökning är tillämplig på numeriska fält typer.
 
 ## <a name="next-steps"></a>Nästa steg
 
-First, try **Search explorer** in the portal to submit queries with **$filter** parameters. The [real-estate-sample index](search-get-started-portal.md) provides interesting results for the following filtered queries when you paste them into the search bar:
+Prova först att **söka i Utforskaren** i portalen för att skicka frågor med **$filter** parametrar. [Indexet för fastighets-och-exempel](search-get-started-portal.md) ger intressanta resultat för följande filtrerade frågor när du klistrar in dem i Sök fältet:
 
 ```
 # Geo-filter returning documents within 5 kilometers of Redmond, Washington state
@@ -193,12 +193,12 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=city gt 'Seattle'
 ```
 
-To work with more examples, see [OData Filter Expression Syntax > Examples](https://docs.microsoft.com/azure/search/search-query-odata-filter#examples).
+Mer information om hur du arbetar med fler exempel finns i [syntax för OData filter Expression > exempel](https://docs.microsoft.com/azure/search/search-query-odata-filter#examples).
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
-+ [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md)
-+ [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)
++ [Hur full texts ökning fungerar i Azure Kognitiv sökning](search-lucene-query-architecture.md)
++ [Sök dokument REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)
 + [Enkel frågesyntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
 + [Lucene-frågesyntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-+ [Supported data types](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)
++ [Data typer som stöds](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)

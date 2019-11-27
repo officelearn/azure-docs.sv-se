@@ -28,15 +28,15 @@ ms.locfileid: "74196584"
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-Den här artikeln beskriver hur du gör om du använder den klassiska distributionsmodellen. Du kan också [hantera en statisk privat IP-adress i Resource Manager-distributionsmodellen](virtual-networks-static-private-ip-arm-cli.md).
+Den här artikeln beskriver hur du gör om du använder den klassiska distributionsmodellen. Du kan också [hantera en statisk privat IP-adress i distributions modellen för Resource Manager](virtual-networks-static-private-ip-arm-cli.md).
 
-Exemplet Azure klassiskt CLI-kommandon fram förväntar sig en enkel miljö som redan har skapats. Om du vill köra kommandona i det här dokumentet visas först skapa testmiljön som beskrivs i [skapar ett virtuellt nätverk](virtual-networks-create-vnet-classic-cli.md).
+Exemplet Azure klassiskt CLI-kommandon fram förväntar sig en enkel miljö som redan har skapats. Om du vill köra kommandona som de visas i det här dokumentet skapar du först test miljön som beskrivs i [skapa ett VNet](virtual-networks-create-vnet-classic-cli.md).
 
 ## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>Så här anger du en statisk privat IP-adress när du skapar en virtuell dator
-Skapa en ny virtuell dator med namnet *DNS01* i en ny molntjänst med namnet *TestService* baserat på scenariot ovan, Följ dessa steg:
+Följ dessa steg om du vill skapa en ny virtuell dator med namnet *DNS01* i en ny moln tjänst med namnet *TestService* baserat på scenariot ovan:
 
 1. Om du aldrig har använt Azure CLI, se [installera och konfigurera Azure CLI](/cli/azure/install-cli-version-1.0) och följ instruktionerna upp till den punkt där du väljer Azure-konto och prenumeration.
-2. Kör den **azure-tjänsten skapar** kommando för att skapa Molntjänsten.
+2. Kör kommandot **Azure Service Create** för att skapa moln tjänsten.
    
         azure service create TestService --location uscentral
    
@@ -46,7 +46,7 @@ Skapa en ny virtuell dator med namnet *DNS01* i en ny molntjänst med namnet *Te
         info:    Creating cloud service
         data:    Cloud service name TestService
         info:    service create command OK
-3. Kör den **azure Skapa virtuell dator** kommando för att skapa den virtuella datorn. Lägg märke till värdet för en statisk privat IP-adress. Listan som visas efter alla utdata förklarar parametrarna som använts.
+3. Kör kommandot **Azure Create VM** för att skapa den virtuella datorn. Lägg märke till värdet för en statisk privat IP-adress. Listan som visas efter alla utdata förklarar parametrarna som använts.
    
         azure vm create -l centralus -n DNS01 -w TestVNet -S "192.168.1.101" TestService bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2 adminuser AdminP@ssw0rd
    
@@ -66,16 +66,16 @@ Skapa en ny virtuell dator med namnet *DNS01* i en ny molntjänst med namnet *Te
         info:    vm create command OK
    
    * **-l (eller --location)** . Azure-region där den virtuella datorn kommer att skapas. I vårt scenario, *centralus*.
-   * **-n (eller--vm-name)** . Namnet på den virtuella datorn skapas.
-   * **-w (eller--virtual-network-name)** . Namnet på det virtuella nätverket där den virtuella datorn kommer att skapas. 
-   * **-S (eller--statisk ip)** . Statiska privata IP-adress för den virtuella datorn.
+   * **-n (eller--VM-Name)** . Namnet på den virtuella datorn skapas.
+   * **-w (eller--Virtual-Network-Name)** . Namnet på det virtuella nätverket där den virtuella datorn kommer att skapas. 
+   * **-S (eller--statisk IP)** . Statiska privata IP-adress för den virtuella datorn.
    * **TestService**. Namnet på Molntjänsten där den virtuella datorn kommer att skapas.
-   * **bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012 R2-x64-v14.2**. Bild som används för att skapa den virtuella datorn.
+   * **bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v-14.2**. Bild som används för att skapa den virtuella datorn.
    * **adminuser**. Lokal administratör för den virtuella Windows-datorn.
    * <strong>AdminP@ssw0rd</strong>. Lokala administratörslösenordet för den virtuella Windows-datorn.
 
 ## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>Hur du hämtar statiska privata IP-adressinformation för en virtuell dator
-Kör följande Azure CLI-kommando för att visa den statiska privata IP-adressinformationen för den virtuella datorn skapas med skriptet ovan, och Lägg märke till värdet för *nätverk StaticIP*:
+Om du vill visa information om statisk privat IP-adress för den virtuella datorn som har skapats med skriptet ovan kör du följande Azure CLI-kommando och noterar värdet för *nätverks StaticIP*:
 
     azure vm static-ip show DNS01
 
@@ -118,6 +118,6 @@ Förväntad utdata:
 Vi rekommenderar att du inte statiskt tilldelar privat IP-adress som tilldelats virtuella Azure-datorer i operativsystemet på en virtuell dator, om inte behövs. Om du manuellt anger den privata IP-adressen i operativsystemet, kontrollera att det är samma adress som den privata IP-adressen som tilldelas den virtuella Azure-datorn, eller du kan förlora anslutningen till den virtuella datorn. Tilldela inte den offentliga IP-adressen som tilldelats till en virtuell Azure-dator manuellt i den virtuella datorns operativ system.
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [reserverade offentliga IP-Adressen](virtual-networks-reserved-public-ip.md) adresser.
-* Lär dig mer om [offentliga IP (ILPIP) på instansnivå](virtual-networks-instance-level-public-ip.md) adresser.
-* Läs den [reserverade IP-REST API: er](https://msdn.microsoft.com/library/azure/dn722420.aspx).
+* Läs mer om [reserverade offentliga IP-](virtual-networks-reserved-public-ip.md) adresser.
+* Lär dig mer om [offentliga IP-adresser på instans nivå (ILPIP)](virtual-networks-instance-level-public-ip.md) .
+* Läs [reserverad IP REST-API: er](https://msdn.microsoft.com/library/azure/dn722420.aspx).

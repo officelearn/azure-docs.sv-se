@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Configure weighted round-robin traffic routing with Azure Traffic Manager
-description: This tutorial explains how to load balance traffic using a round-robin method in Traffic Manager
+title: Självstudie – konfigurera viktad trafik för resursallokering med Azure Traffic Manager
+description: I den här självstudien lär du dig att belastningsutjämna trafik med en Round-Robin-metod i Traffic Manager
 services: traffic-manager
 documentationcenter: ''
 author: asudbring
@@ -19,38 +19,38 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74422765"
 ---
-# <a name="tutorial-configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Tutorial: Configure the weighted traffic routing method in Traffic Manager
+# <a name="tutorial-configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Självstudie: Konfigurera den viktade routningsmetoden för trafik i Traffic Manager
 
-A common traffic routing method pattern is to provide a set of identical endpoints, which include cloud services and websites, and send traffic to each equally. The following steps outline how to configure this type of traffic routing method.
+Ett gemensamt metod mönster för trafik cirkulation är att tillhandahålla en uppsättning identiska slut punkter, bland annat moln tjänster och webbplatser, och skicka trafik till var och en. Följande steg beskriver hur du konfigurerar den här typen av metod för trafik dirigering.
 
 > [!NOTE]
-> Azure Web App already provides round-robin load balancing functionality for websites within an Azure Region (which may comprise multiple datacenters). Traffic Manager allows you to distribute traffic across websites in different datacenters.
+> Azure Web App tillhandahåller redan Round Robin-funktioner för belastnings utjämning för webbplatser i en Azure-region (som kan bestå av flera data Center). Med Traffic Manager kan du distribuera trafik mellan webbplatser i olika data Center.
 
-## <a name="to-configure-the-weighted-traffic-routing-method"></a>To configure the weighted traffic routing method
+## <a name="to-configure-the-weighted-traffic-routing-method"></a>Så här konfigurerar du den viktade routningsmetoden för trafik
 
 1. Logga in på [Azure Portal](https://portal.azure.com) från en webbläsare. Om du inte redan har ett konto kan du [registrera dig för en kostnadsfri utvärderingsmånad](https://azure.microsoft.com/free/). 
-2. In the portal’s search bar, search for the **Traffic Manager profiles** and then click the profile name that you want to configure the routing method for.
-3. In the **Traffic Manager profile** blade, verify that both the cloud services and websites that you want to include in your configuration are present.
-4. In the **Settings** section, click **Configuration**, and in the **Configuration** blade, complete as follows:
-    1. For **traffic routing method settings**, verify that the traffic routing method is **Weighted**. If it is not, click **Weighted** from the dropdown list.
-    2. Set the **Endpoint monitor settings** identical for all every endpoint within this profile as follows:
-        1. Select the appropriate **Protocol**, and specify the **Port** number. 
-        2. For **Path** type a forward slash */* . To monitor endpoints, you must specify a path and filename. A forward slash "/" is a valid entry for the relative path and implies that the file is in the root directory (default).
-        3. At the top of the page, click **Save**.
-5. Test the changes in your configuration as follows:
-    1.  In the portal’s search bar, search for the Traffic Manager profile name and click the Traffic Manager profile in the results that the displayed.
-    2.  In the **Traffic Manager** profile blade, click **Overview**.
-    3.  The **Traffic Manager profile** blade displays the DNS name of your newly created Traffic Manager profile. This can be used by any clients (for example,by navigating to it using a web browser) to get routed to the right endpoint as determined by the routing type. In this case all requests are routed each endpoint in a round-robin fashion.
-6. Once your Traffic Manager profile is working, edit the DNS record on your authoritative DNS server to point your company domain name to the Traffic Manager domain name.
+2. I portalens sökfält söker du efter **Traffic Manager profiler** och klickar sedan på det profil namn som du vill konfigurera routningsmetod för.
+3. På bladet **Traffic Manager profil** kontrollerar du att både de moln tjänster och webbplatser som du vill inkludera i konfigurationen finns.
+4. I avsnittet **Inställningar** klickar du på **konfiguration**och slutför i **konfigurations** bladet på följande sätt:
+    1. För **Inställningar för trafikroutnings metod**kontrollerar du att metoden för trafikroutning **viktas**. Om så inte är fallet klickar du på **viktad** från List rutan.
+    2. Ange **Inställningar för slut punkts övervakaren** identisk för alla slut punkter i den här profilen enligt följande:
+        1. Välj lämpligt **protokoll**och ange **port** numret. 
+        2. För **sökväg** anger du ett snedstreck */* . Om du vill övervaka slut punkter måste du ange en sökväg och ett fil namn. Ett snedstreck "/" är en giltig post för den relativa sökvägen och innebär att filen finns i rot katalogen (standard).
+        3. Klicka på **Spara**längst upp på sidan.
+5. Testa ändringarna i konfigurationen på följande sätt:
+    1.  Sök efter namnet på Traffic Manager profilen i portalens sökfält och klicka på Traffic Manager profilen i resultaten som visas.
+    2.  I bladet **Traffic Manager** profil klickar du på **Översikt**.
+    3.  Bladet **Traffic Manager profil** visar DNS-namnet för din nyligen skapade Traffic Manager-profil. Detta kan användas av alla klienter (till exempel genom att navigera till den med hjälp av en webbläsare) för att dirigeras till den högra slut punkten som fastställs av typen av routning. I det här fallet dirigeras alla begär anden till varje slut punkt i en Round-Robin-miljö.
+6. När din Traffic Manager-profil fungerar redigerar du DNS-posten på den auktoritativa DNS-servern för att peka ditt företags domän namn till Traffic Manager domän namnet.
 
-![Configuring weighted traffic routing method using Traffic Manager][1]
+![Konfigurera metoden för att dirigera en viktad trafik med hjälp av Traffic Manager][1]
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Learn about [priority traffic routing method](traffic-manager-configure-priority-routing-method.md).
-- Learn about [performance traffic routing method](traffic-manager-configure-performance-routing-method.md).
+- Lär dig mer om [routningsmetoden för prioritets trafik](traffic-manager-configure-priority-routing-method.md).
+- Lär dig mer om [routningsmetod för prestanda trafik](traffic-manager-configure-performance-routing-method.md).
 - Lär dig mer om den [geografiska routningsmetoden](traffic-manager-configure-geographic-routing-method.md).
-- Learn how to [test Traffic Manager settings](traffic-manager-testing-settings.md).
+- Lär dig hur du [testar Traffic Manager inställningar](traffic-manager-testing-settings.md).
 
 <!--Image references-->
 [1]: ./media/traffic-manager-weighted-routing-method/traffic-manager-weighted-routing-method.png

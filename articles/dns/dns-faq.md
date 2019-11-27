@@ -1,6 +1,6 @@
 ---
-title: FAQ - Azure DNS
-description: In this article, learn about frequently asked questions about Azure DNS
+title: Vanliga frågor och svar – Azure DNS
+description: I den här artikeln får du veta mer om vanliga frågor och svar om Azure DNS
 services: dns
 author: asudbring
 ms.service: dns
@@ -14,193 +14,193 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74212032"
 ---
-# <a name="azure-dns-faq"></a>Azure DNS FAQ
+# <a name="azure-dns-faq"></a>Azure DNS vanliga frågor och svar
 
-## <a name="about-azure-dns"></a>About Azure DNS
+## <a name="about-azure-dns"></a>Om Azure DNS
 
 ### <a name="what-is-azure-dns"></a>Vad är Azure DNS?
 
-The Domain Name System (DNS) translates, or resolves, a website or service name to its IP address. Azure DNS is a hosting service for DNS domains. It provides name resolution by using Microsoft Azure infrastructure. Genom att använda Azure som värd för dina domäner kan du hantera dina DNS-poster med hjälp av samma autentiseringsuppgifter, API:er, verktyg och fakturering som för dina andra Azure-tjänster.
+Domain Name System (DNS) översätter eller matchar en webbplats eller ett tjänst namn till dess IP-adress. Azure DNS är en värd tjänst för DNS-domäner. Den ger namn matchning med hjälp av Microsoft Azure-infrastrukturen. Genom att använda Azure som värd för dina domäner kan du hantera dina DNS-poster med hjälp av samma autentiseringsuppgifter, API:er, verktyg och fakturering som för dina andra Azure-tjänster.
 
-DNS domains in Azure DNS are hosted on the Azure global network of DNS name servers. This system uses Anycast networking so that each DNS query is answered by the closest available DNS server. Azure DNS provides fast performance and high availability for your domain.
+DNS-domäner i Azure DNS finns i Azures globala nätverk med DNS-namnservrar. Det här systemet använder anycast-nätverk så att varje DNS-fråga besvaras av den närmast tillgängliga DNS-servern. Azure DNS ger snabb prestanda och hög tillgänglighet för din domän.
 
-Azure DNS is based on Azure Resource Manager. Azure DNS benefits from Resource Manager features such as role-based access control, audit logs, and resource locking. You can manage domains and records via the Azure portal, Azure PowerShell cmdlets, and the cross-platform Azure CLI. Applications that require automatic DNS management can integrate with the service via the REST API and SDKs.
+Azure DNS baseras på Azure Resource Manager. Azure DNS fördelarna med Resource Manager-funktioner som rollbaserad åtkomst kontroll, gransknings loggar och resurs låsning. Du kan hantera domäner och poster via Azure Portal, Azure PowerShell-cmdletar och plattforms oberoende Azure CLI. Program som kräver automatisk DNS-hantering kan integreras med tjänsten via REST API och SDK: er.
 
-### <a name="how-much-does-azure-dns-cost"></a>How much does Azure DNS cost?
+### <a name="how-much-does-azure-dns-cost"></a>Hur mycket kostar Azure DNS?
 
-The Azure DNS billing model is based on the number of DNS zones hosted in Azure DNS. It's also based on the number of DNS queries they receive. Discounts are provided based on usage.
+Azure DNS fakturerings modell baseras på antalet DNS-zoner som finns i Azure DNS. Den baseras också på antalet DNS-frågor som de får. Rabatter tillhandahålls utifrån användning.
 
-For more information, see the [Azure DNS pricing page](https://azure.microsoft.com/pricing/details/dns/).
+Mer information finns på sidan med [Azure DNS priser](https://azure.microsoft.com/pricing/details/dns/).
 
 ### <a name="what-is-the-sla-for-azure-dns"></a>Vad finns det för serviceavtal för Azure DNS?
 
-Azure guarantees that valid DNS requests receive a response from at least one Azure DNS name server 100% of the time.
+Azure garanterar att giltiga DNS-begäranden får ett svar från minst en Azure DNS namn server 100% av tiden.
 
-For more information, see the [Azure DNS SLA page](https://azure.microsoft.com/support/legal/sla/dns).
+Mer information finns på sidan om [Azure DNS service avtal](https://azure.microsoft.com/support/legal/sla/dns).
 
 ### <a name="what-is-a-dns-zone-is-it-the-same-as-a-dns-domain"></a>Vad är en DNS-zon? Är det detsamma som en DNS-domän? 
 
-A domain is a unique name in the domain name system. Ett exempel kan vara contoso.com.
+En domän är ett unikt namn i domän namn systemet. Ett exempel kan vara contoso.com.
 
-En DNS-zon används som värd för DNS-poster för en viss domän. For example, the domain contoso.com might contain several DNS records. The records might include mail.contoso.com for a mail server and www\.contoso.com for a website. These records are hosted in the DNS zone contoso.com.
+En DNS-zon används som värd åt DNS-posterna för en viss domän. Domänen contoso.com kan till exempel innehålla flera DNS-poster. Posterna kan innehålla mail.contoso.com för en e-postserver och www\.contoso.com för en webbplats. Dessa poster finns i DNS-zonen contoso.com.
 
-A domain name is *just a name*. A DNS zone is a data resource that contains the DNS records for a domain name. Med Azure DNS kan du vara värd för en DNS-zon och hantera DNS-posterna för en domän i Azure. It also provides DNS name servers to answer DNS queries from the Internet.
+Ett domän namn är *bara ett namn*. En DNS-zon är en data resurs som innehåller DNS-poster för ett domän namn. Med Azure DNS kan du vara värd för en DNS-zon och hantera DNS-posterna för en domän i Azure. Den innehåller också DNS-namnservrar för att besvara DNS-frågor från Internet.
 
-### <a name="do-i-need-to-buy-a-dns-domain-name-to-use-azure-dns"></a>Do I need to buy a DNS domain name to use Azure DNS? 
+### <a name="do-i-need-to-buy-a-dns-domain-name-to-use-azure-dns"></a>Måste jag köpa ett DNS-domännamn för att använda Azure DNS? 
 
 Inte nödvändigtvis.
 
-You don't need to buy a domain to host a DNS zone in Azure DNS. Du kan skapa en DNS-zon när som helst utan att äga domännamnet. DNS queries for this zone resolve only if they're directed to the Azure DNS name servers assigned to the zone.
+Du behöver inte köpa en domän som värd för en DNS-zon i Azure DNS. Du kan skapa en DNS-zon när som helst utan att äga domännamnet. DNS-frågor för den här zonen löser endast om de dirigeras till de Azure DNS namnservrar som har tilldelats zonen.
 
-To link your DNS zone into the global DNS hierarchy, you must buy the domain name. Then, DNS queries from anywhere in the world find your DNS zone and answer with your DNS records.
+Om du vill länka DNS-zonen till den globala DNS-hierarkin måste du köpa domän namnet. Sedan kan DNS-frågor var som helst i världen hitta din DNS-zon och svara med dina DNS-poster.
 
-## <a name="azure-dns-features"></a>Azure DNS features
+## <a name="azure-dns-features"></a>Azure DNS funktioner
 
-### <a name="are-there-any-restrictions-when-using-alias-records-for-a-domain-name-apex-with-traffic-manager"></a>Are there any restrictions when using alias records for a domain name apex with Traffic Manager?
+### <a name="are-there-any-restrictions-when-using-alias-records-for-a-domain-name-apex-with-traffic-manager"></a>Finns det några begränsningar när du använder Ali Aset-poster för ett domän namns spetsigt Traffic Manager?
 
-Ja. You must use static public IP addresses with Azure Traffic Manager. Configure the **External endpoint** target by using a static IP address. 
+Ja. Du måste använda statiska offentliga IP-adresser med Azure Traffic Manager. Konfigurera det **externa slut punkts** målet genom att använda en statisk IP-adress. 
 
-### <a name="does-azure-dns-support-dns-based-traffic-routing-or-endpoint-failover"></a>Does Azure DNS support DNS-based traffic routing or endpoint failover?
+### <a name="does-azure-dns-support-dns-based-traffic-routing-or-endpoint-failover"></a>Stöder Azure DNS DNS-baserad trafik dirigering eller slut punkts växling vid fel?
 
-DNS-based traffic routing and endpoint failover are provided by Traffic Manager. Traffic Manager is a separate Azure service that can be used with Azure DNS. For more information, see the [Traffic Manager overview](../traffic-manager/traffic-manager-overview.md).
+DNS-baserad trafik dirigering och slut punkts växling tillhandahålls av Traffic Manager. Traffic Manager är en separat Azure-tjänst som kan användas med Azure DNS. Mer information finns i [Översikt över Traffic Manager](../traffic-manager/traffic-manager-overview.md).
 
-Azure DNS only supports hosting static DNS domains, where each DNS query for a given DNS record always receives the same DNS response.
+Azure DNS stöder bara värdbaserade statiska DNS-domäner, där varje DNS-fråga för en specifik DNS-post alltid får samma DNS-svar.
 
-### <a name="does-azure-dns-support-domain-name-registration"></a>Does Azure DNS support domain name registration?
+### <a name="does-azure-dns-support-domain-name-registration"></a>Stöder Azure DNS domän namns registrering?
 
-Nej. Azure DNS doesn't currently support the option to buy domain names. To buy domains, you must use a third-party domain name registrar. The registrar typically charges a small annual fee. The domains then can be hosted in Azure DNS for management of DNS records. Mer information finns i [Delegera en domän till Azure DNS](dns-domain-delegation.md).
+Nej. Azure DNS stöder för närvarande inte alternativet att köpa domän namn. Om du vill köpa domäner måste du använda en domän namns registrator från tredje part. Registratorn debiterar vanligt vis en liten års avgift. Domänerna kan sedan ligga i Azure DNS för hantering av DNS-poster. Mer information finns i [Delegera en domän till Azure DNS](dns-domain-delegation.md).
 
-The feature to buy domain names is tracked in the Azure backlog. Use the feedback site to [register your support for this feature](https://feedback.azure.com/forums/217313-networking/suggestions/4996615-azure-should-be-its-own-domain-registrar).
+Funktionen för att köpa domän namn spåras i Azures efter släpning. Använd feedback-webbplatsen för att [Registrera ditt stöd för den här funktionen](https://feedback.azure.com/forums/217313-networking/suggestions/4996615-azure-should-be-its-own-domain-registrar).
 
-### <a name="does-azure-dns-support-dnssec"></a>Does Azure DNS support DNSSEC?
+### <a name="does-azure-dns-support-dnssec"></a>Stöder Azure DNS DNSSEC?
 
-Nej. Azure DNS doesn't currently support the Domain Name System Security Extensions (DNSSEC).
+Nej. Azure DNS stöder för närvarande inte DNSSEC (Domain Name System Security Extensions).
 
-The DNSSEC feature is tracked in the Azure DNS backlog. Use the feedback site to [register your support for this feature](https://feedback.azure.com/forums/217313-networking/suggestions/13284393-azure-dns-needs-dnssec-support).
+DNSSEC-funktionen spåras i Azure DNS efter släpning. Använd feedback-webbplatsen för att [Registrera ditt stöd för den här funktionen](https://feedback.azure.com/forums/217313-networking/suggestions/13284393-azure-dns-needs-dnssec-support).
 
-### <a name="does-azure-dns-support-zone-transfers-axfrixfr"></a>Does Azure DNS support zone transfers (AXFR/IXFR)?
+### <a name="does-azure-dns-support-zone-transfers-axfrixfr"></a>Stöder Azure DNS zon överföringar (AXFR/IXFR)?
 
-Nej. Azure DNS doesn't currently support zone transfers. DNS zones can be [imported into Azure DNS by using the Azure CLI](dns-import-export.md). DNS records are managed via the [Azure DNS management portal](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/az.dns), [SDK](dns-sdk.md), [PowerShell cmdlets](dns-operations-recordsets.md), or the [CLI tool](dns-operations-recordsets-cli.md).
+Nej. Azure DNS stöder för närvarande zon överföringar. DNS-zoner kan [importeras till Azure DNS med hjälp av Azure CLI](dns-import-export.md). DNS-poster hanteras via [Azure DNS hanterings Portal](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/az.dns), [SDK](dns-sdk.md), [PowerShell-cmdletar](dns-operations-recordsets.md)eller [CLI-verktyget](dns-operations-recordsets-cli.md).
 
-The zone transfer feature is tracked in the Azure DNS backlog. Use the feedback site to [register your support for this feature](https://feedback.azure.com/forums/217313-networking/suggestions/12925503-extend-azure-dns-to-support-zone-transfers-so-it-c).
+Zon överförings funktionen spåras i Azure DNS efter släpning. Använd feedback-webbplatsen för att [Registrera ditt stöd för den här funktionen](https://feedback.azure.com/forums/217313-networking/suggestions/12925503-extend-azure-dns-to-support-zone-transfers-so-it-c).
 
-### <a name="does-azure-dns-support-url-redirects"></a>Does Azure DNS support URL redirects?
+### <a name="does-azure-dns-support-url-redirects"></a>Omdirigerar Azure DNS URL: er för support?
 
-Nej. URL redirect services aren't a DNS service. They work at the HTTP level rather than the DNS level. Some DNS providers bundle a URL redirect service as part of their overall offering. This service isn't currently supported by Azure DNS.
+Nej. URL-omdirigerings tjänster är inte en DNS-tjänst. De fungerar på HTTP-nivå i stället för DNS-nivån. Vissa DNS-providrar är en URL-Omdirigerad tjänst som en del av det övergripande erbjudandet. Den här tjänsten stöds för närvarande inte av Azure DNS.
 
-The URL redirect feature is tracked in the Azure DNS backlog. Use the feedback site to [register your support for this feature](https://feedback.azure.com/forums/217313-networking/suggestions/10109736-provide-a-301-permanent-redirect-service-for-ape).
+Funktionen URL-omdirigering spåras i Azure DNS efter släpning. Använd feedback-webbplatsen för att [Registrera ditt stöd för den här funktionen](https://feedback.azure.com/forums/217313-networking/suggestions/10109736-provide-a-301-permanent-redirect-service-for-ape).
 
-### <a name="does-azure-dns-support-the-extended-ascii-encoding-8-bit-set-for-txt-record-sets"></a>Does Azure DNS support the extended ASCII encoding (8-bit) set for TXT record sets?
+### <a name="does-azure-dns-support-the-extended-ascii-encoding-8-bit-set-for-txt-record-sets"></a>Stöder Azure DNS Utökad ASCII-kodning (8-bitars) för TXT-postuppsättningar?
 
-Ja. Azure DNS supports the extended ASCII encoding set for TXT record sets. But you must use the latest version of the Azure REST APIs, SDKs, PowerShell, and the CLI. Versions older than October 1, 2017, or SDK 2.1 don't support the extended ASCII set. 
+Ja. Azure DNS stöder utökade ASCII-teckenuppsättningar för TXT-postuppsättningar. Men du måste använda den senaste versionen av Azure REST-API: er, SDK: er, PowerShell och CLI. Versioner som är äldre än 1 oktober 2017 eller SDK 2,1 stöder inte den utökade ASCII-uppsättningen. 
 
-For example, you might provide a string as the value for a TXT record that has the extended ASCII character \128. An example is "abcd\128efgh." Azure DNS uses the byte value of this character, which is 128, in internal representation. At the time of DNS resolution, this byte value is returned in the response. Also note that "abc" and "\097\098\099" are interchangeable as far as resolution is concerned. 
+Du kan till exempel ange en sträng som värde för en TXT-post som har det utökade ASCII-tecken \ 128. Ett exempel är "abcd\128efgh." Azure DNS använder byte-värdet för det här specialtecknet, som är 128, i intern representation. Vid DNS-matchning returneras det här byte-värdet i svaret. Observera också att "ABC" och "\ 097 \ 098 \ 099" är utbytbara i mån av en lösning. 
 
-We follow [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) zone file master format escape rules for TXT records. For example, `\` now actually escapes everything per the RFC. If you specify `A\B` as the TXT record value, it's represented and resolved as just `AB`. If you really want the TXT record to have `A\B` at resolution, you need to escape the `\` again. As an example, specify `A\\B`.
+Vi följer [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) Zone File Master format Escape Rules for TXT-poster. `\` kan nu faktiskt till exempel undanta allt enligt RFC. Om du anger `A\B` som TXT-postvärdet representeras och löses det som bara `AB`. Om du verkligen vill att TXT-posten ska ha `A\B` vid en upplösning måste du undanta `\` igen. Exempel: Ange `A\\B`.
 
-This support currently isn't available for TXT records created from the Azure portal.
+Det här stödet är för närvarande inte tillgängligt för TXT-poster som skapats från Azure Portal.
 
 ## <a name="alias-records"></a>Aliasposter
 
-### <a name="what-are-some-scenarios-where-alias-records-are-useful"></a>What are some scenarios where alias records are useful?
+### <a name="what-are-some-scenarios-where-alias-records-are-useful"></a>Vad är några scenarier där Ali Asets poster är användbara?
 
-See the scenarios section in the [Azure DNS alias records overview](dns-alias.md).
+Se avsnittet scenarier i [Översikt över Azure DNS Ali Aset-poster](dns-alias.md).
 
-### <a name="what-record-types-are-supported-for-alias-record-sets"></a>What record types are supported for alias record sets?
+### <a name="what-record-types-are-supported-for-alias-record-sets"></a>Vilka post typer stöds för Alian ost post uppsättningar?
 
-Alias record sets are supported for the following record types in an Azure DNS zone:
+Alias post uppsättningar stöds för följande post typer i en Azure DNS zon:
  
 - A 
 - AAAA
 - CNAME 
 
-### <a name="what-resources-are-supported-as-targets-for-alias-record-sets"></a>What resources are supported as targets for alias record sets?
+### <a name="what-resources-are-supported-as-targets-for-alias-record-sets"></a>Vilka resurser stöds som mål för post uppsättningar för Ali Aset?
 
-- **Point to a public IP resource from a DNS A/AAAA record set.** You can create an A/AAAA record set and make it an alias record set to point to a public IP resource.
-- **Point to a Traffic Manager profile from a DNS A/AAAA/CNAME record set.** You can point to the CNAME of a Traffic Manager profile from a DNS CNAME record set. An example is contoso.trafficmanager.net. Now, you also can point to a Traffic Manager profile that has external endpoints from an A or AAAA record set in your DNS zone.
-- **Point to an Azure Content Delivery Network (CDN) endpoint**. This is useful when you create static websites using Azure storage and Azure CDN.
-- **Point to another DNS record set within the same zone.** Alias records can reference to other record sets of the same type. Du kan till exempel låta en DNS CNAME-postuppsättning vara ett alias för en annan CNAME-postuppsättning av samma typ. This arrangement is useful if you want some record sets to be aliases and some non-aliases.
+- **Peka på en offentlig IP-resurs från en DNS A/AAAA-postuppsättning.** Du kan skapa en A/AAAA-postuppsättning och göra den till en angiven aliasresurspost som pekar på en offentlig IP-resurs.
+- **Peka på en Traffic Manager profil från en post uppsättning för DNS A/AAAA/CNAME.** Du kan peka på CNAME-Traffic Manager profil från en DNS CNAME-postuppsättning. Ett exempel är contoso.trafficmanager.net. Nu kan du också peka på en Traffic Manager profil som har externa slut punkter från en A-eller AAAA-postuppsättning i din DNS-zon.
+- **Peka på en Azure Content Delivery Network-slutpunkt (CDN)** . Detta är användbart när du skapar statiska webbplatser med hjälp av Azure Storage och Azure CDN.
+- **Peka på en annan DNS-post uppsättning inom samma zon.** Alias poster kan referera till andra post uppsättningar av samma typ. Du kan till exempel låta en DNS CNAME-postuppsättning vara ett alias för en annan CNAME-postuppsättning av samma typ. Den här ordningen är användbar om du vill att vissa post uppsättningar ska vara alias och vissa icke-alias.
 
-### <a name="can-i-create-and-update-alias-records-from-the-azure-portal"></a>Can I create and update alias records from the Azure portal?
+### <a name="can-i-create-and-update-alias-records-from-the-azure-portal"></a>Kan jag skapa och uppdatera Ali Asets poster från Azure Portal?
 
-Ja. You can create or manage alias records in the Azure portal along with the Azure REST APIs, PowerShell, the CLI, and SDKs.
+Ja. Du kan skapa eller hantera Ali Aset-poster i Azure Portal tillsammans med Azure REST-API: er, PowerShell, CLI och SDK: er.
 
-### <a name="will-alias-records-help-to-make-sure-my-dns-record-set-is-deleted-when-the-underlying-public-ip-is-deleted"></a>Will alias records help to make sure my DNS record set is deleted when the underlying public IP is deleted?
+### <a name="will-alias-records-help-to-make-sure-my-dns-record-set-is-deleted-when-the-underlying-public-ip-is-deleted"></a>Kommer det att finnas poster som hjälper till att kontrol lera att min DNS-uppsättning tas bort när den underliggande offentliga IP-adressen tas bort?
 
-Ja. This feature is one of the core capabilities of alias records. It helps you avoid potential outages for users of your application.
+Ja. Den här funktionen är en av kärn funktionerna i Ali Aset-poster. Det hjälper dig att undvika potentiella avbrott för användare av ditt program.
 
-### <a name="will-alias-records-help-to-make-sure-my-dns-record-set-is-updated-to-the-correct-ip-address-when-the-underlying-public-ip-address-changes"></a>Will alias records help to make sure my DNS record set is updated to the correct IP address when the underlying public IP address changes?
+### <a name="will-alias-records-help-to-make-sure-my-dns-record-set-is-updated-to-the-correct-ip-address-when-the-underlying-public-ip-address-changes"></a>Kommer det att finnas poster för att kontrol lera att min DNS-postuppsättning har uppdaterats till rätt IP-adress när den underliggande offentliga IP-adressen ändras?
 
-Ja. This feature is one of the core capabilities of alias records. It helps you avoid potential outages or security risks for your application.
+Ja. Den här funktionen är en av kärn funktionerna i Ali Aset-poster. Det hjälper dig att undvika potentiella avbrott eller säkerhets risker för ditt program.
 
-### <a name="are-there-any-restrictions-when-using-alias-record-sets-for-a-or-aaaa-records-to-point-to-traffic-manager"></a>Are there any restrictions when using alias record sets for A or AAAA records to point to Traffic Manager?
+### <a name="are-there-any-restrictions-when-using-alias-record-sets-for-a-or-aaaa-records-to-point-to-traffic-manager"></a>Finns det några begränsningar när du använder Alian A post uppsättningar för A-eller AAAA-poster för att peka på Traffic Manager?
 
-Ja. To point to a Traffic Manager profile as an alias from an A or AAAA record set, the Traffic Manager profile must use only external endpoints. When you create the external endpoints in Traffic Manager, provide the actual IP addresses of the endpoints.
+Ja. För att peka på en Traffic Manager-profil som ett alias från en A-eller AAAA-postuppsättning får Traffic Manager profilen endast använda externa slut punkter. När du skapar de externa slut punkterna i Traffic Manager anger du slut punkternas faktiska IP-adresser.
 
-### <a name="is-there-an-additional-charge-to-use-alias-records"></a>Is there an additional charge to use alias records?
+### <a name="is-there-an-additional-charge-to-use-alias-records"></a>Finns det ytterligare kostnad för att använda Ali Aset-poster?
 
-Alias records are a qualification on a valid DNS record set. There's no additional billing for alias records.
+Ali Aset är en kvalificering på en giltig DNS-postuppsättning. Det finns ingen ytterligare fakturering för Ali Aset-poster.
 
-## <a name="use-azure-dns"></a>Use Azure DNS
+## <a name="use-azure-dns"></a>Använd Azure DNS
 
-### <a name="can-i-co-host-a-domain-by-using-azure-dns-and-another-dns-provider"></a>Can I co-host a domain by using Azure DNS and another DNS provider?
+### <a name="can-i-co-host-a-domain-by-using-azure-dns-and-another-dns-provider"></a>Kan jag kombinera en domän med hjälp av Azure DNS och en annan DNS-Provider?
 
-Ja. Azure DNS supports co-hosting domains with other DNS services.
+Ja. Azure DNS stöder samvärdande domäner med andra DNS-tjänster.
 
-To set up co-hosting, modify the NS records for the domain to point to the name servers of both providers. The name server (NS) records control which providers receive DNS queries for the domain. You can modify these NS records in Azure DNS, in the other provider, and in the parent zone. The parent zone is typically configured via the domain name registrar. For more information on DNS delegation, see [DNS domain delegation](dns-domain-delegation.md).
+Om du vill konfigurera Co-hosting ändrar du NS-posterna för domänen så att de pekar på namnservrarna för båda providern. Namnserver posterna styr vilka providrar som tar emot DNS-frågor för domänen. Du kan ändra dessa NS-poster i Azure DNS, i den andra providern och i den överordnade zonen. Den överordnade zonen konfigureras vanligt vis via domän namns registratorn. Mer information om DNS-delegering finns i [delegering av DNS-domän](dns-domain-delegation.md).
 
-Also, make sure that the DNS records for the domain are in sync between both DNS providers. Azure DNS doesn't currently support DNS zone transfers. DNS records must be synchronized by using either the [Azure DNS management portal](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/az.dns), [SDK](dns-sdk.md), [PowerShell cmdlets](dns-operations-recordsets.md), or the [CLI tool](dns-operations-recordsets-cli.md).
+Kontrol lera också att DNS-posterna för domänen är synkroniserade mellan båda DNS-leverantörerna. Azure DNS stöder för närvarande inte överföring av DNS-zoner. DNS-poster måste synkroniseras med hjälp av antingen [Azure DNS hanterings Portal](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/az.dns), [SDK](dns-sdk.md), [PowerShell-cmdletar](dns-operations-recordsets.md)eller [CLI-verktyget](dns-operations-recordsets-cli.md).
 
-### <a name="do-i-have-to-delegate-my-domain-to-all-four-azure-dns-name-servers"></a>Do I have to delegate my domain to all four Azure DNS name servers?
+### <a name="do-i-have-to-delegate-my-domain-to-all-four-azure-dns-name-servers"></a>Måste jag delegera min domän till alla fyra Azure DNS namnservrar?
 
-Ja. Azure DNS assigns four name servers to each DNS zone. This arrangement is for fault isolation and increased resilience. To qualify for the Azure DNS SLA, delegate your domain to all four name servers.
+Ja. Azure DNS tilldelar fyra namnservrar till varje DNS-zon. Detta avtal är för fel isolering och ökad återhämtning. Delegera din domän till alla fyra namnservrar för att kvalificera dig för Azure DNS service avtal.
 
-### <a name="what-are-the-usage-limits-for-azure-dns"></a>What are the usage limits for Azure DNS?
+### <a name="what-are-the-usage-limits-for-azure-dns"></a>Vilka är användnings gränserna för Azure DNS?
 
-The following default limits apply when you use Azure DNS.
+Följande standard gränser gäller när du använder Azure DNS.
 
 [!INCLUDE [dns-limits](../../includes/dns-limits.md)]
 
-### <a name="can-i-move-an-azure-dns-zone-between-resource-groups-or-between-subscriptions"></a>Can I move an Azure DNS zone between resource groups or between subscriptions?
+### <a name="can-i-move-an-azure-dns-zone-between-resource-groups-or-between-subscriptions"></a>Kan jag flytta en Azure DNS zon mellan resurs grupper eller mellan prenumerationer?
 
-Ja. DNS zones can be moved between resource groups or between subscriptions.
+Ja. DNS-zoner kan flyttas mellan resurs grupper eller mellan prenumerationer.
 
-There's no effect on DNS queries when you move a DNS zone. The name servers assigned to the zone stay the same. DNS queries are processed as normal throughout.
+Det finns ingen inverkan på DNS-frågor när du flyttar en DNS-zon. Namnservrarna som tilldelas zonen förblir desamma. DNS-frågor bearbetas som normalt i hela.
 
-For more information and instructions on how to move DNS zones, see [Move resources to a new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
+Mer information och anvisningar om hur du flyttar DNS-zoner finns i [Flytta resurser till en ny resurs grupp eller prenumeration](../azure-resource-manager/resource-group-move-resources.md).
 
-### <a name="how-long-does-it-take-for-dns-changes-to-take-effect"></a>How long does it take for DNS changes to take effect?
+### <a name="how-long-does-it-take-for-dns-changes-to-take-effect"></a>Hur lång tid tar det för DNS-ändringar att gälla?
 
-New DNS zones and DNS records typically appear in the Azure DNS name servers quickly. The timing is a few seconds.
+Nya DNS-zoner och DNS-poster visas vanligt vis i Azure DNS namnservrar. Tids inställningen är några sekunder.
 
-Changes to existing DNS records can take a little longer. They typically appear in the Azure DNS name servers within 60 seconds. DNS caching by DNS clients and DNS recursive resolvers outside of Azure DNS also can affect timing. To control this cache duration, use the Time-To-Live (TTL) property of each record set.
+Det kan ta lite längre tid att ändra befintliga DNS-poster. De visas vanligt vis i Azure DNS namnservrar inom 60 sekunder. DNS-cachelagring av DNS-klienter och rekursiva DNS-matchare utanför Azure DNS kan också påverka tiden. Använd TTL-egenskapen (Time-to-Live) för varje post uppsättning för att kontrol lera den här cachens varaktighet.
 
-### <a name="how-can-i-protect-my-dns-zones-against-accidental-deletion"></a>How can I protect my DNS zones against accidental deletion?
+### <a name="how-can-i-protect-my-dns-zones-against-accidental-deletion"></a>Hur kan jag skydda mina DNS-zoner mot oavsiktlig borttagning?
 
-Azure DNS is managed by using Azure Resource Manager. Azure DNS benefits from the access control features that Azure Resource Manager provides. Role-based access control controls which users have read or write access to DNS zones and record sets. Resource locks prevent accidental modification or deletion of DNS zones and record sets.
+Azure DNS hanteras med hjälp av Azure Resource Manager. Azure DNS fördelarna med de funktioner för åtkomst kontroll som Azure Resource Manager tillhandahåller. Rollbaserad åtkomst kontroll styr vilka användare som har Läs-eller Skriv behörighet till DNS-zoner och post uppsättningar. Resurs lås förhindrar oavsiktlig ändring eller borttagning av DNS-zoner och post uppsättningar.
 
-For more information, see [Protect DNS zones and records](dns-protect-zones-recordsets.md).
+Mer information finns i [skydda DNS-zoner och-poster](dns-protect-zones-recordsets.md).
 
-### <a name="how-do-i-set-up-spf-records-in-azure-dns"></a>How do I set up SPF records in Azure DNS?
+### <a name="how-do-i-set-up-spf-records-in-azure-dns"></a>Hur gör jag för att skapar du SPF-poster i Azure DNS?
 
 [!INCLUDE [dns-spf-include](../../includes/dns-spf-include.md)]
 
-### <a name="do-azure-dns-name-servers-resolve-over-ipv6"></a>Do Azure DNS name servers resolve over IPv6? 
+### <a name="do-azure-dns-name-servers-resolve-over-ipv6"></a>Matchar Azure DNS namnservrar över IPv6? 
 
-Ja. Azure DNS name servers are dual stack. Dual stack means they have IPv4 and IPv6 addresses. To find the IPv6 address for the Azure DNS name servers assigned to your DNS zone, use a tool such as nslookup. Ett exempel är `nslookup -q=aaaa <Azure DNS Nameserver>`.
+Ja. Azure DNS namnservrar är dubbla stackar. Dubbla stackar innebär att de har IPv4-och IPv6-adresser. Använd ett verktyg som nslookup för att hitta IPv6-adressen för de Azure DNS namnservrarna som tilldelats din DNS-zon. Ett exempel är `nslookup -q=aaaa <Azure DNS Nameserver>`.
 
-### <a name="how-do-i-set-up-an-idn-in-azure-dns"></a>How do I set up an IDN in Azure DNS?
+### <a name="how-do-i-set-up-an-idn-in-azure-dns"></a>Hur gör jag för att konfigurera ett IDN i Azure DNS?
 
-Internationalized domain names (IDNs) encode each DNS name by using [punycode](https://en.wikipedia.org/wiki/Punycode). DNS queries are made by using these punycode-encoded names.
+Internationella domän namn (IDN) koda varje DNS-namn med hjälp av [punycode](https://en.wikipedia.org/wiki/Punycode). DNS-frågor görs med hjälp av dessa punycode-kodade namn.
 
-To configure IDNs in Azure DNS, convert the zone name or record set name to punycode. Azure DNS doesn't currently support built-in conversion to or from punycode.
+Om du vill konfigurera IDN: er i Azure DNS konverterar du zon namnet eller post uppsättnings namnet till Punycode. Azure DNS stöder för närvarande inte inbyggd konvertering till eller från Punycode.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Learn more about Azure DNS](dns-overview.md).
+- [Läs mer om Azure DNS](dns-overview.md).
 
-- [Learn more about how to use Azure DNS for private domains](private-dns-overview.md).
+- [Lär dig mer om hur du använder Azure DNS för privata domäner](private-dns-overview.md).
 
-- [Learn more about DNS zones and records](dns-zones-records.md).
+- [Läs mer om DNS-zoner och-poster](dns-zones-records.md).
 
-- [Get started with Azure DNS](dns-getstarted-portal.md).
+- [Kom igång med Azure DNS](dns-getstarted-portal.md).

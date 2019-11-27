@@ -1,6 +1,6 @@
 ---
-title: Manage DNS record sets and records with Azure DNS
-description: Azure DNS provides the capability to manage DNS record sets and records when hosting your domain.
+title: Hantera DNS-postuppsättningar och-poster med Azure DNS
+description: Azure DNS ger möjlighet att hantera DNS-postuppsättningar och-poster när du är värd för din domän.
 services: dns
 author: asudbring
 ms.service: dns
@@ -14,102 +14,102 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74211787"
 ---
-# <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Manage DNS records and record sets by using the Azure portal
+# <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Hantera DNS-poster och post uppsättningar med hjälp av Azure Portal
 
-This article shows you how to manage record sets and records for your DNS zone by using the Azure portal.
+Den här artikeln visar hur du hanterar post uppsättningar och poster för din DNS-zon med hjälp av Azure Portal.
 
-It's important to understand the difference between DNS record sets and individual DNS records. A record set is a collection of records in a zone that have the same name and are the same type. For more information, see [Create DNS record sets and records by using the Azure portal](dns-getstarted-create-recordset-portal.md).
+Det är viktigt att förstå skillnaden mellan DNS-postuppsättningar och enskilda DNS-poster. En post uppsättning är en samling poster i en zon som har samma namn och är av samma typ. Mer information finns i [Skapa DNS-postuppsättningar och poster med hjälp av Azure Portal](dns-getstarted-create-recordset-portal.md).
 
-## <a name="create-a-new-record-set-and-record"></a>Create a new record set and record
+## <a name="create-a-new-record-set-and-record"></a>Skapa en ny post uppsättning och post
 
-To create a record set in the Azure portal, see [Create DNS records by using the Azure portal](dns-getstarted-create-recordset-portal.md).
+Om du vill skapa en post uppsättning i Azure Portal, se [Skapa DNS-poster med hjälp av Azure Portal](dns-getstarted-create-recordset-portal.md).
 
-## <a name="view-a-record-set"></a>View a record set
+## <a name="view-a-record-set"></a>Visa en post uppsättning
 
-1. In the Azure portal, go to the **DNS zone** blade.
-2. Search for the record set and select it. This opens the record set properties.
+1. Gå till bladet **DNS-zon** i Azure Portal.
+2. Sök efter post uppsättningen och markera den. Detta öppnar egenskaperna för post uppsättningen.
 
-    ![Search for a record set](./media/dns-operations-recordsets-portal/searchset500.png)
+    ![Sök efter en post uppsättning](./media/dns-operations-recordsets-portal/searchset500.png)
 
-## <a name="add-a-new-record-to-a-record-set"></a>Add a new record to a record set
+## <a name="add-a-new-record-to-a-record-set"></a>Lägg till en ny post i en post uppsättning
 
-You can add up to 20 records to any record set. A record set cannot contain two identical records. Empty record sets (with zero records) can be created, but do not appear on the Azure DNS name servers. Record sets of type CNAME can contain one record at most.
+Du kan lägga till upp till 20 poster i alla post uppsättningar. En post uppsättning får inte innehålla två identiska poster. Tomma post uppsättningar (med noll poster) kan skapas, men visas inte på Azure DNS namnservrar. Post uppsättningar av typen CNAME kan innehålla en post högst.
 
-1. On the **Record set properties** blade for your DNS zone, click the record set that you want to add a record to.
+1. På bladet för **post uppsättningens egenskaper** för din DNS-zon klickar du på den post uppsättning som du vill lägga till en post i.
 
-    ![Select a record set](./media/dns-operations-recordsets-portal/selectset500.png)
+    ![Välj en post uppsättning](./media/dns-operations-recordsets-portal/selectset500.png)
 
-2. Specify the record set properties by filling in the fields.
+2. Ange egenskaperna för post uppsättningen genom att fylla i fälten.
 
-    ![Add a record](./media/dns-operations-recordsets-portal/addrecord500.png)
+    ![Lägg till en post](./media/dns-operations-recordsets-portal/addrecord500.png)
 
-3. Click **Save** at the top of the blade to save your settings. Then close the blade.
-4. In the corner, you will see that the record is saving.
+3. Spara inställningarna genom att klicka på **Spara** överst på bladet. Stäng sedan bladet.
+4. I hörnet visas att posten sparas.
 
-    ![Saving record set](./media/dns-operations-recordsets-portal/saving150.png)
+    ![Sparar uppsättning av poster](./media/dns-operations-recordsets-portal/saving150.png)
 
-After the record has been saved, the values on the **DNS zone** blade will reflect the new record.
+När posten har sparats kommer värdena på bladet **DNS-zon** att återspegla den nya posten.
 
-## <a name="update-a-record"></a>Update a record
+## <a name="update-a-record"></a>Uppdatera en post
 
-When you update a record in an existing record set, the fields you can update depend on the type of record you're working with.
+När du uppdaterar en post i en befintlig post uppsättning beror de fält som du kan uppdatera beroende på vilken typ av post du arbetar med.
 
-1. On the **Record set properties** blade for your record set, search for the record.
-2. Modify the record. When you modify a record, you can change the available settings for the record. In the following example, the **IP address** field is selected, and the IP address is in the process of being modified.
+1. Sök efter posten på bladet **post uppsättnings egenskaper** för din post uppsättning.
+2. Ändra posten. När du ändrar en post kan du ändra de tillgängliga inställningarna för posten. I följande exempel är fältet **IP-adress** MARKERAT och IP-adressen håller på att ändras.
 
-    ![Modify a record](./media/dns-operations-recordsets-portal/modifyrecord500.png)
+    ![Ändra en post](./media/dns-operations-recordsets-portal/modifyrecord500.png)
 
-3. Click **Save** at the top of the blade to save your settings. In the upper right corner, you'll see the notification that the record has been saved.
+3. Spara inställningarna genom att klicka på **Spara** överst på bladet. I det övre högra hörnet visas ett meddelande om att posten har sparats.
 
-    ![Saved record set](./media/dns-operations-recordsets-portal/saved150.png)
+    ![Sparad uppsättning av poster](./media/dns-operations-recordsets-portal/saved150.png)
 
-After the record has been saved, the values for the record set on the **DNS zone** blade will reflect the updated record.
+När posten har sparats kommer värdena för post uppsättningen på bladet **DNS-zon** att återspegla den uppdaterade posten.
 
-## <a name="remove-a-record-from-a-record-set"></a>Remove a record from a record set
+## <a name="remove-a-record-from-a-record-set"></a>Ta bort en post från en post uppsättning
 
-You can use the Azure portal to remove records from a record set. Note that removing the last record from a record set does not delete the record set.
+Du kan använda Azure Portal för att ta bort poster från en post uppsättning. Observera att om du tar bort den sista posten från en post uppsättning tas inte post uppsättningen bort.
 
-1. On the **Record set properties** blade for your record set, search for the record.
-2. Click the record that you want to remove. Then select **Remove**.
+1. Sök efter posten på bladet **post uppsättnings egenskaper** för din post uppsättning.
+2. Klicka på den post som du vill ta bort. Välj sedan **ta bort**.
 
-    ![Remove a record](./media/dns-operations-recordsets-portal/removerecord500.png)
+    ![Ta bort en post](./media/dns-operations-recordsets-portal/removerecord500.png)
 
-3. Click **Save** at the top of the blade to save your settings.
-4. After the record has been removed, the values for the record on the **DNS zone** blade will reflect the removal.
+3. Spara inställningarna genom att klicka på **Spara** överst på bladet.
+4. När posten har tagits bort kommer värdena för posten på bladet **DNS-zon** att återspegla borttagningen.
 
-## <a name="delete"></a>Delete a record set
+## <a name="delete"></a>Ta bort en post uppsättning
 
-1. On the **Record set properties** blade for your record set, click **Delete**.
+1. Klicka på **ta bort**på bladet **post uppsättnings egenskaper** för din post uppsättning.
 
-    ![Delete a record set](./media/dns-operations-recordsets-portal/deleterecordset500.PNG)
+    ![Ta bort en post uppsättning](./media/dns-operations-recordsets-portal/deleterecordset500.PNG)
 
-2. A message appears asking if you want to delete the record set.
-3. Verify that the name matches the record set that you want to delete, and then click **Yes**.
-4. On the **DNS zone** blade, verify that the record set is no longer visible.
+2. Ett meddelande visas där du tillfrågas om du vill ta bort post uppsättningen.
+3. Kontrol lera att namnet matchar den post uppsättning som du vill ta bort och klicka sedan på **Ja**.
+4. På bladet **DNS-zon** kontrollerar du att post uppsättningen inte längre visas.
 
-## <a name="work-with-ns-and-soa-records"></a>Work with NS and SOA records
+## <a name="work-with-ns-and-soa-records"></a>Arbeta med NS-och SOA-poster
 
-NS and SOA records that are automatically created are managed differently from other record types.
+NS-och SOA-poster som skapas automatiskt hanteras annorlunda än andra post typer.
 
-### <a name="modify-soa-records"></a>Modify SOA records
+### <a name="modify-soa-records"></a>Ändra SOA-poster
 
-You cannot add or remove records from the automatically created SOA record set at the zone apex (name = "\@"). However, you can modify any of the parameters within the SOA record (except "Host") and the record set TTL.
+Det går inte att lägga till eller ta bort poster från den automatiskt skapade SOA-postuppsättningen vid zonens Apex (namn = "\@"). Du kan dock ändra någon av parametrarna i SOA-posten (förutom "värd") och post uppsättningens TTL.
 
-### <a name="modify-ns-records-at-the-zone-apex"></a>Modify NS records at the zone apex
+### <a name="modify-ns-records-at-the-zone-apex"></a>Ändra NS-poster vid zonens Apex
 
-The NS record set at the zone apex is automatically created with each DNS zone. It contains the names of the Azure DNS name servers assigned to the zone.
+NS-postuppsättningen på zon Apex skapas automatiskt med varje DNS-zon. Den innehåller namnen på de Azure DNS namnservrar som har tilldelats zonen.
 
-You can add additional name servers to this NS record set, to support co-hosting domains with more than one DNS provider. You can also modify the TTL and metadata for this record set. However, you cannot remove or modify the pre-populated Azure DNS name servers.
+Du kan lägga till fler namnservrar i den här NS-postuppsättningen för att stödja samvärdbaserade domäner med fler än en DNS-Provider. Du kan också ändra TTL och metadata för den här post uppsättningen. Du kan dock inte ta bort eller ändra de förifyllda Azure DNS namnservrarna.
 
-Note that this applies only to the NS record set at the zone apex. Other NS record sets in your zone (as used to delegate child zones) can be modified without constraint.
+Observera att detta endast gäller för NS-postuppsättningen i zonens Apex. Andra NS-postuppsättningar i din zon (som används för att delegera underordnade zoner) kan ändras utan begränsning.
 
-### <a name="delete-soa-or-ns-record-sets"></a>Delete SOA or NS record sets
+### <a name="delete-soa-or-ns-record-sets"></a>Ta bort SOA-eller NS-postuppsättningar
 
-You cannot delete the SOA and NS record sets at the zone apex (name = "\@") that are created automatically when the zone is created. They are deleted automatically when you delete the zone.
+Du kan inte ta bort SOA-och NS-postuppsättningarna i zonens Apex (namn = "\@") som skapas automatiskt när zonen skapas. De tas bort automatiskt när du tar bort zonen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* For more information about Azure DNS, see the [Azure DNS overview](dns-overview.md).
-* For more information about automating DNS, see [Creating DNS zones and record sets using the .NET SDK](dns-sdk.md).
-* For more information about reverse DNS records, see [Overview of reverse DNS and support in Azure](dns-reverse-dns-overview.md).
-* For more information about Azure DNS alias records, see [Azure DNS alias records overview](dns-alias.md).
+* Mer information om Azure DNS finns i [Översikt över Azure DNS](dns-overview.md).
+* Mer information om hur du automatiserar DNS finns i [Skapa DNS-zoner och post uppsättningar med hjälp av .NET SDK](dns-sdk.md).
+* Mer information om omvända DNS-poster finns i [Översikt över omvänd DNS och support i Azure](dns-reverse-dns-overview.md).
+* Mer information om Azure DNS Ali Aset-poster finns i [Översikt över Azure DNS Ali Aset-poster](dns-alias.md).

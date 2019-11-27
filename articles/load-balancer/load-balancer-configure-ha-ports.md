@@ -1,7 +1,7 @@
 ---
-title: Configure High Availability Ports for Azure Load Balancer
+title: Konfigurera portar med hög tillgänglighet för Azure Load Balancer
 titleSuffix: Azure Load Balancer
-description: Learn how to use High Availability Ports for load balancing internal traffic on all ports
+description: Lär dig hur du använder portar med hög tillgänglighet för intern trafik på alla portar för belastningsutjämning
 services: load-balancer
 documentationcenter: na
 author: rdhillon
@@ -21,40 +21,40 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74225409"
 ---
-# <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Configure High Availability Ports for an internal load balancer
+# <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Konfigurera portar med hög tillgänglighet för en intern belastningsutjämnare
 
-This article provides an example deployment of High Availability Ports on an internal load balancer. For more information on configurations specific to network virtual appliances (NVAs), see the corresponding provider websites.
+Den här artikeln innehåller ett exempel på distribution av portar med hög tillgänglighet på en intern belastningsutjämnare. Mer information om konfigurationer som är specifika för virtuella nätverksinstallationer (Nva) finns på motsvarande provider-webbplatser.
 
 >[!NOTE]
->Azures Load Balancer stöder två typer: grundläggande och standard. This article discusses Standard Load Balancer. For more information about Basic Load Balancer, see [Load Balancer overview](load-balancer-overview.md).
+>Azures Load Balancer stöder två typer: grundläggande och standard. Den här artikeln beskriver Standard Load Balancer. Mer information om grundläggande Load Balancer finns i [Load Balancer översikt](load-balancer-overview.md).
 
-The illustration shows the following configuration of the deployment example described in this article:
+Bilden visar följande konfiguration för distribution till exempel i den här artikeln:
 
-- The NVAs are deployed in the back-end pool of an internal load balancer behind the High Availability Ports configuration. 
-- The user-defined route (UDR) applied on the DMZ subnet routes all traffic to the NVAs by making the next hop as the internal load balancer virtual IP. 
-- The internal load balancer distributes the traffic to one of the active NVAs according to the load balancer algorithm.
-- The NVA processes the traffic and forwards it to the original destination in the back-end subnet.
-- The return path can take the same route if a corresponding UDR is configured in the back-end subnet. 
+- Nva: erna har distribuerats i backend-poolen med en intern belastningsutjämnare bakom konfigurationen portar med hög tillgänglighet. 
+- Den användardefinierade vägen (UDR) tillämpats på undernätvägar DMZ all trafik till nva-enheterna genom att göra nästa hopp som den interna läsa in belastningsutjämnare virtuell IP-adress. 
+- Den interna belastningsutjämnaren distribuerar trafik till en aktiv nva: erna enligt algoritmen load balancer.
+- NVA behandlar trafiken och vidarebefordrar det till det ursprungliga målet i backend-undernät.
+- Den returnera sökvägen kan ta samma väg om en motsvarande UDR konfigureras på backend-undernät. 
 
-![High Availability Ports example deployment](./media/load-balancer-configure-ha-ports/haports.png)
+![Exempel på distribution portar med hög tillgänglighet](./media/load-balancer-configure-ha-ports/haports.png)
 
-## <a name="configure-high-availability-ports"></a>Configure High Availability Ports
+## <a name="configure-high-availability-ports"></a>Konfigurera portar med hög tillgänglighet
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-To configure High Availability Ports, set up an internal load balancer with the NVAs in the back-end pool. Set up a corresponding load balancer health probe configuration to detect NVA health and the load balancer rule with High Availability Ports. The general load balancer-related configuration is covered in [Get started](load-balancer-get-started-ilb-arm-portal.md). This article highlights the High Availability Ports configuration.
+Konfigurera portar med hög tillgänglighet genom att ställa in en intern belastningsutjämnare med nva: erna i backend-poolen. Konfigurera en motsvarande hälsotillstånd avsökningen belastningsutjämningskonfigurationen att identifiera NVA hälso- och belastningsutjämningsregel med portar med hög tillgänglighet. Den allmänna belastnings Utjämnings-relaterade konfigurationen beskrivs i [komma igång](load-balancer-get-started-ilb-arm-portal.md). Den här artikeln visar hur portar med hög tillgänglighet.
 
-The configuration essentially involves setting the front-end port and the back-end port value to **0**. Set the protocol value to **All**. This article describes how to configure High Availability Ports by using the Azure portal, PowerShell, and Azure CLI.
+Konfigurationen innebär i princip att ställa in frontend-porten och Server delens port värde till **0**. Ange värdet för protokollet till **alla**. Den här artikeln beskriver hur du konfigurerar portar med hög tillgänglighet med hjälp av de Azure-portalen, PowerShell och Azure CLI.
 
-### <a name="configure-a-high-availability-ports-load-balancer-rule-with-the-azure-portal"></a>Configure a High Availability Ports load balancer rule with the Azure portal
+### <a name="configure-a-high-availability-ports-load-balancer-rule-with-the-azure-portal"></a>Konfigurera en belastningsutjämningsregel för portar med hög tillgänglighet med Azure portal
 
-To configure High Availability Ports by using the Azure portal, select the **HA Ports** check box. When selected, the related port and protocol configuration is automatically populated. 
+Om du vill konfigurera portar med hög tillgänglighet med hjälp av Azure Portal väljer du kryss rutan **ha portar** . När du väljer fylls den relaterade port och protokoll-konfigurationen i automatiskt. 
 
-![High Availability Ports configuration via the Azure portal](./media/load-balancer-configure-ha-ports/haports-portal.png)
+![Konfiguration för portar med hög tillgänglighet via Azure portal](./media/load-balancer-configure-ha-ports/haports-portal.png)
 
-### <a name="configure-a-high-availability-ports-load-balancing-rule-via-the-resource-manager-template"></a>Configure a High Availability Ports load-balancing rule via the Resource Manager template
+### <a name="configure-a-high-availability-ports-load-balancing-rule-via-the-resource-manager-template"></a>Konfigurera en portar med hög tillgänglighet regel belastningsutjämning via Resource Manager-mall
 
-You can configure High Availability Ports by using the 2017-08-01 API version for Microsoft.Network/loadBalancers in the Load Balancer resource. The following JSON snippet illustrates the changes in the load balancer configuration for High Availability Ports via the REST API:
+Du kan konfigurera portar med hög tillgänglighet med hjälp av API-version 2017-08-01 för Microsoft.Network/loadBalancers i Load Balancer-resursen. Följande JSON-kodfragmentet visar ändringarna i belastningsutjämningskonfigurationen för portar med hög tillgänglighet via REST API:
 
 ```json
     {
@@ -85,17 +85,17 @@ You can configure High Availability Ports by using the 2017-08-01 API version fo
     }
 ```
 
-### <a name="configure-a-high-availability-ports-load-balancer-rule-with-powershell"></a>Configure a High Availability Ports load balancer rule with PowerShell
+### <a name="configure-a-high-availability-ports-load-balancer-rule-with-powershell"></a>Konfigurera en belastningsutjämningsregel för portar med hög tillgänglighet med PowerShell
 
-Use the following command to create the High Availability Ports load balancer rule while you create the internal load balancer with PowerShell:
+Använd följande kommando för att skapa belastningsutjämningsregel för portar med hög tillgänglighet när du skapar den interna belastningsutjämnaren med PowerShell:
 
 ```powershell
 lbrule = New-AzLoadBalancerRuleConfig -Name "HAPortsRule" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol "All" -FrontendPort 0 -BackendPort 0
 ```
 
-### <a name="configure-a-high-availability-ports-load-balancer-rule-with-azure-cli"></a>Configure a High Availability Ports load balancer rule with Azure CLI
+### <a name="configure-a-high-availability-ports-load-balancer-rule-with-azure-cli"></a>Konfigurera en belastningsutjämningsregel för portar med hög tillgänglighet med Azure CLI
 
-In step 4 of [Create an internal load balancer set](load-balancer-get-started-ilb-arm-cli.md), use the following command to create the High Availability Ports load balancer rule:
+I steg 4 i [skapa en intern belastnings Utjämnings uppsättning](load-balancer-get-started-ilb-arm-cli.md)använder du följande kommando för att skapa belastnings Utjämnings regeln för hög tillgänglighets port:
 
 ```azurecli
 azure network lb rule create --resource-group contoso-rg --lb-name contoso-ilb --name haportsrule --protocol all --frontend-port 0 --backend-port 0 --frontend-ip-name feilb --backend-address-pool-name beilb
@@ -103,4 +103,4 @@ azure network lb rule create --resource-group contoso-rg --lb-name contoso-ilb -
 
 ## <a name="next-steps"></a>Nästa steg
 
-Learn more about [High Availability Ports](load-balancer-ha-ports-overview.md).
+Läs mer om [portar med hög tillgänglighet](load-balancer-ha-ports-overview.md).

@@ -1,93 +1,93 @@
 ---
-title: Deployment history
-description: Describes how to view Azure Resource Manager deployment operations with the portal, PowerShell, Azure CLI, and REST API.
+title: Distributionshistorik
+description: Beskriver hur du visar Azure Resource Manager distributions åtgärder med portalen, PowerShell, Azure CLI och REST API.
 tags: top-support-issue
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: 23687ddcfb7911a999ee06ac8df8badf341b41d9
 ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74484206"
 ---
-# <a name="view-deployment-history-with-azure-resource-manager"></a>View deployment history with Azure Resource Manager
+# <a name="view-deployment-history-with-azure-resource-manager"></a>Visa distributions historik med Azure Resource Manager
 
-Azure Resource Manager enables you to view your deployment history and examine specific operations in past deployments. You can see the resources that were deployed, and get information about any errors.
+Med Azure Resource Manager kan du Visa distributions historiken och granska vissa åtgärder i tidigare distributioner. Du kan se de resurser som har distribuerats och få information om eventuella fel.
 
-For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md).
+Information om hur du löser specifika distributions fel finns i [lösa vanliga fel när du distribuerar resurser till Azure med Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
-## <a name="portal"></a>Portalen
+## <a name="portal"></a>Portal
 
-To get details about a deployment from the deployment history.
+För att få information om en distribution från distributions historiken.
 
-1. Select the resource group you want to examine.
+1. Välj den resurs grupp som du vill undersöka.
 
-1. Select the link under **Deployments**.
+1. Välj länken under **distributioner**.
 
-   ![Select deployment history](./media/resource-manager-deployment-operations/select-deployment-history.png)
+   ![Välj distributions historik](./media/resource-manager-deployment-operations/select-deployment-history.png)
 
-1. Select one of the deployments from the deployment history.
+1. Välj en av distributionerna från distributions historiken.
 
-   ![Select deployment](./media/resource-manager-deployment-operations/select-details.png)
+   ![Välj distribution](./media/resource-manager-deployment-operations/select-details.png)
 
-1. A summary of the deployment is displayed, including a list of the resources that were deployed.
+1. En sammanfattning av distributionen visas, inklusive en lista över de resurser som har distribuerats.
 
-    ![Deployment summary](./media/resource-manager-deployment-operations/view-deployment-summary.png)
+    ![Distributions Sammanfattning](./media/resource-manager-deployment-operations/view-deployment-summary.png)
 
-1. To view the template used for the deployment, select **Template**. You can download the template to reuse it.
+1. Om du vill visa mallen som används för distributionen väljer du **mall**. Du kan hämta mallen för att återanvända den.
 
-    ![Show template](./media/resource-manager-deployment-operations/show-template-from-history.png)
+    ![Visa mall](./media/resource-manager-deployment-operations/show-template-from-history.png)
 
-1. If your deployment failed, you see an error message. Select the error message for more details.
+1. Om distributionen misslyckades visas ett fel meddelande. Välj fel meddelandet för mer information.
 
-    ![View failed deployment](./media/resource-manager-deployment-operations/show-error.png)
+    ![Visa misslyckad distribution](./media/resource-manager-deployment-operations/show-error.png)
 
-1. The detailed error message is displayed.
+1. Det detaljerade fel meddelandet visas.
 
-    ![View error details](./media/resource-manager-deployment-operations/show-details.png)
+    ![Visa fel information](./media/resource-manager-deployment-operations/show-details.png)
 
-1. The correlation ID is used to track related events, and can be helpful when working with technical support to troubleshoot a deployment.
+1. Korrelations-ID: t används för att spåra relaterade händelser och kan vara till hjälp när du arbetar med teknisk support för att felsöka en distribution.
 
-    ![Get correlation ID](./media/resource-manager-deployment-operations/get-correlation-id.png)
+    ![Hämta korrelations-ID](./media/resource-manager-deployment-operations/get-correlation-id.png)
 
-1. To learn more about the step that failed, select **Operation details**.
+1. Om du vill veta mer om det steg som misslyckades väljer du **Åtgärds information**.
 
-    ![Select deployment operations](./media/resource-manager-deployment-operations/select-deployment-operations.png)
+    ![Välj distributions åtgärder](./media/resource-manager-deployment-operations/select-deployment-operations.png)
 
-1. You see the details for that step of the deployment.
+1. Du ser informationen för det steget i distributionen.
 
-    ![Show operation details](./media/resource-manager-deployment-operations/show-operation-details.png)
+    ![Visa åtgärds information](./media/resource-manager-deployment-operations/show-operation-details.png)
 
 ## <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-To get the overall status of a deployment, use the **Get-AzResourceGroupDeployment** command.
+Använd kommandot **Get-AzResourceGroupDeployment** för att få en distributions övergripande status.
 
 ```azurepowershell-interactive
 Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup
 ```
 
-Or, you can filter the results for only those deployments that have failed.
+Eller så kan du filtrera resultaten för endast de distributioner som har misslyckats.
 
 ```azurepowershell-interactive
 Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
 ```
 
-The correlation ID is used to track related events, and can be helpful when working with technical support to troubleshoot a deployment. To get the correlation ID, use:
+Korrelations-ID: t används för att spåra relaterade händelser och kan vara till hjälp när du arbetar med teknisk support för att felsöka en distribution. Använd följande för att hämta korrelations-ID:
 
 ```azurepowershell-interactive
 (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
 ```
 
-Each deployment includes multiple operations. Each operation represents a step in the deployment process. To discover what went wrong with a deployment, you usually need to see details about the deployment operations. You can see the status of the operations with **Get-AzResourceGroupDeploymentOperation**.
+Varje distribution innehåller flera åtgärder. Varje åtgärd representerar ett steg i distributions processen. För att upptäcka vad som gick fel med en distribution, behöver du vanligt vis se information om distributions åtgärderna. Du kan se status för åtgärderna med **Get-AzResourceGroupDeploymentOperation**.
 
 ```azurepowershell-interactive
 Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName azuredeploy
 ```
 
-Which returns multiple operations with each one in the following format:
+Som returnerar flera åtgärder med var och en i följande format:
 
 ```powershell
 Id             : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.Resources/deployments/Microsoft.Template/operations/A3EB2DA598E0A780
@@ -99,13 +99,13 @@ PropertiesText : {duration:PT23.0227078S, provisioningOperation:Create, provisio
                 serviceRequestId:0196828d-8559-4bf6-b6b8-8b9057cb0e23...}
 ```
 
-To get more details about failed operations, retrieve the properties for operations with **Failed** state.
+Hämta mer information om misslyckade åtgärder genom att hämta egenskaperna för åtgärder med **felaktigt** tillstånd.
 
 ```azurepowershell-interactive
 (Get-AzResourceGroupDeploymentOperation -DeploymentName azuredeploy -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
 ```
 
-Which returns all the failed operations with each one in the following format:
+Vilket returnerar alla misslyckade åtgärder med var och en i följande format:
 
 ```powershell
 provisioningOperation : Create
@@ -121,15 +121,15 @@ targetResource        : @{id=/subscriptions/{guid}/resourceGroups/ExampleGroup/p
                        resourceType=Microsoft.Network/publicIPAddresses; resourceName=myPublicIP}
 ```
 
-Note the serviceRequestId and the trackingId for the operation. The serviceRequestId can be helpful when working with technical support to troubleshoot a deployment. You'll use the trackingId in the next step to focus on a particular operation.
+Notera serviceRequestId och trackingId för åtgärden. ServiceRequestId kan vara till hjälp när du arbetar med teknisk support för att felsöka en distribution. Du använder trackingId i nästa steg för att fokusera på en viss åtgärd.
 
-To get the status message of a particular failed operation, use the following command:
+Använd följande kommando för att hämta status meddelandet för en viss misslyckad åtgärd:
 
 ```azurepowershell-interactive
 ((Get-AzResourceGroupDeploymentOperation -DeploymentName azuredeploy -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
 ```
 
-Which returns:
+Returnerar:
 
 ```powershell
 code           message                                                                        details
@@ -137,9 +137,9 @@ code           message                                                          
 DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
 ```
 
-Every deployment operation in Azure includes request and response content. During deployment, you can use **DeploymentDebugLogLevel** parameter to specify that the request and/or response are logged.
+Varje distributions åtgärd i Azure innehåller innehåll för begäran och svar. Under distributionen kan du använda **DeploymentDebugLogLevel** -parametern för att ange att begäran och/eller svar loggas.
 
-You get that information from the log, and save it locally by using the following PowerShell commands:
+Du får den informationen från loggen och sparar den lokalt med hjälp av följande PowerShell-kommandon:
 
 ```powershell
 (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
@@ -149,19 +149,19 @@ You get that information from the log, and save it locally by using the followin
 
 ## <a name="azure-cli"></a>Azure CLI
 
-To get the overall status of a deployment, use the **azure group deployment show** command.
+Om du vill hämta den övergripande statusen för en distribution använder du kommandot **Azure Group Deployment show** .
 
 ```azurecli-interactive
 az group deployment show -g ExampleGroup -n ExampleDeployment
 ```
   
-The correlation ID is used to track related events, and can be helpful when working with technical support to troubleshoot a deployment.
+Korrelations-ID: t används för att spåra relaterade händelser och kan vara till hjälp när du arbetar med teknisk support för att felsöka en distribution.
 
 ```azurecli-interactive
 az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
 ```
 
-To see the operations for a deployment, use:
+Om du vill se åtgärder för en distribution använder du:
 
 ```azurecli-interactive
 az group deployment operation list -g ExampleGroup -n ExampleDeployment
@@ -169,13 +169,13 @@ az group deployment operation list -g ExampleGroup -n ExampleDeployment
 
 ## <a name="rest"></a>REST
 
-The following example shows how to get information about a deployment. For documentation about the latest API version, see the [Deployments - Get](/rest/api/resources/deployments/get) operation.
+I följande exempel visas hur du hämtar information om en distribution. Dokumentation om den senaste API-versionen finns i [distributioner-get-](/rest/api/resources/deployments/get) åtgärd.
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
 ```
 
-In the response, note in particular the **provisioningState**, **correlationId**, and **error** elements. The **correlationId** is used to track related events, and can be helpful when working with technical support to troubleshoot a deployment.
+I svaret noterar du särskilt **provisioningState**-, **correlationId**-och **Error** -elementen. **CorrelationId** används för att spåra relaterade händelser och kan vara till hjälp när du arbetar med teknisk support för att felsöka en distribution.
 
 ```json
 { 
@@ -192,13 +192,13 @@ In the response, note in particular the **provisioningState**, **correlationId**
 }
 ```
 
-The following example shows how to get deployment operations. For documentation about the latest API version, see the [Deployment Operations - List](/rest/api/resources/deploymentoperations/list) operation.
+I följande exempel visas hur du hämtar distributions åtgärder. Dokumentation om den senaste API-versionen finns i åtgärden [distributions åtgärder-List](/rest/api/resources/deploymentoperations/list) .
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
 ```
    
-The response includes request and/or response information based on what you specified in the **debugSetting** property during deployment.
+Svaret innehåller information om begäran och/eller svar baserat på vad du angav i egenskapen **debugSetting** under distributionen.
 
 ```json
 {
@@ -226,7 +226,7 @@ The response includes request and/or response information based on what you spec
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md).
-* To learn about using the activity logs to monitor other types of actions, see [View activity logs to manage Azure resources](resource-group-audit.md).
-* To validate your deployment before executing it, see [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy.md).
+* Information om hur du löser specifika distributions fel finns i [lösa vanliga fel när du distribuerar resurser till Azure med Azure Resource Manager](resource-manager-common-deployment-errors.md).
+* Information om hur du använder aktivitets loggarna för att övervaka andra typer av åtgärder finns i [Visa aktivitets loggar för att hantera Azure-resurser](resource-group-audit.md).
+* Om du vill verifiera distributionen innan du kör den, se [distribuera en resurs grupp med Azure Resource Manager mall](resource-group-template-deploy.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Manage device enrollments for Azure IoT Hub Device Provisioning Service in the Azure portal
-description: How to manage device enrollments for your Device Provisioning Service in the Azure Portal
+title: Hantera enhets registreringar för Azure IoT Hub Device Provisioning Service i Azure Portal
+description: Hantera enhets registreringar för enhets etablerings tjänsten i Azure Portal
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/05/2018
@@ -15,62 +15,62 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74229717"
 ---
-# <a name="how-to-manage-device-enrollments-with-azure-portal"></a>How to manage device enrollments with Azure Portal
+# <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Hantera enhets registreringar med Azure Portal
 
-A *device enrollment* creates a record of a single device or a group of devices that may at some point register with the Azure IoT Hub Device Provisioning Service. The enrollment record contains the initial desired configuration for the device(s) as part of that enrollment, including the desired IoT hub. This article shows you how to manage device enrollments for your provisioning service.
+En *enhets registrering* skapar en post för en enskild enhet eller en grupp av enheter som kan komma att registreras med Azure-IoT Hub Device Provisioning service. Registrerings posten innehåller den initiala önskade konfigurationen för enheten eller enheterna som en del av registreringen, inklusive önskad IoT-hubb. Den här artikeln visar hur du hanterar enhets registreringar för etablerings tjänsten.
 
 
-## <a name="create-a-device-enrollment"></a>Create a device enrollment
+## <a name="create-a-device-enrollment"></a>Skapa en enhets registrering
 
-There are two ways you can enroll your devices with the provisioning service:
+Det finns två sätt att registrera enheter med etablerings tjänsten:
 
-* An **Enrollment group** is an entry for a group of devices that share a common attestation mechanism of X.509 certificates, signed by the same signing certificate, which can be the [root certificate](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) or the [intermediate certificate](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate), used to produce device certificate on physical device. We recommend using an enrollment group for a large number of devices which share a desired initial configuration, or for devices all going to the same tenant. Note that you can only enroll devices that use the X.509 attestation mechanism as *enrollment groups*. 
+* En **registrerings grupp** är en post för en grupp av enheter som delar en gemensam mekanism för attestering av X. 509-certifikat, signerade av samma signerings certifikat, som kan vara [rot certifikatet](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) eller det [mellanliggande certifikatet](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate)som används för att producera enhets certifikatet på den fysiska enheten. Vi rekommenderar att du använder en registrerings grupp för ett stort antal enheter som delar en önskad inledande konfiguration, eller för enheter som alla kommer till samma klient. Observera att du bara kan registrera enheter som använder mekanismen för 509-attestering för X. som *registrerings grupper*. 
 
-    You can create an enrollment group in the portal for a group of devices using the following steps:
+    Du kan skapa en registrerings grupp i portalen för en grupp av enheter med hjälp av följande steg:
 
-  1. Log in to the Azure portal and click **All resources** from the left-hand menu.  
-  1. Click the Device Provisioning service you want to enroll your device to from the list of resources.  
-  1. In your provisioning service:  
-     a. Click **Manage enrollments**, then select the **Enrollment Groups** tab.  
+  1. Logga in på Azure Portal och klicka på **alla resurser** på den vänstra menyn.  
+  1. Klicka på den enhets etablerings tjänst som du vill registrera enheten på från listan över resurser.  
+  1. I etablerings tjänsten:  
+     a. Klicka på **Hantera registreringar**och välj sedan fliken **registrerings grupper** .  
      b. Klicka på knappen **Lägg till** högst upp.  
-     c. When the "Add Enrollment Group" panel appears, enter the information for the enrollment list entry.  **Group name** is required. Also select "CA or Intermediate" for **Certificate type**, and upload the root **Primary certificate** for the group of devices.  
-     d. Klicka på **Save** (Spara). On successful creation of your enrollment group, you should see the group name appear under the **Enrollment Groups** tab.  
+     c. När panelen "Lägg till registrerings grupp" visas anger du informationen för registrerings List posten.  **Grupp namn** måste anges. Välj också "CA eller mellanliggande" för **certifikat typ**och överför **primärt rot certifikat** för enhets gruppen.  
+     d. Klicka på **Save** (Spara). När du har skapat din registrerings grupp bör du se att grupp namnet visas under fliken **registrerings grupper** .  
 
-     [![Enrollment group in the portal](./media/how-to-manage-enrollments/group-enrollment.png)](./media/how-to-manage-enrollments/group-enrollment.png#lightbox)
+     [![registrerings grupp i portalen](./media/how-to-manage-enrollments/group-enrollment.png)](./media/how-to-manage-enrollments/group-enrollment.png#lightbox)
     
 
-* An **Individual enrollment** is an entry for a single device that may register. Individual enrollments may use either x509 certificates or SAS tokens (from a physical or virtual TPM) as attestation mechanisms. We recommend using individual enrollments for devices which require unique initial configurations, or for devices which can only use SAS tokens via TPM or virtual TPM as the attestation mechanism. Enskilda registreringar kan ha angivet önskat enhets-ID för IoT Hub.
+* En **enskild registrering** är en post för en enskild enhet som kan registreras. Enskilda registreringar kan använda antingen x509-certifikat eller SAS-token (från en fysisk eller virtuell TPM) som mekanism för attestering. Vi rekommenderar att du använder enskilda registreringar för enheter som kräver unika inledande konfigurationer eller för enheter som bara kan använda SAS-token via TPM eller virtuell TPM som mekanism för attestering. Enskilda registreringar kan ha angivet önskat enhets-ID för IoT Hub.
 
-    You can create an individual enrollment in the portal using the following steps:
+    Du kan skapa en enskild registrering i portalen med hjälp av följande steg:
 
-    1. Log in to the Azure portal and click **All resources** from the left-hand menu.
-    1. Click the Device Provisioning service you want to enroll your device to from the list of resources.
-    1. In your provisioning service:  
-       a. Click **Manage enrollments**, then select the **Individual Enrollments** tab.  
+    1. Logga in på Azure Portal och klicka på **alla resurser** på den vänstra menyn.
+    1. Klicka på den enhets etablerings tjänst som du vill registrera enheten på från listan över resurser.
+    1. I etablerings tjänsten:  
+       a. Klicka på **Hantera registreringar**och välj sedan fliken **enskilda registreringar** .  
        b. Klicka på knappen **Lägg till** högst upp.   
-       c. When the "Add Enrollment" panel appears, enter the information for the enrollment list entry. First select the attestation **Mechanism** for the device (X.509 or TPM). X.509 attestation requires you to upload the leaf **Primary certificate** for the device. TPM requires you to enter the **Attestation Key** and **Registration ID** for the device.  
-       d. Klicka på **Save** (Spara). On successful creation of your enrollment group, you should see your device appear under the **Individual Enrollments** tab.  
+       c. När panelen "Lägg till registrering" visas anger du informationen för registrerings List posten. Välj först **mekanismen** för attestering för enheten (X. 509 eller TPM). X. 509-attestering kräver att du överför det **primära löv certifikatet** för enheten. TPM kräver att du anger **attesterings nyckel** och **registrerings-ID** för enheten.  
+       d. Klicka på **Save** (Spara). När du har skapat din registrerings grupp bör du se att enheten visas under fliken **enskilda registreringar** .  
 
-       [![Individual enrollment in the portal](./media/how-to-manage-enrollments/individual-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
+       [![enskild registrering i portalen](./media/how-to-manage-enrollments/individual-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
 
-## <a name="update-an-enrollment-entry"></a>Update an enrollment entry
-You can update an existing enrollment entry in the portal using the following steps:
+## <a name="update-an-enrollment-entry"></a>Uppdatera en registrerings post
+Du kan uppdatera en befintlig registrerings post i portalen med hjälp av följande steg:
 
-1. Open your Device Provisioning service in the Azure portal and click **Manage Enrollments**. 
-1. Navigate to the enrollment entry you want to modify. Click the entry, which opens a summary information about your device enrollment. 
-1. On this page, you can modify items other than the security type and credentials, such as the IoT hub the device should be linked to, as well as the device ID. You may also modify the initial device twin state. 
-1. Once completed, click **Save** to update your device enrollment. 
+1. Öppna enhets etablerings tjänsten i Azure Portal och klicka på **Hantera registreringar**. 
+1. Navigera till den registrerings post som du vill ändra. Klicka på posten, som öppnar en sammanfattnings information om din enhets registrering. 
+1. På den här sidan kan du ändra andra objekt än säkerhets typ och autentiseringsuppgifter, till exempel den IoT-hubb som enheten ska länkas till, samt enhets-ID. Du kan också ändra den inledande enhetens dubbla tillstånd. 
+1. När du är klar klickar du på **Spara** för att uppdatera enhets registreringen. 
 
-    ![Update enrollment in the portal](./media/how-to-manage-enrollments/update-enrollment.png)
+    ![Uppdatera registreringen i portalen](./media/how-to-manage-enrollments/update-enrollment.png)
 
-## <a name="remove-a-device-enrollment"></a>Remove a device enrollment
-In cases where your device(s) do not need to be provisioned to any IoT hub, you can remove the related enrollment entry in the portal using the following steps:
+## <a name="remove-a-device-enrollment"></a>Ta bort en enhets registrering
+I de fall där enhet (er) inte behöver tillhandahållas till någon IoT-hubb kan du ta bort posten för den relaterade registreringen i portalen med hjälp av följande steg:
 
-1. Open your Device Provisioning service in the Azure portal and click **Manage Enrollments**. 
-1. Navigate to and select the enrollment entry you want to remove. 
-1. Click the **Delete** button at the top and then select **Yes** when prompted to confirm. 
-1. Once the action is completed, you will see your entry removed from the list of device enrollments. 
+1. Öppna enhets etablerings tjänsten i Azure Portal och klicka på **Hantera registreringar**. 
+1. Navigera till och välj den registrerings post som du vill ta bort. 
+1. Klicka på knappen **ta bort** högst upp och välj sedan **Ja** när du uppmanas att bekräfta. 
+1. När åtgärden har slutförts visas din post i listan med enhets registreringar. 
  
-    ![Remove enrollment in the portal](./media/how-to-manage-enrollments/remove-enrollment.png)
+    ![Ta bort registreringen i portalen](./media/how-to-manage-enrollments/remove-enrollment.png)
 
 

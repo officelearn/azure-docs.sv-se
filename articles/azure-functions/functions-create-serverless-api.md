@@ -1,6 +1,6 @@
 ---
-title: Customize an HTTP endpoint in Azure Functions
-description: Learn how to customize an HTTP trigger endpoint in Azure Functions
+title: Anpassa en HTTP-slutpunkt i Azure Functions
+description: Lär dig hur du anpassar en HTTP trigger-slutpunkt i Azure Functions
 author: mattchenderson
 ms.topic: conceptual
 ms.date: 05/04/2017
@@ -13,15 +13,15 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74230685"
 ---
-# <a name="customize-an-http-endpoint-in-azure-functions"></a>Customize an HTTP endpoint in Azure Functions
+# <a name="customize-an-http-endpoint-in-azure-functions"></a>Anpassa en HTTP-slutpunkt i Azure Functions
 
-In this article, you learn how Azure Functions allows you to build highly scalable APIs. Azure Functions levereras med en uppsättning inbyggda HTTP-utlösare och -bindningar vilket gör det enkelt att skapa en slutpunkt på en mängd olika språk, bland andra Node.JS och C#. In this article, you will customize an HTTP trigger to handle specific actions in your API design. Du förbereder även för att utöka ditt API genom att integrera det i Azure Functions Proxies och konfigurera fingerade API:er. Detta görs i Functions serverlösa beräkningsmiljö, så att du inte behöver bekymra dig om resursskalning – du kan fokusera på din API-logik.
+I den här artikeln får du lära dig hur Azure Functions gör att du kan bygga mycket skalbara API: er. Azure Functions levereras med en uppsättning inbyggda HTTP-utlösare och -bindningar vilket gör det enkelt att skapa en slutpunkt på en mängd olika språk, bland andra Node.JS och C#. I den här artikeln ska du anpassa en HTTP-utlösare för att hantera vissa åtgärder i din API-design. Du förbereder även för att utöka ditt API genom att integrera det i Azure Functions Proxies och konfigurera fingerade API:er. Detta görs i Functions serverlösa beräkningsmiljö, så att du inte behöver bekymra dig om resursskalning – du kan fokusera på din API-logik.
 
 ## <a name="prerequisites"></a>Krav 
 
 [!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
 
-The resulting function will be used for the rest of this article.
+Den resulterande funktionen kommer att användas för resten av den här artikeln.
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -172,13 +172,13 @@ Härnäst lägger du till ditt fingerade API. Ersätt din proxies.json-fil med f
 }
 ```
 
-Då läggs en ny proxy till, ”GetUserByName”, utan egenskapen backendUri. Istället för att anropa en annan resurs modifierar den standardsvaret från proxyservrar med en åsidosättning av svaret. Åsidosättningar av begäranden och svar kan också användas tillsammans med en serverdels-URL. This is particularly useful when proxying to a legacy system, where you might need to modify headers, query parameters, etc. To learn more about request and response overrides, see [Modifying requests and responses in Proxies](https://docs.microsoft.com/azure/azure-functions/functions-proxies).
+Då läggs en ny proxy till, ”GetUserByName”, utan egenskapen backendUri. Istället för att anropa en annan resurs modifierar den standardsvaret från proxyservrar med en åsidosättning av svaret. Åsidosättningar av begäranden och svar kan också användas tillsammans med en serverdels-URL. Detta är särskilt användbart vid proxyering till ett äldre system, där du kan behöva ändra huvuden, frågeparametrar osv. Mer information om åsidosättningar av förfrågningar och svar finns i [ändra förfrågningar och svar i proxyservrar](https://docs.microsoft.com/azure/azure-functions/functions-proxies).
 
 Testa ditt fingerade API genom att anropa slutpunkten `<YourProxyApp>.azurewebsites.net/api/users/{username}` med en webbläsare eller den REST-klient du föredrar. Se till att ersätta _{username}_ med ett strängvärde som representerar ett användarnamn.
 
 ## <a name="next-steps"></a>Nästa steg
 
-In this article, you learned how to build and customize an API on Azure Functions. Du lärde dig också att hantera flera API:er, även fingerade, tillsammans som en enhetlig API-yta. Du kan använda de här metoderna för att bygga ut API:er i olika komplexitetsgrader medan de körs på den serverlösa beräkningsmodell som Azure Functions ger.
+I den här artikeln har du lärt dig hur du skapar och anpassar ett API på Azure Functions. Du lärde dig också att hantera flera API:er, även fingerade, tillsammans som en enhetlig API-yta. Du kan använda de här metoderna för att bygga ut API:er i olika komplexitetsgrader medan de körs på den serverlösa beräkningsmodell som Azure Functions ger.
 
 Följande referenser kan vara till hjälp när du utvecklar ditt API vidare:
 

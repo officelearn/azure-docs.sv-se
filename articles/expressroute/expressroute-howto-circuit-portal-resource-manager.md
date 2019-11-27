@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Create and modify a circuit with ExpressRoute
-description: In this tutorial, learn how to create, provision, verify, update, delete, and deprovision an ExpressRoute circuit.
+title: Självstudie – Skapa och ändra en krets med ExpressRoute
+description: I den här självstudien får du lära dig hur du skapar, etablerar, kontrollerar, uppdaterar, tar bort och avetablerar en ExpressRoute-krets.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -14,151 +14,151 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74423560"
 ---
-# <a name="tutorial-create-and-modify-an-expressroute-circuit"></a>Tutorial: Create and modify an ExpressRoute circuit
+# <a name="tutorial-create-and-modify-an-expressroute-circuit"></a>Självstudie: skapa och ändra en ExpressRoute-krets
 
 > [!div class="op_single_selector"]
-> * [Azure-portalen](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
 > * [Azure Resource Manager-mall](expressroute-howto-circuit-resource-manager-template.md)
-> * [Video - Azure portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
+> * [Video – Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (klassisk)](expressroute-howto-circuit-classic.md)
 >
 
-This article helps you create an ExpressRoute circuit using the Azure portal and the Azure Resource Manager deployment model. You can also check the status, update, delete, or deprovision a circuit.
+Den här artikeln hjälper dig att skapa en ExpressRoute-krets med hjälp av Azure portal och distributionsmodellen Azure Resource Manager. Du kan också kontrollera status, uppdatera, ta bort eller avetablera en krets.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-* Review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
-* Ensure that you have access to the [Azure portal](https://portal.azure.com).
-* Ensure that you have permissions to create new networking resources. Contact your account administrator if you do not have the right permissions.
-* You can [view a video](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit) before beginning in order to better understand the steps.
+* Granska [nödvändiga komponenter](expressroute-prerequisites.md) och [arbets flöden](expressroute-workflows.md) innan du påbörjar konfigurationen.
+* Se till att du har åtkomst till [Azure Portal](https://portal.azure.com).
+* Kontrollera att du har behörighet att skapa nya nätverksresurser. Kontakta din kontoadministratör om du inte har rätt behörigheter.
+* Du kan [Visa en video](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit) innan du börjar för att bättre förstå stegen.
 
-## <a name="create"></a>Create and provision an ExpressRoute circuit
+## <a name="create"></a>Skapa och etablera en ExpressRoute-krets
 
-### <a name="1-sign-in-to-the-azure-portal"></a>1. Sign in to the Azure portal
+### <a name="1-sign-in-to-the-azure-portal"></a>1. Logga in på Azure Portal
 
 Öppna en webbläsare, navigera till [Azure Portal](https://portal.azure.com) och logga in med ditt Azure-konto.
 
-### <a name="2-create-a-new-expressroute-circuit"></a>2. Create a new ExpressRoute circuit
+### <a name="2-create-a-new-expressroute-circuit"></a>2. skapa en ny ExpressRoute-krets
 
 > [!IMPORTANT]
-> Your ExpressRoute circuit is billed from the moment a service key is issued. Ensure that you perform this operation when the connectivity provider is ready to provision the circuit.
+> ExpressRoute-kretsen debiteras från den tidpunkt då en Tjänstnyckel utfärdas. Se till att du utför den här åtgärden när anslutningsleverantören är redo att lägga till kretsen.
 
-1. You can create an ExpressRoute circuit by selecting the option to create a new resource. Click **Create a resource** > **Networking** > **ExpressRoute**, as shown in the following image:
+1. Du kan skapa en ExpressRoute-krets genom att välja alternativet för att skapa en ny resurs. Klicka på **skapa en resurs** > **nätverks** > **ExpressRoute**, som du ser i följande bild:
 
    ![Skapa en ExpressRoute-krets](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit1.png)
-2. After you click **ExpressRoute**, you'll see the **Create ExpressRoute circuit** page. When you're filling in the values on this page, make sure that you specify the correct SKU tier (Standard, or Premium) and data metering billing model (Unlimited or Metered).
+2. När du har klickat på **ExpressRoute**visas sidan **skapa ExpressRoute-krets** . När du fyller i värden på den här sidan kan du kontrollera att du anger rätt SKU-nivån (Standard eller Premium) och data för Avläsning av faktureringsmodellen (obegränsat eller förbrukade).
 
-   ![Configure the SKU tier and data metering](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit.png)
+   ![Konfigurera SKU-nivån och datamätning](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit.png)
 
-   * **Tier** determines whether an ExpressRoute standard or an ExpressRoute premium add-on is enabled. You can specify **Standard** to get the standard SKU or **Premium** for the premium add-on.
-   * **Data metering** determines the billing type. You can specify **Metered** for a metered data plan and **Unlimited** for an unlimited data plan. Note that you can change the billing type from **Metered** to **Unlimited**.
-
-     > [!IMPORTANT]
-     > You can't change the type from **Unlimited** to **Metered**.
-
-   * **Peering Location** is the physical location where you are peering with Microsoft.
+   * **Nivån** avgör om en ExpressRoute-standard eller ett ExpressRoute Premium-tillägg är aktiverat. Du kan ange **standard** för att hämta standard-SKU eller **Premium** för Premium-tillägget.
+   * **Data mätningen** fastställer fakturerings typen. Du kan ange **Mät** värde för en dataplan med datapriser och **obegränsade** för ett obegränsat data abonnemang. Observera att du kan ändra fakturerings typen från **avgiftsbelagd** till **obegränsad**.
 
      > [!IMPORTANT]
-     > The Peering Location indicates the [physical location](expressroute-locations.md) where you are peering with Microsoft. This is **not** linked to "Location" property, which refers to the geography where the Azure Network Resource Provider is located. While they are not related, it is a good practice to choose a Network Resource Provider geographically close to the Peering Location of the circuit.
+     > Du kan inte ändra typen från **obegränsad** till **mätning**.
 
-### <a name="3-view-the-circuits-and-properties"></a>3. View the circuits and properties
+   * **Peering-platsen** är den fysiska plats där du peer-koppla med Microsoft.
 
-**View all the circuits**
+     > [!IMPORTANT]
+     > Peering-platsen anger den [fysiska plats](expressroute-locations.md) där du peer-koppla med Microsoft. Detta är **inte** länkat till "location"-egenskap som refererar till den geografi där Azure Network Resource-providern finns. Även om de inte är relaterade är en bra idé att välja en Provider för nätverksresurser geografiskt nära platsen Peering för kretsen.
 
-You can view all the circuits that you created by selecting **All resources** on the left-side menu.
+### <a name="3-view-the-circuits-and-properties"></a>3. Visa kretsar och egenskaper
 
-![View circuits](./media/expressroute-howto-circuit-portal-resource-manager/listresource.png)
+**Visa alla kretsar**
 
-**View the properties**
+Du kan visa alla kretsar som du har skapat genom att välja **alla resurser** på den vänstra menyn.
 
-You can view the properties of the circuit by selecting it. On the **Overview** page for your circuit, the service key appears in the service key field. You must copy the service key for your circuit and pass it down to the service provider to complete the provisioning process. The circuit service key is specific to your circuit.
+![Visa kretsar](./media/expressroute-howto-circuit-portal-resource-manager/listresource.png)
+
+**Visa egenskaperna**
+
+Du kan visa egenskaperna för kretsen genom att välja den. På **översikts** sidan för din krets visas tjänst nyckeln i fältet tjänst nyckel. Du måste kopiera tjänstnyckeln för din krets och skickar den till tjänstleverantör för att slutföra etableringen. Kretstjänstnyckeln är specifik för din krets.
 
 ![Visa egenskaper](./media/expressroute-howto-circuit-portal-resource-manager/servicekey1.png)
 
-### <a name="4-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>4. Send the service key to your connectivity provider for provisioning
+### <a name="4-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>4. skicka tjänst nyckeln till din anslutnings leverantör för etablering
 
-On this page, **Provider status** provides information on the current state of provisioning on the service-provider side. **Circuit status** provides the state on the Microsoft side. For more information about circuit provisioning states, see the [Workflows](expressroute-workflows.md#expressroute-circuit-provisioning-states) article.
+På den här sidan tillhandahåller **leverantörs status** information om det aktuella tillståndet för etablering på tjänstens leverantörs sida. **Krets status** tillhandahåller tillståndet på Microsoft-sidan. Mer information om krets etablerings tillstånd finns i artikeln om [arbets flöden](expressroute-workflows.md#expressroute-circuit-provisioning-states) .
 
-When you create a new ExpressRoute circuit, the circuit is in the following state:
+När du skapar en ny ExpressRoute-krets är kretsen i följande tillstånd:
 
-Provider status: Not provisioned<BR>
-Circuit status: Enabled
+Providerstatus: inte etablerats<BR>
+Circuit status: aktiverat
 
-![Initiate provisioning process](./media/expressroute-howto-circuit-portal-resource-manager/status.png)
+![Starta etableringsprocessen](./media/expressroute-howto-circuit-portal-resource-manager/status.png)
 
-The circuit changes to the following state when the connectivity provider is in the process of enabling it for you:
+Kretsen ändras till följande tillstånd när anslutningsleverantören håller på att aktivera den för du:
 
-Provider status: Provisioning<BR>
-Circuit status: Enabled
+Providerstatus: etablering<BR>
+Circuit status: aktiverat
 
-For you to be able to use an ExpressRoute circuit, it must be in the following state:
+Du kan använda en ExpressRoute-krets, måste den vara i följande tillstånd:
 
-Provider status: Provisioned<BR>
-Circuit status: Enabled
+Providerstatus: etablerats<BR>
+Circuit status: aktiverat
 
-### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. Periodically check the status and the state of the circuit key
+### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. kontrol lera regelbundet status och tillståndet för krets nyckeln
 
-You can view the properties of the circuit that you're interested in by selecting it. Check the **Provider status** and ensure that it has moved to **Provisioned** before you continue.
+Du kan visa egenskaperna för kretsen som du är intresserad av genom att välja den. Kontrol lera **providerns status** och se till att den har flyttats till **etablerad** innan du fortsätter.
 
-![Circuit and provider status](./media/expressroute-howto-circuit-portal-resource-manager/provisioned.png)
+![Kretsen och provider-status](./media/expressroute-howto-circuit-portal-resource-manager/provisioned.png)
 
-### <a name="6-create-your-routing-configuration"></a>6. Create your routing configuration
+### <a name="6-create-your-routing-configuration"></a>6. skapa konfigurationen för routning
 
-For step-by-step instructions, refer to the [ExpressRoute circuit routing configuration](expressroute-howto-routing-portal-resource-manager.md) article to create and modify circuit peerings.
+Stegvisa instruktioner finns i [ExpressRoute-kretsens konfigurations](expressroute-howto-routing-portal-resource-manager.md) artikel för att skapa och ändra krets-peering.
 
 > [!IMPORTANT]
-> These instructions only apply to circuits that are created with service providers that offer layer 2 connectivity services. If you're using a service provider that offers managed layer 3 services (typically an IP VPN, like MPLS), your connectivity provider configures and manages routing for you.
+> Dessa anvisningar gäller endast för kretsar som skapas med tjänstleverantörer som erbjuder tjänster för layer-2-anslutning. Om du använder en leverantör av tjänster som erbjuder Hanterade layer 3-tjänster (vanligtvis en IP VPN, t.ex. MPLS), anslutningsleverantören konfigurerar och hanterar routning åt dig.
 
-### <a name="7-link-a-virtual-network-to-an-expressroute-circuit"></a>7. Link a virtual network to an ExpressRoute circuit
+### <a name="7-link-a-virtual-network-to-an-expressroute-circuit"></a>7. länka ett virtuellt nätverk till en ExpressRoute-krets
 
-Next, link a virtual network to your ExpressRoute circuit. Use the [Linking virtual networks to ExpressRoute circuits](expressroute-howto-linkvnet-arm.md) article when you work with the Resource Manager deployment model.
+Därefter länka ett virtuellt nätverk till ExpressRoute-kretsen. Använd artikeln [Länka virtuella nätverk till ExpressRoute-kretsar](expressroute-howto-linkvnet-arm.md) när du arbetar med distributions modellen för Resource Manager.
 
-## <a name="status"></a>Getting the status of an ExpressRoute circuit
+## <a name="status"></a>Hämta status för en ExpressRoute-krets
 
-You can view the status of a circuit by selecting it and viewing the Overview page.
+Du kan visa statusen för en krets genom att markera det och visa sidan Översikt.
 
-## <a name="modify"></a>Modifying an ExpressRoute circuit
+## <a name="modify"></a>Ändra en ExpressRoute-krets
 
-You can modify certain properties of an ExpressRoute circuit without impacting connectivity. You can modify the bandwidth, SKU, billing model and allow classic operations on the **Configuration** page. For information on limits and limitations, see the [ExpressRoute FAQ](expressroute-faqs.md).
+Du kan ändra vissa egenskaper för en ExpressRoute-krets utan att påverka anslutningen. Du kan ändra bandbredd, SKU, fakturerings modell och tillåta klassisk drift på **konfigurations** sidan. Information om begränsningar och begränsningar finns i [vanliga frågor och svar om ExpressRoute](expressroute-faqs.md).
 
-You can perform the following tasks with no downtime:
+Du kan utföra följande uppgifter utan avbrott:
 
-* Enable or disable an ExpressRoute Premium add-on for your ExpressRoute circuit.
-* Increase the bandwidth of your ExpressRoute circuit, provided there is capacity available on the port.
-
-  > [!IMPORTANT]
-  > Downgrading the bandwidth of a circuit is not supported.
-
-* Change the metering plan from *Metered Data* to *Unlimited Data*.
+* Aktivera eller inaktivera en ExpressRoute Premium-tillägget för ExpressRoute-krets.
+* Öka bandbredden för ExpressRoute-kretsen, förutsatt att det finns tillgänglig kapacitet på porten.
 
   > [!IMPORTANT]
-  > Changing the metering plan from Unlimited Data to Metered Data is not supported.
+  > Nedgradera bandbredden för en krets stöds inte.
 
-* You can enable and disable *Allow Classic Operations*.
+* Ändra Mät planen från *datapriser* till *obegränsade data*.
+
   > [!IMPORTANT]
-  > You may have to recreate the ExpressRoute circuit if there is inadequate capacity on the existing port. You cannot upgrade the circuit if there is no additional capacity available at that location.
+  > Prisplanen ändras Avläsning av programvara från obegränsade Data för förbrukade Data stöds inte.
+
+* Du kan aktivera och inaktivera *Tillåt klassiska åtgärder*.
+  > [!IMPORTANT]
+  > Du kan behöva återskapa ExpressRoute-krets om det finns lite kapacitet på befintliga porten. Du kan inte uppgradera kretsen om det finns inga ytterligare kapacitet på den platsen.
   >
-  > Although you can seamlessly upgrade the bandwidth, you cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth requires you to deprovision the ExpressRoute circuit and then reprovision a new ExpressRoute circuit.
+  > Även om du sömlöst uppgradera bandbredd, kan du minska bandbredden för en ExpressRoute-krets utan avbrott. Nedgradera bandbredd måste du ta bort etableringen av ExpressRoute-kretsen och etablera om en ny ExpressRoute-krets.
   >
-  > Disabling the Premium add-on operation can fail if you're using resources that are greater than what is permitted for the standard circuit.
+  > Inaktivera Premium-tillägg-åtgärden kan misslyckas om du använder resurser som är större än vad som tillåts för standard-krets.
 
-To modify an ExpressRoute circuit, click **Configuration**.
+Om du vill ändra en ExpressRoute-krets klickar du på **konfiguration**.
 
-![Modify circuit](./media/expressroute-howto-circuit-portal-resource-manager/modifycircuit.png)
+![Ändra krets](./media/expressroute-howto-circuit-portal-resource-manager/modifycircuit.png)
 
-## <a name="delete"></a>Deprovisioning and deleting an ExpressRoute circuit
+## <a name="delete"></a>Avetablera och ta bort en ExpressRoute-krets
 
-You can delete your ExpressRoute circuit by selecting the **delete** icon. Notera följande information:
+Du kan ta bort ExpressRoute-kretsen genom att välja ikonen **ta bort** . Notera följande information:
 
-* Du måste ta bort länken till alla virtuella nätverk från ExpressRoute-kretsen. If this operation fails, check whether any virtual networks are linked to the circuit.
-* If the ExpressRoute circuit service provider provisioning state is **Provisioning** or **Provisioned** you must work with your service provider to deprovision the circuit on their side. We continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies us.
-* If the service provider has deprovisioned the circuit (the service provider provisioning state is set to **Not provisioned**), you can delete the circuit. Därmed avbryts faktureringen för kretsen.
+* Du måste ta bort länken till alla virtuella nätverk från ExpressRoute-kretsen. Om åtgärden misslyckas, kan du kontrollera om alla virtuella nätverken är länkade till kretsen.
+* Om etablerings statusen för ExpressRoute-kretsen **etableras** eller **etableras** måste du arbeta med tjänst leverantören för att avetablera kretsen på sin sida. Vi fortsätter att reservera resurser och debitera dig tills tjänstleverantören har slutförts avetablera kretsen och meddelar oss.
+* Om tjänst leverantören har avetablerat kretsen (etablerings statusen för tjänst leverantören är inställd på **inte etablerad**) kan du ta bort kretsen. Därmed avbryts faktureringen för kretsen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-After you create your circuit, continue with the following next steps:
+När du har skapat din krets fortsätter du med följande steg:
 
-* [Create and modify routing for your ExpressRoute circuit](expressroute-howto-routing-portal-resource-manager.md)
-* [Link your virtual network to your ExpressRoute circuit](expressroute-howto-linkvnet-arm.md)
+* [Skapa och ändra routning för din ExpressRoute-krets](expressroute-howto-routing-portal-resource-manager.md)
+* [Länka ditt virtuella nätverk till din ExpressRoute-krets](expressroute-howto-linkvnet-arm.md)

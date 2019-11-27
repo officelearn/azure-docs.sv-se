@@ -1,6 +1,6 @@
 ---
-title: Azure Instance Metadata Service
-description: RESTful interface to get information about Linux VM's compute, network, and upcoming maintenance events.
+title: Azure-Instance Metadata Service
+description: RESTful-gränssnitt för att hämta information om virtuella Linux-datorers beräknings-, nätverks-och kommande underhålls händelser.
 services: virtual-machines-linux
 documentationcenter: ''
 author: KumariSupriya
@@ -21,46 +21,46 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74232414"
 ---
-# <a name="azure-instance-metadata-service"></a>Azure Instance Metadata service
+# <a name="azure-instance-metadata-service"></a>Azure-instansens metadatatjänst
 
-The Azure Instance Metadata Service provides information about running virtual machine instances that can be used to manage and configure your virtual machines.
-This includes information such as SKU, network configuration, and upcoming maintenance events. For more information on what type of information is available, see [metadata APIs](#metadata-apis).
+Azure Instance Metadata Service innehåller information om att köra virtuella dator instanser som kan användas för att hantera och konfigurera dina virtuella datorer.
+Detta omfattar information som SKU, nätverks konfiguration och kommande underhålls händelser. Mer information om vilken typ av information som är tillgänglig finns i [API: er för metadata](#metadata-apis).
 
-Azure's Instance Metadata Service is a REST Endpoint accessible to all IaaS VMs created via the [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/).
-The endpoint is available at a well-known non-routable IP address (`169.254.169.254`) that can be accessed only from within the VM.
+Azures Instance Metadata Service är en REST-slutpunkt som är tillgänglig för alla IaaS-VM: ar som skapats via [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/).
+Slut punkten är tillgänglig för en välkänd icke-flyttbar IP-adress (`169.254.169.254`) som bara kan nås från den virtuella datorn.
 
 > [!IMPORTANT]
-> This service is  **generally available** in all Azure Regions.  It regularly receives updates to expose new information about virtual machine instances. This page reflects the up-to-date [metadata APIs](#metadata-apis) available.
+> Den här tjänsten är **allmänt tillgänglig** i alla Azure-regioner.  Den tar regelbundet emot uppdateringar som visar ny information om virtuella dator instanser. Den här sidan visar aktuella [API: er för metadata](#metadata-apis) som är tillgängliga.
 
 ## <a name="service-availability"></a>Tjänsttillgänglighet
 
-The service is available in generally available Azure regions. Not all API version may be available in all Azure Regions.
+Tjänsten är tillgänglig i allmänt tillgängliga Azure-regioner. Ingen API-version kan vara tillgänglig i alla Azure-regioner.
 
-Regioner                                        | Availability?                                 | Versioner som stöds
+Regioner                                        | Offlinetillgänglighet?                                 | Versioner som stöds
 -----------------------------------------------|-----------------------------------------------|-----------------
-[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | Allmänt tillgänglig | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04
+[Alla allmänt tillgängliga globala Azure-regioner](https://azure.microsoft.com/regions/)     | Allmänt tillgänglig | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Allmänt tillgänglig | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30
 [Azure Kina](https://www.azure.cn/)                                                     | Allmänt tillgänglig | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30
 [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | Allmänt tillgänglig | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30
 
-This table is updated when there are service updates and or new supported versions are available.
+Tabellen uppdateras när det finns tjänst uppdateringar och nya versioner som stöds är tillgängliga.
 
-To try out the Instance Metadata Service, create a VM from [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) or the [Azure portal](https://portal.azure.com) in the above regions and follow the examples below.
+Om du vill testa Instance Metadata Service skapar du en virtuell dator från [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) eller [Azure Portal](https://portal.azure.com) i regionerna ovan och följer sedan exemplen nedan.
 
 ## <a name="usage"></a>Användning
 
 ### <a name="versioning"></a>Versionshantering
 
-The Instance Metadata Service is versioned and specifying the API version in the HTTP request is mandatory.
+Instance Metadata Service har versions hantering och angett att API-versionen i HTTP-begäran är obligatorisk.
 
-You can see the newest versions listed in this [availability table](#service-availability).
+Du kan se de senaste versionerna som anges i den här [tillgänglighets tabellen](#service-availability).
 
-As newer versions are added, older versions can still be accessed for compatibility if your scripts have dependencies on specific data formats.
+När nya versioner läggs till kan äldre versioner fortfarande nås för kompatibilitet om skripten har beroenden för vissa data format.
 
-When no version is specified, an error is returned with a list of the newest supported versions.
+Om ingen version anges returneras ett fel med en lista över de senaste versionerna som stöds.
 
 > [!NOTE]
-> The response is a JSON string. The following example response is pretty-printed for readability.
+> Svaret är en JSON-sträng. Följande exempel svar är ganska utskrivet för läsbarhet.
 
 **Förfrågan**
 
@@ -81,65 +81,65 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance"
 }
 ```
 
-### <a name="using-headers"></a>Using headers
+### <a name="using-headers"></a>Använda rubriker
 
-When you query the Instance Metadata Service, you must provide the header `Metadata: true` to ensure the request was not unintentionally redirected.
+När du frågar Instance Metadata Service måste du ange huvud `Metadata: true` för att se till att begäran inte oavsiktligt omdirigeras.
 
-### <a name="retrieving-metadata"></a>Retrieving metadata
+### <a name="retrieving-metadata"></a>Metadata hämtas
 
-Instance metadata is available for running VMs created/managed using [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). Access all data categories for a virtual machine instance using the following request:
+Instansens metadata är tillgängliga för att köra virtuella datorer som skapats/hanterats med [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). Åtkomst till alla data kategorier för en virtuell dator instans med följande begäran:
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
 ```
 
 > [!NOTE]
-> All instance metadata queries are case-sensitive.
+> Alla instanser av instans-metadata är Skift läges känsliga.
 
-### <a name="data-output"></a>Data output
+### <a name="data-output"></a>Data utdata
 
-By default, the Instance Metadata Service returns data in JSON format (`Content-Type: application/json`). However, different APIs return data in different formats if requested.
-The following table is a reference of other data formats APIs may support.
+Som standard returnerar Instance Metadata Service data i JSON-format (`Content-Type: application/json`). Olika API: er returnerar dock data i olika format om det begärs.
+Följande tabell är en referens till andra API: er för data format som kan ha stöd för.
 
-API | Default Data Format | Other Formats
+API | Standard data format | Andra format
 --------|---------------------|--------------
 /instance | json | text
 /scheduledevents | json | ingen
 /attested | json | ingen
 
-To access a non-default response format, specify the requested format as a query string parameter in the request. Exempel:
+Om du vill komma åt ett svar som inte är standardformat anger du det begärda formatet som en frågesträngparametern i begäran. Till exempel:
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
 > [!NOTE]
-> For leaf nodes the `format=json` doesn't work. For these queries `format=text` needs to be explicitly specified if the default format is json.
+> `format=json` fungerar inte för noder på lövnivå. För dessa frågor måste `format=text` uttryckligen anges om standardformatet är JSON.
 
 ### <a name="security"></a>Säkerhet
 
-The Instance Metadata Service endpoint is accessible only from within the running virtual machine instance on a non-routable IP address. In addition, any request with a `X-Forwarded-For` header is rejected by the service.
-Requests must also contain a `Metadata: true` header to ensure that the actual request was directly intended and not a part of unintentional redirection.
+Instance Metadata Service slut punkten kan bara nås från den virtuella dator instansen som körs på en IP-adress som inte är dirigerbart. Dessutom avvisas begäran med ett `X-Forwarded-For` huvud av tjänsten.
+Begär Anden måste också innehålla ett `Metadata: true` rubrik för att säkerställa att den faktiska begäran har direkt avsikt och inte en del av oavsiktlig omdirigering.
 
 ### <a name="error"></a>Fel
 
-If there is a data element not found or a malformed request, the Instance Metadata Service returns standard HTTP errors. Exempel:
+Om det inte går att hitta ett data element eller en felaktig begäran, returnerar Instance Metadata Service vanliga HTTP-fel. Till exempel:
 
-HTTP Status Code | Orsak
+HTTP-statuskod | Orsak
 ----------------|-------
 200 OK |
-400 Bad Request | Missing `Metadata: true` header or missing the format when querying a leaf node
-404 Hittades inte | The requested element doesn't exist
-405 Method Not Allowed | Only `GET` and `POST` requests are supported
-429 Too Many Requests | The API currently supports a maximum of 5 queries per second
-500 Service Error     | Retry after some time
+400 Felaktig begäran | `Metadata: true` rubrik saknas eller så saknas formatet vid förfrågan till en lövnod
+404 Hittades inte | Det begärda elementet finns inte
+metoden 405 tillåts inte | Endast `GET`-och `POST`-begäranden stöds
+429 för många begär Anden | API: et stöder för närvarande högst 5 frågor per sekund
+500-tjänst fel     | Försök igen om en stund
 
 ### <a name="examples"></a>Exempel
 
 > [!NOTE]
-> All API responses are JSON strings. All following example responses are pretty-printed for readability.
+> Alla API-svar är JSON-strängar. Alla följande exempel svar är ganska utskrivna för läsbarhet.
 
-#### <a name="retrieving-network-information"></a>Retrieving network information
+#### <a name="retrieving-network-information"></a>Nätverks information hämtas
 
 **Förfrågan**
 
@@ -150,7 +150,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 **Svar**
 
 > [!NOTE]
-> The response is a JSON string. The following example response is pretty-printed for readability.
+> Svaret är en JSON-sträng. Följande exempel svar är ganska utskrivet för läsbarhet.
 
 ```json
 {
@@ -180,13 +180,13 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 
 ```
 
-#### <a name="retrieving-public-ip-address"></a>Retrieving public IP address
+#### <a name="retrieving-public-ip-address"></a>Hämtar offentlig IP-adress
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
 ```
 
-#### <a name="retrieving-all-metadata-for-an-instance"></a>Retrieving all metadata for an instance
+#### <a name="retrieving-all-metadata-for-an-instance"></a>Hämtar alla metadata för en instans
 
 **Förfrågan**
 
@@ -197,7 +197,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019
 **Svar**
 
 > [!NOTE]
-> The response is a JSON string. The following example response is pretty-printed for readability.
+> Svaret är en JSON-sträng. Följande exempel svar är ganska utskrivet för läsbarhet.
 
 ```json
 {
@@ -257,17 +257,17 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019
 }
 ```
 
-#### <a name="retrieving-metadata-in-windows-virtual-machine"></a>Retrieving metadata in Windows Virtual Machine
+#### <a name="retrieving-metadata-in-windows-virtual-machine"></a>Metadata hämtas på den virtuella Windows-datorn
 
 **Förfrågan**
 
-Instance metadata can be retrieved in Windows via the PowerShell utility `curl`: 
+Instansens metadata kan hämtas i Windows via PowerShell-verktyget `curl`: 
 
 ```bash
 curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2019-03-11 | select -ExpandProperty Content
 ```
 
-Or through the `Invoke-RestMethod` cmdlet:
+Eller via `Invoke-RestMethod`-cmdlet:
 
 ```powershell
 
@@ -277,7 +277,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 **Svar**
 
 > [!NOTE]
-> The response is a JSON string. The following example response is pretty-printed for readability.
+> Svaret är en JSON-sträng. Följande exempel svar är ganska utskrivet för läsbarhet.
 
 ```json
 {
@@ -337,72 +337,72 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 }
 ```
 
-## <a name="metadata-apis"></a>Metadata APIs
+## <a name="metadata-apis"></a>API: er för metadata
 
-#### <a name="the-following-apis-are-available-through-the-metadata-endpoint"></a>The following APIs are available through the metadata endpoint:
+#### <a name="the-following-apis-are-available-through-the-metadata-endpoint"></a>Följande API: er är tillgängliga via metadata-slutpunkten:
 
-Data | Beskrivning | Version Introduced
+Data | Beskrivning | Version introducerad
 -----|-------------|-----------------------
-attested | See [Attested Data](#attested-data) | 2018-10-01
-identitet | Managed identities for Azure resources. See [acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
-instance | See [Instance API](#instance-api) | 2017-04-02
-scheduledevents | See [Scheduled Events](scheduled-events.md) | 2017-08-01
+godkänd | Se [attesterade data](#attested-data) | 2018-10-01
+identity | Hanterade identiteter för Azure-resurser. Se [Hämta en åtkomsttoken](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
+instance | Se [instans-API](#instance-api) | 2017-04-02
+scheduledevents | Se [schemalagda händelser](scheduled-events.md) | 2017-08-01
 
-#### <a name="instance-api"></a>Instance API
-##### <a name="the-following-compute-categories-are-available-through-the-instance-api"></a>The following Compute categories are available through the Instance API:
+#### <a name="instance-api"></a>Instans-API
+##### <a name="the-following-compute-categories-are-available-through-the-instance-api"></a>Följande beräknings kategorier är tillgängliga via instans-API: et:
 
 > [!NOTE]
-> Through the metadata endpoint, the following categories are accessed through instance/compute
+> Via slut punkten för metadata kan följande kategorier nås via instans/Compute
 
-Data | Beskrivning | Version Introduced
+Data | Beskrivning | Version introducerad
 -----|-------------|-----------------------
-azEnvironment | Azure Environment where the VM is running in | 2018-10-01
-customData | See [Custom Data](#custom-data) | 2019-02-01
-location | Azure Region the VM is running in | 2017-04-02
-namn | Name of the VM | 2017-04-02
-offer | Offer information for the VM image and is only present for images deployed from Azure image gallery | 2017-04-02
-osType | Linux or Windows | 2017-04-02
-placementGroupId | [Placement Group](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) of your virtual machine scale set | 2017-08-01
-plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) containing name, product, and publisher for a VM if its an Azure Marketplace Image | 2018-04-02
-platformUpdateDomain |  [Update domain](manage-availability.md) the VM is running in | 2017-04-02
-platformFaultDomain | [Fault domain](manage-availability.md) the VM is running in | 2017-04-02
-provider | Provider of the VM | 2018-10-01
-publicKeys | [Collection of Public Keys](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) assigned to the VM and paths | 2018-04-02
-publisher | Publisher of the VM image | 2017-04-02
-resourceGroupName | [Resource group](../../azure-resource-manager/resource-group-overview.md) for your Virtual Machine | 2017-08-01
-resourceId | The [fully qualified](https://docs.microsoft.com/rest/api/resources/resources/getbyid) ID of the resource | 2019-03-11
-sku | Specific SKU for the VM image | 2017-04-02
-subscriptionId | Azure subscription for the Virtual Machine | 2017-08-01
-tags | [Tags](../../azure-resource-manager/resource-group-using-tags.md) for your Virtual Machine  | 2017-08-01
-tagsList | Tags formatted as a JSON array for easier programmatic parsing  | 2019-06-04
-version | Version of the VM image | 2017-04-02
-vmId | [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM | 2017-04-02
-vmScaleSetName | [Virtual Machine ScaleSet Name](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) of your virtual machine scale set | 2017-12-01
+azEnvironment | Azure-miljö där den virtuella datorn körs i | 2018-10-01
+customData | Se [anpassade data](#custom-data) | 2019-02-01
+location | Azure-regionen som den virtuella datorn körs i | 2017-04-02
+namn | Namn på den virtuella datorn | 2017-04-02
+offer | Erbjudande information för den virtuella dator avbildningen och finns bara för avbildningar som distribuerats från Azures avbildnings Galleri | 2017-04-02
+osType | Linux eller Windows | 2017-04-02
+placementGroupId | [Placerings grupp](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) för den virtuella datorns skalnings uppsättning | 2017-08-01
+projektplan | [Planera](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) som innehåller namn, produkt och utgivare för en virtuell dator om den är en Azure Marketplace-avbildning | 2018-04-02
+platformUpdateDomain |  [Uppdatera den domän](manage-availability.md) som den virtuella datorn körs i | 2017-04-02
+platformFaultDomain | [Feldomän](manage-availability.md) som den virtuella datorn körs i | 2017-04-02
+CSP | Provider för den virtuella datorn | 2018-10-01
+publicKeys | [Samling offentliga nycklar](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) som har tilldelats den virtuella datorn och sökvägar | 2018-04-02
+publisher | Utgivare av VM-avbildningen | 2017-04-02
+resourceGroupName | [Resurs grupp](../../azure-resource-manager/resource-group-overview.md) för den virtuella datorn | 2017-08-01
+resourceId | Resursens [fullständigt kvalificerade](https://docs.microsoft.com/rest/api/resources/resources/getbyid) ID | 2019-03-11
+sku | En speciell SKU för VM-avbildningen | 2017-04-02
+subscriptionId | Azure-prenumeration för den virtuella datorn | 2017-08-01
+taggar | [Taggar](../../azure-resource-manager/resource-group-using-tags.md) för den virtuella datorn  | 2017-08-01
+tagsList | Taggar formaterade som en JSON-matris för enklare programmerings parsning  | 2019-06-04
+version | Version av VM-avbildningen | 2017-04-02
+vmId | [Unikt ID](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) för den virtuella datorn | 2017-04-02
+vmScaleSetName | [ScaleSet namn](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) på virtuell dator för den virtuella datorns skal uppsättning | 2017-12-01
 vmSize | [Storlek på virtuell dator](sizes.md) | 2017-04-02
-zon | [Availability Zone](../../availability-zones/az-overview.md) of your virtual machine | 2017-12-01
+zon | [Tillgänglighets zon](../../availability-zones/az-overview.md) för den virtuella datorn | 2017-12-01
 
-##### <a name="the-following-network-categories-are-available-through-the-instance-api"></a>The following Network categories are available through the Instance API:
+##### <a name="the-following-network-categories-are-available-through-the-instance-api"></a>Följande nätverks kategorier är tillgängliga via instans-API: et:
 
 > [!NOTE]
-> Through the metadata endpoint, the following categories are accessed through instance/network/interface
+> Via metadata-slutpunkten nås följande kategorier via instans/nätverk/gränssnitt
 
-Data | Beskrivning | Version Introduced
+Data | Beskrivning | Version introducerad
 -----|-------------|-----------------------
-ipv4/privateIpAddress | Local IPv4 address of the VM | 2017-04-02
-ipv4/publicIpAddress | Public IPv4 address of the VM | 2017-04-02
-subnet/address | Subnet address of the VM | 2017-04-02
-subnet/prefix | Subnet prefix, example 24 | 2017-04-02
-ipv6/ipAddress | Local IPv6 address of the VM | 2017-04-02
-macAddress | VM mac address | 2017-04-02
+ipv4/privateIpAddress | Lokal IPv4-adress för den virtuella datorn | 2017-04-02
+ipv4/publicIpAddress | Offentlig IPv4-adress för den virtuella datorn | 2017-04-02
+undernät/adress | Den virtuella datorns under näts adress | 2017-04-02
+undernät/prefix | Undernätsprefixet, exempel 24 | 2017-04-02
+ipv6/ipAddress | Lokal IPv6-adress för den virtuella datorn | 2017-04-02
+macAddress | Mac-adress för virtuell dator | 2017-04-02
 
-## <a name="attested-data"></a>Attested Data
+## <a name="attested-data"></a>Bestyrkade data
 
-Instance Metadata responds at http endpoint on 169.254.169.254. Part of the scenario served by Instance Metadata Service is to provide guarantees that the data responded is coming from Azure. We sign part of this information so that marketplace images can be sure that it's their image running on Azure.
+Instansens metadata svarar vid http-slutpunkten på 169.254.169.254. En del av scenariot som hanteras av Instance Metadata Service är att ge garantier för att de data som besvaras kommer från Azure. Vi loggar en del av den här informationen så att Marketplace-avbildningar kan vara säker på att de är en image som körs på Azure.
 
-### <a name="example-attested-data"></a>Example Attested Data
+### <a name="example-attested-data"></a>Exempel på bestyrkade data
 
 > [!NOTE]
-> All API responses are JSON strings. The following example responses are pretty-printed for readability.
+> Alla API-svar är JSON-strängar. Följande exempel svar är ganska utskrivna för läsbarhet.
 
  **Förfrågan**
 
@@ -411,13 +411,13 @@ curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-ver
 
 ```
 
-Api-version is a mandatory field. Refer to the [service availability section](#service-availability) for supported API versions.
-Nonce is an optional 10-digit string provided. Nonce can be used to track the request and if not provided, in response encoded string the current UTC timestamp is returned.
+API-version är ett obligatoriskt fält. Se [avsnittet tjänst tillgänglighet](#service-availability) för API-versioner som stöds.
+Nonce är en valfri 10-siffrig sträng angiven. Nonce kan användas för att spåra begäran och om det inte anges, i svars kodad sträng returneras den aktuella UTC-tidsstämpeln.
 
  **Svar**
 
 > [!NOTE]
-> The response is a JSON string. The following example response is pretty-printed for readability.
+> Svaret är en JSON-sträng. Följande exempel svar är ganska utskrivet för läsbarhet.
 
  ```json
 {
@@ -425,31 +425,31 @@ Nonce is an optional 10-digit string provided. Nonce can be used to track the re
 }
 ```
 
-> The signature blob is a [pkcs7](https://aka.ms/pkcs7) signed version of document. It contains the certificate used for signing along with the VM details like vmId, nonce, subscriptionId, timeStamp for creation and expiry of the document and the plan information about the image. The plan information is only populated for Azure Market place images. The certificate can be extracted from the response and used to validate that the response is valid and is coming from Azure.
+> Signatur-bloben är en [PKCS7](https://aka.ms/pkcs7) -signerad version av dokumentet. Det innehåller det certifikat som används för att signera tillsammans med den virtuella dator informationen som vmId, nonce, subscriptionId, timeStamp för att skapa och upphör ande av dokumentet och plan informationen om avbildningen. Plan informationen är bara ifylld för Azures avbildningar på marknaden. Certifikatet kan extraheras från svaret och används för att verifiera att svaret är giltigt och kommer från Azure.
 
-#### <a name="retrieving-attested-metadata-in-windows-virtual-machine"></a>Retrieving attested metadata in Windows Virtual Machine
+#### <a name="retrieving-attested-metadata-in-windows-virtual-machine"></a>Hämtar bestyrkade metadata i virtuell Windows-dator
 
  **Förfrågan**
 
-Instance metadata can be retrieved in Windows via the PowerShell utility `curl`:
+Instansens metadata kan hämtas i Windows via PowerShell-verktyget `curl`:
 
  ```bash
 curl -H @{'Metadata'='true'} "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890" | select -ExpandProperty Content
 ```
 
- Or through the `Invoke-RestMethod` cmdlet:
+ Eller via `Invoke-RestMethod`-cmdlet:
 
  ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -URI "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890" -Method get
 ```
 
-Api-version is a mandatory field. Refer to the service availability section for supported API versions.
-Nonce is an optional 10-digit string provided. Nonce can be used to track the request and if not provided, in response encoded string the current UTC timestamp is returned.
+API-version är ett obligatoriskt fält. Se avsnittet tjänst tillgänglighet för API-versioner som stöds.
+Nonce är en valfri 10-siffrig sträng angiven. Nonce kan användas för att spåra begäran och om det inte anges, i svars kodad sträng returneras den aktuella UTC-tidsstämpeln.
 
  **Svar**
 
 > [!NOTE]
-> The response is a JSON string. The following example response  is pretty-printed for readability.
+> Svaret är en JSON-sträng. Följande exempel svar är ganska utskrivet för läsbarhet.
 
  ```json
 {
@@ -457,14 +457,14 @@ Nonce is an optional 10-digit string provided. Nonce can be used to track the re
 }
 ```
 
-> The signature blob is a [pkcs7](https://aka.ms/pkcs7) signed version of document. It contains the certificate used for signing along with the VM details like vmId, nonce, subscriptionId, timeStamp for creation and expiry of the document and the plan information about the image. The plan information is only populated for Azure Market place images. The certificate can be extracted from the response and used to validate that the response is valid and is coming from Azure.
+> Signatur-bloben är en [PKCS7](https://aka.ms/pkcs7) -signerad version av dokumentet. Det innehåller det certifikat som används för att signera tillsammans med den virtuella dator informationen som vmId, nonce, subscriptionId, timeStamp för att skapa och upphör ande av dokumentet och plan informationen om avbildningen. Plan informationen är bara ifylld för Azures avbildningar på marknaden. Certifikatet kan extraheras från svaret och används för att verifiera att svaret är giltigt och kommer från Azure.
 
 
-## <a name="example-scenarios-for-usage"></a>Example scenarios for usage  
+## <a name="example-scenarios-for-usage"></a>Exempel scenarier för användning  
 
 ### <a name="tracking-vm-running-on-azure"></a>Spåra virtuell dator som körs i Azure
 
-As a service provider, you may require to track the number of VMs running your software or have agents that need to track uniqueness of the VM. To be able to get a unique ID for a VM, use the `vmId` field from Instance Metadata Service.
+Som tjänst leverantör kan du behöva spåra antalet virtuella datorer som kör program varan eller ha agenter som behöver spåra unika virtuella datorer. Om du vill kunna hämta ett unikt ID för en virtuell dator använder du fältet `vmId` från Instance Metadata Service.
 
 **Förfrågan**
 
@@ -480,9 +480,9 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api
 
 ### <a name="placement-of-containers-data-partitions-based-faultupdate-domain"></a>Placering av containrar, datapartitionsbaserad feldomän/uppdateringsdomän
 
-For certain scenarios, placement of different data replicas is of prime importance. For example, [HDFS replica placement](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps) or container placement via an [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) may you require to know the `platformFaultDomain` and `platformUpdateDomain` the VM is running on.
-You can also use [Availability Zones](../../availability-zones/az-overview.md) for the instances to make these decisions.
-You can query this data directly via the Instance Metadata Service.
+För vissa scenarier är placeringen av olika data repliker av primär betydelse. Till exempel, [HDFS-replik placering](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps) eller container placering via en [Orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) kan du behöva känna till `platformFaultDomain` och `platformUpdateDomain` den virtuella datorn körs på.
+Du kan också använda [Tillgänglighetszoner](../../availability-zones/az-overview.md) för instanserna för att fatta beslut.
+Du kan fråga dessa data direkt via Instance Metadata Service.
 
 **Förfrågan**
 
@@ -498,7 +498,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platform
 
 ### <a name="getting-more-information-about-the-vm-during-support-case"></a>Hämta mer information om den virtuella datorn under supportbegäran
 
-As a service provider, you may get a support call where you would like to know more information about the VM. Asking the customer to share the compute metadata can provide basic information for the support professional to know about the kind of VM on Azure.
+Som tjänst leverantör kan du få ett support samtal där du vill ha mer information om den virtuella datorn. Att be kunden att dela dina beräknings-metadata kan ge grundläggande information om support teknikern för att veta om vilken typ av virtuell dator som finns i Azure.
 
 **Förfrågan**
 
@@ -509,7 +509,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 **Svar**
 
 > [!NOTE]
-> The response is a JSON string. The following example response is pretty-printed for readability.
+> Svaret är en JSON-sträng. Följande exempel svar är ganska utskrivet för läsbarhet.
 
 ```json
 {
@@ -531,7 +531,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 
 ### <a name="getting-azure-environment-where-the-vm-is-running"></a>Hämta Azure-miljön där den virtuella datorn körs
 
-Azure has various sovereign clouds like [Azure Government](https://azure.microsoft.com/overview/clouds/government/). Sometimes you need the Azure Environment to make some runtime decisions. The following sample shows you how you can achieve this behavior.
+Azure har olika suveräna moln som [Azure Government](https://azure.microsoft.com/overview/clouds/government/). Ibland behöver du Azure-miljön för att kunna göra vissa körnings beslut. I följande exempel visas hur du kan få det här beteendet.
 
 **Förfrågan**
 ```bash
@@ -542,18 +542,18 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnviro
 ```bash
 AzurePublicCloud
 ```
-The cloud and the values of the Azure Environment are listed below.
+Molnet och värdena i Azure-miljön visas nedan.
 
- I molnet   | Azure Environment
+ Molnet   | Azure Environment
 ---------|-----------------
-[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | AzurePublicCloud
+[Alla allmänt tillgängliga globala Azure-regioner](https://azure.microsoft.com/regions/)     | AzurePublicCloud
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | AzureUSGovernmentCloud
 [Azure Kina](https://azure.microsoft.com/global-infrastructure/china/)                  | AzureChinaCloud
 [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | AzureGermanCloud
 
-### <a name="getting-the-tags-for-the-vm"></a>Getting the tags for the VM
+### <a name="getting-the-tags-for-the-vm"></a>Hämtar taggar för den virtuella datorn
 
-Tags may have been applied to your Azure VM to logically organize them into a taxonomy. The tags assigned to a VM can be retrieved by using the request below.
+Taggar kan ha tillämpats på den virtuella Azure-datorn för att logiskt organisera dem i en taxonomi. Taggarna som tilldelas till en virtuell dator kan hämtas med hjälp av begäran nedan.
 
 **Förfrågan**
 
@@ -567,7 +567,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tags?api
 Department:IT;Environment:Test;Role:WebRole
 ```
 
-The `tags` field is a string with the tags delimited by semicolons. This can be a problem if semicolons are used in the tags themselves. If a parser is written to programmatically extract the tags, you should rely on the `tagsList` field which is a JSON array with no delimiters, and consequently, easier to parse.
+Fältet `tags` är en sträng med taggarna avgränsade med semikolon. Detta kan vara ett problem om semikolon används i själva taggarna. Om en parser skrivs för att program mässigt extrahera taggarna bör du förlita dig på fältet `tagsList` som är en JSON-matris utan avgränsare och därmed lättare att parsa.
 
 **Förfrågan**
 
@@ -596,10 +596,10 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList
 
 ### <a name="validating-that-the-vm-is-running-in-azure"></a>Verifiera att den virtuella datorn körs i Azure
 
-Marketplace vendors want to ensure that their software is licensed to run only in Azure. If someone copies the VHD out to on-premises, then they should have the ability to detect that. By calling into Instance Metadata Service, Marketplace vendors can get signed data that guarantees response only from Azure.
+Marketplace-leverantörer vill se till att deras program vara licensieras att köras endast i Azure. Om någon kopierar den virtuella hård disken till en lokal plats, ska de ha möjlighet att identifiera den. Genom att ringa till Instance Metadata Service kan Marketplace-leverantörer Hämta signerade data som endast garanterar svar från Azure.
 
 > [!NOTE]
-> Requires jq to be installed.
+> Kräver att JQ installeras.
 
 **Förfrågan**
 
@@ -642,23 +642,23 @@ Verification successful
 
 Data | Beskrivning
 -----|------------
-nonce | User supplied optional string with the request. If no nonce was supplied in the request, the current UTC timestamp is returned
-plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) for a VM in it's an Azure Marketplace Image, contains name, product, and publisher
-timestamp/createdOn | The timestamp at which the first signed document was created
-timestamp/expiresOn | The timestamp at which the signed document expires
-vmId |  [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM
-subscriptionId | Azure subscription for the Virtual Machine, introduced in `2019-04-30`
+Nnär | Användaren angav valfri sträng med begäran. Om inget nonce angavs i begäran returneras den aktuella UTC-tidsstämpeln
+projektplan | [Planera](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) för en virtuell dator i den är en Azure Marketplace-avbildning som innehåller namn, produkt och utgivare
+timestamp/createdOn | Tidsstämpeln då det första signerade dokumentet skapades
+timestamp/expiresOn | Tidsstämpeln då det signerade dokumentet upphör att gälla
+vmId |  [Unikt ID](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) för den virtuella datorn
+subscriptionId | Azure-prenumeration för den virtuella datorn som introducerades i `2019-04-30`
 
-#### <a name="verifying-the-signature"></a>Verifying the signature
+#### <a name="verifying-the-signature"></a>Verifiera signaturen
 
-Once you get the signature above, you can verify that the signature is from Microsoft. Also you can verify the intermediate certificate and the certificate chain. Lastly, you can verify the subscription ID is correct.
+När du har hämtat signaturen ovan kan du kontrol lera att signaturen är från Microsoft. Du kan också kontrol lera mellanliggande certifikat och certifikat kedjan. Slutligen kan du kontrol lera att prenumerations-ID: t är korrekt.
 
 > [!NOTE]
-> The certificate for Public cloud and sovereign cloud will be different.
+> Certifikatet för det offentliga molnet och det suveräna molnet är annorlunda.
 
- I molnet | Certifikat
+ Molnet | Certifikat
 ---------|-----------------
-[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | metadata.azure.com
+[Alla allmänt tillgängliga globala Azure-regioner](https://azure.microsoft.com/regions/)     | metadata.azure.com
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | metadata.azure.us
 [Azure Kina](https://azure.microsoft.com/global-infrastructure/china/)                  | metadata.azure.cn
 [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | metadata.microsoftazure.de
@@ -677,22 +677,22 @@ openssl x509 -noout -issuer -in intermediate.pem
 openssl verify -verbose -CAfile /etc/ssl/certs/Baltimore_CyberTrust_Root.pem -untrusted intermediate.pem signer.pem
 ```
 
-In cases where the intermediate certificate cannot be downloaded due to network constraints during validation, the intermediate certificate can be pinned. However, Azure will roll over the certificates as per standard PKI practice. The pinned certificates would need to be updated when roll over happens. Whenever a change to update the intermediate certificate is planned, the Azure blog will be updated and Azure customers will be notified. The intermediate certificates can be found [here](https://www.microsoft.com/pki/mscorp/cps/default.htm). The intermediate certificates for each of the regions can be different.
+I de fall där det mellanliggande certifikatet inte kan laddas ned på grund av nätverks begränsningar under verifieringen, kan det mellanliggande certifikatet fästas. Azure kommer dock att återställas över certifikaten enligt PKI-praxis enligt standard. De fästa certifikaten måste uppdateras när detta sker. När en ändring av uppdateringen av mellanliggande certifikat planeras uppdateras Azure-bloggen och Azure-kunder meddelas. Du hittar de mellanliggande certifikaten [här](https://www.microsoft.com/pki/mscorp/cps/default.htm). De mellanliggande certifikaten för varje region kan vara olika.
 
-### <a name="failover-clustering-in-windows-server"></a>Failover Clustering in Windows Server
+### <a name="failover-clustering-in-windows-server"></a>Kluster för växling vid fel i Windows Server
 
-For certain scenarios, when querying Instance Metadata Service with Failover Clustering, it is necessary to add a route to the routing table.
+Vid frågor om Instance Metadata Service med kluster för växling vid fel i vissa scenarier är det nödvändigt att lägga till en väg i routningstabellen.
 
-1. Open command prompt with administrator privileges.
+1. Öppna kommando tolken med administratörs behörighet.
 
-2. Run the following command and note the address of the Interface for Network Destination (`0.0.0.0`) in the IPv4 Route Table.
+2. Kör följande kommando och anteckna adressen till gränssnittet för nätverks målet (`0.0.0.0`) i IPv4-väg tabellen.
 
 ```bat
 route print
 ```
 
 > [!NOTE] 
-> The following example output from a Windows Server VM with Failover Cluster enabled contains only the IPv4 Route Table for simplicity.
+> Följande exempel på utdata från en virtuell Windows Server-dator med redundanskluster aktiverat innehåller bara IPv4-routningstabellen för enkelhetens skull.
 
 ```bat
 IPv4 Route Table
@@ -718,30 +718,30 @@ Network Destination        Netmask          Gateway       Interface  Metric
   255.255.255.255  255.255.255.255         On-link         10.0.1.10    266
 ```
 
-1. Run the following command and use the address of the Interface for Network Destination (`0.0.0.0`) which is (`10.0.1.10`) in this example.
+1. Kör följande kommando och Använd adressen till gränssnittet för nätverks målet (`0.0.0.0`) som är (`10.0.1.10`) i det här exemplet.
 
 ```bat
 route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 ```
 
-### <a name="custom-data"></a>Custom Data
-Instance Metadata Service provides the ability for the VM to have access to its custom data. The binary data must be less than 64 KB and is provided to the VM in base64 encoded form.
+### <a name="custom-data"></a>Anpassade data
+Instance Metadata Service ger den virtuella datorn möjlighet att få åtkomst till dess anpassade data. Binära data måste vara mindre än 64 KB och anges för den virtuella datorn i Base64-kodat format.
 
-Azure custom data can be inserted to the VM through REST APIs, PowerShell Cmdlets, Azure Command Line Interface (CLI), or an ARM template.
+Azures anpassade data kan infogas i den virtuella datorn via REST-API: er, PowerShell-cmdletar, Azure Command Line Interface (CLI) eller en ARM-mall.
 
-For an Azure Command Line Interface example, see [Custom Data and Cloud-Init on Microsoft Azure](https://azure.microsoft.com/blog/custom-data-and-cloud-init-on-windows-azure/).
+Ett exempel på ett Azure Command line-gränssnitt finns i [anpassade data och Cloud-Init på Microsoft Azure](https://azure.microsoft.com/blog/custom-data-and-cloud-init-on-windows-azure/).
 
-For an ARM template example, see [Deploy a Virtual Machine with CustomData](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
+Ett exempel på en ARM-mall finns i [distribuera en virtuell dator med CustomData](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
 
-Custom data is available to all processes running in the VM. It is suggested that customers do not insert secret information into custom data.
+Anpassade data är tillgängliga för alla processer som körs på den virtuella datorn. Vi rekommenderar att kunder inte infogar hemlig information i anpassade data.
 
-Currently, custom data is guaranteed to be available during bootstrap of a VM. If updates are made to the VM such as adding disks or resizing the VM, Instance Metadata Service will not provide custom data. Providing custom data persistently through Instance Metadata Service is currently in progress.
+För närvarande garanterar vi att anpassade data är tillgängliga vid start av en virtuell dator. Om uppdateringar görs till den virtuella datorn, till exempel att lägga till diskar eller ändra storlek på den virtuella datorn, kommer Instance Metadata Service inte att tillhandahålla anpassade data. Att tillhandahålla anpassade data permanent via Instance Metadata Service pågår just nu.
 
-#### <a name="retrieving-custom-data-in-virtual-machine"></a>Retrieving custom data in Virtual Machine
-Instance Metadata Service provides custom data to the VM in base64 encoded form. The following example decodes the base64 encoded string.
+#### <a name="retrieving-custom-data-in-virtual-machine"></a>Hämtar anpassade data på den virtuella datorn
+Instance Metadata Service tillhandahåller anpassade data till den virtuella datorn i Base64-kodat format. I följande exempel avkodas den base64-kodade strängen.
 
 > [!NOTE]
-> The custom data in this example is interpreted as an ASCII string that reads, "My custom data.".
+> Anpassade data i det här exemplet tolkas som en ASCII-sträng som läser "mina anpassade data".
 
 **Förfrågan**
 
@@ -755,7 +755,7 @@ curl -H "Metadata:true" "http://169.254.169.254/metadata/instance/compute/custom
 My custom data.
 ```
 
-### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>Examples of calling metadata service using different languages inside the VM
+### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>Exempel på hur du anropar metadata service med olika språk i den virtuella datorn
 
 Språk | Exempel
 ---------|----------------
@@ -772,31 +772,31 @@ Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
 Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 Puppet | https://github.com/keirans/azuremetadata
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
-1. I am getting the error `400 Bad Request, Required metadata header not specified`. Vad betyder detta?
-   * The Instance Metadata Service requires the header `Metadata: true` to be passed in the request. Passing this header in the REST call allows access to the Instance Metadata Service.
-2. Why am I not getting compute information for my VM?
-   * Currently the Instance Metadata Service only supports instances created with Azure Resource Manager. In the future, support for  Cloud Service VMs might be added.
-3. I created my Virtual Machine through Azure Resource Manager a while back. Why am I not see compute metadata information?
-   * For any VMs created after Sep 2016, add a [Tag](../../azure-resource-manager/resource-group-using-tags.md) to start seeing compute metadata. For older VMs (created before Sep 2016), add/remove extensions or data disks to the VM to refresh metadata.
-4. I am not seeing all data populated for new version
-   * For any VMs created after Sep 2016, add a [Tag](../../azure-resource-manager/resource-group-using-tags.md) to start seeing compute metadata. For older VMs (created before Sep 2016), add/remove extensions or data disks to the VM to refresh metadata.
-5. Why am I getting the error `500 Internal Server Error`?
-   * Retry your request based on exponential back off system. If the issue persists contact  Azure support.
-6. Where do I share additional questions/comments?
-   * Send your comments on https://feedback.azure.com.
-7. Would this work for Virtual Machine Scale Set Instance?
-   * Yes Metadata service is available for Scale Set Instances.
-8. How do I get support for the service?
-   * To get support for the service, create a support issue in Azure portal for the VM where you are not able to get metadata response after long retries.
-9. I get request timed out for my call to the service?
-   * Metadata calls must be made from the primary IP address assigned to the network card of the VM, in addition in case you have changed your routes there must be a route for 169.254.0.0/16 address out of your network card.
-10. I updated my tags in virtual machine scale set but they don't appear in the instances unlike VMs?
-    * Currently for ScaleSets tags only show to the VM on a reboot/reimage/or a disk change to the instance.
+1. Jag får fel meddelandet `400 Bad Request, Required metadata header not specified`. Vad betyder detta?
+   * Instance Metadata Service kräver att huvud `Metadata: true` skickas i begäran. Om du skickar den här rubriken i REST-anropet får du till gång till Instance Metadata Service.
+2. Varför får jag inte beräknings information för min virtuella dator?
+   * För närvarande stöder Instance Metadata Service endast instanser som skapats med Azure Resource Manager. I framtiden kan stöd för virtuella datorer i moln tjänsten läggas till.
+3. Jag har skapat min virtuella dator genom att Azure Resource Manager en och tillbaka. Varför visas inte information om att beräkna metadata?
+   * För virtuella datorer som skapats efter sep 2016 lägger du till en [tagg](../../azure-resource-manager/resource-group-using-tags.md) för att börja se Compute metadata. För äldre virtuella datorer (som skapats före sep 2016) lägger du till/tar bort tillägg eller data diskar till den virtuella datorn för att uppdatera metadata.
+4. Jag ser inte alla data som är ifyllda för nya versioner
+   * För virtuella datorer som skapats efter sep 2016 lägger du till en [tagg](../../azure-resource-manager/resource-group-using-tags.md) för att börja se Compute metadata. För äldre virtuella datorer (som skapats före sep 2016) lägger du till/tar bort tillägg eller data diskar till den virtuella datorn för att uppdatera metadata.
+5. Varför får jag fel meddelandet `500 Internal Server Error`?
+   * Gör om din begäran baserat på exponentiellt system. Kontakta Azure-supporten om problemet kvarstår.
+6. Var kan jag dela fler frågor/kommentarer?
+   * Skicka kommentarer till https://feedback.azure.com.
+7. Skulle detta fungera för den virtuella datorns skalnings uppsättnings instans?
+   * Tjänsten Yes metadata är tillgänglig för instanser av skalnings uppsättningar.
+8. Hur gör jag för att få support för tjänsten?
+   * Om du vill få support för tjänsten skapar du ett support ärende i Azure Portal för den virtuella datorn där du inte kan få svar på metadata efter långa återförsök.
+9. Jag får en timeout för mitt samtal till tjänsten?
+   * Anrop till metadata måste göras från den primära IP-adress som tilldelats till nätverkskortet på den virtuella datorn, och om du har ändrat dina vägar måste det finnas en väg för 169.254.0.0/16-adressen från nätverkskortet.
+10. Jag uppdaterade mina taggar i den virtuella datorns skalnings uppsättning men de visas inte i de här instanserna till skillnad från virtuella datorer?
+    * För närvarande för ScaleSets-taggar visas bara för den virtuella datorn vid en omstart/återavbildning/eller en disk ändring till instansen.
 
-    ![Instance Metadata Support](./media/instance-metadata-service/InstanceMetadata-support.png)
+    ![Stöd för instansen metadata](./media/instance-metadata-service/InstanceMetadata-support.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Learn more about [Scheduled Events](scheduled-events.md)
+- Läs mer om [schemalagda händelser](scheduled-events.md)

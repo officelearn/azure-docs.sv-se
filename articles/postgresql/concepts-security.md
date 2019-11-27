@@ -1,6 +1,6 @@
 ---
-title: Security in Azure Database for PostgreSQL - Single Server
-description: An overview of the security features in Azure Database for PostgreSQL - Single Server.
+title: Säkerhet i Azure Database for PostgreSQL-enskild server
+description: En översikt över säkerhetsfunktionerna i Azure Database for PostgreSQL-enskild server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -13,45 +13,45 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74485086"
 ---
-# <a name="security-in-azure-database-for-postgresql---single-server"></a>Security in Azure Database for PostgreSQL - Single Server
+# <a name="security-in-azure-database-for-postgresql---single-server"></a>Säkerhet i Azure Database for PostgreSQL-enskild server
 
-There are multiple layers of security that are available to protect the data on your Azure Database for PostgreSQL server. This article outlines those security options.
+Det finns flera säkerhets lager som är tillgängliga för att skydda data på din Azure Database for PostgreSQL-Server. Den här artikeln beskriver de här säkerhets alternativen.
 
-## <a name="information-protection-and-encryption"></a>Information protection and encryption
+## <a name="information-protection-and-encryption"></a>Informations skydd och kryptering
 
-### <a name="in-transit"></a>In-transit
-Azure Database for PostgreSQL secures your data by encrypting data in-transit with Transport Layer Security. Encryption (SSL/TLS) is enforced by default.
+### <a name="in-transit"></a>Under överföring
+Azure Database for PostgreSQL skyddar dina data genom att kryptera data under överföring med Transport Layer Security. Kryptering (SSL/TLS) tillämpas som standard.
 
-### <a name="at-rest"></a>At-rest
-The Azure Database for PostgreSQL service uses the FIPS 140-2 validated cryptographic module for storage encryption of data at-rest. Data, including backups, are encrypted on disk, with the exception of temporary files created while running queries. The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys are system managed. Lagringskrypteringen är alltid igång och kan inte inaktiveras.
+### <a name="at-rest"></a>I vila
+Tjänsten Azure Database for PostgreSQL använder FIPS 140-2-validerade kryptografisk modul för lagrings kryptering av data i vila. Data, inklusive säkerhets kopior, krypteras på disk, med undantag för tillfälliga filer som skapas vid körning av frågor. Tjänsten använder AES 256-bit-chiffer som ingår i Azure Storage-kryptering och nycklarna hanteras av systemet. Lagringskrypteringen är alltid igång och kan inte inaktiveras.
 
 
 ## <a name="network-security"></a>Nätverkssäkerhet
-Connections to an Azure Database for PostgreSQL server are first routed through a regional gateway. The gateway has a publicly accessible IP, while the server IP addresses are protected. For more information about the gateway, visit the [connectivity architecture article](concepts-connectivity-architecture.md).  
+Anslutningar till en Azure Database for PostgreSQL-Server dirigeras först via en regional Gateway. Gatewayen har en offentligt tillgänglig IP-adress, medan serverns IP-adresser är skyddade. Mer information om gatewayen finns i artikeln om [anslutnings arkitektur](concepts-connectivity-architecture.md).  
 
-A newly created Azure Database for PostgreSQL server has a firewall that blocks all external connections. Though they reach the gateway, they are not allowed to connect to the server. 
+En nyligen skapad Azure Database for PostgreSQL-Server har en brand vägg som blockerar alla externa anslutningar. Även om de når gatewayen, tillåts de inte ansluta till servern. 
 
-### <a name="ip-firewall-rules"></a>IP firewall rules
-IP firewall rules grant access to servers based on the originating IP address of each request. See the [firewall rules overview](concepts-firewall-rules.md) for more information.
+### <a name="ip-firewall-rules"></a>Regler för IP-brandvägg
+Regler för IP-brandvägg ger åtkomst till servrar baserat på den ursprungliga IP-adressen för varje begäran. Mer information finns i [Översikt över brand Väggs regler](concepts-firewall-rules.md) .
 
 ### <a name="virtual-network-firewall-rules"></a>Brandväggsregler för virtuella nätverk
-Virtual network service endpoints extend your virtual network connectivity over the Azure backbone. Using virtual network rules you can enable your Azure Database for PostgreSQL server to allow connections from selected subnets in a virtual network. For more information, see the [virtual network service endpoint overview](concepts-data-access-and-security-vnet.md).
+Tjänst slut punkter i virtuella nätverk utökar din virtuella nätverks anslutning via Azure-stamnätet. Med hjälp av regler för virtuella nätverk kan du aktivera Azure Database for PostgreSQL servern för att tillåta anslutningar från valda undernät i ett virtuellt nätverk. Mer information finns i [Översikt över Virtual Network Service-slutpunkt](concepts-data-access-and-security-vnet.md).
 
 
 ## <a name="access-management"></a>Åtkomsthantering
 
-While creating the Azure Database for PostgreSQL server, you provide credentials for an administrator role. This administrator role can be used to create additional [PostgreSQL roles](https://www.postgresql.org/docs/current/user-manag.html).
+När du skapar Azure Database for PostgreSQL-servern anger du autentiseringsuppgifter för en administratörs roll. Den här administratörs rollen kan användas för att skapa ytterligare [postgresql-roller](https://www.postgresql.org/docs/current/user-manag.html).
 
-You can also connect to the server using [Azure Active Directory (AAD) authentication](concepts-aad-authentication.md).
+Du kan också ansluta till servern med hjälp av [Azure Active Directory (AAD)-autentisering](concepts-aad-authentication.md).
 
 
 ## <a name="threat-protection"></a>Hotskydd
 
-You can opt in to [Advanced Threat Protection](concepts-data-access-and-security-threat-protection.md) which detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit servers.
+Du kan välja att använda [Avancerat skydd](concepts-data-access-and-security-threat-protection.md) som identifierar avvikande aktiviteter som visar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja servrar.
 
-[Audit logging](concepts-audit.md) is available to track activity in your databases. 
+[Gransknings loggning](concepts-audit.md) är tillgängligt för att spåra aktiviteter i dina databaser. 
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Enable firewall rules for [IPs](concepts-firewall-rules.md) or [virtual networks](concepts-data-access-and-security-vnet.md)
-- Learn about [Azure Active Directory authentication](concepts-aad-authentication.md) in Azure Database for PostgreSQL
+- Aktivera brand Väggs regler för [IP-adresser](concepts-firewall-rules.md) eller [virtuella nätverk](concepts-data-access-and-security-vnet.md)
+- Lär dig mer om [Azure Active Directory autentisering](concepts-aad-authentication.md) i Azure Database for PostgreSQL

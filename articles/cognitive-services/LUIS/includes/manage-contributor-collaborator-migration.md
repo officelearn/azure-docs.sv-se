@@ -17,10 +17,10 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74451642"
 ---
-Management of contributions from collaborators depends on the current status of the app.
+Hantering av bidrag från medarbetare beror på appens aktuella status.
 
-**For [authoring resource migrated](../luis-migration-authoring.md) apps**: _contributors_ are managed in the Azure portal for the authoring resource, using the **Access control (IAM)** page. Add a user, using the collaborator's email address and the _contributor_ role. 
+**För [redigering av resurs migrerade](../luis-migration-authoring.md) appar**: _deltagare_ hanteras i Azure Portal för redigerings resursen med hjälp av **åtkomst kontroll (IAM)** sidan. Lägg till en användare med hjälp av medarbetarens e-postadress och _deltagar_ rollen. 
 
-**For apps that have not migrated yet**: all _collaborators_ are managed in the LUIS portal from each app's **Manage -> Collaborators** page. On this page, [add a user's email address](../luis-how-to-collaborate.md). This provides authoring access to this app only. 
+**För appar som inte har migrerats än**: alla _medarbetare_ hanteras i Luis-portalen från varje apps sida för **hantering av > samarbets partners** . [Lägg till en användares e-postadress](../luis-how-to-collaborate.md)på den här sidan. Detta ger endast redigerings åtkomst till den här appen. 
 
 

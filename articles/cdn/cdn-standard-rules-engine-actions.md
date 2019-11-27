@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: magattus
 ms.openlocfilehash: 53280bc90f629d93ff8a045c80f34a73970b43f6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 11/26/2019
 ms.locfileid: "74171639"
 ---
 # <a name="actions-in-the-standard-rules-engine-for-azure-cdn"></a>Åtgärder i standard regel motorn för Azure CDN
@@ -61,7 +61,7 @@ Använd den här åtgärden för att ändra rubriker som finns i begär Anden so
 
 #### <a name="required-fields"></a>Obligatoriska fält
 
-Åtgärd | Namn på HTTP-huvud | Värde
+Åtgärd | Namn på HTTP-huvud | Value
 -------|------------------|------
 Lägg till | När det här alternativet är markerat och regeln matchar, läggs rubriken som anges i **huvud namn** till i begäran med det angivna värdet. Om rubriken redan finns läggs värdet till i det befintliga värdet. | Sträng
 Skriv över | När det här alternativet är markerat och regeln matchar, läggs rubriken som anges i **huvud namn** till i begäran med det angivna värdet. Om rubriken redan finns skriver det angivna värdet över det befintliga värdet. | Sträng
@@ -73,7 +73,7 @@ Använd den här åtgärden för att ändra huvuden som finns i svar som returne
 
 #### <a name="required-fields"></a>Obligatoriska fält
 
-Åtgärd | Namn på HTTP-huvud | Värde
+Åtgärd | Namn på HTTP-huvud | Value
 -------|------------------|------
 Lägg till | När det här alternativet är markerat och regeln matchar, läggs rubriken som anges i **huvud namn** till i svaret med hjälp av det angivna **värdet**. Om rubriken redan finns läggs **värdet** till i det befintliga värdet. | Sträng
 Skriv över | När det här alternativet är markerat och regeln matchar, läggs rubriken som anges i **huvud namn** till i svaret med hjälp av det angivna **värdet**. Om rubriken redan finns skriver **värdet** över det befintliga värdet. | Sträng
@@ -105,7 +105,7 @@ Använd den här åtgärden för att skriva om sökvägen för en begäran som �
 Fält | Beskrivning 
 ------|------------
 Käll mönster | Definiera käll mönstret i URL-sökvägen som ska ersättas. För närvarande använder käll mönstret en prefix-baserad matchning. Om du vill matcha alla URL-sökvägar använder du ett snedstreck ( **/** ) som käll mönster värde.
-Mål | Definiera den mål Sök väg som ska användas vid omskrivning. Mål Sök vägen skriver över käll mönstret.
+Destination | Definiera den mål Sök väg som ska användas vid omskrivning. Mål Sök vägen skriver över käll mönstret.
 Bevara omatchad sökväg | Om värdet är **Ja**, läggs den återstående sökvägen efter käll mönstret till i den nya mål Sök vägen. 
 
 ## <a name="next-steps"></a>Nästa steg

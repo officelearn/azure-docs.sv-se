@@ -1,20 +1,15 @@
 ---
-title: Azure Container Instances-och container dirigering
+title: Behållar instanser och behållar dirigering
 description: Förstå hur Azure Container instances samverkar med behållar dirigering.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
-ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 044b74e1a8683c6beb0220c1cf9fb97403286a95
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: f3f8693d1a9a12e7c35d126ab3e3ca53448e5e40
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972252"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533666"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container Instances-och behållar dirigering
 
@@ -26,16 +21,16 @@ Azure Container Instances innehåller några av de grundläggande schemaläggnin
 
 Standard definitionen för Orchestration innehåller följande uppgifter:
 
-- **Schemaläggning**: När du har fått en behållar avbildning och en resurs förfrågan söker du efter en lämplig dator där behållaren ska köras.
-- **Tillhörighet/anti-tillhörighet**: Ange att en uppsättning behållare ska köras nära varandra (för prestanda) eller tillräckligt långt ifrån varandra (för tillgänglighet).
-- **Hälso övervakning**: Titta efter behållar felen och Schemalägg dem automatiskt.
+- **Schemaläggning**: du kan använda en behållar avbildning och en resurs förfrågan för att hitta en lämplig dator där behållaren ska köras.
+- **Tillhörighet/** tilldelning av tillhörighet: ange att en uppsättning behållare ska köras nära varandra (för prestanda) eller tillräckligt långt ifrån varandra (för tillgänglighet).
+- **Hälso övervakning**: Titta efter behållar fel och Schemalägg dem automatiskt.
 - **Redundans**: Håll koll på vad som körs på varje dator och Schemalägg sedan om behållare från misslyckade datorer till felfria noder.
 - **Skalning**: Lägg till eller ta bort behållar instanser för att matcha efter frågan, antingen manuellt eller automatiskt.
-- **Nätverk**: Ange ett överordnat nätverk för koordinerande behållare för att kommunicera över flera värddatorer.
+- **Nätverk**: Ange ett överordnat nätverk för att koordinera behållare att kommunicera över flera värddatorer.
 - **Tjänst identifiering**: Aktivera behållare för att hitta varandra automatiskt, även när de flyttas mellan värddatorer och ändra IP-adresser.
-- **Koordinerade program uppgraderingar**: Hantera behållar uppgraderingar för att undvika avbrott i programmet och aktivera återställning om något går fel.
+- **Koordinerade program uppgraderingar**: hantera uppgradering av behållare för att undvika avbrott i programmet och aktivera återställning om något går fel.
 
-## <a name="orchestration-with-azure-container-instances-a-layered-approach"></a>Dirigering med Azure Container Instances: Ett skiktat tillvägagångs sätt
+## <a name="orchestration-with-azure-container-instances-a-layered-approach"></a>Dirigering med Azure Container Instances: ett skiktat tillvägagångs sätt
 
 Azure Container Instances aktiverar ett skiktat tillvägagångs sätt för att dirigera, vilket ger alla schemaläggnings-och hanterings funktioner som krävs för att köra en enda behållare, samtidigt som Orchestrator-plattformarna hanterar aktiviteter med flera behållare ovanpå den.
 

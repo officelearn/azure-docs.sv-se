@@ -1,6 +1,6 @@
 ---
-title: Metrics and diagnostics logging
-description: Learn how to enable diagnostics in Azure SQL Database to store information about resource utilization and query execution statistics.
+title: Mått och diagnostikloggning
+description: Lär dig hur du aktiverar diagnostik i Azure SQL Database för att lagra information om resursutnyttjande och statistik för körning av frågor.
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
@@ -11,737 +11,737 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 11/15/2019
-ms.openlocfilehash: 27810f2ee1bc95c924003cd8a5944860df40db14
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 95953b4f052531c9804024410e225bb0b5c62aef
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420819"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539191"
 ---
-# <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database metrics and diagnostics logging
+# <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database mått och diagnostikloggning
 
-In this topic, you will learn how to configure logging of diagnostics telemetry for Azure SQL Database through the Azure portal, PowerShell, Azure CLI, Azure Monitor REST API, and Azure Resource Manager template. These diagnostics can be used to gauge resource utilization and query execution statistics.
+I det här avsnittet får du lära dig hur du konfigurerar loggning av Diagnostics-telemetri för Azure SQL Database via mallen Azure Portal, PowerShell, Azure CLI, Azure Monitor REST API och Azure Resource Manager. Diagnostiken kan användas för att mäta resursutnyttjande och köra statistik för frågekörning.
 
-Single databases, pooled databases in elastic pools, and instance databases in a managed instance can stream metrics and diagnostics logs for easier performance monitoring. You can configure a database to transmit resource usage, workers and sessions, and connectivity to one of the following Azure resources:
+Enskilda databaser, databaser i pooler i elastiska pooler och instans databaser i en hanterad instans kan strömma mått och diagnostikloggar för enklare prestanda övervakning. Du kan konfigurera en databas för att överföra resursanvändning, arbetare och sessioner samt anslutning till någon av följande Azure-resurser:
 
-- **Azure SQL Analytics**: to get intelligent monitoring of your Azure SQL databases that includes performance reports, alerts, and mitigation recommendations.
-- **Azure Event Hubs**: to integrate SQL Database telemetry with your custom monitoring solutions or hot pipelines.
-- **Azure Storage**: to archive vast amounts of telemetry for a fraction of the price.
+- **Azure SQL-analys**: för att få intelligent övervakning av dina Azure SQL-databaser som innehåller prestanda rapporter, varningar och rekommendationer.
+- **Azure Event Hubs**: för att integrera SQL Database telemetri med dina anpassade övervaknings lösningar eller frekventa pipeliner.
+- **Azure Storage**: för att arkivera stora mängder telemetri för en bråkdel av priset.
 
     ![Arkitektur](./media/sql-database-metrics-diag-logging/architecture.png)
 
-For more information about the metrics and log categories supported by the various Azure services, see:
+Mer information om mått och logg kategorier som stöds av de olika Azure-tjänsterna finns i:
 
-- [Overview of metrics in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-- [Overview of Azure diagnostics logs](../azure-monitor/platform/resource-logs-overview.md)
+- [Översikt över mått i Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
+- [Översikt över Azure Diagnostics-loggar](../azure-monitor/platform/resource-logs-overview.md)
 
-This article provides guidance to help you enable diagnostics telemetry for Azure SQL databases, elastic pools, and managed instances. It also can help you understand how to configure Azure SQL Analytics as a monitoring tool for viewing database diagnostics telemetry.
+Den här artikeln innehåller rikt linjer för hur du aktiverar telemetri för Azure SQL-databaser, elastiska pooler och hanterade instanser. Det kan också hjälpa dig att förstå hur du konfigurerar Azure SQL-analys som ett övervaknings verktyg för att Visa telemetri för Database Diagnostics.
 
-## <a name="enable-logging-of-diagnostics-telemetry"></a>Enable logging of diagnostics telemetry
+## <a name="enable-logging-of-diagnostics-telemetry"></a>Aktivera loggning av telemetri för diagnostik
 
-You can enable and manage metrics and diagnostics telemetry logging by using one of the following methods:
+Du kan aktivera och hantera loggning av mått och telemetri genom att använda någon av följande metoder:
 
-- Azure portal
+- Azure Portal
 - PowerShell
 - Azure CLI
 - Azure Monitor REST API
 - Azure Resource Manager-mall
 
-When you enable metrics and diagnostics logging, you need to specify the Azure resource destination for collecting the diagnostics telemetry. Available options include:
+När du aktiverar mått-och diagnostikloggning måste du ange Azure-resursens mål för att samla in diagnostik-telemetri. De tillgängliga alternativen är:
 
 - Azure SQL-analys
 - Azure Event Hubs
 - Azure Storage
 
-You can provision a new Azure resource or select an existing resource. After you choose a resource by using the **Diagnostic settings** option, specify which data to collect.
+Du kan etablera en ny Azure-resurs eller välja en befintlig resurs. När du har valt en resurs med hjälp av alternativet **diagnostiska inställningar** anger du vilka data som ska samlas in.
 
-## <a name="supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases"></a>Supported diagnostic logging for Azure SQL databases, and instance databases
+## <a name="supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases"></a>Diagnostisk loggning som stöds för Azure SQL-databaser och instans databaser
 
-Enable the metrics and diagnostics logging on SQL databases - they're not enabled by default.
+Aktivera mått och diagnostik-loggning på SQL-databaser – de är inte aktiverade som standard.
 
-You can set up Azure SQL databases, and instance databases to collect the following diagnostics telemetry:
+Du kan konfigurera Azure SQL-databaser och instans databaser för att samla in följande diagnostik:
 
-| Monitoring telemetry for databases | Single database and pooled database support | Instance database support |
+| Övervaka telemetri för databaser | Stöd för enkel databas och poolad databas | Stöd för instans databas |
 | :------------------- | ----- | ----- |
-| [Basic metrics](#basic-metrics): Contains DTU/CPU percentage, DTU/CPU limit, physical data read percentage, log write percentage, Successful/Failed/Blocked by firewall connections, sessions percentage, workers percentage, storage, storage percentage, and XTP storage percentage. | Ja | Nej |
-| [Instance and App Advanced](#advanced-metrics):  Contains tempdb system database data and log file size and tempdb percent log file used. | Ja | Nej |
-| [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): Contains information about the query runtime statistics such as CPU usage and query duration statistics. | Ja | Ja |
-| [QueryStoreWaitStatistics](#query-store-wait-statistics): Contains information about the query wait statistics (what your queries waited on) such are CPU, LOG, and LOCKING. | Ja | Ja |
-| [Errors](#errors-dataset): Contains information about SQL errors on a database. | Ja | Ja |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset): Contains information about how much time a database spent waiting on different wait types. | Ja | Nej |
-| [Timeouts](#time-outs-dataset): Contains information about timeouts on a database. | Ja | Nej |
-| [Blocks](#blockings-dataset): Contains information about blocking events on a database. | Ja | Nej |
-| [Deadlocks](#deadlocks-dataset): Contains information about deadlock events on a database. | Ja | Nej |
-| [AutomaticTuning](#automatic-tuning-dataset): Contains information about automatic tuning recommendations for a database. | Ja | Nej |
-| [SQLInsights](#intelligent-insights-dataset): Contains Intelligent Insights into performance for a database. To learn more, see [Intelligent Insights](sql-database-intelligent-insights.md). | Ja | Ja |
+| [Grundläggande mått](#basic-metrics): innehåller DTU/CPU-procent, DTU/CPU-gräns, fysisk data läsning i procent, logg skrivnings procent, lyckad/misslyckad/blockerad av brand Väggs anslutningar, procent andel av arbets tagare, lagring, lagrings procent och XTP lagrings procent. | Ja | Nej |
+| [Instans och app Advanced](#advanced-metrics): innehåller tempdb-systemets databas data och logg fils storlek och tempdb-logg filen som används. | Ja | Nej |
+| [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): innehåller information om frågans körnings statistik, till exempel processor användning och statistik över fråge varaktighet. | Ja | Ja |
+| [QueryStoreWaitStatistics](#query-store-wait-statistics): innehåller information om frågan vänta i statistik (vad dina frågor väntar på), t. ex. CPU, logg och låsning. | Ja | Ja |
+| [Fel](#errors-dataset): innehåller information om SQL-fel på en databas. | Ja | Ja |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset): innehåller information om hur lång tid en databas har använt för att vänta på olika vänte typer. | Ja | Nej |
+| [Timeout](#time-outs-dataset): innehåller information om tids gränser för en databas. | Ja | Nej |
+| [Block](#blockings-dataset): innehåller information om hur du blockerar händelser i en databas. | Ja | Nej |
+| [Död lägen](#deadlocks-dataset): innehåller information om deadlock-händelser på en databas. | Ja | Nej |
+| [AutomaticTuning](#automatic-tuning-dataset): innehåller information om automatiska justerings rekommendationer för en databas. | Ja | Nej |
+| [SQLInsights](#intelligent-insights-dataset): innehåller intelligent Insights till prestanda för en databas. Läs mer i [intelligent Insights](sql-database-intelligent-insights.md). | Ja | Ja |
 
 > [!IMPORTANT]
-> Elastic pools and managed instances have their own separate diagnostics telemetry from databases they contain. This is important to note as diagnostics telemetry is configured separately for each of these resources, as documented below.
+> Elastiska pooler och hanterade instanser har egna separata telemetri från databaser som de innehåller. Detta är viktigt för att Observera att Diagnostics-telemetri konfigureras separat för var och en av dessa resurser, enligt beskrivningen nedan.
 
 > [!NOTE]
-> Security Audit and SQLSecurityAuditEvents logs can't be enabled from the database diagnostics settings (although showing on the screen). To enable audit log streaming, see [Set up auditing for your database](sql-database-auditing.md#subheading-2), and [auditing logs in Azure Monitor logs and Azure Event Hubs](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
+> Om du vill aktivera Gransknings logg strömning, se [Konfigurera granskning för din databas](sql-database-auditing.md#subheading-2)och [gransknings loggar i Azure Monitor loggar och Azure Event Hubs](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
 
-## <a name="azure-portal"></a>Azure portal
+## <a name="azure-portal"></a>Azure Portal
 
-You can use the **Diagnostics settings** menu for each single, pooled, or instance database in Azure portal to configure streaming of diagnostics telemetry. In addition, diagnostic telemetry can also be configured separately for database containers: elastic pools and managed instances. You can set the following destinations to stream the diagnostics telemetry: Azure Storage, Azure Event Hubs, and Azure Monitor logs.
+Du kan använda menyn **diagnostikinställningar** för varje enskild, poolad eller instans databas i Azure Portal för att konfigurera strömning av telemetri. Dessutom kan diagnostisk telemetri också konfigureras separat för databas behållare: elastiska pooler och hanterade instanser. Du kan ställa in följande destinationer för att strömma telemetri för diagnostik: Azure Storage, Azure Event Hubs och Azure Monitor loggar.
 
-### <a name="configure-streaming-of-diagnostics-telemetry-for-elastic-pools"></a>Configure streaming of diagnostics telemetry for elastic pools
+### <a name="configure-streaming-of-diagnostics-telemetry-for-elastic-pools"></a>Konfigurera strömning av telemetri för elastiska pooler
 
-   ![Elastic pool icon](./media/sql-database-metrics-diag-logging/icon-elastic-pool-text.png)
+   ![Ikon för elastisk pool](./media/sql-database-metrics-diag-logging/icon-elastic-pool-text.png)
 
-You can set up an elastic pool resource to collect the following diagnostics telemetry:
+Du kan konfigurera en resurs för elastisk pool för att samla in följande diagnostik:
 
-| Resurs | Monitoring telemetry |
+| Resurs | Övervaka telemetri |
 | :------------------- | ------------------- |
-| **Elastisk pool** | [Basic metrics](sql-database-metrics-diag-logging.md#basic-metrics) contains eDTU/CPU percentage, eDTU/CPU limit, physical data read percentage, log write percentage, sessions percentage, workers percentage, storage, storage percentage, storage limit, and XTP storage percentage. |
+| **Elastisk pool** | [Basic-mått](sql-database-metrics-diag-logging.md#basic-metrics) innehåller EDTU/CPU-procent, EDTU/CPU-gräns, fysisk data Läs procent, logg skrivnings procent, sessioner, procent andel, lagring, lagrings utrymme, lagrings gräns och XTP lagrings procent. |
 
-To configure streaming of diagnostics telemetry for elastic pools and databases in elastic pools, you will need to separately configure **both** of the following:
+Om du vill konfigurera strömning av telemetri för elastiska pooler och databaser i elastiska pooler måste du konfigurera **båda följande två** separata:
 
-- Enable streaming of diagnostics telemetry for an elastic pool, **and**
-- Enable streaming of diagnostics telemetry for each database in elastic pool
+- Aktivera strömning av Diagnostics-telemetri för en elastisk pool **och**
+- Aktivera strömning av Diagnostics-telemetri för varje databas i elastisk pool
 
-This is because elastic pool is a database container with its own telemetry being separate from an individual database telemetry.
+Detta beror på att elastisk pool är en databas behållare med en egen telemetri som skiljs från en enskild databas telemetri.
 
-To enable streaming of diagnostics telemetry for an elastic pool resource, follow these steps:
+Följ dessa steg om du vill aktivera strömning av telemetri för en elastisk pool-resurs:
 
-1. Go to the **elastic pool** resource in Azure portal.
-1. Select **Diagnostics settings**.
-1. Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting.
+1. Gå till resursen för **elastisk pool** i Azure Portal.
+1. Välj **diagnostikinställningar**.
+1. Välj **Aktivera diagnostik** om det inte finns några tidigare inställningar eller Välj **Redigera inställning** för att redigera en föregående inställning.
 
-   ![Enable diagnostics for elastic pools](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-enable.png)
+   ![Aktivera diagnostik för elastiska pooler](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-enable.png)
 
-1. Enter a setting name for your own reference.
-1. Select a destination resource for the streaming diagnostics data: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**.
-1. For log analytics, select **Configure** and create a new workspace by selecting **+Create New Workspace**, or select an existing workspace.
-1. Select the check box for elastic pool diagnostics telemetry: **Basic** metrics.
-   ![Configure diagnostics for elastic pools](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
+1. Ange ett inställnings namn för din egen referens.
+1. Välj en mål resurs för data för strömmande diagnostik: **arkivera till lagrings konto**, **strömma till en Event Hub**eller **Skicka till Log Analytics**.
+1. För Log Analytics väljer du **Konfigurera** och skapa en ny arbets yta genom att välja **+ Skapa ny arbets yta**eller Välj en befintlig arbets yta.
+1. Markera kryss rutan för telemetri för Elastic pool-diagnostik: **grundläggande** mått.
+   ![Konfigurera diagnostik för elastiska pooler](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 
 1. Välj **Spara**.
-1. In addition, configure streaming of diagnostics telemetry for each database within the elastic pool you want to monitor by following steps described in the next section.
+1. Dessutom kan du konfigurera strömning av telemetri för varje databas i den elastiska pool som du vill övervaka genom att följa stegen som beskrivs i nästa avsnitt.
 
 > [!IMPORTANT]
-> In addition to configuring diagnostics telemetry for an elastic pool, you also need to configure diagnostics telemetry for each database in elastic pool, as documented below.
+> Förutom att konfigurera telemetri för en elastisk pool måste du också konfigurera telemetri för varje databas i elastisk pool enligt beskrivningen nedan.
 
-### <a name="configure-streaming-of-diagnostics-telemetry-for-single-database-or-database-in-elastic-pool"></a>Configure streaming of diagnostics telemetry for single database, or database in elastic pool
+### <a name="configure-streaming-of-diagnostics-telemetry-for-single-database-or-database-in-elastic-pool"></a>Konfigurera strömning av telemetri för en enskild databas eller databas i elastisk pool
 
-   ![SQL Database icon](./media/sql-database-metrics-diag-logging/icon-sql-database-text.png)
+   ![SQL Database ikon](./media/sql-database-metrics-diag-logging/icon-sql-database-text.png)
 
-To enable streaming of diagnostics telemetry for single or pooled databases, follow these steps:
+Följ dessa steg om du vill aktivera strömning av diagnostik för enskilda databaser eller databaser i pooler:
 
-1. Go to Azure **SQL database** resource.
-1. Select **Diagnostics settings**.
-1. Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting.
-   - You can create up to three parallel connections to stream diagnostics telemetry.
-   - Select **Add diagnostic setting** to configure parallel streaming of diagnostics data to multiple resources.
+1. Gå till Azure **SQL Database** -resurs.
+1. Välj **diagnostikinställningar**.
+1. Välj **Aktivera diagnostik** om det inte finns några tidigare inställningar eller Välj **Redigera inställning** för att redigera en föregående inställning.
+   - Du kan skapa upp till tre parallella anslutningar till Stream Diagnostics-telemetri.
+   - Välj **Lägg till diagnostisk inställning** för att konfigurera parallell strömning av diagnostikdata till flera resurser.
 
-   ![Enable diagnostics for single, pooled, or instance databases](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-enable.png)
+   ![Aktivera diagnostik för enkel-, pool-eller instans databaser](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-enable.png)
 
-1. Enter a setting name for your own reference.
-1. Select a destination resource for the streaming diagnostics data: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**.
-1. For the standard, event-based monitoring experience, select the following check boxes for database diagnostics log telemetry: **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **Errors**, **DatabaseWaitStatistics**, **Timeouts**, **Blocks**, and **Deadlocks**.
-1. For an advanced, one-minute-based monitoring experience, select the check box for **Basic** metrics.
-   ![Configure diagnostics for single, pooled, or instance databases](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
+1. Ange ett inställnings namn för din egen referens.
+1. Välj en mål resurs för data för strömmande diagnostik: **arkivera till lagrings konto**, **strömma till en Event Hub**eller **Skicka till Log Analytics**.
+1. För den händelsebaserade övervaknings upplevelsen markerar du följande kryss rutor för Database Diagnostics-loggen telemetri: **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** , **Fel**, **DatabaseWaitStatistics**, **tids gränser**, **block**och **död lägen**.
+1. För en avancerad övervaknings upplevelse med en minut markerar du kryss rutan för **grundläggande** mått.
+   ![Konfigurera diagnostik för enskilda databaser eller instans databaser](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 1. Välj **Spara**.
-1. Repeat these steps for each database you want to monitor.
+1. Upprepa de här stegen för varje databas som du vill övervaka.
 
 > [!NOTE]
-> Security Audit and SQLSecurityAuditEvents logs can't be enabled from the database diagnostics settings (although shown on the screen). To enable audit log streaming, see [Set up auditing for your database](sql-database-auditing.md#subheading-2), and [auditing logs in Azure Monitor logs and Azure Event Hubs](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
+> Om du vill aktivera Gransknings logg strömning, se [Konfigurera granskning för din databas](sql-database-auditing.md#subheading-2)och [gransknings loggar i Azure Monitor loggar och Azure Event Hubs](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
 
 > [!TIP]
-> Repeat these steps for each Azure SQL Database you want to monitor.
+> Upprepa de här stegen för varje Azure SQL Database som du vill övervaka.
 
-### <a name="configure-streaming-of-diagnostics-telemetry-for-managed-instances"></a>Configure streaming of diagnostics telemetry for managed instances
+### <a name="configure-streaming-of-diagnostics-telemetry-for-managed-instances"></a>Konfigurera strömning av telemetri för hanterade instanser
 
-   ![Managed instance icon](./media/sql-database-metrics-diag-logging/icon-managed-instance-text.png)
+   ![Ikon för hanterad instans](./media/sql-database-metrics-diag-logging/icon-managed-instance-text.png)
 
-You can set up a managed instance resource to collect the following diagnostics telemetry:
+Du kan konfigurera en hanterad instans resurs för att samla in följande diagnostik:
 
-| Resurs | Monitoring telemetry |
+| Resurs | Övervaka telemetri |
 | :------------------- | ------------------- |
-| **Managed instance** | [ResourceUsageStats](#resource-usage-stats-for-managed-instance) contains vCores count, average CPU percentage, IO requests, bytes read/written, reserved storage space, and used storage space. |
+| **Hanterad instans** | [ResourceUsageStats](#resource-usage-stats-for-managed-instance) innehåller antal virtuella kärnor, genomsnittlig CPU-procent, IO-begäranden, byte, lästa/skrivna, reserverat lagrings utrymme och använt lagrings utrymme. |
 
-To configure streaming of diagnostics telemetry for managed instance and instance databases, you will need to separately configure **both** of the following:
+Om du vill konfigurera strömning av telemetri för hanterade instanser och instans databaser måste du konfigurera båda följande **två** separata:
 
-- Enable streaming of diagnostics telemetry for managed instance, **and**
-- Enable streaming of diagnostics telemetry for each instance database
+- Aktivera strömning av telemetri för hanterade instanser **och**
+- Aktivera strömning av telemetri för varje instans databas
 
-This is because managed instance is a database container with its own telemetry, separate from an individual instance database telemetry.
+Detta beror på att den hanterade instansen är en databas behållare med sin egen telemetri, separat från en enskild instans databas telemetri.
 
-To enable streaming of diagnostics telemetry for a managed instance resource, follow these steps:
+Följ dessa steg om du vill aktivera strömning av telemetri för en hanterad instans resurs:
 
-1. Go to the **managed instance** resource in Azure portal.
-1. Select **Diagnostics settings**.
-1. Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting.
+1. Gå till resursen för **hanterade instanser** i Azure Portal.
+1. Välj **diagnostikinställningar**.
+1. Välj **Aktivera diagnostik** om det inte finns några tidigare inställningar eller Välj **Redigera inställning** för att redigera en föregående inställning.
 
-   ![Enable diagnostics for managed instance](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-enable.png)
+   ![Aktivera diagnostik för hanterad instans](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-enable.png)
 
-1. Enter a setting name for your own reference.
-1. Select a destination resource for the streaming diagnostics data: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**.
-1. For log analytics, select **Configure** and create a new workspace by selecting **+Create New Workspace**, or use an existing workspace.
-1. Select the check box for instance diagnostics telemetry: **ResourceUsageStats**.
+1. Ange ett inställnings namn för din egen referens.
+1. Välj en mål resurs för data för strömmande diagnostik: **arkivera till lagrings konto**, **strömma till en Event Hub**eller **Skicka till Log Analytics**.
+1. För Log Analytics väljer du **Konfigurera** och skapa en ny arbets yta genom att välja **+ Skapa ny arbets yta**eller använda en befintlig arbets yta.
+1. Markera kryss rutan för telemetri för instansen diagnostik: **ResourceUsageStats**.
 
-   ![Configure diagnostics for managed instance](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
+   ![Konfigurera diagnostik för hanterad instans](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 
 1. Välj **Spara**.
-1. In addition, configure streaming of diagnostics telemetry for each instance database within the managed instance you want to monitor by following the steps described in the next section.
+1. Konfigurera dessutom strömning av telemetri för varje instans databas i den hanterade instans som du vill övervaka genom att följa stegen som beskrivs i nästa avsnitt.
 
 > [!IMPORTANT]
-> In addition to configuring diagnostics telemetry for a managed instance, you also need to configure diagnostics telemetry for each instance database, as documented below.
+> Förutom att konfigurera telemetri för en hanterad instans måste du också konfigurera telemetri för varje instans databas enligt beskrivningen nedan.
 
-### <a name="configure-streaming-of-diagnostics-telemetry-for-instance-databases"></a>Configure streaming of diagnostics telemetry for instance databases
+### <a name="configure-streaming-of-diagnostics-telemetry-for-instance-databases"></a>Konfigurera strömning av telemetri för instans databaser
 
-   ![Instance database in managed instance icon](./media/sql-database-metrics-diag-logging/icon-mi-database-text.png)
+   ![Ikonen instans databas i hanterad instans](./media/sql-database-metrics-diag-logging/icon-mi-database-text.png)
 
-To enable streaming of diagnostics telemetry for instance databases, follow these steps:
+Följ dessa steg om du vill aktivera strömning av telemetri för instans databaser:
 
-1. Go to **instance database** resource within managed instance.
-1. Select **Diagnostics settings**.
-1. Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting.
-   - You can create up to three (3) parallel connections to stream diagnostics telemetry.
-   - Select **+Add diagnostic setting** to configure parallel streaming of diagnostics data to multiple resources.
+1. Gå till **instans databas** resursen inom en hanterad instans.
+1. Välj **diagnostikinställningar**.
+1. Välj **Aktivera diagnostik** om det inte finns några tidigare inställningar eller Välj **Redigera inställning** för att redigera en föregående inställning.
+   - Du kan skapa upp till tre (3) parallella anslutningar till Stream Diagnostics-telemetri.
+   - Välj **+ Lägg till diagnostisk inställning** för att konfigurera parallell strömning av diagnostikdata till flera resurser.
 
-   ![Enable diagnostics for instance databases](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
+   ![Aktivera diagnostik för instans databaser](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
 
-1. Enter a setting name for your own reference.
-1. Select a destination resource for the streaming diagnostics data: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**.
-1. Select the check boxes for database diagnostics telemetry: **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** and **Errors**.
-   ![Configure diagnostics for instance databases](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
+1. Ange ett inställnings namn för din egen referens.
+1. Välj en mål resurs för data för strömmande diagnostik: **arkivera till lagrings konto**, **strömma till en Event Hub**eller **Skicka till Log Analytics**.
+1. Markera kryss rutorna för telemetri för databas diagnostik: **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** och **errors**.
+   ![Konfigurera diagnostik för instans databaser](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
 1. Välj **Spara**.
-1. Repeat these steps for each instance database you want to monitor.
+1. Upprepa de här stegen för varje instans databas som du vill övervaka.
 
 > [!TIP]
-> Repeat these steps for each instance database you want to monitor.
+> Upprepa de här stegen för varje instans databas som du vill övervaka.
 
 ### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+> PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska.
 
-You can enable metrics and diagnostics logging by using PowerShell.
+Du kan aktivera mått och diagnostikloggning genom att använda PowerShell.
 
-- To enable storage of diagnostics logs in a storage account, use this command:
+- Använd följande kommando om du vill aktivera lagring av diagnostikloggar i ett lagringskonto:
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
    ```
 
-   The storage account ID is the resource ID for the destination storage account.
+   Lagrings kontots ID är resurs-ID för mål lagrings kontot.
 
-- To enable streaming of diagnostics logs to an event hub, use this command:
+- Om du vill aktivera strömning av diagnostikloggar till en händelsehubb, Använd följande kommando:
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
    ```
 
-   The Azure Service Bus rule ID is a string with this format:
+   Regel-ID för Azure Service Bus är en sträng med det här formatet:
 
    ```powershell
    {service bus resource ID}/authorizationrules/{key name}
    ```
 
-- To enable sending diagnostics logs to a Log Analytics workspace, use this command:
+- Använd följande kommando om du vill aktivera skicka diagnostikloggar till en Log Analytics-arbetsyta:
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
    ```
 
-- You can obtain the resource ID of your Log Analytics workspace by using the following command:
+- Du kan hämta resurs-ID för Log Analytics-arbetsytan med hjälp av följande kommando:
 
    ```powershell
    (Get-AzOperationalInsightsWorkspace).ResourceId
    ```
 
-You can combine these parameters to enable multiple output options.
+Du kan kombinera dessa parametrar om du vill aktivera flera Utdataalternativ för.
 
-### <a name="to-configure-multiple-azure-resources"></a>To configure multiple Azure resources
+### <a name="to-configure-multiple-azure-resources"></a>Konfigurera flera Azure-resurser
 
-To support multiple subscriptions, use the PowerShell script from [Enable Azure resource metrics logging using PowerShell](https://blogs.technet.microsoft.com/msoms/20../../enable-azure-resource-metrics-logging-using-powershell/).
+Använd PowerShell-skriptet från [Aktivera Azure Resource Metric-loggning med PowerShell](https://blogs.technet.microsoft.com/msoms/20../../enable-azure-resource-metrics-logging-using-powershell/)för att stödja flera prenumerationer.
 
-Provide the workspace resource ID \<$WSID\> as a parameter when executing the script `Enable-AzureRMDiagnostics.ps1` to send diagnostic data from multiple resources to the workspace.
+Ange arbets ytans resurs-ID \<$WSID\> som en parameter när du kör skriptet `Enable-AzureRMDiagnostics.ps1` för att skicka diagnostikdata från flera resurser till arbets ytan.
 
-- To get the workspace ID \<$WSID\> of the destination for your diagnostic data, use the following script:
+- Använd följande skript för att hämta arbetsyte-ID \<$WSID\> av målet för dina diagnostikdata:
 
     ```powershell
     $WSID = "/subscriptions/<subID>/resourcegroups/<RG_NAME>/providers/microsoft.operationalinsights/workspaces/<WS_NAME>"
     .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
     ```
 
-   Replace \<subID\> with the subscription ID, \<RG_NAME\> with the resource group name, and \<WS_NAME\> with the workspace name.
+   Ersätt \<subID\> med prenumerations-ID: t \<RG_NAME\> med namnet på resurs gruppen och \<WS_NAME\> med namnet på arbets ytan.
 
 ### <a name="azure-cli"></a>Azure CLI
 
-You can enable metrics and diagnostics logging by using the Azure CLI.
+Du kan aktivera mått och diagnostikloggning genom att använda Azure CLI.
 
 > [!NOTE]
-> Scripts to enable diagnostics logging are supported for Azure CLI v1.0. Please note that CLI v2.0 is unsupported at this time.
+> Skript för att aktivera diagnostikloggning stöds för Azure CLI v 1.0. Observera att CLI v 2.0 inte stöds för tillfället.
 
-- To enable the storage of diagnostics logs in a storage account, use this command:
+- Om du vill aktivera lagring av diagnostikloggar i ett lagrings konto använder du följande kommando:
 
    ```azurecli-interactive
    azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true
    ```
 
-   The storage account ID is the resource ID for the destination storage account.
+   Lagrings kontots ID är resurs-ID för mål lagrings kontot.
 
-- To enable the streaming of diagnostics logs to an event hub, use this command:
+- Använd följande kommando om du vill aktivera strömning av diagnostikloggar till en Event Hub:
 
    ```azurecli-interactive
    azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
    ```
 
-   The Service Bus rule ID is a string with this format:
+   Service Bus regelns ID är en sträng med det här formatet:
 
    ```azurecli-interactive
    {service bus resource ID}/authorizationrules/{key name}
    ```
 
-- To enable the sending of diagnostics logs to a Log Analytics workspace, use this command:
+- Om du vill aktivera sändning av diagnostikloggar till en Log Analytics arbets yta använder du följande kommando:
 
    ```azurecli-interactive
    azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
    ```
 
-You can combine these parameters to enable multiple output options.
+Du kan kombinera dessa parametrar om du vill aktivera flera Utdataalternativ för.
 
 ### <a name="rest-api"></a>REST-API
 
-Read about how to [change diagnostics settings by using the Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings).
+Läs om hur du [ändrar diagnostikinställningar genom att använda Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings).
 
 ### <a name="resource-manager-template"></a>Resource Manager-mall
 
-Read about how to [enable diagnostics settings at resource creation by using a Resource Manager template](../azure-monitor/platform/diagnostic-settings-template.md).
+Läs om hur du [aktiverar diagnostikinställningar när du skapar en resurs med hjälp av en Resource Manager-mall](../azure-monitor/platform/diagnostic-settings-template.md).
 
-## <a name="stream-into-azure-sql-analytics"></a>Stream into Azure SQL Analytics
+## <a name="stream-into-azure-sql-analytics"></a>Strömma till Azure SQL-analys
 
-Azure SQL Analytics is a cloud solution that monitors the performance of Azure SQL databases, elastic pools, and managed instances at scale and across multiple subscriptions. It can help you collect and visualize Azure SQL Database performance metrics, and it has built-in intelligence for performance troubleshooting.
+Azure SQL-analys är en moln lösning som övervakar prestanda för Azure SQL-databaser, elastiska pooler och hanterade instanser i stor skala och över flera prenumerationer. Det kan hjälpa dig att samla in och visualisera Azure SQL Database prestanda mått och har inbyggd intelligens för fel sökning av prestanda.
 
-![Azure SQL Analytics Overview](../azure-monitor/insights/media/azure-sql/azure-sql-sol-overview.png)
+![Översikt över Azure SQL Analytics](../azure-monitor/insights/media/azure-sql/azure-sql-sol-overview.png)
 
-SQL Database metrics and diagnostics logs can be streamed into Azure SQL Analytics by using the built-in **Send to Log Analytics** option in the diagnostics settings tab in the portal. You can also enable log analytics by using a diagnostics setting via PowerShell cmdlets, the Azure CLI, or the Azure Monitor REST API.
+SQL Database mått och diagnostikloggar kan strömmas till Azure SQL-analys med hjälp av det inbyggda alternativet **Skicka till Log Analytics** på fliken diagnostikinställningar i portalen. Du kan också aktivera Log Analytics genom att använda en diagnostisk inställning via PowerShell-cmdletar, Azure CLI eller Azure Monitor REST API.
 
 ### <a name="installation-overview"></a>Installationsöversikt
 
-You can monitor a SQL Database fleet with Azure SQL Analytics. Perform the following  steps:
+Du kan övervaka en SQL Database-flotta med Azure SQL-analys. Utför följande steg:
 
-1. Create an Azure SQL Analytics solution from the Azure Marketplace.
-2. Create a monitoring workspace in the solution.
-3. Configure databases to stream diagnostics telemetry into the workspace.
+1. Skapa en Azure SQL-analys-lösning från Azure Marketplace.
+2. Skapa en arbets yta för övervakning i lösningen.
+3. Konfigurera databaser för att strömma telemetri till arbets ytan.
 
-If you're using elastic pools or managed instances, you also need to configure diagnostics telemetry streaming from these resources.
+Om du använder elastiska pooler eller hanterade instanser måste du också konfigurera strömning från dessa resurser.
 
-### <a name="create-azure-sql-analytics-resource"></a>Create Azure SQL Analytics resource
+### <a name="create-azure-sql-analytics-resource"></a>Skapa Azure SQL-analys resurs
 
-1. Search for Azure SQL Analytics in Azure Marketplace and select it.
+1. Sök efter Azure SQL-analys på Azure Marketplace och markera det.
 
-   ![Search for Azure SQL Analytics in portal](./media/sql-database-metrics-diag-logging/sql-analytics-in-marketplace.png)
+   ![Sök efter Azure SQL-analys i portalen](./media/sql-database-metrics-diag-logging/sql-analytics-in-marketplace.png)
 
-2. Select **Create** on the solution's overview screen.
+2. Välj **skapa** på lösningens översikts skärm.
 
-3. Fill in the Azure SQL Analytics form with the additional information that is required: workspace name, subscription, resource group, location, and pricing tier.
+3. Fyll i Azure SQL-analys formuläret med ytterligare information som krävs: arbets ytans namn, prenumeration, resurs grupp, plats och pris nivå.
 
-   ![Configure Azure SQL Analytics in portal](./media/sql-database-metrics-diag-logging/sql-analytics-configuration-blade.png)
+   ![Konfigurera Azure SQL-analys i portalen](./media/sql-database-metrics-diag-logging/sql-analytics-configuration-blade.png)
 
-4. Select **OK** to confirm, and then select **Create**.
+4. Bekräfta genom att klicka på **OK** och välj sedan **skapa**.
 
-### <a name="configure-databases-to-record-metrics-and-diagnostics-logs"></a>Configure databases to record metrics and diagnostics logs
+### <a name="configure-databases-to-record-metrics-and-diagnostics-logs"></a>Konfigurera databaser för att registrera mått och diagnostikloggar
 
-The easiest way to configure where databases record metrics is by using the Azure portal. As previously described, go to your SQL Database resource in the Azure portal and select **Diagnostics settings**.
+Det enklaste sättet att konfigurera var databaser registrerar mått är genom att använda Azure Portal. Som tidigare beskrivits går du till din SQL Database-resurs i Azure Portal och väljer **diagnostikinställningar**.
 
-If you're using elastic pools or managed instances, you also need to configure diagnostics settings in these resources to enable the diagnostics telemetry to stream into the workspace.
+Om du använder elastiska pooler eller hanterade instanser, måste du också konfigurera diagnostikinställningar i dessa resurser för att aktivera telemetri för att strömma till arbets ytan.
 
-### <a name="use-the-sql-analytics-solution-for-monitoring-and-alerting"></a>Use the SQL Analytics solution for monitoring and alerting
+### <a name="use-the-sql-analytics-solution-for-monitoring-and-alerting"></a>Använd SQL Analytics-lösningen för övervakning och avisering
 
-You can use SQL Analytics as a hierarchical dashboard to view your SQL Database resources.
+Du kan använda SQL Analytics som en hierarkisk instrument panel för att visa dina SQL Database-resurser.
 
-- To learn how to use the SQL Analytics solution, see [Monitor SQL Database by using the SQL Analytics solution](../log-analytics/log-analytics-azure-sql.md).
-- To learn how to setup alerts for SQL Database and managed instance based on SQL Analytics, see [Creating alerts for SQL Database and managed instance](../azure-monitor/insights/azure-sql.md#analyze-data-and-create-alerts).
+- Information om hur du använder SQL Analytics-lösningen finns i [övervaka SQL Database med hjälp av SQL Analytics-lösningen](../log-analytics/log-analytics-azure-sql.md).
+- Information om hur du ställer in aviseringar för SQL Database och hanterad instans baserat på SQL Analytics finns i [skapa aviseringar för SQL Database och hanterad instans](../azure-monitor/insights/azure-sql.md#analyze-data-and-create-alerts).
 
 ## <a name="stream-into-event-hubs"></a>Strömma till Event Hubs
 
-You can stream SQL Database metrics and diagnostics logs into Event Hubs by using the built-in **Stream to an event hub** option in the Azure portal. You also can enable the Service Bus rule ID by using a diagnostics setting via PowerShell cmdlets, the Azure CLI, or the Azure Monitor REST API.
+Du kan strömma SQL Database mått och diagnostikloggar till Event Hubs genom att använda den inbyggda **strömmen till ett** alternativ för händelsehubben i Azure Portal. Du kan också aktivera ID för Service Bus regel med hjälp av en diagnostisk inställning via PowerShell-cmdletar, Azure CLI eller Azure Monitor REST API.
 
-### <a name="what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs"></a>What to do with metrics and diagnostics logs in Event Hubs
+### <a name="what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs"></a>Vad du kan göra med mått och diagnostikloggar i Event Hubs
 
-After the selected data is streamed into Event Hubs, you're one step closer to enabling advanced monitoring scenarios. Event Hubs acts as the front door for an event pipeline. After data is collected into an event hub, it can be transformed and stored by using a real-time analytics provider or a storage adapter. Event Hubs decouples the production of a stream of events from the consumption of those events. In this way, event consumers can access the events on their own schedule. For more information on Event Hubs, see:
+När de valda data strömmas i Event Hubs är du ett steg närmare att aktivera avancerade övervaknings scenarier. Event Hubs fungerar som en front dörr för en händelse pipeline. När data har samlats in i en händelsehubben kan de omvandlas och lagras med hjälp av en analys av real tids analys eller ett lagrings kort. Event Hubs frikopplas produktionen av en data ström med händelser från användningen av dessa händelser. På så sätt kan händelse konsumenter komma åt händelserna i sitt eget schema. Mer information om Event Hubs finns i:
 
-- [What are Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
+- [Vad är Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Kom igång med Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-You can use streamed metrics in Event Hubs to:
+Du kan använda strömmade mått i Event Hubs för att:
 
-- **View service health by streaming hot-path data to Power BI**
+- **Visa tjänstens hälsa genom att strömma frekventa data till Power BI**
 
-   By using Event Hubs, Stream Analytics, and Power BI, you can easily transform your metrics and diagnostics data into near real-time insights on your Azure services. For an overview of how to set up an event hub, process data with Stream Analytics, and use Power BI as an output, see [Stream Analytics and Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md).
+   Genom att använda Event Hubs, Stream Analytics och Power BI kan du enkelt omvandla dina mått och diagnostikdata till nära real tids insikter om dina Azure-tjänster. En översikt över hur du konfigurerar en Event Hub, bearbetar data med Stream Analytics och använder Power BI som utdata finns i [Stream Analytics och Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md).
 
-- **Stream logs to third-party logging and telemetry streams**
+- **Strömma loggar till data strömmar och telemetri från tredje part**
 
-   By using Event Hubs streaming, you can get your metrics and diagnostics logs into various third-party monitoring and log analytics solutions.
+   Genom att använda Event Hubs strömning kan du hämta mått och diagnostikloggar till olika övervaknings-och Log Analytics-lösningar från tredje part.
 
-- **Build a custom telemetry and logging platform**
+- **Bygg en anpassad telemetri-och loggnings plattform**
 
-   Do you already have a custom-built telemetry platform or are considering building one? The highly scalable publish-subscribe nature of Event Hubs allows you to flexibly ingest diagnostics logs. See [Dan Rosanova's guide to using Event Hubs in a global-scale telemetry platform](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
+   Har du redan en egen inbyggd telemetri plattform eller funderar du på att skapa en? Med den mycket skalbara publicerings prenumerations typen för Event Hubs kan du samla in diagnostikloggar på ett flexibelt sätt. Se [Dan Rosanovas Guide to using Event Hubs in the Global-Scale-plattform för telemetri](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 
-## <a name="stream-into-storage"></a>Stream into Storage
+## <a name="stream-into-storage"></a>Strömma till lagring
 
-You can store SQL Database metrics and diagnostics logs in Azure Storage by using the built-in **Archive to a storage account** option in the Azure portal. You  can also enable Storage by using a diagnostics setting via PowerShell cmdlets, the Azure CLI, or the Azure Monitor REST API.
+Du kan lagra SQL Database mått och diagnostikloggar i Azure Storage genom att använda det inbyggda **arkivet till ett lagrings konto** i Azure Portal. Du kan också aktivera lagring med hjälp av en diagnostisk inställning via PowerShell-cmdletar, Azure CLI eller Azure Monitor REST API.
 
-### <a name="schema-of-metrics-and-diagnostics-logs-in-the-storage-account"></a>Schema of metrics and diagnostics logs in the storage account
+### <a name="schema-of-metrics-and-diagnostics-logs-in-the-storage-account"></a>Schema för mått och diagnostikloggar i lagrings kontot
 
-After you set up metrics and diagnostics logs collection, a storage container is created in the storage account you selected when the first rows of data are available. The structure of the blobs is:
+När du har konfigurerat mått och diagnostik loggar samling skapas en lagrings behållare i det lagrings konto som du valde när de första raderna med data är tillgängliga. BLOB-strukturen är:
 
 ```powershell
 insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/ RESOURCEGROUPS/{resource group name}/PROVIDERS/Microsoft.SQL/servers/{resource_server}/ databases/{database_name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-Or, more simply:
+Eller mer enkelt:
 
 ```powershell
 insights-{metrics|logs}-{category name}/resourceId=/{resource Id}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-For example, a blob name for Basic metrics might be:
+Till exempel kan ett BLOB-namn för grundläggande mått vara:
 
 ```powershell
 insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.SQL/ servers/Server1/databases/database1/y=2016/m=08/d=22/h=18/m=00/PT1H.json
 ```
 
-A blob name for storing data from an elastic pool looks like:
+Ett BLOB-namn för att lagra data från en elastisk pool ser ut så här:
 
 ```powershell
 insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/ RESOURCEGROUPS/{resource group name}/PROVIDERS/Microsoft.SQL/servers/{resource_server}/ elasticPools/{elastic_pool_name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-## <a name="data-retention-policy-and-pricing"></a>Data retention policy and pricing
+## <a name="data-retention-policy-and-pricing"></a>Princip och prissättning för data lagring
 
-If you select Event Hubs or a Storage account, you can specify a retention policy. This policy deletes data that is older than a selected time period. If you specify Log Analytics, the retention policy depends on the selected pricing tier. In this case, the provided free units of data ingestion can enable free monitoring of several databases each month. Any consumption of diagnostics telemetry in excess of the free units might incur costs. Be aware that active databases with heavier workloads ingest more data than idle databases. For more information, see [Log analytics pricing](https://azure.microsoft.com/pricing/details/monitor/).
+Om du väljer Event Hubs eller ett lagrings konto kan du ange en bevarande princip. Den här principen tar bort data som är äldre än en vald tids period. Om du anger Log Analytics, är bevarande principen beroende av den valda pris nivån. I det här fallet kan de tillhandahållna kostnads fria enheterna av data inhämtningen möjliggöra kostnads fri övervakning av flera databaser varje månad. All användning av diagnostisk telemetri som överstiger de kostnads fria enheterna kan medföra kostnader. Tänk på att aktiva databaser med tyngre arbets belastningar inhämtar mer data än inaktiva databaser. Mer information finns i [priser för Log Analytics](https://azure.microsoft.com/pricing/details/monitor/).
 
-If you are using Azure SQL Analytics, you can monitor your data ingestion consumption in the solution by selecting **OMS Workspace** on the navigation menu of Azure SQL Analytics, and then selecting **Usage** and **Estimated Costs**.
+Om du använder Azure SQL-analys kan du övervaka förbrukningen av data i lösningen genom att välja **OMS-arbetsyta** i navigerings menyn i Azure SQL-analys och sedan välja **användning** och **beräknade kostnader**.
 
-## <a name="metrics-and-logs-available"></a>Metrics and logs available
+## <a name="metrics-and-logs-available"></a>Mått och loggar är tillgängliga
 
-Monitoring telemetry available for Azure SQL Database, elastic pools and managed instance is documented below. Collected monitoring telemetry inside SQL Analytics can be used for your own custom analysis and application development using [Azure Monitor log queries](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) language.
+Övervakning av telemetri som är tillgängliga för Azure SQL Database, elastiska pooler och hanterade instanser dokumenteras nedan. Insamlade övervakande telemetri i SQL Analytics kan användas för din egen anpassad analys och program utveckling med hjälp av [Azure Monitor logg frågor](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) språk.
 
-## <a name="basic-metrics"></a>Basic metrics
+## <a name="basic-metrics"></a>Grundläggande mått
 
-Refer to the following tables for details about Basic metrics by resource.
+Se följande tabeller för information om grundläggande mått per resurs.
 
 > [!NOTE]
-> Basic metrics option was formerly known as All metrics. The change made was to the naming only and there was no change to the metrics monitored. This change was initiated to allow for introduction of additional metric categories in the future.
+> Alternativet grundläggande mått var tidigare känt som alla mått. Ändringen har gjorts enbart till namngivning och det gick inte att ändra de mått som övervakades. Den här ändringen initierades för att möjliggöra introduktion av ytterligare mått kategorier i framtiden.
 
-### <a name="basic-metrics-for-elastic-pools"></a>Basic metrics for elastic pools
-
-|**Resurs**|**Mått**|
-|---|---|
-|Elastisk pool|eDTU percentage, eDTU used, eDTU limit, CPU percentage, physical data read percentage, log write percentage, sessions percentage, workers percentage, storage, storage percentage, storage limit, XTP storage percentage |
-
-### <a name="basic-metrics-for-azure-sql-databases"></a>Basic metrics for Azure SQL Databases
+### <a name="basic-metrics-for-elastic-pools"></a>Grundläggande mått för elastiska pooler
 
 |**Resurs**|**Mått**|
 |---|---|
-|Azure SQL-databas|DTU percentage, DTU used, DTU limit, CPU percentage, physical data read percentage, log write percentage, Successful/Failed/Blocked by firewall connections, sessions percentage, workers percentage, storage, storage percentage, XTP storage percentage, and deadlocks |
+|Elastisk pool|eDTU-procent, eDTU-använt, eDTU-gräns, processor procent, Läs procent för fysisk data, logg skrivnings procent, sessioner, procent, lagring, lagrings procent, lagrings gräns, XTP Storage-procent |
 
-## <a name="advanced-metrics"></a>Advanced metrics
+### <a name="basic-metrics-for-azure-sql-databases"></a>Grundläggande mått för Azure SQL-databaser
 
-Refer to the following table for details about advanced metrics.
+|**Resurs**|**Mått**|
+|---|---|
+|Azure SQL-databas|DTU-procent, använt DTU, DTU-gräns, processor procent, Läs procent för fysisk data, logg skrivnings procent, slutförd/misslyckad/blockerad av brand Väggs anslutningar, sessioner procent, procent för arbetare, lagring, lagrings procent, XTP lagrings procent och död läge |
 
-|**Mått**|**Metric Display Name**|**Beskrivning**|
+## <a name="advanced-metrics"></a>Avancerade mått
+
+I följande tabell finns mer information om avancerade mått.
+
+|**Mått**|**Mått visnings namn**|**Beskrivning**|
 |---|---|---|
-|tempdb_data_size| Tempdb Data File Size Kilobytes |Tempdb Data File Size Kilobytes. Not applicable to data warehouses. This metric will be available for databases using the vCore purchasing model or 100 DTU and higher for DTU-based purchasing models. |
-|tempdb_log_size| Tempdb Log File Size Kilobytes |Tempdb Log File Size Kilobytes. Not applicable to data warehouses. This metric will be available for databases using the vCore purchasing model or 100 DTU and higher for DTU-based purchasing models. |
-|tempdb_log_used_percent| Tempdb Percent Log Used |Tempdb Percent Log Used. Not applicable to data warehouses. This metric will be available for databases using the vCore purchasing model or 100 DTU and higher for DTU-based purchasing models. |
+|tempdb_data_size| Data fil storlek i tempdb i KB |Data fil storlek för tempdb i KB. Ej tillämpligt för data lager. Det här måttet är tillgängligt för databaser som använder vCore inköps modell eller 100 DTU och högre för DTU-baserade inköps modeller. |
+|tempdb_log_size| TempDB-logg fils storlek kilobyte |TempDB-logg fils storlek kilobyte. Ej tillämpligt för data lager. Det här måttet är tillgängligt för databaser som använder vCore inköps modell eller 100 DTU och högre för DTU-baserade inköps modeller. |
+|tempdb_log_used_percent| Procent använt tempdb-logg |TempDB procent logg används. Ej tillämpligt för data lager. Det här måttet är tillgängligt för databaser som använder vCore inköps modell eller 100 DTU och högre för DTU-baserade inköps modeller. |
 
-## <a name="basic-logs"></a>Basic logs
+## <a name="basic-logs"></a>Basic-loggar
 
-Details of telemetry available for all logs are documented in the tables below. Please see [supported diagnostic logging](#supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases) to understand which logs are supported for a particular database flavor - Azure SQL single, pooled, or instance database.
+Information om telemetri som är tillgängliga för alla loggar finns dokumenterade i tabellerna nedan. Se [diagnostisk loggning som stöds](#supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases) för att förstå vilka loggar som stöds för en viss databas smak – Azure SQL Single, pooled eller instance Database.
 
-### <a name="resource-usage-stats-for-managed-instance"></a>Resource usage stats for managed instance
+### <a name="resource-usage-stats-for-managed-instance"></a>Resursanvändnings statistik för hanterad instans
 
 |Egenskap|Beskrivning|
 |---|---|
-|TenantId|Your tenant ID |
+|TenantId|Ditt klient-ID |
 |SourceSystem|Always: Azure|
-|TimeGenerated [UTC]|Time stamp when the log was recorded |
+|TimeGenerated [UTC]|Tidstämpel när loggen registrerades |
 |Typ|Always: AzureDiagnostics |
-|ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL |
-|Kategori|Name of the category. Always: ResourceUsageStats |
+|ResourceProvider|Namnet på resurs leverantören. Always: MICROSOFT. SQL |
+|Kategori|Kategorins namn. Always: ResourceUsageStats |
 |Resurs|Namn på resursen |
-|ResourceType|Name of the resource type. Always: MANAGEDINSTANCES |
-|SubscriptionId|Subscription GUID for the database |
-|ResourceGroup|Name of the resource group for the database |
-|LogicalServerName_s|Name of the managed instance |
-|ResourceId|Resource URI |
-|SKU_s|Managed instance product SKU |
-|virtual_core_count_s|Number of vCores available |
-|avg_cpu_percent_s|Average CPU percentage |
-|reserved_storage_mb_s|Reserved storage capacity on the managed instance |
-|storage_space_used_mb_s|Used storage on the managed instance |
-|io_requests_s|IOPS count |
-|io_bytes_read_s|IOPS bytes read |
-|io_bytes_written_s|IOPS bytes written |
+|ResourceType|Namnet på resurs typen. Always: MANAGEDINSTANCES |
+|SubscriptionId|Prenumerations-GUID för databasen |
+|ResourceGroup|Namnet på resurs gruppen för databasen |
+|LogicalServerName_s|Namnet på den hanterade instansen |
+|ResourceId|Resurs-URI |
+|SKU_s|Produkt-SKU för hanterad instans |
+|virtual_core_count_s|Antal tillgängliga virtuella kärnor |
+|avg_cpu_percent_s|Genomsnittlig CPU-procent |
+|reserved_storage_mb_s|Reserverad lagrings kapacitet på den hanterade instansen |
+|storage_space_used_mb_s|Använt lagrings utrymme på den hanterade instansen |
+|io_requests_s|IOPS-antal |
+|io_bytes_read_s|Lästa IOPS-byte |
+|io_bytes_written_s|Skrivna IOPS-byte |
 
-### <a name="query-store-runtime-statistics"></a>Query Store runtime statistics
+### <a name="query-store-runtime-statistics"></a>Körnings statistik för Query Store
 
 |Egenskap|Beskrivning|
 |---|---|
-|TenantId|Your tenant ID |
+|TenantId|Ditt klient-ID |
 |SourceSystem|Always: Azure |
-|TimeGenerated [UTC]|Time stamp when the log was recorded |
+|TimeGenerated [UTC]|Tidstämpel när loggen registrerades |
 |Typ|Always: AzureDiagnostics |
-|ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL |
-|Kategori|Name of the category. Always: QueryStoreRuntimeStatistics |
-|OperationName|Name of the operation. Always: QueryStoreRuntimeStatisticsEvent |
+|ResourceProvider|Namnet på resurs leverantören. Always: MICROSOFT. SQL |
+|Kategori|Kategorins namn. Always: QueryStoreRuntimeStatistics |
+|OperationName|Åtgärdens namn. Always: QueryStoreRuntimeStatisticsEvent |
 |Resurs|Namn på resursen |
-|ResourceType|Name of the resource type. Always: SERVERS/DATABASES |
-|SubscriptionId|Subscription GUID for the database |
-|ResourceGroup|Name of the resource group for the database |
-|LogicalServerName_s|Name of the server for the database |
-|ElasticPoolName_s|Name of the elastic pool for the database, if any |
-|DatabaseName_s|Name of the database |
-|ResourceId|Resource URI |
-|query_hash_s|Query hash |
-|query_plan_hash_s|Query plan hash |
-|statement_sql_handle_s|Statement sql handle |
-|interval_start_time_d|Start datetimeoffset of the interval in number of ticks from 1900-1-1 |
-|interval_end_time_d|End datetimeoffset of the interval in number of ticks from 1900-1-1 |
-|logical_io_writes_d|Total number of logical IO writes |
-|max_logical_io_writes_d|Max number of logical IO writes per execution |
-|physical_io_reads_d|Total number of physical IO reads |
-|max_physical_io_reads_d|Max number of logical IO reads per execution |
-|logical_io_reads_d|Total number of logical IO reads |
-|max_logical_io_reads_d|Max number of logical IO reads per execution |
-|execution_type_d|Execution type |
-|count_executions_d|Number of executions of the query |
-|cpu_time_d|Total CPU time consumed by the query in microseconds |
-|max_cpu_time_d|Max CPU time consumer by a single execution in microseconds |
-|dop_d|Sum of degrees of parallelism |
-|max_dop_d|Max degree of parallelism used for single execution |
-|rowcount_d|Total number of rows returned |
-|max_rowcount_d|Max number of rows returned in single execution |
-|query_max_used_memory_d|Total amount of memory used in KB |
-|max_query_max_used_memory_d|Max amount of memory used by a single execution in KB |
-|duration_d|Total execution time in microseconds |
-|max_duration_d|Max execution time of a single execution |
-|num_physical_io_reads_d|Total number of physical reads |
-|max_num_physical_io_reads_d|Max number of physical reads per execution |
-|log_bytes_used_d|Total amount of log bytes used |
-|max_log_bytes_used_d|Max amount of log bytes used per execution |
-|query_id_d|ID of the query in Query Store |
-|plan_id_d|ID of the plan in Query Store |
+|ResourceType|Namnet på resurs typen. Always: SERVERs/DATABASes |
+|SubscriptionId|Prenumerations-GUID för databasen |
+|ResourceGroup|Namnet på resurs gruppen för databasen |
+|LogicalServerName_s|Namnet på servern för databasen |
+|ElasticPoolName_s|Namnet på den elastiska poolen för databasen, om det finns någon |
+|DatabaseName_s|Namn på databasen |
+|ResourceId|Resurs-URI |
+|query_hash_s|Fråga hash |
+|query_plan_hash_s|Fråga planera hash |
+|statement_sql_handle_s|Instruktion för SQL-referens |
+|interval_start_time_d|Starta datetimeoffset för intervallet i antal Tick från 1900-1-1 |
+|interval_end_time_d|Slutet av datetimeoffset för intervallet i antal Tick från 1900-1-1 |
+|logical_io_writes_d|Totalt antal logiska IO-skrivningar |
+|max_logical_io_writes_d|Högsta antal logiska IO-skrivningar per körning |
+|physical_io_reads_d|Totalt antal fysiska IO-läsningar |
+|max_physical_io_reads_d|Högsta antal logiska IO-läsningar per körning |
+|logical_io_reads_d|Totalt antal logiska IO-läsningar |
+|max_logical_io_reads_d|Högsta antal logiska IO-läsningar per körning |
+|execution_type_d|Körnings typ |
+|count_executions_d|Antal körningar av frågan |
+|cpu_time_d|Total CPU-tid som använts av frågan i mikrosekunder |
+|max_cpu_time_d|Maximal CPU-tid för konsument med en enda körning i mikrosekunder |
+|dop_d|Summan av grader av parallellitet |
+|max_dop_d|Högsta grad av parallellitet som används för enskild körning |
+|rowcount_d|Totalt antal returnerade rader |
+|max_rowcount_d|Högsta antal rader som returneras i en enskild körning |
+|query_max_used_memory_d|Total mängd minne som används i KB |
+|max_query_max_used_memory_d|Maximal mängd minne som används av en enskild körning i KB |
+|duration_d|Total körnings tid i mikrosekunder |
+|max_duration_d|Maximal körnings tid för en enskild körning |
+|num_physical_io_reads_d|Totalt antal fysiska läsningar |
+|max_num_physical_io_reads_d|Högsta antal fysiska läsningar per körning |
+|log_bytes_used_d|Total mängd logg byte som använts |
+|max_log_bytes_used_d|Maximal mängd logg byte som använts per körning |
+|query_id_d|ID för frågan i Frågearkivet |
+|plan_id_d|ID för planen i Frågearkivet |
 
-Learn more about [Query Store runtime statistics data](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
+Läs mer om [körnings statistik data för Query Store](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
 
-### <a name="query-store-wait-statistics"></a>Query Store wait statistics
+### <a name="query-store-wait-statistics"></a>Väntande statistik för Query Store
 
 |Egenskap|Beskrivning|
 |---|---|
-|TenantId|Your tenant ID |
+|TenantId|Ditt klient-ID |
 |SourceSystem|Always: Azure |
-|TimeGenerated [UTC]|Time stamp when the log was recorded |
+|TimeGenerated [UTC]|Tidstämpel när loggen registrerades |
 |Typ|Always: AzureDiagnostics |
-|ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL |
-|Kategori|Name of the category. Always: QueryStoreWaitStatistics |
-|OperationName|Name of the operation. Always: QueryStoreWaitStatisticsEvent |
+|ResourceProvider|Namnet på resurs leverantören. Always: MICROSOFT. SQL |
+|Kategori|Kategorins namn. Always: QueryStoreWaitStatistics |
+|OperationName|Åtgärdens namn. Always: QueryStoreWaitStatisticsEvent |
 |Resurs|Namn på resursen |
-|ResourceType|Name of the resource type. Always: SERVERS/DATABASES |
-|SubscriptionId|Subscription GUID for the database |
-|ResourceGroup|Name of the resource group for the database |
-|LogicalServerName_s|Name of the server for the database |
-|ElasticPoolName_s|Name of the elastic pool for the database, if any |
-|DatabaseName_s|Name of the database |
-|ResourceId|Resource URI |
-|wait_category_s|Category of the wait |
-|is_parameterizable_s|Is the query parameterizable |
-|statement_type_s|Type of the statement |
-|statement_key_hash_s|Statement key hash |
-|exec_type_d|Type of execution |
-|total_query_wait_time_ms_d|Total wait time of the query on the specific wait category |
-|max_query_wait_time_ms_d|Max wait time of the query in individual execution on the specific wait category |
+|ResourceType|Namnet på resurs typen. Always: SERVERs/DATABASes |
+|SubscriptionId|Prenumerations-GUID för databasen |
+|ResourceGroup|Namnet på resurs gruppen för databasen |
+|LogicalServerName_s|Namnet på servern för databasen |
+|ElasticPoolName_s|Namnet på den elastiska poolen för databasen, om det finns någon |
+|DatabaseName_s|Namn på databasen |
+|ResourceId|Resurs-URI |
+|wait_category_s|Kategorin väntar |
+|is_parameterizable_s|Är frågan parameteriseringsbar |
+|statement_type_s|Typ av instruktion |
+|statement_key_hash_s|Utdrags nyckelns hash |
+|exec_type_d|Typ av körning |
+|total_query_wait_time_ms_d|Total vänte tid för frågan i en viss wait-kategori |
+|max_query_wait_time_ms_d|Maximal vänte tid för frågan i en enskild körning i den specifika wait-kategorin |
 |query_param_type_d|0 |
-|query_hash_s|Query hash in Query Store |
-|query_plan_hash_s|Query plan hash in Query Store |
-|statement_sql_handle_s|Statement handle in Query Store |
-|interval_start_time_d|Start datetimeoffset of the interval in number of ticks from 1900-1-1 |
-|interval_end_time_d|End datetimeoffset of the interval in number of ticks from 1900-1-1 |
-|count_executions_d|Count of executions of the query |
-|query_id_d|ID of the query in Query Store |
-|plan_id_d|ID of the plan in Query Store |
+|query_hash_s|Fråga hash i Frågearkivet |
+|query_plan_hash_s|Fråga planera hash i Frågearkivet |
+|statement_sql_handle_s|Instruktions referens i Frågearkivet |
+|interval_start_time_d|Starta datetimeoffset för intervallet i antal Tick från 1900-1-1 |
+|interval_end_time_d|Slutet av datetimeoffset för intervallet i antal Tick från 1900-1-1 |
+|count_executions_d|Antal körningar av frågan |
+|query_id_d|ID för frågan i Frågearkivet |
+|plan_id_d|ID för planen i Frågearkivet |
 
-Learn more about [Query Store wait statistics data](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
+Läs mer om [väntande statistik data för Query Store](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
 
-### <a name="errors-dataset"></a>Errors dataset
+### <a name="errors-dataset"></a>Data uppsättning fel
 
 |Egenskap|Beskrivning|
 |---|---|
-|TenantId|Your tenant ID |
+|TenantId|Ditt klient-ID |
 |SourceSystem|Always: Azure |
-|TimeGenerated [UTC]|Time stamp when the log was recorded |
+|TimeGenerated [UTC]|Tidstämpel när loggen registrerades |
 |Typ|Always: AzureDiagnostics |
-|ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL |
-|Kategori|Name of the category. Always: Errors |
-|OperationName|Name of the operation. Always: ErrorEvent |
+|ResourceProvider|Namnet på resurs leverantören. Always: MICROSOFT. SQL |
+|Kategori|Kategorins namn. Always: Errors |
+|OperationName|Åtgärdens namn. Always: ErrorEvent |
 |Resurs|Namn på resursen |
-|ResourceType|Name of the resource type. Always: SERVERS/DATABASES |
-|SubscriptionId|Subscription GUID for the database |
-|ResourceGroup|Name of the resource group for the database |
-|LogicalServerName_s|Name of the server for the database |
-|ElasticPoolName_s|Name of the elastic pool for the database, if any |
-|DatabaseName_s|Name of the database |
-|ResourceId|Resource URI |
-|Meddelande|Error message in plain text |
-|user_defined_b|Is the error user defined bit |
+|ResourceType|Namnet på resurs typen. Always: SERVERs/DATABASes |
+|SubscriptionId|Prenumerations-GUID för databasen |
+|ResourceGroup|Namnet på resurs gruppen för databasen |
+|LogicalServerName_s|Namnet på servern för databasen |
+|ElasticPoolName_s|Namnet på den elastiska poolen för databasen, om det finns någon |
+|DatabaseName_s|Namn på databasen |
+|ResourceId|Resurs-URI |
+|Meddelande|Fel meddelande i oformaterad text |
+|user_defined_b|Är den användardefinierade biten för fel |
 |error_number_d|Felkod |
-|Allvarsgrad|Severity of the error |
-|state_d|State of the error |
-|query_hash_s|Query hash of the failed query, if available |
-|query_plan_hash_s|Query plan hash of the failed query, if available |
+|Severity|Felets allvarlighets grad |
+|state_d|Tillstånd för felet |
+|query_hash_s|Fråga hash för den misslyckade frågan, om den är tillgänglig |
+|query_plan_hash_s|Fråga plan-hash för den misslyckade frågan, om den är tillgänglig |
 
-Learn more about [SQL Server error messages](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors?view=sql-server-ver15).
+Läs mer om [SQL Server fel meddelanden](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors?view=sql-server-ver15).
 
-### <a name="database-wait-statistics-dataset"></a>Database wait statistics dataset
-
-|Egenskap|Beskrivning|
-|---|---|
-|TenantId|Your tenant ID |
-|SourceSystem|Always: Azure |
-|TimeGenerated [UTC]|Time stamp when the log was recorded |
-|Typ|Always: AzureDiagnostics |
-|ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL |
-|Kategori|Name of the category. Always: DatabaseWaitStatistics |
-|OperationName|Name of the operation. Always: DatabaseWaitStatisticsEvent |
-|Resurs|Namn på resursen |
-|ResourceType|Name of the resource type. Always: SERVERS/DATABASES |
-|SubscriptionId|Subscription GUID for the database |
-|ResourceGroup|Name of the resource group for the database |
-|LogicalServerName_s|Name of the server for the database |
-|ElasticPoolName_s|Name of the elastic pool for the database, if any |
-|DatabaseName_s|Name of the database |
-|ResourceId|Resource URI |
-|wait_type_s|Name of the wait type |
-|start_utc_date_t [UTC]|Measured period start time |
-|end_utc_date_t [UTC]|Measured period end time |
-|delta_max_wait_time_ms_d|Max waited time per execution |
-|delta_signal_wait_time_ms_d|Total signals wait time |
-|delta_wait_time_ms_d|Total wait time in the period |
-|delta_waiting_tasks_count_d|Number of waiting tasks |
-
-Learn more about [database wait statistics](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
-
-### <a name="time-outs-dataset"></a>Time-outs dataset
+### <a name="database-wait-statistics-dataset"></a>Data uppsättning för väntande statistik för databasen
 
 |Egenskap|Beskrivning|
 |---|---|
-|TenantId|Your tenant ID |
+|TenantId|Ditt klient-ID |
 |SourceSystem|Always: Azure |
-|TimeGenerated [UTC]|Time stamp when the log was recorded |
+|TimeGenerated [UTC]|Tidstämpel när loggen registrerades |
 |Typ|Always: AzureDiagnostics |
-|ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL |
-|Kategori|Name of the category. Always: Timeouts |
-|OperationName|Name of the operation. Always: TimeoutEvent |
+|ResourceProvider|Namnet på resurs leverantören. Always: MICROSOFT. SQL |
+|Kategori|Kategorins namn. Always: DatabaseWaitStatistics |
+|OperationName|Åtgärdens namn. Always: DatabaseWaitStatisticsEvent |
 |Resurs|Namn på resursen |
-|ResourceType|Name of the resource type. Always: SERVERS/DATABASES |
-|SubscriptionId|Subscription GUID for the database |
-|ResourceGroup|Name of the resource group for the database |
-|LogicalServerName_s|Name of the server for the database |
-|ElasticPoolName_s|Name of the elastic pool for the database, if any |
-|DatabaseName_s|Name of the database |
-|ResourceId|Resource URI |
-|error_state_d|Error state code |
-|query_hash_s|Query hash, if available |
-|query_plan_hash_s|Query plan hash, if available |
+|ResourceType|Namnet på resurs typen. Always: SERVERs/DATABASes |
+|SubscriptionId|Prenumerations-GUID för databasen |
+|ResourceGroup|Namnet på resurs gruppen för databasen |
+|LogicalServerName_s|Namnet på servern för databasen |
+|ElasticPoolName_s|Namnet på den elastiska poolen för databasen, om det finns någon |
+|DatabaseName_s|Namn på databasen |
+|ResourceId|Resurs-URI |
+|wait_type_s|Namn på vänte typen |
+|start_utc_date_t [UTC]|Uppmätt period start tid |
+|end_utc_date_t [UTC]|Uppmätt period slut tid |
+|delta_max_wait_time_ms_d|Högsta vänte tid per körning |
+|delta_signal_wait_time_ms_d|Total signal vänte tid |
+|delta_wait_time_ms_d|Total vänte tid i perioden |
+|delta_waiting_tasks_count_d|Antal väntande uppgifter |
 
-### <a name="blockings-dataset"></a>Blockings dataset
+Läs mer om [väntande statistik för databaser](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
+
+### <a name="time-outs-dataset"></a>Data uppsättning för tids gränser
 
 |Egenskap|Beskrivning|
 |---|---|
-|TenantId|Your tenant ID |
+|TenantId|Ditt klient-ID |
 |SourceSystem|Always: Azure |
-|TimeGenerated [UTC]|Time stamp when the log was recorded |
+|TimeGenerated [UTC]|Tidstämpel när loggen registrerades |
 |Typ|Always: AzureDiagnostics |
-|ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL |
-|Kategori|Name of the category. Always: Blocks |
-|OperationName|Name of the operation. Always: BlockEvent |
+|ResourceProvider|Namnet på resurs leverantören. Always: MICROSOFT. SQL |
+|Kategori|Kategorins namn. Always: timeout |
+|OperationName|Åtgärdens namn. Always: TimeoutEvent |
 |Resurs|Namn på resursen |
-|ResourceType|Name of the resource type. Always: SERVERS/DATABASES |
-|SubscriptionId|Subscription GUID for the database |
-|ResourceGroup|Name of the resource group for the database |
-|LogicalServerName_s|Name of the server for the database |
-|ElasticPoolName_s|Name of the elastic pool for the database, if any |
-|DatabaseName_s|Name of the database |
-|ResourceId|Resource URI |
-|lock_mode_s|Lock mode used by the query |
-|resource_owner_type_s|Owner of the lock |
-|blocked_process_filtered_s|Blocked process report XML |
-|duration_d|Duration of the lock in microseconds |
+|ResourceType|Namnet på resurs typen. Always: SERVERs/DATABASes |
+|SubscriptionId|Prenumerations-GUID för databasen |
+|ResourceGroup|Namnet på resurs gruppen för databasen |
+|LogicalServerName_s|Namnet på servern för databasen |
+|ElasticPoolName_s|Namnet på den elastiska poolen för databasen, om det finns någon |
+|DatabaseName_s|Namn på databasen |
+|ResourceId|Resurs-URI |
+|error_state_d|Fel tillstånds kod |
+|query_hash_s|Fråga hash, om tillgängligt |
+|query_plan_hash_s|Fråga om prenumerations-hash, om tillgängligt |
 
-### <a name="deadlocks-dataset"></a>Deadlocks dataset
+### <a name="blockings-dataset"></a>Blocker-datauppsättning
 
 |Egenskap|Beskrivning|
 |---|---|
-|TenantId|Your tenant ID |
+|TenantId|Ditt klient-ID |
 |SourceSystem|Always: Azure |
-|TimeGenerated [UTC] |Time stamp when the log was recorded |
+|TimeGenerated [UTC]|Tidstämpel när loggen registrerades |
 |Typ|Always: AzureDiagnostics |
-|ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL |
-|Kategori|Name of the category. Always: Deadlocks |
-|OperationName|Name of the operation. Always: DeadlockEvent |
+|ResourceProvider|Namnet på resurs leverantören. Always: MICROSOFT. SQL |
+|Kategori|Kategorins namn. Always: Blocks |
+|OperationName|Åtgärdens namn. Always: BlockEvent |
 |Resurs|Namn på resursen |
-|ResourceType|Name of the resource type. Always: SERVERS/DATABASES |
-|SubscriptionId|Subscription GUID for the database |
-|ResourceGroup|Name of the resource group for the database |
-|LogicalServerName_s|Name of the server for the database |
-|ElasticPoolName_s|Name of the elastic pool for the database, if any |
-|DatabaseName_s|Name of the database |
-|ResourceId|Resource URI |
-|deadlock_xml_s|Deadlock report XML |
+|ResourceType|Namnet på resurs typen. Always: SERVERs/DATABASes |
+|SubscriptionId|Prenumerations-GUID för databasen |
+|ResourceGroup|Namnet på resurs gruppen för databasen |
+|LogicalServerName_s|Namnet på servern för databasen |
+|ElasticPoolName_s|Namnet på den elastiska poolen för databasen, om det finns någon |
+|DatabaseName_s|Namn på databasen |
+|ResourceId|Resurs-URI |
+|lock_mode_s|Lås läge som används av frågan |
+|resource_owner_type_s|Ägare till låset |
+|blocked_process_filtered_s|Rapport-XML för blockerad process |
+|duration_d|Längden på låset i mikrosekunder |
 
-### <a name="automatic-tuning-dataset"></a>Automatic tuning dataset
+### <a name="deadlocks-dataset"></a>Data uppsättning för deadlock
 
 |Egenskap|Beskrivning|
 |---|---|
-|TenantId|Your tenant ID |
+|TenantId|Ditt klient-ID |
 |SourceSystem|Always: Azure |
-|TimeGenerated [UTC]|Time stamp when the log was recorded |
+|TimeGenerated [UTC] |Tidstämpel när loggen registrerades |
 |Typ|Always: AzureDiagnostics |
-|ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL |
-|Kategori|Name of the category. Always: AutomaticTuning |
+|ResourceProvider|Namnet på resurs leverantören. Always: MICROSOFT. SQL |
+|Kategori|Kategorins namn. Always: död lägen |
+|OperationName|Åtgärdens namn. Always: DeadlockEvent |
 |Resurs|Namn på resursen |
-|ResourceType|Name of the resource type. Always: SERVERS/DATABASES |
-|SubscriptionId|Subscription GUID for the database |
-|ResourceGroup|Name of the resource group for the database |
-|LogicalServerName_s|Name of the server for the database |
-|LogicalDatabaseName_s|Name of the database |
-|ElasticPoolName_s|Name of the elastic pool for the database, if any |
-|DatabaseName_s|Name of the database |
-|ResourceId|Resource URI |
-|RecommendationHash_s|Unique hash of Automatic tuning recommendation |
-|OptionName_s|Automatic tuning operation |
-|Schema_s|Database schema |
-|Table_s|Table affected |
-|IndexName_s|Index name |
-|IndexColumns_s|Column name |
-|IncludedColumns_s|Columns included |
-|EstimatedImpact_s|Estimated impact of Automatic tuning recommendation JSON |
-|Event_s|Type of Automatic tuning event |
-|Timestamp_t|Last updated timestamp |
+|ResourceType|Namnet på resurs typen. Always: SERVERs/DATABASes |
+|SubscriptionId|Prenumerations-GUID för databasen |
+|ResourceGroup|Namnet på resurs gruppen för databasen |
+|LogicalServerName_s|Namnet på servern för databasen |
+|ElasticPoolName_s|Namnet på den elastiska poolen för databasen, om det finns någon |
+|DatabaseName_s|Namn på databasen |
+|ResourceId|Resurs-URI |
+|deadlock_xml_s|Deadlock-rapportens XML |
 
-### <a name="intelligent-insights-dataset"></a>Intelligent Insights dataset
+### <a name="automatic-tuning-dataset"></a>Data uppsättning för automatisk justering
 
-Learn more about the [Intelligent Insights log format](sql-database-intelligent-insights-use-diagnostics-log.md).
+|Egenskap|Beskrivning|
+|---|---|
+|TenantId|Ditt klient-ID |
+|SourceSystem|Always: Azure |
+|TimeGenerated [UTC]|Tidstämpel när loggen registrerades |
+|Typ|Always: AzureDiagnostics |
+|ResourceProvider|Namnet på resurs leverantören. Always: MICROSOFT. SQL |
+|Kategori|Kategorins namn. Always: AutomaticTuning |
+|Resurs|Namn på resursen |
+|ResourceType|Namnet på resurs typen. Always: SERVERs/DATABASes |
+|SubscriptionId|Prenumerations-GUID för databasen |
+|ResourceGroup|Namnet på resurs gruppen för databasen |
+|LogicalServerName_s|Namnet på servern för databasen |
+|LogicalDatabaseName_s|Namn på databasen |
+|ElasticPoolName_s|Namnet på den elastiska poolen för databasen, om det finns någon |
+|DatabaseName_s|Namn på databasen |
+|ResourceId|Resurs-URI |
+|RecommendationHash_s|Unik hash för automatisk justerings rekommendation |
+|OptionName_s|Automatisk justerings åtgärd |
+|Schema_s|Databasschemat |
+|Table_s|Tabell som påverkas |
+|IndexName_s|Index namn |
+|IndexColumns_s|Kolumn namn |
+|IncludedColumns_s|Inkluderade kolumner |
+|EstimatedImpact_s|Beräknad effekt av JSON för automatisk justerings rekommendation |
+|Event_s|Typ av händelse för automatisk justering |
+|Timestamp_t|Senast uppdaterad tidsstämpel |
+
+### <a name="intelligent-insights-dataset"></a>Intelligent Insights data uppsättning
+
+Läs mer om det [intelligent Insights logg formatet](sql-database-intelligent-insights-use-diagnostics-log.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-To learn how to enable logging and to understand the metrics and log categories supported by the various Azure services, see:
+Information om hur du aktiverar loggning och förstår de mått och logg kategorier som stöds av de olika Azure-tjänsterna finns i:
 
-- [Overview of metrics in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-- [Overview of Azure diagnostics logs](../azure-monitor/platform/resource-logs-overview.md)
+- [Översikt över mått i Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
+- [Översikt över Azure Diagnostics-loggar](../azure-monitor/platform/resource-logs-overview.md)
 
-To learn about Event Hubs, read:
+Läs mer om Event Hubs:
 
-- [What is Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
+- [Vad är Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Kom igång med Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-To learn how to setup alerts based on telemetry from log analytics see:
+Information om hur du ställer in aviseringar baserat på telemetri från Log Analytics finns i:
 
-- [Creating alerts for SQL Database and managed instance](../azure-monitor/insights/azure-sql.md#analyze-data-and-create-alerts)
+- [Skapa aviseringar för SQL Database och hanterad instans](../azure-monitor/insights/azure-sql.md#analyze-data-and-create-alerts)

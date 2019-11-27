@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 10/02/2019
-ms.openlocfilehash: 08e378c4b5f6d8e17ac67a80401edf69611c0a13
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/27/2019
+ms.openlocfilehash: 816cf7cc78d3dfcb783b09f039f468ef3b23a06b
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823340"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74548372"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Översikt Azure SQL Database hanterade instans resurs gränser
 
@@ -31,7 +31,7 @@ Den hanterade instansen har egenskaper och resurs gränser som är beroende av d
 
 |   | **Gen4** | **Gen5** |
 | --- | --- | --- |
-| Maskinvara | Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer, anslutna SSD vCore = 1 PP (fysisk kärna) | Intel E5-2673 v4 (Broadwell) 2,3-GHz-processorer, fast NVMe SSD, vCore = 1 LP (Hyper-Thread) |
+| Maskinvara | Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer, anslutna SSD vCore = 1 PP (fysisk kärna) | Intel E5-2673 v4 (Broadwell) 2,3-GHz-och Intel SP-8160-processorer (Skylake), fast NVMe SSD, vCore = 1 LP (Hyper-Thread) |
 | Antal v-kärnor | 8, 16, 24 virtuella kärnor | 4, 8, 16, 24, 32, 40, 64, 80 virtuella kärnor |
 | Högsta mängd minne (minne/Core-förhållande) | 7 GB per vCore<br/>Lägg till fler virtuella kärnor för att få mer minne. | 5,1 GB per vCore<br/>Lägg till fler virtuella kärnor för att få mer minne. |
 | Högsta minnes intern OLTP-minne | Instans gräns: 1 – 1,5 GB per vCore| Instans gräns: 0,8 – 1,65 GB per vCore |
@@ -78,7 +78,7 @@ Den hanterade instansen har två tjänst nivåer: [generell användning](sql-dat
 | Logg Skriv data flödes gräns (per instans) | 3 MB/s per vCore<br/>Högst 22 MB/s | 4 MB/s per vCore<br/>Max 48 MB/s |
 | Data flöde (ungefärligt) | 100-250 MB/s per fil<br/>\*[öka fil storleken för att få bättre IO-prestanda](#file-io-characteristics-in-general-purpose-tier) | Inte begränsat. |
 | IO-latens för lagring (ungefärligt) | 5-10 MS | 1-2 MS |
-| Minnes intern OLTP | Stöds inte | Tillgängligt, [storleken beror på antalet vCore](#in-memory-oltp-available-space) |
+| Minnesintern OLTP | Stöds inte | Tillgängligt, [storleken beror på antalet vCore](#in-memory-oltp-available-space) |
 | Maximalt antal sessioner | 30000 | 30000 |
 | [Skrivskyddade repliker](sql-database-read-scale-out.md) | 0 | 1 (ingår i priset) |
 

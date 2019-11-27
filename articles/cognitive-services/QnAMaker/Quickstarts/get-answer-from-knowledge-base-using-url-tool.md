@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Use URL tool to get answer from knowledge base - QnA Maker'
+title: 'Snabb start: Använd URL-verktyget för att få svar från kunskaps basen – QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: This quickstart walks you through getting an answer from your knowledge base using a URL test tool such as cURL or Postman.
+description: Den här snabb starten vägleder dig genom att få svar från din kunskaps bas med ett URL-testverktyg som sväng eller Postman.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -18,7 +18,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74424428"
 ---
-# <a name="quickstart-get-an-answer-from-knowledge-base"></a>Quickstart: Get an answer from knowledge base
+# <a name="quickstart-get-an-answer-from-knowledge-base"></a>Snabb start: få ett svar från kunskaps basen
 
 ::: zone pivot="url-test-tool-curl"
 

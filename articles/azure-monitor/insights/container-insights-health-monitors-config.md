@@ -63,7 +63,7 @@ Azure Monitor för behållare innehåller ett antal nyckel övervaknings scenari
 
 ### <a name="unit-monitors"></a>Enhets övervakare
 
-|**Övervakarens namn** | Övervaknings typ | **Beskrivning** | **Parametern** | **Värde** |
+|**Övervakarens namn** | Övervaknings typ | **Beskrivning** | **ProfileServiceApplicationProxy** | **Värde** |
 |-----------------|--------------|-----------------|---------------|-----------|
 |Minnes användning för nod |Enhets övervakare |Den här övervakaren utvärderar minnes användningen för en nod varje minut med hjälp av cadvisor rapporterade data. |ConsecutiveSamplesForStateTransition<br> FailIfGreaterThanPercentage<br> WarnIfGreaterThanPercentage | 3<br> 90<br> 80  ||
 |CPU-användning för nod |Enhets övervakare |Den här övervakaren kontrollerar nodens processor användning varje minut med hjälp av cadvisor rapporterade data. | ConsecutiveSamplesForStateTransition<br> FailIfGreaterThanPercentage<br> WarnIfGreaterThanPercentage | 3<br> 90<br> 80  ||

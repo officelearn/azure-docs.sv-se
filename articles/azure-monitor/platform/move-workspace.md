@@ -82,7 +82,7 @@ Använd följande procedur för att ta bort länken till Automation-kontot från
 
 ## <a name="move-your-workspace"></a>Flytta din arbets yta
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 Använd följande procedur för att flytta din arbets yta med Azure Portal:
 
 1. Öppna menyn **Log Analytics arbets ytor** och välj sedan din arbets yta.
@@ -91,7 +91,7 @@ Använd följande procedur för att flytta din arbets yta med Azure Portal:
 4. Välj en mål **prenumeration** och **resurs grupp**. Om du flyttar arbets ytan till en annan resurs grupp i samma prenumeration visas inte **prenumerations** alternativet.
 5. Klicka på **OK** för att flytta arbets ytan och valda resurser.
 
-    ![Portal](media/move-workspace/portal.png)
+    ![Portalen](media/move-workspace/portal.png)
 
 ### <a name="powershell"></a>PowerShell
 Om du vill flytta din arbets yta med PowerShell använder du [Move-AzResource](/powershell/module/AzureRM.Resources/Move-AzureRmResource) som i följande exempel:

@@ -29,7 +29,7 @@ Utför följande åtgärder för att aktivera och använda Azure Policy för AKS
 - [Tilldela en princip definition för AKS-motorn](#built-in-policies)
 - [Vänta på verifiering](#validation-and-reporting-frequency)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du installerar Azure Policy tillägg eller aktiverar någon av tjänst funktionerna måste prenumerationen aktivera **Microsoft. PolicyInsights** Resource Provider och skapa en roll tilldelning för kluster tjänstens huvud namn. 
 

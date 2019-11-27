@@ -10,7 +10,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/21/2019
 ms.locfileid: "74285839"
 ---
-# <a name="back-up-sap-hana-databases-in-azure-vms"></a>Säkerhetskopiera SAP HANA-databaser på virtuella Azure-datorer
+# <a name="back-up-sap-hana-databases-in-azure-vms"></a>Säkerhetskopiera SAP HANA-databaser i virtuella Azure-datorer
 
 SAP HANA-databaser är kritiska arbets belastningar som kräver återställnings punkt mål och långsiktig kvarhållning. Du kan säkerhetskopiera SAP HANA databaser som körs på virtuella datorer i Azure med hjälp av [Azure Backup](backup-overview.md).
 
@@ -24,7 +24,7 @@ I den här artikeln får du lära dig hur du:
 > * Konfigurera säkerhets kopior
 > * Köra ett säkerhets kopierings jobb på begäran
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Se avsnitten [krav](tutorial-backup-sap-hana-db.md#prerequisites) och [konfiguration av behörigheter](tutorial-backup-sap-hana-db.md#setting-up-permissions) för att konfigurera databasen för säkerhets kopiering.
 
@@ -71,7 +71,7 @@ Aktivera nu säkerhets kopiering.
 
 1. I steg 2 klickar du på **Konfigurera säkerhets kopiering**.
 
-    ![Konfigurera säkerhetskopiering](./media/backup-azure-sap-hana-database/configure-backup.png)
+    ![Konfigurera Backup](./media/backup-azure-sap-hana-database/configure-backup.png)
 2. I **Välj objekt att säkerhetskopiera**väljer du alla databaser som du vill skydda > **OK**.
 
     ![Välj objekt som ska säkerhets kopie ras](./media/backup-azure-sap-hana-database/select-items.png)

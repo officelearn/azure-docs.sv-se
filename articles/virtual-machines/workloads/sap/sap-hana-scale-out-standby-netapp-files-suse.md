@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/30/2019
+ms.date: 11/21/2019
 ms.author: radeltch
-ms.openlocfilehash: 7fb7294cc6f7918b4c6a3afa9e3c9dc7f44504e1
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 49e7fd49e000a3d4475c60a0c58cf6a2c7455fa5
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014941"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74531418"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>Distribuera ett SAP HANA skalbart system med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på SUSE Linux Enterprise Server 
 
@@ -99,17 +99,17 @@ En metod för att uppnå HANA hög tillgänglighet är genom att konfigurera aut
 ![Översikt över SAP NetWeaver-hög tillgänglighet](./media/high-availability-guide-suse-anf/sap-hana-scale-out-standby-netapp-files-suse.png)
 
 I föregående diagram, som följer SAP HANA nätverks rekommendationer, representeras tre undernät i ett virtuellt Azure-nätverk: 
+* För klient kommunikation
 * För kommunikation med lagrings systemet
 * För intern HANA kommunikation mellan noder
-* För klient kommunikation
 
 Azure NetApp-volymerna finns i separata undernät, [delegerade till Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).  
 
 I den här exempel konfigurationen är under näten:  
 
+  - `client` 10.23.0.0/24  
   - `storage` 10.23.2.0/24  
   - `hana` 10.23.3.0/24  
-  - `client` 10.23.0.0/24  
   - `anf` 10.23.1.0/26  
 
 ## <a name="set-up-the-azure-netapp-files-infrastructure"></a>Konfigurera Azure NetApp Files-infrastrukturen 
@@ -140,7 +140,7 @@ Följande instruktioner förutsätter att du redan har distribuerat ditt [virtue
 
    När du distribuerar volymerna, måste du välja **nfsv 4.1** -versionen. För närvarande kräver åtkomst till NFSv 4.1 ytterligare vit listning. Distribuera volymerna i det angivna Azure NetApp Files- [undernätet](https://docs.microsoft.com/rest/api/virtualnetwork/subnets). 
    
-   Tänk på att Azure NetApp Files-resurser och de virtuella Azure-datorerna måste finnas i samma virtuella Azure-nätverk eller i peer-nätverk med peer-nätverk. Till exempel är **HN1**-data-Mnt00001, **HN1**-log-mnt00001 och så vidare, volym namnen och NFS://10.23.1.5/**HN1**-data-mnt00001, NFS://10.23.1.4/**HN1**-log-mnt00001 och så vidare är fil Sök vägarna för Azure NetApp Files volymerna.  
+   Tänk på att Azure NetApp Files-resurser och de virtuella Azure-datorerna måste finnas i samma virtuella Azure-nätverk eller i peer-nätverk med peer-nätverk. Till exempel är **HN1**-data-Mnt00001, **HN1**-log-mnt00001 och så vidare, volym namnen och NFS://10.23.1.5/**HN1**-data-mnt00001, NFS://10.23.1.4/**HN1**-log-mnt00001 och så vidare, de är fil Sök vägar för Azure NetApp Files volymerna.  
 
    * volym **HN1**-data-mnt00001 (NFS://10.23.1.5/**HN1**-data-mnt00001)
    * volym **HN1**-data-mnt00002 (NFS://10.23.1.6/**HN1**-data-mnt00002)
@@ -165,9 +165,6 @@ När du skapar din Azure NetApp Files för SAP-NetWeaver på SUSE hög tillgäng
 
 > [!IMPORTANT]
 > För SAP HANA arbets belastningar är låg latens kritiskt. Arbeta med din Microsoft-representant för att säkerställa att de virtuella datorerna och Azure NetApp Files volymerna distribueras i nära närhet.  
-
-> [!IMPORTANT]
-> Användar-ID för **sid**-adm och grupp-id för `sapsys` på de virtuella datorerna måste matcha konfigurationen i Azure NetApp Files. Om det finns ett matchnings fel mellan VM-ID: n och konfigurationen av Azure-NetApp visas behörigheterna för filer på Azure NetApp-volymer som är monterade på de virtuella datorerna som `nobody`. Se till att ange rätt ID när du registrerar [ett nytt system](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u) för att Azure NetApp Files.
 
 ### <a name="sizing-for-hana-database-on-azure-netapp-files"></a>Storlek för HANA-databas på Azure NetApp Files
 
@@ -209,40 +206,40 @@ Den SAP HANA konfigurationen för den layout som presenteras i den här artikeln
 
 ## <a name="deploy-linux-virtual-machines-via-the-azure-portal"></a>Distribuera virtuella Linux-datorer via Azure Portal
 
-Först måste du skapa Azure NetApp Files volymerna. Gör följande:
+Först måste du skapa Azure NetApp Files volymerna. Utför sedan följande steg:
 1. Skapa [Azure Virtual Network-undernät](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet) i ditt [virtuella Azure-nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview). 
 1. Distribuera de virtuella datorerna. 
 1. Skapa ytterligare nätverks gränssnitt och koppla nätverks gränssnitten till motsvarande virtuella datorer.  
 
-   Varje virtuell dator har tre nätverks gränssnitt som motsvarar de tre virtuella Azure-undernäten (`storage`, `hana`och `client`). 
+   Varje virtuell dator har tre nätverks gränssnitt som motsvarar de tre virtuella Azure-undernäten (`client`, `storage` och `hana`). 
 
    Mer information finns i [skapa en virtuell Linux-dator i Azure med flera nätverks gränssnitts kort](https://docs.microsoft.com/azure/virtual-machines/linux/multiple-nics).  
 
 > [!IMPORTANT]
 > För SAP HANA arbets belastningar är låg latens kritiskt. För att uppnå låg latens kan du arbeta med din Microsoft-representant för att se till att de virtuella datorerna och Azure NetApp Files volymerna distribueras i nära närhet. När du registrerar [nya SAP HANA system](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u) som använder SAP HANA Azure NetApp Files, så skicka in nödvändig information. 
  
-Nästa instruktioner förutsätter att du redan har skapat resurs gruppen, det virtuella Azure-nätverket och de tre virtuella Azure-undernäten: `storage`, `hana`och `client`. När du distribuerar de virtuella datorerna väljer du lagrings under nätet så att lagrings nätverks gränssnittet är det primära gränssnittet på de virtuella datorerna. Om detta inte är möjligt konfigurerar du en explicit väg till det Azure NetApp Files delegerade under nätet via gatewayen för lagrings under nätet. 
+Nästa instruktioner förutsätter att du redan har skapat resurs gruppen, det virtuella Azure-nätverket och de tre virtuella Azure-undernäten: `client``storage` och `hana`. När du distribuerar de virtuella datorerna väljer du klient under nätet så att klient nätverks gränssnittet är det primära gränssnittet på de virtuella datorerna. Du måste också konfigurera en explicit väg till det Azure NetApp Files delegerade under nätet via gatewayen för lagrings under nätet. 
 
 > [!IMPORTANT]
 > Kontrol lera att det OS du väljer är SAP-certifierat för SAP HANA på de angivna VM-typerna som du använder. En lista över SAP HANA certifierade VM-typer och OS-versioner för dessa typer finns på webbplatsen [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) . Klicka i informationen om den virtuella dator typen som visas för att hämta den fullständiga listan med SAP HANA operativ system versioner som stöds för den typen.  
 
 1. Skapa en tillgänglighets uppsättning för SAP HANA. Se till att ange den maximala uppdaterings domänen.  
 
-2. Skapa tre virtuella datorer (**hanadb1**, **hanadb2**, **hanadb3**) genom att göra följande:  
+2. Skapa tre virtuella datorer (**hanadb1**, **hanadb2**, **hanadb3**) genom att utföra följande steg:  
 
    a. Använd en SLES4SAP-avbildning i Azure-galleriet som stöds för SAP HANA. Vi använde en SLES4SAP 12 SP4-avbildning i det här exemplet.  
 
    b. Välj den tillgänglighets uppsättning som du skapade tidigare för SAP HANA.  
 
-   c. Välj det virtuella nätverks under nätet för Azure Storage. Välj [accelererat nätverk](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).  
+   c. Välj klient under nätet Azure Virtual Network. Välj [accelererat nätverk](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).  
 
-   När du distribuerar de virtuella datorerna genereras nätverks gränssnitts namnet automatiskt. Vi refererar till nätverks gränssnitten som är kopplade till det virtuella nätverkets undernät i Azure som **hanadb1-Storage**, **hanadb2-Storage**och **hanadb3-Storage**. 
+   När du distribuerar de virtuella datorerna genereras nätverks gränssnitts namnet automatiskt. I dessa anvisningar för enkelhetens skull kommer vi att referera till de automatiskt genererade nätverks gränssnitten som är kopplade till klient under nätet för Azures virtuella nätverk, som **hanadb1-client**, **hanadb2-client**och **hanadb3-client**. 
 
-3. Skapa tre nätverks gränssnitt, ett för varje virtuell dator för det `hana` virtuella nätverkets undernät (i det här exemplet **hanadb1-Hana**, **hanadb2-Hana**och **hanadb3-Hana**).  
+3. Skapa tre nätverks gränssnitt, ett för varje virtuell dator för det `storage` virtuella nätverkets undernät (i det här exemplet **hanadb1-Storage**, **hanadb2-Storage**och **hanadb3-Storage**).  
 
-4. Skapa tre nätverks gränssnitt, ett för varje virtuell dator, för det `client` virtuella nätverkets undernät (i det här exemplet **hanadb1-client**, **hanadb2-client**och **hanadb3-client**).  
+4. Skapa tre nätverks gränssnitt, ett för varje virtuell dator för det `hana` virtuella nätverkets undernät (i det här exemplet **hanadb1-Hana**, **hanadb2-Hana**och **hanadb3-Hana**).  
 
-5. Koppla de nyligen skapade virtuella nätverks gränssnitten till motsvarande virtuella datorer genom att göra följande:  
+5. Koppla de nyligen skapade virtuella nätverks gränssnitten till motsvarande virtuella datorer genom att utföra följande steg:  
 
     a. Gå till den virtuella datorn i [Azure Portal](https://portal.azure.com/#home).  
 
@@ -250,7 +247,7 @@ Nästa instruktioner förutsätter att du redan har skapat resurs gruppen, det v
 
     c. I fönstret **Översikt** väljer du **stoppa** för att frigöra den virtuella datorn.  
 
-    d. Välj **nätverk**och Anslut sedan nätverks gränssnittet. I list rutan **bifoga nätverks gränssnitt** väljer du de redan skapade nätverks gränssnitten för `hana` och `client` undernät.  
+    d. Välj **nätverk**och Anslut sedan nätverks gränssnittet. I list rutan **bifoga nätverks gränssnitt** väljer du de redan skapade nätverks gränssnitten för `storage` och `hana` undernät.  
     
     e. Välj **Spara**. 
  
@@ -258,23 +255,24 @@ Nästa instruktioner förutsätter att du redan har skapat resurs gruppen, det v
  
     g. Lämna kvar de virtuella datorerna i stoppat tillstånd för tillfället. Därefter aktiverar vi [accelererat nätverk](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) för alla nyligen anslutna nätverks gränssnitt.  
 
-6. Aktivera accelererat nätverk för de ytterligare nätverks gränssnitten för `hana` och `client` undernät genom att göra följande:  
+6. Aktivera accelererat nätverk för de ytterligare nätverks gränssnitten för `storage` och `hana` undernät genom att utföra följande steg:  
 
     a. Öppna [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) i [Azure Portal](https://portal.azure.com/#home).  
 
-    b. Kör följande kommandon för att aktivera accelererat nätverk för ytterligare nätverks gränssnitt, som är kopplade till `hana` och `client` undernät.  
+    b. Kör följande kommandon för att aktivera accelererat nätverk för ytterligare nätverks gränssnitt, som är kopplade till `storage` och `hana` undernät.  
 
     <pre><code>
+    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb1-storage</b> --accelerated-networking true
+    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb2-storage</b> --accelerated-networking true
+    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb3-storage</b> --accelerated-networking true
+    
     az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb1-hana</b> --accelerated-networking true
     az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb2-hana</b> --accelerated-networking true
     az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb3-hana</b> --accelerated-networking true
-    
-    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb1-client</b> --accelerated-networking true
-    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb2-client</b> --accelerated-networking true
-    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb3-client</b> --accelerated-networking true
+
     </code></pre>
 
-7. Starta de virtuella datorerna genom att göra följande:  
+7. Starta de virtuella datorerna genom att utföra följande steg:  
 
     a. I den vänstra rutan väljer du **Virtual Machines**. Filtrera på det virtuella dator namnet (till exempel **hanadb1**) och markera det.  
 
@@ -288,36 +286,53 @@ Anvisningarna i nästa avsnitt har prefixet något av följande:
 * **[2]** : gäller endast nod 2
 * **[3]** : gäller endast nod 3
 
-Konfigurera och Förbered ditt OS genom att göra följande:
+Konfigurera och Förbered ditt operativ system genom att utföra följande steg:
 
 1. **[A]** underhålla värd filen på de virtuella datorerna. Inkludera poster för alla undernät. Följande poster lades till i `/etc/hosts` i det här exemplet.  
 
     <pre><code>
     # Storage
-    10.23.2.4   hanadb1
-    10.23.2.5   hanadb2
-    10.23.2.6   hanadb3
+    10.23.2.4   hanadb1-storage
+    10.23.2.5   hanadb2-storage
+    10.23.2.6   hanadb3-storage
     # Client
-    10.23.0.5   hanadb1-client
-    10.23.0.6   hanadb2-client
-    10.23.0.7   hanadb3-client
+    10.23.0.5   hanadb1
+    10.23.0.6   hanadb2
+    10.23.0.7   hanadb3
     # Hana
     10.23.3.4   hanadb1-hana
     10.23.3.5   hanadb2-hana
     10.23.3.6   hanadb3-hana
     </code></pre>
 
-2. **[A]** ändra inställningar för DHCP-och moln konfiguration för att undvika oönskade värdnamn ändringar.  
+2. **[A]** ändra inställningar för DHCP-och moln konfiguration för nätverks gränssnittet för lagring för att undvika oavsiktliga värdnamn ändringar.  
+
+    Följande instruktioner förutsätter att lagrings nätverks gränssnittet är `eth1`. 
 
     <pre><code>
     vi /etc/sysconfig/network/dhcp
-    #Change the following DHCP setting to "no"
+    # Change the following DHCP setting to "no"
     DHCLIENT_SET_HOSTNAME="no"
-    vi /etc/sysconfig/network/ifcfg-eth0
-    # Edit ifcfg-eth0 
+    vi /etc/sysconfig/network/ifcfg-<b>eth1</b>
+    # Edit ifcfg-eth1 
     #Change CLOUD_NETCONFIG_MANAGE='yes' to "no"
     CLOUD_NETCONFIG_MANAGE='no'
     </code></pre>
+
+2. **[A]** Lägg till en nätverks väg så att kommunikationen till Azure NetApp Files skickas via nätverks gränssnittet för lagring.  
+
+    Följande instruktioner förutsätter att lagrings nätverks gränssnittet är `eth1`.  
+
+    <pre><code>
+    vi /etc/sysconfig/network/ifroute-<b>eth1</b>
+    # Add the following routes 
+    # RouterIPforStorageNetwork - - -
+    # ANFNetwork/cidr RouterIPforStorageNetwork - -
+    <b>10.23.2.1</b> - - -
+    <b>10.23.1.0/26</b> <b>10.23.2.1</b> - -
+    </code></pre>
+
+    Starta om den virtuella datorn för att aktivera ändringarna.  
 
 3. **[A]** Förbered operativ systemet för att köra SAP HANA på NetApp system med NFS, enligt beskrivningen i [SAP HANA på NetApp aff system med NFS-konfigurationsguiden](https://www.netapp.com/us/media/tr-4435.pdf). Skapa konfigurations filen */etc/sysctl.d/NetApp-Hana.conf* för konfigurations inställningarna för NetApp.  
 
@@ -387,28 +402,33 @@ Konfigurera och Förbered ditt OS genom att göra följande:
     umount /mnt/tmp
     </code></pre>
 
-3. **[A]** verifiera inställningen för NFS-domänen. Kontrol lera att domänen är konfigurerad som **`localdomain`** och att mappningen är inställd på **ingen**.  
+3. **[A]** verifiera inställningen för NFS-domänen. Kontrol lera att domänen är konfigurerad som standard Azure NetApp Files domän, d.v.s. **`defaultv4iddomain.com`** och att mappningen är inställd på **ingen**.  
+
+    > [!IMPORTANT]
+    > Se till att ange NFS-domänen i `/etc/idmapd.conf` på den virtuella datorn så att den matchar standard domän konfigurationen på Azure NetApp Files: **`defaultv4iddomain.com`** . Om det finns ett matchnings fel mellan domän konfigurationen på NFS-klienten (dvs. den virtuella datorn) och NFS-servern, d.v.s. Azure NetApp-konfigurationen, så visas behörigheterna för filer på Azure NetApp-volymer som är monterade på de virtuella datorerna som `nobody`.  
 
     <pre><code>
-    sudo cat  /etc/idmapd.conf
+    sudo cat /etc/idmapd.conf
     # Example
     [General]
     Verbosity = 0
     Pipefs-Directory = /var/lib/nfs/rpc_pipefs
-    Domain = <b>localdomain</b>
+    Domain = <b>defaultv4iddomain.com</b>
     [Mapping]
     Nobody-User = <b>nobody</b>
     Nobody-Group = <b>nobody</b>
     </code></pre>
 
-4. **[A]** inaktivera mappning av NFSv4-ID. Kör monterings kommandot för att skapa katalog strukturen där `nfs4_disable_idmapping` finns. Du kan inte skapa katalogen manuellt under/sys/modules eftersom åtkomst är reserverad för kernel/driv rutiner.  
+4. **[A]** verifiera `nfs4_disable_idmapping`. Den måste anges till **Y**. Kör monterings kommandot för att skapa katalog strukturen där `nfs4_disable_idmapping` finns. Du kan inte skapa katalogen manuellt under/sys/modules eftersom åtkomst är reserverad för kernel/driv rutiner.  
 
     <pre><code>
+    # Check nfs4_disable_idmapping 
+    cat /sys/module/nfs/parameters/nfs4_disable_idmapping
+    # If you need to set nfs4_disable_idmapping to Y
     mkdir /mnt/tmp
     mount 10.23.1.4:/HN1-shared /mnt/tmp
     umount  /mnt/tmp
-    # Disable NFSv4 idmapping. 
-    echo "N" > /sys/module/nfs/parameters/nfs4_disable_idmapping
+    echo "Y" > /sys/module/nfs/parameters/nfs4_disable_idmapping
     </code></pre>`
 
 5. **[A]** skapa SAP HANA gruppen och användaren manuellt. ID: na för Group sapsys och User **HN1**ADM måste anges till samma ID, som anges under onboarding. (I det här exemplet anges ID: n till **1001**.) Om ID: na inte anges korrekt kan du inte komma åt volymerna. ID: na för gruppen sapsys och användar konton **HN1**adm och sapadm måste vara samma på alla virtuella datorer.  

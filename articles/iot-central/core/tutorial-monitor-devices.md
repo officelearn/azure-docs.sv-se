@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Monitor your devices in Azure IoT Central'
-description: 'Tutorial: As an operator, use your Azure IoT Central application to monitor your devices.'
+title: 'Självstudie: övervaka dina enheter i Azure IoT Central'
+description: 'Självstudie: som operatör använder du ditt Azure IoT Central-program för att övervaka dina enheter.'
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/13/2019
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 > * Undersöka ett problem
 > * Lösa ett problem
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar bör byggaren skapa Azure IoT Central-programmet genom att slutföra de tre självstudierna för byggare:
 
@@ -41,7 +41,7 @@ Innan du börjar bör byggaren skapa Azure IoT Central-programmet genom att slut
 
 Azure IoT Central skickar meddelanden om enheter via e-post. Byggaren lade till en regel för att skicka ett meddelande när temperaturen i en ansluten luftkonditioneringsenhet överskrider ett tröskelvärde. Kontrollera e-postmeddelanden som skickas till det konto som valdes ut av byggaren för att få meddelanden.
 
-Öppna det e-postmeddelande som du fick i slutet av självstudien om att [konfigurera regler och åtgärder för din enhet](tutorial-configure-rules.md). In the email, select the link to the device next to **Device Name** in the **Details** section:
+Öppna det e-postmeddelande som du fick i slutet av självstudien om att [konfigurera regler och åtgärder för din enhet](tutorial-configure-rules.md). I e-postmeddelandet väljer du länken till enheten bredvid **enhetens namn** i avsnittet **information** :
 
 ![E-postavisering](media/tutorial-monitor-devices/email.png)
 
@@ -57,7 +57,7 @@ Välj **Instrumentpanelen** om du vill se information om enheten.
 
 ![Instrumentpanel för enhet](media/tutorial-monitor-devices/initial_screen.png)
 
-Diagrammet på instrumentpanelen visar en kurva över enhetens temperatur. You can also see the current target temperature for the device in the **Device properties** tile. Du anser att måltemperaturen är för hög.
+Diagrammet på instrumentpanelen visar en kurva över enhetens temperatur. Du kan också se aktuell mål temperatur för enheten i **enhetens egenskaps** panel. Du anser att måltemperaturen är för hög.
 
 ## <a name="remediate-an-issue"></a>Lösa ett problem
 

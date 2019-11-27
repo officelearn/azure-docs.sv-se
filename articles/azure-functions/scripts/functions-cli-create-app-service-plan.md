@@ -1,23 +1,16 @@
 ---
-title: Azure CLI-skriptexempel – Skapa en funktionsapp i en App Service plan | Microsoft Docs
+title: Skapa en Funktionsapp i en App Service plan – Azure CLI
 description: Azure CLI-skriptexempel – Skapa en funktionsapp i en App Service plan
-services: functions
-documentationcenter: functions
-author: ggailey777
-manager: jeconnoc
 ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
-ms.service: azure-functions
-ms.devlang: azurecli
 ms.topic: sample
 ms.date: 07/03/2018
-ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 85fe8e567cd00decbefe79c77c11f777820080ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 77e026e12d14745c308e1d02fade13f318d9e532
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325688"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74532846"
 ---
 # <a name="create-a-function-app-in-an-app-service-plan"></a>Skapa en funktionsapp i en App Service plan
 
@@ -43,13 +36,13 @@ Varje kommando i tabellen länkar till kommandospecifik dokumentation. I det hä
 
 | Kommando | Anteckningar |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | Konfigurerar ett Azure Storage-konto. |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az-appservice-plan-create) | Skapar en App Service-plan. |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | Skapar en funktionsapp i App Service-planen. |
+| [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
+| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Konfigurerar ett Azure Storage-konto. |
+| [AZ functionapp plan Create](/cli/azure/functionapp/plan#az-functionapp-plan-create) | Skapar en Premium-plan. |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Skapar en funktionsapp i App Service-planen. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure).
 
 Ytterligare CLI-skriptexempel för Azure Functions finns i [Azure Functions-dokumentationen](../functions-cli-samples.md).

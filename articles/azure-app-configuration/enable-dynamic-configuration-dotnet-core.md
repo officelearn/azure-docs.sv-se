@@ -30,13 +30,13 @@ Den här självstudien visar hur du kan implementera dynamiska konfigurationsupp
 
 Du kan använda valfri kod redigerare för att utföra stegen i den här självstudien. [Visual Studio Code](https://code.visualstudio.com/) är ett utmärkt alternativ som är tillgängligt på Windows-, MacOS-och Linux-plattformarna.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Konfigurera din .NET Core-app så att den uppdaterar konfigurationen som svar på ändringar i ett konfigurations lager för appar.
 > * Använd den senaste konfigurationen i ditt program.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill göra den här själv studie kursen installerar du [.net Core SDK](https://dotnet.microsoft.com/download).
 
@@ -123,7 +123,7 @@ Metoden `ConfigureRefresh` används för att ange inställningarna som används 
 
 1. Välj **Configuration Explorer**och uppdatera värdena för följande nycklar:
 
-    | Nyckel | Värde |
+    | Nyckel | Value |
     |---|---|
     | TestApp:Settings:Message | Data från Azure App konfiguration – uppdaterad |
 

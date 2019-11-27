@@ -21,7 +21,7 @@ Den här artikeln beskriver hur du förbereder för utvärdering av lokala fysis
 
 [Azure Migrate](migrate-overview.md) innehåller en hubb med verktyg som hjälper dig att identifiera, utvärdera och migrera appar, infrastruktur och arbets belastningar till Microsoft Azure. Hubben omfattar Azure Migrate-verktyg och oberoende program varu leverantörer från tredje part (ISV). 
 
-Den här självstudien är den första i en serie som visar hur du bedömer fysiska servrar med Azure Migrate. I den här självstudiekursen får du lära du dig att:
+Den här självstudien är den första i en serie som visar hur du bedömer fysiska servrar med Azure Migrate. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Förbered Azure. Konfigurera behörigheter för ditt Azure-konto och resurser för att arbeta med Azure Migrate.

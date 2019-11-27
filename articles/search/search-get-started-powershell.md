@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Create a search index in PowerShell using REST APIs'
+title: 'Snabb start: skapa ett Sök index i PowerShell med hjälp av REST API: er'
 titleSuffix: Azure Cognitive Search
-description: In this REST API quickstart, learn how to create an index, load data, and run queries using PowerShell's Invoke-RestMethod and the Azure Cognitive Search REST API.
+description: 'I den här REST API snabb starten lär du dig att skapa ett index, läsa in data och köra frågor med PowerShell: s Invoke-RestMethod och Azure Kognitiv sökning-REST API.'
 manager: nitinme
 author: heidisteen
 ms.author: heidist
@@ -16,7 +16,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74406919"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>Quickstart: Create an Azure Cognitive Search index in PowerShell using REST APIs
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i PowerShell med REST API: er
 > [!div class="op_single_selector"]
 > * [PowerShell (REST)](search-create-index-rest-api.md)
 > * [C#](search-create-index-dotnet.md)
@@ -25,33 +25,33 @@ ms.locfileid: "74406919"
 > * [Portalen](search-create-index-portal.md)
 > 
 
-This article walks you through the process of creating, loading, and querying an Azure Cognitive Search index using PowerShell and the [Azure Cognitive Search REST APIs](https://docs.microsoft.com/rest/api/searchservice/). This article explains how to run PowerShell commands interactively. Alternatively, you can [download and run a Powershell script](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) that performs the same operations.
+Den här artikeln vägleder dig genom processen att skapa, läsa in och skicka frågor mot ett Azure Kognitiv sökning-index med PowerShell och [Azure KOGNITIV sökning REST-API: er](https://docs.microsoft.com/rest/api/searchservice/). Den här artikeln förklarar hur du kör PowerShell-kommandon interaktivt. Du kan också [Hämta och köra ett PowerShell-skript](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) som utför samma åtgärder.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-The following services and tools are required for this quickstart. 
+Följande tjänster och verktyg krävs för den här snabb starten. 
 
-+ [PowerShell 5.1 or later](https://github.com/PowerShell/PowerShell), using [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) for sequential and interactive steps.
++ [PowerShell 5,1 eller senare](https://github.com/PowerShell/PowerShell), med [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) för sekventiella och interaktiva steg.
 
-+ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
++ [Skapa en Azure kognitiv sökning-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnads fri tjänst för den här snabb starten. 
 
-## <a name="get-a-key-and-url"></a>Get a key and URL
+## <a name="get-a-key-and-url"></a>Hämta en nyckel och URL
 
-För att kunna göra REST-anrop behöver du tjänstens webbadress och en åtkomstnyckel för varje begäran. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
+För att kunna göra REST-anrop behöver du tjänstens webbadress och en åtkomstnyckel för varje begäran. En Sök tjänst skapas med båda, så om du har lagt till Azure-Kognitiv sökning till din prenumeration följer du dessa steg för att få den information som krävs:
 
-1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
+1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta URL: en på sidan **Översikt över** Sök tjänsten. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
 
-2. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
+2. I **inställningar** > **nycklar**får du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
 
-![Get an HTTP endpoint and access key](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
+![Hämta en HTTP-slutpunkt och åtkomst nyckel](media/search-get-started-postman/get-url-key.png "Hämta en HTTP-slutpunkt och åtkomst nyckel")
 
-All requests require an api-key on every request sent to your service. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
+Alla begär Anden kräver en API-nyckel på varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
-## <a name="connect-to-azure-cognitive-search"></a>Connect to Azure Cognitive Search
+## <a name="connect-to-azure-cognitive-search"></a>Ansluta till Azure Kognitiv sökning
 
-1. In PowerShell, create a **$headers** object to store the content-type and API key. Replace the admin API key (YOUR-ADMIN-API-KEY) with a key that is valid for your search service. You only have to set this header once for the duration of the session, but you will add it to every request. 
+1. I PowerShell skapar du ett **$headers** -objekt för att lagra innehålls typen och API-nyckeln. Ersätt administrations-API-nyckeln (din-ADMIN-API-nyckel) med en nyckel som är giltig för din Sök tjänst. Du behöver bara ange sidhuvudet en gång under sessionen, men du lägger till den i varje begäran. 
 
     ```powershell
     $headers = @{
@@ -60,19 +60,19 @@ All requests require an api-key on every request sent to your service. En giltig
     'Accept' = 'application/json' }
     ```
 
-2. Create a **$url** object that specifies the service's indexes collection. Replace the service name (YOUR-SEARCH-SERVICE-NAME) with a valid search service.
+2. Skapa ett **$URL** -objekt som anger tjänstens index samling. Ersätt tjänst namnet (din-SEARCH-SERVICE-NAME) med en giltig Sök tjänst.
 
     ```powershell
     $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06&$select=name"
     ```
 
-3. Run **Invoke-RestMethod** to send a GET request to the service and verify the connection. Add **ConvertTo-Json** so that you can view the responses sent back from the service.
+3. Kör **Invoke-RestMethod** för att skicka en get-begäran till tjänsten och kontrol lera anslutningen. Lägg till **ConvertTo-JSON** så att du kan visa svaren som skickas tillbaka från tjänsten.
 
     ```powershell
     Invoke-RestMethod -Uri $url -Headers $headers | ConvertTo-Json
     ```
 
-   If the service is empty and has no indexes, results are similar to the following example. Otherwise, you'll see a JSON representation of index definitions.
+   Om tjänsten är tom och saknar index, liknar resultatet följande exempel. Annars visas en JSON-representation av index definitioner.
 
     ```
     {
@@ -85,13 +85,13 @@ All requests require an api-key on every request sent to your service. En giltig
 
 ## <a name="1---create-an-index"></a>1 – Skapa ett index
 
-Unless you are using the portal, an index must exist on the service before you can load data. This step defines the index and pushes it to the service. The [Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) is used for this step.
+Om du inte använder portalen måste det finnas ett index för tjänsten innan du kan läsa in data. Det här steget definierar indexet och pushar det till tjänsten. [Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) används för det här steget.
 
-Required elements of an index include a name and a fields collection. The fields collection defines the structure of a *document*. Each field has a name, type, and attributes that determine how it's used (for example, whether it is full-text searchable, filterable, or retrievable in search results). Within an index, one of the fields of type `Edm.String` must be designated as the *key* for document identity.
+Obligatoriska element i ett index innehåller ett namn och en fält samling. Fält samlingen definierar strukturen för ett *dokument*. Varje fält har ett namn, typ och attribut som avgör hur det används (till exempel om det är full text sökbar, filtrerings bar eller hämtnings bar i Sök resultaten). I ett index måste ett av fälten av typen `Edm.String` anges som *nyckel* för dokument identitet.
 
-This index is named "hotels-quickstart" and has the field definitions you see below. It's a subset of a larger [Hotels index](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) used in other walkthroughs. We trimmed it in this quickstart for brevity.
+Det här indexet heter "Hotels-snabb start" och innehåller fält definitionerna som visas nedan. Det är en del av ett större [hotell index](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) som används i andra genom gångar. Vi trimmade det i den här snabb starten för det kortfattat.
 
-1. Paste this example into PowerShell to create a **$body** object containing the index schema.
+1. Klistra in det här exemplet i PowerShell för att skapa ett **$Body** -objekt som innehåller index schemat.
 
     ```powershell
     $body = @"
@@ -120,19 +120,19 @@ This index is named "hotels-quickstart" and has the field definitions you see be
     "@
     ```
 
-2. Set the URI to the indexes collection on your service and the *hotels-quickstart* index.
+2. Ange URI: n till index samlingen på din tjänst och ditt *hotell-snabb start* index.
 
     ```powershell
     $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart?api-version=2019-05-06"
     ```
 
-3. Run the command with **$url**, **$headers**, and **$body** to create the index on the service. 
+3. Kör kommandot med **$URL**, **$headers**och **$Body** för att skapa indexet för tjänsten. 
 
     ```powershell
     Invoke-RestMethod -Uri $url -Headers $headers -Method Put -Body $body | ConvertTo-Json
     ```
 
-    Results should look similar to this (truncated to the first two fields for brevity):
+    Resultaten bör se ut ungefär så här (trunkerade till de första två fälten för det kortfattat):
 
     ```
     {
@@ -173,17 +173,17 @@ This index is named "hotels-quickstart" and has the field definitions you see be
     ```
 
 > [!Tip]
-> For verification, you could also check the Indexes list in the portal.
+> För verifiering kan du också kontrol lera listan index i portalen.
 
 <a name="load-documents"></a>
 
-## <a name="2---load-documents"></a>2 - Load documents
+## <a name="2---load-documents"></a>2 Läs in dokument
 
-To push documents, use an HTTP POST request to your index's URL endpoint. The REST API for this task is [Add, Update, or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
+Om du vill skicka dokument använder du en HTTP POST-begäran till indexets URL-slutpunkt. REST API för den här aktiviteten är [Lägg till, uppdatera eller ta bort dokument](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
-1. Paste this example into PowerShell to create a **$body** object containing the documents you want to upload. 
+1. Klistra in det här exemplet i PowerShell för att skapa ett **$Body** -objekt som innehåller de dokument som du vill ladda upp. 
 
-    This request includes two full and one partial record. The partial record demonstrates that you can upload incomplete documents. The `@search.action` parameter specifies how indexing is done. Valid values include upload, merge, mergeOrUpload, and delete. The mergeOrUpload behavior either creates a new document for hotelId = 3, or updates the contents if it already exists.
+    Denna begäran innehåller två fullständiga och en partiell post. Den partiella posten visar att du kan ladda upp ofullständiga dokument. Parametern `@search.action` anger hur indexeringen utförs. Giltiga värden är Ladda upp, sammanfoga, mergeOrUpload och ta bort. MergeOrUpload-beteendet skapar antingen ett nytt dokument för hotelId = 3, eller uppdaterar innehållet om det redan finns.
 
     ```powershell
     $body = @"
@@ -270,18 +270,18 @@ To push documents, use an HTTP POST request to your index's URL endpoint. The RE
     "@
     ```
 
-1. Set the endpoint to the *hotels-quickstart* docs collection and include the index operation (indexes/hotels-quickstart/docs/index).
+1. Ange slut punkten till samlingen *hotell-starter* -samling och inkludera index åtgärden (index/hotell-snabb start/dokument/index).
 
     ```powershell
     $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2019-05-06"
     ```
 
-1. Run the command with **$url**, **$headers**, and **$body** to load documents into the hotels-quickstart index.
+1. Kör kommandot med **$URL**, **$headers**och **$Body** för att läsa in dokument till hotell-snabb starts indexet.
 
     ```powershell
     Invoke-RestMethod -Uri $url -Headers $headers -Method Post -Body $body | ConvertTo-Json
     ```
-    Results should look similar to the following example. You should see a [status code of 201](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
+    Resultatet bör se ut som i följande exempel. Du bör se [status koden 201](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
 
     ```
     {
@@ -317,25 +317,25 @@ To push documents, use an HTTP POST request to your index's URL endpoint. The RE
 
 ## <a name="3---search-an-index"></a>3 – Söka i ett index
 
-This step shows you how to query an index using the [Search Documents API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Det här steget visar hur du frågar ett index med hjälp av [API: et search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
-Be sure to use single quotes on search $urls. Query strings include **$** characters, and you can omit having to escape them if the entire string is enclosed in single quotes..
+Se till att använda enkla citat tecken vid sökning $urls. Frågesträngar innehåller **$** tecken, och du kan utelämna dem om hela strängen omges av enkla citat tecken.
 
-1. Set the endpoint to the *hotels-quickstart* docs collection and add a **search** parameter to pass in a query string. 
+1. Ange slut punkten till samlingen *hotell-starter-* samling och Lägg till en **Sök** parameter för att skicka i en frågesträng. 
   
-   This string executes an empty search (search=*), returning an unranked list (search score  = 1.0) of arbitrary documents. By default, Azure Cognitive Search returns 50 matches at a time. As structured, this query returns an entire document structure and values. Add **$count=true** to get a count of all documents in the results.
+   Den här strängen kör en tom sökning (search = *) och returnerar en lista med en lista (Sök poäng = 1,0) av godtyckliga dokument. Som standard returnerar Azure Kognitiv sökning 50 matchningar åt gången. Som strukturerad returnerar den här frågan en hel dokument struktur och-värden. Lägg till **$Count = sant** för att få ett antal dokument i resultaten.
 
     ```powershell
     $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=*&$count=true'
     ```
 
-1. Run the command to send the **$url** to the service.
+1. Kör kommandot för att skicka **$URL** till tjänsten.
 
     ```powershell
     Invoke-RestMethod -Uri $url -Headers $headers | ConvertTo-Json
     ```
 
-    Results should look similar to the following output.
+    Resultaten bör likna följande utdata.
 
     ```
     {
@@ -369,7 +369,7 @@ Be sure to use single quotes on search $urls. Query strings include **$** charac
                 . . . 
     ```
 
-Try a few other query examples to get a feel for the syntax. You can do a string search, verbatim $filter queries, limit the results set, scope the search to specific fields, and more.
+Testa några andra exempel frågor för att få en känsla för syntaxen. Du kan göra en strängs ökning, orda Grant $filter frågor, begränsa resultat uppsättningen, begränsa sökningen till vissa fält med mera.
 
 ```powershell
 # Query example 1
@@ -393,15 +393,15 @@ $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quicksta
 ```
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
+När du arbetar med din egen prenumeration är det en bra idé i slutet av ett projekt för att identifiera om du fortfarande behöver de resurser som du har skapat. Resurser som har lämnats igång kostar dig pengar. Du kan ta bort resurser individuellt eller ta bort resurs gruppen för att ta bort hela uppsättningen resurser.
 
-You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
+Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurser** eller **resurs grupper** i det vänstra navigerings fönstret.
 
-If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
+Kom ihåg att du är begränsad till tre index, indexerare och data källor om du använder en kostnads fri tjänst. Du kan ta bort enskilda objekt i portalen för att hålla dig under gränsen. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-In this quickstart, you used PowerShell to  step through the basic workflow for creating and accessing content in Azure Cognitive Search. With the concepts in mind, we recommend moving on to more advanced scenarios, such as indexing from Azure data sources;
+I den här snabb starten använde du PowerShell för att gå igenom det grundläggande arbets flödet för att skapa och få åtkomst till innehåll i Azure Kognitiv sökning. Med koncepten i åtanke rekommenderar vi att du går vidare till mer avancerade scenarier, t. ex. indexering från Azure Data källor.
 
 > [!div class="nextstepaction"]
-> [REST Tutorial: Index and search semi-structured data (JSON blobs) in Azure Cognitive Search](search-semi-structured-data.md)
+> [REST-självstudie: indexera och Sök i halv strukturerade data (JSON-blobbar) i Azure Kognitiv sökning](search-semi-structured-data.md)

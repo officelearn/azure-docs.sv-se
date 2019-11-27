@@ -1,6 +1,6 @@
 ---
-title: Permissions to repositories
-description: Create a token with permissions scoped to specific repositories in a registry to pull or push images
+title: Behörigheter till databaser
+description: Skapa en token med behörigheter som är begränsade till vissa databaser i ett register för att hämta eller skicka avbildningar
 ms.topic: article
 ms.date: 10/31/2019
 ms.openlocfilehash: cf36a49ffd6c04897e6f44b844f0c813d0992b18
@@ -10,39 +10,39 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74454909"
 ---
-# <a name="repository-scoped-permissions-in-azure-container-registry"></a>Repository-scoped permissions in Azure Container Registry 
+# <a name="repository-scoped-permissions-in-azure-container-registry"></a>Databas – begränsade behörigheter i Azure Container Registry 
 
-Azure Container Registry supports several [authentication options](container-registry-authentication.md) using identities that have [role-based access](container-registry-roles.md) to an entire registry. However, for certain scenarios, you might need to provide access only to specific *repositories* in a registry. 
+Azure Container Registry stöder flera [autentiseringsalternativ](container-registry-authentication.md) med identiteter som har [rollbaserad åtkomst](container-registry-roles.md) till ett helt register. För vissa scenarier kan du dock behöva ge åtkomst till specifika *databaser* i ett register. 
 
-This article shows how to create and use an access token that has permissions to perform actions on only specific repositories in a registry. With an access token, you can provide users or services with scoped, time-limited access to repositories to pull or push images or perform other actions. 
+Den här artikeln visar hur du skapar och använder en åtkomsttoken som har behörighet att utföra åtgärder på endast vissa databaser i ett register. Med en åtkomsttoken kan du tillhandahålla användare eller tjänster med begränsad, tidsbegränsad åtkomst till databaser för att hämta eller skicka avbildningar eller utföra andra åtgärder. 
 
-See [About repository-scoped permissions](#about-repository-scoped-permissions), later in this article, for background about token concepts and scenarios.
+Mer information finns i [om behörigheter för databas omfång](#about-repository-scoped-permissions), längre fram i den här artikeln, för bakgrunds information om token och scenarier.
 
 > [!IMPORTANT]
-> This feature is currently in preview, and some [limitations apply](#preview-limitations). Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
+> Den här funktionen är för närvarande en för hands version och vissa [begränsningar gäller](#preview-limitations). Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
 
 ## <a name="preview-limitations"></a>Begränsningar för förhandsversion
 
-* This feature is only available in a **Premium** container registry. For information about registry service tiers and limits, see [Azure Container Registry SKUs](container-registry-skus.md).
-* You can't currently assign repository-scoped permissions to an Azure Active Directory object such as a service principal or managed identity.
+* Den här funktionen är endast tillgänglig i ett **Premium** container Registry. Information om nivåer och gränser för register tjänster finns i [Azure Container Registry SKU: er](container-registry-skus.md).
+* Du kan för närvarande inte tilldela databasens begränsade behörigheter till ett Azure Active Directory-objekt, till exempel ett tjänst huvud namn eller en hanterad identitet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* **Azure CLI** - This article requires a local installation of the Azure CLI (version 2.0.76 or later). Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
-* **Docker** - To authenticate with the registry, you also need a local Docker installation. I Docker finns installationsanvisningar för [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) och [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
-* **Container registry with repositories** - If you don't have one, create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI](container-registry-get-started-azure-cli.md). 
+* **Azure CLI** – den här artikeln kräver en lokal installation av Azure CLI (version 2.0.76 eller senare). Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
+* **Docker** -för att autentisera med registret behöver du också en lokal Docker-installation. I Docker finns installationsanvisningar för [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) och [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
+* **Behållar register med databaser** – om du inte har ett kan du skapa ett behållar register i din Azure-prenumeration. Använd till exempel [Azure Portal](container-registry-get-started-portal.md) eller [Azure CLI](container-registry-get-started-azure-cli.md). 
 
-  For test purposes, [push](container-registry-get-started-docker-cli.md) or [import](container-registry-import-images.md) one or more sample images to the registry. Examples in this article refer to the following images in two repositories: `samples/hello-world:v1` and `samples/nginx:v1`. 
+  I test syfte, [push](container-registry-get-started-docker-cli.md) eller [Importera](container-registry-import-images.md) en eller flera exempel bilder till registret. Exemplen i den här artikeln hänvisar till följande bilder i två databaser: `samples/hello-world:v1` och `samples/nginx:v1`. 
 
-## <a name="create-an-access-token"></a>Create an access token
+## <a name="create-an-access-token"></a>Skapa en åtkomsttoken
 
-Create a token using the [az acr token create][az-acr-token-create] command. When creating a token, specify one or more repositories and associated actions on each repository, or specify an existing scope map with those settings.
+Skapa en token med kommandot [AZ ACR token Create][az-acr-token-create] . När du skapar en token anger du en eller flera databaser och associerade åtgärder på varje lagrings plats eller anger en befintlig omfattnings karta med dessa inställningar.
 
-### <a name="create-access-token-and-specify-repositories"></a>Create access token and specify repositories
+### <a name="create-access-token-and-specify-repositories"></a>Skapa åtkomsttoken och ange databaser
 
-The following example creates an access token with permissions to perform `content/write` and `content/read` actions on the `samples/hello-world` repository, and the `content/read` action on the `samples/nginx` repository. By default, the command generates two passwords. 
+I följande exempel skapas en åtkomsttoken med behörighet att utföra `content/write` och `content/read` åtgärder på `samples/hello-world`-lagringsplatsen och `content/read` åtgärden på `samples/nginx`-lagringsplatsen. Som standard genererar kommandot två lösen ord. 
 
-This example sets the token status to `enabled` (the default setting), but you can update the token at any time and set the status to `disabled`.
+I det här exemplet anges token-status till `enabled` (standardinställningen), men du kan när som helst uppdatera token och ange status till `disabled`.
 
 ```azurecli
 az acr token create --name MyToken --registry myregistry \
@@ -50,9 +50,9 @@ az acr token create --name MyToken --registry myregistry \
   --repository samples/nginx content/read --status enabled
 ```
 
-The output shows details about the token, including generated passwords and scope map. It's recommended to save the passwords in a safe place to use later with `docker login`. The passwords can't be retrieved again but new ones can be generated.
+Utdata visar information om token, inklusive skapade lösen ord och omfångs karta. Vi rekommenderar att du sparar lösen orden på ett säkert ställe för att använda senare med `docker login`. Det går inte att hämta lösen orden igen men nya kan genereras.
 
-The output also shows that a scope map is automatically created, named `MyToken-scope-map`. You can use the scope map to apply the same repository actions to other tokens. Or, update the scope map later to change the token permissions.
+Utdata visar också att en omfångs karta skapas automatiskt, med namnet `MyToken-scope-map`. Du kan använda omfångs kartan för att tillämpa samma databas åtgärder på andra tokens. Eller så kan du uppdatera omfångs kartan senare för att ändra behörigheterna för token.
 
 ```console
 {
@@ -85,11 +85,11 @@ The output also shows that a scope map is automatically created, named `MyToken-
   "type": "Microsoft.ContainerRegistry/registries/tokens"
 ```
 
-### <a name="create-a-scope-map-and-associated-token"></a>Create a scope map and associated token
+### <a name="create-a-scope-map-and-associated-token"></a>Skapa en omfångs karta och associerad token
 
-Alternatively, specify a scope map with repositories and associated actions when creating a token. To create a scope map, use the [az acr scope-map create][az-acr-scope-map-create] command.
+Du kan också ange en omfattnings karta med databaser och associerade åtgärder när du skapar en token. Om du vill skapa en omfångs karta använder du kommandot [AZ ACR scope-Map Create][az-acr-scope-map-create] .
 
-The following example command creates a scope map with the same permissions used in the previous example. It allows `content/write` and `content/read` actions on the `samples/hello-world` repository, and the `content/read` action on the `samples/nginx` repository:
+Följande exempel kommando skapar en omfångs karta med samma behörigheter som användes i föregående exempel. Den tillåter `content/write` och `content/read` åtgärder på `samples/hello-world`-lagringsplatsen och `content/read` åtgärden på `samples/nginx`-lagringsplatsen:
 
 ```azurecli
 az acr scope-map create --name MyScopeMap --registry myregistry \
@@ -116,21 +116,21 @@ De utdata som genereras liknar följande:
   "type": "Microsoft.ContainerRegistry/registries/scopeMaps"
 ```
 
-Run [az acr token create][az-acr-token-create] to create a token associated with the *MyScopeMap* scope map. By default, the command generates two passwords. This example sets the token status to `enabled` (the default setting), but you can update the token at any time and set the status to `disabled`.
+Kör [AZ ACR token Create][az-acr-token-create] för att skapa en token som är associerad med *MyScopeMap* -omfångs kartan. Som standard genererar kommandot två lösen ord. I det här exemplet anges token-status till `enabled` (standardinställningen), men du kan när som helst uppdatera token och ange status till `disabled`.
 
 ```azurecli
 az acr token create --name MyToken --registry myregistry --scope-map MyScopeMap --status enabled
 ```
 
-The output shows details about the token, including generated passwords and the scope map you applied. It's recommended to save the passwords in a safe place to use later with `docker login`. The passwords can't be retrieved again but new ones can be generated.
+Utdata visar information om token, inklusive genererade lösen ord och omfångs karta som du har använt. Vi rekommenderar att du sparar lösen orden på ett säkert ställe för att använda senare med `docker login`. Det går inte att hämta lösen orden igen men nya kan genereras.
 
-## <a name="generate-passwords-for-token"></a>Generate passwords for token
+## <a name="generate-passwords-for-token"></a>Skapa lösen ord för token
 
-If passwords were created when you created the token, proceed to [Authenticate with registry](#authenticate-using-token).
+Om lösen ord skapades när du skapade token, fortsätter du [med att autentisera med registret](#authenticate-using-token).
 
-If you don't have a token password, or you want to generate new passwords, run the [az acr token credential generate][az-acr-token-credential-generate] command.
+Om du inte har ett token-lösenord, eller om du vill generera nya lösen ord, kör du kommandot [AZ ACR token Credential generate][az-acr-token-credential-generate] .
 
-The following example generates a new password for the token you created, with an expiration period of 30 days. It stores the password in the environment variable TOKEN_PWD. This example is formatted for the bash shell.
+I följande exempel skapas ett nytt lösen ord för den token som du skapade, med en förfallo period på 30 dagar. Lösen ordet lagras i miljö variabeln TOKEN_PWD. Det här exemplet är formaterat för bash-gränssnittet.
 
 ```azurecli
 TOKEN_PWD=$(az acr token credential generate \
@@ -138,9 +138,9 @@ TOKEN_PWD=$(az acr token credential generate \
   --password1 --query 'passwords[0].value' --output tsv)
 ```
 
-## <a name="authenticate-using-token"></a>Authenticate using token
+## <a name="authenticate-using-token"></a>Autentisera med token
 
-Run `docker login` to authenticate with the registry using the token credentials. Enter the token name as the user name and provide one of its passwords. The following example is formatted for the bash shell, and provides the values using environment variables.
+Kör `docker login` för att autentisera med registret med hjälp av autentiseringsuppgifter för token. Ange namnet på token som användar namn och ange ett lösen ord. Följande exempel är formaterat för bash-gränssnittet och innehåller värdena med miljövariabler.
 
 ```bash
 TOKEN_NAME=MyToken
@@ -149,22 +149,22 @@ TOKEN_PWD=<token password>
 echo $TOKEN_PWD | docker login --username $TOKEN_NAME --password-stdin myregistry.azurecr.io
 ```
 
-Output should show successful authentication:
+Utdata ska Visa lyckad autentisering:
 
 ```console
 Login Succeeded
 ```
 
-## <a name="verify-scoped-access"></a>Verify scoped access
+## <a name="verify-scoped-access"></a>Verifiera begränsad åtkomst
 
-You can verify that the token provides scoped permissions to the repositories in the registry. In this example, the following `docker pull` commands complete successfully to pull images available in the `samples/hello-world` and `samples/nginx` repositories:
+Du kan kontrol lera att token tillhandahåller begränsade behörigheter till databaserna i registret. I det här exemplet slutförs följande `docker pull` kommandon för att hämta avbildningar som är tillgängliga i `samples/hello-world` och `samples/nginx`-databaser:
 
 ```console
 docker pull myregistry.azurecr.io/samples/hello-world:v1
 docker pull myregistry.azurecr.io/samples/nginx:v1
 ```
 
-Because the example token allows the `content/write` action only on the `samples/hello-world` repository, `docker push` succeeds to that repository but fails for `samples/nginx`:
+Eftersom exempel-token bara tillåter `content/write` åtgärden på `samples/hello-world`-lagringsplatsen, `docker push` lyckas med lagrings platsen, men det går inte att `samples/nginx`:
 
 ```console
 # docker push succeeds
@@ -174,90 +174,90 @@ docker pull myregistry.azurecr.io/samples/hello-world:v1
 docker pull myregistry.azurecr.io/samples/nginx:v1
 ```
 
-## <a name="update-scope-map-and-token"></a>Update scope map and token
+## <a name="update-scope-map-and-token"></a>Uppdatera omfångs karta och token
 
-To update token permissions, update the permissions in the associated scope map, using [az acr scope-map update][az-acr-scope-map-update]. For example, to update *MyScopeMap* to remove the `content/write` action on the `samples/hello-world` repository:
+Om du vill uppdatera behörigheterna för token uppdaterar du behörigheterna i den associerade omfångs mappningen med hjälp av [AZ ACR scope-Map Update][az-acr-scope-map-update]. Om du till exempel vill uppdatera *MyScopeMap* för att ta bort åtgärden `content/write` på `samples/hello-world`-lagringsplatsen:
 
 ```azurecli
 az acr scope-map update --name MyScopeMap --registry myregistry \
   --remove samples/hello-world content/write
 ```
 
-If the scope map is associated with more than one token, the command updates the permission of all associated tokens.
+Om omfångs kartan är associerad med mer än en token uppdaterar kommandot behörigheten för alla associerade tokens.
 
-If you want to update a token with a different scope map, run [az acr token update][az-acr-token-update]. Exempel:
+Om du vill uppdatera en token med en annan omfångs karta kör du [AZ ACR token Update][az-acr-token-update]. Exempel:
 
 ```azurecli
 az acr token update --name MyToken --registry myregistry \
   --scope-map MyNewScopeMap
 ```
 
-After updating a token, or a scope map associated with a token, the permission changes take effect at the next `docker login` or other authentication using the token.
+När du har uppdaterat en token eller en omfångs karta som är associerad med en token börjar behörighets ändringarna gälla vid nästa `docker login` eller annan autentisering med hjälp av token.
 
-After updating a token, you might want to generate new passwords to access the registry. Run [az acr token credential generate][az-acr-token-credential-generate]. Exempel:
+När du har uppdaterat en token kanske du vill generera nya lösen ord för att få åtkomst till registret. Kör [AZ för ACR token generate][az-acr-token-credential-generate]. Exempel:
 
 ```azurecli
 az acr token credential generate \
   --name MyToken --registry myregistry --days 30
 ```
 
-## <a name="about-repository-scoped-permissions"></a>About repository-scoped permissions
+## <a name="about-repository-scoped-permissions"></a>Om behörigheter för databas omfång
 
-### <a name="concepts"></a>Koncept
+### <a name="concepts"></a>Begrepp
 
-To configure repository-scoped permissions, you create an *access token* and an associated *scope map* using commands in the Azure CLI.
+Om du vill konfigurera behörigheter för databasens omfång skapar du en *åtkomsttoken* och en associerad *omfattnings mappning* med hjälp av kommandon i Azure CLI.
 
-* An **access token** is a credential used with a password to authenticate with the registry. Associated with each token are permitted *actions* scoped to one or more repositories. You can set an expiration time for each token. 
+* En **åtkomsttoken är en** autentiseringsuppgift som används med ett lösen ord för att autentisera med registret. Kopplade till varje token tillåts *åtgärder* som är begränsade till en eller flera databaser. Du kan ange en förfallo tid för varje token. 
 
-* **Actions** on each specified repository include one or more of the following.
+* **Åtgärder** på varje angiven lagrings plats innehåller en eller flera av följande.
 
   |Åtgärd  |Beskrivning  |
   |---------|---------|
-  |`content/read`     |  Read data from the repository. For example, pull an artifact.  |
-  |`metadata/read`    | Read metadata from the repository. For example, list tags or show manifest metadata.   |
-  |`content/write`     |  Write data to the repository. Use with `content/read` to push an artifact.    |
-  |`metadata/write`     |  Write metadata to the repository. For example, update manifest attributes.  |
-  |`content/delete`    | Remove data from the repository. For example, delete a repository or a manifest. |
+  |`content/read`     |  Läs data från lagrings platsen. Hämta till exempel en artefakt.  |
+  |`metadata/read`    | Läsa metadata från lagrings platsen. Du kan till exempel Visa taggar eller visa metadata för manifestet.   |
+  |`content/write`     |  Skriv data till lagrings platsen. Använd med `content/read` för att skicka en artefakt.    |
+  |`metadata/write`     |  Skriv metadata till lagrings platsen. Du kan till exempel uppdatera manifest-attribut.  |
+  |`content/delete`    | Ta bort data från lagrings platsen. Du kan till exempel ta bort en lagrings plats eller ett manifest. |
 
-* A **scope map** is a registry object that groups repository permissions you apply to a token, or can reapply to other tokens. If you don't apply a scope map when creating a token, a scope map is automatically created for you, to save the permission settings. 
+* En **omfattnings karta** är ett register objekt som grupperar lagrings plats behörigheter som du tillämpar på en token eller som kan tillämpas på andra tokens. Om du inte använder en omfångs karta när du skapar en token skapas en omfångs karta automatiskt åt dig, för att spara behörighets inställningarna. 
 
-  A scope map helps you configure multiple users with identical access to a set of repositories. Azure Container Registry also provides system-defined scope maps that you can apply when creating access tokens.
+  En omfångs karta hjälper dig att konfigurera flera användare med identisk åtkomst till en uppsättning databaser. Azure Container Registry tillhandahåller också systemdefinierade omfångs kartor som du kan använda när du skapar åtkomsttoken.
 
-The following image summarizes the relationship between tokens and scope maps. 
+Följande bild sammanfattar relationen mellan tokens och omfångs kartor. 
 
-![Registry scope maps and tokens](media/container-registry-repository-scoped-permissions/token-scope-map-concepts.png)
+![Register omfångs kartor och tokens](media/container-registry-repository-scoped-permissions/token-scope-map-concepts.png)
 
 ### <a name="scenarios"></a>Scenarier
 
-Scenarios for using an access token include:
+Scenarier för att använda en åtkomsttoken är:
 
-* Provide IoT devices with individual tokens to pull an image from a repository
-* Provide an external organization with permissions to a specific repository 
-* Limit repository access to specific user groups in your organization. For example, provide write and read access to developers who build images that target specific repositories, and read access to teams that deploy from those repositories.
+* Tillhandahålla IoT-enheter med enskilda token för att hämta en avbildning från en lagrings plats
+* Ange en extern organisation med behörigheter till en speciell lagrings plats 
+* Begränsa lagrings plats åtkomst till vissa användar grupper i din organisation. Du kan till exempel ge Skriv-och Läs behörighet till utvecklare som skapar avbildningar som är riktade till specifika lagrings platser och Läs åtkomst till team som distribuerar från dessa databaser.
 
-### <a name="authentication-using-token"></a>Authentication using token
+### <a name="authentication-using-token"></a>Autentisering med token
 
-Use a token name as a user name and one of its associated passwords to authenticate with the target registry. The authentication method depends on the configured actions.
+Använd ett token-namn som användar namn och ett av dess associerade lösen ord för att autentisera med mål registret. Autentiseringsmetoden beror på vilka åtgärder som har kon figurer ATS.
 
-### <a name="contentread-or-contentwrite"></a>content/read or content/write
+### <a name="contentread-or-contentwrite"></a>innehåll/läsa eller innehåll/skriva
 
-If the token permits only `content/read` or `content/write` actions, provide token credentials in either of the following authentication flows:
+Om token endast tillåter `content/read` eller `content/write` åtgärder anger du autentiseringsuppgifter för token i något av följande autentiseringsscheman:
 
-* Authenticate with Docker using `docker login`
-* Authenticate with the registry using the [az acr login][az-acr-login] command in the Azure CLI
+* Autentisera med Docker med hjälp av `docker login`
+* Autentisera med registret med hjälp av kommandot [AZ ACR login][az-acr-login] i Azure CLI
 
-Following authentication, the token permits the configured actions on the scoped repository or repositories. For example, if the token permits the `content/read` action on a repository, `docker pull` operations are permitted on images in that repository.
+Efter autentiseringen tillåter token de konfigurerade åtgärderna för lagrings platsen eller databaserna. Om exempelvis token tillåter `content/read` åtgärden på en lagrings plats, tillåts `docker pull` åtgärder på avbildningar i lagrings platsen.
 
-#### <a name="metadataread-metadatawrite-or-contentdelete"></a>metadata/read, metadata/write, or content/delete
+#### <a name="metadataread-metadatawrite-or-contentdelete"></a>metadata/läsning, metadata/skrivning eller innehåll/ta bort
 
-If the token permits `metadata/read`, `metadata/write`, or `content/delete` actions on a repository, token credentials must be provided as parameters with the related [az acr repository][az-acr-repository] commands in the Azure CLI.
+Om token tillåter `metadata/read`, `metadata/write`eller `content/delete` åtgärder på en lagrings plats, måste token-autentiseringsuppgifter tillhandahållas som parametrar med de relaterade [AZ ACR-databas][az-acr-repository] kommandona i Azure CLI.
 
-For example, if `metadata/read` actions are permitted on a repository, pass the token credentials when running the [az acr repository show-tags][az-acr-repository-show-tags] command to list tags.
+Om `metadata/read` åtgärder till exempel tillåts på en lagrings plats skickar du token-autentiseringsuppgifterna när du kör kommandot [AZ ACR-lagringsplatsen show-Tags][az-acr-repository-show-tags] för att Visa taggar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* To manage scope maps and access tokens, use additional commands in the [az acr scope-map][az-acr-scope-map] and [az acr token][az-acr-token] command groups.
-* See the [authentication overview](container-registry-authentication.md) for scenarios to authenticate with an Azure container registry using an admin account or an Azure Active Directory identity.
+* Om du vill hantera områdes kartor och åtkomsttoken använder du ytterligare kommandon i kommando grupperna [AZ ACR scope-Map][az-acr-scope-map] och [AZ ACR-token][az-acr-token] .
+* I [översikten över autentisering](container-registry-authentication.md) finns scenarier för att autentisera med ett Azure Container Registry med ett administratörs konto eller en Azure Active Directory identitet.
 
 
 <!-- LINKS - External -->

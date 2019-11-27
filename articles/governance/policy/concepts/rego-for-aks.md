@@ -89,7 +89,7 @@ _Azure policy-tillägget_ för Kubernetes ansluter tjänsten Azure policy till G
 
 ### <a name="installing-the-add-on"></a>Installerar tillägget
 
-#### <a name="prerequisites"></a>Krav
+#### <a name="prerequisites"></a>Förutsättningar
 
 Innan du installerar tillägget i ditt AKS-kluster måste du installera för hands versions tillägget. Det här steget görs med Azure CLI:
 
@@ -123,7 +123,7 @@ Innan du installerar tillägget i ditt AKS-kluster måste du installera för han
 
 När förutsättningarna har slutförts installerar du Azure Policy-tillägget i det AKS-kluster som du vill hantera.
 
-- Azure portal
+- Azure Portal
 
   1. Starta AKS-tjänsten i Azure Portal genom att klicka på **alla tjänster**och sedan söka efter och välja **Kubernetes-tjänster**.
 
@@ -206,7 +206,7 @@ Om du vill visa loggar från Gatekeeper-behållare följer du stegen i [Aktivera
 
 Om du vill ta bort Azure Policy-tillägget från AKS-klustret använder du antingen Azure Portal eller Azure CLI:
 
-- Azure portal
+- Azure Portal
 
   1. Starta AKS-tjänsten i Azure Portal genom att klicka på **alla tjänster**och sedan söka efter och välja **Kubernetes-tjänster**.
 

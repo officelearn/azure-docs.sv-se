@@ -1,7 +1,7 @@
 ---
-title: Label entity example utterance
+title: Etikett för entitets exempel uttryck
 titleSuffix: Azure Cognitive Services
-description: Learn how to label a machine-learned entity with subcomponents in an example utterance in an intent detail page of the LUIS portal.
+description: Lär dig hur du etiketterar en enhets medveten entitet med del komponenter i ett exempel på en uttryck på LUIS-portalen.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,106 +11,106 @@ ms.topic: quickstart
 ms.date: 11/21/2019
 ms.author: diberry
 ms.openlocfilehash: 58e813d30273db4e011039aa43cd59c61507895e
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 11/26/2019
 ms.locfileid: "74383710"
 ---
-# <a name="label-machine-learned-entity-in-an-example-utterance"></a>Label machine-learned entity in an example utterance
+# <a name="label-machine-learned-entity-in-an-example-utterance"></a>Märk enhets enheten i ett exempel uttryck
 
-Labeling an entity in an example utterance gives LUIS an example of what the entity is and where the entity can appear in the utterance. 
+Att märka en entitet i ett exempel uttryck ger LUIS ett exempel på vad entiteten är och var entiteten kan visas i uttryck. 
 
-## <a name="labeling-machine-learned-entity"></a>Labeling machine-learned entity
+## <a name="labeling-machine-learned-entity"></a>Etikettering av datorn – lärt sig entiteten
 
-Consider the phrase, `hi, please I want a cheese pizza in 20 minutes`. 
+Överväg frasen `hi, please I want a cheese pizza in 20 minutes`. 
 
-1. Select the left-most text, then select the right-most text of the entity, then pick the entity you want to label with, in this case Complete Order. The _complete order_ is labeled in the following image.
-
-    > [!div class="mx-imgBorder"]
-    > ![Label complete machine-learned entity](media/label-utterances/example-1-label-machine-learned-entity-complete-order.png)
-
-1. Select the entity from the pop-up window. The labeled complete pizza order entity includes all words (from left to right in English) that are labeled. 
-
-## <a name="review-labeled-text"></a>Review labeled text
-
-After labeling, review the example utterance and ensure the selected span of text has been underlined with the chosen entity. The solid line indicates the text has been labeled. 
-
-> [!div class="mx-imgBorder"]
-> ![Labeled complete machine-learned entity](media/label-utterances/example-1-label-machine-learned-entity-complete-order-labeled.png)
-
-## <a name="confirm-predicted-entity"></a>Confirm predicted entity
-
-If there is a dotted-lined box around the span of text and the entity name is above the utterance, it indicates the text is predicted but _not labeled yet_. To turn the prediction into a label, select the utterance row, then select **Confirm entity predictions**.
-
-> [!div class="mx-imgBorder"]
-> ![Predict complete machine-learned entity](media/label-utterances/example-1-label-machine-learned-entity-complete-order-predicted.png)
-
-Alternatively, you could select the entity name above the text, then select **Confirm Prediction** from the menu that appears.
-
-> [!div class="mx-imgBorder"]
-> ![Predict complete machine-learned entity with menu](media/label-utterances/example-1-label-machine-learned-entity-complete-order-predicted-menu.png)
-
-## <a name="label-entity-by-painting-with-entity-palette-cursor"></a>Label entity by painting with entity palette cursor
-
-The entity palette offers an alternative to the previous labeling experience. It allows you to brush over text to instantly label it with an entity.
-
-1. Open the entity palette by selecting on the Highlighter icon at the top right of the utterance table. 
+1. Välj den vänstra texten och välj den högra texten i entiteten. Välj sedan den entitet som du vill etikettera med, i det här fallet Slutför ordningen. Den _fullständiga ordningen_ är märkt i följande bild.
 
     > [!div class="mx-imgBorder"]
-    > ![Entity palette for machine-learned entity](media/label-utterances/example-1-label-machine-learned-entity-palette.png)
+    > ![etiketten har slutförts efter att enheten](media/label-utterances/example-1-label-machine-learned-entity-complete-order.png)
 
-2. Select the entity component. This action is visually indicated with a new cursor. The cursor follows the mouse as you move in the portal. 
+1. Välj entiteten i popup-fönstret. Etiketten fullständig pizza order-entitet innehåller alla ord (från vänster till höger på engelska) som är märkta. 
 
-    > [!div class="mx-imgBorder"]
-    > ![Entity palette for machine-learned entity](media/label-utterances/example-1-label-machine-learned-entity-palette-menu.png)
+## <a name="review-labeled-text"></a>Granska etiketterad text
 
-3. In the example utterance, _paint_ the entity with the cursor.
-
-    > [!div class="mx-imgBorder"]
-    > ![Entity palette for machine-learned entity](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
-
-## <a name="labeling-subcomponents-of-a-machine-learned-entity"></a>Labeling subcomponents of a machine learned entity
-
-Subcomponents in entities are labeled exactly the same way as top level entities. When selecting text, the entities available in the pop-up window are relative to the context in which the text appears. For example, if you have a 5-level machine-learned entity, and you are selecting text that has been labeled with the 1st and 2nd levels (indicated by a labeled entity name under the example utterance), the entities available in the pop-up window are limited to the context of components of the 3rd level. To label the text with other entities, select **Label as another entity** option.
+Efter märkningen granskar du exemplet uttryck och ser till att det valda text intervallet har marker ATS med den valda entiteten. Den heldragna linjen anger att texten har märkts. 
 
 > [!div class="mx-imgBorder"]
-> ![Entity palette for machine-learned entity](media/label-utterances/example-1-label-machine-learned-entity-subcomponent.png)
+> ![märkta den fullständiga enheten](media/label-utterances/example-1-label-machine-learned-entity-complete-order-labeled.png)
 
-Subcomponents can be labeled only if the parent is also labeled. 
+## <a name="confirm-predicted-entity"></a>Bekräfta förväntad entitet
 
-## <a name="unlabel-entities"></a>Unlabel entities
+Om det finns en prickad ruta runt text området och entitetsnamnet är över uttryck, anger det att texten är förutsägd men _inte märkt än_. Om du vill omvandla förutsägelsen till en etikett väljer du raden uttryck och väljer **Bekräfta enhets förutsägelser**.
 
-To unlabel an entity, select the entity name underneath the text and select **Unlabel**. If the entity you are trying to unlabel has labeled subcomponents, then the subcomponents must be unlabeled first. 
+> [!div class="mx-imgBorder"]
+> ![förutse att enheten har lärts](media/label-utterances/example-1-label-machine-learned-entity-complete-order-predicted.png)
 
-## <a name="editing-labels-using-the-entity-palette"></a>Editing labels using the entity palette
+Alternativt kan du välja entitetsnamnet ovanför texten och sedan välja **Bekräfta förutsägelse** på menyn som visas.
 
-If you make a mistake while labeling, the entity palette is an easy tool that allows for quick edits. For example, if an entity label spans an extra word by mistake, and it already has labeled subcomponents, then you can use the entity palette to brush over the required shorter span of words.
+> [!div class="mx-imgBorder"]
+> ![förutse att datorn har lärts med meny](media/label-utterances/example-1-label-machine-learned-entity-complete-order-predicted-menu.png)
+
+## <a name="label-entity-by-painting-with-entity-palette-cursor"></a>Etiketten entitet genom att måla med pekarens färgpalett
+
+Entity-paletten erbjuder ett alternativ till föregående etikett upplevelse. Det gör att du kan fylla i text för att omedelbart förse den med en entitet.
+
+1. Öppna paletten entitet genom att välja på ikonen överstryknings ikonen längst upp till höger i uttryck-tabellen. 
+
+    > [!div class="mx-imgBorder"]
+    > ![-färgpalett för enhet som har registrerats av enheten](media/label-utterances/example-1-label-machine-learned-entity-palette.png)
+
+2. Välj entitets komponenten. Den här åtgärden visas visuellt med en ny markör. Markören följer musen när du flyttar i portalen. 
+
+    > [!div class="mx-imgBorder"]
+    > ![-färgpalett för enhet som har registrerats av enheten](media/label-utterances/example-1-label-machine-learned-entity-palette-menu.png)
+
+3. I uttryck-exemplet _målar_ du entiteten med markören.
+
+    > [!div class="mx-imgBorder"]
+    > ![-färgpalett för enhet som har registrerats av enheten](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
+
+## <a name="labeling-subcomponents-of-a-machine-learned-entity"></a>Namnge del komponenter på en dator som har lärts in
+
+Del komponenter i entiteter är märkta exakt på samma sätt som entiteter på översta nivån. När du väljer text är de entiteter som är tillgängliga i popup-fönstret i förhållande till kontexten där texten visas. Om du till exempel har en enhet på 5-nivå som är lärts och du väljer text som har märkts med den första och andra nivån (som anges av ett namngett entitetsnamn under exemplet uttryck), är entiteterna som är tillgängliga i popup-fönstret begränsade till kontext för komponenter på den tredje nivån. Om du vill märka texten med andra entiteter väljer du **etikett som ett alternativ för entiteten** .
+
+> [!div class="mx-imgBorder"]
+> ![-färgpalett för enhet som har registrerats av enheten](media/label-utterances/example-1-label-machine-learned-entity-subcomponent.png)
+
+Del komponenter kan bara märkas om överordnad också är märkt. 
+
+## <a name="unlabel-entities"></a>Etikettera entiteter
+
+Om du vill omärkta en entitet väljer du enhetens namn under texten och väljer sedan **omärkt etikett**. Om entiteten som du försöker att etikettera har namngett del komponenter måste del komponenterna vara omärkta först. 
+
+## <a name="editing-labels-using-the-entity-palette"></a>Redigera etiketter med Entity-paletten
+
+Om du gör ett misstag medan du märker det är entitetens palett ett enkelt verktyg som gör det möjligt att redigera snabbt. Om till exempel en enhets etikett sträcker sig över ett extra ord av misstag, och det redan har märkt del komponenter, kan du använda entitetens palett för att använda det kortare intervallet av ord.
 
 Exempel:
 
-1. Pizza Type subcomponent spans "cheese pizza with" which includes an extra incorrect word -- "with"
+1. Pizza Type-komponenten sträcker sig över "ost-pizza med", som innehåller ett extra felaktigt ord – "med"
 
     > [!div class="mx-imgBorder"]
-    > ![Entity palette for machine-learned entity](media/label-utterances/edit-label-with-palette-1.png)
+    > ![-färgpalett för enhet som har registrerats av enheten](media/label-utterances/edit-label-with-palette-1.png)
 
-2. Use the entity palette to pick Pizza Type and brush over "cheese pizza". The outcome is that only cheese pizza is labeled as Pizza Type now.
+2. Använd Entity-paletten för att välja pizza-typ och pensel över "ost-pizza". Resultatet är att endast ost-pizza är märkt som pizza-typ nu.
 
     > [!div class="mx-imgBorder"]
-    > ![Entity palette for machine-learned entity](media/label-utterances/edit-label-with-palette-2.png)
+    > ![-färgpalett för enhet som har registrerats av enheten](media/label-utterances/edit-label-with-palette-2.png)
 
 
-## <a name="labels-for-matching-text-entities"></a>Labels for matching-text entities
+## <a name="labels-for-matching-text-entities"></a>Etiketter för matchande text-entiteter
 
-Matching-text entities include prebuilt entities, regular expression entities, list entities, and pattern.any entities. These are automatically labeled by LUIS so they are not required to be manually labeled by users.
+Matchande textentiteter är fördefinierade entiteter, reguljära uttryck entiteter, lista entiteter och mönster. alla entiteter. Dessa etiketteras automatiskt av LUIS så att de inte behöver anges manuellt av användarna.
 
-## <a name="entity-prediction-errors"></a>Entity prediction errors
+## <a name="entity-prediction-errors"></a>Enhets förutsägelse fel
 
-Entity prediction errors indicate the predicted entity doesn't match the labeled entity. This is visualized with a caution indicator next to the utterance.
+Fel vid enhets förutsägelse indikerar att den förväntade enheten inte matchar den märkta entiteten. Detta visualiseras med en varnings indikator bredvid uttryck.
 
 > [!div class="mx-imgBorder"]
-> ![Entity palette for machine-learned entity](media/label-utterances/example-utterance-indicates-prediction-error.png)
+> ![-färgpalett för enhet som har registrerats av enheten](media/label-utterances/example-utterance-indicates-prediction-error.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Use the [dashboard](luis-how-to-use-dashboard.md) and [review endpoint utterances](luis-how-to-review-endpoint-utterances.md) to improve the prediction quality of your app.
+Använd [instrument panelen](luis-how-to-use-dashboard.md) och [Granska slut punkts yttranden](luis-how-to-review-endpoint-utterances.md) för att förbättra förutsägelse kvaliteten för din app.

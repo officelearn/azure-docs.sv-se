@@ -13,7 +13,7 @@ ms.lasthandoff: 11/25/2019
 ms.locfileid: "74462115"
 ---
 > [!IMPORTANT]
-> Azure SQL Database Machine Learning Services is currently in preview. Sign up for the preview is currently closed.
+> Azure SQL Database Machine Learning Services är för närvarande en för hands version. Registrera dig för för hands versionen är stängd för tillfället.
 > 
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

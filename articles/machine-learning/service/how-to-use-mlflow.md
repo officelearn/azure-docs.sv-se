@@ -55,7 +55,7 @@ Följande diagram illustrerar att med MLflow spårning spårar du ett Experiment
 |Övervaka modell prestanda||✓|  |   |
 | Identifiera dataavvikelser |   | ✓ |   | ✓ |
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Installera MLflow.](https://mlflow.org/docs/latest/quickstart.html)
 * [Installera Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) på den lokala datorn SDK: n ger anslutningen till MLflow för att få åtkomst till din arbets yta.

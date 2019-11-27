@@ -22,7 +22,7 @@ Den här artikeln visar hur du migrerar lokala virtuella VMware-datorer till Azu
 [Azure Migrate](migrate-services-overview.md) tillhandahåller en central hubb för att spåra identifiering, utvärdering och migrering av dina lokala appar och arbets belastningar och AWS/GCP VM-instanser till Azure. Hubben innehåller Azure Migrate verktyg för utvärdering och migrering samt oberoende program varu leverantörer från tredje part (ISV).
 
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Konfigurera käll miljön och distribuera en Azure Migrate Replication-enhet för agent-baserad migrering.
 > * Konfigurera mål miljön för migrering.
@@ -61,7 +61,7 @@ Om du vill bestämma om du vill använda en agent lös eller agent-baserad migre
 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar de här självstudierna bör du:
 
@@ -424,7 +424,7 @@ När du har kontrollerat att testmigreringen fungerar som förväntat kan du mig
 
 ## <a name="post-migration-best-practices"></a>Metod tips för efter migreringen
 
-- Lokal
+- Lokalt
     - Flytta över apptrafiken till den app som körs på den migrerade Azure-VM-instansen.
     - Ta bort de lokala virtuella datorerna från ditt lokala VM-inventarie.
     - Ta bort de lokala virtuella datorerna från lokala säkerhetskopior.

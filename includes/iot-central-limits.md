@@ -11,4 +11,4 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74463319"
 ---
-IoT Central limits the number of applications you can deploy in a subscription to 10. If you need to increase this limit, contact [Microsoft support](https://azure.microsoft.com/support/options/).
+IoT Central begränsar antalet program som du kan distribuera i en prenumeration på 10. Kontakta [Microsoft-supporten](https://azure.microsoft.com/support/options/)om du behöver öka den här gränsen.

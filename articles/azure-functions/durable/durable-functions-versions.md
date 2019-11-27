@@ -1,6 +1,6 @@
 ---
-title: Durable Functions versions overview - Azure Functions
-description: Learn about Durable Functions versions.
+title: Översikt över Durable Functions-versioner – Azure Functions
+description: Lär dig mer om Durable Functions-versioner.
 author: cgillum
 ms.topic: conceptual
 ms.date: 10/30/2019
@@ -12,69 +12,69 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74231199"
 ---
-# <a name="durable-functions-versions-overview"></a>Durable Functions versions overview
+# <a name="durable-functions-versions-overview"></a>Översikt över Durable Functions-versioner
 
-*Durable Functions* is an extension of [Azure Functions](../functions-overview.md) and [Azure WebJobs](../../app-service/web-sites-create-web-jobs.md) that lets you write stateful functions in a serverless environment. Tillägget hanterar tillstånd, kontrollpunkter och omstarter. If you are not already familiar with Durable Functions, see the [overview documentation](durable-functions-overview.md).
+*Durable Functions* är ett tillägg till [Azure Functions](../functions-overview.md) och [Azure WebJobs](../../app-service/web-sites-create-web-jobs.md) som låter dig skriva tillstånds känsliga funktioner i en miljö utan server. Tillägget hanterar tillstånd, kontrollpunkter och omstarter. Om du inte redan är bekant med Durable Functions kan du läsa mer i [översikts dokumentationen](durable-functions-overview.md).
 
-## <a name="new-features-in-2x"></a>New features in 2.x
+## <a name="new-features-in-2x"></a>Nya funktioner i 2. x
 
-This section describes the features of Durable Functions that are added in version 2.x.
+I det här avsnittet beskrivs funktionerna i Durable Functions som läggs till i version 2. x.
 
-### <a name="durable-entities"></a>Durable entities
+### <a name="durable-entities"></a>Varaktiga entiteter
 
-In Durable Functions 2.x, we introduced a new [entity functions](durable-functions-entities.md) concept.
+Vi introducerade en ny [entitet Functions](durable-functions-entities.md) -koncept i Durable Functions 2. x.
 
-Entity functions define operations for reading and updating small pieces of state, known as *durable entities*. Like orchestrator functions, entity functions are functions with a special trigger type, *entity trigger*. Unlike orchestrator functions, entity functions do not have any specific code constraints. Entity functions also manage state explicitly rather than implicitly representing state via control flow.
+Entitets funktioner definierar åtgärder för att läsa och uppdatera små delar av tillstånd, så kallade *varaktiga entiteter*. Precis som med Orchestrator Functions är enhets funktionerna funktioner med en särskild utlösnings typ, *enhets utlösare*. Till skillnad från Orchestrator-funktioner har enhets funktioner inga speciella kod begränsningar. Enhets funktionerna hanterar också tillstånd explicit snarare än implicit som representerar tillstånd via kontroll flödet.
 
-To learn more, see the [durable entities](durable-functions-entities.md) article.
+Mer information finns i artikeln [beständiga entiteter](durable-functions-entities.md) .
 
-### <a name="durable-http"></a>Durable HTTP
+### <a name="durable-http"></a>Varaktig HTTP
 
-In Durable Functions 2.x, we introduced a new [Durable HTTP](durable-functions-http-features.md#consuming-http-apis) feature that allows you to:
+I Durable Functions 2. x introducerade vi en ny [beständig HTTP-](durable-functions-http-features.md#consuming-http-apis) funktion som gör att du kan:
 
-* Call HTTP APIs directly from orchestration functions (with some documented limitations).
-* Implement automatic client-side HTTP 202 status polling.
-* Built-in support for [Azure Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md).
+* Anropa HTTP-API: er direkt från Orchestration-funktioner (med vissa dokumenterade begränsningar).
+* Implementera automatisk HTTP 202-avsökning på klient sidan.
+* Inbyggt stöd för [Azure Managed identiteter](../../active-directory/managed-identities-azure-resources/overview.md).
 
-To learn more, see the [HTTP features](durable-functions-http-features.md#consuming-http-apis) article.
+Mer information finns i artikeln om [http-funktioner](durable-functions-http-features.md#consuming-http-apis) .
 
-## <a name="migrate-from-1x-to-2x"></a>Migrate from 1.x to 2.x
+## <a name="migrate-from-1x-to-2x"></a>Migrera från 1. x till 2. x
 
-This section describes how to migrate your existing version 1.x Durable Functions to version 2.x to take advantage of the new features.
+I det här avsnittet beskrivs hur du migrerar den befintliga version 1. x-Durable Functions till version 2. x för att dra nytta av de nya funktionerna.
 
-### <a name="upgrade-the-extension"></a>Upgrade the extension
+### <a name="upgrade-the-extension"></a>Uppgradera tillägget
 
-Install version 2.x of the [Durable Functions bindings extension](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) in your project. See [Register Azure Functions binding extensions](../functions-bindings-register.md) for more information.
+Installera version 2. x av [tillägget Durable Functions bindningar](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) i projektet. Mer information finns i [registrera Azure Functions bindnings tillägg](../functions-bindings-register.md) .
 
-### <a name="update-your-code"></a>Update your code
+### <a name="update-your-code"></a>Uppdatera koden
 
-Durable Functions 2.x introduces several breaking changes. Durable Functions 1.x applications are not compatible with Durable Functions 2.x without code changes. This section lists some of the changes you must make when upgrading your version 1.x functions to 2.x.
+Durable Functions 2. x introducerar flera avbrytande ändringar. Durable Functions 1. x-program är inte kompatibla med Durable Functions 2. x utan kod ändringar. I det här avsnittet visas några av de ändringar du måste göra när du uppgraderar dina version 1. x-funktioner till 2. x.
 
-#### <a name="hostjson-schema"></a>Host.json schema
+#### <a name="hostjson-schema"></a>Host. JSON-schema
 
-Durable Functions 2.x uses a new host.json schema. The main changes from 1.x include:
+Durable Functions 2. x använder ett nytt Host. JSON-schema. Huvud ändringarna från 1. x är:
 
-* `"storageProvider"` (and the `"azureStorage"` subsection) for storage-specific configuration.
-* `"tracking"` for tracking and logging configuration.
-* `"notifications"` (and the `"eventGrid"` subsection) for event grid notification configuration.
+* `"storageProvider"` (och underavsnittet `"azureStorage"`) för den platsspecifika konfigurationen.
+* `"tracking"` för spårning och loggnings konfiguration.
+* `"notifications"` (och `"eventGrid"` underavsnitt) för konfiguration av event Grid-meddelanden.
 
-See the [Durable Functions host.json reference documentation](durable-functions-bindings.md#durable-functions-2-0-host-json) for details.
+Mer information finns i [referens dokumentationen för Durable Functions Host. JSON](durable-functions-bindings.md#durable-functions-2-0-host-json) .
 
-#### <a name="public-interface-changes-net-only"></a>Public interface changes (.NET only)
+#### <a name="public-interface-changes-net-only"></a>Offentliga gränssnitts ändringar (endast .NET)
 
-In version 1.x, the various _context_ objects supported by Durable Functions have abstract base classes intended for use in unit testing. As part of Durable Functions 2.x, these abstract base classes are replaced with interfaces.
+I version 1. x har de olika _kontext_ objekt som stöds av Durable Functions abstrakta bas klasser avsedda att användas i enhets testning. Som en del av Durable Functions 2. x ersätts dessa abstrakta bas klasser med gränssnitt.
 
-The following table represents the main changes:
+Följande tabell representerar huvud ändringarna:
 
-| 1.x | 2.x |
+| 1.x | 2x |
 |----------|----------|
 | `DurableOrchestrationClientBase` | `IDurableOrchestrationClient` eller `IDurableClient` |
 | `DurableOrchestrationContext` eller `DurableOrchestrationContextBase` | `IDurableOrchestrationContext` |
 | `DurableActivityContext` eller `DurableActivityContextBase` | `IDurableActivityContext` |
 | `OrchestrationClientAttribute` | `DurableClientAttribute` |
 
-In the case where an abstract base class contained virtual methods, these virtual methods have been replaced by extension methods defined in `DurableContextExtensions`.
+Om en abstrakt basklass innehåller virtuella metoder har de här virtuella metoderna ersatts av tilläggs metoder som definierats i `DurableContextExtensions`.
 
-#### <a name="functionjson-changes-javascript-and-c-script"></a>function.json changes (JavaScript and C# Script)
+#### <a name="functionjson-changes-javascript-and-c-script"></a>function. JSON-ändringar (Java C# script och skript)
 
-In Durable Functions 1.x, the orchestration client binding uses a `type` of `orchestrationClient`. Version 2.x uses `durableClient` instead.
+I Durable Functions 1. x använder Dirigerings klientens bindning en `type` av `orchestrationClient`. Version 2. x använder `durableClient` i stället.

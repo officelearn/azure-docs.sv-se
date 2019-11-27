@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/08/2019
+ms.date: 11/27/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6cfad04d9b0dd3537d60f2651ed341d96bd0210
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: a92dbeec706ff8c4f892632243353549295dd26b
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74027116"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538792"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regler för dynamiskt medlemskap för grupper i Azure Active Directory
 
@@ -32,7 +32,7 @@ När alla attribut för en användare eller enhet ändras, utvärderar systemet 
 
 > [!NOTE]
 > Den här funktionen kräver en Azure AD Premium P1-licens för varje unik användare som är medlem i en eller flera dynamiska grupper. Du behöver inte tilldela licenser till användare för att de ska vara medlemmar i dynamiska grupper, men du måste ha det minsta antalet licenser i klient organisationen för att kunna omfatta alla sådana användare. Om du till exempel har totalt 1 000 unika användare i alla dynamiska grupper i din klient organisation, behöver du minst 1 000 licenser för Azure AD Premium P1 för att uppfylla licens kravet.
->
+> Ingen licens krävs för enheter som är medlemmar i en dynamisk enhets grupp.
 
 ## <a name="rule-builder-in-the-azure-portal"></a>Regel verktyg i Azure Portal
 
@@ -119,7 +119,7 @@ Följande är de användar egenskaper som du kan använda för att skapa ett end
 | surname |Valfritt sträng värde eller *Null* |(User. efter namn – EQ "värde") |
 | telephoneNumber |Valfritt sträng värde eller *Null* |(User. telephoneNumber-EQ "value") |
 | usageLocation |Två bokstäver för bokstavs kod |(User. usageLocation-EQ "US") |
-| userPrincipalName |Valfritt sträng värde |(user.userPrincipalName -eq "alias@domain") |
+| userPrincipalName |Valfritt sträng värde |(User. userPrincipalName-EQ "alias@domain") |
 | userType |medlems gäster *Null* |(User. userType-EQ "medlem") |
 
 ### <a name="properties-of-type-string-collection"></a>Egenskaper av typen sträng samling

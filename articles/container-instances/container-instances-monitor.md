@@ -1,19 +1,14 @@
 ---
-title: Övervaka behållare i Azure Container Instances
+title: Övervaka container instances
 description: Hur du övervakar förbrukningen av beräknings resurser som CPU och minne av dina behållare i Azure Container Instances.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 04/24/2019
-ms.author: danlep
-ms.openlocfilehash: a26789bb41fb3fb1e7dec376b7e187f45745ea65
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: bd86161bc7840be599eb5ee9a20f6dbf143f5f22
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172257"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533650"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Övervaka behållarresurser i Azure Container Instances
 
@@ -40,7 +35,7 @@ Azure Monitor tillhandahåller följande [mått för Azure Container instances][
 
 ## <a name="get-metrics---azure-portal"></a>Hämta mått – Azure Portal
 
-När en containergrupp skapas är Azure Monitor-data tillgängliga i Azure Portal. Om du vill se mått för en behållar grupp går du till översikts sidan för behållar gruppen. Här kan du se i förväg skapade diagram för vart och ett av de tillgängliga måtten.
+När en containergrupp skapas är Azure Monitor-data tillgängliga i Azure Portal. Om du vill se mått för en behållar grupp går du till **översikts** sidan för behållar gruppen. Här kan du se i förväg skapade diagram för vart och ett av de tillgängliga måtten.
 
 ![dubbelt diagram][dual-chart]
 
@@ -81,7 +76,7 @@ Timestamp            Name       Average
 2019-04-23 23:10:00  CPU Usage  0.5
 ```
 
-Ändra värdet för `--metric` parametern i kommandot för att hämta andra mått som [stöds][supported-metrics]. Använd till exempel följande kommando för att hämta **minnes** användnings mått. 
+Ändra värdet för parametern `--metric` i kommandot för att hämta andra mått som [stöds][supported-metrics]. Använd till exempel följande kommando för att hämta **minnes** användnings mått. 
 
 ```console
 $ az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --output table
@@ -102,7 +97,7 @@ Timestamp            Name          Average
 2019-04-23 23:10:00  Memory Usage  8093696.0
 ```
 
-För en grupp `containerName` med flera behållare kan dimensionen läggas till för att returnera mått per behållare.
+För en grupp med flera behållare kan `containerName` dimensionen läggas till för att returnera mått per behållare.
 
 ```console
 $ az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --dimension containerName --output table

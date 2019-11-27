@@ -1,6 +1,6 @@
 ---
-title: Change your work or school account password - Azure AD
-description: Learn to change your work or school account password from the Change Password page of the My Account portal.
+title: Ändra lösen ordet för ditt arbets-eller skol konto – Azure AD
+description: Lär dig att ändra lösen ordet för ditt arbets-eller skol konto från sidan Ändra lösen ord i min konto Portal.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -19,41 +19,41 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74231879"
 ---
-# <a name="change-your-work-or-school-account-password-from-the-my-account-portal"></a>Change your work or school account password from the My Account portal
+# <a name="change-your-work-or-school-account-password-from-the-my-account-portal"></a>Ändra lösen ordet för ditt arbets-eller skol konto från portalen mitt konto
 
-From the **Change password** page of the **My Account** portal, you can update your work or school account password. This will only work if you know your existing password and if you aren't locked out of your account.
+På sidan **ändra lösen ord** i **min konto** Portal kan du uppdatera lösen ordet för ditt arbets-eller skol konto. Detta fungerar endast om du känner till ditt befintliga lösen ord och om du inte är utelåst från ditt konto.
 
-If you don't remember your password, if you've been locked out of your account, or if you never got a password from your company support team, you can use your security info and your mobile device to reset your password. For more information, see [Reset your work or school password](https://docs.microsoft.com/azure/active-directory/user-help/user-help-reset-password).
+Om du inte kommer ihåg ditt lösen ord, om du har låsts av ditt konto eller om du aldrig har fått ett lösen ord från företagets support team, kan du använda din säkerhets information och din mobila enhet för att återställa ditt lösen ord. Mer information finns i [återställa lösen ordet för ditt arbets-eller skol](https://docs.microsoft.com/azure/active-directory/user-help/user-help-reset-password)konto.
 
 >[!Note]
->If you're trying to get back into a personal account like for Xbox, hotmail.com, or outlook.com, try the suggestions in the [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) article.
+>Om du försöker komma tillbaka till ett personligt konto, till exempel Xbox, hotmail.com eller outlook.com, kan du prova förslagen i [när du inte kan logga in på din Microsoft-konto](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) -artikel.
 
-## <a name="to-change-your-password-from-the-my-account-portal"></a>To change your password from the My Account portal
+## <a name="to-change-your-password-from-the-my-account-portal"></a>Ändra ditt lösen ord från portalen mitt konto
 
-1. Sign in to your work or school account, using your existing password, and then go to your https://myprofile.microsoft.com/ page.
+1. Logga in på ditt arbets-eller skol konto med ditt befintliga lösen ord och gå sedan till din https://myprofile.microsoft.com/ sida.
 
-2. Select **Password** from the left navigation pane or select the **Change password** link from the **Password** block.
+2. Välj **lösen ord** i det vänstra navigerings fönstret eller Välj länken **ändra lösen ord** från **lösen ords** blocket.
 
-    ![My Account page, showing highlighted Change password link](media/my-account-portal/my-account-portal-change-password.png)
+    ![Sidan mitt konto, som visar den markerade länken Ändra lösen ord](media/my-account-portal/my-account-portal-change-password.png)
 
-3. Type your old password, and then create and confirm your new password.
+3. Skriv ditt gamla lösen ord och skapa och bekräfta ditt nya lösen ord.
 
-    ![Change password page, showing password fields](media/my-account-portal/my-account-portal-change-password-page.png)
+    ![Sidan Ändra lösen ord, med fält för lösen ord](media/my-account-portal/my-account-portal-change-password-page.png)
 
 4. Välj **Skicka**.
 
-    Your password will be changed and you'll be asked to sign in to your work or school account again.
+    Ditt lösen ord kommer att ändras och du uppmanas att logga in på ditt arbets-eller skol konto igen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-After changing your password, you can:
+När du har ändrat ditt lösen ord kan du:
 
-- View or manage your [security info](user-help-security-info-overview.md).
+- Visa eller hantera din [säkerhets information](user-help-security-info-overview.md).
 
-- View or manage your connected [devices](my-account-portal-devices-page.md).
+- Visa eller hantera dina anslutna [enheter](my-account-portal-devices-page.md).
 
-- View or manage your [organizations](my-account-portal-organizations-page.md).
+- Visa eller hantera dina [organisationer](my-account-portal-organizations-page.md).
 
-- View your [sign-in activity](my-account-portal-sign-ins-page.md).
+- Visa din [inloggnings aktivitet](my-account-portal-sign-ins-page.md).
 
-- View how your organization [uses your privacy-related data](my-account-portal-privacy-page.md).
+- Se hur din organisation [använder dina sekretess-relaterade data](my-account-portal-privacy-page.md).

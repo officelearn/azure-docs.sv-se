@@ -21,7 +21,7 @@ ms.locfileid: "74451483"
 
     ![Knappen Train (Träna)](../media/train-button-preview.png)
 
-2. Training is complete when you see the status confirming success.
+2. Träningen är klar när du ser status bekräftelsen lyckades.
 
     > [!Tip]
-    > **Notifications** is available in the top-right navigation and includes a history.
+    > **Aviseringar** finns i det övre högra navigerings fönstret och innehåller en historik.

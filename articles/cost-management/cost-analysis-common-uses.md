@@ -1,6 +1,6 @@
 ---
-title: Common cost analysis uses in Azure Cost Management
-description: This article explains how you can get results for common cost analysis tasks in Azure Cost Management.
+title: Vanliga kostnads analyser används i Azure Cost Management
+description: Den här artikeln förklarar hur du kan få resultat för vanliga kostnads analys uppgifter i Azure Cost Management.
 services: cost-management
 keywords: ''
 author: bandersmsft
@@ -17,100 +17,100 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74219494"
 ---
-# <a name="common-cost-analysis-uses"></a>Common cost analysis uses
+# <a name="common-cost-analysis-uses"></a>Vanliga kostnads analyser används
 
-Azure Cost Management users often want answers to questions that many others ask. This article walks you through getting results for common cost analysis tasks in Cost Management.
+Azure Cost Management användare ofta vill ha svar på frågor som många andra ber. Den här artikeln vägleder dig genom att få resultat för vanliga kostnads analys uppgifter i Cost Management.
 
-## <a name="view-cost-breakdown-by-azure-service"></a>View cost breakdown by Azure service
+## <a name="view-cost-breakdown-by-azure-service"></a>Visa kostnads uppdelning efter Azure-tjänst
 
-Viewing costs by an Azure service can help you to better understand the parts of your infrastructure that cost the most. For example, VM compute costs might be small. Yet you might accrue significant networking costs because of the amount of information emitting from the VMs. Understanding the primary cost drivers of your Azure services is essential so that you can adjust service usage, as needed.
+Genom att Visa kostnader med en Azure-tjänst kan du bättre förstå de delar av infrastrukturen som kostar mest. Beräknings kostnader för virtuella datorer kan till exempel vara små. Du kan behöva Periodisera avsevärda nätverks kostnader på grund av mängden information som sänds från de virtuella datorerna. Det är viktigt att förstå de primära kostnads driv rutinerna för dina Azure-tjänster så att du kan justera tjänst användningen efter behov.
 
-1. In the Azure portal, navigate to cost analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
-1. Select **Cost by service** and then group by **Service tier**.
-1. Change the view to **Table**.
+1. I Azure Portal navigerar du till kostnads analys för ditt omfång. Exempel: **Cost Management + fakturerings** > **Cost Management** > **kostnads analys**.
+1. Välj **kostnad per tjänst** och sedan gruppera efter **tjänst nivå**.
+1. Ändra vyn till **tabell**.
 
-![Cost breakdown by Azure service](./media/cost-analysis-common-uses/breakdown-by-service.png)
+![Kostnads uppdelning per Azure-tjänst](./media/cost-analysis-common-uses/breakdown-by-service.png)
 
-## <a name="view-cost-breakdown-by-azure-resource"></a>View cost breakdown by Azure resource
+## <a name="view-cost-breakdown-by-azure-resource"></a>Visa kostnads uppdelning per Azure-resurs
 
-Your services are built with Azure resources. Reviewing costs based on resources can help you quickly identify your primary cost contributors. If a service has resources that are too expensive, consider making changes to reduce your costs.
+Dina tjänster har skapats med Azure-resurser. Att granska kostnader baserat på resurser kan hjälpa dig att snabbt identifiera dina primära kostnads bidrags givare. Om en tjänst har resurser som är för dyra bör du överväga att göra ändringar för att minska kostnaderna.
 
-1. In the Azure portal, navigate to cost analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
-1. Select **Cost by resource**.
-1. Change the view to **Table**.
+1. I Azure Portal navigerar du till kostnads analys för ditt omfång. Exempel: **Cost Management + fakturerings** > **Cost Management** > **kostnads analys**.
+1. Välj **kostnad per resurs**.
+1. Ändra vyn till **tabell**.
 
-![View cost breakdown by Azure resource](./media/cost-analysis-common-uses/cost-by-resource.png)
+![Visa kostnads uppdelning per Azure-resurs](./media/cost-analysis-common-uses/cost-by-resource.png)
 
-## <a name="view-cost-breakdown-by-selected-dimensions"></a>View cost breakdown by selected dimensions
+## <a name="view-cost-breakdown-by-selected-dimensions"></a>Visa kostnads uppdelning per valda dimensioner
 
-Dimensions allow you to organize your costs based on various metadata values shown in your charges. For example, you could group your costs by location.
+Med dimensionerna kan du organisera dina kostnader baserat på olika metadata-värden som visas i dina avgifter. Du kan till exempel gruppera dina kostnader efter plats.
 
-1. In the Azure portal, navigate to cost analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
-1. Select the **Group by** filter.  
-    ![Select a Group by item](./media/cost-analysis-common-uses/group-by.png)
-1. Optionally, you save the view for later use.
-1. Click a pie chart below the graph to view more detailed data.  
-    ![View cost breakdown by selected dimensions](./media/cost-analysis-common-uses/drill-down.png)
+1. I Azure Portal navigerar du till kostnads analys för ditt omfång. Exempel: **Cost Management + fakturerings** > **Cost Management** > **kostnads analys**.
+1. Välj **Group by** -filtret.  
+    ![välja en gruppera efter objekt](./media/cost-analysis-common-uses/group-by.png)
+1. Alternativt kan du spara vyn för senare användning.
+1. Klicka på ett cirkel diagram under grafen om du vill visa mer detaljerade data.  
+    ![Visa kostnads uppdelning per valda dimensioner](./media/cost-analysis-common-uses/drill-down.png)
 
-## <a name="view-costs-per-day-or-by-month"></a>View costs per day or by month
+## <a name="view-costs-per-day-or-by-month"></a>Visa kostnader per dag eller per månad
 
-Looking at daily and monthly costs can help you to better understand if there’s a time of the week or year where your costs are higher. If you have more customer traffic in a holiday period, does that lead to a corresponding increase in your Azure costs? Is Friday a more costly day than Monday?
+Att titta på dagliga och månatliga kostnader kan hjälpa dig att bättre förstå om det finns en tid på veckan eller året där kostnaderna är högre. Leder det till en motsvarande ökning av dina Azure-kostnader om du har mer kund trafik under en semester period? Är fredag en dyrare dag än måndag?
 
-1. In the Azure portal, navigate to cost analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
-1. Set the **Granularity** to **Monthly** or **Daily**.
+1. I Azure Portal navigerar du till kostnads analys för ditt omfång. Exempel: **Cost Management + fakturerings** > **Cost Management** > **kostnads analys**.
+1. Ange **granularitet** till **varje månad** eller **varje dag**.
 
-![View costs per day](./media/cost-analysis-common-uses/daily-granularity.png)
+![Visa kostnader per dag](./media/cost-analysis-common-uses/daily-granularity.png)
 
-## <a name="view-costs-for-a-specific-tag"></a>View costs for a specific tag
+## <a name="view-costs-for-a-specific-tag"></a>Visa kostnader för en speciell tagg
 
-Many Azure users apply tags to their resources such as a cost center or development environment (production and test) to better categorize charges. Tags appear as a dimension in cost analysis. You can use the dimension to gain insights into your custom tagging categorizations.
+Många Azure-användare använder taggar till sina resurser, till exempel ett kostnads ställe eller en utvecklings miljö (produktion och test) för att bättre kategorisera kostnader. Taggar visas som en dimension i kostnads analys. Du kan använda dimensionen för att få insikter om dina egna taggnings kategoriseringar.
 
-1. In the Azure portal, navigate to cost analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
-1. Select **Group by** for your tag.
+1. I Azure Portal navigerar du till kostnads analys för ditt omfång. Exempel: **Cost Management + fakturerings** > **Cost Management** > **kostnads analys**.
+1. Välj **Gruppera efter** för taggen.
 
-![View costs for a specific tag](./media/cost-analysis-common-uses/tag.png)
+![Visa kostnader för en speciell tagg](./media/cost-analysis-common-uses/tag.png)
 
-## <a name="download-your-usage-details"></a>Download your usage details
+## <a name="download-your-usage-details"></a>Hämta din användnings information
 
-Your usage details report file, in CSV format, provides a breakdown of all the charges that accrued towards an invoice. You can use the report to compare it to, and better understand, your invoice. Each billed charge on your invoice corresponds to broken-down charges in the usage report.
+Rapport filen med användnings information, i CSV-format, innehåller en uppdelning av alla avgifter som debiteras mot en faktura. Du kan använda rapporten för att jämföra den med och bättre förstå din faktura. Varje fakturerad avgift på fakturan motsvarar brutna kostnader i användnings rapporten.
 
-1. In the Azure portal, navigate to the **Usage and Charges** tab for a billing account or subscription. For example: **Cost Management + Billing** > **Billing** > **Usage + charges**.
-1. Select the line item to download from and then click the download symbol.  
-    ![Download usage and charges](./media/cost-analysis-common-uses/download1.png)
-1.  Select the usage file to download.  
-    ![Choose a usage file to download](./media/cost-analysis-common-uses/download2.png)
+1. I Azure Portal navigerar du till fliken **användning och avgifter** för ett fakturerings konto eller en prenumeration. Exempel: **Cost Management + fakturerings** > **fakturering** > **användning + kostnader**.
+1. Välj det rad objekt som du vill ladda ned från och klicka sedan på nedladdnings symbolen.  
+    ![Hämta användning och avgifter](./media/cost-analysis-common-uses/download1.png)
+1.  Välj den användnings fil som ska laddas ned.  
+    ![Välj en användnings fil som ska laddas ned](./media/cost-analysis-common-uses/download2.png)
 
-## <a name="view-monthly-ea-cost-breakdown"></a>View monthly EA cost breakdown
+## <a name="view-monthly-ea-cost-breakdown"></a>Visa månatlig kostnads uppdelning per månad
 
-Your EA enrollment accrues costs for your entire organization. Understanding how costs accrue and are invoiced over time helps you to engage the appropriate stakeholders to ensure that costs are managed responsibly.
+Din EA-registrering påförs kostnader för hela organisationen. Att förstå hur kostnader påförs och faktureras över tid hjälper dig att engagera lämpliga intressenter för att säkerställa att kostnaderna hanteras ett ansvarsfullt sätt.
 
-1. In the Azure portal, navigate to **Cost Management + Billing** > **Overview**.
-1. Click **Breakdown** for the current month and view your monetary commitment burn down.  
-    ![EA costs overview - breakdown summary](./media/cost-analysis-common-uses/breakdown1.png)
-1.  Click the **Usage and Charges** tab and view the prior month’s breakdown in the chosen timespan.  
-    ![Usage and charges tab](./media/cost-analysis-common-uses/breakdown2.png)
+1. I Azure Portal navigerar du till **Cost Management + fakturerings** > **Översikt**.
+1. Klicka på **nedbrytning** för den aktuella månaden och Visa ditt åtagande att bränna.  
+    Översikt över ![EA-kostnader – Sammanfattning](./media/cost-analysis-common-uses/breakdown1.png)
+1.  Klicka på fliken **användning och avgifter** och visa den föregående månadens analys under det valda tidsintervallet.  
+    fliken ![användning och debitering](./media/cost-analysis-common-uses/breakdown2.png)
 
-## <a name="view-enrollment-monthly-cost-by-term"></a>View enrollment monthly cost by term
+## <a name="view-enrollment-monthly-cost-by-term"></a>Visa registrering månads kostnad per period
 
-Use a graphical view of your enrollment’s monthly costs to understand the cost trends and invoiced amounts for a given period.
+Använd en grafisk vy över din registrerings månads kostnad för att förstå kostnads trender och fakturerade belopp under en viss period.
 
-1. In the Azure portal, navigate to cost analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
-1. Select your enrollment and set the enrollment term.
-1. Set the granularity to monthly and then set the view to **Column     (stacked)** .
+1. I Azure Portal navigerar du till kostnads analys för ditt omfång. Exempel: **Cost Management + fakturerings** > **Cost Management** > **kostnads analys**.
+1. Välj din registrering och ange registrerings villkor.
+1. Ange granularitet till varje månad och ställ sedan in vyn till **kolumn (staplad)** .
 
-You can group by and filter your data for a more detailed analysis.
+Du kan gruppera efter och filtrera dina data för en mer detaljerad analys.
 
-![Monthly enrollment cost by term](./media/cost-analysis-common-uses/enrollment-term1.png)
+![Månatlig registrerings kostnad per period](./media/cost-analysis-common-uses/enrollment-term1.png)
 
-## <a name="view-ea-enrollment-accumulated-costs"></a>View EA enrollment accumulated costs
+## <a name="view-ea-enrollment-accumulated-costs"></a>Visa ackumulerade kostnader för EA-registrering
 
-View the net accumulated charges over time to understand overall expenditures for your organization for a given period.
+Se de netto kostnader som ackumulerats med tiden för att förstå övergripande utgifter för din organisation under en viss period.
 
-1. In the Azure portal, navigate to cost analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
-1. Select your enrollment and then view your current accumulated costs.
+1. I Azure Portal navigerar du till kostnads analys för ditt omfång. Exempel: **Cost Management + fakturerings** > **Cost Management** > **kostnads analys**.
+1. Välj din registrering och Visa dina aktuella ackumulerade kostnader.
 
-![Enrollment accumulated costs](./media/cost-analysis-common-uses/cost-analysis-enrollment.png)
+![Kostnader för ackumulerad registrering](./media/cost-analysis-common-uses/cost-analysis-enrollment.png)
 
 ## <a name="next-steps"></a>Nästa steg
-- If you haven't already completed the first quickstart for Cost Management, read it at [Start analyzing costs](quick-acm-cost-analysis.md).
-- Read the [Cost Management documentation](index.yml).
+- Om du inte redan har slutfört den första snabb starten för Cost Management läser du den för att [börja analysera kostnaderna](quick-acm-cost-analysis.md).
+- Läs [Cost Management-dokumentationen](index.yml).

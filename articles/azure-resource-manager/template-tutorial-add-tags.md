@@ -1,6 +1,6 @@
 ---
-title: Tutorial - add tags to resources in template
-description: Add tags to resources that you deploy in your Azure Resource Manager template. Tags let you logically organize resources.
+title: Självstudie – Lägg till taggar till resurser i mallen
+description: Lägg till taggar till resurser som du distribuerar i din Azure Resource Manager-mall. Med taggar kan du logiskt organisera resurser.
 author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
@@ -12,37 +12,37 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74406071"
 ---
-# <a name="tutorial-add-tags-in-your-resource-manager-template"></a>Tutorial: Add tags in your Resource Manager template
+# <a name="tutorial-add-tags-in-your-resource-manager-template"></a>Självstudie: Lägg till taggar i din Resource Manager-mall
 
-In this tutorial, you learn how to add tags to resources in your template. [Tags](resource-group-using-tags.md) help you logically organize your resources. The tag values show up in cost reports. This tutorial takes **8 minutes** to complete.
+I den här självstudien får du lära dig hur du lägger till taggar i resurser i mallen. Med [taggar](resource-group-using-tags.md) kan du logiskt organisera dina resurser. De märkes värden som visas i kostnads rapporter. Den här självstudien tar **8 minuter** att slutföra.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-We recommend that you complete the [tutorial about Quickstart templates](template-tutorial-quickstart-template.md), but it's not required.
+Vi rekommenderar att du slutför [självstudien om snabb starts mallar](template-tutorial-quickstart-template.md), men det är inget krav.
 
-You must have Visual Studio Code with the Resource Manager Tools extension, and either Azure PowerShell or Azure CLI. For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
+Du måste ha Visual Studio Code med Resource Manager Tools-tillägget och antingen Azure PowerShell eller Azure CLI. Mer information finns i [verktyg för mallar](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-template"></a>Review template
+## <a name="review-template"></a>Granska mall
 
-Your previous template deployed a storage account, App Service plan, and web app.
+Din tidigare mall har distribuerat ett lagrings konto, App Service plan och en webbapp.
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json)]
 
-After deploying these resources, you might need to track costs and find resources that belong to a category. You can add tags to help solve these issues.
+När du har distribuerat dessa resurser kan du behöva spåra kostnader och hitta resurser som tillhör en kategori. Du kan lägga till taggar för att lösa problemen.
 
 ## <a name="add-tags"></a>Lägga till taggar
 
-You tag resources to add values that help you identify their use. For example, you can add tags that list the environment and the project. You could add tags that identify a cost center or the team that owns the resource. Add any values that make sense for your organization.
+Du kan tagga resurser för att lägga till värden som hjälper dig att identifiera användningen. Du kan till exempel lägga till taggar som visar miljön och projektet. Du kan lägga till taggar som identifierar ett kostnads ställe eller teamet som äger resursen. Lägg till värden som passar din organisation.
 
-The following example highlights the changes to the template. Copy the whole file and replace your template with its contents.
+I följande exempel visas ändringarna i mallen. Kopiera hela filen och ersätt din mall med dess innehåll.
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json?range=1-118&highlight=46-52,64,78,100)]
 
 ## <a name="deploy-template"></a>Distribuera mallen
 
-It's time to deploy the template and look at the results.
+Det är dags att distribuera mallen och titta på resultaten.
 
-If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the **templateFile** variable to the path to the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
+Om du inte har skapat resurs gruppen, se [skapa resurs grupp](template-tutorial-create-first-template.md#create-resource-group). Exemplet förutsätter att du har angett **templateFile** -variabeln till sökvägen till mallfilen, som du ser i den [första självstudien](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -70,20 +70,20 @@ az group deployment create \
 
 ## <a name="verify-deployment"></a>Verifiera distributionen
 
-You can verify the deployment by exploring the resource group from the Azure portal.
+Du kan kontrol lera distributionen genom att utforska resurs gruppen från Azure Portal.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. From the left menu, select **Resource groups**.
-1. Select the resource group you deployed to.
-1. Select one of the resources, such as the storage account resource. You see that it now has tags.
+1. Välj **resurs grupper**på den vänstra menyn.
+1. Välj den resurs grupp som du har distribuerat till.
+1. Välj en av resurserna, till exempel lagrings konto resursen. Nu ser du att det finns taggar.
 
-   ![Show tags](./media/template-tutorial-add-tags/show-tags.png)
+   ![Visa Taggar](./media/template-tutorial-add-tags/show-tags.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-If you're moving on to the next tutorial, you don't need to delete the resource group.
+Om du går vidare till nästa självstudie behöver du inte ta bort resurs gruppen.
 
-If you're stopping now, you might want to clean up the resources you deployed by deleting the resource group.
+Om du stoppar nu kanske du vill rensa de resurser som du har distribuerat genom att ta bort resurs gruppen.
 
 1. Från Azure-portalen väljer du **Resursgrupp** från den vänstra menyn.
 2. Ange resursgruppens namn i fältet **Filtrera efter namn**.
@@ -92,7 +92,7 @@ If you're stopping now, you might want to clean up the resources you deployed by
 
 ## <a name="next-steps"></a>Nästa steg
 
-In this tutorial, you added tags to the resources. In the next tutorial, you'll learn how to use parameter files to simplify passing in values to the template.
+I den här självstudien har du lagt till taggar till resurserna. I nästa själv studie kurs får du lära dig hur du använder parameter-filer för att förenkla överföring av värden till mallen.
 
 > [!div class="nextstepaction"]
-> [Use parameter file](template-tutorial-use-parameter-file.md)
+> [Använd parameter fil](template-tutorial-use-parameter-file.md)

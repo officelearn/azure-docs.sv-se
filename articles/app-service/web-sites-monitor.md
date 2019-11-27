@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 1cfab9b065fd4e28a9ce11ac85682a298011200b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7edff127bb981db985bebb41740744f325306bc8
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470117"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546195"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Övervaka appar i Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) innehåller inbyggda övervaknings funktioner för webbappar, mobila Server delar och API-appar i [Azure Portal](https://portal.azure.com).
 
-I Azure Portal kan du granska *kvoter* och *mått* för en app, granska App Service plan och automatiskt konfigurera *aviseringar* och *skalning* som baseras på måtten.
+I Azure Portal kan du granska *kvoter* och *mått* för en app och App Service plan och ställa in *aviseringar* och *automatisk skalning* som baseras på mått.
 
 ## <a name="understand-quotas"></a>Förstå kvoter
 
@@ -46,7 +46,7 @@ Kvoter för kostnads fria eller delade appar är:
 | **Bandbredd** | Den totala mängden utgående bandbredd som tillåts för den här appen under en dag. Den här kvoten återställs var 24: e timme vid midnatt UTC. |
 | **Fil Systems** | Den totala mängden lagrings utrymme som tillåts. |
 
-Den enda kvot som gäller för appar som är värdbaserade enligt *Basic*-, *standard*-och *Premium* -planer är fil system.
+Den enda kvot som gäller för appar som finns i fil systemet *Basic*, *standard*och *Premium* är filesystem.
 
 Mer information om vilka kvoter, gränser och funktioner som är tillgängliga för de olika App Service SKU: er finns i [begränsningar för Azure-prenumerations tjänsten](../azure-subscription-service-limits.md#app-service-limits).
 
@@ -64,6 +64,10 @@ Du kan öka eller ta bort kvoter från din app genom att uppgradera din App Serv
 
 ## <a name="understand-metrics"></a>Förstå mått
 
+> [!NOTE]
+> **Användning av fil system** är ett nytt mått som distribueras globalt, inga data förväntas om du inte har varit vit listas för privat för hands version.
+> 
+
 Mått ger information om appen eller App Service plan beteendet.
 
 För en app är tillgängliga mått:
@@ -77,6 +81,7 @@ För en app är tillgängliga mått:
 | **Aktuella sammansättningar** | Det aktuella antalet sammansättningar som har lästs in i alla AppDomains i det här programmet. |
 | **Data i** | Mängden inkommande bandbredd som används av appen, i MiB. |
 | **Data ut** | Mängden utgående bandbredd som används av appen, i MiB. |
+| **Fil system användning** | Procent andel av fil Systems kvoten som används av appen. |
 | **Skräp insamling för gen 0** | Antalet gånger som generation 0-objekt är skräp insamlat sedan program processen startades. Högre generations GC generationer omfattar all lägre generations-GC generationer.|
 | **Skräp insamling för gen 1** | Antalet gånger som generation 1-objekten är skräp insamlat sedan program processen startades. Högre generations GC generationer omfattar all lägre generations-GC generationer.|
 | **Gen 2 skräp insamling** | Antalet gånger som generation 2-objekt är skräp insamlat sedan program processen startades.|
@@ -90,7 +95,7 @@ För en app är tillgängliga mått:
 | **Http-4xx** | Antalet förfrågningar som resulterar i en HTTP-statuskod ≥ 400 men < 500. |
 | **Http-serverfel** | Antalet förfrågningar som resulterar i en HTTP-statuskod ≥ 500 men < 600. |
 | **I/o andra byte per sekund** | Den hastighet med vilken app-processen utfärdar byte till I/O-åtgärder som inte omfattar data, till exempel kontroll åtgärder.|
-| **Andra i/o-åtgärder per sekund** | Den hastighet med vilken app-processen utfärdar I/O-åtgärder som varken är Läs-eller Skriv åtgärder.|
+| **Andra i/o-åtgärder per sekund** | Den hastighet med vilken app-processen utfärdar I/O-åtgärder som inte är Läs-eller Skriv åtgärder.|
 | **IO-lästa byte per sekund** | Den hastighet med vilken appens process läser in byte från I/O-åtgärder.|
 | **IO-Läs åtgärder per sekund** | Den hastighet med vilken app-processen utfärdar Läs-I/O-åtgärder.|
 | **Skrivna byte i i/o per sekund** | Den hastighet med vilken appens process skriver byte till I/O-åtgärder.|

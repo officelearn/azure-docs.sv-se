@@ -13,18 +13,18 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 134483764ffcb012ece0769a514683fc9487887f
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 813117bce4abd3550ac559109c1650ea4a7cff5c
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073612"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538244"
 ---
 # <a name="create-and-publish-a-product"></a>Skapa och publicera en produkt  
 
 En produkt innehåller en eller flera API:er samt en användningskvot och användningsvillkor i Azure API Management. När en produkt har publicerats kan utvecklarna prenumerera på produkten och börja använda produktens API: er.  
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa och publicera en produkt
@@ -32,7 +32,7 @@ I den här guiden får du lära dig att:
 
 ![Lägga till produktsjälvstudie](media/api-management-howto-add-products/added-product.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 + Lär dig [Azure API Management-terminologin](api-management-terminology.md).
 + Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md).
@@ -47,17 +47,17 @@ I den här guiden får du lära dig att:
 
     När du lägger till en produkt måste du ange följande information: 
 
-    | Name                     | Beskrivning                                                                                                                                                                                                                                                                                                             |
+    | Namn                     | Beskrivning                                                                                                                                                                                                                                                                                                             |
     |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Visningsnamn             | Det namn som du vill ska visas i **utvecklarportalen**.                                                                                                                                                                                                                                                        |
-    | Name                     | Ett beskrivande namn på produkten.                                                                                                                                                                                                                                                                                      |
+    | Namn                     | Ett beskrivande namn på produkten.                                                                                                                                                                                                                                                                                      |
     | Beskrivning              | I fältet **Beskrivning** kan du ange detaljerad information om produkten som t.ex. syfte, API:er som den ger åtkomst till och annan användbar information.                                                                                                                                               |
-    | State                    | Tryck på **Publicerad** om du vill publicera produkten. Produkten måste vara publicerad innan API:er i en produkt kan anropa den. Som standard visas nya produkter som opublicerade och är bara synliga för gruppen **Administratörer**.                                                                                      |
+    | Status                    | Tryck på **Publicerad** om du vill publicera produkten. Produkten måste vara publicerad innan API:er i en produkt kan anropa den. Som standard visas nya produkter som opublicerade och är bara synliga för gruppen **Administratörer**.                                                                                      |
     | Prenumeration krävs    | Markera **Kräv prenumeration** om det ska krävas att en användare prenumererar för att kunna använda produkten.                                                                                                                                                                                                                                   |
     | Godkännande krävs        | Markera **Kräv godkännande** om du vill att en administratör ska granska och godkänna eller avvisa prenumerationsförsök för produkten. Om rutan är avmarkerad godkänns prenumerationsförsök automatiskt.                                                                                                                         |
     | Antal tillåtna prenumerationer | Ange en prenumerationsgräns för att begränsa antalet flera samtidiga prenumerationer.                                                                                                                                                                                                                                |
     | Juridiska villkor              | Du kan inkludera användningsvillkor för produkten som prenumeranter måste godkänna för att kunna använda produkten.                                                                                                                                                                                                             |
-    | API:er                     | Produkter är associationer med en eller flera API:er. Du kan inkludera flera API:er och erbjuda dem till utvecklare via utvecklarportalen. <br/> Du kan lägga till en befintlig API när produkten skapas. Du kan lägga till en API till produkten senare, antingen från sidan Produkter **Inställningar** eller när du skapar en API. |
+    | API:er                     | Produkter är associationer med en eller flera API:er. Du kan inkludera flera API:er och erbjuda dem till utvecklare via utvecklarportalen. <br/> Du kan lägga till en befintlig API när produkten skapas. Du kan lägga till ett API till produkten senare, antingen från produktens **inställnings** sida eller när du skapar ett API. |
 
 3. Klicka på **Skapa** för att skapa den nya produkten.
 
@@ -67,7 +67,7 @@ Du kan fortsätta konfigurera produkten efter att du har sparat den genom att v�
 
 Visa/lägg till prenumeranter till produkten från fliken **Prenumerationer**.
 
-Ange synlighet för en produkt för utvecklare eller gäster på fliken **Åtkomstkontroll**.
+Ange synlighet för en produkt för utvecklare eller gäster från fliken **åtkomst kontroll** .
 
 ## <a name="add-apis"> </a>Lägga till API:er till en produkt
 

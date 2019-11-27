@@ -33,7 +33,7 @@ Här är det färdiga diagrammet för den här pipelinen:
 
 ![Pipeline-diagram](./media/how-to-designer-sample-classification-predict-churn/pipeline-graph.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 

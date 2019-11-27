@@ -1,5 +1,5 @@
 ---
-title: Create a DNS zone and record for a domain name - Azure CLI - Azure DNS
+title: Skapa en DNS-zon och en post för ett domän namn – Azure CLI – Azure DNS
 description: I det här Azure CLI-skriptexemplet visas hur du skapar en DNS-zon och -post för ett domännamn
 services: dns
 author: asudbring

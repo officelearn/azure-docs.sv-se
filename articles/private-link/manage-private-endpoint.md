@@ -1,6 +1,6 @@
 ---
-title: Manage a Private Endpoint connection in Azure
-description: Learn how to manage private endpoint connections in Azure
+title: Hantera en privat slut punkts anslutning i Azure
+description: Lär dig hur du hanterar privata slut punkts anslutningar i Azure
 services: private-link
 author: asudbring
 ms.service: private-link
@@ -14,72 +14,72 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74232537"
 ---
-# <a name="manage-a-private-endpoint-connection"></a>Manage a Private Endpoint connection
-Azure Private Link works on an approval call flow model wherein the Private Link service consumer can request a connection to the service provider for consuming the service. The service provider can then decide whether to allow the consumer to connect or not. Azure Private Link enables the service providers to manage the private endpoint connection on their resources. This article provides instructions about how to manage the Private Endpoint connections.
+# <a name="manage-a-private-endpoint-connection"></a>Hantera en anslutning till en privat slutpunkt
+Azures privata länk fungerar på en flödes modell för godkännande av samtal där mottagare av den privata länk tjänsten kan begära en anslutning till tjänst leverantören för att konsumera tjänsten. Tjänste leverantören kan sedan bestämma om konsumenten ska tillåtas att ansluta eller inte. Med Azures privata länk kan tjänst leverantörer hantera den privata slut punkts anslutningen på sina resurser. Den här artikeln innehåller anvisningar om hur du hanterar anslutningar för privata slut punkter.
 
-![Manage Private Endpoints](media/manage-private-endpoint/manage-private-endpoint.png)
+![Hantera privata slut punkter](media/manage-private-endpoint/manage-private-endpoint.png)
 
-There are two connection approval methods that a Private Link service consumer can choose from:
-- **Automatic**: If the service consumer has RBAC permissions on the service provider resource, the consumer can choose the automatic approval method. In this case, when the request reaches the service provider resource, no action is required from the service provider and the connection is automatically approved. 
-- **Manual**: On the contrary, if the service consumer doesn’t have RBAC permissions on the service provider resource, the consumer can choose the manual approval method. In this case, the connection request appears on the service resources as **Pending**. The service provider has to manually approve the request before connections can be established. In manual cases, service consumer can also specify a message with the request to provide more context to the service provider. The service provider has following options to choose from for all Private Endpoint connections: **Approved**, **Reject**, **Remove**.
+Det finns två metoder för godkännande av anslutningar som en privat länk tjänst konsument kan välja bland:
+- **Automatisk**: om tjänste konsumenten har RBAC-behörighet för tjänst leverantörs resursen kan konsumenten välja metoden för automatiskt godkännande. I detta fall krävs ingen åtgärd från tjänst leverantören när begäran når tjänst leverantörs resursen och anslutningen godkänns automatiskt. 
+- **Manuellt**: om tjänste konsumenten inte har RBAC-behörighet för tjänst leverantörs resursen kan konsumenten välja metoden för manuellt godkännande. I det här fallet visas anslutnings förfrågan på tjänst resurserna som **väntande**. Tjänste leverantören måste godkänna begäran manuellt innan anslutningar kan upprättas. I manuella fall kan tjänste konsument också ange ett meddelande med begäran om att tillhandahålla mer kontext till tjänst leverantören. Tjänste leverantören har följande alternativ för att välja bland alla anslutningar för privata slut punkter: **godkänd**, **avvisa**, **ta bort**.
 
-The below table shows the various service provider actions and the resulting connection states for Private Endpoints.  The service provider can also change the connection state of private endpoint connection at a later time without consumer intervention. The action will update the state of the endpoint on the consumer side. 
+Tabellen nedan visar de olika tjänste leverantörs åtgärderna och de resulterande anslutnings tillstånden för privata slut punkter.  Tjänste leverantören kan också ändra anslutnings status för privat slut punkts anslutning vid ett senare tillfälle utan konsument åtgärder. Åtgärden kommer att uppdatera status för slut punkten på konsument sidan. 
 
 
-|Service Provider Action   |Service Consumer Private Endpoint State   |Beskrivning   |
+|Tjänst leverantörs åtgärd   |Status för privat slut punkt för tjänst förbrukare   |Beskrivning   |
 |---------|---------|---------|
-|Inget    |    Väntande åtgärder     |    Connection is created manually and is pending for approval by the Private Link resource owner.       |
-|Godkänn    |  Godkända       |  Connection was automatically or manually approved and is ready to be used.     |
-|Avvisa     | Rejected        | Connection was rejected by the private link resource owner.        |
-|Ta bort    |  Disconnected       | Connection was removed by the private link resource owner, the private endpoint becomes informative and should be deleted for clean up.        |
+|Inga    |    Väntande     |    Anslutningen skapas manuellt och väntar på godkännande av resurs ägaren för den privata länken.       |
+|Godkänn    |  Godkända       |  Anslutningen godkändes automatiskt eller manuellt och är redo att användas.     |
+|Avvisa     | Slagit        | Anslutningen avvisades av ägaren till den privata länk resursen.        |
+|Ta bort    |  Frånkopplad       | Anslutningen togs bort av ägaren till den privata länk resursen, den privata slut punkten blir informativ och bör tas bort för rensning.        |
 |   |         |         |
    
-## <a name="manage-private-endpoint-connections-on-azure-paas-resources"></a>Manage Private Endpoint Connections on Azure PaaS resources
-Portal is the preferred method for managing private endpoint connections on Azure PaaS resources. Currently, we don’t have PowerShell/CLI support for managing connections on Azure PaaS resources.
+## <a name="manage-private-endpoint-connections-on-azure-paas-resources"></a>Hantera anslutningar för privata slut punkter på Azure PaaS-resurser
+Portal är den bästa metoden för att hantera privata slut punkts anslutningar på Azure PaaS-resurser. För närvarande har vi inte PowerShell/CLI-stöd för hantering av anslutningar i Azure PaaS-resurser.
 1. Logga in på Azure Portal på https://portal.azure.com.
-2. Navigate to Private Link Center.
-3. Under **Resources**, select the resource type you want to manage the private endpoint connections.
-4. For each of your resource type, you can view the number of Private Endpoint Connections associated with it. You can filter the resources as needed.
-5. Select the private endpoint connections.  Under the connections listed, select the connection that you want to manage. 
-6. You can change the state of the connection by selecting from the options at the top.
+2. Navigera till Private Link Center.
+3. Under **resurser**väljer du den resurs typ som du vill hantera anslutningar för privata slut punkter.
+4. För var och en av dina resurs typer kan du se hur många privata slut punkts anslutningar som är associerade med den. Du kan filtrera resurserna efter behov.
+5. Välj anslutningar för privata slut punkter.  Under de anslutningar som visas väljer du den anslutning som du vill hantera. 
+6. Du kan ändra status för anslutningen genom att välja bland alternativen överst.
 
-## <a name="manage-private-endpoint-connections-on-a-customerpartner-owned-private-link-service"></a>Manage Private Endpoint connections on a customer/partner owned Private Link service
+## <a name="manage-private-endpoint-connections-on-a-customerpartner-owned-private-link-service"></a>Hantera anslutningar för privata slut punkter på en kund/partner som äger privat länk tjänst
 
-Azure PowerShell and Azure CLI are the preferred methods for managing Private Endpoint connections on Microsoft Partner Services or customer owned services. Currently, we don’t have any portal support for managing connections on a Private Link service.  
+Azure PowerShell och Azure CLI är de bästa metoderna för att hantera anslutningar för privata slut punkter på Microsoft partner tjänster eller kund ägda tjänster. För närvarande har vi inget Portal stöd för att hantera anslutningar i en privat länk-tjänst.  
  
 ### <a name="powershell"></a>PowerShell 
   
-Use the following PowerShell commands to manage private endpoint connections.  
-#### <a name="get-private-link-connection-states"></a>Get Private Link connection states 
-Use the `Get-AzPrivateLinkService` cmdlet to get the Private Endpoint connections and their states.  
+Använd följande PowerShell-kommandon för att hantera anslutningar för privata slut punkter.  
+#### <a name="get-private-link-connection-states"></a>Hämta anslutnings tillstånd för privat anslutning 
+Använd `Get-AzPrivateLinkService`-cmdlet för att hämta anslutningar för privata slut punkter och deras tillstånd.  
 ```azurepowershell
 Get-AzPrivateLinkService -Name myPrivateLinkService -ResourceGroupName myResourceGroup 
  ```
  
-#### <a name="approve-a-private-endpoint-connection"></a>Approve a Private Endpoint connection 
+#### <a name="approve-a-private-endpoint-connection"></a>Godkänna en privat slut punkts anslutning 
  
-Use the `Approve-AzPrivateEndpointConnection` cmdlet to approve a Private Endpoint connection. 
+Använd `Approve-AzPrivateEndpointConnection`-cmdlet för att godkänna en privat slut punkts anslutning. 
  
 ```azurepowershell
 Approve-AzPrivateEndpointConnection -Name myPrivateEndpointConnection -ResourceGroupName myResourceGroup -ServiceName myPrivateLinkService
 ```
  
-#### <a name="deny-private-endpoint-connection"></a>Deny Private Endpoint connection 
+#### <a name="deny-private-endpoint-connection"></a>Neka privat slut punkts anslutning 
  
-Use the `Deny-AzPrivateEndpointConnection` cmdlet to reject a Private Endpoint connection. 
+Använd `Deny-AzPrivateEndpointConnection`-cmdlet för att avvisa en privat slut punkts anslutning. 
 ```azurepowershell
 Deny-AzPrivateEndpointConnection -Name myPrivateEndpointConnection -ResourceGroupName myResourceGroup -ServiceName myPrivateLinkService 
 ```
-#### <a name="remove-private-endpoint-connection"></a>Remove Private Endpoint Connection 
+#### <a name="remove-private-endpoint-connection"></a>Ta bort anslutning till privat slutpunkt 
  
-Use the `Remove-AzPrivateEndpointConnection` cmdlet to remove a Private Endpoint connection. 
+Använd `Remove-AzPrivateEndpointConnection`-cmdlet för att ta bort en privat slut punkts anslutning. 
 ```azurepowershell
 Remove-AzPrivateEndpointConnection -Name myPrivateEndpointConnection1 -ResourceGroupName myResourceGroup -ServiceName myPrivateLinkServiceName 
 ```
  
 ### <a name="azure-cli"></a>Azure CLI 
  
-Use `az network private-link-service update` for managing your Private Endpoint connections. The connection state is specified in the ```azurecli connection-status``` parameter. 
+Använd `az network private-link-service update` för att hantera dina privata slut punkts anslutningar. Anslutnings status anges i parametern ```azurecli connection-status```. 
 ```azurecli
 az network private-link-service connection update -g myResourceGroup -n myPrivateEndpointConnection1 --service-name myPLS --connection-status Approved 
 ```
@@ -87,5 +87,5 @@ az network private-link-service connection update -g myResourceGroup -n myPrivat
    
 
 ## <a name="next-steps"></a>Nästa steg
-- [Learn about Private Endpoints](private-endpoint-overview.md)
+- [Lär dig om privata slut punkter](private-endpoint-overview.md)
  

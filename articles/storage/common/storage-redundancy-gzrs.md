@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: b47c80f3c23c26828037954c01608cc502c017c9
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: e749dc48b1834aedbfea048c49c1f9090e5b5bb8
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186599"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534312"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Bygga hög tillgängliga Azure Storage program med geo-Zone-redundant lagring (GZRS) (för hands version)
 
@@ -86,6 +86,11 @@ Eftersom data replikeras till den sekundära regionen asynkront kan ett haveri s
 
 Du kan migrera alla befintliga lagrings konton till GZRS eller RA-GZRS. Det är enkelt att migrera från ett befintligt ZRS-konto till GZRS eller RA-GZRS, samtidigt som du migrerar från ett LRS-, GRS-eller RA-GRS-konto. I följande avsnitt beskrivs hur du migrerar i båda fallen.
 
+**Kända begränsningar**
+
+- Arkiv lag rings nivån stöds inte för närvarande på (RA-) GZRS-konton. Mer information finns i [Azure Blob Storage: frekvent åtkomst, låg frekvent åtkomst och Arkiv](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) lag rings nivåer.
+- Hanterade diskar stöder inte (RA-) GZRS. Du kan lagra ögonblicks bilder och avbildningar för Standard SSD Managed Disks på Standard HDD lagring och [välja mellan alternativen LRS och ZRS](https://azure.microsoft.com/pricing/details/managed-disks/).
+
 ### <a name="migrating-from-a-zrs-account"></a>Migrera från ett ZRS-konto
 
 Om du vill konvertera ett befintligt ZRS-konto till RA-GZRS, använder du cmdleten [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) för att ändra SKU: n för kontot. Kom ihåg att ersätta plats hållarnas värden med dina egna värden:
@@ -150,7 +155,7 @@ Om du vill begära en Direktmigrering använder du [Azure Portal](https://ms.por
 
 En support representant kommer att kontakta dig för att få hjälp.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 - [Azure Storage-replikering](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 - [Lokalt redundant lagring (LRS): låg kostnads data redundans för Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)

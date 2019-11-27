@@ -28,12 +28,12 @@ För att hålla inställningarna uppdaterade och undvika för många anrop till 
 
 Den här självstudien visar hur du kan implementera dynamiska konfigurationsuppdateringar i koden. Den bygger på den app som introducerades i snabb starterna. Innan du fortsätter måste du först [skapa en .NET Framework-app med app-konfigurationen](./quickstart-dotnet-app.md) .
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Konfigurera din .NET Framework-app för att uppdatera konfigurationen som svar på ändringar i ett konfigurations lager för appar.
 > * Mata in den senaste konfigurationen i ditt program.
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
@@ -45,7 +45,7 @@ I den här självstudiekursen får du lära du dig att:
 
 6. Välj **konfigurations utforskaren** >  **+ skapa** för att lägga till följande nyckel/värde-par:
 
-    | Nyckel | Värde |
+    | Nyckel | Value |
     |---|---|
     | TestApp:Settings:Message | Data från Azure App Configuration |
 
@@ -138,7 +138,7 @@ I den här självstudiekursen får du lära du dig att:
 
 1. Välj **Configuration Explorer**och uppdatera värdena för följande nycklar:
 
-    | Nyckel | Värde |
+    | Nyckel | Value |
     |---|---|
     | TestApp:Settings:Message | Data från Azure App konfiguration – uppdaterad |
 

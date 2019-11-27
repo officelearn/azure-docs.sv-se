@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 11/26/2019
 ms.author: cabailey
-ms.openlocfilehash: d1d048507946850192c1c6f8ca9024c6f9ddf8ca
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e72b9012b41f50b36ba7d92582d0c697e6db0683
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73515127"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546854"
 ---
 # <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Använd jakt liveström i Azure Sentinel för att identifiera hot
 
 > [!IMPORTANT]
-> Jakt liveström i Azure Sentinel är för närvarande en offentlig för hands version.
+> Jakt liveström i Azure Sentinel är för närvarande en offentlig för hands version och kan gradvis lanseras till klienter.
 > Den här funktionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
@@ -53,7 +53,7 @@ Du kan skapa en liveström-session från en befintlig jakt fråga eller skapa di
 2. Så här skapar du en liveström-session från en jakt fråga:
     
     1. På fliken **frågor** letar du reda på den jakt fråga som du vill använda.
-    2. Högerklicka på frågan och välj **Lägg till i liveström**. Till exempel:
+    2. Högerklicka på frågan och välj **Lägg till i liveström**. Exempel:
     
     > [!div class="mx-imgBorder"]
     > ![skapa liveström-session från Azure Sentinel jakt-fråga](./media/livestream/livestream-from-query.png)
@@ -63,7 +63,7 @@ Du kan skapa en liveström-session från en befintlig jakt fråga eller skapa di
     1. Välj fliken **liveström**
     2. Välj **gå till liveström**.
     
-4. På bladet **liveström** :
+4. I fönstret **liveström** :
     
     - Om du har startat liveström från en fråga granskar du frågan och gör de ändringar du vill göra.
     - Om du startade liveström från grunden skapar du din fråga. 
@@ -83,7 +83,7 @@ Du kan skapa en liveström-session från en befintlig jakt fråga eller skapa di
 
 1. I Azure Portal navigerar du till **kontroll** > **Threat management** > **jakt** > **liveström** fliken.
 
-2. Välj den liveström-session som du vill visa eller redigera. Till exempel:
+2. Välj den liveström-session som du vill visa eller redigera. Exempel:
     
     > [!div class="mx-imgBorder"]
     > ![skapa liveström-session från Azure Sentinel jakt-fråga](./media/livestream/livestream-tab.png)
@@ -92,11 +92,11 @@ Du kan skapa en liveström-session från en befintlig jakt fråga eller skapa di
 
 ## <a name="receive-notifications-when-new-events-occur"></a>Ta emot meddelanden när nya händelser inträffar
 
-Eftersom liveström-meddelanden för nya händelser använder Azure Portal aviseringar visas dessa meddelanden när du använder Azure Portal. Till exempel:
+Eftersom liveström-meddelanden för nya händelser använder Azure Portal aviseringar visas dessa meddelanden när du använder Azure Portal. Exempel:
 
 ![Azure Portal meddelande för liveström](./media/livestream/notification.png)
 
-Välj meddelandet för att öppna bladet **liveström** .
+Välj meddelandet för att öppna fönstret **liveström** .
  
 ## <a name="elevate-a-livestream-session-to-an-alert"></a>Höj en liveström-session till en avisering
 

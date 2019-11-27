@@ -1,14 +1,14 @@
 ---
-title: Kanadas federala PBMM skiss exempel – kontroll mappning
+title: PBMM i Kanada, federala exempel kontroller
 description: Kontroll av kart provet i Kanadas federala PBMM-exempel. Varje kontroll mappas till en eller flera Azure-principer som hjälper till med utvärderingen.
 ms.date: 09/04/2019
 ms.topic: sample
-ms.openlocfilehash: 0be73497de36ac3c11637b80a492ab0a8558206d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 943ca6849f9a55ce45b609a06cfcbb9b96b691c2
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039696"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74545259"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Kontroll av kart provet i Kanadas federala PBMM-utkast
 
@@ -98,9 +98,9 @@ Loggdata som samlas in av Azure Monitor lagras i en Log Analytics arbets yta som
 
 - \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
 - \[för hands version\]: granska Log Analytics agent distribution i VMSS-VM-avbildningen (OS) visas inte
-- \[Förhandsversion av\]: granska Log Analytics-arbetsyta för virtuell dator – rapportera matchningsfel
-- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Linux-datorer
-- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Windows-datorer
+- \[för hands version\]: granska Log Analytics arbets yta för VM-rapportera fel
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
 
 ## <a name="au-5-response-to-audit-processing-failures"></a>AU-5-svar på gransknings bearbetnings problem
 
@@ -117,9 +117,9 @@ Loggdata som samlas in av Azure Monitor lagras i en Log Analytics arbets yta som
 
 - \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
 - \[för hands version\]: granska Log Analytics agent distribution i VMSS-VM-avbildningen (OS) visas inte
-- \[Förhandsversion av\]: granska Log Analytics-arbetsyta för virtuell dator – rapportera matchningsfel
-- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Linux-datorer
-- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Windows-datorer
+- \[för hands version\]: granska Log Analytics arbets yta för VM-rapportera fel
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
 
 ## <a name="au-12-audit-generation"></a>AU – 12 gransknings generation
 
@@ -127,9 +127,9 @@ Den här skissen hjälper dig att se till att system händelser loggas genom att
 
 - \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
 - \[för hands version\]: granska Log Analytics agent distribution i VMSS-VM-avbildningen (OS) visas inte
-- \[Förhandsversion av\]: granska Log Analytics-arbetsyta för virtuell dator – rapportera matchningsfel
-- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Linux-datorer
-- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Windows-datorer
+- \[för hands version\]: granska Log Analytics arbets yta för VM-rapportera fel
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
 - Granska diagnostikinställning
 - Granska gransknings inställningar för SQL Server-nivå
 - Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser
@@ -291,9 +291,9 @@ Den här skissen hjälper dig att övervaka systemet genom att granska och framt
 
 - \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
 - \[för hands version\]: granska Log Analytics agent distribution i VMSS-VM-avbildningen (OS) visas inte
-- \[Förhandsversion av\]: granska Log Analytics-arbetsyta för virtuell dator – rapportera matchningsfel
-- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Linux-datorer
-- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Windows-datorer
+- \[för hands version\]: granska Log Analytics arbets yta för VM-rapportera fel
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
 - Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser
 - Avancerad datasäkerhet bör aktiveras på dina SQL-servrar
 - Distribuera avancerad data säkerhet på SQL-servrar

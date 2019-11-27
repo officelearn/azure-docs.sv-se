@@ -6,12 +6,12 @@ ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0
 ms.topic: sample
 ms.date: 01/09/2018
 ms.custom: mvc
-ms.openlocfilehash: b875d2a478ccbd2fa99f43e584e02018866fc5cd
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: HT
+ms.openlocfilehash: 8de245dc6307890c872bfc4b8b66371775e1ad12
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230918"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74532872"
 ---
 # <a name="azure-cli-samples"></a>Azure CLI-exempel
 
@@ -22,7 +22,9 @@ Följande tabell inkluderar länkar till bash-skript för Azure Functions som an
 | Skapa app | Beskrivning |
 |---|---|
 | [Skapa en funktionsapp för serverlös körning](scripts/functions-cli-create-serverless.md) | Skapar en funktionsapp i en förbrukningsplan.  |
-| [Skapa en funktionsapp i en App Service-plan](scripts/functions-cli-create-app-service-plan.md) | Skapa en funktionsapp i en dedikerad App Service-plan. |
+| [Skapa en server lös python-Function-app](scripts/functions-cli-create-serverless-python.md) | Skapa en funktionsapp i en dedikerad App Service-plan. |
+| [Skapa en Function-app i en skalbar Premium-plan](scripts/functions-cli-create-premium-plan.md) | Skapa en funktionsapp i en dedikerad App Service-plan. |
+| [Skapa en Function-app i en dedikerad (App Service) plan](scripts/functions-cli-create-app-service-plan.md) | Skapa en funktionsapp i en dedikerad App Service-plan. |
 
 | Integrera | Beskrivning|
 |---|---|
@@ -33,15 +35,3 @@ Följande tabell inkluderar länkar till bash-skript för Azure Functions som an
 |---|---|
 | [Distribuera från GitHub](scripts/functions-cli-create-function-app-github-continuous.md) | Skapa en funktionsapp som distribueras från en GitHub-lagringsplats.  |
 | [Distribuera från Azure DevOps](scripts/functions-cli-create-function-app-vsts-continuous.md) | Skapa en Function-app som distribueras från en Azure DevOps-lagringsplats.  |
-
-| Konfigurera app | Beskrivning |
-|---|---|
-| [Mappa en anpassad domän till en funktionsapp](scripts/functions-cli-configure-custom-domain.md) | Definiera en anpassad domän för dina funktioner.  |
-| [Bind ett SSL-certifikat till en funktionsapp](scripts/functions-cli-configure-ssl-certificate.md)  |  Ladda upp SSL-certifikat för funktioner i en anpassad domän. |
-
-<!---
-
-|**Scale app**||
-
-|**Connect app to resources**||
--->

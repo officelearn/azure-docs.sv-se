@@ -376,7 +376,7 @@ Den aktuella listan över förinstallerade R-paket som är tillgängliga för an
 | strängi      | 1.4.3      | 
 | strängare      | 1.3.1      | 
 | lever     | 2.44-1.1   | 
-| sys          | 3,2        | 
+| sys          | 3.2        | 
 | tcltk        | 3.5.1      | 
 | tibble       | 2.1.3      | 
 | städat        | 0.8.3      | 

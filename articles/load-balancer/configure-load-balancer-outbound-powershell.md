@@ -39,7 +39,7 @@ Connect-AzAccount
 
 Skapa en resurs grupp med hjälp av [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0). En Azure-resurs grupp är en logisk behållare där Azure-resurser distribueras. Resurserna hanteras sedan från gruppen.
 
-I följande exempel skapas en resursgrupp med namnet *myresourcegroupoutbound* i den *usaöstra2* plats:
+I följande exempel skapas en resurs grupp med namnet *myresourcegroupoutbound* på *eastus2* -platsen:
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myresourcegroupoutbound -Location eastus

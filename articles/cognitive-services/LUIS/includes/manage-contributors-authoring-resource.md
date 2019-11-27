@@ -17,13 +17,13 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74451503"
 ---
-If your apps need to be authored by other people, you need to add the associated email addresses in the Azure portal's authoring resource.
+Om dina appar behöver kunna redige ras av andra personer måste du lägga till de associerade e-postadresserna i Azure Portalens redigerings resurs.
 
-If you are the **owner or administrator of your Azure subscription**, you can add a contributor to the resource. 
+Om du är **ägare eller administratör för din Azure-prenumeration**kan du lägga till en deltagare till resursen. 
 
-If you are **not the owner or administrator of your Azure subscription**, your Azure account needs to have `Microsoft.Authorization/roleAssignments/write` permissions.
+Om du **inte är ägare eller administratör för din Azure-prenumeration**måste ditt Azure-konto ha `Microsoft.Authorization/roleAssignments/write` behörigheter.
 
-If you have trouble with this role assignment, review: 
+Om du har problem med den här roll tilldelningen granskar du: 
 
-* [Azure role assignments](../../../role-based-access-control/role-assignments-portal.md)
- * [Azure access control troubleshooting](../../../role-based-access-control/troubleshooting.md#problems-with-rbac-role-assignments)
+* [Roll tilldelningar i Azure](../../../role-based-access-control/role-assignments-portal.md)
+ * [Fel sökning av Azure Access Control](../../../role-based-access-control/troubleshooting.md#problems-with-rbac-role-assignments)

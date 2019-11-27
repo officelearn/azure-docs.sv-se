@@ -1,6 +1,6 @@
 ---
-title: Supported content formats
-description: Learn about content formats supported by Azure Container Registry, including Docker-compatible container images, Helm charts, OCI images, and OCI artifacts.
+title: Innehålls format som stöds
+description: Lär dig mer om innehålls format som stöds av Azure Container Registry, inklusive Docker-kompatibla behållar avbildningar, Helm-diagram, OCI-avbildningar och OCI-artefakter.
 ms.topic: article
 ms.date: 08/30/2019
 ms.openlocfilehash: ab915385f46f83c7b655acd1a48d66df84b50653
@@ -10,40 +10,40 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74455016"
 ---
-# <a name="content-formats-supported-in-azure-container-registry"></a>Content formats supported in Azure Container Registry
+# <a name="content-formats-supported-in-azure-container-registry"></a>Innehålls format som stöds i Azure Container Registry
 
-Use a private repository in Azure Container Registry to manage one of the following content formats. 
+Använd ett privat lager i Azure Container Registry för att hantera något av följande innehålls format. 
 
-## <a name="docker-compatible-container-images"></a>Docker-compatible container images
+## <a name="docker-compatible-container-images"></a>Docker-kompatibla behållar avbildningar
 
-The following Docker container image formats are supported:
+Följande versioner av Docker-behållar avbildningar stöds:
 
-* [Docker Image Manifest V2, Schema 1](https://docs.docker.com/registry/spec/manifest-v2-1/)
+* [Docker-avbildnings manifest v2, schema 1](https://docs.docker.com/registry/spec/manifest-v2-1/)
 
-* [Docker Image Manifest V2, Schema 2](https://docs.docker.com/registry/spec/manifest-v2-2/) - includes Manifest Lists which allow registries to store multiplatform images under a single "image:tag" reference
+* [Docker-avbildnings manifest v2, schema 2](https://docs.docker.com/registry/spec/manifest-v2-2/) – innehåller manifest listor som tillåter register att lagra avbildningar av flera plattformar under en enda "image: tag"-referens
 
-## <a name="oci-images"></a>OCI images
+## <a name="oci-images"></a>OCI-avbildningar
 
-Azure Container Registry supports images that meet the [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md). Packaging formats include [Singularity Image Format (SIF)](https://github.com/sylabs/sif).
+Azure Container Registry stöder avbildningar som uppfyller [specifikationen för avbildnings formatet Open container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/master/spec.md). Paket formaten innehåller ett [bild format för bilder (SIF)](https://github.com/sylabs/sif).
 
-## <a name="oci-artifacts"></a>OCI artifacts
+## <a name="oci-artifacts"></a>OCI-artefakter
 
-Azure Container Registry supports the [OCI Distribution Specification](https://github.com/opencontainers/distribution-spec), a vendor-neutral, cloud-agnostic spec to store, share, secure, and deploy container images and other content types (artifacts). The specification allows a registry to store a wide range of artifacts in addition to container images. You use tooling appropriate to the artifact to push and pull artifacts. For an example, see [Push and pull an OCI artifact using an Azure container registry](container-registry-oci-artifacts.md).
+Azure Container Registry stöder [OCI-distributions specifikationen](https://github.com/opencontainers/distribution-spec), en leverantörs oberoende, molnbaserad oberoende-specifikation för att lagra, dela, säkra och distribuera behållar avbildningar och andra innehålls typer (artefakter). Specifikationen gör det möjligt för ett register att lagra en mängd olika artefakter utöver behållar avbildningar. Du kan använda verktyg som är lämpliga för artefakten för att skicka och ta emot artefakter. Ett exempel finns i [skicka och hämta en OCI-artefakt med ett Azure Container Registry](container-registry-oci-artifacts.md).
 
-To learn more about OCI artifacts, see the [OCI Registry as Storage (ORAS)](https://github.com/deislabs/oras) repo and the [OCI Artifacts](https://github.com/opencontainers/artifacts) repo on GitHub.
+Mer information om OCI-artefakter finns i [OCI-registret as Storage (ORAS)](https://github.com/deislabs/oras) lagrings platsen och [OCI-artefakterna](https://github.com/opencontainers/artifacts) lagrings platsen på GitHub.
 
-## <a name="helm-charts"></a>Helm charts
+## <a name="helm-charts"></a>Helm-diagram
 
-Azure Container Registry can host repositories for [Helm charts](https://helm.sh/), a packaging format used to quickly manage and deploy applications for Kubernetes. [Helm client](https://docs.helm.sh/using_helm/#installing-helm) version 2 (2.11.0 or later) is supported.
+Azure Container Registry kan vara värd för databaser för [Helm-diagram](https://helm.sh/), ett paket format som används för att snabbt hantera och distribuera program för Kubernetes. [Helm-klient](https://docs.helm.sh/using_helm/#installing-helm) version 2 (2.11.0 eller senare) stöds.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* See how to [push and pull](container-registry-get-started-docker-cli.md) images with Azure Container Registry.
+* Se hur du [push-överför och hämtar](container-registry-get-started-docker-cli.md) bilder med Azure Container Registry.
 
-* Use [ACR tasks](container-registry-tasks-overview.md) to build and test container images. 
+* Använd [ACR-uppgifter](container-registry-tasks-overview.md) för att bygga och testa behållar avbildningar. 
 
-* Use the [Moby BuildKit](https://github.com/moby/buildkit) to build and package containers in OCI format.
+* Använd [Moby-BuildKit](https://github.com/moby/buildkit) för att bygga och paketera behållare i OCI-format.
 
-* Set up a [Helm repository](container-registry-helm-repos.md) hosted in Azure Container Registry. 
+* Konfigurera en [Helm-lagringsplats](container-registry-helm-repos.md) som finns i Azure Container Registry. 
 
 

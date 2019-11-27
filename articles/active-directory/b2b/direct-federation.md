@@ -90,7 +90,7 @@ Följande tabeller visar krav för särskilda attribut och anspråk som måste k
 
 Attribut som krävs för SAML 2,0-svaret från IdP:
 
-|Attribut  |Värde  |
+|Attribut  |Value  |
 |---------|---------|
 |AssertionConsumerService     |`https://login.microsoftonline.com/login.srf`         |
 |Målgrupp     |`urn:federation:MicrosoftOnline`         |
@@ -99,7 +99,7 @@ Attribut som krävs för SAML 2,0-svaret från IdP:
 
 Obligatoriska anspråk för SAML 2,0-token som utfärdats av IdP:
 
-|Attribut  |Värde  |
+|Attribut  |Value  |
 |---------|---------|
 |NameID-format     |`urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
@@ -116,7 +116,7 @@ Följande tabeller visar krav för särskilda attribut och anspråk som måste k
 
 Obligatoriska attribut i det WS-utfodras meddelandet från IdP:
  
-|Attribut  |Värde  |
+|Attribut  |Value  |
 |---------|---------|
 |PassiveRequestorEndpoint     |`https://login.microsoftonline.com/login.srf`         |
 |Målgrupp     |`urn:federation:MicrosoftOnline`         |
@@ -124,7 +124,7 @@ Obligatoriska attribut i det WS-utfodras meddelandet från IdP:
 
 Obligatoriska anspråk för WS-utfodras token som utfärdats av IdP:
 
-|Attribut  |Värde  |
+|Attribut  |Value  |
 |---------|---------|
 |ImmutableID     |`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |

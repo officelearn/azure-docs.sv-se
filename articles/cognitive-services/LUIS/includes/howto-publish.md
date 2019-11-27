@@ -27,8 +27,8 @@ För att få en LUIS-förutsägelse i en chattrobot eller i ett annat klientprog
 
     ![LUIS-publicering till slutpunkt](../media/howto-publish/publish-app-popup.png)
 
-3. Publishing is complete when you see the status bar at the top of the page confirming success.
+3. Publiceringen är klar när du ser statusfältet överst på sidan som bekräftar lyckad.
 
     ![LUIS-publicering till slutpunkt](../media/howto-publish/publish-endpoint-success.png)
 
-4. Select the **Access your endpoint URLs** link in the notification to go to the **Azure Resources** page. The endpoint URLs are listed as the **Example Query**.
+4. Välj länken **åtkomst till slut punkts-URL: er** i meddelandet för att gå till sidan **Azure-resurser** . Slut punkts-URL: erna visas som **exempel fråga**.

@@ -1,6 +1,6 @@
 ---
-title: Offboard Azure Sentinel| Microsoft Docs
-description: How to delete your Azure Sentinel instance.
+title: Avpublicera Azure Sentinel | Microsoft Docs
+description: Ta bort din Azure Sentinel-instans.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -21,67 +21,67 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74464133"
 ---
-# <a name="remove-azure-sentinel-from-your-tenant"></a>Remove Azure Sentinel from your tenant
+# <a name="remove-azure-sentinel-from-your-tenant"></a>Ta bort Azure Sentinel från din klient organisation
 
-If you no longer want to use the Azure Sentinel, this article explains how to remove it from your tenant.
+Om du inte längre vill använda Azure Sentinel förklarar den här artikeln hur du tar bort den från din klient organisation.
 
-## <a name="how-to-delete-azure-sentinel"></a>How to delete Azure Sentinel
+## <a name="how-to-delete-azure-sentinel"></a>Ta bort Azure Sentinel
 
-In the background, when you install Azure Sentinel, the **SecurityInsights** solution is installed on your selected workspace. So the first thing you need to do is remove the **SecurityInsights** solution.
+När du installerar Azure Sentinel i bakgrunden installeras **SecurityInsights** -lösningen på den valda arbets ytan. Det första du behöver göra är att ta bort **SecurityInsights** -lösningen.
 
-1.  Go to **Azure Sentinel**, followed by **Configuration**, followed by **Workspace settings**, and then **Solutions**.
+1.  Gå till **Azure Sentinel**, följt av **konfigurationen**, följt av **inställningarna för arbets ytan**och sedan **lösningar**.
 
-2.  Select `SecurityInsights` and click on it.
+2.  Välj `SecurityInsights` och klicka på den.
 
-    ![Find the SecurityInsights solution](media/offboard/find-solution.png)
+    ![Hitta SecurityInsights-lösningen](media/offboard/find-solution.png)
 
-3.  At the top of the page select **Delete**.
+3.  Längst upp på sidan väljer du **ta bort**.
 
     > [!IMPORTANT]
-    > If you remove the workspace, it may affect other solutions and data sources that are using this workspace, including Azure Monitor. To check which solutions are using this workspace, see [List installed monitoring solutions](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions). To check which solutions' data is being ingested into the workspace, see [Understanding ingested data volume](../azure-monitor/platform/manage-cost-storage.md#understanding-ingested-data-volume).
+    > Om du tar bort arbets ytan kan det påverka andra lösningar och data källor som använder den här arbets ytan, inklusive Azure Monitor. Om du vill kontrol lera vilka lösningar som använder den här arbets ytan går du till [lista installerade övervaknings lösningar](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions). Om du vill kontrol lera vilka lösningar för data som matas in i arbets ytan, se förstå inmatad [data volym](../azure-monitor/platform/manage-cost-storage.md#understanding-ingested-data-volume).
 
-    ![Delete the SecurityInsights solution](media/offboard/delete-solution.png)
+    ![Ta bort SecurityInsights-lösningen](media/offboard/delete-solution.png)
 
-## <a name="what-happens-behind-the-scenes"></a>What happens behind the scenes?
+## <a name="what-happens-behind-the-scenes"></a>Vad händer i bakgrunden?
 
-When you delete the solution, Azure Sentinel takes up to 48 hours to complete the first phase of the deletion process.
+När du tar bort lösningen tar Azure Sentinel upp till 48 timmar innan den första fasen av borttagnings processen slutförs.
 
-After the disconnection is identified, the offboarding process begins.
+När från kopplingen har identifierats börjar offboarding-processen.
 
-**The configuration of these connectors is deleted:**
--   Office 365
+**Konfigurationen av dessa anslutningar tas bort:**
+-   Office 365
 
 -   AWS
 
--   Microsoft services security alerts (Azure ATP, Microsoft Cloud App Security including Cloud Discovery Shadow IT reporting, Azure AD Identity Protection, Microsoft Defender ATP, Azure Security Center)
+-   Säkerhets aviseringar från Microsoft Services (Azure ATP, Microsoft Cloud App Security inklusive Cloud Discovery Shadow IT repor ting, Azure AD Identity Protection, Microsoft Defender ATP, Azure Security Center)
 
 -   Hotinformation
 
--   Common security logs (including CEF-based logs, Barracuda, and Syslog) (If you have Azure Security Center, these logs will continue to be collected.)
+-   Vanliga säkerhets loggar (inklusive CEF-baserade loggar, Barracuda och syslog) (om du har Azure Security Center kommer dessa loggar att fortsätta att samlas in.)
 
--   Windows Security Events (If you have Azure Security Center, these logs will continue to be collected.)
+-   Windows säkerhets händelser (om du har Azure Security Center fortsätter dessa loggar att samlas in.)
 
-Within the first 48 hours, the data and alert rules (including real-time automation configuration) will no longer be accessible or queryable in Azure Sentinel.
+Inom de första 48 timmarna kommer data och aviserings regler (inklusive konfiguration av real tids automatisering) inte längre att vara tillgängliga eller efter frågas i Azure Sentinel.
 
-**After 30 days these resources are deleted:**
+**Efter 30 dagar tas dessa resurser bort:**
 
--   Incidents (including investigation metadata)
+-   Incidenter (inklusive undersöknings-metadata)
 
 -   Varningsregler
 
--   Bookmarks
+-   dina
 
-Your playbooks, saved workbooks, saved hunting queries, and notebooks are not deleted. **Some may break due to the removed data. You can remove those manually.**
+Din spel böcker, sparade arbets böcker, sparade jakt frågor och antecknings böcker tas inte bort. **Vissa kan brytas på grund av borttagna data. Du kan ta bort dem manuellt.**
 
-After you remove the service, there is a grace period of 30 days during which you can re-enable the solution and your data and alert rules will be restored but the configured connectors that were disconnected must be reconnected.
+När du har tagit bort tjänsten finns det en respitperiod på 30 dagar då du kan återaktivera lösningen och dina data och varnings regler återställs, men de konfigurerade anslutningarna som kopplades från måste återanslutas.
 
 > [!NOTE]
-> If you remove the solution, your subscription will continue to be registered with the Azure Sentinel resource provider. **You can remove it manually.**
+> Om du tar bort lösningen fortsätter prenumerationen att registreras med Azure Sentinel Resource Provider. **Du kan ta bort den manuellt.**
 
 
 
 
 ## <a name="next-steps"></a>Nästa steg
-In this document, you learned how to remove the Azure Sentinel service. If you change your mind and want to install it again:
-- Get started [on-boarding Azure Sentinel](quickstart-onboard.md).
+I det här dokumentet har du lärt dig hur du tar bort Azure Sentinel-tjänsten. Om du ändrar dig och vill installera det igen:
+- Kom igång [med att använda Azure Sentinel](quickstart-onboard.md).
 

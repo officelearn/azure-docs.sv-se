@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Synthesize speech, C# - Speech Service'
+title: 'Snabb start: syntetisera tal, C# tal tjänst'
 titleSuffix: Azure Cognitive Services
-description: Inte klart
+description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -17,7 +17,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74260887"
 ---
-**Choose your target environment**
+**Välj mål miljö**
 
 #### <a name="nettabdotnet"></a>[NET](#tab/dotnet)
 [!INCLUDE [dotnet](./dotnet.md)]

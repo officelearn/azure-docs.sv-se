@@ -21,7 +21,7 @@ Den här artikeln hjälper dig att förbereda för utvärdering och/eller migrer
 [Azure Migrate](migrate-overview.md) innehåller en hubb med verktyg som hjälper dig att identifiera, utvärdera och migrera appar, infrastruktur och arbets belastningar till Microsoft Azure. Hubben omfattar Azure Migrate-verktyg och oberoende program varu leverantörer från tredje part (ISV).
 
 
-Den här självstudien är den första i en serie som visar hur du kan utvärdera och migrera virtuella VMware-datorer. I den här självstudiekursen får du lära du dig att:
+Den här självstudien är den första i en serie som visar hur du kan utvärdera och migrera virtuella VMware-datorer. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Förbered Azure för att arbeta med Azure Migrate.

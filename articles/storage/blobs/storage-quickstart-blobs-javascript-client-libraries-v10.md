@@ -22,7 +22,7 @@ ms.locfileid: "74270194"
 
 I den här snabb starten lär du dig att [Azure Storage använda v10 SDK-för Java Script-BLOB-](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob#readme) bibliotek för att hantera blobbar från JavaScript-kod som körs helt i webbläsaren. Den metod som används här visar hur du tillämpar de säkerhetsåtgärder som krävs för att garantera säker åtkomst till bloblagringskontot.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -40,7 +40,7 @@ Innan ditt webb program kan komma åt en blob-lagring från klienten måste du k
 
 I följande tabell beskrivs varje CORS-inställning och de värden som används för att definiera regeln.
 
-|Inställning  |Värde  | Beskrivning |
+|Inställning  |Value  | Beskrivning |
 |---------|---------|---------|
 | Tillåtna ursprung | * | Accepterar en kommaavgränsad lista över domäner som är inställda som godkänt ursprung. Om du anger värdet till `*` ges alla domäner åtkomst till lagringskontot. |
 | Tillåtna verb     | delete, get, head, merge, post, options och put | Listar de HTTP-verb som kan köras mot lagringskontot. För den här snabbstarten väljer du alla tillgängliga alternativ. |
@@ -81,7 +81,7 @@ az storage account generate-sas \
 
 Du kan kanske uppleva serien med värden efter varje parameter som lite kryptisk. Dessa parametervärden hämtas från den första bokstaven i respektive behörighet. I följande tabell förklaras var värdena kommer från:
 
-| Parameter        | Värde   | Beskrivning  |
+| Parameter        | Value   | Beskrivning  |
 |------------------|---------|---------|
 | *permissions*    | racwdl  | Den här signaturen för delad åtkomst (SAS) kan *läsa*, *bifoga*, *skapa*, *skriva*, *ta bort* och *lista*  funktioner. |
 | *resource-types* | sco     | De resurser som påverkas av signaturen för delad åtkomst (SAS) är *tjänst*, *container* och *objekt*. |

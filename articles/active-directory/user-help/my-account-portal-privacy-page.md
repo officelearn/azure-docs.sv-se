@@ -1,6 +1,6 @@
 ---
-title: View privacy-related info from the My Account portal - Azure AD
-description: Learn how your organization uses your privacy-related information from the Privacy page of the My Account portal.
+title: Visa sekretess information från min konto Portal – Azure AD
+description: Lär dig mer om hur din organisation använder din sekretess information på sidan sekretess i portalen mitt konto.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -19,34 +19,34 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74231825"
 ---
-# <a name="view-how-your-organization-uses-your-privacy-related-data"></a>View how your organization uses your privacy-related data
+# <a name="view-how-your-organization-uses-your-privacy-related-data"></a>Se hur din organisation använder dina sekretess-relaterade data
 
-You can view how your organization uses your data from the **Privacy** page of the **My Account** portal.
+Du kan se hur din organisation använder dina data från sidan **Sekretess** i portalen **mitt konto** .
 
 ## <a name="view-your-privacy-related-info"></a>Visa din sekretessrelaterade information
 
-1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
+1. Logga in på ditt arbets-eller skol konto och gå sedan till din https://myprofile.microsoft.com/ sida.
 
-2. Select **Privacy** from the left navigation pane or select the **Review privacy** link from the **Privacy** block.
+2. Välj **Sekretess** i det vänstra navigerings fönstret eller Välj länken **Granska sekretess** från **Sekretess** blocket.
 
-    ![My Account page, showing highlighted Privacy links](media/my-account-portal/my-account-portal-privacy.png)
+    ![Sidan mitt konto, som visar markerade sekretess länkar](media/my-account-portal/my-account-portal-privacy.png)
 
-3. Review the information, including:
+3. Granska informationen, inklusive:
 
-    - **Services.** A list of online services you're connected to using your work or school account.
+    - **Tjänster.** En lista med onlinetjänster som du är ansluten till med ditt arbets-eller skol konto.
 
-    - **Terms of use**. Your organization's terms of use.
+    - **Användningsvillkor**. Din organisations användnings villkor.
 
 ## <a name="next-steps"></a>Nästa steg
 
-After viewing how your organization uses your data, you can:
+När du har visat hur din organisation använder dina data kan du:
 
-- View or manage your [security info](user-help-security-info-overview.md).
+- Visa eller hantera din [säkerhets information](user-help-security-info-overview.md).
 
-- View or manage your connected [devices](my-account-portal-devices-page.md).
+- Visa eller hantera dina anslutna [enheter](my-account-portal-devices-page.md).
 
-- View or manage your [organizations](my-account-portal-organizations-page.md).
+- Visa eller hantera dina [organisationer](my-account-portal-organizations-page.md).
 
-- View your [sign-in activity](my-account-portal-sign-ins-page.md).
+- Visa din [inloggnings aktivitet](my-account-portal-sign-ins-page.md).
 
-- You can also view your Microsoft Office-related contact preferences and privacy information from the [Office portal, Security & privacy page](https://portal.office.com/account/#security).
+- Du kan också visa Microsoft Office-relaterade kontakt inställningar och sekretess information från [sidan Office-portalen, säkerhets & sekretess](https://portal.office.com/account/#security).

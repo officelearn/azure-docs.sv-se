@@ -57,11 +57,11 @@ Följande inställningar stöds:
 
    * **Azurite: BLOB Host** – slut punkten för BLOB service lyssning. Standardvärdet är 127.0.0.1.
    * **Azurite: BLOB-port** – BLOB service lyssnings port. Standard porten är 10000.
-   * **Azurite: Felsök** – mata ut fel söknings loggen till Azurite-kanalen. Standardvärdet är **FALSKT**.
+   * **Azurite: Felsök** – mata ut fel söknings loggen till Azurite-kanalen. Standardvärdet är **false**.
    * **Azurite: plats** – sökvägen till arbets ytans plats. Standardvärdet är Visual Studio Code-arbetsmappen.
    * **Azurite: köa värd** -den kötjänst lyssnar slut punkten. Standardvärdet är 127.0.0.1.
    * **Azurite: Queue port** -den kötjänst lyssnings porten. Standard porten är 10001.
-   * **Azurite: tyst** -tyst läge inaktiverar åtkomst loggen. Standardvärdet är **FALSKT**.
+   * **Azurite: tyst** -tyst läge inaktiverar åtkomst loggen. Standardvärdet är **false**.
 
 ## <a name="install-and-run-azurite-by-using-npm"></a>Installera och kör Azurite med NPM
 

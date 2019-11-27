@@ -27,7 +27,7 @@ I den här snabb starten inkluderar du Azure App konfiguration i en .NET Framewo
 
 Biblioteken för .NET-funktions hantering utökar ramverket med omfattande stöd för funktions flaggor. Dessa bibliotek skapas ovanpå .NET-konfigurations systemet. De integreras sömlöst med app-konfigurationen via sin .NET-Konfigurationsprovider.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)

@@ -1,6 +1,6 @@
 ---
-title: Azure Private Link frequently asked questions (FAQ)
-description: Learn about Azure Private Link.
+title: Vanliga frågor och svar om Azure Private Link
+description: Lär dig mer om Azures privata länk.
 services: private-link
 author: asudbring
 ms.service: private-link
@@ -14,68 +14,68 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74229339"
 ---
-# <a name="azure-private-link-frequently-asked-questions-faq"></a>Azure Private Link frequently asked questions (FAQ)
+# <a name="azure-private-link-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Private Link
 
 ## <a name="private-link"></a>Private Link
 
-### <a name="what-is-azure-private-endpoint-and-azure-private-link-service"></a>What is Azure Private Endpoint and Azure Private Link Service?
+### <a name="what-is-azure-private-endpoint-and-azure-private-link-service"></a>Vad är Azure Private-slutpunkt och Azure Private Link service?
 
-- **[Azure Private Endpoint](private-endpoint-overview.md)** : Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. You can use Private Endpoints to connect to an Azure PaaS service that supports Private Link or to your own Private Link Service.
-- **[Azure Private Link Service](private-link-service-overview.md)** : Azure Private Link service is a service created by a service provider. Currently, a Private Link service can be attached to the frontend IP configuration of a Standard Load Balancer. 
+- **[Privat Azure-slutpunkt](private-endpoint-overview.md)** : Azure Private-slutpunkt är ett nätverks gränssnitt som ansluter dig privat och säkert till en tjänst som drivs av en privat Azure-länk. Du kan använda privata slut punkter för att ansluta till en Azure PaaS-tjänst som stöder privat länk eller till en egen privat länk tjänst.
+- **[Azure Private Link-tjänsten](private-link-service-overview.md)** : Azure Private Link service är en tjänst som skapats av en tjänst leverantör. För närvarande kan en privat länk tjänst kopplas till klient delens IP-konfiguration för en Standard Load Balancer. 
 
-### <a name="how-is-traffic-being-sent-when-using-private-link"></a>How is traffic being sent when using Private Link?
-Traffic is sent privately using Microsoft backbone. It doesn’t traverse the internet.  
+### <a name="how-is-traffic-being-sent-when-using-private-link"></a>Hur skickas trafik när du använder en privat länk?
+Trafiken skickas privat med Microsoft stamnätet. Den passerar inte Internet.  
  
-### <a name="what-is-the-difference-between-a-service-endpoints-and-a-private-endpoints"></a>What is the difference between a Service Endpoints and a Private Endpoints?
-- When using Private Endpoints, network access is granted to specific resources behind a given service providing granular segmentation, also traffic can reach the service resource from on premises without using public endpoints.
+### <a name="what-is-the-difference-between-a-service-endpoints-and-a-private-endpoints"></a>Vad är skillnaden mellan en tjänst slut punkt och en privat slut punkt?
+- När du använder privata slut punkter beviljas nätverks åtkomst till vissa resurser bakom en angiven tjänst som tillhandahåller detaljerad segmentering, men trafik kan nå tjänst resursen från lokalt utan att använda offentliga slut punkter.
 
-### <a name="what-is-the-relationship-between-private-link-service-and-private-endpoint"></a>What is the relationship between Private Link service and Private Endpoint?
-Private Endpoint provides access to multiple private link resource types, including Azure PaaS services and your own Private Link Service. It is a one-to-many relationship. One Private Link service can receive connections from multiple private endpoints. On the other hand, one private endpoint can only connect to one Private Link service.    
+### <a name="what-is-the-relationship-between-private-link-service-and-private-endpoint"></a>Vad är förhållandet mellan privat länk tjänst och privat slut punkt?
+Privat slut punkt ger åtkomst till flera resurs typer för privata länkar, inklusive Azure PaaS Services och din egen privata länk tjänst. Det är en en-till-många-relation. En privat länk-tjänst kan ta emot anslutningar från flera privata slut punkter. Å andra sidan kan en privat slut punkt bara ansluta till en privat länk tjänst.    
 
 ## <a name="private-endpoint"></a>Privat slutpunkt 
  
-### <a name="can-i-create-multiple-private-endpoints-in-same-vnet-can-they-connect-to-different-services"></a>Can I create multiple Private Endpoints in same VNet? Can they connect to different Services? 
-Ja. You can have multiple private endpoints in same VNet or subnet. They can connect to different services.  
+### <a name="can-i-create-multiple-private-endpoints-in-same-vnet-can-they-connect-to-different-services"></a>Kan jag skapa flera privata slut punkter i samma VNet? Kan de ansluta till olika tjänster? 
+Ja. Du kan ha flera privata slut punkter i samma VNet eller undernät. De kan ansluta till olika tjänster.  
  
-### <a name="do-i-require-a-dedicated-subnet-for-private-endpoints"></a>Do I require a dedicated subnet for private endpoints? 
-Nej. You don't require a dedicated subnet for private endpoints. You can choose a private endpoint IP from any subnet from the VNet where your service is deployed.  
+### <a name="do-i-require-a-dedicated-subnet-for-private-endpoints"></a>Behöver jag ett dedikerat undernät för privata slut punkter? 
+Nej. Du behöver inte ett dedikerat undernät för privata slut punkter. Du kan välja en privat slut punkts-IP från valfritt undernät från det virtuella nätverk där tjänsten distribueras.  
  
-### <a name="can-private-endpoint-connect-to-private-link-service-across-azure-active-directory-tenants"></a>Can Private Endpoint connect to Private Link service across Azure Active Directory Tenants? 
-Ja. Private endpoints can connect to Private Link services or Azure PaaS across AD tenants.  
+### <a name="can-private-endpoint-connect-to-private-link-service-across-azure-active-directory-tenants"></a>Kan privat slut punkt ansluta till Private Link service mellan Azure Active Directory klienter? 
+Ja. Privata slut punkter kan ansluta till privata länk tjänster eller Azure-PaaS över AD-klienter.  
  
-### <a name="can-private-endpoint-connect-to-azure-paas-resources-across-azure-regions"></a>Can private endpoint connect to Azure PaaS resources across Azure regions?
-Ja. Private endpoints can connect to Azure PaaS resources across Azure regions.
+### <a name="can-private-endpoint-connect-to-azure-paas-resources-across-azure-regions"></a>Kan privat slut punkt ansluta till Azure PaaS-resurser i Azure-regioner?
+Ja. Privata slut punkter kan ansluta till Azure PaaS-resurser i Azure-regioner.
 
 ## <a name="private-link-service"></a>Private Link-tjänsten
  
-### <a name="what-are-the-pre-requisites-for-creating-a-private-link-service"></a>What are the pre-requisites for creating a Private Link service? 
-Your service backends should be in a Virtual network and behind a Standard Load Balancer.
+### <a name="what-are-the-pre-requisites-for-creating-a-private-link-service"></a>Vilka är kraven för att skapa en privat länk tjänst? 
+Tjänstens Server delar bör finnas i ett virtuellt nätverk och bakom en Standard Load Balancer.
  
-### <a name="how-can-i-scale-my-private-link-service"></a>How can I scale my Private Link service? 
-You can scale your Private Link service in a few different ways: 
-- Add Backend VMs to the pool behind your Standard Load Balancer 
-- Add an IP to the Private Link service. We allow up to 8 IPs per Private Link service.  
-- Add new Private Link service to Standard Load Balancer. We allow up to eight Private Link services per load balancer.   
+### <a name="how-can-i-scale-my-private-link-service"></a>Hur kan jag skala min privata länk tjänst? 
+Du kan skala din privata länk tjänst på ett par olika sätt: 
+- Lägg till virtuella server delar till poolen bakom Standard Load Balancer 
+- Lägg till en IP-adress i den privata länk tjänsten. Vi tillåter upp till 8 IP-adresser per privat länk-tjänst.  
+- Lägg till en ny privat länk-tjänst i Standard Load Balancer. Vi tillåter upp till åtta privata länk tjänster per belastningsutjämnare.   
 
-### <a name="can-i-connect-my-service-to-multiple-private-endpoints"></a>Can I connect my service to multiple Private Endpoints?
-Ja. One Private Link service can receive connections from multiple Private Endpoints. However one Private Endpoint can only connect to one Private Link service.  
+### <a name="can-i-connect-my-service-to-multiple-private-endpoints"></a>Kan jag ansluta min tjänst till flera privata slut punkter?
+Ja. En privat länk-tjänst kan ta emot anslutningar från flera privata slut punkter. En privat slut punkt kan dock bara ansluta till en privat länk tjänst.  
  
-### <a name="how-should-i-control-the-exposure-of-my-private-link-service"></a>How should I control the exposure of my Private Link service?
-You can control the exposure using the visibility configuration on Private Link service. Visibility supports three settings:
+### <a name="how-should-i-control-the-exposure-of-my-private-link-service"></a>Hur styr jag exponeringen för min privata länk tjänst?
+Du kan styra exponeringen med hjälp av Synlighets konfigurationen i Private Link-tjänsten. Synligheten stöder tre inställningar:
 
-- **None** - Only subscriptions with RBAC access can locate the service. 
-- **Restrictive** - Only subscriptions that are whitelisted and with RBAC access can locate the service. 
-- **All** - Everyone can locate the service. 
+- **Ingen** – endast prenumerationer med RBAC-åtkomst kan hitta tjänsten. 
+- Endast **begränsade** prenumerationer som är vit listas och med RBAC-åtkomst kan hitta tjänsten. 
+- **Alla** – alla kan hitta tjänsten. 
  
-### <a name="can-i-create-a-private-link-service-with-basic-load-balancer"></a>Can I create a Private Link service with Basic Load Balancer? 
-Nej. Private Link service over a Basic Load Balancer is not supported.
+### <a name="can-i-create-a-private-link-service-with-basic-load-balancer"></a>Kan jag skapa en privat länk tjänst med Basic Load Balancer? 
+Nej. Tjänsten för privata länkar via en grundläggande Load Balancer stöds inte.
  
-### <a name="is-a-dedicated-subnet-required-for-private-link-service"></a>Is a dedicated subnet required for Private Link service? 
-Nej. Private Link service doesn’t require a dedicated subnet. You can choose any subnet in your VNet where your service is deployed.   
+### <a name="is-a-dedicated-subnet-required-for-private-link-service"></a>Krävs ett dedikerat undernät för tjänsten för privat länk? 
+Nej. Tjänsten för privata länkar kräver inte ett dedikerat undernät. Du kan välja valfritt undernät i ditt VNet där tjänsten distribueras.   
 
-### <a name="i-am-a-service-provider-using-azure-private-link-do-i-need-to-make-sure-all-my-customers-have-unique-ip-space-and-dont-overlap-with-my-ip-space"></a>I am a service provider using Azure Private Link. Do I need to make sure all my customers have unique IP space and don’t overlap with my IP space? 
-Nej. Azure Private Link provides this functionality for you. Hence, you are not required to have non-overlapping address space with your customer's address space. 
+### <a name="i-am-a-service-provider-using-azure-private-link-do-i-need-to-make-sure-all-my-customers-have-unique-ip-space-and-dont-overlap-with-my-ip-space"></a>Jag är en tjänst leverantör som använder Azures privata länk. Måste jag se till att alla mina kunder har ett unikt IP-utrymme och inte överlappar mitt IP-utrymme? 
+Nej. Azures privata länk tillhandahåller den här funktionen åt dig. Därför behöver du inte ha icke-överlappande adress utrymme med kundens adress utrymme. 
 
 ##  <a name="next-steps"></a>Nästa steg
 
-- Learn about [Azure Private Link](private-link-overview.md)
+- Lär dig mer om [Azures privata länk](private-link-overview.md)

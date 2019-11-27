@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 89bc690e5a8c8d24d7732dd4e12f70a9f1f368af
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: b6941a159c8be9f7d1921dd281f7366b078b30a7
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70842654"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546278"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-in-azure-active-directory-domain-services"></a>Konfigurera Kerberos-begränsad delegering (KCD) i Azure Active Directory Domain Services
 
 När du kör program kan dessa program behöva åtkomst till resurser i kontexten för en annan användare. Active Directory Domain Services (AD DS) stöder en mekanism som kallas *Kerberos-delegering* som möjliggör det här användnings fallet. Kerberos- *begränsad* delegering (KCD) bygger på den här mekanismen för att definiera specifika resurser som kan nås i användarens kontext. Azure Active Directory Domain Services (Azure AD DS) hanterade domäner är säkrare att låsa upp de traditionella lokala AD DS-miljöerna, så Använd en säkrare *Resource-baserad* KCD.
 
-Den här artikeln visar hur du konfigurerar BASD Kerberos-begränsad delegering i en Azure AD DS-hanterad domän.
+Den här artikeln visar hur du konfigurerar resurs-baserad Kerberos-begränsad delegering i en Azure AD DS-hanterad domän.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -42,7 +42,9 @@ För att slutföra den här artikeln behöver du följande resurser:
 
 Med Kerberos-delegering kan ett konto personifiera ett annat konto för åtkomst till resurser. Till exempel kan ett webb program som har åtkomst till en server dels webb komponent personifiera sig själv som ett annat användar konto när den gör backend-anslutningen. Kerberos-delegering är inte säkert eftersom det inte begränsar vilka resurser som kontot som personifierar har åtkomst till.
 
-Kerberos-begränsad delegering (KCD) begränsar de tjänster eller resurser som en angiven server eller ett visst program kan ansluta vid personifiering av en annan identitet. Traditionella KCD kräver domän administratörs behörighet för att konfigurera ett domän konto för en tjänst och det begränsar kontot som ska köras på en enda domän. Traditionella KCD har också några problem. I tidigare operativ system hade tjänst administratören till exempel inget användbart sätt att veta vilka front-end-tjänster som delegerats till de resurs tjänster som de äger. Alla frontend-tjänster som kan delegera till en resurs tjänst var en potentiell angrepps punkt. Om en server som är värd för en frontend-tjänst som kon figurer ATS för att delegera till resurs tjänster komprometterades, kunde resurs tjänsterna också komprometteras.
+Kerberos-begränsad delegering (KCD) begränsar de tjänster eller resurser som en angiven server eller ett visst program kan ansluta vid personifiering av en annan identitet. Traditionella KCD kräver domän administratörs behörighet för att konfigurera ett domän konto för en tjänst och det begränsar kontot som ska köras på en enda domän.
+
+Traditionella KCD har också några problem. I tidigare operativ system hade tjänst administratören till exempel inget användbart sätt att veta vilka front-end-tjänster som delegerats till de resurs tjänster som de äger. Alla frontend-tjänster som kan delegera till en resurs tjänst var en potentiell angrepps punkt. Om en server som är värd för en frontend-tjänst som kon figurer ATS för att delegera till resurs tjänster komprometterades, kunde resurs tjänsterna också komprometteras.
 
 I en Azure AD DS-hanterad domän har du inte domän administratörs behörighet. Därför kan traditionella kontobaserade KCD inte konfigureras i en hanterad domän i Azure AD DS. Resursbaserade KCD kan i stället användas, vilket också är säkrare.
 

@@ -24,7 +24,7 @@ I den här självstudien utför du följande aktiviteter:
 > - Identifiera delade frågor
 > - Ta bort en delad fråga
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver en Azure-prenumeration för att kunna utföra stegen i den här självstudiekursen. Om du inte har ett konto kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 

@@ -98,8 +98,8 @@ Läs program varu leverantörens dokumentation för att förstå belastnings Utj
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Aktivera Application Proxy](application-proxy-add-on-premises-application.md)
+- [Aktivera programproxy](application-proxy-add-on-premises-application.md)
 - [Aktivera enkel inloggning](application-proxy-configure-single-sign-on-with-kcd.md)
 - [Aktivera villkorlig åtkomst](application-proxy-integrate-with-sharepoint-server.md)
-- [Felsöka problem med Application Proxy](application-proxy-troubleshoot.md)
+- [Felsök problem med Application Proxy](application-proxy-troubleshoot.md)
 - [Lär dig hur Azure AD-arkitekturen stöder hög tillgänglighet](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture)

@@ -1,6 +1,6 @@
 ---
-title: Inaktivera Azure Active Directory Domain Services | Microsoft Docs
-description: Lär dig hur du inaktiverar Azure Active Directory Domain Services att använda Azure Portal
+title: Ta bort Azure Active Directory Domain Services | Microsoft Docs
+description: Lär dig hur du inaktiverar eller tar bort en Azure Active Directory Domain Services hanterad domän med hjälp av Azure Portal
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 05c4e73c56b79c6e313ea15124bd0f3d17b2fc70
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 9f0b8a438a7c236c5e016673a59bfb691e9c2152
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70842609"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546300"
 ---
-# <a name="disable-azure-active-directory-domain-services-using-the-azure-portal"></a>Inaktivera Azure Active Directory Domain Services med hjälp av Azure Portal
+# <a name="delete-an-azure-active-directory-domain-services-managed-domain-using-the-azure-portal"></a>Ta bort en Azure Active Directory Domain Services hanterad domän med hjälp av Azure Portal
 
 Om du inte längre behöver en hanterad domän kan du ta bort en Azure Active Directory Domain Services (Azure AD DS)-instans. Det finns inget alternativ för att stänga av eller tillfälligt inaktivera en hanterad Azure AD DS-domän. Det går inte att ta bort den hanterade Azure AD DS-domänen eller på annat sätt påverka Azure AD-klienten. Den här artikeln visar hur du använder Azure Portal för att ta bort en Azure AD DS-hanterad domän.
 

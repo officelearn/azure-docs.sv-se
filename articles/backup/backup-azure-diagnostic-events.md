@@ -10,7 +10,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/21/2019
 ms.locfileid: "74281108"
 ---
-# <a name="using-diagnostics-settings-for-recovery-services-vaults"></a>Använda diagnostikinställningar för Recovery Services valv
+# <a name="using-diagnostics-settings-for-recovery-services-vaults"></a>Använda diagnostikinställningar för Recovery Services-valv
 
 Azure Backup skickar diagnostiska händelser som kan samlas in och användas i syfte att analysera, Avisera och rapportera. 
 

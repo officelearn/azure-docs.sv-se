@@ -1,6 +1,6 @@
 ---
-title: Purge tags and manifests
-description: Use a purge command to delete multiple tags and manifests from an Azure container registry based on age and a tag filter, and optionally schedule purge operations.
+title: Ta bort taggar och manifest
+description: Använd ett rensnings kommando om du vill ta bort flera taggar och manifest från ett Azure Container Registry baserat på ålder och ett tag filter och eventuellt schemalägga rensnings åtgärder.
 ms.topic: article
 ms.date: 08/14/2019
 ms.openlocfilehash: 65169927f7a1cffa88a2d909217e636417f695cc
@@ -10,51 +10,51 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74456478"
 ---
-# <a name="automatically-purge-images-from-an-azure-container-registry"></a>Automatically purge images from an Azure container registry
+# <a name="automatically-purge-images-from-an-azure-container-registry"></a>Rensa avbildningar automatiskt från ett Azure Container Registry
 
-When you use an Azure container registry as part of a development workflow, the registry can quickly fill up with images or other artifacts that aren't needed after a short period. You might want to delete all tags that are older than a certain duration or match a specified name filter. To delete multiple artifacts quickly, this article introduces the `acr purge` command you can run as an on-demand or [scheduled](container-registry-tasks-scheduled.md) ACR Task. 
+När du använder ett Azure Container Registry som en del av ett arbets flöde för utveckling kan registret snabbt fylla i med bilder eller andra artefakter som inte behövs efter en kort period. Du kanske vill ta bort alla Taggar som är äldre än en viss varaktighet eller matcha ett angivet namn filter. Om du vill ta bort flera artefakter snabbt, introducerar den här artikeln `acr purge` kommandot som du kan köra som en aktivitet på begäran eller [schemalagd](container-registry-tasks-scheduled.md) ACR. 
 
-The `acr purge` command is currently distributed in a public container image (`mcr.microsoft.com/acr/acr-cli:0.1`), built from source code in the [acr-cli](https://github.com/Azure/acr-cli) repo in GitHub.
+`acr purge` kommandot är för närvarande distribuerat i en offentlig behållar avbildning (`mcr.microsoft.com/acr/acr-cli:0.1`) som skapats från käll koden i [ACR-CLI-](https://github.com/Azure/acr-cli) lagrings platsen i GitHub.
 
-You can use the Azure Cloud Shell or a local installation of the Azure CLI to run the ACR task examples in this article. If you'd like to use it locally, version 2.0.69 or later is required. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install]. 
+Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för att köra ACR-uppgifts exemplen i den här artikeln. Om du vill använda det lokalt, krävs version 2.0.69 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install]. 
 
 > [!IMPORTANT]
 > Den här funktionen är för närvarande en förhandsversion. Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
 
 > [!WARNING]
-> Use the `acr purge` command with caution--deleted image data is UNRECOVERABLE. If you have systems that pull images by manifest digest (as opposed to image name), you should not purge untagged images. Deleting untagged images will prevent those systems from pulling the images from your registry. Instead of pulling by manifest, consider adopting a *unique tagging* scheme, a [recommended best practice](container-registry-image-tag-version.md).
+> Använd `acr purge` kommandot med varning – det går inte att återställa avbildnings data som tagits bort. Om du har system som hämtar bilder av manifest sammandrag (i stället för avbildnings namn) bör du inte rensa otaggade bilder. Om du tar bort otaggade bilder så förhindras dessa system från att hämta avbildningarna från registret. Överväg att använda ett unikt taggnings schema i stället för att hämta ett *unikt taggnings* schema, en [rekommenderad metod](container-registry-image-tag-version.md).
 
-If you want to delete single image tags or manifests using Azure CLI commands, see [Delete container images in Azure Container Registry](container-registry-delete.md).
+Om du vill ta bort enstaka bildtaggar eller manifest med hjälp av Azure CLI-kommandon, se [ta bort behållar avbildningar i Azure Container Registry](container-registry-delete.md).
 
-## <a name="use-the-purge-command"></a>Use the purge command
+## <a name="use-the-purge-command"></a>Använda kommandot Rensa
 
-The `acr purge` container command deletes images by tag in a repository that match a name filter and that are older than a specified duration. By default, only tag references are deleted, not the underlying [manifests](container-registry-concepts.md#manifest) and layer data. The command has an option to also delete manifests. 
+Kommandot `acr purge` container tar bort bilder efter tagg i en lagrings plats som matchar ett namn filter och som är äldre än en angiven varaktighet. Som standard tas endast tagg referenser bort, inte underliggande [manifest](container-registry-concepts.md#manifest) och lager data. Kommandot har ett alternativ för att även ta bort manifest. 
 
 > [!NOTE]
-> `acr purge` does not delete an image tag or repository where the `write-enabled` attribute is set to `false`. For information, see [Lock a container image in an Azure container registry](container-registry-image-lock.md).
+> `acr purge` tar inte bort en bildtagg eller lagrings plats där attributet `write-enabled` är inställt på `false`. Mer information finns i [låsa en behållar avbildning i ett Azure Container Registry](container-registry-image-lock.md).
 
-`acr purge` is designed to run as a container command in an [ACR Task](container-registry-tasks-overview.md), so that it authenticates automatically with the registry where the task runs. 
+`acr purge` är utformad för att köras som ett container-kommando i en [ACR-uppgift](container-registry-tasks-overview.md), så att den autentiseras automatiskt med det register där aktiviteten körs. 
 
-At a minimum, specify the following when you run `acr purge`:
+Ange minst följande när du kör `acr purge`:
 
-* `--registry` - The Azure container registry where you run the command. 
-* `--filter` - A repository and a *regular expression* to filter tags in the repository. Examples: `--filter "hello-world:.*"` matches all tags in the `hello-world` repository, and `--filter "hello-world:^1.*"` matches tags beginning with `1`. Pass multiple `--filter` parameters to purge multiple repositories.
-* `--ago` - A Go-style [duration string](https://golang.org/pkg/time/) to indicate a duration beyond which images are deleted. The duration consists of a sequence of one or more decimal numbers, each with a unit suffix. Valid time units include "d" for days, "h" for hours, and "m" for minutes. For example, `--ago 2d3h6m` selects all filtered images last modified more than 2 days, 3 hours, and 6 minutes ago, and `--ago 1.5h` selects images last modified more than 1.5 hours ago.
+* `--registry` – Azure Container Registry där du kör kommandot. 
+* `--filter` – en lagrings plats och ett *reguljärt uttryck* för att filtrera Taggar i lagrings platsen. Exempel: `--filter "hello-world:.*"` matchar alla Taggar i `hello-world`-lagringsplatsen och `--filter "hello-world:^1.*"` matchar taggar som börjar med `1`. Skicka flera `--filter` parametrar för att rensa flera databaser.
+* `--ago` – en [varaktighets sträng](https://golang.org/pkg/time/) i go-format för att ange en varaktighet utöver vilken avbildningar tas bort. Varaktigheten består av en sekvens med ett eller flera decimal tal, var och en med ett enhets suffix. Giltiga tidsenheter är "d" för dagar, "h" för timmar och "m" för minuter. `--ago 2d3h6m` väljer till exempel alla filtrerade bilder senast ändrad över 2 dagar, 3 timmar och 6 minuter sedan och `--ago 1.5h` väljer bilder som senast ändrades för 1,5 timmar sedan.
 
-`acr purge` supports several optional parameters. The following two are used in examples in this article:
+`acr purge` stöder flera valfria parametrar. Följande två används i exempel i den här artikeln:
 
-* `--untagged` - Specifies that manifests that don't have associated tags (*untagged manifests*) are deleted.
-* `--dry-run` - Specifies that no data is deleted, but the output is the same as if the command is run without this flag. This parameter is useful for testing a purge command to make sure it does not inadvertently delete data you intend to preserve.
+* `--untagged`-anger att manifest som inte har associerade Taggar (*otaggade manifest*) tas bort.
+* `--dry-run`-anger att inga data tas bort, men utdata är desamma som om kommandot körs utan den här flaggan. Den här parametern är användbar för att testa ett rensnings kommando för att kontrol lera att den inte oavsiktligt tar bort data som du tänker behålla.
 
-For additional parameters, run `acr purge --help`. 
+Kör `acr purge --help`för ytterligare parametrar. 
 
-`acr purge` supports other features of ACR Tasks commands including [run variables](container-registry-tasks-reference-yaml.md#run-variables) and [task run logs](container-registry-tasks-overview.md#view-task-logs) that are streamed and also saved for later retrieval.
+`acr purge` stöder andra funktioner i ACR tasks-kommandon, inklusive [körning av variabler](container-registry-tasks-reference-yaml.md#run-variables) och körnings [loggar för uppgifter](container-registry-tasks-overview.md#view-task-logs) som strömmas och som också sparas för senare hämtning.
 
-### <a name="run-in-an-on-demand-task"></a>Run in an on-demand task
+### <a name="run-in-an-on-demand-task"></a>Kör i en aktivitet på begäran
 
-The following example uses the [az acr run][az-acr-run] command to run the `acr purge` command on-demand. This example deletes all image tags and manifests in the `hello-world` repository in *myregistry* that were modified more than 1 day ago. The container command is passed using an environment variable. The task runs without a source context.
+I följande exempel används kommandot [AZ ACR Run][az-acr-run] för att köra kommandot `acr purge` på begäran. Det här exemplet tar bort alla bildtaggar och manifest i `hello-world`-lagringsplatsen i *registret* som ändrades för mer än 1 dag sedan. Container kommandot skickas med en miljö variabel. Aktiviteten körs utan någon käll kontext.
 
-In this and the following examples, the registry where the `acr purge` command runs is specified using the `$Registry` alias, which indicates the registry that runs the task.
+I det här och följande exempel anges registret där `acr purge` kommandot körs med hjälp av `$Registry` alias, som anger det register som kör uppgiften.
 
 ```azurecli
 # Environment variable for container command line
@@ -67,9 +67,9 @@ az acr run \
   /dev/null
 ```
 
-### <a name="run-in-a-scheduled-task"></a>Run in a scheduled task
+### <a name="run-in-a-scheduled-task"></a>Kör i en schemalagd aktivitet
 
-The following example uses the [az acr task create][az-acr-task-create] command to create a daily [scheduled ACR task](container-registry-tasks-scheduled.md). The task purges tags modified more than 7 days ago in the `hello-world` repository. The container command is passed using an environment variable. The task runs without a source context.
+I följande exempel används kommandot [AZ ACR Task Create][az-acr-task-create] för att skapa en daglig [schemalagd ACR-aktivitet](container-registry-tasks-scheduled.md). Borttagning av taggar har ändrats mer än 7 dagar sedan i `hello-world`-lagringsplatsen. Container kommandot skickas med en miljö variabel. Aktiviteten körs utan någon käll kontext.
 
 ```azurecli
 # Environment variable for container command line
@@ -83,13 +83,13 @@ az acr task create --name purgeTask \
   --context /dev/null
 ```
 
-Run the [az acr task show][az-acr-task-show] command to see that the timer trigger is configured.
+Kör kommandot [AZ ACR Task show][az-acr-task-show] för att se att timer-utlösaren har kon figurer ATS.
 
-### <a name="purge-large-numbers-of-tags-and-manifests"></a>Purge large numbers of tags and manifests
+### <a name="purge-large-numbers-of-tags-and-manifests"></a>Ta bort ett stort antal taggar och manifest
 
-Purging a large number of tags and manifests could take several minutes or longer. To purge thousands of tags and manifests, the command might need to run longer than the default timeout time of 600 seconds for an on-demand task, or 3600 seconds for a scheduled task. If the timeout time is exceeded, only a subset of tags and manifests are deleted. To ensure that a large-scale purge is complete, pass the `--timeout` parameter to increase the value. 
+Det kan ta flera minuter eller längre att rensa ett stort antal taggar och manifest. För att tömma tusentals Taggar och manifest kan kommandot behöva köras längre än standard tiden för timeout på 600 sekunder för en aktivitet på begäran, eller 3600 sekunder för en schemalagd aktivitet. Om tids gränsen överskrids tas endast en delmängd av taggar och manifest bort. För att se till att en storskalig tömning är klar skickar du parametern `--timeout` för att öka värdet. 
 
-For example, the following on-demand task sets a timeout time of 3600 seconds (1 hour):
+Följande på begäran-aktivitet anger till exempel en tids gräns på 3600 sekunder (1 timme):
 
 ```azurecli
 # Environment variable for container command line
@@ -103,15 +103,15 @@ az acr run \
   /dev/null
 ```
 
-## <a name="example-scheduled-purge-of-multiple-repositories-in-a-registry"></a>Example: Scheduled purge of multiple repositories in a registry
+## <a name="example-scheduled-purge-of-multiple-repositories-in-a-registry"></a>Exempel: schemalagd rensning av flera databaser i ett register
 
-This example walks through using `acr purge` to periodically clean up multiple repositories in a registry. For example, you might have a development pipeline that pushes images to the `samples/devimage1` and `samples/devimage2` repositories. You periodically import development images into a production repository for your deployments, so you no longer need the development images. On a weekly basis, you purge the `samples/devimage1` and `samples/devimage2` repositories, in preparation for the coming week's work.
+I det här exemplet går vi igenom hur du använder `acr purge` för att regelbundet rensa flera databaser i ett register. Du kan till exempel ha en utvecklings pipeline som skickar avbildningar till `samples/devimage1` och `samples/devimage2`-databaser. Du kan regelbundet importera utvecklings avbildningar till ett produktions lager för dina distributioner, så att du inte längre behöver utvecklings avbildningarna. I varje vecka rensar du `samples/devimage1` och `samples/devimage2`s databaser, som förberedelse för den kommande veckan.
 
-### <a name="preview-the-purge"></a>Preview the purge
+### <a name="preview-the-purge"></a>Förhandsgranska rensningen
 
-Before deleting data, we recommend running an on-demand purge task using the `--dry-run` parameter. This option allows you to see the tags and manifests that the command will purge, without removing any data. 
+Innan du tar bort data rekommenderar vi att du kör en aktivitet på begäran med hjälp av parametern `--dry-run`. Med det här alternativet kan du se taggar och manifest som kommandot tar bort, utan att ta bort några data. 
 
-In the following example, the filter in each repository selects all tags. The `--ago 0d` parameter matches images of all ages in the repositories that match the filters. Modify the selection criteria as needed for your scenario. The `--untagged` parameter indicates to delete manifests in addition to tags. The container command is passed to the [az acr run][az-acr-run] command using an environment variable.
+I följande exempel väljer filtret i varje databas alla Taggar. Parametern `--ago 0d` matchar avbildningar av alla åldrar i databaserna som matchar filtren. Ändra urvalskriterierna efter behov för ditt scenario. Parametern `--untagged` anger att manifest ska tas bort förutom taggar. Container-kommandot skickas till kommandot [AZ ACR Run][az-acr-run] med en miljö variabel.
 
 ```azurecli
 # Environment variable for container command line
@@ -126,7 +126,7 @@ az acr run \
   /dev/null
 ```
 
-Review the command output to see the tags and manifests that match the selection parameters. Because the command is run with `--dry-run`, no data is deleted.
+Granska kommandots utdata för att se de taggar och manifest som matchar urvals parametrarna. Eftersom kommandot körs med `--dry-run`raderas inga data.
 
 Exempel på utdata:
 
@@ -150,9 +150,9 @@ Number of deleted manifests: 4
 [...]
 ```
 
-### <a name="schedule-the-purge"></a>Schedule the purge
+### <a name="schedule-the-purge"></a>Schemalägg rensningen
 
-After you've verified the dry run, create a scheduled task to automate the purge. The following example schedules a weekly task on Sunday at 1:00 UTC to run the previous purge command:
+När du har verifierat den torra körningen skapar du en schemalagd aktivitet som automatiserar rensningen. I följande exempel schemaläggs en veckovis aktivitet på söndag vid 1:00 UTC för att köra föregående rensnings kommando:
 
 ```azurecli
 # Environment variable for container command line
@@ -168,13 +168,13 @@ az acr task create --name weeklyPurgeTask \
   --context /dev/null
 ```
 
-Run the [az acr task show][az-acr-task-show] command to see that the timer trigger is configured.
+Kör kommandot [AZ ACR Task show][az-acr-task-show] för att se att timer-utlösaren har kon figurer ATS.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Learn about other options to [delete image data](container-registry-delete.md) in Azure Container Registry.
+Lär dig mer om andra alternativ för att [ta bort bilddata](container-registry-delete.md) i Azure Container Registry.
 
-For more information about image storage, see [Container image storage in Azure Container Registry](container-registry-storage.md).
+Mer information om avbildnings lagring finns [i behållar avbildnings lagring i Azure Container Registry](container-registry-storage.md).
 
 <!-- LINKS - External -->
 

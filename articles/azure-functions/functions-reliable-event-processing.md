@@ -1,6 +1,6 @@
 ---
-title: Azure Functions reliable event processing
-description: Avoid missing Event Hub messages in Azure Functions
+title: Azure Functions tillförlitlig händelse bearbetning
+description: Undvik Event Hub-meddelanden som saknas i Azure Functions
 author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/12/2019
@@ -12,123 +12,123 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74230374"
 ---
-# <a name="azure-functions-reliable-event-processing"></a>Azure Functions reliable event processing
+# <a name="azure-functions-reliable-event-processing"></a>Azure Functions tillförlitlig händelse bearbetning
 
-Event processing is one of the most common scenarios associated with serverless architecture. This article describes how to create a reliable message processor with Azure Functions to avoid losing messages.
+Händelse bearbetning är ett av de vanligaste scenarierna som är kopplade till arkitektur utan server. I den här artikeln beskrivs hur du skapar en tillförlitlig meddelande processor med Azure Functions för att undvika att förlora meddelanden.
 
-## <a name="challenges-of-event-streams-in-distributed-systems"></a>Challenges of event streams in distributed systems
+## <a name="challenges-of-event-streams-in-distributed-systems"></a>Utmaningar med händelse strömmar i distribuerade system
 
-Consider a system that sends events at a constant rate  of 100 events per second. At this rate, within minutes multiple parallel Functions instances can consume the incoming 100 events every second.
+Överväg ett system som skickar händelser till en konstant hastighet på 100 händelser per sekund. Inom några minuter kan instanser med flera parallell funktioner använda inkommande 100-händelser varje sekund.
 
-However, any of the following less-optimal conditions are possible:
+Något av följande mindre optimala villkor är dock möjligt:
 
-- What if the event publisher sends a corrupt event?
-- What if your Functions instance encounters unhandled exceptions?
-- What if a downstream system goes offline?
+- Vad händer om händelse utgivaren skickar en skadad händelse?
+- Vad händer om din functions-instans påträffar ohanterade undantag?
+- Vad händer om ett underordnat system kopplas från?
 
-How do you handle these situations while preserving the throughput of your application?
+Hur kan du hantera dessa situationer samtidigt som du bevarar program varans data flöde?
 
-With queues, reliable messaging comes naturally. When paired with a Functions trigger, the function creates a lock on the queue message. If processing fails, the lock is released to allow another instance to retry processing. Processing then continues until either the message is evaluated successfully, or it is added to a poison queue.
+Med köer kommer Reliable Messaging att bli naturligt. När den kombineras med en Functions-utlösare skapar funktionen ett lås i Queue-meddelandet. Om bearbetningen Miss lyckas frigörs låset för att tillåta en annan instans att försöka bearbeta igen. Bearbetningen fortsätter tills antingen meddelandet utvärderas korrekt eller läggs till i en Poison-kö.
 
-Even while a single queue message may remain in a retry cycle, other parallel executions continue to keep to dequeueing remaining messages. The result is that the overall throughput remains largely unaffected by one bad message. However, storage queues don’t guarantee ordering and aren’t optimized for the high throughput demands required by Event Hubs.
+Även om ett enskilt Queue-meddelande kan finnas kvar i en återförsöks cykel fortsätter andra parallella körningar att fortsätta att köa återstående meddelanden. Resultatet är att det totala data flödet fortfarande fortfarande påverkas av ett dåligt meddelande. Lagrings köer garanterar dock inte beställningar och är inte optimerade för de höga data flödes krav som krävs av Event Hubs.
 
-By contrast, Azure Event Hubs doesn't include a locking concept. To allow for features like high-throughput, multiple consumer groups, and replay-ability, Event Hubs events behave more like a video player. Events are read from a single point in the stream per partition. From the pointer you can read forwards or backwards from that location, but you have to choose to move the pointer for events to process.
+Som kontrast inkluderar inte Azure Event Hubs ett låsnings begrepp. För att tillåta funktioner som hög genom strömning, flera konsument grupper och omuppspelnings möjligheter, fungerar Event Hubs händelser som en Videos pelare. Händelser läses från en enda punkt i strömmen per partition. Från pekaren kan du läsa framåt eller bakåt från den platsen, men du måste välja att flytta pekaren för händelser att bearbeta.
 
-When errors occur in a stream, if you decide to keep the pointer in the same spot, event processing is blocked until the pointer is advanced. In other words, if the pointer is stopped to deal with problems processing a single event, the unprocessed events begin piling up.
+Om det uppstår fel i en data ström, om du bestämmer dig för att behålla pekaren på samma plats, blockeras händelse bearbetningen tills pekaren är avancerad. Med andra ord, om pekaren har stoppats för att hantera problem med att bearbeta en enskild händelse, börjar de obearbetade händelserna Piling.
 
-Azure Functions avoids deadlocks by advancing the stream's pointer regardless of success or failure. Since the pointer keeps advancing, your functions need to deal with failures appropriately.
+Azure Functions undviker död lägen genom att spela upp strömmens pekare, oavsett om det lyckas eller Miss lyckas. Eftersom pekaren fortsätter att fungera måste dina funktioner hantera problem på lämpligt sätt.
 
-## <a name="how-azure-functions-consumes-event-hubs-events"></a>How Azure Functions consumes Event Hubs events
+## <a name="how-azure-functions-consumes-event-hubs-events"></a>Hur Azure Functions använder Event Hubs händelser
 
-Azure Functions consumes Event Hub events while cycling through the following steps:
+Azure Functions använder Event Hub-händelser samtidigt som du går igenom följande steg:
 
-1. A pointer is created and persisted in Azure Storage for each partition of the event hub.
-2. When new messages are received (in a batch by default), the host attempts to trigger the function with the batch of messages.
-3. If the function completes execution (with or without exception) the pointer advances and a checkpoint is saved to the storage account.
-4. If conditions prevent the function execution from completing, the host fails to progress the pointer. If the pointer isn't advanced, then later checks end up processing the same messages.
-5. Repeat steps 2–4
+1. En pekare skapas och sparas i Azure Storage för varje partition i händelsehubben.
+2. När nya meddelanden tas emot (i en batch som standard) försöker värden att utlösa funktionen med meddelande gruppen.
+3. Om funktionen Slutför körningen (med eller utan undantag) och en kontroll punkt sparas på lagrings kontot.
+4. Om villkoren förhindrar att funktions körningen slutförs, går det inte att fortsätta med pekaren. Om pekaren inte är avancerad kontrollerar senare att samma meddelanden har bearbetats.
+5. Upprepa steg 2 – 4
 
-This behavior reveals a few important points:
+Det här beteendet visar några viktiga punkter:
 
-- *Unhandled exceptions may cause you to lose messages.* Executions that result in an exception will continue to progress the pointer.
-- *Functions guarantees at-least-once delivery.* Your code and dependent systems may need to [account for the fact that the same message could be received twice](./functions-idempotent.md).
+- *Ohanterade undantag kan innebära att du förlorar meddelanden.* Körningar som resulterar i ett undantag fortsätter att försätta pekaren.
+- *Functions garanterar minst en leverans.* Din kod och beroende system kan behöva [konto för att samma meddelande ska kunna tas emot två gånger](./functions-idempotent.md).
 
 ## <a name="handling-exceptions"></a>Hantering av undantag
 
-As a general rule, every function should include a [try/catch block](./functions-bindings-error-pages.md) at the highest level of code. Specifically, all functions that consume Event Hubs events should have a `catch` block. That way, when an exception is raised, the catch block handles the error before the pointer progresses.
+Som en allmän regel ska varje funktion innehålla ett [try/catch-block](./functions-bindings-error-pages.md) på den högsta kod nivån. Mer specifikt bör alla funktioner som använder Event Hubs händelser ha ett `catch`-block. När ett undantag aktive RAS hanterar catch-blocket felet innan pekaren fortskrider.
 
-### <a name="retry-mechanisms-and-policies"></a>Retry mechanisms and policies
+### <a name="retry-mechanisms-and-policies"></a>Försök igen mekanismer och principer
 
-Some exceptions are transient in nature and don't reappear when an operation is attempted again moments later. This is why the first step is always to retry the operation. You could write retry processing rules yourself, but they are so commonplace that a number of tools available. Using these libraries allow you to define robust retry-policies, which can also help preserve processing order.
+Vissa undantag är tillfälliga i natur och visas inte igen när en åtgärd försöker igen senare. Det är därför som det första steget alltid ska försöka utföra åtgärden igen. Du kan skriva process regler för nya försök själv, men de är vanliga så att ett antal verktyg är tillgängliga. Med hjälp av dessa bibliotek kan du definiera robusta återförsök – principer, som också kan hjälpa till att bevara bearbetnings ordningen.
 
-Introducing fault-handling libraries to your functions allow you to define both basic and advanced retry policies. For instance, you could implement a policy that follows a workflow illustrated by the following rules:
+Genom att införa fel hanterings bibliotek i dina funktioner kan du definiera både grundläggande och avancerade principer för återförsök. Du kan till exempel implementera en princip som följer ett arbets flöde som illustreras i följande regler:
 
-- Try to insert a message three times (potentially with a delay between retries).
-- If the eventual outcome of all retries is a failure, then add a message to a queue so processing can continue on the stream.
-- Corrupt or unprocessed messages are then handled later.
+- Försök att infoga ett meddelande tre gånger (eventuellt en fördröjning mellan återförsök).
+- Om det slutliga resultatet av alla nya försök är ett fel, lägger du till ett meddelande i en kö så att bearbetningen kan fortsätta på data strömmen.
+- Skadade eller obearbetade meddelanden hanteras sedan senare.
 
 > [!NOTE]
-> [Polly](https://github.com/App-vNext/Polly) is an example of a resilience and transient-fault-handling library for C# applications.
+> [Polly](https://github.com/App-vNext/Polly) är ett exempel på ett flexibelt och tillfälligt fel hanterings bibliotek för C# program.
 
-When working with pre-complied C# class libraries, [exception filters](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-catch) allow you to run code whenever an unhandled exception occurs.
+När du arbetar med föruppfyllda C# klass bibliotek kan du med [undantags filter](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-catch) köra kod när ett ohanterat undantag inträffar.
 
-Samples that demonstrate how to use exception filters are available in the [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) repo.
+Exempel som visar hur du använder undantags filter finns i [Azure WEBJOBS SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) -lagrings platsen.
 
-## <a name="non-exception-errors"></a>Non-exception errors
+## <a name="non-exception-errors"></a>Fel som inte är undantag
 
-Some issues arise even when an error is not present. For example, consider a failure that occurs in the middle of an execution. In this case, if a function doesn’t complete execution, the offset pointer is never progressed. If the pointer doesn't advance, then any instance that runs after a failed execution continues to read the same messages. This situation provides an "at-least-once" guarantee.
+Vissa problem uppstår även när det inte finns något fel. Överväg till exempel ett fel som inträffar i mitten av en körning. I det här fallet, om en funktion inte slutför körningen, kommer förskjutnings pekaren aldrig att gå vidare. Om pekaren inte går vidare fortsätter alla instanser som körs efter en misslyckad körning att läsa samma meddelanden. Den här situationen ger en "minst en gång"-garanti.
 
-The assurance that every message is processed at least one time implies that some messages may be processed more than once. Your function apps need to be aware of this possibility and must be built around the [principles of idempotency](./functions-idempotent.md).
+Försäkran att varje meddelande bearbetas minst en gång innebär att vissa meddelanden kan bearbetas mer än en gång. Dina funktions program måste vara medvetna om den här möjligheten och måste byggas runt [principerna för idempotens](./functions-idempotent.md).
 
-## <a name="stop-and-restart-execution"></a>Stop and restart execution
+## <a name="stop-and-restart-execution"></a>Stoppa och starta om körning
 
-While a few errors may be acceptable, what if your app experiences significant failures? You may want to stop triggering on events until the system reaches a healthy state. Having the opportunity pause processing is often achieved with a circuit breaker pattern. The circuit breaker pattern allows your app to "break the circuit" of the event process and resume at a later time.
+Några fel kan vara acceptabla, vad händer om din app upplever betydande fel? Du kanske vill stoppa inaktive ring av händelser tills systemet når ett felfritt tillstånd. Det går ofta att pausa bearbetningen med ett krets brytare mönster. Mönstret krets brytare gör att din app kan "bryta kretsen" av händelse processen och återuppta vid ett senare tillfälle.
 
-There are two pieces required to implement a circuit breaker in an event process:
+Det finns två bitar som krävs för att implementera en krets brytare i en händelse process:
 
-- Shared state across all instances to track and monitor health of the circuit
-- Master process that can manage the circuit state (open or closed)
+- Delat tillstånd över alla instanser för att spåra och övervaka kretsens hälso tillstånd
+- Huvud process som kan hantera kretsens tillstånd (öppen eller stängd)
 
-Implementation details may vary, but to share state among instances you need a storage mechanism. You may choose to store state in Azure Storage, a Redis cache, or any other account that is accessible by a collection of functions.
+Implementerings informationen kan variera, men för att dela tillstånd mellan instanser behöver du en lagrings funktion. Du kan välja att lagra tillstånd i Azure Storage, en Redis-cache eller något annat konto som är tillgängligt för en samling funktioner.
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) or [durable entities](./durable/durable-functions-overview.md) are a natural fit to manage the workflow and circuit state. Other services may work just as well, but logic apps are used for this example. Using logic apps, you can pause and restart a function's execution giving you the control required to implement the circuit breaker pattern.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) eller [varaktiga enheter](./durable/durable-functions-overview.md) är en naturlig anpassning för att hantera arbets flödet och krets läget. Andra tjänster fungerar även lika bra, men Logic Apps används i det här exemplet. Med hjälp av Logic Apps kan du pausa och starta om en funktions körning som ger dig den kontroll som krävs för att implementera krets brytar mönstret.
 
-### <a name="define-a-failure-threshold-across-instances"></a>Define a failure threshold across instances
+### <a name="define-a-failure-threshold-across-instances"></a>Definiera ett tröskelvärde för en tröskel över instanser
 
-To account for multiple instances processing events simultaneously, persisting shared external state is needed to monitor the health of the circuit.
+För att kunna hantera flera instanser bearbetar händelser samtidigt, så behövs ett beständigt delat externt tillstånd för att övervaka kretsens hälso tillstånd.
 
-A rule you may choose to implement might enforce that:
+En regel som du kan välja att implementera kan genomdriva följande:
 
-- If there are more than 100 eventual failures within 30 seconds across all instances, then break the circuit and stop triggering on new messages.
+- Om det finns fler än 100 eventuella fel inom 30 sekunder i alla instanser, Bryt du kretsen och slutar utlösa nya meddelanden.
 
-The implementation details will vary given your needs, but in general you can create a system that:
+Implementerings informationen varierar beroende på dina behov, men i allmänhet kan du skapa ett system som:
 
-1. Log failures to a storage account (Azure Storage, Redis, etc.)
-1. When new failure is logged, inspect the rolling count to see if the threshold is met (for example, more than 100 in last 30 seconds).
-1. If the threshold is met, emit an event to Azure Event Grid telling the system to break the circuit.
+1. Logg felen till ett lagrings konto (Azure Storage, Redis osv.)
+1. När ett nytt haveri loggas bör du kontrol lera antalet rullandeser för att se om tröskelvärdet är uppfyllt (till exempel mer än 100 under de senaste 30 sekunderna).
+1. Om tröskelvärdet är uppfyllt genererar du en händelse för att Azure Event Grid att systemet ska bryta kretsen.
 
-### <a name="managing-circuit-state-with-azure-logic-apps"></a>Managing circuit state with Azure Logic Apps
+### <a name="managing-circuit-state-with-azure-logic-apps"></a>Hantera krets tillstånd med Azure Logic Apps
 
-The following description highlights one way you could create an Azure Logic App to halt a Functions app from processing.
+Följande beskrivning visar ett sätt som du kan skapa en Azure Logic-app för att stoppa en Functions-app från bearbetning.
 
-Azure Logic Apps comes with built-in connectors to different services, features stateful orchestrations, and is a natural choice to manage circuit state. After detecting the circuit needs to break, you can build a logic app to implement the following workflow:
+Azure Logic Apps innehåller inbyggda kopplingar till olika tjänster, har tillstånds känsliga dirigeringar och är ett naturligt alternativ för att hantera krets tillstånd. När du har identifierat kretsen måste brytas, kan du bygga en Logic app för att implementera följande arbets flöde:
 
-1. Trigger an Event Grid workflow and stop the Azure Function (with the Azure Resource connector)
-1. Send a notification email that includes an option to restart the workflow
+1. Utlös ett Event Grid-arbetsflöde och stoppa Azure-funktionen (med Azure Resource Connector)
+1. Skicka ett e-postmeddelande som innehåller ett alternativ för att starta om arbets flödet
 
-The email recipient can investigate the health of the circuit and, when appropriate, restart the circuit via a link in the notification email. As the workflow restarts the function, messages are processed from the last Event Hub checkpoint.
+E-postmottagaren kan undersöka hälso tillståndet för kretsen och vid behov starta om kretsen via en länk i e-postmeddelandet. När arbets flödet startar om funktionen bearbetas meddelanden från den sista kontroll punkten för Event Hub.
 
-Using this approach, no messages are lost, all messages are processed in order, and you can break the circuit as long as necessary.
+Med den här metoden går inga meddelanden förlorade, alla meddelanden bearbetas i ordning och du kan dela upp kretsen så länge som det behövs.
 
 ## <a name="resources"></a>Resurser
 
-- [Reliable event processing samples](https://github.com/jeffhollan/functions-csharp-eventhub-ordered-processing)
-- [Azure Durable Functions Circuit Breaker](https://github.com/jeffhollan/functions-durable-actor-circuitbreaker)
+- [Exempel på Reliable Event Processing](https://github.com/jeffhollan/functions-csharp-eventhub-ordered-processing)
+- [Azure Durable Functions krets brytare](https://github.com/jeffhollan/functions-durable-actor-circuitbreaker)
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information finns i följande resurser:
 
-- [Azure Functions error handling](./functions-bindings-error-pages.md)
+- [Azure Functions fel hantering](./functions-bindings-error-pages.md)
 - [Automatisera storleksändring av överförda bilder med Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=dotnet)
 - [Skapa en funktion som kan integreras med Azure Logic Apps](./functions-twitter-email.md)

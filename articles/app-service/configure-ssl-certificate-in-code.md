@@ -29,7 +29,7 @@ Den här metoden för att använda certifikat i din kod använder SSL-funktioner
 
 När du låter App Service hantera dina SSL-certifikat kan du underhålla certifikaten och program koden separat och skydda känsliga data.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att följa den här instruktions guiden:
 

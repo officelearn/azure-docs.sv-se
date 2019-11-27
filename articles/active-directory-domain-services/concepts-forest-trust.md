@@ -1,6 +1,6 @@
 ---
-title: How trusts work for Azure AD Domain Services | Microsoft Docs
-description: Learn more about how forest trust work with Azure AD Domain Services
+title: Så här fungerar förtroenden för Azure AD Domain Services | Microsoft Docs
+description: Lär dig mer om hur skogs förtroende fungerar med Azure AD Domain Services
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -17,266 +17,266 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74233706"
 ---
-# <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>How trust relationships work for resource forests in Azure Active Directory Domain Services
+# <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Så här fungerar förtroende relationer för resurs skogar i Azure Active Directory Domain Services
 
-Active Directory Domain Services (AD DS) provides security across multiple domains or forests through domain and forest trust relationships. Before authentication can occur across trusts, Windows must first check if the domain being requested by a user, computer, or service has a trust relationship with the domain of the requesting account.
+Active Directory Domain Services (AD DS) tillhandahåller säkerhet över flera domäner eller skogar genom förtroende relationer mellan domäner och skogar. Innan autentisering kan ske över förtroenden måste Windows först kontrol lera om domänen begärs av en användare, dator eller tjänst har en förtroende relation med domänen för det begär ande kontot.
 
-To check for this trust relationship, the Windows security system computes a trust path between the domain controller (DC) for the server that receives the request and a DC in the domain of the requesting account.
+För att söka efter den här förtroende relationen beräknar Windows-säkerhetssystemet en förtroende väg mellan domänkontrollanten (DC) för den server som tar emot begäran och DOMÄNKONTROLLANTen i domänen för det begärda kontot.
 
-The access control mechanisms provided by AD DS and the Windows distributed security model provide an environment for the operation of domain and forest trusts. For these trusts to work properly, every resource or computer must have a direct trust path to a DC in the domain in which it is located.
+De åtkomst kontroll metoder som tillhandahålls av AD DS och Windows-distribuerad säkerhets modell ger en miljö för driften av domän-och skogs förtroenden. För att dessa förtroenden ska fungera korrekt måste varje resurs eller dator ha en direkt förtroende väg till en DOMÄNKONTROLLANT i domänen där den finns.
 
-The trust path is implemented by the Net Logon service using  an authenticated remote procedure call (RPC) connection to the trusted domain authority. A secured channel also extends to other AD DS domains through interdomain trust relationships. This secured channel is used to obtain and verify security information, including security identifiers (SIDs) for users and groups.
+Förtroende vägen implementeras av tjänsten Net Logon med en autentiserad RPC-anslutning (Remote Procedure Call) till den betrodda domän utfärdaren. En säker kanal utökar också andra AD DS-domäner genom förtroende relationer mellan domäner. Den här säkra kanalen används för att hämta och verifiera säkerhets information, inklusive säkerhets identifierare (sid) för användare och grupper.
 
-## <a name="trust-relationship-flows"></a>Trust relationship flows
+## <a name="trust-relationship-flows"></a>Betrodda Relations flöden
 
-The flow of secured communications over trusts determines the elasticity of a trust. How you create or configure a trust determines how far the communication extends within or across forests.
+Flödet av skyddade kommunikationer över förtroenden fastställer elastiskheten för ett förtroende. Hur du skapar eller konfigurerar ett förtroende bestämmer hur långt kommunikationen ska utsättas inom eller mellan skogar.
 
-The flow of communication over trusts is determined by the direction of the trust. Trusts can be one-way or two-way, and can be transitive or non-transitive.
+Flödet av kommunikation över förtroenden bestäms av förtroendets riktning. Förtroenden kan vara enkelriktade eller dubbelriktade och kan vara transitiva eller icke-transitiva.
 
-The following diagram shows that all domains in *Tree 1* and *Tree 2* have transitive trust relationships by default. As a result, users in *Tree 1* can access resources in domains in *Tree 2* and users in *Tree 1* can access resources in *Tree 2*, when the proper permissions are assigned at the resource.
+Följande diagram visar att alla domäner i *träd 1* och *träd 2* har transitiva förtroende relationer som standard. Därför kan användare i *träd 1* komma åt resurser i domäner i *träd 2* och användare i *träd 1* kan komma åt resurser i *träd 2*, när rätt behörigheter tilldelas till resursen.
 
-![Diagram of trust relationships between two forests](./media/concepts-forest-trust/trust-relationships.png)
+![Diagram över förtroende relationer mellan två skogar](./media/concepts-forest-trust/trust-relationships.png)
 
-### <a name="one-way-and-two-way-trusts"></a>One-way and two-way trusts
+### <a name="one-way-and-two-way-trusts"></a>Enkelriktade och dubbelriktade förtroenden
 
-Trust relationships enable access to resources can be either one-way or two-way.
+Förtroende relationer ger åtkomst till resurser kan vara antingen envägs eller dubbelriktat.
 
-A one-way trust is a unidirectional authentication path created between two domains. In a one-way trust between *Domain A* and *Domain B*, users in *Domain A* can access resources in *Domain B*. However, users in *Domain B* can't access resources in *Domain A*.
+Ett enkelriktat förtroende är en enkelriktad autentiserings-sökväg som skapas mellan två domäner. I ett enkelriktat förtroende mellan *domän a* och *domän B*kan användare i *domän a* komma åt resurser i *domän B*. Användare i *domän B* kan dock inte komma åt resurser i *domän A*.
 
-Some one-way trusts can be either non-transitive or transitive depending on the type of trust being created.
+Vissa enkelriktade förtroenden kan antingen vara icke-transitiva eller transitiva beroende på vilken typ av förtroende som skapas.
 
-In a two-way trust, *Domain A* trusts *Domain B* and *Domain B* trusts *Domain A*. This configuration means that authentication requests can be passed between the two domains in both directions. Some two-way relationships can be non-transitive or transitive depending on the type of trust being created.
+I ett dubbelriktat förtroende har *domän a* förtroende för *domän B* och *domän b* förtroende för *domän a*. Den här konfigurationen innebär att autentiseringsbegäranden kan skickas mellan de två domänerna i båda riktningarna. Vissa tvåvägs relationer kan vara icke-transitiva eller transitiva beroende på vilken typ av förtroende som skapas.
 
-All domain trusts in an AD DS forest are two-way, transitive trusts. When a new child domain is created, a two-way, transitive trust is automatically created between the new child domain and the parent domain.
+Alla domän förtroenden i en AD DS-skog är dubbelriktade, transitiva förtroenden. När en ny underordnad domän skapas, skapas ett dubbelriktat, transitivt förtroende automatiskt mellan den nya underordnade domänen och den överordnade domänen.
 
-### <a name="transitive-and-non-transitive-trusts"></a>Transitive and non-transitive trusts
+### <a name="transitive-and-non-transitive-trusts"></a>Transitiva och icke-transitiva förtroenden
 
-Transitivity determines whether a trust can be extended outside of the two domains with which it was formed.
+Transitivitet avgör om ett förtroende kan utökas utanför de två domäner som det har skapats med.
 
-* A transitive trust can be used to extend trust relationships with other domains.
-* A non-transitive trust can be used to deny trust relationships with other domains.
+* Ett transitivt förtroende kan användas för att utöka förtroende relationer med andra domäner.
+* Ett icke-transitivt förtroende kan användas för att neka förtroende relationer med andra domäner.
 
-Each time you create a new domain in a forest, a two-way, transitive trust relationship is automatically created between the new domain and its parent domain. If child domains are added to the new domain, the trust path flows upward through the domain hierarchy extending the initial trust path created between the new domain and its parent domain. Transitive trust relationships flow upward through a domain tree as it is formed, creating transitive trusts between all domains in the domain tree.
+Varje gång du skapar en ny domän i en skog skapas automatiskt en dubbelriktad, transitiv förtroende relation mellan den nya domänen och dess överordnade domän. Om underordnade domäner läggs till i den nya domänen, flödar förtroende vägen uppåt genom domänhierarkin som utökar den inledande förtroende vägen som skapas mellan den nya domänen och dess överordnade domän. Transitiva förtroende relationer flödar uppåt genom ett domän träd när det skapas, vilket skapar transitiva förtroenden mellan alla domäner i domän trädet.
 
-Authentication requests follow these trust paths, so accounts from any domain in the forest can be authenticated by any other domain in the forest. With a single logon process, accounts with the proper permissions can access resources in any domain in the forest.
+Autentiseringsbegäranden följer dessa förtroende vägar, så konton från vilken domän som helst i skogen kan autentiseras av en annan domän i skogen. Med en enda inloggnings process kan konton med rätt behörigheter komma åt resurser i valfri domän i skogen.
 
-## <a name="forest-trusts"></a>Forest trusts
+## <a name="forest-trusts"></a>Skogsförtroenden
 
-Forest trusts help you to manage a segmented AD DS infrastructures and support access to resources and other objects across multiple forests. Forest trusts are useful for service providers, companies undergoing mergers or acquisitions, collaborative business extranets, and companies seeking a solution for administrative autonomy.
+Skogs förtroenden hjälper dig att hantera en segmenterad AD DS-infrastruktur och har stöd för åtkomst till resurser och andra objekt i flera skogar. Skogs förtroenden är användbara för tjänste leverantörer, företag som betjänar fusioner eller förvärv, gemensamma företags extra nät och företag som söker en lösning för administrativ självständighet.
 
-Using forest trusts, you can link two different forests to form a one-way or two-way transitive trust relationship. A forest trust allows administrators to connect two AD DS forests with a single trust relationship to provide a seamless authentication and authorization experience across the forests.
+Med skogs förtroenden kan du länka två olika skogar för att bilda en enkelriktad eller dubbelriktad transitiv förtroende relation. Ett skogs förtroende gör att administratörer kan ansluta två AD DS-skogar med en enda förtroende relation för att ge en sömlös autentiserings-och auktoriserings upplevelse i skogarna.
 
-A forest trust can only be created between a forest root domain in one forest and a forest root domain in another forest. Forest trusts can only be created between two forests and can't be implicitly extended to a third forest. This behavior means that if a forest trust is created between *Forest 1* and *Forest 2*, and another forest trust is created between *Forest 2* and *Forest 3*, *Forest 1* doesn't have an implicit trust with *Forest 3*.
+Ett skogs förtroende kan bara skapas mellan en skogs rots domän i en skog och en skogs rots domän i en annan skog. Skogs förtroenden kan bara skapas mellan två skogar och kan inte implicit utökas till en tredje skog. Detta innebär att om ett skogs förtroende skapas mellan *skog 1* och *skog 2*och ett annat skogs förtroende skapas mellan *skog 2* och *skog 3*, har *skog 1* inte ett implicit förtroende med *skog 3*.
 
-The following diagram shows two separate forest trust relationships between three AD DS forests in a single organization.
+I följande diagram visas två separata skogs förtroende relationer mellan tre AD DS-skogar i en enda organisation.
 
-![Diagram of forest trusts relationships within a single organization](./media/concepts-forest-trust/forest-trusts.png)
+![Diagram över skogs förtroende relationer inom en enskild organisation](./media/concepts-forest-trust/forest-trusts.png)
 
-This example configuration provides the following access:
+Den här exempel konfigurationen ger följande åtkomst:
 
-* Users in *Forest 2* can access resources in any domain in either *Forest 1* or *Forest 3*
-* Users in *Forest 3* can access resources in any domain in *Forest 2*
-* Users in *Forest 1* can access resources in any domain in *Forest 2*
+* Användare i *skog 2* kan komma åt resurser i valfri domän i antingen *skog 1* eller *skog 3*
+* Användare i *skog 3* kan komma åt resurser i vilken domän som helst i *skog 2*
+* Användare i *skog 1* kan komma åt resurser i vilken domän som helst i *skog 2*
 
-This configuration doesn't allow users in *Forest 1* to access resources in *Forest 3* or vice versa. To allow users in both *Forest 1* and *Forest 3* to share resources, a two-way transitive trust must be created between the two forests.
+Den här konfigurationen tillåter inte användare i *skog 1* att komma åt resurser i *skog 3* eller vice versa. För att tillåta användare i både *skog 1* och *skog 3* att dela resurser, måste ett dubbelriktat transitivt förtroende skapas mellan de två skogarna.
 
-If a one-way forest trust is created between two forests, members of the trusted forest can utilize resources located in the trusting forest. However, the trust operates in only one direction.
+Om ett enkelriktat skogs förtroende skapas mellan två skogar kan medlemmar i den betrodda skogen använda resurser som finns i skogen med förtroende. Förtroendet fungerar dock bara i en riktning.
 
-For example, when a one-way, forest trust is created between *Forest 1* (the trusted forest) and *Forest 2* (the trusting forest):
+Till exempel skapas ett enkelriktat skogs förtroende mellan *skog 1* (den betrodda skogen) och *skog 2* (skogen med förtroende):
 
-* Members of *Forest 1* can access resources located in *Forest 2*.
-* Members of *Forest 2* can't access resources located in *Forest 1* using the same trust.
+* Medlemmar i *skog 1* kan komma åt resurser som finns i *skog 2*.
+* Medlemmar i *skog 2* kan inte komma åt resurser som finns i *skog 1* med samma förtroende.
 
 > [!IMPORTANT]
-> Azure AD Domain Services resource forest only supports a one-way forest trust to on-premises Active Directory.
+> Azure AD Domain Services resurs skogen stöder endast ett enkelriktat skogs förtroende till lokala Active Directory.
 
-### <a name="forest-trust-requirements"></a>Forest trust requirements
+### <a name="forest-trust-requirements"></a>Krav för skogs förtroende
 
-Before you can create a forest trust, you need to verify you have the correct Domain Name System (DNS) infrastructure in place. Forest trusts can only be created when one of the following DNS configurations is available:
+Innan du kan skapa ett skogs förtroende måste du kontrol lera att du har rätt Domain Name System (DNS)-infrastruktur på plats. Skogs förtroenden kan bara skapas när någon av följande DNS-konfigurationer är tillgänglig:
 
-* A single root DNS server is the root DNS server for both forest DNS namespaces - the root zone contains delegations for each of the DNS namespaces and the root hints of all DNS servers include the root DNS server.
-* Where there is no shared root DNS server, and the root DNS servers for each forest DNS namespace use DNS conditional forwarders for each DNS namespace to route queries for names in the other namespace.
+* En enda DNS-rotserver är rot-DNS-servern för båda skogs-DNS-namnområden – rot zonen innehåller delegeringar för var och en av DNS-namnområdena och rot tipsen för alla DNS-servrar inkluderar rot-DNS-servern.
+* Där det inte finns någon delad rot-DNS-server och rot-DNS-servrarna för varje skogs DNS-namnrymd använder DNS-vidarebefordrare för varje DNS-namnområde för att dirigera frågor om namn i det andra namn området.
 
     > [!IMPORTANT]
-    > Azure AD Domain Services resource forest must use this DNS configuration. Hosting a DNS namespace other than the resource forest DNS namespace is not a feature of Azure AD Domain Services. Conditional forwarders is the proper configuration.
+    > Azure AD Domain Services resurs skogen måste använda den här DNS-konfigurationen. Värdbaserade DNS-namnrymder än DNS-namnrymden för resurs skogen är inte en funktion i Azure AD Domain Services. Villkorliga vidarebefordrare är rätt konfiguration.
 
-* Where there is no shared root DNS server, and the root DNS servers for each forest DNS namespace are use DNS secondary zones are configured in each DNS namespace to route queries for names in the other namespace.
+* Där det inte finns någon delad DNS-rotserver, och rot-DNS-servrarna för varje skogs DNS-namnrymd använder DNS-sekundära zoner konfigureras i varje DNS-namnområde för att dirigera frågor om namn i det andra namn området.
 
-To create a forest trust, you must be a member of the Domain Admins group (in the forest root domain) or the Enterprise Admins group in Active Directory. Each trust is assigned a password that the administrators in both forests must know. Members of Enterprise Admins in both forests can create the trusts in both forests at once and, in this scenario, a password that is cryptographically random is automatically generated and written for both forests.
+Om du vill skapa ett skogs förtroende måste du vara medlem i gruppen domän administratörer (i skogs rots domänen) eller gruppen företags administratörer i Active Directory. Varje förtroende tilldelas ett lösen ord som administratörerna i båda skogarna måste känna till. Medlemmar i företags administratörer i båda skogarna kan skapa förtroenden i båda skogarna samtidigt, och i det här scenariot genereras ett lösen ord som är kryptografiskt slumpmässigt automatiskt och skrivs för båda skogarna.
 
-The outbound forest trust for Azure AD Domain Services is created in the Azure portal. You don't manually create the trust with the managed domain itself. The incoming forest trust must be configured by a user with the privileges previously noted in the on-premises Active Directory.
+Det utgående skogs förtroendet för Azure AD Domain Services skapas i Azure Portal. Du skapar inte förtroendet manuellt med den hanterade domänen. Det inkommande skogs förtroendet måste konfigureras av en användare med privilegier som tidigare antecknas i den lokala Active Directory.
 
-## <a name="trust-processes-and-interactions"></a>Trust processes and interactions
+## <a name="trust-processes-and-interactions"></a>Förtroende processer och interaktioner
 
-Many inter-domain and inter-forest transactions depend on domain or forest trusts in order to complete various tasks. This section describes the processes and interactions that occur as resources are accessed across trusts and authentication referrals are evaluated.
+Många transaktioner mellan domäner och mellan skogar är beroende av domän-eller skogs förtroenden för att kunna slutföra olika uppgifter. I det här avsnittet beskrivs de processer och interaktioner som inträffar när resurser nås över förtroenden och referenser för autentisering utvärderas.
 
-### <a name="overview-of-authentication-referral-processing"></a>Overview of Authentication Referral Processing
+### <a name="overview-of-authentication-referral-processing"></a>Översikt över bearbetning av autentiserings referenser
 
-When a request for authentication is referred to a domain, the domain controller in that domain must determine whether a trust relationship exists with the domain from which the request comes. The direction of the trust and whether the trust is transitive or nontransitive must also be determined before it authenticates the user to access resources in the domain. The authentication process that occurs between trusted domains varies according to the authentication protocol in use. The Kerberos V5 and NTLM protocols process referrals for authentication to a domain differently
+När en begäran om autentisering refereras till en domän, måste domänkontrollanten i domänen avgöra om det finns en förtroende relation med domänen som begäran kommer från. Förtroendets riktning och huruvida förtroendet är transitivt eller icke-transitivt måste också bestämmas innan det autentiserar användaren för att komma åt resurser i domänen. Autentiseringsprocessen som sker mellan betrodda domäner varierar beroende på vilket autentiseringsprotokoll som används. Kerberos V5-och NTLM-protokoll bearbetar referenser för autentisering till en domän på olika sätt
 
-### <a name="kerberos-v5-referral-processing"></a>Kerberos V5 Referral Processing
+### <a name="kerberos-v5-referral-processing"></a>Kerberos V5 hänvisnings bearbetning
 
-The Kerberos V5 authentication protocol is dependent on the Net Logon service on domain controllers for client authentication and authorization information. The Kerberos protocol connects to an online Key Distribution Center (KDC) and the Active Directory account store for session tickets.
+Autentiseringsprotokollet Kerberos V5 är beroende av tjänsten Net Logon på domänkontrollanter för klientautentisering och autentiseringsinformation. Kerberos-protokollet ansluter till en online Key Distribution Center (KDC) och Active Directorys konto Arkiv för sessionsbiljetter.
 
-The Kerberos protocol also uses trusts for cross-realm ticket-granting services (TGS) and to validate Privilege Attribute Certificates (PACs) across a secured channel. The Kerberos protocol performs cross-realm authentication only with non-Windows-brand operating system Kerberos realms such as an MIT Kerberos realm and does not need to interact with the Net Logon service.
+Kerberos-protokollet använder också förtroenden för skogar som beviljats av skogar (TGS) och för att validera certifikat för Pac (Privileged Attribute Certificate) över en säker kanal. Kerberos-protokollet utför endast autentisering mellan domäner med Kerberos-sfärer för operativ system som inte är Windows-märke, till exempel en MIT Kerberos-sfär och behöver inte samverka med tjänsten Net Logon.
 
-If the client uses Kerberos V5 for authentication, it requests a ticket to the server in the target domain from a domain controller in its account domain. The Kerberos KDC acts as a trusted intermediary between the client and server and provides a session key that enables the two parties to authenticate each other. If the target domain is different from the current domain, the KDC follows a logical process to determine whether an authentication request can be referred:
+Om klienten använder Kerberos V5 för autentisering begär den en biljett till servern i mål domänen från en domänkontrollant i sin konto domän. Kerberos KDC fungerar som en betrodd mellanhand mellan klienten och servern och innehåller en sessionsnyckel som gör det möjligt för de två parterna att autentisera varandra. Om mål domänen skiljer sig från den aktuella domänen, följer KDC en logisk process för att avgöra om en autentiseringsbegäran kan refereras:
 
-1. Is the current domain trusted directly by the domain of the server that is being requested?
-    * If yes, send the client a referral to the requested domain.
-    * If no, go to the next step.
+1. Är den aktuella domänen betrodd direkt av domänen på den server som begärs?
+    * Om ja, skicka klienten en hänvisning till den begärda domänen.
+    * Om nej, gå till nästa steg.
 
-2. Does a transitive trust relationship exist between the current domain and the next domain on the trust path?
-    * If yes, send the client a referral to the next domain on the trust path.
-    * If no, send the client a logon-denied message.
+2. Finns det en transitiv förtroende relation mellan den aktuella domänen och nästa domän på förtroende vägen?
+    * Om ja, skicka klienten en hänvisning till nästa domän på förtroende Sök vägen.
+    * Om nej, skicka klienten ett meddelande om nekad inloggning.
 
-### <a name="ntlm-referral-processing"></a>NTLM Referral Processing
+### <a name="ntlm-referral-processing"></a>Bearbetning av NTLM-referenser
 
-The NTLM authentication protocol is dependent on the Net Logon service on domain controllers for client authentication and authorization information. This protocol authenticates clients that do not use Kerberos authentication. NTLM uses trusts to pass authentication requests between domains.
+NTLM-autentiseringsprotokollet är beroende av tjänsten Net Logon på domänkontrollanter för klientautentisering och autentiseringsinformation. Det här protokollet autentiserar klienter som inte använder Kerberos-autentisering. NTLM använder förtroenden för att skicka autentiseringsbegäranden mellan domäner.
 
-If the client uses NTLM for authentication, the initial request for authentication goes directly from the client to the resource server in the target domain. This server creates a challenge to which the client responds. The server then sends the user's response to a domain controller in its computer account domain. This domain controller checks the user account against its security accounts database.
+Om klienten använder NTLM för autentisering, går den inledande begäran om autentisering direkt från klienten till resurs servern i mål domänen. Den här servern skapar en utmaning som klienten svarar på. Servern skickar sedan användarens svar till en domänkontrollant i sin dator konto domän. Den här domänkontrollanten kontrollerar användar kontot mot databasen med säkerhets konton.
 
-If the account does not exist in the database, the domain controller determines whether to perform pass-through authentication, forward the request, or deny the request by using the following logic:
+Om kontot inte finns i databasen, avgör domänkontrollanten om den utför direktautentisering, vidarebefordrar begäran eller neka begäran med hjälp av följande logik:
 
-1. Does the current domain have a direct trust relationship with the user's domain?
-    * If yes, the domain controller sends the credentials of the client to a domain controller in the user's domain for pass-through authentication.
-    * If no, go to the next step.
+1. Har den aktuella domänen en direkt förtroende relation med användarens domän?
+    * Om ja, skickar domänkontrollanten autentiseringsuppgifterna för klienten till en domänkontrollant i användarens domän för direktautentisering.
+    * Om nej, gå till nästa steg.
 
-2. Does the current domain have a transitive trust relationship with the user's domain?
-    * If yes, pass the authentication request on to the next domain in the trust path. This domain controller repeats the process by checking the user's credentials against its own security accounts database.
-    * If no, send the client a logon-denied message.
+2. Har den aktuella domänen en transitiv förtroende relation med användarens domän?
+    * Om ja, skickar du autentiseringsbegäran till nästa domän i förtroende Sök vägen. Den här domänkontrollanten upprepar processen genom att kontrol lera användarens autentiseringsuppgifter mot en egen databas för säkerhets konton.
+    * Om nej, skicka klienten ett meddelande om nekad inloggning.
 
-### <a name="kerberos-based-processing-of-authentication-requests-over-forest-trusts"></a>Kerberos-Based Processing of Authentication Requests Over Forest Trusts
+### <a name="kerberos-based-processing-of-authentication-requests-over-forest-trusts"></a>Kerberos-baserad bearbetning av autentiseringsbegäranden över skogs förtroenden
 
-When two forests are connected by a forest trust, authentication requests made using the Kerberos V5 or NTLM protocols can be routed between forests to provide access to resources in both forests.
+När två skogar är anslutna via ett skogs förtroende kan autentiseringsbegäranden som görs med hjälp av Kerberos V5-eller NTLM-protokollen dirigeras mellan skogar för att ge åtkomst till resurser i båda skogarna.
 
-When a forest trust is first established, each forest collects all of the trusted namespaces in its partner forest and stores the information in a [trusted domain object](#trusted-domain-object). Trusted namespaces include domain tree names, user principal name (UPN) suffixes, service principal name (SPN) suffixes, and security ID (SID) namespaces used in the other forest. TDO objects are replicated to the global catalog.
+När ett skogs förtroende först upprättas samlar varje skog alla betrodda namn områden i sin partner skog och lagrar informationen i ett [betrott domän objekt](#trusted-domain-object). Betrodda namn områden inkluderar domän träds namn, User Principal Name (UPN) suffix, SPN-suffix (Service Principal Name) och säkerhets-ID: n (SID) som används i den andra skogen. TDO-objekt replikeras till den globala katalogen.
 
-Before authentication protocols can follow the forest trust path, the service principal name (SPN) of the resource computer must be resolved to a location in the other forest. An SPN can be one of the following:
+Innan autentiseringsprotokollen kan följa sökvägen till skogs förtroendet, måste tjänstens huvud namn (SPN) för resurs datorn matchas till en plats i den andra skogen. Ett SPN kan vara något av följande:
 
-* The DNS name of a host.
-* The DNS name of a domain.
-* The distinguished name of a service connection point object.
+* DNS-namnet för en värd.
+* DNS-namnet för en domän.
+* Det unika namnet för ett objekt i tjänst anslutnings punkten.
 
-When a workstation in one forest attempts to access data on a resource computer in another forest, the Kerberos authentication process contacts the domain controller for a service ticket to the SPN of the resource computer. Once the domain controller queries the global catalog and determines that the SPN is not in the same forest as the domain controller, the domain controller sends a referral for its parent domain back to the workstation. At that point, the workstation queries the parent domain for the service ticket and continues to follow the referral chain until it reaches the domain where the resource is located.
+När en arbets station i en skog försöker komma åt data på en resurs dator i en annan skog kontaktar Kerberos-autentiseringsprocessen domänkontrollanten för en tjänst biljett till resurs datorns SPN. När domänkontrollanten frågar den globala katalogen och bestämmer att SPN inte finns i samma skog som domänkontrollanten skickar domänkontrollanten en hänvisning till den överordnade domänen tillbaka till arbets stationen. Vid det här tillfället frågar arbets stationen den överordnade domänen för tjänst biljetten och fortsätter att följa referens kedjan tills den når den domän där resursen finns.
 
-The following diagram and steps provide a detailed description of the Kerberos authentication process that's used when computers running Windows attempt to access resources from a computer located in another forest.
+Följande diagram och steg innehåller en detaljerad beskrivning av den Kerberos-autentiseringsprocess som används när datorer som kör Windows försöker få åtkomst till resurser från en dator som finns i en annan skog.
 
-![Diagram of the Kerberos process over a forest trust](media/concepts-forest-trust/kerberos-over-forest-trust-process.png)
+![Diagram över Kerberos-processen över ett skogs förtroende](media/concepts-forest-trust/kerberos-over-forest-trust-process.png)
 
-1. *User1* logs on to *Workstation1* using credentials from the *europe.tailspintoys.com* domain. The user then attempts to access a shared resource on *FileServer1* located in the *usa.wingtiptoys.com* forest.
+1. *Användare1* loggar in på *Arbetsstation1* med autentiseringsuppgifter från *Europe.tailspintoys.com* -domänen. Användaren försöker sedan få åtkomst till en delad resurs på *FileServer1* som finns i *USA.wingtiptoys.com* -skogen.
 
-2. *Workstation1* contacts the Kerberos KDC on a domain controller in its domain, *ChildDC1*, and requests a service ticket for the *FileServer1* SPN.
+2. *Arbetsstation1* kontaktar Kerberos KDC på en domänkontrollant i sin domän, *ChildDC1*och begär en tjänst biljett för *FileServer1* SPN.
 
-3. *ChildDC1* does not find the SPN in its domain database and queries the global catalog to see if any domains in the *tailspintoys.com* forest contain this SPN. Because a global catalog is limited to its own forest, the SPN is not found.
+3. *ChildDC1* hittar inte SPN i sin domän databas och frågar den globala katalogen för att se om några domäner i *tailspintoys.com* -skogen innehåller detta SPN. Eftersom en global katalog är begränsad till sin egen skog, hittas inte SPN.
 
-    The global catalog then checks its database for information about any forest trusts that are established with its forest. If found, it compares the name suffixes listed in the forest trust trusted domain object (TDO) to the suffix of the target SPN to find a match. Once a match is found, the global catalog provides a routing hint back to *ChildDC1*.
+    Den globala katalogen kontrollerar sedan sin databas för information om alla skogs förtroenden som har upprättats med sin skog. Om den hittas jämförs de namnsuffix som anges i skogs förtroendets betrodda domän objekt (TDO) till suffixet för mål-SPN för att hitta en matchning. När en matchning hittas ger den globala katalogen ett routningsgränssnitt tillbaka till *ChildDC1*.
 
-    Routing hints help direct authentication requests toward the destination forest. Hints are only used when all traditional authentication channels, such as local domain controller and then global catalog, fail to locate a SPN.
+    Med hjälp av rottips kan begär Anden direkt autentiseras mot mål skogen. Tips används bara när alla traditionella autentiseringsmetoder, till exempel lokal domänkontrollant och global katalog, inte kan hitta ett SPN.
 
-4. *ChildDC1* sends a referral for its parent domain back to *Workstation1*.
+4. *ChildDC1* skickar en hänvisning för dess överordnade domän tillbaka till *Arbetsstation1*.
 
-5. *Workstation1* contacts a domain controller in *ForestRootDC1* (its parent domain) for a referral to a domain controller (*ForestRootDC2*) in the forest root domain of the *wingtiptoys.com* forest.
+5. *Arbetsstation1* kontaktar en domänkontrollant i *ForestRootDC1* (dess överordnade domän) för en hänvisning till en domänkontrollant (*ForestRootDC2*) i skogs rots domänen för *wingtiptoys.com* -skogen.
 
-6. *Workstation1* contacts *ForestRootDC2* in the *wingtiptoys.com* forest for a service ticket to the requested service.
+6. *Arbetsstation1* kontaktar *ForestRootDC2* i *wingtiptoys.com* -skogen för en tjänst biljett till den begärda tjänsten.
 
-7. *ForestRootDC2* contacts its global catalog to find the SPN, and the global catalog finds a match for the SPN and sends it back to *ForestRootDC2*.
+7. *ForestRootDC2* kontaktar sin globala katalog för att hitta SPN och den globala katalogen hittar en matchning för SPN och skickar tillbaka den till *ForestRootDC2*.
 
-8. *ForestRootDC2* then sends the referral to *usa.wingtiptoys.com* back to *Workstation1*.
+8. *ForestRootDC2* skickar sedan hänvisningen till *USA.wingtiptoys.com* tillbaka till *Arbetsstation1*.
 
-9. *Workstation1* contacts the KDC on *ChildDC2* and negotiates the ticket for *User1* to gain access to *FileServer1*.
+9. *Arbetsstation1* kontaktar KDC på *ChildDC2* och förhandlar om biljetten för *Användare1* för att få åtkomst till *FileServer1*.
 
-10. Once *Workstation1* has a service ticket, it sends the service ticket to *FileServer1*, which reads *User1*'s security credentials and constructs an access token accordingly.
+10. När *Arbetsstation1* har en tjänst biljett skickar den tjänst biljetten till *FileServer1*, som läser säkerhetsautentiseringsuppgifterna för *Användare1*och skapar en åtkomsttoken enligt detta.
 
-## <a name="trusted-domain-object"></a>Trusted domain object
+## <a name="trusted-domain-object"></a>Betrott domän objekt
 
-Each domain or forest trust within an organization is represented by a Trusted Domain Object (TDO) stored in the *System* container within its domain.
+Varje domän eller skogs förtroende inom en organisation representeras av ett betrott domän objekt (TDO) som lagras i *system* behållaren i domänen.
 
-### <a name="tdo-contents"></a>TDO contents
+### <a name="tdo-contents"></a>TDO-innehåll
 
-The information contained in a TDO varies depending on whether a TDO was created by a domain trust or by a forest trust.
+Den information som finns i ett TDO varierar beroende på om ett TDO har skapats av ett domän förtroende eller av ett skogs förtroende.
 
-When a domain trust is created, attributes such as the DNS domain name, domain SID, trust type, trust transitivity, and the reciprocal domain name are represented in the TDO. Forest trust TDOs store additional attributes to identify all of the trusted namespaces from the partner forest. These attributes include domain tree names, user principal name (UPN) suffixes, service principal name (SPN) suffixes, and security ID (SID) namespaces.
+När ett domän förtroende skapas visas attribut som DNS-domännamnet, domän-SID, förtroende typ, förtroendets transitivitet och motsvarande domän namn i det BETRODDA domän namnet. Skogs förtroende TDOs lagrar ytterligare attribut för att identifiera alla betrodda namn områden från partner skogen. Dessa attribut inkluderar domän träds namn, User Principal Name (UPN) suffix, SPN-suffix (Service Principal Name) och säkerhets-ID: n (SID).
 
-Because trusts are stored in Active Directory as TDOs, all domains in a forest have knowledge of the trust relationships that are in place throughout the forest. Similarly, when two or more forests are joined together through forest trusts, the forest root domains in each forest have knowledge of the trust relationships that are in place throughout all of the domains in trusted forests.
+Eftersom förtroenden lagras i Active Directory som TDOs, har alla domäner i en skog kunskap om de förtroende relationer som finns på plats i skogen. När två eller flera skogar sammanställs tillsammans via skogs förtroenden, har skogs rot domänerna i varje skog kunskaper om de förtroende relationer som finns på plats i alla domäner i betrodda skogar.
 
-### <a name="tdo-password-changes"></a>TDO password changes
+### <a name="tdo-password-changes"></a>Lösen ords ändringar i TDO
 
-Both domains in a trust relationship share a password, which is stored in the TDO object in Active Directory. As part of the account maintenance process, every 30 days the trusting domain controller changes the password stored in the TDO. Because all two-way trusts are actually two one-way trusts going in opposite directions, the process occurs twice for two-way trusts.
+Båda domänerna i en förtroende relation delar ett lösen ord, som lagras i TDO-objektet i Active Directory. Som en del av konto underhålls processen ändrar var 30: e dag som den domän som har förtroende för domänkontrollanten det lösen ord som lagras i filen TDO. Eftersom alla dubbelriktade förtroenden faktiskt är 2 1-vägs förtroenden i motsatt riktning sker processen två gånger för dubbelriktade förtroenden.
 
-A trust has a trusting and a trusted side. On the trusted side, any writable domain controller can be used for the process. On the trusting side, the PDC emulator performs the password change.
+Ett förtroende har en betrodd och en betrodd sida. På den betrodda sidan kan en skrivbar domänkontrollant användas för processen. På sidan förtroende utför PDC-emulatorn lösen ords ändringen.
 
-To change a password, the domain controllers complete the following process:
+Om du vill ändra ett lösen ord Slutför domän kontrol Lanterna följande process:
 
-1. The primary domain controller (PDC) emulator in the trusting domain creates a new password. A domain controller in the trusted domain never initiates the password change. It's always initiated by the trusting domain PDC emulator.
+1. PDC-emulatorn (primär domänkontrollant) i domänen med förtroende skapar ett nytt lösen ord. En domänkontrollant i den betrodda domänen initierar aldrig lösen ords ändringen. Den initieras alltid av den förlitande domänkontrollantens PDC-emulator.
 
-2. The PDC emulator in the trusting domain sets the *OldPassword* field of the TDO object to the current *NewPassword* field.
+2. PDC-emulatorn i domänen med förtroende anger fältet *OldPassword* för TDO-objektet till det aktuella *NewPassword* -fältet.
 
-3. The PDC emulator in the trusting domain sets the *NewPassword* field of the TDO object to the new password. Keeping a copy of the previous password makes it possible to revert to the old password if the domain controller in the trusted domain fails to receive the change, or if the change is not replicated before a request is made that uses the new trust password.
+3. PDC-emulatorn i domänen med förtroende anger fältet *NewPassword* för TDO-objektet till det nya lösen ordet. Att behålla en kopia av det tidigare lösen ordet gör det möjligt att återställa till det gamla lösen ordet om domänkontrollanten i den betrodda domänen inte kan ta emot ändringen, eller om ändringen inte replikeras innan en begäran görs som använder det nya förtroende lösen ordet.
 
-4. The PDC emulator in the trusting domain makes a remote call to a domain controller in the trusted domain asking it to set the password on the trust account to the new password.
+4. PDC-emulatorn i domänen med förtroende gör ett fjärran rop till en domänkontrollant i den betrodda domänen som ber det att ange lösen ordet för förtroende kontot till det nya lösen ordet.
 
-5. The domain controller in the trusted domain changes the trust password to the new password.
+5. Domänkontrollanten i den betrodda domänen ändrar förtroende lösen ordet till det nya lösen ordet.
 
-6. On each side of the trust, the updates are replicated to the other domain controllers in the domain. In the trusting domain, the change triggers an urgent replication of the trusted domain object.
+6. På varje sida om förtroendet replikeras uppdateringarna till de andra domän kontrol Lanterna i domänen. I domänen med förtroende utlöser ändringen en brådskande replikering av det betrodda domän-objektet.
 
-The password is now changed on both domain controllers. Normal replication distributes the TDO objects to the other domain controllers in the domain. However, it's possible for the domain controller in the trusting domain to change the password without successfully updating a domain controller in the trusted domain. This scenario might occur because a secured channel, which is required to process the password change, couldn't be established. It's also possible that the domain controller in the trusted domain might be unavailable at some point during the process and might not receive the updated password.
+Lösen ordet har nu ändrats på båda domän kontrol Lanterna. Normal replikering distribuerar TDO-objekten till de andra domän kontrol Lanterna i domänen. Det är dock möjligt att domänkontrollanten i domänen med förtroende kan ändra lösen ordet utan att en domänkontrollant har uppdaterats i den betrodda domänen. Det här scenariot kan bero på att en säker kanal, som krävs för att bearbeta lösen ords ändringen, inte kunde upprättas. Det är också möjligt att domänkontrollanten i den betrodda domänen kan vara otillgänglig vid en viss tidpunkt under processen och kanske inte får det uppdaterade lösen ordet.
 
-To deal with situations in which the password change isn't successfully communicated, the domain controller in the trusting domain never changes the new password unless it has successfully authenticated (set up a secured channel) using the new password. This behavior is why both the old and new passwords are kept in the TDO object of the trusting domain.
+För att hantera situationer där lösen ords ändringen inte har kommunicerats, ändrar domänkontrollanten i domänen med förtroende aldrig det nya lösen ordet om det inte har autentiserats (konfigurerat en säker kanal) med det nya lösen ordet. Detta är orsaken till att både gamla och nya lösen ord behålls i domänen TDO i domänen med förtroende.
 
-A password change isn't finalized until authentication using the password succeeds. The old, stored password can be used over the secured channel until the domain controller in the trusted domain receives the new password, thus enabling uninterrupted service.
+En lösen ords ändring slutförs inte förrän autentiseringen med lösen ordet lyckades. Det gamla, lagrade lösen ordet kan användas över den skyddade kanalen tills domänkontrollanten i den betrodda domänen får det nya lösen ordet, vilket aktiverar oavbruten tjänst.
 
-If authentication using the new password fails because the password is invalid, the trusting domain controller tries to authenticate using the old password. If it authenticates successfully with the old password, it resumes the password change process within 15 minutes.
+Om autentisering med det nya lösen ordet Miss lyckas eftersom lösen ordet är ogiltigt försöker domänkontrollanten som är betrodd autentisera med det gamla lösen ordet. Om den autentiseras med det gamla lösen ordet återupptas processen för lösen ords ändring inom 15 minuter.
 
-Trust password updates need to replicate to the domain controllers of both sides of the trust within 30 days. If the trust password is changed after 30 days and a domain controller then only has the N-2 password, it cannot use the trust from the trusting side and cannot create a secure channel on the trusted side.
+Förtroende lösen ords uppdateringar måste replikeras till domän kontrol Lanterna på båda sidor om förtroende inom 30 dagar. Om lösen ordet för förtroendet ändras efter 30 dagar och en domänkontrollant bara har lösen ordet för N-2, kan det inte använda förtroendet från den betrodda sidan och kan inte skapa en säker kanal på den betrodda sidan.
 
-## <a name="network-ports-used-by-trusts"></a>Network ports used by trusts
+## <a name="network-ports-used-by-trusts"></a>Nätverks portar som används av förtroenden
 
-Because trusts must be deployed across various network boundaries, they might have to span one or more firewalls. When this is the case, you can either tunnel trust traffic across a firewall or open specific ports in the firewall to allow the traffic to pass through.
+Eftersom förtroenden måste distribueras över olika nätverks gränser kan de behöva omfatta en eller flera brand väggar. I så fall kan du antingen tunnel förtroende trafik i en brand vägg eller öppna vissa portar i brand väggen för att tillåta att trafiken passerar.
 
 > [!IMPORTANT]
-> Active Directory Domain Services does not support restricting Active Directory RPC traffic to specific ports.
+> Active Directory Domain Services stöder inte begränsning av Active Directory RPC-trafik till vissa portar.
 
-Read the **Windows Server 2008 and later versions** section of the Microsoft Support Article [How to configure a firewall for Active Directory domains and trusts](https://support.microsoft.com/help/179442/how-to-configure-a-firewall-for-domains-and-trusts) to learn about the ports needed for a forest trust.
+Läs avsnittet **Windows Server 2008 och senare versioner** av Microsoft Support artikeln [så här konfigurerar du en brand vägg för Active Directory domäner och förtroenden](https://support.microsoft.com/help/179442/how-to-configure-a-firewall-for-domains-and-trusts) för att lära dig om de portar som behövs för ett skogs förtroende.
 
-## <a name="supporting-services-and-tools"></a>Supporting services and tools
+## <a name="supporting-services-and-tools"></a>Stöd tjänster och verktyg
 
-To support trusts and authentication, some additional features and management tools are used.
+Vissa ytterligare funktioner och hanterings verktyg används för att stödja förtroenden och autentiseringen.
 
 ### <a name="net-logon"></a>Net Logon
 
-The Net Logon service maintains a secured channel from a Windows-based computer to a DC. It's also used in the following trust-related processes:
+Tjänsten Net Logon underhåller en säker kanal från en Windows-baserad dator till en DOMÄNKONTROLLANT. Den används också i följande förtroende-relaterade processer:
 
-* Trust setup and management - Net Logon helps maintain trust passwords, gathers trust information, and verifies trusts by interacting with the LSA process and the TDO.
+* Förtroende konfiguration och hantering-Net Logon hjälper till att upprätthålla förtroende lösen ord, samla in förtroende information och verifiera förtroenden genom att interagera med LSA-processen och TDO.
 
-    For Forest trusts, the trust information includes the Forest Trust Information (*FTInfo*) record, which includes the set of namespaces that a trusted forest claims to manage, annotated with a field that indicates whether each claim is trusted by the trusting forest.
+    För skogs förtroenden innehåller förtroende informationen den skogs förtroende information (*FTInfo*) som innehåller en uppsättning namn rymder som en betrodd skog hävdar att de ska hantera, samt kommenteras med ett fält som anger om varje anspråk är betrott av skogen med förtroende.
 
-* Authentication – Supplies user credentials over a secured channel to a domain controller and returns the domain SIDs and user rights for the user.
+* Autentisering – tillhandahåller användarautentiseringsuppgifter via en skyddad kanal till en domänkontrollant och returnerar användarens domän-sid och användar rättigheter.
 
-* Domain controller location – Helps with finding or locating domain controllers in a domain or across domains.
+* Plats för domänkontrollant – hjälper till med att söka efter eller hitta domänkontrollanter i en domän eller mellan domäner.
 
-* Pass-through validation – Credentials of users in other domains are processed by Net Logon. When a trusting domain needs to verify the identity of a user, it passes the user's credentials through Net Logon to the trusted domain for verification.
+* Direkt verifiering – autentiseringsuppgifter för användare i andra domäner bearbetas av Net Logon. När en domän som är betrodd måste verifiera identiteten för en användare, skickas användarens autentiseringsuppgifter via net logon till den betrodda domänen för verifiering.
 
-* Privilege Attribute Certificate (PAC) verification – When a server using the Kerberos protocol for authentication needs to verify the PAC in a service ticket, it sends the PAC across the secure channel to its domain controller for verification.
+* Verifiering av Privilege Attribute Certificate (PAC) – när en server som använder Kerberos-protokollet för autentisering måste verifiera PAC i en tjänst biljett skickas PAC via den säkra kanalen till domänkontrollanten för verifiering.
 
-### <a name="local-security-authority"></a>Local Security Authority
+### <a name="local-security-authority"></a>Lokal säkerhets kontroll
 
-The Local Security Authority (LSA) is a protected subsystem that maintains information about all aspects of local security on a system. Collectively known as local security policy, the LSA provides various services for translation between names and identifiers.
+Den lokala säkerhets kontrollen (LSA) är ett skyddat under system som underhåller information om alla aspekter av lokal säkerhet i ett system. LSA är gemensamt känt som lokal säkerhets princip och tillhandahåller olika tjänster för översättning mellan namn och identifierare.
 
-The LSA security subsystem provides services in both kernel mode and user mode for validating access to objects, checking user privileges, and generating audit messages. LSA is responsible for checking the validity of all session tickets presented by services in trusted or untrusted domains.
+Säkerhets under systemet i LSA tillhandahåller tjänster i både kernelläge och användarläge för att verifiera åtkomst till objekt, kontroll av användar behörigheter och generering av gransknings meddelanden. LSA ansvarar för att kontrol lera giltigheten för alla sessionsbiljetter som presenteras av tjänster i betrodda eller obetrodda domäner.
 
 ### <a name="management-tools"></a>Hanteringsverktyg
 
-Administrators can use *Active Directory Domains and Trusts*, *Netdom* and *Nltest* to expose, create, remove, or modify trusts.
+Administratörer kan använda *Active Directory domäner och förtroenden*, *netdom* och *Nltest* för att visa, skapa, ta bort eller ändra förtroenden.
 
-* *Active Directory Domains and Trusts* is the Microsoft Management Console (MMC) that is used to administer domain trusts, domain and forest functional levels, and user principal name suffixes.
-* The *Netdom* and *Nltest* command-line tools can be used to find, display, create, and manage trusts. These tools communicate directly with the LSA authority on a domain controller.
+* *Active Directory domäner och förtroenden* är Microsoft Management Console (MMC) som används för att administrera domän förtroenden, funktions nivåer för domän och skog och User Principal Name suffix.
+* Kommando rads verktygen *netdom* och *Nltest* kan användas för att hitta, Visa, skapa och hantera förtroenden. Dessa verktyg kommunicerar direkt med LSA-utfärdaren på en domänkontrollant.
 
 ## <a name="next-steps"></a>Nästa steg
 
-To learn more about resource forests, see [How do forest trusts work in Azure AD DS?][concepts-trust]
+Mer information om resurs skogar finns i [Hur fungerar skogs förtroenden i Azure AD DS?][concepts-trust]
 
-To get started with creating an Azure AD DS managed domain with a resource forest, see [Create and configure an Azure AD DS managed domain][tutorial-create-advanced]. You can then [Create an outbound forest trust to an on-premises domain (preview)][create-forest-trust].
+För att komma igång med att skapa en Azure AD DS-hanterad domän med en resurs skog, se [skapa och konfigurera en Azure AD DS-hanterad domän][tutorial-create-advanced]. Du kan sedan [skapa ett utgående skogs förtroende till en lokal domän (för hands version)][create-forest-trust].
 
 <!-- LINKS - INTERNAL -->
 [concepts-trust]: concepts-forest-trust.md

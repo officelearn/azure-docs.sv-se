@@ -1,21 +1,16 @@
 ---
-title: Konfigurera beredskaps avsökningar i Azure Container Instances
+title: Konfigurera readiness PROBE på behållar instansen
 description: Lär dig hur du konfigurerar en avsökning för att se till att behållare i Azure Container Instances ta emot begär Anden endast när de är klara
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 10/17/2019
-ms.author: danlep
-ms.openlocfilehash: 9cdc8362c377be28a3ed1300b599dc8ebef9e903
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 5ebbcdeee231e3e67abd6758485a12984137997e
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73905581"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533565"
 ---
-# <a name="configure-readiness-probes"></a>Konfigurera beredskaps avsökningar
+# <a name="configure-readiness-probes"></a>Konfigurera beredskapsavsökning
 
 För behållar program som hanterar trafik, kanske du vill kontrol lera att din behållare är redo att hantera inkommande begär Anden. Azure Container Instances stöder beredskaps avsökningar för att inkludera konfigurationer så att din behållare inte kan nås under vissa förhållanden. Beredskaps avsökningen fungerar som en [Kubernetes readiness PROBE](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/). Till exempel kan en container app behöva läsa in en stor data uppsättning under starten och du vill inte ta emot begär Anden under den här tiden.
 

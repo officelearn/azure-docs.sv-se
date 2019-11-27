@@ -32,18 +32,18 @@ Dessutom visar den här själv studie kursen hur du kan använda den hanterade i
 
 Du kan använda valfri kod redigerare för att utföra stegen i den här självstudien. [Visual Studio Code](https://code.visualstudio.com/) är ett utmärkt alternativ som är tillgängligt på Windows-, MacOS-och Linux-plattformarna.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Bevilja en hanterad identitets åtkomst till app-konfigurationen.
 > * Konfigurera appen så att den använder en hanterad identitet när du ansluter till app-konfigurationen.
 > * Du kan också konfigurera appen så att den använder en hanterad identitet när du ansluter till Key Vault via en app-konfiguration Key Vault referens.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att kunna slutföra den här självstudiekursen:
 
-* [.NET Core SDK](https://www.microsoft.com/net/download/windows).
+* [.Net Core SDK](https://www.microsoft.com/net/download/windows).
 * [Azure Cloud Shell kon figurer ATS](https://docs.microsoft.com/azure/cloud-shell/quickstart).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]

@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Recognize speech from a microphone - Speech Service'
+title: 'Snabb start: identifiera tal från en mikrofon-tal-tjänst'
 titleSuffix: Azure Cognitive Services
-description: Inte klart
+description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 11/20/2019
 ms.author: erhopf
-ms.openlocfilehash: 561acc798df475b9cb7f451163016b1b6abe83cf
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: bee3b64ece3faac6258fe4d017f12833b12e370d
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74451605"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74536357"
 ---
-In this quickstart, you'll use the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) to interactively recognize speech from a microphone input, and get the text transcription from captured audio. It's easy to integrate this feature into your apps or and devices for common recognition tasks, such as transcribing conversations. It can also be used for more complex integrations, like using the Bot Framework with the Speech SDK to build voice assistants.
+I den här snabb starten ska du använda [tal-SDK: n](~/articles/cognitive-services/speech-service/speech-sdk.md) för att identifiera tal från mikrofonens indata och få text avskriften från insamlade ljud. Det är enkelt att integrera den här funktionen i dina appar eller enheter för vanliga igenkännings aktiviteter, till exempel att skriva över konversationer. Den kan också användas för mer komplexa integreringar, t. ex. med hjälp av bot Framework med tal-SDK för att bygga röst assistenter.
 
-After satisfying a few prerequisites, recognizing speech from a microphone only takes four steps:
+Efter att ha uppfyllt några krav, tar igenkänning av tal från en mikrofon bara fyra steg:
 
 > [!div class="checklist"]
-> * Create a `SpeechConfig` object from your subscription key and region.
-> * Create a `SpeechRecognizer` object using the `SpeechConfig` object from above.
-> * Using the `SpeechRecognizer` object, start the recognition process for a single utterance.
-> * Inspect the `SpeechRecognitionResult` returned.
+> * Skapa ett `SpeechConfig`-objekt från din prenumerations nyckel och region.
+> * Skapa ett `SpeechRecognizer`-objekt med hjälp av `SpeechConfig`-objektet ovan.
+> * Starta igenkännings processen för en enda uttryck med hjälp av `SpeechRecognizer`-objektet.
+> * Granska `SpeechRecognitionResult` som returneras.

@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Predict automobile price with the designer'
+title: 'Självstudie: förutsäga Automobile-priset med designern'
 titleSuffix: Azure Machine Learning
-description: Learn how to train, score, and deploy a machine learning model by using a drag-and-drop interface. This tutorial is part one of a two-part series on predicting automobile prices by using linear regression.
+description: Lär dig hur du tränar, poängs ätter och distribuerar en maskin inlärnings modell med hjälp av ett dra-och-släpp-gränssnitt. Den här självstudien är en del av en serie i två delar om förutsägelse av bil priser med hjälp av linjär regression.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -16,207 +16,207 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74228413"
 ---
-# <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: Predict automobile price with the designer (preview)
+# <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Självstudie: förutsäga Automobile-priset med designer (för hands version)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-In this two-part tutorial, you learn how to use the Azure Machine Learning designer to develop and deploy a predictive analytics solution that predicts the price of any car. 
+I den här självstudien får du lära dig hur du använder Azure Machine Learning designer för att utveckla och distribuera en förutsägelse analys som förutsäger priset på en bil. 
 
-In part one, you set up your environment, drag modules onto an interactive canvas, and connect them together to create an Azure Machine Learning pipeline.
+I del ett konfigurerar du din miljö, drar moduler till en interaktiv arbets yta och kopplar ihop dem för att skapa en Azure Machine Learning pipeline.
 
-In part one of the tutorial, you'll learn how to:
+I del ett av självstudien får du lära dig att:
 
 > [!div class="checklist"]
-> * Create a new pipeline.
-> * Import data.
-> * Prepare data.
-> * Train a machine learning model.
-> * Evaluate a machine learning model.
+> * Skapa en ny pipeline.
+> * Importera data.
+> * Förbered data.
+> * Träna en maskin inlärnings modell.
+> * Utvärdera en maskin inlärnings modell.
 
-In [part two](tutorial-designer-automobile-price-deploy.md) of the tutorial, you'll learn how to deploy your predictive model as a real-time inferencing endpoint to predict the price of any car based on technical specifications you send it. 
+I [del två](tutorial-designer-automobile-price-deploy.md) av självstudien får du lära dig hur du distribuerar din förutsägelse modell som en inferencing-slutpunkt i real tid för att förutsäga priset på en bil baserat på tekniska specifikationer som du skickar den. 
 
 > [!NOTE]
->A completed version of this tutorial is available as a sample pipeline.
+>En slutförd version av den här självstudien är tillgänglig som en exempel pipeline.
 >
->To find it, go to the designer in your workspace. In the **New pipeline** section, select **Sample 1 - Regression: Automobile Price Prediction(Basic)** .
+>Du hittar det genom att gå till designern på arbets ytan. I det **nya pipeline** -avsnittet väljer du **exempel 1-regression: Automobile pris förutsägelse (grundläggande)** .
 
-## <a name="create-a-new-pipeline"></a>Create a new pipeline
+## <a name="create-a-new-pipeline"></a>Skapa en ny pipeline
 
-Azure Machine Learning pipelines organize multiple, dependent machine learning and data processing steps into a single resource. Pipelines help you organize, manage, and reuse complex machine learning workflows across projects and users. To create an Azure Machine Learning pipeline, you need an Azure Machine Learning workspace. In this section, you learn how to create both these resources.
+Azure Machine Learning pipelines ordnar flera, beroende maskin inlärning och data bearbetnings steg i en enda resurs. Pipelines hjälper dig att organisera, hantera och återanvända komplexa Machine Learning-arbetsflöden mellan projekt och användare. Om du vill skapa en Azure Machine Learning pipeline behöver du en Azure Machine Learning arbets yta. I det här avsnittet får du lära dig hur du skapar båda dessa resurser.
 
-### <a name="create-a-new-workspace"></a>Create a new workspace
+### <a name="create-a-new-workspace"></a>Skapa en ny arbetsyta
 
-If you have an Azure Machine Learning workspace with an Enterprise edition, [skip to the next section](#create-the-pipeline).
+Om du har en Azure Machine Learning-arbetsyta med en Enterprise-utgåva går du [vidare till nästa avsnitt](#create-the-pipeline).
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal-enterprise.md)]
 
 ### <a name="create-the-pipeline"></a>Skapa pipelinen
 
-1. Sign in to [ml.azure.com](https://ml.azure.com), and select the workspace you want to work with.
+1. Logga in på [ml.Azure.com](https://ml.azure.com)och välj den arbets yta som du vill arbeta med.
 
-1. Select **Designer**.
+1. Välj **Designer**.
 
-    ![Screenshot of the visual workspace showing how to access the designer](./media/tutorial-designer-automobile-price-train-score/launch-visual-interface.png)
+    ![Skärm bild av den visuella arbets ytan som visar hur du får åtkomst till designern](./media/tutorial-designer-automobile-price-train-score/launch-visual-interface.png)
 
-1. Select **Easy-to-use prebuilt modules**.
+1. Välj **lättanvända inbyggda moduler**.
 
-1. Select the default pipeline name **Pipeline-Created-on** at the top of the canvas. Rename it to something meaningful. An example is *Automobile price prediction*. Namnet behöver inte vara unikt.
+1. Välj pipeline för standard pipelinen **– skapas – på** arbets ytans överkant. Byt namn på den till något meningsfullt. Ett exempel är *bil pris förutsägelser*. Namnet behöver inte vara unikt.
 
 ## <a name="import-data"></a>Importera data
 
-There are several sample datasets included in the designer for you to experiment with. For this tutorial, use **Automobile price data (Raw)** . 
+Det finns flera exempel data uppsättningar som ingår i designern som du kan experimentera med. I den här självstudien använder du **bil-pris data (RAW)** . 
 
-1. To the left of the pipeline canvas is a palette of datasets and modules. Select **Datasets**, and then view the **Samples** section to view the available sample datasets.
+1. Till vänster om arbets ytan för pipelinen är en palett med data uppsättningar och moduler. Välj **data uppsättningar**och Visa sedan avsnittet **exempel** för att visa tillgängliga exempel data uppsättningar.
 
-1. Select the dataset **Automobile price data (Raw)** , and drag it onto the canvas.
+1. Välj data uppsättningens **bil pris data (RAW)** och dra den till arbets ytan.
 
-   ![Drag data to canvas](./media/tutorial-designer-automobile-price-train-score/drag-data.gif)
+   ![Dra data till arbets yta](./media/tutorial-designer-automobile-price-train-score/drag-data.gif)
 
 ### <a name="visualize-the-data"></a>Visualisera datan
 
-You can visualize the data to understand the dataset that you'll use.
+Du kan visualisera data för att förstå den data uppsättning som du kommer att använda.
 
-1. Select the **Automobile price data (Raw)** module.
+1. Välj modulen **Automobile Price data (RAW)** .
 
-1. In the properties pane to the right of the canvas, select **Outputs**.
+1. Välj **utdata**i fönstret Egenskaper till höger om arbets ytan.
 
-1. Select the graph icon to visualize the data.
+1. Välj diagram ikonen för att visualisera data.
 
     ![Visualisera datan](./media/tutorial-designer-automobile-price-train-score/visualize-data.png)
 
-1. Select the different columns in the data window to view information about each one.
+1. Välj olika kolumner i data fönstret om du vill visa information om var och en.
 
-    Each row represents an automobile, and the variables associated with each automobile appear as columns. There are 205 rows and 26 columns in this dataset.
+    Varje rad representerar en bil och variablerna som är kopplade till varje bil visas som kolumner. Det finns 205 rader och 26 kolumner i den här data uppsättningen.
 
-## <a name="prepare-data"></a>Förbered data
+## <a name="prepare-data"></a>Förbereda data
 
-Datasets typically require some preprocessing before analysis. You might have noticed some missing values when you inspected the dataset. These missing values must be cleaned so that the model can analyze the data correctly.
+Data uppsättningar kräver vanligt vis lite för bearbetning före analys. Du kanske har märkt vissa saknade värden när du kontrollerade data uppsättningen. De värden som saknas måste rengöras så att modellen kan analysera data korrekt.
 
 ### <a name="remove-a-column"></a>Ta bort en kolumn
 
-When you train a model, you have to do something about the data that's missing. In this dataset, the **normalized-losses** column is missing many values, so you exclude that column from the model altogether.
+När du tränar en modell måste du göra något om de data som saknas. I den här data uppsättningen saknar kolumnen **normaliserade förluster** många värden, så du utesluter den kolumnen från modellen helt och hållet.
 
-1. Enter **Select** in the search box at the top of the palette to find the **Select Columns in Dataset** module.
+1. Ange **Välj** i rutan Sök högst upp på paletten för att hitta modulen **Välj kolumner i data uppsättning** .
 
-1. Drag the **Select Columns in Dataset** module onto the canvas. Drop the module below the dataset module.
+1. Dra modulen **Välj kolumner i data uppsättning** till arbets ytan. Släpp modulen under data uppsättnings modulen.
 
-1. Connect the **Automobile price data (Raw)** dataset to the **Select Columns in Dataset** module. Drag from the dataset's output port, which is the small circle at the bottom of the dataset on the canvas, to the input port of **Select Columns in Dataset**, which is the small circle at the top of the module.
+1. Anslut data uppsättningen för **Automobil pris data (RAW)** till modulen **Välj kolumner i data uppsättning** . Dra från data uppsättningens utgående port, som är den lilla cirkeln längst ned i data uppsättningen på arbets ytan, till Indataporten för **Select-kolumner i data uppsättningen**, som är den lilla cirkeln överst i modulen.
 
     > [!TIP]
-    > You create a flow of data through your pipeline when you connect the output port of one module to an input port of another.
+    > Du skapar ett data flöde via din pipeline när du ansluter utdataporten för en modul till en annan indataport.
     >
 
-    ![Connect modules](./media/tutorial-designer-automobile-price-train-score/connect-modules.gif)
+    ![Anslut moduler](./media/tutorial-designer-automobile-price-train-score/connect-modules.gif)
 
-1. Select the **Select Columns in Dataset** module.
+1. Välj modulen **Välj kolumner i data uppsättning** .
 
-1. In the properties pane to the right of the canvas, select **Parameters** > **Edit column**.
+1. I fönstret Egenskaper till höger om arbets ytan väljer du **parametrar** > **Redigera kolumn**.
 
-1. Select the **+** to add a new rule.
+1. Välj **+** för att lägga till en ny regel.
 
-1. From the drop-down menu, select **Exclude** and **Column names**.
+1. I den nedrullningsbara menyn väljer du **Uteslut** och **kolumn namn**.
     
-1. Enter *normalized-losses* in the text box.
+1. Ange *normaliserade förluster* i text rutan.
 
-1. In the lower right, select **Save** to close the column selector.
+1. I det nedre högra hörnet väljer du **Spara** för att stänga kolumn väljaren.
 
-    ![Exclude a column](./media/tutorial-designer-automobile-price-train-score/exclude-column.png)
+    ![Undanta en kolumn](./media/tutorial-designer-automobile-price-train-score/exclude-column.png)
         
-    The properties pane shows that the **normalized-losses** column is excluded.
+    Rutan egenskaper visar att kolumnen **normaliserade förluster** är exkluderad.
 
-1. Select the **Select Columns in Dataset** module. 
+1. Välj modulen **Välj kolumner i data uppsättning** . 
 
-1. In the properties pane, select **Parameters** > **Comment** and enter *Exclude normalized losses*.
+1. I fönstret Egenskaper väljer du **parametrar** > **kommentar** och anger *exkludera normaliserade förluster*.
 
-### <a name="clean-missing-data"></a>Clean missing data
+### <a name="clean-missing-data"></a>Rensa data som saknas
 
-Your dataset still has missing values after you remove the **normalized-losses** column. You can remove the remaining missing data by using the **Clean Missing Data** module.
+Din data uppsättning har fortfarande värden som saknas efter att du tagit bort kolumnen **normaliserade förluster** . Du kan ta bort återstående data som saknas med hjälp av modulen **Rensa data som saknas** .
 
 > [!TIP]
-> Cleaning the missing values from input data is a prerequisite for using most of the modules in the designer.
+> Att rensa saknade värden från indata är ett krav för att använda de flesta moduler i designern.
 
-1. Enter **Clean** in the search box to find the **Clean Missing Data** module.
+1. Skriv **Rensa** i sökrutan för att hitta modulen **Rensa data som saknas** .
 
-1. Drag the **Clean Missing Data** module to the pipeline canvas. Connect it to the **Select Columns in Dataset** module. 
+1. Dra modulen **Rensa data som saknas** till pipeline-arbetsytan. Anslut den till modulen **Välj kolumner i data uppsättning** . 
 
-1. In the properties pane, select **Remove entire row** under **Cleaning mode**.
+1. I fönstret Egenskaper väljer du **ta bort hela raden** under **rensnings läge**.
 
-1. In the properties pane **Comment** box, enter *Remove missing value rows*. 
+1. I rutan Egenskaper **kommentar** anger du *ta bort saknade värde rader*. 
 
-    Your pipeline should now look something like this:
+    Din pipeline bör nu se ut ungefär så här:
     
-    ![Select-column](./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png)
+    ![Select-Column](./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png)
 
-## <a name="train-a-machine-learning-model"></a>Train a machine learning model
+## <a name="train-a-machine-learning-model"></a>Träna en Machine Learning-modell
 
-Now that the data is processed, you can train a predictive model.
+Nu när data har bearbetats kan du träna en förutsägelse modell.
 
 ### <a name="select-an-algorithm"></a>Välja en algoritm
 
-*Klassificering* och *regression* är två typer av övervakade Machine Learning-algoritmer. Classification predicts an answer from a defined set of categories, such as a color like red, blue, or green. Regression används för att förutsäga ett tal.
+*Klassificering* och *regression* är två typer av övervakade maskininlärningsalgoritmer. Klassificering förutsäger ett svar från en definierad uppsättning kategorier, till exempel en färg som röd, blå eller grön. Regression används för att förutsäga ett tal.
 
-Because you want to predict price, which is a number, you can use a regression algorithm. For this example, you use a linear regression model.
+Eftersom du vill förutsäga pris, vilket är ett tal, kan du använda en Regressions algoritm. I det här exemplet använder du en linjär Regressions modell.
 
-### <a name="split-the-data"></a>Split the data
+### <a name="split-the-data"></a>Dela data
 
-Split your data into two separate datasets for training the model and testing it.
+Dela upp dina data i två separata data uppsättningar för att träna modellen och testa den.
 
-1. Enter **split data** in the search box to find the **Split Data** module. Connect it to the left port of the **Clean Missing Data** module.
+1. Ange **dela data** i sökrutan för att hitta modulen **dela data** . Anslut den till den vänstra porten i modulen **Rensa data som saknas** .
 
-1. Select the **Split Data** module.
+1. Välj modulen **dela data** .
 
-1. In the properties pane, set the **Fraction of rows in the first output dataset** to 0.7.
+1. I fönstret Egenskaper ställer du in **bråk talet i den första data uppsättningen för utdata** till 0,7.
 
-    This option splits 70 percent of the data to train the model and 30 percent for testing it.
+    Det här alternativet delar upp 70 procent av data för att träna modellen och 30 procent för att testa den.
 
-1. In the properties pane **Comment** box, enter *Split the dataset into training set (0.7) and test set (0.3)* .
+1. I rutan Egenskaper **kommentar** anger du *dela in data uppsättningen i Training set (0,7) och test uppsättning (0,3)* .
 
 ### <a name="train-the-model"></a>Träna modellen
 
-Train the model by giving it a set of data that includes the price. The model scans through the data and looks for correlations between a car's features and its price to construct a model.
+Träna modellen genom att ge den en uppsättning data som inkluderar priset. Modellen söker igenom data och söker efter korrelationer mellan en bils funktioner och dess pris för att konstruera en modell.
 
-1. To select the learning algorithm, clear your module palette search box.
+1. Om du vill välja Learning-algoritmen rensar du sökrutan för modulens palett.
 
-1. Expand **Machine Learning Algorithms**.
+1. Expandera **Machine Learning algoritmer**.
     
-    This option displays several categories of modules that you can use to initialize learning algorithms.
+    Med det här alternativet visas flera kategorier av moduler som du kan använda för att initiera Learning-algoritmer.
 
-1. Select **Regression** > **Linear Regression**, and drag it to the pipeline canvas.
+1. Välj **regressions** > **linjär regression**och dra den till pipeline-arbetsytan.
 
-1. Find and drag the **Train Model** module to the pipeline canvas. 
+1. Leta upp och dra modulen **träna modell** till pipeline-arbetsytan. 
 
-1. Connect the output of the **Linear Regression** module to the left input of the **Train Model** module.
+1. Anslut utdata från modulen **linjär regression** till vänster indata för modulen **träna modell** .
 
-1. Connect the training data output (left port) of the **Split Data** module to the right input of the **Train Model** module.
+1. Anslut övnings data utmatningen (den vänstra porten) för modulen **dela data** till rätt indata för modulen **träna modell** .
 
-    ![Screenshot showing the correct configuration of the Train Model module. The Linear Regression module connects to left port of Train Model module and the Split Data module connects to right port of Train Model](./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png)
+    ![Skärm bild som visar korrekt konfiguration av modulen träna modell. Modulen linjär regression ansluter till den vänstra porten för modulen träna modell och modulen dela data ansluts till rätt port för träna modell](./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png)
 
-1. Select the **Train Model** module.
+1. Välj modulen **träna modell** .
 
-1. In the properties pane, select **Edit column** selector.
+1. I fönstret Egenskaper väljer du **Redigera kolumn** väljare.
 
-1. In the **Label column** dialog box, expand the drop-down menu and select **Column names**. 
+1. I dialog rutan **etikett kolumn** expanderar du den nedrullningsbara menyn och väljer **kolumn namn**. 
 
-1. In the text box, enter *price*. Price is the value that your model is going to predict.
+1. Ange *pris*i text rutan. Pris är det värde som din modell ska förutsäga.
 
-    Your pipeline should look like this:
+    Din pipeline bör se ut så här:
 
-    ![Screenshot showing the correct configuration of the pipeline after adding the Train Model module.](./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png)
+    ![Skärm bild som visar korrekt konfiguration av pipelinen efter att du lagt till modulen träna modell.](./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png)
 
-## <a name="evaluate-a-machine-learning-model"></a>Evaluate a machine learning model
+## <a name="evaluate-a-machine-learning-model"></a>Utvärdera en Machine Learning-modell
 
-After you train your model by using 70 percent of the data, you can use it to score the other 30 percent to see how well your model functions.
+När du har tränat din modell genom att använda 70 procent av data kan du använda den för att se hur väl modellen fungerar.
 
-1. Enter *score model* in the search box to find the **Score Model** module. Drag the module to the pipeline canvas. 
+1. Ange *Poäng modell* i sökrutan för att hitta modulen **Poäng modell** . Dra modulen till pipeline-arbetsytan. 
 
-1. Connect the output of the **Train Model** module to the left input port of **Score Model**. Connect the test data output (right port) of the **Split Data** module to the right input port of **Score Model**.
+1. Anslut utdata från modulen **träna modell** till den vänstra Indataporten för **Poäng modell**. Anslut test data utmatningen (höger port) för modulen **dela data** till den högra Indataporten för **Poäng modellen**.
 
-1. Enter *evaluate* in the search box to find the **Evaluate Model** module. Drag the module to the pipeline canvas. 
+1. Välj *utvärdera* i sökrutan för att hitta modulen **utvärdera modell** . Dra modulen till pipeline-arbetsytan. 
 
-1. Connect the output of the **Score Model** module to the left input of **Evaluate Model**. 
+1. Anslut utdata från modulen **Poäng modell** till den vänstra inmatningen av **utvärdera modell**. 
 
-    The final pipeline should look something like this:
+    Den sista pipelinen bör se ut ungefär så här:
 
-    ![Screenshot showing the correct configuration of the pipeline.](./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png)
+    ![Skärm bild som visar korrekt konfiguration av pipelinen.](./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png)
 
 ### <a name="run-the-pipeline"></a>Köra en pipeline
 
@@ -224,29 +224,29 @@ After you train your model by using 70 percent of the data, you can use it to sc
 
 ### <a name="view-results"></a>Visa resultat
 
-After the run completes, you can view the results of the pipeline run. 
+När körningen är klar kan du visa resultatet av pipeline-körningen. 
 
-1. Select the **Score Model** module to view its output.
+1. Välj modulen **Poäng modell** för att visa dess utdata.
 
-1. In the properties pane, select **Outputs** > **Visualize**.
+1. I fönstret Egenskaper väljer du **utdata** > **visualisera**.
 
-    Here you can see the predicted prices and the actual prices from the testing data.
+    Här kan du se de förutsagda priser och de faktiska priserna från test data.
 
-    ![Screenshot of the output visualization highlighting the Scored Label column](./media/tutorial-designer-automobile-price-train-score/score-result.png)
+    ![Skärm bild av utmatnings visualiseringen som markerar den markerade etikett kolumnen](./media/tutorial-designer-automobile-price-train-score/score-result.png)
 
-1. Select the **Evaluate Model** module to view its output.
+1. Välj modulen **utvärdera modell** för att visa dess utdata.
 
-1. In the properties pane, select **Output** > **Visualize**.
+1. I fönstret Egenskaper väljer du **utdata** > **visualisera**.
 
-The following statistics are shown for your model:
+Följande statistik visas för din modell:
 
-* **Mean Absolute Error (MAE)** : The average of absolute errors. An error is the difference between the predicted value and the actual value.
-* **Root Mean Squared Error (RMSE)** : The square root of the average of squared errors of predictions made on the test dataset.
+* **Medelvärde för absolut fel (Mae)** : medelvärdet av absoluta fel. Ett fel är skillnaden mellan det förväntade värdet och det faktiska värdet.
+* **Rot genomsnitts fel (rmse)** : kvadratroten ur genomsnittet av de förutsägelser som gjorts på test data uppsättningen.
 * **Relativa absoluta fel**: Medelvärdet av absoluta fel i förhållande till den absoluta skillnaden mellan faktiska värden och medelvärdet av alla faktiska värden.
 * **Relativa kvadratfel**: Medelvärdet av kvadratfel i förhållande till kvadratskillnaden mellan faktiska värden och medelvärdet av alla faktiska värden.
-* **Coefficient of Determination**: Also known as the R squared value, this statistical metric indicates how well a model fits the data.
+* **Friktionskoefficienten**: även känt som R-kvadratvärdet anger det här statistik måttet hur väl en modell passar data.
 
-För all felstatistik gäller att mindre är bättre. A smaller value indicates that the predictions are closer to the actual values. For the coefficient of determination, the closer its value is to one (1.0), the better the predictions.
+För all felstatistik gäller att mindre är bättre. Ett mindre värde anger att förutsägelserna är närmare de faktiska värdena. För att fastställa koefficienten är det närmare värdet en (1,0), desto bättre förutsägelser.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -254,14 +254,14 @@ För all felstatistik gäller att mindre är bättre. A smaller value indicates 
 
 ## <a name="next-steps"></a>Nästa steg
 
-In part one of this tutorial, you completed the following tasks:
+I en del av den här självstudien har du slutfört följande uppgifter:
 
 * Skapa en pipeline
 * Förbereda data
 * Träna modellen
-* Score and evaluate the model
+* Poäng och utvärdera modellen
 
-In part two, you'll learn how to deploy your model as a real-time endpoint.
+I del två får du lära dig hur du distribuerar din modell som en slut punkt i real tid.
 
 > [!div class="nextstepaction"]
-> [Continue to deploying models](tutorial-designer-automobile-price-deploy.md)
+> [Fortsätt till att distribuera modeller](tutorial-designer-automobile-price-deploy.md)

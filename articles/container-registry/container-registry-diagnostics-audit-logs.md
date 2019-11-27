@@ -1,6 +1,6 @@
 ---
-title: Collect & analyze resource logs
-description: Record and analyze resource log events for Azure Container Registry such as authentication, image push, and image pull.
+title: Samla in & analysera resurs loggar
+description: Registrera och analysera resurs logg händelser för Azure Container Registry, till exempel autentisering, avbildnings-push och image pull.
 ms.topic: article
 ms.date: 10/30/2019
 ms.openlocfilehash: ada8502724c1779b9bdab2e8ac7e8ea61c256e44
@@ -10,81 +10,81 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74456422"
 ---
-# <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>Azure Container Registry logs for diagnostic evaluation and auditing
+# <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>Azure Container Registry loggar för diagnostisk utvärdering och granskning
 
-This article explains how to collect log data for an Azure container registry using features of [Azure Monitor](../azure-monitor/overview.md). Azure Monitor collects [resource logs](../azure-monitor/platform/resource-logs-overview.md) (formerly called *diagnostic logs*) for user-driven events in your registry. Collect and consume this data to meet needs such as:
+Den här artikeln beskriver hur du samlar in loggdata för ett Azure Container Registry med hjälp av funktioner i [Azure Monitor](../azure-monitor/overview.md). Azure Monitor samlar in [resurs loggar](../azure-monitor/platform/resource-logs-overview.md) (tidigare kallade *diagnostikloggar*) för användar drivna händelser i registret. Samla in och använda dessa data för att möta behoven, till exempel:
 
-* Audit registry authentication events to ensure security and compliance 
+* Granska händelser för autentisering av registret för att säkerställa säkerhet och efterlevnad 
 
-* Provide a complete activity trail on registry artifacts such as pull and pull events so you can diagnose operational issues with your registry 
+* Tillhandahålla en fullständig aktivitets spårning på register artefakter som pull-och pull-händelser så att du kan diagnostisera drift problem med ditt register 
 
-Collecting resource log data using Azure Monitor may incur additional costs. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/). 
+Att samla in resurs logg data med Azure Monitor kan medföra ytterligare kostnader. Se [Azure Monitor prissättning](https://azure.microsoft.com/pricing/details/monitor/). 
 
 
 > [!IMPORTANT]
-> This feature is currently in preview, and some [limitations](#preview-limitations) apply. Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
+> Den här funktionen är för närvarande en för hands version och vissa [begränsningar](#preview-limitations) gäller. Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
 
 ## <a name="preview-limitations"></a>Begränsningar för förhandsversion
 
-Logging of repository-level events doesn't currently include delete or untag events. Only the following repository events are logged:
-* **Push events** for images and other artifacts
-* **Pull events** for images and other artifacts
+Loggning av händelser på lagrings nivå innehåller för närvarande inte Delete-eller Avtagga-händelser. Endast följande lagrings händelser loggas:
+* **Push-händelser** för bilder och andra artefakter
+* **Hämta händelser** för bilder och andra artefakter
 
-## <a name="registry-resource-logs"></a>Registry resource logs
+## <a name="registry-resource-logs"></a>Register resurs loggar
 
-Resource logs contain information emitted by Azure resources that describe their internal operation. For an Azure container registry, the logs contain authentication and repository-level events stored in the following tables. 
+Resurs loggar innehåller information som genereras av Azure-resurser som beskriver den interna åtgärden. I ett Azure Container Registry innehåller loggarna autentiserings-och lagrings nivå händelser som lagras i följande tabeller. 
 
-* **ContainerRegistryLoginEvents**  - Registry authentication events and status, including the incoming identity and IP address
-* **ContainerRegistryRepositoryEvents** - Operations such as push and pull for images and other artifacts in registry repositories
-* **AzureMetrics** - [Container registry metrics](../azure-monitor/platform/metrics-supported.md#microsoftcontainerregistryregistries) such as aggregated push and pull counts.
+* **ContainerRegistryLoginEvents** – händelser och status för klientautentisering, inklusive inkommande identitet och IP-adress
+* **ContainerRegistryRepositoryEvents** – åtgärder som push och pull för avbildningar och andra artefakter i register databaser
+* **AzureMetrics** - [container Registry-mått](../azure-monitor/platform/metrics-supported.md#microsoftcontainerregistryregistries) som aggregerade push-och pull-antal.
 
-For operations, log data includes:
-  * Success or failure status
-  * Start and end time stamps
+För åtgärder innehåller loggdata följande:
+  * Status för lyckades eller misslyckades
+  * Start-och slutdatum stämplar
 
-In addition to resource logs, Azure provides an [activity log](../azure-monitor/platform/activity-logs-overview.md), a single subscription-level record of Azure management events such as the creation or deletion of a container registry.
+Förutom resurs loggar tillhandahåller Azure en [aktivitets logg](../azure-monitor/platform/activity-logs-overview.md), en enda post på prenumerations nivå med Azures hanterings händelser, till exempel när ett behållar register skapas eller tas bort.
 
-## <a name="enable-collection-of-resource-logs"></a>Enable collection of resource logs
+## <a name="enable-collection-of-resource-logs"></a>Aktivera insamling av resurs loggar
 
-Collection of resource logs for a container registry isn't enabled by default. Explicitly enable diagnostic settings for each registry you want to monitor. For options to enable diagnostic settings, see [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/platform/diagnostic-settings.md).
+Insamling av resurs loggar för ett behållar register är inte aktiverat som standard. Aktivera diagnostiska inställningar uttryckligen för varje register som du vill övervaka. Alternativ för att aktivera diagnostikinställningar finns i [skapa diagnostisk inställning för att samla in plattforms loggar och mått i Azure](../azure-monitor/platform/diagnostic-settings.md).
 
-For example, to view logs and metrics for a container registry in near real-time in Azure Monitor, collect the resource logs in a Log Analytics workspace. To enable this diagnostic setting using the Azure portal:
+Om du till exempel vill visa loggar och mått för ett behållar register i nära real tid i Azure Monitor, samla in resurs loggarna i en Log Analytics arbets yta. Om du vill aktivera den här diagnostikinställningar använder du Azure Portal:
 
-1. If you don't already have a workspace, create a workspace using the [Azure portal](../azure-monitor/learn/quick-create-workspace.md). To minimize latency in data collection, ensure that the workspace is in the **same region** as your container registry.
-1. In the portal, select the registry, and select **Monitoring > Diagnostic settings > Add diagnostic setting**.
-1. Enter a name for the setting, and select **Send to Log Analytics**.
-1. Select the workspace for the registry diagnostic logs.
-1. Select the log data you want to collect, and click **Save**.
+1. Om du inte redan har en arbets yta skapar du en arbets yta med hjälp av [Azure Portal](../azure-monitor/learn/quick-create-workspace.md). För att minimera svars tiden i data insamlingen kontrollerar du att arbets ytan finns i **samma region** som behållar registret.
+1. Välj registret i portalen och välj **övervakning > diagnostikinställningar > Lägg till diagnostisk inställning**.
+1. Ange ett namn för inställningen och välj **Skicka till Log Analytics**.
+1. Välj arbets ytan för registrets diagnostikloggar.
+1. Välj de logg data som du vill samla in och klicka på **Spara**.
 
-The following image shows creation of a diagnostic setting for a registry using the portal.
+Följande bild visar hur du skapar en diagnostisk inställning för ett register med hjälp av portalen.
 
 ![Aktivera diagnostikinställningar](media/container-registry-diagnostics-audit-logs/diagnostic-settings.png)
 
 > [!TIP]
-> Collect only the data that you need, balancing cost and your monitoring needs. For example, if you only need to audit authentication events, select only the **ContainerRegistryLoginEvents** log. 
+> Samla bara in de data som du behöver, balansera kostnaden och dina övervaknings behov. Om du till exempel bara behöver granska autentiseringsbegäranden väljer du bara loggen **ContainerRegistryLoginEvents** . 
 
-## <a name="view-data-in-azure-monitor"></a>View data in Azure Monitor
+## <a name="view-data-in-azure-monitor"></a>Visa data i Azure Monitor
 
-After you enable collection of diagnostic logs in Log Analytics, it can take a few minutes for data to appear in Azure Monitor. To view the data in the portal, select the registry, and select **Monitoring > Logs**. Select one of the tables that contains data for the registry. 
+När du har aktiverat insamling av diagnostikloggar i Log Analytics kan det ta några minuter innan data visas i Azure Monitor. Om du vill visa data i portalen väljer du registret och väljer **övervaka > loggar**. Välj en av tabellerna som innehåller data för registret. 
 
-Run queries to view the data. Several sample queries are provided, or run your own. For example, the following query retrieves the most recent 24 hours of data from the **ContainerRegistryRepositoryEvents** table:
+Kör frågor för att visa data. Det finns flera exempel frågor eller så kör du egna. Följande fråga hämtar till exempel de senaste 24 timmarna av data från tabellen **ContainerRegistryRepositoryEvents** :
 
 ```Kusto
 ContainerRegistryRepositoryEvents
 | where TimeGenerated > ago(1d) 
 ```
 
-The following image shows sample output:
+Följande bild visar exempel på utdata:
 
 ![Frågeloggdata](media/container-registry-diagnostics-audit-logs/azure-monitor-query.png)
 
-For a tutorial on using Log Analytics in the Azure portal, see [Get started with Azure Monitor Log Analytics](../azure-monitor/log-query/get-started-portal.md), or try the Log Analytics [Demo environment](https://portal.loganalytics.io/demo). 
+En själv studie kurs om hur du använder Log Analytics i Azure Portal finns i [Kom igång med Azure Monitor Log Analytics](../azure-monitor/log-query/get-started-portal.md)eller testa Log Analytics [demo miljö](https://portal.loganalytics.io/demo). 
 
-For more information on log queries, see [Overview of log queries in Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+Mer information om logg frågor finns i [Översikt över logg frågor i Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
-### <a name="additional-query-examples"></a>Additional query examples
+### <a name="additional-query-examples"></a>Exempel på ytterligare frågor
 
-#### <a name="100-most-recent-registry-events"></a>100 most recent registry events
+#### <a name="100-most-recent-registry-events"></a>100 senaste register händelser
 
 ```Kusto
 ContainerRegistryRepositoryEvents
@@ -93,16 +93,16 @@ ContainerRegistryRepositoryEvents
 | project TimeGenerated, LoginServer , OperationName , Identity , Repository , DurationMs , Region , ResultType
 ```
 
-## <a name="additional-log-destinations"></a>Additional log destinations
+## <a name="additional-log-destinations"></a>Ytterligare logg destinationer
 
-In addition to sending the logs to Log Analytics, or as an alternative, a common scenario is to select an Azure Storage account as a log destination. To archive logs in Azure Storage, create a storage account before enabling archiving through the diagnostic settings.
+Förutom att skicka loggarna till Log Analytics, eller som ett alternativ, är ett vanligt scenario att välja ett Azure Storage konto som ett logg mål. Om du vill arkivera loggar i Azure Storage skapar du ett lagrings konto innan du aktiverar arkivering genom diagnostiska inställningar.
 
-You can also stream diagnostic log events to an [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Event Hubs can ingest millions of events per second, which you can then transform and store using any real-time analytics provider. 
+Du kan också strömma diagnostikloggar till en [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Event Hubs kan mata in miljontals händelser per sekund, vilket du kan omvandla och lagra med hjälp av valfri leverantör av realtidsanalys. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Learn more about using [Log Analytics](../azure-monitor/log-query/get-started-portal.md) and creating [log queries](../azure-monitor/log-query/get-started-queries.md).
-* See [Overview of Azure platform logs](../azure-monitor/platform/platform-logs-overview.md) to learn about platform logs that are available at different layers of Azure.
+* Lär dig mer om att använda [Log Analytics](../azure-monitor/log-query/get-started-portal.md) och skapa [logg frågor](../azure-monitor/log-query/get-started-queries.md).
+* Se [Översikt över Azures plattforms loggar](../azure-monitor/platform/platform-logs-overview.md) för att lära dig om plattforms loggar som är tillgängliga på olika lager i Azure.
 
 <!-- LINKS - External -->
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

@@ -1,6 +1,6 @@
 ---
-title: Tutorial - use parameter file to deploy template
-description: Use parameter files that contain the values to use for deploying your Azure Resource Manager template.
+title: Självstudie – Använd parameter fil för att distribuera mallen
+description: Använd parameterstyrda filer som innehåller de värden som ska användas för att distribuera din Azure Resource Manager-mall.
 author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
@@ -12,47 +12,47 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74405975"
 ---
-# <a name="tutorial-use-parameter-files-to-deploy-your-resource-manager-template"></a>Tutorial: Use parameter files to deploy your Resource Manager template
+# <a name="tutorial-use-parameter-files-to-deploy-your-resource-manager-template"></a>Självstudie: använda parameter-filer för att distribuera Resource Manager-mallen
 
-In this tutorial, you learn how to use [parameter files](resource-manager-parameter-files.md) to store the values you pass in during deployment. In the previous tutorials, you used inline parameters with your deployment command. This approach worked for testing your template, but when automating deployments it can be easier to pass a set of values for your environment. Parameter files make it easier to package parameter values for a specific environment. In this tutorial, you'll create parameter files for development and production environments. It takes about **12 minutes** to complete.
+I den här självstudien får du lära dig hur du använder [parameter-filer](resource-manager-parameter-files.md) för att lagra de värden som du skickar i under distributionen. I de föregående självstudierna använde du infogade parametrar med ditt distributions kommando. Den här metoden fungerade för att testa din mall, men när du automatiserar distributionen kan det vara lättare att skicka en uppsättning värden för din miljö. Parameter-filer gör det lättare att paketera parameter värden för en speciell miljö. I den här självstudien skapar du parameterstyrda filer för utvecklings-och produktions miljöer. Det tar ungefär **12 minuter** att slutföra.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-We recommend that you complete the [tutorial about tags](template-tutorial-add-tags.md), but it's not required.
+Vi rekommenderar att du slutför [självstudien om Taggar](template-tutorial-add-tags.md), men det är inte obligatoriskt.
 
-You must have Visual Studio Code with the Resource Manager Tools extension, and either Azure PowerShell or Azure CLI. For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
+Du måste ha Visual Studio Code med Resource Manager Tools-tillägget och antingen Azure PowerShell eller Azure CLI. Mer information finns i [verktyg för mallar](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-template"></a>Review template
+## <a name="review-template"></a>Granska mall
 
-Your template has many parameters you can provide during deployment. At the end of the previous tutorial, your template looked like:
+Din mall har många parametrar som du kan ange under distributionen. I slutet av den föregående själv studie kursen såg din mall ut som:
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json)]
 
-This template works well, but now you want to easily manage the parameters that you pass in for the template.
+Den här mallen fungerar bra, men nu vill du enkelt hantera de parametrar som du skickar i för mallen.
 
-## <a name="add-parameter-files"></a>Add parameter files
+## <a name="add-parameter-files"></a>Lägg till parameter filer
 
-Parameter files are JSON files with a structure that is similar to your template. In the file, you provide the parameter values you want to pass in during deployment.
+Parameter-filer är JSON-filer med en struktur som liknar din mall. I filen anger du de parameter värden som du vill skicka under distributionen.
 
-In VS Code, create a new file with following content. Save the file with the name **azuredeploy.parameters.dev.json**.
+I VS Code skapar du en ny fil med följande innehåll. Spara filen med namnet **azuredeploy. Parameters. dev. JSON**.
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.dev.json)]
 
-This file is your parameter file for the development environment. Notice that it uses Standard_LRS for the storage account, names resources with a **dev** prefix, and sets the **Environment** tag to **Dev**.
+Den här filen är din parameter fil för utvecklings miljön. Observera att den använder Standard_LRS för lagrings kontot, namnger resurser med ett **dev** -prefix och ställer in **miljö** tag gen på **dev**.
 
-Again, create a new file with the following content. Save the file with the name **azuredeploy.parameters.prod.json**.
+Skapa en ny fil med följande innehåll. Spara filen med namnet **azuredeploy. Parameters. prod. JSON**.
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.prod.json)]
 
-This file is your parameter file for the production environment. Notice that it uses Standard_GRS for the storage account, names resources with a **contoso** prefix, and sets the **Environment** tag to **Production**. In a real production environment, you would also want to use an app service with a SKU other than free, but we'll continue to use that SKU for this tutorial.
+Den här filen är parameter filen för produktions miljön. Observera att den använder Standard_GRS för lagrings kontot, namnger resurser med ett **contoso** -prefix och ställer in **miljö** tag gen på **produktion**. I en verklig produktions miljö vill du också använda en app service med en annan SKU än kostnads fri, men vi fortsätter att använda SKU: n för den här självstudien.
 
 ## <a name="deploy-template"></a>Distribuera mallen
 
-Use either Azure CLI or Azure PowerShell to deploy the template.
+Använd antingen Azure CLI eller Azure PowerShell för att distribuera mallen.
 
-As a final test of your template, let's create two new resource groups. One for the dev environment and one for the production environment.
+Vi skapar två nya resurs grupper som ett slutligt test av din mall. En för utvecklings miljön och en för produktions miljön.
 
-First, we'll deploy to the dev environment.
+Först ska vi distribuera till utvecklings miljön.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -85,7 +85,7 @@ az group deployment create \
 
 ---
 
-Now, we'll deploy to the production environment.
+Nu ska vi distribuera till produktions miljön.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -118,25 +118,25 @@ az group deployment create \
 
 ## <a name="verify-deployment"></a>Verifiera distributionen
 
-You can verify the deployment by exploring the resource groups from the Azure portal.
+Du kan kontrol lera distributionen genom att utforska resurs grupperna från Azure Portal.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. From the left menu, select **Resource groups**.
-1. You see the two new resource groups you deployed in this tutorial.
-1. Select either resource group and view the deployed resources. Notice that they match the values you specified in your parameter file for that environment.
+1. Välj **resurs grupper**på den vänstra menyn.
+1. Du ser de två nya resurs grupper som du har distribuerat i den här självstudien.
+1. Välj antingen resurs grupp och Visa de distribuerade resurserna. Observera att de stämmer överens med de värden som du har angett i parameter filen för den miljön.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 1. Från Azure-portalen väljer du **Resursgrupp** från den vänstra menyn.
-2. Ange resursgruppens namn i fältet **Filtrera efter namn**. If you've completed this series, you have three resource groups to delete - myResourceGroup, myResourceGroupDev, and myResourceGroupProd.
+2. Ange resursgruppens namn i fältet **Filtrera efter namn**. Om du har slutfört den här serien har du tre resurs grupper för att ta bort-myResourceGroup, myResourceGroupDev och myResourceGroupProd.
 3. Välj resursgruppens namn.
 4. Välj **Ta bort resursgrupp** från menyn längst upp.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Congratulations, you've finished this introduction to deploying templates to Azure. Let us know if you have any comments and suggestions in the feedback section. Tack!
+Grattis, du har slutfört introduktionen till att distribuera mallar till Azure. Berätta om du har kommentarer och förslag i feedback-avsnittet. Tack!
 
-You're ready to jump into more advanced concepts about templates. The next tutorial goes into more detail about using template reference documentation to help with defining resources to deploy.
+Du är redo att gå till mer avancerade koncept om mallar. Nästa självstudie innehåller mer information om hur du använder mallens referens dokumentation för att definiera vilka resurser som ska distribueras.
 
 > [!div class="nextstepaction"]
 > [Använda mallreferens](resource-manager-tutorial-create-encrypted-storage-accounts.md)

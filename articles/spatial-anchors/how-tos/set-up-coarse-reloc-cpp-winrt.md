@@ -27,7 +27,7 @@ ms.locfileid: "74277373"
 
 Molnbaserade ankare kan associeras på enheten, placera sensor data med de ankare som du skapar. Den här informationen kan också användas för att snabbt avgöra om det finns några fäst punkter i närheten av enheten. Mer information finns i [grov omlokalisering](../concepts/coarse-reloc.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Se till att du har följande för att slutföra den här guiden:
 

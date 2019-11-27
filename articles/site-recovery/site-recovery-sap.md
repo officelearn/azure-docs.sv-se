@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: ca3126c983d62cb28c543215b86ab9709a4736d8
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 29b3e4af33702c75e92b5e36c5521d9af12b1013
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083789"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533854"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Konfigurera haveri beredskap för en distribution med flera nivåer av SAP NetWeaver-appar
 
@@ -74,9 +74,9 @@ Om du vill implementera en lösning för hög tillgänglighet kan antingen ett d
  > [!NOTE]
  > Azure Site Recovery replikerar inte moln vittnet, därför rekommenderas det att distribuera moln vittnet i Disaster Recovery-regionen.
 
-Stöd för failover-klustermiljö [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) utför klusterdelade volym funktion genom att replikera oberoende diskar som ägs av klusternoderna. Azure har inte har inbyggt stöd för delade diskar och därför kräver lösningar som tillhandahålls av SIOS. 
+För att stödja kluster miljön för växling vid fel, utför [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) funktionen för delad kluster volym genom att replikera oberoende diskar som ägs av klusternoderna. Azure har inte har inbyggt stöd för delade diskar och därför kräver lösningar som tillhandahålls av SIOS. 
 
-Ett annat sätt att hantera klustring är att implementera ett fil resurs kluster. [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) ändrades Central Services distribution mönstret för att komma åt de globala katalogerna /sapmnt via en UNC-sökväg. Vi rekommenderar dock fortfarande att se till att/sapmnt-UNC-resursen är hög tillgänglig. Detta kan göras på den centrala Services-instansen med hjälp av Windows Server-redundanskluster med skalbar fil server (SOFS) och funktionen Lagringsdirigering (S2D) i Windows Server 2016. 
+Ett annat sätt att hantera klustring är att implementera ett fil resurs kluster. [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) ändrade nyligen distributions mönstret för central tjänster för att få åtkomst till globala/sapmnt-kataloger via en UNC-sökväg. Vi rekommenderar dock fortfarande att se till att/sapmnt-UNC-resursen är hög tillgänglig. Detta kan göras på den centrala Services-instansen med hjälp av Windows Server-redundanskluster med skalbar fil server (SOFS) och funktionen Lagringsdirigering (S2D) i Windows Server 2016. 
  > [!NOTE]
  > För närvarande Azure Site Recovery stöd endast krasch konsekvens av virtuella datorer som använder lagrings dirigering och passiv nod för SIOS DataKeeper
 
@@ -95,7 +95,7 @@ Nedan visas stegen för att konfigurera haveri beredskap
 
 Nedan visas en rekommendation för haveri beredskap för varje nivå som används i det här exemplet. 
 
- **SAP-nivåer** | **Rekommendationen**
+ **SAP-nivåer** | **Rekommenderade**
  --- | ---
 **SAP Web dispatcher-pool** |  Replikera med Site Recovery 
 **SAP Application Server-pool** |  Replikera med Site Recovery 
@@ -110,7 +110,7 @@ Om du vill börja replikera alla virtuella SAP-program till data centret för Az
 
 * Anvisningar om hur du skyddar Active Directory och DNS finns i [skydda Active Directory och DNS-](site-recovery-active-directory.md) dokument.
 
-* Information om hur du skyddar databas nivån som körs på SQL Server finns i [skydda SQL Server](site-recovery-active-directory.md) -dokument.
+* Information om hur du skyddar databas nivån som körs på SQL Server finns i [skydda SQL Server](site-recovery-sql.md) -dokument.
 
 ## <a name="networking-configuration"></a>Nätverks konfiguration
 

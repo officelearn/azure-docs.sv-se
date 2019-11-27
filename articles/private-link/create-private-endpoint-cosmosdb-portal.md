@@ -33,9 +33,9 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och under nätet som ä
 
 1. I **Skapa virtuellt nätverk** anger eller väljer du följande information:
 
-    | Inställning | Värde |
+    | Inställning | Value |
     | ------- | ----- |
-    | Namn | Ange *MyVirtualNetwork*. |
+    | Name | Ange *MyVirtualNetwork*. |
     | Adressutrymme | Ange *10.1.0.0/16*. |
     | Prenumeration | Välj din prenumeration.|
     | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup* och välj sedan **OK**. |
@@ -52,7 +52,7 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och under nätet som ä
 
 1. I **Skapa en virtuell dator – grunder** anger eller väljer du följande information:
 
-    | Inställning | Värde |
+    | Inställning | Value |
     | ------- | ----- |
     | **PROJEKTINFORMATION** | |
     | Prenumeration | Välj din prenumeration. |
@@ -65,7 +65,7 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och under nätet som ä
     | Storlek | Lämna kvar standardinställningen **Standard DS1 v2**. |
     | **ADMINISTRATÖRSKONTO** |  |
     | Användarnamn | Ange ett valfritt användar namn. |
-    | Lösenord | Ange ett valfritt lösen ord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | lösenordsinställning | Ange ett valfritt lösen ord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Bekräfta lösenord | Ange lösen ordet igen. |
     | **REGLER FÖR INKOMMANDE PORTAR** |  |
     | Offentliga inkommande portar | Lämna kvar standardinställningen **Ingen**. |
@@ -79,11 +79,11 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och under nätet som ä
 
 1. I **Skapa en virtuell dator – nätverk** väljer du följande information:
 
-    | Inställning | Värde |
+    | Inställning | Value |
     | ------- | ----- |
     | Virtuellt nätverk | Lämna standard **MyVirtualNetwork**.  |
     | Adressutrymme | Lämna standard **10.1.0.0/24**.|
-    | Undernät | Lämna standard **under nätet (10.1.0.0/24)** .|
+    | Subnet | Lämna standard **under nätet (10.1.0.0/24)** .|
     | Offentlig IP-adress | Lämna standardinställningen **(ny) myVm-ip**. |
     | Offentliga inkommande portar | Välj **Tillåt valda portar**. |
     | Välj inkommande portar | Välj **HTTP** och **RDP**.|

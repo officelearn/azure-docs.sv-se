@@ -18,7 +18,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/19/2019
 ms.locfileid: "74187194"
 ---
-# <a name="resource-management-in-dense-elastic-pools"></a>Resurs hantering i kompakta elastiska pooler
+# <a name="resource-management-in-dense-elastic-pools"></a>Resurshantering i kompakta elastiska pooler
 
 Azure SQL Database [elastiska pooler](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool) är en kostnads effektiv lösning för att hantera många databaser med varierande resursanvändning. Alla databaser i en elastisk pool delar samma allokering av resurser, till exempel processor, minne, arbets trådar, lagrings utrymme, tempdb, i antagandet att endast en del av databaserna i poolen kommer att använda beräknings resurser vid en viss tidpunkt. Detta antagande innebär att elastiska pooler kan vara kostnads effektiva. I stället för att betala för alla resurser som varje enskild databas kan behöva, betalar kunderna för en mycket mindre uppsättning resurser, som delas mellan alla databaser i poolen.
 
@@ -61,8 +61,8 @@ Utöver dessa mått ger Azure SQL Database en vy som returnerar faktiska resurs 
 |Namn på vy|Beskrivning|  
 |-----------------|--------------------------------|  
 |[sys. dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database)|Returnerar de inställningar för konfiguration och kapacitet som används av resurs styrnings mekanismer i den aktuella databasen eller den elastiska poolen.|
-|[sys.dm_resource_governor_resource_pools](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-transact-sql)|Returnerar information om aktuell resurspool, aktuell konfiguration av resurspooler och ackumulerad resurspool.|
-|[sys.dm_resource_governor_workload_groups](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-workload-groups-transact-sql)|Returnerar ackumulerad statistik för arbets belastnings grupper och den aktuella konfigurationen av arbets belastnings gruppen. Den här vyn kan kopplas till sys. dm_resource_governor_resource_pools i kolumnen `pool_id` för att hämta information om resurspool.|
+|[sys. dm_resource_governor_resource_pools](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-transact-sql)|Returnerar information om aktuell resurspool, aktuell konfiguration av resurspooler och ackumulerad resurspool.|
+|[sys. dm_resource_governor_workload_groups](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-workload-groups-transact-sql)|Returnerar ackumulerad statistik för arbets belastnings grupper och den aktuella konfigurationen av arbets belastnings gruppen. Den här vyn kan kopplas till sys. dm_resource_governor_resource_pools i kolumnen `pool_id` för att hämta information om resurspool.|
 |[sys. dm_resource_governor_resource_pools_history_ex](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-history-ex-azure-sql-database)|Returnerar statistik för användning av resurspool under de senaste 32 minuterna. Varje rad representerar ett 20-sekunders intervall. `delta_` kolumnerna returnerar ändringen i varje statistik under intervallet.|
 |[sys. dm_resource_governor_workload_groups_history_ex](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-workload-groups-history-ex-azure-sql-database)|Returnerar användnings statistik för arbets belastnings grupper under de senaste 32 minuterna. Varje rad representerar ett 20-sekunders intervall. `delta_` kolumnerna returnerar ändringen i varje statistik under intervallet.|
 |||

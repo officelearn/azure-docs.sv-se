@@ -1,6 +1,6 @@
 ---
-title: Ensure application high availability when running in VMware on Azure
-description: Describes CloudSimple high availability features to address common application failure scenarios for applications running in a CloudSimple Private Cloud
+title: Se till att programmet är högt tillgängligt när du kör i VMware på Azure
+description: Beskriver CloudSimple funktioner för hög tillgänglighet för att åtgärda vanliga program krascher för program som körs i ett CloudSimple privat moln
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/20/2019
@@ -15,52 +15,52 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74206532"
 ---
-# <a name="ensure-application-high-availability-when-running-in-vmware-on-azure"></a>Ensure application high availability when running in VMware on Azure
+# <a name="ensure-application-high-availability-when-running-in-vmware-on-azure"></a>Se till att programmet är högt tillgängligt när du kör i VMware på Azure
 
-The CloudSimple solution provides high availability for your applications running on VMware in the Azure environment. The following table lists failure scenarios and the associated high availability features.
+CloudSimple-lösningen ger hög tillgänglighet för dina program som körs på VMware i Azure-miljön. I följande tabell visas de olika felen och de associerade funktionerna för hög tillgänglighet.
 
-| Failure scenario | Application protected? | Platform HA feature | VMware HA feature | Azure HA feature |
+| Scenario för haveri | Program skyddat? | Plattform HA-funktion | VMware HA-funktion | Azure HA-funktion |
 ------------ | ------------- | ------------ | ------------ | ------------- |
-| Disk Failure | YES | Fast replacement of failed node | [About the vSAN Default Storage Policy](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.virtualsan.doc/GUID-C228168F-6807-4C2A-9D74-E584CAF49A2A.html) |
-| Fan Failure | YES | Redundant fans, fast replacement of failed node |  |  |
-| NIC Failure | YES | Redundant NIC, fast replacement of failed node
-| Host Power Failure | YES | Redundant power supply |  |  |
-| ESXi Host Failure | YES | fast replacement of failed node | [VMware vSphere High Availability](https://www.vmware.com/products/vsphere/high-availability.html) |  |  |
-| VM Failure | YES | [Lastbalanserare](load-balancers.md)  | [VMware vSphere High Availability](https://www.vmware.com/products/vsphere/high-availability.html) | Azure Load Balancer for stateless VMware VMs |
-| Leaf Switch Port Failure | YES | Redundant NIC |  |  |
-| Leaf Switch Failure | YES | Redundant leaf switches |  |  |
-| Rack Failure | YES | Placeringsgrupper |  |  |
-| Network Connectivity to on-premises DC | YES  | Redundant networking services |  | Redundant ER circuits |
-| Network Connectivity to Azure | YES | |  | Redundant ER circuits |
-| Datacenter Failure | YES |  |  | Tillgänglighetszoner |
-| Regional Failure | YES  |  |  | Azure-regioner |
+| Diskfel | Ja | Snabb ersättning av misslyckad nod | [Om standard lagrings principen för virtuellt San](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.virtualsan.doc/GUID-C228168F-6807-4C2A-9D74-E584CAF49A2A.html) |
+| Fläkt haveri | Ja | Redundanta fläktar, snabb ersättning av misslyckad nod |  |  |
+| NIC-problem | Ja | Redundant NIC, snabb ersättning av misslyckad nod
+| Värd strömförsörjnings problem | Ja | Redundant strömförsörjning |  |  |
+| ESXi-värd haveri | Ja | Snabb ersättning av misslyckad nod | [VMware vSphere hög tillgänglighet](https://www.vmware.com/products/vsphere/high-availability.html) |  |  |
+| VM-haveri | Ja | [Lastbalanserare](load-balancers.md)  | [VMware vSphere hög tillgänglighet](https://www.vmware.com/products/vsphere/high-availability.html) | Azure Load Balancer för tillstånds lösa virtuella VMware-datorer |
+| Port haveri för löv växel | Ja | Redundant NIC |  |  |
+| Löv växlings problem | Ja | Redundanta löv växlar |  |  |
+| Rack Haveriering | Ja | Placeringsgrupper |  |  |
+| Nätverks anslutning till lokal DOMÄNKONTROLLANT | Ja  | Redundanta nätverks tjänster |  | Redundanta ER-kretsar |
+| Nätverks anslutning till Azure | Ja | |  | Redundanta ER-kretsar |
+| Data Center haveri | Ja |  |  | Tillgänglighetszoner |
+| Regionalt haveri | Ja  |  |  | Azure-regioner |
 
-Azure VMware Solution by CloudSimple provides the following high availability features.
+Azure VMware-lösningen av CloudSimple tillhandahåller följande funktioner för hög tillgänglighet.
 
-## <a name="fast-replacement-of-failed-node"></a>Fast replacement of failed node
+## <a name="fast-replacement-of-failed-node"></a>Snabb ersättning av misslyckad nod
 
-The CloudSimple control plane software continuously monitors the health of VMware clusters and detects when an ESXi node fails. It then automatically adds a new ESXi host to the affected VMware cluster from its pool of readily available nodes and takes the failed node out of the cluster. This functionality ensures that the spare capacity in the VMware cluster is restored quickly so that the cluster’s resiliency provided by vSAN and VMware HA is restored.
+CloudSimple Control plan-programvaran övervakar ständigt hälso tillståndet för VMware-kluster och identifierar när en ESXi-nod Miss lyckas. Den lägger sedan automatiskt till en ny ESXi-värd till det berörda VMware-klustret från sin pool med lättillgängliga noder och tar den felande noden från klustret. Den här funktionen säkerställer att den extra kapaciteten i VMware-klustret återställs snabbt så att klustrets återhämtnings förmåga från virtuellt San och VMware HA återställts.
 
 ## <a name="placement-groups"></a>Placeringsgrupper
 
-A user who creates a Private Cloud can select an Azure region and a placement group within the selected region. A placement group is a set of nodes spread across multiple racks but within the same spine network segment. Nodes within the same placement group can reach each other with a maximum of two extra switch hops. A placement group is always within a single Azure availability zone and spans multiple racks. The CloudSimple control plane distributes nodes of a Private Cloud across multiple racks based on best effort. Nodes in different placement groups are guaranteed to be placed in different racks.
+En användare som skapar ett privat moln kan välja en Azure-region och en placerings grupp i den valda regionen. En placerings grupp är en uppsättning noder som sprids över flera rack, men inom samma rygg nätverks segment. Noder inom samma placerings grupp kan komma åt varandra med högst två extra växel hopp. En placerings grupp är alltid inom en enda Azure-tillgänglighets zon och omfattar flera rack. CloudSimple-kontroll planet distribuerar noder i ett privat moln över flera rack baserat på bästa möjliga ansträngning. Noder i olika placerings grupper är garanterat placerade i olika rack.
 
 ## <a name="availability-zones"></a>Tillgänglighetszoner
 
-Availability zones are a high-availability offering that protects your applications and data from datacenter failures. Availability zones are special physical locations within an Azure region. Varje zon utgörs av ett eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverk. Each region has one availability zone. For more information, see [What are Availability Zones in Azure?](../availability-zones/az-overview.md).
+Tillgänglighets zoner är ett erbjudande med hög tillgänglighet som skyddar dina program och data från data Center problem. Tillgänglighets zoner är särskilda fysiska platser inom en Azure-region. Varje zon består av en eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverkstjänster. Varje region har en tillgänglighets zon. Mer information finns i [Vad är Tillgänglighetszoner i Azure?](../availability-zones/az-overview.md).
 
-## <a name="redundant-azure-expressroute-circuits"></a>Redundant Azure ExpressRoute circuits
+## <a name="redundant-azure-expressroute-circuits"></a>Redundanta Azure ExpressRoute-kretsar
 
-Data center connectivity to Azure vNet using ExpressRoute has redundant circuits to provide highly available network connectivity link.
+Data Center anslutningen till Azure vNet med ExpressRoute har redundanta kretsar för att tillhandahålla anslutning med hög tillgängliga nätverks anslutningar.
 
-## <a name="redundant-networking-services"></a>Redundant networking services
+## <a name="redundant-networking-services"></a>Redundanta nätverks tjänster
 
-All the CloudSimple networking services for the Private Cloud (including VLAN, firewall, public IP addresses, Internet, and VPN) are designed to be highly available and able to support the service SLA.
+Alla CloudSimple nätverks tjänster för det privata molnet (inklusive VLAN, brand vägg, offentliga IP-adresser, Internet och VPN) är utformade för att vara hög tillgängliga och kunna stödja service avtalet för tjänster.
 
-## <a name="azure-layer-7-load-balancer-for-stateless-vmware-vms"></a>Azure Layer 7 Load Balancer for stateless VMware VMs
+## <a name="azure-layer-7-load-balancer-for-stateless-vmware-vms"></a>Azure Layer 7-Load Balancer för tillstånds lösa virtuella VMware-datorer
 
-Users can put an Azure Layer 7 Load Balancer in front of the stateless web tier VMs running in the VMware environment to achieve high availability for the web tier.
+Användare kan lägga till ett Azure Layer 7-Load Balancer framför de tillstånds lösa virtuella datorer i VMware-miljön som körs i VMware-miljön för att uppnå hög tillgänglighet för webb nivån.
 
 ## <a name="azure-regions"></a>Azure-regioner
 
-An Azure region is a set of data centers deployed within a latency-defined perimeter and connected through a dedicated regional low-latency network. For details, see [Azure Regions](https://azure.microsoft.com/global-infrastructure/regions).
+En Azure-region är en uppsättning data Center som distribueras inom en latens-definierad perimeter och är anslutna via ett dedikerat regionalt nätverk med låg latens. Mer information finns i [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions).

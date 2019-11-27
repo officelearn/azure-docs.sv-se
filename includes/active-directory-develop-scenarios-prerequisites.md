@@ -21,11 +21,11 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74482495"
 ---
-Before reading this article, you should be familiar with the following concepts:
+Innan du läser den här artikeln bör du vara bekant med följande begrepp:
 
-- [Microsoft identity platform overview](../articles/active-directory/develop/v2-overview.md)
+- [Översikt över Microsoft Identity Platform](../articles/active-directory/develop/v2-overview.md)
 - [Grundläggande om autentisering](../articles/active-directory/develop/authentication-scenarios.md)
-- [Audiences](../articles/active-directory/develop/v2-supported-account-types.md)
-- [Application and service principals](../articles/active-directory/develop/app-objects-and-service-principals.md)
-- [Permissions and consent](../articles/active-directory/develop/v2-permissions-and-consent.md)
-- [ID tokens](../articles/active-directory/develop/id-tokens.md) and [access tokens](../articles/active-directory/develop/access-tokens.md)
+- [Mål grupper](../articles/active-directory/develop/v2-supported-account-types.md)
+- [Program-och tjänst huvud namn](../articles/active-directory/develop/app-objects-and-service-principals.md)
+- [Behörigheter och tillstånd](../articles/active-directory/develop/v2-permissions-and-consent.md)
+- [ID-token](../articles/active-directory/develop/id-tokens.md) och [åtkomsttoken](../articles/active-directory/develop/access-tokens.md)

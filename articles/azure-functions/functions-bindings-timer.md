@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: 57eec1293867a6596eb93f20ba27d468498e4e61
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: HT
+ms.openlocfilehash: 143a05944799ff04f9c21384f85a4b00cc65b750
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278702"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74545733"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timer-utlösare för Azure Functions 
 
@@ -283,7 +283,10 @@ Här följer några exempel på NCRONTAB-uttryck som du kan använda för timer-
 
 Talen i ett CRON-uttryck refererar till en tid och ett datum, inte ett tidsintervall. Till exempel refererar en 5 i `hour`-fältet till 5:00 AM, inte var 5: e timme.
 
-Standard tids zonen som används med CRON-uttryck är Coordinated Universal Time (UTC). Om du vill att ditt CRON-uttryck ska baseras på en annan tidszon skapar du en app-inställning för din Function-app med namnet `WEBSITE_TIME_ZONE`. Ange värdet till namnet på den önskade tids zonen som visas i [Microsoft Time Zone-indexet](https://technet.microsoft.com/library/cc749073). 
+Standard tids zonen som används med CRON-uttryck är Coordinated Universal Time (UTC). Om du vill att ditt CRON-uttryck ska baseras på en annan tidszon skapar du en app-inställning för din Function-app med namnet `WEBSITE_TIME_ZONE`. Ange värdet till namnet på den önskade tids zonen som visas i [Microsoft Time Zone-indexet](https://technet.microsoft.com/library/cc749073).
+
+  > [!NOTE]
+  > `WEBSITE_TIME_ZONE` stöds för närvarande inte i Linux-förbruknings planen.
 
 Till exempel är *Eastern Standard Time* UTC-05:00. Använd följande NCRONTAB-uttryck som kontona för UTC-tidszonen för att utlösa timer-utlösare vid 10:00 AM EST per dag:
 

@@ -44,7 +44,7 @@ Om du vill ta reda på vilka service märken som ska läggas till för din regio
 
 Om du föredrar service tag-alternativet två, och klustret finns i någon av de regioner som anges i den här tabellen, behöver du bara lägga till en enda regional service-tagg i nätverks säkerhets gruppen.
 
-| Land/region | Region | Service tag |
+| Country | Region | Service tag |
 | ---- | ---- | ---- |
 | Australien | Östra Australien | HDInsight. AustraliaEast |
 | &nbsp; | Sydöstra Australien | HDInsight. AustraliaSoutheast |
@@ -59,7 +59,7 @@ Om du föredrar service tag-alternativet två, och klustret finns i någon av de
 | Korea | Sydkorea, centrala | HDInsight. centrala |
 | &nbsp; | Sydkorea, södra | HDInsight. Koreasödra |
 | Indien | Indien, centrala | HDInsight. Kanada |
-| &nbsp; | Södra Indien | HDInsight. Australienöstra |
+| &nbsp; | Indien, södra | HDInsight. Australienöstra |
 | Japan | Västra Japan | HDInsight. Japanvästra |
 | Frankrike | Frankrike, centrala| HDInsight. FranceCentral |
 | Storbritannien | Storbritannien, södra | HDInsight. UKSouth |
@@ -83,13 +83,13 @@ Om klustret till exempel skapas i `East US 2` region, måste du lägga till föl
 - `HDInsight.WestUS`
 - `HDInsight.EastUS`
 
-| Land/region | Region | Service tag |
+| Country | Region | Service tag |
 | ---- | ---- | ---- |
 | USA | USA, östra 2 | HDInsight. EastUS2 |
 | &nbsp; | Centrala USA | HDInsight. centrala |
 | &nbsp; | NorthCentral oss | HDInsight. Usanorracentrala |
 | &nbsp; | Södra centrala USA | HDInsight. Usasödracentrala |
-| &nbsp; | Östra USA | HDInsight. öst |
+| &nbsp; | East US | HDInsight. öst |
 | &nbsp; | Västra USA | HDInsight. väst |
 | Japan | Östra Japan | HDInsight. Japanöstra |
 | Europa | Norra Europa | HDInsight. Europanorra |

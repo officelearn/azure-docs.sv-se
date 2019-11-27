@@ -1,6 +1,6 @@
 ---
-title: Configure a Site-to-Site (S2S) VPN for use with Azure Files | Microsoft Docs
-description: How to configure a Site-to-Site (S2S) VPN for use with Azure Files
+title: Konfigurera ett VPN för plats-till-plats (S2S) som ska användas med Azure Files | Microsoft Docs
+description: Konfigurera en plats-till-plats (S2S) VPN för användning med Azure Files
 author: roygara
 ms.service: storage
 ms.topic: overview
@@ -14,104 +14,104 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74484417"
 ---
-# <a name="configure-a-site-to-site-vpn-for-use-with-azure-files"></a>Configure a Site-to-Site VPN for use with Azure Files
-You can use a Site-to-Site (S2S) VPN connection to mount your Azure file shares over SMB from your on-premises network, without opening up port 445. You can set up a Site-to-Site VPN using [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md), which is an Azure resource offering VPN services, and is deployed in a resource group alongside storage accounts or other Azure resources.
+# <a name="configure-a-site-to-site-vpn-for-use-with-azure-files"></a>Konfigurera en plats-till-plats-VPN för användning med Azure Files
+Du kan använda en plats-till-plats (S2S) VPN-anslutning för att montera dina Azure-filresurser över SMB från ditt lokala nätverk, utan att öppna port 445. Du kan konfigurera en plats-till-plats-VPN med hjälp av [azure VPN gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md), som är en Azure-resurs som erbjuder VPN-tjänster, och som distribueras i en resurs grupp, tillsammans med lagrings konton eller andra Azure-resurser.
 
-![A topology chart illustrating the topology of an Azure VPN gateway connecting an Azure file share to an on-premises site using a S2S VPN](media/storage-files-configure-s2s-vpn/s2s-topology.png)
+![Ett Topology-diagram som illustrerar topologin för en Azure VPN-gateway som ansluter en Azure-filresurs till en lokal plats med hjälp av en S2S VPN](media/storage-files-configure-s2s-vpn/s2s-topology.png)
 
-We strongly recommend that you read [Azure Files networking overview](storage-files-networking-overview.md) before continuing with this how to article for a complete discussion of the networking options available for Azure Files.
+Vi rekommenderar starkt att du läser [Azure Files nätverks översikt](storage-files-networking-overview.md) innan du fortsätter med den här artikeln för en fullständig diskussion av de nätverks alternativ som är tillgängliga för Azure Files.
 
-The article details the steps to configure a Site-to-Site VPN to mount Azure file shares directly on-premises. If you're looking to route sync traffic for Azure File Sync over a Site-to-Site VPN, please see [configuring Azure File Sync proxy and firewall settings](storage-sync-files-firewall-and-proxy.md).
+Artikeln beskriver stegen för att konfigurera en plats-till-plats-VPN för att montera Azure-filresurser direkt lokalt. Om du vill dirigera synkron trafik för Azure File Sync över en plats-till-plats-VPN kan du läsa [konfigurera Azure File Sync proxy-och brand Väggs inställningar](storage-sync-files-firewall-and-proxy.md).
 
-## <a name="prerequisites"></a>Krav
-- An Azure file share you would like to mount on-premises. You may use either a [standard](storage-how-to-create-file-share.md) or a [premium Azure file share](storage-how-to-create-premium-fileshare.md) with your Site-to-Site VPN.
+## <a name="prerequisites"></a>Förutsättningar
+- En Azure-filresurs som du vill montera lokalt. Du kan använda antingen en [standard](storage-how-to-create-file-share.md) -eller [Premium Azure-filresurs](storage-how-to-create-premium-fileshare.md) med plats-till-plats-VPN.
 
-- A network appliance or server in your on-premises datacenter that is compatible with Azure VPN Gateway. Azure Files is agnostic of the on-premises network appliance chosen but Azure VPN Gateway maintains a [list of tested devices](../../vpn-gateway/vpn-gateway-about-vpn-devices.md). Different network appliances offer different features, performance characteristics, and management functionalities, so consider these when selecting a network appliance.
+- En nätverks enhet eller server i ditt lokala data Center som är kompatibelt med Azure VPN Gateway. Azure Files är oberoende av den lokala nätverks enheten som valts, men Azure VPN Gateway underhåller en [lista över testade enheter](../../vpn-gateway/vpn-gateway-about-vpn-devices.md). Olika nätverks enheter erbjuder olika funktioner, prestanda egenskaper och hanterings funktioner, så tänk på dessa när du väljer en nätverks enhet.
 
-    If you do not have an existing network appliance, Windows Server contains a built-in Server Role, Routing and Remote Access (RRAS), which may be used as the on-premises network appliance. To learn more about how to configure Routing and Remote Access in Windows Server, see [RAS Gateway](https://docs.microsoft.com/windows-server/remote/remote-access/ras-gateway/ras-gateway).
+    Om du inte har en befintlig nätverks installation innehåller Windows Server en inbyggd server roll, Routning och fjärråtkomst (RRAS) som kan användas som lokal nätverks enhet. Mer information om hur du konfigurerar Routning och fjärråtkomst i Windows Server finns i ras- [Gateway](https://docs.microsoft.com/windows-server/remote/remote-access/ras-gateway/ras-gateway).
 
-## <a name="add-storage-account-to-vnet"></a>Add storage account to VNet
-In the Azure portal, navigate to the storage account containing the Azure file share you would like to mount on-premises. In the table of contents for the storage account, select the **Firewalls and virtual networks** entry. Unless you added a virtual network to your storage account when you created it, the resulting pane should have the **Allow access from** radio button for **All networks** selected.
+## <a name="add-storage-account-to-vnet"></a>Lägg till lagrings konto i VNet
+I Azure Portal navigerar du till det lagrings konto som innehåller den Azure-filresurs som du vill montera lokalt. I innehålls förteckningen för lagrings kontot väljer du **brand väggar och virtuella nätverk** . Om du inte har lagt till ett virtuellt nätverk till ditt lagrings konto när du skapade det, ska det resulterande fönstret ha alternativet **Tillåt åtkomst från** alternativ för **alla valda nätverk** .
 
-To add your storage account to the desired virtual network, select **Selected networks**. Under the **Virtual networks** subheading, click either **+ Add existing virtual network** or **+Add new virtual network** depending on the desired state. Creating a new virtual network will result in a new Azure resource being created. The new or existing VNet resource does not need to be in the same resource group or subscription as the storage account, however it must be in the same region as the storage account and the resource group and subscription you deploy your VNet into must match the one you will deploy your VPN Gateway into. 
+Om du vill lägga till ditt lagrings konto i det önskade virtuella nätverket väljer du **valda nätverk**. Under rubriken **virtuella nätverk** klickar du på antingen **+ Lägg till befintligt virtuellt nätverk** eller **+ Lägg till nytt virtuellt nätverk** beroende på vilket tillstånd som önskas. Att skapa ett nytt virtuellt nätverk leder till att en ny Azure-resurs skapas. Den nya eller befintliga VNet-resursen behöver inte finnas i samma resurs grupp eller prenumeration som lagrings kontot, men det måste finnas i samma region som lagrings kontot och resurs gruppen och prenumerationen som du distribuerar ditt VNet till måste matcha det som du kommer att  distribuera din VPN Gateway till. 
 
-![Screenshot of the Azure portal giving the option to add an existing or new virtual network to the storage account](media/storage-files-configure-s2s-vpn/add-vnet-1.png)
+![Skärm bild av Azure Portal som ger möjlighet att lägga till ett befintligt eller nytt virtuellt nätverk till lagrings kontot](media/storage-files-configure-s2s-vpn/add-vnet-1.png)
 
-If you add existing virtual network, you will be asked to select one or more subnets of that virtual network which the storage account should be added to. If you select a new virtual network, you will create a subnet as part of the creation of the virtual network, and you can add more later through the resulting Azure resource for the virtual network.
+Om du lägger till ett befintligt virtuellt nätverk uppmanas du att välja ett eller flera undernät för det virtuella nätverket som lagrings kontot ska läggas till i. Om du väljer ett nytt virtuellt nätverk skapar du ett undernät som en del av skapandet av det virtuella nätverket och du kan lägga till fler senare genom den resulterande Azure-resursen för det virtuella nätverket.
 
-If you have not added a storage account to your subscription before, the Microsoft.Storage service endpoint will need to be added to the virtual network. This may take some time, and until this operation has completed, you will not be able to access the Azure file shares within that storage account, including via the VPN connection. 
+Om du inte har lagt till ett lagrings konto till din prenumeration tidigare måste Microsoft. Storage-tjänstens slut punkt läggas till i det virtuella nätverket. Detta kan ta en stund och tills den här åtgärden har slutförts kan du inte komma åt Azure-filresurserna inom lagrings kontot, inklusive via VPN-anslutningen. 
 
-## <a name="deploy-an-azure-vpn-gateway"></a>Deploy an Azure VPN Gateway
-In the table of contents for the Azure portal, select **Create a new resource** and search for *Virtual network gateway*. Your virtual network gateway must be in the same subscription, Azure region, and resource group as the virtual network you deployed in the previous step (note that resource group is automatically selected when the virtual network is picked). 
+## <a name="deploy-an-azure-vpn-gateway"></a>Distribuera ett Azure-VPN Gateway
+I innehålls förteckningen för Azure Portal väljer du **skapa en ny resurs** och söker efter *virtuell*nätverksgateway. Din virtuella nätverksgateway måste vara i samma prenumeration, Azure-region och resurs grupp som det virtuella nätverk som du distribuerade i föregående steg (Observera att resurs gruppen väljs automatiskt när det virtuella nätverket plockas). 
 
-For the purposes of deploying an Azure VPN Gateway, you must populate the following fields:
+I syfte att distribuera en Azure-VPN Gateway måste du fylla i följande fält:
 
-- **Name**: The name of the Azure resource for the VPN Gateway. This name may be any name you find useful for your management.
-- **Region**: The region into which the VPN Gateway will be deployed.
-- **Gateway type**: For the purpose of deploying a Site-to-Site VPN, you must select **VPN**.
-- **VPN type**: You may choose either *Route-based** or **Policy-based** depending on your VPN device. Route-based VPNs support IKEv2, while policy-based VPNs only support IKEv1. To learn more about the two types of VPN gateways, see [About policy-based and route-based VPN gateways](../../vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md#about)
-- **SKU**: The SKU controls the number of allowed Site-to-Site tunnels and desired performance of the VPN. To select the appropriate SKU for your use case, consult the [Gateway SKU](../../vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) listing. The SKU of the VPN Gateway may be changed later if necessary.
-- **Virtual network**: The virtual network you created in the previous step.
-- **Public IP address**: The IP address of VPN Gateway that will be exposed to the internet. Likely, you will need to create a new IP address, however you may also use an existing unused IP address if that is appropriate. If you select to **Create new**, a new IP address Azure resource will be created in the same resource group as the VPN Gateway and the  **Public IP address name** will be the name of the newly created IP address. If you select **Use existing**, you must select the existing unused IP address.
-- **Enable active-active mode**: Only select **Enabled** if you are creating an active-active gateway configuration, otherwise leave **Disabled** selected. To learn more about active-active mode, see [Highly available cross-premises and VNet-to-VNet connectivity](../../vpn-gateway/vpn-gateway-highlyavailable.md).
-- **Configure BGP ASN**: Only select **Enabled** if your configuration specifically requires this setting. To learn more about this setting, see [About BGP with Azure VPN Gateway](../../vpn-gateway/vpn-gateway-bgp-overview.md).
+- **Namn**: namnet på Azure-resursen för VPN gateway. Namnet kan vara det namn som du tycker är användbart för din hantering.
+- **Region**: den region som VPN gateway ska distribueras till.
+- **Gateway-typ**: i syfte att distribuera en plats-till-plats-VPN måste du välja **VPN**.
+- **VPN-typ**: du kan välja antingen *Route-baserad** eller **Principbaserad** beroende på din VPN-enhet. Routning-baserade VPN-stöd IKEv2, medan principbaserad VPN endast stöder IKEv1. Mer information om de två typerna av VPN-gatewayer finns i [om principbaserad och routning-baserade VPN-gatewayer](../../vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md#about)
+- **SKU**: SKU: n styr antalet tillåtna plats-till-plats-tunnlar och önskade prestanda för VPN. Om du vill välja lämplig SKU för ditt användnings fall kan du läsa [Gateway SKU](../../vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) -listan. SKU: n för VPN Gateway kan ändras senare om det behövs.
+- **Virtuellt nätverk**: det virtuella nätverk som du skapade i föregående steg.
+- **Offentlig IP-adress**: IP-adressen för VPN gateway som ska exponeras för Internet. Förmodligen måste du skapa en ny IP-adress, men du kan också använda en befintlig oanvänd IP-adress om det är lämpligt. Om du väljer att **skapa en ny**IP-adress skapas Azure-resurs i samma resurs grupp som VPN gateway och den **offentliga IP-adressen** är namnet på den nyligen skapade IP-adressen. Om du väljer **Använd befintlig**måste du välja den befintliga oanvända IP-adressen.
+- **Aktivera aktivt-aktivt läge**: Välj **aktive rad** om du skapar en aktiv-aktiv gateway-konfiguration, annars lämna **inaktiverat** markerat. Om du vill veta mer om aktivt-aktivt läge, se [hög tillgänglighet mellan lokala och VNET-till-VNET-anslutning](../../vpn-gateway/vpn-gateway-highlyavailable.md).
+- **Konfigurera BGP ASN**: Välj **aktive ras** endast om konfigurationen kräver den här inställningen. Mer information om den här inställningen finns i [om BGP med Azure VPN gateway](../../vpn-gateway/vpn-gateway-bgp-overview.md).
 
-Select **Review + create** to create the VPN Gateway. A VPN Gateway may take up to 45 minutes to fully create and deploy.
+Välj **Granska + skapa** för att skapa VPN gateway. Det kan ta upp till 45 minuter för en VPN Gateway att skapa och distribuera fullständigt.
 
-### <a name="create-a-local-network-gateway-for-your-on-premises-gateway"></a>Create a local network gateway for your on-premises gateway 
-A local network gateway is an Azure resource that represents your on-premises network appliance. In the table of contents for the Azure portal, select **Create a new resource** and search for *local network gateway*. The local network gateway is an Azure resource that will be deployed alongside your storage account, virtual network, and VPN Gateway, but does not need to be in the same resource group or subscription as the storage account. 
+### <a name="create-a-local-network-gateway-for-your-on-premises-gateway"></a>Skapa en lokal nätverksgateway för din lokala gateway 
+En lokal nätverksgateway är en Azure-resurs som representerar den lokala nätverks enheten. I innehålls förteckningen för Azure Portal väljer du **skapa en ny resurs** och söker efter *lokal*nätverksgateway. Den lokala Nätverksgatewayen är en Azure-resurs som kommer att distribueras tillsammans med ditt lagrings konto, virtuella nätverk och VPN Gateway, men behöver inte finnas i samma resurs grupp eller prenumeration som lagrings kontot. 
 
-For the purposes of deploying the local network gateway resource, you must populate the following fields:
+I syfte att distribuera den lokala Nätverksgatewayen måste du fylla i följande fält:
 
-- **Name**: The name of the Azure resource for the local network gateway. This name may be any name you find useful for your management.
-- **IP address**: The public IP address of your local gateway on-premises.
-- **Address space**: The address ranges for the network this local network gateway represents. You can add multiple address space ranges, but make sure that the ranges you specify here do not overlap with ranges of other networks that you want to connect to. 
-- **Configure BGP settings**: Only configure BGP settings if your configuration requires this setting. To learn more about this setting, see [About BGP with Azure VPN Gateway](../../vpn-gateway/vpn-gateway-bgp-overview.md).
-- **Subscription**: The desired subscription. This does not need to match the subscription used for the VPN Gateway or the storage account.
-- **Resource group**: The desired resource group. This does not need to match the resource group used for the VPN Gateway or the storage account.
-- **Location**: The Azure Region the local network gateway resource should be created in. This should match the region you selected for the VPN Gateway and the storage account.
+- **Namn**: namnet på Azure-resursen för den lokala Nätverksgatewayen. Namnet kan vara det namn som du tycker är användbart för din hantering.
+- **IP-adress**: den offentliga IP-adressen för din lokala gateway lokalt.
+- **Adress utrymme**: adress intervall för det nätverk som denna lokala nätverksgateway representerar. Du kan lägga till flera adress utrymmes intervall, men se till att de intervall som du anger här inte överlappar med intervall för andra nätverk som du vill ansluta till. 
+- **Konfigurera BGP-inställningar**: Konfigurera endast BGP-inställningar om konfigurationen kräver den här inställningen. Mer information om den här inställningen finns i [om BGP med Azure VPN gateway](../../vpn-gateway/vpn-gateway-bgp-overview.md).
+- **Prenumeration**: den önskade prenumerationen. Detta behöver inte matcha den prenumeration som används för VPN Gateway eller lagrings kontot.
+- **Resurs grupp**: den önskade resurs gruppen. Detta behöver inte matcha resurs gruppen som används för VPN Gateway eller lagrings kontot.
+- **Plats**: Azure-regionen som den lokala nätverks-Gateway-resursen ska skapas i. Detta ska matcha den region som du har valt för VPN Gateway och lagrings kontot.
 
-Select **Create** to create the local network gateway resource.  
+Välj **skapa** för att skapa den lokala Nätverksgatewayen.  
 
-## <a name="configure-on-premises-network-appliance"></a>Configure on-premises network appliance
-The specific steps to configure your on-premises network appliance depend based on the network appliance your organization has selected. Depending on the device your organization has chosen, the [list of tested devices](../../vpn-gateway/vpn-gateway-about-vpn-devices.md) may have a link out to your device vendor's instructions for configuring with Azure VPN Gateway.
+## <a name="configure-on-premises-network-appliance"></a>Konfigurera lokal nätverks installation
+De steg som krävs för att konfigurera den lokala nätverks enheten beror på vilken nätverks enhet som organisationen har valt. Beroende på vilken enhet organisationen har valt kan [listan över testade enheter](../../vpn-gateway/vpn-gateway-about-vpn-devices.md) innehålla en länk till enhets leverantörens instruktioner för att konfigurera med Azure VPN gateway.
 
-## <a name="create-private-endpoint-preview"></a>Create private endpoint (preview)
-Creating a private endpoint for your storage account gives your storage account an IP address within the IP address space of your virtual network. When you mount your Azure file share from on-premises using this private IP address, the routing rules autodefined by the VPN installation will route your mount request to the storage account via the VPN. 
+## <a name="create-private-endpoint-preview"></a>Skapa privat slut punkt (för hands version)
+Att skapa en privat slut punkt för ditt lagrings konto ger ditt lagrings konto en IP-adress inom IP-adressutrymmet för det virtuella nätverket. När du monterar en Azure-filresurs från lokala datorer med den här privata IP-adressen, kommer de routningsregler som definierats automatiskt av VPN-installationen att skicka din monterings förfrågan till lagrings kontot via VPN. 
 
-In the storage account blade, select **Private endpoint connections** in the left-hand table of contents and **+ Private endpoint** to create a new private endpoint. The resulting wizard has multiple pages to complete:
+På bladet lagrings konto väljer du **anslutningar för privata slut punkter** i innehålls förteckningen till vänster och **+ privat slut punkt** för att skapa en ny privat slut punkt. Den resulterande guiden har flera sidor att slutföra:
 
-![A screenshot of the Basics section of the create private endpoint section](media/storage-files-configure-s2s-vpn/create-private-endpoint-1.png)
+![En skärm bild av grunderna i avsnittet Skapa privat slut punkt](media/storage-files-configure-s2s-vpn/create-private-endpoint-1.png)
 
-On the **Basics** tab, select the desired resource group, name, and region for your private endpoint. These can be whatever you want, they don't have to match the storage account in anyway, although you must create the private endpoint in the same region as the virtual network you wish to create the private endpoint in.
+På fliken **grundläggande** väljer du önskad resurs grupp, namn och region för din privata slut punkt. Det kan vara vad du vill, de behöver inte matcha lagrings kontot i alla fall, men du måste skapa den privata slut punkten i samma region som det virtuella nätverk som du vill skapa den privata slut punkten i.
 
-On the **Resource** tab, select the radio button for **Connect to an Azure resource in my directory**. Under **Resource type**, select **Microsoft.Storage/storageAccounts** for the resource type. The **Resource** field is the storage account with the Azure file share you wish to connect to. Target sub-resource is **file**, since this is for Azure Files.
+På fliken **resurs** väljer du alternativ knappen för **att ansluta till en Azure-resurs i min katalog**. Under **resurs typ**väljer du **Microsoft. Storage/storageAccounts** som resurs typ. **Resurs** fältet är lagrings kontot med den Azure-filresurs som du vill ansluta till. Mål under resurs är **fil**, eftersom det är för Azure Files.
 
-The **Configuration** tab allows you to select the specific virtual network and subnet you would like to add your private endpoint to. Select the virtual network you created above. You must select a distinct subnet from the subnet you added your service endpoint to above.
+På fliken **konfiguration** kan du välja det angivna virtuella nätverk och undernät som du vill lägga till din privata slut punkt till. Välj det virtuella nätverk som du skapade ovan. Du måste välja ett distinkt undernät från under nätet som du har lagt till tjänst slut punkten till ovan.
 
-The **Configuration** tab also allows you to set up a private DNS zone. This is not required, but allows you to use a friendly UNC path (such as `\\mystorageaccount.privatelink.file.core.windows.net\myshare`) instead of a UNC path with an IP address to mount the Azure file share. This may also be done with your own DNS servers within your virtual network.
+På fliken **konfiguration** kan du också konfigurera en privat DNS-zon. Detta är inte obligatoriskt, men du kan använda en egen UNC-sökväg (till exempel `\\mystorageaccount.privatelink.file.core.windows.net\myshare`) i stället för en UNC-sökväg med en IP-adress för att montera Azure-filresursen. Detta kan också göras med dina egna DNS-servrar i det virtuella nätverket.
 
-Click **Review + create** to create the private endpoint. Once the private endpoint has been created, you will see two new resources: a private endpoint resource and a paired virtual network interface. The virtual network interface resource will have the dedicated private IP of the storage account. 
+Klicka på **Granska + skapa** för att skapa den privata slut punkten. När den privata slut punkten har skapats visas två nya resurser: en privat slut punkts resurs och ett länkat virtuellt nätverks gränssnitt. Den virtuella nätverks gränssnitts resursen har den dedikerade privata IP-adressen för lagrings kontot. 
 
-## <a name="create-the-site-to-site-connection"></a>Create the Site-to-Site connection
-To complete the deployment of a S2S VPN, you must create a connection between your on-premises network appliance (represented by the local network gateway resource) and the VPN Gateway. To do this, navigate to the VPN Gateway you created above. In the table of contents for the VPN Gateway, select **Connections**, and click **Add**. The resulting **Add connection** pane requires the following fields:
+## <a name="create-the-site-to-site-connection"></a>Skapa plats-till-plats-anslutningen
+För att slutföra distributionen av en S2S VPN måste du skapa en anslutning mellan din lokala nätverks installation (som representeras av den lokala Nätverksgatewayen) och VPN Gateway. Det gör du genom att gå till VPN Gateway som du skapade ovan. I innehålls förteckningen för VPN Gateway väljer du **anslutningar**och klickar på **Lägg till**. Den resulterande rutan **Lägg till anslutning** kräver följande fält:
 
-- **Name**: The name of the connection. A VPN Gateway can host multiple connections, so pick a name helpful for your management that will distinguish this particular connection.
-- **Connection type**: Since this a S2S connection, select **Site-to-site (IPSec)** in the drop-down list.
-- **Virtual network gateway**: This field is auto-selected to the VPN Gateway you're making the connection to and can't be changed.
-- **Local network gateway**: This is the local network gateway you want to connect to your VPN Gateway. The resulting selection pane should have the name of the local network gateway you created above.
-- **Shared key (PSK)** : A mixture of letters and numbers, used to establish encryption for the connection. The same shared key must be used in both the virtual network and local network gateways. If your gateway device doesn't provide one, you can make one up here and provide it to your device.
+- **Namn**: namnet på anslutningen. En VPN Gateway kan vara värd för flera anslutningar, så välj ett namn som hjälper dig att hantera som särskiljer den aktuella anslutningen.
+- **Anslutnings typ**: sedan en S2S-anslutning väljer du **plats-till-plats (IPSec)** i den nedrullningsbara listan.
+- **Virtuell**nätverksgateway: det här fältet väljs automatiskt till den VPN gateway som du gör anslutningen till och kan inte ändras.
+- **Lokal**nätverksgateway: det här är den lokala nätverksgateway som du vill ansluta till din VPN gateway. Det resulterande val fönstret ska ha namnet på den lokala Nätverksgatewayen som du skapade ovan.
+- **Delad nyckel (PSK)** : en blandning av bokstäver och siffror som används för att upprätta kryptering för anslutningen. Samma delade nyckel måste användas i både det virtuella nätverket och lokala Nätverksgatewayen. Om din gateway-enhet inte tillhandahåller någon kan du göra det här och ge den till din enhet.
 
-Select **OK** to create the connection. You can verify the connection has been made successfully through the **Connections** page.
+Välj **OK** för att skapa anslutningen. Du kan kontrol lera att anslutningen har upprättats via sidan **anslutningar** .
 
-## <a name="mount-azure-file-share"></a>Mount Azure file share 
-The final step in configuring a S2S VPN is verifying that it works for Azure Files. You can do this by mounting your Azure file share on-premises with your preferred OS. See the instructions to mount by OS here:
+## <a name="mount-azure-file-share"></a>Montera Azure-filresurs 
+Det sista steget i att konfigurera en S2S VPN verifierar att det fungerar för Azure Files. Du kan göra detta genom att montera Azure-filresursen lokalt med önskat operativ system. Se anvisningarna för att montera med OS här:
 
 - [Windows](storage-how-to-use-files-windows.md)
 - [macOS](storage-how-to-use-files-mac.md)
 - [Linux](storage-how-to-use-files-linux.md)
 
 ## <a name="see-also"></a>Se också
-- [Azure Files networking overview](storage-files-networking-overview.md)
-- [Configure a Point-to-Site (P2S) VPN on Windows for use with Azure Files](storage-files-configure-p2s-vpn-windows.md)
-- [Configure a Point-to-Site (P2S) VPN on Linux for use with Azure Files](storage-files-configure-p2s-vpn-linux.md)
+- [Översikt över Azure Files nätverk](storage-files-networking-overview.md)
+- [Konfigurera en punkt-till-plats (P2S) VPN i Windows för användning med Azure Files](storage-files-configure-p2s-vpn-windows.md)
+- [Konfigurera en punkt-till-plats (P2S) VPN på Linux som ska användas med Azure Files](storage-files-configure-p2s-vpn-linux.md)

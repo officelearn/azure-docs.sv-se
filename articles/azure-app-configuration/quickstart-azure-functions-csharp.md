@@ -25,7 +25,7 @@ ms.locfileid: "74186197"
 
 I den här snabb starten införlivar du Azure App konfigurations tjänsten i en Azure Functions-app för att centralisera lagring och hantering av alla dina program inställningar separat från din kod.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) med arbets belastningen **Azure Development** .
@@ -37,7 +37,7 @@ I den här snabb starten införlivar du Azure App konfigurations tjänsten i en 
 
 6. Välj **konfigurations utforskaren** >  **+ skapa** för att lägga till följande nyckel/värde-par:
 
-    | Nyckel | Värde |
+    | Nyckel | Value |
     |---|---|
     | TestApp:Settings:Message | Data från Azure App Configuration |
 

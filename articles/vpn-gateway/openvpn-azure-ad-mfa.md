@@ -1,6 +1,6 @@
 ---
-title: 'Enable MFA for VPN users: Azure AD authentication'
-description: Enable multi-factor authentication for VPN users
+title: 'Aktivera MFA för VPN-användare: Azure AD-autentisering'
+description: Aktivera Multi-Factor Authentication för VPN-användare
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
@@ -14,46 +14,46 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74382224"
 ---
-# <a name="enable-azure-multi-factor-authentication-mfa-for-vpn-users"></a>Enable Azure Multi-Factor Authentication (MFA) for VPN users
+# <a name="enable-azure-multi-factor-authentication-mfa-for-vpn-users"></a>Aktivera Azure Multi-Factor Authentication (MFA) för VPN-användare
 
-If you want users to be prompted for a second factor of authentication before granting access, you can configure Azure Multi-Factor Authentication (MFA) for your Azure AD tenant. The steps in this article help you enable a requirement for two-step verification.
+Om du vill att användarna ska uppmanas att ange en andra faktor innan de beviljas åtkomst, kan du konfigurera Azure Multi-Factor Authentication (MFA) för din Azure AD-klient. Stegen i den här artikeln hjälper dig att aktivera ett krav för tvåstegsverifiering.
 
-## <a name="prereq"></a>Prerequisite
+## <a name="prereq"></a>Krav
 
-The prerequisite for this configuration is a configured Azure AD tenant using the steps in [Configure a tenant](openvpn-azure-ad-tenant.md).
+Förutsättningen för den här konfigurationen är en konfigurerad Azure AD-klient med hjälp av stegen i [Konfigurera en klient](openvpn-azure-ad-tenant.md).
 
-## <a name="mfa"></a>Open the MFA page
+## <a name="mfa"></a>Öppna sidan MFA
 
 1. Logga in på Azure Portal.
-2. Navigate to **Azure Active Directory -> All users**.
-3. Select **Multi-Factor Authentication** to open the multi-factor authentication page.
+2. Navigera till **Azure Active Directory – > alla användare**.
+3. Välj **Multi-Factor Authentication** för att öppna sidan Multi-Factor Authentication.
 
    ![Logga in](./media/openvpn-azure-ad-mfa/mfa1.jpg)
 
-## <a name="users"></a> Select users
+## <a name="users"></a>Välj användare
 
-1. On the **multi-factor authentication** page, select the user(s) for which you want to enable MFA.
+1. På sidan **Multi-Factor Authentication** väljer du de användare som du vill aktivera MFA för.
 2. Välj **Aktivera**.
 
    ![Välj](./media/openvpn-azure-ad-mfa/mfa2.jpg)
 
-## <a name="enableauth"></a>Enable authentication
+## <a name="enableauth"></a>Aktivera autentisering
 
-1. Navigate to **Azure Active Directory  -> Enterprise applications -> All applications**.
-2. On the **Enterprise applications - All applications** page, select **Azure VPN**.
+1. Navigera till **Azure Active Directory-> företags program – > alla program**.
+2. På sidan **företags program – alla program** väljer du **Azure VPN**.
 
-   ![Directory ID](./media/openvpn-azure-ad-mfa/user1.jpg)
+   ![Katalog-ID](./media/openvpn-azure-ad-mfa/user1.jpg)
 
-## <a name="enablesign"></a> Configure sign-in settings
+## <a name="enablesign"></a>Konfigurera inloggnings inställningar
 
-On the **Azure VPN - Properties** page, configure sign-in settings.
+Konfigurera inloggnings inställningar på sidan **Azure VPN-egenskaper** .
 
-1. Set **Enabled for users to sign-in?** to **Yes**. This allows all users in the AD tenant to connect to the VPN successfully.
-2. Set **User assignment required?** to **Yes** if you want to limit sign-in to only users that have permissions to the Azure VPN.
+1. Vill du **Aktivera inloggning för användare?** till **Ja**. Detta gör det möjligt för alla användare i AD-klienten att ansluta till VPN-anslutningen.
+2. Vill du ange **användar tilldelning krävs?** **Ja** om du vill begränsa inloggningen till endast användare som har behörighet till Azure VPN.
 3. Spara ändringarna.
 
    ![Behörigheter](./media/openvpn-azure-ad-mfa/user2.jpg)
 
 ## <a name="next-steps"></a>Nästa steg
 
-To connect to your virtual network, you must create and configure a VPN client profile. See [Configure a VPN client for P2S VPN connections](openvpn-azure-ad-client.md).
+För att ansluta till ditt virtuella nätverk måste du skapa och konfigurera en profil för VPN-klienter. Se [Konfigurera en VPN-klient för P2s VPN-anslutningar](openvpn-azure-ad-client.md).

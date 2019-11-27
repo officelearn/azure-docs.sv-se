@@ -19,7 +19,7 @@ ms.locfileid: "74276911"
 
 I den här självstudien visas hur du skapar en ny HoloLens Unity-app med Azure spatiala ankare.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna följa den här självstudien måste du ha:
 

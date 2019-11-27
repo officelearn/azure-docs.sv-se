@@ -22,7 +22,7 @@ I den här instruktions guiden lär du dig hur du använder klient biblioteket f
 > [!TIP]
 > Den senaste versionen av Azure Storage klient biblioteket för Node. js är v10. Microsoft rekommenderar att du använder den senaste versionen av klient biblioteket när det är möjligt. För att komma igång med v10, se [snabb start: Ladda upp, ladda ned, lista och ta bort blobar med hjälp av Azure Storage klient bibliotek för Java Script v10 (för hands version)](storage-quickstart-blobs-nodejs-v10.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 

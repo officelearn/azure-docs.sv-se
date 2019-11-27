@@ -1,19 +1,14 @@
 ---
-title: Montera en gitRepo volym Azure Container Instances
+title: Montera gitRepo-volym till behållar grupp
 description: Lär dig hur du monterar en gitRepo-volym för att klona en git-lagringsplats till dina behållar instanser
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 06/15/2018
-ms.author: danlep
-ms.openlocfilehash: e8afa9e14941920cdcfb984e6660bdc666240716
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 708fca185227292e7cdf33952bde6f42b3d4951f
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325445"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533219"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Montera en gitRepo volym i Azure Container Instances
 
@@ -30,15 +25,15 @@ När du monterar en *gitRepo* -volym kan du ange tre egenskaper för att konfigu
 
 | Egenskap | Krävs | Beskrivning |
 | -------- | -------- | ----------- |
-| `repository` | Ja | Den fullständiga URL: en `http://` , `https://`inklusive eller, av Git-lagringsplatsen som ska klonas.|
-| `directory` | Nej | Katalogen där lagrings platsen ska klonas. Sökvägen får inte innehålla eller börja med "`..`".  Om du anger "`.`", klonas lagrings platsen i volymens katalog. Annars klonas git-lagringsplatsen i en under katalog med det aktuella namnet i volym katalogen. |
-| `revision` | Nej | Commit hash för den revision som ska klonas. Om inget anges `HEAD` klonas ändringen. |
+| `repository` | Ja | Den fullständiga URL-adressen, inklusive `http://` eller `https://`, för git-lagringsplatsen som ska klonas.|
+| `directory` | Nej | Katalogen där lagrings platsen ska klonas. Sökvägen får inte innehålla eller börja med "`..`".  Om du anger "`.`" klonas lagrings platsen till volymens katalog. Annars klonas git-lagringsplatsen i en under katalog med det aktuella namnet i volym katalogen. |
+| `revision` | Nej | Commit hash för den revision som ska klonas. Om inget anges klonas `HEAD` revision. |
 
 ## <a name="mount-gitrepo-volume-azure-cli"></a>Montera gitRepo-volym: Azure CLI
 
-Om du vill montera en gitRepo volym när du distribuerar container instances med [Azure CLI](/cli/azure), `--gitrepo-url` anger `--gitrepo-mount-path` du parametrarna och för kommandot [AZ container Create][az-container-create] . Du kan också ange katalogen i den volym som ska klonas till (`--gitrepo-dir`) och commit hash för den revision som ska klonas (`--gitrepo-revision`).
+Om du vill montera en gitRepo volym när du distribuerar behållar instanser med [Azure CLI](/cli/azure), anger du parametrarna `--gitrepo-url` och `--gitrepo-mount-path` till kommandot [AZ container Create][az-container-create] . Du kan också ange katalogen i den volym som ska klonas till (`--gitrepo-dir`) och commit hash för den revision som ska klonas (`--gitrepo-revision`).
 
-Det här exempel kommandot klonar Microsoft [ACI-HelloWorld-][aci-helloworld] exempel programmet `/mnt/aci-helloworld` till i behållar instansen:
+Det här exempel kommandot klonar Microsoft [ACI-HelloWorld-][aci-helloworld] exempel programmet till `/mnt/aci-helloworld` i behållar instansen:
 
 ```azurecli-interactive
 az container create \
@@ -65,7 +60,7 @@ drwxr-xr-x    2 root     root          4096 Apr 16 16:35 app
 
 ## <a name="mount-gitrepo-volume-resource-manager"></a>Montera gitRepo-volym: Resource Manager
 
-Om du vill montera en gitRepo-volym när du distribuerar behållar instanser med en [Azure Resource Manager mall](/azure/templates/microsoft.containerinstance/containergroups), fyller du `volumes` först `properties` i matrisen i behållar grupp avsnittet i mallen. För varje behållare i behållar gruppen där du vill montera *gitRepo* -volymen fyller `volumeMounts` du sedan i matrisen i `properties` avsnittet i behållar definitionen.
+För att montera en gitRepo-volym när du distribuerar behållar instanser med en [Azure Resource Manager mall](/azure/templates/microsoft.containerinstance/containergroups), fyller du i `volumes` matrisen i avsnittet behållar grupp `properties` i mallen. För varje behållare i behållar gruppen där du vill montera *gitRepo* -volymen fyller du sedan i `volumeMounts` matrisen i `properties`-avsnittet i behållar definitionen.
 
 Följande Resource Manager-mall skapar till exempel en behållar grupp som består av en enda behållare. Behållaren klonar två GitHub-databaser som anges av *gitRepo* -volym blocken. Den andra volymen innehåller ytterligare egenskaper som anger en katalog som ska klonas till och commit hash för en särskild revision att klona.
 
@@ -85,7 +80,7 @@ Om du vill se ett exempel på distribution av container instanser med en Azure R
 
 Om du vill montera en gitRepo-volym för en privat git-lagringsplats anger du autentiseringsuppgifterna i lager platsens URL. Normalt är autentiseringsuppgifter i form av ett användar namn och en personlig åtkomsttoken (PAT) som ger begränsad åtkomst till lagrings platsen.
 
-Azure CLI `--gitrepo-url` -parametern för en privat GitHub-lagringsplats skulle till exempel se ut ungefär så här (där "gituser" är GitHub användar namn och "abcdef1234fdsa4321abcdef" är användarens personliga åtkomsttoken):
+Till exempel skulle Azure CLI `--gitrepo-url`-parametern för en privat GitHub-lagringsplats att se ut ungefär så här (där "gituser" är GitHub användar namn och "abcdef1234fdsa4321abcdef" är användarens personliga åtkomsttoken):
 
 ```azurecli
 --gitrepo-url https://gituser:abcdef1234fdsa4321abcdef@github.com/GitUser/some-private-repository
@@ -99,16 +94,16 @@ För en Azure databaser git-lagringsplats anger du ett användar namn (du kan an
 
 Mer information om personliga åtkomsttoken för GitHub och Azure databaser finns i följande avsnitt:
 
-GitHub: [Skapa en personlig åtkomsttoken för kommando raden][pat-github]
+GitHub: [skapa en personlig åtkomsttoken för kommando raden][pat-github]
 
-Azure Repos: [Skapa personliga åtkomsttoken för att autentisera åtkomst][pat-repos]
+Azure-databaser: [skapa personliga åtkomsttoken för att autentisera åtkomst][pat-repos]
 
 ## <a name="next-steps"></a>Nästa steg
 
 Lär dig hur du monterar andra volym typer i Azure Container Instances:
 
-* [Montera en Azure-filresursen i Azure Container instanser](container-instances-volume-azure-files.md)
-* [Montera en emptyDir volymen i Azure Container instanser](container-instances-volume-emptydir.md)
+* [Montera en Azure-filresurs i Azure Container Instances](container-instances-volume-azure-files.md)
+* [Montera en emptyDir volym i Azure Container Instances](container-instances-volume-emptydir.md)
 * [Montera en hemlig volym i Azure Container Instances](container-instances-volume-secret.md)
 
 <!-- LINKS - External -->

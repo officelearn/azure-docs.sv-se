@@ -1,7 +1,7 @@
 ---
-title: 'K-Means Clustering: Module Reference'
+title: 'K-innebär klustring: modulreferens'
 titleSuffix: Azure Machine Learning
-description: Learn how to use the K-Means Clustering module in the Azure Machine Learning to train clustering models.
+description: Lär dig hur du använder modulen K-betyder kluster i Azure Machine Learning för att träna kluster modeller.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -16,129 +16,129 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74213915"
 ---
-# <a name="module-k-means-clustering"></a>Module: K-Means Clustering
+# <a name="module-k-means-clustering"></a>Modul: K-innebär klustring
 
-This article describes how to use the *K-Means Clustering* module in Azure Machine Learning designer (preview) to create an untrained K-means clustering model. 
+Den här artikeln beskriver hur du använder modulen *K-: Clustering* i Azure Machine Learning designer (för hands version) för att skapa en modell som inte är tränad k-: 
  
-K-means is one of the simplest and the best known *unsupervised* learning algorithms. You can use the algorithm for a variety of machine learning tasks, such as: 
+K-betyder en av de enklaste och bästa kända, ej *övervakade* inlärnings algoritmerna. Du kan använda algoritmen för en mängd olika Machine Learning-uppgifter, till exempel: 
 
-* [Detecting abnormal data](https://msdn.microsoft.com/magazine/jj891054.aspx).
-* Clustering text documents.
-* Analyzing datasets before you use other classification or regression methods. 
+* [Identifiera onormala data](https://msdn.microsoft.com/magazine/jj891054.aspx).
+* Klustring av text dokument.
+* Analysera data uppsättningar innan du använder andra klassificerings-eller Regressions metoder. 
 
-To create a clustering model, you:
+För att skapa en kluster modell:
 
-* Add this module to your pipeline.
-* Connect a dataset.
-* Set parameters, such as the number of clusters you expect, the distance metric to use in creating the clusters, and so forth. 
+* Lägg till den här modulen i din pipeline.
+* Anslut en data uppsättning.
+* Ange parametrar, till exempel antalet kluster som du förväntar dig, det avstånds mått som ska användas för att skapa klustren och så vidare. 
   
-After you've configured the module hyperparameters, you connect the untrained model to the [Train Clustering Model](train-clustering-model.md). Because the K-means algorithm is an unsupervised learning method, a label column is optional. 
+När du har konfigurerat modulens egenskaper ansluter du den avtränade modellen till [träna kluster modellen](train-clustering-model.md). Eftersom den N:te algoritmen är en oövervakad inlärnings metod är en etikett kolumn valfri. 
 
-+ If your data includes a label, you can use the label values to guide selection of the clusters and optimize the model. 
++ Om dina data innehåller en etikett kan du använda etikett värden för att välja mellan kluster och optimera modellen. 
 
-+ If your data has no label, the algorithm creates clusters representing possible categories, based solely on the data.  
++ Om dina data saknar etikett skapar algoritmen kluster som representerar möjliga kategorier, baserat på enbart data.  
 
-##  <a name="understand-k-means-clustering"></a>Understand K-means clustering
+##  <a name="understand-k-means-clustering"></a>Förstå K-innebär klustring
  
-In general, clustering uses iterative techniques to group cases in a dataset into clusters that possess similar characteristics. These groupings are useful for exploring data, identifying anomalies in the data, and eventually for making predictions. Clustering models can also help you identify relationships in a dataset that you might not logically derive by browsing or simple observation. For these reasons, clustering is often used in the early phases of machine learning tasks, to explore the data and discover unexpected correlations.  
+I allmänhet använder kluster iterativa tekniker för att gruppera ärenden i en data uppsättning i kluster som har liknande egenskaper. Dessa grupperingar är användbara för att utforska data, identifiera avvikelser i data och slutligen för att göra förutsägelser. Kluster modeller kan också hjälpa dig att identifiera relationer i en data uppsättning som du kanske inte logiskt kan härleda genom att söka eller göra enkla observationer. Av dessa orsaker används ofta klustring i de tidiga faserna av Machine Learning-aktiviteter, för att utforska data och upptäcka oväntade korrelationer.  
   
- When you configure a clustering model by using the K-means method, you must specify a target number *k* that indicates the number of *centroids* you want in the model. The centroid is a point that's representative of each cluster. The K-means algorithm assigns each incoming data point to one of the clusters by minimizing the within-cluster sum of squares. 
+ När du konfigurerar en kluster modell med hjälp av metoden K-Methods måste du ange ett Target Number *K* som anger antalet *centroids* som du vill ha i modellen. Centroid är en punkt som är representativ för varje kluster. Algoritmen K-betyder tilldelar varje inkommande data punkt till ett av klustren genom att minimera kvadratsumman i klustret. 
  
-When it processes the training data, the K-means algorithm begins with an initial set of randomly chosen centroids. Centroids serve as starting points for the clusters, and they apply Lloyd's algorithm to iteratively refine their locations. The K-means algorithm stops building and refining clusters when it meets one or more of these conditions:  
+När den bearbetar tränings data börjar algoritmen för K-medelvärdet med en inledande uppsättning slumpmässigt valda centroids. Centroids fungerar som start punkter för klustren och använder sedan Lloyd ' s algorithm för att förfina deras platser iterativt. Den N:te algoritmen stoppar skapandet och raffineringen av kluster när den uppfyller ett eller flera av följande villkor:  
   
--   The centroids stabilize, meaning that the cluster assignments for individual points no longer change and the algorithm has converged on a solution.  
+-   Centroids stabiliseras, vilket innebär att kluster tilldelningarna för enskilda punkter inte längre ändras och algoritmen har konvergerat till en lösning.  
   
--   The algorithm completed running the specified number of iterations.  
+-   Algoritmen slutförde körningen av det angivna antalet iterationer.  
   
- After you've completed the training phase, you use the [Assign Data to Clusters](assign-data-to-clusters.md) module to assign new cases to one of the clusters that you found by using the K-means algorithm. You perform cluster assignment by computing the distance between the new case and the centroid of each cluster. Each new case is assigned to the cluster with the nearest centroid.  
+ När du har slutfört tränings fasen använder du modulen [tilldela data till kluster](assign-data-to-clusters.md) för att tilldela nya ärenden till ett av de kluster som du har hittat med hjälp av algoritmen K-betyder. Du utför kluster tilldelning genom att beräkna avståndet mellan det nya ärendet och centroid för varje kluster. Varje nytt ärende tilldelas till klustret med närmaste centroid.  
 
-## <a name="configure-the-k-means-clustering-module"></a>Configure the K-Means Clustering module
+## <a name="configure-the-k-means-clustering-module"></a>Konfigurera modulen K-betyder kluster
   
-1.  Add the **K-Means Clustering** module to your pipeline.  
+1.  Lägg till modulen **K-: klustring** i din pipeline.  
   
-2.  To specify how you want the model to be trained, select the **Create trainer mode** option.  
+2.  Om du vill ange hur modellen ska tränas väljer du alternativet **skapa utbildare läge** .  
   
-    -   **Single Parameter**: If you know the exact parameters you want to use in the clustering model, you can provide a specific set of values as arguments.  
+    -   **Enskild parameter**: om du känner till de exakta parametrar som du vill använda i kluster modellen, kan du ange en viss uppsättning värden som argument.  
   
-3.  For **Number of centroids**, type the number of clusters you want the algorithm to begin with.  
+3.  För **antal centroids**anger du det antal kluster som du vill att algoritmen ska börja med.  
   
-     The model isn't guaranteed to produce exactly this number of clusters. The algorithm starts with this number of data points and iterates to find the optimal configuration.  
+     Modellen är inte garanterat att producera exakt det här antalet kluster. Algoritmen börjar med det här antalet data punkter och upprepas för att hitta den optimala konfigurationen.  
   
-4.  The properties **Initialization** is used to specify the algorithm that's used to define the initial cluster configuration.  
+4.  Egenskaps **initieringen** används för att ange algoritmen som används för att definiera den inledande kluster konfigurationen.  
   
-    -   **First N**: Some initial number of data points are chosen from the dataset and used as the initial means. 
+    -   **Första N**: vissa inledande antal data punkter väljs från data uppsättningen och används som första metod. 
     
-         This method is also called the *Forgy method*.  
+         Den här metoden kallas även för *förfalsknings metoden*.  
   
-    -   **Random**: The algorithm randomly places a data point in a cluster and then computes the initial mean to be the centroid of the cluster's randomly assigned points. 
+    -   **Slumpmässig**: algoritmen placerar en data punkt slumpmässigt i ett kluster och sedan beräknar det inledande medelvärdet som centroid för klustrets slumpvis tilldelade punkter. 
 
-         This method is also called the *random partition* method.  
+         Den här metoden kallas även för den *slumpmässiga partitionsfunktionen* .  
   
-    -   **K-Means++** : This is the default method for initializing clusters.  
+    -   **K-betyder + +** : det här är standard metoden för att initiera kluster.  
   
-         The **K-means++** algorithm was proposed in 2007 by David Arthur and Sergei Vassilvitskii to avoid poor clustering by the standard K-means algorithm. **K-means++** improves upon standard K-means by using a different method for choosing the initial cluster centers.  
+         **K-betyder + +** -algoritmen föreslogs i 2007 av David Arthur och Sergei Vassilvitskii för att undvika dåligt klustring av standardalgoritmen för K-=. **K-betyder + +** förbättrar standard K-metoden genom att använda en annan metod för att välja de första kluster centret.  
   
     
-5.  For **Random number seed**, optionally type a value to use as the seed for the cluster initialization. This value can have a significant effect on cluster selection.  
+5.  För **slumpmässigt antal frön**kan du ange ett värde som ska användas som start för kluster initieringen. Det här värdet kan ha en betydande inverkan på kluster valet.  
   
-6.  For **Metric**, choose the function to use for measuring the distance between cluster vectors, or between new data points and the randomly chosen centroid. Azure Machine Learning supports the following cluster distance metrics:  
+6.  För **mått**väljer du den funktion som ska användas för att mäta avståndet mellan kluster vektorer eller mellan nya data punkter och den slumpmässigt valda centroid. Azure Machine Learning stöder följande kluster avstånds mått:  
   
-    -   **Euclidean**: The Euclidean distance is commonly used as a measure of cluster scatter for K-means clustering. This metric is preferred because it minimizes the mean distance between points and the centroids.
+    -   **Euclidean**: Euclidean-avståndet används ofta som ett mått på kluster spridning för K-innebär klustring. Detta mått är att föredra eftersom det minimerar avståndet mellan punkter och centroids.
   
-7.  For **Iterations**, type the number of times the algorithm should iterate over the training data before it finalizes the selection of centroids.  
+7.  För **iterationer**anger du hur många gånger algoritmen ska iterera över tränings data innan den slutför valet av centroids.  
   
-     You can adjust this parameter to balance accuracy against training time.  
+     Du kan justera den här parametern om du vill utjämna precisionen mot inlärnings tiden.  
   
-8.  For **Assign label mode**, choose an option that specifies how a label column, if it's present in the dataset, should be handled.  
+8.  För **tilldela etikett läge**väljer du ett alternativ som anger hur en etikett kolumn, om den finns i data uppsättningen, ska hanteras.  
   
-     Because K-means clustering is an unsupervised machine learning method, labels are optional. However, if your dataset already has a label column, you can use those values to guide the selection of the clusters, or you can specify that the values be ignored.  
+     Eftersom K-betyder klustring är en oövervakad Machine Learning-metod, är etiketter valfria. Men om din data uppsättning redan har en etikett kolumn kan du använda dessa värden för att vägleda valet av kluster, eller så kan du ange att värdena ska ignoreras.  
   
-    -   **Ignore label column**: The values in the label column are ignored and are not used in building the model.
+    -   **Ignorera etikett kolumn**: värdena i kolumnen Label ignoreras och används inte för att skapa modellen.
   
-    -   **Fill missing values**: The label column values are used as features to help build the clusters. If any rows are missing a label, the value is imputed by using other features.  
+    -   **Fyll i saknade värden**: etikett kolumn värden används som funktioner för att bygga klustren. Om en etikett saknas i några rader tilldelas värdet med hjälp av andra funktioner.  
   
-    -   **Overwrite from closest to center**: The label column values are replaced with predicted label values, using the label of the point that is closest to the current centroid.  
+    -   **Skriv över från närmaste till Center**: etikett kolumnens värden ersätts med förväntade etikett värden med hjälp av etiketten för den punkt som är närmast den aktuella centroid.  
 
-8.  Select the **Normalize features** option if you want to normalize features before training.
+8.  Välj alternativet **normaliserings funktioner** om du vill normalisera funktioner innan du tränar.
   
-     If you apply normalization, before training, the data points are normalized to `[0,1]` by MinMaxNormalizer.
+     Om du använder normalisering före träning normaliseras data punkterna till `[0,1]` av MinMaxNormalizer.
 
-10. Train the model.  
+10. Träna modellen.  
   
-    -   If you set **Create trainer mode** to **Single Parameter**, add a tagged dataset and train the model by using the [Train Clustering Model](train-clustering-model.md) module.  
+    -   Om du ställer in **skapa utbildare** för en **parameter**lägger du till en taggad data uppsättning och tränar modellen med hjälp av modulen [träna kluster modell](train-clustering-model.md) .  
   
 ### <a name="results"></a>Resultat
 
-After you've finished configuring and training the model, you have a model that you can use to generate scores. However, there are multiple ways to train the model, and multiple ways to view and use the results: 
+När du har konfigurerat och tränat modellen har du en modell som du kan använda för att generera poäng. Det finns dock flera sätt att träna modellen på och flera sätt att visa och använda resultaten: 
 
-#### <a name="capture-a-snapshot-of-the-model-in-your-workspace"></a>Capture a snapshot of the model in your workspace
+#### <a name="capture-a-snapshot-of-the-model-in-your-workspace"></a>Avbilda en ögonblicks bild av modellen i din arbets yta
 
-If you used the [Train Clustering Model](train-clustering-model.md) module:
+Om du använde modulen [träna klustring modell](train-clustering-model.md) :
 
-1. Right-click the **Train Clustering Model** module.
+1. Högerklicka på modulen **träna klustring modell** .
 
-2. Select **Trained model**, and then select **Save as Trained Model**.
+2. Välj **tränad modell**och välj sedan **Spara som utbildad modell**.
 
-The saved model represents the training data at the time you saved the model. If you later update the training data used in the pipeline, it doesn't update the saved model. 
+Den sparade modellen representerar tränings data vid den tidpunkt då du sparade modellen. Om du senare uppdaterar de tränings data som används i pipelinen, uppdateras inte den sparade modellen. 
 
-#### <a name="see-the-clustering-result-dataset"></a>See the clustering result dataset 
+#### <a name="see-the-clustering-result-dataset"></a>Se data uppsättningen för kluster resultatet 
 
-If you used the [Train Clustering Model](train-clustering-model.md) module:
+Om du använde modulen [träna klustring modell](train-clustering-model.md) :
 
-1. Right-click the **Train Clustering Model** module.
+1. Högerklicka på modulen **träna klustring modell** .
 
-2. Select **Results dataset**, and then select **Visualize**.
+2. Välj **resultat data uppsättning**och välj sedan **visualisera**.
 
-### <a name="tips-for-generating-the-best-clustering-model"></a>Tips for generating the best clustering model  
+### <a name="tips-for-generating-the-best-clustering-model"></a>Tips för att skapa den bästa kluster modellen  
 
-It is known that the *seeding* process that's used during clustering can significantly affect the model. Seeding means the initial placement of points into potential centroids.
+Det är känt att *initierings* processen som används under klustringen kan påverka modellen betydligt. Seeding innebär den inledande placeringen av punkter i potentiella centroids.
  
-For example, if the dataset contains many outliers, and an outlier is chosen to seed the clusters, no other data points would fit well with that cluster, and the cluster could be a singleton. That is, it might have only one point.  
+Om data uppsättningen till exempel innehåller många avvikande värden och en avvikare har valts för att dirigera klustren, så skulle inga andra data punkter bli bra med klustret, och klustret kan vara en singleton. Det kan ha en enda punkt.  
   
-You can avoid this problem in a couple of ways:  
+Du kan undvika det här problemet på ett par olika sätt:  
   
--   Change the number of centroids and try multiple seed values.  
+-   Ändra antalet centroids och försök med flera värden för dirigering.  
   
--   Create multiple models, varying the metric or iterating more.  
+-   Skapa flera modeller, varierande mått eller iterera mer.  
   
-In general, with clustering models, it's possible that any given configuration will result in a locally optimized set of clusters. In other words, the set of clusters that's returned by the model suits only the current data points and isn't generalizable to other data. If you use a different initial configuration, the K-means method might find a different, superior, configuration. 
+I allmänhet, med kluster modeller, är det möjligt att alla angivna konfigurationer resulterar i en lokalt optimerad uppsättning kluster. Med andra ord motsvarar den uppsättning kluster som returneras av modellen bara de aktuella data punkterna och kan inte generaliseras till andra data. Om du använder en annan inledande konfiguration kan metoden K-betyder att hitta en annan, överlägsen och konfiguration. 

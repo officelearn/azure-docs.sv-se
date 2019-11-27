@@ -1,6 +1,6 @@
 ---
-title: Migrate from v1 to v2 - Azure Application Gateway
-description: This article shows you how to migrate Azure Application Gateway and Web Application Firewall from v1 to v2
+title: Migrera från v1 till v2 – Azure Application Gateway
+description: Den här artikeln visar hur du migrerar Azure Application Gateway och brand vägg för webbaserade program från v1 till v2
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -14,67 +14,67 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74231734"
 ---
-# <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migrate Azure Application Gateway and Web Application Firewall from v1 to v2
+# <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migrera Azure Application Gateway och brand vägg för webbaserade program från v1 till v2
 
-[Azure Application Gateway and Web Application Firewall (WAF) v2](application-gateway-autoscaling-zone-redundant.md) is now available, offering additional features such as autoscaling and availability-zone redundancy. Befintliga v1-gatewayer uppgraderas inte automatiskt till v2. If you want to migrate from v1 to v2, follow the steps in this article.
+[Azure Application Gateway och brand vägg för webbaserade program (WAF) v2](application-gateway-autoscaling-zone-redundant.md) är nu tillgängligt och erbjuder ytterligare funktioner, till exempel autoskalning och redundans för tillgänglighets zon. Befintliga v1-gatewayer uppgraderas inte automatiskt till v2. Om du vill migrera från v1 till v2 följer du stegen i den här artikeln.
 
-There are two stages in a migration:
+Det finns två steg i en migrering:
 
-1. Migrate the configuration
-2. Migrate the client traffic
+1. Migrera konfigurationen
+2. Migrera klient trafiken
 
-This article covers configuration migration. Client traffic migration varies depending on your specific environment. However, some high-level, general recommendations [are provided](#migrate-client-traffic).
+Den här artikeln beskriver migrering av konfiguration. Migreringen av klient trafiken varierar beroende på din miljö. Några [övergripande rekommendationer finns](#migrate-client-traffic)dock.
 
 ## <a name="migration-overview"></a>Migrering – en översikt
 
-An Azure PowerShell script is available that does the following:
+Det finns ett Azure PowerShell-skript tillgängligt som gör följande:
 
-* Creates a new Standard_v2 or WAF_v2 gateway in a virtual network subnet that you specify.
-* Seamlessly copies the configuration associated with the v1 Standard or WAF gateway to the newly created Standard_V2 or WAF_V2 gateway.
+* Skapar en ny Standard_v2 eller WAF_v2 gateway i ett undernät för virtuellt nätverk som du anger.
+* Kopierar sömlöst den konfiguration som är kopplad till v1-standard-eller WAF-gatewayen till den nyligen skapade Standard_V2 eller WAF_V2 Gateway.
 
 ### <a name="caveatslimitations"></a>Caveats\Limitations
 
-* The new v2 gateway has new public and private IP addresses. It isn't possible to move the IP addresses associated with the existing v1 gateway seamlessly to v2. However, you can allocate an existing (unallocated) public or private IP address to the new v2 gateway.
-* You must provide an IP address space for another subnet within your virtual network where your v1 gateway is located. The script can't create the v2 gateway in any existing subnets that already have a v1 gateway. However, if the existing subnet already has a v2 gateway, that may still work provided there's enough IP address space.
-* To  migrate an SSL configuration, you must specify all the SSL certs used in your v1 gateway.
-* If you have FIPS mode enabled for your V1 gateway, it won’t be migrated to your new v2 gateway. FIPS mode isn't supported in v2.
-* v2 doesn't support IPv6, so IPv6 enabled v1 gateways aren't migrated. If you run the script, it may not complete.
-* If the v1 gateway has only a private IP address, the script creates a public IP address and a private IP address for the new v2 gateway. v2 gateways currently don't support only private IP addresses.
+* Den nya v2-gatewayen har nya offentliga och privata IP-adresser. Det går inte att flytta IP-adresserna som är kopplade till den befintliga v1-gatewayen sömlöst till v2. Du kan dock allokera en befintlig offentlig eller privat IP-adress till den nya v2-gatewayen.
+* Du måste ange ett IP-adressutrymme för ett annat undernät i ditt virtuella nätverk där v1-gatewayen finns. Skriptet kan inte skapa v2-gatewayen i några befintliga undernät som redan har en v1-Gateway. Men om det befintliga under nätet redan har en v2-Gateway, kan det fortfarande fungera om det finns tillräckligt med IP-adressutrymme.
+* Om du vill migrera en SSL-konfiguration måste du ange alla SSL-certifikat som används i v1-gatewayen.
+* Om FIPS-läge har Aktiver ATS för din v1-Gateway migreras den inte till din nya v2-Gateway. FIPS-läge stöds inte i v2.
+* v2 stöder inte IPv6, så IPv6-aktiverade v1-gatewayer migreras inte. Om du kör skriptet kanske det inte slutförs.
+* Om v1-gatewayen bara har en privat IP-adress skapar skriptet en offentlig IP-adress och en privat IP-adress för den nya v2-gatewayen. v2 gateways stöder för närvarande inte endast privata IP-adresser.
 
-## <a name="download-the-script"></a>Download the script
+## <a name="download-the-script"></a>Hämta skriptet
 
-Download the migration script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAppGWMigration).
+Hämta migrerings skriptet från [PowerShell-galleriet](https://www.powershellgallery.com/packages/AzureAppGWMigration).
 
-## <a name="use-the-script"></a>Use the script
+## <a name="use-the-script"></a>Använd skriptet
 
-There are two options for you depending on your local PowerShell environment setup and preferences:
+Det finns två alternativ för dig, beroende på din lokala PowerShell-Miljös konfiguration och inställningar:
 
-* If you don’t have the Azure Az modules installed, or don’t mind uninstalling the Azure Az modules, the best option is to use the `Install-Script` option to run the script.
-* If you need to keep the Azure Az modules, your best bet is to download the script and run it directly.
+* Om du inte har installerat Azure AZ-moduler, eller om du inte vill avinstallera Azure AZ-modulerna, är det bästa alternativet att använda alternativet `Install-Script` för att köra skriptet.
+* Om du behöver behålla Azure AZ-modulerna är det bästa valet att ladda ned skriptet och köra det direkt.
 
-To determine if you have the Azure Az modules installed, run `Get-InstalledModule -Name az`. If you don't see any installed Az modules, then you can use the `Install-Script` method.
+Du kan kontrol lera om du har installerat Azure AZ-moduler genom att köra `Get-InstalledModule -Name az`. Om du inte ser några installerade AZ-moduler kan du använda metoden `Install-Script`.
 
-### <a name="install-using-the-install-script-method"></a>Install using the Install-Script method
+### <a name="install-using-the-install-script-method"></a>Installera med metoden install-script
 
-To use this option, you must not have the Azure Az modules installed on your computer. If they're installed, the following command displays an error. You can either uninstall the Azure Az modules, or use the other option to download the script manually and run it.
+Om du vill använda det här alternativet behöver du inte ha de Azure AZ-moduler som är installerade på datorn. Om de är installerade visar följande kommando ett fel. Du kan antingen avinstallera Azure AZ-moduler eller använda det andra alternativet för att ladda ned skriptet manuellt och köra det.
   
-Run the script with the following command:
+Kör skriptet med följande kommando:
 
 `Install-Script -Name AzureAppGWMigration`
 
-This command also installs the required Az modules.  
+Det här kommandot installerar även de AZ-moduler som krävs.  
 
-### <a name="install-using-the-script-directly"></a>Install using the script directly
+### <a name="install-using-the-script-directly"></a>Installera med hjälp av skriptet direkt
 
-If you do have some Azure Az modules installed and can't uninstall them (or don't want to uninstall them), you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw nupkg file. To install the script from this nupkg file, see [Manual Package Download](/powershell/scripting/gallery/how-to/working-with-packages/manual-download).
+Om du har några Azure AZ-moduler installerade och inte kan avinstallera dem (eller inte vill avinstallera dem) kan du hämta skriptet manuellt med hjälp av fliken **manuell hämtning** i länken för hämtning av skript. Skriptet laddas ned som en RAW nupkg-fil. Om du vill installera skriptet från den här nupkg-filen, se [manuell paket hämtning](/powershell/scripting/gallery/how-to/working-with-packages/manual-download).
 
 Kör skriptet så här:
 
-1. Use `Connect-AzAccount` to connect to Azure.
+1. Använd `Connect-AzAccount` för att ansluta till Azure.
 
-1. Use `Import-Module Az` to import the Az modules.
+1. Använd `Import-Module Az` för att importera AZ-modulerna.
 
-1. Run `Get-Help AzureAppGWMigration.ps1` to examine the required parameters:
+1. Kör `Get-Help AzureAppGWMigration.ps1` för att undersöka de nödvändiga parametrarna:
 
    ```
    AzureAppGwMigration.ps1
@@ -88,21 +88,21 @@ Kör skriptet så här:
     -validateMigration -enableAutoScale
    ```
 
-   Parameters for the script:
-   * **resourceId: [String]: Required** - This is the Azure Resource ID for your existing Standard v1 or WAF v1 gateway. To find this string value,  navigate to the Azure portal, select your application gateway or WAF resource, and click the **Properties** link for the gateway. The Resource ID is located on that page.
+   Parametrar för skriptet:
+   * **resourceId: [sträng]: krävs** – det här är Azure-resurs-ID: t för din befintliga standard v1-eller WAF v1-Gateway. Om du vill hitta strängvärdet navigerar du till Azure Portal, väljer din Application Gateway-eller WAF-resurs och klickar på länken **Egenskaper** för gatewayen. Resurs-ID finns på sidan.
 
-     You can also run the following Azure PowerShell commands to get the Resource ID:
+     Du kan också köra följande Azure PowerShell-kommandon för att hämta resurs-ID:
 
      ```azurepowershell
      $appgw = Get-AzApplicationGateway -Name <v1 gateway name> -ResourceGroupName <resource group Name> 
      $appgw.Id
      ```
 
-   * **subnetAddressRange: [String]:  Required** - This is the IP address space that you've allocated (or want to allocate) for a new subnet that contains your new v2 gateway. This must be specified in the CIDR notation. For example: 10.0.0.0/24. You don't need to create this subnet in advance. The script creates it for you if it doesn't exist.
-   * **appgwName: [String]: Optional**. This is a string you specify to use as the name for the new Standard_v2 or WAF_v2 gateway. If this parameter isn't supplied, the name of your existing v1 gateway will be used with the suffix *_v2* appended.
-   * **sslCertificates: [PSApplicationGatewaySslCertificate]: Optional**.  A comma-separated list of PSApplicationGatewaySslCertificate objects that you create to represent the SSL certs from your v1 gateway must be uploaded to the new v2 gateway. For each of your SSL certs configured for your Standard v1 or WAF v1 gateway, you can create a new PSApplicationGatewaySslCertificate object via the `New-AzApplicationGatewaySslCertificate` command shown here. You need the path to your SSL Cert file and the password.
+   * **subnetAddressRange: [sträng]: krävs** – det här är det IP-adressutrymme som du har tilldelat (eller vill allokera) för ett nytt undernät som innehåller din nya v2-Gateway. Detta måste anges i CIDR-notation. Till exempel: 10.0.0.0/24. Du behöver inte skapa det här under nätet i förväg. Skriptet skapar det åt dig om det inte finns.
+   * **appgwName: [sträng]: valfritt**. Det här är en sträng som du anger för att använda som namn på den nya Standard_v2 eller WAF_v2 Gateway. Om den här parametern inte anges kommer namnet på din befintliga v1-Gateway att användas med suffixet *_v2* bifogad.
+   * **sslCertificates: [PSApplicationGatewaySslCertificate]: valfritt**.  En kommaavgränsad lista med PSApplicationGatewaySslCertificate-objekt som du skapar för att representera SSL-certifikaten från din v1-Gateway måste överföras till den nya v2-gatewayen. För var och en av dina SSL-certifikat som har kon figurer ATS för din standard v1-eller WAF v1-Gateway, kan du skapa ett nytt PSApplicationGatewaySslCertificate-objekt via kommandot `New-AzApplicationGatewaySslCertificate` som visas här. Du behöver sökvägen till SSL-cert-filen och lösen ordet.
 
-       This parameter is only optional if you don’t have HTTPS listeners configured for your v1 gateway or WAF. If you have at least one HTTPS listener setup, you must specify this parameter.
+       Den här parametern är bara valfri om du inte har HTTPS-lyssnare som har kon figurer ATS för din v1-gateway eller WAF. Om du har minst en HTTPS Listener-installation måste du ange den här parametern.
 
       ```azurepowershell  
       $password = ConvertTo-SecureString <cert-password> -AsPlainText -Force
@@ -114,16 +114,16 @@ Kör skriptet så här:
         -Password $password
       ```
 
-      You can pass in `$mySslCert1, $mySslCert2` (comma-separated) in the previous example as values for this parameter in the script.
-   * **trustedRootCertificates: [PSApplicationGatewayTrustedRootCertificate]: Optional**. A comma-separated list of PSApplicationGatewayTrustedRootCertificate objects that you create to represent the [Trusted Root certificates](ssl-overview.md) for authentication of your backend instances from your v2 gateway.  
+      Du kan skicka in `$mySslCert1, $mySslCert2` (kommaavgränsad) i föregående exempel som värden för den här parametern i skriptet.
+   * **trustedRootCertificates: [PSApplicationGatewayTrustedRootCertificate]: valfritt**. En kommaavgränsad lista med PSApplicationGatewayTrustedRootCertificate-objekt som du skapar för att representera de [betrodda rot certifikaten](ssl-overview.md) för autentisering av Server dels instanserna från v2-gatewayen.  
 
-      To create a list of PSApplicationGatewayTrustedRootCertificate objects, see [New-AzApplicationGatewayTrustedRootCertificate](https://docs.microsoft.com/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate?view=azps-2.1.0&viewFallbackFrom=azps-2.0.0).
-   * **privateIpAddress: [String]: Optional**. A specific private IP address that you want to associate to your new v2 gateway.  This must be from the same VNet that you allocate for your new v2 gateway. If this isn't specified, the script allocates a private IP address for your v2 gateway.
-    * **publicIpResourceId: [String]: Optional**. The resourceId of a public IP address (standard SKU) resource in your subscription that you want to allocate to the new v2 gateway. If this isn't specified, the script allocates a new public IP in the same resource group. The name is the v2 gateway’s name with *-IP* appended.
-   * **validateMigration: [switch]: Optional**. Use this parameter if you want the script to do some basic configuration comparison validations after the v2 gateway creation and the configuration copy. By default, no validation is done.
-   * **enableAutoScale: [switch]: Optional**. Use this parameter if you want the script to enable AutoScaling on the new v2 gateway after it's created. By default, AutoScaling is disabled. You can always manually enable it later on the newly created v2 gateway.
+      Om du vill skapa en lista över PSApplicationGatewayTrustedRootCertificate-objekt, se [New-AzApplicationGatewayTrustedRootCertificate](https://docs.microsoft.com/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate?view=azps-2.1.0&viewFallbackFrom=azps-2.0.0).
+   * **privateIpAddress: [sträng]: valfritt**. En speciell privat IP-adress som du vill koppla till din nya v2-Gateway.  Detta måste vara från samma VNet som du allokerar för din nya v2-Gateway. Om detta inte anges allokerar skriptet en privat IP-adress för din v2-Gateway.
+    * **publicIpResourceId: [sträng]: valfritt**. Resurs-ID för en offentlig IP-adress (standard-SKU) i din prenumeration som du vill tilldela till den nya v2-gatewayen. Om detta inte anges allokerar skriptet en ny offentlig IP-adress i samma resurs grupp. Namnet är v2-gatewayens namn med *-IP* tillagt.
+   * **validateMigration: [växel]: valfritt**. Använd den här parametern om du vill att skriptet ska utföra vissa grundläggande konfigurations jämförelser när v2-gatewayen har skapats och konfigurations kopian. Ingen validering görs som standard.
+   * **enableAutoScale: [växel]: valfritt**. Använd den här parametern om du vill att skriptet ska aktivera autoskalning på den nya v2-gatewayen när den har skapats. Autoskalning är inaktiverat som standard. Du kan alltid aktivera den manuellt senare på den nyligen skapade v2-gatewayen.
 
-1. Run the script using the appropriate parameters. It may take five to seven minutes to finish.
+1. Kör skriptet med lämpliga parametrar. Det kan ta fem till sju minuter att slutföra.
 
     **Exempel**
 
@@ -139,59 +139,59 @@ Kör skriptet så här:
       -validateMigration -enableAutoScale
    ```
 
-## <a name="migrate-client-traffic"></a>Migrate client traffic
+## <a name="migrate-client-traffic"></a>Migrera klient trafik
 
-First, double check that the script successfully created a new v2 gateway with the exact configuration migrated over from your v1 gateway. You can verify this from the Azure portal.
+Börja med att kontrol lera att skriptet har skapat en ny v2-Gateway med den exakta konfigurationen som migrerats över från v1-gatewayen. Du kan kontrol lera detta från Azure Portal.
 
-Also, send a small amount of traffic through the v2 gateway as a manual test.
+Skicka också en liten mängd trafik via v2-gatewayen som ett manuellt test.
   
-Here are a few scenarios where your current application gateway (Standard) may receive client traffic, and our recommendations for each one:
+Här följer några scenarier där din aktuella Application Gateway (standard) kan ta emot klient trafik och våra rekommendationer för var och en:
 
-* **A custom DNS zone (for example, contoso.com) that points to the frontend IP address (using an A record) associated with your Standard v1 or WAF v1 gateway**.
+* **En anpassad DNS-zon (till exempel contoso.com) som pekar på klient delens IP-adress (med en A-post) som är associerad med din standard v1-eller WAF v1-Gateway**.
 
-    You can update your DNS record to point to the frontend IP or DNS label associated with your Standard_v2 application gateway. Depending on the TTL configured on your DNS record, it may take a while for all your client traffic to migrate to your new v2 gateway.
-* **A custom DNS zone (for example, contoso.com) that points to the DNS label (for example: *myappgw.eastus.cloudapp.azure.com* using a CNAME record) associated with your v1 gateway**.
+    Du kan uppdatera DNS-posten så att den pekar på klient delens IP-adress eller DNS-etikett som är associerad med Standard_v2 Application Gateway. Beroende på vilken TTL som kon figurer ATS på din DNS-post kan det ta en stund innan all klient trafik migreras till din nya v2-Gateway.
+* **En anpassad DNS-zon (till exempel contoso.com) som pekar på DNS-etiketten (till exempel: *myappgw.eastus.cloudapp.Azure.com* med hjälp av en CNAME-post) som är associerad med din v1-Gateway**.
 
-   You have two choices:
+   Du kan välja mellan två alternativ:
 
-  * If you use public IP addresses on your application gateway, you can do a controlled, granular migration using a Traffic Manager profile to incrementally route traffic (weighted traffic routing method) to the new v2 gateway.
+  * Om du använder offentliga IP-adresser på din Application Gateway kan du göra en kontrollerad, detaljerad migrering med hjälp av en Traffic Manager-profil för att stegvis dirigera trafik (viktad Traffic routing-metod) till den nya v2-gatewayen.
 
-    You can do this by adding the DNS labels of both the v1 and v2 application gateways to the [Traffic Manager profile](../traffic-manager/traffic-manager-routing-methods.md#weighted-traffic-routing-method), and CNAMEing your custom DNS record (for example, `www.contoso.com`) to the Traffic Manager domain (for example, contoso.trafficmanager.net).
-  * Or, you can update your custom domain DNS record to point to the DNS label of the new v2 application gateway. Depending on the TTL configured on your DNS record, it may take a while for all your client traffic to migrate to your new v2 gateway.
-* **Your clients connect to the frontend IP address of your application gateway**.
+    Du kan göra detta genom att lägga till DNS-etiketterna för både v1-och v2-programgatewayer i [Traffic Manager profilen](../traffic-manager/traffic-manager-routing-methods.md#weighted-traffic-routing-method)och att skapa en CNAME-anpassad DNS-post (till exempel `www.contoso.com`) till Traffic Manager-domänen (till exempel contoso.trafficmanager.net).
+  * Eller så kan du uppdatera din DNS-post för anpassade domäner så att den pekar på DNS-etiketten för den nya v2 Application Gateway. Beroende på vilken TTL som kon figurer ATS på din DNS-post kan det ta en stund innan all klient trafik migreras till din nya v2-Gateway.
+* **Klienterna ansluter till klient delens IP-adress för din Application Gateway**.
 
-   Update your clients to use the IP address(es) associated with the newly created v2 application gateway. We recommend that you don't use IP addresses directly. Consider using the DNS name label (for example, yourgateway.eastus.cloudapp.azure.com) associated with your application gateway that you can CNAME to your own custom DNS zone (for example, contoso.com).
+   Uppdatera klienterna så att de använder de IP-adresser som är associerade med den nyligen skapade v2-programgatewayen. Vi rekommenderar att du inte använder IP-adresser direkt. Överväg att använda DNS-namn etiketten (till exempel yourgateway.eastus.cloudapp.azure.com) som är associerad med din Application Gateway som du kan CNAME till din egen anpassade DNS-zon (till exempel contoso.com).
 
 ## <a name="common-questions"></a>Vanliga frågor
 
-### <a name="are-there-any-limitations-with-the-azure-powershell-script-to-migrate-the-configuration-from-v1-to-v2"></a>Are there any limitations with the Azure PowerShell script to migrate the configuration from v1 to v2?
+### <a name="are-there-any-limitations-with-the-azure-powershell-script-to-migrate-the-configuration-from-v1-to-v2"></a>Finns det några begränsningar med Azure PowerShell-skriptet för att migrera konfigurationen från v1 till v2?
 
-Ja. See [Caveats/Limitations](#caveatslimitations).
+Ja. Se [varningar/begränsningar](#caveatslimitations).
 
-### <a name="is-this-article-and-the-azure-powershell-script-applicable-for-application-gateway-waf-product-as-well"></a>Is this article and the Azure PowerShell script applicable for Application Gateway WAF product as well? 
+### <a name="is-this-article-and-the-azure-powershell-script-applicable-for-application-gateway-waf-product-as-well"></a>Är den här artikeln och det Azure PowerShell skript som är tillämpligt för Application Gateway WAF-produkten också? 
 
 Ja.
 
-### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-v1-gateway-to-the-newly-created-v2-gateway"></a>Does the Azure PowerShell script also switch over the traffic from my v1 gateway to the newly created v2 gateway?
+### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-v1-gateway-to-the-newly-created-v2-gateway"></a>Växlar Azure PowerShell-skriptet också över trafiken från min v1-Gateway till den nyligen skapade v2-gatewayen?
 
-Nej. The Azure PowerShell script only migrates the configuration. Actual traffic migration is your responsibility and in your control.
+Nej. Azure PowerShell-skriptet migrerar bara konfigurationen. Den faktiska trafikmigreringen är ditt ansvar och i din kontroll.
 
-### <a name="is-the-new-v2-gateway-created-by-the-azure-powershell-script-sized-appropriately-to-handle-all-of-the-traffic-that-is-currently-served-by-my-v1-gateway"></a>Is the new v2 gateway created by the Azure PowerShell script sized appropriately to handle all of the traffic that is currently served by my v1 gateway?
+### <a name="is-the-new-v2-gateway-created-by-the-azure-powershell-script-sized-appropriately-to-handle-all-of-the-traffic-that-is-currently-served-by-my-v1-gateway"></a>Är den nya v2-gatewayen skapad av Azure PowerShell skript storlek korrekt för att hantera all trafik som för närvarande betjänas av min v1-Gateway?
 
-The Azure PowerShell script creates a new v2 gateway with an appropriate size to handle the traffic on your existing v1 gateway. Autoscaling is disabled by default, but you can enable AutoScaling when you run the script.
+Azure PowerShell skriptet skapar en ny v2-Gateway med lämplig storlek för att hantera trafiken på din befintliga v1-Gateway. Autoskalning är inaktiverat som standard, men du kan aktivera autoskalning när du kör skriptet.
 
-### <a name="i-configured-my-v1-gateway--to-send-logs-to-azure-storage-does-the-script-replicate-this-configuration-for-v2-as-well"></a>I configured my v1 gateway  to send logs to Azure storage. Does the script replicate this configuration for v2 as well?
+### <a name="i-configured-my-v1-gateway--to-send-logs-to-azure-storage-does-the-script-replicate-this-configuration-for-v2-as-well"></a>Jag konfigurerade min v1-Gateway för att skicka loggar till Azure Storage. Replikerar skriptet även den här konfigurationen för v2?
 
-Nej. The script doesn't  replicate this configuration for v2. You must add the log configuration separately to the migrated v2 gateway.
+Nej. Skriptet replikerar inte den här konfigurationen för v2. Du måste lägga till logg konfigurationen separat till den migrerade v2-gatewayen.
 
-### <a name="does-this-script-support-certificates-uploaded-to-azure-keyvault-"></a>Does this script support certificates uploaded to Azure KeyVault ?
+### <a name="does-this-script-support-certificates-uploaded-to-azure-keyvault-"></a>Stöder det här skriptet certifikat som laddats upp till Azure-nyckel valv?
 
-Nej. Currently the script does not support certificates in KeyVault. However, this is being considered for a future version.
+Nej. För närvarande stöder skriptet inte certifikat i nyckel valvet. Detta kommer dock att övervägas för framtida versioner.
 
-### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>I ran into some issues with using this script. How can I get help?
+### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Jag har stött på problem med att använda det här skriptet. Hur kan jag få hjälp?
   
-You can send an email to appgwmigrationsup@microsoft.com, open a support case with Azure Support, or do both.
+Du kan skicka ett e-postmeddelande till appgwmigrationsup@microsoft.com, öppna ett support ärende med Azure-support eller gör båda.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Learn about Application Gateway v2](application-gateway-autoscaling-zone-redundant.md)
+[Läs mer om Application Gateway v2](application-gateway-autoscaling-zone-redundant.md)

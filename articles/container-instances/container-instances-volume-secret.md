@@ -1,19 +1,14 @@
 ---
-title: Montera en hemlig volym i Azure Container Instances
+title: Montera hemlig volym till behållar grupp
 description: Lär dig hur du monterar en hemlig volym för att lagra känslig information för åtkomst av dina behållar instanser
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 07/19/2018
-ms.author: danlep
-ms.openlocfilehash: 2e96ef73c3ff89fd7941fa14a8a1e53e6d4d8593
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 7f212a5090923a7d7bf00fc8ac78299f2edcc9c1
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68325431"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533192"
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>Montera en hemlig volym i Azure Container Instances
 
@@ -26,7 +21,7 @@ Alla *hemliga* volymer backas upp av [TMPFS][tmpfs], ett RAM-baserat fil system.
 
 ## <a name="mount-secret-volume---azure-cli"></a>Montera hemlig volym – Azure CLI
 
-Om du vill distribuera en behållare med en eller flera hemligheter med hjälp av Azure CLI inkluderar `--secrets` du `--secrets-mount-path` parametrarna och i kommandot [AZ container Create][az-container-create] . I det här exemplet monteras en *hemlig* volym som består av två hemligheter, "mysecret1" och "mysecret2 `/mnt/secrets`", på:
+Om du vill distribuera en behållare med en eller flera hemligheter med hjälp av Azure CLI inkluderar du parametrarna `--secrets` och `--secrets-mount-path` i kommandot [AZ container Create][az-container-create] . I det här exemplet monteras en *hemlig* volym som består av två hemligheter, "mysecret1" och "mysecret2", på `/mnt/secrets`:
 
 ```azurecli-interactive
 az container create \
@@ -89,7 +84,7 @@ tags: {}
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Om du vill distribuera med yaml-mallen sparar du föregående yaml till en fil `deploy-aci.yaml`med namnet och kör sedan kommandot [AZ container Create][az-container-create] med `--file` parametern:
+Om du vill distribuera med YAML-mallen sparar du föregående YAML till en fil med namnet `deploy-aci.yaml`och kör sedan kommandot [AZ container Create][az-container-create] med parametern `--file`:
 
 ```azurecli-interactive
 # Deploy with YAML template
@@ -100,16 +95,16 @@ az container create --resource-group myResourceGroup --file deploy-aci.yaml
 
 Förutom CLI-och YAML-distribution kan du distribuera en behållar grupp med hjälp av en Azure [Resource Manager-mall](/azure/templates/microsoft.containerinstance/containergroups).
 
-Fyll `volumes` först i matrisen i avsnittet behållar grupp `properties` i mallen. När du distribuerar med en Resource Manager-mall måste de hemliga värdena vara **base64-kodade** i mallen. De hemliga värdena visas dock i klartext i filerna i behållaren.
+Börja med att fylla i `volumes` matrisen i behållar grupps `properties` avsnittet i mallen. När du distribuerar med en Resource Manager-mall måste de hemliga värdena vara **base64-kodade** i mallen. De hemliga värdena visas dock i klartext i filerna i behållaren.
 
-Sedan, för varje behållare i den behållar grupp där du vill montera den *hemliga* volymen, fyller `volumeMounts` du i matrisen i `properties` avsnittet i behållar definitionen.
+Sedan, för varje behållare i den behållar grupp där du vill montera den *hemliga* volymen, fyller du i `volumeMounts` matrisen i `properties`-avsnittet i behållar definitionen.
 
 Följande Resource Manager-mall definierar en behållar grupp med en behållare som monterar en *hemlig* volym på `/mnt/secrets`. Den hemliga volymen har två hemligheter, "mysecret1" och "mysecret2".
 
 <!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json -->
 [!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
 
-Om du vill distribuera med Resource Manager-mallen sparar du föregående JSON till en fil `deploy-aci.json`med namnet och kör sedan kommandot [AZ Group Deployment Create][az-group-deployment-create] med `--template-file` parametern:
+Om du vill distribuera med Resource Manager-mallen sparar du föregående JSON till en fil med namnet `deploy-aci.json`och kör sedan kommandot [AZ Group Deployment Create][az-group-deployment-create] med parametern `--template-file`:
 
 ```azurecli-interactive
 # Deploy with Resource Manager template
@@ -122,9 +117,9 @@ az group deployment create --resource-group myResourceGroup --template-file depl
 
 Lär dig hur du monterar andra volym typer i Azure Container Instances:
 
-* [Montera en Azure-filresursen i Azure Container instanser](container-instances-volume-azure-files.md)
-* [Montera en emptyDir volymen i Azure Container instanser](container-instances-volume-emptydir.md)
-* [Montera en gitRepo volym i Azure Container instanser](container-instances-volume-gitrepo.md)
+* [Montera en Azure-filresurs i Azure Container Instances](container-instances-volume-azure-files.md)
+* [Montera en emptyDir volym i Azure Container Instances](container-instances-volume-emptydir.md)
+* [Montera en gitRepo volym i Azure Container Instances](container-instances-volume-gitrepo.md)
 
 ### <a name="secure-environment-variables"></a>Säkra miljövariabler
 

@@ -131,7 +131,7 @@ Du kan välja upp till 10 virtuella datorer på en gång för replikering. Om du
 | **Krypterade diskar/volymer**    | Stöds inte för migrering. |
 | **RDM/passthrough-diskar**      | Stöds inte för migrering. |
 | **Delad disk** | Virtuella datorer som använder delade diskar stöds inte för migrering.
-| **NFS**                        | NFS-volymer som monterats som volymer på de virtuella datorerna replikeras inte. |
+| **MSNFS**                        | NFS-volymer som monterats som volymer på de virtuella datorerna replikeras inte. |
 | **-**                      | Virtuella datorer med iSCSI-mål stöds inte för migrering.
 | **Mål disk**                | Du kan bara migrera till virtuella Azure-datorer med Managed disks. |
 | **IPv6** | Stöds ej.

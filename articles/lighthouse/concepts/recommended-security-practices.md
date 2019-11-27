@@ -1,6 +1,6 @@
 ---
 title: Rekommenderade säkerhetsmetoder
-description: When using Azure delegated resource management, it’s important to consider security and access control.
+description: När du använder Azure-delegerad resurs hantering är det viktigt att tänka på säkerhets-och åtkomst kontroll.
 ms.date: 07/11/2019
 ms.topic: conceptual
 ms.openlocfilehash: 18decc337722c1dc64fac94679d783dd55915ee6
@@ -12,35 +12,35 @@ ms.locfileid: "74463897"
 ---
 # <a name="recommended-security-practices"></a>Rekommenderade säkerhetsmetoder
 
-When using Azure delegated resource management, it’s important to consider security and access control. Users in your tenant will have direct access to customer subscriptions and resource groups, so you’ll want to take steps to maintain your tenant’s security. You’ll also want to make sure you only allow the access that’s needed to effectively manage your customers’ resources. This topic provides recommendations to help you do so.
+När du använder Azure-delegerad resurs hantering är det viktigt att tänka på säkerhets-och åtkomst kontroll. Användare i din klient organisation har direkt åtkomst till kund prenumerationer och resurs grupper, så du bör vidta åtgärder för att underhålla din klients säkerhet. Du bör också se till att du bara tillåter den åtkomst som behövs för att hantera kundernas resurser på ett effektivt sätt. Det här avsnittet innehåller rekommendationer som hjälper dig att göra det.
 
-## <a name="require-azure-multi-factor-authentication"></a>Require Azure Multi-Factor Authentication
+## <a name="require-azure-multi-factor-authentication"></a>Kräv Azure-Multi-Factor Authentication
 
-[Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)  (also known as two-step verification) helps prevent attackers from gaining access to an account by requiring multiple authentication steps. You should require Multi-Factor Authentication for all users in your service provider tenant, including any users who will have access to customer resources.
+[Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (även kallat tvåstegsverifiering) hjälper till att förhindra angripare från att få åtkomst till ett konto genom att kräva flera steg för autentisering. Du bör kräva Multi-Factor Authentication för alla användare i din tjänst leverantörs klient, inklusive användare som har åtkomst till kund resurser.
 
-We suggest that you ask your customers to implement Azure Multi-Factor Authentication in their tenants as well.
+Vi rekommenderar att du ber dina kunder att implementera Azure-Multi-Factor Authentication även i sina klienter.
 
-## <a name="assign-permissions-to-groups-using-the-principle-of-least-privilege"></a>Assign permissions to groups, using the principle of least privilege
+## <a name="assign-permissions-to-groups-using-the-principle-of-least-privilege"></a>Tilldela behörigheter till grupper med principen om minsta behörighet
 
-To make management easier, we recommend using Azure AD user groups for each role required to manage your customers’ resources. This lets you add or remove individual users to the group as needed, rather than assigning permissions directly to that user.
+För att förenkla hanteringen rekommenderar vi att du använder Azure AD-användargrupper för varje roll som krävs för att hantera dina kunders resurser. På så sätt kan du lägga till eller ta bort enskilda användare i gruppen efter behov, i stället för att tilldela behörigheter direkt till användaren.
 
-When creating your permission structure, be sure to follow the principle of least privilege so that users only have the permissions needed to complete their job, helping to reduce the chance of inadvertent errors.
+När du skapar din behörighets struktur måste du kontrol lera att du följer principen om minsta behörighet så att användarna bara har de behörigheter som krävs för att utföra sitt jobb, vilket bidrar till att minska risken för oavsiktliga fel.
 
-For example, you may want to use a structure like this:
+Du kanske exempelvis vill använda en struktur som detta:
 
-|Group name  |Typ  |principalId  |Rolldefinition  |Role definition ID  |
+|Grupp namn  |Typ  |principalId  |Rolldefinition  |Roll Definitions-ID  |
 |---------|---------|---------|---------|---------|
 |Architects     |Användargrupp         |\<principalId\>         |Deltagare         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 |Utvärdering     |Användargrupp         |\<principalId\>         |Läsare         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
-|VM Specialists     |Användargrupp         |\<principalId\>         |VM Contributor         |9980e02c-c2be-4d73-94e8-173b1dc7cf3c  |
-|Automation     |Service principal name (SPN)         |\<principalId\>         |Deltagare         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
+|VM-specialister     |Användargrupp         |\<principalId\>         |VM-deltagare         |9980e02c-c2be-4d73-94e8-173b1dc7cf3c  |
+|Automation     |Tjänstens huvud namn (SPN)         |\<principalId\>         |Deltagare         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 
-Once you’ve created these groups, you can assign users as needed. Only add the users who truly need to have access. Be sure to review group membership regularly and remove any users that are no longer appropriate or necessary to include.
+När du har skapat dessa grupper kan du tilldela användare efter behov. Lägg endast till de användare som verkligen behöver ha åtkomst. Se till att granska grupp medlemskapet regelbundet och ta bort alla användare som inte längre behövs eller som krävs för att inkludera.
 
-Keep  in mind that when you [onboard customers through a public managed service offer](../how-to/publish-managed-services-offers.md), any group (or user or service principal) that you include will have the same permissions for every customer who purchases the plan. To assign different groups to work with each customer, you’ll need to publish a separate private plan that is exclusive to each customer, or onboard customers individually by using Azure Resource Manager templates. For example, you could publish a public plan that has very limited access, then work with the customer directly to onboard their resources for additional access using a customized Azure Resource Template granting additional access as needed.
+Tänk på att när du registrerar [kunder via ett offentligt hanterat tjänst erbjudande](../how-to/publish-managed-services-offers.md), kommer alla grupper (eller användare eller tjänstens huvud namn) som du inkluderar att ha samma behörigheter för alla kunder som köper planen. Om du vill tilldela olika grupper för att arbeta med varje kund måste du publicera en separat privat plan som är exklusiv för varje kund eller publicera kunder individuellt genom att använda Azure Resource Manager mallar. Du kan till exempel publicera ett offentligt plan som har mycket begränsad åtkomst och sedan arbeta med kunden direkt för att publicera sina resurser för ytterligare åtkomst med hjälp av en anpassad Azure-resurs mal len som beviljar ytterligare åtkomst vid behov.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Deploy Azure Multi-Factor Authentication](../../active-directory/authentication/howto-mfa-getstarted.md).
-- Learn about [cross-tenant management experiences](cross-tenant-management-experience.md).
+- [Distribuera Azure Multi-Factor Authentication](../../active-directory/authentication/howto-mfa-getstarted.md).
+- Lär dig mer om [hanterings upplevelser mellan flera innehavare](cross-tenant-management-experience.md).

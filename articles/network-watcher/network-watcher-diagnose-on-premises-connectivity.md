@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 602a319ce90e5a6d13829e218899f135413d762d
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: HT
+ms.openlocfilehash: c3300338ab37d502646c55411d658ad30581019f
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275941"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74531833"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnostisera lokal anslutning via VPN-gatewayer
 
@@ -42,7 +42,7 @@ Du vill konfigurera en plats-till-plats-anslutning mellan Azure och lokalt med F
 
 Detaljerade anvisningar för hur du konfigurerar en plats-till-plats-konfiguration finns på: [skapa ett VNet med en plats-till-plats-anslutning med hjälp av Azure Portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
-Ett av de viktiga konfigurations stegen är att konfigurera IPsec-kommunikations parametrarna, eventuella felkonfigurationer leder till förlust av anslutning mellan det lokala nätverket och Azure. För närvarande har Azure VPN-gatewayer kon figurer ATS för att stödja följande IPsec-parametrar för fas 1. Observera att det inte går att ändra de här inställningarna som nämnts tidigare.  Som du kan se i tabellen nedan är de krypteringsalgoritmer som stöds av Azure VPN Gateway AES256, AES128 och 3DES.
+Ett av de viktiga konfigurations stegen är att konfigurera IPsec-kommunikations parametrarna, eventuella felkonfigurationer leder till förlust av anslutning mellan det lokala nätverket och Azure. För närvarande har Azure VPN-gatewayer kon figurer ATS för att stödja följande IPsec-parametrar för fas 1. Som du kan se i tabellen nedan är de krypteringsalgoritmer som stöds av Azure VPN Gateway AES256, AES128 och 3DES.
 
 ### <a name="ike-phase-1-setup"></a>IKE fas 1-installation
 
@@ -53,7 +53,7 @@ Ett av de viktiga konfigurations stegen är att konfigurera IPsec-kommunikations
 | Autentiseringsmetod |I förväg delad nyckel |I förväg delad nyckel |
 | Krypteringsalgoritmer |AES256 AES128 3DES |AES256 3DES |
 | Hash-algoritm |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
-| Fas 1, Security Association (SA), livslängd (tid) |28 800 sekunder |10 800 sekunder |
+| Fas 1, Security Association (SA), livslängd (tid) |28 800 sekunder |28 800 sekunder |
 
 Som användare måste du konfigurera din FortiGate, en exempel konfiguration finns på [GitHub](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/fortigate_show%20full-configuration.txt). Vet du att du har konfigurerat din FortiGate att använda SHA-512 som hash-algoritm. Eftersom den här algoritmen inte är en algoritm som stöds för principbaserade anslutningar fungerar VPN-anslutningen.
 

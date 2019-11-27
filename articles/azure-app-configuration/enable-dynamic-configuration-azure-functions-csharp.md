@@ -26,13 +26,13 @@ ms.locfileid: "74185452"
 
 Appens konfiguration .NET-standardprovidern för konfiguration stöder cachelagring och uppdatering av konfigurationen dynamiskt genom program aktivitet. Den här självstudien visar hur du kan implementera dynamiska konfigurationsuppdateringar i koden. Den bygger på den Azure Functions app som introducerades i snabb starterna. Innan du fortsätter måste du [skapa en Azure Functions-app med Azure App-konfigurationen](./quickstart-azure-functions-csharp.md) först.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Konfigurera din Azure Functions-app för att uppdatera konfigurationen som svar på ändringar i ett konfigurations lager för appar.
 > * Mata in den senaste konfigurationen till dina Azure Functions-anrop.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) med arbets belastningen **Azure Development**
@@ -114,7 +114,7 @@ I den här självstudiekursen får du lära du dig att:
 
 6. Välj **Configuration Explorer**och uppdatera värdena för följande nyckel:
 
-    | Nyckel | Värde |
+    | Nyckel | Value |
     |---|---|
     | TestApp:Settings:Message | Data från Azure App konfiguration – uppdaterad |
 

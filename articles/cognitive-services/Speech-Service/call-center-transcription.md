@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: a2025eb611a394cf4b67c05a4019ccf03bcadf9b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 2a8bea01d67c1820dc4f5c0a4922872541449a9e
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075865"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538178"
 ---
 # <a name="speech-service-for-telephony-data"></a>Tal tjänst för telefoni data
 
@@ -95,7 +95,6 @@ En typisk lösning använder dessa tjänster:
 - Tal tjänsten används för att skriva av tal till text. En standard prenumeration (S0) för tal tjänsten krävs för att använda API: et för batch-avskriftering. Kostnads fria prenumerationer (F0) kommer inte att fungera.
 - [Azure Storage](https://azure.microsoft.com/services/storage/) används för att lagra telefoni data och avskrifterna som returneras av batch-avskrifts-API: et. Det här lagrings kontot bör använda aviseringar, särskilt när nya filer läggs till. Dessa meddelanden används för att utlösa avskrifts processen.
 - [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) används för att skapa en URL för signaturer för delad åtkomst (SAS) för varje inspelning och utlöser HTTP POST-begäran för att starta en avskrift. Dessutom används Azure Functions för att skapa begär Anden för att hämta och ta bort avskrifter med batch-avskrifts-API: et.
-- [Webhooks](webhooks.md) används för att få meddelanden när avskrifter har slutförts.
 
 Internt använder vi tekniken ovan för att stödja Microsofts kund samtal i batch-läge.
 ![batch-arkitektur](media/scenarios/call-center-batch-pipeline.png)
@@ -124,7 +123,7 @@ Ett annat scenario är direkt integrering med session initierings protokollet (S
 
 | Tal tjänst | Modell | Beskrivning |
 | -------------- | ----- | ----------- |
-| Tal till text | [Akustisk modell](how-to-customize-acoustic-models.md) | Skapa en anpassad akustisk modell för program, verktyg eller enheter som används i vissa miljöer som i en bil eller på en fabriks våning, var och en med särskilda registrerings villkor. Exempel är accenttecken, vissa bakgrunds brus eller med en speciell mikrofon för inspelning. |
+| Tal-till-text | [Akustisk modell](how-to-customize-acoustic-models.md) | Skapa en anpassad akustisk modell för program, verktyg eller enheter som används i vissa miljöer som i en bil eller på en fabriks våning, var och en med särskilda registrerings villkor. Exempel är accenttecken, vissa bakgrunds brus eller med en speciell mikrofon för inspelning. |
 |                | [Språkmodell](how-to-customize-language-model.md) | Skapa en anpassad språk modell för att förbättra avskriften av branschspecifika vokabulär och grammatik, till exempel medicinsk terminologi eller IT-jargong. |
 |                | [Uttalsmodell](how-to-customize-pronunciation.md) | Med en anpassad uttal-modell kan du definiera det fonetiska formuläret och visa det för ett ord eller en term. Det är användbart för att hantera anpassade villkor, till exempel produktnamn eller förkortningar. Allt du behöver för att komma igång är en uttal-fil som är en enkel `.txt`-fil. |
 | Text till tal | [Rösttyp](how-to-customize-voice-font.md) | Med anpassade röst teckensnitt kan du skapa en igenkännings bara, en-av-en-röst för ditt varumärke. Det tar bara en liten mängd data att komma igång. Den mer information som du anger, desto mer naturlig och mänsklig som ditt röst teckensnitt kommer att ljud. |

@@ -34,7 +34,7 @@ Publicera till den offentliga för hands versionen enligt följande:
     Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
     ```
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Kontrol lera att du gör följande innan du konfigurerar säkerhets kopieringar:
 

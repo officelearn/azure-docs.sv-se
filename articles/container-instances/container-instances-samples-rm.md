@@ -1,19 +1,14 @@
 ---
-title: Exempel på Azure Resource Manager mallar – Azure Container Instances
+title: Azure Resource Manager-mallexempel
 description: Hitta Azure Resource Manager Template-exempel för att distribuera Azure Container Instances i olika konfigurationer
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 03/07/2019
-ms.author: danlep
-ms.openlocfilehash: 7dead5cc83717a011120ef6c17b9268bd78ed171
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: ddea823525002662363d61a795f34d6094c897d0
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150149"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533444"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Azure Resource Manager mallar för Azure Container Instances
 
@@ -31,7 +26,7 @@ Information om distributions alternativ finns i avsnittet [distribution](#deploy
 | **Enheter** ||
 | [emptyDir][vol-emptydir] | Distribuerar två Linux-behållare som delar en emptyDir-volym. |
 | [gitRepo][vol-gitrepo] | Distribuerar en Linux-behållare som klonar en GitHub-lagrings platsen och monterar den som en volym. |
-| [secret][vol-secret] | Distribuerar en Linux-behållare med ett PFX-certifikat monterat som en hemlig volym. |
+| [icke][vol-secret] | Distribuerar en Linux-behållare med ett PFX-certifikat monterat som en hemlig volym. |
 | **Nätverk** ||
 | [UDP-exponerad behållare][net-udp] | Distribuerar en Windows-eller Linux-behållare som exponerar en UDP-port. |
 | [Linux-behållare med offentlig IP][net-publicip] | Distribuerar en enda Linux-behållare som kan nås via en offentlig IP-adress. |

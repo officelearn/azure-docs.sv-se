@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Text Analytics client library | Microsoft Docs'
+title: 'Snabb start: Textanalys klient bibliotek | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, detect language by using the Text Analytics API from Azure Cognitive Services.
+description: I den här snabb starten identifierar du språk genom att använda API för textanalys från Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -18,13 +18,13 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74220787"
 ---
-# <a name="quickstart-use-the-text-analytics-client-library"></a>Quickstart: Use the Text Analytics client library
+# <a name="quickstart-use-the-text-analytics-client-library"></a>Snabb start: Använd Textanalys klient bibliotek
 
-Get started with the Text Analytics client library. Follow these steps to install the package and try out the example code for basic tasks.
+Kom igång med Textanalys klient biblioteket. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter.
 
-Use the Text Analytics client library to perform:
+Använd Textanalys klient bibliotek för att utföra:
 
-* Känsloanalys
+* Sentimentanalys
 * Språkspårning
 * Enhetsidentifiering
 * Extraktion av nyckelfraser
@@ -61,7 +61,7 @@ Use the Text Analytics client library to perform:
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
 
 * [Portalen](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
@@ -73,7 +73,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 
 * [Översikt över Textanalys](../overview.md)
-* [Sentiment analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md)
-* [Entity recognition](../how-tos/text-analytics-how-to-entity-linking.md)
-* [Detect language](../how-tos/text-analytics-how-to-keyword-extraction.md)
-* [Language recognition](../how-tos/text-analytics-how-to-language-detection.md)
+* [Sentiment-analys](../how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Enhets igenkänning](../how-tos/text-analytics-how-to-entity-linking.md)
+* [Identifiera språk](../how-tos/text-analytics-how-to-keyword-extraction.md)
+* [Språk igenkänning](../how-tos/text-analytics-how-to-language-detection.md)

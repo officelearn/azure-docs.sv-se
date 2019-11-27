@@ -1,22 +1,17 @@
 ---
-title: Självstudie – utlöser Azure Container Instances av en Azure Function
+title: Självstudie – Utlös container grupp efter Azure Function
 description: Skapa en HTTP-utlöst, Server lös PowerShell-funktion för att automatisera skapandet av Azure Container instances
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: tutorial
 ms.date: 09/20/2019
-ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 00bd017b0bcff6386e678802c301087819792744
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 49eb0721972a92f33bda2532367bc78280b6e655
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179983"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533380"
 ---
-# <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>Självstudier: Använd en HTTP-utlöst Azure-funktion för att skapa en behållar grupp
+# <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>Självstudie: Använd en HTTP-utlöst Azure-funktion för att skapa en behållar grupp
 
 [Azure Functions](../azure-functions/functions-overview.md) är en server lös beräknings tjänst som kan köra skript eller kod som svar på en rad olika händelser, till exempel en http-begäran, en timer eller ett meddelande i en Azure Storage kö.
 
@@ -66,7 +61,7 @@ az functionapp identity assign \
 
 ## <a name="modify-httptrigger-function"></a>Ändra funktionen HttpTrigger
 
-Ändra PowerShell-koden för funktionen **HttpTrigger** för att skapa en behållar grupp. Leta upp `run.ps1` följande kodblock i filen för funktionen. Den här koden visar ett namn värde, om ett sådant skickas som en frågesträng i funktions webb adressen:
+Ändra PowerShell-koden för funktionen **HttpTrigger** för att skapa en behållar grupp. Leta upp följande kodblock i fil `run.ps1` för funktionen. Den här koden visar ett namn värde, om ett sådant skickas som en frågesträng i funktions webb adressen:
 
 ```powershell
 [...]
@@ -92,11 +87,11 @@ if ($name) {
 [...]
 ```
 
-I det här exemplet skapas en behållar grupp som består av en `alpine` enda behållar instans som kör avbildningen. Behållaren kör ett enda `echo` kommando och avslutas sedan. I ett verkligt exempel kan du utlösa skapandet av en eller flera behållar grupper för att köra ett batch-jobb.
+I det här exemplet skapas en behållar grupp som består av en enda behållar instans som kör `alpine` avbildningen. Behållaren kör ett enda `echo`-kommando och avslutas sedan. I ett verkligt exempel kan du utlösa skapandet av en eller flera behållar grupper för att köra ett batch-jobb.
  
 ## <a name="test-function-app-locally"></a>Testa Function-appen lokalt
 
-Se till att funktionen körs korrekt lokalt innan du publicerar om Function-Appaketet till Azure. Som det visas i [PowerShell-snabb](../azure-functions/functions-create-first-function-powershell.md)starten infogar du en lokal Bryt punkt i PowerShell- `Wait-Debugger` skriptet och ett anrop ovanför den. Fel söknings anvisningar finns i [Felsöka PowerShell Azure Functions lokalt](../azure-functions/functions-debug-powershell-local.md).
+Se till att funktionen körs korrekt lokalt innan du publicerar om Function-Appaketet till Azure. Som det visas i [PowerShell-snabb](../azure-functions/functions-create-first-function-powershell.md)starten infogar du en lokal Bryt punkt i PowerShell-skriptet och ett `Wait-Debugger` anrop ovanför det. Fel söknings anvisningar finns i [Felsöka PowerShell Azure Functions lokalt](../azure-functions/functions-debug-powershell-local.md).
 
 
 ## <a name="republish-azure-function-app"></a>Publicera Azure Function-appen igen
@@ -104,7 +99,7 @@ Se till att funktionen körs korrekt lokalt innan du publicerar om Function-Appa
 När du har kontrollerat att funktionen fungerar korrekt på den lokala datorn är det dags att publicera projektet på den befintliga Function-appen i Azure.
 
 > [!NOTE]
-> Kom ihåg att ta bort alla `Wait-Debugger` anrop till innan du publicerar dina funktioner i Azure.
+> Kom ihåg att ta bort alla anrop till `Wait-Debugger` innan du publicerar dina funktioner till Azure.
 
 1. Öppna kommando-paletten i Visual Studio Code. Sök efter och välj `Azure Functions: Deploy to function app...`.
 1. Välj den aktuella arbetsmappen till zip och distribuera.
@@ -114,7 +109,7 @@ Ett meddelande visas när funktionsappen har skapats och distributionspaketet ha
 
 ## <a name="run-the-function-in-azure"></a>Kör funktionen i Azure
 
-När distributionen har slutförts hämtar du funktions-URL: en. Använd till exempel **Azure: Funktions områden i Visual Studio Code för att kopiera **HttpTrigger** -funktionens URL eller hämta funktions webb adressen i [Azure Portal.](../azure-functions/functions-create-first-azure-function.md#test-the-function)**
+När distributionen har slutförts hämtar du funktions-URL: en. Använd till exempel avsnittet **Azure: Functions** i Visual Studio Code för att kopiera **HttpTrigger** -funktionens URL eller hämta funktions webb adressen i [Azure Portal](../azure-functions/functions-create-first-azure-function.md#test-the-function).
 
 Funktions webb adressen innehåller en unik kod och har formatet:
 
@@ -124,13 +119,13 @@ https://myfunctionapp.azurewebsites.net/api/HttpTrigger?code=bmF/GljyfFWISqO0Gng
 
 ### <a name="run-function-without-passing-a-name"></a>Kör funktion utan att skicka ett namn
 
-Som första test kör du `curl` kommandot och skickar funktions webb adressen utan att lägga till en `name` frågesträng. Se till att inkludera funktionens unika kod.
+Det första testet är att köra kommandot `curl` och skicka funktions webb adressen utan att lägga till en `name` frågesträng. Se till att inkludera funktionens unika kod.
 
 ```bash
 curl --verbose "https://myfunctionapp.azurewebsites.net/api/HttpTrigger?code=bmF/GljyfFWISqO0GngDPCtCQF4meRcBiHEoaQGeRv/Srx6dRcrk2M=="
 ```
 
-Funktionen returnerar status koden 400 och texten `Please pass a name on the query string or in the request body`:
+Funktionen returnerar status koden 400 och text `Please pass a name on the query string or in the request body`:
 
 ```
 [...]
@@ -151,7 +146,7 @@ Please pass a name on the query string or in the request body.
 
 ### <a name="run-function-and-pass-the-name-of-a-container-group"></a>Kör funktionen och skicka namnet på en behållar grupp
 
-Kör `curl` nu kommandot genom att lägga till namnet på en behållar grupp (*mycontainergroup*) `&name=mycontainergroup`som en frågesträng:
+Kör nu kommandot `curl` genom att lägga till namnet på en behållar grupp (*mycontainergroup*) som en frågesträng `&name=mycontainergroup`:
 
 ```bash
 curl --verbose "https://myfunctionapp.azurewebsites.net/api/HttpTrigger?code=bmF/GljyfFWISqO0GngDPCtCQF4meRcBiHEoaQGeRv/Srx6dRcrk2M==&name=mycontainergroup"

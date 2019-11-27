@@ -27,7 +27,7 @@ I den här snabb starten inkluderar du Azure App konfiguration i en våren Boot-
 
 Biblioteken våren Boot Feature Management utökar ramverket med omfattande stöd för funktions flaggor. De här biblioteken har **inget** beroende av eventuella Azure lib-återställre. De integreras sömlöst med app-konfigurationen via sin våren Boot Configuration Provider.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - En [Java Development Kit SDK](https://docs.microsoft.com/java/azure/jdk) som stöds med version 8.
@@ -39,7 +39,7 @@ Biblioteken våren Boot Feature Management utökar ramverket med omfattande stö
 
 6. Välj **funktions hanteraren** >  **+ skapa** för att lägga till följande funktions flaggor:
 
-    | Nyckel | Status |
+    | Nyckel | State |
     |---|---|
     | Beta | Av |
 
@@ -232,7 +232,7 @@ Du kan använda [våren Initializr](https://start.spring.io/) för att skapa ett
 
 3. I konfigurations portalen för app väljer du **funktions hanteraren**och ändrar status för **beta** nyckeln till **på**:
 
-    | Nyckel | Status |
+    | Nyckel | State |
     |---|---|
     | Beta | På |
 

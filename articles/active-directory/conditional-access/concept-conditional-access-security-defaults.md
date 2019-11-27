@@ -77,7 +77,7 @@ När säkerhets inställningarna har Aktiver ATS i din klient kommer alla autent
 
 Organisationer använder en mängd olika Azure-tjänster som hanteras via Azure Resource Manager API, inklusive:
 
-- Azure portal 
+- Azure Portal 
 - Azure PowerShell 
 - Azure CLI
 

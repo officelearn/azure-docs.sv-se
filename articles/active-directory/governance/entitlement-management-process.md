@@ -33,11 +33,11 @@ En användare som behöver åtkomst till ett Access-paket kan skicka en åtkomst
 
 ![Diagram över godkännande process](./media/entitlement-management-process/request-process.png)
 
-| Status | Beskrivning |
+| State | Beskrivning |
 | --- | --- |
 | Läggs | Användaren skickar en begäran. |
 | Väntar på godkännande | Om principen för ett Access-paket kräver godkännande flyttas en begäran till väntar på godkännande. |
-| Upphörd | Om inga god kännare godkänner en begäran inom tids gränsen för godkännandebegäran, förfaller begäran. Användaren måste skicka in begäran igen för att försöka igen. |
+| Har upphört att gälla | Om inga god kännare godkänner en begäran inom tids gränsen för godkännandebegäran, förfaller begäran. Användaren måste skicka in begäran igen för att försöka igen. |
 | Tillåts | God kännaren nekar en begäran. |
 | Godkända | God kännaren godkänner en begäran. |
 | Kvalitativ | Användaren har **inte** tilldelats åtkomst till alla resurser i åtkomst paketet. Om det är en extern användare kanske användaren inte har till gång till resurs katalogen ännu. De kanske inte har godkänt medgivande frågan. |

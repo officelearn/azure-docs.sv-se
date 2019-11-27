@@ -35,7 +35,7 @@ Azure AD B2B kan konfigureras för att federera med identitets leverantörer som
 
 Om du vill konfigurera direkt Federation måste följande attribut tas emot i SAML 2,0-svaret från identitets leverantören. Dessa attribut kan konfigureras genom att länka till XML-filen för Online Security token eller genom att ange dem manuellt. Steg 12 i [skapa en test AD FS-instans](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed) beskriver hur du hittar AD FS slut punkter eller hur du skapar din metadata-URL, till exempel `https://fs.iga.azure-test.net/federationmetadata/2007-06/federationmetadata.xml`. 
 
-|Attribut  |Värde  |
+|Attribut  |Value  |
 |---------|---------|
 |AssertionConsumerService     |`https://login.microsoftonline.com/login.srf`         |
 |Målgrupp     |`urn:federation:MicrosoftOnline`         |
@@ -44,7 +44,7 @@ Om du vill konfigurera direkt Federation måste följande attribut tas emot i SA
 Följande anspråk måste konfigureras i SAML 2,0-token som utfärdas av identitets leverantören:
 
 
-|Attribut  |Värde  |
+|Attribut  |Value  |
 |---------|---------|
 |NameID-format     |`urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
@@ -108,7 +108,7 @@ Azure AD B2B kan konfigureras för att federera med identitets leverantörer som
 
 Om du vill konfigurera direkt Federation måste följande attribut tas emot i det WS-utfodras meddelandet från identitets leverantören. Dessa attribut kan konfigureras genom att länka till XML-filen för Online Security token eller genom att ange dem manuellt. Steg 12 i [skapa en test AD FS-instans](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed) beskriver hur du hittar AD FS slut punkter eller hur du skapar din metadata-URL, till exempel `https://fs.iga.azure-test.net/federationmetadata/2007-06/federationmetadata.xml`.
  
-|Attribut  |Värde  |
+|Attribut  |Value  |
 |---------|---------|
 |PassiveRequestorEndpoint     |`https://login.microsoftonline.com/login.srf`         |
 |Målgrupp     |`urn:federation:MicrosoftOnline`         |
@@ -116,7 +116,7 @@ Om du vill konfigurera direkt Federation måste följande attribut tas emot i de
 
 Obligatoriska anspråk för WS-utfodras token som utfärdats av IdP:
 
-|Attribut  |Värde  |
+|Attribut  |Value  |
 |---------|---------|
 |ImmutableID     |`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |

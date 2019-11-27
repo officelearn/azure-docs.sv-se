@@ -1,26 +1,21 @@
 ---
-title: Självstudie – Distribuera en containerapp till Azure Container Instances
+title: Självstudie – distribuera container app till container instance
 description: Självstudie om Azure Container Instances del 3 av 3 – Distribuera ett containerprogram till Azure Container Instances
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
-ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: f2890948dd15fa972104e4ef11001e83a2abd4f8
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: d3cbf16feea299e320cf7e24092d00e93cb7cf5b
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73846583"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533349"
 ---
 # <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Självstudie: Distribuera ett behållar program till Azure Container Instances
 
 Det här är den sista självstudien i en serie med tre delar. Tidigare i serien [skapades en behållaravbildning](container-instances-tutorial-prepare-app.md) som sedan [push-överfördes till Azure Container Registry](container-instances-tutorial-prepare-acr.md). I den här artikeln slutför vi serien genom att distribuera behållaren till Azure Container Instances.
 
-I den här kursen för du göra följande:
+I den här kursen har du:
 
 > [!div class="checklist"]
 > * Distribuera behållaren från Azure Container Registry till Azure Container Instances
@@ -75,7 +70,7 @@ När distributionen har slutförts visar du behållarens fullständigt kvalifice
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 ```
 
-Exempel:
+Till exempel:
 ```console
 $ az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 "aci-demo.eastus.azurecontainer.io"

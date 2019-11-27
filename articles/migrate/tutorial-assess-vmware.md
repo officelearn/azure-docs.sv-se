@@ -22,7 +22,7 @@ Den här artikeln visar hur du kan utvärdera lokala virtuella VMware-datorer me
 
 
 
-Den här självstudien är den andra i en serie som visar hur du bedömer och migrerar virtuella VMware-datorer till Azure. I den här självstudiekursen får du lära du dig att:
+Den här självstudien är den andra i en serie som visar hur du bedömer och migrerar virtuella VMware-datorer till Azure. I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Konfigurera ett Azure Migrate-projekt.
 > * Konfigurera en Azure Migrate-apparat som körs lokalt för att utvärdera de virtuella datorerna.
@@ -38,7 +38,7 @@ Den här självstudien är den andra i en serie som visar hur du bedömer och mi
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Slutför](tutorial-prepare-vmware.md) den första självstudien i den här serien. Om du inte gör det fungerar inte instruktionerna i den här självstudien.
 - Det här är vad du behöver göra i den första självstudien:

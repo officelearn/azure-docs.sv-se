@@ -24,7 +24,7 @@ ms.locfileid: "74185178"
 
 I den här snabb starten får du lära dig hur du konfigurerar Azure App konfigurations händelse prenumerationer för att skicka ändrings händelser för nyckel värden till en webb slut punkt. Azure App konfigurations användare kan prenumerera på händelser som genereras när nyckel värden ändras. Dessa händelser kan utlösa Webhooks, Azure Functions, Azure Storage köer eller andra händelse hanterare som stöds av Azure Event Grid. Normalt kan du skicka händelser till en slutpunkt som bearbetar informationen om händelsen och utför åtgärder. Men för att enkelt beskriva den här artikeln kan skicka du händelser till en webbapp som samlar in och visar meddelanden.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/). Du kan också använda Azure Cloud Shell.
 

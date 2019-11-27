@@ -1,25 +1,20 @@
 ---
-title: Använd en start kommando rad i Azure Container Instances
-description: Åsidosätt start punkten som kon figurer ATS i en behållar avbildning när du distribuerar en Azure Container instance
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
+title: Åsidosätt EntryPoint i behållar instansen
+description: Ange en kommando rad för att åsidosätta EntryPoint i en behållar avbildning när du distribuerar en Azure Container instance
 ms.topic: article
 ms.date: 04/15/2019
-ms.author: danlep
-ms.openlocfilehash: 40d946db48a65452d2da529098c07d0d0c60d472
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: d9554603f78a07fa44af51d8f39a91e1b3c39f70
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619656"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533410"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Ange kommando raden i en behållar instans för att åsidosätta standard kommando rads åtgärden
 
-När du skapar en behållar instans kan du, om du vill, ange ett kommando som åsidosätter standard kommando rads instruktionen bakade till behållar avbildningen. Detta fungerar på samma sätt som `--entrypoint` kommando rads argumentet för. `docker run`
+När du skapar en behållar instans kan du, om du vill, ange ett kommando som åsidosätter standard kommando rads instruktionen bakade till behållar avbildningen. Detta fungerar på samma sätt som `--entrypoint` kommando rads argument som ska `docker run`.
 
-Som att [](container-instances-environment-variables.md) ställa in miljövariabler för behållar instanser, är det praktiskt att ange en start kommando rad för batch-jobb där du måste förbereda varje behållare dynamiskt med en speciell konfiguration.
+Som att ställa in [miljövariabler](container-instances-environment-variables.md) för behållar instanser, är det praktiskt att ange en start kommando rad för batch-jobb där du måste förbereda varje behållare dynamiskt med en speciell konfiguration.
 
 ## <a name="command-line-guidelines"></a>Kommando rads rikt linjer
 
@@ -37,36 +32,36 @@ Som att [](container-instances-environment-variables.md) ställa in miljövariab
 
 * Beroende på behållar konfigurationen kan du behöva ange en fullständig sökväg till kommando radens körbara fil eller argument.
 
-* Ange en lämplig [princip för omstart](container-instances-restart-policy.md) för behållar instansen, beroende på om kommando raden anger en tids krävande uppgift eller en körnings aktivitet. Till exempel en omstarts princip för `Never` eller `OnFailure` rekommenderas för en körnings aktivitet. 
+* Ange en lämplig [princip för omstart](container-instances-restart-policy.md) för behållar instansen, beroende på om kommando raden anger en tids krävande uppgift eller en körnings aktivitet. Till exempel rekommenderas en omstarts princip för `Never` eller `OnFailure` för en körnings aktivitet. 
 
-* Om du behöver information om standard-EntryPoint som anges i en behållar avbildning [](https://docs.docker.com/engine/reference/commandline/image_inspect/) använder du kommandot Docker avbildnings kontroll.
+* Om du behöver information om standard-EntryPoint som anges i en behållar avbildning använder du kommandot [Docker avbildnings](https://docs.docker.com/engine/reference/commandline/image_inspect/) kontroll.
 
 ## <a name="command-line-syntax"></a>Kommandoradssyntax
 
 Kommando rads koden varierar beroende på vilket Azure-API eller verktyg som används för att skapa instanserna. Om du anger en gränssnitts miljö, ser du även syntaxen för kommandosyntaxen i gränssnittet.
 
-* [AZ container Create][az-container-create] -kommando: Skicka en sträng med `--command-line` parametern. Exempel: `--command-line "python myscript.py arg1 arg2"`).
+* [AZ container Create][az-container-create] -kommando: skicka en sträng med parametern `--command-line`. Exempel: `--command-line "python myscript.py arg1 arg2"`).
 
-* [New-AzureRmContainerGroup][new-azurermcontainergroup] Azure PowerShell-cmdlet: Skicka en sträng med `-Command` parametern. Exempel: `-Command "echo hello"`.
+* [New-AzureRmContainerGroup][new-azurermcontainergroup] Azure PowerShell cmdlet: skicka en sträng med parametern `-Command`. Exempel: `-Command "echo hello"`.
 
-* Azure-portalen: I egenskapen **kommando åsidosättning** för container konfigurationen, anger du en kommaavgränsad lista med strängar, utan citat tecken. Exempel: `python, myscript.py, arg1, arg2`). 
+* Azure Portal: Ange en kommaavgränsad lista med strängar, utan citat tecken, i egenskapen **kommando åsidosättning** för container konfigurationen. Exempel: `python, myscript.py, arg1, arg2`). 
 
-* Resource Manager-mall eller YAML-fil eller en av Azure-SDK: erna: Ange kommando rads egenskapen som en sträng mat ris. Exempel: JSON-matrisen `["python", "myscript.py", "arg1", "arg2"]` i en Resource Manager-mall. 
+* Resource Manager-mall eller YAML-fil eller något av Azure SDK: erna: ange kommando rads egenskapen som en sträng mat ris. Exempel: JSON-matrisen `["python", "myscript.py", "arg1", "arg2"]` i en Resource Manager-mall. 
 
   Om du är bekant med [Dockerfile](https://docs.docker.com/engine/reference/builder/) -syntaxen liknar det här formatet formen *exec* i instruktionen cmd.
 
 ### <a name="examples"></a>Exempel
 
-|    |  Azure CLI   | Portalen | Mall | 
+|    |  Azure CLI   | Portal | Mall | 
 | ---- | ---- | --- | --- |
-| Enda kommando | `--command-line "python myscript.py arg1 arg2"` | **Åsidosätt kommando**:`python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
-| Flera kommandon | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Åsidosätt kommando**:`/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
+| Enda kommando | `--command-line "python myscript.py arg1 arg2"` | **Kommando åsidosättning**: `python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
+| Flera kommandon | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Kommando åsidosättning**: `/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
 
 ## <a name="azure-cli-example"></a>Azure CLI-exempel
 
 Du kan t. ex. ändra beteendet för behållar avbildningen [Microsoft/ACI-WORDCOUNT][aci-wordcount] , som analyserar text i Shakespeares *Hamlet* för att hitta de ord som ofta förekommer. I stället för att analysera *Hamlet*kan du ange en kommando rad som pekar på en annan text källa.
 
-Om du vill se resultatet av behållaren [Microsoft/ACI-WORDCOUNT][aci-wordcount] när den analyserar standard texten, kör du den med följande [AZ container Create][az-container-create] -kommando. Ingen start kommando rad har angetts, så standard behållar kommandot körs. I illustrations syfte anger det här [](container-instances-environment-variables.md) exemplet miljövariabler för att hitta de tre översta orden som är minst fem bokstäver långa:
+Om du vill se resultatet av behållaren [Microsoft/ACI-WORDCOUNT][aci-wordcount] när den analyserar standard texten, kör du den med följande [AZ container Create][az-container-create] -kommando. Ingen start kommando rad har angetts, så standard behållar kommandot körs. I illustrations syfte anger det här exemplet [miljövariabler](container-instances-environment-variables.md) för att hitta de tre översta orden som är minst fem bokstäver långa:
 
 ```azurecli-interactive
 az container create \
@@ -83,7 +78,7 @@ När behållarens tillstånd visas som *avslutad* (Använd [AZ container Visa][a
 az container logs --resource-group myResourceGroup --name mycontainer1
 ```
 
-Utdata:
+Resultat:
 
 ```console
 [('HAMLET', 386), ('HORATIO', 127), ('CLAUDIUS', 120)]
@@ -103,13 +98,13 @@ az container create \
     --command-line "python wordcount.py http://shakespeare.mit.edu/romeo_juliet/full.html"
 ```
 
-Igen när behållaren har avbrutits visas utdata genom att Visa behållarens loggar:
+Igen när behållaren har *avbrutits*visas utdata genom att Visa behållarens loggar:
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer2
 ```
 
-Utdata:
+Resultat:
 
 ```console
 [('ROMEO', 177), ('JULIET', 134), ('CAPULET', 119)]

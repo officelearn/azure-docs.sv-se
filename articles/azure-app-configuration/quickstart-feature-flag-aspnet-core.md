@@ -27,10 +27,10 @@ I den här snabb starten inkluderar du Azure App konfiguration i en ASP.NET Core
 
 Biblioteken för .NET Core Feature Management utökar ramverket med omfattande stöd för funktions flaggor. Dessa bibliotek skapas ovanpå konfigurations systemet för .NET Core. De integreras sömlöst med app-konfigurationen via sin .NET Core-Konfigurationsprovider.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
-- [.NET Core SDK](https://dotnet.microsoft.com/download).
+- [.Net Core SDK](https://dotnet.microsoft.com/download).
 
 ## <a name="create-an-app-configuration-store"></a>Skapa ett konfigurations Arkiv för appen
 
@@ -38,7 +38,7 @@ Biblioteken för .NET Core Feature Management utökar ramverket med omfattande s
 
 6. Välj **funktions hanteraren** >  **+ Lägg** till för att lägga till följande funktions flaggor:
 
-    | Nyckel | Status |
+    | Nyckel | State |
     |---|---|
     | Beta | Av |
 
@@ -286,7 +286,7 @@ Lägg till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/sec
 
 1. Välj **funktions hanteraren**och ändra status för **beta** nyckeln till **på**:
 
-    | Nyckel | Status |
+    | Nyckel | State |
     |---|---|
     | Beta | På |
 

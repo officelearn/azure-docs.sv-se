@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3d6d128677d2e82f4750a7771885474bf284fb1
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 34f4dc749c0254b5aa4e9ff018d2a869832de3f0
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184219"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547390"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Använda hanterade identiteter för Azure-resurser på en virtuell Azure-dator för inloggning 
 
@@ -41,7 +41,7 @@ Om du planerar att använda Azure PowerShell-eller Azure CLI-exemplen i den här
 
 ## <a name="overview"></a>Översikt
 
-Hanterade identiteter för Azure-resurser tillhandahåller ett [huvud namn för tjänsten](../develop/developer-glossary.md#service-principal-object) som [skapas när du aktiverar hanterade identiteter för Azure-resurser](overview.md#how-does-it-work) på den virtuella datorn. Tjänstens huvud namn kan ges åtkomst till Azure-resurser och används som identitet av skript/kommando rads klienter för inloggning och resurs åtkomst. För att få åtkomst till skyddade resurser under sin egen identitet skulle en skript klient behöva:  
+Hanterade identiteter för Azure-resurser tillhandahåller ett [huvud namn för tjänsten](../develop/developer-glossary.md#service-principal-object) som [skapas när du aktiverar hanterade identiteter för Azure-resurser](overview.md#how-does-the-managed-identities-for-azure-resources-work) på den virtuella datorn. Tjänstens huvud namn kan ges åtkomst till Azure-resurser och används som identitet av skript/kommando rads klienter för inloggning och resurs åtkomst. För att få åtkomst till skyddade resurser under sin egen identitet skulle en skript klient behöva:  
 
    - vara registrerad och meddelad med Azure AD som ett konfidentiellt/webb klient program
    - Logga in under tjänstens huvud namn med hjälp av appens autentiseringsuppgifter (som troligen är inbäddade i skriptet)

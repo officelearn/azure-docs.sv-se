@@ -76,9 +76,9 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="view-health-of-an-aks-or-non-aks-cluster"></a>Visa hälso tillståndet för ett AKS-eller icke-AKS-kluster
 
-Åtkomst till funktionen Azure Monitor för behållare hälsa (för hands version) är tillgänglig direkt från ett AKS-kluster genom att välja **insikter** i den vänstra rutan i Azure Portal. Under den **Insights** väljer **behållare**. 
+Åtkomst till funktionen Azure Monitor för behållare hälsa (för hands version) är tillgänglig direkt från ett AKS-kluster genom att välja **insikter** i den vänstra rutan i Azure Portal. Under avsnittet **insikter** väljer du **behållare**. 
 
-Om du vill visa hälso tillståndet från ett icke-AKS kluster, det vill säga ett AKS-motor kluster lokalt eller på Azure Stack väljer **Azure Monitor** i det vänstra fönstret i Azure Portal. Under den **Insights** väljer **behållare**.  På sidan flera kluster väljer du det icke-AKS klustret i listan.
+Om du vill visa hälso tillståndet från ett icke-AKS kluster, det vill säga ett AKS-motor kluster lokalt eller på Azure Stack väljer **Azure Monitor** i det vänstra fönstret i Azure Portal. Under avsnittet **insikter** väljer du **behållare**.  På sidan flera kluster väljer du det icke-AKS klustret i listan.
 
 På sidan **kluster** i Azure Monitor för behållare väljer du **hälsa**.
 

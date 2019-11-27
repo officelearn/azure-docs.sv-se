@@ -1,6 +1,6 @@
 ---
-title: Manage user-assigned managed identities using REST - Azure AD
-description: Step by step instructions on how to create, list and delete a user-assigned managed identity to make REST API calls.
+title: Hantera användare som tilldelats hanterade identiteter med REST-Azure AD
+description: Steg för steg-anvisningar om hur du skapar, visar och tar bort en användardefinierad hanterad identitet för att göra REST API samtal.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -15,35 +15,35 @@ ms.workload: identity
 ms.date: 06/26/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0b4da7f47181341fce7c5fa5e7a6d239fe3070d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 39e108451e4c19e77e01b5bcc5d8dd21e86ad73a
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224651"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547413"
 ---
-# <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>Create, list or delete a user-assigned managed identity using REST API calls
+# <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>Skapa, Visa eller ta bort en användardefinierad hanterad identitet med hjälp av REST API-anrop
 
 [!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-Managed identities for Azure resources provides Azure services the ability to authenticate to services that support Azure AD authentication, without needing credentials in your code. 
+Hanterade identiteter för Azure-resurser ger Azure-tjänster möjlighet att autentisera till tjänster som stöder Azure AD-autentisering, utan att behöva autentiseringsuppgifter i din kod. 
 
-In this article, you learn how to create, list, and delete a user-assigned managed identity using CURL to make REST API calls.
+I den här artikeln får du lära dig hur du skapar, visar och tar bort en användardefinierad hanterad identitet med hjälp av sväng för att göra REST API-anrop.
 
 ## <a name="prerequisites"></a>Krav
 
-- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#how-does-it-work)** .
+- Om du inte känner till hanterade identiteter för Azure-resurser kan du läsa [avsnittet Översikt](overview.md). **Se till att granska [skillnaden mellan en tilldelad och användardefinierad hanterad identitet](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
 - Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
-- If you are using Windows, install the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about) or use the [Azure Cloud Shell](../../cloud-shell/overview.md) in the Azure portal.
-- If you use the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about) or a [Linux distribution OS](/cli/azure/install-azure-cli-apt?view=azure-cli-latest), [Install the Azure CLI local console](/cli/azure/install-azure-cli).
-- If you are using Azure CLI local console, sign in to Azure using `az login` with an account that is associated with the Azure subscription you would like to deploy or retrieve user-assigned managed identity information.
-- Retrieve a Bearer access token using `az account get-access-token` to perform the following user-assigned managed identity operations.
+- Om du använder Windows installerar du Windows- [undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/about) eller använder [Azure Cloud Shell](../../cloud-shell/overview.md) i Azure Portal.
+- Om du använder [Windows-undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/about) eller ett [Linux-distributions operativ](/cli/azure/install-azure-cli-apt?view=azure-cli-latest)system [installerar du den lokala Azure CLI-konsolen](/cli/azure/install-azure-cli).
+- Om du använder en lokal Azure CLI-konsol loggar du in på Azure med `az login` med ett konto som är associerat med den Azure-prenumeration som du vill distribuera eller hämta information om hanterad identitets information som användare tilldelats.
+- Hämta ett Bearer-åtkomsttoken med hjälp av `az account get-access-token` för att utföra följande användare tilldelade hanterade identitets åtgärder.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Skapa en användartilldelad hanterad identitet 
 
-To create a user-assigned managed identity, your account needs the [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role assignment.
+För att skapa en användardefinierad hanterad identitet måste ditt konto ha roll tilldelningen [hanterad identitets deltagare](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) .
 
 [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -58,22 +58,22 @@ PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>?api-version=2015-08-31-preview HTTP/1.1
 ```
 
-**Request headers**
+**Begärandehuvuden**
 
 |Begärandehuvud  |Beskrivning  |
 |---------|---------|
-|*Content-Type*     | Krävs. Ange till `application/json`.        |
-|*Auktorisering*     | Krävs. Set to a valid `Bearer` access token.        |
+|*Innehålls typ*     | Krävs. Ange till `application/json`.        |
+|*Auktorisering*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.        |
 
-**Request body**
+**Brödtext i begäran**
 
 |Namn  |Beskrivning  |
 |---------|---------|
-|location     | Krävs. Resource location.        |
+|location     | Krävs. Resursplats.        |
 
-## <a name="list-user-assigned-managed-identities"></a>List user-assigned managed identities
+## <a name="list-user-assigned-managed-identities"></a>Lista användare-tilldelade hanterade identiteter
 
-To list/read a user-assigned managed identity, your account needs the [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) or [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role assignment.
+Om du vill visa en lista över/läsa en användardefinierad hanterad identitet måste ditt konto ha roll tilldelningen [hanterad identitet](/azure/role-based-access-control/built-in-roles#managed-identity-operator) eller [hanterad identitets deltagare](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) .
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2015-08-31-preview' -H "Authorization: Bearer <ACCESS TOKEN>"
@@ -85,15 +85,15 @@ GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/
 
 |Begärandehuvud  |Beskrivning  |
 |---------|---------|
-|*Content-Type*     | Krävs. Ange till `application/json`.        |
-|*Auktorisering*     | Krävs. Set to a valid `Bearer` access token.        |
+|*Innehålls typ*     | Krävs. Ange till `application/json`.        |
+|*Auktorisering*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.        |
 
-## <a name="delete-a-user-assigned-managed-identity"></a>Delete a user-assigned managed identity
+## <a name="delete-a-user-assigned-managed-identity"></a>Ta bort en användare som tilldelats en hanterad identitet
 
-To delete a user-assigned managed identity, your account needs the [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role assignment.
+För att ta bort en användardefinierad hanterad identitet måste ditt konto ha roll tilldelningen [hanterad identitets deltagare](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) .
 
 > [!NOTE]
-> Deleting a user-assigned managed identity will not remove the reference from any resource it was assigned to. To remove a user-assigned managed identity from a VM using CURL see [Remove a user-assigned identity from an Azure VM](qs-configure-rest-vm.md#remove-a-user-assigned identity-from-an-azure-vm).
+> Om du tar bort en tilldelad hanterad identitet tas inte referensen bort från den resurs som den tilldelades. Om du vill ta bort en användardefinierad hanterad identitet från en virtuell dator med hjälp av vändning ser du [ta bort en användardefinierad identitet från en virtuell Azure-dator](qs-configure-rest-vm.md#remove-a-user-assigned identity-from-an-azure-vm).
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
@@ -105,9 +105,9 @@ DELETE https://management.azure.com/subscriptions/80c696ff-5efa-4909-a64d-f1b616
 ```
 |Begärandehuvud  |Beskrivning  |
 |---------|---------|
-|*Content-Type*     | Krävs. Ange till `application/json`.        |
-|*Auktorisering*     | Krävs. Set to a valid `Bearer` access token.        |
+|*Innehålls typ*     | Krävs. Ange till `application/json`.        |
+|*Auktorisering*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.        |
 
 ## <a name="next-steps"></a>Nästa steg
 
-For information on how to assign a user-assigned managed identity to an Azure VM/VMSS using CURL see, [Configure managed identities for Azure resources on an Azure VM using REST API calls](qs-configure-rest-vm.md#user-assigned-managed-identity) and [Configure managed identities for Azure resources on a virtual machine scale set using REST API calls](qs-configure-rest-vmss.md#user-assigned-managed-identity).
+Information om hur du tilldelar en användardefinierad hanterad identitet till en Azure VM/VMSS med hjälp av vändning finns i [Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med hjälp av REST API samtal](qs-configure-rest-vm.md#user-assigned-managed-identity) och [Konfigurera hanterade identiteter för Azure-resurser på en skalnings uppsättning för virtuella datorer med hjälp av REST API-anrop](qs-configure-rest-vmss.md#user-assigned-managed-identity).

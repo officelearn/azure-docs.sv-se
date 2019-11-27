@@ -69,7 +69,7 @@ Följande förkonfigurerade slut punkter är tillgängliga under för hands vers
     * Indien, centrala
     * Centrala USA
     * Östasien
-    * Östra USA
+    * East US
     * Västra Japan
     * Norra Europa
     * Sydafrika, norra

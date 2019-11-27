@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Recognize speech from a microphone, C++ - Speech Service'
+title: 'Snabb start: identifiera tal från en mikrofon C++ , tal-tjänst'
 titleSuffix: Azure Cognitive Services
-description: Inte klart
+description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -17,7 +17,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74260888"
 ---
-**Choose your target environment**
+**Välj mål miljö**
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 

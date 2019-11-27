@@ -1,6 +1,6 @@
 ---
-title: Manage your organizations from the My Account portal - Azure AD
-description: How to view and leave organizations connected to your work or school account from the Organizations page of the My Account portal.
+title: Hantera dina organisationer från min konto Portal – Azure AD
+description: Hur du visar och lämnar organisationer som är anslutna till ditt arbets-eller skol konto från sidan organisationer i min konto Portal.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -19,52 +19,52 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74231850"
 ---
-# <a name="manage-organizations-connected-to-your-work-or-school-account-from-the-organizations-page"></a>Manage organizations connected to your work or school account from the Organizations page
+# <a name="manage-organizations-connected-to-your-work-or-school-account-from-the-organizations-page"></a>Hantera organisationer som är anslutna till ditt arbets-eller skol konto från sidan organisationer
 
-You can manage your organizations from the **Organizations** page of the **My Account** portal.
+Du kan hantera dina organisationer från sidan **organisationer** i **min konto** Portal.
 
-There are two types of organizations shown on the **Organizations** page:
+Det finns två typer av organisationer som visas på sidan **organisationer** :
 
-- **Home organization.** Your home organization is the organization that owns your work or school account. You can't leave your home organization.
+- **Hem organisation.** Din hem organisation är den organisation som äger ditt arbets-eller skol konto. Du kan inte lämna din hem organisation.
 
-- **Other organizations.** The other organizations are any group that you've signed in to previously using your work or school account. You can leave any of these organizations at any time.
+- **Andra organisationer.** De andra organisationerna är alla grupper som du har loggat in på tidigare med ditt arbets-eller skol konto. Du kan när som helst lämna någon av dessa organisationer.
 
     >[!NOTE]
-    > If you don't have an assigned Home organization, you'll just see a single heading that says Organizations with the list of your associated organizations.
+    > Om du inte har någon tilldelad hem organisation visas bara en rubrik som säger organisationer med listan över dina associerade organisationer.
 
-## <a name="view-your-organizations"></a>View your organizations
+## <a name="view-your-organizations"></a>Visa dina organisationer
 
-1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
+1. Logga in på ditt arbets-eller skol konto och gå sedan till din https://myprofile.microsoft.com/ sida.
 
-2. Select **Organizations** from the left navigation pane or select the **Manage organizations** link from the **Organizations** block.
+2. Välj **organisationer** i det vänstra navigerings fönstret eller Välj länken **Hantera organisationer** från **organisationer** -blocket.
 
-    ![My Account page, showing highlighted Organizations links](media/my-account-portal/my-account-portal-organizations.png)
+    ![Sidan mitt konto, som visar markerade organisations länkar](media/my-account-portal/my-account-portal-organizations.png)
 
-3. Review the information for your **Home organization**.
+3. Granska informationen för din **hem organisation**.
 
-    ![Organizations page](media/my-account-portal/my-account-portal-organization-page.png)
+    ![Sidan organisationer](media/my-account-portal/my-account-portal-organization-page.png)
 
-4. Review your other associated organizations, making sure you recognize all of the organizations connected to your account.
+4. Granska dina andra associerade organisationer och se till att du känner igen alla organisationer som är anslutna till ditt konto.
 
 ## <a name="leave-an-organization"></a>Lämna en organisation
 
-You can leave any organization that isn't your Home organization.
+Du kan lämna en organisation som inte är din hem organisation.
 
 >[!Important]
->If you leave an organization by mistake, there's no way to undo it. You'll have to wait for the administrator of that organization to invite you again.
+>Om du lämnar en organisation av misstag finns det inget sätt att ångra. Du måste vänta tills administratören för organisationen har bjudit in dig igen.
 
-1. Select **Leave organization** next to the organization you want to leave, and then select **Leave** to confirm you want to leave.
+1. Välj **lämna organisationen** bredvid den organisation som du vill lämna och välj sedan **lämna** för att bekräfta att du vill lämna.
 
-    ![Organizations page with highlighted leave organization link](media/my-account-portal/my-account-portal-organizations-leave.png)
+    ![Sidan organisationer med markerad lämna organisations länk](media/my-account-portal/my-account-portal-organizations-leave.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-After viewing your organizations, you can:
+När du har visat dina organisationer kan du:
 
-- View or manage your [security info](user-help-security-info-overview.md).
+- Visa eller hantera din [säkerhets information](user-help-security-info-overview.md).
 
-- View or manage your connected [devices](my-account-portal-devices-page.md).
+- Visa eller hantera dina anslutna [enheter](my-account-portal-devices-page.md).
 
-- View your [sign-in activity](my-account-portal-sign-ins-page.md).
+- Visa din [inloggnings aktivitet](my-account-portal-sign-ins-page.md).
 
-- View how your organization [uses your privacy-related data](my-account-portal-privacy-page.md).
+- Se hur din organisation [använder dina sekretess-relaterade data](my-account-portal-privacy-page.md).

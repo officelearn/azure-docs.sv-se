@@ -17,7 +17,7 @@ Princip tilldelningar används av Azure Policy för att definiera vilka resurser
 Du använder JSON för att skapa en princip tilldelning. Princip tilldelningen innehåller element för:
 
 - Visningsnamn
-- description
+- beskrivning
 - metadata
 - tvingande läge
 - princip definition
@@ -59,10 +59,10 @@ Egenskapen **enforcementMode** ger kunderna möjlighet att testa resultatet av e
 
 Den här egenskapen har följande värden:
 
-|Läge |JSON-värde |Typ |Åtgärda manuellt |Aktivitets logg post |Beskrivning |
+|läge |JSON-värde |Typ |Åtgärda manuellt |Aktivitets logg post |Beskrivning |
 |-|-|-|-|-|-|
-|Enabled |Standard |sträng |Ja |Ja |Princip påverkan tillämpas när en resurs skapas eller uppdateras. |
-|Disabled |DoNotEnforce |sträng |Ja |Nej | Princip påverkan tillämpas inte när en resurs skapas eller uppdateras. |
+|Aktiverad |Standardvärde |string |Ja |Ja |Princip påverkan tillämpas när en resurs skapas eller uppdateras. |
+|Inaktiverad |DoNotEnforce |string |Ja |Nej | Princip påverkan tillämpas inte när en resurs skapas eller uppdateras. |
 
 Om **enforcementMode** inte anges i en princip eller initiativ definition används värdet _default_ . [Reparations uppgifter](../how-to/remediate-resources.md) kan startas för [deployIfNotExists](./effects.md#deployifnotexists) -principer, även när **enforcementMode** har angetts till _DoNotEnforce_.
 

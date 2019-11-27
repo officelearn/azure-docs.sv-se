@@ -1,7 +1,7 @@
 ---
-title: Animated character detection with Video Indexer
+title: Animerat typsnitts identifiering med Video Indexer
 titleSuffix: Azure Media Services
-description: This topic demonstrates how to use animated character detection with Video Indexer.
+description: Det här avsnittet visar hur du använder animerad identifiering av bokstäver med Video Indexer.
 services: media-services
 author: Juliako
 manager: femila
@@ -17,165 +17,165 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74327487"
 ---
-# <a name="animated-character-detection-preview"></a>Animated character detection (preview)
+# <a name="animated-character-detection-preview"></a>Animerat Character-identifiering (förhands granskning)
 
-Azure Media Services Video Indexer supports detection, grouping, and recognition of characters in animated content via integration with [Cognitive Services custom vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/). This functionality is available both through the portal and through the API.
+Azure Media Services Video Indexer stöder identifiering, gruppering och igenkänning av tecken i animerat innehåll via integrering med [Cognitive Services anpassad vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/). Den här funktionen är tillgänglig både via portalen och via API: et.
 
-After uploading an animated video with a specific animation model, Video Indexer extracts keyframes, detects animated characters in these frames, groups similar character, and chooses the best sample. Then, it sends the grouped characters to Custom Vision that identifies characters based on the models it was trained on. 
+När du har laddat upp en animerad video med en speciell modell för animering Video Indexer extraherar nyckel rutor, identifierar animerade tecken i dessa ramar, grupper liknande tecken och väljer det bästa exemplet. Sedan skickar den grupperade tecken till Custom Vision som identifierar tecken baserade på de modeller som den tränade på. 
 
-Before you start training your model, the characters are detected namelessly. As you add names and train the model the Video Indexer will recognize the characters and name them accordingly.
+Innan du börjar träna din modell identifieras tecknen namelessly. När du lägger till namn och tränar modellen identifierar Video Indexer tecknen och namnger dem därefter.
 
 ## <a name="flow-diagram"></a>Flödesdiagram
 
-The following diagram demonstrates the flow of the animated character detection process.
+Följande diagram visar flödet av den animerade processen för att identifiera animering.
 
 ![Flödesdiagram](./media/animated-characters-recognition/flow.png)
 
 ## <a name="accounts"></a>Konton
 
-Depending on a type of your Video Indexer account, different feature sets are available. For information on how to connect your account to Azure, see [Create a Video Indexer account connected to Azure](connect-to-azure.md).
+Olika funktions uppsättningar är tillgängliga beroende på vilken typ av Video Indexer konto som används. Information om hur du ansluter ditt konto till Azure finns i [skapa ett video Indexer-konto som är anslutet till Azure](connect-to-azure.md).
 
-* Trial account: Video Indexer uses an internal Custom Vision account to create model and connect it to your Video Indexer account. 
-* Paid account: you connect your Custom Vision account to your Video Indexer account (if you don’t already have one, you need to create an account first).
+* Utvärderings konto: Video Indexer använder ett internt Custom Vision konto för att skapa en modell och ansluta den till ditt Video Indexer-konto. 
+* Betalt konto: du ansluter ditt Custom Vision-konto till ditt Video Indexer-konto (om du inte redan har ett konto måste du först skapa ett konto).
 
-### <a name="trial-vs-paid"></a>Trial vs. paid
+### <a name="trial-vs-paid"></a>Utvärdering kontra betald
 
 |Funktioner|Utvärdering|Avgiftsbelagt|
 |---|---|---|
-|Custom Vision account|Managed behind the scenes by Video Indexer. |Your Custom Vision account is connected to Video Indexer.|
-|Number of animation models|One|Up to 100 models per account (Custom Vision limitation).|
-|Training the model|Video Indexer trains the model for new characters additional examples of existing characters.|The account owner trains the model when they are ready to make changes.|
-|Advanced options in Custom Vision|No access to the Custom Vision portal.|You can adjust the models yourself in the Custom Vision portal.|
+|Custom Vision konto|Hanteras i bakgrunden med Video Indexer. |Ditt Custom Vision-konto är anslutet till Video Indexer.|
+|Antal modeller för animering|Samtidigt|Upp till 100 modeller per konto (Custom Vision begränsning).|
+|Träna modellen|Video Indexer tågen modellen för nya tecken ytterligare exempel på befintliga tecken.|Konto ägaren tågen modellen när de är redo att göra ändringar.|
+|Avancerade alternativ i Custom Vision|Ingen åtkomst till Custom Vision-portalen.|Du kan justera modellerna själv i Custom Vision-portalen.|
 
-## <a name="use-the-animated-character-detection-with-portal"></a>Use the animated character detection with portal 
+## <a name="use-the-animated-character-detection-with-portal"></a>Använda animerat teckensnitts identifiering med portalen 
 
-This section describes the steps you need to take to start using the animated character detection model. 
+I det här avsnittet beskrivs de steg som du måste vidta för att börja använda den animerade tecknens identifierings modellen. 
 
-Since in  the trial accounts the Custom Vision integration is managed by Video Indexer, you can start creating and using the animated characters model and skip the following section ("Connect your Custom Vision account").
+Eftersom Custom Vision-integrering hanteras av Video Indexer i utvärderings kontot, kan du börja skapa och använda den animerade tecken modellen och hoppa över följande avsnitt ("Anslut ditt Custom Vision konto").
 
-### <a name="connect-your-custom-vision-account-paid-accounts-only"></a>Connect your Custom Vision account (paid accounts only)
+### <a name="connect-your-custom-vision-account-paid-accounts-only"></a>Anslut ditt Custom Vision konto (endast betalda konton)
 
-If you own a Video Indexer paid account, you need to connect a Custom Vision account first. If you don't have a Custom Vision account already, please create one. For more information, see [Custom Vision](../../cognitive-services/custom-vision-service/home.md).
+Om du äger ett Video Indexer betalt konto måste du först ansluta ett Custom Vision-konto. Om du inte redan har ett Custom Vision konto kan du skapa ett. Mer information finns i [Custom vision](../../cognitive-services/custom-vision-service/home.md).
 
 > [!NOTE]
-> Both accounts need to be in the same region. The Custom Vision integration is currently not supported in the Japan region.
+> Båda kontona måste finnas i samma region. Custom Vision-integration stöds för närvarande inte i regionen Japan.
 
-#### <a name="connect-a-custom-vision-account-with-api"></a>Connect a Custom Vision account with API 
+#### <a name="connect-a-custom-vision-account-with-api"></a>Ansluta ett Custom Vision-konto med API 
 
-Follow these steps to connect you Custom Vision account to Video Indexer, or to change the Custom Vision account that is currently connected to Video Indexer:
+Följ dessa steg för att ansluta dig Custom Vision konto till Video Indexer eller ändra det Custom Vision-konto som är kopplat till Video Indexer:
 
-1. Browse to [www.customvision.ai](https://www.customvision.ai) and login.
-1. Copy the following keys: 
+1. Bläddra till [www.customvision.AI](https://www.customvision.ai) och logga in.
+1. Kopiera följande nycklar: 
 
-    * Training key (for the training resource)
-    * Prediction key (for the prediction resource)
+    * Tränings nyckel (för utbildnings resursen)
+    * Förutsägelse nyckel (för förutsägelse resurs)
     * Slutpunkt 
-    * Prediction resource ID
+    * Resurs-ID för förutsägelse
     
     > [!NOTE]
-    > To provide all the keys you need to have two separate resources in Custom Vision, one for training and one for prediction.
-1. Browse and sign in to the [Video Indexer](https://vi.microsoft.com/).
-1. Click on the question mark on the top-right corner of the page and choose **API Reference**.
-1. Make sure you are subscribed to API Management by clicking **Products** tab. If you have an API connected you can continue to the next step, otherwise, subscribe. 
-1. On the developer portal, click the **Complete API Reference** and browse to **Operations**.  
-1. Select **Connect Custom Vision Account (PREVIEW)** and click **Try it**.
-1. Fill in the required fields as well as the access token and click **Send**. 
+    > För att tillhandahålla alla nycklar måste du ha två separata resurser i Custom Vision, en för utbildning och en för förutsägelse.
+1. Bläddra och logga in på [video Indexer](https://vi.microsoft.com/).
+1. Klicka på frågetecknet i det övre högra hörnet på sidan och välj **API-referens**.
+1. Se till att du prenumererar på API Management genom att klicka på fliken **produkter** . Om du har ett API anslutet kan du fortsätta till nästa steg, annars prenumerera. 
+1. Klicka på den **fullständiga API-referensen** på Developer-portalen och gå till **åtgärder**.  
+1. Välj **anslut Custom vision konto (FÖRhands granskning)** och klicka på **prova**.
+1. Fyll i obligatoriska fält och åtkomsttoken och klicka på **Skicka**. 
 
-    For more information about how to get the Video Indexer access token go to the [developer portal](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?), and see the [relevant documentation](video-indexer-use-apis.md#obtain-access-token-using-the-authorization-api).  
-1. Once the call return 200 OK response, your account is connected.
-1. To verify your connection by browse to the [Video Indexer](https://vi.microsoft.com/)) portal:
-1. Click on the **Content model customization** button in the top-right corner.
-1. Go to the **Animated characters** tab.
-1. Once you click on Manage models in Custom Vision”**, you will be transferred to the Custom Vision account you just connected.
+    Om du vill ha mer information om hur du hämtar Video Indexer-åtkomsttoken går du till [Developer-portalen](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)och läser [relevant dokumentation](video-indexer-use-apis.md#obtain-access-token-using-the-authorization-api).  
+1. Ditt konto är anslutet när anropet returnerade svaret 200 OK.
+1. Så här verifierar du din anslutning genom att bläddra till [video Indexer](https://vi.microsoft.com/)-portalen:
+1. Klicka på **anpassnings knappen för innehålls modell** i det övre högra hörnet.
+1. Gå till fliken **animerade tecken** .
+1. När du klickar på Hantera modeller i Custom Vision "* *" överförs du till det Custom Vision-konto som du precis anslöt.
 
 > [!NOTE]
-> Currently, only models that were created via Video Indexer are supported. Models that are created through Custom Vision will not be available. In addition, the best practice is to edit models that were created through Video Indexer only through the Video Indexer platform, since changes made through Custom Vision may cause unintended results.
+> För närvarande stöds endast modeller som skapats via Video Indexer. Modeller som skapas via Custom Vision är inte tillgängliga. Vi rekommenderar dessutom att du redigerar modeller som har skapats via Video Indexer bara via Video Indexers plattformen, eftersom ändringar som görs via Custom Vision kan orsaka oönskade resultat.
 
-### <a name="create-an-animated-characters-model"></a>Create an animated characters model
+### <a name="create-an-animated-characters-model"></a>Skapa en animerad tecken modell
 
 1. Gå till [Video Indexer](https://vi.microsoft.com/)-webbplatsen och logga in.
-1. Click on the content model customization button on the top-right corner of the page.
+1. Klicka på anpassnings knappen för innehålls modell i det övre högra hörnet på sidan.
 
-    ![Content model customization](./media/animated-characters-recognition/content-model-customization.png)
-1. Go to the **Animated characters** tab in the model customization section.
-1. Click on **Add model**.
-1. Name you model and click enter to save the name.
+    ![Anpassning av innehålls modell](./media/animated-characters-recognition/content-model-customization.png)
+1. Gå till fliken **animerade tecken** i avsnittet modell anpassning.
+1. Klicka på **Lägg till modell**.
+1. Namn du modell och klicka på RETUR för att spara namnet.
 
 > [!NOTE]
-> The best practice is to have one custom vision model for each animated series. 
+> Den bästa metoden är att ha en anpassad vision modell för varje animerad serie. 
 
-### <a name="index-a-video-with-an-animated-model"></a>Index a video with an animated model
+### <a name="index-a-video-with-an-animated-model"></a>Indexera en video med en animerad modell
 
-1. Click on the **Upload** button from the top menu.
-1. Choose a video to upload (from a file or a URL).
-1. Click on **Advanced options**.
-1. Under **People / Animated characters** choose **Animation models**.
-1. If you have one model it will be chosen automatically, and if you have multiple models you can choose the relevant one out of the dropdown menu.
-1. Click on upload.
-1. Once the video is indexed, you will see the detected characters in the **Animated characters** section in the **Insights** pane.
+1. Klicka på knappen **överför** på den översta menyn.
+1. Välj en video att ladda upp (från en fil eller en URL).
+1. Klicka på **Avancerade alternativ**.
+1. Välj **animerings modeller**under **personer/animerade tecken** .
+1. Om du har en modell väljs den automatiskt, och om du har flera modeller kan du välja den som är relevant för den aktuella List menyn.
+1. Klicka på överför.
+1. När videon har indexerats visas identifierade tecken i avsnittet **animerade tecken** i fönstret **insikter** .
 
 > [!NOTE] 
-> Before tagging and training the model, all animated characters will be named “Unknown #X”. After you train the model they will also be recognized.
+> Innan du taggar och tränar modellen med varandra får alla animerade tecken namnet "okänd #X". När du har tränat modellen kommer de också att identifieras.
 
-### <a name="customize-the-animated-characters-models"></a>Customize the animated characters models
+### <a name="customize-the-animated-characters-models"></a>Anpassa modeller för animerade tecken
 
-1. Tag and train the model.
+1. Tagga och träna modellen.
 
-    1. Tag the detected character by editing its name. Once a character is trained into the model, it will be recognized it the next video indexed with that model. 
-    1. To tag an animated character in your video, go to the **Insights** tab and click on the **Edit** button on the top-right corner of the window.
-    1. In the **Insights** pane, click on any of the detected animated characters and change their names from "Unknown #X" (or the name that was previously assigned to the character).
-    1. After typing in the new name, click on the check icon next to the new name. This saves the new name in the model in Video Indexer.
-    1. After you finished editing all names you want, you need to train the model.
+    1. Tagga det identifierade specialtecknet genom att redigera dess namn. När ett kort har tränats in i modellen identifieras det nästa video som indexeras med den modellen. 
+    1. Om du vill tagga ett animerat kort i videon går du till fliken **insikter** och klickar på knappen **Redigera** i det övre högra hörnet i fönstret.
+    1. I fönstret **insikter** klickar du på något av de synliga animerade tecknen och ändrar deras namn från "okänd #X" (eller det namn som tidigare har tilldelats tecknet).
+    1. När du har skrivit det nya namnet klickar du på kryss ikonen bredvid det nya namnet. Detta sparar det nya namnet i modellen i Video Indexer.
+    1. När du har redigerat alla namn som du vill ha måste du träna modellen.
 
-        Open the customization page and click on the **Animated characters** tab and then click on the **Train** button to train your model.
+        Öppna anpassnings sidan och klicka på fliken **animerade tecken** och klicka sedan på knappen **träna** för att träna din modell.
          
-        If you have a paid account, you can click the **Manage models in Customer Vision** link (as shown below). You will then be forwarded to the model's page in **Custom Vision**.
+        Om du har ett betalt konto kan du klicka på länken **Hantera modeller i Customer vision** (se nedan). Du kommer sedan att vidarebefordras till modellens sida i **Custom vision**.
  
-        ![Content model customization](./media/animated-characters-recognition/content-model-customization-tab.png)
+        ![Anpassning av innehålls modell](./media/animated-characters-recognition/content-model-customization-tab.png)
 
-     1. Once trained, any video that will be indexed or reindexed with that model will recognize the trained characters. 
-    Paid accounts that have access to their Custom Vision account can see the models and tagged images there. Learn more about [improving your classifier in Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier).
+     1. När de har tränats in kommer alla videor som ska indexeras eller indexeras med den modellen att identifiera de intränaa tecknen. 
+    Betalda konton som har åtkomst till sitt Custom Vision konto kan se modeller och taggade bilder där. Lär dig mer om [att förbättra din klassificerare i Custom vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier).
 
-1. Delete an animated character.
+1. Ta bort ett animerat teckensnitt.
 
-    1. To delete an animated character in your video insights, go to the **Insights** tab and click on the **Edit** button on the top-right corner of the window.
-    1. Choose the animated character and then click on the **Delete** button under their name.
+    1. Om du vill ta bort ett animerat teckensnitt i dina video insikter går du till fliken **insikter** och klickar på knappen **Redigera** i det övre högra hörnet i fönstret.
+    1. Välj det animerade specialtecknet och klicka sedan på knappen **ta bort** under namn.
 
     > [!NOTE]
-    > This will delete the insight from this video but will not affect the model.
+    > Detta tar bort insikter från den här videon men påverkar inte modellen.
 
-1. Delete a model.
+1. Ta bort en modell.
 
-    1. Click on the **Content model customization** button on the top menu and go to the **Animated characters** tab.
-    1. Click on the ellipsis icon to the right of the model you wish to delete and then on the delete button.
+    1. Klicka på knappen **anpassning av innehålls modell** på den översta menyn och gå till fliken **animerade tecken** .
+    1. Klicka på ikonen med tre punkter till höger om den modell som du vill ta bort och klicka sedan på knappen Ta bort.
     
-    * Paid account: the model will be disconnected from Video Indexer and you will not be able to reconnect it.
-    * Trial account: the model will be deleted from Customs vision as well. 
+    * Betalt konto: modellen kommer att kopplas från Video Indexer och du kommer inte att kunna ansluta den igen.
+    * Utvärderings konto: modellen tas även bort från insikten. 
     
         > [!NOTE]
-        > In a trial account, you only have one model you can use. After you delete it, you can’t train other models.
+        > I ett utvärderings konto har du bara en modell som du kan använda. När du har tagit bort det kan du inte träna andra modeller.
 
-## <a name="use-the-animated-character-detection-with-api"></a>Use the animated character detection with API 
+## <a name="use-the-animated-character-detection-with-api"></a>Använda animerad Character avkänning med API 
 
-1. Connect a Custom Vision account.
+1. Anslut ett Custom Vision-konto.
 
-    If you own a Video Indexer paid account, you need to connect a Custom Vision account first. <br/>
-    If you don’t have a Custom Vision account already, please create one. For more information, see [Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/home).
+    Om du äger ett Video Indexer betalt konto måste du först ansluta ett Custom Vision-konto. <br/>
+    Om du inte redan har ett Custom Vision konto kan du skapa ett. Mer information finns i [Custom vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/home).
 
-    [Connect your Custom Vision account using API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Connect-Custom-Vision-Account?tags=&pattern=&groupBy=tag).
-1. Create an animated characters model.
+    [Anslut ditt Custom vision-konto med hjälp av API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Connect-Custom-Vision-Account?tags=&pattern=&groupBy=tag).
+1. Skapa en animerad tecken modell.
 
-    Use the [create animation model](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Animation-Model?&groupBy=tag) API.
-1. Index or re-index a video.
+    Använd API för att [skapa animerings modell](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Animation-Model?&groupBy=tag) .
+1. Indexera eller indexera om en video.
 
-    Use the [re-indexing](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) API. 
-1. Customize the animated characters models.
+    Använd [Omindexering](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) av API. 
+1. Anpassa modeller för animerade tecken.
 
-    Use the [train animation model](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Train-Animation-Model?&groupBy=tag) API.
+    Använd modell-API: t för [träna animering](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Train-Animation-Model?&groupBy=tag) .
 
-### <a name="view-the-output"></a>View the output
+### <a name="view-the-output"></a>Visa utdata
 
-See the animated characters in the generated JSON file.
+Se de animerade tecknen i den genererade JSON-filen.
 
 ```json
 "animatedCharacters": [
@@ -208,9 +208,9 @@ See the animated characters in the generated JSON file.
 
 ## <a name="limitations"></a>Begränsningar
 
-* Currently, the "animation identification" capability is not supported in East-Asia region.
-* Characters that appear to be small or far in the video may not be identified properly if the video's quality is poor.
-* The recommendation is to use a model per set of animated characters (for example per an animated series).
+* För närvarande stöds inte funktionen "animation Identification" i regionen östra Asien.
+* Tecken som verkar vara små eller långt i videon kanske inte identifieras korrekt om videons kvalitet är låg.
+* Rekommendationen är att använda en modell per uppsättning animerade tecken (till exempel per animerad serie).
 
 ## <a name="next-steps"></a>Nästa steg
 

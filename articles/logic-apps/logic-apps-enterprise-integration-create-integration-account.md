@@ -9,12 +9,12 @@ author: ecfan
 ms.author: estfan
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 960733b7423ad1e22bd05a75d9b994cd85b1d30c
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: de184b189c00cce64932a3ab17d41ed84e197a7e
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680372"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534090"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Skapa och hantera integrations konton för B2B Enterprise-integration i Azure Logic Apps
 
@@ -40,9 +40,9 @@ Det här avsnittet visar hur du utför dessa uppgifter:
 
 ## <a name="create-integration-account"></a>Skapa integrationskonto
 
-För den här uppgiften kan du använda antingen Azure Portal genom att följa stegen i det här avsnittet [Azure PowerShell](https://docs.microsoft.com//powershell/module/azurerm.logicapp/New-AzureRmIntegrationAccount)eller [Azure CLI](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-create).
+För den här uppgiften kan du använda antingen Azure Portal genom att följa stegen i det här avsnittet [Azure PowerShell](/powershell/module/Az.LogicApp/New-AzIntegrationAccount)eller [Azure CLI](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-create).
 
-1. Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifterna för ditt Azure-konto.
+1. Logga in på [Azure Portal](https://portal.azure.com) med dina Azure-kontoautentiseringsuppgifter.
 
 1. Välj **Skapa en resurs** på Azure-huvudmenyn. I sökrutan anger du "integrations konto" som filter och väljer **integrations konto**.
 
@@ -58,10 +58,10 @@ För den här uppgiften kan du använda antingen Azure Portal genom att följa s
 
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | **Namn** | Ja | <*integration – konto namn* > | Integrations kontots namn, som endast får innehålla bokstäver, siffror, bindestreck (`-`), under streck (`_`), parenteser (`(`, `)`) och punkter (`.`). I det här exemplet används "Fabrikam-integration". |
+   | **Namn** | Ja | <*integration – konto namn*> | Integrations kontots namn, som endast får innehålla bokstäver, siffror, bindestreck (`-`), under streck (`_`), parenteser (`(`, `)`) och punkter (`.`). I det här exemplet används "Fabrikam-integration". |
    | **Prenumeration** | Ja | <*Azure-prenumerationsnamn*> | Azure-prenumerationens namn |
-   | **Resursgrupp** | Ja | <*Azure-resurs-grupp-namn* > | Namnet på den [Azure-resurs grupp](../azure-resource-manager/resource-group-overview.md) som ska användas för att organisera relaterade resurser. I det här exemplet skapar du en ny resurs grupp med namnet "FabrikamIntegration-RG". |
-   | **Prisnivå** | Ja | > på <*pris nivå* | Pris nivån för integrations kontot, som du kan ändra senare. I det här exemplet väljer du **kostnads fri**. Mer information finns i följande avsnitt: <p>[pris modell](../logic-apps/logic-apps-pricing.md#integration-accounts) för -  Logic Apps <p>- [Logic Apps gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) <p>priser för - [Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) |
+   | **Resursgrupp** | Ja | <*Azure-resurs-grupp-namn*> | Namnet på den [Azure-resurs grupp](../azure-resource-manager/resource-group-overview.md) som ska användas för att organisera relaterade resurser. I det här exemplet skapar du en ny resurs grupp med namnet "FabrikamIntegration-RG". |
+   | **Prisnivå** | Ja | > på <*pris nivå* | Pris nivån för integrations kontot, som du kan ändra senare. I det här exemplet väljer du **kostnads fri**. Mer information finns i följande avsnitt: <p>[pris modell](../logic-apps/logic-apps-pricing.md#integration-accounts) för - Logic Apps <p>- [Logic Apps gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) <p>priser för - [Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) |
    | **Plats** | Ja | <*Azure-region*> | Den region där du vill lagra dina metadata för integrations kontot. Välj antingen samma plats som din Logic app eller skapa Logi Kap par på samma plats som ditt integrations konto. I det här exemplet använder du "västra USA". <p>**Obs!** om du vill skapa ett integrations konto i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)väljer du denna ISE som plats. Mer information finns i [skapa integrations konton i en ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment). |
    | **Log Analytics** | Nej | Av, på | Behåll inställningen **av** i det här exemplet. |
    |||||
@@ -113,9 +113,9 @@ Om du vill öka [gränserna](../logic-apps/logic-apps-limits-and-config.md#integ
 
 Om du vill göra den här ändringen kan du använda antingen Azure Portal genom att följa stegen i det här avsnittet eller i [Azure CLI](#upgrade-tier-azure-cli).
 
-#### <a name="azure-portal"></a>Azure portal
+#### <a name="azure-portal"></a>Azure Portal
 
-1. Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifterna för ditt Azure-konto.
+1. Logga in på [Azure Portal](https://portal.azure.com) med dina Azure-kontoautentiseringsuppgifter.
 
 1. I den huvudsakliga Azure Search-rutan anger du "integration Accounts" som filter och väljer **integrations konton**.
 
@@ -207,7 +207,7 @@ Om du vill länka din Logic app till ett annat integrations konto, eller om du i
    },
    ```
 
-   Exempel:
+   Till exempel:
 
    ![Hitta "integrationAccount"-objekt](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-delete-integration-account.png)
 
@@ -225,7 +225,7 @@ Du kan flytta ditt integrations konto till en annan Azure-resurs grupp eller Azu
 
 För den här uppgiften kan du använda antingen Azure Portal genom att följa stegen i det här avsnittet eller i [Azure CLI](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-move).
 
-1. Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifterna för ditt Azure-konto.
+1. Logga in på [Azure Portal](https://portal.azure.com) med dina Azure-kontoautentiseringsuppgifter.
 
 1. I den huvudsakliga Azure Search-rutan anger du "integration Accounts" som filter och väljer **integrations konton**.
 
@@ -255,9 +255,9 @@ För den här uppgiften kan du använda antingen Azure Portal genom att följa s
 
 ## <a name="delete-integration-account"></a>Ta bort integrations konto
 
-För den här uppgiften kan du använda antingen Azure Portal genom att följa stegen i det här avsnittet, [Azure CLI](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-delete)eller [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/Remove-AzureRmIntegrationAccount).
+För den här uppgiften kan du använda antingen Azure Portal genom att följa stegen i det här avsnittet, [Azure CLI](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-delete)eller [Azure PowerShell](/powershell/module/az.logicapp/remove-azintegrationaccount).
 
-1. Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifterna för ditt Azure-konto.
+1. Logga in på [Azure Portal](https://portal.azure.com) med dina Azure-kontoautentiseringsuppgifter.
 
 1. I den huvudsakliga Azure Search-rutan anger du "integration Accounts" som filter och väljer **integrations konton**.
 

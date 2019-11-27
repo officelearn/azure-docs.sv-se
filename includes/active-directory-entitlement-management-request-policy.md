@@ -15,187 +15,187 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74260883"
 ---
-## <a name="for-users-in-your-directory"></a>For users in your directory
+## <a name="for-users-in-your-directory"></a>För användare i din katalog
 
-Follow these steps if you want to allow users in your directory to be able to request this access package. When defining the request policy, you can specify individual users, or more commonly groups of users. For example, your organization may already have a group such as **All employees**.  If that group is added in the policy for users who can request access, then any member of that group can then request access.
+Följ dessa steg om du vill tillåta att användare i katalogen kan begära det här åtkomst paketet. När du definierar en princip för begäran kan du ange enskilda användare eller flera vanliga grupper av användare. Din organisation kanske redan har en grupp, till exempel **alla anställda**.  Om gruppen läggs till i principen för användare som kan begära åtkomst, kan alla medlemmar i gruppen sedan begära åtkomst.
 
-1. In the **Users who can request access** section, click **For users in your directory**.
+1. I avsnittet **användare som kan begära åtkomst** klickar du på **för användare i din katalog**.
 
-    When you select this option, new options appear to further refine who in your directory can request this access package.
+    När du väljer det här alternativet visas nya alternativ för att ytterligare finjustera vem i din katalog som kan begära det här åtkomst paketet.
 
-    ![Access package - Requests - For users in your directory](./media/active-directory-entitlement-management-request-policy/for-users-in-your-directory.png)
+    ![Åtkomst till paket-begär Anden – för användare i din katalog](./media/active-directory-entitlement-management-request-policy/for-users-in-your-directory.png)
 
-1. Select one of the following options:
+1. Välj ett av följande alternativ:
 
     |  |  |
     | --- | --- |
-    | **Specific users and groups** | Choose this option if you want only the users and groups in your directory that you specify to be able to request this access package. |
-    | **All members (excluding guests)** | Choose this option if you want all member users in your directory to be able to request this access package. This option doesn't include any guest users you might have invited into your directory. |
-    | **All users (including guests)** | Choose this option if you want all member users and guest users in your directory to be able to request this access package. |
+    | **Vissa användare och grupper** | Välj det här alternativet om du vill att endast de användare och grupper i din katalog som du anger ska kunna begära det här åtkomst paketet. |
+    | **Alla medlemmar (exklusive gäster)** | Välj det här alternativet om du vill att alla medlems användare i din katalog ska kunna begära det här åtkomst paketet. Det här alternativet omfattar inte gäst användare som du kanske har bjudit in till din katalog. |
+    | **Alla användare (inklusive gäster)** | Välj det här alternativet om du vill att alla medlems användare och gäst användare i din katalog ska kunna begära det här åtkomst paketet. |
 
-    Guest users refer to external users that have been invited into your directory with [Azure AD B2B](../articles/active-directory/b2b/what-is-b2b.md). For more information about the differences between member users and guest users, see [What are the default user permissions in Azure Active Directory?](../articles/active-directory/fundamentals/users-default-permissions.md).
+    Gäst användare refererar till externa användare som har bjudits in till din katalog med [Azure AD B2B](../articles/active-directory/b2b/what-is-b2b.md). Mer information om skillnaderna mellan medlems användare och gäst användare finns i [Vad är standard användar behörigheter i Azure Active Directory?](../articles/active-directory/fundamentals/users-default-permissions.md).
 
-1. If you selected **Specific users and groups**, click **Add users and groups**.
+1. Om du har valt **vissa användare och grupper**klickar du på **Lägg till användare och grupper**.
 
-1. In the Select users and groups pane, select the users and groups you want to add.
+1. I fönstret Välj användare och grupper väljer du de användare och grupper som du vill lägga till.
 
-    ![Access package - Requests - Select users and groups](./media/active-directory-entitlement-management-request-policy/select-users-groups.png)
+    ![Åtkomst till paket-begär Anden – Välj användare och grupper](./media/active-directory-entitlement-management-request-policy/select-users-groups.png)
 
-1. Click **Select** to add the users and groups.
+1. Klicka på **Välj** för att lägga till användare och grupper.
 
-1. Skip down to the [Approval](#approval) section.
+1. Hoppa ned till [godkännande](#approval) avsnittet.
 
-## <a name="for-users-not-in-your-directory"></a>For users not in your directory
+## <a name="for-users-not-in-your-directory"></a>För användare som inte är i din katalog
 
- **Users not in your directory** refers to users who are in another Azure AD directory or domain. These users may not have yet been invited into your directory. Azure AD directories must be configured to be allow invitations in **Collaboration restrictions**. For more information, see [Enable B2B external collaboration and manage who can invite guests](../articles/active-directory/b2b/delegate-invitations.md).
+ **Användare som inte finns i din katalog** refererar till användare som finns i en annan Azure AD-katalog eller domän. Dessa användare har kanske inte bjudits in till din katalog än. Azure AD-kataloger måste konfigureras för att tillåta inbjudningar i **samarbets begränsningar**. Mer information finns i [Aktivera externt samarbete i B2B och hantera vem som kan bjuda in gäster](../articles/active-directory/b2b/delegate-invitations.md).
 
 > [!NOTE]
-> A guest user account will be created for a user not yet in your directory whose request is approved or auto-approved. The guest will be invited, but will not receive an invite email. Instead, they will receive an email when their access package assignment is delivered. By default, later when that guest user no longer has any access package assignments, because their last assignment has expired or been cancelled, that guest user account will be blocked from sign in and subsequently deleted. If you want to have guest users remain in your directory indefinitely, even if they have no access package assignments, you can change the settings for your entitlement management configuration. For more information about the guest user object, see [Properties of an Azure Active Directory B2B collaboration user](../articles/active-directory/b2b/user-properties.md).
+> Ett gäst användar konto skapas för en användare som ännu inte finns i katalogen vars förfrågan godkänns eller godkänns automatiskt. Gästen kommer att bjudas in, men får ingen inbjudan via e-post. I stället får de ett e-postmeddelande när deras tilldelning av åtkomst paket levereras. Senare när gäst användaren inte längre har några åtkomst paket tilldelningar, eftersom deras senaste tilldelning har gått ut eller avbrutits, kommer gäst användar kontot att blockeras från att logga in och sedan tas bort. Om du vill att gäst användare ska finnas kvar i din katalog på obestämd tid, även om de inte har några åtkomst paket, kan du ändra inställningarna för konfiguration av rättighets hantering. Mer information om gäst användar objekt finns i [Egenskaper för en Azure Active Directory B2B-samarbets användare](../articles/active-directory/b2b/user-properties.md).
 
-Follow these steps if you want to allow users not in your directory to request this access package:
+Följ de här stegen om du vill tillåta att användare som inte tillhör din katalog begär det här åtkomst paketet:
 
-1. In the **Users who can request access** section, click **For users not in your directory**.
+1. I avsnittet **användare som kan begära åtkomst** klickar du på **för användare som inte finns i din katalog**.
 
-    When you select this option, new options appear.
+    När du väljer det här alternativet visas nya alternativ.
 
-    ![Access package - Requests - For users not in your directory](./media/active-directory-entitlement-management-request-policy/for-users-not-in-your-directory.png)
+    ![Åtkomst till paket-begär Anden – för användare som inte är i din katalog](./media/active-directory-entitlement-management-request-policy/for-users-not-in-your-directory.png)
 
-1. Select one of the following options:
+1. Välj ett av följande alternativ:
 
     |  |  |
     | --- | --- |
-    | **Specific connected organizations** | Choose this option if you want to select from a list of organizations that your administrator previously added. All users from the selected organizations can request this access package. |
-    | **All connected organizations** | Choose this option if all users from all your connected organizations can request this access package. |
+    | **Vissa anslutna organisationer** | Välj det här alternativet om du vill välja från en lista över organisationer som administratören har lagt till tidigare. Alla användare från de valda organisationerna kan begära det här åtkomst paketet. |
+    | **Alla anslutna organisationer** | Välj det här alternativet om alla användare från alla anslutna organisationer kan begära det här åtkomst paketet. |
 
-    A connected organization is an external Azure AD directory or domain that you have a relationship with.
+    En ansluten organisation är en extern Azure AD-katalog eller domän som du har en relation med.
 
-1. If you selected **Specific connected organizations**, click **Add directories** to select from a list of connected organizations that your administrator previously added.
+1. Om du har valt **vissa anslutna organisationer**klickar du på **Lägg till kataloger** för att välja från en lista över anslutna organisationer som administratören har lagt till tidigare.
 
-1. Type the name or domain name to search for a previously connected organization.
+1. Skriv namnet eller domän namnet för att söka efter en tidigare ansluten organisation.
 
-    ![Access package - Requests - Select directories](./media/active-directory-entitlement-management-request-policy/select-directories.png)
+    ![Åtkomst till paket-begär Anden – Välj kataloger](./media/active-directory-entitlement-management-request-policy/select-directories.png)
 
-    If the organization you want to collaborate with isn't in the list, you can ask your administrator to add it as a connected organization. For more information, see [Add a connected organization](../articles/active-directory/governance/entitlement-management-organization.md).
+    Om den organisation som du vill samar beta med inte finns med i listan kan du be administratören att lägga till den som en ansluten organisation. Mer information finns i [lägga till en ansluten organisation](../articles/active-directory/governance/entitlement-management-organization.md).
 
-1. Once you've selected all your connected organizations, click **Select**.
+1. När du har valt alla anslutna organisationer klickar du på **Välj**.
 
     > [!NOTE]
-    > All users from the selected connected organizations will be able to request this access package. This includes users in Azure AD from all subdomains associated with the organization, unless those domains are blocked by the Azure B2B allow or deny list. For more information, see [Allow or block invitations to B2B users from specific organizations](../articles/active-directory/b2b/allow-deny-list.md).
+    > Alla användare från de valda anslutna organisationerna kommer att kunna begära det här åtkomst paketet. Detta inkluderar användare i Azure AD från alla under domäner som är kopplade till organisationen, om inte dessa domäner blockeras av listan Tillåt eller neka i Azure B2B. Mer information finns i [tillåta eller blockera inbjudningar till B2B-användare från vissa organisationer](../articles/active-directory/b2b/allow-deny-list.md).
 
-1. Skip down to the [Approval](#approval) section.
+1. Hoppa ned till [godkännande](#approval) avsnittet.
 
-## <a name="none-administrator-direct-assignments-only"></a>None (administrator direct assignments only)
+## <a name="none-administrator-direct-assignments-only"></a>Ingen (endast administratörs direkta tilldelningar)
 
-Follow these steps if you want to bypass access requests and allow administrators to directly assign specific users to this access package. Users won't have to request the access package. You can still set lifecycle settings, but there are no request settings.
+Följ de här stegen om du vill kringgå åtkomst begär Anden och låta administratörer direkt tilldela vissa användare till det här Access-paketet. Användarna behöver inte begära åtkomst paketet. Du kan fortfarande ange livs cykel inställningar, men det finns inga inställningar för begäran.
 
-1. In the **Users who can request access** section, click **None (administrator direct assignments only**.
+1. I avsnittet **användare som kan begära åtkomst** klickar du på **Ingen (endast administratörs direkta tilldelningar**).
 
-    ![Access package - Requests - None administrator direct assignments only](./media/active-directory-entitlement-management-request-policy/none-admin-direct-assignments-only.png)
+    ![Åtkomst till paket-begär Anden-inga enbart administratörs direkta tilldelningar](./media/active-directory-entitlement-management-request-policy/none-admin-direct-assignments-only.png)
 
-    After you create the access package, you can directly assign specific internal and external users to the access package. If you specify an external user, a guest user account will be created in your directory. For information about directly assigning a user, see [View, add, and remove assignments for an access package](../articles/active-directory/governance/entitlement-management-access-package-assignments.md).
+    När du har skapat åtkomst paketet kan du direkt tilldela vissa interna och externa användare till Access-paketet. Om du anger en extern användare så skapas ett gäst användar konto i din katalog. Information om hur du tilldelar en användare direkt, se [Visa, lägga till och ta bort tilldelningar för ett Access-paket](../articles/active-directory/governance/entitlement-management-access-package-assignments.md).
 
-1. Skip down to the [Enable requests](#enable-requests) section.
+1. Hoppa nedåt till avsnittet [Aktivera begär Anden](#enable-requests) .
 
 ## <a name="approval"></a>Godkännande
 
-In the Approval section, you specify whether an approval is required when users request this access package. The approval settings work in the following way:
+I avsnittet godkännande anger du om ett godkännande krävs när användare begär det här åtkomst paketet. Godkännande inställningarna fungerar på följande sätt:
 
-- Only one of the selected approvers or fallback approvers needs to approve a request for single-stage approval. 
-- Only one of the selected approvers from each stage needs to approve a request for 2-stage approval.
-- The approver can be a Manager, Internal sponsor, or External sponsor depending on who the policy is governing access.
-- Approval from every selected approver isn't required for single or 2-stage approval.
-- The approval decision is based on whichever approver reviews the request first.
+- Endast en av de valda god kännarna eller reserv god kännaren måste godkänna en begäran om godkännande av en enskild fas. 
+- Endast en av de valda god kännarna från varje steg måste godkänna en begäran om godkännande med två steg.
+- God kännaren kan vara ansvarig, intern sponsor eller extern sponsor beroende på vilken princip som styr åtkomsten.
+- Godkännande från varje vald god kännare krävs inte för ett eller 2-stegs godkännande.
+- Godkännande beslutet baseras på vilken god kännare som granskar begäran först.
 
-Follow these steps to specify the approval settings for requests for the access package:
+Följ de här stegen för att ange godkännande inställningarna för begär Anden för Access-paketet:
 
-1. To require approval for requests from the selected users, set the **Require approval** toggle to **Yes**. Or, to have requests automatically approved, set the toggle to **No**.
+1. Om du vill kräva godkännande för förfrågningar från de valda användarna anger du alternativet **Kräv godkännande** för att växla till **Ja**. Eller, om du vill att begär Anden ska godkännas automatiskt, anger du växla till **Nej**.
 
-1. To require users to provide a justification to request the access package, set the **Require requestor justification** toggle to **Yes**.
+1. Om du vill kräva att användarna anger en motivering för att begära åtkomst paketet, ställer du in **justeringen Kräv ändring av begär ande** för att växla till **Ja**.
     
-1. Now determine if requests will require single or 2-stage approval. Set the **How many stages** toggle to **1** for single stage approval or set the toggle to **2** for 2-stage approval.
+1. Kontrol lera nu om begär Anden kräver ett enda eller 2-stegs godkännande. Ange **hur många steg** som ska växlas till **1** för godkännande av enstaka steg eller ange växla till **2** för godkännande i två steg.
 
-    ![Access package - Requests - Approval settings](./media/active-directory-entitlement-management-request-policy/approval.png)
+    ![Åtkomst till paket-begär Anden – godkännande inställningar](./media/active-directory-entitlement-management-request-policy/approval.png)
 
 
-Use the following steps to add approvers after selecting how many stages you require: 
+Använd följande steg för att lägga till god kännare när du har valt hur många steg du behöver: 
 
-### <a name="single-stage-approval"></a>Single-stage approval
+### <a name="single-stage-approval"></a>Godkännande med ett enda steg
 
-1. Add the **First Approver**:
+1. Lägg till den **första god kännaren**:
     
-    If the policy is set to govern access for users in your directory, you can select **Manager as approver**. Or, add a specific user by clicking **Add approvers** after selecting Choose specific approvers from the dropdown menu.
+    Om principen är inställd för att styra åtkomsten för användare i din katalog, kan du välja **chef som god kännare**. Eller Lägg till en speciell användare genom att klicka på **Lägg till god kännare** när du har valt Välj vissa god kännare i list menyn.
     
-    ![Access package - Requests - For users in directory - First Approver](./media/active-directory-entitlement-management-request-policy/approval-single-stage-first-approver-manager.png)
+    ![Åtkomst till paket-begär Anden – för användare i katalog-första god kännare](./media/active-directory-entitlement-management-request-policy/approval-single-stage-first-approver-manager.png)
 
-    If this policy is set to govern access for users not in your directory, you can select **External sponsor** or **Internal sponsor**. Or, add a specific user by clicking **Add approvers** or groups under Choose specific approvers.
+    Om den här principen är inställd för att styra åtkomsten för användare som inte finns i din katalog, kan du välja **extern sponsor** eller **intern sponsor**. Eller Lägg till en speciell användare genom att klicka på **Lägg till god kännare** eller grupper under Välj vissa god kännare.
     
-    ![Access package - Requests - For users out of directory - First Approver](./media/active-directory-entitlement-management-request-policy/out-directory-first-approver.png)
+    ![Åtkomst till paket-begär Anden – för användare som inte är i katalog-första god kännare](./media/active-directory-entitlement-management-request-policy/out-directory-first-approver.png)
     
-1. If you selected **Manager** as the first approver, click **Add fallback** to select one or more users or groups in your directory to be a fallback approver. Fallback approvers receive the request if entitlement management can't find the manager for the user requesting access.
+1. Om du har valt **hanterare** som den första god kännaren klickar du på **Lägg till reserv** för att välja en eller flera användare eller grupper i din katalog som en reserv god kännare. Reserv god kännare får begäran om hantering av rättigheter inte kan hitta chefen för användaren som begär åtkomst.
 
-    The manager is found by entitlement management using the **Manager** attribute. The attribute is in the user's profile in Azure AD. For more information, see [Add or update a user's profile information using Azure Active Directory](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
+    Hanteraren hittas genom rättighets hantering med attributet **Manager** . Attributet finns i användarens profil i Azure AD. Mer information finns i [lägga till eller uppdatera en användares profil information med hjälp av Azure Active Directory](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
 
-1. If you selected **Choose specific approvers**, click **Add approvers** to select one or more users or groups in your directory to be approvers.
+1. Om du har valt **Välj en viss god kännare**klickar du på **Lägg till god kännare** för att välja en eller flera användare eller grupper i din katalog som ska vara god kännare.
 
-1. In the box under **Decision must be made in how many days?** , specify the number of days that an approver has to review a request for this access package.
+1. I rutan under **beslut måste fattas i hur många dagar?** anger du antalet dagar som en god kännare måste granska en begäran om det här åtkomst paketet.
 
-    If a request isn't approved within this time period, it will be automatically denied. The user will have to submit another request for the access package.
+    Om en begäran inte godkänns inom den här tids perioden kommer den automatiskt att nekas. Användaren måste skicka en annan begäran om åtkomst paketet.
 
-1. To require approvers to provide a justification for their decision, set Require approver justification to **Yes**.
+1. Om du vill att god kännare ska kunna ge en motivering för sitt beslut anger du **Ja**som krav på god kännare.
 
-    The justification is visible to other approvers and the requestor.
+    Motiveringen är synlig för andra god kännare och begär Ande.
 
-### <a name="2-stage-approval-preview"></a>2-stage approval (Preview)
+### <a name="2-stage-approval-preview"></a>2 – steg godkännande (förhands granskning)
 
-If you selected a 2-stage approval, you'll need to add a second approver.
+Om du valde ett 2-stegs godkännande måste du lägga till en andra god kännare.
 
-1. Add the **Second Approver**: 
+1. Lägg till den **andra god kännaren**: 
     
-    If the users are in your directory, add a specific user as the second approver by clicking **Add approvers** under Choose specific approvers.
+    Om användarna finns i din katalog lägger du till en speciell användare som den andra god kännaren genom att klicka på **Lägg till god kännare** under Välj vissa god kännare.
 
-    ![Access package - Requests - For users in directory - Second Approver](./media/active-directory-entitlement-management-request-policy/in-directory-second-approver.png)
+    ![Åtkomst till paket-begär Anden – för användare i katalog-andra god kännare](./media/active-directory-entitlement-management-request-policy/in-directory-second-approver.png)
 
-    If the users aren't in your directory, select **Internal sponsor** or **External sponsor** as the second approver. After selecting the approver, add the fallback approvers.
+    Om användarna inte finns i din katalog väljer du **intern sponsor** eller **extern sponsor** som den andra god kännaren. När du har valt god kännaren lägger du till reserv god kännarna.
 
-    ![Access package - Requests - For users out of directory - Second Approver](./media/active-directory-entitlement-management-request-policy/out-directory-second-approver.png) 
+    ![Åtkomst till paket-begär Anden – för användare utanför katalog-andra god kännare](./media/active-directory-entitlement-management-request-policy/out-directory-second-approver.png) 
 
-1. Specify the number of days the second approver has to approve the request in the box under **Decision must be made in how many days?** . 
+1. Ange antalet dagar som den andra god kännaren måste godkänna begäran i rutan under **beslut måste fattas i hur många dagar?** . 
 
-1. Set the Require approver justification toggle to **Yes** or **No**.
+1. Ange justeringen Kräv god kännare för att växla till **Ja** eller **Nej**.
 
-### <a name="alternate-approvers"></a>Alternate approvers
+### <a name="alternate-approvers"></a>Alternativa god kännare
 
-You can specify alternate approvers, similar to specifying the first and second approvers who can approve requests. Having alternate approvers will help ensure that the requests are approved or denied before they expire (timeout). You can list alternate approvers the first approver and second approver for 2-stage approval. 
+Du kan ange alternativa god kännare, på samma sätt som du anger de första och andra god kännarna som kan godkänna begär Anden. Om du har alternativa god kännare kan du se till att förfrågningarna godkänns eller nekas innan de upphör att gälla (tids gräns). Du kan visa en lista över alternativa god kännare för den första god kännaren och andra god kännaren för godkännande i två steg. 
 
-By specifying alternate approvers, in the event that the first or second approvers were unable to approve or deny the request, the pending request gets forwarded to the alternate approvers, per the forwarding schedule you specified during policy setup. They receive an email to approve or deny the pending request.
+Genom att ange alternativa god kännare, i händelse av att de första eller andra god kännarna inte kunde godkänna eller neka begäran, vidarebefordras den väntande begäran till de alternativa god kännarna, enligt det vidarebefordrings schema du angav under princip konfigurationen. De får ett e-postmeddelande för att godkänna eller neka den väntande begäran.
 
-After the request is forwarded to the alternate approvers, the first or second approvers can still approve or deny the request. Alternate approvers use the same My Access site to approve or deny the pending request.
+När begäran har vidarebefordrats till alternativa god kännare kan de första eller andra god kännarna fortfarande godkänna eller neka begäran. Alternativa god kännare använder samma åtkomst webbplats för att godkänna eller neka den väntande begäran.
 
-We can list people or groups of people to be approvers and alternate approvers. Please ensure that you list different sets of people to be the first, second, and alternate approvers.
-For example, if you listed Alice and Bob as the First Approver(s), list Carol and Dave as the alternate approvers. Use the following steps to add alternate approvers to an access package:
+Vi kan lista personer eller grupper med personer som ska vara god kännare och alternativa god kännare. Se till att du listar olika uppsättningar med personer som de första, andra och alternativa god kännarna.
+Om du till exempel har listat Alice och Bob som första god kännare, anger du Carol och Dave som alternativa god kännare. Använd följande steg för att lägga till alternativa god kännare i ett Access-paket:
 
-1. Under the First Approver, Second Approver, or both, click **Show advanced request settings**.
+1. Under den första god kännaren, andra god kännaren eller båda klickar du på **Visa avancerade inställningar för begäran**.
 
-    ![Access package - Policy - Show advanced request settings](./media/active-directory-entitlement-management-request-policy/alternate-approvers-click-advanced-request.png)
+    ![Åtkomst paket – princip – Visa avancerade inställningar för begäran](./media/active-directory-entitlement-management-request-policy/alternate-approvers-click-advanced-request.png)
 
-1. Set **If no action taken, forward to alternate approvers?** toggle to **Yes**.
+1. Ange **om ingen åtgärd har vidtagits, vidarebefordra till alternativa god kännare?** växla till **Ja**.
 
-1. Click **Add alternate approvers** and select the alternate approver(s) from the list.
+1. Klicka på **Lägg till alternativa god kännare** och välj alternativa god kännare i listan.
 
-    ![Access package - Policy - Add Alternate Approvers](./media/active-directory-entitlement-management-request-policy/alternate-approvers-add.png)
+    ![Åtkomst paket – princip – Lägg till alternativa god kännare](./media/active-directory-entitlement-management-request-policy/alternate-approvers-add.png)
 
-1. In the **Forward to alternate approver(s) after how many days** box, put in the number of days the approvers have to approve or deny a request. If no approvers have approved or denied the request before the request duration, the request expires (timeout), and the user will have to submit another request for the access package. 
+1. I rutan **vidarebefordra till alternativ god kännare efter hur många dagar** som god kännaren måste godkänna eller neka en begäran. Om inga god kännare har godkänt eller nekat begäran före varaktigheten för begäran upphör begäran att gälla (tids gräns) och användaren måste skicka en annan begäran om åtkomst paketet. 
 
-    Requests can only be forwarded to alternate approvers a day after the request duration reaches half-life. In this example, the duration of the request is 14 days. So, the request duration reaches half-life at day 7. So the request can't be forwarded earlier than day 8. Also, requests can't be forwarded on the last day of the request duration. So in the example, the latest the request can be forwarded is day 13.
+    Begär Anden kan bara vidarebefordras till alternativa god kännare per dag efter att varaktigheten för begäran når halva livs längd. I det här exemplet är varaktigheten för begäran 14 dagar. Det innebär att varaktigheten för begäran når en halv livs längd på dag 7. Begäran kan därför inte vidarebefordras tidigare än dag 8. Begär Anden kan inte vidarebefordras den sista dagen i varaktigheten för begäran. I exemplet kan den senaste förfrågan vidarebefordras dag 13.
 
-## <a name="enable-requests"></a>Enable requests
+## <a name="enable-requests"></a>Aktivera begär Anden
 
-1. If you want the access package to be made immediately available for users in the request policy to request, click **Yes** to enable.
+1. Om du vill att Access-paketet ska göras omedelbart tillgängligt för användare i begär ande principen att begära, klickar du på **Ja** för att aktivera.
 
-    You can always enable it in the future after you have finished creating the access package.
+    Du kan alltid aktivera det i framtiden när du är klar med att skapa åtkomst paketet.
 
-    If you selected **None (administrator direct assignments only)** and you set enable to **No**, then administrators can't directly assign this access package.
+    Om du har valt **Ingen (endast administratörers direkta tilldelningar)** och du anger Tillåt till **Nej**kan administratörer inte tilldela det här åtkomst paketet direkt.
 
-    ![Access package - Policy- Enable policy setting](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
+    ![Åtkomst paket-princip-aktivera princip inställning](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
 
-1. Klicka på **Next**.
+1. Klicka på **Nästa**.

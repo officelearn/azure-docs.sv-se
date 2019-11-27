@@ -1,6 +1,6 @@
 ---
-title: Error reference for health checks
-description: Error codes and possible solutions to problems found by running the az acr check-health diagnostic command in Azure Container Registry
+title: Fel referens för hälso kontroller
+description: Felkoder och möjliga lösningar på problem som hittas genom att köra kommandot AZ ACR check-Health Diagnostic i Azure Container Registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.openlocfilehash: a921d17ad7d01b134f5bfa33a1d9a768d3ea94df
@@ -10,99 +10,99 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74455028"
 ---
-# <a name="health-check-error-reference"></a>Health check error reference
+# <a name="health-check-error-reference"></a>Fel referens för hälso kontroll
 
-Following are details about error codes returned by the [az acr check-health][az-acr-check-health] command. For each error, possible solutions are listed.
+Nedan visas information om felkoder som returneras av kommandot [AZ ACR check-Health][az-acr-check-health] . För varje fel visas möjliga lösningar.
 
 ## <a name="docker_command_error"></a>DOCKER_COMMAND_ERROR
 
-This error means that Docker client for CLI could not be found. As a result, the following additional checks are not run: finding Docker version, evaluating Docker daemon status, and running a Docker pull command.
+Det här felet innebär att Docker-klienten för CLI inte kunde hittas. Därför körs inte följande ytterligare kontroller: hitta Docker-version, utvärdera status för Docker daemon och köra ett Docker pull-kommando.
 
-*Potential solutions*: Install Docker client; add Docker path to the system variables.
+*Möjliga lösningar*: installera Docker-klienten; Lägg till Docker-sökvägen till systemvariablerna.
 
 ## <a name="docker_daemon_error"></a>DOCKER_DAEMON_ERROR
 
-This error means that the Docker daemon status is unavailable, or that it could not be reached using the CLI. As a result, Docker operations (such as `docker login` and `docker pull`) are unavailable through the CLI.
+Det här felet innebär att status för Docker daemon inte är tillgänglig eller att den inte kan nås med hjälp av CLI. Därför är Docker-åtgärder (till exempel `docker login` och `docker pull`) inte tillgängliga via CLI.
 
-*Potential solutions*: Restart Docker daemon, or validate that it is properly installed.
+*Möjliga lösningar*: starta om Docker daemon eller kontrol lera att det är korrekt installerat.
 
 ## <a name="docker_version_error"></a>DOCKER_VERSION_ERROR
 
-This error means that CLI was not able to run the command `docker --version`.
+Det här felet innebär att CLI inte kunde köra kommandot `docker --version`.
 
-*Potential solutions*: Try running the command manually, make sure you have the latest CLI version, and investigate the error message.
+*Möjliga lösningar*: Försök köra kommandot manuellt, kontrol lera att du har den senaste CLI-versionen och undersök fel meddelandet.
 
 ## <a name="docker_pull_error"></a>DOCKER_PULL_ERROR
 
-This error means that the CLI was not able to pull a sample image to your environment.
+Det här felet innebär att CLI inte kunde hämta en exempel bild till din miljö.
 
-*Potential solutions*: Validate that all components necessary to pull an image are running properly.
+*Möjliga lösningar*: kontrol lera att alla komponenter som krävs för att hämta en avbildning körs på rätt sätt.
 
 ## <a name="helm_command_error"></a>HELM_COMMAND_ERROR
 
-This error means that Helm client could not be found by the CLI, which precludes other Helm operations.
+Det här felet innebär att Helm-klienten inte kunde hittas av CLI, vilket förhindrar andra Helm-åtgärder.
 
-*Potential solutions*: Verify that Helm client is installed, and that its path is added to the system environment variables.
+*Möjliga lösningar*: kontrol lera att Helm-klienten är installerad och att dess sökväg läggs till i systemmiljövariabler.
 
 ## <a name="helm_version_error"></a>HELM_VERSION_ERROR
 
-This error means that the CLI was unable to determine the Helm version installed. This can happen if the Azure CLI version (or if the Helm version) being used is obsolete.
+Det här felet innebär att CLI inte kunde fastställa Helm-versionen som är installerad. Detta kan inträffa om Azure CLI-versionen (eller om Helm-versionen) används är föråldrad.
 
-*Potential solutions*: Update to the latest Azure CLI version or to the recommended Helm version; run the command manually and investigate the error message.
+*Möjliga lösningar*: uppdatera till den senaste versionen av Azure CLI eller till den rekommenderade Helm-versionen; Kör kommandot manuellt och undersök fel meddelandet.
 
 ## <a name="connectivity_dns_error"></a>CONNECTIVITY_DNS_ERROR
 
-This error means that the DNS for the given registry login server was pinged but did not respond, which means it is unavailable. This can indicate some connectivity issues. Alternatively, the registry might not exist, the user might not have the permissions on the registry (to retrieve its login server properly), or the target registry is in a different cloud than the one used in the Azure CLI.
+Det här felet innebär att DNS för den registrerade inloggnings servern för registret skickades ping, men inte svarade, vilket innebär att den inte är tillgänglig. Detta kan tyda på problem med anslutningen. Det kan också hända att registret inte finns, användaren kanske inte har behörighet för registret (för att hämta sin inloggnings Server korrekt) eller också är mål registret i ett annat moln än det som används i Azure CLI.
 
-*Potential solutions*: Validate connectivity; verify spelling of the registry, and that registry exists; verify that the user has the right permissions on it and that the registry's cloud is the same that is used in the Azure CLI.
+*Möjliga lösningar*: verifiera anslutning; kontrol lera stavningen av registret och att registret finns. kontrol lera att användaren har rätt behörigheter och att registrets moln är detsamma som används i Azure CLI.
 
 ## <a name="connectivity_forbidden_error"></a>CONNECTIVITY_FORBIDDEN_ERROR
 
-This error means that the challenge endpoint for the given registry responded with a 403 Forbidden HTTP status. This error means that users don't have access to the registry, most likely because of a virtual network configuration. To see the currently configured firewall rules, run `az acr show --query networkRuleSet --name <registry>`.
+Det här felet innebär att utmanings slut punkten för det aktuella registret svarade med en 403-otillåten HTTP-status. Det här felet innebär att användarna inte har åtkomst till registret, förmodligen på grund av en konfiguration av virtuellt nätverk. Kör `az acr show --query networkRuleSet --name <registry>`för att se de aktuella konfigurerade brand Väggs reglerna.
 
-*Potential solutions*: Remove virtual network rules, or add the current client IP address to the allowed list.
+*Möjliga lösningar*: ta bort regler för virtuella nätverk eller Lägg till den aktuella KLIENTens IP-adress i listan över tillåtna.
 
 ## <a name="connectivity_challenge_error"></a>CONNECTIVITY_CHALLENGE_ERROR
 
-This error means that the challenge endpoint of the target registry did not issue a challenge.
+Det här felet innebär att anrops slut punkten för mål registret inte utfärdade någon utmaning.
 
-*Potential solutions*: Try again after some time. If the error persists, open an issue at https://aka.ms/acr/issues.
+*Möjliga lösningar*: försök igen om en stund. Om felet kvarstår kan du öppna ett problem på https://aka.ms/acr/issues.
 
 ## <a name="connectivity_aad_login_error"></a>CONNECTIVITY_AAD_LOGIN_ERROR
 
-This error means that the challenge endpoint of the target registry issued a challenge, but the registry does not support Azure Active Directory authentication.
+Det här felet innebär att anrops slut punkten för mål registret utfärdade en utmaning, men registret stöder inte Azure Active Directory autentisering.
 
-*Potential solutions*: Try a different way to authenticate, for example, with admin credentials. If users need  to authenticate using Azure Active Directory, open an issue at https://aka.ms/acr/issues.
+*Möjliga lösningar*: försök med ett annat sätt att autentisera, till exempel med administratörs behörighet. Om användarna behöver autentisera med hjälp av Azure Active Directory öppnar du ett problem på https://aka.ms/acr/issues.
 
 ## <a name="connectivity_refresh_token_error"></a>CONNECTIVITY_REFRESH_TOKEN_ERROR
 
-This error means that the registry login server did not respond with a refresh token, so access to the target registry was denied. This error can occur if the user does not have the right permissions on the registry or if the user credentials for the  Azure CLI are stale.
+Det här felet innebär att inloggnings servern för registret inte svarade med en uppdateringstoken, så åtkomst till mål registret nekades. Det här felet kan inträffa om användaren inte har rätt behörighet för registret eller om autentiseringsuppgifterna för Azure CLI är inaktuella.
 
-*Potential solutions*: Verify if the user has the right permissions on the registry; run `az login` to refresh permissions, tokens, and credentials.
+*Möjliga lösningar*: kontrol lera om användaren har rätt behörighet för registret. Kör `az login` för att uppdatera behörigheter, tokens och autentiseringsuppgifter.
 
 ## <a name="connectivity_access_token_error"></a>CONNECTIVITY_ACCESS_TOKEN_ERROR
 
-This error means that the registry login server did not respond with an access token, so that the access to the target registry was denied. This error can occur if the user does not have the right permissions on the registry or if the user credentials for the Azure CLI are stale.
+Det här felet innebär att inloggnings servern för registret inte svarade med en åtkomsttoken, så att åtkomsten till mål registret nekades. Det här felet kan inträffa om användaren inte har rätt behörighet för registret eller om autentiseringsuppgifterna för Azure CLI är inaktuella.
 
-*Potential solutions*: Verify if the user has the right permissions on the registry; run `az login` to refresh permissions, tokens, and credentials.
+*Möjliga lösningar*: kontrol lera om användaren har rätt behörighet för registret. Kör `az login` för att uppdatera behörigheter, tokens och autentiseringsuppgifter.
 
 ## <a name="connectivity_ssl_error"></a>CONNECTIVITY_SSL_ERROR
 
-This error means that the client was unable to establish a secure connection to the container registry. This error generally occurs if you're running or using a proxy server.
+Det här felet innebär att klienten inte kunde upprätta en säker anslutning till behållar registret. Det här felet uppstår vanligt vis om du kör eller använder en proxyserver.
 
-*Potential solutions*: More information on working behind a proxy can be [found here](https://github.com/Azure/azure-cli/blob/master/doc/use_cli_effectively.md#working-behind-a-proxy).
+*Möjliga lösningar*: Mer information om hur du arbetar bakom en proxy [finns här](https://github.com/Azure/azure-cli/blob/master/doc/use_cli_effectively.md#working-behind-a-proxy).
 
 ## <a name="login_server_error"></a>LOGIN_SERVER_ERROR
 
-This error means that the CLI was unable to find the login server of the given registry, and no default suffix was found for the current cloud. This error can occur if the registry does not exist, if the user does not have the right permissions on the registry, if the registry's cloud and the current Azure CLI cloud do not match, or if the Azure CLI version is obsolete.
+Det här felet innebär att CLI inte kunde hitta inloggnings servern för det aktuella registret, och inget standard-suffix hittades för det aktuella molnet. Det här felet kan uppstå om registret inte finns, om användaren inte har rätt behörighet för registret, om registrets moln och det aktuella Azure CLI-molnet inte matchar, eller om Azure CLI-versionen är föråldrad.
 
-*Potential solutions*: Verify that the spelling is correct and that the registry exists; verify that user has the right permissions on the registry, and that the clouds of the registry and the CLI environment match; update Azure CLI to the latest version.
+*Möjliga lösningar*: kontrol lera att stavningen är korrekt och att registret finns. kontrol lera att användaren har rätt behörigheter i registret och att molnen i registret och CLI-miljön matchar. Uppdatera Azure CLI till den senaste versionen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-For options to check the health of a registry, see [Check the health of an Azure container registry](container-registry-check-health.md).
+Information om alternativ för att kontrol lera hälso tillståndet för ett register finns i [kontrol lera hälso tillståndet för ett Azure Container Registry](container-registry-check-health.md).
 
-See the [FAQ](container-registry-faq.md) for frequently asked questions and other known issues about Azure Container Registry.
+Se vanliga frågor och [svar](container-registry-faq.md) om vanliga frågor och andra kända problem med Azure Container Registry.
 
 
 

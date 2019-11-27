@@ -1,6 +1,6 @@
 ---
-title: About repositories & images
-description: Introduction to key concepts of Azure container registries, repositories, and container images.
+title: Om databaser & avbildningar
+description: Introduktion till viktiga begrepp för Azure Container register,-databaser och behållar avbildningar.
 ms.topic: article
 ms.date: 09/10/2019
 ms.openlocfilehash: 9de0c344b226a0b13e76c7f02977ba3c91ba2d2a
@@ -10,41 +10,41 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74455285"
 ---
-# <a name="about-registries-repositories-and-images"></a>About registries, repositories, and images
+# <a name="about-registries-repositories-and-images"></a>Om register, databaser och avbildningar
 
-This article introduces the key concepts of container registries, repositories, and container images and related artifacts. 
+Den här artikeln beskriver viktiga begrepp för behållar register, lagrings platser och behållar avbildningar och relaterade artefakter. 
 
 ## <a name="registry"></a>Register
 
-A container *registry* is a service that stores and distributes container images. Docker Hub is a public container registry that supports the open source community and serves as a general catalog of images. Azure Container Registry provides users with direct control of their images, with integrated authentication, [geo-replication](container-registry-geo-replication.md) supporting global distribution and reliability for network-close deployments, [virtual network and firewall configuration](container-registry-vnet.md), [tag locking](container-registry-image-lock.md), and many other enhanced features. 
+Ett behållar *register* är en tjänst som lagrar och distribuerar behållar avbildningar. Docker Hub är ett offentligt behållar register som stöder communityn för öppen källkod och fungerar som en allmän katalog med avbildningar. Azure Container Registry ger användare direkt kontroll över sina avbildningar, med integrerad autentisering, [geo-replikering](container-registry-geo-replication.md) stöder global distribution och tillförlitlighet för nätverks nära distributioner, [konfiguration av virtuella nätverk och brand väggar](container-registry-vnet.md), [tagg låsning](container-registry-image-lock.md)och många andra förbättrade funktioner. 
 
-In addition to Docker container images, Azure Container Registry supports related [content artifacts](container-registry-image-formats.md) including Open Container Initiative (OCI) image formats.
+Förutom Docker-behållar avbildningar stöder Azure Container Registry relaterade [innehålls artefakter](container-registry-image-formats.md) , inklusive OCI-bildformat (Open container Initiative).
 
-## <a name="content-addressable-elements-of-an-artifact"></a>Content addressable elements of an artifact
+## <a name="content-addressable-elements-of-an-artifact"></a>Innehålls adresser bara element i en artefakt
 
-The address of an artifact in an Azure container registry includes the following elements. 
+Adressen till en artefakt i ett Azure Container Registry innehåller följande element. 
 
 ```
 [loginUrl]/[namespace]/[artifact:][tag]
 ```
 
-* **loginUrl** - The fully qualified name of the registry host. The registry host in an Azure container registry is in the format *myregistry*.azurecr.io (all lowercase). You must specify the loginUrl when using Docker or other client tools to pull or push artifacts to an Azure container registry. 
-* **namespace** - Slash-delimited logical grouping of related images or artifacts - for example, for a workgroup or app
-* **artifact** - The name of a repository for a particular image or artifact
-* **tag** - A specific version of an image or artifact stored in a repository
+* **loginUrl** – det fullständigt kvalificerade namnet på register värden. Register värden i ett Azure Container Registry har formatet *register*. azurecr.IO (alla gemener). Du måste ange loginUrl när du använder Docker eller andra klient verktyg för att hämta eller push-artefakter till ett Azure Container Registry. 
+* **namnrymd** -avgränsad logisk gruppering av relaterade bilder eller artefakter – till exempel för en arbets grupp eller app
+* **artefakt** – namnet på en lagrings plats för en viss bild eller artefakt
+* **tagga** – en angiven version av en bild eller artefakt som lagras i en lagrings plats
 
 
-For example, the full name of an image in an Azure container registry might look like:
+Till exempel kan det fullständiga namnet på en avbildning i ett Azure Container Registry se ut så här:
 
 ```
 myregistry.azurecr.io/marketing/campaign10-18/email-sender:v2
 ```
 
-See the following sections for details about these elements.
+I följande avsnitt finns mer information om de här elementen.
 
-## <a name="repository-name"></a>Repository name
+## <a name="repository-name"></a>Namn på databas
 
-Container registries manage *repositories*, collections of container images or other artifacts with the same name, but different tags. For example, the following three images are in the "acr-helloworld" repository:
+Behållar register hanterar *databaser*, samlingar med behållar avbildningar eller andra artefakter med samma namn, men olika taggar. Följande tre avbildningar finns till exempel i databasen "ACR-HelloWorld":
 
 ```
 acr-helloworld:latest
@@ -52,7 +52,7 @@ acr-helloworld:v1
 acr-helloworld:v2
 ```
 
-Repository names can also include [namespaces](container-registry-best-practices.md#repository-namespaces). Namespaces allow you to group images using forward slash-delimited repository names, for example:
+Namn på databaser kan även innehålla [namn områden](container-registry-best-practices.md#repository-namespaces). Med namn rymder kan du gruppera bilder med hjälp av snedstreck-avgränsade lagrings namn, till exempel:
 
 ```
 marketing/campaign10-18/web:v2
@@ -64,33 +64,33 @@ product-returns/legacy-integrator:20180715
 
 ## <a name="image"></a>Bild
 
-A container image or other artifact within a registry is associated with one or more tags, has one or more layers, and is identified by a manifest. Understanding how these components relate to each other can help you manage your registry effectively.
+En behållar avbildning eller en annan artefakt i ett register är kopplad till en eller flera taggar, har ett eller flera skikt, och identifieras av ett manifest. Att förstå hur dessa komponenter är relaterade till varandra kan hjälpa dig att hantera registret effektivt.
 
 ### <a name="tag"></a>Tagg
 
-The *tag* for an image or other artifact specifies its version. A single artifact within a repository can be assigned one or many tags, and may also be "untagged." That is, you can delete all tags from an image, while the image's data (its layers) remain in the registry.
+*Taggen* för en bild eller en annan artefakt anger dess version. En enda artefakt i en lagrings plats kan tilldelas en eller flera taggar, och kan också vara "omärkt". Det innebär att du kan ta bort alla Taggar från en bild, medan bildens data (dess lager) finns kvar i registret.
 
-The repository (or repository and namespace) plus a tag defines an image's name. You can push and pull an image by specifying its name in the push or pull operation.
+Lagrings platsen (eller lagrings platsen och namn området) plus en tagg definierar namnet på en avbildning. Du kan push-överföra och hämta en avbildning genom att ange dess namn i push-eller pull-åtgärden.
 
-How you tag container images is guided by your scenarios to develop or deploy them. For example, stable tags are recommended for maintaining your base images, and unique tags for deploying images. For more information, see [Recommendations for tagging and versioning container images](container-registry-image-tag-version.md).
+Hur du taggar behållar avbildningar vägleds av dina scenarier för att utveckla eller distribuera dem. Till exempel rekommenderas stabila taggar för att underhålla dina bas avbildningar och unika taggar för att distribuera avbildningar. Mer information finns i [rekommendationer för taggning och versions behållar avbildningar](container-registry-image-tag-version.md).
 
-### <a name="layer"></a>Layer
+### <a name="layer"></a>Lager
 
-Container images are made up of one or more *layers*, each corresponding to a line in the Dockerfile that defines the image. Images in a registry share common layers, increasing storage efficiency. For example, several images in different repositories might share the same Alpine Linux base layer, but only one copy of that layer is stored in the registry.
+Behållar avbildningar består av ett eller flera *lager*, var och en som motsvarar en linje i Dockerfile som definierar bilden. Avbildningar i ett register delar gemensamma lager, vilket ökar lagrings effektiviteten. Till exempel kan flera avbildningar i olika lagrings platser dela samma Alpine Linux-basadress, men endast en kopia av det lagret lagras i registret.
 
-Layer sharing also optimizes layer distribution to nodes with multiple images sharing common layers. For example, if an image already on a node includes the Alpine Linux layer as its base, the subsequent pull of a different image referencing the same layer doesn't transfer the layer to the node. Instead, it references the layer already existing on the node.
+Lager delning optimerar också lager distribution till noder med flera bilder som delar gemensamma lager. Om en avbildning som redan finns på en nod t. ex. inkluderar Alpine Linux-lagret som bas, överförs inte lagret till noden när den efterföljande hämtningen av en annan bild som refererar till samma lager. I stället refererar den till det lager som redan finns på noden.
 
-To provide secure isolation and protection from potential layer manipulation, layers are not shared across registries.
+För att tillhandahålla säker isolering och skydd från potentiell lager hantering delas inte lagren mellan register.
 
 ### <a name="manifest"></a>Manifest
 
-Each container image or artifact pushed to a container registry is associated with a *manifest*. The manifest, generated by the registry when the image is pushed, uniquely identifies the image and specifies its layers. You can list the manifests for a repository with the Azure CLI command [az acr repository show-manifests][az-acr-repository-show-manifests]:
+Varje behållar avbildning eller artefakt som flyttas till ett behållar register är associerad med ett *manifest*. Manifestet, som genereras av registret när avbildningen skickas, identifierar avbildningen unikt och anger dess lager. Du kan visa manifesten för en lagrings plats med Azure CLI [-kommandot AZ ACR-lagringsplats show-manifest][az-acr-repository-show-manifests]:
 
 ```azurecli
 az acr repository show-manifests --name <acrName> --repository <repositoryName>
 ```
 
-For example, list the manifests for the "acr-helloworld" repository:
+Ange till exempel manifesten för databasen "ACR-HelloWorld":
 
 ```console
 $ az acr repository show-manifests --name myregistry --repository acr-helloworld
@@ -120,24 +120,24 @@ $ az acr repository show-manifests --name myregistry --repository acr-helloworld
 ]
 ```
 
-### <a name="manifest-digest"></a>Manifest digest
+### <a name="manifest-digest"></a>Manifest Sammanfattning
 
-Manifests are identified by a unique SHA-256 hash, or *manifest digest*. Each image or artifact--whether tagged or not--is identified by its digest. The digest value is unique even if the image's layer data is identical to that of another image. This mechanism is what allows you to repeatedly push identically tagged images to a registry. For example, you can repeatedly push `myimage:latest` to your registry without error because each image is identified by its unique digest.
+Manifest identifieras av en unik SHA-256-hash eller *manifest sammandrag*. Varje bild eller artefakt – om Taggad eller inte--har identifierats av sammanfattningen. Digest-värdet är unikt även om avbildningens lager data är identiska med en annan bild. Den här metoden gör det möjligt att upprepade gånger skicka identiska märkta bilder till ett register. Du kan till exempel skicka `myimage:latest` flera gånger till registret utan fel eftersom varje avbildning identifieras med en unik Sammanfattning.
 
-You can pull an image from a registry by specifying its digest in the pull operation. Some systems may be configured to pull by digest because it guarantees the image version being pulled, even if an identically tagged image is subsequently pushed to the registry.
+Du kan hämta en avbildning från ett register genom att ange dess Digest i pull-åtgärden. Vissa system kan konfigureras att hämta genom sammandrag eftersom det garanterar att avbildnings versionen hämtas, även om en identiskt taggad bild sedan skickas till registret.
 
-For example, pull an image from the "acr-helloworld" repository by manifest digest:
+Hämta till exempel en bild från lagrings platsen "ACR-HelloWorld" genom manifest sammandrag:
 
 ```console
 $ docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108
 ```
 
 > [!IMPORTANT]
-> If you repeatedly push modified images with identical tags, you might create orphaned images--images that are untagged, but still consume space in your registry. Untagged images are not shown in the Azure CLI or in the Azure portal when you list or view images by tag. However, their layers still exist and consume space in your registry. Deleting an untagged image frees registry space when the manifest is the only one, or the last one, pointing to a particular layer. For information about freeing space used by untagged images, see [Delete container images in Azure Container Registry](container-registry-delete.md).
+> Om du ofta skickar ändrade bilder med identiska taggar kan du skapa överblivna bilder – bilder som är otaggade, men som fortfarande använder utrymme i registret. Otaggade bilder visas inte i Azure CLI eller i Azure Portal när du listar eller visar bilder efter tagg. Men deras lager finns fortfarande kvar och tar upp utrymme i registret. När du tar bort en otaggade bild frigörs register utrymmet när manifestet är det enda, eller det sista, som pekar på ett visst lager. Information om hur du frigör utrymme som används av otaggade bilder finns i [ta bort behållar avbildningar i Azure Container Registry](container-registry-delete.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Learn more about [image storage](container-registry-storage.md) and [supported content formats](container-registry-image-formats.md) in Azure Container Registry.
+Läs mer om [bild lagring](container-registry-storage.md) och [innehålls format som stöds](container-registry-image-formats.md) i Azure Container Registry.
 
 <!-- LINKS - Internal -->
 [az-acr-repository-show-manifests]: /cli/azure/acr/repository#az-acr-repository-show-manifests

@@ -182,7 +182,7 @@ Virtuell dator. interaktion. avstängning | Tillåt att den virtuella datorn st�
 **Delat disk kluster** | Stöds ej.
 **Oberoende diskar** | Stöds ej.
 **RDM/passthrough-diskar** | Om de virtuella datorerna har RDM-eller passthrough-diskar replikeras inte dessa diskar till Azure.
-**NFS** | NFS-volymer som monterats som volymer på de virtuella datorerna replikeras inte.
+**MSNFS** | NFS-volymer som monterats som volymer på de virtuella datorerna replikeras inte.
 **iSCSI-mål** | Virtuella datorer med iSCSI-mål stöds inte för migrering utan agent.
 **Multipath i/o** | Stöds ej.
 **Lagrings vMotion** | Stöds ej. Det går inte att använda replikering om en virtuell dator använder Storage vMotion.
@@ -260,7 +260,7 @@ Kraven för den [replikeringsprincip](migrate-replication-appliance.md) som anv�
 PowerCLI | [PowerCLI version 6,0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) bör installeras om Replikeringshanteraren körs på en virtuell VMware-dator.
 Typ av nätverkskort | VMXNET3 (om installationen är en virtuell VMware-dator)
  | **Maskin varu inställningar**
-Processorkärnor | 8
+CPU-kärnor | 8
 RAM | 16 GB
 Antal diskar | Tre: OS-disken, cache-disken för processervern och lagrings enheten.
 Ledigt disk utrymme (cache) | 600 GB
@@ -328,7 +328,7 @@ Hämta och installera i Azure Migrate | När du installerar installationen och t
 **Delat disk kluster** | Stöds ej.
 **Oberoende diskar** | Stöds.
 **Genom strömnings diskar** | Stöds.
-**NFS** | NFS-volymer som monterats som volymer på de virtuella datorerna replikeras inte.
+**MSNFS** | NFS-volymer som monterats som volymer på de virtuella datorerna replikeras inte.
 **iSCSI-mål** | Virtuella datorer med iSCSI-mål stöds inte för migrering utan agent.
 **Multipath i/o** | Stöds ej.
 **Lagrings vMotion** | Stöds

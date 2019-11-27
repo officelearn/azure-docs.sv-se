@@ -1,7 +1,7 @@
 ---
-title: 'Designer: Predict car prices (basic) example'
+title: 'Design: förutse bil priser (Basic)-exempel'
 titleSuffix: Azure Machine Learning
-description: Build an ML regression model to predict an automobile's price without writing a single line of code with Azure Machine Learning designer.
+description: Bygg en ML Regressions modell för att förutsäga ett bils pris utan att behöva skriva en enda rad kod med Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -17,67 +17,67 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74213824"
 ---
-# <a name="use-regression-to-predict-car-prices-with-azure-machine-learning-designer"></a>Use regression to predict car prices with Azure Machine Learning designer
+# <a name="use-regression-to-predict-car-prices-with-azure-machine-learning-designer"></a>Använd regression för att förutsäga bil priser med Azure Machine Learning designer
 
-**Designer (preview) sample 1**
+**Designer (för hands version), exempel 1**
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-Learn how to build a machine learning regression model without writing a single line of code using the designer (preview).
+Lär dig hur du skapar en Regressions modell för Machine Learning utan att skriva en enda rad kod med hjälp av designern (för hands version).
 
-This pipeline trains a **decision forest regressor** to predict a car's price based on technical features such as make, model, horsepower, and size. Because you're trying to answer the question "How much?" this is called a regression problem. However, you can apply the same fundamental steps in this example to tackle any type of machine learning problem whether it be regression, classification, clustering, and so on.
+Den här pipelinen tågen en **besluts skog modellerings regressor** att förutsäga bils pris baserat på tekniska funktioner som märke, modell, häst krafter och storlek. Eftersom du försöker besvara frågan "hur mycket?" Detta kallas för ett Regressions problem. Du kan dock använda samma grundläggande steg i det här exemplet för att ta itu med alla typer av maskin inlärnings problem, oavsett om det är regression, klassificering, klustring och så vidare.
 
-The fundamental steps of a training machine learning model are:
+De grundläggande stegen för en utbildnings maskin inlärnings modell är:
 
 1. Hämta data
-1. Pre-process the data
+1. För behandling av data
 1. Träna modellen
 1. Utvärdera modellen
 
-Here's the final, completed graph of the pipeline. This article provides the rationale for all the modules so you can make similar decisions on your own.
+Här är det slutliga, färdiga diagrammet i pipelinen. Den här artikeln innehåller en motivering för alla moduler så att du kan fatta liknande beslut på egen hand.
 
-![Graph of the pipeline](media/how-to-designer-sample-regression-predict-automobile-price-basic/overall-graph.png)
+![Diagram över pipelinen](media/how-to-designer-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Click the sample 1 to open it。
+4. Klicka på exempel 1 för att öppna IT-från en omfattande
 
 
 ## <a name="get-the-data"></a>Hämta data
 
-This sample uses the **Automobile price data (Raw)** dataset, which is from the UCI Machine Learning Repository. The dataset contains 26 columns that contain information about automobiles, including make, model, price, vehicle features (like the number of cylinders), MPG, and an insurance risk score. The goal of this sample is to predict the price of the car.
+I det här exemplet används RAW-datauppsättningen **(Automobile Price data)** som är från den Machine Learning lagrings platsen. Data uppsättningen innehåller 26 kolumner som innehåller information om bilenheter, inklusive märke, modell, pris, fordons funktioner (t. ex. antalet cylindrar), MPG och en försäkrings risk poäng. Syftet med det här exemplet är att förutsäga priset på bilen.
 
-## <a name="pre-process-the-data"></a>Pre-process the data
+## <a name="pre-process-the-data"></a>För behandling av data
 
-The main data preparation tasks include data cleaning, integration, transformation, reduction, and discretization or quantization. In the designer, you can find modules to perform these operations and other data pre-processing tasks in the **Data Transformation** group in the left panel.
+Uppgifterna för förberedelse av data omfattar data rengöring, integrering, omvandling, reduktion och diskretiseringsmetoden stämmer eller kvantifieringsfel. I designern hittar du moduler för att utföra dessa åtgärder och andra uppgifter för för bearbetning i **data omvandlings** gruppen i den vänstra panelen.
 
-Use the **Select Columns in Dataset** module to exclude normalized-losses that have many missing values. Then use **Clean Missing Data** to remove the rows that have missing values. This helps to create a clean set of training data.
+Använd modulen **Välj kolumner i data uppsättning** för att undanta normaliserade förluster som har många värden som saknas. Använd sedan **rensa saknade data** för att ta bort rader som saknar värden. På så sätt kan du skapa en ren uppsättning tränings data.
 
-![Data pre-processing](./media/how-to-designer-sample-regression-predict-automobile-price-basic/data-processing.png)
+![För bearbetning av data](./media/how-to-designer-sample-regression-predict-automobile-price-basic/data-processing.png)
 
 ## <a name="train-the-model"></a>Träna modellen
 
-Machine learning problems vary. Common machine learning tasks include classification, clustering, regression, and recommender systems, each of which might require a different algorithm. Your choice of algorithm often depends on the requirements of the use case. After you pick an algorithm, you need to tune its parameters to train a more accurate model. You then need to evaluate all models based on metrics like accuracy, intelligibility, and efficiency.
+Problem med maskin inlärning varierar. Vanliga Machine Learning-uppgifter är klassificerings-, kluster-, Regressions-och rekommenderade system, vilket kan kräva en annan algoritm. Valet av algoritm beror ofta på kraven i användnings fallet. När du har valt en algoritm måste du justera dess parametrar för att träna en mer exakt modell. Du måste sedan utvärdera alla modeller utifrån mått som precision, intelligibility och effektivitet.
 
-Since the goal of this sample is to predict automobile prices, and because the label column (price) contains real numbers, a regression model is a good choice. Considering that the number of features is relatively small (less than 100) and these features aren't sparse, the decision boundary is likely to be nonlinear. So we use **Decision Forest Regression** for this pipeline.
+Eftersom syftet med det här exemplet är att förutsäga bil priser och att kolumnen etikett (pris) innehåller reella tal är en Regressions modell ett bra val. Med tanke på att antalet funktioner är relativt litet (mindre än 100) och dessa funktioner inte är glesa, är besluts gränser troligt vis inte linjärt. Vi använder därför **besluts skogs regression** för denna pipeline.
 
-Use the **Split Data** module to randomly divide the input data so that the training dataset contains 70% of the original data and the testing dataset contains 30% of the original data.
+Använd modulen **dela data** för att slumpmässigt dela in indata så att inlärnings data uppsättningen innehåller 70% av original data och test data uppsättningen innehåller 30% av de ursprungliga data.
 
-## <a name="test-evaluate-and-compare"></a>Test, evaluate, and compare
+## <a name="test-evaluate-and-compare"></a>Testa, utvärdera och jämför
 
-Split the dataset and use different datasets to train and test the model to make the evaluation of the model more objective.
+Dela data uppsättningen och Använd olika data uppsättningar för att träna och testa modellen för att göra utvärderingen av modellen mer mål.
 
-After the model is trained, you can use the **Score Model** and **Evaluate Model** modules to generate predicted results and evaluate the models.
+När modellen har tränats kan du använda **Poäng modellen** och **utvärdera modell** moduler för att generera förutsägande resultat och utvärdera modellerna.
 
-**Score Model** generates predictions for the test dataset by using the trained model. To check the result, select the output port of **Score Model** and then select **Visualize**.
+**Poäng modellen** genererar förutsägelser för test data uppsättningen med hjälp av den tränade modellen. Kontrol lera resultatet genom att välja utdataporten för **Poäng modellen** och sedan välja **visualisera**.
 
-![Score result](./media/how-to-designer-sample-regression-predict-automobile-price-basic/score-result.png)
+![Resultat resultat](./media/how-to-designer-sample-regression-predict-automobile-price-basic/score-result.png)
 
-Pass the scores to the **Evaluate Model** module to generate evaluation metrics. To check the result, select the output port of the **Evaluate Model** and then select **Visualize**.
+Skicka poängen till modulen **utvärdera modell** för att generera utvärderings mått. Kontrol lera resultatet genom att välja utdataporten för **utvärdera modellen** och sedan välja **visualisera**.
 
-![Evaluate result](./media/how-to-designer-sample-regression-predict-automobile-price-basic/evaluate-result.png)
+![Utvärdera resultat](./media/how-to-designer-sample-regression-predict-automobile-price-basic/evaluate-result.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -85,11 +85,11 @@ Pass the scores to the **Evaluate Model** module to generate evaluation metrics.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Explore the other samples available for the designer:
+Utforska de andra exempel som är tillgängliga för designern:
 
-- [Sample 2 - Regression: Compare algorithms for automobile price prediction](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Sample 3 - Classification with feature selection: Income Prediction](how-to-designer-sample-classification-predict-income.md)
-- [Sample 4 - Classification: Predict credit risk (cost sensitive)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Sample 5 - Classification: Predict churn](how-to-designer-sample-classification-churn.md)
-- [Sample 6 - Classification: Predict flight delays](how-to-designer-sample-classification-flight-delay.md)
-- [Sample 7 - Text Classification: Wikipedia SP 500 Dataset](how-to-designer-sample-text-classification.md)
+- [Exempel 2-regression: jämför algoritmer för bil förutsägelse av bilar](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
+- [Exempel 3 – klassificering med funktions val: inkomst förutsägelse](how-to-designer-sample-classification-predict-income.md)
+- [Exempel 4 – klassificering: förutsägelse kredit risk (kostnads känsligt)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [Exempel 5 – klassificering: förutsägelse omsättning](how-to-designer-sample-classification-churn.md)
+- [Exempel 6 – klassificering: förutsäga flyg fördröjningar](how-to-designer-sample-classification-flight-delay.md)
+- [Exempel 7 – text klassificering: Wikipedia SP 500-datauppsättning](how-to-designer-sample-text-classification.md)

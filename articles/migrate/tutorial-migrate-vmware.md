@@ -20,7 +20,7 @@ Den här artikeln visar hur du migrerar lokala virtuella VMware-datorer till Azu
 
 [Azure Migrate](migrate-services-overview.md) tillhandahåller en central hubb för att spåra identifiering, utvärdering och migrering av dina lokala appar och arbets belastningar och AWS/GCP VM-instanser till Azure. Hubben innehåller Azure Migrate verktyg för utvärdering och migrering samt oberoende program varu leverantörer från tredje part (ISV).
 
-Den här självstudien är den tredje i en serie som visar hur du bedömer och migrerar virtuella VMware-datorer till Azure med hjälp av Azure Migrate Server bedömning och migrering. I den här självstudiekursen får du lära du dig att:
+Den här självstudien är den tredje i en serie som visar hur du bedömer och migrerar virtuella VMware-datorer till Azure med hjälp av Azure Migrate Server bedömning och migrering. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Förbered virtuella datorer för migrering.
@@ -44,7 +44,7 @@ Om du vill bestämma om du vill använda en agent lös eller agent-baserad migre
 - [Lär dig hur](server-migrate-overview.md) en agent utan migrering fungerar och [Jämför metoder för migrering](server-migrate-overview.md#compare-migration-methods).
 - [Läs den här artikeln](tutorial-migrate-vmware-agent.md) om du vill använda den agentbaserade metoden.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar de här självstudierna bör du:
 

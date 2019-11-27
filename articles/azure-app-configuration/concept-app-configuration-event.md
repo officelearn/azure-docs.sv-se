@@ -39,17 +39,17 @@ Azure App konfigurations händelser innehåller all information som du behöver 
 
 > |Egenskap|Typ|Beskrivning|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
-> |ämne|sträng|Fullständigt Azure Resource Manager-ID för den app-konfiguration som utsänder händelsen.|
-> |subject|sträng|URI för det nyckel värde som är ämnet för händelsen.|
-> |eventTime|sträng|Datum/tid då händelsen genererades, i ISO 8601-format.|
-> |eventType|sträng|"Microsoft. AppConfiguration. KeyValueModified" eller "Microsoft. AppConfiguration. KeyValueDeleted".|
-> |Id|sträng|En unik identifierare för den här händelsen.|
-> |dataVersion|sträng|Data objektets schema version.|
-> |metadataVersion|sträng|Schema versionen för toppnivå egenskaper.|
-> |data|objekt|Samling med Azure App konfiguration av vissa händelse data|
-> |data.key|sträng|Nyckeln till det nyckel värde som ändrades eller togs bort.|
-> |data. label|sträng|Etiketten, om det finns, för det nyckel värde som ändrades eller togs bort.|
-> |data.etag|sträng|För `KeyValueModified` etag för det nya nyckel värdet. För `KeyValueDeleted` etag för det nyckel värde som har tagits bort.|
+> |subject|string|Fullständigt Azure Resource Manager-ID för den app-konfiguration som utsänder händelsen.|
+> |subject|string|URI för det nyckel värde som är ämnet för händelsen.|
+> |eventTime|string|Datum/tid då händelsen genererades, i ISO 8601-format.|
+> |eventType|string|"Microsoft. AppConfiguration. KeyValueModified" eller "Microsoft. AppConfiguration. KeyValueDeleted".|
+> |ID|string|En unik identifierare för den här händelsen.|
+> |dataVersion|string|Data objektets schema version.|
+> |metadataVersion|string|Schema versionen för toppnivå egenskaper.|
+> |data|object|Samling med Azure App konfiguration av vissa händelse data|
+> |data.key|string|Nyckeln till det nyckel värde som ändrades eller togs bort.|
+> |data. label|string|Etiketten, om det finns, för det nyckel värde som ändrades eller togs bort.|
+> |data.etag|string|För `KeyValueModified` etag för det nya nyckel värdet. För `KeyValueDeleted` etag för det nyckel värde som har tagits bort.|
 
 Här är ett exempel på en KeyValueModified-händelse:
 ```json

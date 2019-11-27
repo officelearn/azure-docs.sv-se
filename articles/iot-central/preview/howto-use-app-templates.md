@@ -1,6 +1,6 @@
 ---
-title: Export an Azure IoT Central application | Microsoft Docs
-description: As a solution manager, I want to export an application template to be able to reuse it.
+title: Exportera ett Azure IoT Central-program | Microsoft Docs
+description: Som lösnings hanterare vill jag exportera en Programmall för att kunna återanvända den.
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/17/2019
@@ -15,88 +15,88 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74480345"
 ---
-# <a name="export-your-application-preview-features"></a>Export your application (preview features)
+# <a name="export-your-application-preview-features"></a>Exportera ditt program (för hands versions funktioner)
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-This article describes how, as a solution manager, to export an IoT Central application to be able to reuse it.
+I den här artikeln beskrivs hur, som en lösnings hanterare, för att exportera ett IoT Central program för att kunna återanvända det.
 
 Du kan välja mellan två alternativ:
 
-- You can create a copy of your application if you just need to create a duplicate copy of your application.
-- You can create an application template from your application if you plan to create multiple copies.
+- Du kan skapa en kopia av ditt program om du bara behöver skapa en kopia av ditt program.
+- Du kan skapa en Programmall från ditt program om du planerar att skapa flera kopior.
 
-## <a name="copy-your-application"></a>Copy your application
+## <a name="copy-your-application"></a>Kopiera ditt program
 
-You can create a copy of any application, minus any device instances, device data history, and user data. The copy is a Pay-As-You-Go application that you'll be charged for. You can't create a Trial application by copying an application.
+Du kan skapa en kopia av alla program, minus enhets instanser, enhets data historik och användar data. Kopieringen är ett program som du betalar per användning som du debiteras för. Du kan inte skapa ett utvärderings program genom att kopiera ett program.
 
-Select **Copy**. In the dialog box, enter the details for the new Pay-As-You-Go application. Then select **Copy** to confirm that you want to continue. To learn more about the fields in the form, see the [Create an application](quick-deploy-iot-central.md) quickstart.
+Välj **Kopiera**. I dialog rutan anger du information för det nya programmet betala per användning. Välj sedan **Kopiera** för att bekräfta att du vill fortsätta. Mer information om fälten i formuläret finns i snabb start för att [skapa ett program](quick-deploy-iot-central.md) .
 
 > [!NOTE]
-> You can **Copy your application** to **Europe** and **US** locations only.
+> Du kan bara **Kopiera ditt program** till **Europa** och **amerikanska** platser.
 
-![Application settings page](media/howto-use-app-templates/appcopy2.png)
+![Sidan program inställningar](media/howto-use-app-templates/appcopy2.png)
 
-After the app copy operation succeeds, you can navigate to the new application using the link.
+När kopieringen av appen lyckas kan du navigera till det nya programmet med hjälp av länken.
 
-![Application settings page](media/howto-use-app-templates/appcopy3a.png)
+![Sidan program inställningar](media/howto-use-app-templates/appcopy3a.png)
 
-Copying an application also copies the definition of rules and email action. Some actions, such as Flow and  Logic Apps, are tied to specific rules via the Rule ID. When a rule is copied to a different application, it gets its own Rule ID. In this case, users will have to create a new action and then associate the new rule with it. In general, it's a good idea to check the rules and actions to make sure they're up-to-date in the new app.
-
-> [!WARNING]
-> If a dashboard includes tiles that display information about specific devices, then those tiles show **The requested resource was not found** in the new application. You must reconfigure these tiles to display information about devices in your new application.
-
-## <a name="create-an-application-template"></a>Create an application template
-
-When you create an Azure IoT Central application, you have a choice of built-in sample templates. You can also create your own application templates from existing IoT Central applications. You can then use your own application templates when you create new applications.
-
-When you create an application template, it includes the following items from your existing application:
-
-- The default application dashboard, including the dashboard layout and all the tiles you've defined.
-- Device templates, including measurements, settings, properties, commands, and dashboard.
-- Rules. All rule definitions are included. However actions, except for email actions, aren't included.
-- Device sets, including their conditions and dashboards.
+När du kopierar ett program kopieras även definitionen av regler och e-poståtgärden. Vissa åtgärder, till exempel Flow och Logic Apps, är knutna till vissa regler via regel-ID: t. När en regel kopieras till ett annat program får den ett eget regel-ID. I det här fallet måste användarna skapa en ny åtgärd och sedan koppla den nya regeln till den. I allmänhet är det en bra idé att kontrol lera reglerna och åtgärderna för att se till att de är uppdaterade i den nya appen.
 
 > [!WARNING]
-> If a dashboard includes tiles that display information about specific devices, then those tiles show **The requested resource was not found** in the new application. You must reconfigure these tiles to display information about devices in your new application.
+> Om en instrument panel innehåller paneler som visar information om specifika enheter visas **inte den begärda resursen** i det nya programmet. Du måste konfigurera om panelerna för att visa information om enheter i det nya programmet.
 
-When you create an application template, it doesn't include the following items:
+## <a name="create-an-application-template"></a>Skapa en Programmall
+
+När du skapar ett Azure IoT Central-program kan du välja mellan inbyggda exempel mallar. Du kan också skapa egna programmallar från befintliga IoT Central-program. Du kan sedan använda dina egna programmallar när du skapar nya program.
+
+När du skapar en Programmall innehåller den följande objekt från ditt befintliga program:
+
+- Instrument panelen för standard program, inklusive instrument panelens layout och alla paneler som du har definierat.
+- Mallar för enheter, inklusive mätningar, inställningar, egenskaper, kommandon och instrument paneler.
+- Uttryck. Alla regel definitioner ingår. Åtgärder, förutom e-poståtgärder, ingår dock inte.
+- Enhets uppsättningar, inklusive deras villkor och instrument paneler.
+
+> [!WARNING]
+> Om en instrument panel innehåller paneler som visar information om specifika enheter visas **inte den begärda resursen** i det nya programmet. Du måste konfigurera om panelerna för att visa information om enheter i det nya programmet.
+
+När du skapar en Programmall innehåller den inte följande objekt:
 
 - Enheter
 - Användare
-- Job definitions
-- Continuous data export definitions
+- Jobb definitioner
+- Definitioner av kontinuerliga data exporter
 
-Add these items manually to any applications created from an application template.
+Lägg till dessa objekt manuellt i alla program som skapats från en Programmall.
 
-To create an application template from an existing IoT Central application:
+Så här skapar du en Programmall från ett befintligt IoT Central-program:
 
-1. Go to the **Administration** section in your application.
-1. Select **Application Template Export**.
-1. On the **Application Template Export** page, enter a name and description for your template.
-1. Select the **Export** button to create the application template. You can now copy the **Shareable Link** that enables someone to create a new application from the template:
+1. Gå till avsnittet **Administration** i ditt program.
+1. Välj **export av program mal len**.
+1. Ange ett namn och en beskrivning för mallen på sidan **export av program mal len** .
+1. Välj knappen **Exportera** för att skapa program mal len. Nu kan du kopiera den **delnings bara länken** som gör att någon kan skapa ett nytt program från mallen:
 
-![Create an application template](media/howto-use-app-templates/create-template.png)
+![Skapa en Programmall](media/howto-use-app-templates/create-template.png)
 
-### <a name="use-an-application-template"></a>Use an application template
+### <a name="use-an-application-template"></a>Använd en program mall
 
-To use an application template to create a new IoT Central application, you need a previously created **Shareable Link**. Paste the **Shareable Link** into your browser's address bar. The **Create an application** page displays with your custom application template selected:
+Om du vill använda en Programmall för att skapa ett nytt IoT Central-program behöver du en tidigare skapad **delnings bara länk**. Klistra in den **delnings bara länken** i webbläsarens Adress fält. Sidan **skapa ett program** visas med din anpassade program mal len vald:
 
-![Create an application from a template](media/howto-use-app-templates/create-app.png)
+![Skapa ett program från en mall](media/howto-use-app-templates/create-app.png)
 
-Select your payment plan and fill out the other fields on the form. Then select **Create** to create a new IoT Central application from the application template.
+Välj din betalnings plan och fyll i de andra fälten i formuläret. Välj sedan **skapa** för att skapa ett nytt IoT Central program från program mal len.
 
 > [!NOTE]
-> When an application is created using **Shareable Link** the available locations are **Europe** and **US**.
+> När ett program skapas med hjälp av en **delnings länk** är de tillgängliga platserna **Europa** och **USA**.
 
-### <a name="manage-application-templates"></a>Manage application templates
+### <a name="manage-application-templates"></a>Hantera programmallar
 
-On the **Application Template Export** page, you can delete or update the application template.
+På sidan **Exportera program mal len** kan du ta bort eller uppdatera program mal len.
 
-If you delete an application template, you can no longer use the previously generated shareable link to create new applications.
+Om du tar bort en Programmall kan du inte längre använda den delnings bara länken som skapats tidigare för att skapa nya program.
 
-To update your application template, change the template name or description on the **Application Template Export** page. Then select the **Export** button again. This action generates a new **Shareable link** and invalidates any previous **Shareable link** URL.
+Om du vill uppdatera program mal len ändrar du mallens namn eller beskrivning på export sidan för **program mal len** . Välj sedan knappen **Exportera** igen. Den här åtgärden skapar en ny **delnings bara länk** och invaliderar alla tidigare **delnings** bara URL-adresser.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Now that you've learned how to use application templates, the suggested next step is to learn how to [Manage IoT Central from the Azure portal](../core/howto-manage-iot-central-from-portal.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json)
+Nu när du har lärt dig hur du använder programmallar är det föreslagna nästa steg att lära dig hur du [hanterar IoT Central från Azure Portal](../core/howto-manage-iot-central-from-portal.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json)

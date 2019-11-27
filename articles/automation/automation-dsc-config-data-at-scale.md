@@ -1,7 +1,7 @@
 ---
-title: Configuration data at scale - Azure Automation
-description: Learn how to configure data at scale for state configuration in Azure Automation.
-keywords: dsc,powershell,configuration,setup
+title: Konfigurations data i Scale-Azure Automation
+description: Lär dig hur du konfigurerar data i skala för tillstånds konfiguration i Azure Automation.
+keywords: DSC, PowerShell, konfiguration, installation
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -19,38 +19,38 @@ ms.locfileid: "74231694"
 ---
 # <a name="configuration-data-at-scale"></a>Konfigurationsdata i stor skala
 
-> Applies To: Windows PowerShell 5.1
+> Gäller för: Windows PowerShell 5,1
 
-Managing hundreds or thousands of servers can be a challenge.
-Customers have provided feedback that the most difficult aspect is actually managing [configuration data](/powershell/scripting/dsc/configurations/configdata).
-Organizing information across logical constructs like location, type, and environment.
+Det kan vara en utmaning att hantera hundratals eller tusentals servrar.
+Kunderna har fått feedback om att den svåraste aspekten faktiskt hanterar [konfigurations data](/powershell/scripting/dsc/configurations/configdata).
+Organisera information över logiska konstruktioner som plats, typ och miljö.
 
 > [!NOTE]
-> This article refers to a solution that is maintained by the Open Source community.
-> Support is only available in the form of GitHub collaboration, not from Microsoft.
+> Den här artikeln hänvisar till en lösning som underhålls av communityn för öppen källkod.
+> Support är endast tillgängligt i form av GitHub-samarbete, inte från Microsoft.
 
-## <a name="community-project-datum"></a>Community project: Datum
+## <a name="community-project-datum"></a>Community-projekt: datum
 
-A community maintained solution named [Datum](https://github.com/gaelcolas/Datum) has been created to resolve this challenge.
-Datum builds on great ideas from other configuration management platforms and implements the same type of solution for PowerShell DSC.
-Information is [organized in to text files](https://github.com/gaelcolas/Datum#3-intended-usage) based on logical ideas.
-Examples would be:
+En community-baserad lösning med namnet [datum](https://github.com/gaelcolas/Datum) har skapats för att lösa den här utmaningen.
+Datum bygger på fantastiska idéer från andra konfigurations hanterings plattformar och implementerar samma typ av lösning för PowerShell DSC.
+Informationen är [ordnad i textfiler](https://github.com/gaelcolas/Datum#3-intended-usage) baserat på logiska idéer.
+Exempel:
 
-- Settings that should apply globally
-- Settings that should apply to all servers in a location
-- Settings that should apply to all database servers
-- Individual server settings
+- Inställningar som ska gälla globalt
+- Inställningar som ska gälla för alla servrar på en plats
+- Inställningar som ska gälla för alla databas servrar
+- Enskilda Server inställningar
 
-This information is organized in the file format you prefer (JSON, Yaml, or PSD1).
-Then cmdlets are provided to generate configuration data files by [consolidating the information](https://github.com/gaelcolas/Datum#datum-tree) from each file in to single view of a server or server role.
+Den här informationen är ordnad i det fil format som du föredrar (JSON, yaml eller PSD1).
+Sedan tillhandahålls cmdlets för att generera konfigurationsfiler för data genom att [konsolidera informationen](https://github.com/gaelcolas/Datum#datum-tree) från varje fil i till en enskild vy av en server eller server roll.
 
-Once the data files have been generated, you can use them with [DSC Configuration scripts](/powershell/scripting/dsc/configurations/write-compile-apply-configuration) to generate MOF files and [upload the MOF files to Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
-Then register your servers from either [on-premises](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws) or [in Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) to pull configurations.
+När datafilerna har genererats kan du använda dem med [DSC-konfigurations skript](/powershell/scripting/dsc/configurations/write-compile-apply-configuration) för att generera MOF-filer och [Ladda upp MOF-filerna till Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
+Registrera sedan dina servrar från antingen [lokalt](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws) eller [i Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) för att hämta konfigurationer.
 
-To try out Datum, visit the [PowerShell Gallery](https://www.powershellgallery.com/packages/datum/) and download the solution or click "Project Site" to view the [documentation](https://github.com/gaelcolas/Datum#2-getting-started--concepts).
+Om du vill prova datum går du till [PowerShell-galleriet](https://www.powershellgallery.com/packages/datum/) och laddar ned lösningen eller klickar på "Project site" för att visa [dokumentationen](https://github.com/gaelcolas/Datum#2-getting-started--concepts).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Windows PowerShell Desired State Configuration Overview](/powershell/scripting/dsc/overview/overview)
-- [DSC Resources](/powershell/scripting/dsc/resources/resources)
-- [Configuring The Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig)
+- [Översikt över önskad tillstånds konfiguration i Windows PowerShell](/powershell/scripting/dsc/overview/overview)
+- [DSC-resurser](/powershell/scripting/dsc/resources/resources)
+- [Konfigurera den lokala Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig)

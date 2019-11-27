@@ -69,7 +69,7 @@ Du kan försena migreringsprocessen genom att avbryta fönstret. Du uppmanas reg
 
 Om du inte har någon Azure-prenumeration kan du [Registrera dig](https://azure.microsoft.com/free/). 
 
-### <a name="migration-steps"></a>Migreringsanvisningar
+### <a name="migration-steps"></a>Migreringssteg
 
 Följ [dessa steg för migrering](luis-migration-authoring-steps.md).
 
@@ -81,7 +81,7 @@ Du kan skapa fler redigerings resurser och tilldela dem från sidan **hantera > 
 
 Du kan lägga till deltagare till redigerings resursen från _Azure Portal_på sidan **Access Control (IAM)** för resursen. Mer information finns i [lägga till deltagar åtkomst](luis-migration-authoring-steps.md#after-the-migration-process-add-contributors-to-your-authoring-resource) .
 
-|Portal|Syfte|
+|Portalen|Syfte|
 |--|--|
 |[Azure](https://azure.microsoft.com/free/)|* Skapa förutsägelse-och redigera resurser.<br>* Tilldela deltagare.|
 |[LUIS](https://www.luis.ai)|* Migrera till nya redigerings resurser.<br>* Tilldela eller ta bort tilldelningar av förutsägelse och redigering av resurser till appar från sidan **hantera > Azure-resurser** .| 

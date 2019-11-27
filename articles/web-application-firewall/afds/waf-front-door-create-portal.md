@@ -18,14 +18,14 @@ ms.locfileid: "74186726"
 
 Den här självstudien visar hur du skapar en grundläggande WAF-princip (Azure Web Application Firewall) och använder den på en klient dels värd i Azures front dörr.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en WAF-princip
 > * Koppla den till en klient dels värd
 > * Konfigurera WAF-regler
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Skapa en profil för en frontend-dörr genom att följa anvisningarna i [snabb start: skapa en profil för front dörren](../../frontdoor/quickstart-create-front-door.md). 
 
@@ -36,7 +36,7 @@ Börja med att skapa en grundläggande WAF-princip med hanterad standard regel u
 1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs**> söker efter **WAF**> väljer **brand vägg för webbaserade program (för hands version)** > väljer **skapa**.
 2. På fliken **grundläggande** på sidan **skapa en WAF-princip** anger eller väljer du följande information, accepterar standardinställningarna för återstående inställningar och väljer sedan **Granska + skapa**:
 
-    | Inställning                 | Värde                                              |
+    | Inställning                 | Value                                              |
     | ---                     | ---                                                |
     | Prenumeration            |Välj prenumerations namnet på din front dörr.|
     | Resursgrupp          |Välj resurs grupps namnet för front dörren.|
@@ -46,7 +46,7 @@ Börja med att skapa en grundläggande WAF-princip med hanterad standard regel u
 
 3. På fliken **Association** på sidan **skapa en WAF-princip** väljer du **Lägg till klient dels värd**, anger följande inställningar och väljer sedan **Lägg till**:
 
-    | Inställning                 | Värde                                              |
+    | Inställning                 | Value                                              |
     | ---                     | ---                                                |
     | Front dörr              | Välj profil namnet för din klient del.|
     | Klient dels värd           | Välj namnet på värddatorn för din frontend-dörr och välj sedan **Lägg till**.|

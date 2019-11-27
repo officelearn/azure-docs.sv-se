@@ -39,7 +39,7 @@ Den här självstudien körs på den kostnads fria tjänsten, men antalet kostna
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande tjänster, verktyg och data används i den här självstudien. 
 

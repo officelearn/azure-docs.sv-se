@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 11/04/2019
-ms.openlocfilehash: e33f8a8090e7840087add0e16252bd2a3e873524
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: acf1df6bb71f4ea8878d8f50f3f42f4ddd831fb5
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276781"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539228"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Identifiera data drift (för hands version) i modeller som distribuerats till Azure Kubernetes service (AKS)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -31,7 +31,7 @@ I samband med Machine Learning är data driften ändringen i modell indata som l
 Med Azure Machine Learning kan du övervaka indata till en modell som distribueras på AKS och jämföra dessa data med data uppsättningen för träning för modellen. Med jämna mellanrum är det en [ögonblicks bild och profilerad](how-to-explore-prepare-data.md), som sedan beräknas mot bas linje data uppsättningen för att skapa en data avvikelse analys som: 
 
 + Mäter omfattningen av data avvikelsen, som kallas för drift koefficienten.
-+ Mäter data drifts bidraget efter funktion, som informerar vilka funktioner som orsakade data drift.
++ Mäter data drifts bidraget efter funktion, som anger vilka funktioner som orsakade data drift.
 + Mäter avstånds mått. För närvarande beräknas Wasserstein och energi avstånd.
 + Mäter distribution av funktioner. Uppskattning och histogram för aktuell kernel-densitet.
 + Skicka aviseringar till data drift per e-post.
@@ -43,7 +43,7 @@ Med Azure Machine Learning kan du övervaka indata till en modell som distribuer
 
 Med hjälp av Azure Machine Learning övervakas data driften via data uppsättningar eller distributioner. För att övervaka data, en bas linje uppsättning – vanligt vis är inlärnings data uppsättningen för en modell-angiven. En andra data uppsättning – vanligt vis modell indata som samlas in från en distribution, testas mot bas linje data uppsättningen. Båda data uppsättningarna är profilerade och indata för data tjänst övervaknings tjänsten. En maskin inlärnings modell är utbildad för att identifiera skillnader mellan de två data uppsättningarna. Modellens prestanda konverteras till drivgarn, som mäter storleken på driften mellan de två data uppsättningarna. Med [modell tolkning](how-to-machine-learning-interpretability.md)kan de funktioner som bidrar till drifts koefficienten beräknas. Statistisk information om varje funktion spåras från data uppsättnings profilen. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure-prenumeration. Om du inte har ett konto kan du skapa ett kostnads fritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
@@ -90,7 +90,7 @@ from azureml.datadrift import DataDriftDetector, AlertConfiguration
 # if email address is specified, setup AlertConfiguration
 alert_config = AlertConfiguration('your_email@contoso.com')
 
-# create a new DatadriftDetector object
+# create a new DataDriftDetector object
 datadrift = DataDriftDetector.create(ws, model.name, model.version, services, frequency="Day", alert_config=alert_config)
     
 print('Details of Datadrift Object:\n{}'.format(datadrift))
@@ -112,7 +112,7 @@ run = datadrift.run(target_date, services, feature_list=feature_list, compute_ta
 
 # show details of the data drift run
 exp = Experiment(ws, datadrift._id)
-dd_run = Run(experiment=exp, run_id=run)
+dd_run = Run(experiment=exp, run_id=run.id)
 RunDetails(dd_run).show()
 ```
 
@@ -142,7 +142,7 @@ Följande python-exempel visar hur du kan rita relevanta mått för data avvikel
 # start and end are datetime objects 
 drift_metrics = datadrift.get_output(start_time=start, end_time=end)
 
-# Show all data drift result figures, one per serivice.
+# Show all data drift result figures, one per service.
 # If setting with_details is False (by default), only the data drift magnitude will be shown; if it's True, all details will be shown.
 drift_figures = datadrift.show(with_details=True)
 ```

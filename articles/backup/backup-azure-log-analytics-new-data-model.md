@@ -55,7 +55,7 @@ Den här tabellen innehåller information om kärn säkerhets kopiering av entit
 | ResourceGroupName                 | Text          | Resurs grupp för resursen (till exempel Recovery Services valvet) för data som samlas in |
 | Schema                     | Text          | Det här fältet anger den aktuella versionen av schemat, den är **v2** |
 | SecondaryBackupProtectionState    | Text          | Om sekundärt skydd har Aktiver ATS för säkerhets kopierings objekt  |
-| Status                             | Text          | Status för objektet säkerhets objekt. Till exempel aktiv, borttagen |
+| State                             | Text          | Status för objektet säkerhets objekt. Till exempel aktiv, borttagen |
 | StorageReplicationType            | Text          | Typ av lagrings replikering för valvet. Till exempel, förredundant |
 | SubscriptionId                    | Text          | Prenumerations-ID för resursen (till exempel Recovery Services valv) som data samlas in för |
 | vaultName                         | Text          | Namn på valvet                                            |
@@ -78,17 +78,17 @@ Den här tabellen innehåller information om aviserings relaterade fält.
 | AlertRaisedOn                  | Text          | Typ av entitet som aviseringen utlöses på                        |
 | AlertSeverity                  | Text          | Aviseringens allvarlighets grad. Till exempel kritiskt                 |
 | Alert status                    | Text          | Aviseringens status. Till exempel Active                     |
-| AlertTimeToResolveInMinutes    | Tal        | Åtgången tid för att lösa en avisering. Tomt för aktiva aviseringar.     |
+| AlertTimeToResolveInMinutes    | Antal        | Åtgången tid för att lösa en avisering. Tomt för aktiva aviseringar.     |
 | AlertType                      | Text          | Typ av avisering. Till exempel säkerhets kopiering                           |
 | AlertUniqueId                  | Text          | Unik identifierare för den genererade aviseringen                    |
 | BackupItemUniqueId             | Text          | Unik identifierare för det säkerhets kopierings objekt som är associerat med aviseringen |
 | BackupManagementServerUniqueId | Text          | Fält för att unikt identifiera säkerhets kopierings hanterings servern som objektet skyddas med, om tillämpligt |
 | BackupManagementType           | Text          | Providertyp för server som utför säkerhets kopierings jobb, till exempel IaaSVM, FileFolder |
-| CountOfAlertsConsolidated      | Tal        | Antal aviseringar som konsolideras om det är en konsol IDE rad avisering  |
+| CountOfAlertsConsolidated      | Antal        | Antal aviseringar som konsolideras om det är en konsol IDE rad avisering  |
 | ProtectedContainerUniqueId     | Text          | Unik identifierare för den skyddade servern som är associerad med aviseringen |
 | RecommendedAction              | Text          | Åtgärd som rekommenderas för att lösa aviseringen                      |
 | Schema                  | Text          | Aktuell version av schemat, till exempel **v2**            |
-| Status                          | Text          | Aktuellt tillstånd för aviserings objekt, t. ex. aktiv, borttagen |
+| State                          | Text          | Aktuellt tillstånd för aviserings objekt, t. ex. aktiv, borttagen |
 | StorageUniqueId                | Text          | Unikt ID som används för att identifiera lagrings enheten                |
 | VaultUniqueId                  | Text          | Unikt ID som används för att identifiera valvet som hör till aviseringen    |
 | SourceSystem                   | Text          | Käll system för aktuella data – Azure                    |
@@ -108,7 +108,7 @@ Den här tabellen innehåller grundläggande skyddade instans fält.
 | ProtectedContainerUniqueId     | Text          | Unikt ID för att identifiera den skyddade behållare som jobbet körs på |
 | ProtectedInstanceCount         | Text          | Antal skyddade instanser för det associerade säkerhets kopierings objektet eller skyddade behållaren den datum/tid |
 | Schema                  | Text          | Aktuell version av schemat, till exempel **v2**            |
-| Status                          | Text          | Status för objektet säkerhets kopiering, till exempel aktiv, borttagen |
+| State                          | Text          | Status för objektet säkerhets kopiering, till exempel aktiv, borttagen |
 | VaultUniqueId                  | Text          | Unikt ID för det skyddade valvet som är associerat med den skyddade instansen |
 | SourceSystem                   | Text          | Käll system för aktuella data – Azure                    |
 
@@ -125,8 +125,8 @@ Den här tabellen innehåller information om projektrelaterade fält.
 | BackupItemUniqueId             | Text          | Unikt ID som används för att identifiera det säkerhets kopierings objekt som är relaterat till lagrings enheten |
 | BackupManagementServerUniqueId | Text          | Unikt ID som används för att identifiera säkerhets kopierings hanterings servern som är relaterad till lagrings enheten |
 | BackupManagementType           | Text          | Typ av Provider för säkerhets kopiering, till exempel IaaSVM, FileFolder som aviseringen tillhör |
-| DataTransferredInMB            | Tal        | Överförda data i MB för det här jobbet                          |
-| JobDurationInSecs              | Tal        | Total jobb varaktighet i sekunder                                |
+| DataTransferredInMB            | Antal        | Överförda data i MB för det här jobbet                          |
+| JobDurationInSecs              | Antal        | Total jobb varaktighet i sekunder                                |
 | JobFailureCode                 | Text          | Kod sträng för felkod på grund av vilket jobbfel som skett    |
 | JobOperation                   | Text          | Åtgärd för vilket jobb som körs, till exempel säkerhets kopiering, återställning, konfigurera säkerhets kopiering |
 | JobOperationSubType            | Text          | Undertyp för jobb åtgärden. Till exempel "log", i händelse av logg säkerhets kopierings jobb |
@@ -139,7 +139,7 @@ Den här tabellen innehåller information om projektrelaterade fält.
 | RecoveryJobLocation            | Text          | Platsen där återställnings punkten som återställdes har lagrats |
 | RecoveryLocationType           | Text          | Typ av återställnings plats                                |
 | Schema                  | Text          | Aktuell version av schemat, till exempel **v2**            |
-| Status                          | Text          | Aktuellt tillstånd för aviserings objekt, t. ex. aktiv, borttagen |
+| State                          | Text          | Aktuellt tillstånd för aviserings objekt, t. ex. aktiv, borttagen |
 | VaultUniqueId                  | Text          | Unikt ID för det skyddade valvet som är associerat med aviseringen |
 | SourceSystem                   | Text          | Käll system för aktuella data – Azure                    |
 
@@ -177,7 +177,7 @@ Den här tabellen innehåller information om principbaserad fält.
 | RetentionDuration               | Text           | Retentions tid för konfigurerade säkerhets kopior                    |
 | RetentionType                   | Text           | Typ av kvarhållning                                            |
 | Schema                   | Text           | Det här fältet anger den aktuella versionen av schemat och är **v2** |
-| Status                           | Text           | Princip objektets aktuella tillstånd. Till exempel aktiv, borttagen |
+| State                           | Text           | Princip objektets aktuella tillstånd. Till exempel aktiv, borttagen |
 | SynchronisationFrequencyPerDay  | Heltal   | Antal gånger under en dag som en fil säkerhets kopia synkroniseras för SC DPM och MABS |
 | VaultUniqueId                   | Text           | Unikt ID för valvet som den här principen tillhör          |
 | WeeklyRetentionDaysOfTheWeek    | Text           | Vecko dagar som valts för veckovis kvarhållning               |
@@ -207,9 +207,9 @@ Den här tabellen innehåller information om Storage-relaterade fält.
 | PreferredWorkloadOnVolume      | Text          | Arbets belastning för vilken den här volymen är den prioriterade lagringen      |
 | ProtectedContainerUniqueId     | Text          | Unik identifierare för den skyddade servern som är associerad med aviseringen |
 | Schema                  | Text          | Schemats version. Till exempel **v2**                   |
-| Status                          | Text          | Status för objektet säkerhets objekt. Till exempel aktiv, borttagen |
-| StorageAllocatedInMBs          | Tal        | Storleken på det lagrings utrymme som allokerats av motsvarande säkerhets kopierings objekt i motsvarande lagring av typ disk |
-| StorageConsumedInMBs           | Tal        | Storlek på lagring som förbrukas av motsvarande säkerhets kopierings objekt i motsvarande lagrings utrymme |
+| State                          | Text          | Status för objektet säkerhets objekt. Till exempel aktiv, borttagen |
+| StorageAllocatedInMBs          | Antal        | Storleken på det lagrings utrymme som allokerats av motsvarande säkerhets kopierings objekt i motsvarande lagring av typ disk |
+| StorageConsumedInMBs           | Antal        | Storlek på lagring som förbrukas av motsvarande säkerhets kopierings objekt i motsvarande lagrings utrymme |
 | StorageName                    | Text          | Namn på lagrings enhet. Till exempel E:\                      |
 | StorageTotalSizeInGBs          | Text          | Total lagrings utrymme, i GB, som används av lagrings enheten     |
 | StorageType                    | Text          | Typ av lagring, till exempel moln, volym, disk             |

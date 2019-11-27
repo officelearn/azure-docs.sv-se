@@ -1,5 +1,5 @@
 ---
-title: Use an Azure file share with Azure Storage | Microsoft Docs
+title: Använd en Azure-filresurs med Azure Storage | Microsoft Docs
 description: Lär dig hur du använder en Azure-filresurs med Windows och Windows Server.
 author: todmccoy
 manager: dcscontentpm
@@ -17,29 +17,29 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74233797"
 ---
-# <a name="how-to-recover-a-deleted-storage-account"></a>How to recover a deleted storage account
+# <a name="how-to-recover-a-deleted-storage-account"></a>Återställa ett borttaget lagrings konto
 
-Azure Storage provides data resiliency through automated replicas, but doesn't prevent users or application code from corrupting data, whether accidentally or maliciously. Maintaining data fidelity during instances of application or user error requires more advanced techniques, such as copying the data to a secondary storage location with an audit log.
+Azure Storage ger data återhämtning via automatiserade repliker, men förhindrar inte användare eller program kod från att skada data, oavsett om de är oavsiktligt eller skadligt. Att bevara data åter givningen under instanser av program eller användar fel kräver mer avancerade tekniker, till exempel att kopiera data till en sekundär lagrings plats med en Gransknings logg.
 
-The following table provides overview of the scope of Storage Account Recovery depending on the replication strategy.
+Följande tabell innehåller en översikt över omfånget för lagrings konto återställning beroende på en replikerings strategi.
 
-| |LRS|ZRS|GRS|RA - GRS|
+| |LRS|ZRS|GRS|RA-GRS|
 |---|---|---|---|---|
-|Storage Account Azure Resource Manager|Ja|Ja|Ja|Ja|
-|Storage Account Classic|Ja|Ja|Ja|Ja|
+|Lagrings konto Azure Resource Manager|Ja|Ja|Ja|Ja|
+|Klassiskt lagrings konto|Ja|Ja|Ja|Ja|
 
-Gather the following information and file a support request with Microsoft Support:
+Samla in följande information och skicka en supportbegäran till Microsoft Support:
 
 * Lagringskontots namn
-* Date of deletion
-* Storage account region
-* How was the storage account deleted?
-* What method deleted the storage account? (Portal, PowerShell, etc.)
+* Datum för borttagning
+* Lagrings konto region
+* Hur togs lagrings kontot bort?
+* Vilken metod tog bort lagrings kontot? (Portal, PowerShell osv.)
 
-Important Points
+Viktiga punkter
 
-* It can generally take up to 15 days from the time of deletion for the storage service to perform garbage collection, so storage accounts recovery may not be recovered with an SLA.
-* Microsoft Support will try to recover the Container/Account on a best-effort basis and cannot guarantee the recovery.
+* Det kan vanligt vis ta upp till 15 dagar från borttagningen av lagrings tjänsten att utföra skräp insamling, så återställning av lagrings konton kan inte återställas med ett service avtal.
+* Microsoft Support kommer att försöka återställa containern/kontot på bästa möjliga sätt och kan inte garantera återställningen.
 
 > [!NOTE]
-> The recovery may not be successful if the account has been re-created. If you have already re-created the account, you must delete it first before recovery can be attempted.
+> Återställningen kanske inte lyckas om kontot har återskapats. Om du redan har skapat om kontot måste du ta bort det innan återställningen kan utföras.

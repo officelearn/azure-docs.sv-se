@@ -24,7 +24,7 @@ Som standard är ditt webb program tillgängligt från Internet. Om du vill begr
 
 ## <a name="configure-a-waf-policy-with-the-azure-cli"></a>Konfigurera en WAF-princip med Azure CLI
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Innan du börjar konfigurera en princip för IP-begränsning ställer du in CLI-miljön och skapar en profil för Azure frontend-tjänsten.
 
 #### <a name="set-up-the-azure-cli-environment"></a>Konfigurera Azure CLI-miljön
@@ -101,7 +101,7 @@ I det här exemplet tillämpas WAF-principen på **FrontendEndpoints [0]** . Du 
 
 ## <a name="configure-a-waf-policy-with-azure-powershell"></a>Konfigurera en WAF-princip med Azure PowerShell
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Innan du börjar konfigurera en princip för IP-begränsning ställer du in PowerShell-miljön och skapar en profil för Azure frontend-tjänsten.
 
 #### <a name="set-up-your-powershell-environment"></a>Konfigurera PowerShell-miljön

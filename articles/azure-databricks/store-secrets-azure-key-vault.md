@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 07/19/2019
-ms.openlocfilehash: 7983e18066578e3f036da84c73b6554ead2c40a1
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 16339590c3cfb11235ef4763c2e32c71b521c709
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791575"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539074"
 ---
 # <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>Självstudie: få åtkomst till Azure Blob Storage från Azure Databricks med Azure Key Vault
 
@@ -26,13 +26,13 @@ I den här guiden får du lära dig att:
 > * Skapa en Azure Databricks arbets yta och Lägg till ett hemligt område
 > * Få åtkomst till din BLOB-behållare från Azure Databricks
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 > [!Note]
 > Den här självstudien kan inte utföras med **Azures kostnads fri utvärderings prenumeration**.
@@ -76,7 +76,7 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 
    |Egenskap|Beskrivning|
    |--------|-----------|
-   |Namn|Ett unikt namn för nyckel valvet.|
+   |Name|Ett unikt namn för nyckel valvet.|
    |Prenumeration|Välj en prenumeration.|
    |Resursgrupp|Välj en resurs grupp eller skapa en ny.|
    |Plats|Välj en plats.|
@@ -91,11 +91,11 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 
 5. Ange följande information på sidan **skapa en hemlig** enhet och behåll standardvärdena för de återstående fälten:
 
-   |Egenskap|Värde|
+   |Egenskap|Value|
    |--------|-----------|
-   |Överförings alternativ|Manuell|
-   |Namn|Eget namn för din lagrings konto nyckel.|
-   |Värde|KEY1 från ditt lagrings konto.|
+   |Överförings alternativ|Manuellt|
+   |Name|Eget namn för din lagrings konto nyckel.|
+   |Value|KEY1 från ditt lagrings konto.|
 
    ![Egenskaper för nytt Key Vault-hemlighet](./media/store-secrets-azure-key-vault/create-storage-secret.png)
 
@@ -129,7 +129,7 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 
 4. När din Azure Databricks arbets yta är öppen i ett separat fönster lägger du till **#secrets/createscope** i URL: en. URL: en ska ha följande format: 
 
-   **https://< \location >. azuredatabricks. net/? o = < \id > #secrets/createscope**.
+   **https://< \location >. azuredatabricks. net/#secrets/createscope**.
 
 5. Ange ett namn på omfånget och ange Azure Key Vault DNS-namn och resurs-ID som du sparade tidigare. Spara omfångs namnet i en text redigerare för senare användning i den här självstudien. Välj sedan **Create** (Skapa).
 

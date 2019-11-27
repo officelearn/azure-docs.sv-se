@@ -27,7 +27,7 @@ ms.locfileid: "74275516"
 
 Den här artikeln beskriver hur du använder Azure AD-programproxy för att aktivera Power BI mobilappen för att ansluta till Power BI-rapportserver (PBIRS) och SQL Server Reporting Services (SSRS) 2016 och senare. Med den här integrationen kan användare som är borta från företags nätverket komma åt sina Power BI rapporter från Power BI mobilapp och skyddas av Azure AD-autentisering. Det här skyddet omfattar [säkerhets förmåner](application-proxy-security.md#security-benefits) som villkorlig åtkomst och Multi-Factor Authentication.  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du redan har distribuerat rapport tjänster och [aktiverat Application Proxy](application-proxy-add-on-premises-application.md).
 
@@ -46,7 +46,7 @@ Fortsätt med följande steg för att konfigurera KCD för repor ting Services.
 ### <a name="configure-the-service-principal-name-spn"></a>Konfigurera tjänstens huvud namn (SPN)
 
 SPN är en unik identifierare för en tjänst som använder Kerberos-autentisering. Du måste kontrol lera att du har rätt HTTP SPN för rapport servern. Information om hur du konfigurerar rätt SPN (Service Principal Name) för rapport servern finns i [Registrera ett tjänst huvud namn (SPN) för en rapport Server](https://msdn.microsoft.com/library/cc281382.aspx).
-Du kan kontrol lera att SPN har lagts till genom att köra Setspn-kommandot med alternativet-L. Mer information om det här kommandot finns [Setspn](https://social.technet.microsoft.com/wiki/contents/articles/717.service-principal-names-spn-setspn-syntax.aspx).
+Du kan kontrol lera att SPN har lagts till genom att köra Setspn-kommandot med alternativet-L. Mer information om det här kommandot finns i [setspn](https://social.technet.microsoft.com/wiki/contents/articles/717.service-principal-names-spn-setspn-syntax.aspx).
 
 ### <a name="enable-negotiate-authentication"></a>Aktivera Negotiate-autentisering
 
@@ -70,7 +70,7 @@ Om du vill konfigurera KCD upprepar du följande steg för varje kopplings dator
 1. Logga in på en domänkontrollant som domän administratör och öppna sedan **Active Directory användare och datorer**.
 2. Hitta den dator som kör anslutningstjänsten på.  
 3. Dubbelklicka på datorn och välj sedan fliken **delegering** .
-4. Ställ in Delegerings inställningarna på **den här datorn som betrodd för delegering till de angivna tjänsterna**. Välj **Använd valfritt autentiseringsprotokoll**.
+4. Ställ in Delegerings inställningarna på **den här datorn som betrodd för delegering till de angivna tjänsterna**. Välj sedan **Använd valfritt autentiseringsprotokoll**.
 5. Välj **Lägg till**och välj sedan **användare eller datorer**.
 6. Ange det tjänst konto som du använder för repor ting Services. Detta är det konto som du har lagt till SPN-namnet i repor ting Services-konfigurationen.
 7. Klicka på **OK**. Klicka på **OK** igen för att spara ändringarna.
@@ -91,15 +91,15 @@ Nu är du redo att konfigurera Azure AD-programproxy.
 
 2. När din app har publicerats kan du konfigurera inställningar för enkel inloggning med följande steg:
 
-   a. På programsidan i portalen väljer **enkel inloggning**.
+   a. På sidan program i portalen väljer du **enkel inloggning**.
 
    b. För **läge för enkel inloggning**väljer du **integrerad Windows-autentisering**.
 
    c. Ange det **interna programmets SPN** till det värde som du angav tidigare.  
 
-   d. Välj den **delegerad inloggningsidentitet** för anslutningstjänsten att använda för användare. Mer information finns i [arbeta med olika lokala och molnbaserade identiteter](application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities).
+   d. Välj den **delegerade inloggnings identitet** för anslutningen som du vill använda för användarens räkning. Mer information finns i [arbeta med olika lokala och molnbaserade identiteter](application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities).
 
-   e. Klicka på **spara** att spara dina ändringar.
+   e. Klicka på **Spara** för att spara ändringarna.
 
 Slutför konfigurationen av programmet genom att gå till avsnittet **användare och grupper** och tilldela användare åtkomst till det här programmet.
 

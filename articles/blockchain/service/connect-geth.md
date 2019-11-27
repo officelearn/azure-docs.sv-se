@@ -1,6 +1,6 @@
 ---
-title: Use Geth to attach to Azure Blockchain Service
-description: Attach to a Geth instance on Azure Blockchain Service transaction node
+title: Använda Geth för att ansluta till Azure blockchain-tjänsten
+description: Anslut till en Geth-instans på Azure blockchain service Transaction-noden
 ms.date: 11/20/2019
 ms.topic: quickstart
 ms.reviewer: janders
@@ -11,57 +11,57 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74455825"
 ---
-# <a name="quickstart-use-geth-to-attach-to-an-azure-blockchain-service-transaction-node"></a>Quickstart: Use Geth to attach to an Azure Blockchain Service transaction node
+# <a name="quickstart-use-geth-to-attach-to-an-azure-blockchain-service-transaction-node"></a>Snabb start: Använd Geth för att ansluta till en Azure blockchain service Transaction-nod
 
-In this quickstart, you use the Geth client to attach to a Geth instance on an Azure Blockchain Service transaction node. Once attached, you use the Geth JavaScript console to call a web3 JavaScript Dapp API.
+I den här snabb starten använder du Geth-klienten för att ansluta till en Geth-instans på en Azure blockchain-tjänst transaktions nod. När du är ansluten använder du Geth JavaScript-konsolen för att anropa ett Web3 JavaScript-Dapp-API.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* Install [Geth](https://github.com/ethereum/go-ethereum/wiki/geth)
-* Complete [Quickstart: Create a blockchain member using the Azure portal](create-member.md) or [Quickstart: Create an Azure Blockchain Service blockchain member using Azure CLI](create-member-cli.md)
+* Installera [Geth](https://github.com/ethereum/go-ethereum/wiki/geth)
+* Slutför [snabb start: skapa en blockchain-medlem med hjälp av Azure Portal](create-member.md) eller [snabb start: skapa en Azure blockchain service blockchain-medlem med Azure CLI](create-member-cli.md)
 
-## <a name="get-geth-connection-string"></a>Get Geth connection string
+## <a name="get-geth-connection-string"></a>Hämta Geth-anslutningssträng
 
-You can get the Geth connection string for an Azure Blockchain Service transaction node in the Azure portal.
+Du kan hämta anslutnings strängen Geth för en Azure blockchain service Transaction-nod i Azure Portal.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Go to your Azure Blockchain Service member. Select **Transaction nodes** and the default transaction node link.
+1. Gå till din Azure blockchain service-medlem. Välj **Transactions-noder** och noden standard transaktions nod.
 
-    ![Select default transaction node](./media/connect-geth/transaction-nodes.png)
+    ![Välj noden standard transaktion](./media/connect-geth/transaction-nodes.png)
 
-1. Select **Connection strings**.
-1. Copy the connection string from **HTTPS (Access key 1)** . You need the string for the next section.
+1. Välj **anslutnings strängar**.
+1. Kopiera anslutnings strängen från **https (åtkomst nyckel 1)** . Du behöver strängen för nästa avsnitt.
 
     ![Anslutningssträng](./media/connect-geth/connection-string.png)
 
-## <a name="connect-to-geth"></a>Connect to Geth
+## <a name="connect-to-geth"></a>Anslut till Geth
 
-1. Open a command prompt or shell.
-1. Use the Geth attach subcommand to attach to the running Geth instance on your transaction node. Paste the connection string as an argument for the attach subcommand. Exempel:
+1. Öppna en kommandotolk eller shell.
+1. Använd Geth Attach-underkommandot för att koppla till den aktiva Geth-instansen på Transaction-noden. Klistra in anslutnings strängen som ett argument för under kommandot Attach. Exempel:
 
     ``` bash
     geth attach <connection string>
     ```
 
-1. Once connected to the transaction node's Ethereum console, you can call the web3 JavaScript Dapp API or the admin API.
+1. När du har anslutit till Ethereum-konsolen för Transaction-noden kan du anropa Web3 Java Script Dapp API eller admin-API.
 
-    For example, use the following API to find out the chainId.
+    Använd till exempel följande API för att ta reda på chainId.
 
     ``` bash
     admin.nodeInfo.protocols.istanbul.config.chainId
     ```
 
-    In this example, the chainId is 661.
+    I det här exemplet är chainId 661.
 
-    ![Azure Blockchain Service option](./media/connect-geth/geth-attach.png)
+    ![Azure blockchain service-alternativ](./media/connect-geth/geth-attach.png)
 
-1. To disconnect from the console, type `exit`.
+1. Om du vill koppla från konsolen skriver du `exit`.
 
 ## <a name="next-steps"></a>Nästa steg
 
-In this quickstart, you used the Geth client to attach to a Geth instance on an Azure Blockchain Service transaction node. Try the next tutorial to use Azure Blockchain Development Kit for Ethereum to create, build, deploy, and execute a smart contract function via a transaction.
+I den här snabb starten använde du Geth-klienten för att ansluta till en Geth-instans på en Azure blockchain service Transaction-nod. Testa nästa självstudie för att använda Azure blockchain Development Kit för Ethereum för att skapa, bygga, distribuera och köra en smart kontrakts funktion via en transaktion.
 
 > [!div class="nextstepaction"]
-> [Create, build, and deploy smart contracts on Azure Blockchain Service](send-transaction.md)
+> [Skapa, skapa och distribuera smarta avtal i Azure blockchain-tjänsten](send-transaction.md)

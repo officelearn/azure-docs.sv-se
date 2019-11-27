@@ -1,14 +1,14 @@
 ---
-title: FedRAMP för måttlig skiss – kontroll mappning
+title: FedRAMP, måttliga skiss exempel kontroller
 description: Kontroll mappning av exemplet på FedRAMP-måttlig skiss. Varje kontroll mappas till en eller flera Azure-principer som hjälper till med utvärderingen.
 ms.date: 10/31/2019
 ms.topic: sample
-ms.openlocfilehash: 1bf87ef1b5116b086797b8521268bd4575970925
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 0ecf5430f643ee795f81759f3d07a062e433f5b6
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74032349"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74544558"
 ---
 # <a name="control-mapping-of-the-fedramp-moderate-blueprint-sample"></a>Kontroll mappning för exemplet på FedRAMP-måttlig skiss
 
@@ -87,11 +87,11 @@ Den här skissen hjälper dig att se till att system händelser loggas genom att
 
 - \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
 - \[för hands version\]: granska Log Analytics agent distribution i VMSS-VM-avbildningen (OS) visas inte
-- \[Förhandsversion av\]: granska Log Analytics-arbetsyta för virtuell dator – rapportera matchningsfel
+- \[för hands version\]: granska Log Analytics arbets yta för VM-rapportera fel
 - \[för hands version\]: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
-- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Linux-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
 - \[för hands version\]: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
-- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Windows-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
 - Granska diagnostikinställning
 - Granskning på SQL Server måste vara aktiverat
 - Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser
@@ -262,11 +262,11 @@ Den här skissen hjälper dig att övervaka systemet genom att granska och framt
 
 - \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
 - \[för hands version\]: granska Log Analytics agent distribution i VMSS-VM-avbildningen (OS) visas inte
-- \[Förhandsversion av\]: granska Log Analytics-arbetsyta för virtuell dator – rapportera matchningsfel
+- \[för hands version\]: granska Log Analytics arbets yta för VM-rapportera fel
 - \[för hands version\]: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
-- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Linux-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
 - \[för hands version\]: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
-- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Windows-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
 - Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser
 - Avancerad datasäkerhet bör aktiveras på dina SQL-servrar
 - Distribuera avancerad data säkerhet på SQL-servrar

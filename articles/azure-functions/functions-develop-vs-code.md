@@ -1,6 +1,6 @@
 ---
-title: Develop Azure Functions by using Visual Studio Code
-description: Learn how to develop and test Azure Functions by using the Azure Functions extension for Visual Studio Code.
+title: Utveckla Azure Functions med Visual Studio Code
+description: Lär dig hur du utvecklar och testar Azure Functions med hjälp av Azure Functions-tillägget för Visual Studio Code.
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.openlocfilehash: f9ad40cd50863990b9af629c77321195dce5e97c
@@ -10,89 +10,89 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74227059"
 ---
-# <a name="develop-azure-functions-by-using-visual-studio-code"></a>Develop Azure Functions by using Visual Studio Code
+# <a name="develop-azure-functions-by-using-visual-studio-code"></a>Utveckla Azure Functions med Visual Studio Code
 
-The [Azure Functions-tillägg för Visual Studio Code] lets you locally develop functions and deploy them to Azure. If this experience is your first with Azure Functions, you can learn more at [An introduction to Azure Functions](functions-overview.md).
+Med [Azure Functions-tillägg för Visual Studio Code] kan du lokalt utveckla funktioner och distribuera dem till Azure. Om den här upplevelsen är din första med Azure Functions kan du läsa mer i [Introduktion till Azure Functions](functions-overview.md).
 
-The Azure Functions extension provides these benefits:
+Azure Functions tillägget ger följande fördelar:
 
-* Edit, build, and run functions on your local development computer.
-* Publish your Azure Functions project directly to Azure.
-* Write your functions in various languages while taking advantage of the benefits of Visual Studio Code.
+* Redigera, skapa och kör funktioner på din lokala utvecklings dator.
+* Publicera Azure Functions-projektet direkt till Azure.
+* Skriv dina funktioner på olika språk och dra nytta av fördelarna med Visual Studio Code.
 
-The extension can be used with the following languages, which are supported by the Azure Functions version 2.x runtime:
+Tillägget kan användas med följande språk, som stöds av Azure Functions version 2. x Runtime:
 
-* [C# compiled](functions-dotnet-class-library.md)
-* [C# script](functions-reference-csharp.md)<sup>*</sup>
+* [C#samman](functions-dotnet-class-library.md)
+* <sup></sup> [ C# skript](functions-reference-csharp.md)*
 * [JavaScript](functions-reference-node.md)
 * [Java](functions-reference-java.md)
 * [PowerShell](functions-reference-powershell.md)
 * [Python](functions-reference-python.md)
 
-<sup>*</sup>Requires that you [set C# script as your default project language](#c-script-projects).
+<sup>*</sup> Kräver att du [anger C# skript som standard språk för projektet](#c-script-projects).
 
-In this article, examples are currently available only for JavaScript (Node.js) and C# class library functions.  
+I den här artikeln är exempel för närvarande endast tillgängliga för Java Script (Node. js C# ) och klass biblioteks funktioner.  
 
-This article provides details about how to use the Azure Functions extension to develop functions and publish them to Azure. Before you read this article, you should [create your first function by using Visual Studio Code](functions-create-first-function-vs-code.md).
+Den här artikeln innehåller information om hur du använder Azure Functions-tillägget för att utveckla funktioner och publicera dem i Azure. Innan du läser den här artikeln bör du [skapa din första funktion med hjälp av Visual Studio Code](functions-create-first-function-vs-code.md).
 
 > [!IMPORTANT]
-> Don't mix local development and portal development for a single function app. When you publish from a local project to a function app, the deployment process overwrites any functions that you developed in the portal.
+> Blanda inte lokal utveckling och Portal utveckling för en enda Function-app. När du publicerar från ett lokalt projekt till en Function-app skriver distributions processen över alla funktioner som du har utvecklat i portalen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Before you install and run the [Azure Functions extension][azure functions-tillägg för visual studio code], you must meet these requirements:
+Innan du installerar och kör tillägget [Azure Functions extension][azure functions-tillägg för visual studio code]måste du uppfylla följande krav:
 
-* [Visual Studio Code](https://code.visualstudio.com/) installed on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
+* [Visual Studio Code](https://code.visualstudio.com/) installerat på någon av de [plattformar som stöds](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
 * En aktiv Azure-prenumeration.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Other resources that you need, like an Azure storage account, are created in your subscription when you [publish by using Visual Studio Code](#publish-to-azure).
+Andra resurser som du behöver, till exempel ett Azure Storage-konto, skapas i prenumerationen när du [publicerar med hjälp av Visual Studio Code](#publish-to-azure).
 
 > [!IMPORTANT]
-> You can develop functions locally and publish them to Azure without having to start and run them locally. To run your functions locally, you'll need to meet some additional requirements, including an automatic download of Azure Functions Core Tools. To learn more, see [Additional requirements for running a project locally](#additional-requirements-for-running-a-project-locally).
+> Du kan utveckla funktioner lokalt och publicera dem i Azure utan att behöva starta och köra dem lokalt. Om du vill köra dina funktioner lokalt måste du uppfylla vissa ytterligare krav, inklusive en automatisk nedladdning av Azure Functions Core Tools. Mer information finns i [ytterligare krav för att köra ett projekt lokalt](#additional-requirements-for-running-a-project-locally).
 
 [!INCLUDE [functions-install-vs-code-extension](../../includes/functions-install-vs-code-extension.md)]
 
 ## <a name="create-an-azure-functions-project"></a>Skapa ett Azure Functions-projekt
 
-The Functions extension lets you create a function app project, along with your first function. The following steps show how to create an HTTP-triggered function in a new Functions project. [HTTP trigger](functions-bindings-http-webhook.md) is the simplest function trigger template to demonstrate.
+Med funktionen Functions kan du skapa ett app-projekt med funktioner, tillsammans med din första funktion. Följande steg visar hur du skapar en HTTP-utlöst funktion i ett nytt Functions-projekt. [Http-utlösare](functions-bindings-http-webhook.md) är den enklaste funktions utlösaren att demonstrera.
 
-1. From **Azure: Functions**, select the **Create Function** icon:
+1. Från **Azure: Functions**väljer du ikonen **skapa funktion** :
 
     ![Skapa en funktion](./media/functions-develop-vs-code/create-function.png)
 
-1. Select the folder for your function app project, and then **Select a language for your function project**.
+1. Välj mappen för ditt Function app-projekt och välj sedan **ett språk för ditt funktions projekt**.
 
-1. Select the **HTTP trigger** function template, or you can select **Skip for now** to create a project without a function. You can always [add a function to your project](#add-a-function-to-your-project) later.
+1. Välj mallen **http-utlösare** , eller så kan du välja **hoppa över för** att skapa ett projekt utan en funktion. Du kan alltid [lägga till en funktion i projektet](#add-a-function-to-your-project) senare.
 
     ![Välj mallen HTTP-utlösare](./media/functions-develop-vs-code/create-function-choose-template.png)
 
-1. Type **HTTPTrigger** for the function name and select Enter, and then select **Function** authorization. This authorization level requires you to provide a [function key](functions-bindings-http-webhook.md#authorization-keys) when you call the function endpoint.
+1. Skriv **HTTPTrigger** som funktions namn och välj Ange, och välj sedan **funktion** auktorisering. Den här behörighets nivån kräver att du anger en [funktions nyckel](functions-bindings-http-webhook.md#authorization-keys) när du anropar funktions slut punkten.
 
-    ![Select Function authorization](./media/functions-develop-vs-code/create-function-auth.png)
+    ![Välj funktions auktorisering](./media/functions-develop-vs-code/create-function-auth.png)
 
-    A function is created in your chosen language and in the template for an HTTP-triggered function.
+    En funktion skapas på ditt valda språk och används i mallen för en HTTP-utlöst funktion.
 
-    ![HTTP-triggered function template in Visual Studio Code](./media/functions-develop-vs-code/new-function-full.png)
+    ![Mall för HTTP-utlöst funktion i Visual Studio Code](./media/functions-develop-vs-code/new-function-full.png)
 
-The project template creates a project in your chosen language and installs required dependencies. For any language, the new project has these files:
+Projekt mal len skapar ett projekt i ditt valda språk och installerar nödvändiga beroenden. För alla språk har det nya projektet följande filer:
 
-* **host.json**: Lets you configure the Functions host. These settings apply when you're running functions locally and when you're running them in Azure. For more information, see [host.json reference](functions-host-json.md).
+* **Host. JSON**: gör att du kan konfigurera funktions värden. Dessa inställningar gäller när du kör funktioner lokalt och när du kör dem i Azure. Mer information finns i [Host. JSON-referens](functions-host-json.md).
 
-* **local.settings.json**: Maintains settings used when you're running functions locally. These settings are used only when you're running functions locally. For more information, see [Local settings file](#local-settings-file).
+* **Local. Settings. JSON**: hanterar inställningar som används när du kör funktioner lokalt. De här inställningarna används endast när du kör funktioner lokalt. Mer information finns i [filen med lokala inställningar](#local-settings-file).
 
     >[!IMPORTANT]
-    >Because the local.settings.json file can contain secrets, you need to exclude it from your project source control.
+    >Eftersom filen Local. Settings. JSON kan innehålla hemligheter måste du undanta den från projekt käll kontrollen.
 
-At this point, you can add input and output bindings to your function by [modifying the function.json file](#add-a-function-to-your-project) or by [adding a parameter to a C# class library function](#add-a-function-to-your-project).
+Nu kan du lägga till indata och utgående bindningar i din funktion genom att [ändra function. JSON-filen](#add-a-function-to-your-project) eller genom [att lägga till en parameter C# i en klass biblioteks funktion](#add-a-function-to-your-project).
 
-You can also [add a new function to your project](#add-a-function-to-your-project).
+Du kan också [lägga till en ny funktion i projektet](#add-a-function-to-your-project).
 
 ## <a name="install-binding-extensions"></a>Installera bindningstillägg
 
-Except for HTTP and timer triggers, bindings are implemented in extension packages. You must install the extension packages for the triggers and bindings that need them. The process for installing binding extensions depends on your project's language.
+Med undantag för HTTP-och timer-utlösare implementeras bindningar i tilläggs paket. Du måste installera tilläggs paketen för de utlösare och bindningar som behöver dem. Processen för att installera bindnings tillägg beror på ditt projekts språk.
 
 # <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
@@ -100,7 +100,7 @@ Except for HTTP and timer triggers, bindings are implemented in extension packag
 
 # <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
-Run the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in the Terminal window to install the extension packages that you need in your project. The following command installs the Azure Storage extension, which implements bindings for Blob, Queue, and Table storage.
+Kör kommandot [dotNet Lägg till paket](/dotnet/core/tools/dotnet-add-package) i terminalfönstret för att installera de tilläggs paket som du behöver i projektet. Följande kommando installerar Azure Storage-tillägget, som implementerar bindningar för BLOB-, Queue-och table-lagring.
 
 ```bash
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
@@ -108,45 +108,45 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 
 ---
 
-## <a name="add-a-function-to-your-project"></a>Add a function to your project
+## <a name="add-a-function-to-your-project"></a>Lägg till en funktion i projektet
 
-You can add a new function to an existing project by using one of the predefined Functions trigger templates. To add a new function trigger, select F1 to open the command palette, and then search for and run the command **Azure Functions: Create Function**. Follow the prompts to choose your trigger type and define the required attributes of the trigger. If your trigger requires an access key or connection string to connect to a service, get it ready before you create the function trigger.
+Du kan lägga till en ny funktion i ett befintligt projekt med hjälp av en av de fördefinierade funktionerna utlöser mallarna. Om du vill lägga till en ny funktions utlösare väljer du F1 för att öppna kommando-paletten och söker sedan efter och kör kommandot **Azure Functions: skapa funktion**. Följ anvisningarna för att välja utlösnings typ och definiera de attribut som krävs för utlösaren. Om utlösaren kräver en åtkomst nyckel eller anslutnings sträng för att ansluta till en tjänst ska du få den redo innan du skapar funktions utlösaren.
 
-The results of this action depend on your project's language:
+Resultatet av den här åtgärden beror på projektets språk:
 
 # <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
-A new folder is created in the project. The folder contains a new function.json file and the new JavaScript code file.
+En ny mapp skapas i projektet. Mappen innehåller en ny function. JSON-fil och den nya JavaScript-koden.
 
 # <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
-A new C# class library (.cs) file is added to your project.
+En ny C# klass biblioteks fil (. CS) läggs till i projektet.
 
 ---
 
-## <a name="add-input-and-output-bindings"></a>Add input and output bindings
+## <a name="add-input-and-output-bindings"></a>Lägg till indata och utgående bindningar
 
-You can expand your function by adding input and output bindings. The process for adding bindings depends on your project's language. To learn more about bindings, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
+Du kan utöka din funktion genom att lägga till indata och utgående bindningar. Processen för att lägga till bindningar beror på ditt projekts språk. Mer information om bindningar finns i [Azure Functions utlösare och bindningar begrepp](functions-triggers-bindings.md).
 
-The following examples connect to a storage queue named `outqueue`, where the connection string for the storage account is set in the `MyStorageConnection` application setting in local.settings.json.
+Följande exempel ansluter till en lagrings kö med namnet `outqueue`, där anslutnings strängen för lagrings kontot anges i inställningen `MyStorageConnection` program i Local. Settings. JSON.
 
 # <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
-Visual Studio Code lets you add bindings to your function.json file by following a convenient set of prompts. To create a binding, right-click (Ctrl+click on macOS) the **function.json** file in your function folder and select **Add binding**:
+Med Visual Studio Code kan du lägga till bindningar i din function. JSON-fil genom att följa en behändig uppsättning prompter. Om du vill skapa en bindning högerklickar du på (Ctrl + klicka på macOS) i filen **Function. JSON** i mappen Function och väljer **Lägg till bindning**:
 
-![Add a binding to an existing JavaScript function ](media/functions-develop-vs-code/function-add-binding.png)
+![Lägga till en bindning till en befintlig JavaScript-funktion ](media/functions-develop-vs-code/function-add-binding.png)
 
-Following are example prompts to define a new storage output binding:
+I följande exempel uppmanas du att definiera en ny bindning för lagring av utdata:
 
-| Uppmaning | Värde | Beskrivning |
+| Uppmaning | Value | Beskrivning |
 | -------- | ----- | ----------- |
-| **Select binding direction** | `out` | The binding is an output binding. |
-| **Select binding with direction** | `Azure Queue Storage` | The binding is an Azure Storage queue binding. |
-| **The name used to identify this binding in your code** | `msg` | Name that identifies the binding parameter referenced in your code. |
-| **The queue to which the message will be sent** | `outqueue` | The name of the queue that the binding writes to. When the *queueName* doesn't exist, the binding creates it on first use. |
-| **Select setting from "local.setting.json"** | `MyStorageConnection` | The name of an application setting that contains the connection string for the storage account. The `AzureWebJobsStorage` setting contains the connection string for the storage account you created with the function app. |
+| **Välj bindnings riktning** | `out` | Bindningen är en utgående bindning. |
+| **Välj bindning med riktning** | `Azure Queue Storage` | Bindningen är en Azure Storage Queue-bindning. |
+| **Namnet som används för att identifiera den här bindningen i din kod** | `msg` | Namn som identifierar den bindnings parameter som refereras till i din kod. |
+| **Kön som meddelandet ska skickas till** | `outqueue` | Namnet på kön som bindningen skriver till. När *queueName* inte finns skapar bindningen den när den används första gången. |
+| **Välj inställning från "lokal. Setting. JSON"** | `MyStorageConnection` | Namnet på en program inställning som innehåller anslutnings strängen för lagrings kontot. Inställningen `AzureWebJobsStorage` innehåller anslutnings strängen för det lagrings konto som du skapade med Function-appen. |
 
-In this example, the following binding is added to the `bindings` array in your function.json file:
+I det här exemplet läggs följande bindning till i `bindings` matrisen i din function. JSON-fil:
 
 ```javascript
 {
@@ -158,25 +158,25 @@ In this example, the following binding is added to the `bindings` array in your 
 }
 ```
 
-You can also add the same binding definition directly to your function.json.
+Du kan också lägga till samma bindnings definition direkt i function. JSON.
 
-In your function code, the `msg` binding is accessed from the `context`, as in this example:
+I funktions koden nås `msg` bindningen från `context`, som i det här exemplet:
 
 ```javascript
 context.bindings.msg = "Name passed to the function: " req.query.name;
 ```
 
-To learn more, see the [Queue storage output binding](functions-bindings-storage-queue.md#output---javascript-example) reference.
+Mer information finns i [bindnings referens för kö Storage-utdata](functions-bindings-storage-queue.md#output---javascript-example) .
 
 # <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
-Update the function method to add the following parameter to the `Run` method definition:
+Uppdatera funktions metoden för att lägga till följande parameter i definitions metoden för `Run`:
 
 ```cs
 [Queue("outqueue"),StorageAccount("MyStorageConnection")] ICollector<string> msg
 ```
 
-This code requires you to add the following `using` statement:
+Den här koden kräver att du lägger till följande `using`-instruktion:
 
 ```cs
 using Microsoft.Azure.WebJobs.Extensions.Storage;
@@ -184,243 +184,243 @@ using Microsoft.Azure.WebJobs.Extensions.Storage;
 
 ---
 
-The `msg` parameter is an `ICollector<T>` type, which represents a collection of messages that are written to an output binding when the function completes. You add one or more messages to the collection. These messages are sent to the queue when the function completes.
+Parametern `msg` är en `ICollector<T>` typ, som representerar en samling meddelanden som skrivs till en utgående bindning när funktionen slutförs. Du lägger till ett eller flera meddelanden i samlingen. Dessa meddelanden skickas till kön när funktionen har slutförts.
 
-To learn more, see the [Queue storage output binding](functions-bindings-storage-queue.md#output---c-example) documentation.
+Mer information finns i dokumentationen för [kö Storage utgående bindning](functions-bindings-storage-queue.md#output---c-example) .
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
 ## <a name="publish-to-azure"></a>Publicera till Azure
 
-Visual Studio Code lets you publish your Functions project directly to Azure. Samtidigt skapar du en funktionsapp och relaterade resurser i Azure-prenumerationen. Funktionsappen är ett körningssammanhang för dina funktioner. Projektet paketeras och distribueras till den nya funktionsappen i Azure-prenumerationen.
+Med Visual Studio Code kan du publicera dina Functions-projekt direkt till Azure. Samtidigt skapar du en funktionsapp och relaterade resurser i Azure-prenumerationen. Funktionsappen är ett körningssammanhang för dina funktioner. Projektet paketeras och distribueras till den nya funktionsappen i Azure-prenumerationen.
 
-When you publish from Visual Studio Code to a new function app in Azure, you are offered both a quick function app create path and an advanced path. 
+När du publicerar från Visual Studio Code till en ny function-app i Azure, erbjuds du både en snabb funktion för att skapa en sökväg och en avancerad sökväg. 
 
-When you publish from Visual Studio Code, you take advantage of the [Zip deploy](functions-deployment-technologies.md#zip-deploy) technology. 
+När du publicerar från Visual Studio Code kan du utnyttja [zip Deploy](functions-deployment-technologies.md#zip-deploy) -tekniken. 
 
-### <a name="quick-function-app-create"></a>Quick function app create
+### <a name="quick-function-app-create"></a>Snabb funktion appen skapa
 
-When you choose **+ Create new function app in Azure...** , the extension automatically generates values for the Azure resources needed by your function app. These values are based on the function app name that you choose. For an example of using defaults to publish your project to a new function app in Azure, see the [Visual Studio Code quickstart article](functions-create-first-function-vs-code.md#publish-the-project-to-azure).
+När du väljer **+ Skapa ny function-app i Azure...** genererar tillägget automatiskt värden för de Azure-resurser som krävs av din Function-app. Dessa värden baseras på det funktionens program namn som du väljer. Ett exempel på hur du använder standardvärden för att publicera projektet till en ny function-app i Azure finns i [artikeln snabb start för Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure).
 
-If you want to provide explicit names for the created resources, you must choose the advanced create path.
+Om du vill ange explicita namn för de skapade resurserna måste du välja den avancerade skapa sökvägen.
 
-### <a name="enable-publishing-with-advanced-create-options"></a>Publish a project to a new function app in Azure by using advanced options
+### <a name="enable-publishing-with-advanced-create-options"></a>Publicera ett projekt i en ny function-app i Azure med hjälp av avancerade alternativ
 
-The following steps publish your project to a new function app created with advanced create options:
+Följande steg publicerar projektet till en ny function-app som skapats med avancerade skapande alternativ:
 
-1. In the **Azure: Functions** area, select the **Deploy to Function App** icon.
+1. I avsnittet **Azure: Functions** väljer du ikonen **distribuera till Funktionsapp** .
 
     ![Funktionsappinställningar](./media/functions-develop-vs-code/function-app-publish-project.png)
 
-1. If you're not signed in, you're prompted to **Sign in to Azure**. You can also **Create a free Azure account**. After signing in from the browser, go back to Visual Studio Code.
+1. Om du inte är inloggad uppmanas du att **Logga in på Azure**. Du kan också **skapa ett kostnads fritt Azure-konto**. När du har loggat in från webbläsaren går du tillbaka till Visual Studio Code.
 
-1. If you have multiple subscriptions, **Select a subscription** for the function app, and then select **+ Create New Function App in Azure... _Advanced_** . This _Advanced_ option gives you more control over the resources you create in Azure. 
+1. Om du har flera prenumerationer **väljer du en prenumeration** för Function-appen och väljer sedan **+ Skapa ny Funktionsapp i Azure... _Avancerat_** . Det här _avancerade_ alternativet ger dig större kontroll över de resurser som du skapar i Azure. 
 
-1. Following the prompts, provide this information:
+1. Ange följande information i meddelandet:
 
-    | Uppmaning | Värde | Beskrivning |
+    | Uppmaning | Value | Beskrivning |
     | ------ | ----- | ----------- |
-    | Select function app in Azure | Create New Function App in Azure | At the next prompt, type a globally unique name that identifies your new function app and then select Enter. Giltiga tecken i ett namn på en funktionsapp är `a-z`, `0-9` och `-`. |
-    | Select an OS | Windows | The function app runs on Windows. |
-    | Select a hosting plan | Förbrukningsplan | A serverless [Consumption plan hosting](functions-scale.md#consumption-plan) is used. |
-    | Select a runtime for your new app | Your project language | The runtime must match the project that you're publishing. |
-    | Select a resource group for new resources | Create New Resource Group | At the next prompt, type a resource group name, like `myResourceGroup`, and then select enter. You can also select an existing resource group. |
-    | Select a storage account | Skapa ett nytt lagringskonto | At the next prompt, type a globally unique name for the new storage account used by your function app and then select Enter. Storage account names must be between 3 and 24 characters long and can contain only numbers and lowercase letters. You can also select an existing account. |
-    | Select a location for new resources | regionen | Select a location in a [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. |
+    | Välj Function-app i Azure | Skapa nya Funktionsapp i Azure | I nästa prompt, ange ett globalt unikt namn som identifierar din nya Function-app och välj sedan Retur. Giltiga tecken i ett namn på en funktionsapp är `a-z`, `0-9` och `-`. |
+    | Välj ett operativ system | Windows | Function-appen körs i Windows. |
+    | Välj en värd plan | Förbrukningsplan | En server lös [förbruknings Plans värd](functions-scale.md#consumption-plan) används. |
+    | Välj en körnings miljö för den nya appen | Ditt projekt språk | Körningen måste matcha projektet som du publicerar. |
+    | Välj en resurs grupp för nya resurser | Skapa ny resurs grupp | Vid nästa prompt skriver du ett resurs grupp namn, till exempel `myResourceGroup`, och väljer sedan Retur. Du kan också välja en befintlig resurs grupp. |
+    | Välj ett lagrings konto | Skapa ett nytt lagringskonto | Vid nästa prompt skriver du ett globalt unikt namn för det nya lagrings kontot som används av din Function-app och väljer sedan Retur. Lagrings konto namn måste innehålla mellan 3 och 24 tecken och får bara innehålla siffror och gemena bokstäver. Du kan också välja ett befintligt konto. |
+    | Välj en plats för nya resurser | region | Välj en plats i en [region](https://azure.microsoft.com/regions/) nära dig eller nära andra tjänster som dina funktioner har åtkomst till. |
 
-    A notification appears after your function app is created and the deployment package is applied. Select **View Output** in this notification to view the creation and deployment results, including the Azure resources that you created.
+    Ett meddelande visas när din Function-app har skapats och distributions paketet används. Välj **Visa utdata** i det här meddelandet för att Visa skapande-och distributions resultaten, inklusive de Azure-resurser som du har skapat.
 
-## <a name="republish-project-files"></a>Republish project files
+## <a name="republish-project-files"></a>Publicera projektfiler igen
 
-When you set up [continuous deployment](functions-continuous-deployment.md), your function app in Azure is updated whenever source files are updated in the connected source location. We recommend continuous deployment, but you can also republish your project file updates from Visual Studio Code.
+När du konfigurerar [kontinuerlig distribution](functions-continuous-deployment.md)uppdateras din Function-app i Azure varje gång källfiler uppdateras på den anslutna käll platsen. Vi rekommenderar kontinuerlig distribution, men du kan också publicera om projekt fil uppdateringar från Visual Studio Code.
 
 > [!IMPORTANT]
 > Om du publicerar till en befintlig funktionsapp skrivs innehållet i den appen över i Azure.
 
-1. In Visual Studio Code, select F1 to open the command palette. In the command palette, search for and select **Azure Functions: Deploy to function app**.
+1. I Visual Studio Code väljer du F1 för att öppna kommando paletten. I paletten kommando söker du efter och väljer **Azure Functions: distribuera till Function-appen**.
 
-1. If you're not signed in, you're prompted to **Sign in to Azure**. After you sign in from the browser, go back to Visual Studio Code. If you have multiple subscriptions, **Select a subscription** that contains your function app.
+1. Om du inte är inloggad uppmanas du att **Logga in på Azure**. När du har loggat in från webbläsaren går du tillbaka till Visual Studio Code. Om du har flera prenumerationer **väljer du en prenumeration** som innehåller din Function-app.
 
-1. Select your existing function app in Azure. When you're warned about overwriting all files in the function app, select **Deploy** to acknowledge the warning and continue.
+1. Välj din befintliga Function-app i Azure. När du varnas om att skriva över alla filer i Function-appen väljer du **distribuera** för att bekräfta varningen och fortsätta.
 
-The project is rebuilt, repackaged, and uploaded to Azure. The existing project is replaced by the new package, and the function app restarts.
+Projektet har återskapats, paketerats om och laddats upp till Azure. Det befintliga projektet ersätts av det nya paketet och Function-appen startas om.
 
-## <a name="get-the-url-of-the-deployed-function"></a>Get the URL of the deployed function
+## <a name="get-the-url-of-the-deployed-function"></a>Hämta URL: en för den distribuerade funktionen
 
-To call an HTTP-triggered function, you need the URL of the function when it's deployed to your function app. This URL includes any required [function keys](functions-bindings-http-webhook.md#authorization-keys). You can use the extension to get these URLs for your deployed functions.
+Om du vill anropa en HTTP-utlöst funktion behöver du URL: en för funktionen när den distribueras till Function-appen. Denna URL innehåller alla nödvändiga [funktions nycklar](functions-bindings-http-webhook.md#authorization-keys). Du kan använda tillägget för att hämta dessa URL: er för dina distribuerade funktioner.
 
-1. Select F1 to open the command palette, and then search for and run the command **Azure Functions: Copy Function URL**.
+1. Välj F1 för att öppna kommando-paletten och Sök sedan efter och kör kommandot **Azure Functions: kopierings funktions webb adress**.
 
-1. Follow the prompts to select your function app in Azure and then the specific HTTP trigger that you want to invoke.
+1. Följ anvisningarna för att välja din Function-app i Azure och sedan den speciella HTTP-utlösare som du vill anropa.
 
-The function URL is copied to the clipboard, along with any required keys passed by the `code` query parameter. Use an HTTP tool to submit POST requests, or a browser for GET requests to the remote function.  
+Funktions webb adressen kopieras till Urklipp, tillsammans med eventuella obligatoriska nycklar som skickas av den `code` Frågeparametern. Använd ett HTTP-verktyg för att skicka POST-förfrågningar eller en webbläsare för GET-begäranden till fjärrfunktionen.  
 
-## <a name="run-functions-locally"></a>Run functions locally
+## <a name="run-functions-locally"></a>Köra funktioner lokalt
 
-The Azure Functions extension lets you run a Functions project on your local development computer. The local runtime is the same runtime that hosts your function app in Azure. Local settings are read from the [local.settings.json file](#local-settings-file).
+Med tillägget Azure Functions kan du köra ett Functions-projekt på din lokala utvecklings dator. Den lokala körnings miljön är samma körning som är värd för din Function-app i Azure. Lokala inställningar läses från [filen Local. Settings. JSON](#local-settings-file).
 
-### <a name="additional-requirements-for-running-a-project-locally"></a>Additional requirements for running a project locally
+### <a name="additional-requirements-for-running-a-project-locally"></a>Ytterligare krav för att köra ett projekt lokalt
 
-To run your Functions project locally, you must meet these additional requirements:
+För att köra ett Functions-projekt lokalt måste du uppfylla följande ytterligare krav:
 
-* Install version 2.x of [Azure Functions Core Tools](functions-run-local.md#v2). The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools includes the entire Azure Functions runtime, so download and installation might take some time.
+* Installera version 2. x av [Azure Functions Core tools](functions-run-local.md#v2). Core Tools-paketet hämtas och installeras automatiskt när du startar projektet lokalt. Kärn verktyg omfattar hela Azure Functions runtime, så hämtning och installation kan ta lite tid.
 
 * Installera de specifika kraven för ditt valda språk:
 
     | Språk | Krav |
     | -------- | --------- |
-    | **C#** | [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[.NET Core CLI tools](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
-    | **Java** | [Debugger for Java extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3 or later](https://maven.apache.org/) |
-    | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> |  
-    | **Python** | [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[Python 3.6.8](https://www.python.org/downloads/) recommended|
+    | **C#** | [C#utöka](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[.NET Core CLI verktyg](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
+    | **Java** | [Fel sökare för Java-tillägg](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3 eller senare](https://maven.apache.org/) |
+    | **JavaScript** | [Node. js](https://nodejs.org/) -<sup>*</sup> |  
+    | **Python** | [Python-tillägg](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[Python-3.6.8](https://www.python.org/downloads/) rekommenderas|
 
-    <sup>*</sup>Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
+    <sup>*</sup> Aktiva LTS-och underhålls LTS-versioner (8.11.1 och 10.14.1 rekommenderas).
 
-### <a name="configure-the-project-to-run-locally"></a>Configure the project to run locally
+### <a name="configure-the-project-to-run-locally"></a>Konfigurera projektet för att köras lokalt
 
-The Functions runtime uses an Azure Storage account internally for all trigger types other than HTTP and webhooks. So you need to set the **Values.AzureWebJobsStorage** key to a valid Azure Storage account connection string.
+Functions-körningen använder ett Azure Storage-konto internt för alla utlösare typer förutom HTTP och Webhooks. Du måste ange **Values. AzureWebJobsStorage** -nyckeln till en giltig anslutnings sträng för Azure Storage konto.
 
-This section uses the [Azure Storage extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) with [Azure Storage Explorer](https://storageexplorer.com/) to connect to and retrieve the storage connection string.
+I det här avsnittet används [Azure Storage tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) med [Azure Storage Explorer](https://storageexplorer.com/) för att ansluta till och hämta anslutnings strängen för lagring.
 
-To set the storage account connection string:
+Så här anger du anslutnings strängen för lagrings kontot:
 
-1. In Visual Studio, open **Cloud Explorer**, expand **Storage Account** > **Your Storage Account**, and then select **Properties** and copy the **Primary Connection String** value.
+1. Öppna **Cloud Explorer**i Visual Studio, expandera **lagrings konto** > **ditt lagrings konto**och välj sedan **Egenskaper** och kopiera värdet för **primär anslutnings sträng** .
 
-2. In your project, open the local.settings.json file and set the value of the **AzureWebJobsStorage** key to the connection string you copied.
+2. Öppna filen Local. Settings. json i projektet och ange värdet för **AzureWebJobsStorage** -nyckeln till den anslutnings sträng som du kopierade.
 
-3. Repeat the previous step to add unique keys to the **Values** array for any other connections required by your functions.
+3. Upprepa föregående steg för att lägga till unika nycklar i **matrisen** Arrays för alla andra anslutningar som krävs av dina funktioner.
 
-For more information, see [Local settings file](#local-settings-file).
+Mer information finns i [filen med lokala inställningar](#local-settings-file).
 
-### <a name="debugging-functions-locally"></a>Debugging functions locally  
+### <a name="debugging-functions-locally"></a>Felsöka funktioner lokalt  
 
-To debug your functions, select F5. If you haven't already downloaded [Core Tools][Azure Functions Core Tools], you're prompted to do so. When Core Tools is installed and running, output is shown in the Terminal. This is the same as running the `func host start` Core Tools command from the Terminal, but with additional build tasks and an attached debugger.  
+Om du vill felsöka funktionerna väljer du F5. Om du inte redan har hämtat [Core Tools][Azure Functions Core tools]uppmanas du att göra det. När Core Tools är installerat och körs visas utdata i terminalen. Detta är detsamma som att köra kommandot `func host start` Core tools från terminalen, men med ytterligare build-uppgifter och en bifogad fel sökare.  
 
-When the project is running, you can trigger your functions as you would when the project is deployed to Azure. When the project is running in debug mode, breakpoints are hit in Visual Studio Code, as expected.
+När projektet körs kan du utlösa funktioner på samma sätt som när projektet distribueras till Azure. När projektet körs i fel söknings läge, trycks Bryt punkter i Visual Studio Code, som förväntat.
 
-The request URL for HTTP triggers is displayed in the output in the Terminal. Function keys for HTTP triggers aren't used when a project is running locally. For more information, see [Strategies for testing your code in Azure Functions](functions-test-a-function.md).  
+Begär ande-URL: en för HTTP-utlösare visas i utdata i terminalen. Funktions nycklar för HTTP-utlösare används inte när ett projekt körs lokalt. Mer information finns i [strategier för att testa koden i Azure Functions](functions-test-a-function.md).  
 
-To learn more, see [Work with Azure Functions Core Tools][Azure Functions Core Tools].
+Mer information finns i [arbeta med Azure Functions Core Tools][Azure Functions Core tools].
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
-By default, these settings aren't migrated automatically when the project is published to Azure. After publishing finishes, you're given the option of publishing settings from local.settings.json to your function app in Azure. To learn more, see  [Publish application settings](#publish-application-settings).
+Som standard migreras de här inställningarna inte automatiskt när projektet publiceras till Azure. När publiceringen är klar får du möjlighet att publicera inställningar från Local. Settings. JSON till din Function-app i Azure. Läs mer i [Publicera program inställningar](#publish-application-settings).
 
-Values in **ConnectionStrings** are never published.
+Värden i **ConnectionString** publiceras aldrig.
 
-The function application settings values can also be read in your code as environment variables. For more information, see the Environment variables sections of these language-specific reference articles:
+Värdena för funktionen Application Setting kan också läsas i koden som miljövariabler. Mer information finns i avsnittet miljövariabler i dessa språkspecifika referens artiklar:
 
-* [C# precompiled](functions-dotnet-class-library.md#environment-variables)
-* [C# script (.csx)](functions-reference-csharp.md#environment-variables)
+* [C#förkompilerade](functions-dotnet-class-library.md#environment-variables)
+* [C#skript (. CSX)](functions-reference-csharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
 
-## <a name="application-settings-in-azure"></a>Application settings in Azure
+## <a name="application-settings-in-azure"></a>Program inställningar i Azure
 
-The settings in the local.settings.json file in your project should be the same as the application settings in the function app in Azure. Any settings you add to local.settings.json must also be added to the function app in Azure. These settings aren't uploaded automatically when you publish the project. Likewise, any settings that you create in your function app [in the portal](functions-how-to-use-azure-function-app-settings.md#settings) must be downloaded to your local project.
+Inställningarna i filen Local. Settings. json i projektet bör vara samma som program inställningarna i Function-appen i Azure. Alla inställningar som du lägger till lokalt. Settings. JSON måste också läggas till i Function-appen i Azure. De här inställningarna laddas inte upp automatiskt när du publicerar projektet. På samma sätt måste alla inställningar som du skapar i din Function-app [i portalen](functions-how-to-use-azure-function-app-settings.md#settings) hämtas till det lokala projektet.
 
-### <a name="publish-application-settings"></a>Publish application settings
+### <a name="publish-application-settings"></a>Publicera program inställningar
 
-The easiest way to publish the required settings to your function app in Azure is to use the **Upload settings** link that appears after you publish your project:
+Det enklaste sättet att publicera de nödvändiga inställningarna till din Function-app i Azure är att använda länken **upload Settings** som visas när du har publicerat projektet:
 
-![Upload application settings](./media/functions-develop-vs-code/upload-app-settings.png)
+![Ladda upp program inställningar](./media/functions-develop-vs-code/upload-app-settings.png)
 
-You can also publish settings by using the **Azure Functions: Upload Local Setting** command in the command palette. You can add individual settings to application settings in Azure by using the **Azure Functions: Add New Setting** command.
+Du kan också publicera inställningar genom att använda kommandot **Azure Functions: Ladda upp lokal inställning** i paletten kommando. Du kan lägga till enskilda inställningar i program inställningarna i Azure med hjälp av kommandot **Azure Functions: Lägg till ny inställning** .
 
 > [!TIP]
-> Be sure to save your local.settings.json file before you publish it.
+> Se till att spara din lokala. Settings. JSON-fil innan du publicerar den.
 
-If the local file is encrypted, it's decrypted, published, and encrypted again. If there are settings that have conflicting values in the two locations, you're prompted to choose how to proceed.
+Om den lokala filen är krypterad dekrypteras den, publiceras och krypteras igen. Om det finns inställningar som innehåller motstridiga värden på de två platserna, uppmanas du att välja hur du vill fortsätta.
 
-View existing app settings in the **Azure: Functions** area by expanding your subscription, your function app, and **Application Settings**.
+Visa befintliga appinställningar i avsnittet **Azure: Functions** genom att expandera din prenumeration, din Function-app och **program inställningar**.
 
-![View function app settings in Visual Studio Code](./media/functions-develop-vs-code/view-app-settings.png)
+![Visa funktions program inställningar i Visual Studio Code](./media/functions-develop-vs-code/view-app-settings.png)
 
-### <a name="download-settings-from-azure"></a>Download settings from Azure
+### <a name="download-settings-from-azure"></a>Hämta inställningar från Azure
 
-If you've created application settings in Azure, you can download them into your local.settings.json file by using the **Azure Functions: Download Remote Settings** command.
+Om du har skapat program inställningar i Azure kan du ladda ned dem till din lokala. Settings. JSON-fil med hjälp av kommandot **Azure Functions: Hämta Fjärrinställningar** .
 
-As with uploading, if the local file is encrypted, it's decrypted, updated, and encrypted again. If there are settings that have conflicting values in the two locations, you're prompted to choose how to proceed.
+Om den lokala filen är krypterad, dekrypteras, uppdateras och krypteras igen, som vid överföring. Om det finns inställningar som innehåller motstridiga värden på de två platserna, uppmanas du att välja hur du vill fortsätta.
 
-## <a name="monitoring-functions"></a>Monitoring functions
+## <a name="monitoring-functions"></a>Övervaknings funktioner
 
-When you [run functions locally](#run-functions-locally), log data is streamed to the Terminal console. You can also get log data when your Functions project is running in a function app in Azure. You can either connect to streaming logs in Azure to see near-real-time log data, or you can enable Application Insights for a more complete understanding of how your function app is behaving.
+När du [Kör funktioner lokalt](#run-functions-locally)strömmas loggdata till Terminal-konsolen. Du kan också hämta logg data när ditt Functions-projekt körs i en Function-app i Azure. Du kan antingen ansluta till strömmande loggar i Azure om du vill se logg data nästan i real tid, eller så kan du aktivera Application Insights för en mer fullständig förståelse för hur din Function-app fungerar.
 
-### <a name="streaming-logs"></a>Streaming logs
+### <a name="streaming-logs"></a>Strömmande loggar
 
-When you're developing an application, it's often useful to see logging information in near-real time. You can view a stream of log files being generated by your functions. This output is an example of streaming logs for a request to an HTTP-triggered function:
+När du utvecklar ett program är det ofta användbart att se loggnings information i nära real tid. Du kan visa en ström med loggfiler som genereras av dina funktioner. Dessa utdata är ett exempel på strömmande loggar för en begäran till en HTTP-utlöst funktion:
 
-![Streaming logs output for HTTP trigger](media/functions-develop-vs-code/streaming-logs-vscode-console.png)
+![Strömmande loggar utdata för HTTP-utlösare](media/functions-develop-vs-code/streaming-logs-vscode-console.png)
 
-To learn more, see [Streaming logs](functions-monitoring.md#streaming-logs).
+Mer information finns i [strömmande loggar](functions-monitoring.md#streaming-logs).
 
 [!INCLUDE [functions-enable-log-stream-vs-code](../../includes/functions-enable-log-stream-vs-code.md)]
 
 > [!NOTE]
-> Streaming logs support only a single instance of the Functions host. When your function is scaled to multiple instances, data from other instances isn't shown in the log stream. [Live Metrics Stream](../azure-monitor/app/live-stream.md) in Application Insights does support multiple instances. While also in near-real time, streaming analytics is based on [sampled data](functions-monitoring.md#configure-sampling).
+> Strömmande loggar har bara stöd för en enda instans av Functions-värden. När funktionen skalas till flera instanser visas inte data från andra instanser i logg strömmen. [Live Metrics Stream](../azure-monitor/app/live-stream.md) i Application Insights har stöd för flera instanser. Även i nära real tid baseras strömnings analysen på [exempel data](functions-monitoring.md#configure-sampling).
 
 ### <a name="application-insights"></a>Application Insights
 
-We recommend that you monitor the execution of your functions by integrating your function app with Application Insights. When you create a function app in the Azure portal, this integration occurs by default. When you create your function app during Visual Studio publishing, you need to integrate Application Insights yourself.
+Vi rekommenderar att du övervakar körningen av dina funktioner genom att integrera din Function-app med Application Insights. När du skapar en Function-app i Azure Portal, sker denna integrering som standard. När du skapar en Function-app under Visual Studio-publicering måste du integrera Application Insights dig själv.
 
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
-To learn more, see [Monitor Azure Functions](functions-monitoring.md).
+Mer information finns i [övervaka Azure Functions](functions-monitoring.md).
 
-## <a name="c-script-projects"></a>C\# script projects
+## <a name="c-script-projects"></a>C\# skript projekt
 
-By default, all C# projects are created as [C# compiled class library projects](functions-dotnet-class-library.md). If you prefer to work with C# script projects instead, you must select C# script as the default language in the Azure Functions extension settings:
+Som standard skapas alla C# projekt som [ C# kompilerade klass biblioteks projekt](functions-dotnet-class-library.md). Om du föredrar att arbeta med C# skript projekt i stället måste du välja C# skript som standard språk i inställningarna för Azure Functions-tillägg:
 
-1. Select **File** > **Preferences** > **Settings**.
+1. Välj **fil** > **Inställningar** > **Inställningar**.
 
-1. Go to **User Settings** > **Extensions** > **Azure Functions**.
+1. Gå till **användar inställningar** > **tillägg** > **Azure Functions**.
 
-1. Select **C#Script** from **Azure Function: Project Language**.
+1. Välj **C #-skript** från **Azure Function: projekt språk**.
 
-After you complete these steps, calls made to the underlying Core Tools include the `--csx` option, which generates and publishes C# script (.csx) project files. When you have this default language specified, all projects that you create default to C# script projects. You're not prompted to choose a project language when a default is set. To create projects in other languages, you must change this setting or remove it from the user settings.json file. After you remove this setting, you're again prompted to choose your language when you create a project.
+När du har slutfört de här stegen inkluderar anrop som gjorts till de underliggande kärn verktygen alternativet `--csx`, vilket genererar och C# publicerar projektfiler (. CSX). När du har angett det här standard språket används alla projekt som du skapar C# som standard för skript projekt. Du uppmanas inte att välja ett projekt språk när ett standardvärde har angetts. Om du vill skapa projekt på andra språk måste du ändra den här inställningen eller ta bort den från filen User settings. JSON. När du har tagit bort den här inställningen uppmanas du att välja språk när du skapar ett projekt.
 
-## <a name="command-palette-reference"></a>Command palette reference
+## <a name="command-palette-reference"></a>Referens för kommando-palett
 
-The Azure Functions extension provides a useful graphical interface in the area for interacting with your function apps in Azure. The same functionality is also available as commands in the command palette (F1). These Azure Functions commands are available:
+Azure Functions-tillägget ger ett användbart grafiskt gränssnitt i avsnittet för att interagera med dina funktions program i Azure. Samma funktion är också tillgänglig som kommandon på kommando paletten (F1). Följande Azure Functions kommandon är tillgängliga:
 
-|Azure Functions command  | Beskrivning  |
+|Azure Functions kommando  | Beskrivning  |
 |---------|---------|
-|**Add New Settings**  |  Creates a new application setting in Azure. To learn more, see [Publish application settings](#publish-application-settings). You might also need to [download this setting to your local settings](#download-settings-from-azure). |
-| **Configure Deployment Source** | Connects your function app in Azure to a local Git repository. To learn more, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md). |
-| **Connect to GitHub Repository** | Connects your function app to a GitHub repository. |
-| **Copy Function URL** | Gets the remote URL of an HTTP-triggered function that's running in Azure. To learn more, see [Get the URL of the deployed function](#get-the-url-of-the-deployed-function). |
-| **Create function app in Azure** | Creates a new function app in your subscription in Azure. To learn more, see the section on how to [publish to a new function app in Azure](#publish-to-azure).        |
-| **Decrypt Settings** | Decrypts [local settings](#local-settings-file) that have been encrypted by **Azure Functions: Encrypt Settings**.  |
-| **Delete Function App** | Removes a function app from your subscription in Azure. When there are no other apps in the App Service plan, you're given the option to delete that too. Other resources, like storage accounts and resource groups, aren't deleted. To remove all resources, you should instead [delete the resource group](functions-add-output-binding-storage-queue-vs-code.md#clean-up-resources). Your local project isn't affected. |
-|**Delete Function**  | Removes an existing function from a function app in Azure. Because this deletion doesn't affect your local project, instead consider removing the function locally and then [republishing your project](#republish-project-files). |
-| **Delete Proxy** | Removes an Azure Functions proxy from your function app in Azure. To learn more about proxies, see [Work with Azure Functions Proxies](functions-proxies.md). |
-| **Delete Setting** | Deletes a function app setting in Azure. This deletion doesn't affect settings in your local.settings.json file. |
-| **Disconnect from Repo**  | Removes the [continuous deployment](functions-continuous-deployment.md) connection between a function app in Azure and a source control repository. |
-| **Download Remote Settings** | Downloads settings from the chosen function app in Azure into your local.settings.json file. If the local file is encrypted, it's decrypted, updated, and encrypted again. If there are settings that have conflicting values in the two locations, you're prompted to choose how to proceed. Be sure to save changes to your local.settings.json file before you run this command. |
-| **Edit settings** | Changes the value of an existing function app setting in Azure. This command doesn't affect settings in your local.settings.json file.  |
-| **Encrypt settings** | Encrypts individual items in the `Values` array in the [local settings](#local-settings-file). In this file, `IsEncrypted` is also set to `true`, which specifies that the local runtime will decrypt settings before using them. Encrypt local settings to reduce the risk of leaking valuable information. In Azure, application settings are always stored encrypted. |
-| **Execute Function Now** | Manually starts a [timer-triggered function](functions-bindings-timer.md) in Azure. This command is used for testing. To learn more about triggering non-HTTP functions in Azure, see [Manually run a non HTTP-triggered function](functions-manually-run-non-http.md). |
-| **Initialize Project for Use with VS Code** | Adds the required Visual Studio Code project files to an existing Functions project. Use this command to work with a project that you created by using Core Tools. |
-| **Install or Update Azure Functions Core Tools** | Installs or updates [Azure Functions Core Tools], which is used to run functions locally. |
-| **Redeploy**  | Lets you redeploy project files from a connected Git repository to a specific deployment in Azure. To republish local updates from Visual Studio Code, [republish your project](#republish-project-files). |
-| **Rename Settings** | Changes the key name of an existing function app setting in Azure. This command doesn't affect settings in your local.settings.json file. After you rename settings in Azure, you should [download those changes to the local project](#download-settings-from-azure). |
-| **Restart** | Restarts the function app in Azure. Deploying updates also restarts the function app. |
-| **Set AzureWebJobsStorage**| Sets the value of the `AzureWebJobsStorage` application setting. This setting is required by Azure Functions. It's set when a function app is created in Azure. |
-| **Börja** | Starts a stopped function app in Azure. |
-| **Start Streaming Logs** | Starts the streaming logs for the function app in Azure. Use streaming logs during remote troubleshooting in Azure if you need to see logging information in near-real time. To learn more, see [Streaming logs](#streaming-logs). |
-| **Stop** | Stops a function app that's running in Azure. |
-| **Stop Streaming Logs** | Stops the streaming logs for the function app in Azure. |
-| **Toggle as Slot Setting** | When enabled, ensures that an application setting persists for a given deployment slot. |
-| **Uninstall Azure Functions Core Tools** | Removes Azure Functions Core Tools, which is required by the extension. |
-| **Upload Local Settings** | Uploads settings from your local.settings.json file to the chosen function app in Azure. If the local file is encrypted, it's decrypted, uploaded, and encrypted again. If there are settings that have conflicting values in the two locations, you're prompted to choose how to proceed. Be sure to save changes to your local.settings.json file before you run this command. |
-| **View Commit in GitHub** | Shows you the latest commit in a specific deployment when your function app is connected to a repository. |
-| **View Deployment Logs** | Shows you the logs for a specific deployment to the function app in Azure. |
+|**Lägg till nya inställningar**  |  Skapar en ny program inställning i Azure. Läs mer i [Publicera program inställningar](#publish-application-settings). Du kan också behöva [Ladda ned den här inställningen till dina lokala inställningar](#download-settings-from-azure). |
+| **Konfigurera distributions källa** | Ansluter din Function-app i Azure till en lokal git-lagringsplats. Läs mer i [kontinuerlig distribution för Azure Functions](functions-continuous-deployment.md). |
+| **Anslut till GitHub-lagringsplatsen** | Ansluter din Function-app till en GitHub-lagringsplats. |
+| **Kopiera funktions webb adress** | Hämtar den fjärranslutna URL: en för en HTTP-utlöst funktion som körs i Azure. Läs mer i [Hämta URL för den distribuerade funktionen](#get-the-url-of-the-deployed-function). |
+| **Skapa Function-app i Azure** | Skapar en ny function-app i din prenumeration i Azure. Mer information finns i avsnittet om hur du [publicerar till en ny function-app i Azure](#publish-to-azure).        |
+| **Dekryptera inställningar** | Dekrypterar [lokala inställningar](#local-settings-file) som har krypterats med **Azure Functions: kryptera inställningar**.  |
+| **Ta bort Funktionsapp** | Tar bort en Function-app från din prenumeration i Azure. När det inte finns några andra appar i App Service plan får du möjlighet att ta bort det. Andra resurser, t. ex. lagrings konton och resurs grupper, tas inte bort. Om du vill ta bort alla resurser bör du i stället [ta bort resurs gruppen](functions-add-output-binding-storage-queue-vs-code.md#clean-up-resources). Ditt lokala projekt påverkas inte. |
+|**Ta bort funktion**  | Tar bort en befintlig funktion från en Function-app i Azure. Eftersom den här borttagningen inte påverkar ditt lokala projekt, bör du i stället ta bort funktionen lokalt och sedan [publicera projektet](#republish-project-files)igen. |
+| **Ta bort proxy** | Tar bort en Azure Functions proxy från din Function-app i Azure. Mer information om proxyservrar finns i [arbeta med Azure Functions-proxyservrar](functions-proxies.md). |
+| **Ta bort inställning** | Tar bort en funktion app-inställning i Azure. Den här borttagningen påverkar inte inställningarna i din lokala. Settings. JSON-fil. |
+| **Koppla från lagrings platsen**  | Tar bort den [kontinuerliga distributions](functions-continuous-deployment.md) anslutningen mellan en Function-app i Azure och en lagrings plats för käll kontroll. |
+| **Hämta Fjärrinställningar** | Hämtar inställningar från den valda Function-appen i Azure till din lokala. Settings. JSON-fil. Om den lokala filen är krypterad, dekrypteras, uppdateras och krypteras igen. Om det finns inställningar som innehåller motstridiga värden på de två platserna, uppmanas du att välja hur du vill fortsätta. Se till att spara ändringarna i din lokala. Settings. JSON-fil innan du kör det här kommandot. |
+| **Redigera inställningar** | Ändrar värdet för en befintlig funktion i appens inställning i Azure. Det här kommandot påverkar inte inställningarna i din lokala. Settings. JSON-fil.  |
+| **Krypterings inställningar** | Krypterar enskilda objekt i `Values` matrisen i de [lokala inställningarna](#local-settings-file). I den här filen är `IsEncrypted` också inställt på `true`, vilket anger att den lokala körnings miljön ska dekryptera inställningarna innan de används. Kryptera lokala inställningar för att minska risken för att värdefull information avslöjas. I Azure lagras program inställningarna alltid som krypterade. |
+| **Kör funktionen nu** | Startar en [timer-utlöst funktion](functions-bindings-timer.md) manuellt i Azure. Det här kommandot används för testning. Mer information om hur du utlöser icke-HTTP-funktioner i Azure finns i [köra en icke-http-utlöst funktion manuellt](functions-manually-run-non-http.md). |
+| **Initiera projekt för användning med VS Code** | Lägger till de nödvändiga Project-projektfilerna i Visual Studio-kod i ett befintligt Functions-projekt. Använd det här kommandot för att arbeta med ett projekt som du har skapat med hjälp av kärn verktyg. |
+| **Installera eller uppdatera Azure Functions Core Tools** | Installerar eller uppdaterar [Azure Functions Core tools], som används för att köra funktioner lokalt. |
+| **Distribuera om**  | Gör att du kan distribuera projektfiler från en ansluten git-lagringsplats till en speciell distribution i Azure. [Publicera om projektet](#republish-project-files)om du vill publicera om lokala uppdateringar från Visual Studio Code. |
+| **Byt namn på Inställningar** | Ändrar nyckel namnet för en befintlig funktion i appens inställning i Azure. Det här kommandot påverkar inte inställningarna i din lokala. Settings. JSON-fil. När du har bytt namn på inställningarna i Azure bör du [Hämta ändringarna till det lokala projektet](#download-settings-from-azure). |
+| **Börja** | Startar om Function-appen i Azure. Om du distribuerar uppdateringar startas Function-appen också om. |
+| **Ange AzureWebJobsStorage**| Anger värdet för `AzureWebJobsStorage` program inställningen. Den här inställningen krävs av Azure Functions. Den ställs in när en Function-app skapas i Azure. |
+| **Börja** | Startar en stoppad Function-app i Azure. |
+| **Starta strömmande loggar** | Startar strömmande loggar för Function-appen i Azure. Använd strömmande loggar vid fjärrfelsökning i Azure om du behöver se loggnings information i nära real tid. Mer information finns i [strömmande loggar](#streaming-logs). |
+| **Stanna** | Stoppar en Function-app som körs i Azure. |
+| **Stoppa strömmande loggar** | Stoppar strömmande loggar för Function-appen i Azure. |
+| **Växla som plats inställning** | När det är aktiverat, ser du till att en program inställning finns kvar för en specifik distributions plats. |
+| **Avinstallera Azure Functions Core Tools** | Tar bort Azure Functions Core Tools, vilket krävs av tillägget. |
+| **Ladda upp lokala inställningar** | Laddar upp inställningar från den lokala. Settings. JSON-filen till den valda Function-appen i Azure. Om den lokala filen är krypterad, dekrypteras, laddas upp och krypteras igen. Om det finns inställningar som innehåller motstridiga värden på de två platserna, uppmanas du att välja hur du vill fortsätta. Se till att spara ändringarna i din lokala. Settings. JSON-fil innan du kör det här kommandot. |
+| **Visa incheckning i GitHub** | Visar de senaste incheckningarna i en speciell distribution när din Function-app är ansluten till en lagrings plats. |
+| **Visa distributions loggar** | Visar loggarna för en speciell distribution till Function-appen i Azure. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-To learn more about Azure Functions Core Tools, see [Work with Azure Functions Core Tools](functions-run-local.md).
+Mer information om Azure Functions Core Tools finns i [arbeta med Azure Functions Core tools](functions-run-local.md).
 
-To learn more about developing functions as .NET class libraries, see [Azure Functions C# developer reference](functions-dotnet-class-library.md). This article also provides links to examples of how to use attributes to declare the various types of bindings supported by Azure Functions.
+Mer information om hur du utvecklar funktioner som .NET-klass bibliotek finns i [Azure Functions C# Developer Reference](functions-dotnet-class-library.md). Den här artikeln innehåller också länkar till exempel på hur du använder attribut för att deklarera de olika typerna av bindningar som stöds av Azure Functions.
 
 [Azure Functions-tillägg för Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions
 [Azure Functions Core Tools]: functions-run-local.md

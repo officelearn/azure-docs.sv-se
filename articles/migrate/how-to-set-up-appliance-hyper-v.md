@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 1676ad3dde5a97d2afdb64595d51f5502f9dcc3d
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: a94d11d48728b03dd978af85db4b6c2af4887938
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185923"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534495"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Konfigurera en installation för virtuella Hyper-V-datorer
 
@@ -50,7 +50,7 @@ Kontrol lera att den zippade filen är säker innan du distribuerar den.
 1. Öppna ett kommandofönster för administratör på den dator som du laddade ned filen till.
 2. Kör följande kommando för att generera hashen för den virtuella hård disken
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Exempel på användning: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+    - Exempel på användning: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.vhd SHA256```
 3.  För version 2.19.11.12 ska den genererade hashen matcha de här inställningarna.
 
   **Algoritm** | **Hash-värde**

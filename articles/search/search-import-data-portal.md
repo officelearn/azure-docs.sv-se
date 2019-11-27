@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6b4ae076ba08af5514caa09a2e8027a1cbc909dc
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: df7d0fde05c974ef4cec739236a3ac0aebd63ecc
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793681"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534539"
 ---
 # <a name="import-data-wizard-for-azure-cognitive-search"></a>Guiden Importera data för Azure Kognitiv sökning
 
@@ -43,7 +43,7 @@ Kända begränsningar sammanfattas på följande sätt:
 
 + Guiden stöder inte iteration eller åter användning. Varje steg i guiden skapar en ny index-, färdigheter-och indexerings konfiguration. Endast data källor kan vara beständiga och återanvändas i guiden. Om du vill redigera eller förfina andra objekt måste du använda REST-API: erna eller .NET SDK för att hämta och ändra strukturerna.
 
-+ Käll innehållet måste finnas i en Azure-datakälla som stöds i en tjänst under samma prenumeration.
++ Käll innehållet måste finnas i en Azure-datakälla som stöds.
 
 + Sampling är över en delmängd av käll data. För stora data källor är det möjligt att guiden saknar fält. Du kan behöva utöka schemat eller rätta till härledda data typer om samplingen är otillräcklig.
 
@@ -55,7 +55,7 @@ Kända begränsningar sammanfattas på följande sätt:
 
 ## <a name="data-source-input"></a>Data källans indata
 
-Guiden **Importera data** ansluter till en extern data källa med hjälp av den interna logiken som tillhandahålls av Azure kognitiv sökning indexerare, som är utrustade för att testa källan, läsa metadata, knäcka dokument för att läsa innehåll och struktur och serialisera innehåll som JSON för efterföljande import till Azure Kognitiv sökning.
+Guiden **Importera data** ansluter till en extern data källa med hjälp av den interna logiken som tillhandahålls av Azure kognitiv sökning indexerare, som är utrustade för att testa källan, läsa metadata, knäcka dokument för att läsa innehåll och struktur och serialisera innehåll som JSON för efterföljande import till Azure kognitiv sökning.
 
 Du kan bara importera från en enskild tabell, databas visning eller motsvarande data struktur, men strukturen kan innehålla hierarkiska eller kapslade under strukturer. Mer information finns i [så här modellerar du komplexa typer](search-howto-complex-data-types.md).
 

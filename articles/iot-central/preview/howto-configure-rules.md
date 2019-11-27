@@ -1,6 +1,6 @@
 ---
 title: Konfigurera regler och åtgärder i Azure IoT Central | Microsoft Docs
-description: This how-to article shows you, as a builder, how to configure telemetry-based rules and actions in your Azure IoT Central application.
+description: Den här artikeln visar dig som ett verktyg för att konfigurera telemetri-baserade regler och åtgärder i ditt Azure IoT Central-program.
 author: vavilla
 ms.author: vavilla
 ms.date: 11/11/2019
@@ -15,41 +15,41 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74484917"
 ---
-# <a name="configure-rules-preview-features"></a>Configure rules (preview features)
+# <a name="configure-rules-preview-features"></a>Konfigurera regler (för hands versions funktioner)
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 *Den här artikeln gäller för operatörer, kompilerare och administratörer.*
 
-Rules in IoT Central serve as a customizable response tool that trigger on actively monitored events from connected devices. The following sections describe how rules are evaluated.
+Regler i IoT Central fungerar som ett anpassningsbart svars verktyg som utlöser aktivt övervakade händelser från anslutna enheter. I följande avsnitt beskrivs hur regler utvärderas.
 
-## <a name="select-target-devices"></a>Select target devices
+## <a name="select-target-devices"></a>Välj mål enheter
 
-Use the target devices section to select on what kind of devices this rule will be applied. Filters allow you to further refine what devices should be included. The filters use properties on the device template to filter down the set of devices. Filters themselves don't trigger an action. In the following screenshot, the devices that are being targeted are of device template type **Refrigerator**. The filter states that the rule should only include **Refrigerators** where the **Manufactured State** property equals **Washington**.
+Använd avsnittet mål enheter för att välja vilken typ av enheter som regeln ska tillämpas på. Med filter kan du ytterligare förfina vilka enheter som ska ingå. Filtren använder egenskaper för enhets mal len för att filtrera uppsättningen med enheter. Själva filtren utlöser inte en åtgärd. I följande skärm bild är de enheter som används som mål för enhetens Malltyp **kyl skåp**. Filtret anger att regeln endast ska innehålla **kyl skåp** där egenskapen **tillverkat tillstånd** är lika med **Washington**.
 
 ![Villkor](media/howto-configure-rules/filters.png)
 
-## <a name="use-multiple-conditions"></a>Use multiple conditions
+## <a name="use-multiple-conditions"></a>Använd flera villkor
 
-Conditions are what rules trigger on. Currently, when you add multiple conditions to a rule, they're logically AND'd together. In other words, all conditions must be met for the rule to evaluate as true.  
+Villkoren är vilka regler som utlöses på. När du lägger till flera villkor i en regel är de logiskt och sammantaget. Med andra ord måste alla villkor vara uppfyllda för att regeln ska utvärderas som sant.  
 
-In the following screenshot, the conditions check when the temperature is greater than 90 and the humidity is less than 10. When both of these statements are true, the rule evaluates to true and triggers an action.
+I följande skärm bild kontrollerar villkoren när temperaturen är större än 90 och att fuktigheten är mindre än 10. När båda dessa instruktioner är uppfyllda utvärderas regeln till sant och utlöser en åtgärd.
 
 ![Villkor](media/howto-configure-rules/conditions.png)
 
-## <a name="use-aggregate-windowing"></a>Use aggregate windowing
+## <a name="use-aggregate-windowing"></a>Använd agg regerings fönster
 
-Rules evaluate aggregate time windows as tumbling windows. In the screenshot below, the time window is five minutes. Every five minutes, the rule evaluates on the last five minutes of data. The data is only evaluated once in the window to which it corresponds.
+Regler utvärderar sammanställd tid i Windows som rullande Windows. I skärm bilden nedan är tids perioden fem minuter. Var femte minut utvärderar regeln de senaste fem minuterna data. Data utvärderas bara en gång i fönstret som den motsvarar.
 
-![Tumbling Windows](media/howto-configure-rules/tumbling-window.png)
+![Rullande Windows](media/howto-configure-rules/tumbling-window.png)
 
-## <a name="use-rules-with-iot-edge-modules"></a>Use rules with IoT Edge modules
+## <a name="use-rules-with-iot-edge-modules"></a>Använda regler med IoT Edge moduler
 
-A restriction applies to rules that are applied to IoT Edge modules. Rules on telemetry from different modules aren't evaluated as valid rules. Take the following as an example. The first condition of the rule is on a temperature telemetry from Module A. The second condition of the rule is on a humidity telemetry on Module B. Since the two conditions are from different modules, this is an invalid set of conditions. The rule isn't valid and will throw an error on trying to save the rule.
+En begränsning gäller regler som tillämpas på IoT Edge moduler. Regler för telemetri från olika moduler utvärderas inte som giltiga regler. Ta med följande som exempel. Det första villkoret för regeln är på en temperatur telemetri från modul A. Regelns andra villkor är en fuktighets-telemetri på modul B. Eftersom de två villkoren är från olika moduler är detta en ogiltig uppsättning villkor. Regeln är inte giltig och kommer att utlösa ett fel vid försök att spara regeln.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Now that you've learned how to configure a rule in your Azure IoT Central application, you can:
+Nu när du har lärt dig hur du konfigurerar en regel i ditt Azure IoT Central-program kan du:
 
 > [!div class="nextstepaction"]
-> [Analyze your data on the fly](howto-create-analytics.md)
+> [Analysera dina data i farten](howto-create-analytics.md)

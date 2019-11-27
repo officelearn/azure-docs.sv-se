@@ -1,6 +1,6 @@
 ---
-title: Risk policies - Azure Active Directory Identity Protection
-description: Enable and configure risk policies in Azure Active Directory Identity Protection
+title: Risk principer – Azure Active Directory Identity Protection
+description: Aktivera och konfigurera risk principer i Azure Active Directory Identity Protection
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
@@ -18,66 +18,66 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74382180"
 ---
-# <a name="how-to-configure-and-enable-risk-policies"></a>How To: Configure and enable risk policies
+# <a name="how-to-configure-and-enable-risk-policies"></a>Gör så här: Konfigurera och aktivera risk principer
 
-As we learned in the previous article, [Identity Protection policies](concept-identity-protection-policies.md) we have two risk policies that we can enable in our directory. 
+Som vi lärt dig i föregående artikel har [identitets skydds principer](concept-identity-protection-policies.md) två risk principer som vi kan aktivera i vår katalog. 
 
-- Sign-in risk policy
-- User risk policy
+- Princip för inloggnings risk
+- Användar risk princip
 
-![Security overview page to enable user and sign-in risk policies](./media/howto-identity-protection-configure-risk-policies/identity-protection-security-overview.png)
+![Sidan säkerhets översikt för att aktivera användar-och inloggnings risk principer](./media/howto-identity-protection-configure-risk-policies/identity-protection-security-overview.png)
 
-Both policies work to automate the response to risk detections in your environment and allow users to self-remediate when risk is detected. 
+Båda principerna arbetar för att automatisera svaret på risk identifieringar i din miljö och ge användare möjlighet att åtgärda problemet när risken upptäcks. 
 
 > [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 
-If your organization wants to allow users to self-remediate when risks are detected, users must be registered for both self-service password reset and Azure Multi-Factor Authentication. We recommend [enabling the combined security information registration experience](../authentication/howto-registration-mfa-sspr-combined.md) for the best experience. Allowing users to self-remediate gets them back to a productive state more quickly without requiring administrator intervention. Administrators can still see these events and investigate them after the fact. 
+Om din organisation vill tillåta användare att själv åtgärda när risker upptäcks måste användarna registreras för lösen ords återställning via självbetjäning och Azure Multi-Factor Authentication. Vi rekommenderar att [du aktiverar den kombinerade registrerings upplevelsen för säkerhets information](../authentication/howto-registration-mfa-sspr-combined.md) för bästa möjliga upplevelse. Genom att tillåta användare att själv reparera får de tillbaka ett produktivt tillstånd snabbare utan att kräva administratörs åtgärder. Administratörer kan fortfarande se dessa händelser och undersöka dem efter faktumet. 
 
-## <a name="choosing-acceptable-risk-levels"></a>Choosing acceptable risk levels
+## <a name="choosing-acceptable-risk-levels"></a>Välja acceptabla risk nivåer
 
-Organizations must decide the level of risk they are willing to accept balancing user experience and security posture. 
+Organisationerna måste bestämma den risk nivå de behöver för att kunna godkänna användar upplevelsen och säkerhets position. 
 
-Microsoft's recommendation is to set the user risk policy threshold to **High** and the sign-in risk policy to **Medium and above**.
+Microsofts rekommendation är att ange tröskelvärdet för användar risk princip till **hög** och inloggnings risk policyn till **medium och över**.
 
-Choosing a **High** threshold reduces the number of times a policy is triggered and minimizes the impact to users. However, it excludes **Low** and **Medium** risk detections from the policy, which may not block an attacker from exploiting a compromised identity. Selecting a **Low** threshold introduces additional user interrupts, but increased security posture.
+Om du väljer ett **högt** tröskelvärde minskar antalet gånger som en princip utlöses och minimerar påverkan på användare. Den utesluter dock inte **låg** och **medelhög** risk identifiering från principen, som inte kan hindra en angripare från att utnyttja en komprometterad identitet. Om du väljer en **låg** tröskel införs ytterligare avbrott i användaren, men ökad säkerhet position.
 
 ## <a name="exclusions"></a>Undantag
 
-All of the policies allow for excluding users such as your [emergency access or break-glass administrator accounts](../users-groups-roles/directory-emergency-access.md). Organizations may determine they need to exclude other accounts from specific policies based on the way the accounts are used. All exclusions should be reviewed regularly to see if they are still applicable.
+Alla principer gör det möjligt att utesluta användare, till exempel ditt [nödfalls åtkomst-eller brytar-glas administratörs konton](../users-groups-roles/directory-emergency-access.md). Organisationer kan avgöra om de behöver utesluta andra konton från vissa principer baserat på hur kontona används. Alla undantag bör granskas regelbundet för att se om de fortfarande är tillämpliga.
 
-## <a name="enable-policies"></a>Enable policies
+## <a name="enable-policies"></a>Aktivera principer
 
-To enable the user risk and sign-in risk policies complete the following steps.
+Utför följande steg för att aktivera användar risk-och inloggnings risk principer.
 
 1. Navigera till [Azure-portalen](https://portal.azure.com).
-1. Browse to **Azure Active Directory** > **Security** > **Identity Protection** > **Overview**.
-1. Select **Configure user risk policy**.
-   1. Under **Assignments**
-      1. **Users** - Choose **All users** or **Select individuals and groups** if limiting your rollout.
-         1. Optionally you can choose to exclude users from the policy.
-      1. **Conditions** - **User risk** Microsoft's recommendation is to set this option to **High**.
-   1. Under **Controls**
-      1. **Access** - Microsoft's recommendation is to **Allow access** and **Require password change**.
-   1. **Enforce Policy** - **On**
-   1. **Save** - This action will return you to the **Overview** page.
-1. Select **Configure sign-in risk policy**.
-   1. Under **Assignments**
-      1. **Users** - Choose **All users** or **Select individuals and groups** if limiting your rollout.
-         1. Optionally you can choose to exclude users from the policy.
-      1. **Conditions** - **Sign-in risk** Microsoft's recommendation is to set this option to **Medium and above**.
-   1. Under **Controls**
-      1. **Access** - Microsoft's recommendation is to **Allow access** and **Require multi-factor authentication**.
-   1. **Enforce Policy** - **On**
-   1. **Save**
+1. Bläddra till **Azure Active Directory** > **säkerhet** > **identitets skydd** > **Översikt**.
+1. Välj **Konfigurera användar risk princip**.
+   1. Under **tilldelningar**
+      1. **Användare** – Välj **alla användare** eller **Välj personer och grupper** om du vill begränsa distributionen.
+         1. Du kan också välja att exkludera användare från principen.
+      1. **Villkor** - **användar risk** Microsoft rekommenderar att du ställer in det här alternativet på **hög**.
+   1. Under **kontroller**
+      1. **Åtkomst** – Microsofts rekommendation är att **tillåta åtkomst** och **Kräv lösen ords ändring**.
+   1. **Tillämpa princip** - **på**
+   1. **Spara** – den här åtgärden kommer att gå tillbaka till **översikts** sidan.
+1. Välj **Konfigurera inloggnings risk princip**.
+   1. Under **tilldelningar**
+      1. **Användare** – Välj **alla användare** eller **Välj personer och grupper** om du vill begränsa distributionen.
+         1. Du kan också välja att exkludera användare från principen.
+      1. **Villkor** - **inloggnings risk** Microsoft rekommenderar att du ställer in det här alternativet på **medel och högre**.
+   1. Under **kontroller**
+      1. **Åtkomst** – Microsofts rekommendation är att **tillåta åtkomst** och **kräva Multi-Factor Authentication**.
+   1. **Tillämpa princip** - **på**
+   1. **Spara**
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Enable Azure Multi-Factor Authentication registration policy](howto-identity-protection-configure-mfa-policy.md)
+- [Aktivera registrerings princip för Azure-Multi-Factor Authentication](howto-identity-protection-configure-mfa-policy.md)
 
-- [What is risk](concept-identity-protection-risks.md)
+- [Vad är risk?](concept-identity-protection-risks.md)
 
-- [Investigate risk detections](howto-identity-protection-investigate-risk.md)
+- [Undersök risk identifieringar](howto-identity-protection-investigate-risk.md)
 
-- [Simulate risk detections](howto-identity-protection-simulate-risk.md)
+- [Simulera risk identifieringar](howto-identity-protection-simulate-risk.md)

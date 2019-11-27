@@ -32,7 +32,7 @@ I den här instruktionen får du lära dig följande uppgifter:
 > * Skapa en pipeline för batch-härledning för batch
 > * Hantera och köra pipelines manuellt eller från en REST-slutpunkt
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 1. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 

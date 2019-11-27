@@ -1,6 +1,6 @@
 ---
-title: Choose right federation protocol for multi-tenant application
-description: Guidance for independent software vendors on integrating with Azure Active Directory
+title: Välj rätt Federations protokoll för program med flera klienter
+description: Vägledning för oberoende program varu leverantörer vid integrering med Azure Active Directory
 services: active-directory
 author: barbaraselden
 manager: CelesteDG
@@ -19,48 +19,48 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74232299"
 ---
-# <a name="choose-the-right-federation-protocol-for-your-multi-tenant-application"></a>Choose the right federation protocol for your multi-tenant application
+# <a name="choose-the-right-federation-protocol-for-your-multi-tenant-application"></a>Välj rätt Federations protokoll för ditt program med flera klienter
 
-When you develop your software as a service (SaaS) application, you must select the federation protocol that best meets your and your customers’ needs. This decision is based on your development platform, and your desire to integrate with data available within your customers’ Office 365 and Azure AD ecosystem.
+När du utvecklar SaaS-program (program vara som en tjänst) måste du välja det Federations protokoll som bäst uppfyller dina kunders behov. Det här beslutet baseras på din utvecklings plattform och du vill integrera med data som är tillgängliga i dina kunders Office 365-och Azure AD-eko system.
 
-See the complete list of [protocols available for SSO integrations](what-is-single-sign-on.md) with Azure Active Directory.
-The following table compares 
-* Open Authentication 2.0 (OAuth 2.0)
-* Open ID Connect (OIDC)
+Se den fullständiga listan över [protokoll som är tillgängliga för SSO-integration](what-is-single-sign-on.md) med Azure Active Directory.
+I följande tabell jämförs 
+* Öppen autentisering 2,0 (OAuth 2,0)
+* Öppna ID Connect (OIDC)
 * Security Assertion Markup Language (SAML)
 * Web Services Federation (WSFed)
 
-| Kapacitet| OAuth / OIDC| SAML / WSFed |
+| Funktion| OAuth/OIDC| SAML/WSFed |
 | - |-|-|
-| Web-based Single sign-on| √| √ |
-| Web-based Single sign-out| √| √ |
-| Mobile-based Single sign-on| √| √* |
-| Mobile-based Single sign-out| √| √* |
-| Conditional Access policies for mobile applications| √| X |
-| Seamless MFA experience for mobile applications| √| X |
-| Access Microsoft Graph| √| X |
+| Webbaserad enkel inloggning| √| √ |
+| Webbaserad enkel utloggning| √| √ |
+| Mobil-baserad enkel inloggning| √| √* |
+| Mobil-baserad enkel utloggning| √| √* |
+| Principer för villkorlig åtkomst för mobila program| √| X |
+| Sömlös MFA-upplevelse för mobila program| √| X |
+| Åtkomst Microsoft Graph| √| X |
 
-*Possible, but Microsoft doesn't provide samples or guidance.
+\* Möjligt, men Microsoft tillhandahåller inte exempel eller rikt linjer.
 
-## <a name="oauth-20-and-open-id-connect"></a>OAuth 2.0 and Open ID Connect
+## <a name="oauth-20-and-open-id-connect"></a>OAuth 2,0 och öppen ID Connect
 
-OAuth 2.0 is an [industry-standard](https://oauth.net/2/) protocol for authorization. OIDC (OpenID Connect) is an [industry standard](https://openid.net/connect/) identity authentication layer built on top of the Oath 2.0 protocol.
+OAuth 2,0 är ett [bransch standard](https://oauth.net/2/) protokoll för auktorisering. OIDC (OpenID Connect) är ett [bransch standard](https://openid.net/connect/) för identitets verifierings lager som byggts ovanpå Oath 2,0-protokollet.
 
-### <a name="benefits"></a>Erbjudande
+### <a name="benefits"></a>Fördelar
 
-Microsoft recommends using OIDC/OAuth 2.0 as they have authentication and authorization built in to the protocols. With SAML, you must additionally implement authorization.
+Microsoft rekommenderar att du använder OIDC/OAuth 2,0 eftersom de har autentisering och auktorisering inbyggd i protokollen. Med SAML måste du också implementera auktorisering.
 
-The authorization inherent in these protocols enables your application to access and integrate with rich user and organizational data through the Microsoft Graph API.
+Auktoriseringen i dessa protokoll gör att ditt program kan komma åt och integrera med omfattande användar-och organisations data via Microsoft Graph API.
 
-Using OAuth 2.0 and OIDC simplifies your customers’ end-user experience when adopting SSO for your application. You can easily define the permission sets necessary, which are then automatically represented to the administrator or end user consenting.
+Med hjälp av OAuth 2,0 och OIDC fören klar kunderna användarnas upplevelse när de använder SSO för ditt program. Du kan enkelt definiera de behörighets uppsättningar som krävs, som sedan visas automatiskt för administratören eller slutanvändaren som godkänner.
 
-Additionally, using these protocols enables your customers to use Conditional Access and MFA policies to control access to the applications. Microsoft provides libraries and [code samples across multiple technology platforms](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Samples) to aid your development.  
+Med dessa protokoll kan dina kunder dessutom använda villkorlig åtkomst och MFA-principer för att kontrol lera åtkomsten till programmen. Microsoft tillhandahåller bibliotek och [kod exempel över flera teknik plattformar](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Samples) för att hjälpa dig att utveckla.  
 
 ### <a name="implementation"></a>Implementering
 
-You register your application with Microsoft Identity, which is an OAuth 2.0 provider. You could then also register your OAuth 2.0-based application with any other Identity Provider that you wish to integrate with. 
+Du registrerar ditt program med Microsoft Identity, som är en OAuth 2,0-Provider. Du kan sedan registrera ditt OAuth 2,0-baserade program med andra identitets leverantörer som du vill integrera med. 
 
-For information on how to register your application and implement these protocols for SSO to web apps, see [Authorize access to web applications using OpenID Connect and Azure Active Directory](../develop/sample-v2-code.md).  For information on how to implement these protocols for SSO in mobile apps, see the following: 
+Information om hur du registrerar ditt program och implementerar dessa protokoll för enkel inloggning till webbappar finns i [bevilja åtkomst till webb program med hjälp av OpenID Connect och Azure Active Directory](../develop/sample-v2-code.md).  Information om hur du implementerar dessa protokoll för enkel inloggning i mobila appar finns i följande avsnitt: 
 
 * [Android](../develop/quickstart-v2-android.md)
 
@@ -68,34 +68,34 @@ For information on how to register your application and implement these protocol
 
 * [Universal Windows Platform](../develop/quickstart-v2-uwp.md)
 
-## <a name="saml-20-and-wsfed"></a>SAML 2.0 and WSFed
+## <a name="saml-20-and-wsfed"></a>SAML 2,0 och WSFed
 
-Security Assertion Markup Language (SAML) is usually used for web applications. See [How Azure uses the SAML protocol](../develop/active-directory-saml-protocol-reference.md) for an overview. 
+Security Assertion Markup Language (SAML) används vanligt vis för webb program. Se [hur Azure använder SAML-protokollet](../develop/active-directory-saml-protocol-reference.md) för en översikt. 
 
-Web Services Federation (WSFed) is an [industry standard](https://docs.oasis-open.org/wsfed/federation/v1.2/ws-federation.html) generally used for web applications that are developed using the .Net platform.
+Web Services Federation (WSFed) är en [bransch standard](https://docs.oasis-open.org/wsfed/federation/v1.2/ws-federation.html) som används vanligt vis för webb program som utvecklas med hjälp av .NET-plattformen.
 
-### <a name="benefits"></a>Erbjudande
+### <a name="benefits"></a>Fördelar
 
-SAML 2.0 is a mature standard and most technology platforms support open-source libraries for SAML 2.0. You can provide your customers an administration interface to configure SAML SSO. They can configure SAML SSO for Microsoft Azure AD,  and any other identity provider that supports SAML 2
+SAML 2,0 är en vuxen standard och de flesta teknik plattformarna stöder bibliotek med öppen källkod för SAML 2,0. Du kan ge dina kunder ett administrations gränssnitt för att konfigurera SAML SSO. De kan konfigurera SAML SSO för Microsoft Azure AD och andra identitets leverantörer som stöder SAML 2
 
 ### <a name="trade-offs"></a>Kompromisser
 
-When using SAML 2.0 or WSFed protocols for mobile applications, certain Conditional Access policies including Multi-factor Authentication (MFA) will have a degraded experience. Additionally, if you want to access the Microsoft Graph, you will need to implement authorization through OAuth 2.0 to generate necessary tokens. 
+När du använder SAML 2,0-eller WSFed-protokoll för mobila program, kommer vissa principer för villkorlig åtkomst inklusive Multi-Factor Authentication (MFA) att ha en försämrad upplevelse. Om du vill komma åt Microsoft Graph måste du dessutom implementera auktorisering via OAuth 2,0 för att generera nödvändiga tokens. 
 
 ### <a name="implementation"></a>Implementering
 
-Microsoft does not provide libraries for SAML implementation or recommend specific libraries. There are many open-source libraries available.
+Microsoft tillhandahåller inga bibliotek för SAML-implementering eller rekommenderar vissa bibliotek. Det finns många tillgängliga bibliotek med öppen källkod.
 
-## <a name="sso-and-using-microsoft-graph-rest-api"></a>SSO and Using Microsoft Graph Rest API 
+## <a name="sso-and-using-microsoft-graph-rest-api"></a>SSO och använder Microsoft Graph REST API 
 
-Microsoft Graph is the data fabric across all of Microsoft 365, including Office 365, Windows 10 and Enterprise Mobility and Security, and additional products such as Dynamics 365. This includes the core schemas of the entities such as Users, Groups, Calendar, Mail, Files, and more, that drive user productivity. Microsoft Graph offers three interfaces for developers a REST based API, Microsoft Graph data connect, and Connectors that allow developers to add their own data into the Microsoft Graph.  
+Microsoft Graph är data infrastrukturen i alla Microsoft 365, inklusive Office 365, Windows 10 och Enterprise Mobility och Security samt ytterligare produkter som Dynamics 365. Detta inkluderar kärn scheman för entiteter, till exempel användare, grupper, kalender, e-post, filer och mycket mer, som driver användar produktivitet. Microsoft Graph erbjuder tre gränssnitt för utvecklare ett REST-baserat API, Microsoft Graph data Connect och anslutningar som gör att utvecklare kan lägga till sina egna data i Microsoft Graph.  
 
-Using any of the above protocols for SSO enables your application’s access to the rich data available through the Microsoft Graph REST API. This  enables your customers  to get more value from their investment in Microsoft 365. For example,  your application can call the Microsoft Graph API to integrate with your customers’ Office 365 instance and surface users’ Microsoft Office and SharePoint items within your application. 
+Genom att använda något av protokollen ovan för SSO kan du få programmets åtkomst till de omfattande data som är tillgängliga via Microsoft Graph REST API. Detta gör det möjligt för dina kunder att få mer värde från sina investeringar i Microsoft 365. Ditt program kan t. ex. anropa Microsoft Graph-API: n för att integrera med dina kunders Office 365-instans-och Surface-användares Microsoft Office-och SharePoint-objekt i ditt program. 
 
-If you are using Open ID Connect  to authenticate, then your development experience is seamless  because you will use OAuth2, the foundation of Open ID Connect, to acquire tokens can be used for invoking Microsoft Graph APIs. If your application is using SAML or WSFed, you must add additional code within your application to get these OAuth2 to acquire the tokens  required to  invoking Microsoft Graph APIs. 
+Om du använder Open ID Connect för att autentisera är din utvecklings upplevelse sömlös eftersom du kommer att använda OAuth2, grunden för Open ID Connect, för att hämta token kan användas för att anropa Microsoft Graph API: er. Om programmet använder SAML eller WSFed måste du lägga till ytterligare kod i programmet för att hämta dessa OAuth2 för att hämta de token som krävs för att anropa Microsoft Graph API: er. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Enable SSO for your multi-tenant application](isv-sso-content.md)
+[Aktivera SSO för ditt program med flera klienter](isv-sso-content.md)
 
-[Create documentation for your multi-tenant application](isv-create-sso-documentation.md)
+[Skapa dokumentation för ditt program med flera klienter](isv-create-sso-documentation.md)

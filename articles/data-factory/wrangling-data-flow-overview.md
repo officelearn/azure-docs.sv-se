@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: e36cc044e6a4160d16f15b93d8a88d946f476c89
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 56c2d96e6e4a5900770aaefcabb424eddb1cbde6
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74287107"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74531384"
 ---
 # <a name="what-are-wrangling-data-flows"></a>Vad är datatransformering data flöden?
 
@@ -40,7 +40,7 @@ Genomsök data visuellt i ett kod fritt sätt för att ta bort eventuella avvika
 
 ## <a name="supported-sources"></a>Källor som stöds
 
-| Anslutningsprogram | Dataformat | Autentiseringstyp |
+| Koppling | Dataformat | Autentiseringstyp |
 | -- | -- | --|
 | [Azure Blob Storage](connector-azure-blob-storage.md) | CSV | Kontonyckel |
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | CSV | Tjänstens huvudnamn |

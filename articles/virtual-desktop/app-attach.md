@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop MSIX app attach - Azure
-description: How to set up MSIX app attach for Windows Virtual Desktop.
+title: Windows Virtual Desktop MSIX-appen Attach-Azure
+description: Så här konfigurerar du MSIX-appen Anslut för Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -17,43 +17,43 @@ ms.locfileid: "74483827"
 # <a name="set-up-msix-app-attach"></a>Konfigurera MSIX-appbifogning
 
 > [!IMPORTANT]
-> MSIX app attach is currently in public preview.
+> MSIX app Attach är för närvarande en offentlig för hands version.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This topic will walk you through how to set up MSIX app attach in a Windows Virtual Desktop environment.
+Det här avsnittet beskriver hur du konfigurerar MSIX app Attach i en Windows Virtual Desktop-miljö.
 
 ## <a name="requirements"></a>Krav
 
-Before you get started, here's what you need to configure MSIX app attach:
+Innan du börjar måste du konfigurera MSIX app Attach:
 
-- Access to the Windows Insider portal to obtain the version of Windows 10 with support for the MSIX app attach APIs.
-- A functioning Windows Virtual Desktop deployment. For information, see [Create a tenant in Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
-- The MSIX packaging tool
-- A network share in your Windows Virtual Desktop deployment where the MSIX package will be stored
+- Åtkomst till Windows Insider-portalen för att hämta versionen av Windows 10 med stöd för MSIX-appen bifoga API: er.
+- En fungerande distribution av virtuella Windows-datorer. Mer information finns i [skapa en klient i det virtuella Windows-skrivbordet](tenant-setup-azure-active-directory.md).
+- MSIX packnings verktyg
+- En nätverks resurs i distributionen av virtuella Windows-datorer där MSIX-paketet ska lagras
 
-## <a name="get-the-os-image"></a>Get the OS image
+## <a name="get-the-os-image"></a>Hämta operativ system avbildningen
 
-First, you need to get the OS image you'll use for the MSIX app. To get the OS image:
+Först måste du hämta den OS-avbildning som du ska använda för MSIX-appen. Hämta operativ system avbildningen:
 
-1. Open the [Windows Insider portal](https://www.microsoft.com/software-download/windowsinsiderpreviewadvanced?wa=wsignin1.0) and sign in.
+1. Öppna [Windows Insider-portalen](https://www.microsoft.com/software-download/windowsinsiderpreviewadvanced?wa=wsignin1.0) och logga in.
 
      >[!NOTE]
-     >You must be member of the Windows Insider program to access the Windows Insider portal. To learn more about the Windows Insider program, check out our [Windows Insider documentation](https://docs.microsoft.com/windows-insider/at-home/).
+     >Du måste vara medlem i Windows Insider-programmet för att få åtkomst till Windows Insider-portalen. Om du vill veta mer om Windows Insider program kan du läsa vår [Windows Insider-dokumentation](https://docs.microsoft.com/windows-insider/at-home/).
 
-2. Scroll down to the **Select edition** section and select **Windows 10 Insider Preview Enterprise (FAST) – Build XXXXX**.
+2. Rulla ned till avsnittet **Välj utgåva** och välj **Windows 10 Insider Preview Enterprise (snabb) – build xxxxx**.
 
-3. Select **Confirm**, then select the language you wish to use, and then select **Confirm** again.
+3. Välj **Bekräfta**och välj sedan det språk som du vill använda och välj sedan **Bekräfta** igen.
     
      >[!NOTE]
-     >At the moment, English is the only language that has been tested with the feature. You can select other languages, but they may not display as intended.
+     >För tillfället är engelska det enda språk som har testats med funktionen. Du kan välja andra språk, men de visas kanske inte som de ska.
     
-4. When the download link is generated, select the **64-bit Download** and save it to your local hard disk.
+4. När nedladdnings länken skapas väljer du den **64-bitars hämtningen** och sparar den på den lokala hård disken.
 
-## <a name="prepare-the-vhd-image-for-azure"></a>Prepare the VHD image for Azure 
+## <a name="prepare-the-vhd-image-for-azure"></a>Förbered VHD-avbildningen för Azure 
 
-Before you get started, you'll need to create a master VHD image. If you haven't created your master VHD image yet, go to [Prepare and customize a master VHD image](set-up-customize-master-image.md) and follow the instructions there. 
+Innan du börjar måste du skapa en huvud-VHD-avbildning. Om du inte har skapat din huvud hård disk avbildning ännu går du till [förbereda och anpassa en huvud-VHD-avbildning](set-up-customize-master-image.md) och följer anvisningarna där. 
 
-After you've created your master VHD image, you must disable automatic updates for MSIX app attach applications. To disable automatic updates, you'll need to run the following commands in an elevated command prompt:
+När du har skapat din huvud hård disk avbildning måste du inaktivera automatiska uppdateringar för MSIX app attaching Applications. Om du vill inaktivera automatiska uppdateringar måste du köra följande kommandon i en upphöjd kommando tolk:
 
 ```cmd
 rem Disable Store auto update:
@@ -73,144 +73,144 @@ rem Disable Windows Update:
 sc config wuauserv start=disabled
 ```
 
-Next, prepare the VM VHD for Azure and upload the resulting VHD disk to Azure. To learn more, see [Prepare and customize a master VHD image](set-up-customize-master-image.md).
+Förbered sedan VM VHD för Azure och överför den resulterande VHD-disken till Azure. Mer information finns i [förbereda och anpassa en huvud-VHD-avbildning](set-up-customize-master-image.md).
 
-Once you've uploaded the VHD to Azure, create a host pool that's based on this new image by following the instructions in the [Create a host pool by using the Azure Marketplace](create-host-pools-azure-marketplace.md) tutorial.
+När du har laddat upp den virtuella hård disken till Azure skapar du en adresspool som baseras på den här nya avbildningen genom att följa anvisningarna i guiden [skapa en värddator med hjälp av Azure Marketplace](create-host-pools-azure-marketplace.md) -kursen.
 
-## <a name="prepare-the-application-for-msix-app-attach"></a>Prepare the application for MSIX app attach 
+## <a name="prepare-the-application-for-msix-app-attach"></a>Förbereda programmet för MSIX-appen Attach 
 
-If you already have an MSIX package, skip ahead to [Configure Windows Virtual Desktop infrastructure](#configure-windows-virtual-desktop-infrastructure). If you want to test legacy applications, follow the instructions in [Create an MSIX package from a desktop installer on a VM](https://docs.microsoft.com/windows/msix/packaging-tool/create-app-package-msi-vm) to convert the legacy application to an MSIX package.
+Om du redan har ett MSIX-paket kan du gå vidare till [Konfigurera infrastrukturen för virtuella Windows-datorer](#configure-windows-virtual-desktop-infrastructure). Om du vill testa äldre program följer du instruktionerna i [skapa ett MSIX-paket från ett Skriv bords installations program på en virtuell dator](https://docs.microsoft.com/windows/msix/packaging-tool/create-app-package-msi-vm) för att konvertera det äldre programmet till ett MSIX-paket.
 
-## <a name="generate-a-vhd-or-vhdx-package-for-msix"></a>Generate a VHD or VHDX package for MSIX
+## <a name="generate-a-vhd-or-vhdx-package-for-msix"></a>Generera ett VHD-eller VHDX-paket för MSIX
 
-Packages are in VHD or VHDX format to optimize performance. MSIX requires VHD or VHDX packages to work properly.
+Paket är i VHD-eller VHDX-format för att optimera prestanda. MSIX kräver att VHD-eller VHDX-paket fungerar korrekt.
 
-To generate a VHD or VHDX package for MSIX:
+Så här skapar du ett VHD-eller VHDX-paket för MSIX:
 
-1. [Download the msixmgr tool](https://aka.ms/msixmgr) and save the .zip folder to a folder within a session host VM.
+1. [Ladda ned msixmgr-verktyget](https://aka.ms/msixmgr) och spara zip-mappen i en mapp i en VM-session.
 
-2. Unzip the msixmgr tool .zip folder.
+2. Zippa upp mappen msixmgr-verktyget. zip.
 
-3. Put the source MSIX package into the same folder where you unzipped the msixmgr tool.
+3. Lägg till käll MSIX-paketet i samma mapp där du zippade msixmgr-verktyget.
 
-4. Run the following cmdlet in PowerShell to create a VHD:
+4. Kör följande cmdlet i PowerShell för att skapa en virtuell hård disk:
 
     ```powershell
     New-VHD -SizeBytes <size>MB -Path c:\temp\<name>.vhd -Dynamic -Confirm:$false
     ```
 
     >[!NOTE]
-    >Make sure the size of VHD is large enough to hold the expanded MSIX.*
+    >Se till att storleken på den virtuella hård disken är tillräckligt stor för att rymma den utökade MSIX. *
 
-5. Run the following cmdlet to mount the newly created VHD:
+5. Kör följande cmdlet för att montera den nyligen skapade virtuella hård disken:
 
     ```powershell
     $vhdObject = Mount-VHD c:\temp\<name>.vhd -Passthru
     ```
 
-6. Run this cmdlet to initialize the VHD:
+6. Kör denna cmdlet för att initiera den virtuella hård disken:
 
     ```powershell
     $disk = Initialize-Disk -Passthru -Number $vhdObject.Number
     ```
 
-7. Run this cmdlet to create a new partition:
+7. Kör denna cmdlet för att skapa en ny partition:
 
     ```powershell
     $partition = New-Partition -AssignDriveLetter -UseMaximumSize -DiskNumber $disk.Number
     ```
 
-8. Run this cmdlet to format the partition:
+8. Kör denna cmdlet för att formatera partitionen:
 
     ```powershell
     Format-Volume -FileSystem NTFS -Confirm:$false -DriveLetter $partition.DriveLetter -Force
     ```
 
-9. Create a parent folder on the mounted VHD. This step is mandatory as the MSIX app attach requires a parent folder. You can name the parent folder whatever you like.
+9. Skapa en överordnad mapp på den monterade virtuella hård disken. Det här steget är obligatoriskt eftersom MSIX-appen ansluter kräver en överordnad mapp. Du kan namnge den överordnade mappen oavsett vad du vill.
 
-### <a name="expand-msix"></a>Expand MSIX
+### <a name="expand-msix"></a>Expandera MSIX
 
-After that, you'll need to "expand" the MSIX image by unpacking it. To unpack the MSIX image:
+Därefter måste du expandera MSIX-avbildningen genom att packa upp den. Packa upp MSIX-avbildningen:
 
-1. Open a command prompt as Administrator and navigate to the folder where you downloaded and unzipped the msixmgr tool.
+1. Öppna en kommando tolk som administratör och navigera till den mapp där du laddade ned och zippa upp msixmgr-verktyget.
 
-2. Run the following cmdlet to unpack the MSIX into the VHD you created and mounted in the previous section.
+2. Kör följande cmdlet för att packa upp MSIX i den virtuella hård disk som du skapade och monterade i föregående avsnitt.
 
     ```powershell
     msixmgr.exe -Unpack -packagePath <package>.msix -destination "f:\<name of folder you created earlier>" -applyacls
     ```
 
-    The following message should appear once unpacking is done:
+    Följande meddelande ska visas när uppackning är slutförd:
 
     `Successfully unpacked and applied ACLs for package: <package name>.msix`
 
     >[!NOTE]
-    > If using packages from the Microsoft Store for Business (or Education) within your network, or on devices that are not connected to the internet, you will need to obtain the package licenses from the Store and install them to run the app successfully. See [Use packages offline](#use-packages-offline).
+    > Om du använder paket från Microsoft Store för företag (eller utbildning) i nätverket, eller på enheter som inte är anslutna till Internet, måste du skaffa paket licenser från butiken och installera dem för att köra appen. Se [använda paket offline](#use-packages-offline).
 
-3. Navigate to the mounted VHD and open the app folder and confirm package content is present.
+3. Navigera till den monterade virtuella hård disken och öppna mappen app och bekräfta att paket innehållet finns.
 
-4. Unmount the VHD.
+4. Demontera den virtuella hård disken.
 
-## <a name="configure-windows-virtual-desktop-infrastructure"></a>Configure Windows Virtual Desktop infrastructure
+## <a name="configure-windows-virtual-desktop-infrastructure"></a>Konfigurera infrastrukturen för virtuella Windows-datorer
 
-By design, a single MSIX expanded package (the VHD you created in the previous section) can be shared between multiple session host VMs as the VHDs are attached in read-only mode.
+Enligt design kan ett enda MSIX-expanderat paket (den virtuella hård disk som du skapade i föregående avsnitt) delas mellan flera virtuella datorers VM-datorer som de virtuella hård diskarna är i skrivskyddat läge.
 
-Before you start, make sure your network share meets these requirements:
+Innan du börjar kontrollerar du att nätverks resursen uppfyller följande krav:
 
-- The share is SMB compatible.
-- The VMs that are part of the session host pool have NTFS permissions to the share.
+- Resursen är SMB-kompatibel.
+- De virtuella datorerna som ingår i sessionen är NTFS-behörigheter till resursen.
 
-### <a name="set-up-an-msix-app-attach-share"></a>Set up an MSIX app attach share 
+### <a name="set-up-an-msix-app-attach-share"></a>Konfigurera en MSIX app Attach-resurs 
 
-In your Windows Virtual Desktop environment, create a network share and move the package there.
+I din Windows Virtual Desktop-miljö skapar du en nätverks resurs och flyttar paketet dit.
 
 >[!NOTE]
-> The best practice for creating MSIX network shares is to set up the network share with NTFS read-only permissions.
+> Den bästa metoden för att skapa MSIX nätverks resurser är att konfigurera nätverks resursen med skrivskyddad NTFS-behörighet.
 
-## <a name="install-certificates"></a>Install certificates
+## <a name="install-certificates"></a>Installera certifikat
 
-If your app uses a certificate that isn't public-trusted or was self-signed, here's how to install it:
+Om din app använder ett certifikat som inte är offentligt betrott eller själv signerat, så gör du så här för att installera det:
 
-1. Right-click the package and select **Properties**.
-2. In the window that appears, select the **Digital signatures** tab. There should be only one item in the list on the tab, as shown in the following image. Select that item to highlight the item, then select **De
-3. When the digital signal details window appears, select the **General** tab, then select **Install certificate**.
-4. When the installer opens, select **local machine** as your storage location, then select **Next**.
-5. If the installer asks you if you want to allow the app to make changes to your device, select **Yes**.
-6. Select **Place all certificates in the following store**, then select **Browse**.
-7. When the select certificate store window appears, select **Trusted people**, then select **OK**.
+1. Högerklicka på paketet och välj **Egenskaper**.
+2. I fönstret som visas väljer du fliken **digitala signaturer** . Det får bara finnas ett objekt i listan på fliken, som du ser i följande bild. Markera objektet för att markera objektet och välj sedan * * de
+3. När fönstret digital signal information visas väljer du fliken **Allmänt** och väljer sedan **Installera certifikat**.
+4. När installations programmet öppnas väljer du **lokal dator** som lagrings plats och väljer sedan **Nästa**.
+5. Om du tillfrågas om du vill tillåta att appen gör ändringar på enheten väljer du **Ja**.
+6. Välj **Placera alla certifikat i följande Arkiv**och välj **Bläddra**.
+7. När fönstret Välj certifikat Arkiv visas väljer du **Betrodda personer**och väljer sedan **OK**.
 8. Välj **Slutför**.
 
-## <a name="prepare-powershell-scripts-for-msix-app-attach"></a>Prepare PowerShell scripts for MSIX app attach
+## <a name="prepare-powershell-scripts-for-msix-app-attach"></a>Förbereda PowerShell-skript för MSIX app Attach
 
-MSIX app attach has four distinct phases that must be performed in the following order:
+MSIX app Attach har fyra distinkta faser som måste utföras i följande ordning:
 
-1. Mellanlagra
+1. Skede
 2. Registrera dig
-3. Deregister
+3. Avregistrera
 4. Destage
 
-Each phase creates a PowerShell script. Sample scripts for each phase are available [here](https://github.com/Azure/RDS-Templates/tree/master/msix-app-attach).
+Varje fas skapar ett PowerShell-skript. Exempel skript för varje fas finns [här](https://github.com/Azure/RDS-Templates/tree/master/msix-app-attach).
 
-### <a name="stage-the-powershell-script"></a>Stage the PowerShell script
+### <a name="stage-the-powershell-script"></a>Mellanlagra PowerShell-skriptet
 
-Before you update the PowerShell scripts, make sure you have the volume GUID of the volume in the VHD. To get the volume GUID:
+Innan du uppdaterar PowerShell-skripten ser du till att du har volymens GUID för volymen på den virtuella hård disken. Så här hämtar du volymens GUID:
 
-1.  Open the network share where the VHD is located inside the VM where you'll run the script.
+1.  Öppna nätverks resursen där den virtuella hård disken finns i den virtuella datorn där du kör skriptet.
 
-2.  Right-click the VHD and select **Mount**. This will mount the VHD to a drive letter.
+2.  Högerklicka på den virtuella hård disken och välj **montera**. Detta kommer att montera den virtuella hård disken till en enhets beteckning.
 
-3.  After you mount the VHD, the **File Explorer** window will open. Capture the parent folder and update the **\$parentFolder** variable
+3.  När du har monterat den virtuella hård disken **öppnas fönstret Utforskaren** . Avbilda den överordnade mappen och uppdatera **\$parentFolder** -variabeln
 
     >[!NOTE]
-    >If you don't see a parent folder, that means the MSIX wasn't expanded properly. Redo the previous section and try again.
+    >Om du inte ser en överordnad mapp betyder det att MSIX inte expanderades korrekt. Gör om föregående avsnitt och försök igen.
 
-4.  Open the parent folder. If correctly expanded, you'll see a folder with the same name as the package. Update the **\$packageName** variable to match the name of this folder.
+4.  Öppna den överordnade mappen. Om den är korrekt expanderad visas en mapp med samma namn som paketet. Uppdatera variabeln **\$PackageName** så att den matchar namnet på den här mappen.
 
     Till exempel `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe`.
 
-5.  Open a command prompt and enter **mountvol**. This command will display a list of volumes and their GUIDs. Copy the GUID of the volume where the drive letter matches the drive you mounted your VHD to in step 2.
+5.  Öppna en kommando tolk och ange **mountvol**. Det här kommandot visar en lista över volymer och deras GUID. Kopiera GUID för volymen där enhets beteckningen matchar den enhet som du monterade din virtuella hård disk till i steg 2.
 
-    For example, in this example output for the mountvol command, if you mounted your VHD to Drive C, you'll want to copy the value above `C:\`:
+    Exempel: i det här exemplet på utdata för kommandot mountvol om du har monterat din virtuella hård disk till enhet C, vill du kopiera värdet ovan `C:\`:
 
     ```cmd
     Possible values for VolumeName along with current mount points are:
@@ -227,9 +227,9 @@ Before you update the PowerShell scripts, make sure you have the volume GUID of 
     ```
 
 
-6.  Update the **\$volumeGuid** variable with the volume GUID you just copied.
+6.  Uppdatera variabeln **\$volumeGuid** med volym-GUID som du nyss kopierade.
 
-7. Open an Admin PowerShell prompt and update the following PowerShell script with the variables that apply to your environment.
+7. Öppna en admin PowerShell-prompt och uppdatera följande PowerShell-skript med de variabler som gäller för din miljö.
 
     ```powershell
     #MSIX app attach staging sample
@@ -321,9 +321,9 @@ Before you update the PowerShell scripts, make sure you have the volume GUID of 
     #endregion
     ```
 
-### <a name="register-powershell-script"></a>Register PowerShell script
+### <a name="register-powershell-script"></a>Registrera PowerShell-skript
 
-To run the register script, run the following PowerShell cmdlets with the placeholder values replaced with values that apply to your environment.
+Kör register skriptet genom att köra följande PowerShell-cmdletar med plats hållarnas värden ersatta med värden som gäller för din miljö.
 
 ```powershell
 #MSIX app attach registration sample
@@ -343,9 +343,9 @@ Add-AppxPackage -Path \$path -DisableDevelopmentMode -Register
 #endregion
 ```
 
-### <a name="deregister-powershell-script"></a>Deregister PowerShell script
+### <a name="deregister-powershell-script"></a>Avregistrera PowerShell-skript
 
-For this script, replace the placeholder for **\$packageName** with the name of the package you're testing.
+I det här skriptet ersätter du plats hållaren för **\$PackageName** med namnet på det paket som du testar.
 
 ```powershell
 #MSIX app attach deregistration sample
@@ -363,9 +363,9 @@ Remove-AppxPackage -PreserveRoamableApplicationData $packageName
 #endregion
 ```
 
-### <a name="destage-powershell-script"></a>Destage PowerShell script
+### <a name="destage-powershell-script"></a>Destage PowerShell-skript
 
-For this script, replace the placeholder for **\$packageName** with the name of the package you're testing.
+I det här skriptet ersätter du plats hållaren för **\$PackageName** med namnet på det paket som du testar.
 
 ```powershell
 #MSIX app attach de staging sample
@@ -389,30 +389,30 @@ rmdir $packageName -Force -Verbose
 #endregion
 ```
 
-## <a name="set-up-simulation-scripts-for-the-msix-app-attach-agent"></a>Set up simulation scripts for the MSIX app attach agent
+## <a name="set-up-simulation-scripts-for-the-msix-app-attach-agent"></a>Konfigurera simulerings skript för MSIX-appens kopplings agent
 
-After you create the scripts, users can manually run them or set them up to run automatically as startup, logon, logoff, and shutdown scripts. To learn more about these types of scripts, see [Using startup, shutdown, logon, and logoff scripts in Group Policy](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn789196(v=ws.11)).
+När du har skapat skripten kan användarna köra dem manuellt eller ställa in dem för att köra automatiskt som start, inloggning, utloggning och avstängnings skript. Mer information om dessa typer av skript finns i [använda skript för start, avstängning, inloggning och utloggning i Grupprincip](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn789196(v=ws.11)).
 
-Each of these automatic scripts runs one phase of the app attach scripts:
+Vart och ett av dessa automatiska skript kör en fas i appen bifoga skript:
 
-- The startup script runs the stage script.
-- The logon script runs the register script.
-- The logoff script runs the deregister script.
-- The shutdown script runs the destage script.
+- Start skriptet kör Stadium skriptet.
+- Inloggnings skriptet kör register skriptet.
+- Utloggnings skriptet kör Avregistrerings skriptet.
+- Avstängnings skriptet kör destage-skriptet.
 
-## <a name="use-packages-offline"></a>Use packages offline
+## <a name="use-packages-offline"></a>Använda paket offline
 
-If you're using packages from the [Microsoft Store for Business](https://businessstore.microsoft.com/) or the [Microsoft Store for Education](https://educationstore.microsoft.com/) within your network or on devices that aren't connected to the internet, you need to get the package licenses from the Microsoft Store and install them on your device to successfully run the app. If your device is online and can connect to the Microsoft Store for Business, the required licenses should download automatically, but if you're offline, you'll need to set up the licenses manually. 
+Om du använder paket från [Microsoft Store för företag](https://businessstore.microsoft.com/) eller [Microsoft Store för utbildning](https://educationstore.microsoft.com/) i nätverket eller på enheter som inte är anslutna till Internet, måste du hämta paket licenser från Microsoft Store och installera dem på enheten för att kunna köra appen. Om enheten är online och kan ansluta till Microsoft Store för företag, bör de licenser som krävs hämtas automatiskt, men om du är offline måste du konfigurera licenserna manuellt. 
 
-To install the license files, you'll need to use a PowerShell script that calls the MDM_EnterpriseModernAppManagement_StoreLicenses02_01 class in the WMI Bridge Provider.  
+Om du vill installera licensfiler måste du använda ett PowerShell-skript som anropar MDM_EnterpriseModernAppManagement_StoreLicenses02_01-klassen i WMI-providern.  
 
-Here's how to set up the licenses for offline use: 
+Så här konfigurerar du licenserna för offline-användning: 
 
-1. Download the app package, licenses, and required frameworks from the Microsoft Store for Business. You need both the encoded and unencoded license files. Detailed download instructions can be found [here](https://docs.microsoft.com/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app).
-2. Update the following variables in the script for step 3:
-      1. `$contentID` is the ContentID value from the Unencoded license file (.xml). You can open the license file in a text editor of your choice.
-      2. `$licenseBlob` is the entire string for the license blob in the Encoded license file (.bin). You can open the encoded license file in a text editor of your choice. 
-3. Run the following script from an Admin PowerShell prompt. A good place to perform license installation is at the end of the [staging script](#stage-the-powershell-script) that also needs to be run from an Admin prompt.
+1. Ladda ned programpaketet, licenserna och de ramverk som krävs från Microsoft Store för företag. Du behöver både kodade och kodade licensfiler. Detaljerade instruktioner för hämtning hittar du [här](https://docs.microsoft.com/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app).
+2. Uppdatera följande variabler i skriptet för steg 3:
+      1. `$contentID` är ContentID-värdet från den kodade licens filen (. xml). Du kan öppna licens filen i valfri text redigerare.
+      2. `$licenseBlob` är hela strängen för licens-bloben i den kodade licens filen (. bin). Du kan öppna den kodade licens filen i valfri text redigerare. 
+3. Kör följande skript från en admin PowerShell-prompt. En bra plats för att utföra licens installationen är i slutet av det [mellanlagrings skript](#stage-the-powershell-script) som måste köras från en administratörs prompt.
 
 ```powershell
 $namespaceName = "root\cimv2\mdm\dmmap"
@@ -450,6 +450,6 @@ catch [Exception]
 
 ## <a name="next-steps"></a>Nästa steg
 
-This feature isn't currently supported, but you can ask questions to the community at the [Windows Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
+Den här funktionen stöds inte för närvarande, men du kan ställa frågor till communityn på den [virtuella Windows-datorn TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 
-You can also leave feedback for Windows Virtual Desktop at the [Windows Virtual Desktop feedback hub](https://aka.ms/MRSFeedbackHub), or leave feedback for the MSIX app and packaging tool at the [MSIX app attach feedback hub](https://aka.ms/msixappattachfeedback) and the [MSIX packaging tool feedback hub](https://aka.ms/msixtoolfeedback).
+Du kan också lämna feedback för virtuella Windows-datorer i [hubben för Windows Virtual Desktop feedback](https://aka.ms/MRSFeedbackHub)eller lämna feedback för MSIX-appen och packnings verktyget i [MSIX-appen bifoga feedback Hub](https://aka.ms/msixappattachfeedback) och [MSIX paket verktyg feedback Hub](https://aka.ms/msixtoolfeedback).

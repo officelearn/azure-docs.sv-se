@@ -91,7 +91,7 @@ cloudSpatialAnchorSession = new CloudSpatialAnchorSession();
 cloudSpatialAnchorSession.setLocationProvider(sensorProvider);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
 
 ```cpp
 // Create the sensor fingerprint provider
@@ -164,7 +164,7 @@ SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setGeoLocationEnabled(true);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
 
 ```cpp
 const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
@@ -276,7 +276,7 @@ while (m_isRunning)
 sensorProvider.stop();
 ```
 
-# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
 
 ```cpp
 // Game about to start, start tracking the sensors
@@ -349,7 +349,7 @@ SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setWifiEnabled(true);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
 
 ```cpp
 const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
@@ -407,7 +407,7 @@ SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setBluetoothEnabled(true);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
 
 ```cpp
 const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
@@ -471,7 +471,7 @@ SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setKnownBeaconProximityUuids(uuids);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
 
 ```cpp
 std::vector<std::string> uuids;
@@ -563,7 +563,7 @@ AnchorLocateCriteria anchorLocateCriteria = new AnchorLocateCriteria();
 anchorLocateCriteria.setNearDevice(nearDeviceCriteria);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
 
 ```cpp
 auto nearDeviceCriteria = std::make_shared<NearDeviceCriteria>();
@@ -626,7 +626,7 @@ cloudSpatialAnchorSession!.createWatcher(anchorLocateCriteria)
 cloudSpatialAnchorSession.createWatcher(anchorLocateCriteria);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
 
 ```cpp
 cloudSpatialAnchorSession->CreateWatcher(anchorLocateCriteria);
@@ -665,7 +665,7 @@ I följande tabell sammanfattas de sensor data som samlas in på var och en av d
 
 |             | HoloLens | Android | iOS |
 |-------------|----------|---------|-----|
-| GPS         | Saknas | Stöds via [LocationManager][3] -API: er (både GPS och nätverk) | Stöds via [CLLocationManager][4] -API: er |
+| GPS         | Gäller inte | Stöds via [LocationManager][3] -API: er (både GPS och nätverk) | Stöds via [CLLocationManager][4] -API: er |
 | Wi-Fi        | Stöds till ungefär en genomsökning var tredje sekund | Stöds. Från och med API-nivå 28 begränsas WiFi-genomsökningar till 4 anrop var 2: e minut. Från Android 10 kan begränsningen inaktive ras från menyn för inställningar för utvecklare. Mer information finns i Android- [dokumentationen][5]. | Ej tillämpligt – inget offentligt API |
 | Bell-beacons | Begränsat till [Eddystone][1] och [iBeacon][2] | Begränsat till [Eddystone][1] och [iBeacon][2] | Begränsat till [Eddystone][1] och [iBeacon][2] |
 

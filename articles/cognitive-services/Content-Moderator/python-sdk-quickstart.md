@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 10/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 3978b4ec302bf4dd2390f2390c967ca6e12e67d5
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: ee3f59bc9e9f8c7950d005b16433cde9267fea9a
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73744405"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538991"
 ---
 # <a name="quickstart-content-moderator-client-library-for-python"></a>Snabb start: Content Moderator klient bibliotek för python
 
@@ -31,7 +31,7 @@ Använd Content Moderator klient bibliotek för python för att:
 
 [Referens dokumentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python) | [Library Source Code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-contentmoderator) | [Package (PiPy) | -](https://pypi.org/project/azure-cognitiveservices-vision-contentmoderator/) [exempel](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
@@ -72,7 +72,7 @@ pip install --upgrade azure-cognitiveservices-vision-contentmoderator
 
 Följande klasser hanterar några av de viktigaste funktionerna i Content Moderator python SDK.
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |[ContentModeratorClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.content_moderator_client.contentmoderatorclient?view=azure-python)|Den här klassen krävs för alla Content Moderator-funktioner. Du instansierar det med din prenumerations information och använder den för att skapa instanser av andra klasser.|
 |[ImageModerationOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.imagemoderationoperations?view=azure-python)|Den här klassen innehåller funktioner för att analysera bilder för innehåll som är olämpligt för barn, personlig information eller mänskliga ansikten.|
@@ -101,11 +101,11 @@ Instansiera en klient med din slut punkt och nyckel. Skapa ett [CognitiveService
 
 ## <a name="moderate-text"></a>Måttlig text
 
-I följande kod används en Content Moderator-klient för att analysera text texten och skriva ut resultatet till-konsolen. Börja med att skapa en **text_files/-** mapp i projekt roten och Lägg till en *content_moderator_text_moderation. txt* -fil. Lägg till din egen text i filen eller Använd följande exempel text:
+I följande kod används en Content Moderator-klient för att analysera text texten och skriva ut resultatet till-konsolen. Skapa först en **text_files/-** mapp i projekt roten och Lägg till en *content_moderator_text_moderation. txt* -fil. Lägg till din egen text i filen eller Använd följande exempel text:
 
 ```
-Is this a grabage email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
-Crap is the profanity here. Is this information PII? phone 3144444444
+Is this a grabage email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555.
+Crap is the profanity here. Is this information PII? phone 2065550111
 ```
 
 Lägg till en referens till den nya mappen.
@@ -345,7 +345,7 @@ python quickstart-file.py
 
 Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
 
-* [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Portalen](../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Nästa steg

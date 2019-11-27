@@ -57,7 +57,7 @@ Information om Security Centers rekommendationer finns i [säkerhet för virtuel
 
 ## <a name="run-time-protection---real-time-threat-detection"></a>Kör tids skydd – real tids identifiering av hot
 
-Security Center tillhandahåller hot identifiering i real tid för dina behållares miljöer och genererar aviseringar för misstänkta aktiviteter. Du kan använda den här informationen för att snabbt åtgärda säkerhetsproblem och förbättra säkerheten för dina behållare.
+Security Center tillhandahåller hot identifiering i real tid för dina behållares miljöer och genererar aviseringar för misstänkta aktiviteter. Du kan använda den här informationen för att snabbt åtgärda säkerhetsproblem och förbättra säkerheten för dina containrar.
 
 Vi identifierar hot på kluster nivån värd och AKS. Fullständig information finns i [Azure Container Service](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-).
 

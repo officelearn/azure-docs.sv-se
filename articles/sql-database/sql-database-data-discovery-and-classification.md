@@ -12,12 +12,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: b5f839cc6216eb12bfd0a86009ec49e987279d6e
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 922a2eb910a99a899bdb9f2b3e2392559ec9b0f3
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889842"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74548409"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>& Klassificering för Azure SQL Database och SQL Data Warehouse data identifiering
 
@@ -128,8 +128,9 @@ En viktig aspekt av informations skydds paradigmet är möjligheten att övervak
 
 ![Gransknings logg](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
-## <a id="subheading-4"></a>Hantera data klassificering med T-SQL
+### <a name="manage-classifications"></a>Hantera klassificeringar
 
+# <a name="t-sqltabazure-t-sql"></a>[T-SQL](#tab/azure-t-sql)
 Du kan använda T-SQL för att lägga till/ta bort kolumn klassificeringar, samt hämta alla klassificeringar för hela databasen.
 
 > [!NOTE]
@@ -139,8 +140,7 @@ Du kan använda T-SQL för att lägga till/ta bort kolumn klassificeringar, samt
 - Ta bort klassificeringen från en eller flera kolumner: [släpp känslighets klassificering](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 - Visa alla klassificeringar för databasen: [sys. sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
-### <a name="manage-classifications-using-rest-apis"></a>Hantera klassificeringar med REST API: er
-
+# <a name="rest-apistabazure-rest-api"></a>[REST-API: er](#tab/azure-rest-api)
 Du kan också använda REST-API: er för att hantera klassificeringar program mässigt. De publicerade REST API: erna har stöd för följande åtgärder:
 
 - [Skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) – skapar eller uppdaterar känslighets etiketten för en specifik kolumn
@@ -152,12 +152,8 @@ Du kan också använda REST-API: er för att hantera klassificeringar program m�
 
 - [Lista rekommenderas av databasen](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) – hämtar de rekommenderade känslighets etiketterna för en specifik databas
 
-## <a name="manage-data-discovery-and-classification-using-azure-powershell"></a>Hantera identifiering och klassificering av data med hjälp av Azure PowerShell
-
-Du kan använda PowerShell för att hämta alla rekommenderade kolumner i en Azure SQL-databas och en hanterad instans.
-
-### <a name="powershell-cmdlets-for-azure-sql-database"></a>PowerShell-cmdletar för Azure SQL Database
-
+# <a name="powershell-cmdlet-for-azure-sqltabazure-portal-sqldb"></a>[PowerShell-cmdlet för Azure SQL](#tab/azure-portal-sqldb)
+Du kan använda PowerShell för att hämta alla rekommenderade kolumner i en Azure SQL-databas.
 - [Get-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityclassification)
 - [Set-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasesensitivityclassification)
 - [Remove-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasesensitivityclassification)
@@ -165,8 +161,8 @@ Du kan använda PowerShell för att hämta alla rekommenderade kolumner i en Azu
 - [Aktivera – AzSqlDatabaSesensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/enable-azsqldatabasesensitivityrecommendation)
 - [Disable-AzSqlDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/disable-azsqldatabasesensitivityrecommendation)
 
-### <a name="powershell-cmdlets-for-managed-instance"></a>PowerShell-cmdletar för hanterad instans
-
+# <a name="powershell-cmdlets-for-managed-instancetabazure-powershell-mi"></a>[PowerShell-cmdletar för hanterad instans](#tab/azure-powershell-mi)
+Du kan använda PowerShell för att hämta alla rekommenderade kolumner i en hanterad instans.
 - [Get-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityclassification)
 - [Set-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasesensitivityclassification)
 - [Remove-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabasesensitivityclassification)

@@ -1,6 +1,6 @@
 ---
-title: Create & publish single sign-on documentation for your application
-description: Guidance for independent software vendors on integrating with Azure Active Directory
+title: Skapa & publicera enkel inloggnings dokumentation för ditt program
+description: Vägledning för oberoende program varu leverantörer vid integrering med Azure Active Directory
 services: active-directory
 author: barbaraselden
 manager: CelesteDG
@@ -19,46 +19,46 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74232272"
 ---
-# <a name="create-and-publish-single-sign-on-documentation-for-your-application"></a>Create and publish single sign-on documentation for your application   
+# <a name="create-and-publish-single-sign-on-documentation-for-your-application"></a>Skapa och publicera enkel inloggnings dokumentation för ditt program   
 
-## <a name="documentation-on-your-site"></a>Documentation on your site
+## <a name="documentation-on-your-site"></a>Dokumentation på din webbplats
 
-Ease of adoption is a significant factor in enterprise software decisions. Clear easy-to-follow documentation supports your customers in their adoption journey and reduces support costs. Working with thousands of software vendors, Microsoft has seen what works.
+Ett enkelt sätt att införa är en betydande faktor i företags program varu beslut. Rensa användarvänlig dokumentation som stöder dina kunder vid deras införande av transporter och minskar support kostnaderna. Genom att arbeta med tusentals program varu leverantörer har Microsoft sett vad som fungerar.
 
-We recommend that your documentation on your site at a minimum include the following items.
+Vi rekommenderar att dokumentationen på din webbplats minst omfattar följande objekt.
 
-* Introduction to your SSO functionality
+* Introduktion till dina SSO-funktioner
 
-  * Protocols supported
+  * Protokoll som stöds
 
-  * Version and SKU
+  * Version och SKU
 
-  * Supported Identity Providers list with documentation links
+  * Lista med identitets leverantörer som stöds med dokumentations länkar
 
-* Licensing information for your application
+* Licens information för ditt program
 
-* Role-based access control for configuring SSO
+* Rollbaserad åtkomst kontroll för att konfigurera SSO
 
-* SSO Configuration Steps
+* Konfigurations steg för SSO
 
-  * UI configuration elements for SAML with expected values from the provider
+  * GRÄNSSNITTs konfigurations element för SAML med förväntade värden från providern
 
-  * Service provider information to be passed to identity providers
+  * Information om service providern som ska skickas till identitets leverantörer
 
-* If OIDC/OAuth
+* Om OIDC/OAuth
 
-  * List of permissions required for consent with business justifications
+  * Lista över behörigheter som krävs för godkännande med affärs skäl
 
-* Testing steps for pilot users
+* Test steg för pilot användare
 
-* Troubleshooting information, including error codes and messages
+* Fel söknings information, inklusive felkoder och meddelanden
 
-* Support mechanisms for customers
+* Support metoder för kunder
 
-## <a name="documentation-on-the-microsoft-site"></a>Documentation on the Microsoft Site
+## <a name="documentation-on-the-microsoft-site"></a>Dokumentation på Microsofts webbplats
 
-When you list your application with the Azure Active Directory Application Gallery, which also publishes your application in the Azure Marketplace, Microsoft will generate documentation for our mutual customers explaining the step-by-step process. You can see an example [here](https://aka.ms/appstutorial). This documentation is created based on your submission to the gallery, and you can easily update it if you make changes to your application using your GitHub account.
+När du visar ditt program med Azure Active Directory program galleriet, som även publicerar ditt program på Azure Marketplace, kommer Microsoft att generera dokumentation för våra ömsesidiga kunder som förklarar steg för steg-processen. Du kan se ett exempel [här](https://aka.ms/appstutorial). Den här dokumentationen skapas baserat på ditt bidrag till galleriet och du kan enkelt uppdatera det om du gör ändringar i programmet med ditt GitHub-konto.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[List your application in the Azure AD Application Gallery](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx)
+[Lista ditt program i Azure AD-programgalleriet](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx)

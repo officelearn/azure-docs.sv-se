@@ -28,7 +28,7 @@ Du lär dig följande:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Kontrollera att du har följande för genomföra den här snabbstarten:
 - En Mac som kör macOS med hög Sierra (10,13) eller högre än:
@@ -44,7 +44,7 @@ Kontrollera att du har följande för genomföra den här snabbstarten:
 
 Öppna `Xamarin/SampleXamarin.sln` i Visual Studio.
 
-## <a name="configure-account-identifier-and-key"></a>Konfigurera konto-ID och -nyckel
+## <a name="configure-account-identifier-and-key"></a>Konfigurera kontoidentifierare och nyckel
 
 Nästa steg är att konfigurera appen så att den använder din konto identifierare och konto nyckeln. Du kopierade dem till en text redigerare när du [ställer in resursen för spatiala ankare](#create-a-spatial-anchors-resource).
 

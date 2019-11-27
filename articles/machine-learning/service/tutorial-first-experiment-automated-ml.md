@@ -32,7 +32,7 @@ I den här självstudien får du lära dig hur du utför följande uppgifter:
 > * Visa experiment information.
 > * Distribuera modellen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://aka.ms/AMLFree).
 
@@ -89,7 +89,7 @@ Du har slutfört följande experiment med att ställa in och köra steg i Azure 
         Avgränsare|Ett eller flera tecken för att ange avgränsningen mellan&nbsp; separata, oberoende regioner i oformaterad text eller andra data strömmar. |Kommaseparerade
         Kodning|Identifierar vilken bit till Character-schema tabell som ska användas för att läsa din data uppsättning.| UTF-8
         Kolumn rubriker| Anger hur data uppsättningens huvuden, om det finns, kommer att behandlas.| Alla filer har samma rubriker
-        Hoppa över rader | Anger hur många rader som ska hoppas över i data uppsättningen.| Ingen
+        Hoppa över rader | Anger hur många rader som ska hoppas över i data uppsättningen.| Inga
 
     1. Med hjälp av **schema** formuläret kan du ytterligare konfigurera dina data för det här experimentet. I det här exemplet väljer du växlings växeln för **day_of_week** -funktionen, så att den inte inkluderas för det här experimentet. Välj **Nästa**.
 
@@ -133,7 +133,7 @@ Du har slutfört följande experiment med att ställa in och köra steg i Azure 
         ------|---------|---
         Primärt mått| Bedömnings mått som ska mätas av Machine Learning-algoritmen.|AUC_weighted
         Automatisk funktionalisering| Aktiverar för bearbetning. Detta inkluderar automatisk rensning av data, förberedelser och transformering för att generera syntetiska funktioner.| Aktivera
-        Blockerade algoritmer | Algoritmer som du vill undanta från utbildnings jobbet| Ingen
+        Blockerade algoritmer | Algoritmer som du vill undanta från utbildnings jobbet| Inga
         Avslutnings kriterium| Om ett villkor uppfylls stoppas utbildnings jobbet. |Utbildning&nbsp;jobb&nbsp;tid (timmar): 1 <br> Mått&nbsp;Poäng&nbsp;tröskel: ingen
         Validering | Välj en kors validerings typ och antalet tester.|Validerings typ:<br>&nbsp;k-vikning&nbsp;kors validering <br> <br> Antal valideringar: 2
         Samtidighet| Maximalt antal utförda parallella iterationer och kärnor som används per iteration| Max&nbsp;samtidiga&nbsp;iterationer: 5<br> Max&nbsp;kärnor&nbsp;per&nbsp;iteration: ingen
@@ -173,7 +173,7 @@ I den här experiment kontexten betraktas **VotingEnsemble** som den bästa mode
 
 1. Fyll i fönstret **distribuera en modell** enligt följande:
 
-    Fält| Värde
+    Fält| Value
     ----|----
     Distributions namn| My-automl – Deploy
     Distributions Beskrivning| Min första automatiserade test distribution av Machine Learning

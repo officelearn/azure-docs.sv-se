@@ -1,5 +1,5 @@
 ---
-title: Decomposable entity tutorial links
+title: Själv studie kurs Länkar för desammansättnings enhet
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -14,9 +14,9 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74383665"
 ---
-To take advantage of [decomposable concepts](../luis-concept-model.md#v3-authoring-model-decomposition), start with the machine-learned entity. Follow the [machine-learned entity tutorial](../tutorial-machine-learned-entity.md) for steps on how to create this type of entity including examples of:
+Börja med den enhets medveten entiteten för att dra nytta av metoder för att skapa [sammansättningar](../luis-concept-model.md#v3-authoring-model-decomposition). Följ [själv studie kursen om enhets vägledning](../tutorial-machine-learned-entity.md) för steg om hur du skapar den här typen av entitet, inklusive exempel på:
 
-* [Create and label machine-learned entity](../tutorial-machine-learned-entity.md#label-text-as-entities-in-example-utterances) with structure and a descriptor (phrase list) from example utterance on **Intent detail page**
-* [Add prebuilt number entity](../tutorial-machine-learned-entity.md#add-prebuilt-number-to-help-extract-data) from the **Entities list page**.
-* [Add subcomponent entity with constraint](../tutorial-machine-learned-entity.md#create-subcomponent-entity-with-constraint-to-help-extract-data) from the **Entity detail page**.
-* [Label example utterance with subcomponent](../tutorial-machine-learned-entity.md#label-example-utterance-to-teach-luis-about-the-entity) on **Intent detail page**
+* [Skapa och märk maskin medveten entitet](../tutorial-machine-learned-entity.md#label-text-as-entities-in-example-utterances) med struktur och en beskrivning (fras lista) från exempel uttryck på **sidan information om avsikt**
+* [Lägg till fördefinierad nummer entitet](../tutorial-machine-learned-entity.md#add-prebuilt-number-to-help-extract-data) från **list sidan entiteter**.
+* [Lägg till komponenten för del komponenten med begränsningen](../tutorial-machine-learned-entity.md#create-subcomponent-entity-with-constraint-to-help-extract-data) från **entitetens detalj sida**.
+* [Label-exempel uttryck med](../tutorial-machine-learned-entity.md#label-example-utterance-to-teach-luis-about-the-entity) information om under komponenter på **avsikts sidan**

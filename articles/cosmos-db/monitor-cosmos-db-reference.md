@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB monitoring data reference | Microsoft Docs
-description: Log and metrics reference for monitoring data from Azure Cosmos DB.
+title: Azure Cosmos DB referens för övervaknings data | Microsoft Docs
+description: Logg och statistik referens för övervakning av data från Azure Cosmos DB.
 author: bwren
 services: azure-monitor
 ms.service: azure-monitor
@@ -16,89 +16,89 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74456526"
 ---
-# <a name="azure-cosmos-db-monitoring-data-reference"></a>Azure Cosmos DB monitoring data reference
-This article provides a reference of log and metric data collected to analyze the performance and availability of Azure Cosmos DB. See [Monitoring Cosmos DB](monitor-cosmos-db.md) for details on collecting and analyzing monitoring data for Azure Cosmos DB.
+# <a name="azure-cosmos-db-monitoring-data-reference"></a>Azure Cosmos DB övervaknings data referens
+Den här artikeln innehåller en referens till logg-och mät data som samlas in för att analysera prestanda och tillgänglighet för Azure Cosmos DB. Mer information om hur du samlar in och analyserar övervaknings data för Azure Cosmos DB finns i [övervaknings Cosmos DB](monitor-cosmos-db.md) .
 
 
 ## <a name="resource-logs"></a>Resursloggar
-The following table lists the properties for Azure Cosmos DB resource logs when they're collected in Azure Monitor Logs or Azure Storage. In Azure Monitor Logs, they're collected in the **AzureDiagnostics** table with a **ResourceProvider** value of *MICROSOFT.DOCUMENTDB*. 
+I följande tabell visas egenskaperna för Azure Cosmos DB resurs loggar när de samlas in i Azure Monitor loggar eller Azure Storage. I Azure Monitor loggar samlas de in i tabellen **AzureDiagnostics** med **ResourceProvider** -värdet *Microsoft. DOCUMENTDB*. 
 
-| Azure Storage field or property | Azure Monitor Logs property | Beskrivning |
+| Azure Storage-fält eller någon egenskap | Azure Monitor loggar egenskap | Beskrivning |
 | --- | --- | --- |
-| **time** | **TimeGenerated** | The date and time (UTC) when the operation occurred. |
-| **resourceId** | **Resurs** | The Azure Cosmos DB account for which logs are enabled.|
-| **category** | **Kategori** | For Azure Cosmos DB logs, **DataPlaneRequests**, **MongoRequests**, **QueryRuntimeStatistics**, **PartitionKeyStatistics**, **PartitionKeyRUConsumption**, **ControlPlaneRequests** are the available log types. |
-| **operationName** | **OperationName** | Name of the operation. This value can be any of the following operations: Create, Update, Read, ReadFeed, Delete, Replace, Execute, SqlQuery, Query, JSQuery, Head, HeadFeed, or Upsert.   |
-| **properties** | Ej tillämpligt | The contents of this field are described in the rows that follow. |
-| **activityId** | **activityId_g** | The unique GUID for the logged operation. |
-| **userAgent** | **userAgent_s** | A string that specifies the client user agent that's performing the request. The format is {user agent name}/{version}.|
-| **requestResourceType** | **requestResourceType_s** | The type of the resource accessed. This value can be any of the following resource types: Database, Container, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction, or Offer. |
-| **statusCode** | **statusCode_s** | The response status of the operation. |
-| **requestResourceId** | **ResourceId** | The resourceId that pertains to the request. The value may point to databaseRid, collectionRid, or documentRid depending on the operation performed.|
-| **clientIpAddress** | **clientIpAddress_s** | The client's IP address. |
-| **requestCharge** | **requestCharge_s** | The number of RUs that are used by the operation |
-| **collectionRid** | **collectionId_s** | The unique ID for the collection.|
-| **duration** | **duration_s** | The duration of the operation, in milliseconds. |
-| **requestLength** | **requestLength_s** | The length of the request, in bytes. |
-| **responseLength** | **responseLength_s** | The length of the response, in bytes.|
-| **resourceTokenUserRid** | **resourceTokenUserRid_s** | This value is non-empty when [resource tokens](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) are used for authentication. The value points to the resource ID of the user. |
+| **tid** | **TimeGenerated** | Datum och tid (UTC) när åtgärden utfördes. |
+| **resourceId** | **Resurs** | Azure Cosmos DB-kontot som loggar är aktiverad.|
+| **kategori** | **Kategori** | För Azure Cosmos DB loggar, **DataPlaneRequests**, **MongoRequests**, **QueryRuntimeStatistics**, **PartitionKeyStatistics**, **PartitionKeyRUConsumption**, **ControlPlaneRequests** är de tillgängliga logg typerna. |
+| **operationName** | **OperationName** | Åtgärdens namn. Det här värdet kan vara något av följande åtgärder: skapa, uppdatera, Läs, ReadFeed, ta bort, Ersätt, kör, SQL-fråga, fråga, JSQuery, Head, HeadFeed eller Upsert.   |
+| **egenskaperna** | Saknas | Innehållet i det här fältet beskrivs i de rader som följer. |
+| **activityId** | **activityId_g** | Unikt GUID för den loggade åtgärden. |
+| **userAgent** | **userAgent_s** | En sträng som anger klientanvändaragent som utför förfrågan. Formatet är {användarnamn för agenten} / {version}.|
+| **requestResourceType** | **requestResourceType_s** | Typ av resurs som används. Det här värdet kan vara något av följande resurstyper: databasen, behållare, dokument, bifogad fil, användare, behörighet, StoredProcedure, utlösare, UserDefinedFunction eller erbjudandet. |
+| **statusCode** | **statusCode_s** | Svarsstatus för åtgärden. |
+| **requestResourceId** | **ResourceId** | ResourceId som gäller för begäran. Värdet kan peka databaseRid, collectionRid eller documentRid beroende på de åtgärder som utförs.|
+| **clientIpAddress** | **clientIpAddress_s** | Klientens IP-adress. |
+| **requestCharge** | **requestCharge_s** | Antalet enheter för programbegäran som används av åtgärden |
+| **collectionRid** | **collectionId_s** | Unikt ID för samlingen.|
+| **giltighet** | **duration_s** | Åtgärdens varaktighet i millisekunder. |
+| **requestLength** | **requestLength_s** | Längden på begäran, i byte. |
+| **responseLength** | **responseLength_s** | Längden på svaret, i byte.|
+| **resourceTokenUserRid** | **resourceTokenUserRid_s** | Det här värdet är icke-tomt när [resurs-token](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) används för autentisering. Värdet som pekar på resurs-ID för användaren. |
 
-For a list of all Azure Monitor log categories and links to associated schemas, see [Azure Monitor Logs categories and schemas](../azure-monitor/platform/diagnostic-logs-schema.md). 
+För en lista över alla Azure Monitor logg kategorier och länkar till associerade scheman, se [Azure Monitor loggar kategorier och scheman](../azure-monitor/platform/diagnostic-logs-schema.md). 
 
 ## <a name="metrics"></a>Mått
-The following tables list the platform metrics collected for Azure CosmOS DB. All metrics are stored in the namespace **Cosmos DB standard metrics**.
+I följande tabeller visas de plattforms mått som samlats in för Azure CosmOS DB. Alla mått lagras i namn området **Cosmos DB standard mått**.
 
-For a list of all Azure Monitor support metrics (including CosmosDB), see [Azure Monitor supported metrics](../azure-monitor/platform/metrics-supported.md). 
+En lista över alla Azure Monitor support mått (inklusive CosmosDB) finns i [Azure Monitor mått som stöds](../azure-monitor/platform/metrics-supported.md). 
 
-#### <a name="request-metrics"></a>Request metrics
+#### <a name="request-metrics"></a>Begäran-mått
             
-|Metric (Metric Display Name)|Unit (Aggregation Type) |Beskrivning|Dimensioner| Time granularities| Legacy metric mapping | Användning |
+|Mått (måttets visnings namn)|Enhet (agg regerings typ) |Beskrivning|Dimensioner| Tids kornig het| Legacy mått mappning | Användning |
 |---|---|---|---| ---| ---| ---|
-| TotalRequests (Total Requests) | Count (Count) | Number of requests made| DatabaseName, CollectionName, Region, StatusCode| Alla | TotalRequests, Http 2xx, Http 3xx, Http 400, Http 401, Internal Server error, Service Unavailable, Throttled Requests, Average Requests per Second | Used to monitor requests per status code, container at a minute granularity. To get average requests per second, use Count aggregation at minute and divide by 60. |
-| MetadataRequests (Metadata Requests) |Count (Count) | Count of metadata requests. Azure Cosmos DB maintains system metadata container for each account, that allows you to enumerate collections, databases, etc., and their configurations, free of charge. | DatabaseName, CollectionName, Region, StatusCode| Alla| |Used to monitor throttles due to metadata requests.|
-| MongoRequests (Mongo Requests) | Count (Count) | Number of Mongo Requests Made | DatabaseName, CollectionName, Region, CommandName, ErrorCode| Alla |Mongo Query Request Rate, Mongo Update Request Rate, Mongo Delete Request Rate, Mongo Insert Request Rate, Mongo Count Request Rate| Used to monitor Mongo request errors, usages per command type. |
+| TotalRequests (totalt antal förfrågningar) | Antal (antal) | Antal begär Anden som gjorts| DatabaseName, samlings namn, region, StatusCode| Alla | TotalRequests, http-2xx, http-3xx, http 400, HTTP 401, internt Server fel, tjänsten är inte tillgänglig, begränsade begär Anden, genomsnittliga begär Anden per sekund | Används för att övervaka begär Anden per status kod, behållare på en minuts kornig het. Om du vill få genomsnittlig begär Anden per sekund använder du Count-aggregering på minut och dividerar med 60. |
+| MetadataRequests (begär Anden om metadata) |Antal (antal) | Antal metadata-begäranden. Azure Cosmos DB underhåller systemets metadata-behållare för varje konto, så att du kan räkna upp samlingar, databaser osv. och deras konfigurationer kostnads fritt. | DatabaseName, samlings namn, region, StatusCode| Alla| |Används för att övervaka begränsningar på grund av metadata-begäranden.|
+| MongoRequests (Mongo-begäranden) | Antal (antal) | Antal Mongo-begäranden som gjorts | DatabaseName, samlings namn, region, CommandName, ErrorCode| Alla |Mongo för begäran, Mongo uppdaterings frekvens, Mongo ta bort begär ande frekvens, Mongo infoga begär ande frekvens, antal Mongo för begäran| Används för att övervaka Mongo begär fel, användningar per kommando typ. |
 
-#### <a name="request-unit-metrics"></a>Request Unit metrics
+#### <a name="request-unit-metrics"></a>Enhets mått för begäran
 
-|Metric (Metric Display Name)|Unit (Aggregation Type)|Beskrivning|Dimensioner| Time granularities| Legacy metric mapping | Användning |
+|Mått (måttets visnings namn)|Enhet (agg regerings typ)|Beskrivning|Dimensioner| Tids kornig het| Legacy mått mappning | Användning |
 |---|---|---|---| ---| ---| ---|
-| MongoRequestCharge (Mongo Request Charge) | Count (Total) |Mongo Request Units Consumed| DatabaseName, CollectionName, Region, CommandName, ErrorCode| Alla |Mongo Query Request Charge, Mongo Update Request Charge, Mongo Delete Request Charge, Mongo Insert Request Charge, Mongo Count Request Charge| Used to monitor Mongo resource RUs in a minute.|
-| TotalRequestUnits (Total Request Units)| Count (Total) | Request Units consumed| DatabaseName, CollectionName, Region, StatusCode |Alla| TotalRequestUnits| Used to monitor Total RU usage at a minute granularity. To get average RU consumed per second, use Total aggregation at minute and divide by 60.|
-| ProvisionedThroughput (Provisioned Throughput)| Count (Maximum) |Provisioned throughput at container granularity| DatabaseName, ContainerName| 5M| | Used to monitor provisioned throughput per container.|
+| MongoRequestCharge (Mongo Request Charge) | Antal (totalt) |Mongo enheter för förbrukad begäran| DatabaseName, samlings namn, region, CommandName, ErrorCode| Alla |Mongo begär ande avgift, Mongo uppdaterings avgift, Mongo ta bort begär ande avgift, Mongo infoga begär ande avgift, antal Mongo avgift för begäran| Används för att övervaka Mongo Resource ru: er på en minut.|
+| TotalRequestUnits (totalt antal enheter för programbegäran)| Antal (totalt) | Förbrukade enheter för begär Ande| DatabaseName, samlings namn, region, StatusCode |Alla| TotalRequestUnits| Används för att övervaka total användning av RU med en minuts kornig het. Använd total agg regering vid minut och dividera med 60 för att få Genomsnittligt antal RU-förbrukade per sekund.|
+| ProvisionedThroughput (tillhandahållet data flöde)| Antal (max) |Tillhandahållet data flöde vid behållar kornig het| DatabaseName, ContainerName| 5 M| | Används för att övervaka etablerade data flöden per behållare.|
 
-#### <a name="storage-metrics"></a>Storage metrics
+#### <a name="storage-metrics"></a>Lagrings mått
 
-|Metric (Metric Display Name)|Unit (Aggregation Type)|Beskrivning|Dimensioner| Time granularities| Legacy metric mapping | Användning |
+|Mått (måttets visnings namn)|Enhet (agg regerings typ)|Beskrivning|Dimensioner| Tids kornig het| Legacy mått mappning | Användning |
 |---|---|---|---| ---| ---| ---|
-| AvailableStorage (Available Storage) |Bytes (Total) | Total available storage reported at 5-minutes granularity per region| DatabaseName, CollectionName, Region| 5M| Available Storage| Used to monitor available storage capacity (applicable only for fixed storage collections) Minimum granularity should be 5 minutes.| 
-| DataUsage (Data Usage) |Bytes (Total) |Total data usage reported at 5-minutes granularity per region| DatabaseName, CollectionName, Region| 5M |Data size | Used to monitor total data usage at container and region, minimum granularity should be 5 minutes.|
-| IndexUsage (Index Usage) | Bytes (Total) |Total Index usage reported at 5-minutes granularity per region| DatabaseName, CollectionName, Region| 5M| Index Size| Used to monitor total data usage at container and region, minimum granularity should be 5 minutes. |
-| DocumentQuota (Document Quota) | Bytes (Total) | Total storage quota reported at 5-minutes granularity per region.| DatabaseName, CollectionName, Region| 5M |Lagringskapacitet| Used to monitor total quota at container and region, minimum granularity should be 5 minutes.|
-| DocumentCount (Document Count) | Count (Total) |Total document count reported at 5-minutes granularity per region| DatabaseName, CollectionName, Region| 5M |Document Count|Used to monitor document count at container and region, minimum granularity should be 5 minutes.|
+| AvailableStorage (tillgängligt lagrings utrymme) |Byte (totalt) | Totalt tillgängligt lagrings utrymme som har rapporter ATS enligt 5 minuters kornig het per region| DatabaseName, samlings region| 5 M| Tillgängligt lagrings utrymme| Används för att övervaka tillgänglig lagrings kapacitet (gäller endast för fasta lagrings samlingar) minimal kornig het är 5 minuter.| 
+| DataUsage (data användning) |Byte (totalt) |Total data användning rapporterad enligt 5-minuters kornig het per region| DatabaseName, samlings region| 5 M |Data storlek | Används för att övervaka total data användning i behållare och region, minsta kornig het är 5 minuter.|
+| IndexUsage (index användning) | Byte (totalt) |Total användning av index rapporterad enligt 5 minuters kornig het per region| DatabaseName, samlings region| 5 M| Index storlek| Används för att övervaka total data användning i behållare och region, minsta kornig het är 5 minuter. |
+| DocumentQuota (dokument kvot) | Byte (totalt) | Total lagrings kvot som rapporter ATS med 5 minuters kornig het per region.| DatabaseName, samlings region| 5 M |Lagringskapacitet| Används för att övervaka den totala kvoten vid container och region, minimal kornig het är 5 minuter.|
+| DocumentCount (antal dokument) | Antal (totalt) |Totalt antal dokument som rapporter ATS enligt 5 minuters kornig het per region| DatabaseName, samlings region| 5 M |Antal dokument|Används för att övervaka antalet dokument i container och region, minimal kornig het är 5 minuter.|
 
-#### <a name="latency-metrics"></a>Latency metrics
+#### <a name="latency-metrics"></a>Svars tids mått
 
-|Metric (Metric Display Name)|Unit (Aggregation Type)|Beskrivning|Dimensioner| Time granularities| Användning |
+|Mått (måttets visnings namn)|Enhet (agg regerings typ)|Beskrivning|Dimensioner| Tids kornig het| Användning |
 |---|---|---|---| ---| ---|
-| ReplicationLatency (Replication Latency)| MilliSeconds (Minimum, Maximum, Average) | P99 Replication Latency across source and target regions for geo-enabled account| SourceRegion, TargetRegion| Alla | Used to monitor P99 replication latency between any two regions for a geo-replicated account. |
+| ReplicationLatency (replikeringsfördröjning)| Millisekunder (lägsta, högsta, genomsnitt) | P99 för replikering i käll-och mål regioner för geo-aktiverat konto| SourceRegion, TargetRegion| Alla | Används för att övervaka P99 för replikering mellan två regioner för ett geo-replikerat konto. |
 
 
-#### <a name="availability-metrics"></a>Availability metrics
+#### <a name="availability-metrics"></a>Tillgänglighets mått
 
-|Metric (Metric Display Name) |Unit (Aggregation Type)|Beskrivning| Time granularities| Legacy metric mapping | Användning |
+|Mått (måttets visnings namn) |Enhet (agg regerings typ)|Beskrivning| Tids kornig het| Legacy mått mappning | Användning |
 |---|---|---|---| ---| ---|
-| ServiceAvailability (Service Availability)| Percent (Minimum, Maximum) | Account requests availability at one hour granularity| 1H | Service Availability | Represents the percent of total passed requests. A request is considered to be failed due to system error if the status code is 410, 500 or 503 Used to monitor availability of the account at hour granularity. |
+| ServiceAvailability (tjänst tillgänglighet)| Procent (minimum, max) | Konto begär tillgänglighet med en timkostnad| 1H | Tjänst tillgänglighet | Visar procent andelen slutförda begär Anden som skickats. En begäran anses vara misslyckad på grund av systemfel om status koden är 410, 500 eller 503 som används för att övervaka tillgängligheten för kontot med tids kornig het. |
 
 
-#### <a name="cassandra-api-metrics"></a>Cassandra API metrics
+#### <a name="cassandra-api-metrics"></a>API för Cassandra mått
 
-|Metric (Metric Display Name)|Unit (Aggregation Type)|Beskrivning|Dimensioner| Time granularities| Användning |
+|Mått (måttets visnings namn)|Enhet (agg regerings typ)|Beskrivning|Dimensioner| Tids kornig het| Användning |
 |---|---|---|---| ---| ---|
-| CassandraRequests (Cassandra Requests) | Count (Count) | Number of Cassandra API requests made| DatabaseName, CollectionName, ErrorCode, Region, OperationType, ResourceType| Alla| Used to monitor Cassandra requests at a minute granularity. To get average requests per second, use Count aggregation at minute and divide by 60.|
-| CassandraRequestCharges (Cassandra Request Charges) | Count (Sum, Min, Max, Avg) | Request Units consumed by Cassandra API requests| DatabaseName, CollectionName, Region, OperationType, ResourceType| Alla| Used to monitor RUs used per minute by a Cassandra API account.|
-| CassandraConnectionClosures (Cassandra Connection Closures) |Count (Count) |Number of Cassandra Connections closed| ClosureReason, Region| Alla | Used to monitor the connectivity between clients and the Azure Cosmos DB Cassandra API.|
+| CassandraRequests (Cassandra-begäranden) | Antal (antal) | Antal API för Cassandra begär Anden som gjorts| DatabaseName, samlings namn, ErrorCode, region, OperationType, ResourceType| Alla| Används för att övervaka Cassandra-begäranden på en minuts kornig het. Om du vill få genomsnittlig begär Anden per sekund använder du Count-aggregering på minut och dividerar med 60.|
+| CassandraRequestCharges (Cassandra Request avgifter) | Count (sum, min, Max, AVG) | Enheter för programbegäran som förbrukas av API för Cassandra begär Anden| DatabaseName, samlings namn, region, OperationType, ResourceType| Alla| Används för att övervaka ru: er som används per minut av ett API för Cassandra-konto.|
+| CassandraConnectionClosures (Cassandra Connections-stängningar) |Antal (antal) |Antal stängda Cassandra-anslutningar| ClosureReason, region| Alla | Används för att övervaka anslutningen mellan klienter och Azure Cosmos DB API för Cassandra.|
 
 ## <a name="see-also"></a>Se även
 
-- See [Monitoring Azure Cosmos DB](monitor-cosmos-db.md) for a description of monitoring Azure Cosmos DB.
-- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md) for details on monitoring Azure resources.
+- En beskrivning av övervaknings Azure Cosmos DB finns i [övervaknings Azure Cosmos DB](monitor-cosmos-db.md) .
+- Mer information om övervakning av Azure-resurser finns i [övervaka Azure-resurser med Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md) .

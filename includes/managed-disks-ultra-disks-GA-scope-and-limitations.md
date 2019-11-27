@@ -15,27 +15,27 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74260892"
 ---
-For now, ultra disks have additional limitations, they are as follows:
+För närvarande har Ultra disks ytterligare begränsningar, de är följande:
 
-- Are supported in the following regions, with a varying number of availability zones per region:
+- Stöds i följande regioner med ett varierande antal tillgänglighets zoner per region:
     - USA, östra 2
-    - USA, östra
-    - USA, västra 2
-    - SouthEast Asia
-    - Europa, norra
-    - Europa, västra
+    - East US
+    - Västra USA 2
+    - Asien, Sydostasien
+    - Norra Europa
+    - Västra Europa
     - Storbritannien, södra 
-- Can only be used with availability zones (availability sets and single VM deployments outside of zones will not have the ability to attach an ultra disk)
-- Are only supported on the following VM series:
+- Kan endast användas med tillgänglighets zoner (tillgänglighets uppsättningar och enskilda VM-distributioner utanför zoner kan inte ansluta en Ultra disk)
+- Stöds endast i följande VM-serien:
     - [ESv3](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/)
     - [DSv3](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/)
     - FSv2
     - [M](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
     - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
-- Not every VM size is available in every supported region with ultra disks.
-- Are only available as data disks and only support 4k physical sector size  
-- Can only be created as empty disks  
-- Do not yet support disk snapshots, VM images, availability sets, and Azure disk encryption
-- Do not yet support integration with Azure Backup or Azure Site Recovery
-- The current maximum limit for IOPS on GA VMs is 80,000.
-- If you would like to participate in a limited preview of a VM that can accomplish 160,000 IOPS with ultra disks, please email UltraDiskFeedback@microsoft .com
+- Alla VM-storlekar är inte tillgängliga i alla regioner som stöds med Ultra disks.
+- Är bara tillgängliga som data diskar och stöder endast fysisk sektor storlek för 4K  
+- Kan bara skapas som tomma diskar  
+- Har ännu inte stöd för ögonblicks bilder av diskar, VM-avbildningar, tillgänglighets uppsättningar och Azure Disk Encryption
+- Har ännu inte stöd för integrering med Azure Backup eller Azure Site Recovery
+- Den aktuella maximala gränsen för IOPS på GA-VM: ar är 80 000.
+- Om du vill delta i en begränsad för hands version av en virtuell dator som kan utföra 160 000 IOPS med Ultra disks, kan du e-posta UltraDiskFeedback@microsoft. com

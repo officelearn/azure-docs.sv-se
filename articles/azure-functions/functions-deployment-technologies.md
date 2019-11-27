@@ -1,6 +1,6 @@
 ---
-title: Deployment technologies in Azure Functions
-description: Learn the different ways you can deploy code to Azure Functions.
+title: Distributions tekniker i Azure Functions
+description: Lär dig hur du kan distribuera kod till Azure Functions på olika sätt.
 author: ColbyTresness
 ms.custom: vs-azure
 ms.topic: conceptual
@@ -13,195 +13,195 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74226997"
 ---
-# <a name="deployment-technologies-in-azure-functions"></a>Deployment technologies in Azure Functions
+# <a name="deployment-technologies-in-azure-functions"></a>Distributions tekniker i Azure Functions
 
-You can use a few different technologies to deploy your Azure Functions project code to Azure. This article provides an exhaustive list of those technologies, describes which technologies are available for which flavors of Functions, explains what happens when you use each method, and provides recommendations for the best method to use in various scenarios. The various tools that support deploying to Azure Functions are tuned to the right technology based on their context. In general, zip deployment is the recommended deployment technology for Azure Functions.
+Du kan använda flera olika tekniker för att distribuera din Azure Functions projekt kod till Azure. Den här artikeln innehåller en fullständig lista över dessa tekniker, beskriver vilka tekniker som är tillgängliga för vilka varianter-funktioner, förklarar vad som händer när du använder varje metod och ger rekommendationer för den bästa metoden att använda i olika scenarier . De olika verktyg som har stöd för distribution till Azure Functions är justerade till rätt teknik baserat på deras kontext. I allmänhet är zip-distribution den rekommenderade distributions tekniken för Azure Functions.
 
-## <a name="deployment-technology-availability"></a>Deployment technology availability
+## <a name="deployment-technology-availability"></a>Tillgänglighet för distributions teknik
 
-Azure Functions supports cross-platform local development and hosting on Windows and Linux. Currently, three hosting plans are available:
+Azure Functions stöder lokal utveckling på över plattformar och är värd för Windows och Linux. För närvarande är tre värd planer tillgängliga:
 
-+ [Consumption](functions-scale.md#consumption-plan)
++ [Bruk](functions-scale.md#consumption-plan)
 + [Premium](functions-scale.md#premium-plan)
-+ [Dedicated (App Service)](functions-scale.md#app-service-plan)
++ [Dedikerad (App Service)](functions-scale.md#app-service-plan)
 
-Each plan has different behaviors. Not all deployment technologies are available for each flavor of Azure Functions. The following chart shows which deployment technologies are supported for each combination of operating system and hosting plan:
+Varje plan har olika beteenden. Alla distributions tekniker är inte tillgängliga för varje smak av Azure Functions. Följande diagram visar vilka distributions tekniker som stöds för varje kombination av operativ system och värd plan:
 
-| Deployment technology | Windows Consumption | Windows Premium | Windows Dedicated  | Linux Consumption | Linux Premium | Linux Dedicated |
+| Distributions teknik | Windows-förbrukning | Windows Premium | Windows-dedikerad  | Linux-förbrukning | Linux Premium | Linux-dedikerad |
 |-----------------------|:-------------------:|:-------------------------:|:------------------:|:---------------------------:|:-------------:|:---------------:|
-| External package URL<sup>1</sup> |✔|✔|✔|✔|✔|✔|
-| Zip deploy |✔|✔|✔|✔|✔|✔|
-| Docker container | | | | |✔|✔|
-| Web Deploy |✔|✔|✔| | | |
+| URL för externt paket<sup>1</sup> |✔|✔|✔|✔|✔|✔|
+| Zip-distribution |✔|✔|✔|✔|✔|✔|
+| Docker-behållare | | | | |✔|✔|
+| Webb distribution |✔|✔|✔| | | |
 | Källkontroll |✔|✔|✔| |✔|✔|
-| Local Git<sup>1</sup> |✔|✔|✔| |✔|✔|
-| Cloud sync<sup>1</sup> |✔|✔|✔| |✔|✔|
+| Lokal git<sup>1</sup> |✔|✔|✔| |✔|✔|
+| Molnbaserad synkronisering<sup>1</sup> |✔|✔|✔| |✔|✔|
 | FTP<sup>1</sup> |✔|✔|✔| |✔|✔|
-| Portal editing |✔|✔|✔| |✔<sup>2</sup>|✔<sup>2</sup>|
+| Portal redigering |✔|✔|✔| |✔<sup>2</sup>|✔<sup>2</sup>|
 
-<sup>1</sup> Deployment technology that requires [manual trigger syncing](#trigger-syncing).  
-<sup>2</sup> Portal editing is enabled only for HTTP and Timer triggers for Functions on Linux using Premium and dedicated plans.
+<sup>1</sup> distributions teknik som kräver [synkronisering av manuella utlösare](#trigger-syncing).  
+<sup>2</sup> Portal redigering är bara aktive rad för http-och timer-utlösare för funktioner i Linux med hjälp av Premium och dedikerade planer
 
 ## <a name="key-concepts"></a>Nyckelkoncept
 
-Some key concepts are critical to understanding how deployments work in Azure Functions.
+Vissa viktiga begrepp är viktiga för att förstå hur distributioner fungerar i Azure Functions.
 
-### <a name="trigger-syncing"></a>Trigger syncing
+### <a name="trigger-syncing"></a>Utlös synkronisering
 
-When you change any of your triggers, the Functions infrastructure must be aware of the changes. Synchronization happens automatically for many deployment technologies. However, in some cases, you must manually sync your triggers. When you deploy your updates by referencing an external package URL, local Git, cloud sync, or FTP, you must manually sync your triggers. You can sync triggers in one of three ways:
+När du ändrar någon av utlösarna måste funktions infrastrukturen vara medveten om ändringarna. Synkronisering sker automatiskt för många distributions tekniker. I vissa fall måste du dock synkronisera dina utlösare manuellt. När du distribuerar dina uppdateringar genom att referera till en extern paket-URL, lokal git, molnbaserad synkronisering eller FTP, måste du synkronisera utlösarna manuellt. Du kan synkronisera utlösare på ett av tre sätt:
 
-* Restart your function app in the Azure portal
-* Send an HTTP POST request to `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` using the [master key](functions-bindings-http-webhook.md#authorization-keys).
-* Send an HTTP POST request to `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`. Replace the placeholders with your subscription ID, resource group name, and the name of your function app.
+* Starta om din Function-app i Azure Portal
+* Skicka en HTTP POST-begäran till `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` med hjälp av [huvud nyckeln](functions-bindings-http-webhook.md#authorization-keys).
+* Skicka en HTTP POST-begäran till `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`. Ersätt plats hållarna med ditt prenumerations-ID, resurs gruppens namn och namnet på din Function-app.
 
-### <a name="remote-build"></a>Remote build
+### <a name="remote-build"></a>Fjärrversion
 
-Azure Functions can automatically perform builds on the code it receives after zip deployments. These builds behave slightly differently depending on whether your app is running on Windows or Linux. Remote builds are not performed when an app has previously been set to run in [Run From Package](run-functions-from-deployment-package.md) mode. To learn how to use remote build, navigate to [zip deploy](#zip-deploy).
+Azure Functions kan utföra versioner automatiskt på den kod som den tar emot efter zip-distributioner. Dessa versioner fungerar annorlunda beroende på om din app körs på Windows eller Linux. Fjärran slutet utförs inte när en app tidigare har ställts in att köras i [Kör från paket](run-functions-from-deployment-package.md) läge. Om du vill lära dig hur du använder fjärran sluten version går du till [zip Deploy](#zip-deploy).
 
 > [!NOTE]
-> If you're having issues with remote build, it might be because your app was created before the feature was made available (August 1, 2019). Try creating a new function app, or running `az functionapp update -g <RESOURCE_GROUP_NAME> -n <APP_NAME>` to update your function app. This command might take two tries to succeed.
+> Om du har problem med fjärran sluten version kan det bero på att din app skapades innan funktionen gjordes tillgänglig (1 augusti 2019). Försök att skapa en ny function-app eller köra `az functionapp update -g <RESOURCE_GROUP_NAME> -n <APP_NAME>` för att uppdatera din Function-app. Det kan ta två försök att utföra det här kommandot.
 
-#### <a name="remote-build-on-windows"></a>Remote build on Windows
+#### <a name="remote-build-on-windows"></a>Fjärrversion på Windows
 
-All function apps running on Windows have a small management app, the SCM (or [Kudu](https://github.com/projectkudu/kudu)) site. This site handles much of the deployment and build logic for Azure Functions.
+Alla Function-appar som körs i Windows har en liten hanterings app, SCM (eller [kudu](https://github.com/projectkudu/kudu))-platsen. Den här platsen hanterar en stor del av distributions-och bygg logiken för Azure Functions.
 
-When an app is deployed to Windows, language-specific commands, like `dotnet restore` (C#) or `npm install` (JavaScript) are run.
+När en app distribueras till Windows körs språkspecifika kommandon, t. ex. `dotnet restore`C#() eller `npm install` (Java Script).
 
-#### <a name="remote-build-on-linux"></a>Remote build on Linux
+#### <a name="remote-build-on-linux"></a>Fjärran sluten version på Linux
 
-To enable remote build on Linux, the following [application settings](functions-how-to-use-azure-function-app-settings.md#settings) must be set:
+Följande [program inställningar](functions-how-to-use-azure-function-app-settings.md#settings) måste ställas in för att aktivera fjärran sluten version på Linux:
 
 * `ENABLE_ORYX_BUILD=true`
 * `SCM_DO_BUILD_DURING_DEPLOYMENT=true`
 
-By default, both [Azure Functions Core Tools](functions-run-local.md) and the [Azure Functions Extension for Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) perform remote builds when deploying to Linux. Because of this, both tools automatically create these settings for you in Azure. 
+Som standard är både [Azure Functions Core tools](functions-run-local.md) och [Azure Functions-tillägget för Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) utför fjärran slutna versioner vid distribution till Linux. På grund av detta skapar båda verktygen automatiskt de här inställningarna för dig i Azure. 
 
-When apps are built remotely on Linux, they [run from the deployment package](run-functions-from-deployment-package.md). 
+När appar har skapats via fjärr anslutning i Linux [körs de från distributions paketet](run-functions-from-deployment-package.md). 
 
 ##### <a name="consumption-plan"></a>Förbrukningsplan
 
-Linux function apps running in the Consumption plan don't have an SCM/Kudu site, which limits the deployment options. However, function apps on Linux running in the Consumption plan do support remote builds.
+Linux Function-appar som körs i förbruknings planen har ingen SCM/kudu-plats, vilket begränsar distributions alternativen. Men Function-appar på Linux som körs i förbruknings planen stöder fjärran slutna versioner.
 
-##### <a name="dedicated-and-premium-plans"></a>Dedicated and Premium plans
+##### <a name="dedicated-and-premium-plans"></a>Dedikerade och Premium planer
 
-Function apps running on Linux in the [Dedicated (App Service) plan](functions-scale.md#app-service-plan) and the [Premium plan](functions-scale.md#premium-plan) also have a limited SCM/Kudu site.
+Function-appar som körs på Linux i [dedikerade (App Service) plan](functions-scale.md#app-service-plan) och [Premium-planen](functions-scale.md#premium-plan) har också en begränsad SCM/kudu-plats.
 
-## <a name="deployment-technology-details"></a>Deployment technology details
+## <a name="deployment-technology-details"></a>Information om distributions teknik
 
-The following deployment methods are available in Azure Functions.
+Följande distributions metoder är tillgängliga i Azure Functions.
 
-### <a name="external-package-url"></a>External package URL
+### <a name="external-package-url"></a>URL för externt paket
 
-You can use an external package URL to reference a remote package (.zip) file that contains your function app. The file is downloaded from the provided URL, and the app runs in [Run From Package](run-functions-from-deployment-package.md) mode.
+Du kan använda en extern paket-URL för att referera till en fjärrfil-fil (zip) som innehåller din Function-app. Filen hämtas från den angivna URL: en och appen körs i läget [Kör från paket](run-functions-from-deployment-package.md) .
 
->__How to use it:__ Add `WEBSITE_RUN_FROM_PACKAGE` to your application settings. The value of this setting should be a URL (the location of the specific package file you want to run). You can add settings either [in the portal](functions-how-to-use-azure-function-app-settings.md#settings) or [by using the Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
+>__Så här använder du den:__ Lägg till `WEBSITE_RUN_FROM_PACKAGE` i dina program inställningar. Värdet för den här inställningen ska vara en URL (platsen för den angivna paket filen som du vill köra). Du kan lägga till inställningar antingen [i portalen](functions-how-to-use-azure-function-app-settings.md#settings) eller med [hjälp av Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
 >
->If you use Azure Blob storage, use a private container with a [shared access signature (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) to give Functions access to the package. Any time the application restarts, it fetches a copy of the content. Your reference must be valid for the lifetime of the application.
+>Om du använder Azure Blob Storage använder du en privat behållare med en [signatur för delad åtkomst (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) för att ge funktioner åtkomst till paketet. När programmet startas om, hämtas en kopia av innehållet. Din referens måste vara giltig för programmets livs längd.
 
->__When to use it:__ External package URL is the only supported deployment method for Azure Functions running on Linux in the Consumption plan, if the user doesn't want a [remote build](#remote-build) to occur. When you update the package file that a function app references, you must [manually sync triggers](#trigger-syncing) to tell Azure that your application has changed.
+>__När du ska använda den:__ URL för externt paket är den enda distributions metod som stöds för Azure Functions som körs i Linux i förbruknings planen, om användaren inte vill att en [fjärran sluten version](#remote-build) ska ske. När du uppdaterar paket filen som en Function-app refererar till måste du [manuellt synkronisera utlösare](#trigger-syncing) för att meddela Azure att ditt program har ändrats.
 
-### <a name="zip-deploy"></a>Zip deploy
+### <a name="zip-deploy"></a>Zip-distribution
 
-Use zip deploy to push a .zip file that contains your function app to Azure. Optionally, you can set your app to start [running from package](run-functions-from-deployment-package.md), or specify that a [remote build](#remote-build) occurs.
+Använd zip Deploy för att skicka en. zip-fil som innehåller din Function-app till Azure. Om du vill kan du ange att appen ska börja [köras från paketet](run-functions-from-deployment-package.md)eller ange att en [fjärran sluten version](#remote-build) sker.
 
->__How to use it:__ Deploy by using your favorite client tool: [Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure), the [Azure Functions Core Tools](functions-run-local.md), or the [Azure CLI](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure). By default, these tools use zip deployment and [run from package](run-functions-from-deployment-package.md). Core Tools and the Visual Studio Code extension both enable [remote build](#remote-build) when deploying to Linux. To manually deploy a .zip file to your function app, follow the instructions in [Deploy from a .zip file or URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
+>__Så här använder du den:__ Distribuera med hjälp av ditt favorit klient verktyg: [Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure), [visual Studio](functions-develop-vs.md#publish-to-azure), [Azure Functions Core tools](functions-run-local.md)eller [Azure CLI](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure). Som standard använder dessa verktyg zip-distribution och [Kör från paket](run-functions-from-deployment-package.md). Core tools och Visual Studio Code-tillägget aktiverar både [fjärran sluten skapande](#remote-build) vid distribution till Linux. Om du vill distribuera en. zip-fil manuellt till Function-appen följer du anvisningarna i [distribuera från en. zip-fil eller URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
->When you deploy by using zip deploy, you can set your app to [run from package](run-functions-from-deployment-package.md). To run from package, set the `WEBSITE_RUN_FROM_PACKAGE` application setting value to `1`. We recommend zip deployment. It yields faster loading times for your applications, and it's the default for VS Code, Visual Studio, and the Azure CLI. 
+>När du distribuerar med hjälp av zip-distribution kan du ange att appen ska [köras från paketet](run-functions-from-deployment-package.md). Om du vill köra från paket ställer du in värdet för `WEBSITE_RUN_FROM_PACKAGE` Application Setting på `1`. Vi rekommenderar zip-distribution. Det ger snabbare inläsnings tider för dina program och är standard för VS Code, Visual Studio och Azure CLI. 
 
->__When to use it:__ Zip deploy is the recommended deployment technology for Azure Functions.
+>__När du ska använda den:__ Zip Deploy är den rekommenderade distributions tekniken för Azure Functions.
 
-### <a name="docker-container"></a>Docker container
+### <a name="docker-container"></a>Docker-behållare
 
-You can deploy a Linux container image that contains your function app.
+Du kan distribuera en Linux container-avbildning som innehåller din Function-app.
 
->__How to use it:__ Create a Linux function app in the Premium or Dedicated plan and specify which container image to run from. You can do this in two ways:
+>__Så här använder du den:__ Skapa en Linux Function-app i Premium-eller dedikerade planen och ange vilken behållar avbildning som ska köras från. Du kan göra detta på två sätt:
 >
->* Create a Linux function app on an Azure App Service plan in the Azure portal. For **Publish**, select **Docker Image**, and then configure the container. Enter the location where the image is hosted.
->* Create a Linux function app on an App Service plan by using the Azure CLI. To learn how, see [Create a function on Linux by using a custom image](functions-create-function-linux-custom-image.md#create-a-premium-plan).
+>* Skapa en Linux Function-app i en Azure App Service plan i Azure Portal. För **publicera**väljer du **Docker-avbildning**och konfigurerar sedan behållaren. Ange den plats där avbildningen finns.
+>* Skapa en Linux Function-app på en App Service plan med hjälp av Azure CLI. Mer information finns i [skapa en funktion i Linux med hjälp av en anpassad avbildning](functions-create-function-linux-custom-image.md#create-a-premium-plan).
 >
->To deploy to an existing app by using a custom container, in [Azure Functions Core Tools](functions-run-local.md), use the [`func deploy`](functions-run-local.md#publish) command.
+>Om du vill distribuera till en befintlig app med hjälp av en anpassad behållare, använder du i [Azure Functions Core Tools](functions-run-local.md) [`func deploy`](functions-run-local.md#publish) kommandot.
 
->__When to use it:__ Use the Docker container option when you need more control over the Linux environment where your function app runs. This deployment mechanism is available only for Functions running on Linux.
+>__När du ska använda den:__ Använd alternativet Docker-behållare när du behöver mer kontroll över Linux-miljön där funktions programmet körs. Den här distributions mekanismen är bara tillgänglig för funktioner som körs i Linux.
 
-### <a name="web-deploy-msdeploy"></a>Web Deploy (MSDeploy)
+### <a name="web-deploy-msdeploy"></a>Webb distribution (MSDeploy)
 
-Web Deploy packages and deploys your Windows applications to any IIS server, including your function apps running on Windows in Azure.
+Webb distributions paket och distribuerar dina Windows-program till alla IIS-servrar, inklusive dina funktions program som körs på Windows i Azure.
 
->__How to use it:__ Use [Visual Studio tools for Azure Functions](functions-create-your-first-function-visual-studio.md). Clear the **Run from package file (recommended)** check box.
+>__Så här använder du den:__ Använd [Visual Studio-verktyg för Azure Functions](functions-create-your-first-function-visual-studio.md). Avmarkera kryss rutan **Kör från paket fil (rekommenderas)** .
 >
->You can also download [Web Deploy 3.6](https://www.iis.net/downloads/microsoft/web-deploy) and call `MSDeploy.exe` directly.
+>Du kan också hämta [webb distribution 3,6](https://www.iis.net/downloads/microsoft/web-deploy) och anropa `MSDeploy.exe` direkt.
 
->__When to use it:__ Web Deploy is supported and has no issues, but the preferred mechanism is [zip deploy with Run From Package enabled](#zip-deploy). To learn more, see the [Visual Studio development guide](functions-develop-vs.md#publish-to-azure).
+>__När du ska använda den:__ Webb distribution stöds och har inga problem, men den rekommenderade mekanismen är [zip-distribution med kör från-paketet aktiverat](#zip-deploy). Mer information finns i [utvecklings guiden för Visual Studio](functions-develop-vs.md#publish-to-azure).
 
 ### <a name="source-control"></a>Källkontroll
 
-Use source control to connect your function app to a Git repository. An update to code in that repository triggers deployment. For more information, see the [Kudu Wiki](https://github.com/projectkudu/kudu/wiki/VSTS-vs-Kudu-deployments).
+Använd käll kontroll för att ansluta din Function-app till en git-lagringsplats. En uppdatering av kod i den här databasen utlöser distributionen. Mer information finns i wiki- [kudu](https://github.com/projectkudu/kudu/wiki/VSTS-vs-Kudu-deployments).
 
->__How to use it:__ Use Deployment Center in the Functions area of the portal to set up publishing from source control. For more information, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md).
+>__Så här använder du den:__ Använd Deployment Center i funktions områden i portalen för att konfigurera publicering från käll kontroll. Mer information finns i [kontinuerlig distribution för Azure Functions](functions-continuous-deployment.md).
 
->__When to use it:__ Using source control is the best practice for teams that collaborate on their function apps. Source control is a good deployment option that enables more sophisticated deployment pipelines.
+>__När du ska använda den:__ Att använda käll kontroll är det bästa sättet för team som samarbetar på sina funktions appar. Käll kontroll är ett lämpligt distributions alternativ som möjliggör mer avancerade distributions pipeliner.
 
 ### <a name="local-git"></a>Lokal Git
 
-You can use local Git to push code from your local machine to Azure Functions by using Git.
+Du kan använda lokal git för att skicka kod från den lokala datorn till Azure Functions med hjälp av git.
 
->__How to use it:__ Follow the instructions in [Local Git deployment to Azure App Service](../app-service/deploy-local-git.md).
+>__Så här använder du den:__ Följ instruktionerna i [lokal Git-distribution till Azure App Service](../app-service/deploy-local-git.md).
 
->__When to use it:__ In general, we recommend that you use a different deployment method. When you publish from local Git, you must [manually sync triggers](#trigger-syncing).
+>__När du ska använda den:__ I allmänhet rekommenderar vi att du använder en annan distributions metod. När du publicerar från lokal git måste du [Synkronisera utlösare manuellt](#trigger-syncing).
 
-### <a name="cloud-sync"></a>Cloud sync
+### <a name="cloud-sync"></a>Molnbaserad synkronisering
 
-Use cloud sync to sync your content from Dropbox and OneDrive to Azure Functions.
+Använd Cloud Sync för att synkronisera innehållet från Dropbox och OneDrive till Azure Functions.
 
->__How to use it:__ Follow the instructions in [Sync content from a cloud folder](../app-service/deploy-content-sync.md).
+>__Så här använder du den:__ Följ anvisningarna i [Synkronisera innehåll från en molnbaserad mapp](../app-service/deploy-content-sync.md).
 
->__When to use it:__ In general, we recommend other deployment methods. When you publish by using cloud sync, you must [manually sync triggers](#trigger-syncing).
+>__När du ska använda den:__ I allmänhet rekommenderar vi andra distributions metoder. När du publicerar med hjälp av molnbaserad synkronisering måste du [Synkronisera utlösare manuellt](#trigger-syncing).
 
 ### <a name="ftp"></a>FTP
 
-You can use FTP to directly transfer files to Azure Functions.
+Du kan använda FTP för att överföra filer direkt till Azure Functions.
 
->__How to use it:__ Follow the instructions in [Deploy content by using FTP/s](../app-service/deploy-ftp.md).
+>__Så här använder du den:__ Följ anvisningarna i [distribuera innehåll med FTP/s](../app-service/deploy-ftp.md).
 
->__When to use it:__ In general, we recommend other deployment methods. When you publish by using FTP, you must [manually sync triggers](#trigger-syncing).
+>__När du ska använda den:__ I allmänhet rekommenderar vi andra distributions metoder. När du publicerar med hjälp av FTP måste du [Synkronisera utlösare manuellt](#trigger-syncing).
 
-### <a name="portal-editing"></a>Portal editing
+### <a name="portal-editing"></a>Portal redigering
 
-In the portal-based editor, you can directly edit the files that are in your function app (essentially deploying every time you save your changes).
+I det portalbaserade redigerings programmet kan du redigera filerna som finns i din Function-app direkt (distribueras i princip varje gång du sparar ändringarna).
 
->__How to use it:__ To be able to edit your functions in the Azure portal, you must have [created your functions in the portal](functions-create-first-azure-function.md). To preserve a single source of truth, using any other deployment method makes your function read-only and prevents continued portal editing. To return to a state in which you can edit your files in the Azure portal, you can manually turn the edit mode back to `Read/Write` and remove any deployment-related application settings (like `WEBSITE_RUN_FROM_PACKAGE`). 
+>__Så här använder du den:__ För att kunna redigera dina funktioner i Azure Portal måste du ha [skapat dina funktioner i portalen](functions-create-first-azure-function.md). Om du vill bevara en enda källa till sanningen kan du använda en annan distributions metod för att göra din funktion skrivskyddad och förhindra fortsatt Portal redigering. Om du vill gå tillbaka till ett tillstånd där du kan redigera dina filer i Azure Portal kan du manuellt växla redigerings läget till `Read/Write` och ta bort eventuella distributions program inställningar (t. ex. `WEBSITE_RUN_FROM_PACKAGE`). 
 
->__When to use it:__ The portal is a good way to get started with Azure Functions. For more intense development work, we recommend that you use one of the following client tools:
+>__När du ska använda den:__ Portalen är ett bra sätt att komma igång med Azure Functions. För mer intensiv utvecklings arbete rekommenderar vi att du använder något av följande klient verktyg:
 >
 >* [Visual Studio-kod](functions-create-first-function-vs-code.md)
->* [Azure Functions Core Tools (command line)](functions-run-local.md)
+>* [Azure Functions Core Tools (kommando rad)](functions-run-local.md)
 >* [Visual Studio](functions-create-your-first-function-visual-studio.md)
 
-The following table shows the operating systems and languages that support portal editing:
+I följande tabell visas de operativ system och språk som stöder Portal redigering:
 
-| | Windows Consumption | Windows Premium | Windows Dedicated | Linux Consumption | Linux Premium | Linux Dedicated |
+| | Windows-förbrukning | Windows Premium | Windows-dedikerad | Linux-förbrukning | Linux Premium | Linux-dedikerad |
 |-|:-----------------: |:----------------:|:-----------------:|:-----------------:|:-------------:|:---------------:|
 | C# | | | | | |
-| C# Script |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|
+| C#Över |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|
 | F# | | | | | | |
 | Java | | | | | | |
 | JavaScript (Node.js) |✔|✔|✔| |✔<sup>\*</sup>|✔<sup>\*</sup>|
 | Python (förhandsversion) | | | | | | |
-| PowerShell (Preview) |✔|✔|✔| | | |
-| TypeScript (Node.js) | | | | | | |
+| PowerShell (för hands version) |✔|✔|✔| | | |
+| TypeScript (Node. js) | | | | | | |
 
-<sup>*</sup> Portal editing is enabled only for HTTP and Timer triggers for Functions on Linux using Premium and dedicated plans.
+<sup>*</sup> Portal redigering är bara aktive rad för HTTP-och timer-utlösare för funktioner i Linux med hjälp av Premium och dedikerade planer.
 
 ## <a name="deployment-slots"></a>Distributionsplatser
 
-When you deploy your function app to Azure, you can deploy to a separate deployment slot instead of directly to production. For more information on deployment slots, see the [Azure Functions Deployment Slots](../app-service/deploy-staging-slots.md) documentation for details.
+När du distribuerar din Function-app till Azure kan du distribuera till en separat distributions plats i stället för direkt till produktion. Mer information om distributions platser finns i dokumentationen för [Azure Functions distributions fack](../app-service/deploy-staging-slots.md) för mer information.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Read these articles to learn more about deploying your function apps: 
+Läs de här artiklarna om du vill veta mer om hur du distribuerar dina funktions appar: 
 
 + [Löpande distribution för Azure Functions](functions-continuous-deployment.md)
-+ [Continuous delivery by using Azure DevOps](functions-how-to-azure-devops.md)
-+ [Zip deployments for Azure Functions](deployment-zip-push.md)
-+ [Run your Azure Functions from a package file](run-functions-from-deployment-package.md)
-+ [Automate resource deployment for your function app in Azure Functions](functions-infrastructure-as-code.md)
++ [Kontinuerlig leverans med hjälp av Azure-DevOps](functions-how-to-azure-devops.md)
++ [Zip-distributioner för Azure Functions](deployment-zip-push.md)
++ [Köra Azure Functions från en paketfil](run-functions-from-deployment-package.md)
++ [Automatisera resurs distributionen för din Function-app i Azure Functions](functions-infrastructure-as-code.md)

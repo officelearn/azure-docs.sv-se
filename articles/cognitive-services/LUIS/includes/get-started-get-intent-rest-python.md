@@ -1,5 +1,5 @@
 ---
-title: Get intent with REST call in Python
+title: Kom avsikt med REST-anrop i python
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: diberry
@@ -15,21 +15,21 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74414502"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Python 3.6](https://www.python.org/downloads/) eller senare.
 * [Visual Studio-kod](https://code.visualstudio.com/)
-* Public app ID: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
+* ID för offentlig app: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
 ## <a name="get-luis-key"></a>Hämta LUIS-nyckel
 
 [!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
 
-## <a name="get-intent-from-the-prediction-endpoint"></a>Get intent from the prediction endpoint
+## <a name="get-intent-from-the-prediction-endpoint"></a>Hämta avsikt från förutsägelse slut punkten
 
-Use Python to query the [prediction endpoint](https://aka.ms/luis-apim-v3-prediction) and get a prediction result.
+Använd python för att fråga efter [förutsägelse slut punkten](https://aka.ms/luis-apim-v3-prediction) och få ett förutsägelse resultat.
 
-1. Copy this code snippet into a file called `predict.py`:
+1. Kopiera det här kodfragmentet till en fil med namnet `predict.py`:
 
     ```python
     ########### Python 3.6 #############
@@ -62,30 +62,30 @@ Use Python to query the [prediction endpoint](https://aka.ms/luis-apim-v3-predic
         print(f'{e}')
     ```
 
-1. Replace the following values:
+1. Ersätt följande värden:
 
-    * `YOUR-KEY` with your starter key.
-    * `YOUR-ENDPOINT` with your endpoint. Till exempel `westus2.api.cognitive.microsoft.com`.
+    * `YOUR-KEY` med din start nyckel.
+    * `YOUR-ENDPOINT` med din slut punkt. Till exempel `westus2.api.cognitive.microsoft.com`.
 
-1. Install the `requests` dependency. This is used to make HTTP requests:
+1. Installera `requests` beroendet. Detta används för att göra HTTP-förfrågningar:
 
     ```console
     pip install requests
     ```
 
-1. Run your script with this console command:
+1. Kör skriptet med följande konsol kommando:
 
     ```console
     python predict.py
     ``` 
 
-1. Review the prediction response, which is returned as JSON:
+1. Granska det förutsägelse svar som returneras som JSON:
 
     ```console
     {'query': 'turn on all lights', 'prediction': {'topIntent': 'HomeAutomation.TurnOn', 'intents': {'HomeAutomation.TurnOn': {'score': 0.5375382}, 'None': {'score': 0.08687421}, 'HomeAutomation.TurnOff': {'score': 0.0207554}}, 'entities': {'HomeAutomation.Operation': ['on'], '$instance': {'HomeAutomation.Operation': [{'type': 'HomeAutomation.Operation', 'text': 'on', 'startIndex': 5, 'length': 2, 'score': 0.724984169, 'modelTypeId': -1, 'modelType': 'Unknown', 'recognitionSources': ['model']}]}}}}
     ```
 
-    Here's the JSON response formatted for readability: 
+    Här är JSON-svaret formaterat för läsbarhet: 
 
     ```JSON
     {
@@ -134,9 +134,9 @@ Use Python to query the [prediction endpoint](https://aka.ms/luis-apim-v3-predic
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-When you are finished with this quickstart, delete the file from the file system. 
+När du är färdig med den här snabb starten tar du bort filen från fil systemet. 
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Add utterances and train](../get-started-get-model-rest-apis.md)
+> [Lägg till yttranden och träna](../get-started-get-model-rest-apis.md)

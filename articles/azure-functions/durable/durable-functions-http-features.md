@@ -1,6 +1,6 @@
 ---
-title: HTTP features in Durable Functions - Azure Functions
-description: Learn about the integrated HTTP features in the Durable Functions extension for Azure Functions.
+title: HTTP-funktioner i Durable Functions-Azure Functions
+description: Lär dig mer om de integrerade HTTP-funktionerna i Durable Functions-tillägget för Azure Functions.
 author: cgillum
 ms.topic: conceptual
 ms.date: 09/04/2019
@@ -12,35 +12,35 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74232875"
 ---
-# <a name="http-features"></a>HTTP Features
+# <a name="http-features"></a>HTTP-funktioner
 
-Durable Functions has several features that make it easy to incorporate durable orchestrations and entities into HTTP workflows. This article goes into detail about some of those features.
+Durable Functions har flera funktioner som gör det enkelt att införliva varaktiga dirigeringar och entiteter i HTTP-arbetsflöden. Den här artikeln beskriver några av dessa funktioner.
 
-## <a name="exposing-http-apis"></a>Exposing HTTP APIs
+## <a name="exposing-http-apis"></a>Exponerar HTTP-API: er
 
-Orchestrations and entities can be invoked and managed using HTTP requests. The Durable Functions extension exposes built-in HTTP APIs. It also provides APIs for interacting with orchestrations and entities from within HTTP-triggered functions.
+Dirigeringar och entiteter kan anropas och hanteras med HTTP-begäranden. Durable Functions-tillägget visar inbyggda HTTP-API: er. Den innehåller också API: er för att interagera med Orchestration och entiteter från HTTP-utlösta funktioner.
 
-### <a name="built-in-http-apis"></a>Built-in HTTP APIs
+### <a name="built-in-http-apis"></a>Inbyggda HTTP API: er
 
-The Durable Functions extension automatically adds a set of HTTP APIs to the Azure Functions host. With these APIs, you can interact with and manage orchestrations and entities without writing any code.
+Durable Functions-tillägget lägger automatiskt till en uppsättning HTTP-API: er till Azure Functions värden. Med dessa API: er kan du interagera med och hantera dirigeringar och entiteter utan att skriva någon kod.
 
-The following built-in HTTP APIs are supported.
+Följande inbyggda HTTP-API: er stöds.
 
-* [Start new orchestration](durable-functions-http-api.md#start-orchestration)
-* [Query orchestration instance](durable-functions-http-api.md#get-instance-status)
-* [Terminate orchestration instance](durable-functions-http-api.md#terminate-instance)
-* [Send an external event to an orchestration](durable-functions-http-api.md#raise-event)
-* [Purge orchestration history](durable-functions-http-api.md#purge-single-instance-history)
-* [Send an operation event to an entity](durable-functions-http-api.md#signal-entity)
-* [Query the state of an entity](durable-functions-http-api.md#query-entity)
+* [Starta nytt dirigering](durable-functions-http-api.md#start-orchestration)
+* [Fråga om Orchestration-instans](durable-functions-http-api.md#get-instance-status)
+* [Avsluta Orchestration-instans](durable-functions-http-api.md#terminate-instance)
+* [Skicka en extern händelse till ett dirigering](durable-functions-http-api.md#raise-event)
+* [Rensa Orchestration-historik](durable-functions-http-api.md#purge-single-instance-history)
+* [Skicka en åtgärds händelse till en entitet](durable-functions-http-api.md#signal-entity)
+* [Fråga om status för en entitet](durable-functions-http-api.md#query-entity)
 
-See the [HTTP APIs article](durable-functions-http-api.md) for a full description of all the built-in HTTP APIs exposed by the Durable Functions extension.
+I [artikeln om http-API: er](durable-functions-http-api.md) finns en fullständig beskrivning av alla inbyggda http-API: er som exponeras av Durable Functions-tillägget.
 
-### <a name="http-api-url-discovery"></a>HTTP API URL discovery
+### <a name="http-api-url-discovery"></a>HTTP API URL-identifiering
 
-The [orchestration client binding](durable-functions-bindings.md#orchestration-client) exposes APIs that can generate convenient HTTP response payloads. For example, it can create a response containing links to management APIs for a specific orchestration instance. The following examples show an HTTP-trigger function that demonstrates how to use this API for a new orchestration instance:
+[Dirigerings klientens bindning](durable-functions-bindings.md#orchestration-client) exponerar API: er som kan generera lämpliga nytto laster för HTTP-svar. Det kan till exempel skapa ett svar som innehåller länkar till hanterings-API: er för en angiven Dirigerings instans. I följande exempel visas en funktion för HTTP-utlösare som visar hur du använder det här API: et för en ny Dirigerings instans:
 
-#### <a name="precompiled-c"></a>Precompiled C#
+#### <a name="precompiled-c"></a>FörkompileradeC#
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
@@ -48,21 +48,21 @@ The [orchestration client binding](durable-functions-bindings.md#orchestration-c
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/HttpStart/run.csx)]
 
-#### <a name="javascript-with-functions-20-or-later-only"></a>JavaScript with Functions 2.0 or later only
+#### <a name="javascript-with-functions-20-or-later-only"></a>Java Script med funktioner 2,0 eller senare
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
 
-#### <a name="functionjson"></a>Function.json
+#### <a name="functionjson"></a>Function. JSON
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
 
-Starting an orchestrator function by using the HTTP-trigger functions shown previously can be done using any HTTP client. The following cURL command starts an orchestrator function named `DoWork`:
+Att starta en Orchestrator-funktion med hjälp av funktionerna för HTTP-utlösare som visas tidigare kan göras med valfri HTTP-klient. Följande spiral kommando startar en Orchestrator-funktion med namnet `DoWork`:
 
 ```bash
 curl -X POST https://localhost:7071/orchestrators/DoWork -H "Content-Length: 0" -i
 ```
 
-Next is an example response for an orchestration that has `abc123` as its ID. Some details have been removed for clarity.
+Next är ett exempel på ett svar för ett dirigering som har `abc123` som sitt ID. Viss information har tagits bort för tydlighets skull.
 
 ```http
 HTTP/1.1 202 Accepted
@@ -79,42 +79,42 @@ Retry-After: 10
 }
 ```
 
-In the previous example, each of the fields ending in `Uri` corresponds to a built-in HTTP API. You can use these APIs to manage the target orchestration instance.
+I föregående exempel motsvarar varje fält som slutar på `Uri` ett inbyggt HTTP-API. Du kan använda dessa API: er för att hantera mål Dirigerings instansen.
 
 > [!NOTE]
-> The format of the webhook URLs depends on which version of the Azure Functions host you are running. The previous example is for the Azure Functions 2.0 host.
+> Formatet för webhook-URL: erna beror på vilken version av Azure Functionss värden som du kör. Föregående exempel är för Azure Functions 2,0-värden.
 
-For a description of all built-in HTTP APIs, see the [HTTP API reference](durable-functions-http-api.md).
+En beskrivning av alla inbyggda HTTP API: er finns i [http API-referensen](durable-functions-http-api.md).
 
-### <a name="async-operation-tracking"></a>Async operation tracking
+### <a name="async-operation-tracking"></a>Asynkron åtgärds spårning
 
-The HTTP response mentioned previously is designed to help implement long-running HTTP async APIs with Durable Functions. This pattern is sometimes referred to as the *polling consumer pattern*. The client/server flow works as follows:
+Det HTTP-svar som tidigare nämnts är utformat för att hjälpa till att implementera långvariga HTTP asynkrona API: er med Durable Functions. Det här mönstret kallas ibland för *avsökningens konsument mönster*. Klient/server-flödet fungerar på följande sätt:
 
-1. The client issues an HTTP request to start a long-running process like an orchestrator function.
-1. The target HTTP trigger returns an HTTP 202 response with a Location header that has the value "statusQueryGetUri".
-1. The client polls the URL in the Location header. The client continues to see HTTP 202 responses with a Location header.
-1. When the instance finishes or fails, the endpoint in the Location header returns HTTP 200.
+1. Klienten utfärdar en HTTP-begäran om att starta en långvarig process som en Orchestrator-funktion.
+1. Målets HTTP-utlösare returnerar ett HTTP 202-svar med ett plats huvud som har värdet "statusQueryGetUri".
+1. Klienten avsöker URL: en i plats rubriken. Klienten fortsätter att se HTTP 202-svar med ett plats huvud.
+1. När instansen har slutförts eller misslyckats returnerar slut punkten i plats huvudet HTTP 200.
 
-This protocol allows coordination of long-running processes with external clients or services that can poll an HTTP endpoint and follow the Location header. Both the client and server implementations of this pattern are built into the Durable Functions HTTP APIs.
-
-> [!NOTE]
-> By default, all HTTP-based actions provided by [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) support the standard asynchronous operation pattern. This capability makes it possible to embed a long-running durable function as part of a Logic Apps workflow. You can find more details on Logic Apps support for asynchronous HTTP patterns in the [Azure Logic Apps workflow actions and triggers documentation](../../logic-apps/logic-apps-workflow-actions-triggers.md).
+Det här protokollet möjliggör samordning av långvariga processer med externa klienter eller tjänster som kan avsöka en HTTP-slutpunkt och följa plats rubriken. Både klient-och Server implementeringarna av det här mönstret är inbyggda i Durable Functions HTTP-API: er.
 
 > [!NOTE]
-> Interactions with orchestrations can be done from any function type, not just HTTP-triggered functions.
-
-For more information on how to manage orchestrations and entities using client APIs, see the [Instance management article](durable-functions-instance-management.md).
-
-## <a name="consuming-http-apis"></a>Consuming HTTP APIs
-
-As described in the [orchestrator function code constraints](durable-functions-code-constraints.md), orchestrator functions can't do I/O directly. Instead, they typically call [activity functions](durable-functions-types-features-overview.md#activity-functions) that do I/O operations.
-
-Starting with Durable Functions 2.0, orchestrations can natively consume HTTP APIs by using the [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger).
+> Som standard har alla HTTP-baserade åtgärder som tillhandahålls av [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) stöd för standard mönstret för asynkrona åtgärder. Den här funktionen gör det möjligt att bädda in en långsiktig, varaktig funktion som en del av ett Logic Apps-arbetsflöde. Du hittar mer information om Logic Apps stöd för asynkrona HTTP-mönster i [dokumentationen för Azure Logic Apps arbets flödes åtgärder och utlösare](../../logic-apps/logic-apps-workflow-actions-triggers.md).
 
 > [!NOTE]
-> The ability to call HTTP endpoints directly from orchestrator functions is not yet available in JavaScript.
+> Interaktioner med Orchestration kan göras från alla funktions typer, inte bara HTTP-utlösta funktioner.
 
-The following example code shows a C# orchestrator function making an outbound HTTP request using the **CallHttpAsync** .NET API:
+Mer information om hur du hanterar dirigeringar och entiteter med hjälp av klient-API: er finns i [artikeln instans hantering](durable-functions-instance-management.md).
+
+## <a name="consuming-http-apis"></a>Använda HTTP API: er
+
+Som beskrivs i [Orchestrator-funktionens kod begränsningar](durable-functions-code-constraints.md)kan Orchestrator-funktioner inte göra I/O direkt. I stället anropar de vanligt vis [aktivitets funktioner](durable-functions-types-features-overview.md#activity-functions) som i/O-åtgärder.
+
+Från och med Durable Functions 2,0 kan dirigeringar använda HTTP-API: er med hjälp av [bindningen för Dirigerings utlösare](durable-functions-bindings.md#orchestration-trigger).
+
+> [!NOTE]
+> Möjligheten att anropa HTTP-slutpunkter direkt från Orchestrator-funktioner är inte tillgänglig ännu i Java Script.
+
+Följande exempel kod visar en C# Orchestrator-funktion som gör en utgående http-begäran med **CallHttpAsync** .NET API:
 
 ```csharp
 [FunctionName("CheckSiteAvailable")]
@@ -134,26 +134,26 @@ public static async Task CheckSiteAvailable(
 }
 ```
 
-By using the "call HTTP" action, you can do the following actions in your orchestrator functions:
+Genom att använda åtgärden "anropa HTTP" kan du utföra följande åtgärder i dina Orchestrator-funktioner:
 
-* Call HTTP APIs directly from orchestration functions, with some limitations that are mentioned later.
-* Automatically support client-side HTTP 202 status polling patterns.
-* Use [Azure Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md) to make authorized HTTP calls to other Azure endpoints.
+* Anropa HTTP-API: er direkt från Orchestration-funktioner, med vissa begränsningar som nämns senare.
+* Har automatiskt stöd för status avsöknings mönster för HTTP 202 på klient sidan.
+* Använd [Azure Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md) för att göra auktoriserade http-anrop till andra Azure-slutpunkter.
 
-The ability to consume HTTP APIs directly from orchestrator functions is intended as a convenience for a certain set of common scenarios. You can implement all of these features yourself using activity functions. In many cases, activity functions might give you more flexibility.
+Möjligheten att använda HTTP-API: er direkt från Orchestrator-funktioner är avsedd som en bekvämlighet för en viss uppsättning vanliga scenarier. Du kan implementera alla dessa funktioner själv med hjälp av aktivitets funktioner. I många fall kan aktivitets funktioner ge dig större flexibilitet.
 
-### <a name="http-202-handling"></a>HTTP 202 handling
+### <a name="http-202-handling"></a>HTTP 202-hantering
 
-The "call HTTP" API can automatically implement the client side of the polling consumer pattern. If a called API returns an HTTP 202 response with a Location header, the orchestrator function automatically polls the Location resource until receiving a response other than 202. This response will be the response returned to the orchestrator function code.
+API: t "anropa HTTP" kan automatiskt implementera klient sidan för avsökningens konsument mönster. Om ett anropat API returnerar ett HTTP 202-svar med ett plats huvud, avsöker Orchestrator-funktionen automatiskt plats resursen tills du får ett annat svar än 202. Det här svaret är svaret som returneras till Orchestrator-funktions koden.
 
 > [!NOTE]
-> Orchestrator functions also natively support the server-side polling consumer pattern, as described in [Async operation tracking](#async-operation-tracking). This support means that orchestrations in one function app can easily coordinate the orchestrator functions in other function apps. This is similar to the [sub-orchestration](durable-functions-sub-orchestrations.md) concept, but with support for cross-app communication. This support is particularly useful for microservice-style app development.
+> Orchestrator-funktioner stöder också klient mönstret för avsökning på Server sidan, enligt beskrivningen i [asynkron åtgärds spårning](#async-operation-tracking). Det här stödet innebär att dirigeringar i en Function-app enkelt kan koordinera Orchestrator-funktionerna i andra Function-appar. Detta liknar [under Orchestration-](durable-functions-sub-orchestrations.md) konceptet, men med stöd för kommunikation mellan appar. Detta stöd är särskilt användbart för utveckling av appar i mikrotjänster.
 
-### <a name="managed-identities"></a>Managed identities
+### <a name="managed-identities"></a>Hanterade identiteter
 
-Durable Functions natively supports calls to APIs that accept Azure Active Directory (Azure AD) tokens for authorization. This support uses [Azure managed identities](../../active-directory/managed-identities-azure-resources/overview.md) to acquire these tokens.
+Durable Functions inbyggt stöder anrop till API: er som accepterar Azure Active Directory-token (Azure AD) för auktorisering. Det här stödet använder [Azure Managed identiteter](../../active-directory/managed-identities-azure-resources/overview.md) för att hämta dessa tokens.
 
-The following code is an example of a .NET orchestrator function. The function makes authenticated calls to restart a virtual machine by using the Azure Resource Manager [virtual machines REST API](https://docs.microsoft.com/rest/api/compute/virtualmachines).
+Följande kod är ett exempel på en .NET Orchestrator-funktion. Funktionen gör autentiserade anrop för att starta om en virtuell dator med hjälp av Azure Resource Manager [virtuella datorer REST API](https://docs.microsoft.com/rest/api/compute/virtualmachines).
 
 ```csharp
 [FunctionName("RestartVm")]
@@ -178,41 +178,41 @@ public static async Task RunOrchestrator(
 }
 ```
 
-In the previous example, the `tokenSource` parameter is configured to acquire Azure AD tokens for [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). The tokens are identified by the resource URI `https://management.core.windows.net`. The example assumes that the current function app either is running locally or was deployed as a function app with a managed identity. The local identity or the managed identity is assumed to have permission to manage VMs in the specified resource group `myRG`.
+I det föregående exemplet konfigureras `tokenSource`-parametern för att hämta Azure AD-tokens för [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). Tokens identifieras av resurs-URI `https://management.core.windows.net`. Exemplet förutsätter att den aktuella Function-appen körs lokalt eller har distribuerats som en Function-app med en hanterad identitet. Den lokala identiteten eller den hanterade identiteten antas ha behörighet att hantera virtuella datorer i den angivna resurs gruppen `myRG`.
 
-At runtime, the configured token source automatically returns an OAuth 2.0 access token. The source then adds the token as a bearer token to the Authorization header of the outgoing request. This model is an improvement over manually adding authorization headers to HTTP requests for the following reasons:
+Vid körning returnerar den konfigurerade token-källan automatiskt en OAuth 2,0-åtkomsttoken. Källan lägger sedan till token som en Bearer-token i Authorization-huvudet för den utgående begäran. Den här modellen är en förbättring av manuellt tillägg av auktoriseringsarkiv till HTTP-förfrågningar av följande anledningar:
 
-* Token refresh is handled automatically. You don't need to worry about expired tokens.
-* Tokens are never stored in the durable orchestration state.
-* You don't need to write any code to manage token acquisition.
+* Uppdatering av token hanteras automatiskt. Du behöver inte bekymra dig om utgångna token.
+* Tokens lagras aldrig i det hållbara Orchestration-läget.
+* Du behöver inte skriva någon kod för att hantera hämtning av token.
 
-You can find a more complete example in the [precompiled C# RestartVMs sample](https://github.com/Azure/azure-functions-durable-extension/blob/v2/samples/v2/precompiled/RestartVMs.cs).
+Du kan hitta ett mer komplett exempel i det [förkompilerade C# RestartVMs-exemplet](https://github.com/Azure/azure-functions-durable-extension/blob/v2/samples/v2/precompiled/RestartVMs.cs).
 
-Managed identities aren't limited to Azure resource management. You can use managed identities to access any API that accepts Azure AD bearer tokens, including Azure services from Microsoft and web apps from partners. A partner's web app can even be another function app. For a list of Azure services from Microsoft that support authentication with Azure AD, see [Azure services that support Azure AD authentication](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+Hanterade identiteter är inte begränsade till Azure Resource Management. Du kan använda hanterade identiteter för att få åtkomst till alla API: er som accepterar Azure AD Bearer-token, inklusive Azure-tjänster från Microsoft och Web Apps från partner. En partners webbapp kan till och med vara en annan Function-app. En lista över Azure-tjänster från Microsoft som stöder autentisering med Azure AD finns i [Azure-tjänster som stöder Azure AD-autentisering](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 ### <a name="limitations"></a>Begränsningar
 
-The built-in support for calling HTTP APIs is a convenience feature. It's not appropriate for all scenarios.
+Det inbyggda stödet för att anropa HTTP API: er är en bekvämlighets funktion. Det är inte lämpligt för alla scenarier.
 
-HTTP requests sent by orchestrator functions and their responses are serialized and persistent as queue messages. This queueing behavior ensures HTTP calls are [reliable and safe for orchestration replay](durable-functions-orchestrations.md#reliability). However, the queuing behavior also has limitations:
+HTTP-förfrågningar som skickats av Orchestrator-funktioner och deras svar är serialiserade och beständiga som Queue meddelanden. Detta köat beteende garanterar att HTTP-anrop är [pålitliga och säkra för omuppspelning av dirigering](durable-functions-orchestrations.md#reliability). Köernas beteende har dock också begränsningar:
 
-* Each HTTP request involves additional latency when compared to a native HTTP client.
-* Large request or response messages that can't fit into a queue message can significantly degrade orchestration performance. The overhead of offloading message payloads to blob storage can cause potential performance degradation.
-* Streaming, chunked, and binary payloads aren't supported.
-* The ability to customize the behavior of the HTTP client is limited.
+* Varje HTTP-begäran omfattar ytterligare svars tid jämfört med en intern HTTP-klient.
+* Meddelanden om stora förfrågningar eller svar som inte får plats i ett Queue-meddelande kan kraftigt försämra Dirigerings prestanda. Omkostnaderna för att avlasta meddelande nytto laster till Blob Storage kan orsaka potentiell prestanda försämring.
+* Strömnings-, segment-och binära nytto laster stöds inte.
+* Möjligheten att anpassa HTTP-klientens beteende är begränsad.
 
-If any of these limitations might affect your use case, consider instead using activity functions and language-specific HTTP client libraries to make outbound HTTP calls.
+Om någon av dessa begränsningar kan påverka ditt användnings fall bör du i stället använda aktivitets funktioner och språkspecifika HTTP-klient bibliotek för att göra utgående HTTP-anrop.
 
 > [!NOTE]
-> If you are a .NET developer, you might wonder why this feature uses the **DurableHttpRequest** and **DurableHttpResponse** types instead of the built-in .NET **HttpRequestMessage** and **HttpResponseMessage** types.
+> Om du är .NET-utvecklare kan du undra varför den här funktionen använder **DurableHttpRequest** -och **DurableHttpResponse** -typerna i stället för de inbyggda .net- **HttpRequestMessage** -och **HttpResponseMessage** -typerna.
 >
-> This design choice is intentional. The primary reason is that custom types help ensure users don't make incorrect assumptions about the supported behaviors of the internal HTTP client. Types specific to Durable Functions also make it possible to simplify API design. They also can more easily make available special features like [managed identity integration](#managed-identities) and the [polling consumer pattern](#http-202-handling). 
+> Det här design valet är avsiktligt. Den främsta orsaken är att anpassade typer hjälper till att se till att användarna inte gör felaktiga antaganden om de funktioner som stöds av den interna HTTP-klienten. Typer som är speciella för Durable Functions också göra det möjligt att förenkla API-utformningen. De kan också enklare göra tillgängliga special funktioner som [hantering av identitets integrering](#managed-identities) och [utsöknings konsument mönster](#http-202-handling). 
 
-### <a name="extensibility-net-only"></a>Extensibility (.NET only)
+### <a name="extensibility-net-only"></a>Utökning (endast .NET)
 
-Customizing the behavior of the orchestration's internal HTTP client is possible using [Azure Functions .NET dependency injection](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-dependency-injection). This ability can be useful for making small behavioral changes. It can also be useful for unit testing the HTTP client by injecting mock objects.
+Det går att anpassa beteendet för dirigeringens interna HTTP-klient med hjälp av [Azure Functions .net-beroende inmatning](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-dependency-injection). Den här funktionen kan vara användbar för att göra små beteende ändringar. Det kan också vara användbart för enhet som testar HTTP-klienten genom att mata in de blå objekten.
 
-The following example demonstrates using dependency injection to disable SSL certificate validation for orchestrator functions that call external HTTP endpoints.
+I följande exempel demonstreras användningen av en beroende insprutning för att inaktivera verifiering av SSL-certifikat för Orchestrator-funktioner som anropar externa HTTP-slutpunkter.
 
 ```csharp
 public class Startup : FunctionsStartup
@@ -243,4 +243,4 @@ public class MyDurableHttpMessageHandlerFactory : IDurableHttpMessageHandlerFact
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Learn about durable entities](durable-functions-entities.md)
+> [Lär dig mer om varaktiga entiteter](durable-functions-entities.md)

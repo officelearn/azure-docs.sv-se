@@ -99,7 +99,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
     |**Mål**     |Alla         |Lämna destination som valfri för att tillåta trafik till under nätet för hanterade instanser |
     |**Mål ports intervall**     |3342         |Scope-målport till 3342, som är den offentliga TDS-slutpunkten för hanterad instans |
     |**Protokoll**     |TCP         |Den hanterade instansen använder TCP-protokollet för TDS |
-    |**Åtgärd**     |Tillåt         |Tillåt inkommande trafik till hanterad instans via den offentliga slut punkten |
+    |**Åtgärd**     |Allow         |Tillåt inkommande trafik till hanterad instans via den offentliga slut punkten |
     |**Prioritet**     |1300         |Kontrol lera att den här regeln är högre prioritet än **deny_all_inbounds** regeln |
 
     ![mi-nsg-rules.png](media/sql-database-managed-instance-public-endpoint-configure/mi-nsg-rules.png)

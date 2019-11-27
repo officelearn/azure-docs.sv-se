@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: cdac8321ec4ac7b2e13c5545a2483527118daae3
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: ffe002e4dced5b5020eb1436ca6d7d577402b077
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606266"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533177"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Skriva lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Azure Cosmos DB tillhandahåller språkintegrerad, transaktionell körning av Ja
 Innan du kan anropa en lagrad procedur, utlösare eller användardefinierad funktion måste du registrera den. Mer information finns i [How to work with stored procedures, triggers, user-defined functions in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md) (Arbeta med lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB).
 
 > [!NOTE]
-> När du kör en lagrad procedur med partitionerade behållare måste ett partitionsnyckelvärde anges i alternativen för begäran. Lagrade procedurer är alltid begränsade till en partitionsnyckel. Objekt som har ett annan partitionsnyckelvärde visas inte för den lagrade proceduren. Detta gäller även för utlösare.
+> När du kör en lagrad procedur med partitionerade containrar måste ett partitionsnyckelvärde anges i alternativen för begäran. Lagrade procedurer är alltid begränsade till en partitionsnyckel. Objekt som har ett annan partitionsnyckelvärde visas inte för den lagrade proceduren. Detta gäller även för utlösare.
 
 > [!Tip]
 > Cosmos stöder distribution av behållare med lagrade procedurer, utlösare och användardefinierade funktioner. Mer information finns i [skapa en Azure Cosmos DB behållare med Server sidans funktioner.](manage-sql-with-resource-manager.md#create-sproc)
@@ -316,6 +316,17 @@ function tax(income) {
 ```
 
 Exempel på hur du registrerar och använder användardefinierade funktioner finns i artikeln [How to use user-defined functions in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md#udfs) (Använda användardefinierade funktioner i Azure Cosmos DB).
+
+## <a name="logging"></a>Loggning 
+
+När du använder lagrade procedurer, utlösare eller användardefinierade funktioner kan du logga stegen med kommandot `console.log()`. Med det här kommandot får du en sträng för fel sökning när `EnableScriptLogging` har värdet true, vilket visas i följande exempel:
+
+```javascript
+var response = await client.ExecuteStoredProcedureAsync(
+document.SelfLink,
+new RequestOptions { EnableScriptLogging = true } );
+Console.WriteLine(response.ScriptLog);
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

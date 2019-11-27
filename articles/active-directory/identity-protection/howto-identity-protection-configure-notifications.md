@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory Identity Protection notifications
-description: Learn how notifications support your investigation activities.
+title: Azure Active Directory Identity Protection meddelanden
+description: Lär dig hur meddelanden stöder dina undersöknings aktiviteter.
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
@@ -18,52 +18,52 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74382156"
 ---
-# <a name="azure-active-directory-identity-protection-notifications"></a>Azure Active Directory Identity Protection notifications
+# <a name="azure-active-directory-identity-protection-notifications"></a>Azure Active Directory Identity Protection meddelanden
 
-Azure AD Identity Protection sends two types of automated notification emails to help you manage user risk and risk detections:
+Azure AD Identity Protection skickar två typer av automatiserade e-postmeddelanden som hjälper dig att hantera användar risker och risk identifieringar:
 
-- Users at risk detected email
-- Weekly digest email
+- Användare med skadligt upptäckt e-post
+- E-postmeddelande om veckovis sammandrag
 
-This article provides you with an overview of both notification emails.
+Den här artikeln ger en översikt över både e-postaviseringar.
 
-## <a name="users-at-risk-detected-email"></a>Users at risk detected email
+## <a name="users-at-risk-detected-email"></a>Användare med skadligt upptäckt e-post
 
-In response to a detected account at risk, Azure AD Identity Protection generates an email alert with **Users at risk detected** as subject. The email includes a link to the **[Users flagged for risk](../reports-monitoring/concept-user-at-risk.md)** report. As a best practice, you should immediately investigate the users at risk.
+Som svar på ett identifierat konto vid risk genererar Azure AD Identity Protection en e-postavisering med **användare som riskerar att identifieras** som ämne. E-postmeddelandet innehåller en länk till de användare som har **[flaggats för risk](../reports-monitoring/concept-user-at-risk.md)** rapporten. Som bästa praxis bör du omedelbart undersöka de användare som är utsatta för risk.
 
-The configuration for this alert allows you to specify at what user risk level you want the alert to be generated. The email will be generated when the user's risk level reaches what you have specified; however, you will not receive new users at risk detected email alerts for this user after they move to this user risk level. For example, if you set the policy to alert on medium user risk and your user John moves to medium risk, you will receive the users at risk detected email for John. However, you will not receive a second user at risk detected alert if John then moves to high risk or has additional risk detections.
+Med konfigurationen för den här aviseringen kan du ange på vilken nivå för användar risk du vill att aviseringen ska genereras. E-postmeddelandet skapas när användarens risk nivå når det du har angett. du får dock inga nya användare när de riskerar att identifiera e-postaviseringar för den här användaren när de har flyttat till den här användar risk nivån. Om du t. ex. ställer in principen för att varna om medelhög användar risk och din användare John flyttar till medelhög risk, får användarna ett hot som upptäckts via e-post för John. Du får dock ingen andra användare vid risk identifiering om John sedan flyttar till hög risk eller har ytterligare risk identifieringar.
 
-![Users at risk detected email](./media/howto-identity-protection-configure-notifications/01.png)
+![Användare med skadligt upptäckt e-post](./media/howto-identity-protection-configure-notifications/01.png)
 
-### <a name="configure-users-at-risk-detected-alerts"></a>Configure users at risk detected alerts
+### <a name="configure-users-at-risk-detected-alerts"></a>Konfigurera användare med risk identifierade aviseringar
 
-As an administrator, you can set:
+Som administratör kan du ange:
 
-- **The user risk level that triggers the generation of this email** - By default, the risk level is set to “High” risk.
-- **The recipients of this email** - By default, recipients include all Global Admins. Global Admins can also add other Global Admins, Security Admins, Security Readers as recipients.
-   - Optionally you can **Add additional emails to receive alert notifications** this feature is a preview and users defined must have the appropriate permissions to view the linked reports in the Azure portal.
+- **Den användar risk nivå som utlöser genereringen av det här e-postmeddelandet** som standard är risk nivån inställd på "hög" risk.
+- Mottagare **av det här e-postmeddelandet** är som standard alla globala administratörer. Globala administratörer kan också lägga till andra globala administratörer, säkerhets administratörer och säkerhets läsare som mottagare.
+   - Du kan också **lägga till ytterligare e-postmeddelanden för att få aviseringar om** den här funktionen är en förhands granskning och användare som har definierats måste ha rätt behörighet för att visa de länkade rapporterna i Azure Portal.
 
-Configure the users at risk email in the **Azure portal** under **Azure Active Directory** > **Security** > **Identity Protection** > **Users at risk detected alerts**.
+Konfigurera användare med risk-e-post i **Azure Portal** under **Azure Active Directory** > **säkerhet** > **identitets skydd** > **användare med risk identifierade aviseringar**.
 
-## <a name="weekly-digest-email"></a>Weekly digest email
+## <a name="weekly-digest-email"></a>E-postmeddelande om veckovis sammandrag
 
-The weekly digest email contains a summary of new risk detections.  
-It includes:
+E-postmeddelandet om veckovis sammandrag innehåller en sammanfattning av nya risk identifieringar.  
+Den innehåller:
 
 - Användare i riskzonen
-- Suspicious activities
-- Detected vulnerabilities
-- Links to the related reports in Identity Protection
+- Misstänkta aktiviteter
+- Identifierade sårbarheter
+- Länkar till relaterade rapporter i Identity Protection
 
-![Weekly digest email](./media/howto-identity-protection-configure-notifications/400.png)
+![E-postmeddelande om veckovis sammandrag](./media/howto-identity-protection-configure-notifications/400.png)
 
-By default, recipients include all Global Admins. Global Admins can also add other Global Admins, Security Admins, Security Readers as recipients.
+Som standard inkluderar mottagarna alla globala administratörer. Globala administratörer kan också lägga till andra globala administratörer, säkerhets administratörer och säkerhets läsare som mottagare.
 
-### <a name="configure-weekly-digest-email"></a>Configure weekly digest email
+### <a name="configure-weekly-digest-email"></a>Konfigurera e-post för veckovis sammandrag
 
-As an administrator, you can switch sending a weekly digest email on or off and choose the users assigned to receive the email.
+Som administratör kan du växla att skicka ett e-postmeddelande med veckovis sammanfattning på eller av och välja de användare som ska tilldelas e-postmeddelandet.
 
-Configure the weekly digest email in the **Azure portal** under **Azure Active Directory** > **Security** > **Identity Protection** > **Weekly digest**.
+Konfigurera e-postmeddelandet om veckovis sammandrag i **Azure Portal** under **Azure Active Directory** > **säkerhet** > **identitets skydd** > **vecko sammandrag**.
 
 ## <a name="see-also"></a>Se också
 

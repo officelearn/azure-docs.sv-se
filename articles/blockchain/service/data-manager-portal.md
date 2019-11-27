@@ -1,6 +1,6 @@
 ---
-title: Configure Blockchain Data Manager using Azure portal - Azure Blockchain Service
-description: Create and manage Blockchain Data Manager for Azure Blockchain Service using the Azure portal.
+title: Konfigurera blockchain Data Manager med hjälp av Azure Portal Azure blockchain-tjänsten
+description: Skapa och hantera blockchain-Data Manager för Azure blockchain-tjänsten med hjälp av Azure Portal.
 ms.date: 11/04/2019
 ms.topic: article
 ms.reviewer: chroyal
@@ -13,160 +13,160 @@ ms.locfileid: "74455807"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Konfigurera Blockchain Data Manager med Azure-portalen
 
-Configure Blockchain Data Manager for Azure Blockchain Service to capture blockchain data and send it to an Azure Event Grid Topic.
+Konfigurera blockchain Data Manager för Azure blockchain-tjänsten för att avbilda blockchain-data och skicka dem till ett Azure Event Grid ämne.
 
-To configure a Blockchain Data Manager instance, you:
+Om du vill konfigurera en blockchain Data Manager instans:
 
-* Create a Blockchain Data Manager instance for an Azure Blockchain Service transaction node
-* Add your blockchain applications
+* Skapa en blockchain Data Manager instans för en Azure blockchain service Transaction-nod
+* Lägg till dina blockchain-program
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* Complete [Quickstart: Create a blockchain member using the Azure portal](create-member.md) or [Quickstart: Create an Azure Blockchain Service blockchain member using Azure CLI](create-member-cli.md)
-* Create an [Event Grid Topic](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
-* Learn about [Event handlers in Azure Event Grid](../../event-grid/event-handlers.md)
+* Slutför [snabb start: skapa en blockchain-medlem med hjälp av Azure Portal](create-member.md) eller [snabb start: skapa en Azure blockchain service blockchain-medlem med Azure CLI](create-member-cli.md)
+* Skapa ett [Event Grid ämne](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
+* Lär dig mer om [händelse hanterare i Azure Event Grid](../../event-grid/event-handlers.md)
 
-## <a name="create-instance"></a>Create instance
+## <a name="create-instance"></a>Skapa instans
 
-A Blockchain Data Manager instance connects and monitors an Azure Blockchain Service transaction node. Only users with access to the transaction node can create a connection. An instance captures all raw block and raw transaction data from the transaction node.
+En blockchain Data Manager-instans ansluter och övervakar en Azure blockchain service Transaction-nod. Endast användare med åtkomst till Transaction-noden kan skapa en anslutning. En instans fångar alla RAW-block och rå transaktions data från Transaction-noden.
 
-An outbound connection sends blockchain data to Azure Event Grid. You configure a single outbound connection when you create the instance. Blockchain Data Manager supports multiple Event Grid Topic outbound connections for any given Blockchain Data Manager instance. You can send blockchain data to a single destination or send blockchain data to multiple destinations. To add another destination, just add additional outbound connections to the instance.
+En utgående anslutning skickar blockchain-data till Azure Event Grid. Du konfigurerar en enda utgående anslutning när du skapar instansen. Blockchain Data Manager har stöd för flera Event Grid ämnen utgående anslutningar för en specifik blockchain Data Manager-instans. Du kan skicka blockchain-data till ett enda mål eller skicka blockchain-data till flera mål. Lägg till ytterligare utgående anslutningar till instansen om du vill lägga till ett annat mål.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Go to the Azure Blockchain Service member you want to connect to Blockchain Data Manager. Select **Blockchain Data Manager**.
+1. Gå till den Azure blockchain service-medlem som du vill ansluta till blockchain Data Manager. Välj **Blockchain Data Manager**.
 1. Välj **Lägg till**.
 
-    ![Add Blockchain Data Manager](./media/data-manager-portal/add-instance.png)
+    ![Lägg till blockchain Data Manager](./media/data-manager-portal/add-instance.png)
 
     Ange följande uppgifter:
 
     Inställning | Beskrivning
     --------|------------
-    Namn | Enter a unique name for a connected Blockchain Data Manager. The Blockchain Data Manager name can contain lower case letters and numbers and has a maximum length of 20 characters.
-    Transaction node | Choose a transaction node. Only transaction nodes you have read access are listed.
-    Anslutningsnamn | Enter a unique name of the outbound connection where blockchain transaction data is sent.
-    Event grid endpoint | Choose an event grid topic in the same subscription as the Blockchain Data Manager instance.
+    Name | Ange ett unikt namn för en ansluten blockchain Data Manager. Namnet på blockchain Data Manager får innehålla gemener och siffror och får innehålla högst 20 tecken.
+    Transaction Node | Välj en Transaction-nod. Endast transaktionsloggfiler som du har Läs behörighet visas.
+    Anslutningsnamn | Ange ett unikt namn på den utgående anslutningen där blockchain transaktions data skickas.
+    Event Grid-slutpunkt | Välj ett event Grid-ämne i samma prenumeration som blockchain Data Manager-instansen.
 
 1. Välj **OK**.
 
-    It takes less than a minute to create a Blockchain Data Manager instance. After the instance is deployed, it is automatically started. A running Blockchain Data Manager instance captures blockchain events from the transaction node and sends data to the outbound connections.
+    Det tar mindre än en minut att skapa en blockchain Data Manager-instans. När instansen har distribuerats startas den automatiskt. En körning av en blockchain Data Manager-instans fångar blockchain-händelser från Transaction-noden och skickar data till utgående anslutningar.
 
-    The new instance appears in the list of Blockchain Data Manager instances for the Azure Blockchain Service member.
+    Den nya instansen visas i listan över blockchain Data Manager instanser för Azure blockchain-tjänstemedlem.
 
-    ![List of Blockchain Data Member instances](./media/data-manager-portal/instance-list.png)
+    ![Lista över blockchain data medlems instanser](./media/data-manager-portal/instance-list.png)
 
-## <a name="add-blockchain-application"></a>Add blockchain application
+## <a name="add-blockchain-application"></a>Lägg till blockchain-program
 
-If you add a blockchain application, Blockchain Data Manager decodes event and property state for the application. Otherwise, only raw block and raw transaction data is sent. Blockchain Data Manager also discovers contract addresses when the contract is deployed. You can add multiple blockchain applications to a Blockchain Data Manager instance.
+Om du lägger till ett blockchain-program avkodar Data Manager blockchain händelse-och egenskaps tillstånd för programmet. Annars skickas endast rå block och rå transaktions information. Blockchain Data Manager identifierar också kontrakts adresser när kontraktet distribueras. Du kan lägga till flera blockchain-program till en blockchain Data Manager-instans.
 
 > [!IMPORTANT]
-> Currently, blockchain applications that declare Solidity [array types](https://solidity.readthedocs.io/en/v0.5.12/types.html#arrays) or [mapping types](https://solidity.readthedocs.io/en/v0.5.12/types.html#mapping-types) are not fully supported. Properties declared as array or mapping types will not be decoded in *ContractPropertiesMsg* or *DecodedContractEventsMsg* messages.
+> Blockchain-program som deklarerar [mat ris typer](https://solidity.readthedocs.io/en/v0.5.12/types.html#arrays) eller [mappnings typer](https://solidity.readthedocs.io/en/v0.5.12/types.html#mapping-types) stöds för närvarande inte fullt ut. Egenskaper som är deklarerade som matris-eller mappnings typer avkodas inte i *ContractPropertiesMsg* -eller *DecodedContractEventsMsg* -meddelanden.
 
-Blockchain Data Manager requires a smart contract ABI and deployed bytecode file to add the application.
+Blockchain Data Manager kräver ett smart kontrakt ABI och distribuerad bytekod-fil för att lägga till programmet.
 
-### <a name="get-contract-abi-and-bytecode"></a>Get Contract ABI and bytecode
+### <a name="get-contract-abi-and-bytecode"></a>Hämta kontrakts ABI och bytekod
 
-The contract ABI defines the smart contract interfaces. It describes how to interact with the smart contract. You can use the [Azure Blockchain Development Kit for Ethereum extension](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) to copy the contract ABI to the clipboard.
+ABI för kontrakt definierar de smarta kontrakts gränssnitten. Den beskriver hur du interagerar med det smarta kontraktet. Du kan använda [Azure blockchain Development Kit för Ethereum-tillägget](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) för att kopiera kontrakts ABI till Urklipp.
 
-1. In the Visual Studio Code explorer pane, expand the **build/contracts** folder of your Solidity project.
-1. Right-click the contract metadata JSON file. The file name is the smart contract name followed by the **.json** extension.
-1. Select **Copy Contract ABI**.
+1. I fönstret Visual Studio Code Explorer expanderar du mappen **Bygg/kontrakt** i ditt projekt.
+1. Högerklicka på JSON-filen för kontraktets metadata. Fil namnet är det smarta kontrakt namnet följt av **. JSON** -tillägget.
+1. Välj **kopiera kontrakt ABI**.
 
-    ![Visual Studio Code pane with the Copy Contract ABI selection](./media/data-manager-portal/abi-devkit.png)
+    ![Fönstret Visual Studio Code med alternativet kopiera kontrakt ABI](./media/data-manager-portal/abi-devkit.png)
 
-    The contract ABI is copied to the clipboard.
+    Kontraktets ABI kopieras till Urklipp.
 
-1. Save the **abi** array as a JSON file. For example, *abi.json*. You use the file in a later step.
+1. Spara **ABI** -matrisen som en JSON-fil. Till exempel *ABI. JSON*. Du använder filen i ett senare steg.
 
-Blockchain Data Manager requires the deployed bytecode for the smart contract. The deployed bytecode is different than the smart contract bytecode. You can get the deployed bytecode from the compiled contract metadata file.
+Blockchain-Data Manager kräver distribuerad bytekod för det smarta kontraktet. Den distribuerade bytekod-filen skiljer sig från det smarta kontraktets bytekod. Du kan hämta den distribuerade bytekod-filen från den kompilerade kontraktets metadatafil.
 
-1. Open the contract metadata file contained in the **build/contracts** folder of your Solidity project. The file name is the smart contract name followed by the **.json** extension.
-1. Find the **deployedBytecode** element in the JSON file.
-1. Copy the hexadecimal value without the quotes.
+1. Öppna den kontrakts ETA data fil som finns i mappen **build/kontrakt** i ditt projekt. Fil namnet är det smarta kontrakt namnet följt av **. JSON** -tillägget.
+1. Hitta **deployedBytecode** -ELEMENTET i JSON-filen.
+1. Kopiera det hexadecimala värdet utan citat tecken.
 
-    ![Visual Studio Code pane with bytecode in the metadata](./media/data-manager-portal/bytecode-metadata.png)
+    ![Visual Studio Code-fönstret med bytekod i metadata](./media/data-manager-portal/bytecode-metadata.png)
 
-1. Save the **bytecode** value as a JSON file. For example, *bytecode.json*. You use the file in a later step.
+1. Spara **bytekod** -värdet som en JSON-fil. Till exempel, *bytekod. JSON*. Du använder filen i ett senare steg.
 
-The following example shows *abi.json* and *bytecode.json* files open in the VS Code editor. Your files should look similar.
+I följande exempel visas *ABI. JSON* och *bytekod. JSON* -filer öppna i vs Code-redigeraren. Dina filer bör se ut ungefär så här.
 
-![Example of abi.json and bytecode.json files](./media/data-manager-portal/contract-files.png)
+![Exempel på ABI. JSON och bytekod. JSON-filer](./media/data-manager-portal/contract-files.png)
 
-### <a name="create-contract-abi-and-bytecode-url"></a>Create contract ABI and bytecode URL
+### <a name="create-contract-abi-and-bytecode-url"></a>Skapa kontrakts ABI och bytekod-URL
 
-Blockchain Data Manager requires the contract ABI and bytecode files to be accessible by a URL when adding an application. You can use an Azure Storage account to provide a privately accessible URL.
+Blockchain Data Manager kräver att kontrakts ABI och bytekod-filerna kan nås av en URL när du lägger till ett program. Du kan använda ett Azure Storage-konto för att tillhandahålla en privat tillgänglig URL.
 
 #### <a name="create-storage-account"></a>Skapa lagringskonto
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
-#### <a name="upload-contract-files"></a>Upload contract files
+#### <a name="upload-contract-files"></a>Ladda upp kontraktmallar
 
-1. Create a new container for the storage account. Select **Containers > Container**.
+1. Skapa en ny behållare för lagrings kontot. Välj **behållare > behållare**.
 
-    ![Create a storage account container](./media/data-manager-portal/create-container.png)
+    ![Skapa en lagrings konto behållare](./media/data-manager-portal/create-container.png)
 
     | Fält | Beskrivning |
     |-------|-------------|
-    | Namn  | Name the container. For example, *smartcontract* |
-    | Public access level | Choose *Private (no anonymous access)* |
+    | Name  | Namnge behållaren. Till exempel *smartcontract* |
+    | Offentlig åtkomst nivå | Välj *privat (ingen anonym åtkomst)* |
 
 1. Klicka på **OK** för att skapa containern.
-1. Select the container then select **Upload**.
-1. Choose both JSON files you created in the [Get Contract ABI and bytecode](#get-contract-abi-and-bytecode) section.
+1. Välj behållaren och välj sedan **Ladda upp**.
+1. Välj båda JSON-filerna som du skapade i avsnittet [Hämta kontrakt ABI och bytekod](#get-contract-abi-and-bytecode) .
 
-    ![Upload blob](./media/data-manager-portal/upload-blobs.png)
+    ![Ladda upp BLOB](./media/data-manager-portal/upload-blobs.png)
 
     Välj **Överför**.
 
-#### <a name="generate-url"></a>Generate URL
+#### <a name="generate-url"></a>Generera URL
 
-For each blob, generate a shared access signature.
+Generera en signatur för delad åtkomst för varje blob.
 
-1. Select the ABI JSON blob.
-1. Select **Generate SAS**
-1. Set desired access signature expiration then select **Generate blob SAS token and URL**.
+1. Välj ABI JSON-blobben.
+1. Välj **generera SAS**
+1. Ange önskat förfallo datum för signaturen **och välj sedan generera BLOB SAS-token och URL**.
 
-    ![Generate SAS token](./media/data-manager-portal/generate-sas.png)
+    ![Generera SAS-token](./media/data-manager-portal/generate-sas.png)
 
-1. Copy the **Blob SAS URL** and save it for the next section.
-1. Repeat the [Generate URL](#generate-url) steps for the bytecode JSON blob.
+1. Kopiera **URL: en för BLOB SAS** och spara den för nästa avsnitt.
+1. Upprepa stegen för att [generera URL: er](#generate-url) för BYTEKOD-JSON-blobben.
 
-### <a name="add-application-to-instance"></a>Add application to instance
+### <a name="add-application-to-instance"></a>Lägg till program till instans
 
-1. Select your Blockchain Data Manager instance from the instance list.
-1. Select **Blockchain applications**.
+1. Välj din blockchain-Data Manager instans från instans listan.
+1. Välj **blockchain-program**.
 1. Välj **Lägg till**.
 
-    ![Add a blockchain application](./media/data-manager-portal/add-application.png)
+    ![Lägg till ett blockchain-program](./media/data-manager-portal/add-application.png)
 
-    Enter the name of the blockchain application and the smart contract ABI and bytecode URLs.
+    Ange namnet på blockchain-programmet och URL: en för smart kontrakt ABI och bytekod.
 
     Inställning | Beskrivning
     --------|------------
-    Namn | Enter a unique name for the blockchain application to track.
-    Contract ABI | URL path to the Contract ABI file. For more information, see [Create contract ABI and bytecode URL](#create-contract-abi-and-bytecode-url).
-    Contract Bytecode | URL path to bytecode file. For more information, see [Create contract ABI and bytecode URL](#create-contract-abi-and-bytecode-url).
+    Name | Ange ett unikt namn för blockchain-programmet som ska spåras.
+    Kontrakt ABI | URL-sökväg till kontraktets ABI-fil. Mer information finns i [skapa kontrakts ABI och BYTEKOD URL](#create-contract-abi-and-bytecode-url).
+    Kontraktets bytekod | URL-sökväg till bytekod-fil. Mer information finns i [skapa kontrakts ABI och BYTEKOD URL](#create-contract-abi-and-bytecode-url).
 
 1. Välj **OK**.
 
-    Once the application is created, the application appears in the list of blockchain applications.
+    När programmet har skapats visas programmet i listan över blockchain-program.
 
-    ![Blockchain application list](./media/data-manager-portal/artifact-list.png)
+    ![Lista över blockchain program](./media/data-manager-portal/artifact-list.png)
 
-You can delete the Azure Storage account or use it to configure more blockchain applications. If you wish to delete the Azure Storage account, you can delete the resource group. När du tar bort resursgruppen raderas även det kopplade lagringskontot och eventuella andra resurser som är kopplade till resursgruppen.
+Du kan ta bort Azure Storage kontot eller använda det för att konfigurera fler blockchain-program. Om du vill ta bort Azure Storages kontot kan du ta bort resurs gruppen. När du tar bort resursgruppen raderas även det kopplade lagringskontot och eventuella andra resurser som är kopplade till resursgruppen.
 
-## <a name="stop-instance"></a>Stop instance
+## <a name="stop-instance"></a>Stoppa instans
 
-Stop the Blockchain Manager instance when you want to stop capturing blockchain events and sending data to the outbound connections. When the instance is stopped, no charges are incurred for Blockchain Data Manager. Mer information finns i [prissättning](https://azure.microsoft.com/pricing/details/blockchain-service).
+Stoppa blockchain Manager-instansen när du vill sluta samla in blockchain-händelser och skicka data till utgående anslutningar. När instansen stoppas uppstår inga kostnader för blockchain Data Manager. Mer information finns i [prissättning](https://azure.microsoft.com/pricing/details/blockchain-service).
 
-1. Go to **Overview** and select **Stop**.
+1. Gå till **Översikt** och välj **stoppa**.
 
-    ![Stop instance](./media/data-manager-portal/stop-instance.png)
+    ![Stoppa instans](./media/data-manager-portal/stop-instance.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Try the next tutorial creating a blockchain transaction message explorer using Blockchain Data Manager and Azure Cosmos DB.
+Testa nästa självstudie och skapa en blockchain transaktions meddelande Utforskare med blockchain Data Manager och Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Use Blockchain Data Manager to send data to Azure Cosmos DB](data-manager-cosmosdb.md)
+> [Använd blockchain-Data Manager för att skicka data till Azure Cosmos DB](data-manager-cosmosdb.md)

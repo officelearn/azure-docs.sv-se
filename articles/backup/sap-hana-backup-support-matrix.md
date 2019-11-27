@@ -1,5 +1,5 @@
 ---
-title: Support mat ris för SAP HANA backup
+title: Stödmatris för SAP HANA-säkerhetskopiering
 description: I den här artikeln lär du dig om de scenarier och begränsningar som stöds när du använder Azure Backup för att säkerhetskopiera SAP HANA databaser på virtuella Azure-datorer.
 ms.topic: conceptual
 ms.date: 11/7/2019

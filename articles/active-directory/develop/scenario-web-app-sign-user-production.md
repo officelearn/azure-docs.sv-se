@@ -1,6 +1,6 @@
 ---
-title: Web app that signs in users (move to production) - Microsoft identity platform
-description: Learn how to build a web app that signs in users (move to production)
+title: Webbapp som loggar in användare (flytta till produktion) – Microsoft Identity Platform
+description: Lär dig hur du skapar en webbapp som loggar in användare (flytta till produktion)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -22,39 +22,39 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74481876"
 ---
-# <a name="web-app-that-signs-in-users-move-to-production"></a>Web app that signs in users: Move to production
+# <a name="web-app-that-signs-in-users-move-to-production"></a>Webbapp som loggar in användare: flytta till produktion
 
-Now that you know how to get a token to call web APIs, learn how to move it to production.
+Nu när du vet hur du kan hämta en token för att anropa webb-API: er, lär dig hur du flyttar den till produktionen.
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-### <a name="scenario-for-calling-web-apis"></a>Scenario for calling web APIs
+### <a name="scenario-for-calling-web-apis"></a>Scenario för att anropa webb-API: er
 
-After your web app signs in users, it can call web APIs on behalf of the signed-in users. Calling web APIs from the web app is the object of the following scenario:
+När din webbapp loggar in användare kan den anropa webb-API: er åt de inloggade användarna. Att anropa webb-API: er från webbappen är objektet i följande scenario:
 
 > [!div class="nextstepaction"]
 > [Webbapp som anropar webb-API:er](scenario-web-app-call-api-overview.md)
 
-### <a name="deep-dive-aspnet-core-web-app-tutorial"></a>Deep dive: ASP.NET Core web app tutorial
+### <a name="deep-dive-aspnet-core-web-app-tutorial"></a>Djupgående övning: ASP.NET Core Web Apps-självstudie
 
-Learn about other ways to sign in users with this ASP.NET Core tutorial: 
+Lär dig mer om andra sätt att logga in användare med den här ASP.NET Core själv studie kursen: 
 
 > [!div class="nextstepaction"]
-> [Enable your web apps to sign in users and call APIs with the Microsoft identity platform for developers](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) 
+> [Aktivera dina webbappar för att logga in användare och anropa API: er med Microsoft Identity Platform för utvecklare](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) 
 
-This progressive tutorial has production-ready code for a web app, including how to add sign-in with accounts in:
+Den här Progressive-kursen har produktions klart kod för en webbapp, inklusive hur du lägger till inloggning med konton i:
 
-- Your organization
-- Multiple organizations
-- Work or school accounts, or personal Microsoft accounts
+- Din organisation
+- Flera organisationer
+- Arbets-eller skol konton eller personliga Microsoft-konton
 - [Azure AD B2C](https://aka.ms/aadb2c)
-- National clouds
+- Nationella moln
 
-### <a name="sample-code-java-web-app"></a>Sample code: Java web app
+### <a name="sample-code-java-web-app"></a>Exempel kod: Java-webbapp
 
-Learn more about the Java web app from this sample on GitHub: 
+Läs mer om Java-webbappen från det här exemplet på GitHub: 
 
 > [!div class="nextstepaction"]
-> [A Java Web application that signs in users with the Microsoft identity platform and calls Microsoft Graph](https://github.com/Azure-Samples/ms-identity-java-webapp)
+> [Ett Java-webbprogram som loggar in användare med Microsoft Identity Platform och anropar Microsoft Graph](https://github.com/Azure-Samples/ms-identity-java-webapp)

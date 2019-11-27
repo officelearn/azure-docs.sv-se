@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Create a forest trust in Azure AD Domain Services | Microsoft Docs
-description: Learn how to create a one-way outbound forest to an on-premises AD DS domain in the Azure portal for Azure AD Domain Services
+title: Självstudie – Skapa ett skogs förtroende i Azure AD Domain Services | Microsoft Docs
+description: Lär dig hur du skapar en enkelriktad utgående skog till en lokal AD DS-domän i Azure Portal för Azure AD Domain Services
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -17,195 +17,195 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74233602"
 ---
-# <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Tutorial: Create an outbound forest trust to an on-premises domain in Azure Active Directory Domain Services (preview)
+# <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Självstudie: skapa en utgående skogs förtroende till en lokal domän i Azure Active Directory Domain Services (för hands version)
 
-In environments where you can't synchronize password hashes, or you have users that exclusively sign in using smart cards so they don't know their password, you can use a resource forest in Azure Active Directory Domain Services (AD DS). A resource forest uses a one-way outbound trust from Azure AD DS to one or more on-premises AD DS environments. This trust relationship lets users, applications, and computers authenticate against an on-premises domain from the Azure AD DS managed domain. Azure AD DS resource forests are currently in preview.
+I miljöer där du inte kan synkronisera lösen ord, eller om du har användare som enbart loggar in med smartkort så att de inte känner till sitt lösen ord, kan du använda en resurs skog i Azure Active Directory Domain Services (AD DS). En resurs skog använder ett enkelriktat utgående förtroende från Azure AD DS till en eller flera lokala AD DS-miljöer. Den här förtroende relationen låter användare, program och datorer autentisera mot en lokal domän från den hanterade domänen i Azure AD DS. Azure AD DS resurs skogar är för närvarande en för hands version.
 
-![Diagram of forest trust from Azure AD DS to on-premises AD DS](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
+![Diagram över skogs förtroende från Azure AD DS till lokal AD DS](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Configure DNS in an on-premises AD DS environment to support Azure AD DS connectivity
-> * Create a one-way inbound forest trust in an on-premises AD DS environment
-> * Create a one-way outbound forest trust in Azure AD DS
-> * Test and validate the trust relationship for authentication and resource access
+> * Konfigurera DNS i en lokal AD DS-miljö för att stödja Azure AD DS-anslutning
+> * Skapa ett enkelriktat inkommande skogs förtroende i en lokal AD DS-miljö
+> * Skapa ett enkelriktat utgående skogs förtroende i Azure AD DS
+> * Testa och verifiera förtroende relationen för autentiserings-och resurs åtkomst
 
-If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+Om du inte har en Azure-prenumeration kan du [skapa ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-To complete this tutorial, you need the following resources and privileges:
+För att slutföra den här självstudien behöver du följande resurser och behörigheter:
 
 * En aktiv Azure-prenumeration.
-    * If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
-    * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
-* An Azure Active Directory Domain Services managed domain created using a resource forest and configured in your Azure AD tenant.
-    * If needed, [create and configure an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance-advanced].
+    * [Skapa ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)om du inte har någon Azure-prenumeration.
+* En Azure Active Directory klient som är associerad med din prenumeration, antingen synkroniserad med en lokal katalog eller en katalog som endast är moln.
+    * Om det behövs kan du [skapa en Azure Active Directory klient][create-azure-ad-tenant] eller [associera en Azure-prenumeration med ditt konto][associate-azure-ad-tenant].
+* En Azure Active Directory Domain Services hanterad domän som skapats med hjälp av en resurs skog och som kon figurer ATS i din Azure AD-klient.
+    * Om det behövs kan du [skapa och konfigurera en Azure Active Directory Domain Services-instans][create-azure-ad-ds-instance-advanced].
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-In this tutorial, you create and configure the outbound forest trust from Azure AD DS using the Azure portal. To get started, first sign in to the [Azure portal](https://portal.azure.com).
+I den här självstudien skapar du och konfigurerar det utgående skogs förtroendet från Azure AD DS med hjälp av Azure Portal. Börja med att logga in på [Azure Portal](https://portal.azure.com)för att komma igång.
 
 ## <a name="networking-considerations"></a>Nätverksöverväganden
 
-The virtual network that hosts the Azure AD DS resource forest needs network connectivity to your on-premises Active Directory. Applications and services also need network connectivity to the virtual network hosting the Azure AD DS resource forest. Network connectivity to the Azure AD DS resource forest must be always on and stable otherwise users may fail to authenticate or access resources.
+Det virtuella nätverk som är värd för Azure AD DS-resurs skogen behöver nätverks anslutning till din lokala Active Directory. Program och tjänster behöver också nätverks anslutning till det virtuella nätverket som är värd för Azure AD DS-resurs skogen. Nätverks anslutningen till Azure AD DS-resurs skogen måste vara alltid aktive ras och stabilt, annars kan användare Miss lyckas med att autentisera eller komma åt resurser.
 
-Before you configure a forest trust in Azure AD DS, make sure your networking between Azure and on-premises environment meets the following requirements:
+Innan du konfigurerar ett skogs förtroende i Azure AD DS ser du till att nätverket mellan Azure och den lokala miljön uppfyller följande krav:
 
-* Use private IP addresses. Don't rely on DHCP with dynamic IP address assignment.
-* Avoid overlapping IP address spaces to allow virtual network peering and routing to successfully communicate between Azure and on-premises.
-* An Azure virtual network needs a gateway subnet to configure a site-to-site (S2S) VPN or ExpressRoute connection
-* Create subnets with enough IP addresses to support your scenario.
-* Make sure Azure AD DS has its own subnet, don't share this virtual network subnet with application VMs and services.
-* Peered virtual networks are NOT transitive.
-    * Azure virtual network peerings must be created between all virtual networks you want to use the Azure AD DS resource forest trust to the on-premises AD DS environment.
-* Provide continuous network connectivity to your on-premises Active Directory forest. Don't use on-demand connections.
-* Make sure there's continuous name resolution (DNS) between your Azure AD DS resource forest name and your on-premises Active Directory forest name.
+* Använd privata IP-adresser. Förlita dig inte på DHCP med dynamisk IP-adresstilldelning.
+* Undvik överlappande IP-adressutrymme för att tillåta att peering och routning i virtuella nätverk kan kommunicera mellan Azure och lokalt.
+* Ett virtuellt Azure-nätverk behöver ett Gateway-undernät för att konfigurera en plats-till-plats (S2S) VPN-eller ExpressRoute-anslutning
+* Skapa undernät med tillräckligt med IP-adresser för att ge stöd för ditt scenario.
+* Kontrol lera att Azure AD DS har sitt eget undernät, dela inte det virtuella nätverkets undernät med virtuella program datorer och-tjänster.
+* Peer-kopplat virtuella nätverk är inte transitiva.
+    * Peer-kopplingar i Azure virtuella nätverk måste skapas mellan alla virtuella nätverk som du vill använda Azure AD DS-resursens skogs förtroende för den lokala AD DS-miljön.
+* Ge kontinuerlig nätverks anslutning till din lokala Active Directory skog. Använd inte anslutningar på begäran.
+* Se till att det finns en kontinuerlig namn matchning (DNS) mellan Azure AD DS-resursens skogs namn och namnet på den lokala Active Directory skogen.
 
-## <a name="configure-dns-in-the-on-premises-domain"></a>Configure DNS in the on-premises domain
+## <a name="configure-dns-in-the-on-premises-domain"></a>Konfigurera DNS i den lokala domänen
 
-To correctly resolve the Azure AD DS managed domain from the on-premises environment, you may need to add forwarders to the existing DNS servers. If you haven't configure the on-premises environment to communicate with the Azure AD DS managed domain, complete the following steps from a management workstation for the on-premises AD DS domain:
+För att korrekt kunna matcha den Azure AD DS-hanterade domänen från den lokala miljön kan du behöva lägga till vidarebefordrare till de befintliga DNS-servrarna. Om du inte har konfigurerat den lokala miljön för att kommunicera med den hanterade Azure AD DS-domänen utför du följande steg från en hanterings arbets station för den lokala AD DS-domänen:
 
-1. Select **Start | Administrative Tools | DNS**
-1. Right-select DNS server, such as *myAD01*, select **Properties**
-1. Choose **Forwarders**, then **Edit** to add additional forwarders.
-1. Add the IP addresses of the Azure AD DS managed domain, such as *10.0.1.4* and *10.0.1.5*.
+1. Välj **Start | Administrations verktyg | DNS**
+1. Högerklicka på DNS-server, till exempel *myAD01*, Välj **Egenskaper**
+1. Välj **vidarebefordrare**och sedan **Redigera** för att lägga till ytterligare vidarebefordrare.
+1. Lägg till IP-adresserna för den hanterade Azure AD DS-domänen, till exempel *10.0.1.4* och *10.0.1.5*.
 
-## <a name="create-inbound-forest-trust-in-the-on-premises-domain"></a>Create inbound forest trust in the on-premises domain
+## <a name="create-inbound-forest-trust-in-the-on-premises-domain"></a>Skapa inkommande skogs förtroende i den lokala domänen
 
-The on-premises AD DS domain needs an incoming forest trust for the Azure AD DS managed domain. This trust must be manually created in the on-premises AD DS domain, it can't be created from the Azure portal.
+Den lokala AD DS-domänen måste ha ett inkommande skogs förtroende för den hanterade domänen i Azure AD DS. Detta förtroende måste skapas manuellt i den lokala AD DS-domänen, det kan inte skapas från Azure Portal.
 
-To configure inbound trust on the on-premises AD DS domain, complete the following steps from a management workstation for the on-premises AD DS domain:
+Om du vill konfigurera inkommande förtroende för den lokala AD DS-domänen utför du följande steg från en hanterings arbets station för den lokala AD DS-domänen:
 
-1. Select **Start | Administrative Tools | Active Directory Domains and Trusts**
-1. Right-select domain, such as *onprem.contoso.com*, select **Properties**
-1. Choose **Trusts** tab, then **New Trust**
-1. Enter name on Azure AD DS domain name, such as *aadds.contoso.com*, then select **Next**
-1. Select the option to create a **Forest trust**, then to create a **One way: incoming** trust.
-1. Choose to create the trust for **This domain only**. In the next step, you create the trust in the Azure portal for the Azure AD DS managed domain.
-1. Choose to use **Forest-wide authentication**, then enter and confirm a trust password. This same password is also entered in the Azure portal in the next section.
-1. Step through the next few windows with default options, then choose the option for **No, do not confirm the outgoing trust**.
+1. Välj **Start | Administrations verktyg | Active Directory domäner och förtroenden**
+1. Högerklicka på domän, till exempel *OnPrem.contoso.com*, Välj **Egenskaper**
+1. Välj fliken **förtroenden** och sedan **Nytt förtroende**
+1. Ange namn på Azure AD DS-domännamn, till exempel *aadds.contoso.com*, och välj sedan **Nästa**
+1. Välj alternativet för att skapa ett **skogs förtroende**och skapa ett enkelriktat **sätt: inkommande** förtroende.
+1. Välj att endast skapa förtroende för **den här domänen**. I nästa steg skapar du förtroendet i Azure Portal för den hanterade Azure AD DS-domänen.
+1. Välj att använda **autentisering för hela skogen**och ange och bekräfta ett lösen ord för förtroende. Samma lösen ord anges också i Azure Portal i nästa avsnitt.
+1. Gå igenom de kommande Fönstren med standard alternativ och välj alternativet för **Nej, bekräfta inte det utgående förtroendet**.
 1. Välj **Slutför**
 
-## <a name="create-outbound-forest-trust-in-azure-ad-ds"></a>Create outbound forest trust in Azure AD DS
+## <a name="create-outbound-forest-trust-in-azure-ad-ds"></a>Skapa utgående skogs förtroende i Azure AD DS
 
-With the on-premises AD DS domain configured to resolve the Azure AD DS managed domain and an inbound forest trust created, now created the outbound forest trust. This outbound forest trust completes the trust relationship between the on-premises AD DS domain and the Azure AD DS managed domain.
+När den lokala AD DS-domänen har kon figurer ATS för att matcha den hanterade domänen i Azure AD DS och ett inkommande skogs förtroende har skapats, skapade nu det utgående skogs förtroendet. Detta utgående skogs förtroende Slutför förtroende relationen mellan den lokala AD DS-domänen och den hanterade domänen i Azure AD DS.
 
-To create the outbound trust for the Azure AD DS managed domain in the Azure portal, complete the following steps:
+Utför följande steg för att skapa utgående förtroende för den hanterade Azure AD DS-domänen i Azure Portal:
 
-1. In the Azure portal, search for and select **Azure AD Domain Services**, then select your managed domain, such as *aadds.contoso.com*
-1. From the menu on the left-hand side of the Azure AD DS managed domain, select **Trusts**, then choose to **+ Add** a trust.
-1. Enter a display name that identifies your trust, then the on-premises trusted forest DNS name, such as *onprem.contoso.com*
-1. Provide the same trust password that was used when configuring the inbound forest trust for the on-premises AD DS domain in the previous section.
-1. Provide at least two DNS servers for the on-premises AD DS domain, such as *10.0.2.4* and *10.0.2.5*
-1. When ready, **Save** the outbound forest trust
+1. I Azure Portal söker du efter och väljer **Azure AD Domain Services**och väljer sedan din hanterade domän, till exempel *aadds.contoso.com*
+1. På menyn till vänster i den hanterade domänen i Azure AD DS väljer du **förtroenden**och väljer sedan till **+ Lägg till** ett förtroende.
+1. Ange ett visnings namn som identifierar ditt förtroende, sedan DNS-namnet för den lokala betrodda skogen, till exempel *OnPrem.contoso.com*
+1. Ange samma lösen ord för förtroende som användes när du konfigurerade det inkommande skogs förtroendet för den lokala AD DS-domänen i föregående avsnitt.
+1. Ange minst två DNS-servrar för den lokala AD DS-domänen, till exempel *10.0.2.4* och *10.0.2.5*
+1. När du är klar **sparar** du det utgående skogs förtroendet
 
-    [Create outbound forest trust in the Azure portal](./media/create-forest-trust/portal-create-outbound-trust.png)
+    [Skapa utgående skogs förtroende i Azure Portal](./media/create-forest-trust/portal-create-outbound-trust.png)
 
-## <a name="validate-resource-authentication"></a>Validate resource authentication
+## <a name="validate-resource-authentication"></a>Verifiera autentisering av resurs
 
-The following common scenarios let you validate that forest trust correctly authenticates users and access to resources:
+I följande vanliga scenarier kan du kontrol lera att skogs förtroendet autentiserar användare och åtkomst till resurser på rätt sätt:
 
-* [On-premises user authentication from the Azure AD DS resource forest](#on-premises-user-authentication-from-the-azure-ad-ds-resource-forest)
-* [Access resources in the Azure AD DS resource forest using on-premises user](#access-resources-in-the-azure-ad-ds-resource-forest-using-on-premises-user)
-    * [Enable file and printer sharing](#enable-file-and-printer-sharing)
-    * [Create a security group and add members](#create-a-security-group-and-add-members)
-    * [Create a file share for cross-forest access](#create-a-file-share-for-cross-forest-access)
-    * [Validate cross-forest authentication to a resource](#validate-cross-forest-authentication-to-a-resource)
+* [Lokal användarautentisering från Azure AD DS-resurs skogen](#on-premises-user-authentication-from-the-azure-ad-ds-resource-forest)
+* [Få åtkomst till resurser i Azure AD DS-resurs skogen med lokal användare](#access-resources-in-the-azure-ad-ds-resource-forest-using-on-premises-user)
+    * [Aktivera fil-och skrivar delning](#enable-file-and-printer-sharing)
+    * [Skapa en säkerhets grupp och Lägg till medlemmar](#create-a-security-group-and-add-members)
+    * [Skapa en fil resurs för åtkomst över flera skogar](#create-a-file-share-for-cross-forest-access)
+    * [Verifiera autentisering mellan skogar till en resurs](#validate-cross-forest-authentication-to-a-resource)
 
-### <a name="on-premises-user-authentication-from-the-azure-ad-ds-resource-forest"></a>On-premises user authentication from the Azure AD DS resource forest
+### <a name="on-premises-user-authentication-from-the-azure-ad-ds-resource-forest"></a>Lokal användarautentisering från Azure AD DS-resurs skogen
 
-You should have Windows Server virtual machine joined to the Azure AD DS resource domain. Use this virtual machine to test your on-premises user can authenticate on a virtual machine.
+Du bör ha en virtuell Windows Server-dator som är ansluten till resurs domänen för Azure AD DS. Använd den här virtuella datorn för att testa din lokala användare kan autentiseras på en virtuell dator.
 
-1. Connect to the Windows Server VM joined to the Azure AD DS resource forest using Remote Desktop and your Azure AD DS administrator credentials. If you get a Network Level Authentication (NLA) error, check the user account you used is not a domain user account.
+1. Anslut till den virtuella Windows Server-datorn som är ansluten till resurs skogen för Azure AD DS med hjälp av fjärr skrivbord och dina autentiseringsuppgifter för Azure AD DS-administratören. Om du får ett autentisering på nätverksnivå fel (NLA) kontrollerar du att det användar konto du använde inte är ett domän användar konto.
 
     > [!NOTE]
-    > To securely connect to your VMs joined to Azure AD Domain Services, you can use the [Azure Bastion Host Service](https://docs.microsoft.com/azure/bastion/bastion-overview) in supported Azure regions.
+    > För att på ett säkert sätt ansluta till dina virtuella datorer som är anslutna till Azure AD Domain Services kan du använda [Azure skydds Host-tjänsten](https://docs.microsoft.com/azure/bastion/bastion-overview) i Azure-regioner som stöds.
 
-1. Open a command prompt and use the `whoami` command to show the distinguished name of the currently authenticated user:
+1. Öppna en kommando tolk och Använd kommandot `whoami` för att visa det unika namnet för den för tillfället autentiserade användaren:
 
     ```console
     whoami /fqdn
     ```
 
-1. Use the `runas` command to authenticate as a user from the on-premises domain. In the following command, replace `userUpn@trusteddomain.com` with the UPN of a user from the trusted on-premises domain. The command prompts you for the user’s password:
+1. Använd kommandot `runas` för att autentisera som en användare från den lokala domänen. I följande kommando ersätter du `userUpn@trusteddomain.com` med UPN för en användare från den betrodda lokala domänen. I kommandot uppmanas du att ange användarens lösen ord:
 
     ```console
     Runas /u:userUpn@trusteddomain.com cmd.exe
     ```
 
-1. If the authentication is a successful, a new command prompt opens. The title of the new command prompt includes `running as userUpn@trusteddomain.com`.
-1. Use `whoami /fqdn` in the new command prompt to view the distinguished name of the authenticated user from the on-premises Active Directory.
+1. Om autentiseringen lyckas öppnas en ny kommando tolk. Rubriken på den nya kommando tolken innehåller `running as userUpn@trusteddomain.com`.
+1. Använd `whoami /fqdn` i den nya kommando tolken för att visa det unika namnet för den autentiserade användaren från den lokala Active Directory.
 
-### <a name="access-resources-in-the-azure-ad-ds-resource-forest-using-on-premises-user"></a>Access resources in the Azure AD DS resource forest using on-premises user
+### <a name="access-resources-in-the-azure-ad-ds-resource-forest-using-on-premises-user"></a>Få åtkomst till resurser i Azure AD DS-resurs skogen med lokal användare
 
-Using the Windows Server VM joined to the Azure AD DS resource forest, you can test the scenario where users can access resources hosted in the resource forest when they authenticate from computers in the on-premises domain with users from the on-premises domain. The following examples show you how to create and test various common scenarios.
+Med hjälp av den virtuella Windows Server-datorn som är ansluten till Azure AD DS-resurs skogen kan du testa scenariot där användare kan komma åt resurser som finns i resurs skogen när de autentiseras från datorer i den lokala domänen med användare från den lokala domänen. I följande exempel visas hur du skapar och testar olika vanliga scenarier.
 
-#### <a name="enable-file-and-printer-sharing"></a>Enable file and printer sharing
+#### <a name="enable-file-and-printer-sharing"></a>Aktivera fil-och skrivar delning
 
-1. Connect to the Windows Server VM joined to the Azure AD DS resource forest using Remote Desktop and your Azure AD DS administrator credentials. If you get a Network Level Authentication (NLA) error, check the user account you used is not a domain user account.
-
-    > [!NOTE]
-    > To securely connect to your VMs joined to Azure AD Domain Services, you can use the [Azure Bastion Host Service](https://docs.microsoft.com/azure/bastion/bastion-overview) in supported Azure regions.
-
-1. Open **Windows Settings**, then search for and select **Network and Sharing Center**.
-1. Choose the option for **Change advanced sharing** settings.
-1. Under the **Domain Profile**, select **Turn on file and printer sharing** and then **Save changes**.
-1. Close **Network and Sharing Center**.
-
-#### <a name="create-a-security-group-and-add-members"></a>Create a security group and add members
-
-1. Open **Active Directory Users and Computers**.
-1. Right-select the domain name, choose **New**, and then select **Organizational Unit**.
-1. In the name box, type *LocalObjects*, then select **OK**.
-1. Select and right-click **LocalObjects** in the navigation pane. Select **New** and then **Group**.
-1. Type *FileServerAccess* in the **Group name** box. For the **Group Scope**, select **Domain local**, then choose **OK**.
-1. In the content pane, double-click **FileServerAccess**. Select **Members**, choose to **Add**, then select **Locations**.
-1. Select your on-premises Active Directory from the **Location** view, then choose **OK**.
-1. Type *Domain Users* in the **Enter the object names to select** box. Select **Check Names**, provide credentials for the on-premises Active Directory, then select **OK**.
+1. Anslut till den virtuella Windows Server-datorn som är ansluten till resurs skogen för Azure AD DS med hjälp av fjärr skrivbord och dina autentiseringsuppgifter för Azure AD DS-administratören. Om du får ett autentisering på nätverksnivå fel (NLA) kontrollerar du att det användar konto du använde inte är ett domän användar konto.
 
     > [!NOTE]
-    > You must provide credentials because the trust relationship is only one way. This means users from the Azure AD DS can't access resources or search for users or groups in the trusted (on-premises) domain.
+    > För att på ett säkert sätt ansluta till dina virtuella datorer som är anslutna till Azure AD Domain Services kan du använda [Azure skydds Host-tjänsten](https://docs.microsoft.com/azure/bastion/bastion-overview) i Azure-regioner som stöds.
 
-1. The **Domain Users** group from your on-premises Active Directory should be a member of the **FileServerAccess** group. Select **OK** to save the group and close the window.
+1. Öppna **Windows-inställningar**och Sök sedan efter och välj **nätverks-och delnings Center**.
+1. Välj alternativet för att **Ändra avancerade delnings** inställningar.
+1. Under **domän profil**väljer du **aktivera fil-och skrivar delning** och **sparar ändringarna**.
+1. Stäng **nätverks-och delnings Center**.
 
-#### <a name="create-a-file-share-for-cross-forest-access"></a>Create a file share for cross-forest access
+#### <a name="create-a-security-group-and-add-members"></a>Skapa en säkerhets grupp och Lägg till medlemmar
 
-1. On the Windows Server VM joined to the Azure AD DS resource forest, create a folder and provide name such as *CrossForestShare*.
-1. Right-select the folder and choose **Properties**.
-1. Select the **Security** tab, then choose **Edit**.
-1. In the *Permissions for CrossForestShare* dialog box, select **Add**.
-1. Type *FileServerAccess* in **Enter the object names to select**, then select **OK**.
-1. Select *FileServerAccess* from the **Groups or user names** list. In the **Permissions for FileServerAccess** list, choose *Allow* for the **Modify** and **Write** permissions, then select **OK**.
-1. Select the **Sharing** tab, then choose **Advanced Sharing…**
-1. Choose **Share this folder**, then enter a memorable name for the file share in **Share name** such as *CrossForestShare*.
-1. Select **Permissions**. In the **Permissions for Everyone** list, choose **Allow** for the **Change** permission.
-1. Select **OK** two times and then **Close**.
+1. Öppna **Active Directory användare och datorer**.
+1. Högerklicka på domän namnet, Välj **nytt**och välj sedan **organisationsenhet**.
+1. I rutan Namn skriver du *LocalObjects*och väljer sedan **OK**.
+1. Markera och högerklicka på **LocalObjects** i navigerings fönstret. Välj **ny** och sedan **grupp**.
+1. Skriv *FileServerAccess* i rutan **grupp namn** . För **grupp omfånget**väljer du **domän lokalt**och väljer sedan **OK**.
+1. I innehålls rutan dubbelklickar du på **FileServerAccess**. Välj **medlemmar**, Välj att **lägga till**och välj sedan **platser**.
+1. Välj din lokala Active Directory från vyn **plats** och välj sedan **OK**.
+1. Skriv *domän användare* i rutan **Ange de objekt namn som ska väljas** . Välj **kontrol lera namn**, ange autentiseringsuppgifter för den lokala Active Directory och välj sedan **OK**.
 
-#### <a name="validate-cross-forest-authentication-to-a-resource"></a>Validate cross-forest authentication to a resource
+    > [!NOTE]
+    > Du måste ange autentiseringsuppgifter eftersom förtroende relationen bara är ett sätt. Det innebär att användare från Azure AD DS inte kan komma åt resurser eller söka efter användare eller grupper i den betrodda domänen (lokalt).
 
-1. Sign in a Windows computer joined to your on-premises Active Directory using a user account from your on-premises Active Directory.
-1. Using **Windows Explorer**, connect to the share you created using the fully qualified host name and the share such as `\\fs1.aadds.contoso.com\CrossforestShare`.
-1. To validate the write permission, right-select in the folder, choose **New**, then select **Text Document**. Use the default name **New Text Document**.
+1. Gruppen **domän användare** från din lokala Active Directory bör vara medlem i gruppen **FileServerAccess** . Välj **OK** för att spara gruppen och Stäng fönstret.
 
-    If the write permissions are set correctly, a new text document is created. The following steps will then open, edit, and delete the file as appropriate.
-1. To validate the read permission, open **New Text Document**.
-1. To validate the modify permission, add text to the file and close **Notepad**. When prompted to save changes, choose **Save**.
-1. To validate the delete permission, right-select **New Text Document** and choose **Delete**. Choose **Yes** to confirm file deletion.
+#### <a name="create-a-file-share-for-cross-forest-access"></a>Skapa en fil resurs för åtkomst över flera skogar
+
+1. På den virtuella Windows Server-datorn som är ansluten till resurs skogen för Azure AD DS skapar du en mapp och anger namn som *CrossForestShare*.
+1. Högerklicka på mappen och välj **Egenskaper**.
+1. Välj fliken **säkerhet** och välj sedan **Redigera**.
+1. I dialog rutan *behörigheter för CrossForestShare* väljer du **Lägg till**.
+1. Skriv *FileServerAccess* i **Ange de objekt namn som ska väljas**och välj sedan **OK**.
+1. Välj *FileServerAccess* i listan **grupper eller användar namn** . I listan **behörigheter för FileServerAccess** väljer du *Tillåt* för behörigheterna **ändra** och **Skriv** och väljer sedan **OK**.
+1. Välj fliken **delning** och välj sedan **Avancerad delning...**
+1. Välj **dela den här mappen**och ange ett minnes minnes namn för fil resursen i **resurs namn** , till exempel *CrossForestShare*.
+1. Välj **behörigheter**. I listan **behörigheter för alla** väljer du **Tillåt** för behörigheten **ändra** .
+1. Välj **OK** två gånger och **Stäng**sedan.
+
+#### <a name="validate-cross-forest-authentication-to-a-resource"></a>Verifiera autentisering mellan skogar till en resurs
+
+1. Logga in på en Windows-dator som är ansluten till din lokala Active Directory med ett användar konto från din lokala Active Directory.
+1. Använd **Utforskaren**för att ansluta till den resurs som du skapade med det fullständigt kvalificerade värd namnet och resursen, till exempel `\\fs1.aadds.contoso.com\CrossforestShare`.
+1. Om du vill verifiera Skriv behörigheten högerklickar du i mappen, väljer **nytt**och väljer sedan **text dokument**. Använd standard namnet **nytt text dokument**.
+
+    Om Skriv behörigheterna har angetts korrekt skapas ett nytt text dokument. Följande steg kommer sedan att öppna, redigera och ta bort filen efter behov.
+1. Om du vill verifiera Läs behörighet öppnar du **nytt text dokument**.
+1. Du kan kontrol lera behörigheten Ändra genom att lägga till text i filen och stänga **anteckningar**. När du uppmanas att spara ändringarna väljer du **Spara**.
+1. Om du vill verifiera borttagnings behörigheten högerklickar du på **nytt text dokument** och väljer **ta bort**. Bekräfta borttagning av filer genom att välja **Ja** .
 
 ## <a name="next-steps"></a>Nästa steg
 
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
-> * Configure DNS in an on-premises AD DS environment to support Azure AD DS connectivity
-> * Create a one-way inbound forest trust in an on-premises AD DS environment
-> * Create a one-way outbound forest trust in Azure AD DS
-> * Test and validate the trust relationship for authentication and resource access
+> * Konfigurera DNS i en lokal AD DS-miljö för att stödja Azure AD DS-anslutning
+> * Skapa ett enkelriktat inkommande skogs förtroende i en lokal AD DS-miljö
+> * Skapa ett enkelriktat utgående skogs förtroende i Azure AD DS
+> * Testa och verifiera förtroende relationen för autentiserings-och resurs åtkomst
 
-For more conceptual information about forest types in Azure AD DS, see [What are resource forests?][concepts-forest] and [How do forest trusts work in Azure AD DS?][concepts-trust]
+Mer konceptuell information om skogs typer i Azure AD DS finns i [Vad är resurs skogar?][concepts-forest] och [Hur fungerar skogs förtroenden i Azure AD DS?][concepts-trust]
 
 <!-- INTERNAL LINKS -->
 [concepts-forest]: concepts-resource-forest.md

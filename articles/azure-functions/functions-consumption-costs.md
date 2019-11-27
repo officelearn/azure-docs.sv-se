@@ -81,7 +81,7 @@ Använd [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-getti
     | Prenumeration    |  Din prenumeration  | Prenumerationen med din Function-app.  |
     | Resursgrupp     | Din resurs grupp  | Resurs gruppen som innehåller din Function-app.   |
     | Resurstyp     |  App Services | Function-appar visas som App Services instanser i övervakaren. |
-    | Resurs     |  Din Function-app  | Function-appen som ska övervakas.        |
+    | Resource     |  Din Function-app  | Function-appen som ska övervakas.        |
 
 1. Välj **tillämpa** för att välja din funktions-app som den resurs som ska övervakas.
 
@@ -206,7 +206,7 @@ performanceCounters
 
 Resultatet ser ut som i följande exempel:
 
-| tidsstämpel \[UTC\]          | namn          | värde       |
+| tidsstämpel \[UTC\]          | name          | värde       |
 |----------------------------|---------------|-------------|
 | 9/12/2019, 1:05:14\.947 AM | Privata byte | 209 932 288 |
 | 9/12/2019, 1:06:14\.994 AM | Privata byte | 212 189 184 |
@@ -226,7 +226,7 @@ customMetrics
 | summarize averageDurationMilliseconds=avg(averageDuration) by name
 ```
 
-| namn                       | averageDurationMilliseconds |
+| name                       | averageDurationMilliseconds |
 |----------------------------|-----------------------------|
 | QueueTrigger AvgDurationMs | 16\.087                     |
 | QueueTrigger MaxDurationMs | 90\.249                     |

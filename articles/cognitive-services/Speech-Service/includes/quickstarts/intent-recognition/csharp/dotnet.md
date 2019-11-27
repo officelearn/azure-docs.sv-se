@@ -18,7 +18,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/21/2019
 ms.locfileid: "74280447"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att:
 

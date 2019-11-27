@@ -33,9 +33,9 @@ Sett på en hög nivå ingår följande steg i självstudierna:
 > * Skapa datauppsättningar för Azure SQL Database och Azure SQL Data Warehouse.
 > * Skapa en pipeline för sökning av de tabeller som ska kopieras och en annan pipeline för den faktiska kopieringsåtgärden. 
 > * Starta en pipelinekörning.
-> * Övervaka pipelinen och aktivitetskörningar.
+> * Övervaka pipelinen och aktivitetskörningarna.
 
-I den här självstudien används Azure-portalen. Läs mer om att använda andra verktyg/SDK:er för att skapa en datafabrik i [Snabbstarter](quickstart-create-data-factory-dot-net.md). 
+I den här självstudien används Azure Portal. Läs mer om att använda andra verktyg/SDK:er för att skapa en datafabrik i [Snabbstarter](quickstart-create-data-factory-dot-net.md). 
 
 ## <a name="end-to-end-workflow"></a>Arbetsflödet slutpunkt till slutpunkt
 I det här scenariot har du ett antal tabeller i Azure SQL Database som du vill kopiera till SQL Data Warehouse. Här är den logiska ordningsföljden i arbetsflödet som sker i våra pipelines:
@@ -71,7 +71,7 @@ Ge Azure-tjänster åtkomst till SQL-servern för både SQL Database och SQL Dat
 Om du vill kontrol lera och aktivera den här inställningen går du till Azure SQL Server > säkerhets > brand väggar och virtuella nätverk > ställer in **alternativet Tillåt åtkomst till Azure-tjänster** **på.**
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
-1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Data Factory-användargränssnittet stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
+1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
 1. På den vänstra menyn väljer du **skapa en resurs** > **Analytics** > **Data Factory**: ![Data Factory val i fönstret nytt](./media/doc-common-process/new-azure-data-factory-menu.png)
 
 1. På sidan **ny data fabrik** anger du **ADFTutorialBulkCopyDF** som **namn**. 
@@ -310,7 +310,7 @@ Den här pipelinen gör två åtgärder:
 
 1. Om du vill publicera entiteter (datauppsättningar, pipelines osv.) till Data Factory-tjänsten klickar du på **Publicera alla** upptill i fönstret. Vänta tills publiceringen har lyckats. 
 
-## <a name="trigger-a-pipeline-run"></a>Utlösa en pipelinekörning
+## <a name="trigger-a-pipeline-run"></a>Utlös en pipelinekörning
 
 Gå till pipeline- **GetTableListAndTriggerCopyData**, klicka på **Lägg till utlösare**och klicka sedan på **Utlös nu**. 
 
@@ -380,7 +380,7 @@ Gå till pipeline- **GetTableListAndTriggerCopyData**, klicka på **Lägg till u
 1. Bekräfta att data har kopierats till SQL Data Warehouse-målet du använde i den här självstudien. 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudiekursen fick du: 
+I den här självstudien har du fått: 
 
 > [!div class="checklist"]
 > * Skapa en datafabrik.
@@ -388,8 +388,8 @@ I den här självstudiekursen fick du:
 > * Skapa datauppsättningar för Azure SQL Database och Azure SQL Data Warehouse.
 > * Skapa en pipeline för sökning av de tabeller som ska kopieras och en annan pipeline för den faktiska kopieringsåtgärden. 
 > * Starta en pipelinekörning.
-> * Övervaka pipelinen och aktivitetskörningar.
+> * Övervaka pipelinen och aktivitetskörningarna.
 
 Fortsätt till följande självstudiekurs om du vill lära dig att kopiera data stegvis från en källa till ett mål:
 > [!div class="nextstepaction"]
->[Kopiera data inkrementellt](tutorial-incremental-copy-portal.md)
+>[Kopiera data stegvis](tutorial-incremental-copy-portal.md)

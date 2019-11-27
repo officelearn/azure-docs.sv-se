@@ -15,7 +15,7 @@ ms.locfileid: "74533349"
 
 Det här är den sista självstudien i en serie med tre delar. Tidigare i serien [skapades en behållaravbildning](container-instances-tutorial-prepare-app.md) som sedan [push-överfördes till Azure Container Registry](container-instances-tutorial-prepare-acr.md). I den här artikeln slutför vi serien genom att distribuera behållaren till Azure Container Instances.
 
-I den här kursen har du:
+I den här kursen får du:
 
 > [!div class="checklist"]
 > * Distribuera behållaren från Azure Container Registry till Azure Container Instances
@@ -70,7 +70,7 @@ När distributionen har slutförts visar du behållarens fullständigt kvalifice
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 ```
 
-Till exempel:
+Exempel:
 ```console
 $ az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 "aci-demo.eastus.azurecontainer.io"

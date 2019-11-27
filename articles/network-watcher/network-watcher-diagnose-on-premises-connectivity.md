@@ -82,7 +82,7 @@ Med Azure Network Watcher fel söknings funktionen kan du diagnostisera och fels
 
 ### <a name="gateway"></a>Gateway
 
-| Feltyp | Orsak | Logga|
+| Feltyp | Orsak | Logg|
 |---|---|---|
 | Nofel | När inget fel har identifierats. |Ja|
 | GatewayNotFound | Det går inte att hitta någon gateway eller gateway. |Nej|
@@ -97,7 +97,7 @@ Med Azure Network Watcher fel söknings funktionen kan du diagnostisera och fels
 
 ### <a name="connection"></a>Anslutning
 
-| Feltyp | Orsak | Logga|
+| Feltyp | Orsak | Logg|
 |---|---|---|
 | Nofel | När inget fel har identifierats. |Ja|
 | GatewayNotFound | Det går inte att hitta någon gateway eller gateway. |Nej|
@@ -111,7 +111,7 @@ Med Azure Network Watcher fel söknings funktionen kan du diagnostisera och fels
 | Autentisering | Matchnings fel för i förväg delad nyckel. | Ja|
 | PeerReachability | Det går inte att komma åt peer-gatewayen. | Ja|
 | IkePolicyMismatch | Peer-gatewayen har IKE-principer som inte stöds av Azure. | Ja|
-| WfpParse Error | Ett fel uppstod vid parsning av WFP-loggen. |Ja|
+| WfpParse-fel | Ett fel uppstod vid parsning av WFP-loggen. |Ja|
 
 ## <a name="next-steps"></a>Nästa steg
 

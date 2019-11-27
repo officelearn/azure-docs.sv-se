@@ -25,7 +25,7 @@ Den här artikeln visar hur du använder PowerShell för att skapa och hantera k
 
 [Gen1 till Gen2-mappning](#gen1-gen2-map) | [ge feedback](https://github.com/Azure/azure-powershell/issues)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 > [!div class="checklist"]
 > * En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).

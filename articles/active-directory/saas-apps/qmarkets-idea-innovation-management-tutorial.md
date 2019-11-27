@@ -33,7 +33,7 @@ I den här självstudien får du lära dig att integrera Qmarkets idé & Innovat
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -89,18 +89,18 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<app_url>/sso/saml2/metadata/qmarkets_sp_<endpoint_id>`
 
-    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<app_url>/sso/saml2/acs/qmarkets_sp_<endpoint_id>`
+    b. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://<app_url>/sso/saml2/acs/qmarkets_sp_<endpoint_id>`
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<app_url>/sso/saml2/endpoint/qmarkets_sp_<endpoint_id>`
+    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<app_url>/sso/saml2/endpoint/qmarkets_sp_<endpoint_id>`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [Qmarkets idé & support teamet för innovation Management-klient](mailto:support@qmarkets.net) för att hämta dessa värden. Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [Qmarkets idé & support teamet för innovation Management-klient](mailto:support@qmarkets.net) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , klickar du på Kopiera för att kopiera **URL: en för appens Federations-metadata** och spara den på din dator.
 
-    ![Länk för hämtning av certifikat](common/copy-metadataurl.png)
+    ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -114,7 +114,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Qmarkets idé & Innovation Management.
 
@@ -122,7 +122,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. I listan program väljer du **Qmarkets idé & innovation Management**.
 1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
-   ![Länken ”användare och grupper”](common/users-groups-blade.png)
+   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
 1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
@@ -134,7 +134,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-qmarkets-idea--innovation-management-sso"></a>Konfigurera Qmarkets idé & Innovation Management SSO
 
-Om du vill konfigurera enkel inloggning på **Qmarkets idé & hanterings** sidan för innovation måste du skicka **URL: en för appens Federations-metadata** till [Qmarkets idé & support teamet för hantering av innovationer](mailto:support@qmarkets.net). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Qmarkets idé & hanterings** sidan för innovation måste du skicka **URL: en för appens Federations-metadata** till [Qmarkets idé & support teamet för hantering av innovationer](mailto:support@qmarkets.net). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-qmarkets-idea--innovation-management-test-user"></a>Skapa Qmarkets idé & Innovation Management test User
 
@@ -142,9 +142,9 @@ I det här avsnittet skapas en användare som heter Britta Simon i Qmarkets idé
 
 ## <a name="test-sso"></a>Testa SSO 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Qmarkets idé & hanterings panelen för innovation på åtkomst panelen, bör du loggas in automatiskt till Qmarkets-idén & Innovation Management som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på Qmarkets idé & hanterings panelen för innovation på åtkomst panelen, bör du loggas in automatiskt till Qmarkets-idén & Innovation Management som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

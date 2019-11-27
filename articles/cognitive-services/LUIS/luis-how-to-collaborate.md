@@ -49,13 +49,13 @@ Följande procedur är för alla användare som inte har **migrerats** att anvä
 
 Du har inte migrerat om din LUIS redigerings upplevelse inte är kopplad till en redigerings resurs på sidan för att **hantera > Azure-resurser** på Luis-portalen.
 
-En app har en enda författare, ägare, men kan ha många medarbetare. Om du vill tillåta medarbetare att redigera LUIS-app, måste du lägga till e-postmeddelandet som de använder för att få åtkomst till LUIS-portalen i listan med medarbetare. När de läggs visar appen i sin LUIS-portal.
+En app har en enda författare, ägare, men kan ha många medarbetare. Om du vill tillåta medarbetare att redigera din LUIS-app måste du lägga till e-postmeddelandet som de använder för att få åtkomst till LUIS-portalen i listan med samarbets partners. När de har lagts till visas appen i LUIS-portalen.
 
 1. Välj **Hantera** på menyn längst upp till höger och välj sedan **medarbetare** på den vänstra menyn.
 
 1. Välj **Lägg till medarbetare** i verktygsfältet.
 
-1. Ange den e-postadress som medarbetaren använder för att logga in på LUIS-portalen.
+1. Ange e-postadressen som medarbetaren använder för att logga in på LUIS-portalen.
 
     ![Lägg till medarbetares e-postadress](./media/luis-how-to-collaborate/add-collaborator-pop-up.png)
 
@@ -66,26 +66,26 @@ Om du lägger till deltagare/medarbetare i en LUIS-app, anger du den exakta e-po
 
 <a name="owner-and-collaborators"></a>
 
-### <a name="azure-active-directory-resources"></a>Azure Active Directory-resurser
+### <a name="azure-active-directory-resources"></a>Azure Active Directory resurser
 
-Om du använder [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) (Azure AD) i din organisation behöver language Understanding (Luis) behörighet till informationen om användarnas åtkomst när de vill använda Luis. Resurser som kräver att LUIS är minimal. 
+Om du använder [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) (Azure AD) i din organisation behöver language Understanding (Luis) behörighet till informationen om användarnas åtkomst när de vill använda Luis. De resurser som LUIS kräver är minimala. 
 
-Du kan se den detaljerade beskrivningen när du försöker registrera dig med ett konto som har administratörens godkännande eller inte kräver administratörens godkännande, till exempel administratörens godkännande:
+Den detaljerade beskrivningen visas när du försöker registrera dig för ett konto som har administratörs medgivande eller som inte kräver administratörs medgivande, till exempel administratörs medgivande:
 
-* Kan du logga in i appen med ditt organisationskonto och tillåter appen att läsa din profil. Tillåter även appen att läsa grundläggande företagsinformation. Detta ger LUIS behörighet att läsa grundläggande profil data, t. ex. användar-ID, e-post, namn
-* Tillåter appen att visa och uppdatera dina data, även om du inte använder appen. Behörigheten krävs för att uppdatera åtkomsttoken för användaren.
+* Gör att du kan logga in på appen med ditt organisations konto och låta appen läsa din profil. Appen kan också läsa grundläggande företags information. Detta ger LUIS behörighet att läsa grundläggande profil data, t. ex. användar-ID, e-post, namn
+* Tillåter appen att se och uppdatera dina data, även när du inte använder appen för närvarande. Behörigheten krävs för att uppdatera åtkomsttoken för användaren.
 
 
-### <a name="azure-active-directory-tenant-user"></a>Användare med Azure Active Directory-klient
+### <a name="azure-active-directory-tenant-user"></a>Azure Active Directory klient organisations användare
 
-LUIS använder standard medgivande flödet för Azure Active Directory (AD Azure). 
+LUIS använder standard Azure Active Directory (Azure AD) för godkännande flöden. 
 
-Innehavaradministration bör arbeta direkt med användare som behöver åtkomst till använda LUIS i Azure AD. 
+Klient organisationens administratör bör arbeta direkt med den användare som behöver åtkomst beviljad att använda LUIS i Azure AD. 
 
-* Först användaren loggar in på LUIS och ser popup-fönstret behöva godkännande av administratören. Användaren kontaktar administratör innan du fortsätter. 
-* Därefter innehavaradministration loggar in på LUIS och ser en dialogruta för medgivande-flödet. Det här är i dialogrutan som administratören behöver ge tillstånd för användaren. När administratören godkänner behörigheten, kan användaren fortsätta med LUIS. Om klient organisationen inte kommer att logga in på LUIS kan administratören komma åt [medgivande](https://account.activedirectory.windowsazure.com/r#/applications) för Luis, som visas i följande skärm bild. Observera att listan filtreras till objekt som innehåller namnet `LUIS`.
+* Först loggar användaren in på LUIS och ser popup-dialogrutan som kräver administratörs godkännande. Användaren kontaktar klient administratören innan du fortsätter. 
+* Sedan loggar klient organisations administratören in på LUIS och ser en dialog ruta för godkännande flöde. Det här är den dialog som administratören behöver för att ge användaren behörighet. När administratören godkänner behörigheten kan användaren fortsätta med LUIS. Om klient organisationen inte kommer att logga in på LUIS kan administratören komma åt [medgivande](https://account.activedirectory.windowsazure.com/r#/applications) för Luis, som visas i följande skärm bild. Observera att listan filtreras till objekt som innehåller namnet `LUIS`.
 
-![Azure active directory-behörighet genom appens webbplats](./media/luis-how-to-collaborate/tenant-permissions.png)
+![Azure Active Directory-behörighet från App-webbplats](./media/luis-how-to-collaborate/tenant-permissions.png)
 
 Om klient administratören bara vill att vissa användare ska använda LUIS, finns det ett par möjliga lösningar:
 * Ge "administrativt medgivande" (medgivande till alla användare av Azure AD), men Ställ sedan in på "Ja" "användar tilldelning krävs" under egenskaper för företags program och tilldela/Lägg slutligen till de önskade användarna i programmet. Med den här metoden ger administratören fortfarande "administrativt medgivande" till appen, men det är möjligt att kontrol lera vilka användare som har åtkomst till den.

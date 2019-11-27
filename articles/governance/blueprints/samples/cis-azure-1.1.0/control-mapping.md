@@ -349,7 +349,7 @@ Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -defin
 
 Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att säkerställa att webb program bara är tillgängliga via säkra anslutningar.
 
-- Webbprogram bör enbart vara åtkomliga via HTTPS
+- Webb program bör endast vara tillgängliga via HTTPS
 
 ## <a name="next-steps"></a>Nästa steg
 

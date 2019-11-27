@@ -73,8 +73,8 @@ Importera den hämtade filen och skapa den virtuella datorn.
 3. I **hitta mapp**anger du den mapp som innehåller den extraherade virtuella hård disken. Klicka sedan på **Nästa**.
 1. I **Välj virtuell dator**klickar du på **Nästa**.
 2. I **Välj import typ**klickar **du på Kopiera den virtuella datorn (skapa ett nytt unikt ID)** . Klicka sedan på **Nästa**.
-3. I **Välj mål**låter du standardvärdet vara kvar. Klicka på **Nästa**.
-4. Lämna standardinställningen i **Storage Folders**. Klicka på **Nästa**.
+3. I **Välj mål**låter du standardvärdet vara kvar. Klicka på **Next**.
+4. Lämna standardinställningen i **Storage Folders**. Klicka på **Next**.
 5. I **Välj nätverk**anger du den virtuella växel som den virtuella datorn ska använda. Växeln behöver Internet anslutning för att skicka data till Azure.
 6. Granska inställningarna i **Sammanfattning**. Klicka sedan på **Slutför**.
 7. Starta den virtuella datorn i Hyper-V Manager > **Virtual Machines**.

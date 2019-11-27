@@ -70,7 +70,7 @@ Vår svars tid från slut punkt till slut punkt är betydligt låg för de olika
 
 Våra nya röster är också särskiljbar från mänskliga röster. Du kan använda våra röster för att ge din robot sitt unika personlighet.
 
-### <a name="search"></a>Search
+### <a name="search"></a>Sök
 
 En annan häftklammer av analys är att identifiera interaktioner där en speciell händelse eller erfarenhet har inträffat. Detta görs vanligt vis med en av två metoder. antingen en ad hoc-sökning där användaren bara skriver en fras och systemet svarar eller en mer strukturerad fråga där en analytiker kan skapa en uppsättning logiska uttryck som identifierar ett scenario i ett anrop, och varje anrop kan indexeras mot den uppsättningen med frågor. Ett bra Sökexempel är allmänt förekommande Compliance "detta samtal skall registreras i kvalitets syfte... ". Många företag vill se till att deras agenter tillhandahåller denna fri skrivning till kunderna innan samtalet faktiskt registreras. De flesta analys system har möjlighet att kunna trenda beteenden som hittas av algoritmer för frågor/sökning, och den här rapporten över trender är i slut änden en av de viktigaste funktionerna i ett analys system. Med hjälp av [kognitiva tjänster-katalogen](https://azure.microsoft.com/services/cognitive-services/directory/search/) kan din end to end-lösning förbättras avsevärt med indexerings-och Sök funktioner.
 
@@ -123,9 +123,9 @@ Ett annat scenario är direkt integrering med session initierings protokollet (S
 
 | Tal tjänst | Modell | Beskrivning |
 | -------------- | ----- | ----------- |
-| Tal-till-text | [Akustisk modell](how-to-customize-acoustic-models.md) | Skapa en anpassad akustisk modell för program, verktyg eller enheter som används i vissa miljöer som i en bil eller på en fabriks våning, var och en med särskilda registrerings villkor. Exempel är accenttecken, vissa bakgrunds brus eller med en speciell mikrofon för inspelning. |
+| Tal till text | [Akustisk modell](how-to-customize-acoustic-models.md) | Skapa en anpassad akustisk modell för program, verktyg eller enheter som används i vissa miljöer som i en bil eller på en fabriks våning, var och en med särskilda registrerings villkor. Exempel är accenttecken, vissa bakgrunds brus eller med en speciell mikrofon för inspelning. |
 |                | [Språkmodell](how-to-customize-language-model.md) | Skapa en anpassad språk modell för att förbättra avskriften av branschspecifika vokabulär och grammatik, till exempel medicinsk terminologi eller IT-jargong. |
-|                | [Uttalsmodell](how-to-customize-pronunciation.md) | Med en anpassad uttal-modell kan du definiera det fonetiska formuläret och visa det för ett ord eller en term. Det är användbart för att hantera anpassade villkor, till exempel produktnamn eller förkortningar. Allt du behöver för att komma igång är en uttal-fil som är en enkel `.txt`-fil. |
+|                | [Uttalsmodell](how-to-customize-pronunciation.md) | Med en anpassad uttal-modell kan du definiera det fonetiska formuläret och visa det för ett ord eller en term. Det är användbart för att hantera anpassade villkor, till exempel produkt namn eller akronymer. Allt du behöver för att komma igång är en uttal-fil som är en enkel `.txt`-fil. |
 | Text till tal | [Rösttyp](how-to-customize-voice-font.md) | Med anpassade röst teckensnitt kan du skapa en igenkännings bara, en-av-en-röst för ditt varumärke. Det tar bara en liten mängd data att komma igång. Den mer information som du anger, desto mer naturlig och mänsklig som ditt röst teckensnitt kommer att ljud. |
 
 ## <a name="sample-code"></a>Exempelkod

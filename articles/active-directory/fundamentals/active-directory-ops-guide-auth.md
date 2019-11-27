@@ -192,7 +192,7 @@ Om du däremot hittar program som har tilldelning till enskilda användare ska d
 - [Delegera registrerings behörigheter för app i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-delegate-app-roles)
 - [Regler för dynamiskt medlemskap för grupper i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership)
 
-## <a name="access-policies"></a>Åtkomstprinciper
+## <a name="access-policies"></a>Åtkomst principer
 
 ### <a name="named-locations"></a>Namngivna platser
 
@@ -300,7 +300,7 @@ Nedan visas de behörigheter som du kanske vill granska för Microsofts moln tj�
 - Program med delegerade behörigheter kan läsa, skicka eller hantera e-post för användarens räkning
 - Program som beviljas med följande behörigheter:
 
-| Resource | Behörighet |
+| Resurs | Behörighet |
 | -------------------------- | -------------------- |
 | Office 365 Exchange Online | EA. AccessAsUser. all |
 | | EWS. AccessAsUser. all |

@@ -113,7 +113,7 @@ I följande tabell visas en lista över Skissernas artefakt parametrar:
 |Skiss initiativ för ISO 27001|Principtilldelning|Resurs typer för att granska diagnostikloggar|Lista över resurs typer som ska granskas om diagnostisk logg inställning inte är aktive rad. Du hittar giltiga värden i [Azure Monitor-diagnostiska loggar scheman](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
 |Log Analytics resurs grupp|Resursgrupp|Namn|**Locked** -sammanfogar **organisations namnet** med `-sharedsvsc-log-rg` för att göra resurs gruppen unik.|
 |Log Analytics resurs grupp|Resursgrupp|Plats|**Locked** – använder skiss parametern.|
-|Log Analytics mall|Resource Manager-mall|Tjänstenivå|Anger nivån för Log Analytics arbets ytan. Standardvärdet är _PerNode_.|
+|Log Analytics mall|Resource Manager-mall|Tjänstnivå|Anger nivån för Log Analytics arbets ytan. Standardvärdet är _PerNode_.|
 |Log Analytics mall|Resource Manager-mall|Kvarhållning av logg i dagar|Data kvarhållning i dagar. Standardvärdet är _365_.|
 |Log Analytics mall|Resource Manager-mall|Plats|Region som används för att skapa Log Analytics-arbetsytan. Standardvärdet är _USA, västra 2_.|
 |Nätverks resurs grupp|Resursgrupp|Namn|**Locked** -sammanfogar **organisations namnet** med `-sharedsvcs-net-rg` för att göra resurs gruppen unik.|

@@ -164,7 +164,7 @@ För att kontrol lera att avbildningen som du precis har överfört verkligen ä
 az acr repository list --name <acrName> --output table
 ```
 
-Till exempel:
+Exempel:
 
 ```console
 $ az acr repository list --name mycontainerregistry082 --output table

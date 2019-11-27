@@ -49,7 +49,7 @@ Den härledda arkitektur designen är helt ur infrastruktur perspektivet och du 
 Det här dokumentet beskriver information om de två komponenterna i varje arkitektur som stöds:
 
 - Ethernet
-- Storage
+- Lagring
 
 ### <a name="ethernet"></a>Ethernet
 
@@ -96,7 +96,7 @@ För distributions fall av HANA-systemreplikering eller HANA-utskalning är en b
 - Ethernet "D" ska endast användas för åtkomst STONITH-enheten för pacemaker. Det här gränssnittet krävs när du konfigurerar HANA-systemreplikering (HSR) och vill uppnå automatisk redundans vid operativ systemet med hjälp av en SBD-baserad enhet.
 
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Lagring
 Lagringen är förkonfigurerad baserat på den begärda topologin. Volym storlekarna och monterings punkt varierar beroende på hur många servrar, SKU: er och topologi som har kon figurer ATS. Granska dina nödvändiga scenarier (senare i det här dokumentet) om du vill ha mer information. Om det krävs mer lagrings utrymme kan du köpa det i en TB-ökning.
 
 >[!NOTE]
@@ -146,7 +146,7 @@ Följande nätverks gränssnitt är förkonfigurerade:
 | C | TYP II | VLAN\<tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
 | D | TYP II | VLAN\<tenantNo + 3 > | team0. klient + 3 | Konfigurerad men används inte |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Lagring
 Följande mountpoints är förkonfigurerade:
 
 | Monterings punkt | Användningsfall | 
@@ -165,7 +165,7 @@ Den här topologin har stöd för en nod i en skalbar konfiguration med flera si
 
 ### <a name="architecture-diagram"></a>Arkitekturdiagram  
 
-![single-node-mcos.png](media/hana-supported-scenario/single-node-mcos.png)
+![Single-Node-MCoS. png](media/hana-supported-scenario/single-node-mcos.png)
 
 ### <a name="ethernet"></a>Ethernet
 Följande nätverks gränssnitt är förkonfigurerade:
@@ -181,7 +181,7 @@ Följande nätverks gränssnitt är förkonfigurerade:
 | C | TYP II | VLAN\<tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
 | D | TYP II | VLAN\<tenantNo + 3 > | team0. klient + 3 | Konfigurerad men används inte |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Lagring
 Följande mountpoints är förkonfigurerade:
 
 | Monterings punkt | Användningsfall | 
@@ -221,7 +221,7 @@ Följande nätverks gränssnitt är förkonfigurerade:
 | C | TYP II | VLAN\<tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
 | D | TYP II | VLAN\<tenantNo + 3 > | team0. klient + 3 | Konfigurerad men används inte |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Lagring
 Följande mountpoints är förkonfigurerade:
 
 | Monterings punkt | Användningsfall | 
@@ -262,7 +262,7 @@ Följande nätverks gränssnitt är förkonfigurerade:
 | C | TYP II | VLAN\<tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
 | D | TYP II | VLAN\<tenantNo + 3 > | team0. klient + 3 | Konfigurerad men används inte |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Lagring
 Följande mountpoints är förkonfigurerade:
 
 | Monterings punkt | Användningsfall | 
@@ -316,7 +316,7 @@ Följande nätverks gränssnitt är förkonfigurerade:
 | C | TYP II | VLAN\<tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
 | D | TYP II | VLAN\<tenantNo + 3 > | team0. klient + 3 | Används för STONITH |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Lagring
 Följande mountpoints är förkonfigurerade:
 
 | Monterings punkt | Användningsfall | 
@@ -364,7 +364,7 @@ Följande nätverks gränssnitt är förkonfigurerade:
 | C | TYP II | VLAN\<tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
 | D | TYP II | VLAN\<tenantNo + 3 > | team0. klient + 3 | Används för STONITH |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Lagring
 Följande mountpoints är förkonfigurerade:
 
 | Monterings punkt | Användningsfall | 
@@ -423,7 +423,7 @@ Följande nätverks gränssnitt är förkonfigurerade:
 | C | TYP II | VLAN\<tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
 | D | TYP II | VLAN\<tenantNo + 3 > | team0. klient + 3 | Konfigurerad men används inte |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Lagring
 Följande mountpoints är förkonfigurerade:
 
 | Monterings punkt | Användningsfall | 
@@ -448,7 +448,7 @@ Den här topologin stöder flera noder i en skalbar konfiguration. Det finns en 
 
 ### <a name="architecture-diagram"></a>Arkitekturdiagram  
 
-![scaleout-nm-standby.png](media/hana-supported-scenario/scaleout-nm-standby.png)
+![scaleout-nm-standby. png](media/hana-supported-scenario/scaleout-nm-standby.png)
 
 ### <a name="ethernet"></a>Ethernet
 Följande nätverks gränssnitt är förkonfigurerade:
@@ -464,7 +464,7 @@ Följande nätverks gränssnitt är förkonfigurerade:
 | C | TYP II | VLAN\<tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
 | D | TYP II | VLAN\<tenantNo + 3 > | team0. klient + 3 | Konfigurerad men används inte |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Lagring
 Följande mountpoints är förkonfigurerade:
 
 | Monterings punkt | Användningsfall | 
@@ -483,7 +483,7 @@ Den här topologin stöder flera noder i en skalbar konfiguration. Det finns en 
 
 ### <a name="architecture-diagram"></a>Arkitekturdiagram  
 
-![scaleout-nm.png](media/hana-supported-scenario/scaleout-nm.png)
+![scaleout-nm. png](media/hana-supported-scenario/scaleout-nm.png)
 
 
 ### <a name="ethernet"></a>Ethernet
@@ -500,7 +500,7 @@ Följande nätverks gränssnitt är förkonfigurerade:
 | C | TYP II | VLAN\<tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
 | D | TYP II | VLAN\<tenantNo + 3 > | team0. klient + 3 | Konfigurerad men används inte |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Lagring
 Följande mountpoints är förkonfigurerade:
 
 | Monterings punkt | Användningsfall | 
@@ -539,7 +539,7 @@ Följande nätverks gränssnitt är förkonfigurerade:
 | C | TYP II | VLAN\<tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
 | D | TYP II | VLAN\<tenantNo + 3 > | team0. klient + 3 | Konfigurerad men används inte |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Lagring
 Följande mountpoints är förkonfigurerade:
 
 | Monterings punkt | Användningsfall | 
@@ -584,7 +584,7 @@ Följande nätverks gränssnitt är förkonfigurerade:
 | C | TYP II | VLAN\<tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
 | D | TYP II | VLAN\<tenantNo + 3 > | team0. klient + 3 | Konfigurerad men används inte |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Lagring
 Följande mountpoints är förkonfigurerade på båda HLI-enheterna (primär och DR):
 
 | Monterings punkt | Användningsfall | 
@@ -625,7 +625,7 @@ Följande nätverks gränssnitt är förkonfigurerade:
 | C | TYP II | VLAN\<tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
 | D | TYP II | VLAN\<tenantNo + 3 > | team0. klient + 3 | Konfigurerad men används inte |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Lagring
 Följande mountpoints är förkonfigurerade:
 
 | Monterings punkt | Användningsfall | 
@@ -675,7 +675,7 @@ Följande nätverks gränssnitt är förkonfigurerade:
 | C | TYP II | VLAN\<tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
 | D | TYP II | VLAN\<tenantNo + 3 > | team0. klient + 3 | Konfigurerad men används inte |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Lagring
 Följande mountpoints är förkonfigurerade:
 
 | Monterings punkt | Användningsfall | 
@@ -720,7 +720,7 @@ Följande nätverks gränssnitt är förkonfigurerade:
 | C | TYP II | VLAN\<tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
 | D | TYP II | VLAN\<tenantNo + 3 > | team0. klient + 3 | Konfigurerad men används inte |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Lagring
 Följande mountpoints är förkonfigurerade:
 
 | Monterings punkt | Användningsfall | 
@@ -771,7 +771,7 @@ Följande nätverks gränssnitt är förkonfigurerade:
 | C | TYP II | VLAN\<tenantNo + 1 > | team0. klient organisation + 1 | Nod till lagring |
 | D | TYP II | VLAN\<tenantNo + 3 > | team0. klient + 3 | Konfigurerad men används inte |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Lagring
 Följande mountpoints är förkonfigurerade:
 
 | Monterings punkt | Användningsfall | 

@@ -24,7 +24,7 @@ Den här artikeln visar hur du använder [Azures kommando rads gränssnitt (CLI)
 > `storage-preview` tillägget som finns i den här artikeln är för närvarande en offentlig för hands version.
 
 [Exempel](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#adls-gen2-support) [på | gen1 till Gen2-mappning](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2) | [ge feedback](https://github.com/Azure/azure-cli-extensions/issues)
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 > [!div class="checklist"]
 > * En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).

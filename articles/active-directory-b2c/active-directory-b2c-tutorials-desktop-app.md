@@ -21,7 +21,7 @@ ms.locfileid: "74538922"
 
 Den här självstudien visar hur du använder Azure Active Directory B2C (Azure AD B2C) för att logga in och registrera användare i en Windows Presentation Foundation (WPF) Desktop-program. Med Azure AD B2C kan program autentisera med konton på sociala medier, företagskonton och Azure Active Directory-konton med hjälp av öppna standardprotokoll.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Lägga till det interna klientprogrammet
@@ -60,7 +60,7 @@ Så här uppdaterar du programmet så att det fungerar med din Azure AD B2C klie
     private static readonly string ClientId = "{application-ID}";
     ```
 
-3. Uppdatera variablerna för princip namn med namnen på de användar flöden som du skapade som en del av förutsättningarna. Till exempel:
+3. Uppdatera variablerna för princip namn med namnen på de användar flöden som du skapade som en del av förutsättningarna. Exempel:
 
     ```csharp
     public static string PolicySignUpSignIn = "B2C_1_signupsignin1";

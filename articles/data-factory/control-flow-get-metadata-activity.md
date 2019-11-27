@@ -43,7 +43,7 @@ Aktiviteten hämta metadata tar en data uppsättning som indata och returnerar m
 
 **Fil lagring**
 
-| Koppling/metadata | itemName<br>(fil/mapp) | itemType<br>(fil/mapp) | size<br>Arkiv | Create<br>(fil/mapp) | lastModified<br>(fil/mapp) |childItems<br>projektbevakningsmappen |contentMD5<br>Arkiv | structure<br/>Arkiv | Antal<br>Arkiv | finns<br>(fil/mapp) |
+| Koppling/metadata | itemName<br>(fil/mapp) | itemType<br>(fil/mapp) | ändra<br>Arkiv | Create<br>(fil/mapp) | lastModified<br>(fil/mapp) |childItems<br>projektbevakningsmappen |contentMD5<br>Arkiv | hierarkistruktur<br/>Arkiv | Antal<br>Arkiv | finns<br>(fil/mapp) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√ * | √ | x | √ | √ | √/√ * |
 | [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√ * | √ | x | √ | √ | √/√ * |
@@ -62,7 +62,7 @@ Aktiviteten hämta metadata tar en data uppsättning som indata och returnerar m
 
 **Relations databas**
 
-| Koppling/metadata | structure | Antal | finns |
+| Koppling/metadata | hierarkistruktur | Antal | finns |
 |:--- |:--- |:--- |:--- |
 | [Azure SQL Database](connector-azure-sql-database.md) | √ | √ | √ |
 | [Hanterad Azure SQL Database-instans](connector-azure-sql-database-managed-instance.md) | √ | √ | √ |
@@ -77,12 +77,12 @@ Du kan ange följande typer av metadata i listan Hämta metadata aktivitet fält
 |:--- |:--- |
 | itemName | Filens eller mappens namn. |
 | itemType | Typ av fil eller mapp. Returnerat värde är `File` eller `Folder`. |
-| size | Filens storlek i byte. Gäller endast för filer. |
+| ändra | Filens storlek i byte. Gäller endast för filer. |
 | Create | Datum/tid för filen eller mappen har skapats. |
 | lastModified | Datum och tid då filen eller mappen senast ändrades. |
 | childItems | Lista över undermappar och filer i den aktuella mappen. Gäller endast för mappar. Returnerat värde är en lista över namn och typ för varje underordnat objekt. |
 | contentMD5 | MD5 av filen. Gäller endast för filer. |
-| structure | Data strukturen för filen eller Relations databas tabellen. Returnerat värde är en lista med kolumn namn och kolumn typer. |
+| hierarkistruktur | Data strukturen för filen eller Relations databas tabellen. Returnerat värde är en lista med kolumn namn och kolumn typer. |
 | Antal | Antalet kolumner i filen eller Relations tabellen. |
 | finns| Om en fil, mapp eller tabell finns. Observera att om `exists` anges i fält listan Hämta metadata, kommer aktiviteten inte att kunna köras även om filen, mappen eller tabellen inte finns. I stället returneras `exists: false` i utdata. |
 

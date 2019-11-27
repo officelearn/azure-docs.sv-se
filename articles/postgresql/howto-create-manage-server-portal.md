@@ -79,7 +79,7 @@ Du kan ändra administratörs rollens lösen ord med hjälp av Azure Portal.
 
 2. Ange ett nytt lösen ord och bekräfta lösen ordet. I text rutan visas ett varnings krav för lösen ords komplexitet.
 
-   ![reset-password](./media/howto-create-manage-server-portal/reset-password.png)
+   ![Återställ lösen ord](./media/howto-create-manage-server-portal/reset-password.png)
 
 3. Välj **OK** för att spara det nya lösen ordet.
 

@@ -33,7 +33,7 @@ Get-AzVM -ResourceGroupName myResourceGroup -Name myVM -Status
 
 Följande egenskaper returneras under MaintenanceRedeployStatus: 
 
-| Value | Beskrivning   |
+| Värde | Beskrivning   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | Anger om du kan starta underhåll på den virtuella datorn just nu |
 | PreMaintenanceWindowStartTime         | Början av självbetjänings fönstret för underhåll när du kan initiera underhåll på den virtuella datorn |

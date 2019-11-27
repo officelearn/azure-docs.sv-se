@@ -147,7 +147,7 @@ table.CreateIfNotExists();
 table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowKey")));
 ```
 
-### <a name="cassandra-api"></a>Cassandra-API
+### <a name="cassandra-api"></a>API för Cassandra
 
 Starta emulatorn från en administratörs kommando tolk med "/EnableCassandraEndpoint". Du kan också ställa in miljövariabeln `AZURE_COSMOS_EMULATOR_CASSANDRA_ENDPOINT=true`.
 
@@ -487,7 +487,7 @@ I den virtuella Windows-datorn startar du slutligen Cosmos-emulatorn från komma
 Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
 ```
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 Använd följande tips för att felsöka problem som kan uppstå med Azure Cosmos-emulatorn:
 

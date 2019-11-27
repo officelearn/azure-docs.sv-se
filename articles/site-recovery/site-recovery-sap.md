@@ -59,22 +59,22 @@ Den här referens arkitekturen visar att köra SAP-NetWeaver i en Windows-miljö
 
 ## <a name="disaster-recovery-considerations"></a>Överväganden vid haveri beredskap
 
-För haveriberedskap (DR), måste du kunna växla över till en sekundär region. Varje nivå har en egen strategi för haveriberedskap.
+För haveri beredskap (DR) måste du kunna redundansväxla till en sekundär region. Varje nivå har en egen strategi för haveriberedskap.
 
 #### <a name="vms-running-sap-web-dispatcher-pool"></a>Virtuella datorer som kör SAP Web dispatcher-poolen 
-Komponenten Web Dispatcher används som en belastningsutjämnare för SAP-trafik på SAP-programservrarna. För att uppnå hög tillgänglighet för webb dispatcher-komponenten används Azure Load Balancer för att implementera installations programmet för parallell webb dispatcher i en Round Robin-konfiguration för HTTP (S)-trafik distribution bland de tillgängliga webb dispatcharna i poolen för Utjämning av nätverks belastning. Detta kommer att replikeras med hjälp av Azure Site Recovery (ASR) och automation-skript används för att konfigurera belastningsutjämnaren i Disaster Recovery-regionen. 
+Webb dispatcher-komponenten används som belastningsutjämnare för SAP-trafik mellan SAP-programservrarna. För att uppnå hög tillgänglighet för webb dispatcher-komponenten används Azure Load Balancer för att implementera installations programmet för parallell webb dispatcher i en Round Robin-konfiguration för HTTP (S)-trafik distribution bland de tillgängliga webb dispatcharna i poolen för Utjämning av nätverks belastning. Detta kommer att replikeras med hjälp av Azure Site Recovery (ASR) och automation-skript används för att konfigurera belastningsutjämnaren i Disaster Recovery-regionen. 
 
 #### <a name="vms-running-application-servers-pool"></a>Virtuella datorer som kör program servrar, pool
-SMLG transaktionen används för att hantera inloggningsgrupper för ABAP-programservrar. Den använder funktionen på meddelande-servern för Central tjänster för belastningsutjämning för att distribuera arbetsbelastningen mellan servrar för SAP programpool för SAPGUIs och RFC trafik. Detta kommer att replikeras med hjälp av Azure Site Recovery 
+Om du vill hantera inloggnings grupper för ABAP program servrar används SMLG-transaktionen. Funktionen för belastnings utjämning används i meddelande servern för centrala tjänster för att distribuera arbets belastningen mellan SAP-programservrar-poolen för SAPGUIs-och RFC-trafik. Detta kommer att replikeras med hjälp av Azure Site Recovery 
 
 #### <a name="vms-running-sap-central-services-cluster"></a>Virtuella datorer som kör SAP Central Services-kluster
-Denna Referensarkitektur kör centrala tjänster på virtuella datorer i appnivån. Central Services är en potentiell felpunkt (SPOF) när de distribueras till en enda virtuell dator – typisk distribution när hög tillgänglighet inte är ett krav.<br>
+Den här referens arkitekturen kör centrala tjänster på virtuella datorer på program nivån. Centrala tjänster är en enskild felpunkt (SPOF) när den distribueras till en enda virtuell dator – en typisk distribution när hög tillgänglighet inte är ett krav.<br>
 
 Om du vill implementera en lösning för hög tillgänglighet kan antingen ett delat disk kluster eller ett fil resurs kluster användas. Om du vill konfigurera virtuella datorer för ett delat disk kluster använder du Windows Server-redundanskluster. Moln vittne rekommenderas som ett kvorumlogg. 
  > [!NOTE]
  > Azure Site Recovery replikerar inte moln vittnet, därför rekommenderas det att distribuera moln vittnet i Disaster Recovery-regionen.
 
-För att stödja kluster miljön för växling vid fel, utför [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) funktionen för delad kluster volym genom att replikera oberoende diskar som ägs av klusternoderna. Azure har inte har inbyggt stöd för delade diskar och därför kräver lösningar som tillhandahålls av SIOS. 
+För att stödja kluster miljön för växling vid fel, utför [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) funktionen för delad kluster volym genom att replikera oberoende diskar som ägs av klusternoderna. Azure stöder inte delade diskar internt och kräver därför lösningar som tillhandahålls av SIOS. 
 
 Ett annat sätt att hantera klustring är att implementera ett fil resurs kluster. [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) ändrade nyligen distributions mönstret för central tjänster för att få åtkomst till globala/sapmnt-kataloger via en UNC-sökväg. Vi rekommenderar dock fortfarande att se till att/sapmnt-UNC-resursen är hög tillgänglig. Detta kan göras på den centrala Services-instansen med hjälp av Windows Server-redundanskluster med skalbar fil server (SOFS) och funktionen Lagringsdirigering (S2D) i Windows Server 2016. 
  > [!NOTE]

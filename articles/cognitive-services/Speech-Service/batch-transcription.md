@@ -1,7 +1,7 @@
 ---
 title: Använda batch-avskrifter – tal tjänst
 titleSuffix: Azure Cognitive Services
-description: Batch avskrift är perfekt om du vill att transkribera ett stort antal ljud i lagring, till exempel Azure Blobs. Med hjälp av dedikerad REST-API kan du pekar på ljudfiler med signatur för delad åtkomst (SAS) URI och ta emot avskrifter asynkront.
+description: Batch-avskrift är idealiskt om du vill skriva över en stor mängd ljud i lagring, till exempel Azure-blobbar. Genom att använda den dedikerade REST API kan du peka på ljudfiler med en SAS-URI (signatur för delad åtkomst) och få asynkront erhålla avskrifter.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -17,45 +17,45 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74538120"
 ---
-# <a name="why-use-batch-transcription"></a>Varför använda Batch avskrift?
+# <a name="why-use-batch-transcription"></a>Varför ska jag använda batch-avskriftering?
 
-Batch avskrift är perfekt om du vill att transkribera ett stort antal ljud i lagring, till exempel Azure Blobs. Med hjälp av dedikerad REST-API kan du pekar på ljudfiler med signatur för delad åtkomst (SAS) URI och ta emot avskrifter asynkront.
+Batch-avskrift är idealiskt om du vill skriva över en stor mängd ljud i lagring, till exempel Azure-blobbar. Genom att använda den dedikerade REST API kan du peka på ljudfiler med en SAS-URI (signatur för delad åtkomst) och få asynkront erhålla avskrifter.
 
 ## <a name="prerequisites"></a>Krav
 
 ### <a name="subscription-key"></a>Prenumerations nyckel
 
-Precis som med alla funktioner i tal tjänsten skapar du en prenumerations nyckel från [Azure Portal](https://portal.azure.com) genom att följa vår [Guide för att komma igång](get-started.md). Om du planerar att hämta avskrifter från våra basmodeller, är skapar en nyckel allt du behöver göra.
+Precis som med alla funktioner i tal tjänsten skapar du en prenumerations nyckel från [Azure Portal](https://portal.azure.com) genom att följa vår [Guide för att komma igång](get-started.md). Om du planerar att få avskrifter från våra bas linje modeller behöver du bara skapa en nyckel.
 
 >[!NOTE]
-> En standard-prenumerationen (S0) för Speech Services krävs för att använda batch avskrift. Kostnadsfria prenumerationsnycklar (F0) fungerar inte. Mer information finns i [priser och begränsningar](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> En standard prenumeration (S0) för tal tjänster krävs för att använda batch-avskriftering. Kostnads fria prenumerations nycklar (F0) fungerar inte. Mer information finns i [priser och begränsningar](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ### <a name="custom-models"></a>Anpassade modeller
 
 Om du planerar att anpassa akustiska eller språk modeller följer du stegen i [Anpassa akustiska modeller](how-to-customize-acoustic-models.md) och [Anpassa språk modeller](how-to-customize-language-model.md). Om du vill använda de skapade modellerna i batch-avskriftering behöver du deras modell-ID. Detta ID är inte det slut punkts-ID som du hittar i vyn information om slut punkt, det är det modell-ID som du kan hämta när du väljer information om modellerna.
 
-## <a name="the-batch-transcription-api"></a>Batch-avskrift API
+## <a name="the-batch-transcription-api"></a>API för batch-avskriftering
 
-API: et för Batch avskrift erbjuder asynkron tal till text-avskrift, tillsammans med ytterligare funktioner. Det är en REST-API som exponerar metoder för att:
+API: et för batch-avskrift erbjuder asynkron avskrift för tal till text, tillsammans med ytterligare funktioner. Det är ett REST API som visar metoder för:
 
-1. Skapar batch-bearbetning av begäranden
-1. Frågestatus
-1. Ladda ned avskrifter
+1. Skapar begär Anden om batchbearbetning
+1. Status för fråga
+1. Laddar ned avskrifter
 
 > [!NOTE]
-> API: et för Batch avskrift är perfekt för call Center, som vanligtvis ackumuleras tusentals timmars ljud. Det gör det enkelt att skriva över stora volymer med ljud inspelningar.
+> API: et för batch-avskrift är idealiskt för Call Center, som vanligt vis ackumulerar tusentals timmars ljud. Det gör det enkelt att skriva över stora volymer med ljud inspelningar.
 
 ### <a name="supported-formats"></a>Format som stöds
 
-API: et för Batch avskrift stöder följande format:
+API: et för batch-avskrift stöder följande format:
 
-| Format | Codec | Bithastighet | Samplingshastighet |
+| Format | ADPCM | Hastigheten | Samplings frekvens |
 |--------|-------|---------|-------------|
-| WAV | PCM | 16-bitars | 8 eller 16 kHz, mono, stereo |
-| MP3-FILEN | PCM | 16-bitars | 8 eller 16 kHz, mono, stereo |
+| VÅG | PCM | 16-bitars | 8 eller 16 kHz, mono, stereo |
+| MP3 | PCM | 16-bitars | 8 eller 16 kHz, mono, stereo |
 | OGG | OPUS | 16-bitars | 8 eller 16 kHz, mono, stereo |
 
-Delar upp kanalen vänster och höger under utskrift för stereo ljudströmmar Batch avskrift API. De två JSON-filerna med resultatet skapas var och en från en enda kanal. Tidsstämplar per uttryck gör att utvecklare kan skapa en ordnad slutlig avskrift. Den här exempel förfrågan innehåller egenskaper för tids inställningar för filtrering, interpunktion och Word-nivå för svordomar.
+För stereo ljud strömmar delar API: et för batch-avskrift den vänstra och högra kanalen under avskriften. De två JSON-filerna med resultatet är de som skapas från en enda kanal. Tidsstämplar per uttryck gör att utvecklaren kan skapa en sorterad slutlig avskrift. Den här exempel förfrågan innehåller egenskaper för tids inställningar för filtrering, interpunktion och Word-nivå för svordomar.
 
 ### <a name="configuration"></a>Konfiguration
 
@@ -78,7 +78,7 @@ Konfigurations parametrar tillhandahålls som JSON:
 ```
 
 > [!NOTE]
-> API för Batch-avskrift använder en REST-tjänst för att begära avskrifter, deras status och associerade resultat. Du kan använda API: T från alla språk. I nästa avsnitt beskrivs hur API: et används.
+> API: et för batch-avskrift använder en REST-tjänst för att begära avskrifter, deras status och tillhör ande resultat. Du kan använda API: et från valfritt språk. I nästa avsnitt beskrivs hur API: et används.
 
 ### <a name="configuration-properties"></a>Konfigurations egenskaper
 
@@ -86,13 +86,13 @@ Använd dessa valfria egenskaper för att konfigurera avskrifter:
 
 | Parameter | Beskrivning |
 |-----------|-------------|
-| `ProfanityFilterMode` | Anger hur du hanterar svordomar i igenkänningsresultat. Godkända värden är `None` som inaktiverar svordomar, `masked` som ersätter svordomar med asterisker, `removed` som tar bort alla svordomar från resultatet eller `tags` som lägger till "svordoms"-taggar. Standardvärdet är `masked`. |
-| `PunctuationMode` | Anger hur du hanterar skiljetecken i igenkänningsresultat. Godkända värden är `None` som inaktiverar interpunktion, `dictated` som innebär explicit interpunktion, `automatic` som tillåter avkodaren att hantera skiljetecken eller `dictatedandautomatic` som anger dikterade skiljetecken eller automatisk. |
+| `ProfanityFilterMode` | Anger hur du hanterar svordomar i igenkännings resultat. Godkända värden är `None` som inaktiverar svordomar, `masked` som ersätter svordomar med asterisker, `removed` som tar bort alla svordomar från resultatet eller `tags` som lägger till "svordoms"-taggar. Standardvärdet är `masked`. |
+| `PunctuationMode` | Anger hur interpunktion ska hanteras i igenkännings resultat. Godkända värden är `None` som inaktiverar interpunktion, `dictated` som innebär explicit interpunktion, `automatic` som tillåter avkodaren att hantera skiljetecken eller `dictatedandautomatic` som anger dikterade skiljetecken eller automatisk. |
  | `AddWordLevelTimestamps` | Anger om Word-nivåns tidsstämplar ska läggas till i utdata. Godkända värden är `true` som gör att tidsstämplar på Word-nivå och `false` (standardvärdet) inaktive ras. |
  | `AddSentiment` | Anger att sentiment ska läggas till i uttryck. Godkända värden är `true` som aktiverar sentiment per uttryck och `false` (standardvärdet) för att inaktivera det. |
  | `AddDiarization` | Anger att diarization-analys ska utföras på indatamängden som förväntas vara en mono kanal som innehåller två röster. Godkända värden är `true` som gör det möjligt att inaktivera diarization och `false` (standardvärdet). Det kräver också att `AddWordLevelTimestamps` anges till sant.|
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Lagring
 
 Batch-avskrift stöder [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) för att läsa ljud och skriva avskrifter till lagring.
 
@@ -190,9 +190,9 @@ Exempel koden konfigurerar klienten och skickar in avskrifts förfrågan. Den s�
 
 Fullständig information om föregående anrop finns i vårt Swagger- [dokument](https://westus.cris.ai/swagger/ui/index). För det fullständiga exemplet som visas här går du till [GitHub](https://aka.ms/csspeech/samples) i under katalogen `samples/batch`.
 
-Anteckna asynkron konfigurationen för att skicka ljud och ta emot avskrift status. Klienten som du skapar är en .NET-HTTP-klient. Det finns en `PostTranscriptions` metod för att skicka ljud filens information och en `GetTranscriptions` metod för att ta emot resultatet. `PostTranscriptions` returnerar en referens och `GetTranscriptions` använder den för att skapa en referens för att hämta avskrifts statusen.
+Anteckna den asynkrona konfigurationen för att skicka ljud och ta emot avskrifts status. Klienten som du skapar är en .NET HTTP-klient. Det finns en `PostTranscriptions` metod för att skicka ljud filens information och en `GetTranscriptions` metod för att ta emot resultatet. `PostTranscriptions` returnerar en referens och `GetTranscriptions` använder den för att skapa en referens för att hämta avskrifts statusen.
 
-Aktuella exempelkoden Ange inte en anpassad modell. Tjänsten använder baslinjemodeller för att skriva av den filen eller filerna. Om du vill ange modeller, kan du skicka på samma metod som modell-ID för akustiska och språkmodellen.
+Den aktuella exempel koden anger inte en anpassad modell. Tjänsten använder bas linje modellerna för att skriva över filen eller filerna. Om du vill ange modeller kan du skicka samma metod som modell-ID: na för ljud-och språk modellen.
 
 > [!NOTE]
 > För bas linje avskrifter behöver du inte deklarera ID: t för bas linje modeller. Om du bara anger ett språk modells-ID (och inget akustiskt modell-ID) väljs en matchande akustisk modell automatiskt. Om du bara anger ett akustiskt modell-ID väljs en matchande språk modell automatiskt.

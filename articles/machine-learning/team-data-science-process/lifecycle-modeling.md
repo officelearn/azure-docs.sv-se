@@ -1,6 +1,6 @@
 ---
-title: Modellering steg i livscykeln för Team Data Science Process
-description: Mål, uppgifter och slutprodukter för modellering steg i dina data science-projekt
+title: Modellerings steg för processens livs cykel för team data vetenskap
+description: Mål, uppgifter och slut produkter för modellerings fasen för dina data vetenskaps projekt
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -18,9 +18,9 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74538227"
 ---
-# <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Modellering steg i livscykeln för Team Data Science Process
+# <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Modellerings steg för processens livs cykel för team data vetenskap
 
-Den här artikeln beskrivs de mål, uppgifter och slutprodukter som är associerade med modellering scenen för Team Data Science Process (TDSP). Den här processen ger en rekommenderad livscykel som du kan använda för att strukturera dina data science-projekt. Livscykeln beskrivs de viktigaste stegen som projekt vanligtvis köra, ofta upprepade gånger:
+Den här artikeln beskriver de mål, uppgifter och slut produkter som är associerade med modell fasen för team data science-processen (TDSP). Den här processen ger en rekommenderad livs cykel som du kan använda för att strukturera data vetenskaps projekt. Livs cykeln beskriver de viktigaste faserna som projekt vanligt vis körs, ofta iterativt:
 
    1. **Affärs förståelse**
    2. **Data hämtning och förståelse**
@@ -28,34 +28,34 @@ Den här artikeln beskrivs de mål, uppgifter och slutprodukter som är associer
    4. **Distribution**
    5. **Kund godkännande**
 
-Här är en visuell representation av TDSP-livscykeln:
+Här är en visuell representation av TDSP-livs cykeln:
 
-![Livscykel för TDSP](./media/lifecycle/tdsp-lifecycle2.png) 
+![TDSP-livscykel](./media/lifecycle/tdsp-lifecycle2.png) 
 
 
-## <a name="goals"></a>Mål
-* Fastställa optimal datafunktioner för machine learning-modellen.
-* Skapa en informativa machine learning-modell som beräknar målet så exakt som möjligt.
-* Skapa en machine learning-modell som passar för produktion.
+## <a name="goals"></a>Syftet
+* Fastställ optimala data funktioner för maskin inlärnings modellen.
+* Skapa en informativ modell för maskin inlärning som förutsäger målet noggrant.
+* Skapa en maskin inlärnings modell som är lämplig för produktion.
 
-## <a name="how-to-do-it"></a>Gör så
-Det finns tre huvudsakliga uppgifter som beskrivs i det här steget:
+## <a name="how-to-do-it"></a>Gör så här
+Det finns tre huvudsakliga uppgifter i det här steget:
 
   * **Funktions teknik**: skapa data funktioner från rå data för att under lätta modell träningen.
   * **Modell träning**: Leta upp den modell som svarar på frågan noggrant genom att jämföra deras framgång.
   * Ta reda på om din modell är **lämplig för produktion.**
 
 ### <a name="feature-engineering"></a>Funktionstekniker
-Funktionsframställning innebär att de ska ingå, aggregering och omvandling av rådata variabler för att skapa funktioner som används i analysen. Om du vill att inblick i vad som aktiverar en modell, måste du förstå hur funktionerna som är relaterade till varandra och hur machine learning-algoritmer är att använda dessa funktioner. 
+Funktions teknik inbegriper inkludering, agg regering och omvandling av obehandlade variabler för att skapa de funktioner som används i analysen. Om du vill veta mer om vad som driver en modell måste du förstå hur funktionerna relaterar till varandra och hur algoritmerna för maskin inlärning är att använda dessa funktioner. 
 
-Det här steget kräver en creative kombination av expertis och de insikter som hämtats från steget för utforskning av data. Funktionsframställning är en balansgång för att söka efter och inklusive informativa variabler, men samtidigt som försöker undvika att för många orelaterade variabler. Informativa variabler förbättra dina resultat. orelaterade variabler introducera onödiga bruset i modellen. Du måste också generera dessa funktioner för alla nya data som hämtades när bedömning. Generering av dessa funktioner kan därför bara beror på data som är tillgängliga vid tidpunkten för bedömning. 
+Det här steget kräver en kreativ kombination av domän expert kunskaper och de insikter som hämtats från data utforsknings steget. Funktions teknik är en balanserings åtgärd för att hitta och inkludera informativa variabler, men samtidigt försöker du undvika för många orelaterade variabler. Informativa variabler ger bättre resultat. orelaterade variabler introducerar onödigt brus i modellen. Du måste också generera dessa funktioner för alla nya data som erhålls under poängsättningen. Därför kan generationens funktioner bara vara beroende av data som är tillgängliga vid tidpunkten för poängsättningen. 
 
 Teknisk vägledning om funktions teknik när du använder olika Azure-datatekniker finns i [funktions teknik i processen för data vetenskap](create-features.md). 
 
 ### <a name="model-training"></a>Modellträning
-Beroende på vilken typ av fråga som du försöker att besvara finns det många modellering algoritmer. Anvisningar om hur du väljer algoritmer finns i [så här väljer du algoritmer för Microsoft Azure Machine Learning](../studio/algorithm-choice.md). Även om den här artikeln använder Azure Machine Learning kan är de riktlinjer som den innehåller användbart för eventuella machine learning-projekt. 
+Det finns många tillgängliga modellvariabler beroende på vilken typ av fråga du försöker svara på. Anvisningar om hur du väljer algoritmer finns i [så här väljer du algoritmer för Microsoft Azure Machine Learning](../studio/algorithm-choice.md). Även om den här artikeln använder Azure Machine Learning, är den vägledning som är användbar för alla Machine Learning-projekt. 
 
-Processen för att modellen innehåller följande steg: 
+Processen för modell träning innehåller följande steg: 
 
    * **Dela indata-data** slumpmässigt för modellering i en tränings data uppsättning och en test data uppsättning.
    * **Skapa modeller** med hjälp av övnings data uppsättningen.
@@ -63,24 +63,24 @@ Processen för att modellen innehåller följande steg:
    * **Fastställ den "bästa" lösningen** för att besvara frågan genom att jämföra måtten för framgång mellan alternativa metoder.
 
 > [!NOTE]
-> **Undvik läckage**: du kan orsaka dataläckage om du inkluderar data utanför den tränings data uppsättning som tillåter en modell eller en algoritm för maskin inlärning för att göra realistiska förutsägelser bättre. Läckage är en vanlig orsak till varför data forskare få vad när de får förebyggande resultat som verkar vara för bra ska vara sant. Dessa beroenden kan vara svåra att identifiera. För att undvika läckage ofta kräver att iterera mellan att skapa en datauppsättning för analys, skapa en modell och utvärderar noggrannare resultat. 
+> **Undvik läckage**: du kan orsaka dataläckage om du inkluderar data utanför den tränings data uppsättning som tillåter en modell eller en algoritm för maskin inlärning för att göra realistiska förutsägelser bättre. Läckage är en vanlig orsak till att data experter får nerv information när de får förutsägelse resultat som verkar vara för lämpliga för att vara sanna. Dessa beroenden kan vara svåra att identifiera. För att undvika läckage krävs ofta att du skapar en analys data uppsättning, skapar en modell och utvärderar resultatet. 
 > 
 > 
 
-Vi tillhandahåller ett [automatiserat verktyg för modellering och rapportering](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/Modeling) med TDSP som kan köras genom flera algoritmer och parameter rensningar för att skapa en bas linje modell. Den ger också en baslinje modellering rapport som sammanfattar prestanda för varje modell och parameterkombinationen inklusive variabeln prioritet. Den här processen är också iterativ eftersom det kan få ytterligare funktionsframställning. 
+Vi tillhandahåller ett [automatiserat verktyg för modellering och rapportering](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/Modeling) med TDSP som kan köras genom flera algoritmer och parameter rensningar för att skapa en bas linje modell. Det skapar också en rapport för bas linje modellering som sammanfattar prestandan för varje modell och parameter kombination, inklusive varierande prioritet. Den här processen är också iterativ eftersom den kan driva ytterligare funktions tekniker. 
 
-## <a name="artifacts"></a>Artefakter
-Artefakter som skapats i den här fasen inkluderar:
+## <a name="artifacts"></a>Artifacts
+Artefakterna som produceras i det här steget är:
 
-   * [Funktions uppsättningar](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md): de funktioner som har utvecklats för modellering beskrivs i avsnittet **funktions uppsättningar** i rapporten **data definition** . Det finns länkar till koden för att generera funktionerna och en beskrivning av hur funktionen skapades.
+   * [Funktions uppsättningar](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md): de funktioner som har utvecklats för modellering beskrivs i avsnittet **funktions uppsättningar** i rapporten **data definition** . Den innehåller pekare till koden för att generera funktioner och en beskrivning av hur funktionen genererades.
    * [Modell rapport](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): för varje modell som provas skapas en standard-mall baserad rapport som innehåller information om varje experiment.
-   * **Kontroll punkts beslut**: utvärdera om modellen fungerar tillräckligt väl för att distribuera den till ett produktions system. Vissa viktiga frågor är:
-     * Modellen besvara frågan med tillräckligt med tillförsikt beroende testdata? 
-     * Bör du försöka eventuella alternativa metoder? Ska du samla in ytterligare data, göra mer funktionsframställning eller experimentera med andra algoritmer?
+   * **Kontroll punkts beslut**: utvärdera om modellen fungerar tillräckligt väl för att distribuera den till ett produktions system. Några viktiga frågor att fråga om är:
+     * Besvarar modellen frågan med tillräckligt förtroende för test data? 
+     * Bör du prova några alternativa metoder? Ska du samla in ytterligare data, göra fler funktioner eller experimentera med andra algoritmer?
 
 ## <a name="next-steps"></a>Nästa steg
 
-Här finns länkar till varje steg i livscykeln för TDSP:
+Här följer länkar till varje steg i livs cykeln för TDSP:
 
    1. [Affärs förståelse](lifecycle-business-understanding.md)
    2. [Data hämtning och förståelse](lifecycle-data.md)
@@ -88,6 +88,6 @@ Här finns länkar till varje steg i livscykeln för TDSP:
    4. [Distribution](lifecycle-deployment.md)
    5. [Kund godkännande](lifecycle-acceptance.md)
 
-Vi tillhandahåller fullständig från slutpunkt till slutpunkt genomgång som visar alla steg i processen för specifika scenarier. [Exempel](walkthroughs.md) artikeln innehåller en lista över scenarier med länkar och miniatyr beskrivningar. Genomgångar visar hur du kombinerar molnlösningar, lokala verktyg och tjänster i ett arbetsflöde eller en pipeline för att skapa ett intelligenta program. 
+Vi tillhandahåller fullständiga genom gångar som demonstrerar alla steg i processen för särskilda scenarier. [Exempel](walkthroughs.md) artikeln innehåller en lista över scenarier med länkar och miniatyr beskrivningar. Genom gången illustrerar hur du kombinerar moln, lokala verktyg och tjänster till ett arbets flöde eller en pipeline för att skapa ett intelligent program. 
 
 Exempel på hur du kör steg i TDSPs som använder Azure Machine Learning Studio finns i [använda TDSP med Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). 

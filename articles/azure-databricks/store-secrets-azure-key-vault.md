@@ -26,7 +26,7 @@ I den här guiden får du lära dig att:
 > * Skapa en Azure Databricks arbets yta och Lägg till ett hemligt område
 > * Få åtkomst till din BLOB-behållare från Azure Databricks
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 
@@ -76,7 +76,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
    |Egenskap|Beskrivning|
    |--------|-----------|
-   |Name|Ett unikt namn för nyckel valvet.|
+   |Namn|Ett unikt namn för nyckel valvet.|
    |Prenumeration|Välj en prenumeration.|
    |Resursgrupp|Välj en resurs grupp eller skapa en ny.|
    |Plats|Välj en plats.|
@@ -91,11 +91,11 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 5. Ange följande information på sidan **skapa en hemlig** enhet och behåll standardvärdena för de återstående fälten:
 
-   |Egenskap|Value|
+   |Egenskap|Värde|
    |--------|-----------|
    |Överförings alternativ|Manuellt|
-   |Name|Eget namn för din lagrings konto nyckel.|
-   |Value|KEY1 från ditt lagrings konto.|
+   |Namn|Eget namn för din lagrings konto nyckel.|
+   |Värde|KEY1 från ditt lagrings konto.|
 
    ![Egenskaper för nytt Key Vault-hemlighet](./media/store-secrets-azure-key-vault/create-storage-secret.png)
 

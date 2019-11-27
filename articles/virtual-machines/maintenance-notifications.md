@@ -69,7 +69,7 @@ Det är bäst att använda självbetjänings underhåll i följande fall:
 - Det krävs mer än 30 minuters återställnings tid för virtuella datorer mellan två uppdaterings domäner (UDs). Om du vill kontrol lera tiden mellan uppdaterings domäner måste du aktivera underhåll av virtuella datorer en uppdaterings domän (UD) i taget.
 
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>FAQ
 
 
 **F: Varför måste du starta om mina virtuella datorer nu?**

@@ -144,7 +144,7 @@ För att tilldela en användardefinierad identitet till en virtuell dator måste
 
 1. Se något av följande snabb starter för Azure VM, som endast fyller i de nödvändiga avsnitten ("logga in på Azure", "skapa resurs grupp", "skapa nätverks grupp", "skapa den virtuella datorn"). 
   
-    När du kommer till avsnittet "skapa den virtuella datorn" gör du en liten ändring i [`New-AzVMConfig`](/powershell/module/az.compute/new-azvm) cmdlet-syntaxen. Lägg till parametrarna `-IdentityType UserAssigned` och `-IdentityID` för att etablera den virtuella datorn med en tilldelad identitet.  Ersätt `<VM NAME>`,`<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`och `<USER ASSIGNED IDENTITY NAME>` med dina egna värden.  Till exempel:
+    När du kommer till avsnittet "skapa den virtuella datorn" gör du en liten ändring i [`New-AzVMConfig`](/powershell/module/az.compute/new-azvm) cmdlet-syntaxen. Lägg till parametrarna `-IdentityType UserAssigned` och `-IdentityID` för att etablera den virtuella datorn med en tilldelad identitet.  Ersätt `<VM NAME>`,`<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`och `<USER ASSIGNED IDENTITY NAME>` med dina egna värden.  Exempel:
     
     ```powershell 
     $vmConfig = New-AzVMConfig -VMName <VM NAME> -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>..."

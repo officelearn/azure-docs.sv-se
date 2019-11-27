@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: identifiera tal från en mikrofon-tal-tjänst'
 titleSuffix: Azure Cognitive Services
-description: TBD
+description: Inte klart
 services: cognitive-services
 author: erhopf
 manager: nitinme

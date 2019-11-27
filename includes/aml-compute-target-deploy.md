@@ -28,6 +28,6 @@ ms.locfileid: "74549509"
 | [Azure Data Box Edge](../articles/databox-online/data-box-edge-overview.md)   | Via IoT Edge |  &nbsp; | Ja | Distribuera och hantera ML-modeller på IoT-enheter. |
 
 > [!NOTE]
-> Även om Compute-mål som lokal, Azure Machine Learning beräknings instans och Azure Machine Learning beräknings kluster stöder GPU för utbildning och experimentering, kan du använda GPU: n för __att distribueras som en webb tjänst__ bara stöds på Azure Kubernetes-tjänst.
+> Även om Compute-mål som lokala, Azure Machine Learning beräknings instans och Azure Machine Learning beräknings kluster stöder GPU för utbildning och experimentering, kan du använda GPU: n för __en härledning när den distribueras som en webb tjänst__ endast stöds i Azure Kubernetes-tjänsten.
 >
 > Användning av en GPU för härledning __när poäng med en Machine Learning-pipeline__ stöds endast på Azure Machine Learning Compute.

@@ -38,7 +38,7 @@ Azure FarmBeats-distributionen skapar nedanstående listade resurser i din prenu
 |1  |       Azure Cosmos DB   |  Data hubb       |
 |2  |    Application Insights      |     Data hubb/Accelerator     |
 |3  |Azure Cache for Redis   |Data hubb   |
-|4  |       Azure KeyVault    |  Data hubb/Accelerator        |
+|4  |       Azure-valv    |  Data hubb/Accelerator        |
 |5  |    Time Series Insights       |     Data hubb      |
 |6 |      EventHub-namnområde    |  Data hubb       |
 |7  |    Azure Data Factory V2       |     Data hubb/Accelerator      |
@@ -46,7 +46,7 @@ Azure FarmBeats-distributionen skapar nedanstående listade resurser i din prenu
 |9  |       Lagringskonto     |  Data hubb/Accelerator        |
 |10  |    Logikapp        |     Data hubb      |
 |11  |    API-anslutning        |     Data hubb      |
-|12|      Apptjänst      |  Data hubb/Accelerator       |
+|12|      App Service      |  Data hubb/Accelerator       |
 |13 |    App Service-plan        |     Data hubb/Accelerator      |
 |14 |Azure Maps konto     |Gas    |
 |15 |       Time Series Insights      |  Data hubb     |

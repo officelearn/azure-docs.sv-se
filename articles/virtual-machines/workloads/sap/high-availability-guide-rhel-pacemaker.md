@@ -68,7 +68,7 @@ Läs följande SAP-anteckningar och dokument först:
   * [Installera och konfigurera ett kluster med hög tillgänglighet för Red Hat Enterprise Linux 7,4 (och senare) på Microsoft Azure](https://access.redhat.com/articles/3252491)
   * [Konfigurera SAP S/4HANA ASCS/ERS med fristående server 2 (ENSA2) i pacemaker på RHEL 7,6](https://access.redhat.com/articles/3974941)
 
-## <a name="cluster-installation"></a>Klusterinstallationen
+## <a name="cluster-installation"></a>Kluster installation
 
 ![Pacemaker på RHEL-översikt](./media/high-availability-guide-rhel-pacemaker/pacemaker-rhel.png)
 
@@ -124,13 +124,13 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
 
 1. **[A]** namn matchning för värdnamn
 
-   Du kan använda en DNS-server, eller så kan du ändra i/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
-   Ersätt IP-adressen och värdnamnet i följande kommandon. Fördelen med att använda/etc/hosts är att klustret blir oberoende av DNS, vilket kan vara en enda åtkomstpunkt för fel för.
+   Du kan antingen använda en DNS-server eller ändra/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
+   Ersätt IP-adress och värdnamn i följande kommandon. Fördelen med att använda/etc/hosts är att klustret blir oberoende av DNS, vilket kan vara en enskild fel punkt.
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
 
-   Infoga följande rader till/etc/hosts. Ändra IP-adressen och värdnamnet till matchar din miljö
+   Infoga följande rader i/etc/hosts. Ändra IP-adress och värdnamn för att matcha din miljö
 
    <pre><code># IP address of the first cluster node
    <b>10.0.0.6 prod-cl1-0</b>
@@ -198,26 +198,26 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
 
 ## <a name="create-stonith-device"></a>Skapa STONITH-enhet
 
-STONITH enheten använder ett huvudnamn för tjänsten för att godkänna mot Microsoft Azure. Följ dessa steg om du vill skapa ett huvudnamn för tjänsten.
+STONITH-enheten använder ett huvud namn för tjänsten för att auktorisera mot Microsoft Azure. Följ de här stegen för att skapa ett huvud namn för tjänsten.
 
 1. Gå till <https://portal.azure.com>
 1. Öppna bladet Azure Active Directory  
-   Gå till egenskaper och anteckna Directory-ID. Detta är **klient-ID: t**.
-1. Klicka på App-registreringar
+   Gå till egenskaper och skriv ner katalog-ID: t. Detta är **klient-ID: t**.
+1. Klicka på Appregistreringar
 1. Klicka på ny registrering
 1. Ange ett namn, välj "konton endast i den här organisations katalogen" 
 2. Välj program typ "Web", ange en inloggnings-URL (till exempel http:\//localhost) och klicka på Lägg till  
-   Inloggnings-URL: en används inte och kan vara vilken giltig URL
+   Inloggnings-URL: en används inte och kan vara en giltig URL
 1. Välj certifikat och hemligheter och klicka sedan på ny klient hemlighet
 1. Ange en beskrivning för en ny nyckel, välj "upphör aldrig" och klicka på Lägg till
-1. Anteckna värdet. Den används som **lösen ord** för tjänstens huvud namn
-1. Välj översikt. Anteckna programmets ID. Den används som användar namn (**inloggnings-ID** i stegen nedan) för tjänstens huvud namn
+1. Skriv ned värdet. Den används som **lösen ord** för tjänstens huvud namn
+1. Välj översikt. Anteckna program-ID: t. Den används som användar namn (**inloggnings-ID** i stegen nedan) för tjänstens huvud namn
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** skapa en anpassad roll för stängsel-agenten
 
-Tjänstens huvudnamn har inte behörighet att komma åt dina Azure-resurser som standard. Du måste ge tjänstens huvud namn behörighet att starta och stoppa (stänga av) alla virtuella datorer i klustret. Om du inte redan har skapat den anpassade rollen kan du skapa den med hjälp av [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) eller [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
+Tjänstens huvud namn har inte behörighet att komma åt dina Azure-resurser som standard. Du måste ge tjänstens huvud namn behörighet att starta och stoppa (stänga av) alla virtuella datorer i klustret. Om du inte redan har skapat den anpassade rollen kan du skapa den med hjälp av [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) eller [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
 
-Använd följande innehåll för indatafilen. Du måste anpassa innehåll till dina prenumerationer som är, Ersätt c276fc76-9cd4-44c9-99a7-4fd71546436e och e91d47c4-76f3-4271-a796-21b4ecfe3624 med ID: N för din prenumeration. Om du bara har en prenumeration kan du ta bort den andra posten i AssignableScopes.
+Använd följande innehåll för indatafilen. Du måste anpassa innehållet till dina prenumerationer, ersätta c276fc76-9cd4-44c9-99a7-4fd71546436e och e91d47c4-76f3-4271-a796-21b4ecfe3624 med ID: t för din prenumeration. Om du bara har en prenumeration tar du bort den andra posten i AssignableScopes.
 
 ```json
 {
@@ -241,22 +241,22 @@ Använd följande innehåll för indatafilen. Du måste anpassa innehåll till d
 
 ### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A]** tilldela den anpassade rollen till tjänstens huvud namn
 
-Tilldela den anpassade rollen ”Linux avgränsningstecken agenten roll” som har skapats i det senaste kapitlet till tjänstens huvudnamn. Använd inte ägarrollen längre!
+Tilldela rollen för den anpassade rollen "Linux-stängsel" som skapades i det sista kapitlet till tjänstens huvud namn. Använd inte ägar rollen längre!
 
 1. Gå till https://portal.azure.com
 1. Öppna bladet alla resurser
-1. Välj den virtuella datorn från den första noden i klustret
-1. Klicka på åtkomstkontroll (IAM)
-1. Klicka på Lägg till rolltilldelning
-1. Välj roll ”Linux avgränsningstecken agenten roll”
-1. Ange namnet på programmet som du skapade ovan
+1. Välj den virtuella datorn för den första klusternoden
+1. Klicka på åtkomst kontroll (IAM)
+1. Klicka på Lägg till roll tilldelning
+1. Välj rollen "rollen Linux stängsel agent"
+1. Ange namnet på det program som du skapade ovan
 1. Klicka på Spara
 
-Upprepa stegen ovan för den andra noden i klustret.
+Upprepa stegen ovan för den andra klusternoden.
 
 ### <a name="1-create-the-stonith-devices"></a>**[1]** skapa STONITH-enheterna
 
-När du har redigerat behörigheterna för de virtuella datorerna kan du konfigurera STONITH-enheter i klustret.
+När du har redigerat behörigheterna för de virtuella datorerna kan du konfigurera STONITH-enheterna i klustret.
 
 <pre><code>
 sudo pcs property set stonith-timeout=900

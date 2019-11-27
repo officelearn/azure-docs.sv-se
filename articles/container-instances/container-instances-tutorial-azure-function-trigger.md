@@ -28,7 +28,7 @@ Lär dig att:
 > [!IMPORTANT]
 > PowerShell för Azure Functions är för närvarande en för hands version. Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Se [skapa din första PowerShell-funktion i Azure](../azure-functions/functions-create-first-function-powershell.md#prerequisites) för krav för att installera och använda Visual Studio Code med Azure Functions i ditt operativ system.
 

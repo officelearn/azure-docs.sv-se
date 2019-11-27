@@ -1,6 +1,6 @@
 ---
 title: Tilldela en hanterad identitets åtkomst till en resurs med hjälp av PowerShell – Azure AD
-description: Steg för steg åtkomst instruktioner för att tilldela en hanterad identitet på en enda resurs, till en annan resurs, med hjälp av PowerShell.
+description: Steg för steg-instruktioner för att tilldela en hanterad identitet på en resurs, åtkomst till en annan resurs med hjälp av PowerShell.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -22,11 +22,11 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74547251"
 ---
-# <a name="assign-a-managed-identity-access-to-a-resource-using-powershell"></a>Tilldela en hanterad identitet åtkomst till en resurs med hjälp av PowerShell
+# <a name="assign-a-managed-identity-access-to-a-resource-using-powershell"></a>Tilldela en hanterad identitets åtkomst till en resurs med hjälp av PowerShell
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-När du har konfigurerat en Azure-resurs med en hanterad identitet, kan du ge hanterad identitet-åtkomst till en annan resurs, precis som alla säkerhetsobjekt. Det här exemplet visar hur du får en Azure virtuell dator hanterad identitet åtkomst till ett Azure storage-konto med hjälp av PowerShell.
+När du har konfigurerat en Azure-resurs med en hanterad identitet kan du ge den hanterade identiteten åtkomst till en annan resurs, precis som alla säkerhets objekt. Det här exemplet visar hur du ger åtkomst till ett Azure Storage-konto med hjälp av PowerShell i en virtuell Azure-dators hanterade identitet.
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
@@ -36,16 +36,16 @@ När du har konfigurerat en Azure-resurs med en hanterad identitet, kan du ge ha
 - Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
 - Installera [den senaste versionen av Azure PowerShell](/powershell/azure/install-az-ps) om du inte redan gjort det.
 
-## <a name="use-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Använd RBAC för att tilldela en hanterad identitet åtkomst till en annan resurs
+## <a name="use-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Använd RBAC för att tilldela en hanterad identitets åtkomst till en annan resurs
 
 När du har aktiverat hanterad identitet på en Azure-resurs, [till exempel en virtuell Azure-dator](qs-configure-powershell-windows-vm.md):
 
-1. Logga in på Azure med hjälp av `Connect-AzAccount`-cmdleten. Använd ett konto som är associerade med Azure-prenumerationen som du har konfigurerat den hanterade identitet:
+1. Logga in på Azure med hjälp av `Connect-AzAccount`-cmdleten. Använd ett konto som är associerat med den Azure-prenumeration under vilken du har konfigurerat den hanterade identiteten:
 
    ```powershell
    Connect-AzAccount
    ```
-2. I det här exemplet ger vi åtkomst till en Azure virtuell dator till ett lagringskonto. Först använder vi [Get-AzVM](/powershell/module/az.compute/get-azvm) för att hämta tjänstens huvud namn för den virtuella datorn med namnet `myVM`, som skapades när vi aktiverade hanterad identitet. Använd sedan [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) för att ge VM- **läsaren** åtkomst till ett lagrings konto med namnet `myStorageAcct`:
+2. I det här exemplet ger vi en Azure VM-åtkomst till ett lagrings konto. Först använder vi [Get-AzVM](/powershell/module/az.compute/get-azvm) för att hämta tjänstens huvud namn för den virtuella datorn med namnet `myVM`, som skapades när vi aktiverade hanterad identitet. Använd sedan [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) för att ge VM- **läsaren** åtkomst till ett lagrings konto med namnet `myStorageAcct`:
 
     ```powershell
     $spID = (Get-AzVM -ResourceGroupName myRG -Name myVM).identity.principalid

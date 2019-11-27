@@ -36,7 +36,7 @@ Det här skriptet använder följande kommandon: varje kommando i tabellen länk
 | Kommando | Anteckningar |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Skapa en resursgrupp med plats |
-| [az storage accounts create](/cli/azure/storage/account#az-storage-account-create) | Skapa ett lagringskonto |
+| [az storage accounts create](/cli/azure/storage/account#az-storage-account-create) | skapar ett lagringskonto |
 | [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Skapar en funktionsapp i den serverfria [förbrukningsplanen](../functions-scale.md#consumption-plan). |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Skapa en Azure Cosmos DB-databas. |
 | [AZ cosmosdb show](/cli/azure/cosmosdb#az-cosmosdb-show)| Hämtar databas konto anslutningen. |

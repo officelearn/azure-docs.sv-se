@@ -90,7 +90,7 @@ Den här skissen hjälper dig att övervaka och kontrol lera fjärråtkomst geno
 - Granska obegränsad nätverks åtkomst till lagrings konton
 - Fjärrfelsökning bör inaktive ras för API-appen
 - Fjärrfelsökning bör inaktive ras för Funktionsapp
-- Fjärrfelsökning bör stängas av för webbprogram
+- Fjärrfelsökning bör inaktive ras för webb program
 
 ## <a name="au-3-2-content-of-audit-records"></a>AU-3 (2) innehåll i gransknings poster
 
@@ -241,9 +241,9 @@ Den här skissen hjälper dig att skydda konfidentiell och integritet på överf
 - API-appen bör bara vara tillgänglig via HTTPS
 - Granska Windows-webbservrar som inte använder säkra kommunikations protokoll
 - Distribuera krav för att granska Windows-webbservrar som inte använder säkra kommunikations protokoll
-- Funktionen App bör enbart vara åtkomliga via HTTPS
+- Funktionsapp bör endast vara tillgängligt via HTTPS
 - Endast säkra anslutningar till din Redis Cache ska vara aktiverade
-- Webbprogram bör enbart vara åtkomliga via HTTPS
+- Webb program bör endast vara tillgängliga via HTTPS
 - Säker överföring till lagrings konton ska vara aktiverat
 
 ## <a name="sc-28-1-protection-of-information-at-rest"></a>SC-28 (1) skydd av information i vila
@@ -260,7 +260,7 @@ Den här skissen hjälper dig att genomdriva principen om användningen av krypt
 
 ## <a name="si-2-flaw-remediation"></a>SI-2 fel reparation
 
-Den här skissen hjälper dig att hantera fel i informations systemet genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som övervakar saknade system uppdateringar, sårbarheter för operativ system, sårbarheter i SQL och virtuella dator sårbarheter i Azure-säkerhet Resursen. Azure Security Center tillhandahåller rapporterings funktioner som gör att du kan få inblick i real tid i säkerhets läget för distribuerade Azure-resurser. Den här skissen tilldelar också en princip definition som garanterar korrigering av operativ systemet för skalnings uppsättningar för virtuella datorer.
+Den här skissen hjälper dig att hantera fel i informations systemet genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som övervakar saknade system uppdateringar, sårbarheter för operativ system, sårbarheter i SQL och virtuella dator sårbarheter i Azure Security Center. Azure Security Center tillhandahåller rapporterings funktioner som gör att du kan få inblick i real tid i säkerhets läget för distribuerade Azure-resurser. Den här skissen tilldelar också en princip definition som garanterar korrigering av operativ systemet för skalnings uppsättningar för virtuella datorer.
 
 - Kräv automatisk uppdatering av operativ system avbildningar på Virtual Machine Scale Sets
 - System uppdateringar på virtuella datorers skalnings uppsättningar bör installeras
@@ -272,7 +272,7 @@ Den här skissen hjälper dig att hantera fel i informations systemet genom att 
 
 ## <a name="si-3-malicious-code-protection"></a>SI-3 skadlig kod skydd
 
-Den här skissen hjälper dig att hantera Endpoint Protection, inklusive skadlig kod skydd, genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som övervakas för saknade Endpoint Protection på virtuella datorer i Azure Security Center och tvinga Microsoft lösning mot skadlig kod på virtuella Windows-datorer.
+Den här skissen hjälper dig att hantera Endpoint Protection, inklusive skadlig kod skydd, genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som övervakas för saknade Endpoint Protection på virtuella datorer i Azure Security Center och tillämpa Microsoft Antimalware-lösningen på virtuella Windows-datorer.
 
 - Distribuera standard Microsoft IaaSAntimalware-tillägget för Windows Server
 - Endpoint Protection-lösningen bör installeras på virtuella datorers skalnings uppsättningar

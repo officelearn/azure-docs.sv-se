@@ -30,8 +30,8 @@ Den här skissen hjälper dig att hantera och styra nätverk genom att tilldela 
 
 Den här skissen hjälper dig att genomdriva principen med hjälp av kryptografiska kontroller genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som tillämpar vissa kryptografiska kontroller och gransknings användningen av svaga kryptografiska inställningar. Att förstå var dina Azure-resurser kan ha icke-optimala kryptografiska konfigurationer kan hjälpa dig att vidta korrigerande åtgärder för att säkerställa att resurserna konfigureras i enlighet med din informations säkerhets princip. Mer specifikt kräver principerna som tilldelats av den här skissen transparent data kryptering på SQL-databaser. granska saknad kryptering på lagrings konton och variabler för Automation-konto. Det finns också principer för att hantera oskyddade anslutningar till lagrings konton, Function-appar, WebApp, API Apps och Redis Cache och granska okrypterade Service Fabric-kommunikation.
 
-- Funktionen App bör enbart vara åtkomliga via HTTPS
-- Webbprogram bör enbart vara åtkomliga via HTTPS
+- Funktionsapp bör endast vara tillgängligt via HTTPS
+- Webb program bör endast vara tillgängliga via HTTPS
 - API-appen bör bara vara tillgänglig via HTTPS
 - transparent datakryptering på SQL-databaser ska aktive ras
 - Disk kryptering bör tillämpas på virtuella datorer

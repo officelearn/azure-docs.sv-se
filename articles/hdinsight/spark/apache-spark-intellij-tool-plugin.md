@@ -23,7 +23,7 @@ Den här självstudien visar hur du använder Azure Toolkit for IntelliJ-plugin-
 * Få åtkomst till Azure HDInsight Spark kluster resurser.
 * Utveckla och kör ett Scala Spark-program lokalt.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Använd plugin-programmet Azure Toolkit for IntelliJ
 > * Utveckla Apache Spark program
@@ -239,7 +239,7 @@ När du har skapat ett Scala-program kan du skicka det till klustret.
     |Lagrings typ|Välj **Använd Azure Blob för att överföra** från List rutan.|
     |Lagringskonto|Ange ditt lagrings konto.|
     |Lagrings nyckel|Ange din lagrings nyckel.|
-    |Storage-behållare|Välj din lagrings behållare i list rutan när **lagrings kontot** och **lagrings nyckeln** har angetts.|
+    |Lagrings behållare|Välj din lagrings behållare i list rutan när **lagrings kontot** och **lagrings nyckeln** har angetts.|
 
     ![Dialog rutan för Spark-sändning](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-02.png)
 
@@ -455,7 +455,7 @@ Du kan konvertera befintliga Spark Scala-program som du skapade i IntelliJ-idén
 
 Om du inte kommer att fortsätta att använda det här programmet, tar du bort det kluster som du skapade med följande steg:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. I rutan **Sök** längst upp skriver du **HDInsight**.
 
@@ -469,7 +469,7 @@ Om du inte kommer att fortsätta att använda det här programmet, tar du bort d
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig att använda Azure Toolkit for IntelliJ-plugin-programmet för att utveckla Apache Spark program som skrivits i [Scala](https://www.scala-lang.org/)och sedan skicka dem till ett HDInsight Spark-kluster direkt från IntelliJ-Integrated Development Environment ( IDE). Gå vidare till nästa artikel för att se hur de data som du har registrerat i Apache Spark kan hämtas till ett BI-analysverktyg såsom Power BI.
+I den här självstudien har du lärt dig hur du använder Azure Toolkit for IntelliJ-plugin-programmet för att utveckla Apache Spark program som skrivits i [Scala](https://www.scala-lang.org/)och sedan skicka dem till ett HDInsight Spark-kluster direkt från IntelliJ-Integrated Development Environment (IDE). Gå vidare till nästa artikel för att se hur de data som du har registrerat i Apache Spark kan hämtas till ett BI-analysverktyg såsom Power BI.
 
 > [!div class="nextstepaction"]
 > [Analysera data med BI-verktyg](apache-spark-use-bi-tools.md)

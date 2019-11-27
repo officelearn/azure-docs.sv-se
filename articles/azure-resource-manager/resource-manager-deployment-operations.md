@@ -1,5 +1,5 @@
 ---
-title: Distributionshistorik
+title: Distributions historik
 description: Beskriver hur du visar Azure Resource Manager distributions åtgärder med portalen, PowerShell, Azure CLI och REST API.
 tags: top-support-issue
 ms.topic: conceptual

@@ -34,7 +34,7 @@ Du kan använda Azure Portal och leta efter virtuella datorer som är schemalagd
 
    **Underhålls status**: visar underhålls status för den virtuella datorn. Följande är de potentiella värdena:
       
-      | Value | Beskrivning |
+      | Värde | Beskrivning |
       |-------|-------------|
       | Börja nu | Den virtuella datorn är i fönstret för självbetjänings underhåll där du kan starta underhållet själv. Se nedan om hur du startar underhåll på den virtuella datorn. | 
       | Schemalagd | Den virtuella datorn är schemalagd för underhåll utan något alternativ för dig att starta underhållet. Du kan lära dig underhålls fönstret genom att välja den underhålls schemalagda perioden i den här vyn eller genom att klicka på den virtuella datorn. | 

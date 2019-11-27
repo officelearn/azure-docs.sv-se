@@ -29,12 +29,12 @@ I följande tabell visas mat ris element och Character-gränser för varje åtg�
 
 | Åtgärd | Maximal storlek för mat ris element |   Maximalt antal mat ris element |  Maximal begär ande storlek (tecken) |
 |:----|:----|:----|:----|
-| Översätt | 5 000 | 100   | 5 000 |
-| Transkribera | 5 000 | 10    | 5 000 |
+| Översätt | 5 000 | 100   | 5 000 |
+| Transkribera | 5 000 | 10    | 5 000 |
 | Upptäcka | 10 000 | 100 |   50 000 |
 | BreakSentence | 10 000    | 100 | 50 000 |
 | Slå upp i ordlista| 100 |  10  | 1,000 |
-| Ordlisteexempel | 100 för text och 100 för översättning (totalt 200)| 10|   2,000 |
+| Ordlisteexempel | 100 för text och 100 för översättning (totalt 200)| 10|   2 000 |
 
 ## <a name="character-limits-per-hour"></a>Character-gränser per timme
 
@@ -64,13 +64,13 @@ Translator Text API har en maximal fördröjning på 15 sekunder med standard mo
 
 När du använder funktionen [BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence) är menings längden begränsad till 275 tecken. Det finns undantag för följande språk:
 
-| Språk | Kod | Tecken gräns |
+| Språk | Programmera | Tecken gräns |
 |----------|------|-----------------|
 | Kinesiska | zh | 132 |
 | Tyska | de | 290 |
 | Italienska | it | 280 |
 | Japanska | ja | 150 |
-| Portugisiska | pt | 290 |
+| Portugisiska | komma | 290 |
 | Spanska | es | 280 |
 | Italienska | it | 280 |
 | Thai | i:te | 258 |

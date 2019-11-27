@@ -95,7 +95,7 @@ Mer information om hur du konfigurerar virtuella datorer för hög tillgängligh
 
 #### <a name="availability-zones"></a>Tillgänglighetszoner
 
-Tillgänglighets zoner är unika fysiska platser inom en Azure-region. Varje zon består av en eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverkstjänster. För att säkerställa återhämtning finns det minst tre separata zoner i alla aktiverade regioner. 
+Tillgänglighets zoner är unika fysiska platser inom en Azure-region. Varje zon utgörs av ett eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverk. För att säkerställa återhämtning finns det minst tre separata zoner i alla aktiverade regioner. 
 
 En tillgänglighets zon är en kombination av en fel domän och en uppdaterings domän. Om du skapar tre eller fler virtuella datorer över tre zoner i en Azure-region, distribueras de virtuella datorerna på ett effektivt sätt mellan tre fel domäner och tre uppdaterings domäner. Azure-plattformen identifierar den här distributionen mellan uppdateringsdomänerna så att inte virtuella datorer i olika zoner uppdateras på samma gång.
 

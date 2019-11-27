@@ -1,6 +1,6 @@
 ---
-title: View key metrics with Cloudyn dashboards in Azure | Microsoft Docs
-description: This article describes how you can view key metrics with dashboards in Cloudyn.
+title: Visa viktiga mått med Cloudyn instrumentpaneler i Azure | Microsoft Docs
+description: Den här artikeln beskrivs hur du visar viktiga mått med instrumentpaneler i Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
@@ -17,284 +17,284 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74230072"
 ---
-# <a name="view-key-cost-metrics-with-dashboards"></a>View key cost metrics with dashboards
+# <a name="view-key-cost-metrics-with-dashboards"></a>Visa nyckeln kostnad mått med instrumentpaneler
 
-Dashboards in Cloudyn provide a high-level view of reports. Dashboards allow you to view key cost metrics in a single view. They also provide business trend highlights to help you make important business decisions.
+Instrumentpaneler i Cloudyn ger en översikt över rapporter. Instrumentpaneler kan du visa viktiga kostnadsmått i en enda vy. Du får även att företag trend markeringar för att hjälpa dig att fatta viktiga affärsbeslut.
 
-Dashboards are also used to create views for people with different responsibilities in your organization, which might include:
+Instrumentpaneler också för att skapa vyer för personer med olika ansvarsområden i din organisation, vilket kan innebära:
 
-- Financial controller
-- Application or project owner
-- DevOps engineer
-- Executives
+- Finansiella controller
+- Program eller projekt ägare
+- DevOps-tekniker
+- Chefer
 
-Dashboards are made up of widgets and each widget is essentially a report thumbnail. Click a widget to open its report. When you customize reports, you save them to My Reports and they're added to the dashboard.
+Instrumentpaneler består av widgetar och varje widget är i stort sett miniatyrbilden för en rapport. Klicka på en widget för att öppna dess rapport. När du har ändrat rapporter kan du spara dem i Mina rapporter och de läggs till på instrumentpanelen.
 
-Dashboard versions differ for Management (MSP), Enterprise, and Premium Cloudyn users. The differences are determined by entity access levels. For more information about access levels, see [Entity access levels](tutorial-user-access.md#entity-access-levels).
+Instrumentpanelen versioner skiljer sig för hantering (MSP), Enterprise och Premium Cloudyn användare. Skillnaderna bestäms av åtkomstnivåer för entiteten. Mer information om åtkomst nivåer finns i [enhets åtkomst nivåer](tutorial-user-access.md#entity-access-levels).
 
-Dashboard availability depends on the type of cloud service provider account that is used when viewing dashboards. The type of information available and collected by Cloudyn affects reports in dashboards. For example, if you don't have an AWS account then you won't see the S3 Tracker dashboard. Similarly, if you don't enable Azure Resource Manager access to Cloudyn then you won't see any Azure-specific information in Optimizer dashboard widgets.
+Instrumentpanelen tillgänglighet beror på vilken typ av cloud service providerkonto som används när du visar instrumentpaneler. Vilken typ av information tillgänglig och som samlats in av Cloudyn påverkar rapporter i instrumentpaneler. Till exempel om du inte har ett AWS-konto visas sedan inte spårningsverktyget för S3-instrumentpanelen. På samma sätt, om du inte aktiverar Azure Resource Manager-åtkomst till Cloudyn sedan visas inte någon Azure-specifik information i optimering instrumentpanelswidgetar.
 
-You can use any of the premade dashboards or you can create your own dashboard with customized reports. If you're unfamiliar with Cloudyn reports, see [Use Cloudyn reports](use-reports.md).
+Du kan använda någon av de färdiga instrumentpanelerna eller du kan skapa din egen instrumentpanel med anpassade rapporter. Om du inte är bekant med Cloudyn-rapporter kan du läsa [Använd Cloudyn-rapporter](use-reports.md).
 
-## <a name="create-a-custom-dashboard"></a>Create a custom dashboard
+## <a name="create-a-custom-dashboard"></a>Skapa en anpassad instrumentpanel
 
-To quickly get started with a custom dashboard, you can duplicate an existing one to use its properties. Then you can modify it to suit your needs. On the dashboard you want to copy, click **Save As**. You can only duplicate customized dashboards — you can't duplicate the dashboards that are included with Cloudyn.
+Om du vill komma igång snabbt med en anpassad instrumentpanel kan duplicera du en befintlig för att använda dess egenskaper. Sedan kan du ändra den så att den passar dina behov. Klicka på **Spara som**på instrument panelen som du vill kopiera. Du kan bara kopiera anpassade instrumentpaneler – du kan inte duplicera instrumentpaneler som ingår i Cloudyn.
 
-To create a custom dashboard:
+Skapa en anpassad instrumentpanel:
 
-1. On the homepage, click **Add New +** . The My Dashboard page is displayed.  
-    ![My dashboard page where you add new reports](./media/dashboards/my-dashboard.png)
-2. Click **Add New Report**. The Add Report box is displayed.
-3. Select the report that you want to add to the dashboard widget. The widget is added to the dashboard.
-4. Repeat the preceding steps until the dashboard is complete.
-5. To change the name of the dashboard, click the name of the dashboard on the Dashboard home page and type the new name.
+1. På Start sidan klickar du på **Lägg till ny +** . Sidan Min instrumentpanel visas.  
+    ![min instrument panels sida där du lägger till nya rapporter](./media/dashboards/my-dashboard.png)
+2. Klicka på **Lägg till ny rapport**. Rutan Lägg till rapport visas.
+3. Välj den rapport som du vill lägga till en instrumentpanelwidget. Widgeten har lagts till på instrumentpanelen.
+4. Upprepa föregående steg tills instrumentpanelen är klar.
+5. Om du vill ändra namnet på instrumentpanelen, klicka på namnet på instrumentpanelen på startsidan för instrumentpanelen och Skriv det nya namnet.
 
-## <a name="modify-a-custom-dashboard"></a>Modify a custom dashboard
+## <a name="modify-a-custom-dashboard"></a>Ändra en anpassad instrumentpanel
 
-Like creating a custom dashboard, you can't modify the dashboards included with Cloudyn. To modify a custom dashboard report:
+Du kan inte ändra de instrumentpaneler som ingår i Cloudyn som att skapa en anpassad instrumentpanel. Ändra en anpassad instrumentpanel för rapport:
 
-1. In the dashboard, find the report you want to modify and click **Edit**. The report is displayed.
-2. Make any changes that you want to the report and click **Save**. The report is updated and displays your changes.
+1. I instrument panelen letar du reda på rapporten som du vill ändra och klickar på **Redigera**. Rapporten visas.
+2. Gör de ändringar du vill i rapporten och klicka på **Spara**. Rapporten uppdateras och visar dina ändringar.
 
-## <a name="share-a-custom-dashboard"></a>Share a custom dashboard
+## <a name="share-a-custom-dashboard"></a>Dela en anpassad instrumentpanel
 
-You can share a custom dashboard with others to _Public_ or _My Entity_. When you share to Public, all users can view the dashboard. Only users with access to the current entity can view the dashboard when you share to My Entity. The steps to share a custom dashboard with Public and My Entity are similar.
+Du kan dela en anpassad instrument panel med andra till en _offentlig_ eller _min entitet_. När du delar till offentlig kan kan alla användare visa instrumentpanelen. Endast användare med åtkomst till den aktuella entiteten kan visa instrumentpanelen när du delar till min entitet. Stegen för att dela en anpassad instrumentpanel med offentliga och min enhet är liknande.
 
-To share a custom dashboard to Public:
+Dela en anpassad instrumentpanel till offentligt:
 
-1. In a dashboard, click **Dashboard Settings**. The Dashboard Settings box is displayed.  
-    ![dashboard settings for a custom dashboard](./media/dashboards/dashboard-options.png)
-2. In the Dashboard Settings box, click the arrow symbol and then click **Public**. The Public Dashboard confirmation dialog box is displayed.
-3. Click  **Yes**. The dashboard is now available to others.
+1. I en instrument panel klickar du på **instrument panels inställningar**. Rutan inställningar för instrumentpanelen visas.  
+    ![instrument panels inställningar för en anpassad instrument panel](./media/dashboards/dashboard-options.png)
+2. I rutan instrument panels inställningar klickar du på pilen och sedan på **offentlig**. Den offentliga instrumentpanelen bekräftande dialogrutan visas.
+3. Klicka på **Ja**. Instrumentpanelen är nu tillgänglig för andra.
 
-## <a name="delete-a-custom-dashboard-report"></a>Delete a custom dashboard report
+## <a name="delete-a-custom-dashboard-report"></a>Ta bort en anpassad instrumentpanel-rapport
 
-You can delete a custom report component from the dashboard. Deleting the report from the dashboard doesn't delete the report from the reports list. Instead, deleting the report removes it from the dashboard only.
+Du kan ta bort en anpassad rapport-komponent från instrumentpanelen. Tar bort rapporten från instrumentpanelen bort inte rapporten från rapportlistan över. I stället tar du bort rapporten tas den bort från instrumentpanelen endast.
 
-To delete a dashboard component, on the dashboard component, click **Delete**. Clicking **Delete**  immediately deletes the dashboard component.
+Om du vill ta bort en instrument panels komponent klickar du på **ta bort**på instrument panels komponenten. Om du klickar på **ta bort** tas instrument Panel komponenten bort omedelbart.
 
-## <a name="share-a-dashboard-enterprise"></a>Share a dashboard (Enterprise)
+## <a name="share-a-dashboard-enterprise"></a>Dela en instrumentpanel (företag)
 
-You can share custom dashboards to all users in your organization or with the users of the current entity. Sharing a dashboard can give others a quick high-level view of your KPI. When you share a dashboard, it automatically replicates the dashboard to all your Cloudyn entities/customers. Changes to the shared dashboard are automatically updated.
+Du kan dela anpassade instrumentpaneler för alla användare i din organisation eller med användare i den aktuella entiteten. Dela en instrumentpanel kan ge andra användare en snabb översikt över din KPI. När du delar en instrumentpanel, replikerar automatiskt instrumentpanelen till alla dina Cloudyn entiteter/kunder. Ändringar i den delade instrumentpanelen uppdateras automatiskt.
 
-To share a dashboard with all users including subentities:
+Att dela en instrumentpanel med alla användare, inklusive underentiteter:
 
-1. On the dashboard home page, click **Edit**.
-2. Click **Share** and then select **Public**.
-3. The Global Public Dashboard confirmation box is displayed.
-4. Click **Yes** to set the dashboard as a global public dashboard.
+1. På instrument panelens start sida klickar du på **Redigera**.
+2. Klicka på **dela** och välj sedan **offentlig**.
+3. Dialogrutan Global offentliga instrumentpanelen visas.
+4. Klicka på **Ja** för att ställa in instrument panelen som en global offentlig instrument panel.
 
-To share a dashboard with all users of a current entity:
+Dela en instrumentpanel med alla användare av en aktuell entitet:
 
-1. From the Dashboard home page, click **Edit**.
-2. Click **Share** and then select **My Entity**.
-3. Click **Yes** to set the dashboard as a public dashboard.
+1. På instrument panelens start sida klickar du på **Redigera**.
+2. Klicka på **dela** och välj **min entitet**.
+3. Klicka på **Ja** för att ställa in instrument panelen som en offentlig instrument panel.
 
-## <a name="duplicate-a-custom-dashboard"></a>Duplicate a custom dashboard
+## <a name="duplicate-a-custom-dashboard"></a>Duplicera en anpassad instrumentpanel
 
-When you create a new dashboard, you might want to use similar properties from an existing dashboard. You can duplicate the dashboard to create a new one.
+När du skapar en ny instrumentpanel, kanske du vill använda liknande egenskaper från en befintlig instrumentpanel. Du kan duplicera instrumentpanelen som du vill skapa en ny.
 
-You can only duplicate custom dashboards. You can't duplicate standard dashboards.
+Du kan endast duplicera anpassade instrumentpaneler. Du kan inte duplicera standard instrumentpaneler.
 
-To duplicate (clone) a custom dashboard:
+Att duplicera (klonar) en anpassad instrumentpanel:
 
-1. On the Dashboard that you want to duplicate, click **Save As**. A new dashboard opens with the same name and a number.
-2. Rename the duplicated dashboard and modify it as you like.
-
-Eller
-
-1. In Dashboard Settings, click **Save As**  on the line of the dashboard that you want to duplicate.
-2. The duplicated dashboard opens.
-3. Rename the dashboard and modify it as you like.
-
-## <a name="set-a-default-dashboard"></a>Set a default dashboard
-
-You can set any dashboard as your default. Setting it to your default makes it appear as the left-most tab in the dashboard tab list. The default dashboard displays when open the Cloudyn portal.
-
-- Click the dashboard tab you would like to set as default, then click **Default** on the right.
+1. Klicka på **Spara som**på instrument panelen som du vill duplicera. En ny instrumentpanel öppnas med samma namn och ett nummer.
+2. Byt namn på duplicerade instrumentpanelen och ändra det som du vill.
 
 Eller
 
-1. Click **Dashboard Settings** to see the list of available dashboards and select the dashboard that you want to set as the default.  
-    ![dashboard options for a default dashboard](./media/dashboards/dashboard-options.png)
-2. Click **Default** in the line of the dashboard. The Default Dashboard confirmation box is displayed.
-3. Klicka på **Ja**. The dashboard is set to default.
+1. I instrument panels inställningar klickar du på **Spara som** på den instrument panel som du vill duplicera.
+2. Duplicerade instrumentpanelen öppnas.
+3. Byt namn på instrumentpanelen och ändra det som du vill.
+
+## <a name="set-a-default-dashboard"></a>Ange en standardinstrumentpanel
+
+Du kan ange vilken instrumentpanel som standard. Ange den till din standard gör det visas som fliken vänster i listan instrumentpanelen. Standardinstrumentpanelen visar när öppna Cloudyn-portalen.
+
+- Klicka på fliken instrument panel som du vill ange som standard och klicka sedan på **standard** till höger.
+
+Eller
+
+1. Klicka på **instrument panels inställningar** om du vill se en lista över tillgängliga instrument paneler och välj den instrument panel som du vill ange som standard.  
+    ![instrument panel alternativ för en standard instrument panel](./media/dashboards/dashboard-options.png)
+2. Klicka på **standard** på instrument panelens linje. Dialogrutan standard instrumentpanelen visas.
+3. Klicka på **Ja**. Instrumentpanelen är inställd på standardvärdet.
 
 ## <a name="management-dashboard"></a>Hanteringspanelen
-The Management (or MSP dashboard for MSP users) dashboard includes highlights of the main report types.  
-![Management dashboard showing various reports](./media/dashboards/management-dash.png)
+Hanteringen (eller MSP-instrumentpanel för MSP-användare) instrumentpanel innehåller höjdpunkter i huvudrapporten-typer.  
+![Instrumentpanel för hantering som visar olika rapporter](./media/dashboards/management-dash.png)
 
-### <a name="cost-entity-summary-enterprise-only"></a>Cost Entity Summary (Enterprise only)
-This widget summarizes the managed cost entities, including the number of entities and number of accounts.
-- Click the widget to open the Enterprise Details report.
+### <a name="cost-entity-summary-enterprise-only"></a>Kostnadsenhet (endast Enterprise)
+Den här widgeten sammanfattas hanterade kostnaden-entiteter, t.ex. antal entiteter och antalet konton.
+- Klicka på widgeten för att öppna rapporten information om Enterprise.
 
-### <a name="cost-over-time"></a>Cost Over Time
-This widget can help you spot cost trends. It highlights the cost for the last day, based on the trend of the last 30 days.
-- Click the widget to open the Actual Cost Over Time report to view and filter additional details.
+### <a name="cost-over-time"></a>Kostnad över tid
+Den här widgeten kan hjälpa dig att upptäcka kostnadstrender. Den går igenom kostnaden för den sista dagen, baserat på trend de senaste 30 dagarna.
+- Klicka på widgeten för att öppna rapporten Actual Cost Over Time för att visa och filtrera ytterligare information.
 
-### <a name="asset-controller"></a>Asset Controller
-This widget highlights the number of running instances from the previous day, above the usage trend over the last 30 days.
-- Click the widget to open the Asset Controller dashboard.
+### <a name="asset-controller"></a>Tillgångskontrollant
+Widgenten visar antalet instanser som körs från föregående dag, ovan användningstrend under de senaste 30 dagarna.
+- Klicka på widgeten för att öppna Tillgångskontrollant-instrumentpanelen.
 
-### <a name="unused-ri-detector"></a>Unused RI Detector
-This widget highlights the number of Amazon EC2 unused reservations.
-- Click the widget to open the Currently Unused Reservations report where you can view the unused reservations you can modify.
+### <a name="unused-ri-detector"></a>Oanvända RI detektor
+Widgenten visar antalet Amazon EC2 oanvända reservationer.
+- Klicka på widgeten för att öppna rapporten för närvarande oanvända reservationer där du kan visa den oanvända reservationer som du kan ändra.
 
-### <a name="cost-by-service"></a>Cost by Service
-This widget highlights amortized costs by service for the last 30 days. Hover over the pie chart to see the costs per service.
-- Click the widget to open the Actual Cost Analysis report.
+### <a name="cost-by-service"></a>Kostnad per tjänst
+Den här widgeten markeras amorterade kostnader genom tjänsten under de senaste 30 dagarna. Hovra över cirkeldiagrammet för att visa kostnaderna per tjänst.
+- Klicka på widgeten för att öppna rapporten analys av faktiska kostnader.
 
-### <a name="potential-savings"></a>Potential savings
-This widget shows instance type pricing recommendations for Amazon EC2 and Amazon RDS.
-- Click the widget open the Savings Analysis report. It lists your costs by instance types with potential savings.
+### <a name="potential-savings"></a>Potentiella besparingar
+Widgenten visar instanstyp priser rekommendationer för Amazon EC2 och Amazon Fjärrskrivbordstjänster.
+- Klicka på widgeten öppna besparingar analysrapporten. Den visar dina kostnader med instanstyper med potentiella besparingar.
 
-### <a name="compute-instances---daily-trend"></a>Compute Instances - Daily Trend
-This widget displays the active instances by type, for the last 30 days.
-- Click the widget to open the Instances Over Time report, where you can view a breakdown of all instances running during the last 30 days.
+### <a name="compute-instances---daily-trend"></a>Beräkningsinstanser – daglig Trend
+Widgenten visar aktiva instanser efter typ går under de senaste 30 dagarna.
+- Klicka på widgeten för att öppna rapporten instanser över tid där du kan visa en sammanställning av alla instanser som körs under de senaste 30 dagarna.
 
-### <a name="storage-by-department"></a>Storage by department
-This widget displays the storage services used by departments. Hover over the pie chart to see your storage consumption by department.
-- Click the widget to open the S3 Tracker dashboard.
+### <a name="storage-by-department"></a>Lagring per avdelning
+Widgenten visar storage-tjänsterna som används av avdelningar. Hovra över cirkeldiagrammet för att se din lagringsanvändning per avdelning.
+- Klicka på widgeten för att öppna spårningsverktyget för S3-instrumentpanelen.
 
-## <a name="cost-controller-dashboard"></a>Cost Controller dashboard
-The Cost Controller dashboard shows pre-set cost allocation highlights.  
-![Cost Controller dashboard showing various reports](./media/dashboards/cost-controller-dashboard.png)
+## <a name="cost-controller-dashboard"></a>Kostnad instrumentpanel för kontrollenhet
+Kostnaden Controller instrumentpanelen visar förinställda cost allocation höjdpunkter.  
+![Cost kontrollanten instrumentpanelen som visar olika rapporter](./media/dashboards/cost-controller-dashboard.png)
 
-### <a name="cost-over-time"></a>Cost Over Time
-This widget helps you spot cost trends. It highlights the cost for the last day, based on the trend of the last 30 days.
-- Click the widget to open the Actual Cost Over Time report to view and filter additional details.
+### <a name="cost-over-time"></a>Kostnad över tid
+Den här widgeten hjälper dig att upptäcka kostnadstrender. Den går igenom kostnaden för den sista dagen, baserat på trend de senaste 30 dagarna.
+- Klicka på widgeten för att öppna rapporten Actual Cost Over Time för att visa och filtrera ytterligare information.
 
-### <a name="monthly-cost-trends"></a>Monthly Cost Trends
-This widget highlights projected amortized spending and your actual spend since the beginning of the month.
-- Click the widget to open the Current Month Projected Cost report, which provides a month-to-date cost summary.
+### <a name="monthly-cost-trends"></a>Månatlig kostnad trender
+Widgenten visar beräknade amorterade utgifter och den faktiska utgifter sedan i början av månaden.
+- Klicka på widgeten för att öppna rapporten Current Month Projected Cost, vilket ger en sammanfattning av månad hittills kostnad.
 
-This report shows the cost from the beginning of month, the cost of previous month, and the current month projected cost. The current month projected cost is calculated by adding the up-to-date monthly cost and projection. The projection is based on the cost monitored over the last 30 days.
+Den här rapporten visar kostnaden från början av månaden och kostnaden för föregående månad aktuell månad projected cost. Den aktuella månaden beräknade kostnaden beräknas genom att lägga till den uppdaterade månadskostnaden och projektion. Projektionen som baseras på kostnaden övervakas under de senaste 30 dagarna.
 
-### <a name="12-month-planner"></a>12 Month Planner
-This widget highlights the projected costs over the next 12 months and the potential savings.
-- Click the widget to open the Annual Projected Cost report.
+### <a name="12-month-planner"></a>12 månaders Planner
+Widgenten visar beräknade kostnader över kommande 12 månader och potentiella besparingar.
+- Klicka på widgeten för att öppna rapporten Annual Projected Cost.
 
-### <a name="cost-by-service"></a>Cost by Service
-This widget highlights amortized costs by service for the last 30 days.
-- Hover over the pie chart to see the costs per service.
-- Click the widget to open the Actual Cost Analysis report.
+### <a name="cost-by-service"></a>Kostnad per tjänst
+Den här widgeten markeras amorterade kostnader genom tjänsten under de senaste 30 dagarna.
+- Hovra över cirkeldiagrammet för att visa kostnaderna per tjänst.
+- Klicka på widgeten för att öppna rapporten analys av faktiska kostnader.
 
-### <a name="cost-by-account"></a>Cost by Account
-This widget highlights amortized costs by account for the last 30 days.
-- Hover over the pie chart to see the costs per account.
-- Click the widget to open the Actual Cost Analysis report.
+### <a name="cost-by-account"></a>Kostnad per konto
+Widgenten visar amorterade kostnader per konto under de senaste 30 dagarna.
+- Hovra över cirkeldiagrammet för att visa kostnaderna per konto.
+- Klicka på widgeten för att öppna rapporten analys av faktiska kostnader.
 
-### <a name="cost-trend-by-day"></a>Cost Trend by Day
-This widget highlights spend over the last 30 days.
-- Hover over the bar graph to see costs per day.
-- Click the widget to open the Actual Cost Over Time report.
+### <a name="cost-trend-by-day"></a>Kostnadstrend per dag
+Den här widgeten höjdpunkter spendera under de senaste 30 dagarna.
+- Hovra över stapeldiagrammet för att visa kostnaderna per dag.
+- Klicka på widgeten för att öppna rapporten Actual Cost Over Time.
 
-### <a name="cost-trend-by-month---last-6-months"></a>Cost Trend by Month - Last 6 months
+### <a name="cost-trend-by-month---last-6-months"></a>Kostnadstrend per månad – senaste 6 månaderna
 
-This widget highlights spend over the last six months.
-- Hover over the bar graph to see costs per month.
-- Click the widget to open the Actual Cost Over Time report.
+Den här widgeten höjdpunkter spendera under de senaste sex månaderna.
+- Hovra över stapeldiagrammet för att se kostnader per månad.
+- Klicka på widgeten för att öppna rapporten Actual Cost Over Time.
 
-## <a name="asset-controller-dashboard"></a>Asset Controller dashboard
+## <a name="asset-controller-dashboard"></a>Instrumentpanel för tillgången kontrollenhet
 
-This dashboard displays the number of running instances, available and in-use disks, distribution of instance types, and storage information.  
-![Asset Controller dashboard showing various reports](./media/dashboards/asset-controller-dashboard.png)
+Den här instrumentpanelen visar antalet instanser, tillgänglig och i användning diskar, distribution av instanstyper och lagringsinformation som körs.  
+![Instrumentpanel för kontrollenhet tillgången som visar olika rapporter](./media/dashboards/asset-controller-dashboard.png)
 
-### <a name="compute-instances"></a>Compute Instances
-This widget displays the number of running instances based on the usage trend over the last 30 days.
-- Click the widget to open the Instances Over Time report.
+### <a name="compute-instances"></a>Instanser
+Widgenten visar antalet instanser baserat på den informationen om användningstrenden under de senaste 30 dagarna som körs.
+- Klicka på widgeten för att öppna rapporten instanser över tid.
 
 ### <a name="disks"></a>Diskar
-This widget highlights the total number and volume of disks, that are in-use and available.
-- Click the widget to open the Active Disks report.
+Widgenten visar totalt antal och volym av diskar som används och är tillgängliga.
+- Klicka på widgeten för att öppna rapporten Active diskar.
 
-### <a name="instance-type-distribution"></a>Instance Type Distribution
-This widget highlights the instance types in a pie chart.
-- Click on the widget to open the Instance Distribution report, which provides a breakdown of your active instances by the selected aggregation.
+### <a name="instance-type-distribution"></a>Instans typ av Distribution
+Widgenten visar instanstyper i ett cirkeldiagram.
+- Klicka på widgeten att öppna rapporten instans Distribution, vilket ger en detaljerad analys av din aktiva instanser av den valda aggregeringen.
 
-### <a name="compute-instances---daily-trend"></a>Compute Instances - Daily Trend
-This widget highlights the compute instances (spot, reserved, and on-demand) per day for the last 30 days.
-- Hover over the graph to view the number of compute instances, per type per day.
-- Click the widget to open the Instances Over Time report.
+### <a name="compute-instances---daily-trend"></a>Beräkningsinstanser – daglig Trend
+Widgenten visar beräkningsinstanser (upptäcka reserverade och på begäran) per dag under de senaste 30 dagarna.
+- Hovra över graph för att visa antalet beräkningsinstanser per typ per dag.
+- Klicka på widgeten för att öppna rapporten instanser över tid.
 
-### <a name="all-buckets-s3"></a>All Buckets (S3)
-This widget highlights the total S3 storage and number of objects stored.
-- Click the widget to open the S3 Tracker Dashboard. The dashboard helps you find, analyze, and display your current storage usage and trends.
+### <a name="all-buckets-s3"></a>Alla Buckets (S3)
+Widgenten visar den totala S3 lagring och antalet objekt som lagras.
+- Klicka på widgeten för att öppna instrumentpanelen för S3-spåraren. Med instrumentpanelen kan du hitta, analysera och visa dina aktuella lagringsanvändningen och trender.
 
-### <a name="sql-db-instances-rds"></a>SQL DB Instances (RDS)
-This widget highlights the number of running Amazon RDS instances based on the trend of the last 30 days.
-- Click the widget to open the RDS Instance Over Time report.
+### <a name="sql-db-instances-rds"></a>SQL-Databasinstanser (RDS)
+Widgenten visar antalet körda Amazon RDS-instanser baserat på trend de senaste 30 dagarna.
+- Klicka på widgeten för att öppna rapporten RDS-instansen över tid.
 
-## <a name="optimizer-dashboard"></a>Optimizer Dashboard
-This dashboard displays downsizing recommendations, unused resources, and potential savings.  
-![Optimizer dashboard showing various reports](./media/dashboards/optimizer-dashboard.png)
+## <a name="optimizer-dashboard"></a>Instrumentpanel för optimering
+Den här instrumentpanelen visar downsizing rekommendationer, oanvända resurser och potentiella besparingar.  
+![Optimering instrumentpanelen som visar olika rapporter](./media/dashboards/optimizer-dashboard.png)
 
-### <a name="ri-calculator"></a>RI Calculator
-This widget displays the number of RI buying recommendations and highlights the potential annual savings.
-- Click the widget to open the Reserved Instance Calculator where you can determine when to use on-demand vs. reserved pricing plans.
+### <a name="ri-calculator"></a>RI-kalkylator
+Widgenten visar antalet köprekommendationer för RI och visar den potentiella årliga besparingar.
+- Klicka på widgeten för att öppna den reserverade instansen Kalkylatorn där du kan bestämma när du ska använda på begäran jämfört med reserverade prissättningar.
 
 ### <a name="sizing"></a>Storlekar
-This widget highlights the sizing recommended and potential savings, if implemented.
-- Click the widget to open the EC2 Cost Effective Sizing Recommendations report.
+Den här widgeten illustrerar storlek rekommenderas och potentiella besparingar om implementerat.
+- Klicka på widgeten för att öppna rapporten EC2 Cost Effective Sizing Recommendations.
 
-### <a name="unused-ri-detector"></a>Unused RI Detector
-This widget highlights the number of Amazon EC2 unused reservations.
-- Click the widget to open the Currently Unused Reservations report where you can view the unused reservations that you can modify.
+### <a name="unused-ri-detector"></a>Oanvända RI detektor
+Widgenten visar antalet Amazon EC2 oanvända reservationer.
+- Klicka på widgeten för att öppna rapporten för närvarande oanvända reservationer där du kan visa de oanvända reservationer som du kan ändra.
 
-###  <a name="available-disks"></a>Available Disks
-This widget highlights the number of unattached disks in your deployment.
-- Click the widget to open the Unattached Disks report.
+###  <a name="available-disks"></a>Tillgängliga diskar
+Widgenten visar antalet ej anslutna diskar i distributionen.
+- Klicka på widgeten för att öppna rapporten icke anslutna diskar.
 
-### <a name="rds-ri-calculator"></a>RDS RI Calculator
-This widget highlights the number of reservation recommendations for your Amazon RDS instances and the potential savings.
-- Click the widget to open the RDS RI Buying Recommendations report where you can see Cloudyn recommendations to use reserved instances instead of on-demand Instances.
+### <a name="rds-ri-calculator"></a>RDS RI-kalkylator
+Widgenten visar antalet reserverade rekommendationer för Amazon RDS-instanser och potentiella besparingar.
+- Klicka på widgeten för att öppna rapporten RDS RI Buying Recommendations där du kan se Cloudyn rekommendationer för att använda reserverade instanser i stället för på begäran-instanser.
 
-### <a name="rds-sizing"></a>RDS Sizing
-This widget shows the number of sizing recommendations and the potential savings.
-- Click the widget to open the RDS Sizing Recommendations report, which displays detailed Amazon RDS sizing recommendations.
+### <a name="rds-sizing"></a>RDS-storlek
+Widgenten visar antalet storleksrekommendationer och potentiella besparingar.
+- Klicka på widgeten för att öppna rapporten RDS Storleksrekommendationer som visar detaljerad Amazon RDS Bedömningsrekommendationer.
 
-The optimization recommendations are based on the usage and performance data monitored in the last month.
+Rekommendationer för optimering baseras på användning och prestanda övervakas den senaste månaden.
 
-## <a name="s3-tracker-dashboard"></a>S3 Tracker dashboard
-The S3 Tracker dashboard helps you find, analyze, and display your current storage usage and trends.  
-![S3 Tracker dashboard showing various reports](./media/dashboards/s3-tracker-dashboard.png)
+## <a name="s3-tracker-dashboard"></a>S3-spåraren instrumentpanel
+Spårningsverktyget för S3-instrumentpanelen kan du hitta, analysera och visa dina aktuella lagringsanvändningen och trender.  
+![S3-spåraren instrumentpanelen som visar olika rapporter](./media/dashboards/s3-tracker-dashboard.png)
 
-### <a name="all-buckets"></a>All Buckets
-This widget highlights the total size of all your buckets, in GB, and the total number of objects in your buckets.
-- Click the widget to open the Distribution of S3 Size report. The report helps you analyze your S3 size by bucket, top-level folder, storage class, and versioning state.
+### <a name="all-buckets"></a>Alla Buckets
+Widgenten visar den totala storleken på alla dina buckets, i GB, och det totala antalet objekt i din buckets.
+- Klicka på widgeten för att öppna rapporten för Distribution av S3 storlek. Rapporten kan du analysera storleken på din S3 genom bucket, toppnivåmapp, lagringsklass och versionstillstånd.
 
-### <a name="bucket-properties"></a>Bucket Properties
-This widget highlights the total number of storage buckets.
-- Click the widget to view the S3 Bucket Properties report.
+### <a name="bucket-properties"></a>Bucket-egenskaper
+Widgenten visar det totala antalet buckets för lagring.
+- Klicka på widgeten om du vill visa egenskaper för S3-Bucket-rapporten.
 
-### <a name="scan-status"></a>Scan Status
-This widget highlights when the last S3 scan was done and when the next one will start.
-- Click the widget to open the S3 Scan Status report.
+### <a name="scan-status"></a>Genomsökningsstatus
+Widgenten visar när den senaste S3-genomsökningen gjordes och när nästa kommando startar.
+- Klicka på widgeten för att öppna rapporten S3 skanna Status.
 
-### <a name="storage-by-bucket"></a>Storage by Bucket
-This widget highlights the percentage that each bucket storage class is using.
-- Click the widget to open the Distribution of S3 Size report. The report helps you analyze your S3 size by bucket, top-level folder, storage class, and versioning state.
+### <a name="storage-by-bucket"></a>Lagring av Bucket
+Widgenten visar procentandelen som varje bucket lagringsklass använder.
+- Klicka på widgeten för att öppna rapporten för Distribution av S3 storlek. Rapporten kan du analysera storleken på din S3 genom bucket, toppnivåmapp, lagringsklass och versionstillstånd.
 
-### <a name="number-of-objects-by-bucket"></a>Number of Objects by Bucket
-This widget highlights the number of objects per bucket in actual number and percentage. Hover over the bucket to see the total objects.
-- Click the widget to open the Distribution of S3 Size report (Scan based).
+### <a name="number-of-objects-by-bucket"></a>Antal objekt efter Bucket
+Widgenten visar antal objekt per bucket i faktiska antal och procentandel. Hovra över en bucket för att se det totala antalet objekten.
+- Klicka på widgeten för att öppna rapporten för Distribution av S3 storlek (sökning baserat).
 
-## <a name="cloud-comparison-dashboard"></a>Cloud Comparison Dashboard
-The Cloud Comparison dashboard helps you compare costs from different cloud providers based on pricing, CPU type, and RAM size.  
-![Cloud Comparison dashboard showing various reports](./media/dashboards/cloud-comparison-dashboard.png)
+## <a name="cloud-comparison-dashboard"></a>Instrumentpanel för cloud-jämförelse
+Med en jämförelse av Molnapps-instrumentpanelen kan du jämföra kostnader från olika molnleverantörer baserat på priser, processortyp och RAM-storleken.  
+![Jämförelse av instrumentpanelen som visar olika rapporter i molnet](./media/dashboards/cloud-comparison-dashboard.png)
 
-### <a name="ec2-cost-in-azure-by-instance-type"></a>EC2 Cost in Azure by Instance Type
-This widget highlights the last 30 days of usage in on-demand rates. It compares the cost with the current Amazon EC2 cost vs the potential cost in Azure.
-- Hover over the bars to compare costs per instance type.
-- Click the widget to open the Porting Your Deployment – Cost Analysis report.
+### <a name="ec2-cost-in-azure-by-instance-type"></a>EC2 Kostnaden i Azure genom instanstyp
+Widgenten visar de senaste 30 dagarna av användning i priserna för på begäran. Jämför kostnaderna med de aktuella Amazon EC2 kostnaden jämfört med potentialen kostnaden i Azure.
+- Hovra över staplarna jämföra kostnader per Instanstypen.
+- Klicka på widgeten för att öppna porta din distributionen – Cost Analysis-rapporten.
 
-### <a name="ec2-cost-in-azure"></a>EC2 Cost in Azure
-This widget shows your current Amazon EC2 costs and compares them to Azure. The comparison is based on the last 30 days of usage in on-demand rates.
-- Click the widget to open the Porting Your Deployment - Cost Analysis report.
+### <a name="ec2-cost-in-azure"></a>EC2 Kostnaden i Azure
+Widgenten visar dina nuvarande Amazon EC2-kostnader och jämför dem med Azure. Jämförelsen baseras på de senaste 30 dagarna av användning i priserna för på begäran.
+- Klicka på widgeten för att öppna den porta din distribution – Cost Analysis-rapporten.
 
-### <a name="ec2azure-instance-type-mapping"></a>EC2/Azure Instance Type Mapping
-This widget highlights the best mapping of elastic compute units between Amazon EC2 and Azure.
-- Click the widget to open the Instances Type Mapping report.
+### <a name="ec2azure-instance-type-mapping"></a>EC2/Azure-instans Typmappning
+Widgenten visar bästa mappningen av elastiska beräkningsenheter mellan Amazon EC2 och Azure.
+- Klicka på widgeten för att öppna rapporten instanser typ mappning.
 
 ## <a name="next-steps"></a>Nästa steg
-- Read the [Use Cloudyn reports](use-reports.md) article to learn more about reports.
+- Läs artikeln [Använd Cloudyn Reports](use-reports.md) om du vill veta mer om-rapporter.

@@ -1,6 +1,6 @@
 ---
-title: Disaster recovery using Azure DNS and Traffic Manager | Microsoft Docs
-description: Overview of the disaster recovery solutions using Azure DNS and Traffic Manager.
+title: Haveri beredskap med Azure DNS och Traffic Manager | Microsoft Docs
+description: Översikt över katastrof återställnings lösningar med hjälp av Azure DNS och Traffic Manager.
 services: dns
 documentationcenter: na
 author: KumudD
@@ -24,88 +24,88 @@ ms.locfileid: "74483528"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Haveriberedskap med hjälp av Azure DNS och Traffic Manager
 
-Haveriberedskap handlar om att återställa från en betydande förlust av programfunktion. In order to choose a disaster recovery solution, business and technology owners must first determine the level of functionality that is required during a disaster, such as - unavailable, partially available via reduced functionality, or delayed availability, or fully available.
-Most enterprise customers are choosing a multi-region architecture for resiliency against an application or infrastructure level failover. Customers can choose several approaches in the quest to achieve failover and high availability via redundant architecture. Here are some of the popular approaches:
+Haveriberedskap handlar om att återställa från en betydande förlust av programfunktion. För att kunna välja en katastrof återställnings lösning måste företags-och teknik ägare först fastställa vilken nivå av funktioner som krävs vid en katastrof, till exempel otillgänglig, delvis tillgänglig via begränsade funktioner eller fördröjd tillgänglighet, eller helt tillgängligt.
+De flesta företags kunder väljer en arkitektur med flera regioner för återhämtning mot en redundansväxling av program eller infrastruktur nivå. Kunderna kan välja flera metoder i fråge formuläret för att uppnå redundans och hög tillgänglighet via redundant arkitektur. Här följer några av de populära metoderna:
 
-- **Active-passive with cold standby**: In this failover solution, the VMs and other appliances that are running in the standby region are not active until there is a need for failover. However, the production environment is replicated in the form of backups, VM images, or Resource Manager templates, to a different region. This failover mechanism is cost-effective but takes a longer time to undertake a complete failover.
+- **Aktiv-passiv med kall vänte läge**: i den här lösningen för redundans är de virtuella datorerna och andra apparater som körs i standby-regionen inte aktiva förrän det finns behov av redundans. Produktions miljön replikeras dock i form av säkerhets kopior, VM-avbildningar eller Resource Manager-mallar till en annan region. Den här mekanismen för växling vid fel är kostnads effektiv men tar längre tid att utföra en fullständig redundansväxling.
  
-    ![Active/Passive with cold standby](./media/disaster-recovery-dns-traffic-manager/active-passive-with-cold-standby.png)
+    ![Aktiv/passiv med kall vänte läge](./media/disaster-recovery-dns-traffic-manager/active-passive-with-cold-standby.png)
     
-    *Figure - Active/Passive with cold standby disaster recovery configuration*
+    *Bild-aktiv/passiv med återställning av haveri beredskap för kall vänte läge*
 
-- **Active/Passive with pilot light**: In this failover solution, the standby environment is set up with a minimal configuration. The setup has only the necessary services running to support only a minimal and critical set of applications. In its native form, this scenario can only execute minimal functionality but can scale up and spawn additional services to take bulk of the production load if a failover occurs.
+- **Aktiv/passiv med pilot ljus**: i den här lösningen för redundans konfigureras vänte läges miljön med en minimal konfiguration. Installations programmet har bara de tjänster som krävs för att stödja en minimal och kritisk uppsättning program. I sitt egna formulär kan det här scenariot endast köra minimala funktioner, men kan skala upp och skapa ytterligare tjänster för att dra nytta av produktions belastningen om en redundansväxling inträffar.
     
-    ![Active/Passive with pilot light](./media/disaster-recovery-dns-traffic-manager/active-passive-with-pilot-light.png)
+    ![Aktiv/passiv med pilot ljus](./media/disaster-recovery-dns-traffic-manager/active-passive-with-pilot-light.png)
     
-    *Figure: Active/Passive with pilot light disaster recovery configuration*
+    *Bild: aktiv/passiv med pilot låg haveri beredskaps konfiguration*
 
-- **Active/Passive with warm standby**: In this failover solution, the standby region is pre-warmed and is ready to take the base load, auto scaling is turned on, and all the instances are up and running. This solution is not scaled to take the full production load but is functional, and all services are up and running. This solution is an augmented version of the pilot light approach.
+- **Aktiv/passiv med varmt vänte läge**: i den här lösningen för redundans är vänte läge förvärmt och är redo att ta bas inläsningen, automatisk skalning aktive ras och alla instanser är igång. Den här lösningen skalas inte för att ta fullständig produktions belastning men fungerar, och alla tjänster är igång. Den här lösningen är en förstärkt version av pilot metoden.
     
-    ![Active/Passive with warm standby](./media/disaster-recovery-dns-traffic-manager/active-passive-with-warm-standby.png)
+    ![Aktiv/passiv med varmt vänte läge](./media/disaster-recovery-dns-traffic-manager/active-passive-with-warm-standby.png)
     
-    *Figure: Active/Passive with warm standby disaster recovery configuration*
+    *Bild: aktiv/passiv med haveri beredskap för katastrof återställning*
     
-To learn more about failover and high availability, see [Disaster Recovery for Azure Applications](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
+Mer information om redundans och hög tillgänglighet finns i [haveri beredskap för Azure-program](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
 
-## <a name="planning-your-disaster-recovery-architecture"></a>Planning your disaster recovery architecture
+## <a name="planning-your-disaster-recovery-architecture"></a>Planera din katastrof återställnings arkitektur
 
-There are two technical aspects towards setting up your disaster recovery architecture:
--  Using a deployment mechanism to replicate instances, data, and configurations between primary and standby environments. This type of disaster recovery can be done natively via Azure Site-Recovery via Microsoft Azure partner appliances/services like Veritas or NetApp. 
-- Developing a solution to divert network/web traffic from the primary site to the standby site. This type of disaster recovery can be achieved via Azure DNS, Azure Traffic Manager(DNS), or third-party global load balancers.
+Det finns två tekniska aspekter för att konfigurera din katastrof återställnings arkitektur:
+-  Använda en distributions metod för att replikera instanser, data och konfigurationer mellan primära miljöer och vänte läge. Den här typen av haveri beredskap kan göras internt via Azure Site Recovery via Microsoft Azure partner apparater/tjänster som Veritas eller NetApp. 
+- Utveckla en lösning för att minska nätverks-/webb trafik från den primära platsen till vänte läges platsen. Den här typen av katastrof återställning kan uppnås via Azure DNS, Azure Traffic Manager (DNS) eller globala belastningsutjämnare från tredje part.
 
-This article is limited to approaches via Network and Web traffic redirection. For instructions to set up Azure Site Recovery, see [Azure Site Recovery Documentation](https://docs.microsoft.com/azure/site-recovery/).
-DNS is one of the most efficient mechanisms to divert network traffic because DNS is often global and external to the data center and is insulated from any regional or availability zone (AZ) level failures. One can use a DNS-based failover mechanism and in Azure, two DNS services can accomplish the same in some fashion - Azure DNS (authoritative DNS) and Azure Traffic Manager (DNS-based smart traffic routing). 
+Den här artikeln är begränsad till metoder via omdirigering av nätverks-och webb trafik. Instruktioner för hur du konfigurerar Azure Site Recovery finns i [Azure Site Recovery dokumentation](https://docs.microsoft.com/azure/site-recovery/).
+DNS är en av de mest effektiva mekanismerna för att minska nätverks trafiken eftersom DNS ofta är globalt och externt för data centret och är isolerat från eventuella regional-eller tillgänglighets zons nivå problem (AZ). En kan använda en DNS-baserad redundans och i Azure kan två DNS-tjänster utföra samma i vissa mode-Azure DNS (auktoritativ DNS) och Azure Traffic Manager (DNS-baserad Smart trafik dirigering). 
 
-It is important to understand few concepts in DNS that are extensively used to discuss the solutions provided in this article:
-- **DNS A Record** – A Records are pointers that point a domain to an IPv4 address. 
-- **CNAME or Canonical name** - This record type is used to point to another DNS record. CNAME doesn’t respond with an IP address but rather the pointer to the record that contains the IP address. 
-- **Weighted Routing** – one can choose to associate a weight to service endpoints and then distribute the traffic based on the assigned weights. This routing method is one of the four traffic routing mechanisms available within Traffic Manager. For more information, see [Weighted routing method](../traffic-manager/traffic-manager-routing-methods.md#weighted).
-- **Priority Routing** – Priority routing is based on health checks of endpoints. By default, Azure Traffic manager sends all traffic to the highest priority endpoint, and upon a failure or disaster, Traffic Manager routes the traffic to the secondary endpoint. For more information, see [Priority routing method](../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method).
+Det är viktigt att förstå några av de koncept i DNS som används för att diskutera de lösningar som beskrivs i den här artikeln:
+- **DNS A-post** – a-poster är pekare som pekar en domän mot en IPv4-adress. 
+- **CNAME eller kanoniskt namn** – den här post typen används för att peka på en annan DNS-post. CNAME svarar inte med en IP-adress utan pekaren till posten som innehåller IP-adressen. 
+- **Viktad routning** – en kan välja att koppla en vikt till tjänstens slut punkter och sedan distribuera trafiken utifrån tilldelade vikter. Denna routningsmetod är en av de fyra mekanismer för trafikroutning som är tillgängliga i Traffic Manager. Mer information finns i [metoden för viktad routning](../traffic-manager/traffic-manager-routing-methods.md#weighted).
+- **Prioriterad routning** – prioriterad routning baseras på hälso kontroller av slut punkter. Som standard skickar Azure Traffic Manager all trafik till slut punkten med högst prioritet och vid ett haveri eller katastrof dirigerar Traffic Manager trafiken till den sekundära slut punkten. Mer information finns i [metoden prioriterad routning](../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method).
 
-## <a name="manual-failover-using-azure-dns"></a>Manual failover using Azure DNS
-The Azure DNS manual failover solution for disaster recovery uses the standard DNS mechanism to failover to the backup site. The manual option via Azure DNS works best when used in conjunction with the cold standby or the pilot light approach. 
+## <a name="manual-failover-using-azure-dns"></a>Manuell redundans med Azure DNS
+Den Azure DNS manuella redundansväxlingen för haveri beredskap använder standard-DNS-mekanismen för att redundansväxla till säkerhets kopierings platsen. Det manuella alternativet via Azure DNS fungerar bäst när det används tillsammans med kall vänte läge eller pilot metoden. 
 
-![Manual failover using Azure DNS](./media/disaster-recovery-dns-traffic-manager/manual-failover-using-dns.png)
+![Manuell redundans med Azure DNS](./media/disaster-recovery-dns-traffic-manager/manual-failover-using-dns.png)
 
-*Figure - Manual failover using Azure DNS*
+*Bild – manuell redundans med Azure DNS*
 
-The assumptions made for the solution are:
-- Both primary and secondary endpoints have static IPs that don’t change often. Say for the primary site the IP is 100.168.124.44 and the IP for the secondary site is 100.168.124.43.
-- An Azure DNS zone exists for both the primary and secondary site. Say for the primary site the endpoint is prod.contoso.com and for the backup site is dr.contoso.com. A DNS record for the main application known as www\.contoso.com also exists.   
-- The TTL is at or below the RTO SLA set in the organization. For example, if an enterprise sets the RTO of the application disaster response to be 60 mins, then the TTL should be less than 60 mins, preferably the lower the better. 
-  You can set up Azure DNS for manual failover as follows:
+De antaganden som görs för lösningen är:
+- Både primära och sekundära slut punkter har statiska IP-adresser som inte ändras ofta. Anta att IP-adressen för den primära platsen är 100.168.124.44 och att IP-adressen för den sekundära platsen är 100.168.124.43.
+- Det finns en Azure DNS zon för både den primära och den sekundära platsen. Anta att slut punkten är prod.contoso.com för den primära platsen och att säkerhets kopierings platsen är dr.contoso.com. Det finns även en DNS-post för huvud programmet som kallas www\.contoso.com.   
+- TTL-värdet är på eller under SLA-uppsättningen RTO i organisationen. Om ett företag till exempel anger RTO för ett katastrof svar som ska vara 60 minuter bör TTL vara mindre än 60 minuter, helst desto lägre desto bättre. 
+  Du kan konfigurera Azure DNS för manuell redundans enligt följande:
 - Skapa en DNS-zon
-- Create DNS zone records
-- Update CNAME record
+- Skapa DNS-zon poster
+- Uppdatera CNAME-post
 
-### <a name="step-1-create-a-dns"></a>Step 1: Create a DNS
-Create a DNS zone (for example, www\.contoso.com) as shown below:
+### <a name="step-1-create-a-dns"></a>Steg 1: skapa en DNS
+Skapa en DNS-zon (till exempel www\.contoso.com) enligt nedan:
 
-![Create a DNS zone in Azure](./media/disaster-recovery-dns-traffic-manager/create-dns-zone.png)
+![Skapa en DNS-zon i Azure](./media/disaster-recovery-dns-traffic-manager/create-dns-zone.png)
 
-*Figure - Create a DNS zone in Azure*
+*Bild – skapa en DNS-zon i Azure*
 
-### <a name="step-2-create-dns-zone-records"></a>Step 2: Create DNS zone records
+### <a name="step-2-create-dns-zone-records"></a>Steg 2: skapa DNS-zon poster
 
-Within this zone create three records (for example - www\.contoso.com, prod.contoso.com and dr.consoto.com) as show below.
+I den här zonen skapar du tre poster (till exempel www\.contoso.com, prod.contoso.com och dr.consoto.com) som visas nedan.
 
-![Create DNS zone records](./media/disaster-recovery-dns-traffic-manager/create-dns-zone-records.png)
+![Skapa DNS-zon poster](./media/disaster-recovery-dns-traffic-manager/create-dns-zone-records.png)
 
-*Figure - Create DNS zone records in Azure*
+*Bild – skapa DNS-zon poster i Azure*
 
-In this scenario, site, www\.contoso.com has a TTL of 30 mins, which is well below the stated RTO, and is pointing to the production site prod.contoso.com. This configuration is during normal business operations. The TTL of prod.contoso.com and dr.contoso.com has been set to 300 seconds or 5 mins. You can use an Azure monitoring service such as Azure Monitor or Azure App Insights, or, any partner monitoring solutions such as Dynatrace, You can even use home grown solutions that can monitor or detect application or virtual infrastructure level failures.
+I det här scenariot har platsen, www\.contoso.com ett TTL-värde på 30 minuter, vilket är bra under den angivna RTO och pekar på produktions platsens prod.contoso.com. Den här konfigurationen är under normal affärs verksamhet. TTL-värdet för prod.contoso.com och dr.contoso.com har angetts till 300 sekunder eller 5 minuter. Du kan använda en tjänst för Azure-övervakning, till exempel Azure Monitor eller Azure App insikter, eller alla partner övervaknings lösningar som dynaTrace, du kan även använda hemutvecklande lösningar som kan övervaka eller identifiera problem med program eller virtuella infrastrukturer.
 
-### <a name="step-3-update-the-cname-record"></a>Step 3: Update the CNAME record
+### <a name="step-3-update-the-cname-record"></a>Steg 3: uppdatera CNAME-posten
 
-Once failure is detected, change the record value to point to dr.contoso.com as shown below:
+När ett problem har identifierats ändrar du värdet för posten så att det pekar på dr.contoso.com enligt nedan:
        
-![Update CNAME record](./media/disaster-recovery-dns-traffic-manager/update-cname-record.png)
+![Uppdatera CNAME-post](./media/disaster-recovery-dns-traffic-manager/update-cname-record.png)
 
-*Figure - Update the CNAME record in Azure*
+*Bild – uppdatera CNAME-posten i Azure*
 
-Within 30 minutes, during which most resolvers will refresh the cached zone file, any query to www\.contoso.com will be redirected to dr.contoso.com.
-You can also run the following Azure CLI command to change the CNAME value:
+Inom 30 minuter omdirigeras alla frågor till www\.contoso.com till dr.contoso.com när de flesta matchare kommer att uppdatera den cachelagrade zonfilen.
+Du kan också köra följande Azure CLI-kommando för att ändra CNAME-värdet:
  ```azurecli
    az network dns record-set cname set-record \
    --resource-group 123 \
@@ -113,63 +113,63 @@ You can also run the following Azure CLI command to change the CNAME value:
    --record-set-name www \
    --cname dr.contoso.com
 ```
-This step can be executed manually or via automation. It can be done manually via the console or by the Azure CLI. The Azure SDK and API can be used to automate the CNAME update so that no manual intervention is required. Automation can be built via Azure functions or within a third-party monitoring application or even from on- premises.
+Det här steget kan utföras manuellt eller via Automation. Det kan göras manuellt via-konsolen eller av Azure CLI. Azure SDK och API kan användas för att automatisera CNAME-uppdateringen så att ingen manuell åtgärd krävs. Automation kan skapas via Azure Functions eller i ett övervaknings program från tredje part eller till och med lokalt.
 
-### <a name="how-manual-failover-works-using-azure-dns"></a>How manual failover works using Azure DNS
-Since the DNS server is outside the failover or disaster zone, it is insulated against any downtime. This enables user to architect a simple failover scenario that is cost effective and will work all the time assuming that the operator has network connectivity during disaster and can make the flip. If the solution is scripted, then one must ensure that the server or service running the script should be insulated against the problem affecting the production environment. Also, keep in mind the low TTL that was set against the zone so that no resolver around the world keeps the endpoint cached for long and customers can access the site within the RTO. For a cold standby and pilot light, since some prewarming and other administrative activity may be required – one should also give enough time before making the flip.
+### <a name="how-manual-failover-works-using-azure-dns"></a>Hur manuell redundans fungerar med hjälp av Azure DNS
+Eftersom DNS-servern ligger utanför redundansväxlingen eller katastrof zonen, är den isolerad mot eventuella drift stopp. Detta gör att användaren kan skapa ett enkelt scenario för växling vid fel som är kostnads effektivt och som kommer att fungera hela tiden förutsatt att operatören har nätverks anslutning under en katastrof och kan göra det. Om lösningen är skriptad måste du se till att servern eller tjänsten som kör skriptet bör vara isolerad mot problem som påverkar produktions miljön. Tänk också på att det låga TTL-värdet som angavs mot zonen, så att ingen konflikt löses över hela världen, så att slut punkten cachelagras för länge och kunder kan komma åt webbplatsen i RTO. För ett kall vänte läge och pilot ljus kan det krävas att en del förvärmning och annan administrativ aktivitet kan krävas – det bör också finnas tillräckligt med tid innan du gör vänd.
 
-## <a name="automatic-failover-using-azure-traffic-manager"></a>Automatic failover using Azure Traffic Manager
-When you have complex architectures and multiple sets of resources capable of performing the same function, you can configure Azure Traffic Manager (based on DNS) to check the health of your resources and route the traffic from the non-healthy resource to the healthy resource. In the following example, both the primary region and the secondary region have a full deployment. This deployment includes the cloud services and a synchronized database. 
+## <a name="automatic-failover-using-azure-traffic-manager"></a>Automatisk redundans med Azure Traffic Manager
+När du har komplexa arkitekturer och flera uppsättningar resurser som kan utföra samma funktion kan du konfigurera Azure-Traffic Manager (baserat på DNS) för att kontrol lera hälso tillståndet för dina resurser och dirigera trafiken från den icke-felfria resursen till felfritt klusterresursen. I följande exempel har både den primära och den sekundära regionen en fullständig distribution. Den här distributionen omfattar moln tjänsterna och en synkroniserad databas. 
 
-![Automatic failover using Azure Traffic Manager](./media/disaster-recovery-dns-traffic-manager/automatic-failover-using-traffic-manager.png)
+![Automatisk redundans med Azure Traffic Manager](./media/disaster-recovery-dns-traffic-manager/automatic-failover-using-traffic-manager.png)
 
-*Figure - Automatic failover using Azure Traffic Manager*
+*Bild-automatisk redundans med Azure Traffic Manager*
 
-However, only the primary region is actively handling network requests from the users. The secondary region becomes active only when the primary region experiences a service disruption. In that case, all new network requests route to the secondary region. Since the backup of the database is near instantaneous, both the load balancers have IPs that can be health checked, and the instances are always up and running, this topology provides an option for going in for a low RTO and failover without any manual intervention. The secondary failover region must be ready to go-live immediately after failure of the primary region.
-This scenario is ideal for the use of Azure Traffic Manager that has inbuilt probes for various types of health checks including http / https and TCP. Azure Traffic manager also has a rule engine that can be configured to failover when a failure occurs as described below. Let’s consider the following solution using Traffic Manager:
-- Customer has the Region #1 endpoint known as prod.contoso.com with a static IP as 100.168.124.44 and a Region #2 endpoint known as dr.contoso.com with a static IP as 100.168.124.43. 
--   Each of these environments is fronted via a public facing property like a load balancer. The load balancer can be configured to have a DNS-based endpoint or a fully qualified domain name (FQDN) as shown above.
--   All the instances in Region 2 are in near real-time replication with Region 1. Furthermore, the machine images are up-to-date, and all software/configuration data is patched and are in line with Region 1.  
--   Autoscaling is preconfigured in advance. 
+Men endast den primära regionen hanterar nätverks förfrågningar aktivt från användarna. Den sekundära regionen blir bara aktiv när den primära regionen upplever ett tjänst avbrott. I så fall skickas alla nya nätverks begär anden till den sekundära regionen. Eftersom säkerhets kopieringen av databasen är nära momentan, har båda belastnings utjämningarna IP-adresser som kan kontrol leras och instanserna alltid är igång, och den här topologin ger ett alternativ för att gå i för en låg RTO och redundans utan någon manuell åtgärd. Den sekundära redundansväxlingen måste vara redo att gå direkt efter fel i den primära regionen.
+Det här scenariot är idealiskt för användning av Azure-Traffic Manager som har inbyggda avsökningar för olika typer av hälso kontroller, inklusive http/https och TCP. Azure Traffic Manager har också en regel motor som kan konfigureras för redundans när ett fel uppstår enligt beskrivningen nedan. Vi tar hänsyn till följande lösning med Traffic Manager:
+- Kunden har regionen #1-slutpunkten känd som prod.contoso.com med en statisk IP-adress som 100.168.124.44 och en region #2-slutpunkt som kallas dr.contoso.com med en statisk IP-adress som 100.168.124.43. 
+-   Var och en av de här miljöerna sker via en offentlig egenskap som en belastningsutjämnare. Belastningsutjämnaren kan konfigureras med en DNS-baserad slut punkt eller ett fullständigt kvalificerat domän namn (FQDN) som visas ovan.
+-   Alla instanser i region 2 finns nära replikering i real tid med region 1. Dessutom är dator avbildningarna uppdaterade och alla program/konfigurations data korrigeras och är i linje med region 1.  
+-   Autoskalning är förkonfigurerat i förväg. 
 
-The steps taken to configure the failover with Azure Traffic Manager are as follows:
-1. Create a new Azure Traffic Manager profile
-2. Create endpoints within the Traffic Manager profile
-3. Set up health check and failover configuration
+De steg som vidtas för att konfigurera redundansväxlingen med Azure Traffic Manager är följande:
+1. Skapa en ny Azure Traffic Manager-profil
+2. Skapa slut punkter inom Traffic Manager profilen
+3. Konfigurera hälso kontroll och redundanskonfiguration
 
-### <a name="step-1-create-a-new-azure-traffic-manager-profile"></a>Step 1: Create a new Azure Traffic Manager profile
-Create a new Azure Traffic manager profile with the name contoso123 and select the Routing method as Priority. If you have a pre-existing resource group that you want to associate with, then you can select an existing resource group, otherwise, create a new resource group.
+### <a name="step-1-create-a-new-azure-traffic-manager-profile"></a>Steg 1: skapa en ny Azure Traffic Manager-profil
+Skapa en ny Azure Traffic Manager-profil med namnet contoso123 och välj routningsmetod som prioritet. Om du har en befintlig resurs grupp som du vill associera med kan du välja en befintlig resurs grupp, annars skapar du en ny resurs grupp.
 
-![Create Traffic Manager profile](./media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
+![Skapa Traffic Manager profil](./media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
 
-*Figure - Create a Traffic Manager profile*
+*Bild – skapa en Traffic Manager-profil*
 
-### <a name="step-2-create-endpoints-within-the-traffic-manager-profile"></a>Step 2: Create endpoints within the Traffic Manager profile
+### <a name="step-2-create-endpoints-within-the-traffic-manager-profile"></a>Steg 2: skapa slut punkter i Traffic Manager profilen
 
-In this step, you create endpoints that point to the production and disaster recovery sites. Here, choose the **Type** as an external endpoint, but if the resource is hosted in Azure, then you can choose **Azure endpoint** as well. If you choose **Azure endpoint**, then select a **Target resource** that is either an **App Service** or a **Public IP** that is allocated by Azure. The priority is set as **1** since it is the primary service for Region 1.
-Similarly, create the disaster recovery endpoint within Traffic Manager as well.
+I det här steget skapar du slut punkter som pekar på platserna för produktion och haveri beredskap. Här väljer du **typ** som en extern slut punkt, men om resursen finns i Azure kan du även välja **Azure-slutpunkt** . Om du väljer **Azure-slutpunkt**väljer du en **mål resurs** som antingen är en **App Service** eller en **offentlig IP-adress** som tilldelas av Azure. Prioriteten anges som **1** eftersom den är den primära tjänsten för region 1.
+På samma sätt kan du skapa en slut punkt för haveri beredskap i Traffic Manager också.
 
-![Create disaster recovery endpoints](./media/disaster-recovery-dns-traffic-manager/create-disaster-recovery-endpoint.png)
+![Skapa Disaster Recovery-slutpunkter](./media/disaster-recovery-dns-traffic-manager/create-disaster-recovery-endpoint.png)
 
-*Figure - Create disaster recovery endpoints*
+*Bild – skapa Disaster Recovery-slutpunkter*
 
-### <a name="step-3-set-up-health-check-and-failover-configuration"></a>Step 3: Set up health check and failover configuration
+### <a name="step-3-set-up-health-check-and-failover-configuration"></a>Steg 3: Konfigurera hälso kontroll och redundanskonfiguration
 
-In this step, you set the DNS TTL to 10 seconds, which is honored by most internet-facing recursive resolvers. This configuration means that no DNS resolver will cache the information for more than 10 seconds. For the endpoint monitor settings, the path is current set at / or root, but you can customize the endpoint settings to evaluate a path, for example, prod.contoso.com/index. The example below shows the **https** as the probing protocol. However, you can choose **http** or **tcp** as well. The choice of protocol depends upon the end application. The probing interval is set to 10 seconds, which enables fast probing, and the retry is set to 3. As a result, Traffic Manager will failover to the second endpoint if three consecutive intervals register a failure. The following formula defines the total time for an automated failover: Time for failover = TTL + Retry * Probing interval And in this case, the value is 10 + 3 * 10 = 40 seconds (Max).
-If the Retry is set to 1 and TTL is set to 10 secs, then the time for failover 10 + 1 * 10 = 20 seconds. Set the Retry to a value greater than **1** to eliminate chances of failovers due to false positives or any minor network blips. 
+I det här steget ställer du in DNS-TTL på 10 sekunder, som följer de flesta rekursiva matchare med Internet. Den här konfigurationen innebär att ingen DNS-matchare cachelagrar informationen i mer än 10 sekunder. För inställningarna för slut punkts övervakaren är sökvägen aktuell uppsättning vid/eller rot, men du kan anpassa slut punkts inställningarna för att utvärdera en sökväg, till exempel prod.contoso.com/index. Exemplet nedan visar **https** som avsöknings protokoll. Du kan dock även välja **http** eller **TCP** . Valet av protokoll beror på slut programmet. Avsöknings intervallet är inställt på 10 sekunder, vilket möjliggör snabb avsökning och ett nytt försök har angetts till 3. Det innebär att Traffic Manager redundansväxlas till den andra slut punkten om tre intervall i följd registrerar ett fel. Följande formel definierar den totala tiden för automatisk redundans: tid för redundans = TTL + omförsök * avsöknings intervall och i det här fallet är värdet 10 + 3 * 10 = 40 sekunder (max).
+Om försöket är inställt på 1 och TTL är inställt på 10 sekunder är tiden för redundans 10 + 1 * 10 = 20 sekunder. Ange ett nytt värde som är större än **1** för att eliminera risken för redundans på grund av falska positiva identifieringar eller mindre nätverks-signaler. 
 
 
-![Set up health check](./media/disaster-recovery-dns-traffic-manager/set-up-health-check.png)
+![Konfigurera hälso kontroll](./media/disaster-recovery-dns-traffic-manager/set-up-health-check.png)
 
-*Figure - Set up health check and failover configuration*
+*Bild – konfigurera hälso kontroll och redundanskonfiguration*
 
-### <a name="how-automatic-failover-works-using-traffic-manager"></a>How automatic failover works using Traffic Manager
+### <a name="how-automatic-failover-works-using-traffic-manager"></a>Hur automatisk redundans fungerar med hjälp av Traffic Manager
 
-During a disaster, the primary endpoint gets probed and the status changes to **degraded** and the disaster recovery site remains **Online**. By default, Traffic Manager sends all traffic to the primary (highest-priority) endpoint. If the primary endpoint appears degraded, Traffic Manager routes the traffic to the second endpoint as long as it remains healthy. One has the option to configure more endpoints within Traffic Manager that can serve as additional failover endpoints, or, as load balancers sharing the load between endpoints.
+Under en katastrof kommer den primära slut punkten att avsökas och statusen ändras till **försämrad** och haveri beredskaps platsen är **online**. Som standard skickar Traffic Manager all trafik till den primära slut punkten (högst prioritet). Om den primära slut punkten verkar försämrad dirigerar Traffic Manager trafiken till den andra slut punkten så länge den är felfri. En har möjlighet att konfigurera fler slut punkter inom Traffic Manager som kan fungera som ytterligare slut punkter för redundans eller, som belastningsutjämnare delar belastningen mellan slut punkterna.
 
 ## <a name="next-steps"></a>Nästa steg
-- Learn more about [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md).
-- Learn more about [Azure DNS](../dns/dns-overview.md).
+- Läs mer om [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md).
+- Läs mer om [Azure DNS](../dns/dns-overview.md).
 
 
 

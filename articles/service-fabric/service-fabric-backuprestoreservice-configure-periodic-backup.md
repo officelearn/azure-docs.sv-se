@@ -1,6 +1,6 @@
 ---
-title: Understanding periodic backup configuration in Azure Service Fabric | Microsoft Docs
-description: Use Service Fabric's periodic backup and restore feature for enabling periodic data backup of your application data.
+title: Förstå regelbunden konfiguration av säkerhets kopiering i Azure Service Fabric | Microsoft Docs
+description: Använd Service Fabric periodiska säkerhets kopierings-och återställnings funktionen för att aktivera regelbunden data säkerhets kopiering av program data.
 services: service-fabric
 documentationcenter: .net
 author: hrushib
@@ -21,31 +21,31 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74232503"
 ---
-# <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Understanding periodic backup configuration in Azure Service Fabric
+# <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Förstå regelbunden konfiguration av säkerhets kopiering i Azure Service Fabric
 
-Configuring periodic backup of your Reliable stateful services or Reliable Actors consists of the following steps:
+Att konfigurera regelbunden säkerhets kopiering av dina pålitliga tillstånds känsliga tjänster eller Reliable Actors består av följande steg:
 
-1. **Creation of backup policies**: In this step, one or more backup policies are created depending on requirements.
+1. **Skapa säkerhets kopierings principer**: i det här steget skapas en eller flera säkerhets kopierings principer beroende på kraven.
 
-2. **Enabling backup**: In this step, you associate backup policies created in **Step 1** to the required entities, _Application_, _Service_, or a _Partition_.
+2. **Aktiverar säkerhets kopiering**: i det här steget kopplar du säkerhets kopierings principer som skapats i **steg 1** till obligatoriska entiteter, _program_, _tjänster_eller en _partition_.
 
-## <a name="create-backup-policy"></a>Create Backup Policy
+## <a name="create-backup-policy"></a>Skapa säkerhets kopierings princip
 
-A backup policy consists of the following configurations:
+En säkerhets kopierings princip består av följande konfigurationer:
 
-* **Auto restore on data loss**: Specifies whether to trigger restore automatically using the latest available backup in case the partition experiences a data loss event.
+* **Automatisk återställning vid data förlust**: anger om återställning ska aktive ras automatiskt med den senaste tillgängliga säkerhets kopian, om partitionen upplever en data förlust händelse.
 
-* **Max incremental backups**: Defines the maximum number of incremental backups to be taken between two full backups. Max incremental backups specify the upper limit. A full backup may be taken before specified number of incremental backups are completed in one of the following conditions
+* **Högsta antal säkerhets kopior**: definierar det maximala antalet stegvisa säkerhets kopior som ska tas mellan två fullständiga säkerhets kopieringar. Högsta antal stegvisa säkerhets kopieringar anger den övre gränsen. En fullständig säkerhets kopiering kan utföras innan det angivna antalet stegvisa säkerhets kopieringar har slutförts på något av följande villkor
 
-    1. The replica has never taken a full backup since it has become primary.
+    1. Repliken har aldrig tagit en fullständig säkerhets kopia eftersom den har blivit primär.
 
-    2. Some of the log records since the last backup has been truncated.
+    2. Några av logg posterna sedan den senaste säkerhets kopieringen har trunkerats.
 
-    3. Replica passed the MaxAccumulatedBackupLogSizeInMB limit.
+    3. Repliken godkände MaxAccumulatedBackupLogSizeInMB-gränsen.
 
-* **Backup schedule**: The time or frequency at which to take periodic backups. One can schedule backups to be recurring at specified interval or at a fixed time daily/ weekly.
+* **Schema för säkerhets kopiering**: den tid eller frekvens med vilken regelbundna säkerhets kopieringar ska utföras. En kan schemalägga säkerhets kopieringar så att de blir återkommande vid angivet intervall eller vid en viss tidpunkt varje dag/vecka.
 
-    1. **Frequency-based backup schedule**: This schedule type should be used if the need is to take data backup at fixed intervals. Desired time interval between two consecutive backups is defined using ISO8601 format. Frequency-based backup schedule supports interval resolution to the minute.
+    1. **Frekvens-baserat säkerhets kopierings schema**: den här schema typen ska användas om behovet är att säkerhetskopiera data med fasta intervall. Önskat tidsintervall mellan två på varandra följande säkerhets kopior definieras med ISO8601-format. Frekvensbaserade säkerhets kopierings scheman stöder intervall matchning till minuten.
         ```json
         {
             "ScheduleKind": "FrequencyBased",
@@ -53,8 +53,8 @@ A backup policy consists of the following configurations:
         }
         ```
 
-    2. **Time-based backup schedule**: This schedule type should be used if the need is to take data backup at specific times of the day or week. Schedule frequency type can either be daily or weekly.
-        1. **_Daily_ Time-based backup schedule**: This schedule type should be used if the need id to take data backup at specific times of the day. To specify this, set `ScheduleFrequencyType` to _Daily_; and set `RunTimes` to list of desired time during the day in ISO8601 format, date specified along with time will be ignored. For example, `0001-01-01T18:00:00` represents _6:00 PM_ everyday, ignoring date part _0001-01-01_. Below example illustrates the configuration to trigger daily backup at _9:00 AM_ and _6:00 PM_ everyday.
+    2. **Tidsbaserat säkerhets kopierings schema**: den här schema typen ska användas om behovet är att säkerhetskopiera data vid vissa tidpunkter på dagen eller i veckan. Typ av schema frekvens kan vara varje dag eller varje vecka.
+        1. **_Dagligt_ tidsbaserat säkerhets kopierings schema**: den här schema typen ska användas om behovs-ID: t ska säkerhets kopie ras vid vissa tidpunkter på dagen. Ange `ScheduleFrequencyType` till _dagligt_för att ange detta. och ange `RunTimes` till lista över önskad tid under dagen i ISO8601-format, kommer det datum som anges tillsammans med tiden att ignoreras. `0001-01-01T18:00:00` representerar till exempel _6:00_ varje dag, vilket ignorerar datum del _0001-01-01_. I exemplet nedan visas konfigurationen för att utlösa en daglig säkerhets kopia vid _9:00 am_ och _6:00_ varje dag.
 
             ```json
             {
@@ -67,7 +67,7 @@ A backup policy consists of the following configurations:
             }
             ```
 
-        2. **_Weekly_ Time-based backup schedule**: This schedule type should be used if the need id to take data backup at specific times of the day. To specify this, set `ScheduleFrequencyType` to _Weekly_; set `RunDays` to list of days in a week when backup needs to be triggered and set `RunTimes` to list of desired time during the day in ISO8601 format, date specified along with time will be ignored. List of days of a week when to trigger the periodic backup. Below example illustrates the configuration to trigger daily backup at _9:00 AM_ and _6:00 PM_ during Monday to Friday.
+        2. **Tidsbaserad säkerhets kopiering _per vecka_** : den här schema typen ska användas om behovs-ID: t ska säkerhets kopie ras vid vissa tidpunkter på dagen. Ange `ScheduleFrequencyType` till _varje vecka_för att ange detta. Ange `RunDays` till en lista över dagar i en vecka då säkerhets kopiering måste utlösas och anges `RunTimes` till lista över önskad tid under dagen i ISO8601-format, det datum som anges tillsammans med tiden kommer att ignoreras. Lista över dagar i veckan när den periodiska säkerhets kopieringen ska aktive ras. I exemplet nedan visas konfigurationen för att utlösa en daglig säkerhets kopia vid _9:00 am_ och _6:00 PM_ under måndag till fredag.
 
             ```json
             {
@@ -87,8 +87,8 @@ A backup policy consists of the following configurations:
             }
             ```
 
-* **Backup storage**: Specifies the location to upload backups. Storage can be either Azure blob store or file share.
-    1. **Azure blob store**: This storage type should be selected when the need is to store generated backups in Azure. Both _standalone_ and _Azure-based_ clusters can use this storage type. Description for this storage type requires connection string and name of the container where backups need to be uploaded. If the container with the specified name is not available, then it gets created during upload of a backup.
+* **Lagring av säkerhets kopior**: anger den plats där säkerhets kopiorna ska överföras. Lagrings utrymmet kan vara antingen Azure Blob Store eller fil resursen.
+    1. **Azure Blob Store**: den här lagrings typen ska väljas när behovet är att lagra genererade säkerhets kopior i Azure. Både _fristående_ och _Azure-baserade_ kluster kan använda den här lagrings typen. Beskrivningen för den här lagrings typen kräver en anslutnings sträng och namnet på den behållare där säkerhets kopiorna måste överföras. Om behållaren med det angivna namnet inte är tillgänglig skapas den när du överför en säkerhets kopia.
         ```json
         {
             "StorageKind": "AzureBlobStore",
@@ -98,8 +98,8 @@ A backup policy consists of the following configurations:
         }
         ```
 
-    2. **File share**: This storage type should be selected for _standalone_ clusters when the need is to store data backup on-premises. Description for this storage type requires file share path where backups need to be uploaded. Access to the file share can be configured using one of the following options
-        1. _Integrated Windows Authentication_, where the access to file share is provided to all computers belonging to the Service Fabric cluster. In this case, set following fields to configure _file-share_ based backup storage.
+    2. **Fil resurs**: den här lagrings typen ska väljas för _fristående_ kluster när behovet är att lagra data säkerhets kopia lokalt. Beskrivningen för den här lagrings typen kräver en fil resurs Sök väg där säkerhets kopior måste överföras. Åtkomst till fil resursen kan konfigureras med hjälp av något av följande alternativ
+        1. _Integrerad Windows-autentisering_, där åtkomst till fil resursen tillhandahålls till alla datorer som hör till Service Fabric klustret. I det här fallet anger du följande fält för att konfigurera _fildelning_ baserad lagring av säkerhets kopior.
 
             ```json
             {
@@ -109,7 +109,7 @@ A backup policy consists of the following configurations:
             }
             ```
 
-        2. _Protecting file share using user name and password_, where the access to file share is provided to specific users. File share storage specification also provides capability to specify secondary user name and secondary password to provide fall-back credentials in case authentication fails with primary user name and primary password. In this case, set following fields to configure _file-share_ based backup storage.
+        2. _Skydda fil resursen med hjälp av användar namn och lösen ord_, där åtkomsten till fil resursen tillhandahålls till vissa användare. Fil resurs lagrings specifikationen ger också möjlighet att ange sekundärt användar namn och sekundärt lösen ord för att ge autentiseringsuppgifter för säkerhets kopiering i fall autentiseringen Miss lyckas med det primära användar namnet och det primära lösen ordet. I det här fallet anger du följande fält för att konfigurera _fildelning_ baserad lagring av säkerhets kopior.
 
             ```json
             {
@@ -124,11 +124,11 @@ A backup policy consists of the following configurations:
             ```
 
 > [!NOTE]
-> Ensure that the storage reliability meets or exceeds reliability requirements of backup data.
+> Se till att lagrings tillförlitligheten uppfyller eller överskrider Tillförlitlighets kraven för säkerhetskopierade data.
 >
 
-* **Retention Policy**: Specifies the policy to retain backups in the configured storage. Only Basic Retention Policy is supported.
-    1. **Basic Retention Policy**: This retention policy allows to ensure optimal storage utilization by removing backup files which are no more required. `RetentionDuration` can be specified to set the time span for which backups are required to be retained in the storage. `MinimumNumberOfBackups` is an optional parameter that can be specified to make sure that the specified number of backups are always retained irrespective of the `RetentionDuration`. Below example illustrates the configuration to retain backups for _10_ days and does not allow number of backups to go below _20_.
+* **Bevarande princip**: anger principen för att behålla säkerhets kopior i den konfigurerade lagringen. Det finns bara stöd för grundläggande bevarande principer.
+    1. **Princip för grundläggande bevarande**: den här bevarande principen gör det möjligt att säkerställa optimal lagrings användning genom att ta bort säkerhetskopierade filer som inte behövs längre. `RetentionDuration` kan anges för att ange tidsintervallet för vilka säkerhets kopieringar måste behållas i lagringen. `MinimumNumberOfBackups` är en valfri parameter som kan anges för att se till att det angivna antalet säkerhets kopior alltid behålls oberoende av `RetentionDuration`. I exemplet nedan visas konfigurationen för att bevara säkerhets kopior i _10_ dagar och antalet säkerhets kopior kan inte gå under _20_.
 
         ```json
         {
@@ -138,117 +138,117 @@ A backup policy consists of the following configurations:
         }
         ```
 
-## <a name="enable-periodic-backup"></a>Enable periodic backup
-After defining backup policy to fulfill data backup requirements, the backup policy should be appropriately associated either with an _application_, or _service_, or a _partition_.
+## <a name="enable-periodic-backup"></a>Aktivera periodisk säkerhets kopiering
+När du har definierat säkerhets kopierings policyn för att uppfylla kraven på säkerhets kopiering måste säkerhets kopierings principen vara lämplig för antingen ett _program_, en _tjänst_eller en _partition_.
 
-### <a name="hierarchical-propagation-of-backup-policy"></a>Hierarchical propagation of backup policy
-In Service Fabric, relation between application, service, and partitions is hierarchical as explained in [Application model](./service-fabric-application-model.md). Backup policy can be associated either with an _application_, _service_, or a _partition_ in the hierarchy. Backup policy propagates hierarchically to next level. Assuming there is only one backup policy created and associated with an _application_, all stateful partitions belonging to all _Reliable stateful services_ and _Reliable Actors_ of the _application_ will be backed-up using the backup policy. Or if the backup policy is associated with a _Reliable stateful service_, all its partitions will be backed-up using the backup policy.
+### <a name="hierarchical-propagation-of-backup-policy"></a>Hierarkisk spridning av säkerhets kopierings princip
+I Service Fabric är relationen mellan program, tjänst och partitioner hierarkisk, som förklaras i [program modellen](./service-fabric-application-model.md). Säkerhets kopierings policyn kan kopplas antingen till ett _program_, en _tjänst_eller en _partition_ i hierarkin. Säkerhets kopierings policyn sprids hierarkiskt till nästa nivå. Förutsatt att det bara finns en säkerhets kopierings princip som har skapats och associerats med ett _program_, säkerhets kopie ras alla tillstånds känsliga partitioner som tillhör alla _pålitliga tillstånds känsliga tjänster_ och _Reliable Actors_ av _programmet_ med hjälp av säkerhets kopierings princip. Eller om säkerhets kopierings policyn är associerad med en _tillförlitlig tillstånds känslig tjänst_säkerhets kopie ras alla dess partitioner med säkerhets kopierings principen.
 
-### <a name="overriding-backup-policy"></a>Overriding backup policy
-There may be a scenario where data backup with same backup schedule is required for all services of the application except for specific services where the need is to have data backup using higher frequency schedule or taking backup to a different storage account or fileshare. To address such scenarios, backup restore service provides facility to override propagated policy at service and partition scope. When the backup policy is associated at _service_ or _partition_, it overrides propagated backup policy, if any.
+### <a name="overriding-backup-policy"></a>Åsidosätt säkerhets kopierings princip
+Det kan finnas ett scenario där data säkerhets kopiering med samma säkerhets kopierings schema krävs för alla tjänster i programmet, med undantag för specifika tjänster där behovet är att säkerhetskopiera data med högre frekvens schema eller att göra en säkerhets kopia till ett annat lagrings konto eller fileshare. För att lösa sådana scenarier tillhandahåller Backup Restore service-tjänsten en funktion för att åsidosätta spridd princip i tjänst-och partitions omfång När säkerhets kopierings principen är associerad med en _tjänst_ eller _partition_åsidosätts den distribuerade säkerhets kopierings principen, om sådan finns.
 
 ### <a name="example"></a>Exempel
 
-This example uses setup with two applications, _MyApp_A_ and _MyApp_B_. Application _MyApp_A_ contains two Reliable Stateful services, _SvcA1_ & _SvcA3_, and one Reliable Actor service, _ActorA2_. _SvcA1_ contains three partitions while _ActorA2_ and _SvcA3_ contain two partitions each.  Application _MyApp_B_ contains three Reliable Stateful services, _SvcB1_, _SvcB2_, and _SvcB3_. _SvcB1_ and _SvcB2_ contains two partitions each while _SvcB3_ contains three partitions.
+I det här exemplet används installationen med två program, _MyApp_A_ och _MyApp_B_. Program _MyApp_A_ innehåller två pålitliga tillstånds känsliga tjänster, _SvcA1_ & _SvcA3_och en pålitlig aktörs tjänst, _ActorA2_. _SvcA1_ innehåller tre partitioner medan _ActorA2_ och _SvcA3_ innehåller två partitioner.  Program _MyApp_B_ innehåller tre pålitliga tillstånds känsliga tjänster, _SvcB1_, _SvcB2_och _SvcB3_. _SvcB1_ och _SvcB2_ innehåller två partitioner, medan _SvcB3_ innehåller tre partitioner.
 
-Assume that these applications' data backup requirements are as follows
+Anta att dessa programs krav för säkerhets kopiering av data är följande
 
 1. MyApp_A
-    1. Create daily backup of data for all partitions of all _Reliable Stateful services_ and _Reliable Actors_ belonging to the application. Upload backup data to location _BackupStore1_.
+    1. Skapa daglig säkerhets kopiering av data för alla partitioner i alla _pålitliga tillstånds känsliga tjänster_ och _Reliable Actors_ som hör till programmet. Ladda upp säkerhets kopierings data till platsen _BackupStore1_.
 
-    2. One of the services, _SvcA3_, requires data backup every hour.
+    2. En av tjänsterna, _SvcA3_, kräver data säkerhets kopiering varje timme.
 
-    3. Data size in partition _SvcA1_P2_ is more than expected and its backup data should be stored to different storage location _BackupStore2_.
+    3. Data storleken i partitionen _SvcA1_P2_ är mer än förväntad och dess säkerhets kopierings data ska lagras på olika lagrings platser _BackupStore2_.
 
 2. MyApp_B
-    1. Create backup of data every Sunday at 8:00 AM for all partitions of _SvcB1_ service. Upload backup data to location _BackupStore1_.
+    1. Skapa en säkerhets kopia av data varje söndag kl. 8:00 för alla partitioner i _SvcB1_ -tjänsten. Ladda upp säkerhets kopierings data till platsen _BackupStore1_.
 
-    2. Create backup of data every day at 8:00 AM for partition _SvcB2_P1_. Upload backup data to location _BackupStore1_.
+    2. Skapa säkerhets kopia av data varje dag vid 8:00 för partition _SvcB2_P1_. Ladda upp säkerhets kopierings data till platsen _BackupStore1_.
 
-To address these data backup requirements, backup policies BP_1 to BP_5 are created and backup is enabled as follows.
+För att åtgärda dessa krav för säkerhets kopiering, skapas säkerhets kopierings principer BP_1 BP_5 skapas och säkerhets kopiering aktive ras enligt följande.
 1. MyApp_A
-    1. Create backup policy, _BP_1_, with frequency-based backup schedule where frequency is set to 24 Hrs. and backup storage configured to use storage location _BackupStore1_. Enable this policy for Application _MyApp_A_ using [Enable Application Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableapplicationbackup) API. This action enables data backup using backup policy _BP_1_ for all partitions of _Reliable Stateful services_ and _Reliable Actors_ belonging to application _MyApp_A_.
+    1. Skapa säkerhets kopierings princip, _BP_1_, med frekvens-baserat säkerhets kopierings schema där frekvensen är inställd på 24 timmar. och lagring av säkerhets kopior som kon figurer ATS för att använda lagrings platsen _BackupStore1_. Aktivera den här principen för program MyApp_A [att använda Aktivera API för program säkerhets kopiering](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableapplicationbackup) . Den här åtgärden möjliggör säkerhets kopiering av data med hjälp av säkerhets kopierings princip _BP_1_ för alla partitioner med _pålitliga tillstånds känsliga tjänster_ och _Reliable Actors_ som hör till program _MyApp_A_.
 
-    2. Create backup policy, _BP_2_, with frequency-based backup schedule where frequency is set to 1 Hrs. and backup storage configured to use storage location _BackupStore1_. Enable this policy for service _SvcA3_ using [Enable Service Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableservicebackup) API. This action overrides propagated policy _BP_1_ by explicitly enabled backup policy _BP_2_ for all partitions of service _SvcA3_ leading to data backup using backup policy _BP_2_ for these partitions.
+    2. Skapa säkerhets kopierings princip, _BP_2_, med frekvens-baserat säkerhets kopierings schema där frekvensen anges till 1 timme. och lagring av säkerhets kopior som kon figurer ATS för att använda lagrings platsen _BackupStore1_. Aktivera den här principen för tjänst- _SvcA3_ med hjälp av Aktivera API för [säkerhets kopiering av tjänst](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableservicebackup) . Den här åtgärden åsidosätter den spridda princip _BP_1_ genom uttryckligen aktiverade säkerhets kopierings principer _BP_2_ för alla _SvcA3_ som leder till data säkerhets kopiering med säkerhets kopierings princip _BP_2_ för dessa partitioner.
 
-    3. Create backup policy, _BP_3_, with frequency-based backup schedule where frequency is set to 24 Hrs. and backup storage configured to use storage location _BackupStore2_. Enable this policy for partition _SvcA1_P2_ using [Enable Partition Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enablepartitionbackup) API. This action overrides propagated policy _BP_1_ by explicitly enabled backup policy _BP_3_ for partition _SvcA1_P2_.
+    3. Skapa säkerhets kopierings princip, _BP_3_, med frekvens-baserat säkerhets kopierings schema där frekvensen är inställd på 24 timmar. och lagring av säkerhets kopior som kon figurer ATS för att använda lagrings platsen _BackupStore2_. Aktivera den här principen för partition _SvcA1_P2_ att använda API för [att aktivera partitions säkerhets kopiering](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enablepartitionbackup) . Den här åtgärden åsidosätter den spridda princip _BP_1_ genom uttryckligen aktiverade säkerhets kopierings principer _BP_3_ för partition _SvcA1_P2_.
 
 2. MyApp_B
-    1. Create backup policy, _BP_4_, with time-based backup schedule where schedule frequency type is set to weekly, run days is set to Sunday, and run times is set to 8:00 AM. Backup storage configured to use storage location _BackupStore1_. Enable this policy for service _SvcB1_ using [Enable Service Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableservicebackup) API. This action enables data backup using backup policy _BP_4_ for all partitions of service _SvcB1_.
+    1. Skapa säkerhets kopierings princip, _BP_4_, med tidsbaserat säkerhets kopierings schema där schema frekvens typ är inställd på veckovis, körnings dagar är inställt på söndag och körnings tiderna är inställt på 8:00. Säkerhets kopierings lagring som kon figurer ATS för att använda lagrings platsen _BackupStore1_. Aktivera den här principen för tjänst- _SvcB1_ med hjälp av Aktivera API för [säkerhets kopiering av tjänst](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableservicebackup) . Den här åtgärden aktiverar data säkerhets kopiering med säkerhets kopierings princip _BP_4_ för alla partitioner för service _SvcB1_.
 
-    2. Create backup policy, _BP_5_, with time-based backup schedule where schedule frequency type is set to daily and run times is set to 8:00 AM. Backup storage configured to use storage location _BackupStore1_. Enable this policy for partition _SvcB2_P1_ using [Enable Partition Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enablepartitionbackup) API. This action enables data backup using backup policy _BP_5_ for partition _SvcB2_P1_.
+    2. Skapa säkerhets kopierings princip, _BP_5_, med tidsbaserat säkerhets kopierings schema där schema frekvens typ är inställd på daglig och kör tid är inställd på 8:00. Säkerhets kopierings lagring som kon figurer ATS för att använda lagrings platsen _BackupStore1_. Aktivera den här principen för partition _SvcB2_P1_ att använda API för [att aktivera partitions säkerhets kopiering](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enablepartitionbackup) . Den här åtgärden aktiverar data säkerhets kopiering med säkerhets kopierings princip _BP_5_ för partition _SvcB2_P1_.
 
-Following diagram depicts explicitly enabled backup policies and propagated backup policies.
+Följande diagram illustrerar uttryckligen aktiverade säkerhets kopierings principer och distribuerade säkerhets kopierings principer.
 
-![Service Fabric Application Hierarchy][0]
+![Service Fabric programhierarki][0]
 
-## <a name="disable-backup"></a>Disable backup
-Backup policies can be disabled when there is no need to backup data. Backup policy enabled at an _application_ can only be disabled at the same _application_ using [Disable Application Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableapplicationbackup) API, Backup policy enabled at a _service_ can be disabled at the same _service_ using [Disable Service Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableservicebackup) API, and Backup policy enabled at a _partition_ can be disabled at the same _partition_ using [Disable Partition Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disablepartitionbackup) API.
+## <a name="disable-backup"></a>Inaktivera säkerhets kopiering
+Säkerhets kopierings principer kan inaktive ras när det inte finns några behov av att säkerhetskopiera data. Säkerhets kopierings principen som är aktive rad i ett _program_ kan bara inaktive ras i samma _program_ _som använder_ inaktivera API för [program säkerhets kopiering](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableapplicationbackup) . säkerhets kopierings principen som är aktive rad på en _tjänst_ kan inaktive [ Säkerhets kopierings-](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableservicebackup) och säkerhets kopierings principer som är aktiverade på en _partition_ kan inaktive ras på samma _partition_ som använder inaktivera API för [partitions säkerhets kopiering](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disablepartitionbackup) .
 
-* Disabling backup policy for an _application_ stops all periodic data backups happening as a result of propagation of the backup policy to Reliable Stateful service partitions or Reliable Actor partitions.
+* Om du inaktiverar säkerhets kopierings principen för ett _program_ stoppas alla periodiska data säkerhets kopieringar på grund av spridningen av säkerhets kopierings principen till pålitliga tillstånds känsliga diskpartitioner eller tillförlitliga aktörs partitioner.
 
-* Disabling backup policy for a _service_ stops all periodic data backups happening as a result of propagation of this backup policy to the partitions of the _service_.
+* Om säkerhets kopierings principen inaktive ras för en _tjänst_ stoppas alla regelbundna säkerhets kopieringar på grund av spridningen av den här säkerhets kopierings principen till partitionerna för _tjänsten_.
 
-* Disabling backup policy for a _partition_ stops all periodic data backup happening due to the backup policy at the partition.
+* Om du inaktiverar säkerhets kopierings principen för en _partition_ stoppas alla regelbundna data säkerhets kopieringar på grund av säkerhets kopierings principen på partitionen.
 
-* While disabling backup for an entity(application/service/partition), `CleanBackup` can be set to _true_ to delete all the backups in configured storage.
+* När du inaktiverar säkerhets kopiering för en entitet (program/tjänst/partition) kan `CleanBackup` anges till _Sant_ för att ta bort alla säkerhets kopior i ett konfigurerat lagrings utrymme.
     ```json
     {
         "CleanBackup": true 
     }
     ```
 
-## <a name="suspend--resume-backup"></a>Suspend & resume backup
-Certain situation may demand temporary suspension of periodic backup of data. In such situation, depending on the requirement, suspend backup API may be used at an _Application_, _Service_, or _Partition_. Periodic backup suspension is transitive over subtree of the application's hierarchy from the point it is applied. 
+## <a name="suspend--resume-backup"></a>Pausa & återuppta säkerhets kopieringen
+En viss situation kan kräva tillfällig fjädring av regelbunden säkerhets kopiering av data. I sådana fall, beroende på vad som krävs, kan du inaktivera säkerhets kopierings-API: et för ett _program_, en _tjänst_eller en _partition_. Regelbunden SUS Pension är transitiv över under trädet för programmets hierarki från den punkt som används. 
 
-* When suspension is applied at an _Application_ using [Suspend Application Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendapplicationbackup) API, then all the services and partitions under this application are suspended for periodic backup of data.
+* När SUS Pension används i ett _program_ med hjälp av inaktivera API för [program säkerhets kopiering](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendapplicationbackup) pausas alla tjänster och partitioner under det här programmet för regelbunden säkerhets kopiering av data.
 
-* When suspension is applied at a _Service_ using [Suspend Service Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendservicebackup) API, then all the partitions under this service are suspended for periodic backup of data.
+* När SUS Pension används på en _tjänst_ med hjälp av [suspend-tjänsten för säkerhets kopiering](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendservicebackup) inaktive ras alla partitioner under den här tjänsten för regelbunden säkerhets kopiering av data.
 
-* When suspension is applied at a _Partition_ using [Suspend Partition Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendpartitionbackup) API, then it suspends partitions under this service are suspended for periodic backup of data.
+* När SUS Pension används på en _partition_ med hjälp av [pausa partitions säkerhets kopierings](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendpartitionbackup) -API, pausas partitioner under den här tjänsten för regelbunden säkerhets kopiering av data.
 
-Once the need for suspension is over, then the periodic data backup can be restored using respective resume backup API. Periodic backup must be resumed at same _application_, _service_, or _partition_ where it was suspended.
+När behovet av SUS Pension är över kan den periodiska säkerhets kopian återställas med respektive återuppta säkerhets kopierings-API. Regelbunden säkerhets kopiering måste återupptas på samma _program_, _tjänst_eller _partition_ där det pausades.
 
-* If suspension was applied at an _Application_, then it should be resumed using [Resume Application Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeapplicationbackup) API. 
+* Om SUS Pension har tillämpats på ett _program_ska den återupptas med hjälp av [återuppta program säkerhets kopierings](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeapplicationbackup) -API. 
 
-* If suspension was applied at a _Service_, then it should be resumed using [Resume Service Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeservicebackup) API.
+* Om SUS Pension har tillämpats på en _tjänst_ska den återupptas med hjälp av [återuppta service backup-](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeservicebackup) API.
 
-* If suspension was applied at a _Partition_, then it should be resumed using [Resume Partition Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup) API.
+* Om SUS Pension har tillämpats på en _partition_, ska den återupptas med hjälp av [återuppta partitions säkerhets kopierings](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup) -API.
 
-### <a name="difference-between-suspend-and-disable-backups"></a>Difference between Suspend and Disable backups
-Disable backup should be used when backups are no longer required for a particular application, service or partition. One can invoke disable backup request along with clean backups parameter to be true which would mean all existing backups are deleted as well. However, suspend is to be used in scenarios where one wants to turn off backups temporarily like when local disk becomes full or uploading backup is failing due to known network issue etc. 
+### <a name="difference-between-suspend-and-disable-backups"></a>Skillnaden mellan pausa och inaktivera säkerhets kopieringar
+Inaktivera säkerhets kopiering ska användas när säkerhets kopiering inte längre krävs för ett visst program, en tjänst eller en partition. En kan anropa inaktivera begäran om säkerhets kopiering tillsammans med parametern för rensade säkerhets kopior så att alla befintliga säkerhets kopior också tas bort. Pausa är dock att användas i scenarier där en vill inaktivera säkerhets kopieringar tillfälligt, till exempel när den lokala disken blir full eller om det inte går att ladda upp säkerhets kopieringen på grund av kända nätverks problem osv. 
 
-While disable can be invoked only at a level which was earlier enabled for backup explicitly however suspension can be applied at any level which is currently enabled for backup either directly or via inheritance/ hierarchy. For example, if backup is enabled at an application level, one can invoke disable only at the application level however suspend can be invoked at application, any service or partition under that application. 
+Inaktive ring kan bara anropas på en nivå som tidigare har Aktiver ATS för säkerhets kopiering, men som uttryckligen upphör att gälla, kan du tillämpa på valfri nivå som för närvarande är aktive rad för säkerhets kopiering antingen direkt eller via arv/hierarki Om säkerhets kopiering till exempel har Aktiver ATS på en program nivå kan ett anrop endast aktive ras på program nivån, men en paus kan anropas i programmet, alla tjänster eller partitioner i det programmet. 
 
-## <a name="auto-restore-on-data-loss"></a>Auto restore on data loss
-The service partition may lose data due to unexpected failures. For example, the disk for two out of three replicas for a partition (including the primary replica) gets corrupted or wiped.
+## <a name="auto-restore-on-data-loss"></a>Automatisk återställning vid data förlust
+-Tjänstepartitionen kan förlora data på grund av oväntade fel. Till exempel kan disken för två av tre repliker för en partition (inklusive den primära repliken) skadas eller rensas.
 
-When Service Fabric detects that the partition is in data loss, it invokes `OnDataLossAsync` interface method on the partition and expects partition to take the required action to come out of data loss. In this situation, if the effective backup policy at the partition has `AutoRestoreOnDataLoss` flag set to `true` then the restore gets triggered automatically using latest available backup for this partition.
+När Service Fabric upptäcker att partitionen har data förlust, anropar den `OnDataLossAsync` gränssnitts metod på partitionen och förväntar sig att partitionen ska vidta den nödvändiga åtgärden för att ta bort data förlust. I den här situationen, aktive ras återställningen automatiskt med den senaste tillgängliga säkerhets kopian för den här partitionen, om den gällande säkerhets kopierings principen på partitionen har `AutoRestoreOnDataLoss` flaggan har angetts till `true`.
 
-## <a name="get-backup-configuration"></a>Get backup configuration
-Separate APIs are made available to get backup configuration information at an _application_, _service_, and _partition_ scope. [Get Application Backup Configuration Info](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo), [Get Service Backup Configuration Info](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo), and [Get Partition Backup Configuration Info](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo) are these APIs respectively. Mainly, these APIs return the applicable backup policy, scope at which the backup policy is applied and backup suspension details. Following is brief description about returned results of these APIs.
+## <a name="get-backup-configuration"></a>Hämta säkerhets kopierings konfiguration
+Separata API: er görs tillgängliga för att hämta konfigurations information för säkerhets kopiering i en _program_-, _tjänst_-och _partition_ omfattning. [Hämta konfigurations information för program säkerhets kopiering](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo), [Hämta konfigurations information för tjänst säkerhets kopiering](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo)och [Hämta konfigurations information för säkerhets kopiering av partitioner](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo) är dessa API: er Huvudsakligen returnerar dessa API: er den tillämpliga säkerhets kopierings principen, omfattning som säkerhets kopierings principen tillämpas på och information om SUS pension. Följande är en kort beskrivning av returnerade resultat från dessa API: er.
 
-- Application backup configuration info: provides the details of backup policy applied at application and all the over-ridden policies at services and partitions belonging to the application. It also includes the suspension information for the application and it services, and partitions.
+- Konfigurations information för program säkerhets kopiering: innehåller information om säkerhets kopierings policyn som tillämpas på programmet och alla åsidosättande principer på tjänster och partitioner som hör till programmet. Den innehåller också information om SUS pension för programmet och IT-tjänster och partitioner.
 
-- Service backup configuration info: provides the details of effective backup policy at service and the scope at which this policy was applied and all the over-ridden policies at its partitions. It also includes the suspension information for the service and its partitions.
+- Konfigurations information för tjänst säkerhets kopiering: innehåller information om en effektiv säkerhets kopierings princip för tjänsten och omfattningen där den här principen tillämpades och alla åsidosättande principer på dess partitioner. Den innehåller också information om SUS pension för tjänsten och dess partitioner.
 
-- Partition backup configuration info: provides the details of effective backup policy at partition and the scope at which this policy was applied. It also includes the suspension information for the partitions.
+- Konfigurations information för partitions säkerhets kopiering: innehåller information om en effektiv säkerhets kopierings policy vid partitionen och omfattningen där den här principen tillämpades. Den innehåller också information om SUS pension för partitionerna.
 
-## <a name="list-available-backups"></a>List available backups
+## <a name="list-available-backups"></a>Lista tillgängliga säkerhets kopior
 
-Available backups can be listed using Get Backup List API. Result of API call includes backup info items related to all the backups available at the backup storage, which is configured in the applicable backup policy. Different variants of this API are provided to list available backups belonging to an application, service, or partition. These APIs support getting the _latest_ available backup of all applicable partitions, or filtering of backups based on _start date_ and _end date_.
+Tillgängliga säkerhets kopior kan listas med Get backup List API. Resultatet av API-anropet inkluderar säkerhets kopierings information som är relaterad till alla säkerhets kopior som är tillgängliga på säkerhets kopierings lagringen, som konfigureras i den aktuella säkerhets kopierings principen Olika varianter av detta API tillhandahålls för att visa en lista över tillgängliga säkerhets kopior som hör till ett program, en tjänst eller en partition. Dessa API: er har stöd för att hämta den _senaste_ tillgängliga säkerhets kopian av alla tillämpliga partitioner eller filtrering av säkerhets kopior baserat på _start datum_ och _slutdatum_.
 
-These APIs also support pagination of the results, when _MaxResults_ parameter is set to non-zero positive integer then the API returns maximum _MaxResults_ backup info items. In case, there are more backup info items available than the _MaxResults_ value, then a continuation token is returned. Valid continuation token parameter can be used to get next set of results. When valid continuation token value is passed to next call of the API, the API returns next set of results. No continuation token is included in the response when all available results are returned.
+Dessa API: er stöder också sid brytning av resultaten, när _MaxResults_ -parametern har angetts till ett positivt heltal som inte är noll returnerar API: n det högsta antalet _MaxResults_ för säkerhets kopiering av information. Om det finns fler tillgängliga säkerhets kopierings uppgifter än _MaxResults_ -värdet returneras en fortsättnings-token. Giltig parametern för att fortsätta token kan användas för att hämta nästa uppsättning resultat. När ett giltigt värde för över gångs-token skickas till nästa anrop till API: et returnerar API nästa uppsättning resultat. Ingen fortsättnings-token ingår i svaret när alla tillgängliga resultat returneras.
 
-Following is the brief information about supported variants.
+Nedan följer en kort information om vilka varianter som stöds.
 
-- [Get Application Backup List](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackuplist): Returns a list of backups available for every partition belonging to given Service Fabric application.
+- [Hämta program säkerhets kopierings lista](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackuplist): returnerar en lista med tillgängliga säkerhets kopior för varje partition som hör till Service Fabric program.
 
-- [Get Service Backup List](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackuplist): Returns a list of backups available for every partition belonging to given Service Fabric service.
+- [Hämta säkerhets kopie lista för tjänsten](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackuplist): returnerar en lista med tillgängliga säkerhets kopior för varje partition som hör till den Service Fabric tjänsten.
  
-- [Get Partition Backup List](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackuplist): Returns a list of backups available for the specified partition.
+- [Hämta säkerhets kopie lista för partitioner](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackuplist): returnerar en lista med tillgängliga säkerhets kopior för den angivna partitionen.
 
 ## <a name="next-steps"></a>Nästa steg
-- [Backup restore REST API reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
+- [REST API referens för säkerhets kopierings återställning](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/backup-policy-association-example.png

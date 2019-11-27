@@ -1,6 +1,6 @@
 ---
-title: Assign access to Azure Cost Management data
-description: This article walks you though assigning permission to Azure Cost Management data for various access scopes.
+title: Tilldela åtkomst till Azure Cost Management data
+description: Den här artikeln vägleder dig även om att tilldela behörighet till Azure Cost Management-data för olika scope.
 services: cost-management
 keywords: ''
 author: bandersmsft
@@ -17,169 +17,169 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74219851"
 ---
-# <a name="assign-access-to-cost-management-data"></a>Assign access to Cost Management data
+# <a name="assign-access-to-cost-management-data"></a>Tilldela åtkomst till Cost Management-data
 
-For users with Azure Enterprise agreements, a combination of permissions granted in the Azure portal and the Enterprise (EA) portal define a user's level of access to Azure Cost Management data. For users with other Azure account types, defining a user's level of access to Cost Management data is simpler by using Azure role-based access control. This article walks you through assigning access to Cost Management data. After the combination of permissions is assigned, the user views data in Cost Management based the scope that they have access to and on the scope that they select in the Azure portal.
+För användare med Azure Enterprise-avtal definierar en kombination av behörigheter som beviljats i Azure Portal och Enterprise-portalen (EA) en användar nivå för åtkomst till Azure Cost Management data. För användare med andra typer av Azure-konton är det enklare att definiera en användar nivå för att Cost Management data genom att använda rollbaserad åtkomst kontroll i Azure. Den här artikeln beskriver hur du tilldelar åtkomst till Cost Management-data. När en kombination av behörigheter tilldelas baserat vyer användardata i Cost Management omfattningen som de har åtkomst till och omfattning att de väljer i Azure-portalen.
 
-The scope that a user selects is used throughout Cost Management to provide data consolidation and to control access to cost information. When using scopes, users don't multi-select them. Instead, they select a larger scope that child scopes roll up to and then they filter-down to what they want to view. Data consolidation is important to understand because some people shouldn't have access to a parent scope that child scopes roll up to.
+Omfattningen som en användare väljer används i hela kostnadshantering datakonsolidering och styra åtkomsten till kostnadsinformation. När du använder omfång kan användare inte flerval dem. I stället väljer de ett större område som underordnade omfattningar kavla upp till och sedan de filter ned för att de vill visa. Konsolidera data är viktigt att förstå eftersom vissa användare inte ska ha åtkomst till en överordnad omfattning som underordnade omfattningar slås upp till.
 
-Watch the [How to assign access with Azure Cost Management](https://www.youtube.com/watch?v=J997ckmwTa8) video to learn about assigning access to view costs and charges with Azure role-based access control.
+Se [hur du tilldelar åtkomst med Azure Cost Management](https://www.youtube.com/watch?v=J997ckmwTa8) video för att lära dig mer om hur du tilldelar åtkomst för att Visa kostnader och kostnader med rollbaserad åtkomst kontroll i Azure.
 
 >[!VIDEO https://www.youtube.com/embed/J997ckmwTa8]
 
-## <a name="cost-management-scopes"></a>Cost Management scopes
+## <a name="cost-management-scopes"></a>Cost Management-scope
 
-Cost management supports a variety of Azure account types. Om du vill visa en fullständig lista över typer av stöds kan du läsa [Förstå Cost Management-data](understand-cost-mgt-data.md). The type of account determines available scopes.
+Kostnads hantering stöder olika typer av Azure-konton. Om du vill se hela listan med kontotyper som stöds kan du läsa [Förstå Cost Management-data](understand-cost-mgt-data.md). Konto typen fastställer tillgängliga omfattningar.
 
-### <a name="azure-ea-subscription-scopes"></a>Azure EA subscription scopes
+### <a name="azure-ea-subscription-scopes"></a>Azure EA-prenumerations omfång
 
-To view cost data for Azure EA subscriptions, a user must have at least read access to one or more of the following scopes.
+Om du vill visa kostnads data för Azure EA-prenumerationer måste användaren ha minst Läs behörighet till ett eller flera av följande omfång.
 
-| **Omfång** | **Definieras på** | **Required access to view data** | **Nödvändig EA-inställning** | **Consolidates data to** |
+| **Omfång** | **Definieras på** | **Nödvändig åtkomst för att visa data** | **Nödvändig EA-inställning** | **Konsoliderar data till** |
 | --- | --- | --- | --- | --- |
-| Faktureringskonto<sup>1</sup> | [https://ea.azure.com](https://ea.azure.com/) | Företagsadministratör | Inget | Alla prenumerationer från Enterprise-avtalet |
-| Avdelning | [https://ea.azure.com](https://ea.azure.com/) | Avdelningsadministratör | **DA view charges** enabled | Alla prenumerationer som tillhör ett registreringskonto som är länkade till avdelningen |
-| Registreringskonto<sup>2</sup> | [https://ea.azure.com](https://ea.azure.com/) | Kontoägare | **AO view charges** enabled | Alla prenumerationer från registreringskontot |
-| Hanteringsgrupp | [https://portal.azure.com](https://portal.azure.com/) | Cost Management-läsare (eller Läsare) | **AO view charges** enabled | Alla prenumerationer under hanteringsgruppen |
-| Prenumeration | [https://portal.azure.com](https://portal.azure.com/) | Cost Management-läsare (eller Läsare) | **AO view charges** enabled | Alla resurser/resursgrupper i prenumerationen |
-| Resursgrupp | [https://portal.azure.com](https://portal.azure.com/) | Cost Management-läsare (eller Läsare) | **AO view charges** enabled | Alla resurser i resursgruppen |
+| Faktureringskonto<sup>1</sup> | [https://ea.azure.com](https://ea.azure.com/) | Företagsadministratör | Ingen | Alla prenumerationer från Enterprise-avtalet |
+| Avdelning | [https://ea.azure.com](https://ea.azure.com/) | Avdelningsadministratör | **Avgifter för da View** har Aktiver ATS | Alla prenumerationer som tillhör ett registreringskonto som är länkade till avdelningen |
+| Registreringskonto<sup>2</sup> | [https://ea.azure.com](https://ea.azure.com/) | Kontoägare | **Avgifter för Ao View** har Aktiver ATS | Alla prenumerationer från registreringskontot |
+| Hanteringsgrupp | [https://portal.azure.com](https://portal.azure.com/) | Cost Management-läsare (eller Läsare) | **Avgifter för Ao View** har Aktiver ATS | Alla prenumerationer under hanteringsgruppen |
+| Prenumeration | [https://portal.azure.com](https://portal.azure.com/) | Cost Management-läsare (eller Läsare) | **Avgifter för Ao View** har Aktiver ATS | Alla resurser/resursgrupper i prenumerationen |
+| Resursgrupp | [https://portal.azure.com](https://portal.azure.com/) | Cost Management-läsare (eller Läsare) | **Avgifter för Ao View** har Aktiver ATS | Alla resurser i resursgruppen |
 
-<sup>1</sup> The billing account is also referred to as the Enterprise Agreement or Enrollment.
+<sup>1</sup> ett fakturerings konto kallas även Enterprise-avtal eller registrering.
 
-<sup>2</sup> The enrollment account is also referred to as the account owner.
+<sup>2</sup> registrerings kontot kallas även för kontots ägare.
 
-The following diagram illustrates the relationship between Cost Management scopes with roles and EA portal settings.
+I följande diagram illustreras förhållandet mellan Cost Management omfattningar med inställningar för roller och EA-portalen.
 
-![Diagram showing the relationship between Cost Management scopes with roles and EA portal settings](./media/assign-access-acm-data/scope-access-relationship-diagram.png)
+![Diagram som visar relationen mellan Cost Management omfattningar med roller och inställningar för EA-portalen](./media/assign-access-acm-data/scope-access-relationship-diagram.png)
 
-When **DA view charges** are disabled in the EA portal, you’ll see a message stating *Costs disabled for your organization* when you try to view costs for departments and accounts.
+När **da View-avgifter** inaktive ras i EA-portalen visas ett meddelande om att *kostnader har inaktiverats för din organisation* när du försöker Visa kostnader för avdelningar och konton.
 
-Similarly, when **AO view charges** are disabled in the EA portal, you’ll see a message stating *Costs disabled for your organization* when you try to view costs for enrollment accounts, management groups, subscriptions, and resource groups.
+När **Ao View-avgifter** har inaktiverats i EA-portalen visas ett meddelande om att *kostnader har inaktiverats för din organisation* när du försöker Visa kostnader för registrerings konton, hanterings grupper, prenumerationer och resurs grupper.
 
-## <a name="other-azure-account-scopes"></a>Other Azure account scopes
+## <a name="other-azure-account-scopes"></a>Andra scope för Azure-konto
 
-To view cost data for other Azure subscriptions, a user must have at least read access to one or more of the following scopes:
+Om du vill visa kostnads data för andra Azure-prenumerationer måste användaren ha minst Läs behörighet till en eller flera av följande omfattningar:
 
 - Azure-konto
 - Hanteringsgrupp
 - Resursgrupp
 
-Various scopes are available after partners onboard customers to a Microsoft Customer Agreement. CSP customers can then use Cost Management features when enabled by their CSP partner. For more information, see [Get started with Azure Cost Management for partners](get-started-partners.md).
+Olika omfattningar är tillgängliga efter att partners har publicerat kunder i ett kund avtal från Microsoft. CSP-kunder kan sedan använda Cost Management funktioner när de aktive ras av deras CSP-partner. Mer information finns i [Kom igång med Azure Cost Management för partner](get-started-partners.md).
 
-## <a name="enable-access-to-costs-in-the-ea-portal"></a>Enable access to costs in the EA portal
+## <a name="enable-access-to-costs-in-the-ea-portal"></a>Aktivera åtkomst till kostnader i EA-portalen
 
-The department scope requires the **DA view charges** option **Enabled** in the EA portal. All other scopes require the **AO view charges** option **Enabled** in the EA portal.
+Avdelnings omfånget kräver alternativet för att välja alternativ för **da View** **aktive rad** i EA-portalen. Alla andra omfattningar kräver alternativet alternativ för **Ao** -visning **aktiverat** i EA-portalen.
 
-To enable an option:
+För att aktivera ett alternativ:
 
-1. Sign in to the EA portal at [https://ea.azure.com](https://ea.azure.com) with an enterprise administrator account.
-2. Select **Manage** in the left pane.
-3. For the cost management scopes that you want to provide access to, enable the charge option to **DA view charges** and/or **AO view charges**.  
-    ![Enrollment tab showing DA and AO view charges options](./media/assign-access-acm-data/ea-portal-enrollment-tab.png)
+1. Logga in på EA-portalen på [https://ea.azure.com](https://ea.azure.com) med ett företags administratörs konto.
+2. Välj **Hantera** i det vänstra fönstret.
+3. För de kostnads hanterings omfattningar som du vill ge åtkomst till aktiverar du alternativet avgift för **da Visa avgifter** och/eller **Ao Visa avgifter**.  
+    fliken ![registrering visar alternativ för att visa alternativ för DA-och AO-vy](./media/assign-access-acm-data/ea-portal-enrollment-tab.png)
 
-After the view charge options are enabled, most scopes also require role-based access control (RBAC) permission configuration in the Azure portal.
+När Visningsalternativ för kostnad är aktiverade, kräver de flesta omfång också rollbaserad åtkomstkontroll (RBAC) behörighet konfiguration i Azure-portalen.
 
-## <a name="enterprise-administrator-role"></a>Enterprise administrator role
+## <a name="enterprise-administrator-role"></a>Enterprise-administratörsrollen
 
-By default, an enterprise administrator has access to the billing account (Enterprise Agreement/enrollment) and to all other scopes, which are child scopes. The enterprise administrator assigns access to scopes for other users. As a best practice for business continuity, you should always have two users with enterprise administrator access. The following sections are walk-through examples of the enterprise administrator assigning access to scopes for other users.
+En företagsadministratör har åtkomst till faktureringskonto (Enterprise Agreement/registrering) och alla andra scope, som är underordnade omfattningar som standard. Enterprise-administratören tilldelar åtkomst till omfång för andra användare. Som bästa praxis för affärskontinuitet, bör du alltid ha två användare med administratörsbehörighet för företag. I följande avsnitt är hanteringspaketen exempel på enterprise-administratören tilldela åtkomst till omfattningar för andra användare.
 
-## <a name="assign-billing-account-scope-access"></a>Assign billing account scope access
+## <a name="assign-billing-account-scope-access"></a>Tilldela fakturering kontoåtkomst omfång
 
-Access to the billing account scope requires enterprise administrator permission in the EA portal. The enterprise administrator has access to view costs across the entire EA enrollment or multiple enrollments. No action is required in the Azure portal for the billing account scope.
+Åtkomst till faktureringen kontoomfånget kräver administratörsbehörighet för företag i EA-portalen. Enterprise-administratörer har behörighet att visa kostnaderna över hela EA-avtal eller flera registreringar. Ingen åtgärd krävs i Azure-portalen för fakturering kontoomfånget.
 
-1. Sign in to the EA portal at [https://ea.azure.com](https://ea.azure.com) with an enterprise administrator account.
-2. Select **Manage** in the left pane.
-3. On the **Enrollment** tab, select the enrollment that you want to manage.  
-    ![select your enrollment in the EA portal](./media/assign-access-acm-data/ea-portal.png)
-4. Click **+ Add Administrator**.
-5. In the Add Administrator box, select the authentication type and type the user's email address.
-6. If the user should have read-only access to cost and usage data, under **Read-only**, select **Yes**.  Otherwise, select **No**.
-7. Click **Add** to create the account.  
-    ![example information shown in the Add administrator box](./media/assign-access-acm-data/add-admin.png)
+1. Logga in på EA-portalen på [https://ea.azure.com](https://ea.azure.com) med ett företags administratörs konto.
+2. Välj **Hantera** i det vänstra fönstret.
+3. På fliken **registrering** väljer du den registrering som du vill hantera.  
+    ![välja din registrering i EA-portalen](./media/assign-access-acm-data/ea-portal.png)
+4. Klicka på **+ Lägg till administratör**.
+5. Välj autentiseringstyp och ange användarens e-postadress i rutan Lägg till administratör.
+6. Om användaren ska ha skrivskyddad åtkomst till kostnader och användnings data väljer du **Ja**under **skrivskyddad**.  Annars väljer du **Nej**.
+7. Klicka på **Lägg till** för att skapa kontot.  
+    ![exempel information som visas i rutan Lägg till administratör](./media/assign-access-acm-data/add-admin.png)
 
-It may take up to 30 minutes before the new user can access data in Cost Management.
+Det kan ta upp till 30 minuter innan den nya användaren kan komma åt data i Cost Management.
 
-### <a name="assign-department-scope-access"></a>Assign department scope access
+### <a name="assign-department-scope-access"></a>Tilldela avdelning begränsa åtkomsten
 
-Access to the department scope requires department administrator (DA view charges) access in the EA portal. The department administrator has access to view costs and usage data associated with a department or to multiple departments. Data for the department includes all subscriptions belonging to an enrollment account that are linked to the department. No action is required in the Azure portal.
+Åtkomst till området avdelning kräver avdelning (DA visa debiteringar) administratörsåtkomst i EA-portalen. Avdelning administratörer har behörighet att visa kostnader och användningsdata som är associerat med en avdelning eller till flera avdelningar. Data för avdelningen innehåller alla prenumerationer som hör till ett konto för enhetsregistreringshanterare som är länkade till avdelningen. Ingen åtgärd krävs i Azure-portalen.
 
-1. Sign in to the EA portal at [https://ea.azure.com](https://ea.azure.com) with an enterprise administrator account.
-2. Select **Manage** in the left pane.
-3. On the **Enrollment** tab, select the enrollment that you want to manage.
-4. Click the **Department** tab and then click **Add Administrator**.
-5. In the Add Department Administrator box, select the authentication type and then type the user's email address.
-6. If the user should have read-only access to cost and usage data, under **Read-only**, select **Yes**.  Otherwise, select **No**.
-7. Select the departments that you want to grant department administrative permission to.
-8. Click **Add** to create the account.  
-    ![enter required information in the Add department administrator box](./media/assign-access-acm-data/add-depart-admin.png)
+1. Logga in på EA-portalen på [https://ea.azure.com](https://ea.azure.com) med ett företags administratörs konto.
+2. Välj **Hantera** i det vänstra fönstret.
+3. På fliken **registrering** väljer du den registrering som du vill hantera.
+4. Klicka på fliken **avdelning** och klicka sedan på **Lägg till administratör**.
+5. Välj autentiseringstyp och Skriv användarens e-postadress i rutan Lägg till avdelningen administratör.
+6. Om användaren ska ha skrivskyddad åtkomst till kostnader och användnings data väljer du **Ja**under **skrivskyddad**.  Annars väljer du **Nej**.
+7. Välj de avdelningar som du vill bevilja avdelning administrativ behörighet till.
+8. Klicka på **Lägg till** för att skapa kontot.  
+    ![ange nödvändig information i rutan Lägg till avdelnings administratör](./media/assign-access-acm-data/add-depart-admin.png)
 
-## <a name="assign-enrollment-account-scope-access"></a>Assign enrollment account scope access
+## <a name="assign-enrollment-account-scope-access"></a>Tilldela registreringsåtkomst konto omfång
 
-Access to the enrollment account scope requires account owner (AO view charges) access in the EA portal. The account owner can view costs and usage data associated with the subscriptions created from that enrollment account. No action is required in the Azure portal.
+Åtkomst till kontoomfånget registreringen kräver kontoåtkomst ägare (AO visa debiteringar) i EA-portalen. Ägare kan visa kostnader och användningsdata som är associerade med de prenumerationer som skapats från den registreringskontot. Ingen åtgärd krävs i Azure-portalen.
 
-1. Sign in to the EA portal at [https://ea.azure.com](https://ea.azure.com) with an enterprise administrator account.
-2. Select **Manage** in the left pane.
-3. On the **Enrollment** tab, select the enrollment that you want to manage.
-4. Click the **Account** tab and then click **Add Account**.
-5. In the Add Account box, select the **Department** to associate the account to, or leave it as unassigned.
-6. Select the authentication type and type the account name.
-7. Type the user's email address and then optionally type the cost center.
-8. Click on **Add** to create the account.  
-    ![enter required information in the Add account box for an enrollment account](./media/assign-access-acm-data/add-account.png)
+1. Logga in på EA-portalen på [https://ea.azure.com](https://ea.azure.com) med ett företags administratörs konto.
+2. Välj **Hantera** i det vänstra fönstret.
+3. På fliken **registrering** väljer du den registrering som du vill hantera.
+4. Klicka på fliken **konto** och sedan på **Lägg till konto**.
+5. I rutan Lägg till konto väljer du den **avdelning** som du vill koppla kontot till eller så lämnar du det som otilldelade.
+6. Välj autentiseringstyp och ange namnet på kontot.
+7. Skriv användarens e-postadress och du kan också ange kostnadsstället.
+8. Klicka på **Lägg till** för att skapa kontot.  
+    ![ange nödvändig information i rutan Lägg till konto för ett registrerings konto](./media/assign-access-acm-data/add-account.png)
 
-After completing the steps above, the user account becomes an enrollment account in the Enterprise portal and can create subscriptions. The user can access cost and usage data for subscriptions that they create.
+När du har slutfört stegen ovan, användarkontot blir ett konto för enhetsregistreringshanterare i Enterprise portal och kan skapa prenumerationer. Användaren kan komma åt data om kostnader och användning för prenumerationer som de skapar.
 
-## <a name="assign-management-group-scope-access"></a>Assign management group scope access
+## <a name="assign-management-group-scope-access"></a>Tilldela åtkomst till hanteringsgruppen omfång
 
-Access to view the management group scope requires at least the Cost Management Reader (or Reader) permission. You can configure permissions for a management group in the Azure portal. You must have at least the User Access Administrator (or Owner) permission for the management group to enable access for others. And for Azure EA accounts, you must also have enabled the **AO view charges** setting in the EA portal.
+Åtkomst till Visa hanterings gruppens omfång kräver minst Cost Management läsar behörighet (eller läsare). Du kan konfigurera behörigheter för en hanteringsgrupp i Azure-portalen. Du måste minst ha behörigheten administratör för användaråtkomst (eller ägare) att aktivera åtkomst för andra hanteringsgruppen. Och för Azure EA-konton måste du också ha aktiverat inställningen **Ao View charges** i EA-portalen.
 
 1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
-2. Select **All Services** in the sidebar, search for _management groups_, then select **management groups**.
-3. Select the management group in the hierarchy.
-4. Next to the name of your management group, click **Details**.
-5. Select **Access Control (IAM)** from the left pane.
+2. Välj **alla tjänster** i sido panelen, Sök efter _hanterings grupper_och välj sedan **hanterings grupper**.
+3. Välj hanteringsgruppen i hierarkin.
+4. Klicka på **information**bredvid namnet på hanterings gruppen.
+5. Välj **Access Control (IAM)** i det vänstra fönstret.
 6. Klicka på **Lägg till**.
-7. Under **Role**, select **Cost Management Reader**.
-8. Under **Assign access to**, select **Azure AD user, group, or application**.
-9. To assign access, search for and then select the user.
+7. Under **roll**väljer du **Cost Management läsare**.
+8. Under **tilldela åtkomst till**väljer du **Azure AD-användare, grupp eller program**.
+9. Tilldela åtkomst genom att söka efter och välj sedan användaren.
 10. Klicka på **Save** (Spara).  
-    ![example information in the Add permissions box for a management group](./media/assign-access-acm-data/add-permissions.png)
+    ![exempel information i rutan Lägg till behörigheter för en hanterings grupp](./media/assign-access-acm-data/add-permissions.png)
 
-## <a name="assign-subscription-scope-access"></a>Assign subscription scope access
+## <a name="assign-subscription-scope-access"></a>Tilldela omfång prenumerationsåtkomst
 
-Access to a subscription requires at least the Cost Management Reader (or Reader) permission. You can configure permissions to a subscription in the Azure portal. You must have at least the User Access Administrator (or Owner) permission for the subscription to enable access for others. And for Azure EA accounts, you must also have enabled the **AO view charges** setting in the EA portal.
+Åtkomst till en prenumeration kräver minst behörigheten Cost Management Reader (eller läsare). Du kan konfigurera behörigheter till en prenumeration på Azure-portalen. Du måste minst ha behörigheten administratör för användaråtkomst (eller ägare) att aktivera åtkomst för andra prenumerationen. Och för Azure EA-konton måste du också ha aktiverat inställningen **Ao View charges** i EA-portalen.
 
 1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
-2. Select **All Services** in the sidebar, search for _subscriptions_, then select **Subscriptions**.
+2. Välj **alla tjänster** i sido panelen, Sök efter _prenumerationer_och välj sedan **prenumerationer**.
 3. Välj din prenumeration.
-4. Select **Access Control (IAM)** from the left pane.
+4. Välj **Access Control (IAM)** i det vänstra fönstret.
 5. Klicka på **Lägg till**.
-6. Under **Role**, select **Cost Management Reader**.
-7. Under **Assign access to**, select **Azure AD user, group, or application**.
-8. To assign access, search for and then select the user.
+6. Under **roll**väljer du **Cost Management läsare**.
+7. Under **tilldela åtkomst till**väljer du **Azure AD-användare, grupp eller program**.
+8. Tilldela åtkomst genom att söka efter och välj sedan användaren.
 9. Klicka på **Save** (Spara).
 
-## <a name="assign-resource-group-scope-access"></a>Assign resource group scope access
+## <a name="assign-resource-group-scope-access"></a>Tilldela resursåtkomst grupp omfång
 
-Access to a resource group requires at least the Cost Management Reader (or Reader) permission. You can configure permissions to a resource group in the Azure portal. You must have at least the User Access Administrator (or Owner) permission for the resource group to enable access for others. And for Azure EA accounts, you must also have enabled the **AO view charges** setting in the EA portal.
+Åtkomst till en resursgrupp kräver minst behörigheten Cost Management Reader (eller läsare). Du kan konfigurera behörigheter till en resursgrupp i Azure-portalen. Du måste minst ha behörigheten administratör för användaråtkomst (eller ägare) att aktivera åtkomst för andra resursgruppen. Och för Azure EA-konton måste du också ha aktiverat inställningen **Ao View charges** i EA-portalen.
 
 1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
-2. Select **All Services** in the sidebar, search for _resource groups_, then select **Resource groups**.
-3. Select your resource group.
-4. Select **Access Control (IAM)** from the left pane.
+2. Välj **alla tjänster** i sido panelen, Sök efter _resurs grupper_och välj sedan **resurs grupper**.
+3. Välj din resursgrupp.
+4. Välj **Access Control (IAM)** i det vänstra fönstret.
 5. Klicka på **Lägg till**.
-6. Under **Role**, select **Cost Management Reader**.
-7. Under **Assign access to**, select **Azure AD user, group, or application**.
-8. To assign access, search for and then select the user.
+6. Under **roll**väljer du **Cost Management läsare**.
+7. Under **tilldela åtkomst till**väljer du **Azure AD-användare, grupp eller program**.
+8. Tilldela åtkomst genom att söka efter och välj sedan användaren.
 9. Klicka på **Save** (Spara).
 
-## <a name="cross-tenant-authentication-issues"></a>Cross-tenant authentication issues
+## <a name="cross-tenant-authentication-issues"></a>Problem med autentisering mellan klienter
 
-Currently, Azure Cost Management has limited support for cross-tenant authentication. In some circumstances when you try to authenticate across tenants, you may receive an **Access denied** error in cost analysis. This issue might occur if you configure role-based access control (RBAC) to another tenant's subscription and then try to view cost data.
+För närvarande har Azure Cost Management begränsat stöd för autentisering mellan klienter. I vissa fall när du försöker autentisera över klient organisationer kan du få **åtkomst nekade** fel vid kostnads analys. Det här problemet kan uppstå om du konfigurerar rollbaserad åtkomst kontroll (RBAC) till en annan klient prenumeration och sedan försöker visa kostnads data.
 
-*To work around the problem*: After you configure cross-tenant RBAC, wait an hour. Then, try to view costs in cost analysis or grant Cost Management access to users in both tenants.  
+*Så här löser du problemet*: när du har konfigurerat RBAC för flera klienter väntar du en timme. Försök sedan att Visa kostnader i kostnads analys eller bevilja Cost Management åtkomst till användare i båda klient organisationerna.  
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- If you haven't already completed the first quickstart for Cost Management, read it at [Start analyzing costs](quick-acm-cost-analysis.md).
+- Om du inte redan har slutfört den första snabb starten för Cost Management läser du den för att [börja analysera kostnaderna](quick-acm-cost-analysis.md).

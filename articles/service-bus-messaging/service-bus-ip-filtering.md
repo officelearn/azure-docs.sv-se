@@ -22,7 +22,7 @@ ms.locfileid: "74280941"
 
 För scenarier där Azure Service Bus endast kan nås från vissa välkända platser, kan du konfigurera regler för att acceptera trafik från specifika IPv4-adresser i brand Väggs regler. Dessa adresser kan exempelvis vara de för en företagets NAT-gateway.
 
-## <a name="when-to-use"></a>Används till att
+## <a name="when-to-use"></a>När du ska använda detta
 
 Om du vill konfigurera Service Bus så att den endast ska ta emot trafik från ett visst intervall med IP-adresser och neka allt annat, kan du använda en *brand vägg* för att blockera Service Bus slut punkter från andra IP-adresser. Du använder till exempel Service Bus med [Azure Express Route][express-route] för att skapa privata anslutningar till din lokala infrastruktur. 
 

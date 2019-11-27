@@ -1,6 +1,6 @@
 ---
-title: Add a heat map layer to Azure Maps | Microsoft Docs
-description: How to add a heat map layer to the Azure Maps Web SDK.
+title: Lägg till ett termiskt kart skikt i Azure Maps | Microsoft Docs
+description: Så här lägger du till ett termiskt kart skikt i Azure Maps Web SDK.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -18,14 +18,14 @@ ms.locfileid: "74484310"
 ---
 # <a name="add-a-heat-map-layer"></a>Lägga till ett heatmapskikt
 
-Heat maps, also known as point density maps, are a type of data visualization used to represent the density of data using a range of colors. They're often used to show the data "hot spots" on a map and are a great way to render large point data sets.  For example, rendering tens of thousands of points within the map view as symbols, covers most of the map area and would result in many symbols overlapping each other, making it difficult to gain much insight into the data. However, visualizing this same data set as a heat map makes it easy to see where the point data is the densest and the relative density to other areas. There are many scenarios in which heat maps, are used. Here are few examples;
+Värme kartor, även kallade punkt Täthets kartor, är en typ av data visualisering som används för att representera densiteten för data med hjälp av en uppsättning färger. De används ofta för att visa data "frekventa fläckar" på en karta och är ett bra sätt att återge data uppsättningar med stora punkter.  Exempel: åter givning av tusentals punkter i kart visningen som symboler omfattar de flesta kart områdena och resulterar i att många symboler överlappar varandra, vilket gör det svårt att få mycket inblick i data. Att visualisera samma data uppsättning som en värme karta gör det dock enkelt att se var punkt data är den mest täta och den relativa densiteten för andra områden. Det finns många scenarier där värme kartor används. Här är några exempel:
 
-- Temperature data is commonly rendered as heat map as it provides approximations for what the temperature between two data points.
-- Rendering data for noise sensors as a heat map not only shows the intensity of the noise where the sensor is but can also provide insights into the dissipation over a distance. The noise level at any one site may not be high, however if the noise coverage area from multiple sensors overlaps, it's possible that this overlapping area may experience higher noise levels, and thus would be visible in the heat map.
-- Visualizing a GPS trace that includes the speed as a weighted height map where the intensity of each data point is based on the speed is a great way to see where the vehicle was speeding.
+- Temperatur data återges ofta som värme karta eftersom den tillhandahåller ungefärliger för den temperatur som är mellan två data punkter.
+- Rendering av data för brus sensorer som en värme karta visar inte bara intensiteten för bruset där sensorn är men kan också ge insikter om den här utmatningen över ett avstånd. Brus nivån på en plats kanske inte är hög, men om brus täcknings området från flera sensorer överlappar varandra, är det möjligt att det överlappande området kan uppleva högre buller nivåer och därmed visas i värme kartan.
+- Visualisering av en GPS-spårning som innehåller hastigheten som en viktad höjd och en karta där intensiteten för varje data punkt baseras på hastigheten är ett bra sätt att se var fordonet gick snabbare.
 
 > [!TIP]
-> Heat map layers by default will render the coordinates of all geometries in a data source. To limit the layer so that it only renders point geometry features, set the `filter` property of the layer to `['==', ['geometry-type'], 'Point']` or `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` if you want to include MultiPoint features as well.
+> Värme kart skikt som standard återger koordinaterna för alla Geometries i en data källa. Om du vill begränsa lagret så att det bara återger punkt geometri funktioner, anger du `filter` egenskapen för lagret som `['==', ['geometry-type'], 'Point']` eller `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` om du även vill inkludera MultiPoint-funktioner.
 
 <br/>
 
@@ -33,9 +33,9 @@ Heat maps, also known as point density maps, are a type of data visualization us
 
 ## <a name="add-a-heat-map-layer"></a>Lägga till ett heatmapskikt
 
-To render a data source of points as a heat map, pass your data source into an instance of the `HeatMapLayer` class and add it to the map as shown here.
+Om du vill rendera en data källa med punkter som en värme karta kan du skicka data källan till en instans av klassen `HeatMapLayer` och lägga till den i kartan som visas här.
 
-In the following code, each heat point has a radius of 10 pixels at all zoom levels. When adding the heat map layer to the map, this sample inserts it below the label layer to create a better user experience as the labels are clearly visible above the heat map. The data in this sample is sourced from the [USGS Earthquake Hazards Program](https://earthquake.usgs.gov/) and represents significant earthquakes that have occurred in the last 30 days.
+I följande kod har varje värme punkt en radie på 10 bild punkter på alla zoomnings nivåer. När du lägger till värme kart skiktet till kartan infogar det här exemplet det under etikett lagret för att skapa en bättre användar upplevelse eftersom etiketterna är tydligt synliga ovanför värme kartan. Data i det här exemplet hämtas från [USGS datauppsättningen jord bävning-farlighetsprogram](https://earthquake.usgs.gov/) och representerar betydande jord bävningar som har inträffat under de senaste 30 dagarna.
 
 ```javascript
 //Create a data source and add it to the map.
@@ -52,58 +52,58 @@ map.layers.add(new atlas.layer.HeatMapLayer(datasource, null, {
 }), 'labels');
 ```
 
-Below is the complete running code sample of the above functionality.
+Nedan visas det fullständiga kod exemplet för ovanstående funktioner.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Simple Heat Map Layer' src='//codepen.io/azuremaps/embed/gQqdQB/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/gQqdQB/'>Simple Heat Map Layer</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Enkelt värme kart skikt' src='//codepen.io/azuremaps/embed/gQqdQB/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se det <a href='https://codepen.io/azuremaps/pen/gQqdQB/'>enkla värme kart skiktet</a> för pennor genom att Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="customizing-the-heat-map-layer"></a>Customizing the heat map layer
+## <a name="customizing-the-heat-map-layer"></a>Anpassa värme kart skiktet
 
-The previous example customized the heat map by setting the radius and opacity options. The heat map layer provides several options for customization;
+I föregående exempel har du anpassat värme kartan genom att ange alternativ för radie och opacitet. Värme kart skiktet innehåller flera alternativ för anpassning.
 
-* `radius`: Defines a pixel radius in which to render each data point. The radius can be set as a fixed number or as an expression. Using an expression, it's possible to scale the radius based on the zoom level, that appears to represent a consistent spatial area on the map (for example, 5-mile radius).
-* `color`: Specifies how the heat map is colorized. A color gradient is often used for heat maps and can be achieved with an `interpolate` expression. Using a `step` expression for colorizing the heat map breaks up the density visually into ranges that more so resembles a contour or radar style map. These color palettes define the colors from the minimum to the maximum density value. Color values for heat maps are specified as an expression on the `heatmap-density` value. The color at index 0 in an interpolation expression or the default color of a step expression, defines the color of the area where there's no data and can be used to define a background color. Many prefer to set this value to transparent or a semi-transparent black. Here are examples of color expressions;
+* `radius`: definierar en pixel-radie där varje data punkt ska renderas. Radien kan anges som ett fast tal eller som ett uttryck. Med hjälp av ett uttryck är det möjligt att skala radien baserat på zoomnivån, som visas för att representera ett konsekvent avstånd på kartan (till exempel 5-mil-radien).
+* `color`: anger hur värme kartan är färgad. En färg toning används ofta för värme kartor och kan uppnås med ett `interpolate`-uttryck. Om du använder ett `step` uttryck för att färgsätta värme kartan bryts densiteten visuellt i intervall som påminner om en profil eller en polär stil karta. Dessa färgpaletter definierar färgerna från minimi värdet till högsta densitet. Färg värden för värme kartor anges som ett uttryck i `heatmap-density` svärdet. Färgen vid index 0 i ett interpolationsmetod-uttryck eller standard färgen för ett steg uttryck definierar färgen på det områden där det inte finns några data och som kan användas för att definiera en bakgrunds färg. Många föredrar att ange det här värdet som transparent eller en halv genomskinlig svart. Här är exempel på färg uttryck.
 
-| Interpolation Color Expression | Stepped Color Expression | 
+| Färg uttryck för interpolation | Uttryck för stegvisa färger | 
 |--------------------------------|--------------------------|
-| \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'interpolate',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['linear'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;0, 'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'purple',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.5, '#fb00fb',<br/>&nbsp;&nbsp;&nbsp;&nbsp;1, '#00c3ff'<br/>\] | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'step',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'navy',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.25, 'green',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.50, 'yellow',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.75, 'red'<br/>\] | 
+| \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;"interpolerat",<br/>&nbsp;&nbsp;&nbsp;&nbsp;\["linjär"\]<br/>&nbsp;&nbsp;&nbsp;&nbsp;\["termisk karta-densitet"\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;0, "transparent",<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,01, "lila",<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,5, "#fb00fb",<br/>&nbsp;&nbsp;&nbsp;&nbsp;1, "#00c3ff"<br/>\] | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;"steg",<br/>&nbsp;&nbsp;&nbsp;&nbsp;\["termisk karta-densitet"\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;"transparent",<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,01, "flottan"<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,25, "grön",<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,50, "gul",<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,75, "röd"<br/>\] | 
 
-- `opacity`: Specifies how opaque or transparent the heat map layer is.
-- `intensity`: Applies a multiplier to the weight of each data point to increase the overall intensity of the heatmap and helps to make the small differences in the weight of data points become easier to visualize.
-- `weight`: By default, all data points have a weight of 1, thus all data points are weighted equally. The weight option acts as a multiplier and can be set as a number or an expression. If a number is set as the weight, say 2, it would be the equivalent of placing each data point on the map twice, thus doubling the density. Setting the weight option to a number renders the heat map in a similar way to using the intensity option. However, if an expression is used, the weight of each data point can be based on the properties of each data point. Take earthquake data as an example, each data point represents an earthquake. An important metric each earthquake data point has, is a magnitude value. Earthquakes happen all the time, but most have a low magnitude and aren't even felt. Using the magnitude value in an expression to assign the weight to each data point will allow more significant earthquakes to be better represented within the heat map.
-- Besides the base layer options; min/max zoom, visible and filter, there's also a `source` option if you want to update the data source and `source-layer` option if your data source is a vector tile source.
+- `opacity`: anger hur ogenomskinligt eller transparent det termiskt kart skiktet är.
+- `intensity`: använder en multiplikator för varje data punkts vikt för att öka den övergripande intensiteten hos termisk karta och hjälper till att göra de små skillnaderna i vikten av data punkter lättare att visualisera.
+- `weight`: som standard har alla data punkter en vikt på 1, vilket innebär att alla data punkter viktas lika. Vikt alternativet fungerar som en multiplikator och kan anges som ett tal eller ett uttryck. Om ett tal har angetts som vikt, säger du 2, är det detsamma som att placera varje data punkt på kartan två gånger, vilket dubblerar densiteten. Om du ställer in viktnings alternativet på ett tal återges den termiska kartan på samma sätt som med alternativet intensitet. Men om ett uttryck används kan vikten för varje data punkt baseras på egenskaperna för varje data punkt. Ta jord bävning data som ett exempel, representerar varje data punkt en jord bävning. Ett viktigt mått varje jord bävning data punkt har, är ett värde för storlek. Jord bävningar sker hela tiden, men de flesta har låg storlek och är inte ens filtiga. Genom att använda värdet i ett uttryck för att tilldela vikten till varje data punkt kan mer betydande jord bävningar bättre representeras i värme kartan.
+- Förutom bas lager alternativen, min/max zoom, Visible och filter, det finns också ett `source` alternativ om du vill uppdatera data källan och `source-layer` alternativet om data källan är en vektor panels källa.
 
-Here is a tool to test out the different heat map layer options.
+Här är ett verktyg för att testa olika alternativ för termisk kart skikt.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Heat Map Layer Options' src='//codepen.io/azuremaps/embed/WYPaXr/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/WYPaXr/'>Heat Map Layer Options</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Alternativ för termisk kart skikt' src='//codepen.io/azuremaps/embed/WYPaXr/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se alternativen för pen <a href='https://codepen.io/azuremaps/pen/WYPaXr/'>termisk Map-lager</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="consistent-zoomable-heat-map"></a>Consistent zoomable heat map
+## <a name="consistent-zoomable-heat-map"></a>Konsekvent zoomnings bara termisk karta
 
-By default, the radii of data points rendered in the heat map layer have a fixed pixel radius for all zoom levels. As the map is zoomed, the data aggregates together and the heat map layer looks different. A `zoom` expression can be used to scale the radius for each zoom level such that each data point covers the same physical area of the map. This will make the heat map layer look more static and consistent. Each zoom level of the map has twice as many pixels vertically and horizontally as the previous zoom level. Scaling the radius such that it doubles with each zoom level will create a heat map that looks consistent on all zoom levels. This can be accomplished by using the `zoom` with a base 2 `exponential interpolation` expression as shown in the sample below. Zoom the map to see how the heat map scales with the zoom level.
+Som standard har radien för data punkter som återges i värme kart skiktet ett fast pixel-radie för alla zoomnings nivåer. När kartan är insamlad är data aggarna tillsammans och värme kart lagret annorlunda. Ett `zoom` uttryck kan användas för att skala radien för varje zoomnings nivå så att varje data punkt täcker samma fysiska område i kartan. Det gör att värme kart lagret ser mer statiskt och konsekvent. Varje zoomnivå på kartan har två gånger så många bild punkter lodrätt och vågrätt som föregående zoomnings nivå. Om du skalar radien så att den dubbleras med varje zoomnivå skapas en värme karta som ser konsekvent ut på alla zoomnings nivåer. Detta kan åstadkommas med hjälp av `zoom` med ett bas-`exponential interpolation` uttryck som visas i exemplet nedan. Zooma kartan för att se hur värme kartan skalar med zoomnings nivån.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Consistent zoomable heat map" src="//codepen.io/azuremaps/embed/OGyMZr/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-See the Pen <a href='https://codepen.io/azuremaps/pen/OGyMZr/'>Consistent zoomable heat map</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Konsekvent zoomnings bara termisk karta" src="//codepen.io/azuremaps/embed/OGyMZr/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Se den <a href='https://codepen.io/azuremaps/pen/OGyMZr/'>inkonsekventa den klickbara värme kartan</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 > [!TIP]
-> By enabling clustering on the data source, points that are close to one another are grouped together as a clustered point. The point count of each cluster can be used as the weight expression for the heat map and significantly reduce the number of points that have to be render. The point count of a cluster is stored in a `point_count` property of the point feature as shown below. 
+> Genom att aktivera klustring på data källan grupperas punkter som är nära varandra grupperade tillsammans som en klustrad punkt. Antalet punkter för varje kluster kan användas som vikt uttryck för värme kartan och minska antalet poäng som måste återges avsevärt. Antalet poäng i ett kluster lagras i en `point_count` egenskap för punkt funktionen enligt nedan. 
 > ```JavaScript
 > var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 >    weight: ['get', 'point_count']
 > });
 > ```
-> If the clustering radius is only a few pixels there will be little visual difference the rendering. A larger radius will group more points into each cluster and improve the performance of the heatmap, but have the a more noticeable the differences will be.
+> Om den klustrade radien bara är några få pixlar, kommer det inte att vara mycket visuellt skillnad på åter givningen. En större radie kommer att gruppera fler punkter i varje kluster och förbättra prestandan för termisk karta, men har en tydligare skillnader.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Learn more about the classes and methods used in this article:
+Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
 > [HeatMapLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest)
@@ -111,10 +111,10 @@ Learn more about the classes and methods used in this article:
 > [!div class="nextstepaction"]
 > [HeatMapLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions?view=azure-iot-typescript-latest)
 
-For more code examples to add to your maps, see the following articles:
+Fler kod exempel som kan läggas till i dina kartor finns i följande artiklar:
 
 > [!div class="nextstepaction"]
-> [Create a data source](create-data-source-web-sdk.md)
+> [Skapa en data Källa](create-data-source-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md)
+> [Använd data drivna format uttryck](data-driven-style-expressions-web-sdk.md)

@@ -11,12 +11,12 @@ ms.reviewer: divswa, klam, LADocs
 ms.topic: conceptual
 ms.date: 06/19/2019
 tags: connectors
-ms.openlocfilehash: a73fad3097be73e01a7a2a6652129cd7c9db9555
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: ac6ae1a3b00a4e7568bd7967105f202fbf2e4f9b
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050957"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547497"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Skapa, övervaka och hantera FTP-filer med hjälp av Azure Logic Apps
 
@@ -45,21 +45,21 @@ Du kan använda utlösare som får svar från FTP-servern och göra utdata tillg
 
 FTP-utlösare fungerar genom att avsöka FTP-filsystemet och leta efter en fil som har ändrats sedan den senaste avsökningen. Med vissa verktyg kan du bevara tidsstämpeln när filerna ändras. I dessa fall måste du inaktivera den här funktionen så att utlösaren kan fungera. Här följer några vanliga inställningar:
 
-| SFTP-klient | Action |
+| SFTP-klient | Åtgärd |
 |-------------|--------|
-| WinSCP | Gå till **alternativ** > **Inställningar**överför redigera bevara tidsstämpelinaktivera >  >  >  >  |
+| WinSCP | Gå till **alternativen** > **inställningar** > **överföra** > **Redigera** > **bevara tidsstämpel** > **inaktivera** |
 | FileZilla | Gå till **överför** > **bevara tidsstämplar för överförda filer** > **inaktivera** |
 |||
 
 När en utlösare hittar en ny fil, kontrollerar utlösaren att den nya filen är fullständig och inte delvis skriven. En fil kan till exempel ha ändringar som pågår när utlösaren kontrollerar fil servern. För att undvika att returnera en delvis skriven fil, noterar utlösaren tidsstämpeln för filen som har nyligen gjorda ändringar, men returnerar inte omedelbart den filen. Utlösaren returnerar filen endast när servern avsöks igen. Ibland kan det här problemet orsaka en fördröjning som är upp till två gånger utlösaren för avsöknings intervall.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
 * Din FTP-värds server adress och kontoautentiseringsuppgifter
 
-  FTP-anslutningen kräver att FTP-servern är tillgänglig från Internet och att den fungerar i passivt läge. Dina autentiseringsuppgifter gör att din Logic app kan skapa en anslutning och komma åt ditt FTP-konto.
+  FTP-anslutningen kräver att FTP-servern är tillgänglig från Internet och att den fungerar i *passivt* läge. Dina autentiseringsuppgifter gör att din Logic app kan skapa en anslutning och komma åt ditt FTP-konto.
 
 * Grundläggande information om [hur du skapar Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -87,17 +87,17 @@ När en utlösare hittar en ny fil, kontrollerar utlösaren att den nya filen ä
 
 <a name="file-added-modified"></a>
 
-### <a name="ftp-trigger-when-a-file-is-added-or-modified"></a>FTP-utlösare: När en fil läggs till eller ändras
+### <a name="ftp-trigger-when-a-file-is-added-or-modified"></a>FTP-utlösare: när en fil läggs till eller ändras
 
 Den här utlösaren startar ett Logic app-arbetsflöde när utlösaren upptäcker när en fil läggs till eller ändras på en FTP-server. Du kan till exempel lägga till ett villkor som kontrollerar filens innehåll och bestämmer om innehållet ska hämtas baserat på om innehållet uppfyller ett visst villkor. Slutligen kan du lägga till en åtgärd som hämtar filens innehåll och lägga till innehållet i en mapp på SFTP-servern.
 
-**Enterprise-exempel**: Du kan använda den här utlösaren för att övervaka en FTP-mapp för nya filer som beskriver kund beställningar. Du kan sedan använda en FTP-åtgärd, till exempel **Hämta fil innehåll**, så att du kan hämta Beställningens innehåll för ytterligare bearbetning och lagra den i en order databas.
+**Enterprise-exempel**: du kan använda den här utlösaren för att övervaka en FTP-mapp för nya filer som beskriver kund beställningar. Du kan sedan använda en FTP-åtgärd, till exempel **Hämta fil innehåll**, så att du kan hämta Beställningens innehåll för ytterligare bearbetning och lagra den i en order databas.
 
-Här är ett exempel som visar den här utlösaren: **När en fil läggs till eller ändras**
+Här är ett exempel som visar den här utlösaren: **när en fil läggs till eller ändras**
 
 1. Logga in på [Azure Portal](https://portal.azure.com)och öppna din Logic app i Logic App Designer, om du inte redan har gjort det.
 
-1. För tomma Logi Kap par anger du "FTP" som filter i rutan Sök. Välj den här utlösaren under listan utlösare: **När ett arkiverat har lagts till eller ändrats – FTP**
+1. För tomma Logi Kap par anger du "FTP" som filter i rutan Sök. Välj den här utlösaren under listan utlösare: **när ett arkiverat har lagts till eller ändrats – FTP**
 
    ![Sök efter och välj FTP-utlösare](./media/connectors-create-api-ftp/select-ftp-trigger.png)  
 
@@ -119,7 +119,7 @@ Nu när din Logic app har en utlösare lägger du till de åtgärder som du vill
 
 <a name="get-content"></a>
 
-### <a name="ftp-action-get-content"></a>FTP-åtgärd: Hämta innehåll
+### <a name="ftp-action-get-content"></a>FTP-åtgärd: hämta innehåll
 
 Den här åtgärden hämtar innehållet från en fil på en FTP-server när filen läggs till eller uppdateras. Du kan t. ex. lägga till utlösaren från föregående exempel och en åtgärd som hämtar filens innehåll när filen har lagts till eller redigerats.
 
@@ -147,7 +147,7 @@ Här är ett exempel som visar den här åtgärden: **Hämta innehåll**
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Teknisk information om utlösare, åtgärder och gränser, som beskrivs av kopplingens OpenAPI (tidigare Swagger) Beskrivning, finns i kopplingens [referens sida](/connectors/ftpconnector/).
+Teknisk information om utlösare, åtgärder och gränser, som beskrivs av kopplingens OpenAPI (tidigare Swagger) Beskrivning, finns i [kopplingens referens sida](/connectors/ftpconnector/).
 
 ## <a name="next-steps"></a>Nästa steg
 

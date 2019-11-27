@@ -1,6 +1,6 @@
 ---
-title: Handling errors in Durable Functions - Azure
-description: Learn how to handle errors in the Durable Functions extension for Azure Functions.
+title: Hantera fel i Durable Functions – Azure
+description: Lär dig hur du hanterar fel i Durable Functions-tillägget för Azure Functions.
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
@@ -11,17 +11,17 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74231410"
 ---
-# <a name="handling-errors-in-durable-functions-azure-functions"></a>Handling errors in Durable Functions (Azure Functions)
+# <a name="handling-errors-in-durable-functions-azure-functions"></a>Hantera fel i Durable Functions (Azure Functions)
 
-Durable Function orchestrations are implemented in code and can use the programming language's built-in error-handling features. There really aren't any new concepts you need to learn to add error handling and compensation into your orchestrations. However, there are a few behaviors that you should be aware of.
+Varaktiga funktions dirigering implementeras i kod och kan använda programmeringsspråkets inbyggda fel hanterings funktioner. Det finns egentligen inga nya koncept som du behöver lära dig för att lägga till fel hantering och kompensation till dina dirigeringar. Det finns dock några beteenden som du bör vara medveten om.
 
-## <a name="errors-in-activity-functions"></a>Errors in activity functions
+## <a name="errors-in-activity-functions"></a>Fel i aktivitets funktioner
 
-Any exception that is thrown in an activity function is marshaled back to the orchestrator function and thrown as a `FunctionFailedException`. You can write error handling and compensation code that suits your needs in the orchestrator function.
+Alla undantag som genereras i en aktivitets funktion konverteras tillbaka till Orchestrator-funktionen och utlöses som en `FunctionFailedException`. Du kan skriva fel hantering och kompensations kod som passar dina behov i Orchestrator-funktionen.
 
-For example, consider the following orchestrator function that transfers funds from one account to another:
+Anta till exempel följande Orchestrator-funktion som överför fonder från ett konto till ett annat:
 
-### <a name="precompiled-c"></a>Precompiled C#
+### <a name="precompiled-c"></a>FörkompileradeC#
 
 ```csharp
 [FunctionName("TransferFunds")]
@@ -59,7 +59,7 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
 }
 ```
 
-### <a name="c-script"></a>C# Script
+### <a name="c-script"></a>C#Över
 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
@@ -99,9 +99,9 @@ public static async Task Run(IDurableOrchestrationContext context)
 ```
 
 > [!NOTE]
-> The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> Föregående C# exempel är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
-### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 only)
+### <a name="javascript-functions-20-only"></a>Java Script (endast Functions 2,0)
 
 ```javascript
 const df = require("durable-functions");
@@ -137,13 +137,13 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-If the first **CreditAccount** function call fails, the orchestrator function compensates by crediting the funds back to the source account.
+Om det första funktions anropet för **CreditAccount** Miss lyckas kompenserar Orchestrator-funktionen genom att kreditera pengarna tillbaka till käll kontot.
 
-## <a name="automatic-retry-on-failure"></a>Automatic retry on failure
+## <a name="automatic-retry-on-failure"></a>Automatiskt försök vid fel
 
-When you call activity functions or sub-orchestration functions, you can specify an automatic retry policy. The following example attempts to call a function up to three times and waits 5 seconds between each retry:
+När du anropar aktivitets funktioner eller under Orchestration-funktioner kan du ange en princip för automatisk återförsök. Följande exempel försöker anropa en funktion upp till tre gånger och väntar 5 sekunder mellan varje nytt försök:
 
-### <a name="precompiled-c"></a>Precompiled C#
+### <a name="precompiled-c"></a>FörkompileradeC#
 
 ```csharp
 [FunctionName("TimerOrchestratorWithRetry")]
@@ -159,7 +159,7 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
 }
 ```
 
-### <a name="c-script"></a>C# Script
+### <a name="c-script"></a>C#Över
 
 ```csharp
 public static async Task Run(IDurableOrchestrationContext context)
@@ -175,9 +175,9 @@ public static async Task Run(IDurableOrchestrationContext context)
 ```
 
 > [!NOTE]
-> The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> Föregående C# exempel är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
-### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 only)
+### <a name="javascript-functions-20-only"></a>Java Script (endast Functions 2,0)
 
 ```javascript
 const df = require("durable-functions");
@@ -191,22 +191,22 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-The `CallActivityWithRetryAsync` (.NET) or `callActivityWithRetry` (JavaScript) API takes a `RetryOptions` parameter. Sub-orchestration calls using the `CallSubOrchestratorWithRetryAsync` (.NET) or `callSubOrchestratorWithRetry` (JavaScript) API can use these same retry policies.
+API: et för `CallActivityWithRetryAsync` (.NET) eller `callActivityWithRetry` (Java Script) tar en `RetryOptions`-parameter. Under Dirigerings anrop med hjälp av API: et för `CallSubOrchestratorWithRetryAsync` (.NET) eller `callSubOrchestratorWithRetry` (Java Script) kan använda samma principer för återförsök.
 
-There are several options for customizing the automatic retry policy:
+Det finns flera alternativ för att anpassa principen för automatiskt återförsök:
 
-* **Max number of attempts**: The maximum number of retry attempts.
-* **First retry interval**: The amount of time to wait before the first retry attempt.
-* **Backoff coefficient**: The coefficient used to determine rate of increase of backoff. Defaults to 1.
-* **Max retry interval**: The maximum amount of time to wait in between retry attempts.
-* **Retry timeout**: The maximum amount of time to spend doing retries. The default behavior is to retry indefinitely.
-* **Handle**: A user-defined callback can be specified to determine whether a function should be retried.
+* **Maximalt antal försök**: maximalt antal återförsök.
+* **Första**återförsöksintervall: vänte tiden innan det första försöket.
+* **Backoff-koefficient**: den koefficient som används för att fastställa frekvensen av ökningen av backoff. Standardvärdet är 1.
+* **Högsta återförsöksintervall**: den maximala vänte tiden mellan återförsök.
+* **Timeout för återförsök**: maximal tid att spendera på nya försök. Standard beteendet är att försöka på obestämd tid.
+* **Referens**: en användardefinierad motringning kan anges för att avgöra om en funktion ska provas igen.
 
-## <a name="function-timeouts"></a>Function timeouts
+## <a name="function-timeouts"></a>Funktions tids gränser
 
-You might want to abandon a function call within an orchestrator function if it's taking too long to complete. The proper way to do this today is by creating a [durable timer](durable-functions-timers.md) using `context.CreateTimer` (.NET) or `context.df.createTimer` (JavaScript) in conjunction with `Task.WhenAny` (.NET) or `context.df.Task.any` (JavaScript), as in the following example:
+Du kanske vill överge ett funktions anrop i en Orchestrator-funktion om det tar för lång tid att slutföra. Det är ett bra sätt att göra detta idag genom att skapa en [beständig timer](durable-functions-timers.md) med `context.CreateTimer` (.net) eller `context.df.createTimer` (Java Script) tillsammans med `Task.WhenAny` (.net) eller `context.df.Task.any` (Java Script), som i följande exempel:
 
-### <a name="precompiled-c"></a>Precompiled C#
+### <a name="precompiled-c"></a>FörkompileradeC#
 
 ```csharp
 [FunctionName("TimerOrchestrator")]
@@ -236,7 +236,7 @@ public static async Task<bool> Run([OrchestrationTrigger] IDurableOrchestrationC
 }
 ```
 
-### <a name="c-script"></a>C# Script
+### <a name="c-script"></a>C#Över
 
 ```csharp
 public static async Task<bool> Run(IDurableOrchestrationContext context)
@@ -266,9 +266,9 @@ public static async Task<bool> Run(IDurableOrchestrationContext context)
 ```
 
 > [!NOTE]
-> The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> Föregående C# exempel är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
-### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 only)
+### <a name="javascript-functions-20-only"></a>Java Script (endast Functions 2,0)
 
 ```javascript
 const df = require("durable-functions");
@@ -293,16 +293,16 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!NOTE]
-> This mechanism does not actually terminate in-progress activity function execution. Rather, it simply allows the orchestrator function to ignore the result and move on. For more information, see the [Timers](durable-functions-timers.md#usage-for-timeout) documentation.
+> Den här mekanismen avslutar egentligen inte körningen av aktivitets funktionen. I stället tillåter det bara att Orchestrator-funktionen ignorerar resultatet och går vidare. Mer information finns i dokumentationen för [timers](durable-functions-timers.md#usage-for-timeout) .
 
 ## <a name="unhandled-exceptions"></a>Ohanterade undantag
 
-If an orchestrator function fails with an unhandled exception, the details of the exception are logged and the instance completes with a `Failed` status.
+Om en Orchestrator-funktion Miss lyckas med ett ohanterat undantag loggas detaljerna för undantaget och instansen slutförs med en `Failed`-status.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Learn about eternal orchestrations](durable-functions-eternal-orchestrations.md)
+> [Lär dig mer om Eternal-dirigeringar](durable-functions-eternal-orchestrations.md)
 
 > [!div class="nextstepaction"]
-> [Learn how to diagnose problems](durable-functions-diagnostics.md)
+> [Lär dig hur du diagnostiserar problem](durable-functions-diagnostics.md)

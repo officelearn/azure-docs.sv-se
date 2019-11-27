@@ -1,6 +1,6 @@
 ---
-title: Set up liveness probe on container instance
-description: Learn how to configure liveness probes to restart unhealthy containers in Azure Container Instances
+title: Konfigurera direktmigreringens avsökning på behållar instansen
+description: Lär dig hur du konfigurerar direktmigreringens avsökningar för att starta om felaktiga behållare i Azure Container Instances
 ms.topic: article
 ms.date: 06/08/2018
 ms.openlocfilehash: 96d98d18a3f0ac666fb2c057216f7844b176d177
@@ -12,15 +12,15 @@ ms.locfileid: "74481683"
 ---
 # <a name="configure-liveness-probes"></a>Konfigurera liveavsökningar
 
-Containerized applications may run for extended periods of time, resulting in broken states that may need to be repaired by restarting the container. Azure Container Instances supports liveness probes so that you can configure your containers within your container group to restart if critical functionality is not working. The liveness probe behaves like a [Kubernetes liveness probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
+Program i behållare kan köras under längre tids perioder, vilket resulterar i brutna tillstånd som kan behöva repare ras genom att starta om behållaren. Azure Container Instances stöder stöd för direktmigrering så att du kan konfigurera dina behållare i din behållar grupp för omstart om kritiska funktioner inte fungerar. Direktmigreringen avsökningen fungerar som en Kubernetes för [Direktmigrering](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
 
-This article explains how to deploy a container group that includes a liveness probe, demonstrating the automatic restart of a simulated unhealthy container.
+I den här artikeln förklaras hur du distribuerar en behållar grupp som innehåller en livemigrering, som demonstrerar den automatiska omstarten av en simulerad ej hälso behållar behållare.
 
-Azure Container Instances also supports [readiness probes](container-instances-readiness-probe.md), which you can configure to ensure that traffic reaches a container only when it's ready for it.
+Azure Container Instances också stöd för [beredskaps avsökningar](container-instances-readiness-probe.md), som du kan konfigurera för att säkerställa att trafiken når en behållare endast när den är redo för den.
 
-## <a name="yaml-deployment"></a>YAML deployment
+## <a name="yaml-deployment"></a>YAML-distribution
 
-Create a `liveness-probe.yaml` file with the following snippet. This file defines a container group that consists of an NGNIX container that eventually becomes unhealthy.
+Skapa en `liveness-probe.yaml`-fil med följande kodfragment. Den här filen definierar en behållar grupp som består av en NGNIX-behållare som slutligen blir skadad.
 
 ```yaml
 apiVersion: 2018-10-01
@@ -52,53 +52,53 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Run the following command to deploy this container group with the above YAML configuration:
+Kör följande kommando för att distribuera den här behållar gruppen med ovanstående YAML-konfiguration:
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --name livenesstest -f liveness-probe.yaml
 ```
 
-### <a name="start-command"></a>Start command
+### <a name="start-command"></a>Start kommando
 
-The deployment defines a starting command to be run when the container first starts running, defined by the `command` property, which accepts an array of strings. In this example, it will start a bash session and create a file called `healthy` within the `/tmp` directory by passing this command:
+Distributionen definierar ett start kommando som ska köras när behållaren först börjar köras, som definieras av egenskapen `command`, som accepterar en sträng mat ris. I det här exemplet startar en bash-session och skapar en fil med namnet `healthy` i katalogen `/tmp` genom att skicka det här kommandot:
 
 ```bash
 /bin/sh -c "touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600"
 ```
 
- It will then sleep for 30 seconds before deleting the file, then enters a 10-minute sleep.
+ Den kommer sedan att gå i vilo läge i 30 sekunder innan filen tas bort, och anger sedan en 10 minuters vilo läge.
 
-### <a name="liveness-command"></a>Liveness command
+### <a name="liveness-command"></a>Lives-kommandot
 
-This deployment defines a `livenessProbe` that supports an `exec` liveness command that acts as the liveness check. If this command exits with a non-zero value, the container will be killed and restarted, signaling the `healthy` file could not be found. If this command exits successfully with exit code 0, no action will be taken.
+Den här distributionen definierar ett `livenessProbe` som stöder ett `exec` Live-kommando som fungerar som en Live-kontroll. Om det här kommandot avslutas med ett värde som inte är noll stoppas behållaren och startas om, vilket innebär att det inte gick att hitta den `healthy` filen. Om kommandot avslutas med slut koden 0 utförs ingen åtgärd.
 
-The `periodSeconds` property designates the liveness command should execute every 5 seconds.
+Egenskapen `periodSeconds` anger att kommandot Lives ska köras var femte sekund.
 
-## <a name="verify-liveness-output"></a>Verify liveness output
+## <a name="verify-liveness-output"></a>Verifiera Live-utdata
 
-Within the first 30 seconds, the `healthy` file created by the start command exists. When the liveness command checks for the `healthy` file's existence, the status code returns a zero, signaling success, so no restarting occurs.
+Under de första 30 sekunderna finns `healthy`-filen som skapats av Start kommandot. När Live-kommandot söker efter `healthy` filens existens returnerar status koden noll, vilket signalerar att det lyckades, så att ingen omstart sker.
 
-After 30 seconds, the `cat /tmp/healthy` will begin to fail, causing unhealthy and killing events to occur.
+Efter 30 sekunder börjar `cat /tmp/healthy` att Miss lyckas, vilket orsakar att det uppstår fel i händelse av fel och avlivning.
 
-These events can be viewed from the Azure portal or Azure CLI.
+Dessa händelser kan visas från Azure Portal eller Azure CLI.
 
-![Portal unhealthy event][portal-unhealthy]
+![Felaktig händelse för portalen][portal-unhealthy]
 
-By viewing the events in the Azure portal, events of type `Unhealthy` will be triggered upon the liveness command failing. The subsequent event will be of type `Killing`, signifying a container deletion so a restart can begin. The restart count for the container increments each time this event  occurs.
+Genom att visa händelserna i Azure Portal utlöses händelser av typen `Unhealthy` när Live-kommandot Miss Missing. Den efterföljande händelsen är av typen `Killing`, vilket indikerar en container borttagning så att en omstart kan påbörjas. Antalet omstarter för containern ökar varje tidpunkt som den här händelsen inträffar.
 
-Restarts are completed in-place so resources like public IP addresses and node-specific contents will be preserved.
+Omstarter slutförs på plats så att resurser som offentliga IP-adresser och Node-/regionsspecifika innehåll bevaras.
 
-![Portal restart counter][portal-restart]
+![Räknare för att starta om portalen][portal-restart]
 
-If the liveness probe continuously fails and triggers too many restarts, your container will enter an exponential back off delay.
+Om den kontinuerliga avsökningen Miss lyckas och utlöser för många omstarter, kommer din behållare att ange en exponentiell säkerhets fördröjning.
 
-## <a name="liveness-probes-and-restart-policies"></a>Liveness probes and restart policies
+## <a name="liveness-probes-and-restart-policies"></a>Direktmigreringar och principer för omstart
 
-Restart policies supersede the restart behavior triggered by liveness probes. For example, if you set a `restartPolicy = Never` *and* a liveness probe, the container group will not restart because of a failed liveness check. The container group will instead adhere to the container group's restart policy of `Never`.
+Restart-principer ersätter omstarts beteendet som utlöses av direktmigreringar. Om du till exempel ställer in en `restartPolicy = Never` *och* en Direktmigrering, kommer behållar gruppen inte att starta om på grund av en misslyckad direktmigreringens kontroll. Behållar gruppen följer i stället behållar gruppens omstarts princip för `Never`.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Task-based scenarios may require a liveness probe to enable automatic restarts if a pre-requisite function is not working properly. For more information about running task-based containers, see [Run containerized tasks in Azure Container Instances](container-instances-restart-policy.md).
+Uppgiftsbaserade scenarier kan kräva en Direktmigrering för att aktivera automatiska omstarter om en förutsättnings funktion inte fungerar korrekt. Mer information om att köra uppgiftsbaserade behållare finns [i köra aktiviteter i behållare i Azure Container instances](container-instances-restart-policy.md).
 
 <!-- IMAGES -->
 [portal-unhealthy]: ./media/container-instances-liveness-probe/unhealthy-killing.png

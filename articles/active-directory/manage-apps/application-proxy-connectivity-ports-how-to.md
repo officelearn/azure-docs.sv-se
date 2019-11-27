@@ -25,7 +25,7 @@ ms.locfileid: "74275555"
 ---
 # <a name="how-to-open-the-firewall-ports-required-for-an-application-proxy-application"></a>Hur du öppnar brandväggsportar som krävs för ett Application Proxy-program
 
-En fullständig lista över portarna som krävs och funktionen för varje port finns i avsnittet med förutsättningar i den [Application Proxy-dokumentationen](application-proxy-add-on-premises-application.md). Observera att Application Proxy endast använder utgående portar.
+Om du vill se en fullständig lista över de portar som krävs och varje ports funktion, se avsnittet krav i dokumentationen för [programproxyn](application-proxy-add-on-premises-application.md). Observera att Application Proxy endast använder utgående portar.
 
 Du kan också kontrol lera om du har alla nödvändiga portar öppna genom att öppna [test verktyget för anslutnings portar](https://aadap-portcheck.connectorporttest.msappproxy.net/) från ditt lokala nätverk. Mer gröna bockmarkeringar innebär större flexibilitet. 
 
@@ -40,4 +40,4 @@ Om du vill se till att verktyget ger rätt resultat, måste du kontrollera att:
 -   Se till att alla proxyservrar och brandväggar som gäller för din Anslutningsapp används också till den här sidan. Detta kan göras i Internet Explorer genom att gå till **inställningar** -&gt; **Internet alternativ** -&gt; **anslutningar** -&gt; **Inställningar för LAN**. På den här sidan kan se du fältet ”Använd en Proxy Server för ditt LAN”. Välj den här rutan och placera Proxyadressen i fältet ”adress”.
 
 ## <a name="next-steps"></a>Nästa steg
-[Förstå Azure AD Application Proxy-anslutningar](application-proxy-connectors.md)
+[Förstå Azure AD-programproxy-kopplingar](application-proxy-connectors.md)

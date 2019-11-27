@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Create an internal load balancer - Azure portal'
+title: 'Självstudie: skapa en intern belastningsutjämnare – Azure Portal'
 titleSuffix: Azure Load Balancer
 description: Den här självstudien beskriver hur du skapar en grundläggande intern lastbalanserare med hjälp av Azure-portalen.
 services: load-balancer
@@ -95,11 +95,11 @@ Skapa en grundläggande intern lastbalanserare med hjälp av portalen. Det namn 
     | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupLB* i textrutan.|
     | Namn                   | *myLoadBalancer*                                   |
     | Region         | Välj **Västeuropa**.                                        |
-    | Typ          | Select **Internal**.                                        |
+    | Typ          | Välj **Intern**.                                        |
     | SKU           | Välj **Grundläggande**.                          |
     | Virtuellt nätverk           | Välj *MyVNet*.                          |    
-    | IP address assignment              | Välj **Statisk**.   |
-    | Privat IP-adress|Type an address that is in the address space of your virtual network and subnet, for example *10.3.0.7*.  |
+    | Tilldelning av IP-adress              | Välj **Statisk**.   |
+    | Privat IP-adress|Skriv en adress som är i adressrymden för ditt virtuella nätverk och undernät, till exempel *10.3.0.7*.  |
 
 3. På fliken **Granska + skapa** klickar du på **Skapa**. 
    

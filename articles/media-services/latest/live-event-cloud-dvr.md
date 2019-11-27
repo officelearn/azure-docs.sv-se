@@ -45,7 +45,7 @@ Till gången som Live-utdata arkiveras till blir automatiskt en till gång på b
 
 Om du har publicerat till gången till din Live-utmatning med hjälp av en strömmande positionerare, fortsätter Live-händelsen (upp till fönstret för DVR-fönster) att visas tills den går ut eller ta bort streaming-adressen, beroende på vilket som kommer först.
 
-Mer information finns här:
+Mer information finns i:
 
 - [Översikt över direkt uppspelning](live-streaming-overview.md)
 - [Själv studie kurs om Live-direktuppspelning](stream-live-tutorial-with-api.md)

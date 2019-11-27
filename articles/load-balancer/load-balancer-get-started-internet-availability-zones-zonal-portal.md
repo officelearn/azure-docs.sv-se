@@ -1,7 +1,7 @@
 ---
-title: Create a Load Balancer with a zonal frontend - Azure portal
+title: Skapa en Load Balancer med en zonindelade-frontend-Azure Portal
 titleSuffix: Azure Load Balancer
-description: Learn how to create a Standard Load Balancer with zonal frontend with the Azure portal
+description: Lär dig hur du skapar en Standard Load Balancer med zonindelade-frontend med Azure Portal
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -21,39 +21,39 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74225345"
 ---
-#  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-portal"></a>Create a Standard Load Balancer with zonal frontend using Azure portal
+#  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-portal"></a>Skapa en Standard Load Balancer med zonindelade-frontend med Azure Portal
 
-This article steps through creating a public [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) with a zonal frontend IP configuration. To understand how availability zones work with Standard Load Balancer, see [Standard Load Balancer and Availability zones](load-balancer-standard-availability-zones.md). 
+Den här artikeln beskriver hur du skapar en offentlig [standard Load Balancer](https://aka.ms/azureloadbalancerstandard) med en IP-konfiguration för zonindelade-frontend. Information om hur tillgänglighets zoner fungerar med Standard Load Balancer finns i [standard Load Balancer och tillgänglighets zoner](load-balancer-standard-availability-zones.md). 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 > [!NOTE]
-> Support for Availability Zones is available for select Azure resources and regions, and VM size families. For more information on how to get started, and which Azure resources, regions, and VM size families you can try availability zones with, see [Overview of Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview). Du kan få support via [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) eller genom att [öppna ett Azure-supportärende](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
+> Stöd för Tillgänglighetszoner är tillgänglig för väljer Azure-resurser och regioner och VM-storlekar. Mer information om hur du kommer igång och vilka Azure-resurser, regioner och VM-storlekar som du kan prova tillgänglighets zoner med finns i [Översikt över Tillgänglighetszoner](https://docs.microsoft.com/azure/availability-zones/az-overview). Du kan få support via [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) eller genom att [öppna ett Azure-supportärende](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure 
 
 Logga in på Azure Portal på https://portal.azure.com.
 
-## <a name="create-a-load-balancer-with-zonal-frontend-ip-address"></a>Create a load balancer with zonal frontend IP address
+## <a name="create-a-load-balancer-with-zonal-frontend-ip-address"></a>Skapa en belastningsutjämnare med zonindelad klientdelens IP-adress
 
-1. From a browser navigate to the Azure portal: [https://portal.azure.com](https://portal.azure.com) and login with your Azure account.
-2. On the top left-hand side of the screen, select **Create a resource** > **Networking** > **Load Balancer.**
-3. In the **Create load balancer** page, under **Name** type **myLoadBalancer**.
+1. Från en webbläsare navigerar du till Azure Portal: [https://portal.azure.com](https://portal.azure.com) och logga in med ditt Azure-konto.
+2. På den övre vänstra sidan av skärmen väljer du **skapa en resurs** > **nätverks** > **Load Balancer.**
+3. På sidan **skapa belastningsutjämnare** under **namn** skriver du **myLoadBalancer**.
 4. Under **Typ** väljer du **Offentlig**.
-5. Under SKU, select **Standard**.
-6. Click **Choose a Public IP address**, click **Create new**, and in **Create public IP address** page, under name, type **myPublicIPZonal**, for SKU, select **Standard**, for Availability zone, select **1**.
+5. Under SKU väljer du **standard**.
+6. Klicka på **Välj en offentlig IP-adress**, klicka på **Skapa ny**och sidan **skapa offentlig IP-adress** under namn, Skriv **myPublicIPZonal**, för SKU, Välj **standard**, för tillgänglighets zon, väljer du **1**.
     
 >[!NOTE] 
-> The public IP created in this step is of Standard SKU by default.
+> Offentligt IP som skapats i det här steget är av Standard-SKU som standard.
 
-1. For **Resource group**, click **Create new**, and then type **myResourceGroupZLB** as the name of the resource group.
-1. For **Location**, select **West Europe**, and then click **OK**. Nu startar distributionen av lastbalanseraren. Distributionen tar några minuter att slutföra.
+1. För **resurs grupp**klickar du på **Skapa ny**och skriver sedan **myResourceGroupZLB** som namn på resurs gruppen.
+1. För **plats**väljer du **Västeuropa**, Västeuropa och klickar sedan på **OK**. Nu startar distributionen av lastbalanseraren. Distributionen tar några minuter att slutföra.
 
-    ![create zone-redundant Standard Load Balancer with the Azure portal](./media/load-balancer-get-started-internet-availability-zones-zonal-portal/load-balancer-zonal-frontend.png)
+    ![Skapa zon – redundanta Standard Load Balancer med Azure Portal](./media/load-balancer-get-started-internet-availability-zones-zonal-portal/load-balancer-zonal-frontend.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Learn more about [Standard Load Balancer and Availability zones](load-balancer-standard-availability-zones.md).
+- Läs mer om [standard Load Balancer-och tillgänglighets zoner](load-balancer-standard-availability-zones.md).
 
 
 

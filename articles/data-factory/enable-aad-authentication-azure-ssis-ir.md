@@ -42,7 +42,7 @@ Azure SQL Database servern har stöd för att skapa en databas med en Azure AD-a
 
 Du kan använda en befintlig Azure AD-grupp eller skapa en ny med hjälp av Azure AD PowerShell.
 
-1.  Installera den [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) modulen.
+1.  Installera [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) -modulen.
 
 2.  Logga in med `Connect-AzureAD`, kör följande cmdlet för att skapa en grupp och spara den i en variabel:
 
@@ -198,7 +198,7 @@ Gör så här för att etablera din Azure-SSIS IR med PowerShell:
 
 1.  Installera [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v5.5.0-March2018) -modulen.
 
-2.  Ange inte `CatalogAdminCredential` parameter i skriptet. Exempel:
+2.  Ange inte `CatalogAdminCredential` parameter i skriptet. Till exempel:
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `

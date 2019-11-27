@@ -1,6 +1,6 @@
 ---
-title: Periodic backup/restore in standalone Azure Service Fabric
-description: Use Service Fabric's periodic backup and restore feature for enabling periodic data backup of your application data.
+title: Regelbunden säkerhets kopiering/återställning i fristående Azure-Service Fabric
+description: Använd Service Fabric periodiska säkerhets kopierings-och återställnings funktionen för att aktivera regelbunden data säkerhets kopiering av program data.
 services: service-fabric
 documentationcenter: .net
 author: hrushib
@@ -21,50 +21,50 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74232459"
 ---
-# <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Periodic backup and restore in Azure Service Fabric
+# <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Regelbunden säkerhets kopiering och återställning i Azure Service Fabric
 > [!div class="op_single_selector"]
-> * [Clusters on Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
-> * [Standalone Clusters](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
+> * [Kluster i Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
+> * [Fristående kluster](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
 > 
 
-Service Fabric is a distributed systems platform that makes it easy to develop and manage reliable, distributed, microservices based cloud applications. It allows running of both stateless and stateful micro services. Stateful services can maintain mutable, authoritative state beyond the request and response or a complete transaction. If a Stateful service goes down for a long time or loses information due to a disaster, it may need to be restored to some recent backup of its state in order to continue providing service after it comes back up.
+Service Fabric är en distribuerad system plattform som gör det enkelt att utveckla och hantera pålitliga, distribuerade och mikrotjänster baserade moln program. Det tillåter körning av både tillstånds lösa och tillstånds känsliga Micro-tjänster. Tillstånds känsliga tjänster kan upprätthålla föränderligt, auktoritativt tillstånd bortom begäran och svar eller en fullständig transaktion. Om en tillstånds känslig tjänst kraschar under en längre tid eller förlorar information på grund av en katastrof, kan det behöva återställas till en ny säkerhets kopia av sitt tillstånd för att fortsätta tillhandahålla tjänsten när den har säkerhetskopierats.
 
-Service Fabric replicates the state across multiple nodes to ensure that the service is highly available. Even if one node in the cluster fails, the service continues to be available. In certain cases, however, it is still desirable for the service data to be reliable against broader failures.
+Service Fabric replikerar tillstånden över flera noder för att säkerställa att tjänsten är hög tillgänglig. Även om en nod i klustret Miss lyckas, fortsätter tjänsten att vara tillgänglig. I vissa fall är det dock önskvärt att tjänst data är tillförlitliga mot bredare haverier.
  
-For example, a service may want to back up its data in order to protect from the following scenarios:
-- Permanent loss of an entire Service Fabric cluster.
-- Permanent loss of a majority of the replicas of a service partition
-- Administrative errors whereby the state accidentally gets deleted or corrupted. For example, an administrator with sufficient privilege erroneously deletes the service.
-- Bugs in the service that cause data corruption. For example, this may happen when a service code upgrade starts writing faulty data to a Reliable Collection. In such a case, both the code and the data may have to be reverted to an earlier state.
-- Offline data processing. It might be convenient to have offline processing of data for business intelligence that happens separately from the service that generates the data.
+En tjänst kan till exempel vilja säkerhetskopiera sina data för att skydda dig från följande scenarier:
+- Permanent förlust av ett helt Service Fabric-kluster.
+- Permanent förlust av en majoritet av en tjänstepartitions repliker
+- Administrativa fel där tillstånden oavsiktligt tas bort eller skadas. En administratör med tillräcklig behörighet tar till exempel bort tjänsten felaktigt.
+- Buggar i tjänsten som orsakar datafel. Detta kan till exempel inträffa när en tjänst kods uppgradering börjar skriva felaktiga data till en tillförlitlig samling. I sådana fall kan både koden och data måste återställas till ett tidigare tillstånd.
+- Data bearbetning offline. Det kan vara praktiskt att ha offline-bearbetning av data för Business Intelligence som sker separat från tjänsten som genererar data.
 
-Service Fabric provides an inbuilt API to do point in time [backup and restore](service-fabric-reliable-services-backup-restore.md). Application developers may use these APIs to back up the state of the service periodically. Additionally, if service administrators want to trigger a backup from outside of the service at a specific time, like before upgrading the application, developers need to expose backup (and restore) as an API from the service. Maintaining the backups is an additional cost above this. For example, you may want to take five incremental backups every half hour, followed by a full backup. After the full backup, you can delete the prior incremental backups. This approach requires additional code leading to additional cost during application development.
+Service Fabric tillhandahåller ett inbyggt API för att göra en [säkerhets kopierings-och återställnings](service-fabric-reliable-services-backup-restore.md)tidpunkt. Programutvecklare kan använda dessa API: er för att säkerhetskopiera tjänstens status regelbundet. Om tjänst administratörer vill utlösa en säkerhets kopia från utanför tjänsten vid en specifik tidpunkt, t. ex. innan du uppgraderar programmet, måste utvecklare exponera säkerhets kopiering (och återställning) som ett API från tjänsten. Att underhålla säkerhets kopieringarna är ytterligare en kostnad ovanför detta. Till exempel kanske du vill ha fem stegvisa säkerhets kopior varje halvtimme, följt av en fullständig säkerhets kopiering. Efter den fullständiga säkerhets kopieringen kan du ta bort de tidigare stegvisa säkerhets kopiorna. Den här metoden kräver ytterligare kod som leder till ytterligare kostnad under program utvecklingen.
 
-Backup of the application data on a periodic basis is a basic need for managing a distributed application and guarding against loss of data or prolonged loss of service availability. Service Fabric provides an optional backup and restore service, which allows you to configure periodic backup of stateful Reliable Services (including Actor Services) without having to write any additional code. It also facilitates restoring previously taken backups. 
+Säkerhets kopiering av program data på regelbunden basis är ett grundläggande behov av att hantera ett distribuerat program och skydda mot förlust av data eller långvarig förlust av tjänst tillgänglighet. Service Fabric tillhandahåller en valfri säkerhets kopierings-och återställnings tjänst som gör att du kan konfigurera regelbunden säkerhets kopiering av tillstånds känsliga Reliable Services (inklusive aktör tjänster) utan att behöva skriva någon ytterligare kod. Den gör det också lättare att återställa tidigare säkerhets kopior. 
 
-Service Fabric provides a set of APIs to achieve the following functionality related to periodic backup and restore feature:
+Service Fabric innehåller en uppsättning API: er för att uppnå följande funktioner som rör regelbunden säkerhets kopiering och återställning:
 
-- Schedule periodic backup of Reliable Stateful services and Reliable Actors with support to upload backup to (external) storage locations. Supported storage locations
+- Schemalägg regelbunden säkerhets kopiering av pålitliga tillstånds känsliga tjänster och Reliable Actors med stöd för att överföra säkerhets kopior till (externa) lagrings platser. Lagrings platser som stöds
     - Azure Storage
-    - File Share (on-premises)
-- Enumerate backups
-- Trigger an ad hoc backup of a partition
-- Restore a partition using previous backup
-- Temporarily suspend backups
-- Retention management of backups (upcoming)
+    - Fil resurs (lokalt)
+- Räkna upp säkerhets kopior
+- Utlösa en ad hoc-säkerhetskopiering av en partition
+- Återställa en partition med hjälp av tidigare säkerhets kopiering
+- Tillfälligt inaktivera säkerhets kopieringar
+- Bevarande hantering av säkerhets kopior (kommande)
 
 ## <a name="prerequisites"></a>Krav
-* Service Fabric cluster with Fabric version 6.4 or above. Refer to this [article](service-fabric-cluster-creation-for-windows-server.md) for steps to download required package.
-* X.509 Certificate for encryption of secrets needed to connect to storage to store backups. Refer [article](service-fabric-windows-cluster-x509-security.md) to know how to acquire or to Create a self-signed X.509 certificate.
+* Service Fabric kluster med Fabric version 6,4 eller senare. Läs den här [artikeln](service-fabric-cluster-creation-for-windows-server.md) för steg för att ladda ned det nödvändiga paketet.
+* X. 509-certifikat för kryptering av hemligheter som behövs för att ansluta till lagring för att lagra säkerhets kopior. Se [artikeln](service-fabric-windows-cluster-x509-security.md) för att lära dig hur du hämtar eller skapar ett självsignerat X. 509-certifikat.
 
-* Service Fabric Reliable Stateful application built using Service Fabric SDK version 3.0 or above. For applications targeting .Net Core 2.0, application should be built using Service Fabric SDK version 3.1 or above.
-* Install Microsoft.ServiceFabric.Powershell.Http Module [In Preview] for making configuration calls.
+* Service Fabric tillförlitligt tillstånds känsligt program som skapats med Service Fabric SDK version 3,0 eller senare. För program som är riktade till .net Core 2,0 ska programmet skapas med hjälp av Service Fabric SDK version 3,1 eller senare.
+* Installera Microsoft. ServiceFabric. PowerShell. http-modulen [i för hands versionen] för att göra konfigurations anrop.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
 
-* Make sure that Cluster is connected using the `Connect-SFCluster` command before making any configuration request using Microsoft.ServiceFabric.Powershell.Http Module.
+* Kontrol lera att klustret är anslutet med `Connect-SFCluster`-kommandot innan du gör någon konfigurations förfrågan med hjälp av Microsoft. ServiceFabric. PowerShell. http-modulen.
 
 ```powershell
 
@@ -72,10 +72,10 @@ Service Fabric provides a set of APIs to achieve the following functionality rel
 
 ```
 
-## <a name="enabling-backup-and-restore-service"></a>Enabling backup and restore service
-First you need to enable the _backup and restore service_ in your cluster. Get the template for the cluster that you want to deploy. You can use the [sample templates](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples). Enable the _backup and restore service_ with the following steps:
+## <a name="enabling-backup-and-restore-service"></a>Aktiverar säkerhets kopierings-och återställnings tjänsten
+Först måste du aktivera _säkerhets kopierings-och återställnings tjänsten_ i klustret. Hämta mallen för det kluster som du vill distribuera. Du kan använda [exempel mallarna](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples). Aktivera _säkerhets kopierings-och återställnings tjänsten_ med följande steg:
 
-1. Check that the `apiversion` is set to `10-2017` in the cluster configuration file, and if not, update it as shown in the following snippet:
+1. Kontrol lera att `apiversion` är inställt på `10-2017` i kluster konfigurations filen och uppdatera den enligt följande kodfragment:
 
     ```json
     {
@@ -86,7 +86,7 @@ First you need to enable the _backup and restore service_ in your cluster. Get t
     }
     ```
 
-2. Now enable the _backup and restore service_ by adding the following `addonFeatures` section under `properties` section as shown in the following snippet: 
+2. Aktivera _säkerhets kopierings-och återställnings tjänsten_ genom att lägga till följande `addonFeatures` under avsnittet `properties` som visas i följande kodfragment: 
 
     ```json
         "properties": {
@@ -98,7 +98,7 @@ First you need to enable the _backup and restore service_ in your cluster. Get t
 
     ```
 
-3. Configure X.509 certificate for encryption of credentials. This is important to ensure that the credentials provided, if any, to connect to storage are encrypted before persisting. Configure encryption certificate by adding the following `BackupRestoreService` section under `fabricSettings` section as shown in the following snippet: 
+3. Konfigurera X. 509-certifikat för kryptering av autentiseringsuppgifter. Detta är viktigt för att se till att de angivna autentiseringsuppgifterna för att ansluta till lagring krypteras innan de sparas. Konfigurera krypterings certifikat genom att lägga till följande `BackupRestoreService` under avsnittet `fabricSettings` som visas i följande kodfragment: 
 
     ```json
     "properties": {
@@ -115,32 +115,32 @@ First you need to enable the _backup and restore service_ in your cluster. Get t
     }
     ```
 
-4. Once you have updated your cluster configuration file with the preceding changes, apply them and let the deployment/upgrade complete. Once complete, the _backup and restore service_ starts running in your cluster. The Uri of this service is `fabric:/System/BackupRestoreService` and the service can be located under system service section in the Service Fabric explorer. 
+4. När du har uppdaterat kluster konfigurations filen med föregående ändringar, tillämpar du dem och låter distributionen/uppgraderingen slutföras. När du är klar börjar _säkerhets kopierings-och återställnings tjänsten_ att köras i klustret. Den här tjänstens URI är `fabric:/System/BackupRestoreService` och tjänsten kan finnas i avsnittet system service i Service Fabric Explorer. 
 
 
 
-## <a name="enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors"></a>Enabling periodic backup for Reliable Stateful service and Reliable Actors
-Let's walk through steps to enable periodic backup for Reliable Stateful service and Reliable Actors. These steps assume
-- That the cluster is set up with _backup and restore service_.
-- A Reliable Stateful service is deployed on the cluster. For the purpose of this quickstart guide, application Uri is `fabric:/SampleApp` and the Uri for Reliable Stateful service belonging to this application is `fabric:/SampleApp/MyStatefulService`. This service is deployed with single partition, and the partition ID is `23aebc1e-e9ea-4e16-9d5c-e91a614fefa7`.  
+## <a name="enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors"></a>Aktivera regelbunden säkerhets kopiering för tillförlitliga tillstånds känsliga tjänster och Reliable Actors
+Låt oss gå igenom stegen för att aktivera regelbunden säkerhets kopiering för tillförlitliga tillstånds känsliga tjänster och Reliable Actors. De här stegen förutsätter
+- Att klustret har kon figurer ATS med _säkerhets kopierings-och återställnings tjänsten_.
+- En tillförlitlig tillstånds känslig tjänst har distribuerats i klustret. I den här snabb starts guiden är program-URI `fabric:/SampleApp` och URI för tillförlitlig tillstånds känslig tjänst som tillhör det här programmet är `fabric:/SampleApp/MyStatefulService`. Den här tjänsten distribueras med en enda partition och partitions-ID: t är `23aebc1e-e9ea-4e16-9d5c-e91a614fefa7`.  
 
-### <a name="create-backup-policy"></a>Create backup policy
+### <a name="create-backup-policy"></a>Skapa säkerhets kopierings princip
 
-First step is to create backup policy describing backup schedule, target storage for backup data, policy name, maximum incremental backups to be allowed before triggering full backup and retention policy for backup storage. 
+Det första steget är att skapa en säkerhets kopierings princip som beskriver säkerhets kopierings schema, mål lagring för säkerhets kopierings data, princip namn, maximala stegvisa säkerhets kopior som ska tillåtas innan fullständig säkerhets kopiering och bevarande princip för säkerhets kopierings lagringen utlöses. 
 
-For backup storage, create file share and give ReadWrite access to this file share for all Service Fabric Node machines. This example assumes the share with name `BackupStore` is present on `StorageServer`.
+För säkerhets kopierings lagring skapar du fil resurs och ger ReadWrite åtkomst till den här fil resursen för alla Service Fabric Node-datorer. Det här exemplet förutsätter att resursen med namnet `BackupStore` finns på `StorageServer`.
 
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>Powershell using Microsoft.ServiceFabric.Powershell.Http Module
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell med hjälp av modulen Microsoft. ServiceFabric. PowerShell. http
 
 ```powershell
 
 New-SFBackupPolicy -Name 'BackupPolicy1' -AutoRestoreOnDataLoss $true -MaxIncrementalBackups 20 -FrequencyBased -Interval 00:15:00 -FileShare -Path '\\StorageServer\BackupStore' -Basic -RetentionDuration '10.00:00:00'
 
 ```
-#### <a name="rest-call-using-powershell"></a>Rest Call using Powershell
+#### <a name="rest-call-using-powershell"></a>Rest-anrop med PowerShell
 
-Execute following PowerShell script for invoking required REST API to create new policy.
+Kör följande PowerShell-skript för att anropa nödvändiga REST API för att skapa en ny princip.
 
 ```powershell
 $ScheduleInfo = @{
@@ -172,28 +172,28 @@ $url = "http://localhost:19080/BackupRestore/BackupPolicies/$/Create?api-version
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json'
 ```
 
-#### <a name="using-service-fabric-explorer"></a>Using Service Fabric Explorer
+#### <a name="using-service-fabric-explorer"></a>Använda Service Fabric Explorer
 
-1. In Service Fabric Explorer, navigate to the Backups tab and select Actions > Create Backup Policy.
+1. I Service Fabric Explorer går du till fliken säkerhets kopior och väljer åtgärder > Skapa säkerhets kopierings princip.
 
-    ![Create Backup Policy][6]
+    ![Skapa säkerhets kopierings princip][6]
 
-2. Fill out the information. For standalone clusters, FileShare should be selected.
+2. Fyll i informationen. För fristående kluster ska FileShare väljas.
 
-    ![Create Backup Policy FileShare][7]
+    ![Skapa säkerhets kopierings principens FileShare][7]
 
-### <a name="enable-periodic-backup"></a>Enable periodic backup
-After defining policy to fulfill data protection requirements of the application, the backup policy should be associated with the application. Depending on requirement, the backup policy can be associated with an application, service, or a partition.
+### <a name="enable-periodic-backup"></a>Aktivera periodisk säkerhets kopiering
+När du har definierat principen för att uppfylla data skydds kraven för programmet ska säkerhets kopierings principen associeras med programmet. Beroende på krav kan säkerhets kopierings policyn associeras med ett program, en tjänst eller en partition.
 
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>Powershell using Microsoft.ServiceFabric.Powershell.Http Module
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell med hjälp av modulen Microsoft. ServiceFabric. PowerShell. http
 
 ```powershell
 Enable-SFApplicationBackup -ApplicationId 'SampleApp' -BackupPolicyName 'BackupPolicy1'
 ```
 
-#### <a name="rest-call-using-powershell"></a>Rest Call using Powershell
-Execute following PowerShell script for invoking required REST API to associate backup policy with name `BackupPolicy1` created in above step with application `SampleApp`.
+#### <a name="rest-call-using-powershell"></a>Rest-anrop med PowerShell
+Kör följande PowerShell-skript för att anropa nödvändiga REST API för att koppla säkerhets kopierings principen med namnet `BackupPolicy1` som skapades i ovan med program `SampleApp`.
 
 ```powershell
 $BackupPolicyReference = @{
@@ -206,35 +206,35 @@ $url = "http://localhost:19080/Applications/SampleApp/$/EnableBackup?api-version
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json'
 ``` 
 
-#### <a name="using-service-fabric-explorer"></a>Using Service Fabric Explorer
+#### <a name="using-service-fabric-explorer"></a>Använda Service Fabric Explorer
 
-1. Select an application and go to action. Click Enable/Update Application Backup.
+1. Välj ett program och gå till åtgärd. Klicka på Aktivera/uppdatera program säkerhets kopiering.
 
-    ![Enable Application Backup][3] 
+    ![Aktivera program säkerhets kopiering][3] 
 
-2. Finally, select the desired policy and click Enable Backup.
+2. Välj slutligen önskad princip och klicka på Aktivera säkerhets kopiering.
 
-    ![Select Policy][4]
+    ![Välj princip][4]
 
-### <a name="verify-that-periodic-backups-are-working"></a>Verify that periodic backups are working
+### <a name="verify-that-periodic-backups-are-working"></a>Verifiera att regelbundna säkerhets kopieringar fungerar
 
-After enabling backup for the application, all partitions belonging to Reliable Stateful services and Reliable Actors under the application will start getting backed-up periodically as per the associated backup policy.
+När du har aktiverat säkerhets kopiering för programmet börjar alla partitioner som tillhör pålitliga tillstånds känsliga tjänster och Reliable Actors under programmet att bli säkerhetskopierade regelbundet enligt den associerade säkerhets kopierings principen.
 
-![Partition BackedUp Health Event][0]
+![Partitionera säkerhetskopierade hälso händelse][0]
 
-### <a name="list-backups"></a>List Backups
+### <a name="list-backups"></a>Lista säkerhets kopior
 
-Backups associated with all partitions belonging to Reliable Stateful services and Reliable Actors of the application can be enumerated using _GetBackups_ API. Depending on requirement, the backups can be enumerated for application, service, or a partition.
+Säkerhets kopieringar som är kopplade till alla partitioner som tillhör pålitliga tillstånds känsliga tjänster och Reliable Actors av programmet kan räknas upp med _GetBackups_ -API. Beroende på kraven kan säkerhets kopiorna räknas upp för program, tjänster eller en partition.
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>Powershell using Microsoft.ServiceFabric.Powershell.Http Module
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell med hjälp av modulen Microsoft. ServiceFabric. PowerShell. http
 
 ```powershell
     Get-SFApplicationBackupList -ApplicationId WordCount     
 ```
 
-#### <a name="rest-call-using-powershell"></a>Rest Call using Powershell
+#### <a name="rest-call-using-powershell"></a>Rest-anrop med PowerShell
 
-Execute following PowerShell script to invoke the HTTP API to enumerate the backups created for all partitions inside the `SampleApp` application.
+Kör följande PowerShell-skript för att anropa HTTP API för att räkna upp de säkerhets kopior som skapats för alla partitioner i `SampleApp` programmet.
 
 ```powershell
 $url = "http://localhost:19080/Applications/SampleApp/$/GetBackups?api-version=6.4"
@@ -245,7 +245,7 @@ $BackupPoints = (ConvertFrom-Json $response.Content)
 $BackupPoints.Items
 ```
 
-Sample output for the above run:
+Exempel på utdata för körningen ovan:
 
 ```
 BackupId                : d7e4038e-2c46-47c6-9549-10698766e714
@@ -285,19 +285,19 @@ CreationTimeUtc         : 2018-04-01T20:09:44Z
 FailureError            : 
 ```
 
-#### <a name="using-service-fabric-explorer"></a>Using Service Fabric Explorer
+#### <a name="using-service-fabric-explorer"></a>Använda Service Fabric Explorer
 
-To view backups in Service Fabric Explorer, navigate to a partition and select the Backups tab.
+Om du vill visa säkerhets kopior i Service Fabric Explorer navigerar du till en partition och väljer fliken säkerhets kopior.
 
-![Enumerate Backups][5]
+![Räkna upp säkerhets kopior][5]
 
-## <a name="limitation-caveats"></a>Limitation/ caveats
-- Service Fabric PowerShell cmdlets are in preview mode.
-- No support for Service Fabric clusters on Linux.
+## <a name="limitation-caveats"></a>Begränsning/varningar
+- Service Fabric PowerShell-cmdletar är i förhands gransknings läge.
+- Inget stöd för Service Fabric kluster i Linux.
 
 ## <a name="next-steps"></a>Nästa steg
-- [Understanding periodic backup configuration](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
-- [Backup restore REST API reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
+- [Förstå regelbunden säkerhets kopierings konfiguration](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
+- [REST API referens för säkerhets kopierings återställning](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/partition-backedup-health-event.png
 [3]: ./media/service-fabric-backuprestoreservice/enable-app-backup.png

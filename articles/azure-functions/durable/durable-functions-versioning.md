@@ -1,6 +1,6 @@
 ---
-title: Versioning in Durable Functions - Azure
-description: Learn how to implement versioning in the Durable Functions extension for Azure Functions.
+title: Versions hantering i Durable Functions – Azure
+description: Lär dig hur du implementerar versioner i Durable Functions-tillägget för Azure Functions.
 author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
@@ -12,19 +12,19 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74232760"
 ---
-# <a name="versioning-in-durable-functions-azure-functions"></a>Versioning in Durable Functions (Azure Functions)
+# <a name="versioning-in-durable-functions-azure-functions"></a>Versions hantering i Durable Functions (Azure Functions)
 
-It is inevitable that functions will be added, removed, and changed over the lifetime of an application. [Durable Functions](durable-functions-overview.md) allows chaining functions together in ways that weren't previously possible, and this chaining affects how you can handle versioning.
+Det är oundvikligt att funktioner kommer att läggas till, tas bort och ändras under ett programs livs längd. [Durable Functions](durable-functions-overview.md) tillåter länkning på ett sätt som inte tidigare var möjligt, och den här länkningen påverkar hur du kan hantera versions hantering.
 
-## <a name="how-to-handle-breaking-changes"></a>How to handle breaking changes
+## <a name="how-to-handle-breaking-changes"></a>Så här hanterar du avbryter ändringar
 
-There are several examples of breaking changes to be aware of. This article discusses the most common ones. The main theme behind all of them is that both new and existing function orchestrations are impacted by changes to function code.
+Det finns flera exempel på hur du kan bryta ändringar för att vara medveten om. Den här artikeln beskriver de vanligaste. Huvud temat bakom alla är att både nya och befintliga funktions dirigeringar påverkas av ändringar i funktions koden.
 
-### <a name="changing-activity-or-entity-function-signatures"></a>Changing activity or entity function signatures
+### <a name="changing-activity-or-entity-function-signatures"></a>Ändra signaturer för aktivitet eller entitets funktion
 
-A signature change refers to a change in the name, input, or output of a function. If this kind of change is made to an activity or entity function, it could break any orchestrator function that depends on it. If you update the orchestrator function to accommodate this change, you could break existing in-flight instances.
+En signatur ändras till en ändring i namn, indata eller utdata för en funktion. Om den här typen av ändring görs i en aktivitet eller en enhets funktion kan den bryta alla Orchestrator-funktioner som är beroende av den. Om du uppdaterar Orchestrator-funktionen för att hantera den här ändringen kan du bryta befintliga instansen av flyg.
 
-As an example, suppose we have the following orchestrator function.
+Anta till exempel att vi har följande Orchestrator-funktion.
 
 ```csharp
 [FunctionName("FooBar")]
@@ -35,7 +35,7 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 }
 ```
 
-This simplistic function takes the results of **Foo** and passes it to **Bar**. Let's assume we need to change the return value of **Foo** from `bool` to `int` to support a wider variety of result values. The result looks like this:
+Den här förenklad-funktionen tar resultatet av **foo** och skickar det till **bar**. Vi antar att vi behöver ändra returvärdet för **foo** från `bool` till `int` för att stödja en större mängd resultat värden. Resultatet ser ut så här:
 
 ```csharp
 [FunctionName("FooBar")]
@@ -47,17 +47,17 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 ```
 
 > [!NOTE]
-> The previous C# examples target Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> Föregående C# exempel riktar Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
-This change works fine for all new instances of the orchestrator function but breaks any in-flight instances. For example, consider the case where an orchestration instance calls a function named `Foo`, gets back a boolean value, and then checkpoints. If the signature change is deployed at this point, the checkpointed instance will fail immediately when it resumes and replays the call to `context.CallActivityAsync<int>("Foo")`. This failure happens because the result in the history table is `bool` but the new code tries to deserialize it into `int`.
+Den här ändringen fungerar bra för alla nya instanser av Orchestrator-funktionen men alla eventuella instansen bryts. Anta till exempel att en Dirigerings instans anropar en funktion med namnet `Foo`, hämtar ett booleskt värde och sedan kontroll punkter. Om ändring av signaturen har distribuerats i det här läget Miss kan den inloggade instansen omedelbart när den återupptas och spela upp anropet till `context.CallActivityAsync<int>("Foo")`. Det här felet uppstår eftersom resultatet i historik tabellen är `bool` men den nya koden försöker deserialisera den till `int`.
 
-This example is just one of many different ways that a signature change can break existing instances. In general, if an orchestrator needs to change the way it calls a function, then the change is likely to be problematic.
+Det här exemplet är bara en av många olika sätt att en signaturverifiering kan bryta befintliga instanser. I allmänhet är det troligt att om en Orchestrator behöver ändra hur den anropar en funktion, är ändringen sannolikt problematisk.
 
-### <a name="changing-orchestrator-logic"></a>Changing orchestrator logic
+### <a name="changing-orchestrator-logic"></a>Ändra Orchestrator-logik
 
-The other class of versioning problems come from changing the orchestrator function code in a way that confuses the replay logic for in-flight instances.
+Den andra klassen av versions problem kommer att ändra koden för Orchestrator-funktionen på ett sätt som innebär att omuppspelnings logiken för instansen i flyget aktive.
 
-Consider the following orchestrator function:
+Överväg följande Orchestrator-funktion:
 
 ```csharp
 [FunctionName("FooBar")]
@@ -68,7 +68,7 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 }
 ```
 
-Now let's assume you want to make a seemingly innocent change to add another function call.
+Nu ska vi anta att du vill göra en synes Innocent ändring för att lägga till ett annat funktions anrop.
 
 ```csharp
 [FunctionName("FooBar")]
@@ -85,42 +85,42 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 ```
 
 > [!NOTE]
-> The previous C# examples target Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> Föregående C# exempel riktar Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
-This change adds a new function call to **SendNotification** between **Foo** and **Bar**. There are no signature changes. The problem arises when an existing instance resumes from the call to **Bar**. During replay, if the original call to **Foo** returned `true`, then the orchestrator replay will call into **SendNotification**, which is not in its execution history. As a result, the Durable Task Framework fails with a `NonDeterministicOrchestrationException` because it encountered a call to **SendNotification** when it expected to see a call to **Bar**. The same type of problem can occur when adding any calls to "durable" APIs, including `CreateTimer`, `WaitForExternalEvent`, etc.
+Den här ändringen lägger till ett nytt funktions anrop till **SendNotification** mellan **foo** och **bar**. Det finns inga ändringar i signaturen. Problemet uppstår när en befintlig instans återupptas från anropet till **bar**. Om det ursprungliga anropet till **foo** returnerade `true`under uppspelningen, kommer Orchestrator-uppspelningen att anropa till **SendNotification**, som inte finns i dess körnings historik. Därför Miss lyckas det ständiga aktivitets ramverket med en `NonDeterministicOrchestrationException` eftersom det påträffade ett anrop till **SendNotification** när det förväntades Visa ett anrop till **bar**. Samma typ av problem kan uppstå när du lägger till anrop till "varaktiga" API: er, inklusive `CreateTimer`, `WaitForExternalEvent`osv.
 
-## <a name="mitigation-strategies"></a>Mitigation strategies
+## <a name="mitigation-strategies"></a>Strategier för minskning
 
-Here are some of the strategies for dealing with versioning challenges:
+Här följer några av strategierna för att hantera problem med versions hantering:
 
-* Do nothing
-* Stop all in-flight instances
-* Side-by-side deployments
+* Gör ingenting
+* Stoppa alla instansen av flyg
+* Distributioner sida vid sida
 
-### <a name="do-nothing"></a>Do nothing
+### <a name="do-nothing"></a>Gör ingenting
 
-The easiest way to handle a breaking change is to let in-flight orchestration instances fail. New instances successfully run the changed code.
+Det enklaste sättet att hantera en brytande ändring är att tillåta att instansen av flygbaserade Orchestration-instanser inte fungerar. Nya instanser har kört den ändrade koden.
 
-Whether this kind of failure is a problem depends on the importance of your in-flight instances. If you are in active development and don't care about in-flight instances, this might be good enough. However, you'll need to deal with exceptions and errors in your diagnostics pipeline. If you want to avoid those things, consider the other versioning options.
+Om den här typen av fel är ett problem beror på hur viktigt dina instansen är. Om du arbetar i aktiv utveckling och inte bryr dig om instansen av flyg kan detta vara tillräckligt tillräckligt. Du måste dock hantera undantag och fel i din diagnostiska pipeline. Om du vill undvika dessa saker bör du överväga de andra versions alternativen.
 
-### <a name="stop-all-in-flight-instances"></a>Stop all in-flight instances
+### <a name="stop-all-in-flight-instances"></a>Stoppa alla instansen av flyg
 
-Another option is to stop all in-flight instances. Stopping all instances can be done by clearing the contents of the internal **control-queue** and **workitem-queue** queues. The instances will be forever stuck where they are, but they will not clutter your logs with failure messages. This approach is ideal in rapid prototype development.
+Ett annat alternativ är att stoppa alla instansen av flyg. Du kan stoppa alla instanser genom att rensa innehållet i köerna för intern **kontroll-kö** och **WorkItem-** köer. Instanserna kommer alltid att ha fastnat där de är, men de kommer inte att göra dina loggar med meddelanden om problem. Den här metoden är idealisk i snabb prototyp utveckling.
 
 > [!WARNING]
-> The details of these queues may change over time, so don't rely on this technique for production workloads.
+> Informationen om dessa köer kan ändras med tiden, så du behöver inte använda den här metoden för produktions arbets belastningar.
 
-### <a name="side-by-side-deployments"></a>Side-by-side deployments
+### <a name="side-by-side-deployments"></a>Distributioner sida vid sida
 
-The most fail-proof way to ensure that breaking changes are deployed safely is by deploying them side-by-side with your older versions. This can be done using any of the following techniques:
+Det vanligaste sättet att se till att de hårda ändringarna distribueras på ett säkert sätt är att distribuera dem sida vid sida med dina äldre versioner. Detta kan göras med någon av följande metoder:
 
-* Deploy all the updates as entirely new functions, leaving existing functions as-is. This can be tricky because the callers of the new function versions must be updated as well following the same guidelines.
-* Deploy all the updates as a new function app with a different storage account.
-* Deploy a new copy of the function app with the same storage account but with an updated `taskHub` name. Side-by-side deployments is the recommended technique.
+* Distribuera alla uppdateringar som helt nya funktioner och lämna befintliga funktioner i befintligt skick. Detta kan vara svårt eftersom anroparna i de nya funktions versionerna måste uppdateras och följer samma rikt linjer.
+* Distribuera alla uppdateringar som en ny function-app med ett annat lagrings konto.
+* Distribuera en ny kopia av Function-appen med samma lagrings konto, men med ett uppdaterat `taskHub` namn. Distributioner sida vid sida är den rekommenderade metoden.
 
-### <a name="how-to-change-task-hub-name"></a>How to change task hub name
+### <a name="how-to-change-task-hub-name"></a>Ändra namn på aktivitets hubb
 
-The task hub can be configured in the *host.json* file as follows:
+Aktivitets navet kan konfigureras i *Host. JSON* -filen på följande sätt:
 
 #### <a name="functions-1x"></a>Functions 1.x
 
@@ -132,7 +132,7 @@ The task hub can be configured in the *host.json* file as follows:
 }
 ```
 
-#### <a name="functions-20"></a>Functions 2.0
+#### <a name="functions-20"></a>Functions 2,0
 
 ```json
 {
@@ -144,16 +144,16 @@ The task hub can be configured in the *host.json* file as follows:
 }
 ```
 
-The default value for Durable Functions v1.x is `DurableFunctionsHub`. Starting in Durable Functions v2.0, the default task hub name is the same as the function app name in Azure, or `TestHubName` if running outside of Azure.
+Standardvärdet för Durable Functions v1. x är `DurableFunctionsHub`. Från och med Durable Functions v 2.0 är standard namnet på aktivitets navet detsamma som namnet på appens funktion i Azure, eller `TestHubName` om det körs utanför Azure.
 
-All Azure Storage entities are named based on the `hubName` configuration value. By giving the task hub a new name, you ensure that separate queues and history table are created for the new version of your application. The function app, however, will stop processing events for orchestrations or entities created under the previous task hub name.
+Alla Azure Storage entiteter namnges baserat på värdet för `hubName` konfiguration. Genom att ge huvudhubben ett nytt namn ser du till att separata köer och historik tabell skapas för den nya versionen av programmet. Function-appen kommer dock att sluta bearbeta händelser för dirigeringar eller entiteter som skapats under föregående aktivitets nav namn.
 
-We recommend that you deploy the new version of the function app to a new [Deployment Slot](../functions-deployment-slots.md). Deployment slots allow you to run multiple copies of your function app side-by-side with only one of them as the active *production* slot. When you are ready to expose the new orchestration logic to your existing infrastructure, it can be as simple as swapping the new version into the production slot.
+Vi rekommenderar att du distribuerar den nya versionen av Function-appen till en ny [distributions plats](../functions-deployment-slots.md). Med distributions platser kan du köra flera kopior av funktions programmet sida vid sida med bara en av dem som aktiv *produktions* plats. När du är redo att exponera den nya organisations logiken i din befintliga infrastruktur kan det vara så enkelt som att byta ut den nya versionen till produktions platsen.
 
 > [!NOTE]
-> This strategy works best when you use HTTP and webhook triggers for orchestrator functions. For non-HTTP triggers, such as queues or Event Hubs, the trigger definition should [derive from an app setting](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings) that gets updated as part of the swap operation.
+> Den här strategin fungerar bäst när du använder HTTP-och webhook-utlösare för Orchestrator functions. För icke-HTTP-utlösare, till exempel köer eller Event Hubs, ska utlösnings definitionen [härledas från en app-inställning](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings) som uppdateras som en del av växlings åtgärden.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Learn how to handle performance and scale issues](durable-functions-perf-and-scale.md)
+> [Lär dig hur du hanterar problem med prestanda och skalning](durable-functions-perf-and-scale.md)

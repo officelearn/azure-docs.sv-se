@@ -1,6 +1,6 @@
 ---
-title: Migrate Conditional Access policies - Azure Active Directory
-description: Learn what you need to know to migrate classic policies in the Azure portal.
+title: Migrera principer för villkorlig åtkomst – Azure Active Directory
+description: Lär dig vad du behöver veta för att migrera klassiska principer i Azure Portal.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -18,119 +18,119 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74380544"
 ---
-# <a name="what-is-a-policy-migration-in-azure-active-directory-conditional-access"></a>What is a policy migration in Azure Active Directory Conditional Access? 
+# <a name="what-is-a-policy-migration-in-azure-active-directory-conditional-access"></a>Vad är en princip migrering i Azure Active Directory villkorlig åtkomst? 
 
-[Conditional Access](../active-directory-conditional-access-azure-portal.md) is a capability of Azure Active directory (Azure AD) that enables you to control how authorized users access your cloud apps. While the purpose is still the same, the release of the new Azure portal has introduced significant improvements to how Conditional Access works.
+[Villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md) är en funktion i Azure Active Directory (Azure AD) som gör att du kan styra hur auktoriserade användare får åtkomst till dina molnappar. Även om syftet fortfarande är detsamma, har lanseringen av den nya Azure Portal infört betydande förbättringar av hur villkorlig åtkomst fungerar.
 
-Consider migrating the policies you have not created in the Azure portal because:
+Överväg att migrera principerna som du inte har skapat i Azure Portal eftersom:
 
-- You can now address scenarios you could not handle before.
-- You can reduce the number of policies you have to manage by consolidating them.   
-- You can manage all your Conditional Access policies in one central location.
-- The Azure classic portal will be retired.   
+- Nu kan du adressera scenarier som du inte kan hantera tidigare.
+- Du kan minska antalet principer som du måste hantera genom att konsolidera dem.   
+- Du kan hantera alla principer för villkorlig åtkomst på en central plats.
+- Den klassiska Azure-portalen kommer att dras tillbaka.   
 
-This article explains what you need to know to migrate your existing Conditional Access policies to the new framework.
+Den här artikeln förklarar vad du behöver veta för att migrera dina befintliga principer för villkorlig åtkomst till det nya ramverket.
  
-## <a name="classic-policies"></a>Classic policies
+## <a name="classic-policies"></a>Klassiska principer
 
-In the [Azure portal](https://portal.azure.com), the [Conditional Access - Policies](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) page is your entry point to your Conditional Access policies. However, in your environment, you might also have Conditional Access policies you have not created using this page. These policies are known as *classic policies*. Classic policies are Conditional Access policies, you have created in:
+På sidan [Azure Portal](https://portal.azure.com)är sidan [villkorlig åtkomst-principer](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) din start punkt för dina principer för villkorlig åtkomst. I din miljö kan du dock även ha principer för villkorlig åtkomst som du inte har skapat med hjälp av den här sidan. Dessa principer kallas *klassiska principer*. Klassiska principer är principer för villkorlig åtkomst, du har skapat i:
 
-- The Azure classic portal
-- The Intune classic portal
-- The Intune App Protection portal
+- Den klassiska Azure-portalen
+- Den klassiska Intune-portalen
+- Intune-appskydd Portal
 
-On the **Conditional Access** page, you can access your classic policies by clicking [**Classic policies (preview)** ](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) in the **Manage** section. 
+På sidan **villkorlig åtkomst** kan du komma åt dina klassiska principer genom att klicka på [**klassiska principer (för hands version)** ](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) i avsnittet **Hantera** . 
 
 ![Azure Active Directory](./media/policy-migration/71.png)
 
-The **Classic policies** view provides you with an option to:
+Vyn **klassiska principer** ger dig ett alternativ för att:
 
-- Filter your classic policies.
+- Filtrera dina klassiska principer.
  
    ![Azure Active Directory](./media/policy-migration/72.png)
 
-- Disable classic policies.
+- Inaktivera klassiska principer.
 
    ![Azure Active Directory](./media/policy-migration/73.png)
    
-- Review the settings of a classic policy (and to disable it).
+- Granska inställningarna för en klassisk princip (och inaktivera den).
 
    ![Azure Active Directory](./media/policy-migration/74.png)
 
-If you have disabled a classic policy, you can't revert this step anymore. This is why you can modify the group membership in a classic policy using the **Details** view. 
+Om du har inaktiverat en klassisk princip kan du inte återställa det här steget längre. Det är därför du kan ändra grupp medlemskapet i en klassisk princip med hjälp av vyn **information** . 
 
 ![Azure Active Directory](./media/policy-migration/75.png)
 
-By either changing the selected groups or by excluding specific groups, you can test the effect of a disabled classic policy for a few test users before disabling the policy for all included users and groups. 
+Genom att antingen ändra de valda grupperna eller genom att utesluta vissa grupper kan du testa resultatet av en inaktive rad klassisk princip för några test användare innan du inaktiverar principen för alla inkluderade användare och grupper. 
 
-## <a name="azure-ad-conditional-access-policies"></a>Azure AD Conditional Access policies
+## <a name="azure-ad-conditional-access-policies"></a>Principer för villkorlig åtkomst för Azure AD
 
-With Conditional Access in the Azure portal, you can manage all your policies in one central location. Because the implementation of how Conditional Access has changed, you should familiarize yourself with the basic concepts before migrating your classic policies.
+Med villkorlig åtkomst i Azure Portal kan du hantera alla principer på en central plats. Eftersom implementeringen av hur villkorlig åtkomst har ändrats bör du bekanta dig med de grundläggande begreppen innan du migrerar dina klassiska principer.
 
 Se:
 
-- [What is Conditional Access in Azure Active Directory](../active-directory-conditional-access-azure-portal.md) to learn about the basic concepts and the terminology.
-- [Best practices for Conditional Access in Azure Active Directory](best-practices.md) to get some guidance on deploying Conditional Access in your organization.
-- [Require MFA for specific apps with Azure Active Directory Conditional Access](app-based-mfa.md) to familiarize yourself with the user interface in the Azure portal.
+- [Vad är villkorlig åtkomst i Azure Active Directory](../active-directory-conditional-access-azure-portal.md) för att lära dig om de grundläggande begreppen och terminologin.
+- [Metod tips för villkorlig åtkomst i Azure Active Directory](best-practices.md) för att få vägledning om hur du distribuerar villkorlig åtkomst i din organisation.
+- [KRÄV MFA för vissa appar med Azure Active Directory villkorlig åtkomst](app-based-mfa.md) för att bekanta dig med användar gränssnittet i Azure Portal.
  
 ## <a name="migration-considerations"></a>Överväganden vid migrering
 
-In this article, Azure AD Conditional Access policies are also referred to as *new policies*.
-Your classic policies continue to work side by side with your new policies until you disable or delete them. 
+I den här artikeln kallas principer för villkorlig åtkomst för Azure AD också *nya principer*.
+De klassiska principerna fortsätter att fungera sida vid sida med dina nya principer tills du inaktiverar eller tar bort dem. 
 
-The following aspects are important in the context of a policy consolidation:
+Följande aspekter är viktiga i samband med en princip konsolidering:
 
-- While classic policies are tied to a specific cloud app, you can select as many cloud apps as you need to in a new policy.
-- Controls of a classic policy and a new policy for a cloud app require all controls (*AND*) to be fulfilled. 
-- In a new policy, you can:
-   - Combine multiple conditions if required by your scenario. 
-   - Select several grant requirements as access control and combine them with a logical *OR* (require one of the selected controls) or with a logical *AND* (require all of the selected controls).
+- Även om de klassiska principerna är knutna till en speciell molnbaserad app, kan du välja så många molnappar som du behöver i en ny princip.
+- Kontroller av en klassisk princip och en ny princip för en molnbaserad app kräver att alla kontroller (*och*) är uppfyllda. 
+- I en ny princip kan du:
+   - Kombinera flera villkor om ditt scenario kräver det. 
+   - Välj flera bidrags krav som åtkomst kontroll och kombinera dem med ett logiskt *eller* (Kräv en av de valda kontrollerna) eller med ett logiskt *och* (Kräv alla valda kontroller).
 
    ![Azure Active Directory](./media/policy-migration/25.png)
 
-### <a name="office-365-exchange-online"></a>Office 365 Exchange online
+### <a name="office-365-exchange-online"></a>Office 365 Exchange Online
 
-If you want to migrate classic policies for **Office 365 Exchange online** that include **Exchange Active Sync** as client apps condition, you might not be able to consolidate them into one new policy. 
+Om du vill migrera klassiska principer för **Office 365 Exchange Online** som innehåller **Exchange Active Sync** som klient program villkor, kanske du inte kan konsolidera dem till en ny princip. 
 
-This is, for example, the case if you want to support all client app types. In a new policy that has **Exchange Active Sync** as client apps condition, you can't select other client apps.
+Detta är till exempel fallet om du vill stödja alla typer av klient program. I en ny princip som har **Exchange Active Sync** som klient program villkor kan du inte välja andra klient program.
 
 ![Azure Active Directory](./media/policy-migration/64.png)
 
-A consolidation into one new policy is also not possible if your classic policies contain several conditions. A new policy that has **Exchange Active Sync** as client apps condition configured does not support other conditions:   
+Det går inte heller att utföra en konsolidering i en ny princip om de klassiska principerna innehåller flera villkor. En ny princip som har kon figurer ATS för **Exchange Active Sync** som klient program inte stöder andra villkor:   
 
 ![Azure Active Directory](./media/policy-migration/08.png)
 
-If you have a new policy that has **Exchange Active Sync** as client apps condition configured, you need to make sure that all other conditions are not configured. 
+Om du har en ny princip som har konfigurerat villkor för **Exchange Active Sync** som klient program, måste du se till att alla andra villkor inte är konfigurerade. 
 
 ![Azure Active Directory](./media/policy-migration/16.png)
  
-[App-based](technical-reference.md#approved-client-app-requirement) classic policies for Office 365 Exchange Online that include **Exchange Active Sync** as client apps condition allow **supported** and **unsupported** [device platforms](technical-reference.md#device-platform-condition). While you can't configure individual device platforms in a related new policy, you can limit the support to [supported device platforms](technical-reference.md#device-platform-condition) only. 
+[App-baserade](technical-reference.md#approved-client-app-requirement) klassiska principer för Office 365 Exchange Online som omfattar **Exchange Active Sync** som klient program villkor tillåter **stöd** för [plattformar](technical-reference.md#device-platform-condition)som stöds och **inte stöds** . Även om du inte kan konfigurera enskilda enhets plattformar i en relaterad ny princip kan du begränsa stödet till endast [plattformar som stöds](technical-reference.md#device-platform-condition) . 
 
 ![Azure Active Directory](./media/policy-migration/65.png)
 
-You can consolidate multiple classic policies that include **Exchange Active Sync** as client apps condition if they have:
+Du kan konsolidera flera klassiska principer som omfattar **Exchange Active Sync** som klient program villkor om de har:
 
-- Only **Exchange Active Sync** as condition 
-- Several requirements for granting access configured
+- Endast **Exchange Active Sync** som villkor 
+- Flera krav för att bevilja åtkomst konfigurerat
 
-One common scenario is the consolidation of:
+Ett vanligt scenario är konsolideringen av:
 
-- A device-based classic policy from the Azure classic portal 
-- An app-based classic policy in the Intune app protection portal 
+- En enhets beroende klassisk princip från den klassiska Azure-portalen 
+- En app-baserad klassisk princip i Intunes app Protection-Portal 
  
-In this case, you can consolidate your classic policies into one new policy that has both requirements selected.
+I det här fallet kan du konsolidera dina klassiska principer till en ny princip som har båda de krav som valts.
 
 ![Azure Active Directory](./media/policy-migration/62.png)
 
-### <a name="device-platforms"></a>Device platforms
+### <a name="device-platforms"></a>Enhets plattformar
 
-Classic policies with [app-based controls](technical-reference.md#approved-client-app-requirement) are pre-configured with iOS and Android as the [device platform condition](technical-reference.md#device-platform-condition). 
+Klassiska principer med [app-baserade kontroller](technical-reference.md#approved-client-app-requirement) är förkonfigurerade med iOS och Android som [enhets plattforms villkor](technical-reference.md#device-platform-condition). 
 
-In a new policy, you need to select the [device platforms](technical-reference.md#device-platform-condition) you want to support individually.
+I en ny princip måste du välja de [enhets plattformar](technical-reference.md#device-platform-condition) som du vill stödja individuellt.
 
 ![Azure Active Directory](./media/policy-migration/41.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- If you want to know how to configure a Conditional Access policy, see [Require MFA for specific apps with Azure Active Directory Conditional Access](app-based-mfa.md).
-- If you are ready to configure Conditional Access policies for your environment, see the [best practices for Conditional Access in Azure Active Directory](best-practices.md). 
+- Om du vill veta hur du konfigurerar en princip för villkorlig åtkomst, se [KRÄV MFA för vissa appar med Azure Active Directory villkorlig åtkomst](app-based-mfa.md).
+- Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö, se [metod tips för villkorlig åtkomst i Azure Active Directory](best-practices.md). 

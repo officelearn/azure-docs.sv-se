@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Load balance VMs across availability zones - Azure portal'
+title: 'Självstudie: belastningsutjämna virtuella datorer i tillgänglighets zoner – Azure Portal'
 titleSuffix: Azure Load Balancer
 description: Den här kursen visar hur du skapar en Standard Load Balancer med zonredundant klientdel för att lastbalansera virtuella datorer i flera tillgänglighetszoner med hjälp av Azure Portal
 services: load-balancer
@@ -58,8 +58,8 @@ En Standard Load Balancer stöder endast offentliga IP-standardadresser. När du
     | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupLBAZ* i textrutan.|
     | Namn                   | *myLoadBalancer*                                   |
     | Region         | Välj **Västeuropa**.                                        |
-    | Typ          | Välj **Offentligt**.                                        |
-    | SKU           | Select **Standard**.                          |
+    | Typ          | Välj **Offentlig**.                                        |
+    | SKU           | Välj **standard**.                          |
     | Offentlig IP-adress | Välj **Skapa ny**. |
     | Namn på offentlig IP-adress              | Skriv *myPublicIP* i textrutan.   |
     |Tillgänglighetszon| Välj **Zonredundant**.    |
@@ -73,7 +73,7 @@ I det här avsnittet skapar du ett virtuellt nätverk, virtuella datorer i olika
 Skapa ett virtuellt nätverk för distribution av serverdelsservrar.
 
 1. Klicka på **Skapa en resurs** > **Nätverk** > **Virtuella nätverk** överst till vänster på skärmen och ange följande värden för det virtuella nätverket:
-    - *myVnet* – det virtuella nätverkets namn.
+    - *myVnet* – för det virtuella nätverkets namn.
     - *myResourceGroupLBAZ* – för namnet på den befintliga resursgruppen
     - *myBackendSubnet* – för undernätsnamnet.
 2. Skapa det virtuella nätverket genom att klicka på **Skapa**.
@@ -106,7 +106,7 @@ I det här avsnittet skapar du nätverkssäkerhetsgruppsregler som tillåter att
     - *100* för **Prioritet**
     - *myHTTPRule* för lastbalanseringsregelns namn.
     - *Tillåt HTTP* – för beskrivning av lastbalanseringsregeln.
-4. Klicka på **OK**
+4. Klicka på **OK**.
  
    ![Skapa ett virtuellt nätverk](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 5. Skapa, genom att upprepa steg 2 till 4, en annan regel med namnet *myRDPRule* som tillåter att en inkommande RDP-anslutning använder port 3389 med följande värden:
@@ -123,11 +123,11 @@ I det här avsnittet skapar du nätverkssäkerhetsgruppsregler som tillåter att
 
 Skapa virtuella datorer i olika zoner (zon 1, zon 2 och zon 3) för den region som kan fungera som serverdelsservrar för lastbalanseraren.
 
-1. Klicka på **Skapa en resurs** > **Compute** > **Windows Server 2016 Datacenter** överst till vänster på skärmen och ange följande värden för den virtuella datorn:
+1. Klicka på **Skapa en resurs** > **Beräkna** > **Windows Server 2016 Datacenter** överst till vänster på skärmen och ange följande värden för den virtuella datorn:
     - *myVM1* – för den virtuella datorns namn.        
-    - *azureuser* – administratörens användarnamn.    
+    - *azureuser* – för administratörens användarnamn.    
     - *myResourceGroupLBAZ* – för **Resursgrupp**väljer du **Använd befintlig**, och väljer sedan *myResourceGroupLBAZ*.
-2. Klicka på **OK**
+2. Klicka på **OK**.
 3. Välj **DS1_V2** som storlek på den virtuella datorn och klicka på **Välj**.
 4. Ange dessa värden för VM-inställningarna:
     - *zon 1* – för den zon där du placerar den virtuella datorn.
@@ -197,7 +197,7 @@ Om du vill att lastbalanseraren ska övervaka status för din app kan du använd
     - *80* – för portnumret.
     - *15* – för antalet **intervall** i sekunder mellan avsökningsförsöken.
     - *2* – för antalet **tröskelvärden för ohälsosamt värde** eller antalet avsökningsfel i följd som måste inträffa innan en virtuell dator anses vara felaktig.
-4. Klicka på **OK**
+4. Klicka på **OK**.
 
    ![Lägga till en avsökning](./media/load-balancer-standard-public-availability-zones-portal/4-load-balancer-probes.png)
 
@@ -214,7 +214,7 @@ En lastbalanseringsregel används för att definiera hur trafiken ska distribuer
     - *80* – för serverdelsporten.
     - *myBackendPool* – för serverdelspoolens namn.
     - *myHealthProbe* – för hälsoavsökningens namn.
-4. Klicka på **OK**
+4. Klicka på **OK**.
     
     ![Lägga till en belastningsutjämningsregel](./media/load-balancer-standard-public-availability-zones-portal/load-balancing-rule.png)
 

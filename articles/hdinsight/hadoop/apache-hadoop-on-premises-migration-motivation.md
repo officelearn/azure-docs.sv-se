@@ -150,7 +150,7 @@ Det här avsnittet innehåller fråge formulär för mallar som hjälper dig att
 |Genomsnittlig CPU% som används|60 %||
 |Genomsnittligt minne% använt|75%||
 |Använt disk utrymme|75%||
-|Genomsnittligt nätverk% använt|25%
+|Genomsnittligt nätverk% använt|25 %
 |**Ämne**: **personal**|||
 |Antal administratörer|2||
 |Antal utvecklare|10||
@@ -166,7 +166,7 @@ Det här avsnittet innehåller fråge formulär för mallar som hjälper dig att
 |**Ämne**: **infrastruktur** |||
 |---|---|---|
 |**Ifrågasätta**|**Exempel**|**Svarsfilen**|
-| Önskad region|USA, östra||
+| Önskad region|USA, Östra||
 |Virtuellt nätverk?|Ja||
 |Krävs/DR?|Ja||
 |Integrering med andra moln tjänster?|ADF, CosmosDB||

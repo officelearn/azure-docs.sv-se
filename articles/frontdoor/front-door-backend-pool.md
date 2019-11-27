@@ -1,6 +1,6 @@
 ---
-title: Backends and backend pools in Azure Front Door Service | Microsoft Docs
-description: This article describes what backends and backend pools are in Front Door configuration.
+title: Server delar och backend-pooler i Azures tjänst för frontend-dörr | Microsoft Docs
+description: Den här artikeln beskriver vilka Server delar och backend-pooler som finns i konfiguration av front dörren.
 services: front-door
 documentationcenter: ''
 author: sharad4u
@@ -18,78 +18,78 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74229018"
 ---
-# <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Backends and backend pools in Azure Front Door Service
-This article describes concepts about how to map your app deployment with Azure Front Door Service. It also explains the different terms in Front Door configuration around app backends.
+# <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Server delar och backend-pooler i Azures tjänst för front dörr
+I den här artikeln beskrivs begrepp för hur du mappar din app-distribution med Azure-tjänsten för frontend-dörren. Det förklarar också de olika villkoren i front dörrs konfiguration runt program Server delar.
 
 ## <a name="backends"></a>Serverdelar
-A backend is equal to an app's deployment instance in a region. Front Door Service supports both Azure and non-Azure backends, so the region isn't only restricted to Azure regions. Also, it can be your on-premises datacenter or an app instance in another cloud.
+En server del är lika med en Apps distributions instans i en region. Frontend-tjänsten har stöd för både Azure-och icke-Azure-arbetsdelar, så regionen är inte bara begränsad till Azure-regioner. Det kan också vara ditt lokala data Center eller en app-instans i ett annat moln.
 
-Front Door Service backends refer to the host name or public IP of your app, which can serve client requests. Backends shouldn't be confused with your database tier, storage tier, and so on. Backends should be viewed as the public endpoint of your app backend. When you add a backend in a Front Door backend pool, you must also add the following:
+Server delar för frontend-tjänsten avser värd namnet eller den offentliga IP-adressen för din app, som kan hantera klient begär Anden. Server delar bör inte förväxlas med databas nivån, lagrings nivån och så vidare. Server delens slut punkter bör visas som den offentliga slut punkten för din app-backend. När du lägger till en server del i en backend-pool för en frontend-Server måste du också lägga till följande:
 
-- **Backend host type**. The type of resource you want to add. Front Door Service supports autodiscovery of your app backends from app service, cloud service, or storage. If you want a different resource in Azure or even a non-Azure backend, select **Custom host**.
+- **Server dels värd typ**. Den typ av resurs som du vill lägga till. Frontend-tjänsten har stöd för automatisk identifiering av appens Server delar från App Service, Cloud service eller Storage. Om du vill ha en annan resurs i Azure eller till och med en icke-Azure-Server del väljer du **anpassad värd**.
 
     >[!IMPORTANT]
-    >During configuration, APIs don't validate if the backend is inaccessible from Front Door environments. Make sure that Front Door can reach your backend.
+    >Under konfigurationen validerar inte API: erna om Server delen inte är tillgänglig från Front dörr miljöer. Kontrol lera att front dörren kan komma åt din server del.
 
-- **Subscription and Backend host name**. If you haven't selected **Custom host** for backend host type, select your backend by choosing the appropriate subscription and the corresponding backend host name in the UI.
+- **Namn på prenumeration och backend-värd**. Om du inte har valt en **anpassad värd** för Server dels värd typ väljer du din server del genom att välja lämplig prenumeration och motsvarande Server dels värd namn i användar gränssnittet.
 
-- **Backend host header**. The host header value sent to the backend for each request. For more information, see [Backend host header](#hostheader).
+- **Värd rubrik för Server**del. Värd huvud värde som skickas till Server delen för varje begäran. Mer information finns i [värd rubriken för Server delen](#hostheader).
 
-- **Priority**. Assign priorities to your different backends when you want to use a primary service backend for all traffic. Also, provide backups if the primary or the backup backends are unavailable. For more information, see [Priority](front-door-routing-methods.md#priority).
+- **Prioritet**. Tilldela prioriteter till olika Server delar när du vill använda en primär tjänst Server del för all trafik. Du kan också ange säkerhets kopior om den primära säkerhets kopian eller säkerhets kopieringen inte är tillgänglig. Mer information finns i [prioritet](front-door-routing-methods.md#priority).
 
-- **Weight**. Assign weights to your different backends to distribute traffic across a set of backends, either evenly or according to weight coefficients. For more information, see [Weights](front-door-routing-methods.md#weighted).
+- **Vikt**. Tilldela vikter till dina olika Server delar för att distribuera trafik över en uppsättning av Server delar, antingen jämnt eller enligt viktade koefficienter. Mer information finns i [vikter](front-door-routing-methods.md#weighted).
 
-### <a name = "hostheader"></a>Backend host header
+### <a name = "hostheader"></a>Värd rubrik för Server del
 
-Requests forwarded by Front Door to a backend include a host header field that the backend uses to retrieve the targeted resource. The value for this field typically comes from the backend URI and has the host and port.
+Begär Anden som vidarebefordras av front dörren till en server del är ett värd huvud fält som server delen använder för att hämta mål resursen. Värdet för det här fältet kommer normalt från Server dels-URI: n och har värden och porten.
 
-For example, a request made for www\.contoso.com will have the host header www\.contoso.com. If you use Azure portal to configure your backend, the default value for this field is the host name of the backend. If your backend is contoso-westus.azurewebsites.net, in the Azure portal, the autopopulated value for the backend host header will be contoso-westus.azurewebsites.net. However, if you use Azure Resource Manager templates or another method without explicitly setting this field, Front Door Service will send the incoming host name as the value for the host header. If the request was made for www\.contoso.com, and your backend is contoso-westus.azurewebsites.net that has an empty header field, Front Door Service will set the host header as www\.contoso.com.
+En begäran till www\.contoso.com har till exempel värd rubriken www-\.contoso.com. Om du använder Azure Portal för att konfigurera server delen är standardvärdet för det här fältet värd namnet för Server delen. Om Server delen är contoso-westus.azurewebsites.net, i Azure Portal, kommer det automatiskt ifyllda värdet för värd rubriken för Server delen att vara contoso-westus.azurewebsites.net. Men om du använder Azure Resource Manager mallar eller någon annan metod utan att ange det här fältet skickar frontend-tjänsten det inkommande värd namnet som värde för värd huvudet. Om begäran gjordes för www-\.contoso.com och din server del är contoso-westus.azurewebsites.net som har ett tomt huvud fält, anger frontend-tjänsten värd rubriken som www\.contoso.com.
 
-Most app backends (Azure Web Apps, Blob storage, and Cloud Services) require the host header to match the domain of the backend. However, the frontend host that routes to your backend will use a different hostname such as www\.contoso.azurefd.net.
+De flesta Server Server delar (Azure Web Apps, Blob Storage och Cloud Services) kräver att värd huvudet matchar Server delens domän. Dock använder klient dels värden som dirigerar till Server delen ett annat värdnamn, till exempel www\.contoso.azurefd.net.
 
-If your backend requires the host header to match the backend host name, make sure that the backend host header includes the host name backend.
+Om Server delen kräver värd rubriken för att matcha Server delens värdnamn, kontrollerar du att värd rubriken för Server delen innehåller värd namns Server delen.
 
-#### <a name="configuring-the-backend-host-header-for-the-backend"></a>Configuring the backend host header for the backend
+#### <a name="configuring-the-backend-host-header-for-the-backend"></a>Konfigurera Server delens värd rubrik för Server delen
 
-To configure the **backend host header** field for a backend in the backend pool section:
+Så här konfigurerar du fältet **värd huvud** för Server delen i avsnittet Server dels pool:
 
-1. Open your Front Door resource and select the backend pool with the backend to configure.
+1. Öppna din frontend-resurs och välj den backend-pool som ska konfigureras av Server delen.
 
-2. Add a backend if you haven't done so, or edit an existing one.
+2. Lägg till en server del om du inte har gjort det eller redigera en befintlig.
 
-3. Set the backend host header field to a custom value or leave it blank. The hostname for the incoming request will be used as the host header value.
+3. Ange ett eget värde för värd huvud fältet för Server delen eller lämna det tomt. Värd namnet för den inkommande begäran kommer att användas som värd huvud värde.
 
-## <a name="backend-pools"></a>Backend pools
-A backend pool in Front Door Service refers to the set of backends that receive similar traffic for their app. In other words, it's a logical grouping of your app instances across the world that receive the same traffic and respond with expected behavior. These backends are deployed across different regions or within the same region. All backends can be in Active/Active deployment mode or what is defined as Active/Passive configuration.
+## <a name="backend-pools"></a>Backend-pooler
+En backend-pool i frontend-tjänsten avser den uppsättning Server delar som tar emot liknande trafik för appen. Det är med andra ord en logisk gruppering av dina App-instanser över hela världen som får samma trafik och svarar med förväntat beteende. Dessa Server delar distribueras i olika regioner eller inom samma region. Alla Server delar kan vara i aktivt/aktivt distributions läge eller vad som definieras som aktiv/passiv konfiguration.
 
-A backend pool defines how the different backends should be evaluated via health probes. It also defines how load balancing occurs between them.
+En backend-pool definierar hur de olika Server delarna ska utvärderas via hälso avsökningar. Den definierar också hur belastnings utjämning sker mellan dem.
 
 ### <a name="health-probes"></a>Hälsotillståndsavsökningar
-Front Door Service sends periodic HTTP/HTTPS probe requests to each of your configured backends. Probe requests determine the proximity and health of each backend to load balance your end-user requests. Health probe settings for a backend pool define how we poll the health status of app backends. The following settings are available for load-balancing configuration:
+Frontend-tjänsten skickar regelbundna HTTP/HTTPS-avsöknings begär anden till var och en av dina konfigurerade Server delar. Avsöknings begär Anden fastställer närhet och hälsan för varje server del för att belastningsutjämna dina slut användar förfrågningar. Hälso avsöknings inställningar för en backend-pool definierar hur vi avsöker hälso tillståndet för app-arbetsdelar. Följande inställningar är tillgängliga för belastnings Utjämnings konfiguration:
 
-- **Path**. The URL used for probe requests for all the backends in the backend pool. For example, if one of your backends is contoso-westus.azurewebsites.net and the path is set to /probe/test.aspx, then Front Door Service environments, assuming the protocol is set to HTTP, will send health probe requests to http\://contoso-westus.azurewebsites.net/probe/test.aspx.
+- **Sökväg**. Den URL som används för avsöknings begär Anden för alla Server delar i backend-poolen. Om t. ex. en av dina Server delar är contoso-westus.azurewebsites.net och sökvägen är inställd på/PROBE/test.aspx, skickas hälso avsöknings begär anden till http\://contoso-westus.azurewebsites.net/probe/test.aspx under förutsättning att protokollet är inställt på HTTP.
 
-- **Protocol**. Defines whether to send the health probe requests from Front Door Service to your backends with HTTP or HTTPS protocol.
+- **Protokoll**. Definierar om hälso avsöknings begär Anden från Front dörr tjänsten ska skickas till dina Server delar med HTTP-eller HTTPS-protokoll.
 
-- **Interval (seconds)** . Defines the frequency of health probes to your backends, or the intervals in which each of the Front Door environments sends a probe.
+- **Intervall (sekunder)** . Definierar frekvensen för hälso avsökningar i dina Server delar, eller i de intervall där varje front dörrs miljöer skickar en avsökning.
 
     >[!NOTE]
-    >For faster failovers, set the interval to a lower value. The lower the value, the higher the health probe volume your backends receive. For example, if the interval is set to 30 seconds with 90 Front Door environments or POPs globally, each backend will receive about 3-5 probe requests per second.
+    >För snabbare redundans anger du intervallet till ett lägre värde. Ju lägre värde, desto högre hälso avsöknings volym som dina Server delar får. Om intervallet exempelvis är inställt på 30 sekunder med 90 front dörr miljöer eller pop globalt, tar varje server del emot cirka 3-5 avsöknings begär Anden per sekund.
 
-For more information, see [Health probes](front-door-health-probes.md).
+Mer information finns i [hälso avsökningar](front-door-health-probes.md).
 
-### <a name="load-balancing-settings"></a>Load-balancing settings
-Load-balancing settings for the backend pool define how we evaluate health probes. These settings determine if the backend is healthy or unhealthy. They also check how to load-balance traffic between different backends in the backend pool. The following settings are available for load-balancing configuration:
+### <a name="load-balancing-settings"></a>Inställningar för belastnings utjämning
+Inställningar för belastnings utjämning för backend-poolen definierar hur vi utvärderar hälso avsökningar. De här inställningarna avgör om Server delen är felfri eller ohälsosam. De kan också kontrol lera belastnings Utjämnings trafik mellan olika Server delar i backend-poolen. Följande inställningar är tillgängliga för belastnings Utjämnings konfiguration:
 
-- **Sample size**. Identifies how many samples of health probes we need to consider for backend health evaluation.
+- **Exempel storlek**. Identifierar hur många prover av hälso avsökningar vi behöver ta hänsyn till vid utvärdering av Server dels hälsa.
 
-- **Successful sample size**. Defines the sample size as previously mentioned, the number of successful samples needed to call the backend healthy. For example, assume a Front Door health probe interval is 30 seconds, sample size is 5, and successful sample size is 3. Each time we evaluate the health probes for your backend, we look at the last five samples over 150 seconds (5 x 30). At least three successful probes are required to declare the backend as healthy.
+- **Samplings storlek har slutförts**. Definierar den exempel storlek som tidigare nämnts, antalet lyckade exempel som krävs för att anropa Server delens hälsosamhet. Anta till exempel att ett hälso avsöknings intervall på en front dörr är 30 sekunder, exempel storleken är 5 och att prov storleken är 3. Varje gången vi utvärderar hälso avsökningar för din server del tittar vi på de senaste fem exemplen över 150 sekunder (5 × 30). Det krävs minst tre lyckade avsökningar för att deklarera Server delen som felfri.
 
-- **Latency sensitivity (additional latency)** . Defines whether you want Front Door to send the request to backends within the latency measurement sensitivity range or forward the request to the closest backend.
+- **Fördröjnings känslighet (ytterligare svars tid)** . Anger om du vill att frontend-dörren ska skicka begäran till Server delar inom ett känslighets intervall för svars tider eller vidarebefordra begäran till närmaste Server del.
 
-For more information, see [Least latency based routing method](front-door-routing-methods.md#latency).
+Mer information finns i [metod för minsta latens baserad routning](front-door-routing-methods.md#latency).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Create a Front Door profile](quickstart-create-front-door.md)
-- [How Front Door works](front-door-routing-architecture.md)
+- [Skapa en profil för en front dörr](quickstart-create-front-door.md)
+- [Så här fungerar en front dörr](front-door-routing-architecture.md)

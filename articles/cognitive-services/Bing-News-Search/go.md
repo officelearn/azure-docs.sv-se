@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Get news using Bing News Search REST API and Go'
+title: 'Snabb start: Hämta nyheter med hjälp av Nyhetssökning i Bing REST API och gå'
 titleSuffix: Azure Cognitive Services
-description: This quickstart uses the Go language to call the Bing News Search API. The results include names and URLs of news sources identified by the query string.
+description: 'I den här snabb starten används språket Go för att anropa API för nyhetssökning i Bing. Resultaten innehåller namn och URL: er för nyhets källor som identifieras av frågesträngen.'
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -17,20 +17,20 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74222124"
 ---
-# <a name="quickstart-get-news-results-using-the-bing-news-search-rest-api-and-go"></a>Quickstart: Get news results using the Bing News Search REST API and Go
+# <a name="quickstart-get-news-results-using-the-bing-news-search-rest-api-and-go"></a>Snabb start: Hämta nyhets resultat med hjälp av Nyhetssökning i Bing REST API och gå
 
-This quickstart uses the Go language to call the Bing News Search API. The results include names and URLs of news sources identified by the query string.
+I den här snabb starten används språket Go för att anropa API för nyhetssökning i Bing. Resultaten innehåller namn och URL: er för nyhets källor som identifieras av frågesträngen.
 
 ## <a name="prerequisites"></a>Krav
-* Install the [Go binaries](https://golang.org/dl/)
-* Install the go-spew library for it pretty printer to display results
-    * Install this library: `$ go get -u https://github.com/davecgh/go-spew`
+* Installera [Go-binärfilerna](https://golang.org/dl/)
+* Installera go-spew-biblioteket för IT-skrivare för att visa resultaten
+    * Installera det här biblioteket: `$ go get -u https://github.com/davecgh/go-spew`
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
-## <a name="create-a-project-and-import-libraries"></a>Create a project and import libraries
+## <a name="create-a-project-and-import-libraries"></a>Skapa ett projekt och importera bibliotek
 
-Create a new Go project in your IDE or editor. Then import `net/http` for requests, `ioutil` to read the response, and `encoding/json` to handle the JSON text of results. The go-spew library is needed to parse JSON. 
+Skapa ett nytt go-projekt i din IDE eller redigeraren. Sedan kan du importera `net/http` för begär Anden, `ioutil` för att läsa svaret och `encoding/json` för att hantera JSON-texten för resultat. Go-spew-biblioteket krävs för att parsa JSON. 
 
 ```
 package main
@@ -45,9 +45,9 @@ import (
 
 ```
 
-## <a name="create-a-struct-to-format-the-news-search-results"></a>Create a struct to format the News search results
+## <a name="create-a-struct-to-format-the-news-search-results"></a>Skapa en STRUCT för att formatera nyhets Sök resultatet
 
-Structen `NewsAnswer` formaterar de data som anges i svaret. The response JSON is multilevel and quite complex.  The following implementation covers the essentials.
+Structen `NewsAnswer` formaterar de data som anges i svaret. Svars-JSON är på flera nivåer och är ganska komplex.  Följande implementering täcker grunderna.
 
 ```
 // This struct formats the answer provided by the Bing News Search API.
@@ -87,7 +87,7 @@ type NewsAnswer struct {
 
 ## <a name="declare-the-main-function-and-define-variables"></a>Deklarera main-funktionen och definiera variabler  
 
-The following code declares the main function and assigns required variables. Bekräfta att slutpunkten är korrekt och ersätt värdet `token` med en giltig prenumerationsnyckel från ditt Azure-konto.
+Följande kod deklarerar huvud funktionen och tilldelar obligatoriska variabler. Bekräfta att slutpunkten är korrekt och ersätt värdet `token` med en giltig prenumerationsnyckel från ditt Azure-konto.
 
 ```
 func main() {
@@ -106,9 +106,9 @@ func main() {
 }
 ```
 
-## <a name="query-and-header"></a>Query and header
+## <a name="query-and-header"></a>Fråga och rubrik
 
-Add the query string and access key header
+Lägg till frågesträngen och åtkomst nyckel rubriken
 
 ```
 // Add the query to the request.  
@@ -121,9 +121,9 @@ req.Header.Add("Ocp-Apim-Subscription-Key", token)
 
 ```
 
-## <a name="get-request"></a>Get request
+## <a name="get-request"></a>Hämta begäran
 
-Create the client and send the Get request. 
+Skapa klienten och skicka GET-begäran. 
 
 ```
 // Instantiate a client.  
@@ -139,7 +139,7 @@ if err != nil {
 
 ## <a name="send-the-request"></a>Skicka begäran
 
-Send the request and read results using `ioutil`.
+Skicka begäran och Läs resultaten med hjälp av `ioutil`.
 
 ```
 resp, err := client.Do(req)
@@ -160,7 +160,7 @@ if err != nil {
 
 ## <a name="handle-the-response"></a>Hantera svaret
 
-The `Unmarshall` function extracts information from the JSON text returned by the News Search API.  Then you can display nodes from the results using the `go-spew` pretty printer.
+Funktionen `Unmarshall` extraherar information från JSON-texten som returneras av Nyhetssökning-API: et.  Sedan kan du Visa noder från resultaten med hjälp av `go-spew` Pretty-skrivaren.
 
 ```
 // Create a new answer object 
@@ -181,7 +181,7 @@ spew.Dump(result.Name, result.URL)
 
 ## <a name="results"></a>Resultat
 
-The results contain name and URL of each result.
+Resultaten innehåller namn och URL för varje resultat.
 
 ```
 (string) (len=91) "Cognitive Services Market: Global Industry Analysis and Opportunity Assessment, 2019 - 2025"
@@ -206,4 +206,4 @@ The results contain name and URL of each result.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [What is Bing News Search](search-the-web.md)
+> [Vad är Nyhetssökning i Bing](search-the-web.md)

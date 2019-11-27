@@ -1,7 +1,7 @@
 ---
-title: Confidence Score - QnA Maker
+title: Förtroende poäng – QnA Maker
 titleSuffix: Azure Cognitive Services
-description: The confidence score indicates the confidence that the answer is the right match for the given user query.
+description: Förtroendepoäng anger var säker på att svaret är rätt matchning för den angivna användarfrågan.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -18,94 +18,94 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74229106"
 ---
-# <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Confidence score of a QnA Maker knowledge base
-When a user query is matched against a knowledge base, QnA Maker returns relevant answers, along with a confidence score. This score indicates the confidence that the answer is the right match for the given user query. 
+# <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Förtroendepoäng för en kunskapsbas med QnA Maker
+När en användarfråga matchas mot en kunskapsbas, returnerar QnA Maker relevanta svar, tillsammans med ett förtroenderesultat. Det här resultatet indikerar var säker på att svaret är rätt matchning för den angivna användarfrågan. 
 
-The confidence score is a number between 0 and 100. A score of 100 is likely an exact match, while a score of 0 means, that no matching answer was found. The higher the score- the greater the confidence in the answer. For a given query, there could be multiple answers returned. In that case, the answers are returned in order of decreasing confidence score.
+Förtroendepoäng är ett tal mellan 0 och 100. Ett resultat på 100 är troligen en exakt matchning, samtidigt som ett resultat på 0 innebär att inget matchande svar hittades. Ju högre alternativet score - ju större tillförlitlighet i svaret. För en viss fråga kan det finnas flera svar returneras. I så fall returneras svar i fallande förtroendepoäng.
 
-In the example below, you can see one QnA entity, with 2 questions. 
-
-
-![Sample QnA pair](../media/qnamaker-concepts-confidencescore/ranker-example-qna.png)
-
-For the above example- you can expect scores like the sample score range below- for different types of user queries:
+I exemplet nedan ser du frågor och svar om enheter, med 2 frågor. 
 
 
-![Ranker score range](../media/qnamaker-concepts-confidencescore/ranker-score-range.png)
+![Exempel på frågor och svar om par](../media/qnamaker-concepts-confidencescore/ranker-example-qna.png)
+
+Du kan förvänta dig poäng som exempel poäng intervallet nedan – för olika typer av användarfrågor för ovanstående exempel:
 
 
-The following table indicates typical confidence associated for a given score.
+![Rankningen poäng intervall](../media/qnamaker-concepts-confidencescore/ranker-score-range.png)
 
-|Score Value|Score Meaning|Example Query|
+
+Följande tabell visar vanliga förtroende som är associerade för ett visst poängintervall.
+
+|Poäng värde|Poäng betydelse|Exempelfråga|
 |--|--|--|
-|90 - 100|A near exact match of user query and a KB question|"My changes aren't updated in KB after publish"|
-|> 70|High confidence - typically a good answer that completely answers the user's query|"I published my KB but it's not updated"|
-|50 - 70|Medium confidence - typically a fairly good answer that should answer the main intent of the user query|"Should I save my updates before I publish my KB?"|
-|30 - 50|Low confidence - typically a related answer, that partially answers the user's intent|" What does the save and train do?"|
-|< 30|Very low confidence - typically does not answer the user's query, but has some matching words or phrases |" Where can I add synonyms to my KB"|
-|0|No match, so the answer is not returned.|"How much does the service cost"|
+|90 - 100|En nästan exakt matchning av användarfråga och en KB-fråga|"Mina ändringar uppdateras inte i KB efter publicering"|
+|> 70|Hög exakthet - vanligtvis ett bra svar som helt besvarar användarens fråga|”Jag har publicerat min Kunskapsbas men uppdateras inte”.|
+|50 - 70|Medium förtroende - vanligtvis ett ganska bra svar som ska svara på det huvudsakliga syftet med användarfrågan|”Ska jag spara min uppdateringar innan jag publicera min Kunskapsbas”?|
+|30 - 50|Låg förtroende - vanligtvis ett relaterade svar, som delvis besvarar användarens avsikt|”Vad gör spara och träna”?|
+|< 30|Mycket låg förtroende - vanligtvis svarar inte användarens fråga, men har vissa ord eller fraser som matchande |”Var kan jag lägga till synonymer min Kunskapsbas”|
+|0|Ingen matchning, så att svaret inte returneras.|”Hur mycket tjänsten kostar”|
 
-## <a name="choose-a-score-threshold"></a>Choose a score threshold
-The table above shows the scores that are expected on most KBs. However, since every KB is different, and has different types of words, intents, and goals- we recommend you test and choose the threshold that best works for you. By default the threshold is set to 0, so that all possible answers are returned. The recommended threshold that should work for most KBs, is **50**.
+## <a name="choose-a-score-threshold"></a>Välj ett poäng tröskelvärde
+Tabellen ovan visar resultat som förväntas på de flesta KB-artiklar. Men eftersom varje KB skiljer sig åt, och har olika typer av ord, avsikter och mål, rekommenderar vi att du testar och väljer det tröskelvärde som passar bäst för dig. Som standard är tröskelvärdet inställt på 0, så att alla möjliga svar returneras. Den rekommenderade tröskeln som ska fungera för de flesta KB är **50**.
 
-When choosing your threshold, keep in mind the balance between Accuracy and Coverage, and tweak your threshold based on your requirements.
+När du väljer tröskeln för ditt, Kom ihåg balans mellan precision och täckning och justera tröskeln för ditt baserat på dina krav.
 
-- If **Accuracy** (or precision) is more important for your scenario, then increase your threshold. This way, every time you return an answer, it will be a much more CONFIDENT case, and much more likely to be the answer users are looking for. In this case, you might end up leaving more questions unanswered. *For example:* if you make the threshold **70**, you might miss some ambiguous examples likes "what is save and train?".
+- Om **precisionen** (eller precisionen) är viktigare för ditt scenario, ökar du tröskelvärdet. På så sätt kan varje gång du kommer tillbaka ett svar är en mycket mer CONFIDENT användningsfall och mycket mer troligt svar användare söker efter. I det här fallet kan du få lämnar fler frågor obehandlade. *Exempel:* om du gör tröskelvärdet **70**kan du missa några tvetydiga exempel gillar "Vad är Spara och träna?".
 
-- If **Coverage** (or recall) is more important- and you want to answer as many questions as possible, even if there is only a partial relation to the user's question- then LOWER the threshold. This means there could be more cases where the answer does not answer the user's actual query, but gives some other somewhat related answer. *For example:* if you make the threshold **30**, you might give answers for queries like "Where can I edit my KB?"
+- Om **täckning** (eller återkallande) är mer viktigt – och du vill besvara så många frågor som möjligt, även om det bara finns en partiell relation till användarens fråga – och sedan sänka tröskelvärdet. Det innebär att det kan vara mer fall där svaret svarar inte användarens faktiska frågan, men ger andra relaterade något svar. *Exempel:* om du gör tröskelvärdet **30**kan du ge svar på frågor som "var kan jag redigera mitt KB?".
 
 > [!NOTE]
-> Newer versions of QnA Maker include improvements to scoring logic, and could affect your threshold. Any time you update the service, make sure to test and tweak the threshold if necessary. You can check your QnA Service version [here](https://www.qnamaker.ai/UserSettings), and see how to get the latest updates [here](../How-To/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates).
+> Nyare versioner av QnA Maker är förbättringar av bedömnings logik och kan påverka din tröskelvärdet. När du uppdaterar tjänsten, se till att testa och justera tröskelvärdet om det behövs. Du kan kontrol lera din QnA-version [här](https://www.qnamaker.ai/UserSettings)och se hur du hämtar de senaste uppdateringarna [här](../How-To/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates).
 
-## <a name="set-threshold"></a>Set threshold 
+## <a name="set-threshold"></a>Ange tröskel 
 
-Set the threshold score as a property of the [GenerateAnswer API JSON body](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration). This means you set it for each call to GenerateAnswer. 
+Ange tröskelvärdet som en egenskap för [GENERATEANSWER API-JSON-texten](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration). Det innebär att du ställer in den för varje anrop till GenerateAnswer. 
 
-From the bot framework, set the score as part of the options object with [C#](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) or [Node.js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
+I bot-ramverket ställer du in poängen som en del av alternativ- [C#](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) objektet med eller [Node. js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
 
-## <a name="improve-confidence-scores"></a>Improve confidence scores
-To improve the confidence score of a particular response to a user query, you can add the user query to the knowledge base as an alternate question on that response. You can also use case-insensitive [word alterations](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) to add synonyms to keywords in your KB.
-
-
-## <a name="similar-confidence-scores"></a>Similar confidence scores
-When multiple responses have a similar confidence score, it is likely that the query was too generic and therefore matched with equal likelihood with multiple answers. Try to structure your QnAs better so that every QnA entity has a distinct intent.
+## <a name="improve-confidence-scores"></a>Förbättra förtroende-poäng
+För att förbättra förtroendepoäng för ett visst svar till en användarfråga, du kan lägga till användarfrågan kunskapsbasen som en annan fråga på det svaret. Du kan också använda Skift läges känsliga [ord ändringar](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) för att lägga till synonymer till nyckelord i din KB.
 
 
-## <a name="confidence-score-differences-between-test-and-production"></a>Confidence score differences between test and production
-The confidence score of an answer may change negligibly between the test and published version of the knowledge base even if the content is the same. This is because the content of the test and the published knowledge base are located in different Azure Cognitive Search indexes. 
-
-The test index holds all the QnA pairs of your knowledge bases. When querying the test index, the query applies to the entire index then results are restricted to the partition for that specific knowledge base. If the test query results are negatively impacting your ability to validate the knowledge base, you can:
-* organize your knowledge base using one of the following:
-    * 1 resource restricted to 1 KB: restrict your single QnA resource (and the resulting Azure Cognitive Search test index) to a single knowledge base. 
-    * 2 resources - 1 for test, 1 for production: have two QnA Maker resources, using one for testing (with its own test and  production indexes) and one for product (also having its own test and production indexes)
-* and, always use the same parameters, such as **[top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers)** when querying both your test and production knowledge base
-
-When you publish a knowledge base, the question and answer contents of your knowledge base moves from the test index to a production index in Azure search. See how the [publish](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) operation works.
-
-If you have a knowledge base in different regions, each region uses its own Azure Cognitive Search index. Because different indexes are used, the scores will not be exactly the same. 
+## <a name="similar-confidence-scores"></a>Liknande förtroende-poäng
+När flera svar har en liknande förtroendepoäng, är det troligt att frågan var för allmän och därför matchade med samma sannolikhet med flera svar. Försök att strukturera dina kunskapsbaser bättre så att varje QnA-enhet har en distinkt avsikt.
 
 
-## <a name="no-match-found"></a>No match found
-When no good match is found by the ranker, the confidence score of 0.0 or "None" is returned and the default response is "No good match found in the KB". You can override this [default response](#change-default-answer) in the bot or application code calling the endpoint. Alternately, you can also set the override response in Azure and this changes the default for all knowledge bases deployed in a particular QnA Maker service.
+## <a name="confidence-score-differences-between-test-and-production"></a>Förtroende poäng skillnader mellan test och produktion
+Förtroendepoäng av ett svar kan ändras negligibly mellan test och publicerade versionen av kunskapsbasen även om innehållet är samma. Detta beror på att innehållet i testet och den publicerade kunskaps basen finns i olika Azure Kognitiv sökning-index. 
 
-## <a name="change-default-answer"></a>Change Default Answer
+Test indexet innehåller alla QnA-par i kunskaps baserna. När du frågar test indexet gäller frågan hela indexet och resultaten begränsas till partitionen för den aktuella kunskaps basen. Om resultatet av test frågan påverkar din möjlighet att verifiera kunskaps basen kan du:
+* organisera kunskaps basen med något av följande:
+    * 1 resurs begränsad till 1 KB: begränsa din enda QnA-resurs (och det resulterande Azure Kognitiv sökning test indexet) till en enda kunskaps bas. 
+    * 2 resurser – 1 för test, 1 för produktion: har två QnA Maker resurser, med hjälp av en för testning (med sina egna test-och produktions index) och en för produkt (som också har sina egna test-och produktions index)
+* och Använd alltid samma parametrar, till exempel **[överst](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers)** när du frågar efter både din test-och produktions kunskaps bas
 
-1. Go to the [Azure portal](https://portal.azure.com) and navigate to the resource group that represents the QnA Maker service you created.
+När du publicerar en kunskaps bas, flyttas frågan och svars innehållet i kunskaps basen från test indexet till ett produktions index i Azure Search. Se hur [publicerings](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) åtgärden fungerar.
 
-2. Click to open the **App Service**.
+Om du har en kunskaps bas i olika regioner använder varje region sitt eget Azure Kognitiv sökning-index. Eftersom olika index används är poängen inte identiska. 
 
-    ![In the Azure portal, access App service for QnA Maker](../media/qnamaker-concepts-confidencescore/set-default-response.png)
 
-3. Click on **Application Settings** and edit the **DefaultAnswer** field to the desired default response. Klicka på **Save** (Spara).
+## <a name="no-match-found"></a>Ingen matchning hittades
+När ingen bra matchning hittas av rankningen, förtroendepoäng 0,0 eller ”None” returneras och Standardsvaret är ”bra att hitta någon matchning i KB”. Du kan åsidosätta [standardsvaret](#change-default-answer) i robot-eller program koden som anropar slut punkten. Alternativt kan du kan också ange åsidosättning svaret i Azure och detta ändrar standardvärdet för alla kunskapsbaser som distribueras i en viss QnA Maker-tjänsten.
 
-    ![Select Application Settings and then edit DefaultAnswer for QnA Maker](../media/qnamaker-concepts-confidencescore/change-response.png)
+## <a name="change-default-answer"></a>Ändra Standardsvar
 
-4. Restart your App service
+1. Gå till [Azure Portal](https://portal.azure.com) och navigera till resurs gruppen som representerar den QNA Maker tjänst som du har skapat.
 
-    ![After you change the DefaultAnswer, restart the QnA Maker appservice](../media/qnamaker-faq/qnamaker-appservice-restart.png)
+2. Klicka för att öppna **App Service**.
+
+    ![Få åtkomst till App service för QnA Maker i Azure-portalen](../media/qnamaker-concepts-confidencescore/set-default-response.png)
+
+3. Klicka på **program inställningar** och redigera fältet **DefaultAnswer** till önskat standard svar. Klicka på **Save** (Spara).
+
+    ![Välj programinställningar och sedan redigera DefaultAnswer för QnA Maker](../media/qnamaker-concepts-confidencescore/change-response.png)
+
+4. Starta om App service
+
+    ![När du ändrar DefaultAnswer, startar du om appservice QnA Maker](../media/qnamaker-faq/qnamaker-appservice-restart.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
-> [Data sources supported](./data-sources-supported.md)
+> [Data källor som stöds](./data-sources-supported.md)
 

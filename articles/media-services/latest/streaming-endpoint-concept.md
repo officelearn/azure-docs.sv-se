@@ -66,7 +66,7 @@ CDN|Azure CDN, CDN för tredje part eller ingen CDN.|Azure CDN, CDN för tredje 
 Faktureringen beräknas proportionellt| Dagligen|Dagligen
 Dynamisk kryptering|Ja|Ja
 Dynamisk paketering|Ja|Ja
-Skala|Skalar upp till det riktade data flödet automatiskt.|Ytterligare SUs
+Skalning|Skalar upp till det riktade data flödet automatiskt.|Ytterligare SUs
 IP-filtrering/G20/anpassad värd <sup>1</sup>|Ja|Ja
 Progressiv nedladdning|Ja|Ja
 Rekommenderad användning |Rekommenderas för de flesta strömnings scenarier.|Professional-användning.

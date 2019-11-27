@@ -1,6 +1,6 @@
 ---
-title: Manage instances in Durable Functions - Azure
-description: Learn how to manage instances in the Durable Functions extension for Azure Functions.
+title: Hantera instanser i Durable Functions – Azure
+description: Lär dig hur du hanterar instanser i Durable Functions-tillägget för Azure Functions.
 author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
@@ -12,32 +12,32 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74231385"
 ---
-# <a name="manage-instances-in-durable-functions-in-azure"></a>Manage instances in Durable Functions in Azure
+# <a name="manage-instances-in-durable-functions-in-azure"></a>Hantera instanser i Durable Functions i Azure
 
-If you're using the [Durable Functions](durable-functions-overview.md) extension for Azure Functions, or want to start doing so, make sure you're getting the best use out of it. You can optimize your Durable Functions orchestration instances by learning more about how to manage them. This article goes into the details of each instance management operation.
+Om du använder [Durable Functions](durable-functions-overview.md) -tillägget för Azure Functions eller om du vill börja göra det kontrollerar du att du får den bästa användningen av det. Du kan optimera dina Durable Functions Orchestration-instanser genom att lära dig mer om hur du hanterar dem. Den här artikeln går till information om varje instans hanterings åtgärd.
 
-You can start and terminate instances, for example, and you can query instances, including the ability to query all instances and query instances with filters. Additionally, you can send events to instances, wait for orchestration completion, and retrieve HTTP management webhook URLs. This article covers other management operations, too, including rewinding instances, purging instance history, and deleting a task hub.
+Du kan starta och avsluta instanser, till exempel och du kan fråga instanser, inklusive möjligheten att fråga alla instanser och fråga efter instanser med filter. Dessutom kan du skicka händelser till instanser, vänta på att dirigeringen ska slutföras och hämta URL: er för HTTP Management webhook. I den här artikeln beskrivs även andra hanterings åtgärder, inklusive omspolning av instanser, rensning av instans historik och borttagning av aktivitets nav.
 
-In Durable Functions, you have options for how you want to implement each of these management operations. This article provides examples that use the [Azure Functions Core Tools](../functions-run-local.md) for both .NET (C#) and JavaScript.
+I Durable Functions har du alternativ för hur du vill implementera var och en av dessa hanterings åtgärder. Den här artikeln innehåller exempel som använder [Azure Functions Core tools](../functions-run-local.md) för både .net (C#) och Java Script.
 
-## <a name="start-instances"></a>Start instances
+## <a name="start-instances"></a>Start instanser
 
-It's important to be able to start an instance of orchestration. This is commonly done when you are using a Durable Functions binding in another function's trigger.
+Det är viktigt att kunna starta en instans av Orchestration. Detta görs vanligt vis när du använder en Durable Functions-bindning i en annan funktions utlösare.
 
-The `StartNewAsync` (.NET) or `startNew` (JavaScript) method on the [orchestration client binding](durable-functions-bindings.md#orchestration-client) starts a new instance. Internally, this method enqueues a message into the control queue, which then triggers the start of a function with the specified name that uses the [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger).
+Metoden `StartNewAsync` (.NET) eller `startNew` (Java Script) i [Dirigerings klientens bindning](durable-functions-bindings.md#orchestration-client) startar en ny instans. Internt kommer den här metoden att köa ett meddelande i kontroll kön, som sedan utlöser starten av en funktion med det angivna namnet som använder [bindningen för Orchestration-utlösaren](durable-functions-bindings.md#orchestration-trigger).
 
-This async operation completes when the orchestration process is successfully scheduled.
+Den här asynkrona åtgärden slutförs när Orchestration-processen har schemalagts.
 
-The parameters for starting a new orchestration instance are as follows:
+Parametrarna för att starta en ny Dirigerings instans är följande:
 
-* **Name**: The name of the orchestrator function to schedule.
-* **Input**: Any JSON-serializable data that should be passed as the input to the orchestrator function.
-* **InstanceId**: (Optional) The unique ID of the instance. If you don't specify this parameter, the method uses a random ID.
+* **Namn**: namnet på Orchestrator-funktionen som ska schemaläggas.
+* **Indata**: alla JSON-serialiserbara data som ska skickas som indata till Orchestrator-funktionen.
+* **InstanceID**: (valfritt) det unika ID: t för instansen. Om du inte anger den här parametern använder metoden ett slumpmässigt ID.
 
 > [!TIP]
-> Use a random identifier for the instance ID. Random instance IDs help ensure an equal load distribution when you're scaling orchestrator functions across multiple VMs. The proper time to use non-random instance IDs is when the ID must come from an external source, or when you're implementing the [singleton orchestrator](durable-functions-singletons.md) pattern.
+> Använd en slumpmässig identifierare för instans-ID: t. Slumpmässiga instans-ID: n hjälper till att säkerställa en likvärdig belastnings distribution när du skalar Orchestrator-funktioner över flera virtuella datorer. Den tid det tar att använda icke-slumpmässiga instans-ID: n är när ID: t måste komma från en extern källa eller när du implementerar [singleton Orchestrator](durable-functions-singletons.md) -mönstret.
 
-The following code is an example function that starts a new orchestration instance:
+Följande kod är en exempel funktion som startar en ny Dirigerings instans:
 
 ### <a name="c"></a>C#
 
@@ -54,7 +54,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> Föregående C# kod är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `OrchestrationClient` attribut i stället för attributet `DurableClient` och du måste använda `DurableOrchestrationClient` parameter typ i stället för `IDurableOrchestrationClient`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
 ### <a name="javascript"></a>JavaScript
 
@@ -71,54 +71,54 @@ module.exports = async function(context, input) {
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-You can also start an instance directly by using the [Azure Functions Core Tools](../functions-run-local.md) `durable start-new` command. It takes the following parameters:
+Du kan också starta en instans direkt genom att använda kommandot [Azure Functions Core Tools](../functions-run-local.md) `durable start-new`. Det tar följande parametrar:
 
-* **`function-name` (required)** : Name of the function to start.
-* **`input` (optional)** : Input to the function, either inline or through a JSON file. For files, add a prefix to the path to the file with `@`, such as `@path/to/file.json`.
-* **`id` (optional)** : ID of the orchestration instance. If you don't specify this parameter, the command uses a random GUID.
-* **`connection-string-setting` (optional)** : Name of the application setting containing the storage connection string to use. The default is AzureWebJobsStorage.
-* **`task-hub-name` (optional)** : Name of the Durable Functions task hub to use. The default is DurableFunctionsHub. You can also set this in [host.json](durable-functions-bindings.md#host-json) by using durableTask:HubName.
+* **`function-name` (obligatoriskt)** : namnet på den funktion som ska startas.
+* **`input` (valfritt)** : indata till funktionen, antingen i rad eller via en JSON-fil. För filer lägger du till ett prefix till sökvägen till filen med `@`, till exempel `@path/to/file.json`.
+* **`id` (valfritt)** : ID för Orchestration-instansen. Om du inte anger den här parametern använder kommandot ett slumpmässigt GUID.
+* **`connection-string-setting` (valfritt)** : namnet på den program inställning som innehåller den lagrings anslutnings sträng som ska användas. Standardvärdet är AzureWebJobsStorage.
+* **`task-hub-name` (valfritt)** : namnet på den Durable Functions aktivitets hubb som ska användas. Standardvärdet är DurableFunctionsHub. Du kan också ange detta i [Host. JSON](durable-functions-bindings.md#host-json) med hjälp av DurableTask: HubName.
 
 > [!NOTE]
-> Core Tools commands assume you are running them from the root directory of a function app. If you explicitly provide the `connection-string-setting` and `task-hub-name` parameters, you can run the commands from any directory. Although you can run these commands without a function app host running, you might find that you can't observe some effects unless the host is running. For example, the `start-new` command enqueues a start message into the target task hub, but the orchestration doesn't actually run unless there is a function app host process running that can process the message.
+> Kommandona för Core tools förutsätter att du kör dem från rot katalogen i en Function-app. Om du uttryckligen anger `connection-string-setting` och `task-hub-name` parametrar kan du köra kommandona från valfri katalog. Även om du kan köra dessa kommandon utan att köra en Function-värd som kör, kan du upptäcka att du inte kan observera vissa effekter om inte värden körs. `start-new` kommandot kommer till exempel att köa ett Start meddelande i hubben för mål, men dirigeringen körs inte om det inte finns någon funktion för att köra en Function-värd process som kan bearbeta meddelandet.
 
-The following command starts the function named HelloWorld, and passes the contents of the file `counter-data.json` to it:
+Följande kommando startar funktionen HelloWorld och överför innehållet i filen `counter-data.json` till den:
 
 ```bash
 func durable start-new --function-name HelloWorld --input @counter-data.json --task-hub-name TestTaskHub
 ```
 
-## <a name="query-instances"></a>Query instances
+## <a name="query-instances"></a>Fråga efter instanser
 
-As part of your effort to manage your orchestrations, you'll most likely need to gather information about the status of an orchestration instance (for example, whether it has completed normally or failed).
+Som en del av din ansträngning för att hantera dina dirigeringar behöver du förmodligen samla in information om statusen för en Dirigerings instans (till exempel om den har slutförts eller inte).
 
-The `GetStatusAsync` (.NET) or the `getStatus` (JavaScript) method on the [orchestration client binding](durable-functions-bindings.md#orchestration-client) queries the status of an orchestration instance.
+Metoden `GetStatusAsync` (.NET) eller `getStatus` (Java Script) i [Dirigerings klientens bindning](durable-functions-bindings.md#orchestration-client) frågar efter status för en Dirigerings instans.
 
-It takes an `instanceId` (required), `showHistory` (optional), `showHistoryOutput` (optional), and `showInput` (optional) as parameters.
+Det tar en `instanceId` (krävs), `showHistory` (valfritt), `showHistoryOutput` (valfritt) och `showInput` (valfritt) som parametrar.
 
-* **`showHistory`** : If set to `true`, the response contains the execution history.
-* **`showHistoryOutput`** : If set to `true`, the execution history contains activity outputs.
-* **`showInput`** : If set to `false`, the response won't contain the input of the function. The default value is `true`.
+* **`showHistory`** : om det är inställt på `true`innehåller svaret körnings historiken.
+* **`showHistoryOutput`** : om det är inställt på `true`innehåller körnings historiken aktivitets utdata.
+* **`showInput`** : om det är inställt på `false`innehåller svaret inte indatamängden för funktionen. Standardvärdet är `true`.
 
-The method returns an object with the following properties:
+Metoden returnerar ett objekt med följande egenskaper:
 
-* **Name**: The name of the orchestrator function.
-* **InstanceId**: The instance ID of the orchestration (should be the same as the `instanceId` input).
-* **CreatedTime**: The time at which the orchestrator function started running.
-* **LastUpdatedTime**: The time at which the orchestration last checkpointed.
-* **Input**: The input of the function as a JSON value. This field isn't populated if `showInput` is false.
-* **CustomStatus**: Custom orchestration status in JSON format.
-* **Output**: The output of the function as a JSON value (if the function has completed). If the orchestrator function failed, this property includes the failure details. If the orchestrator function was terminated, this property includes the reason for the termination (if any).
-* **RuntimeStatus**: One of the following values:
-  * **Pending**: The instance has been scheduled but has not yet started running.
-  * **Running**: The instance has started running.
-  * **Completed**: The instance has completed normally.
-  * **ContinuedAsNew**: The instance has restarted itself with a new history. This state is a transient state.
-  * **Failed**: The instance failed with an error.
-  * **Terminated**: The instance was stopped abruptly.
-* **History**: The execution history of the orchestration. This field is only populated if `showHistory` is set to `true`.
+* **Namn**: namnet på Orchestrator-funktionen.
+* **InstanceID**: instans-ID: t för dirigeringen (ska vara detsamma som `instanceId`-indatatypen).
+* **CreatedTime**: tiden då Orchestrator-funktionen började köras.
+* **LastUpdatedTime**: tiden då dirigeringen senast pågick.
+* **Inmatade**: indatamängden för funktionen som ett JSON-värde. Det här fältet fylls inte i om `showInput` är falskt.
+* **CustomStatus**: anpassad Dirigerings status i JSON-format.
+* **Output**: resultatet av funktionen som ett JSON-värde (om funktionen har slutförts). Om Orchestrator-funktionen misslyckades innehåller den här egenskapen fel information. Om Orchestrator-funktionen avbröts innehåller den här egenskapen orsaken till uppsägningen (om det finns några).
+* **RuntimeStatus**: ett av följande värden:
+  * **Väntar**: instansen har schemalagts men har ännu inte börjat köras.
+  * **Körs**: instansen har börjat köras.
+  * **Slutfört**: instansen har slutförts normalt.
+  * **ContinuedAsNew**: instansen har startats om med en ny historik. Det här läget är ett tillfälligt tillstånd.
+  * **Misslyckades**: instansen misslyckades med ett fel.
+  * **Avslutad**: instansen avbröts plötsligt.
+* **Historik**: körnings historiken för dirigeringen. Det här fältet fylls i endast om `showHistory` är inställt på `true`.
 
-This method returns `null` (.NET) or `undefined` (JavaScript) if the instance doesn't exist.
+Den här metoden returnerar `null` (.NET) eller `undefined` (Java Script) om instansen inte finns.
 
 ### <a name="c"></a>C#
 
@@ -134,9 +134,9 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> Föregående C# kod är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `OrchestrationClient` attribut i stället för attributet `DurableClient` och du måste använda `DurableOrchestrationClient` parameter typ i stället för `IDurableOrchestrationClient`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x only)
+### <a name="javascript-functions-2x-only"></a>Java Script (endast funktioner 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -151,35 +151,35 @@ module.exports = async function(context, instanceId) {
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-It's also possible to get the status of an orchestration instance directly, by using the [Azure Functions Core Tools](../functions-run-local.md) `durable get-runtime-status` command. It takes the following parameters:
+Det är också möjligt att hämta statusen för en Dirigerings instans direkt genom att använda kommandot [Azure Functions Core Tools](../functions-run-local.md) `durable get-runtime-status`. Det tar följande parametrar:
 
-* **`id` (required)** : ID of the orchestration instance.
-* **`show-input` (optional)** : If set to `true`, the response contains the input of the function. The default value is `false`.
-* **`show-output` (optional)** : If set to `true`, the response contains the output of the function. The default value is `false`.
-* **`connection-string-setting` (optional)** : Name of the application setting containing the storage connection string to use. Standardvärdet är `AzureWebJobsStorage`.
-* **`task-hub-name` (optional)** : Name of the Durable Functions task hub to use. Standardvärdet är `DurableFunctionsHub`. It can also be set in [host.json](durable-functions-bindings.md#host-json), by using durableTask:HubName.
+* **`id` (obligatoriskt)** : ID för Orchestration-instansen.
+* **`show-input` (valfritt)** : om det är inställt på `true`innehåller svaret indatatypen för funktionen. Standardvärdet är `false`.
+* **`show-output` (valfritt)** : om värdet är `true`innehåller svaret resultatet av funktionen. Standardvärdet är `false`.
+* **`connection-string-setting` (valfritt)** : namnet på den program inställning som innehåller den lagrings anslutnings sträng som ska användas. Standardvärdet är `AzureWebJobsStorage`.
+* **`task-hub-name` (valfritt)** : namnet på den Durable Functions aktivitets hubb som ska användas. Standardvärdet är `DurableFunctionsHub`. Den kan också anges i [Host. JSON](durable-functions-bindings.md#host-json), genom att använda DurableTask: HubName.
 
-The following command retrieves the status (including input and output) of an instance with an orchestration instance ID of 0ab8c55a66644d68a3a8b220b12d209c. It assumes that you are running the `func` command from the root directory of the function app:
+Följande kommando hämtar status (inklusive indata och utdata) för en instans med ett Dirigerings instans-ID för 0ab8c55a66644d68a3a8b220b12d209c. Det förutsätter att du kör kommandot `func` från rot katalogen i Function-appen:
 
 ```bash
 func durable get-runtime-status --id 0ab8c55a66644d68a3a8b220b12d209c --show-input true --show-output true
 ```
 
-You can use the `durable get-history` command to retrieve the history of an orchestration instance. It takes the following parameters:
+Du kan använda kommandot `durable get-history` för att hämta historiken för en Dirigerings instans. Det tar följande parametrar:
 
-* **`id` (required)** : ID of the orchestration instance.
-* **`connection-string-setting` (optional)** : Name of the application setting containing the storage connection string to use. Standardvärdet är `AzureWebJobsStorage`.
-* **`task-hub-name` (optional)** : Name of the Durable Functions task hub to use. Standardvärdet är `DurableFunctionsHub`. It can also be set in host.json, by using durableTask:HubName.
+* **`id` (obligatoriskt)** : ID för Orchestration-instansen.
+* **`connection-string-setting` (valfritt)** : namnet på den program inställning som innehåller den lagrings anslutnings sträng som ska användas. Standardvärdet är `AzureWebJobsStorage`.
+* **`task-hub-name` (valfritt)** : namnet på den Durable Functions aktivitets hubb som ska användas. Standardvärdet är `DurableFunctionsHub`. Den kan också anges i Host. JSON, genom att använda durableTask: HubName.
 
 ```bash
 func durable get-history --id 0ab8c55a66644d68a3a8b220b12d209c
 ```
 
-## <a name="query-all-instances"></a>Query all instances
+## <a name="query-all-instances"></a>Fråga alla instanser
 
-Rather than query one instance in your orchestration at a time, you might find it more efficient to query all of them at once.
+I stället för att skicka frågor till en instans i din organisation i taget, kan det vara mer effektivt att fråga alla dem samtidigt.
 
-You can use the `GetStatusAsync` (.NET) or `getStatusAll` (JavaScript) method to query the statuses of all orchestration instances. In .NET, you can pass a `CancellationToken` object in case you want to cancel it. The method returns objects with the same properties as the `GetStatusAsync` method with parameters.
+Du kan använda metoden `GetStatusAsync` (.NET) eller `getStatusAll` (Java Script) för att fråga efter status för alla Dirigerings instanser. I .NET kan du skicka ett `CancellationToken`-objekt om du vill avbryta det. Metoden returnerar objekt med samma egenskaper som metoden `GetStatusAsync` med parametrar.
 
 ### <a name="c"></a>C#
 
@@ -199,9 +199,9 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> Föregående C# kod är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `OrchestrationClient` attribut i stället för attributet `DurableClient` och du måste använda `DurableOrchestrationClient` parameter typ i stället för `IDurableOrchestrationClient`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x only)
+### <a name="javascript-functions-2x-only"></a>Java Script (endast funktioner 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -218,22 +218,22 @@ module.exports = async function(context, req) {
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-It's also possible to query instances directly, by using the [Azure Functions Core Tools](../functions-run-local.md) `durable get-instances` command. It takes the following parameters:
+Det är också möjligt att fråga instanser direkt, genom att använda kommandot [Azure Functions Core Tools](../functions-run-local.md) `durable get-instances`. Det tar följande parametrar:
 
-* **`top` (optional)** : This command supports paging. This parameter corresponds to the number of instances retrieved per request. The default is 10.
-* **`continuation-token` (optional)** : A token to indicate which page or section of instances to retrieve. Each `get-instances` execution returns a token to the next set of instances.
-* **`connection-string-setting` (optional)** : Name of the application setting containing the storage connection string to use. Standardvärdet är `AzureWebJobsStorage`.
-* **`task-hub-name` (optional)** : Name of the Durable Functions task hub to use. Standardvärdet är `DurableFunctionsHub`. It can also be set in [host.json](durable-functions-bindings.md#host-json), by using durableTask:HubName.
+* **`top` (valfritt)** : det här kommandot stöder sid indelning. Den här parametern motsvarar antalet instanser som hämtas per begäran. Standardvärdet är 10.
+* **`continuation-token` (valfritt)** : en token för att ange vilken sida eller vilket avsnitt av instanser som ska hämtas. Varje `get-instances` körning returnerar en token till nästa uppsättning instanser.
+* **`connection-string-setting` (valfritt)** : namnet på den program inställning som innehåller den lagrings anslutnings sträng som ska användas. Standardvärdet är `AzureWebJobsStorage`.
+* **`task-hub-name` (valfritt)** : namnet på den Durable Functions aktivitets hubb som ska användas. Standardvärdet är `DurableFunctionsHub`. Den kan också anges i [Host. JSON](durable-functions-bindings.md#host-json), genom att använda DurableTask: HubName.
 
 ```bash
 func durable get-instances
 ```
 
-## <a name="query-instances-with-filters"></a>Query instances with filters
+## <a name="query-instances-with-filters"></a>Fråga efter instanser med filter
 
-What if you don't really need all the information that a standard instance query can provide? For example, what if you're just looking for the orchestration creation time, or the orchestration runtime status? You can narrow your query by applying filters.
+Vad händer om du verkligen behöver ha all information som en standard instans fråga kan ge? Vad händer till exempel om du bara söker efter skapande tid för Orchestration eller om Dirigerings körnings status? Du kan begränsa frågan genom att använda filter.
 
-Use the `GetStatusAsync` (.NET) or `getStatusBy` (JavaScript) method to get a list of orchestration instances that match a set of predefined filters.
+Använd metoden `GetStatusAsync` (.NET) eller `getStatusBy` (Java Script) för att hämta en lista över Dirigerings instanser som matchar en uppsättning fördefinierade filter.
 
 ### <a name="c"></a>C#
 
@@ -261,9 +261,9 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> Föregående C# kod är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `OrchestrationClient` attribut i stället för attributet `DurableClient` och du måste använda `DurableOrchestrationClient` parameter typ i stället för `IDurableOrchestrationClient`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x only)
+### <a name="javascript-functions-2x-only"></a>Java Script (endast funktioner 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -288,27 +288,27 @@ module.exports = async function(context, req) {
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-In the Azure Functions Core Tools, you can also use the `durable get-instances` command with filters. In addition to the aforementioned `top`, `continuation-token`, `connection-string-setting`, and `task-hub-name` parameters, you can use three filter parameters (`created-after`, `created-before`, and `runtime-status`).
+I Azure Functions Core Tools kan du också använda kommandot `durable get-instances` med filter. Förutom de tidigare nämnda `top`, `continuation-token`, `connection-string-setting`och `task-hub-name` parametrar kan du använda tre filter parametrar (`created-after`, `created-before`och `runtime-status`).
 
-* **`created-after` (optional)** : Retrieve the instances created after this date/time (UTC). ISO 8601 formatted datetimes accepted.
-* **`created-before` (optional)** : Retrieve the instances created before this date/time (UTC). ISO 8601 formatted datetimes accepted.
-* **`runtime-status` (optional)** : Retrieve the instances with a particular status (for example, running or completed). Can provide multiple (space separated) statuses.
-* **`top` (optional)** : Number of instances retrieved per request. The default is 10.
-* **`continuation-token` (optional)** : A token to indicate which page or section of instances to retrieve. Each `get-instances` execution returns a token to the next set of instances.
-* **`connection-string-setting` (optional)** : Name of the application setting containing the storage connection string to use. Standardvärdet är `AzureWebJobsStorage`.
-* **`task-hub-name` (optional)** : Name of the Durable Functions task hub to use. Standardvärdet är `DurableFunctionsHub`. It can also be set in [host.json](durable-functions-bindings.md#host-json), by using durableTask:HubName.
+* **`created-after` (valfritt)** : Hämta instanserna som skapats efter detta datum/tid (UTC). ISO 8601 formaterade datetimes har godkänts.
+* **`created-before` (valfritt)** : Hämta instanserna som skapats före denna datum/tid (UTC). ISO 8601 formaterade datetimes har godkänts.
+* **`runtime-status` (valfritt)** : Hämta instanserna med en viss status (till exempel körs eller slutfört). Kan ge flera (blankstegsavgränsad) status.
+* **`top` (valfritt)** : antal instanser som hämtats per begäran. Standardvärdet är 10.
+* **`continuation-token` (valfritt)** : en token för att ange vilken sida eller vilket avsnitt av instanser som ska hämtas. Varje `get-instances` körning returnerar en token till nästa uppsättning instanser.
+* **`connection-string-setting` (valfritt)** : namnet på den program inställning som innehåller den lagrings anslutnings sträng som ska användas. Standardvärdet är `AzureWebJobsStorage`.
+* **`task-hub-name` (valfritt)** : namnet på den Durable Functions aktivitets hubb som ska användas. Standardvärdet är `DurableFunctionsHub`. Den kan också anges i [Host. JSON](durable-functions-bindings.md#host-json), genom att använda DurableTask: HubName.
 
-If you don't provide any filters (`created-after`, `created-before`, or `runtime-status`), the command simply retrieves `top` instances, with no regard to runtime status or creation time.
+Om du inte anger några filter (`created-after`, `created-before`eller `runtime-status`) hämtar kommandot helt enkelt `top` instanser, utan hänsyn till körnings status eller skapande tid.
 
 ```bash
 func durable get-instances --created-after 2018-03-10T13:57:31Z --created-before  2018-03-10T23:59Z --top 15
 ```
 
-## <a name="terminate-instances"></a>Terminate instances
+## <a name="terminate-instances"></a>Avsluta instanser
 
-If you have an orchestration instance that is taking too long to run, or you just need to stop it before it completes for any reason, you have the option to terminate it.
+Om du har en Dirigerings instans som tar för lång tid att köra, eller om du bara behöver stoppa den innan den har slutförts av någon anledning, kan du välja att avsluta den.
 
-You can use the `TerminateAsync` (.NET) or the `terminate` (JavaScript) method of the [orchestration client binding](durable-functions-bindings.md#orchestration-client) to terminate instances. The two parameters are an `instanceId` and a `reason` string, which are written to logs and to the instance status. A terminated instance stops running as soon as it reaches the next `await` (.NET) or `yield` (JavaScript) point, or it terminates immediately if it's already on an `await` or `yield`.
+Du kan använda `TerminateAsync` (.NET) eller metoden `terminate` (Java Script) i [Dirigerings klient bindningen](durable-functions-bindings.md#orchestration-client) för att avsluta instanser. De två parametrarna är en `instanceId` och en `reason` sträng som skrivs till loggar och instans status. En avbruten instans stoppas så snart den når nästa `await` (.NET) eller `yield` (Java Script) eller så avslutas den omedelbart om den redan finns på en `await` eller `yield`.
 
 ### <a name="c"></a>C#
 
@@ -324,9 +324,9 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> Föregående C# kod är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `OrchestrationClient` attribut i stället för attributet `DurableClient` och du måste använda `DurableOrchestrationClient` parameter typ i stället för `IDurableOrchestrationClient`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x only)
+### <a name="javascript-functions-2x-only"></a>Java Script (endast funktioner 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -340,34 +340,34 @@ module.exports = async function(context, instanceId) {
 ```
 
 > [!NOTE]
-> Instance termination doesn't currently propagate. Activity functions and sub-orchestrations run to completion, regardless of whether you've terminated the orchestration instance that called them.
+> Instans avslutningen sprids inte för närvarande. Aktivitets funktioner och under dirigering körs till slut för ande, oavsett om du har avslutat Orchestration-instansen som anropade dem.
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-You can also terminate an orchestration instance directly, by using the [Azure Functions Core Tools](../functions-run-local.md) `durable terminate` command. It takes the following parameters:
+Du kan också avsluta en Dirigerings instans direkt genom att använda kommandot [Azure Functions Core Tools](../functions-run-local.md) `durable terminate`. Det tar följande parametrar:
 
-* **`id` (required)** : ID of the orchestration instance to terminate.
-* **`reason` (optional)** : Reason for termination.
-* **`connection-string-setting` (optional)** : Name of the application setting containing the storage connection string to use. Standardvärdet är `AzureWebJobsStorage`.
-* **`task-hub-name` (optional)** : Name of the Durable Functions task hub to use. Standardvärdet är `DurableFunctionsHub`. It can also be set in [host.json](durable-functions-bindings.md#host-json), by using durableTask:HubName.
+* **`id` (obligatoriskt)** : ID för Orchestration-instansen som ska avbrytas.
+* **`reason` (valfritt)** : orsak till avslutning.
+* **`connection-string-setting` (valfritt)** : namnet på den program inställning som innehåller den lagrings anslutnings sträng som ska användas. Standardvärdet är `AzureWebJobsStorage`.
+* **`task-hub-name` (valfritt)** : namnet på den Durable Functions aktivitets hubb som ska användas. Standardvärdet är `DurableFunctionsHub`. Den kan också anges i [Host. JSON](durable-functions-bindings.md#host-json), genom att använda DurableTask: HubName.
 
-The following command terminates an orchestration instance with an ID of 0ab8c55a66644d68a3a8b220b12d209c:
+Följande kommando avslutar en Dirigerings instans med ID: t 0ab8c55a66644d68a3a8b220b12d209c:
 
 ```bash
 func durable terminate --id 0ab8c55a66644d68a3a8b220b12d209c --reason "It was time to be done."
 ```
 
-## <a name="send-events-to-instances"></a>Send events to instances
+## <a name="send-events-to-instances"></a>Skicka händelser till instanser
 
-In some scenarios, it's important for your orchestrator functions to be able to wait and listen for external events. This includes [monitor functions](durable-functions-overview.md#monitoring) and functions that are waiting for [human interaction](durable-functions-overview.md#human).
+I vissa fall är det viktigt att dina Orchestrator-funktioner kan vänta och lyssna efter externa händelser. Detta omfattar [övervaknings funktioner](durable-functions-overview.md#monitoring) och funktioner som väntar på [mänsklig interaktion](durable-functions-overview.md#human).
 
-Send event notifications to running instances by using the `RaiseEventAsync` (.NET) method or the `raiseEvent` (JavaScript) method of the [orchestration client binding](durable-functions-bindings.md#orchestration-client). Instances that can handle these events are those that are awaiting a call to `WaitForExternalEvent` (.NET) or yielding to a `waitForExternalEvent` (JavaScript) call.
+Skicka händelse meddelanden till instanser som körs med hjälp av metoden `RaiseEventAsync` (.NET) eller metoden `raiseEvent` (JavaScript) i [Dirigerings klient bindningen](durable-functions-bindings.md#orchestration-client). Instanser som kan hantera dessa händelser är de som väntar på ett anrop till `WaitForExternalEvent` (.NET) eller som ger ett `waitForExternalEvent` (Java Script)-anrop.
 
-The parameters to `RaiseEventAsync` (.NET) and `raiseEvent` (JavaScript) are as follows:
+Parametrarna för `RaiseEventAsync` (.NET) och `raiseEvent` (Java Script) är följande:
 
-* **InstanceId**: The unique ID of the instance.
-* **EventName**: The name of the event to send.
-* **EventData**: A JSON-serializable payload to send to the instance.
+* **InstanceID**: instansens unika ID.
+* **EventName**: namnet på händelsen som ska skickas.
+* **EventData**: en JSON-serialiserbar nytto last som ska skickas till instansen.
 
 ### <a name="c"></a>C#
 
@@ -383,9 +383,9 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> Föregående C# kod är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `OrchestrationClient` attribut i stället för attributet `DurableClient` och du måste använda `DurableOrchestrationClient` parameter typ i stället för `IDurableOrchestrationClient`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x only)
+### <a name="javascript-functions-2x-only"></a>Java Script (endast funktioner 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -399,17 +399,17 @@ module.exports = async function(context, instanceId) {
 ```
 
 > [!NOTE]
-> If there is no orchestration instance with the specified instance ID, the event message is discarded. If an instance exists but it is not yet waiting for the event, the event will be stored in the instance state until it is ready to be received and processed.
+> Om det inte finns någon Dirigerings instans med angivet instans-ID, ignoreras händelse meddelandet. Om en instans finns men inte är i vänte läge för händelsen, lagras händelsen i instansen tills den är redo att tas emot och bearbetas.
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-You can also raise an event to an orchestration instance directly, by using the [Azure Functions Core Tools](../functions-run-local.md) `durable raise-event` command. It takes the following parameters:
+Du kan också utlösa en händelse till en Dirigerings instans direkt genom att använda kommandot [Azure Functions Core Tools](../functions-run-local.md) `durable raise-event`. Det tar följande parametrar:
 
-* **`id` (required)** : ID of the orchestration instance.
-* **`event-name`** : Name of the event to raise.
-* **`event-data` (optional)** : Data to send to the orchestration instance. This can be the path to a JSON file, or you can provide the data directly on the command line.
-* **`connection-string-setting` (optional)** : Name of the application setting containing the storage connection string to use. Standardvärdet är `AzureWebJobsStorage`.
-* **`task-hub-name` (optional)** : Name of the Durable Functions task hub to use. Standardvärdet är `DurableFunctionsHub`. It can also be set in [host.json](durable-functions-bindings.md#host-json), by using durableTask:HubName.
+* **`id` (obligatoriskt)** : ID för Orchestration-instansen.
+* **`event-name`** : namnet på händelsen som ska upphöjas.
+* **`event-data` (valfritt)** : data som ska skickas till Orchestration-instansen. Detta kan vara sökvägen till en JSON-fil eller så kan du ange data direkt på kommando raden.
+* **`connection-string-setting` (valfritt)** : namnet på den program inställning som innehåller den lagrings anslutnings sträng som ska användas. Standardvärdet är `AzureWebJobsStorage`.
+* **`task-hub-name` (valfritt)** : namnet på den Durable Functions aktivitets hubb som ska användas. Standardvärdet är `DurableFunctionsHub`. Den kan också anges i [Host. JSON](durable-functions-bindings.md#host-json), genom att använda DurableTask: HubName.
 
 ```bash
 func durable raise-event --id 0ab8c55a66644d68a3a8b220b12d209c --event-name MyEvent --event-data @eventdata.json
@@ -419,27 +419,27 @@ func durable raise-event --id 0ab8c55a66644d68a3a8b220b12d209c --event-name MyEv
 func durable raise-event --id 1234567 --event-name MyOtherEvent --event-data 3
 ```
 
-## <a name="wait-for-orchestration-completion"></a>Wait for orchestration completion
+## <a name="wait-for-orchestration-completion"></a>Vänta på slut för ande av dirigering
 
-In long-running orchestrations, you may want to wait and get the results of an orchestration. In these cases, it's also useful to be able to define a timeout period on the orchestration. If the timeout is exceeded, the state of the orchestration should be returned instead of the results.
+I långvariga dirigeringar kanske du vill vänta och få resultatet av ett Dirigerings resultat. I dessa fall är det också användbart att kunna definiera en tids gräns för dirigering. Om tids gränsen överskrids ska dirigeringens tillstånd returneras i stället för resultatet.
 
-The `WaitForCompletionOrCreateCheckStatusResponseAsync` (.NET) or the `waitForCompletionOrCreateCheckStatusResponse` (JavaScript) method can be used to get the actual output from an orchestration instance synchronously. By default, these methods use a default value of 10 seconds for `timeout`, and 1 second for `retryInterval`.  
+Metoden `WaitForCompletionOrCreateCheckStatusResponseAsync` (.NET) eller `waitForCompletionOrCreateCheckStatusResponse` (Java Script) kan användas för att hämta faktiska utdata från en Dirigerings instans synkront. Som standard använder dessa metoder ett standardvärde på 10 sekunder för `timeout`och 1 sekund för `retryInterval`.  
 
-Here is an example HTTP-trigger function that demonstrates how to use this API:
+Här är ett exempel på en HTTP-utlösnings funktion som visar hur du använder det här API: et:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpSyncStart.cs)]
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpSyncStart/index.js)]
 
-Call the function with the following line. Use 2 seconds for the timeout and 0.5 seconds for the retry interval:
+Anropa funktionen med följande rad. Använd 2 sekunder för timeout och 0,5 sekunder för återförsöksintervall:
 
 ```bash
     http POST http://localhost:7071/orchestrators/E1_HelloSequence/wait?timeout=2&retryInterval=0.5
 ```
 
-Depending on the time required to get the response from the orchestration instance, there are two cases:
+Det finns två fall beroende på hur lång tid det tar att hämta svaret från Orchestration-instansen:
 
-* The orchestration instances complete within the defined timeout (in this case 2 seconds), and the response is the actual orchestration instance output, delivered synchronously:
+* Dirigerings instanserna slutförs inom den angivna tids gränsen (i det här fallet 2 sekunder) och svaret är den faktiska Dirigerings instansens utdata som levereras synkront:
 
     ```http
         HTTP/1.1 200 OK
@@ -454,7 +454,7 @@ Depending on the time required to get the response from the orchestration instan
         ]
     ```
 
-* The orchestration instances can't complete within the defined timeout, and the response is the default one described in [HTTP API URL discovery](durable-functions-http-api.md):
+* Dirigerings instanserna kan inte slutföras inom den angivna tids gränsen och svaret är standard som beskrivs i [http API URL-identifiering](durable-functions-http-api.md):
 
     ```http
         HTTP/1.1 202 Accepted
@@ -473,25 +473,25 @@ Depending on the time required to get the response from the orchestration instan
     ```
 
 > [!NOTE]
-> The format of the webhook URLs might differ, depending on which version of the Azure Functions host you are running. The preceding example is for the Azure Functions 2.0 host.
+> Formatet för webhook-URL: erna kan variera beroende på vilken version av Azure Functions-värden som du kör. Föregående exempel är för Azure Functions 2,0-värden.
 
-## <a name="retrieve-http-management-webhook-urls"></a>Retrieve HTTP management webhook URLs
+## <a name="retrieve-http-management-webhook-urls"></a>Hämta URL: er för HTTP Management webhook
 
-You can use an external system to monitor or to raise events to an orchestration. External systems can communicate with Durable Functions through the webhook URLs that are part of the default response described in [HTTP API URL discovery](durable-functions-http-features.md#http-api-url-discovery). The webhook URLs can alternatively be accessed programmatically using the [orchestration client binding](durable-functions-bindings.md#orchestration-client). The `CreateHttpManagementPayload` (.NET) or the `createHttpManagementPayload` (JavaScript) methods can be used to get a serializable object that contains these webhook URLs.
+Du kan använda ett externt system för att övervaka eller utlösa händelser till en dirigering. Externa system kan kommunicera med Durable Functions via webhook-URL: er som ingår i standardsvaret som beskrivs i [http API URL-identifiering](durable-functions-http-features.md#http-api-url-discovery). Webhook-URL: er kan också nås via programmering med hjälp av [Dirigerings klientens bindning](durable-functions-bindings.md#orchestration-client). Metoderna `CreateHttpManagementPayload` (.NET) eller `createHttpManagementPayload` (Java Script) kan användas för att hämta ett serialiserbar objekt som innehåller dessa webhook-URL: er.
 
-The `CreateHttpManagementPayload` (.NET) and `createHttpManagementPayload` (JavaScript) methods have one parameter:
+Metoderna `CreateHttpManagementPayload` (.NET) och `createHttpManagementPayload` (Java Script) har en parameter:
 
-* **instanceId**: The unique ID of the instance.
+* **InstanceID**: instansens unika ID.
 
-The methods return an object with the following string properties:
+Metoderna returnerar ett objekt med följande sträng egenskaper:
 
-* **Id**: The instance ID of the orchestration (should be the same as the `InstanceId` input).
-* **StatusQueryGetUri**: The status URL of the orchestration instance.
-* **SendEventPostUri**: The "raise event" URL of the orchestration instance.
-* **TerminatePostUri**: The "terminate" URL of the orchestration instance.
-* **PurgeHistoryDeleteUri**: The "purge history" URL of the orchestration instance.
+* **ID**: instans-ID för dirigeringen (ska vara detsamma som `InstanceId`-indatatypen).
+* **StatusQueryGetUri**: status-URL: en för Orchestration-instansen.
+* **SendEventPostUri**: URL: en "öka händelse" för Orchestration-instansen.
+* **TerminatePostUri**: "Terminate"-URL: en för Orchestration-instansen.
+* **PurgeHistoryDeleteUri**: URL: en för "Rensa historik" för Orchestration-instansen.
 
-Functions can send instances of these objects to external systems to monitor or raise events on the corresponding orchestrations, as shown in the following examples:
+Funktioner kan skicka instanser av dessa objekt till externa system för att övervaka eller utlösa händelser i motsvarande Orchestration, som du ser i följande exempel:
 
 ### <a name="c"></a>C#
 
@@ -513,9 +513,9 @@ public static void SendInstanceInfo(
 ```
 
 > [!NOTE]
-> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableActivityContext` instead of `IDurableActivityContext`, you must use the `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> Föregående C# kod är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableActivityContext` i stället för `IDurableActivityContext`. du måste använda attributet `OrchestrationClient` i stället för `DurableClient`-attributet och du måste använda `DurableOrchestrationClient` parameter typ i stället för `IDurableOrchestrationClient`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x only)
+### <a name="javascript-functions-2x-only"></a>Java Script (endast funktioner 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -533,19 +533,19 @@ modules.exports = async function(context, ctx) {
 };
 ```
 
-## <a name="rewind-instances-preview"></a>Rewind instances (preview)
+## <a name="rewind-instances-preview"></a>Spola tillbaka instanser (förhands granskning)
 
-If you have an orchestration failure for an unexpected reason, you can *rewind* the instance to a previously healthy state by using an API built for that purpose.
-
-> [!NOTE]
-> This API is not intended to be a replacement for proper error handling and retry policies. Rather, it is intended to be used only in cases where orchestration instances fail for unexpected reasons. For more information on error handling and retry policies, see the [Error handling](durable-functions-error-handling.md) article.
-
-Use the `RewindAsync` (.NET) or `rewind` (JavaScript) method of the [orchestration client binding](durable-functions-bindings.md#orchestration-client) to put the orchestration back into the *Running* state. This method will also rerun the activity or sub-orchestration execution failures that caused the orchestration failure.
-
-For example, let's say you have a workflow involving a series of [human approvals](durable-functions-overview.md#human). Suppose there are a series of activity functions that notify someone that their approval is needed, and wait out the real-time response. After all of the approval activities have received responses or timed out, suppose that another activity fails due to an application misconfiguration, such as an invalid database connection string. The result is an orchestration failure deep into the workflow. With the `RewindAsync` (.NET) or `rewind` (JavaScript) API, an application administrator can fix the configuration error, and rewind the failed orchestration back to the state immediately before the failure. None of the human-interaction steps need to be re-approved, and the orchestration can now complete successfully.
+Om du har ett Dirigerings fel av oväntad anledning kan du *spola tillbaka* instansen till ett tidigare fungerande tillstånd med hjälp av ett API som skapats för detta ändamål.
 
 > [!NOTE]
-> The *rewind* feature doesn't support rewinding orchestration instances that use durable timers.
+> Detta API är inte avsett att vara en ersättning för korrekt fel hantering och principer för återförsök. I stället är det endast avsett att användas i fall där Orchestration-instanser inte kan utföra oväntade orsaker. Mer information om fel hantering och principer för återförsök finns i artikeln [fel hantering](durable-functions-error-handling.md) .
+
+Använd metoden `RewindAsync` (.NET) eller `rewind` (Java Script) i [Dirigerings klient bindningen](durable-functions-bindings.md#orchestration-client) för att försätta dirigeringen i *körnings* läge igen. Den här metoden kör även de körnings försök för aktiviteter eller under dirigering som orsakade ett Orchestration-haveri.
+
+Anta till exempel att du har ett arbets flöde som innehåller en serie med [mänsklig godkännande](durable-functions-overview.md#human). Anta att det finns en serie aktivitets funktioner som meddelar någon att deras godkännande krävs och väntar på svar i real tid. När alla godkännande aktiviteter har fått svar eller nått tids gränsen, antar vi att en annan aktivitet Miss lyckas på grund av en fel konfiguration i programmet, t. ex. en ogiltig databas anslutnings sträng. Resultatet är ett djupgående problem i arbets flödet. Med API: et för `RewindAsync` (.NET) eller `rewind` (Java Script) kan en program administratör åtgärda konfigurations felet och spola tillbaka den misslyckade dirigeringen till statusen omedelbart före felet. Ingen av de mänskliga interaktions stegen måste godkännas igen och dirigeringen kan nu slutföras.
+
+> [!NOTE]
+> Funktionen *spola tillbaka* stöder inte omspolning av Orchestration-instanser som använder varaktiga timers.
 
 ### <a name="c"></a>C#
 
@@ -561,9 +561,9 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> Föregående C# kod är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `OrchestrationClient` attribut i stället för attributet `DurableClient` och du måste använda `DurableOrchestrationClient` parameter typ i stället för `IDurableOrchestrationClient`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x only)
+### <a name="javascript-functions-2x-only"></a>Java Script (endast funktioner 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -578,22 +578,22 @@ module.exports = async function(context, instanceId) {
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-You can also rewind an orchestration instance directly by using the [Azure Functions Core Tools](../functions-run-local.md) `durable rewind` command. It takes the following parameters:
+Du kan också spola en Orchestration-instans direkt genom att använda kommandot [Azure Functions Core Tools](../functions-run-local.md) `durable rewind`. Det tar följande parametrar:
 
-* **`id` (required)** : ID of the orchestration instance.
-* **`reason` (optional)** : Reason for rewinding the orchestration instance.
-* **`connection-string-setting` (optional)** : Name of the application setting containing the storage connection string to use. Standardvärdet är `AzureWebJobsStorage`.
-* **`task-hub-name` (optional)** : Name of the Durable Functions task hub to use. By default, the task hub name in the [host.json](durable-functions-bindings.md#host-json) file is used.
+* **`id` (obligatoriskt)** : ID för Orchestration-instansen.
+* **`reason` (valfritt)** : orsak till omspolning av Orchestration-instansen.
+* **`connection-string-setting` (valfritt)** : namnet på den program inställning som innehåller den lagrings anslutnings sträng som ska användas. Standardvärdet är `AzureWebJobsStorage`.
+* **`task-hub-name` (valfritt)** : namnet på den Durable Functions aktivitets hubb som ska användas. Som standard används aktivitets nav namnet i [Host. JSON](durable-functions-bindings.md#host-json) -filen.
 
 ```bash
 func durable rewind --id 0ab8c55a66644d68a3a8b220b12d209c --reason "Orchestrator failed and needs to be revived."
 ```
 
-## <a name="purge-instance-history"></a>Purge instance history
+## <a name="purge-instance-history"></a>Rensa instans historik
 
-To remove all the data associated with an orchestration, you can purge the instance history. For example, you might want to delete any Azure Table rows and large message blobs associated with a completed instance. To do so, use the `PurgeInstanceHistoryAsync` (.NET) or `purgeInstanceHistory` (JavaScript) method of the [orchestration client binding](durable-functions-bindings.md#orchestration-client).
+Om du vill ta bort alla data som är associerade med ett dirigering kan du rensa instans historiken. Du kanske till exempel vill ta bort alla Azure Table-rader och stora meddelande-blobar som är associerade med en slutförd instans. Det gör du genom att använda metoden `PurgeInstanceHistoryAsync` (.NET) eller `purgeInstanceHistory` (Java Script) i [Dirigerings klient bindningen](durable-functions-bindings.md#orchestration-client).
 
-This method has two overloads. The first overload purges history by the ID of the orchestration instance:
+Den här metoden har två överlagringar. Den första överlagringen rensar historiken med ID: t för Orchestration-instansen:
 
 ```csharp
 [FunctionName("PurgeInstanceHistory")]
@@ -614,7 +614,7 @@ module.exports = async function(context, instanceId) {
 };
 ```
 
-The next example shows a timer-triggered function that purges the history for all orchestration instances that completed after the specified time interval. In this case, it removes data for all instances completed 30 or more days ago. It's scheduled to run once per day, at 12 AM:
+I nästa exempel visas en timer-utlöst funktion som rensar historiken för alla Dirigerings instanser som har slutförts efter angivet tidsintervall. I det här fallet tar den bort data för alla instanser som slutförts 30 eller fler dagar sedan. Det är schemalagt att köras en gång per dag, kl. 12:
 
 ```csharp
 [FunctionName("PurgeInstanceHistory")]
@@ -633,37 +633,37 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> Föregående C# kod är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `OrchestrationClient` attribut i stället för attributet `DurableClient` och du måste använda `DurableOrchestrationClient` parameter typ i stället för `IDurableOrchestrationClient`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
-**JavaScript** The `purgeInstanceHistoryBy` method can be used to conditionally purge instance history for multiple instances.
+**Java Script** Metoden `purgeInstanceHistoryBy` kan användas för att villkorligt rensa instans historiken för flera instanser.
 
 > [!NOTE]
-> For the purge history operation to succeed, the runtime status of the target instance must be **Completed**, **Terminated**, or **Failed**.
+> För att rensnings historiken ska fungera måste körnings status för mål instansen vara **slutförd**, **avslutad**eller **misslyckad**.
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-You can purge an orchestration instance's history by using the [Azure Functions Core Tools](../functions-run-local.md) `durable purge-history` command. Similar to the second C# example in the preceding section, it purges the history for all orchestration instances created during a specified time interval. You can further filter purged instances by runtime status. The command has several parameters:
+Du kan rensa en Dirigerings instanss historik genom att använda kommandot [Azure Functions Core Tools](../functions-run-local.md) `durable purge-history`. I likhet med det C# andra exemplet i föregående avsnitt rensar den historiken för alla Dirigerings instanser som skapats under ett angivet tidsintervall. Du kan filtrera rensade instanser ytterligare efter körnings status. Kommandot har flera parametrar:
 
-* **`created-after` (optional)** : Purge the history of instances created after this date/time (UTC). ISO 8601 formatted datetimes accepted.
-* **`created-before` (optional)** : Purge the history of instances created before this date/time (UTC). ISO 8601 formatted datetimes accepted.
-* **`runtime-status` (optional)** : Purge the history of instances with a particular status (for example, running or completed). Can provide multiple (space separated) statuses.
-* **`connection-string-setting` (optional)** : Name of the application setting containing the storage connection string to use. Standardvärdet är `AzureWebJobsStorage`.
-* **`task-hub-name` (optional)** : Name of the Durable Functions task hub to use. By default, the task hub name in the [host.json](durable-functions-bindings.md#host-json) file is used.
+* **`created-after` (valfritt)** : Rensa historiken för instanser som skapats efter detta datum/tid (UTC). ISO 8601 formaterade datetimes har godkänts.
+* **`created-before` (valfritt)** : Rensa historiken för instanser som skapats före detta datum/tid (UTC). ISO 8601 formaterade datetimes har godkänts.
+* **`runtime-status` (valfritt)** : Rensa historiken för instanser med en viss status (till exempel körs eller slutfört). Kan ge flera (blankstegsavgränsad) status.
+* **`connection-string-setting` (valfritt)** : namnet på den program inställning som innehåller den lagrings anslutnings sträng som ska användas. Standardvärdet är `AzureWebJobsStorage`.
+* **`task-hub-name` (valfritt)** : namnet på den Durable Functions aktivitets hubb som ska användas. Som standard används aktivitets nav namnet i [Host. JSON](durable-functions-bindings.md#host-json) -filen.
 
-The following command deletes the history of all failed instances created before November 14, 2018 at 7:35 PM (UTC).
+Följande kommando tar bort historiken för alla misslyckade instanser som skapats före den 14 november 2018 vid 7:35 PM (UTC).
 
 ```bash
 func durable purge-history --created-before 2018-11-14T19:35:00.0000000Z --runtime-status failed
 ```
 
-## <a name="delete-a-task-hub"></a>Delete a task hub
+## <a name="delete-a-task-hub"></a>Ta bort en aktivitets hubb
 
-Using the [Azure Functions Core Tools](../functions-run-local.md) `durable delete-task-hub` command, you can delete all storage artifacts associated with a particular task hub, including Azure storage tables, queues, and blobs. The command has two parameters:
+Med kommandot [Azure Functions Core Tools](../functions-run-local.md) `durable delete-task-hub` kan du ta bort alla lagrings artefakter som är associerade med en viss aktivitets hubb, inklusive Azure Storage-tabeller, köer och blob-objekt. Kommandot har två parametrar:
 
-* **`connection-string-setting` (optional)** : Name of the application setting containing the storage connection string to use. Standardvärdet är `AzureWebJobsStorage`.
-* **`task-hub-name` (optional)** : Name of the Durable Functions task hub to use. By default, the task hub name in the [host.json](durable-functions-bindings.md#host-json) file is used.
+* **`connection-string-setting` (valfritt)** : namnet på den program inställning som innehåller den lagrings anslutnings sträng som ska användas. Standardvärdet är `AzureWebJobsStorage`.
+* **`task-hub-name` (valfritt)** : namnet på den Durable Functions aktivitets hubb som ska användas. Som standard används aktivitets nav namnet i [Host. JSON](durable-functions-bindings.md#host-json) -filen.
 
-The following command deletes all Azure storage data associated with the `UserTest` task hub.
+Följande kommando tar bort alla Azure Storage-data som är associerade med `UserTest` aktivitets hubben.
 
 ```bash
 func durable delete-task-hub --task-hub-name UserTest
@@ -672,7 +672,7 @@ func durable delete-task-hub --task-hub-name UserTest
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Learn how to handle versioning](durable-functions-versioning.md)
+> [Lär dig hur du hanterar versions hantering](durable-functions-versioning.md)
 
 > [!div class="nextstepaction"]
-> [Built-in HTTP API reference for instance management](durable-functions-http-api.md)
+> [Inbyggd HTTP API-referens för instans hantering](durable-functions-http-api.md)

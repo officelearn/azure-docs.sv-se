@@ -1,6 +1,6 @@
 ---
-title: Connectivity set up from virtual network to SAP HANA on Azure (large instances) | Microsoft Docs
-description: Connectivity set up from virtual network to use SAP HANA on Azure (large instances).
+title: Anslutning som konfigureras från ett virtuellt nätverk till SAP HANA på Azure (stora instanser) | Microsoft Docs
+description: Anslutning som konfigureras från ett virtuellt nätverk för att använda SAP HANA på Azure (stora instanser).
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
@@ -20,22 +20,22 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74206749"
 ---
-# <a name="connect-a-virtual-network-to-hana-large-instances"></a>Connect a virtual network to HANA large instances
+# <a name="connect-a-virtual-network-to-hana-large-instances"></a>Anslut ett virtuellt nätverk till HANA-stora instanser
 
-After you've created an Azure virtual network, you can connect that network to SAP HANA on Azure large instances. Create an Azure ExpressRoute gateway on the virtual network. This gateway enables you to link the virtual network to the ExpressRoute circuit that connects to the customer tenant on the HANA Large Instance stamp.
+När du har skapat ett virtuellt Azure-nätverk kan du ansluta nätverket till SAP HANA på stora Azure-instanser. Skapa en Azure ExpressRoute-gateway på det virtuella nätverket. Med den här gatewayen kan du länka det virtuella nätverket till ExpressRoute-kretsen som ansluts till kund klienten på den stora instans stämpeln i HANA.
 
 > [!NOTE] 
-> This step can take up to 30 minutes to complete. The new gateway is created in the designated Azure subscription, and then connected to the specified Azure virtual network.
+> Det här steget kan ta upp till 30 minuter att slutföra. Den nya gatewayen skapas i den angivna Azure-prenumerationen och ansluts sedan till det angivna virtuella Azure-nätverket.
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-If a gateway already exists, check whether it's an ExpressRoute gateway or not. If it is not an ExpressRoute gateway, delete the gateway, and re-create it as an ExpressRoute gateway. If an ExpressRoute gateway is already established, see the following section of this article, "Link virtual networks." 
+Om det redan finns en gateway kontrollerar du om det är en ExpressRoute-gateway eller inte. Om det inte är en ExpressRoute-Gateway tar du bort gatewayen och skapar den igen som en ExpressRoute-Gateway. Om en ExpressRoute-Gateway redan har upprättats, se följande avsnitt i den här artikeln, "länka virtuella nätverk". 
 
-- Use either the [Azure portal](https://portal.azure.com/) or PowerShell to create an ExpressRoute VPN gateway connected to your virtual network.
-  - If you use the Azure portal, add a new **Virtual Network Gateway**, and then select **ExpressRoute** as the gateway type.
-  - If you use PowerShell, first download and use the latest [Azure PowerShell SDK](https://azure.microsoft.com/downloads/). 
+- Använd antingen [Azure Portal](https://portal.azure.com/) eller PowerShell för att skapa en ExpressRoute VPN-gateway som är ansluten till det virtuella nätverket.
+  - Om du använder Azure Portal lägger du till en ny **Virtual Network Gateway**och väljer sedan **ExpressRoute** som typ av gateway.
+  - Om du använder PowerShell måste du först hämta och använda den senaste [Azure PowerShell SDK: n](https://azure.microsoft.com/downloads/). 
  
-The following commands create an ExpressRoute gateway. The texts preceded by a _$_ are user-defined variables that should be updated with your specific information.
+Följande kommandon skapar en ExpressRoute-Gateway. Texterna som föregås av en _$_ är användardefinierade variabler som ska uppdateras med din information.
 
 ```powershell
 # These Values should already exist, update to match your environment
@@ -63,16 +63,16 @@ New-AzVirtualNetworkGateway -Name $myGWName -ResourceGroupName $myGroupName -Loc
 -GatewaySku $myGWSku -VpnType PolicyBased -EnableBgp $true
 ```
 
-In this example, the HighPerformance gateway SKU was used. Your options are HighPerformance or UltraPerformance as the only gateway SKUs that are supported for SAP HANA on Azure (large instances).
+I det här exemplet användes HighPerformance Gateway-SKU: n. Alternativen är HighPerformance eller UltraPerformance som de enda Gateway-SKU: er som stöds för SAP HANA på Azure (stora instanser).
 
 > [!IMPORTANT]
-> For HANA large instances of the Type II class SKU, you must use the UltraPerformance Gateway SKU.
+> För HANA-stora instanser av typ II-klassen SKU måste du använda SKU: n för UltraPerformance-Gateway.
 
-## <a name="link-virtual-networks"></a>Link virtual networks
+## <a name="link-virtual-networks"></a>Länka virtuella nätverk
 
-The Azure virtual network now has an ExpressRoute gateway. Use the authorization information provided by Microsoft to connect the ExpressRoute gateway to the SAP HANA Large Instances ExpressRoute circuit. You can connect by using the Azure portal or PowerShell. The PowerShell instructions are as follows. 
+Det virtuella Azure-nätverket har nu en ExpressRoute-Gateway. Använd auktoriseringsinformationen från Microsoft för att ansluta ExpressRoute-gatewayen till SAP HANA – stora instanser ExpressRoute-kretsen. Du kan ansluta med hjälp av Azure Portal eller PowerShell. PowerShell-instruktionerna är följande. 
 
-Run the following commands for each ExpressRoute gateway by using a different AuthGUID for each connection. The first two entries shown in the following script come from the information provided by Microsoft. Also, the AuthGUID is specific for every virtual network and its gateway. If you want to add another Azure virtual network, you need to get another AuthID for your ExpressRoute circuit that connects HANA large instances into Azure from Microsoft. 
+Kör följande kommandon för varje ExpressRoute-Gateway genom att använda en annan AuthGUID för varje anslutning. De första två posterna som visas i följande skript kommer från den information som tillhandahålls av Microsoft. Dessutom är AuthGUID särskilt för varje virtuellt nätverk och dess Gateway. Om du vill lägga till ytterligare ett virtuellt Azure-nätverk måste du skaffa en annan AuthID för din ExpressRoute-krets som ansluter HANA-stora instanser till Azure från Microsoft. 
 
 ```powershell
 # Populate with information provided by Microsoft Onboarding team
@@ -96,12 +96,12 @@ New-AzVirtualNetworkGatewayConnection -Name $myConnectionName `
 ```
 
 > [!NOTE]
-> The last parameter in the command New-AzVirtualNetworkGatewayConnection, **ExpressRouteGatewayBypass** is a new parameter that enables ExpressRoute Fast Path. A functionality that reduces network latency between your HANA Large Instance units and Azure VMs. The functionality got added in May 2019. For more details, check the article [SAP HANA (Large Instances) network architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture). Make sure that you are running the latest version of PowerShell cmdlets before running the commands.
+> Den sista parametern i kommandot New-AzVirtualNetworkGatewayConnection, **ExpressRouteGatewayBypass** är en ny parameter som aktiverar ExpressRoute snabb sökväg. En funktion som minskar nätverks fördröjningen mellan dina HANA stora instans enheter och virtuella Azure-datorer. Funktionen lades till i maj 2019. Mer information hittar du i artikeln [SAP HANA (stora instanser) nätverks arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture). Kontrol lera att du kör den senaste versionen av PowerShell-cmdletar innan du kör kommandona.
 
-To connect the gateway to more than one ExpressRoute circuit associated with your subscription, you might need to run this step more than once. For example, you're likely going to connect the same virtual network gateway to the ExpressRoute circuit that connects the virtual network to your on-premises network.
+Om du vill ansluta gatewayen till mer än en ExpressRoute-krets som är associerad med din prenumeration kan du behöva köra det här steget mer än en gång. Till exempel kommer du förmodligen att ansluta samma virtuella nätverksgateway till ExpressRoute-kretsen som ansluter det virtuella nätverket till ditt lokala nätverk.
 
-## <a name="applying-expressroute-fast-path-to-existing-hana-large-instance-expressroute-circuits"></a>Applying ExpressRoute Fast Path to existing HANA Large Instance ExpressRoute circuits
-The documentation so far explained how to connect a new ExpressRoute circuit that got created with a HANA Large Instance deployment to an Azure ExpressRoute gateway of one of your Azure virtual networks. But many customers already have their ExpressRoute circuits setup already and have their virtual networks connected to HANA Large Instances already. As the new ExpressRoute Fast Path is reducing network latency, it is recommended that you apply the change to use this functionality. The commands to connect a new ExpreesRoute circuit and to change an existing ExpressRoute Circuit are the same. As a result you need to run this sequence of PowerShell commands to change an existing circuit to use 
+## <a name="applying-expressroute-fast-path-to-existing-hana-large-instance-expressroute-circuits"></a>Använda ExpressRoute snabb sökväg till befintliga HANA-ExpressRoute-kretsar i stora instanser
+Dokumentationen så att du kan ansluta en ny ExpressRoute-krets som har skapats med en stor distribution av HANA-stor instans till en Azure ExpressRoute-Gateway för en av dina virtuella Azure-nätverk. Men många kunder har redan sina ExpressRoute-kretsar och har redan anslutit sina virtuella nätverk till HANA stora instanser. Eftersom den nya ExpressRoute-snabba sökvägen minskar nätverks fördröjningen, rekommenderar vi att du tillämpar ändringen för att använda den här funktionen. Kommandona för att ansluta en ny ExpreesRoute-krets och för att ändra en befintlig ExpressRoute-krets är desamma. Därför måste du köra den här sekvensen av PowerShell-kommandon för att ändra en befintlig krets som ska användas 
 
 ```powershell
 # Populate with information provided by Microsoft Onboarding team
@@ -124,39 +124,39 @@ New-AzVirtualNetworkGatewayConnection -Name $myConnectionName `
 -PeerId $PeerID -ConnectionType ExpressRoute -AuthorizationKey $AuthGUID -ExpressRouteGatewayBypass
 ```
 
-It is important that you add the last parameter as displayed above to enable the ExpressRoute Fast Path functionality
+Det är viktigt att du lägger till den sista parametern som visas ovan för att aktivera ExpressRoute-funktionen för snabb sökväg
 
 
 ## <a name="expressroute-global-reach"></a>ExpressRoute Global Reach
-As you want to enable Global Reach for one or both of the two scenarios:
+Som du vill aktivera Global Reach för ett eller båda av de två scenarierna:
 
- - HANA System Replication without any additional proxies or firewalls
- - Copying backups between HANA Large Instance units in two different regions to perform system copies or system refreshes
+ - HANA-systemreplikering utan ytterligare proxyservrar eller brand väggar
+ - Kopiera säkerhets kopior mellan HANA-stora instans enheter i två olika regioner för att utföra system kopior eller systemuppdateringar
 
-you need consider that:
+Du måste tänka på följande:
 
-- You need to provide an address space range of a /29 address space. That address range may not overlap with any of the other address space ranges that you used so far connecting HANA Large Instances to Azure and may not overlap with any of your IP address ranges you used somewhere else in Azure or on-premises.
-- There is a limitation on the ASNs (Autonomous System Number) that can be used to advertise your on-premises routes to HANA Large Instances. Your on-premises must not advertise any routes with private ASNs in the range of 65000 – 65020 or 65515. 
-- For the scenario of connecting on-premises direct access to HANA Large instances, you need to calculate a fee for the circuit that connects you to Azure. For prices, check the prices for [Global Reach Add-On](https://azure.microsoft.com/pricing/details/expressroute/).
+- Du måste ange ett adress utrymmes intervall för ett/29-adressutrymme. Det adress intervallet får inte överlappa något av de andra adress utrymmes intervall som du använde så att du kopplar HANA-stora instanser till Azure och inte överlappar några av dina IP-adressintervall som du använde någon annan stans i Azure eller lokalt.
+- Det finns en begränsning i ASN: er (autonomt system nummer) som kan användas för att annonsera dina lokala vägar till HANA-stora instanser. Ditt lokala nätverk får inte annonsera några vägar med privata ASN: er i intervallet 65000 – 65020 eller 65515. 
+- För scenariot med att ansluta lokal direkt åtkomst till HANA-stora instanser måste du beräkna en avgift för kretsen som ansluter dig till Azure. För priser kontrollerar du priserna för [Global Reach-tillägg](https://azure.microsoft.com/pricing/details/expressroute/).
 
-To get one or both of the scenarios applied to your deployment, open a support message with Azure as described in [Open a support request for HANA large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal#open-a-support-request-for-hana-large-instances)
+Om du vill hämta ett eller båda scenarier som tillämpas på din distribution öppnar du ett support meddelande med Azure enligt beskrivningen i [öppna en supportbegäran för många Hana-instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal#open-a-support-request-for-hana-large-instances)
 
-Data that is needed and keywords that you need to use for Microsoft to be able to route and execute on your request, looks like:
+Data som behövs och nyckelord som du behöver använda för att Microsoft ska kunna dirigera och köra på din begäran, ser ut så här:
 
-- Service: SAP HANA Large Instance
-- Problem type: Configuration and Setup
-- Problem subtype: My problem is not listed above
-- Subject 'Modify my Network - add Global Reach'
-- Details: 'Add Global Reach to HANA Large Instance to HANA Large Instance tenant or 'Add Global Reach to on-premises to HANA Large Instance tenant.
-- Additional details for the HANA Large Instance to HANA Large Instance tenant case: You need to define the **two Azure regions** where the two tenants to connect are located **AND** you need to submit the **/29 IP address range**
-- Additional details for the on-premises to HANA Large Instance tenant case: You need to define the **Azure Region** where the HANA Large Instance tenant is deployed you want to connect to directly. Additionally you need to provide the **Auth GUID** and **Circuit Peer ID** that you received when you established your ExpressRoute circuit between on-premises and Azure. Additionally, you need to name your **ASN**. The last deliverable is a **/29 IP address range** for ExpressRoute Global Reach.
+- Tjänst: SAP HANA stor instans
+- Problem typ: konfiguration och konfiguration
+- Problem under typ: mitt problem visas inte ovan
+- Subject ' ändra mitt nätverk – Lägg till Global Reach '
+- Information: ' Lägg till Global Reach till HANA-stor instans till HANA-stor instans-klient eller Lägg till Global Reach till en stor instans av en stor instans på plats till HANA.
+- Mer information för den stora data instansen HANA till HANA stor instans-väska: du måste definiera de **två Azure-regioner** där de två klienterna ska ansluta **och** du måste skicka in **/29 IP-adressintervall**
+- Ytterligare information för den lokala instansen av den lokala instansen av klient väska: du måste definiera den **Azure-region** där den virtuella Hana-instansen är distribuerad som du vill ansluta till direkt. Du måste också ange GUID för **autentisering** och **krets-ID** som du fick när du etablerade ExpressRoute-kretsen mellan lokalt och Azure. Du måste dessutom ge ditt **ASN**ett namn. Den sista slut produkten är ett **/29 IP-adressintervall** för ExpressRoute-Global Reach.
 
 > [!NOTE]
-> If you want to have both cases handled, you need to supply two different /29 IP address ranges that do not overlap with any other IP address range used so far. 
+> Om båda fallen ska hanteras måste du ange två olika/29 IP-adressintervall som inte överlappar med andra IP-adressintervall som används hittills. 
 
 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Additional network requirements for HLI](hana-additional-network-requirements.md)
+- [Ytterligare nätverks krav för HLI](hana-additional-network-requirements.md)

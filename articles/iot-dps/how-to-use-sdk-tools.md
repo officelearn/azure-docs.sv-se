@@ -1,6 +1,6 @@
 ---
-title: Use Azure IoT Hub Device Provisioning Service SDKs tools
-description: This document reviews the tools provided in Azure IoT Hub Device Provisioning Service SDKs for development
+title: Använd Azure IoT Hub Device Provisioning Service SDK-verktyg
+description: 'Det här dokumentet granskar de verktyg som finns i Azure IoT Hub Device Provisioning Service SDK: er för utveckling'
 author: robinsh
 ms.author: robinsh
 ms.date: 04/09/2018
@@ -14,56 +14,56 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74229677"
 ---
-# <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>How to use tools provided in the SDKs to simplify development for provisioning
-The IoT Hub Device Provisioning Service simplifies the provisioning process with zero-touch, just-in-time [auto-provisioning](concepts-auto-provisioning.md) in a secure and scalable manner.  Security attestation in the form of X.509 certificate or Trusted Platform Module (TPM) is required.  Microsoft is also partnering with [other security hardware partners](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) to improve confidence in securing IoT deployment. Understanding the hardware security requirement can be quite challenging for developers. A set of Azure IoT Provisioning Service SDKs are provided so that developers can use a convenience layer for writing clients that talk to the provisioning service. The SDKs also provide samples for common scenarios as well as a set of tools to simplify security attestation in development.
+# <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>Hur du använder verktyg som finns i SDK: er för att förenkla utvecklingen av etableringen
+IoT Hub Device Provisioning Service fören klar etablerings processen med Zero Touch, just-in-Time [-etablering automatiskt](concepts-auto-provisioning.md) på ett säkert och skalbart sätt.  Säkerhets attestering i form av X. 509-certifikat eller Trusted Platform Module (TPM) krävs.  Microsoft samarbetar även med [andra säkerhets maskin varu partner](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) för att förbättra säkerheten vid IoT-distribution. Att förstå kraven på maskin varu säkerhet kan vara mycket utmanande för utvecklare. En uppsättning SDK: er för Azure IoT Provisioning-tjänsten tillhandahålls så att utvecklare kan använda ett bekvämlighets lager för att skriva klienter som kommunicerar med etablerings tjänsten. SDK: er innehåller också exempel på vanliga scenarier och en uppsättning verktyg för att förenkla säkerheten i utvecklingen.
 
-## <a name="trusted-platform-module-tpm-simulator"></a>Trusted Platform Module (TPM) simulator
-[TPM](https://docs.microsoft.com/azure/iot-dps/concepts-security) can refer to a standard for securely storing keys to authenticate the platform, or it can refer to the I/O interface used to interact with the modules implementing the standard. TPMs can exist as discrete hardware, integrated hardware, firmware-based, or software-based.  In production, TPM is located on the device, either as discrete hardware, integrated hardware, or firmware-based. In the testing phase, a software-based TPM simulator is provided to developers.  This simulator is only available for developing on Windows platform for now.
+## <a name="trusted-platform-module-tpm-simulator"></a>Trusted Platform Module (TPM) Simulator
+[TPM](https://docs.microsoft.com/azure/iot-dps/concepts-security) kan referera till en standard för säker lagring av nycklar för att autentisera plattformen, eller så kan den referera till i/O-gränssnittet som används för att interagera med modulerna som implementerar standarden. TPM: er kan finnas som diskret maskin vara, integrerad maskin vara, inbyggd program vara eller programvarubaserad.  I produktion finns TPM på enheten, antingen som diskret maskin vara, integrerad maskin vara eller inbyggd program vara. I test fasen tillhandahålls en programvarubaserad TPM-Simulator till utvecklare.  Den här simulatorn är bara tillgänglig för utveckling på Windows-plattformen för tillfället.
 
-Steps for using the TPM simulator are:
-1. [Prepare the development environment](https://docs.microsoft.com/azure/iot-dps/quick-enroll-device-x509-java) and clone the GitHub repository:
+Steg för att använda TPM-simulatorn är:
+1. [Förbered utvecklings miljön](https://docs.microsoft.com/azure/iot-dps/quick-enroll-device-x509-java) och klona GitHub-lagringsplatsen:
    ```
    git clone https://github.com/Azure/azure-iot-sdk-java.git
    ```
-2. Navigate to the TPM simulator folder under ```azure-iot-sdk-java/provisioning/provisioning-tool/tpm-simulator/```.
-3. Run Simulator.exe prior to running any client application for provisioning device.
-4. Let the simulator run in the background throughout the provisioning process to obtain registration ID and Endorsement Key.  Both values are only valid for one instance of the run.
+2. Navigera till mappen TPM-simulator under ```azure-iot-sdk-java/provisioning/provisioning-tool/tpm-simulator/```.
+3. Kör Simulator. exe innan du kör något klient program för etablering av enheten.
+4. Låt simulatorn köras i bakgrunden under etablerings processen för att hämta registrerings-ID och bekräftelse nyckel.  Båda värdena är bara giltiga för en instans av körningen.
 
-## <a name="x509-certificate-generator"></a>X.509 certificate generator
-[X.509 certificates](https://docs.microsoft.com/azure/iot-dps/concepts-security#x509-certificates) can be used as an attestation mechanism to scale production and simplify device provisioning.  There are [several ways](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate) to obtain an X.509 certificate:
-* For production environment, we recommend purchasing an X.509 CA certificate from a public root certificate authority.
-* For testing environment, you can generate an X.509 root certificate or X.509 certificate chain using:
-    * OpenSSL: You can use scripts for certificate generation:
+## <a name="x509-certificate-generator"></a>Generator för X. 509-certifikat
+[X. 509-certifikat](https://docs.microsoft.com/azure/iot-dps/concepts-security#x509-certificates) kan användas som en mekanism för attestering för att skala produktion och förenkla enhets etablering.  Det finns [flera sätt](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate) att hämta ett X. 509-certifikat:
+* För produktions miljön rekommenderar vi att du köper ett X. 509 CA-certifikat från en offentlig rot certifikat utfärdare.
+* I test miljö kan du generera ett X. 509-rot certifikat eller en X. 509-certifikat kedja med:
+    * OpenSSL: du kan använda skript för att skapa certifikat:
         * [Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools)
-        * [PowerShell or Bash](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)
+        * [PowerShell eller bash](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)
         
-    * Device Identity Composition Engine (DICE) Emulator: DICE can be used for cryptographic device identity and attestation based on TLS protocol and X.509 client certificates.  [Learn](https://www.microsoft.com/research/publication/device-identity-dice-riot-keys-certificates/) more about device identity with DICE.
+    * Emulator för enhets identitets sammansättnings motor (tärning): TÄRNINGar kan användas för kryptografisk enhets identitet och attestering baserat på TLS-protokoll och X. 509-klient certifikat.  [Lär dig](https://www.microsoft.com/research/publication/device-identity-dice-riot-keys-certificates/) mer om enhets identitet med tärningar.
 
-### <a name="using-x509-certificate-generator-with-dice-emulator"></a>Using X.509 certificate generator with DICE emulator
-The SDKs provide an X.509 certificate generator with DICE emulator, located in the [Java SDK](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-tools/provisioning-x509-cert-generator).  This generator works cross-platform.  The generated certificate can be used for development in other languages.
+### <a name="using-x509-certificate-generator-with-dice-emulator"></a>Använda X. 509-certifikat Generator med tärning-emulator
+SDK: erna tillhandahåller en 509 för X.-certifikat med tärning-emulatorn, som finns i [Java SDK](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-tools/provisioning-x509-cert-generator).  Den här generatorn fungerar plattforms oberoende.  Det genererade certifikatet kan användas för utveckling på andra språk.
 
-Currently, while the DICE Emulator outputs a root certificate, an intermediate certificate, a leaf certificate, and associated private key.  However, the root certificate or intermediate certificate cannot be used to sign a separate leaf certificate.  If you intend to test group enrollment scenario where one signing certificate is used to sign the leaf certificates of multiple devices, you can use OpenSSL to produce a chain of certificates.
+För närvarande, medan tärning-emulatorn matar ut ett rot certifikat, ett mellanliggande certifikat, ett löv certifikat och tillhör ande privat nyckel.  Rot certifikatet eller mellanliggande certifikat kan dock inte användas för att signera ett separat löv certifikat.  Om du vill testa ett registrerings scenario där ett signerings certifikat används för att signera löv certifikaten för flera enheter, kan du använda OpenSSL för att skapa en kedja av certifikat.
 
-To generate X.509 certificate using this generator:
-1. [Prepare the development environment](https://docs.microsoft.com/azure/iot-dps/quick-enroll-device-x509-java) and clone the GitHub repository:
+Skapa X. 509-certifikat med den här generatorn:
+1. [Förbered utvecklings miljön](https://docs.microsoft.com/azure/iot-dps/quick-enroll-device-x509-java) och klona GitHub-lagringsplatsen:
    ```
    git clone https://github.com/Azure/azure-iot-sdk-java.git
    ```
-2. Change the root to azure-iot-sdk-java.
-3. Run ```mvn install -DskipTests=true``` to download all required packages and compile the SDK
-4. Navigate to the root for X.509 Certificate Generator in ```azure-iot-sdk-java/provisioning/provisioning-tools/provisioning-x509-cert-generator```.
-5. Build with ```mvn clean install```
+2. Ändra roten till Azure-IoT-SDK-Java.
+3. Kör ```mvn install -DskipTests=true``` för att ladda ned alla nödvändiga paket och kompilera SDK: n
+4. Navigera till rot for X. 509 Certificate Generator i ```azure-iot-sdk-java/provisioning/provisioning-tools/provisioning-x509-cert-generator```.
+5. Bygg med ```mvn clean install```
 6. Kör verktyget med följande kommandon:
    ```
    cd target
    java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
    ```
 7. Vid uppmaning kan du ange ett _eget namn_ för dina certifikat.
-8. The tool locally generates a **Client Cert**, the **Client Cert Private Key**, **Intermediate Cert**, and the **Root Cert**.
+8. Verktyget skapar ett **klient certifikat**lokalt, **klient certifikatets privata nyckel**, **mellanliggande certifikat**och **rot certifikatet**.
 
-**Client Cert** is the leaf certificate on the device.  **Client Cert** and the associated **Client Cert Private Key** are needed in device client. Depending on what language you choose, the mechanism to put this in the client application may be different.  For more information, see the [Quickstarts](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-x509) on create simulated device using X.509 for more information.
+**Klient certifikat** är löv certifikatet på enheten.  **Klient certifikat** och associerad **privat nyckel för klient certifikat** krävs i enhets klienten. Beroende på vilket språk du väljer kan mekanismen för att ställa in detta i klient programmet vara annorlunda.  Mer information finns i [snabb starter](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-x509) på Skapa simulerad enhet med X. 509 för mer information.
 
-The root certificate or intermediate can be used to create an enrollment group or individual enrollment [programmatically](https://docs.microsoft.com/azure/iot-dps/how-to-manage-enrollments-sdks) or using the [portal](https://docs.microsoft.com/azure/iot-dps/how-to-manage-enrollments).
+Rot certifikatet eller mellanliggande kan användas för att skapa en registrerings grupp eller en enskild registrering via [programmering](https://docs.microsoft.com/azure/iot-dps/how-to-manage-enrollments-sdks) eller via [portalen](https://docs.microsoft.com/azure/iot-dps/how-to-manage-enrollments).
 
 ## <a name="next-steps"></a>Nästa steg
-* Develop using the [Azure IoT SDK]( https://github.com/Azure/azure-iot-sdks) for Azure IoT Hub and Azure IoT Hub Device Provisioning Service
+* Utveckla med [Azure IoT SDK]( https://github.com/Azure/azure-iot-sdks) för Azure IoT Hub och Azure IoT Hub Device Provisioning service

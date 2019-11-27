@@ -284,7 +284,7 @@ Följ dessa steg om du vill skapa en logg avisering i Azure Monitor genom att an
 >Följande procedur för att skapa en aviserings regel för användning av container resurser kräver att du växlar till en ny logg aviserings-API enligt beskrivningen i [switch API-inställningar för logg aviseringar](../platform/alerts-log-api-switch.md).
 >
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **övervaka** i rutan till vänster. Under **insikter**väljer du **behållare**.
 3. På fliken **övervakade kluster** väljer du ett kluster i listan.
 4. I rutan till vänster under **övervakning**väljer du **loggar** för att öppna sidan Azure Monitor loggar. Du använder den här sidan för att skriva och köra Azure Log Analytics-frågor.

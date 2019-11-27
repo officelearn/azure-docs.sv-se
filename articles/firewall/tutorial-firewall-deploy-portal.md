@@ -104,7 +104,7 @@ Skapa nu de virtuella hopp- och arbetsbelastningsdatorerna och placera dem i res
 
    |Inställning  |Värde  |
    |---------|---------|
-   |Resursgrupp     |**Test-FW-RG**|
+   |Resursgrupp     |**Test-VB-RG**|
    |Namn på virtuell dator     |**SRV-hoppa**|
    |Region     |Samma som föregående|
    |Administratörens användar namn     |**azureuser**|
@@ -125,7 +125,7 @@ Använd informationen i följande tabell för att konfigurera en annan virtuell 
 
 |Inställning  |Värde  |
 |---------|---------|
-|Undernät|**Workload-SN**|
+|Undernät|**Arbets belastning – SN**|
 |Offentlig IP-adress|**Alternativet**|
 |Offentliga inkommande portar|**Alternativet**|
 
@@ -141,7 +141,7 @@ Distribuera brandväggen till det virtuella nätverket.
    |Inställning  |Värde  |
    |---------|---------|
    |Prenumeration     |\<din prenumeration\>|
-   |Resursgrupp     |**Test-FW-RG** |
+   |Resursgrupp     |**Test-VB-RG** |
    |Namn     |**Test-FW01**|
    |Plats     |Välj samma plats som tidigare|
    |Välj ett virtuellt nätverk     |**Använd befintlig**: **test-VB-VN**|

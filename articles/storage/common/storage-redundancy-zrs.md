@@ -9,12 +9,12 @@ ms.date: 06/28/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 53441f5fedb4fa5e68cd1d8230ffe3ee6122e55b
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 46975cf7762e2d92e5112911bd491f372cb22a31
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186665"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74544630"
 ---
 # <a name="zone-redundant-storage-zrs-for-building-highly-available-azure-storage-applications"></a>Zone-redundant lagring (ZRS) för att skapa hög tillgängliga Azure Storage program
 
@@ -35,14 +35,14 @@ För General-Purpose v2-konton är ZRS allmänt tillgängligt i följande region
 - Östra Japan
 - Storbritannien, södra
 - USA, centrala
-- USA, östra
+- USA, Östra
 - USA, östra 2
 - USA, västra 2
 
-För FileStorage-konton (Premium fil resurser) är ZRS allmänt tillgängligt i följande regioner:
+För FileStorage-konton (Premium-filresurser) och BlockBlobStorage-konton (Premium block-blobbar) är ZRS allmänt tillgänglig i följande regioner:
 
 - Västeuropa
-- USA, östra
+- USA, Östra
 
 Microsoft fortsätter att aktivera ZRS i ytterligare Azure-regioner. På sidan [uppdateringar för Azure-tjänsten](https://azure.microsoft.com/updates/) regelbundet hittar du information om nya regioner.
 

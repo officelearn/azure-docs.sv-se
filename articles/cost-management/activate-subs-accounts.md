@@ -60,7 +60,7 @@ När du lägger till en prenumeration till en kontouppdatering beviljar du åtko
 1. Om du vill uppdatera en _inaktiverad_ prenumeration som redan finns i Cloudyn går du till Kontohantering och klickar på pennsymbolen för redigering till höger om överordnad _klientorganisations-GUID_. Prenumerationerna är grupperade under en överordnad klientorganisation, så undvik att aktivera prenumerationer individuellt.
     ![välj ditt klient-ID i rutan Identifiera prenumerationer på nytt](./media/activate-subs-accounts/existing-sub.png)
 2. Ange klient-ID om det behövs. Om du inte vet klient-ID kan du söka efter det genom att göra följande:
-    1. Logga in på [Azure-portalen](https://portal.azure.com).
+    1. Logga in på [Azure Portal](https://portal.azure.com).
     2. Välj **Azure Active Directory** i Azure Portal.
     3. Om du vill hämta klientorganisations-ID:t väljer du **Egenskaper** för din Microsoft Azure Active Directory-klientorganisation.
     4. Kopiera katalog-ID GUID. Det här värdet är ditt klientorganisations-ID.
@@ -87,7 +87,7 @@ När du använder Cloudyn-portalen första gången kan du se följande meddeland
 
 - *The specified API key is not a top level enrollment key* (Den angivna API-nyckeln är inte en registreringsnyckel på toppnivå) visas i **installationsguiden för Cloudyn**.
 - *Direct Enrollment – No* (Direktregistrering – nej) visas i Enterprise-avtalsportalen.
-- *No usage data was found for the last 30 days. Please contact your distributor to make sure markup was enabled for your Azure account* displayed in the Cloudyn portal.
+- *Inga användnings data hittades för de senaste 30 dagarna. Kontakta åter försäljaren för att kontrol lera att pålägg har Aktiver ATS för ditt Azure-konto* i Cloudyn-portalen.
 
 Föregående meddelanden indikerar att du har köpt ett Azure Enterprise-avtal genom en återförsäljare eller molntjänstleverantör. Återförsäljaren eller molntjänstleverantören måste aktivera _pålägg_ för ditt Azure-konto för att du ska kunna se dina data i Cloudyn.
 

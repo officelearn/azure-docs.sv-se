@@ -69,7 +69,7 @@ Varje gång du skapar en ny resurs för LUIS måste du tilldela resursen till LU
 
     ![Om du vill lägga till LUIS förutsägelse resurs väljer du Lägg till förutsägelse resurs](./media/get-started-portal-deploy-app/azure-resources-add-prediction-resource.png)
 
-1. Välj klient, prenumeration och resurs namn. Välj **Tilldela resurs**.
+1. Välj klient, prenumeration och resurs namn. Välj **tilldela resurs**.
 
    ![Tilldela en resurs till din app](./media/get-started-portal-deploy-app/assign-resource.png)
 

@@ -41,7 +41,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 ## <a name="prerequisites"></a>Krav
 
 - Du måste ha ett Azure-konto.
-- Du måste ha en utvärderingsregistrering eller en betald prenumeration för Cloudyn.
+- Du måste antingen ha en utvärderingsregistrering eller en betald prenumeration för Cloudyn.
 - Du måste ha köpt dina RI i Azure eller AWS.
 
 ## <a name="understand-azure-ri-costs"></a>Lära dig mer om Azure RI-kostnader

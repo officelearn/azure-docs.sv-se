@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 5d695c7a74945fd68591360864e107aadc826240
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8ebcf7b3a8dfa4103c0b2773ace76797e5b8f899
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683691"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546415"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Kopiera flera tabeller i grupp med Azure Data Factory
 I den här självstudien visas hur du **kopierar ett antal tabeller från Azure SQL Database till Azure SQL Data Warehouse**. Du kan även använda samma mönster i andra kopieringssituationer. Till exempel kan du kopiera tabeller från SQL Server/Oracle till Azure SQL Database/Data Warehouse/Azure Blob eller kopiera olika sökvägar från Blob till Azure SQL Database-tabeller.
@@ -29,7 +29,7 @@ Sett på en hög nivå ingår följande steg i självstudierna:
 > * Skapa datauppsättningar för Azure SQL Database och Azure SQL Data Warehouse.
 > * Skapa en pipeline för sökning av de tabeller som ska kopieras och en annan pipeline för den faktiska kopieringsåtgärden. 
 > * Starta en pipelinekörning.
-> * Övervaka pipelinen och aktivitetskörningarna.
+> * Övervaka pipelinen och aktivitetskörningar.
 
 I den här kursen används Azure PowerShell. Läs mer om att använda andra verktyg/SDK:er för att skapa en datafabrik i [Snabbstarter](quickstart-create-data-factory-dot-net.md). 
 
@@ -43,7 +43,7 @@ I det här scenariot har vi ett antal tabeller i Azure SQL Database som vi vill 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -62,7 +62,7 @@ Skapa en Azure SQL-databas med exempeldata för Adventure Works LT genom att fö
 
 1. Om du inte har något Azure SQL Database Warehouse kan du läsa om att skapa ett i artikeln [Skapa ett Azure SQL Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
 
-2. Skapa motsvarande tabellscheman i SQL Data Warehouse. Du kan använda [migreringsverktyget](https://www.microsoft.com/download/details.aspx?id=49100) till att **migrera scheman** från Azure SQL Database till Azure SQL Data Warehouse. Du kommer att använda Azure Data Factory till att migrera/kopiera data i ett senare steg.
+2. Skapa motsvarande tabellscheman i SQL Data Warehouse. Du kommer att använda Azure Data Factory till att migrera/kopiera data i ett senare steg.
 
 ## <a name="azure-services-to-access-sql-server"></a>Azure-tjänster för åtkomst till SQL-servern
 
@@ -101,7 +101,7 @@ Ge Azure-tjänster åtkomst till SQL-servern för både SQL Database och SQL Dat
 
     Observera följande punkter:
 
-    * Namnet på Azure Data Factory måste vara globalt unikt. Om du får följande felmeddelande ändrar du namnet och försöker igen.
+    * Namnet på Azure Data Factory måste vara globalt unikt. Om du har fått följande felmeddelande ändrar du namnet och försöker igen.
 
         ```
         The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
@@ -197,7 +197,7 @@ I den här självstudien använder du Azure Blob Storage som ett mellanlagringsu
 1. Skapa en JSON-fil med namnet **AzureStorageLinkedService.json** i mappen **C:\ADFv2TutorialBulkCopy** med följande innehåll:
 
     > [!IMPORTANT]
-    > Ersätt &lt;accountName&gt; och &lt;accountKey&gt; med namnet och nyckeln för ditt Azure Storage-konto innan du sparar filen.
+    > Ersätt &lt;accountName&gt; och &lt;accountKey&gt; med namnet och nyckeln för ditt Azure-lagringskonto innan du sparar filen.
 
     ```json
     {
@@ -582,7 +582,7 @@ Den här pipelinen utför två steg:
 3. Anslut till Azure SQL Data Warehouse-mottagaren och bekräfta att data har kopierats från Azure SQL Database.
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudiekursen har du fått: 
+I den här självstudiekursen fick du: 
 
 > [!div class="checklist"]
 > * Skapa en datafabrik.
@@ -590,7 +590,7 @@ I den här självstudiekursen har du fått:
 > * Skapa datauppsättningar för Azure SQL Database och Azure SQL Data Warehouse.
 > * Skapa en pipeline för sökning av de tabeller som ska kopieras och en annan pipeline för den faktiska kopieringsåtgärden. 
 > * Starta en pipelinekörning.
-> * Övervaka pipelinen och aktivitetskörningarna.
+> * Övervaka pipelinen och aktivitetskörningar.
 
 Fortsätt till följande självstudiekurs om du vill lära dig att kopiera data stegvis från en källa till ett mål:
 > [!div class="nextstepaction"]

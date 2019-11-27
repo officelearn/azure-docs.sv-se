@@ -1,6 +1,6 @@
 ---
-title: Delegate a subdomain - Azure DNS
-description: With this learning path, get started delegating an Azure DNS subdomain.
+title: Delegera en under domän – Azure DNS
+description: Med den här utbildnings vägen börjar du delegera en Azure DNS under domän.
 services: dns
 author: asudbring
 ms.service: dns
@@ -14,60 +14,60 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74212378"
 ---
-# <a name="delegate-an-azure-dns-subdomain"></a>Delegate an Azure DNS subdomain
+# <a name="delegate-an-azure-dns-subdomain"></a>Delegera en Azure DNS under domän
 
-You can use the Azure portal to delegate a DNS subdomain. For example, if you own the contoso.com domain, you can delegate a subdomain called *engineering* to another, separate zone that you can administer separately from the contoso.com zone.
+Du kan använda Azure Portal för att delegera en DNS-under domän. Om du till exempel äger contoso.com-domänen kan du delegera en under domän som heter *teknik* till en annan, separat zon som du kan administrera separat från zonen contoso.com.
 
-If you prefer, you can delegate a subdomain using [Azure PowerShell](delegate-subdomain-ps.md).
+Om du vill kan du delegera en under domän med hjälp av [Azure PowerShell](delegate-subdomain-ps.md).
 
 ## <a name="prerequisites"></a>Krav
 
-To delegate an Azure DNS subdomain, you must first delegate your public domain to Azure DNS. See [Delegate a domain to Azure DNS](./dns-delegate-domain-azure-dns.md) for instructions on how to configure your name servers for delegation. Once your domain is delegated to your Azure DNS zone, you can delegate your subdomain.
+Om du vill delegera en Azure DNS under domän måste du först delegera din offentliga domän till Azure DNS. Mer information om hur du konfigurerar namnservrar för delegering finns i [delegera en domän till Azure DNS](./dns-delegate-domain-azure-dns.md) . När din domän har delegerats till din Azure DNS zon kan du delegera din under domän.
 
 > [!NOTE]
-> Contoso.com is used as an example throughout this article. Använd ditt eget domännamn i stället för contoso.com.
+> Contoso.com används som ett exempel i den här artikeln. Använd ditt eget domännamn i stället för contoso.com.
 
-## <a name="create-a-zone-for-your-subdomain"></a>Create a zone for your subdomain
+## <a name="create-a-zone-for-your-subdomain"></a>Skapa en zon för under domänen
 
-First, create the zone for the **engineering** subdomain.
+Skapa först zonen för under domänen **teknik** .
 
-1. From the Azure portal, select **Create a resource**.
-2. In the search box, type **DNS**, and select **DNS zone**.
+1. Välj **skapa en resurs**från Azure Portal.
+2. Skriv **DNS**i rutan Sök och välj **DNS-zon**.
 3. Välj **Skapa**.
-4. In the **Create DNS zone** pane, type **engineering.contoso.com** in the **Name** text box.
-5. Select the resource group for your zone. You might want to use the same resource group as the parent zone to keep similar resources together.
+4. I fönstret **Skapa DNS-zon** skriver du **Engineering.contoso.com** i text rutan **namn** .
+5. Välj resurs grupp för din zon. Du kanske vill använda samma resurs grupp som den överordnade zonen för att hålla likartade resurser sammantaget.
 6. Klicka på **Skapa**.
-7. After the deployment succeeds, go to the new zone.
+7. När distributionen har slutförts går du till den nya zonen.
 
-## <a name="note-the-name-servers"></a>Note the name servers
+## <a name="note-the-name-servers"></a>Anteckna namnservrarna
 
-Next, note the four name servers for the engineering subdomain.
+Notera sedan de fyra namnservrarna för under domänen teknik.
 
-On the **engineering** zone pane, note the four name servers for the zone. You will use these name servers later.
+Notera de fyra namnservrarna för zonen i fönstret **ingenjörs** zon. Du kommer att använda dessa namnservrar senare.
 
-## <a name="create-a-test-record"></a>Create a test record
+## <a name="create-a-test-record"></a>Skapa en test post
 
-Create an **A** record to use for testing. For example, create a **www** A record and configure it with a **10.10.10.10** IP address.
+Skapa en **A** -post som ska användas för testning. Du kan till exempel skapa en **www** a-post och konfigurera den med en **10.10.10.10** -IP-adress.
 
-## <a name="create-an-ns-record"></a>Create an NS record
+## <a name="create-an-ns-record"></a>Skapa en NS-post
 
-Next, create a name server (NS) record  for the **engineering** zone.
+Skapa sedan en namnserver post (NS) för **teknik** zonen.
 
-1. Navigate to the zone for the parent domain.
+1. Navigera till zonen för den överordnade domänen.
 2. Välj **+ Postuppsättning**.
-3. On the **Add record set** pane, type **engineering** in the **Name** text box.
-4. For **Type**, select **NS**.
-5. Under **Name server**, enter the four name servers that you recorded previously from the **engineering** zone.
-6. Klicka på **OK**
+3. I rutan **Lägg till uppsättning av poster** skriver du **tekniker** i text rutan **namn** .
+4. I **typ**väljer du **ns**.
+5. Under **namnserver**anger du de fyra namnservrar som du spelat in tidigare från **teknik** zonen.
+6. Klicka på **OK**.
 
-## <a name="test-the-delegation"></a>Test the delegation
+## <a name="test-the-delegation"></a>Testa delegeringen
 
-Use nslookup to test the delegation.
+Använd nslookup för att testa delegeringen.
 
-1. Open a PowerShell window.
-2. At command prompt, type `nslookup www.engineering.contoso.com.`
-3. You should receive a non-authoritative answer showing the address **10.10.10.10**.
+1. Öppna ett PowerShell-fönster.
+2. Skriv `nslookup www.engineering.contoso.com.` i kommando tolken
+3. Du bör få ett icke-auktoritativt svar som visar adressen **10.10.10.10**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Learn how to [configure reverse DNS for services hosted in Azure](dns-reverse-dns-for-azure-services.md).
+Lär dig hur du [konfigurerar omvänd DNS för tjänster som finns i Azure](dns-reverse-dns-for-azure-services.md).

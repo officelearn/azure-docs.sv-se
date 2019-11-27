@@ -58,8 +58,8 @@ Om du inte redan har ett domän namn kan du köpa ett från en *domän namns reg
 
 Det finns många sätt att hämta ett SSL-certifikat (digitalt certifikat). Det vanligaste är att köpa en från en *certifikat utfärdare* (ca). Oavsett var du får certifikatet behöver du följande filer:
 
-* En **certifikat**. Certifikatet måste innehålla den fullständiga certifikat kedjan och måste vara "PEM-kodad".
-* En **nyckeln**. Nyckeln måste också vara PEM-kodad.
+* Ett **certifikat**. Certifikatet måste innehålla den fullständiga certifikat kedjan och måste vara "PEM-kodad".
+* En **nyckel**. Nyckeln måste också vara PEM-kodad.
 
 När du begär ett certifikat måste du ange det fullständiga domän namnet för den adress som du planerar att använda för webb tjänsten (till exempel www\.contoso.com). Adressen som stämplas in i certifikatet och den adress som klienterna använder jämförs för att verifiera webb tjänstens identitet. Om dessa adresser inte matchar får klienten ett fel meddelande.
 

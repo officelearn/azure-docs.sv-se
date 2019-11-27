@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Overdrive | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Overdrive.
+title: 'Självstudie: Azure Active Directory integration med överdrive | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och överdrive.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -22,13 +22,13 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74233472"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-overdrive"></a>Tutorial: Azure Active Directory integration with Overdrive
+# <a name="tutorial-azure-active-directory-integration-with-overdrive"></a>Självstudie: Azure Active Directory integrering med överdrive
 
-In this tutorial, you learn how to integrate Overdrive with Azure Active Directory (Azure AD).
-Integrating Overdrive with Azure AD provides you with the following benefits:
+I den här självstudien får du lära dig att integrera överdriven med Azure Active Directory (Azure AD).
+Att integrera överdrive med Azure AD ger följande fördelar:
 
-* You can control in Azure AD who has access to Overdrive.
-* You can enable your users to be automatically signed-in to Overdrive (Single Sign-On) with their Azure AD accounts.
+* Du kan styra i Azure AD vem som har åtkomst till överdrivet.
+* Du kan göra det möjligt för användarna att vara automatiskt inloggade för överdrivet (enkel inloggning) med deras Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -36,26 +36,26 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="prerequisites"></a>Krav
 
-To configure Azure AD integration with Overdrive, you need the following items:
+Om du vill konfigurera Azure AD-integrering med överdrive behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Overdrive single sign-on enabled subscription
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Överdrive-aktiverad prenumeration med enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Overdrive supports **SP** initiated SSO
+* Överdrive stöder **SP** -INITIERAd SSO
 
-* Overdrive supports **Just In Time** user provisioning
+* Överdrive stöder **just-in-Time** User-etablering
 
-## <a name="adding-overdrive-from-the-gallery"></a>Adding Overdrive from the gallery
+## <a name="adding-overdrive-from-the-gallery"></a>Lägga till överdriven från galleriet
 
-To configure the integration of Overdrive into Azure AD, you need to add Overdrive from the gallery to your list of managed SaaS apps.
+Om du vill konfigurera integrering av överdrivet i Azure AD måste du lägga till överdriven från galleriet i listan över hanterade SaaS-appar.
 
-**To add Overdrive from the gallery, perform the following steps:**
+**Utför följande steg för att lägga till överdriven från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -67,33 +67,33 @@ To configure the integration of Overdrive into Azure AD, you need to add Overdri
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. In the search box, type **Overdrive**, select **Overdrive** from result panel then click **Add** button to add the application.
+4. I rutan Sök skriver du **överdrive**, väljer **överdrive** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-     ![Overdrive in the results list](common/search-new-app.png)
+     ![Överdrive i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-In this section, you configure and test Azure AD single sign-on with Overdrive based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in Overdrive needs to be established.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med överdriven baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i överenhet upprättas.
 
-To configure and test Azure AD single sign-on with Overdrive, you need to complete the following building blocks:
+Om du vill konfigurera och testa enkel inloggning med Azure AD med överdriven måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Configure Overdrive Single Sign-On](#configure-overdrive-single-sign-on)** - to configure the Single Sign-On settings on application side.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+2. **[Konfigurera överdrived enkel inloggning](#configure-overdrive-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Create Overdrive test user](#create-overdrive-test-user)** - to have a counterpart of Britta Simon in Overdrive that is linked to the Azure AD representation of user.
+5. **[Skapa överdrivet test användare](#create-overdrive-test-user)** – för att få en motsvarighet till Britta Simon i överdriven som är länkad till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-To configure Azure AD single sign-on with Overdrive, perform the following steps:
+Utför följande steg för att konfigurera enkel inloggning för Azure AD med överdrive:
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Overdrive** application integration page, select **Single sign-on**.
+1. I [Azure Portal](https://portal.azure.com/)väljer du **enkel inloggning**på sidan **överenhets** program integrering.
 
-    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -105,18 +105,18 @@ To configure Azure AD single sign-on with Overdrive, perform the following steps
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Overdrive Domain and URLs single sign-on information](common/sp-signonurl.png)
+    ![Information om enkel inloggning för domäner och URL: er](common/sp-signonurl.png)
 
-    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `http://<subdomain>.libraryreserve.com`
+    I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `http://<subdomain>.libraryreserve.com`
 
     > [!NOTE]
-    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Contact [Overdrive Client support team](https://help.overdrive.com/) to get the value. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [överdrivet klient support team](https://help.overdrive.com/) för att hämta värdet. Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-6. On the **Set up Overdrive** section, copy the appropriate URL(s) as per your requirement.
+6. På avsnittet **Konfigurera överenhet** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -126,9 +126,9 @@ To configure Azure AD single sign-on with Overdrive, perform the following steps
 
     c. Utloggnings-URL
 
-### <a name="configure-overdrive-single-sign-on"></a>Configure Overdrive Single Sign-On
+### <a name="configure-overdrive-single-sign-on"></a>Konfigurera överdrive enkel inloggning
 
-To configure single sign-on on **Overdrive** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Overdrive support team](https://help.overdrive.com/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning på **överenhets** sidan måste du skicka den hämtade **XML-metadata för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [överdrive support team](https://help.overdrive.com/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -157,17 +157,17 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Overdrive.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till överdrivet.
 
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Overdrive**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **överenhet**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. In the applications list, select **Overdrive**.
+2. I listan program väljer du **överenhet**.
 
-    ![The Overdrive link in the Applications list](common/all-applications.png)
+    ![Länken överdrive i listan program](common/all-applications.png)
 
-3. I menyn till vänster väljer du **Användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -181,19 +181,19 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-overdrive-test-user"></a>Create Overdrive test user
+### <a name="create-overdrive-test-user"></a>Skapa överdrivet test användare
 
-In this section, a user called Britta Simon is created in Overdrive. Overdrive supports just-in-time user provisioning, which is enabled by default. Det finns inget åtgärdsobjekt för dig i det här avsnittet. If a user doesn't already exist in Overdrive, a new one is created after authentication.
+I det här avsnittet skapas en användare som heter Britta Simon i överdriven. Överdrive stöder just-in-Time-etablering av användare, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i överdrive skapas en ny efter autentiseringen.
 
 >[!NOTE]
->You can use any other OverDrive user account creation tools or APIs provided by OverDrive to provision Azure AD user accounts.
+>Du kan använda andra verktyg för att skapa överdrivet användar konton eller API: er som tillhandahålls av överdrivet för att etablera Azure AD-användarkonton.
 >
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-When you click the Overdrive tile in the Access Panel, you should be automatically signed in to the Overdrive for which you set up SSO. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på panelen överenhet i åtkomst panelen, bör du loggas in automatiskt på den överordnade enhet som du har konfigurerat SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -201,5 +201,5 @@ When you click the Overdrive tile in the Access Panel, you should be automatical
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

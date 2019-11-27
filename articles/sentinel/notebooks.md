@@ -1,6 +1,6 @@
 ---
-title: Hunting capabilities using notebooks in Azure Sentinel| Microsoft Docs
-description: This article describes how to use notebooks with the Azure Sentinel hunting capabilities.
+title: Jakt funktioner med hjälp av antecknings böcker i Azure Sentinel | Microsoft Docs
+description: Den här artikeln beskriver hur du använder antecknings böcker med funktionerna i Azure Sentinel-jakt.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -23,127 +23,127 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74483270"
 ---
-# <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Use Jupyter notebooks to hunt for security threats
+# <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Använda Jupyter-anteckningsböcker för att efter säkerhetshot
 
-The foundation of Azure Sentinel is the data store; it combines high performance querying, dynamic schema, and scales to massive data volumes. The Azure portal and all Azure Sentinel tools use a common API to access this data store. The same API is also available for external tools such as [Jupyter](https://jupyter.org/) notebooks and Python. While many common tasks can be carried out in the portal, Jupyter extends the scope of what you can do with this data. It combines full programmability with a huge collection of libraries for machine learning, visualization, and data analysis. These attributes make Jupyter a compelling tool for security investigation and hunting.
+Stiftelsen i Azure Sentinel är data lagret. den kombinerar hög prestanda fråga, dynamiskt schema och skalar till enorma data volymer. Azure Portal och alla Azure Sentinel-verktyg använder ett gemensamt API för att få åtkomst till det här data lagret. Samma API är också tillgängligt för externa verktyg som [Jupyter](https://jupyter.org/) Notebooks och python. Många vanliga uppgifter kan utföras i portalen, och Jupyter utökar omfattningen av vad du kan göra med dessa data. Den kombinerar fullständig programmering med en enorm samling bibliotek för maskin inlärning, visualisering och data analys. Dessa attribut gör Jupyter till ett övertygande verktyg för säkerhets undersökning och jakt.
 
-![example notebook](./media/notebooks/sentinel-notebooks-map.png)
+![exempel antecknings bok](./media/notebooks/sentinel-notebooks-map.png)
 
-We've integrated the Jupyter experience into the Azure portal, making it easy for you to create and run notebooks to analyze your data. The *Kqlmagic* library provides the glue that lets you take queries from Azure Sentinel and run them directly inside a notebook. Queries use the [Kusto Query Language](https://kusto.azurewebsites.net/docs/query/index.html). Several notebooks, developed by some of Microsoft's security analysts, are packaged with Azure Sentinel. Some of these notebooks are built for a specific scenario and can be used as-is. Others are intended as samples to illustrate techniques and features that you can copy or adapt for use in your own notebooks. Other notebooks may also be imported from the Azure Sentinel community GitHub.
+Vi har integrerat Jupyter-upplevelsen i Azure Portal, vilket gör det enkelt för dig att skapa och köra antecknings böcker för att analysera dina data. *Kqlmagic* -biblioteket ger ett lim som gör det möjligt att ta frågor från Azure Sentinel och köra dem direkt i en bärbar dator. Frågor använder [Kusto-frågespråket](https://kusto.azurewebsites.net/docs/query/index.html). Flera antecknings böcker, som har utvecklats av några av Microsofts säkerhetsanalytiker, paketeras med Azure Sentinel. Några av dessa antecknings böcker är utformade för ett visst scenario och kan användas som de är. Andra är avsedda som exempel för att illustrera tekniker och funktioner som du kan kopiera eller anpassa för användning i dina egna antecknings böcker. Andra antecknings böcker kan också importeras från community-GitHub för Azure Sentinel.
 
-The integrated Jupyter experience uses [Azure Notebooks](https://notebooks.azure.com/) to store, share, and execute notebooks. You can also run these notebooks locally if you have a Python environment and Jupyter on your computer, or in other JupterHub environments such as Azure Databricks.
+Den integrerade Jupyter-miljön använder [Azure Notebooks](https://notebooks.azure.com/) för att lagra, dela och köra antecknings böcker. Du kan också köra dessa antecknings böcker lokalt om du har en python-miljö och Jupyter på din dator eller i andra JupterHub-miljöer som Azure Databricks.
 
-Notebooks have two components:
+Antecknings böcker har två komponenter:
 
-- The browser-based interface where you enter and run queries and code, and where the results of the execution are displayed.
-- A *kernel* that is responsible for parsing and executing the code itself. 
+- Det webbläsarbaserade gränssnittet där du anger och kör frågor och kod och var resultatet av körningen visas.
+- En *kernel* som ansvarar för parsning och körning av koden. 
 
-In Azure Notebooks, by default, this kernel runs on Azure *Free Cloud Compute and Storage*. If your notebooks include complex machine learning models or visualizations, consider using more powerful, dedicated compute resources such as [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) (DSVM). Notebooks in your account are kept private unless you choose to share them.
+I Azure Notebooks körs den här kärnan som standard i Azures *kostnads fri moln beräkning och lagring*. Om dina antecknings böcker innehåller komplexa Machine Learning-modeller eller visualiseringar bör du överväga att använda mer kraftfulla, dedikerade beräknings resurser som [data vetenskaps Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) (DSVM). Antecknings böcker i ditt konto hålls privata såvida du inte väljer att dela dem.
 
-The Azure Sentinel notebooks use many popular Python libraries such as pandas, matplotlib, bokeh, and others. There are a great many other Python packages for you to choose from, covering areas such as:
+Azure Sentinel-anteckningsbokarna använder många populära python-bibliotek som Pandas, matplotlib, bokeh och andra. Det finns många andra python-paket som du kan välja bland, som omfattar områden som:
 
-- Visualizations and graphics
-- Data processing and analysis
-- Statistics and numerical computing
-- Machine learning and deep learning
+- Visualiseringar och grafik
+- Data bearbetning och analys
+- Statistik och numerisk data behandling
+- Maskin inlärning och djup inlärning
 
-We've also released some open-source Jupyter security tools in a package named [msticpy](https://github.com/Microsoft/msticpy/). This package is used in many of the included notebooks. Msticpy tools are designed specifically to help with creating notebooks for hunting and investigation and we're actively working on new features and improvements.
+Vi har också släppt några Jupyter säkerhets verktyg med öppen källkod i ett paket med namnet [msticpy](https://github.com/Microsoft/msticpy/). Det här paketet används i många av de antecknings böcker som ingår. Msticpy-verktyg är särskilt utformade för att hjälpa dig att skapa antecknings böcker för jakt och undersökning och vi arbetar aktivt med nya funktioner och förbättringar.
 
-The initial notebooks include:
+De första antecknings böckerna är:
 
-- **Guided investigation - Process Alerts**: Allows you to quickly triage alerts by analyzing activity on the affected host or hosts.
-- **Guided hunting - Windows host explorer**: Allows you to explore account activity, process executions, network activity, and other events on a host.
-- **Guided hunting - Office365-Exploring**: Hunt for suspicious Office 365 activity in multiple Office 365 data sets.
+- **Guidad undersökning – process aviseringar**: gör att du snabbt kan prioritering aviseringar genom att analysera aktiviteten på den berörda värden eller värdarna.
+- **Guidad jakt – Windows Host Explorer**: gör att du kan utforska konto aktivitet, bearbeta körningar, nätverks aktivitet och andra händelser på en värd.
+- **Guidad jakt – Office365 – utforska**: söker efter misstänkt Office 365-aktivitet i flera Office 365-datauppsättningar.
 
-The [Azure Sentinel Community GitHub repository](https://github.com/Azure/Azure-Sentinel) is the location for any future Azure Sentinel notebooks built by Microsoft or contributed from the community.
+[Azure Sentinel community GitHub-lagringsplatsen](https://github.com/Azure/Azure-Sentinel) är platsen för alla framtida Azure Sentinel-anteckningsböcker som skapats av Microsoft eller som har bidragit från communityn.
 
-To use the notebooks, you must have an Azure Notebooks account. For more information, see [Quickstart: Sign in and set a user ID](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks) from the Azure Notebooks documentation. To create this account, you can use the **Sign up for Azure Notebooks** option from the command bar in **Azure Sentinel - Notebooks**:
+Om du vill använda antecknings böckerna måste du ha ett Azure Notebooks-konto. Mer information finns i [snabb start: Logga in och ange ett användar-ID](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks) från Azure Notebooks-dokumentationen. Om du vill skapa det här kontot kan du använda alternativet **Registrera dig för Azure Notebooks** från kommando fältet i **Azure Sentinel-Notebooks**:
 
 > [!div class="mx-imgBorder"]
->![Sign up for Azure Notebooks option](./media/notebooks/sentinel-azure-sign-up-azure-notebooks.png)
+>![registrera dig för Azure Notebooks alternativ](./media/notebooks/sentinel-azure-sign-up-azure-notebooks.png)
 
-You can run a notebook direct from Azure Sentinel, or clone all the Azure Sentinel notebooks to a new Azure Notebooks project.
+Du kan köra en bärbar dator direkt från Azure Sentinel eller klona alla Azure Sentinel-anteckningsböcker till ett nytt Azure Notebooks projekt.
 
-## <a name="run-a-notebook-from-azure-sentinel"></a>Run a notebook from Azure Sentinel
+## <a name="run-a-notebook-from-azure-sentinel"></a>Köra en bärbar dator från Azure Sentinel
  
-1. From the Azure portal, navigate to **Azure Sentinel** > **Threat management** > **Notebooks**, where you can see notebooks that Azure Sentinel provides. 
+1. Från Azure Portal navigerar du till > **antecknings**böcker för **Azure Sentinel** > **Threat Management** , där du kan se antecknings böcker som Azure Sentinel tillhandahåller. 
 
-2. Select individual notebooks to read their descriptions, required data types, and data sources. Exempel:
+2. Välj enskilda antecknings böcker för att läsa beskrivningar, nödvändiga data typer och data källor. Till exempel:
     
     > [!div class="mx-imgBorder"]
-    > ![launch notebook](./media/notebooks/sentinel-azure-notebooks-launch.png)
+    > ![starta Notebook](./media/notebooks/sentinel-azure-notebooks-launch.png)
 
-3. Select the notebook you want to use, and then select **Launch Notebook (Preview)** to clone and configure the notebook into a new Azure Notebooks project that connects to your Azure Sentinel workspace. When the process is complete, the notebook opens within Azure Notebooks for you to run.
+3. Välj den antecknings bok som du vill använda och välj sedan **Starta Notebook (för hands version)** för att klona och konfigurera antecknings boken i ett nytt Azure Notebooks projekt som ansluter till din Azure Sentinel-arbetsyta. När processen är klar öppnas antecknings boken i Azure Notebooks som du kan köra.
 
-## <a name="clone-azure-sentinel-notebooks-to-a-new-azure-notebooks-project"></a>Clone Azure Sentinel notebooks to a new Azure Notebooks project
+## <a name="clone-azure-sentinel-notebooks-to-a-new-azure-notebooks-project"></a>Klona Azure Sentinel-anteckningsböcker till ett nytt Azure Notebooks-projekt
 
-This procedure creates an Azure Notebooks project for you, which contains the Azure Sentinel notebooks. You can then run the notebooks as-is, or make changes to them and then run them.
+Den här proceduren skapar ett Azure Notebooks-projekt åt dig, som innehåller Azure Sentinel-anteckningsböcker. Du kan sedan köra antecknings böckerna som de är eller ändra dem och sedan köra dem.
 
-1. From the Azure portal, navigate to **Azure Sentinel** > **Threat management** > **Notebooks** and then select **Clone Notebooks** from the command bar:
+1. Från Azure Portal navigerar du till > **antecknings böcker** för **Azure Sentinel** > **Threat Management** och väljer sedan **klona antecknings böcker** från kommando fältet:
   
     > [!div class="mx-imgBorder"]
-    >![Clone Notebooks option](./media/notebooks/sentinel-azure-clone-notebooks.png)
+    >alternativet ![klona antecknings böcker](./media/notebooks/sentinel-azure-clone-notebooks.png)
 
-2. When the following dialog appears, select **Import** to clone the GitHub repo into your Azure Notebooks project. If you don't have an existing Azure Notebooks account, you'll be prompted to create one and sign in.
+2. När följande dialog ruta visas väljer du **Importera** för att klona GitHub-lagrings platsen till ditt Azure Notebooks-projekt. Om du inte har ett befintligt Azure Notebooks-konto uppmanas du att skapa ett och logga in.
 
-   ![Import notebook](./media/notebooks/sentinel-notebooks-clone.png)
+   ![Importera antecknings bok](./media/notebooks/sentinel-notebooks-clone.png)
 
-3. On the **Upload GitHub Repository** dialog box, don't select **Clone recursively** because this option refers to linked GitHub repos. For the project name, use the default name or type in a new one. Then click **Import** to start cloning the GitHub content, which can take a few minutes to complete.
+3. I dialog rutan **Ladda upp GitHub-lagringsplats** väljer du **klon rekursivt** eftersom det här alternativet refererar till länkade GitHub-databaser. Använd standard namnet eller ange ett nytt som projekt namn. Klicka sedan på **Importera** för att börja klona innehållet i GitHub, vilket kan ta några minuter att slutföra.
 
-   ![Import notebook](./media/notebooks/sentinel-create-project.png)
+   ![Importera antecknings bok](./media/notebooks/sentinel-create-project.png)
 
-4. Open the project you just created, and then open the **Notebooks** folder to see the notebooks. Exempel:
+4. Öppna det projekt som du nyss skapade och öppna sedan mappen **antecknings böcker** för att se antecknings böckerna. Till exempel:
 
-   ![Import repo](./media/notebooks/sentinel-open-notebook1.png)
+   ![Importera lagrings platsen](./media/notebooks/sentinel-open-notebook1.png)
 
-You can then run the notebooks from Azure Notebooks. To return to these notebooks from Azure Sentinel, select **Go to your Notebooks** from the command bar in **Azure Sentinel - Notebooks**:
+Du kan sedan köra antecknings böckerna från Azure Notebooks. Om du vill återgå till dessa antecknings böcker från Azure Sentinel väljer du **gå till dina antecknings böcker** från kommando fältet i **Azure Sentinel-Notebooks**:
 
 > [!div class="mx-imgBorder"]
->![Go to your Notebooks option](./media/notebooks/sentinel-azure-to-go-notebooks.png)
+>![gå till alternativ för antecknings boken](./media/notebooks/sentinel-azure-to-go-notebooks.png)
 
 
-## <a name="using-notebooks-to-hunt"></a>Using notebooks to hunt
+## <a name="using-notebooks-to-hunt"></a>Använda antecknings böcker till jakt
 
-Each notebook walks you through the steps for carrying out a hunt or investigation. Libraries and other dependencies needed by the notebook can be installed from the notebook itself or via a simple configuration procedure. Configuration that ties your notebook project back to your Azure Sentinel subscription is automatically provisioned in the preceding steps.
+Varje antecknings bok vägleder dig genom stegen för att genomföra en jakt eller undersökning. Bibliotek och andra beroenden som krävs av antecknings boken kan installeras från själva antecknings boken eller via en enkel konfigurations procedur. Konfigurationen som binder ditt Notebook-projekt tillbaka till din Azure Sentinel-prenumeration tillhandahålls automatiskt i föregående steg.
 
-1. If you're not already in Azure Notebooks, you can use the **Go to your Notebooks** option from the command bar in **Azure Sentinel - Notebooks**:
+1. Om du inte redan är i Azure Notebooks kan du använda alternativet **gå till dina antecknings böcker** från kommando fältet i **Azure Sentinel – antecknings böcker**:
     
     > [!div class="mx-imgBorder"]
-    >![Go to your Notebooks option](./media/notebooks/sentinel-azure-to-go-notebooks.png)
+    >![gå till alternativ för antecknings boken](./media/notebooks/sentinel-azure-to-go-notebooks.png)
     
-    In Azure Notebooks, select **My Projects**, then the project that contains the Azure Sentinel notebooks, and finally the **Notebooks** folder.
+    I Azure Notebooks väljer du **Mina projekt**, sedan projektet som innehåller Azure Sentinel-anteckningsbokar och slutligen mappen **Notebooks** .
     
-2. Before you open a notebook, be aware that by default, Free Compute is selected to run the notebooks:
+2. Innan du öppnar en bärbar dator bör du vara medveten om att som standard är den kostnads fria beräkningen markerad för att köra antecknings böckerna:
     
-   ![select notebook](./media/notebooks/sentinel-open-notebook2.png)
+   ![Välj antecknings bok](./media/notebooks/sentinel-open-notebook2.png)
     
-    If you've configured a Data Science Virtual Machines (DSVM) to use as explained in the introduction, select the DSVM and authenticate before you open the first notebook. 
+    Om du har konfigurerat en data vetenskaps Virtual Machines (DSVM) som ska användas som förklarad i introduktionen, väljer du DSVM och autentisera innan du öppnar den första antecknings boken. 
 
-3. Select a notebook to open it.
+3. Välj en antecknings bok för att öppna den.
     
-    The first time you open a notebook, you might be prompted to select a kernel version. If you're not prompted, you can select the kernel version from **Kernel** >  **Change kernel**, and then select a version that's at least 3.6. The selected kernel version is displayed in the top right of the notebook window:
+    Första gången du öppnar en antecknings bok kan du uppmanas att välja en kernel-version. Om du inte uppmanas kan du välja kernel-versionen från **kernel** >  **ändra kernel**och sedan välja en version som är minst 3,6. Den valda kernel-versionen visas längst upp till höger i anteckningsbok-fönstret:
     
-   ![select notebook](./media/notebooks/sentinel-select-kernel.png)
+   ![Välj antecknings bok](./media/notebooks/sentinel-select-kernel.png)
 
-4. Before you make any changes to notebook that you've downloaded, it's a good idea to make a copy of the original notebook and work on the copy. To do that, select **File** > **Make a Copy**. Working on copies lets you safely update to future versions of notebooks without overwriting any of your data.
+4. Innan du gör några ändringar i den antecknings bok som du har hämtat är det en bra idé att göra en kopia av den ursprungliga antecknings boken och arbeta på kopian. Det gör du genom att välja **fil** > **göra en kopia**. När du arbetar med kopior kan du på ett säkert sätt uppdatera framtida versioner av antecknings böcker utan att skriva över någon av dina data.
     
-    You're now ready to run or edit the selected notebook.
+    Du är nu redo att köra eller redigera den valda antecknings boken.
 
-Recommendations:
+Rekommenderade
 
-- For a quick introduction to querying data in Azure Sentinel, look at the [GetStarted](https://github.com/Azure/Azure-Sentinel/blob/master/Notebooks/Get%20Started.ipynb) notebook in the main **Notebooks** folder. 
+- En snabb introduktion till att fråga data i Azure Sentinel finns i antecknings boken för [GetStarted](https://github.com/Azure/Azure-Sentinel/blob/master/Notebooks/Get%20Started.ipynb) i mappen med huvud **antecknings böcker** . 
 
-- You'll find additional sample notebooks in the **Sample-Notebooks** subfolder. These sample notebooks have been saved with data, so that it's easier to see the intended output. We recommend viewing these notebooks in [nbviewer](https://nbviewer.jupyter.org/). 
+- Du hittar fler exempel på antecknings böcker i undermappen **exempel – Notebooks** . De här exempel antecknings böckerna har sparats med data så att det blir enklare att se avsedda utdata. Vi rekommenderar att du visar dessa antecknings böcker i [nbviewer](https://nbviewer.jupyter.org/). 
 
-- The **HowTos** folder contains notebooks describing, for example: Setting you default Python version, configuring a DSVM, creating Azure Sentinel bookmarks from a notebook, and other subjects.
+- Mappen **howtos** innehåller antecknings böcker som beskriver, till exempel: ställa in standard-python-version, konfigurera en DSVM, skapa Azure Sentinel-bokmärken från en bärbar dator och andra ämnen.
 
-The notebooks provided are intended as both useful tools and as illustrations and code samples that you can use in the development of your own notebooks.
+De antecknings böcker som tillhandahålls är både användbara verktyg och som illustrationer och kod exempel som du kan använda i utvecklingen av dina egna antecknings böcker.
 
-We welcome feedback, whether suggestions, requests for features, contributed Notebooks, bug reports or improvements and additions to existing notebooks. Go to the [Azure Sentinel Community GitHub](https://github.com/Azure/Azure-Sentinel) to create an issue or fork and upload a contribution.
+Vi välkomnar feedback, om förslag, förfrågningar om funktioner, antecknings böcker som har bidragit, fel rapporter eller förbättringar och tillägg till befintliga antecknings böcker. Gå till [Azure Sentinel community-GitHub](https://github.com/Azure/Azure-Sentinel) för att skapa ett ärende eller en förgrening och ladda upp ett bidrag.
 
 ## <a name="next-steps"></a>Nästa steg
 
-In this article, you learned how to get started using Jupyter notebooks in Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
+I den här artikeln har du lärt dig hur du kommer igång med Jupyter-anteckningsböcker i Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
 
-- [Proactively hunt for threats](hunting.md)
-- [Use bookmarks to save interesting information while hunting](bookmarks.md)
+- [Söker proaktivt efter hot](hunting.md)
+- [Använd bok märken för att spara intressant information under jakt](bookmarks.md)

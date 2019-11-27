@@ -1,6 +1,6 @@
 ---
-title: Moving data to Avere vFXT for Azure
-description: How to add data to a new storage volume for use with the Avere vFXT for Azure
+title: Flytta data till AVERT vFXT för Azure
+description: Så här lägger du till data till en ny lagrings volym för användning med AVERT vFXT för Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
@@ -13,63 +13,63 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74480589"
 ---
-# <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>Moving data to the vFXT cluster - Parallel data ingest
+# <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>Flytta data till vFXT-kluster – parallella data inmatningar
 
-After you've created a new vFXT cluster, your first task might be to move data onto its new storage volume. However, if your usual method of moving data is issuing a simple copy command from one client, you will likely see a slow copy performance. Single-threaded copying is not a good option for copying data to the Avere vFXT cluster's backend storage.
+När du har skapat ett nytt vFXT-kluster kan din första uppgift vara att flytta data till den nya lagrings volymen. Men om din vanliga metod för att flytta data utfärdar ett enkelt kopierings kommando från en klient, visas förmodligen en långsam kopierings prestanda. Enkel tråds kopiering är inte ett lämpligt alternativ för att kopiera data till det AVERT vFXT-klustrets Server dels lagring.
 
-Because the Avere vFXT cluster is a scalable multi-client cache, the fastest and most efficient way to copy data to it is with multiple clients. This technique parallelizes ingestion of the files and objects.
+Eftersom det vFXT-klustret är ett skalbart cacheminne för flera klienter, är det snabbaste och mest effektiva sättet att kopiera data till den med flera klienter. Den här metoden parallelizes inmatning av filer och objekt.
 
-![Diagram showing multi-client, multi-threaded data movement: At the top left, an icon for on-premises hardware storage has multiple arrows coming from it. The arrows point to four client machines. From each client machine three arrows point toward the Avere vFXT. From the Avere vFXT, multiple arrows point to Blob storage.](media/avere-vfxt-parallel-ingest.png)
+![Diagram över flera klienter, multi-threadd data förflyttning: längst upp till vänster finns det flera pilar från den lokala maskin varu lagringen. Pilarna pekar på fyra klient datorer. Från varje klient dator tre pilar pekar du mot AVERT vFXT. Från AVERT vFXT pekar flera pilar på Blob Storage.](media/avere-vfxt-parallel-ingest.png)
 
-The ``cp`` or ``copy`` commands that are commonly used to using to transfer data from one storage system to another are single-threaded processes that copy only one file at a time. This means that the file server is ingesting only one file at a time - which is a waste of the cluster’s resources.
+De ``cp``-eller ``copy``-kommandon som används ofta för att överföra data från ett lagrings system till ett annat är processer med enkel tråd som bara kopierar en fil i taget. Det innebär att fil servern bara matar in en fil i taget, vilket är ett avfall från klustrets resurser.
 
-This article explains strategies for creating a multi-client, multi-threaded file copying system to move data to the Avere vFXT cluster. It explains file transfer concepts and decision points that can be used for efficient data copying using multiple clients and simple copy commands.
+I den här artikeln beskrivs strategier för att skapa en fil kopierings system med flera klienter och flera trådar för att flytta data till ett AVERT vFXT-kluster. Den förklarar fil överförings koncept och besluts punkter som kan användas för effektiv data kopiering med hjälp av flera klienter och kommandon för enkel kopiering.
 
-It also explains some utilities that can help. The ``msrsync`` utility can be used to partially automate the process of dividing a dataset into buckets and using ``rsync`` commands. The ``parallelcp`` script is another utility that reads the source directory and issues copy commands automatically. Also, the ``rsync`` tool can be used in two phases to provide a quicker copy that still provides data consistency.
+Det beskriver också vissa verktyg som kan hjälpa dig. ``msrsync``-verktyget kan användas för att delvis automatisera processen med att dela upp en data uppsättning i buckets och använda ``rsync`` kommandon. ``parallelcp``-skriptet är ett annat verktyg som läser käll katalogen och utfärdar kopierings kommandon automatiskt. Verktyget ``rsync`` kan också användas i två faser för att ge en snabb kopia som fortfarande ger data konsekvens.
 
-Click the link to jump to a section:
+Klicka på länken för att gå till ett avsnitt:
 
-* [Manual copy example](#manual-copy-example) - A thorough explanation using copy commands
-* [Two-phase rsync example](#use-a-two-phase-rsync-process)
-* [Partially automated (msrsync) example](#use-the-msrsync-utility)
-* [Parallel copy example](#use-the-parallel-copy-script)
+* [Exempel på manuell kopiering](#manual-copy-example) – en grundlig förklaring med hjälp av kopierings kommandon
+* [Rsync-exempel för två faser](#use-a-two-phase-rsync-process)
+* [Exempel på delvis automatiserad (msrsync)](#use-the-msrsync-utility)
+* [Exempel på parallell kopiering](#use-the-parallel-copy-script)
 
-## <a name="data-ingestor-vm-template"></a>Data ingestor VM template
+## <a name="data-ingestor-vm-template"></a>Mall för data inmatnings dator
 
-A Resource Manager template is available on GitHub to automatically create a VM with the parallel data ingestion tools mentioned in this article.
+En Resource Manager-mall är tillgänglig på GitHub för att automatiskt skapa en virtuell dator med de verktyg för parallell data inmatning som nämns i den här artikeln.
 
-![diagram showing multiple arrows each from blob storage, hardware storage, and Azure file sources. The arrows point to a "data ingestor vm" and from there, multiple arrows point to the Avere vFXT](media/avere-vfxt-ingestor-vm.png)
+![diagram som visar flera pilar var och en från Blob Storage, maskin varu lagring och Azure-filkällor. Pilarna pekar på en "data insugnings VM" och därifrån pekar du på vFXT](media/avere-vfxt-ingestor-vm.png)
 
-The data ingestor VM is part of a tutorial where the newly created VM mounts the Avere vFXT cluster and downloads its bootstrap script from the cluster. Read [Bootstrap a data ingestor VM](https://github.com/Azure/Avere/blob/master/docs/data_ingestor.md) for details.
+Data inmatnings datorn är en del av en själv studie kurs där den nyskapade virtuella datorn monterar det vFXT klustret och laddar ned start skriptet från klustret. Läs [bootstrap en data inmatnings dator](https://github.com/Azure/Avere/blob/master/docs/data_ingestor.md) om du vill ha mer information.
 
-## <a name="strategic-planning"></a>Strategic planning
+## <a name="strategic-planning"></a>Strategisk planering
 
-When building a strategy to copy data in parallel, you should understand the tradeoffs in file size, file count, and directory depth.
+När du skapar en strategi för att kopiera data parallellt bör du förstå kompromisserna i fil storlek, antal filer och katalog djup.
 
-* When files are small, the metric of interest is files per second.
-* When files are large (10MiBi or greater), the metric of interest is bytes per second.
+* När filerna är små är måtten för intresse filer per sekund.
+* När filerna är stora (10MiBi eller större) är måttet för ränta byte per sekund.
 
-Each copy process has a throughput rate and a files-transferred rate, which can be measured by timing the length of the copy command and factoring the file size and file count. Explaining how to measure the rates is outside the scope of this document, but it is imperative to understand whether you’ll be dealing with small or large files.
+Varje kopierings process har en data flödes hastighet och en fil överförings hastighet, som kan mätas med tiden för kopierings kommandot och väga fil storleken och antalet filer. Att förklara hur priserna ska mätas ligger utanför omfånget för det här dokumentet, men det är absolut nödvändigt att förstå om du ska hantera små eller stora filer.
 
-## <a name="manual-copy-example"></a>Manual copy example
+## <a name="manual-copy-example"></a>Exempel på manuell kopiering
 
-You can manually create a multi-threaded copy on a client by running more than one copy command at once in the background against predefined sets of files or paths.
+Du kan manuellt skapa en flertrådad kopia på en klient genom att köra fler än ett kopierings kommando på en gång i bakgrunden mot fördefinierade uppsättningar av filer eller sökvägar.
 
-The Linux/UNIX ``cp`` command includes the argument ``-p`` to preserve ownership and mtime metadata. Adding this argument to the commands below is optional. (Adding the argument increases the number of filesystem calls sent from the client to the destination filesystem for metadata modification.)
+Kommandot Linux/UNIX ``cp`` innehåller argumentet ``-p`` för att bevara ägarskap och mtime metadata. Att lägga till det här argumentet i kommandona nedan är valfritt. (Om du lägger till argumentet ökar antalet fil Systems anrop som skickas från klienten till mål fil systemet för ändring av metadata.)
 
-This simple example copies two files in parallel:
+I det här enkla exemplet kopieras två filer parallellt:
 
 ```bash
 cp /mnt/source/file1 /mnt/destination1/ & cp /mnt/source/file2 /mnt/destination1/ &
 ```
 
-After issuing this command, the `jobs` command will show that two threads are running.
+När det här kommandot har utfärdats visar kommandot `jobs` att två trådar körs.
 
-### <a name="predictable-filename-structure"></a>Predictable filename structure
+### <a name="predictable-filename-structure"></a>Struktur för förutsägbar fil namn
 
-If your filenames are predictable, you can use expressions to create parallel copy threads.
+Om dina fil namn är förutsägbara kan du använda uttryck för att skapa parallella kopierings trådar.
 
-For example, if your directory contains 1000 files that are numbered sequentially from `0001` to `1000`, you can use the following expressions to create ten parallel threads that each copy 100 files:
+Om din katalog till exempel innehåller 1000 filer som numreras sekventiellt från `0001` till `1000`, kan du använda följande uttryck för att skapa tio parallella trådar som varje kopia 100-filer:
 
 ```bash
 cp /mnt/source/file0* /mnt/destination1/ & \
@@ -84,11 +84,11 @@ cp /mnt/source/file8* /mnt/destination1/ & \
 cp /mnt/source/file9* /mnt/destination1/
 ```
 
-### <a name="unknown-filename-structure"></a>Unknown filename structure
+### <a name="unknown-filename-structure"></a>Okänd fil namns struktur
 
-If your file-naming structure is not predictable, you can group files by directory names.
+Om fil namns strukturen inte är förutsägbar, kan du gruppera filer efter katalog namn.
 
-This example collects entire directories to send to ``cp`` commands run as background tasks:
+Det här exemplet samlar in hela kataloger som ska skickas till ``cp`` kommandon körs som bakgrunds aktiviteter:
 
 ```bash
 /root
@@ -100,7 +100,7 @@ This example collects entire directories to send to ``cp`` commands run as backg
 |-/dir1d
 ```
 
-After the files are collected, you can run parallel copy commands to recursively copy the subdirectories and all of their contents:
+När filerna har samlats in kan du köra kommandon för parallell kopiering för att rekursivt kopiera under katalogerna och allt dess innehåll:
 
 ```bash
 cp /mnt/source/* /mnt/destination/
@@ -111,11 +111,11 @@ cp -R /mnt/source/dir1/dir1c /mnt/destination/dir1/ & # this command copies dir1
 cp -R /mnt/source/dir1/dir1d /mnt/destination/dir1/ &
 ```
 
-### <a name="when-to-add-mount-points"></a>When to add mount points
+### <a name="when-to-add-mount-points"></a>När du ska lägga till monterings punkter
 
-After you have enough parallel threads going against a single destination filesystem mount point, there will be a point where adding more threads does not give more throughput. (Throughput will be measured in files/second or bytes/second, depending on your type of data.) Or worse, over-threading can sometimes cause a throughput degradation.
+När du har tillräckligt parallella trådar för en enda mål-filsystem-monterings punkt kommer det att finnas en punkt där det inte finns mer data flöde att lägga till fler trådar. (Data flödet mäts i filer/sekund eller byte per sekund, beroende på vilken typ av data du använder.) Eller sämre, kan övertråds teknik ibland orsaka en data flödes försämring.
 
-When this happens, you can add client-side mount points to other vFXT cluster IP addresses, using the same remote filesystem mount path:
+När detta inträffar kan du lägga till monterings punkter på klient sidan till andra vFXT-kluster-IP-adresser med samma fjärrfilsystem-monterings Sök väg:
 
 ```bash
 10.1.0.100:/nfs on /mnt/sourcetype nfs (rw,vers=3,proto=tcp,addr=10.1.0.100)
@@ -124,9 +124,9 @@ When this happens, you can add client-side mount points to other vFXT cluster IP
 10.1.1.103:/nfs on /mnt/destination3type nfs (rw,vers=3,proto=tcp,addr=10.1.1.103)
 ```
 
-Adding client-side mount points lets you fork off additional copy commands to the additional `/mnt/destination[1-3]` mount points, achieving further parallelism.
+Genom att lägga till monterings punkter på klient sidan kan du förgrena ut ytterligare kopierings kommandon till ytterligare `/mnt/destination[1-3]` monterings punkter, vilket ger ytterligare parallellitet.
 
-For example, if your files are very large, you might define the copy commands to use distinct destination paths, sending out more commands in parallel from the client performing the copy.
+Om filerna t. ex. är mycket stora kan du definiera kopierings kommandona för att använda olika mål Sök vägar, vilket skickar ut fler kommandon parallellt från den klient som utför kopian.
 
 ```bash
 cp /mnt/source/file0* /mnt/destination1/ & \
@@ -140,11 +140,11 @@ cp /mnt/source/file7* /mnt/destination2/ & \
 cp /mnt/source/file8* /mnt/destination3/ & \
 ```
 
-In the example above, all three destination mount points are being targeted by the client file copy processes.
+I exemplet ovan är alla tre mål monterings punkter riktade till klient fil kopierings processerna.
 
-### <a name="when-to-add-clients"></a>When to add clients
+### <a name="when-to-add-clients"></a>När du ska lägga till klienter
 
-Lastly, when you have reached the client's capabilities, adding more copy threads or additional mount points will not yield any additional files/sec or bytes/sec increases. In that situation, you can deploy another client with the same set of mount points that will be running its own sets of file copy processes.
+Slutligen, när du har nått klientens funktioner, ger ytterligare kopierings trådar eller ytterligare monterings punkter inga ytterligare filer/SEK eller byte/s ökar. I så fall kan du distribuera en annan klient med samma uppsättning monterings punkter som kommer att köra egna uppsättningar fil kopierings processer.
 
 Exempel:
 
@@ -166,11 +166,11 @@ Client4: cp -R /mnt/source/dir2/dir2d /mnt/destination/dir2/ &
 Client4: cp -R /mnt/source/dir3/dir3d /mnt/destination/dir3/ &
 ```
 
-### <a name="create-file-manifests"></a>Create file manifests
+### <a name="create-file-manifests"></a>Skapa fil manifest
 
-After understanding the approaches above (multiple copy-threads per destination, multiple destinations per client, multiple clients per network-accessible source filesystem), consider this recommendation: Build file manifests and then use them with copy commands across multiple clients.
+När du har lärt dig mer om metoderna ovan (flera Copy-threads per mål, flera mål per klient, flera klienter per nätverks lättillgängligt käll fil system), bör du tänka på följande rekommendation: Bygg fil manifest och Använd dem sedan med kopiera kommandon över flera klienter.
 
-This scenario uses the UNIX ``find`` command to create manifests of files or directories:
+I det här scenariot används UNIX ``find``-kommandot för att skapa manifest med filer eller kataloger:
 
 ```bash
 user@build:/mnt/source > find . -mindepth 4 -maxdepth 4 -type d
@@ -185,9 +185,9 @@ user@build:/mnt/source > find . -mindepth 4 -maxdepth 4 -type d
 ./atj5b55c53be6-02/support/trace/rolling
 ```
 
-Redirect this result to a file: `find . -mindepth 4 -maxdepth 4 -type d > /tmp/foo`
+Omdirigera det här resultatet till en fil: `find . -mindepth 4 -maxdepth 4 -type d > /tmp/foo`
 
-Then you can iterate through the manifest, using BASH commands to count files and determine the sizes of the subdirectories:
+Sedan kan du iterera genom manifestet med hjälp av BASH-kommandon för att räkna filer och fastställa storlekarna för under katalogerna:
 
 ```bash
 ben@xlcycl1:/sps/internal/atj5b5ab44b7f > for i in $(cat /tmp/foo); do echo " `find ${i} |wc -l` `du -sh ${i}`"; done
@@ -226,76 +226,76 @@ ben@xlcycl1:/sps/internal/atj5b5ab44b7f > for i in $(cat /tmp/foo); do echo " `f
 33     2.8G    ./atj5b5ab44b7f-03/support/trace/rolling
 ```
 
-Lastly, you must craft the actual file copy commands to the clients.
+Slutligen måste du hantverka de faktiska fil kopierings kommandona till klienterna.
 
-If you have four clients, use this command:
+Om du har fyra klienter använder du följande kommando:
 
 ```bash
 for i in 1 2 3 4 ; do sed -n ${i}~4p /tmp/foo > /tmp/client${i}; done
 ```
 
-If you have five clients, use something like this:
+Om du har fem klienter använder du något som liknar följande:
 
 ```bash
 for i in 1 2 3 4 5; do sed -n ${i}~5p /tmp/foo > /tmp/client${i}; done
 ```
 
-And for six.... Extrapolate as needed.
+Och för sex.... Extrapolera vid behov.
 
 ```bash
 for i in 1 2 3 4 5 6; do sed -n ${i}~6p /tmp/foo > /tmp/client${i}; done
 ```
 
-You will get *N* resulting files, one for each of your *N* clients that has the path names to the level-four directories obtained as part of the output from the `find` command.
+Du får *N* resulterande filer, en för var och en av dina *N* -klienter som har Sök vägs namnen på nivå fyra kataloger som erhålls som en del av utdata från kommandot `find`.
 
-Use each file to build the copy command:
+Använd varje fil för att bygga kopierings kommandot:
 
 ```bash
 for i in 1 2 3 4 5 6; do for j in $(cat /tmp/client${i}); do echo "cp -p -R /mnt/source/${j} /mnt/destination/${j}" >> /tmp/client${i}_copy_commands ; done; done
 ```
 
-The above will give you *N* files, each with a copy command per line, that can be run as a BASH script on the client.
+Ovan får du *N* filer, var och en med ett kopierings kommando per rad, som kan köras som ett bash-skript på klienten.
 
-The goal is to run multiple threads of these scripts concurrently per client in parallel on multiple clients.
+Målet är att köra flera trådar av dessa skript samtidigt per klient parallellt på flera klienter.
 
-## <a name="use-a-two-phase-rsync-process"></a>Use a two-phase rsync process
+## <a name="use-a-two-phase-rsync-process"></a>Använda en rsync process med två faser
 
-The standard ``rsync`` utility does not work well for populating cloud storage through the Avere vFXT for Azure system because it generates a large number of file create and rename operations to guarantee data integrity. However, you can safely use the ``--inplace`` option with ``rsync`` to skip the more careful copying procedure if you follow that with a second run that checks file integrity.
+Standard ``rsync``-verktyget fungerar inte bra för att fylla i moln lagring via det Avera vFXT för Azure-systemet eftersom det genererar ett stort antal fil skapande-och namnbytes åtgärder som garanterar data integriteten. Du kan dock på ett säkert sätt använda alternativet ``--inplace`` med ``rsync`` för att hoppa över den mer noggranna kopieringen om du följer den med en andra körning som kontrollerar fil integriteten.
 
-A standard ``rsync`` copy operation creates a temporary file and fills it with data. If the data transfer completes successfully, the temporary file is renamed to the original filename. This method guarantees consistency even if the files are accessed during copy. But this method generates more write operations, which slows file movement through the cache.
+En standard ``rsync`` kopierings åtgärd skapar en tillfällig fil och fyller den med data. Om data överföringen har slutförts får den temporära filen namnet till det ursprungliga fil namnet. Den här metoden garanterar konsekvens även om filerna nås under kopieringen. Men den här metoden genererar fler Skriv åtgärder, vilket saktar ned fil flyttningen via cachen.
 
-The option ``--inplace`` writes the new file directly in its final location. Files are not guaranteed to be consistent during transfer, but that is not important if you are priming a storage system for use later.
+Alternativet ``--inplace`` skriver den nya filen direkt på den slutgiltiga platsen. Filerna är inte garanterat konsekventa vid överföring, men det är inte viktigt om du Prima ett lagrings system för användning senare.
 
-The second ``rsync`` operation serves as a consistency check on the first operation. Because the files have already been copied, the second phase is a quick scan to ensure that the files on the destination match the files on the source. If any files don't match, they are recopied.
+Den andra ``rsync`` åtgärden fungerar som en konsekvens kontroll för den första åtgärden. Eftersom filerna redan har kopierats är den andra fasen en snabb genom gång för att säkerställa att filerna på målet matchar filerna på källan. Om några filer inte matchar kopieras de om.
 
-You can issue both phases together in one command:
+Du kan skicka båda faserna tillsammans i ett kommando:
 
 ```bash
 rsync -azh --inplace <source> <destination> && rsync -azh <source> <destination>
 ```
 
-This method is a simple and time-effective method for datasets up to the number of files the internal directory manager can handle. (This is typically 200 million files for a 3-node cluster, 500 million files for a six-node cluster, and so on.)
+Den här metoden är en enkel och tids effektiv metod för data uppsättningar upp till det antal filer som den interna katalog hanteraren kan hantera. (Detta är normalt 200 000 000 filer för ett kluster med tre noder, 500 000 000-filer för ett kluster med sex noder och så vidare.)
 
-## <a name="use-the-msrsync-utility"></a>Use the msrsync utility
+## <a name="use-the-msrsync-utility"></a>Använda verktyget msrsync
 
-The ``msrsync`` tool also can be used to move data to a backend core filer for the Avere cluster. This tool is designed to optimize bandwidth usage by running multiple parallel ``rsync`` processes. It is available from GitHub at <https://github.com/jbd/msrsync>.
+Verktyget ``msrsync`` kan också användas för att flytta data till en server dels kärna för det Avera klustret. Det här verktyget är utformat för att optimera bandbredds användningen genom att köra flera parallella ``rsync`` processer. Den är tillgänglig från GitHub på <https://github.com/jbd/msrsync>.
 
-``msrsync`` breaks up the source directory into separate “buckets” and then runs individual ``rsync`` processes on each bucket.
+``msrsync`` delar upp käll katalogen i separata "buckets" och kör sedan enskilda ``rsync`` processer i varje Bucket.
 
-Preliminary testing using a four-core VM showed best efficiency when using 64 processes. Use the ``msrsync`` option ``-p`` to set the number of processes to 64.
+Preliminär testning med en virtuell dator med fyra kärnor visade bäst effektivitet vid användning av 64-processer. Använd ``msrsync`` alternativet ``-p`` för att ange antalet processer till 64.
 
-You also can use the ``--inplace`` argument with ``msrsync`` commands. If you use this option, consider running a second command (as with [rsync](#use-a-two-phase-rsync-process), described above) to ensure data integrity.
+Du kan också använda argumentet ``--inplace`` med ``msrsync`` kommandon. Om du använder det här alternativet bör du överväga att köra ett andra kommando (som med [rsync](#use-a-two-phase-rsync-process), som beskrivs ovan) för att säkerställa data integriteten.
 
-``msrsync`` can only write to and from local volumes. The source and destination must be accessible as local mounts in the cluster’s virtual network.
+``msrsync`` kan bara skriva till och från lokala volymer. Källa och mål måste vara tillgängliga som lokala monteringar i klustrets virtuella nätverk.
 
-To use ``msrsync`` to populate an Azure cloud volume with an Avere cluster, follow these instructions:
+Följ dessa instruktioner om du vill använda ``msrsync`` för att fylla i en Azure Cloud-volym med ett AVERT kluster:
 
-1. Install ``msrsync`` and its prerequisites (rsync and Python 2.6 or later)
-1. Determine the total number of files and directories to be copied.
+1. Installera ``msrsync`` och dess förutsättningar (rsync och python 2,6 eller senare)
+1. Fastställ det totala antalet filer och kataloger som ska kopieras.
 
-   For example, use the Avere utility ``prime.py`` with arguments ```prime.py --directory /path/to/some/directory``` (available by downloading url <https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py>).
+   Använd till exempel verktyget aver ``prime.py`` med argument ```prime.py --directory /path/to/some/directory``` (tillgängligt genom att hämta URL <https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py>).
 
-   If not using ``prime.py``, you can calculate the number of items with the GNU ``find`` tool as follows:
+   Om du inte använder ``prime.py``kan du beräkna antalet objekt med verktyget GNU ``find`` enligt följande:
 
    ```bash
    find <path> -type f |wc -l         # (counts files)
@@ -303,29 +303,29 @@ To use ``msrsync`` to populate an Azure cloud volume with an Avere cluster, foll
    find <path> |wc -l                 # (counts both)
    ```
 
-1. Divide the number of items by 64 to determine the number of items per process. Use this number with the ``-f`` option to set the size of the buckets when you run the command.
+1. Dividera antalet objekt med 64 för att fastställa antalet objekt per process. Använd det här talet med alternativet ``-f`` för att ange buckets storlek när du kör kommandot.
 
-1. Issue the ``msrsync`` command to copy files:
+1. Utfärda ``msrsync``-kommandot för att kopiera filer:
 
    ```bash
    msrsync -P --stats -p 64 -f <ITEMS_DIV_64> --rsync "-ahv" <SOURCE_PATH> <DESTINATION_PATH>
    ```
 
-   If using ``--inplace``, add a second execution without the option to check that the data is correctly copied:
+   Om du använder ``--inplace``lägger du till en andra körning utan alternativet för att kontrol lera att data har kopierats korrekt:
 
    ```bash
    msrsync -P --stats -p 64 -f <ITEMS_DIV_64> --rsync "-ahv --inplace" <SOURCE_PATH> <DESTINATION_PATH> && msrsync -P --stats -p 64 -f <ITEMS_DIV_64> --rsync "-ahv" <SOURCE_PATH> <DESTINATION_PATH>
    ```
 
-   For example, this command is designed to move 11,000 files in 64 processes from /test/source-repository to /mnt/vfxt/repository:
+   Det här kommandot är till exempel utformat för att flytta 11 000-filer i 64-processer från/test/source-repository till/mnt/vfxt/repository:
 
    ``msrsync -P --stats -p 64 -f 170 --rsync "-ahv --inplace" /test/source-repository/ /mnt/vfxt/repository && msrsync -P --stats -p 64 -f 170 --rsync "-ahv --inplace" /test/source-repository/ /mnt/vfxt/repository``
 
-## <a name="use-the-parallel-copy-script"></a>Use the parallel copy script
+## <a name="use-the-parallel-copy-script"></a>Använd skriptet för parallell kopiering
 
-The ``parallelcp`` script also can be useful for moving data to your vFXT cluster's backend storage.
+``parallelcp``-skriptet kan också vara användbart för att flytta data till ditt vFXT-klusters Server dels lagring.
 
-The script below will add the executable `parallelcp`. (This script is designed for Ubuntu; if using another distribution, you must install ``parallel`` separately.)
+Skriptet nedan lägger till den körbara `parallelcp`. (Det här skriptet är utformat för Ubuntu. om du använder en annan distribution måste du installera ``parallel`` separat.)
 
 ```bash
 sudo touch /usr/bin/parallelcp && sudo chmod 755 /usr/bin/parallelcp && sudo sh -c "/bin/cat >/usr/bin/parallelcp" <<EOM
@@ -377,14 +377,14 @@ find \$SOURCE_DIR -mindepth 1 ! -type d -print0 | sed -z "s/\$SOURCE_DIR\///" | 
 EOM
 ```
 
-### <a name="parallel-copy-example"></a>Parallel copy example
+### <a name="parallel-copy-example"></a>Exempel på parallell kopiering
 
-This example uses the parallel copy script to compile ``glibc`` using source files from the Avere cluster.
+I det här exemplet används skriptet för parallell kopiering för att kompilera ``glibc`` med källfiler från det Avera klustret.
 <!-- xxx what is stored where? what is 'the avere cluster mount point'? xxx -->
 
-The source files are stored on the Avere cluster mount point, and the object files are stored on the local hard drive.
+Källfilerna lagras på kluster monterings punkten aver och objekten lagras på den lokala hård disken.
 
-This script uses parallel copy script above. The option ``-j`` is used with ``parallelcp`` and ``make`` to gain parallelization.
+Skriptet använder parallellt kopierings skript ovan. Alternativet ``-j`` används med ``parallelcp`` och ``make`` för att få parallellisering.
 
 ```bash
 sudo apt-get update

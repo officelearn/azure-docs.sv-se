@@ -1,6 +1,6 @@
 ---
 title: Översikt över modell för virtuell kärna
-description: The vCore purchasing model lets you independently scale compute and storage resources, match on-premises performance, and optimize price.
+description: Med vCore inköps modell kan du skala beräknings-och lagrings resurser oberoende av varandra, matcha lokala prestanda och optimera priset.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -8,176 +8,176 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 11/25/2019
-ms.openlocfilehash: 94728f2e4be6a16d048b4ff97bedefd5e32957ed
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.date: 11/27/2019
+ms.openlocfilehash: c5c7883295a30aa217e722abd905f54b982761d3
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481290"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547557"
 ---
 # <a name="vcore-model-overview"></a>Översikt över modell för virtuell kärna
 
-The virtual core (vCore) model provides several benefits:
+VCore-modellen (Virtual Core) ger flera fördelar:
 
-- Higher compute, memory, IO, and storage limits.
-- Control over the hardware generation to better match compute and memory requirements of the workload.
-- Pricing discounts for [Azure Hybrid Benefit (AHB)](sql-database-azure-hybrid-benefit.md) and [Reserved Instance (RI)](sql-database-reserved-capacity.md).
-- Greater transparency in the hardware details that power the compute; facilitates planning for migrations from on-premises deployments.
+- Högre beräknings-, minnes-, i/o-och lagrings gränser.
+- Kontroll över maskin varu genereringen för att bättre matcha beräknings-och minnes kraven för arbets belastningen.
+- Pris rabatter för [Azure Hybrid-förmån (AHB)](sql-database-azure-hybrid-benefit.md) och [reserverad instans (RI)](sql-database-reserved-capacity.md).
+- Bättre genomskinlighet i maskin varu informationen som gör beräkningen; underlättar planeringen av migreringar från lokala distributioner.
 
-## <a name="service-tiers"></a>Servicenivåer
+## <a name="service-tiers"></a>Tjänstnivåer
 
-Service tier options in the vCore model include General Purpose, Business Critical, and Hyperscale. The service tier generally defines the storage architecture, space and IO limits, and business continuity options related to availability and disaster recovery.
+Tjänst nivå alternativ i vCore-modellen omfattar Generell användning, Affärskritisk och storskalig. Tjänste nivån definierar vanligt vis lagrings arkitektur, utrymmes-och IO-gränser och affärs kontinuitets alternativ som rör tillgänglighet och haveri beredskap.
 
-||**Generellt syfte**|**Business critical**|**Hyperscale**|
+||**Generellt syfte**|**Verksamhets kritisk**|**Hyperskala**|
 |---|---|---|---|
-|Passar bäst för|Most business workloads. Offers budget-oriented, balanced, and scalable compute and storage options. |Offers business applications the highest resilience to failures by using several isolated replicas, and provides the highest I/O performance per database replica.|Most business workloads with highly scalable storage and read-scale requirements.  Offers higher resilience to failures by allowing configuration of more than one isolated database replica. |
-|Lagring|Uses remote storage.<br/>**Single database and elastic pool provisioned compute**:<br/>5 GB – 4 TB<br/>**Serverless compute**:<br/>5 GB - 3 TB<br/>**Managed instance**: 32 GB - 8 TB |Uses local SSD storage.<br/>**Single database and elastic pool provisioned compute**:<br/>5 GB – 4 TB<br/>**Managed instance**:<br/>32 GB - 4 TB |Flexible autogrow of storage as needed. Supports up to 100 TB of storage. Uses local SSD storage for local buffer-pool cache and local data storage. Uses Azure remote storage as final long-term data store. |
-|I/O throughput (approximate)|**Single database and elastic pool**: 500 IOPS per vCore up to 40000 maximum IOPS.<br/>**Managed instance**: Depends on [size of file](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|5000 IOPS per vCore up to 320,000 maximum IOPS|Hyperscale is a multi-tiered architecture with caching at multiple levels. Effective IOPs will depend on the workload.|
-|Tillgänglighet|1 replica, no read-scale replicas|3 replicas, 1 [read-scale replica](sql-database-read-scale-out.md),<br/>zone-redundant high availability (HA)|1 read-write replica, plus 0-4 [read-scale replicas](sql-database-read-scale-out.md)|
-|Säkerhetskopior|[Read-access geo-redundant storage (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|Snapshot-based backups in Azure remote storage. Restores use these snapshots for fast recovery. Backups are instantaneous and don't impact compute I/O performance. Restores are fast and aren't a size-of-data operation (taking minutes rather than hours or days).|
+|Bäst för|De flesta företags arbets belastningar. Erbjuder budget orienterade, balanserade och skalbara beräknings-och lagrings alternativ. |Erbjuder affärs program den högsta återhämtningen till problem genom att använda flera isolerade repliker och ger den högsta I/O-prestandan per databas replik.|De flesta företags arbets belastningar med mycket skalbara lagrings-och Läs skalnings krav.  Ger högre återhämtning till problem genom att tillåta konfiguration av mer än en isolerad databas replik. |
+|Storage|Använder Fjärrlagring.<br/>**Beräkning av enkel databas och elastisk pool**:<br/>5 GB – 4 TB<br/>**Server lös beräkning**:<br/>5 GB-3 TB<br/>**Hanterad instans**: 32 GB-8 TB |Använder lokal SSD-lagring.<br/>**Beräkning av enkel databas och elastisk pool**:<br/>5 GB – 4 TB<br/>**Hanterad instans**:<br/>32 GB – 4 TB |Flexibel automatisk storleks ökning av lagring vid behov. Har stöd för upp till 100 TB lagrings utrymme. Använder lokal SSD-lagring för lokal cache för buffring och lokal data lagring. Använder Azure Fjärrlagring som sista långsiktigt långsiktigt data lager. |
+|I/O-genomflöde (ungefärligt)|**Enkel databas och elastisk pool**: 500 IOPS per vCore upp till 40000 högsta IOPS.<br/>**Hanterad instans**: beror på [fil storleken](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|5000 IOPS per vCore upp till 320 000 maximal IOPS|Hög skalning är en arkitektur med flera nivåer med cachelagring på flera nivåer. Effektiv IOPs är beroende av arbets belastningen.|
+|Tillgänglighet|1 replik, inga storskaliga repliker|3 repliker, 1 [storskalig replik](sql-database-read-scale-out.md),<br/>zon-redundant hög tillgänglighet (HA)|1 Läs-och skriv replik, plus 0-4 storskalig [repliker](sql-database-read-scale-out.md)|
+|Säkerhetskopior|[Geo-redundant lagring med Läs behörighet (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dagar (7 dagar som standard)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dagar (7 dagar som standard)|Ögonblicks bilds säkerhets kopieringar i Azure Remote Storage. Återställningar använder dessa ögonblicks bilder för snabb återställning. Säkerhets kopieringar är omedelbara och påverkar inte beräknings-I/O-prestanda. Återställningar är snabba och är inte en storleks data åtgärd (tar några minuter i stället för timmar eller dagar).|
 |Minnesintern|Stöds inte|Stöds|Stöds inte|
 |||
 
 
 ### <a name="choosing-a-service-tier"></a>Välja tjänstnivå
 
-For information on selecting a service tier for your particular workload, see the following articles:
+Information om hur du väljer en tjänst nivå för din specifika arbets belastning finns i följande artiklar:
 
-- [When to choose the General purpose service tier](sql-database-service-tier-general-purpose.md#when-to-choose-this-service-tier)
-- [When to choose the Business Critical service tier](sql-database-service-tier-business-critical.md#when-to-choose-this-service-tier)
-- [When to choose the Hyperscale service tier](sql-database-service-tier-hyperscale.md#who-should-consider-the-hyperscale-service-tier)
+- [När du ska välja tjänst nivå för generell användning](sql-database-service-tier-general-purpose.md#when-to-choose-this-service-tier)
+- [När du ska välja Affärskritisk tjänst nivå](sql-database-service-tier-business-critical.md#when-to-choose-this-service-tier)
+- [När du ska välja den storskaliga tjänst nivån](sql-database-service-tier-hyperscale.md#who-should-consider-the-hyperscale-service-tier)
 
 
-## <a name="compute-tiers"></a>Compute tiers
+## <a name="compute-tiers"></a>Beräknings nivåer
 
-Compute tier options in the vCore model include the provisioned and serverless compute tiers.
+Alternativ för beräknings nivåer i vCore-modellen innehåller etablerade och Server lös beräknings nivåer.
 
 
 ### <a name="provisioned-compute"></a>Etablerad beräkning
 
-The provisioned compute tier provides a specific amount of compute resources that are continuously provisioned independent of workload activity, and bills for the amount of compute provisioned at a fixed price per hour.
+Den etablerade beräknings nivån tillhandahåller en viss mängd data bearbetnings resurser som ständigt har allokerats oberoende av arbets belastnings aktiviteten och faktureras för den mängd data som allokeras till ett fast pris per timme.
 
 
 ### <a name="serverless-compute"></a>Serverlös databearbetning
 
-The [serverless compute tier](sql-database-serverless.md) auto-scales compute resources based on workload activity, and bills for the amount of compute used per second.
+[Server lös beräknings nivån](sql-database-serverless.md) skalar automatiskt upp beräknings resurser baserat på arbets belastnings aktivitet och fakturerar för mängden data bearbetning som används per sekund.
 
 
 
-## <a name="hardware-generations"></a>Hardware generations
+## <a name="hardware-generations"></a>Maskin varu generationer
 
-Hardware generation options in the vCore model include Gen 4/5, M-series (preview), and Fsv2-series (preview). The hardware generation generally defines the compute and memory limits and other characteristics that impact the performance of the workload.
+Alternativen för att skapa maskin vara i vCore-modellen är gen 4/5, M-serien (för hands version) och Fsv2-serien (för hands version). Maskin varu generationen definierar vanligt vis beräknings-och minnes gränser och andra egenskaper som påverkar arbets Belastningens prestanda.
 
 ### <a name="gen4gen5"></a>Gen4/Gen5
 
-- Gen4/Gen5 hardware provides balanced compute and memory resources, and is suitable for most database workloads that do not have higher memory, higher vCore, or faster single vCore requirements as provided by Fsv2-series or M-series.
+- Gen4/Gen5-maskinvara ger balanserade beräknings-och minnes resurser och är lämplig för de flesta databas arbets belastningar som inte har högre minne, högre vCore eller snabbare enskilda vCore-krav enligt Fsv2-serien eller M-serien.
 
-For regions where Gen4/Gen5 is available, see [Gen4/Gen5 availability](#gen4gen5-1).
+För regioner där Gen4/Gen5 är tillgängligt, se [Gen4/Gen5-tillgänglighet](#gen4gen5-1).
 
-### <a name="fsv2-seriespreview"></a>Fsv2-series (preview)
+### <a name="fsv2-seriespreview"></a>Fsv2-serien (för hands version)
 
-- Fsv2-series is a compute optimized hardware option delivering low CPU latency and high clock speed for the most CPU demanding workloads.
-- Depending on the workload, Fsv2-series can deliver more CPU performance per vCore than Gen5, and the 72 vCore size can provide more CPU performance for less cost than 80 vCores on Gen5. 
-- Fsv2 provides less memory and tempdb per vCore than other hardware so workloads sensitive to those limits may want to consider Gen5 or M-series instead.  
+- Fsv2-serien är ett alternativ för att optimera maskin vara som ger låg processor latens och hög klock hastighet för de flesta processor krävande arbets belastningar.
+- Beroende på arbets belastningen kan Fsv2-serien leverera mer processor prestanda per vCore än Gen5 och vCore-storleken 72 ger mer processor prestanda för mindre kostnad än 80 virtuella kärnor på Gen5. 
+- Fsv2 ger mindre minne och tempdb per vCore än annan maskin vara, så arbets belastningarna som är känsliga för dessa gränser kan vilja överväga Gen5 eller M-serien i stället.  
 
-For regions where Fsv2-series is available, see [Fsv2-series availability](#fsv2-series).
-
-
-### <a name="m-seriespreview"></a>M-series (preview)
-
-- M-series is a memory optimized hardware option for workloads demanding more memory and higher compute limits than provided by Gen5.
-- M-series provides 29 GB per vCore and 128 vCores, which increases the memory limit relative to Gen5 by 8x to nearly 4 TB.
-
-To enable M-series hardware for a subscription and region, a support request must be open. If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).
+För regioner där Fsv2-serien är tillgänglig, se [tillgänglighet för Fsv2-serien](#fsv2-series).
 
 
-### <a name="compute-and-memory-specifications"></a>Compute and memory specifications
+### <a name="m-seriespreview"></a>M-serien (för hands version)
+
+- M-serien är ett minnesoptimerade maskin varu alternativ för arbets belastningar som kräver mer minnes-och högre beräknings gränser än vad som anges i Gen5.
+- M-serien tillhandahåller 29 GB per vCore och 128 virtuella kärnor, vilket ökar minnes gränsen i förhållande till Gen5 med 8x till nästan 4 TB.
+
+Om du vill aktivera maskin vara i M-serien för en prenumeration och region måste en supportbegäran vara öppen. Om support förfrågan godkänns, kommer valet och etablerings upplevelsen av M-serien att följa samma mönster som för andra maskin varu generationer. För regioner där M-serien är tillgänglig, se [tillgänglighet för m-serien](#m-series).
 
 
-|Hardware generation  |Databearbetning  |Minne  |
+### <a name="compute-and-memory-specifications"></a>Beräknings-och minnes specifikationer
+
+
+|Maskin varu generering  |Compute  |Minne  |
 |:---------|:---------|:---------|
-|Gen4     |- Intel E5-2673 v3 (Haswell) 2.4 GHz processors<br>- Provision up to 24 vCores (1 vCore = 1 physical core)  |- 7 GB per vCore<br>- Provision up to 168 GB|
-|Gen5     |**Provisioned compute**<br>- Intel E5-2673 v4 (Broadwell) 2.3 GHz processors<br>- Provision up to 80 vCores (1 vCore = 1 hyper-thread)<br><br>**Serverless compute**<br>- Intel E5-2673 v4 (Broadwell) 2.3 GHz processors<br>- Auto-scale up to 16 vCores (1 vCore = 1 hyper-thread)|**Provisioned compute**<br>- 5.1 GB per vCore<br>- Provision up to 408 GB<br><br>**Serverless compute**<br>- Auto-scale up to 24 GB per vCore<br>- Auto-scale up to 48 GB max|
-|Fsv2-serien     |- Intel Xeon Platinum 8168 (SkyLake) processors<br>- Featuring a sustained all core turbo clock speed of 3.4 GHz and a maximum single core turbo clock speed of 3.7 GHz.<br>- Provision 72 vCores (1 vCore = 1 hyper-thread)|- 1.9 GB per vCore<br>- Provision 136 GB|
-|M-serien     |- Intel Xeon E7-8890 v3 2.5 GHz processors<br>- Provision 128 vCores (1 vCore = 1 hyper-thread)|- 29 GB per vCore<br>- Provision 3.7 TB|
+|Gen4     |– Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer<br>-Etablera upp till 24 virtuella kärnor (1 vCore = 1 fysisk kärna)  |– 7 GB per vCore<br>-Etablera upp till 168 GB|
+|Gen5     |**Allokerad beräkning**<br>– Intel E5-2673 v4 (Broadwell) 2,3-GHz-och Intel SP-8160-processorer (Skylake)<br>-Etablera upp till 80 virtuella kärnor (1 vCore = 1 Hyper-Thread)<br><br>**Data behandling utan Server**<br>– Intel E5-2673 v4 (Broadwell) 2,3-GHz-och Intel SP-8160-processorer (Skylake)<br>-Skala upp till 16 virtuella kärnor (1 vCore = 1 Hyper-Thread) automatiskt|**Allokerad beräkning**<br>– 5,1 GB per vCore<br>-Etablera upp till 408 GB<br><br>**Data behandling utan Server**<br>-Skala upp till 24 GB per vCore automatiskt<br>-Skala upp till 48 GB max|
+|Fsv2-serien     |– Intel Xeon platina 8168-processorer (SkyLake)<br>– Med en hög kärnors klock hastighet på 3,4 GHz och en maximal Turbo Turbo klock hastighet på 3,7 GHz.<br>-Etablera 72 virtuella kärnor (1 vCore = 1 Hyper-Thread)|– 1,9 GB per vCore<br>-Etablera 136 GB|
+|M-serien     |– Intel Xeon-E7 – 8890 v3 2,5 GHz-processorer<br>-Etablera 128 virtuella kärnor (1 vCore = 1 Hyper-Thread)|– 29 GB per vCore<br>-Etablera 3,7 TB|
 
 
-For more information on resource limits, see [Resource limits for single databases (vCore)](sql-database-vcore-resource-limits-single-databases.md), or [Resource limits for elastic pools (vCore)](sql-database-vcore-resource-limits-elastic-pools.md).
+Mer information om resurs gränser finns i [resurs gränser för enskilda databaser (vCore)](sql-database-vcore-resource-limits-single-databases.md)eller [resurs gränser för elastiska pooler (vCore)](sql-database-vcore-resource-limits-elastic-pools.md).
 
-### <a name="selecting-a-hardware-generation"></a>Selecting a hardware generation
+### <a name="selecting-a-hardware-generation"></a>Välja en maskin varu generation
 
-In the Azure portal, you can select the hardware generation for a SQL database or pool at the time of creation, or you can change the hardware generation of an existing SQL database or pool.
+I Azure Portal kan du välja maskin varu generering för en SQL-databas eller-pool vid tidpunkten för skapandet eller ändra maskin varu generationen för en befintlig SQL-databas eller-pool.
 
-**To select a hardware generation when creating a SQL database or pool**
+**Så här väljer du en maskin varu generering när du skapar en SQL-databas eller-pool**
 
-For detailed information, see [Create a SQL database](sql-database-single-database-get-started.md).
+Detaljerad information finns i [skapa en SQL-databas](sql-database-single-database-get-started.md).
 
-On the **Basics** tab, select the **Configure database** link in the **Compute + storage** section, and then select the **Change configuration** link:
+På fliken **grundläggande** väljer du länken **Konfigurera databas** i avsnittet **Compute + Storage** och väljer sedan länken **ändra konfiguration** :
 
   ![konfigurera databasen](media/sql-database-service-tiers-vcore/configure-sql-database.png)
 
-Select the desired hardware generation:
+Välj önskad maskin varu generation:
 
-  ![select hardware](media/sql-database-service-tiers-vcore/select-hardware.png)
+  ![Välj maskin vara](media/sql-database-service-tiers-vcore/select-hardware.png)
 
 
-**To change the hardware generation of an existing SQL database or pool**
+**Ändra maskin varu genereringen för en befintlig SQL-databas eller-pool**
 
-For a database, on the Overview page, select the **Pricing tier** link:
+För en databas, på sidan Översikt, väljer du länken **pris nivå** :
 
-  ![change hardware](media/sql-database-service-tiers-vcore/change-hardware.png)
+  ![ändra maskin vara](media/sql-database-service-tiers-vcore/change-hardware.png)
 
-For a pool, on the Overview page, select **Configure**.
+Välj **Konfigurera**på sidan Översikt för en pool.
 
-Follow the steps to change configuration, and select the hardware generation as described in the previous steps.
+Följ stegen för att ändra konfigurationen och välj maskin varu skapande enligt beskrivningen i föregående steg.
 
-### <a name="hardware-availability"></a>Hardware availability
+### <a name="hardware-availability"></a>Maskin varu tillgänglighet
 
-#### <a name="gen4gen5-1"></a> Gen4/Gen5
+#### <a name="gen4gen5-1"></a>Gen4/Gen5
 
-New Gen4 databases are no longer supported in the Australia East or Brazil South regions. 
+Nya Gen4-databaser stöds inte längre i regionerna Australien, östra eller Brasilien, södra. 
 
-Gen5 is available in most regions worldwide.
+Gen5 är tillgängligt i de flesta regioner i hela världen.
 
 #### <a name="fsv2-series"></a>Fsv2-serien
 
-Fsv2-series is available in the following regions: Australia Central, Australia Central 2, Australia East, Australia Southeast, Brazil South, Canada Central, East Asia, East Us, France Central, India Central, India West, Korea Central, Korea South, North Europe, South Africa North, Southeast Asia, UK South, UK West, West Europe, West Us 2.
+Fsv2-serien är tillgänglig i följande regioner: Australien, centrala, Australien, östra, Australien, sydöstra, södra Brasilien, centrala Kanada, Asien, östra, östra USA, centrala Frankrike, centrala Indien, västra Indien, centrala Korea, Nord Korea Europa, Sydafrika, norra, Sydostasien, Storbritannien, södra, Storbritannien, västra, Västeuropa, västra USA 2.
 
 
 #### <a name="m-series"></a>M-serien
 
-M-series is available in the following regions: East US, North Europe, West Europe, West US 2.
-M-series may also have limited availability in additional regions. You can request a different region than listed here, but fulfillment in a different region may not be possible.
+M-serien är tillgänglig i följande regioner: östra USA, norra Europa, Västeuropa, västra USA 2.
+M-serien kan också ha begränsad tillgänglighet i ytterligare regioner. Du kan begära en annan region än vad som anges här, men det är möjligt att det inte går att utföra en annan region.
 
-To enable M-series availability in a subscription, access must be requested by [filing a new support request](#create-a-support-request-to-enable-m-series).
+Om du vill aktivera tillgänglighet för M-serien i en prenumeration måste du begära det genom att skicka in [en ny supportbegäran](#create-a-support-request-to-enable-m-series).
 
 
-##### <a name="create-a-support-request-to-enable-m-series"></a>Create a support request to enable M-series: 
+##### <a name="create-a-support-request-to-enable-m-series"></a>Skapa en support förfrågan för att aktivera M-serien: 
 
-1. Select **Help + support** in the portal.
+1. Välj **Hjälp + Support** i portalen.
 2. Välj **Ny supportbegäran**.
 
-On the **Basics** page, provide the following:
+På sidan **grundläggande** inställningar anger du följande:
 
-1. For **Issue type**, select **Service and subscription limits (quotas)** .
-2. For **Subscription** = select the subscription to enable M-series.
-3. For **Quota type**, select **SQL database**.
-4. Select **Next** to go to the **Details** page.
+1. För **typ av problem**väljer du **begränsningar för tjänsten och prenumerationen (kvoter)** .
+2. För **prenumeration** = väljer du den prenumeration som du vill aktivera M-serien.
+3. I **typ av kvot**väljer du **SQL-databas**.
+4. Välj **Nästa** för att gå till sidan **information** .
 
-On the **Details** page, provide the following:
+På sidan **information** anger du följande:
 
-5. In the **PROBLEM DETAILS** section select the **Provide details** link. 
-6. For **SQL Database quota type** select **M-series**.
-7. For **Region**, select the region to enable M-series.
-    For regions where M-series is available, see [M-series availability](#m-series).
+5. I avsnittet **problem information** väljer du länken **Tillhandahåll information** . 
+6. Välj **M-serien**för **SQL Database kvot typ** .
+7. För **region**väljer du den region där du vill aktivera M-serien.
+    För regioner där M-serien är tillgänglig, se [tillgänglighet för m-serien](#m-series).
 
-Approved support requests are typically fulfilled within 5 business days.
+Godkända support ärenden är vanligt vis uppfyllda inom 5 arbets dagar.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- To create a SQL database, see [Creating a SQL database using the Azure portal](sql-database-single-database-get-started.md).
-- For the specific compute sizes and storage size choices available for single databases, see [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits-single-databases.md).
-- For the specific compute sizes and storage size choices available for elastic pools, see [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md).
-- For pricing details, see the [Azure SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/single/).
+- Information om hur du skapar en SQL-databas finns i [skapa en SQL-databas med hjälp av Azure Portal](sql-database-single-database-get-started.md).
+- De angivna beräknings storlekarna och lagrings storleks alternativen för enskilda databaser finns i [SQL Database vCore resurs gränser för enskilda databaser](sql-database-vcore-resource-limits-single-databases.md).
+- De angivna beräknings storlekarna och lagrings storleks alternativen för elastiska pooler finns i [SQL Database vCore resurs gränser för elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md).
+- Pris information finns på sidan med [Azure SQL Database priser](https://azure.microsoft.com/pricing/details/sql-database/single/).

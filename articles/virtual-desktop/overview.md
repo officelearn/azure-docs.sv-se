@@ -1,6 +1,6 @@
 ---
 title: Vad är Windows Virtual Desktop? – Azure
-description: An overview of Windows Virtual Desktop.
+description: En översikt över virtuella Windows-datorer.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -16,79 +16,79 @@ ms.locfileid: "74227708"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Vad är Windows Virtual Desktop? 
 
-Windows Virtual Desktop is a desktop and app virtualization service that runs on the cloud.
+Windows Virtual Desktop är en Skriv bords-och app Virtualization-tjänst som körs i molnet.
 
-Here’s what you can do when you run Windows Virtual Desktop on Azure:
+Det här kan du göra när du kör Windows Virtual Desktop på Azure:
 
-* Set up a multi-session Windows 10 deployment that delivers a full Windows 10 with scalability
-* Virtualize Office 365 ProPlus and optimize it to run in multi-user virtual scenarios
-* Provide Windows 7 virtual desktops with free Extended Security Updates
-* Bring your existing Remote Desktop Services (RDS) and Windows Server desktops and apps to any computer
-* Virtualize both desktops and apps
-* Manage Windows 10, Windows Server, and Windows 7 desktops and apps with a unified management experience
+* Konfigurera en Windows 10-distribution med flera sessioner som ger en fullständig Windows 10 med skalbarhet
+* Virtualisera Office 365 ProPlus och optimera det för att köras i virtuella scenarier med flera användare
+* Tillhandahålla virtuella Windows 7-datorer med kostnads fria utökade säkerhets uppdateringar
+* Ta med dina befintliga Fjärrskrivbordstjänster (RDS) och Windows Server-datorer och appar till valfri dator
+* Virtualisera både Station ära datorer och appar
+* Hantera Windows 10-, Windows Server-och Windows 7-datorer och-appar med en enhetlig hanterings upplevelse
 
-## <a name="introductory-video"></a>Introductory video
+## <a name="introductory-video"></a>Introduktions video
 
-Learn about Windows Virtual Desktop, why it’s unique, and what’s new in this video:
+Lär dig om virtuella Windows-datorer, varför det är unikt och vad som är nytt i den här videon:
 
 <br></br><iframe src="https://www.youtube.com/embed/NQFtI3JLtaU" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
-For more videos about Windows Virtual Desktop, see [our playlist](https://www.youtube.com/watch?v=NQFtI3JLtaU&list=PLXtHYVsvn_b8KAKw44YUpghpD6lg-EHev).
+Mer information om virtuella Windows-datorer finns i [vår spelnings lista](https://www.youtube.com/watch?v=NQFtI3JLtaU&list=PLXtHYVsvn_b8KAKw44YUpghpD6lg-EHev).
 
 ## <a name="key-capabilities"></a>De viktigaste funktionerna
 
-With Windows Virtual Desktop, you can set up a scalable and flexible environment:
+Med Windows Virtual Desktop kan du konfigurera en skalbar och flexibel miljö:
 
-* Create a full desktop virtualization environment in your Azure subscription without having to run any additional gateway servers.
-* Publish as many host pools as you need to accommodate your diverse workloads.
-* Bring your own image for production workloads or test from the Azure Gallery.
-* Reduce costs with pooled, multi-session resources. With the new Windows 10 Enterprise multi-session capability exclusive to Windows Virtual Desktop and Remote Desktop Session Host (RDSH) role on Windows Server, you can greatly reduce the number of virtual machines and operating system (OS) overhead while still providing the same resources to your users.
-* Provide individual ownership through personal (persistent) desktops.
+* Skapa en fullständig Virtualization-miljö för skriv bord i din Azure-prenumeration utan att behöva köra några ytterligare Gateway-servrar.
+* Publicera så många värdbaserade pooler som du behöver för att hantera dina olika arbets belastningar.
+* Ta med din egen bild för produktions arbets belastningar eller test från Azure-galleriet.
+* Minska kostnaderna med poolbaserade resurser för flera sessioner. Med den nya funktionen Windows 10 Enterprise multi-session exklusiv till Windows Virtual Desktop och värd för fjärrskrivbordssession (RDSH) i Windows Server kan du minska antalet virtuella datorer och operativ system (OS) samtidigt som du fortfarande tillhandahålla samma resurser för dina användare.
+* Ge individuella ägarskap via personliga (beständiga) Skriv bord.
 
-You can deploy and manage virtual desktops:
+Du kan distribuera och hantera virtuella skriv bord:
 
-* Use the Windows Virtual Desktop PowerShell and REST interfaces to configure the host pools, create app groups, assign users, and publish resources.
-* Publish full desktop or individual remote apps from a single host pool, create individual app groups for different sets of users, or even assign users to multiple app groups to reduce the number of images.
-* As you manage your environment, use built-in delegated access to assign roles and collect diagnostics to understand various configuration or user errors.
-* Use the new Diagnostics service to troubleshoot errors.
-* Only manage the image and virtual machines, not the infrastructure. You don't need to personally manage the Remote Desktop roles like you do with Remote Desktop Services, just the virtual machines in your Azure subscription.
+* Använd Windows Virtual Desktop PowerShell och REST Interfaces för att konfigurera värd grupper, skapa app-grupper, tilldela användare och publicera resurser.
+* Publicera hela Skriv bordet eller enskilda fjärrappar från en enda adresspool, skapa enskilda grupp grupper för olika uppsättningar med användare eller till och med tilldela användare till flera app-grupper för att minska antalet avbildningar.
+* När du hanterar din miljö kan du använda inbyggd delegerad åtkomst för att tilldela roller och samla in diagnostik för att förstå olika konfigurations-eller användar fel.
+* Använd den nya diagnostik tjänsten för att felsöka fel.
+* Hantera bara avbildningen och virtuella datorer, inte infrastrukturen. Du behöver inte personligen hantera de fjärr skrivbords roller som du gör med Fjärrskrivbordstjänster, bara de virtuella datorerna i din Azure-prenumeration.
 
-You can also assign and connect users to your virtual desktops:
+Du kan också tilldela och ansluta användare till dina virtuella skriv bord:
 
-* Once assigned, users can launch any Windows Virtual Desktop client to connect users to their published Windows desktops and applications. Connect from any device through either a native application on your device or the Windows Virtual Desktop HTML5 web client.
-* Securely establish users through reverse connections to the service, so you never have to leave any inbound ports open.
+* När de har tilldelats kan användarna starta en virtuell Windows-klient för att ansluta användare till publicerade Windows-datorer och program. Anslut från valfri enhet via antingen ett inbyggt program på din enhet eller på Windows Virtual Desktop HTML5 webb klient.
+* Upprätta en säker anslutning till tjänsten på ett säkert sätt, så att du aldrig behöver lämna några öppna inkommande portar.
 
 ## <a name="requirements"></a>Krav
 
-There are a few things you need to set up Windows Virtual Desktop and successfully connect your users to their Windows desktops and applications.
+Det finns några saker du behöver för att konfigurera virtuella Windows-datorer och ansluta dina användare till sina Windows-datorer och program.
 
-We plan to add support for the following OSes, so make sure you have the [appropriate licenses](https://azure.microsoft.com/pricing/details/virtual-desktop/) for your users based on the desktop and apps you plan to deploy:
+Vi planerar att lägga till stöd för följande operativ system, så se till att du har [lämpliga licenser](https://azure.microsoft.com/pricing/details/virtual-desktop/) för dina användare baserat på Skriv bordet och appar som du planerar att distribuera:
 
-|OS|Required license|
+|Operativsystem|Nödvändig licens|
 |---|---|
-|Windows 10 Enterprise multi-session or Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
+|Windows 10 Enterprise multi-session eller Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
 |Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
-|Windows Server 2012 R2, 2016, 2019|RDS Client Access License (CAL) with Software Assurance|
+|Windows Server 2012 R2, 2016, 2019|Klient åtkomst licens för fjärr skrivbords tjänster med Software Assurance|
 
-Your infrastructure needs the following things to support Windows Virtual Desktop:
+Infrastrukturen behöver följande saker för att stödja Windows Virtual Desktop:
 
-* An [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)
-* A Windows Server Active Directory in sync with Azure Active Directory. You can configure this with one of the following:
-  * Azure AD Connect (for hybrid organizations)
-  * Azure AD Domain Services (for hybrid or cloud organizations)
-* An Azure subscription that contains a virtual network that either contains or is connected to the Windows Server Active Directory
+* En [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)
+* En Windows Server-Active Directory som synkroniseras med Azure Active Directory. Du kan konfigurera detta med något av följande:
+  * Azure AD Connect (för Hybrid organisationer)
+  * Azure AD Domain Services (för Hybrid-eller moln organisationer)
+* En Azure-prenumeration som innehåller ett virtuellt nätverk som antingen innehåller eller är ansluten till Windows Server-Active Directory
   
-The Azure virtual machines you create for Windows Virtual Desktop must be:
+De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste vara:
 
-* [Standard domain-joined](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) or [Hybrid AD-joined](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Virtual machines can't be Azure AD-joined.
-* Running one of the following [supported OS images](#supported-virtual-machine-os-images).
+* [Standard domän ansluten](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) eller [hybrid AD-ansluten](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Virtuella datorer kan inte vara Azure AD-anslutna.
+* Köra en av följande [OS-avbildningar som stöds](#supported-virtual-machine-os-images).
 
 >[!NOTE]
->If you need an Azure subscription, you can [sign up for a one-month free trial](https://azure.microsoft.com/free/). If you're using the free trial version of Azure, you should use Azure AD Domain Services to keep your Windows Server Active Directory in sync with Azure Active Directory.
+>Om du behöver en Azure-prenumeration kan du [Registrera dig för en kostnads fri utvärderings version av en månad](https://azure.microsoft.com/free/). Om du använder den kostnads fria utvärderings versionen av Azure bör du använda Azure AD Domain Services för att hålla Windows Server-Active Directory synkroniserad med Azure Active Directory.
 
-The Azure virtual machines you create for Windows Virtual Desktop must have outbound TCP 443 access to the following URLs:
+De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste ha utgående TCP 443-åtkomst till följande URL: er:
 
-* *.wvd.microsoft.com
+* *. wvd.microsoft.com
 * *.blob.core.windows.net
 * *.core.windows.net
 * *.servicebus.windows.net
@@ -96,52 +96,52 @@ The Azure virtual machines you create for Windows Virtual Desktop must have outb
 * catalogartifact.azureedge.net
 
 >[!NOTE]
->Opening these URLs is essential for a reliable Windows Virtual Desktop deployment. Blocking access to these URLs is unsupported and will affect service functionality. These URLs only correspond to Windows Virtual Desktop sites and resources, and do not include URLS for other services like Azure AD.
+>Att öppna dessa URL: er är viktigt för en tillförlitlig Windows-distribution av virtuella skriv bord. Det finns inte stöd för att blockera åtkomst till dessa URL: er och det påverkar service funktionerna. Dessa URL: er motsvarar bara Windows virtuella Skriv bords platser och resurser och inkluderar inte URL: er för andra tjänster som Azure AD.
 
-Windows Virtual Desktop comprises the Windows desktops and apps you deliver to users and the management solution, which is hosted as a service on Azure by Microsoft. Desktops and apps can be deployed on virtual machines (VMs) in any Azure region, and the management solution and data for these VMs will reside in the United States. This may result in data transfer to the United States.
+Windows Virtual Desktop består av Windows-datorer och appar som du levererar till användare och hanterings lösningen, som är värdbaserad som en tjänst på Azure av Microsoft. Skriv bord och appar kan distribueras på virtuella datorer i valfri Azure-region och hanterings lösningen och data för dessa virtuella datorer finns i USA. Detta kan leda till att data överförs till USA.
 
-For optimal performance, make sure your network meets the following requirements:
+För bästa prestanda bör du kontrol lera att nätverket uppfyller följande krav:
 
-* Round-trip (RTT) latency from the client's network to the Azure region where host pools have been deployed should be less than 150 ms.
-* Network traffic may flow outside country/region borders when VMs that host desktops and apps connect to the management service.
-* To optimize for network performance, we recommend that the session host's VMs are collocated in the same Azure region as the management service.
+* Svars tid för tur och retur från klientens nätverk till den Azure-region där värdbaserade pooler har distribuerats måste vara mindre än 150 ms.
+* Nätverks trafiken kan flöda utanför lands-/region gränser när virtuella datorer som är värdar för Station ära datorer och appar ansluter till hanterings tjänsten.
+* För att optimera för nätverks prestanda rekommenderar vi att de virtuella datorerna i samordnad i samma Azure-region som hanterings tjänsten.
 
-## <a name="supported-remote-desktop-clients"></a>Supported Remote Desktop clients
+## <a name="supported-remote-desktop-clients"></a>Fjärr skrivbords klienter som stöds
 
-The following Remote Desktop clients support Windows Virtual Desktop:
+Följande fjärr skrivbords klienter stöder virtuellt skriv bord i Windows:
 
 * [Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-windows-7-and-10)
 * [HTML5](https://docs.microsoft.com/azure/virtual-desktop/connect-web)
 
-## <a name="supported-virtual-machine-os-images"></a>Supported virtual machine OS images
+## <a name="supported-virtual-machine-os-images"></a>OS-avbildningar för virtuella datorer som stöds
 
-Windows Virtual Desktop supports the following x64 operating system images:
+Windows Virtual Desktop stöder följande x64-operativ system avbildningar:
 
-* Windows 10 Enterprise multi-session, version 1809 or later
-* Windows 10 Enterprise, version 1809 or later
+* Windows 10 Enterprise multi-session, version 1809 eller senare
+* Windows 10 Enterprise, version 1809 eller senare
 * Windows 7 Enterprise
 * Windows Server 2019
 * Windows Server 2016
 * Windows Server 2012 R2
 
-Windows Virtual Desktop does not support x86 (32-bit), Windows 10 Enterprise N, or Windows 10 Enterprise KN operating system images.
+Windows Virtual Desktop stöder inte x86 (32-bitars), Windows 10 Enterprise N eller Windows 10 Enterprise KN-operativsystem avbildningar.
 
-Available automation and deployment options depend on which OS and version you choose, as shown in the following table: 
+Tillgängliga alternativ för Automation och distribution beror på vilket operativ system och vilken version du väljer, som du ser i följande tabell: 
 
-|Operativsystem|Azure Image Gallery|Manual VM deployment|Azure Resource Manager template integration|Provision host pools on Azure Marketplace|Windows Virtual Desktop Agent updates|
+|Operativsystem|Azures avbildnings Galleri|Manuell distribution av virtuella datorer|Azure Resource Manager mall-integrering|Etablera värdbaserade pooler på Azure Marketplace|Uppdateringar av Windows Virtual Desktop agent|
 |--------------------------------------|:------:|:------:|:------:|:------:|:------:|
 |Windows 10 multi-session, version 1903|Ja|Ja|Ja|Ja|Automatisk|
 |Windows 10 multi-session, version 1809|Ja|Ja|Nej|Nej|Automatisk|
 |Windows 10 Enterprise, version 1903|Ja|Ja|Ja|Ja|Automatisk|
 |Windows 10 Enterprise, version 1809|Ja|Ja|Nej|Nej|Automatisk|
-|Windows 7 Enterprise|Ja|Ja|Nej|Nej|Manuellt|
+|Windows 7 Enterprise|Ja|Ja|Nej|Nej|Manuell|
 |Windows Server 2019|Ja|Ja|Nej|Nej|Automatisk|
 |Windows Server 2016|Ja|Ja|Ja|Ja|Automatisk|
 |Windows Server 2012 R2|Ja|Ja|Nej|Nej|Automatisk|
 
 ## <a name="next-steps"></a>Nästa steg
 
-To get started, you'll need to create a tenant. To learn more about how to create a tenant, continue to the tenant creation tutorial.
+För att komma igång måste du skapa en klient. Om du vill veta mer om hur du skapar en klient fortsätter du till självstudien för skapande av innehavare.
 
 > [!div class="nextstepaction"]
 > [Skapa en klientorganisation i Windows Virtual Desktop](tenant-setup-azure-active-directory.md)

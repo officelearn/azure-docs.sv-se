@@ -392,7 +392,7 @@ I den här artikeln ingår några externa komponenter i AKS. Mer information om 
 
 - [Helm CLI][helm-cli]
 - [NGINX ingress-styrenhet][nginx-ingress]
-- [cert-manager][cert-manager]
+- [CERT-Manager][cert-manager]
 
 Du kan också:
 

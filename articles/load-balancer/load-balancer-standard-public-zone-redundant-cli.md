@@ -1,7 +1,7 @@
 ---
-title: Load balance zone-redundant VMs using Azure CLI
+title: Belastnings Utjämnings zon – redundanta virtuella datorer med Azure CLI
 titleSuffix: Azure Load Balancer
-description: Learn how to create a public Standard Load Balancer with zone redundant frontend using Azure CLI
+description: Lär dig hur du skapar en offentlig Standard Load Balancer med zon redundant klient del med Azure CLI
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -21,9 +21,9 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74225275"
 ---
-#  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Load balance VMs across all availability zones using Azure CLI
+#  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Belastningsutjämna virtuella datorer i alla tillgänglighets zoner med Azure CLI
 
-This article steps through creating a public [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) with a zone-redundant frontend to achieve zone-redundancy without dependency on multiple DNS records. A single front-end IP address is automatically zone-redundant.  Using a zone redundant frontend for your load balancer, with a single IP address you can now reach any VM in a virtual network within a region that is across all Availability Zones. Använd tillgänglighetszoner för att skydda dina appar och data från ett osannolikt fel eller förlust av ett helt datacenter.
+Den här artikeln steg för steg hur du skapar en offentlig [standard Load Balancer](https://aka.ms/azureloadbalancerstandard) med en zon redundant klient del för att uppnå zon-redundans utan beroende av flera DNS-poster. En enda IP-adress på klient sidan är automatiskt zon-redundant.  Genom att använda en zon redundant klient del för belastningsutjämnaren, med en enda IP-adress, kan du nu komma åt en virtuell dator i ett virtuellt nätverk inom en region som är över alla Tillgänglighetszoner. Använd tillgänglighetszoner för att skydda dina appar och data från ett osannolikt fel eller förlust av ett helt datacenter.
 
 Mer information om hur du använder tillgänglighetszoner med standardlastbalanserare finns i [Standard Load Balancer och tillgänglighet zoner](load-balancer-standard-availability-zones.md).
 
@@ -31,16 +31,16 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running Azure CLI version 2.0.17 or higher.  Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI-version 2.0.17 eller senare för den här självstudien.  Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli). 
 
 > [!NOTE]
-> Support for Availability Zones is available for select Azure resources and regions, and VM size families. For more information on how to get started, and which Azure resources, regions, and VM size families you can try availability zones with, see [Overview of Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview). Du kan få support via [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) eller genom att [öppna ett Azure-supportärende](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
+> Stöd för Tillgänglighetszoner är tillgänglig för väljer Azure-resurser och regioner och VM-storlekar. Mer information om hur du kommer igång och vilka Azure-resurser, regioner och VM-storlekar som du kan prova tillgänglighets zoner med finns i [Översikt över Tillgänglighetszoner](https://docs.microsoft.com/azure/availability-zones/az-overview). Du kan få support via [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) eller genom att [öppna ett Azure-supportärende](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
 Skapa en resursgrupp med [az group create](/cli/azure/group#az-group-create). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
 
-The following example creates a resource group named *myResourceGroupSLB* in the *westeurope* location:
+I följande exempel skapas en resurs grupp med namnet *myResourceGroupSLB* på *westeurope* -platsen:
 
 ```azurecli-interactive
 az group create \
@@ -48,10 +48,10 @@ az group create \
 --location westeurope
 ```
 
-## <a name="create-a-zone-redundant-public-ip-standard"></a>Create a zone redundant public IP Standard
-För att kunna komma åt din app på Internet behöver du en offentlig IP-adress för lastbalanseraren. A zone-redundant front-end is served by all availability zones in a region simultaneously. Create a zone redundant public IP address with [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create). When you create a Standard Public  IP address, it is zone redundant by default.
+## <a name="create-a-zone-redundant-public-ip-standard"></a>Skapa en zon med redundant offentlig IP-standard
+För att kunna komma åt din app på Internet behöver du en offentlig IP-adress för lastbalanseraren. En zon-redundant front-end hanteras av alla tillgänglighets zoner i en region samtidigt. Skapa en zon redundant offentlig IP-adress med [AZ Network Public-IP Create](/cli/azure/network/public-ip#az-network-public-ip-create). När du skapar en offentlig standard-IP-adress är zonen är redundant som standard.
 
-The following example creates a zone redundant public IP address named *myPublicIP* in the *myResourceGroupLoadBalancer* resource group.
+I följande exempel skapas en zon med redundant offentlig IP-adress med namnet *myPublicIP* i resurs gruppen *myResourceGroupLoadBalancer* .
 
 ```azurecli-interactive
 az network public-ip create \
@@ -60,15 +60,15 @@ az network public-ip create \
 --sku Standard
 ```
 
-## <a name="create-azure-standard-load-balancer"></a>Create Azure Standard Load Balancer
+## <a name="create-azure-standard-load-balancer"></a>Skapa Azure-Standard Load Balancer
 I det här avsnittet beskrivs hur du gör för att skapa och konfigurera följande komponenter i lastbalanseraren:
 - en klientdels-IP-pool som tar emot inkommande nätverkstrafik i lastbalanseraren.
-- en serverdels-IP-pool dit klientdelspoolen skickar den belastningsutjämnade nätverkstrafiken.
+- en serverdels-IP-pool om klientdelspoolen skickar den belastningsutjämnade nätverkstrafiken.
 - en hälsoavsökning som fastställer hälsan för serverdelens virtuella datorinstanser.
 - en lastbalanseringsregel som definierar hur trafiken ska distribueras till de virtuella datorerna.
 
 ### <a name="create-the-load-balancer"></a>Skapa lastbalanseraren
-Create a Standard load balancer with [az network lb create](/cli/azure/network/lb#az-network-lb-create). The following example creates a load balancer named *myLoadBalancer* and assigns the *myPublicIP* address to the front-end IP configuration.
+Skapa en standard Load Balancer med [AZ Network lb Create](/cli/azure/network/lb#az-network-lb-create). Följande exempel skapar en belastningsutjämnare med namnet *myLoadBalancer* och tilldelar *myPublicIP* -adressen till klient delens IP-konfiguration.
 
 ```azurecli-interactive
 az network lb create \
@@ -80,9 +80,9 @@ az network lb create \
 --sku Standard
 ```
 
-## <a name="create-health-probe-on-port-80"></a>Create health probe on port 80
+## <a name="create-health-probe-on-port-80"></a>Skapa hälso avsökning på port 80
 
-En hälsoavsökning kontrollerar alla virtuella datorinstanser för att säkerställa att de kan skicka nätverkstrafik. Den virtuella datorinstansen med misslyckad hälsoavsökning tas bort från lastbalanseraren tills den är tillbaka online och en avsökningskontroll visar att den är felfri. Create a health probe with az network lb probe create to monitor the health of the virtual machines. Skapa en TCP-hälsoavsökning med [az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create). I följande exempel skapas en hälsoavsökning med namnet *myHealthProbe*:
+En hälsoavsökning kontrollerar alla virtuella datorinstanser för att säkerställa att de kan skicka nätverkstrafik. Den virtuella datorinstansen med misslyckad hälsoavsökning tas bort från lastbalanseraren tills den är tillbaka online och en avsökningskontroll visar att den är felfri. Skapa en hälso avsökning med AZ Network lb PROBE Create för att övervaka hälso tillståndet för de virtuella datorerna. Skapa en TCP-hälsoavsökning med [az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create). I följande exempel skapas en hälsoavsökning med namnet *myHealthProbe*:
 
 ```azurecli-interactive
 az network lb probe create \
@@ -93,7 +93,7 @@ az network lb probe create \
 --port 80
 ```
 
-## <a name="create-load-balancer-rule-for-port-80"></a>Create load balancer rule for port 80
+## <a name="create-load-balancer-rule-for-port-80"></a>Skapa belastnings Utjämnings regel för port 80
 En lastbalanseringsregel definierar klientdelens IP-konfiguration för inkommande trafik och serverdelens IP-pool för att ta emot trafiken, tillsammans med nödvändiga käll- och målportar. Skapa lastbalanseringsregeln *myLoadBalancerRuleWeb* med [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create) så att du kan lyssna på port 80 i klientdelspoolen *myFrontEndPool* och skicka lastbalanserad nätverkstrafik till serverdelsadresspoolen *myBackEndPool* som också använder port 80.
 
 ```azurecli-interactive
@@ -114,7 +114,7 @@ Innan du kan distribuera virtuella datorer och testa din lastbalanserare måste 
 
 ### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-Create a virtual network named *myVnet* with a subnet named *mySubnet* in the myResourceGroup using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create).
+Skapa ett virtuellt nätverk med namnet *myVnet* med ett undernät med namnet *mitt undernät* i myResourceGroup med [AZ Network VNet Create](/cli/azure/network/vnet#az-network-vnet-create).
 
 
 ```azurecli-interactive
@@ -127,7 +127,7 @@ az network vnet create \
 
 ### <a name="create-a-network-security-group"></a>Skapa en nätverkssäkerhetsgrupp
 
-Create network security group named *myNetworkSecurityGroup* to define inbound connections to your virtual network  with [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create).
+Skapa nätverks säkerhets grupp med namnet *myNetworkSecurityGroup* för att definiera inkommande anslutningar till ditt virtuella nätverk med [AZ Network NSG Create](/cli/azure/network/nsg#az-network-nsg-create).
 
 ```azurecli-interactive
 az network nsg create \
@@ -135,7 +135,7 @@ az network nsg create \
 --name myNetworkSecurityGroup
 ```
 
-Create a network security group rule named *myNetworkSecurityGroupRule* for port 80 with [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create).
+Skapa en regel för nätverks säkerhets grupp med namnet *myNetworkSecurityGroupRule* för port 80 med [AZ Network NSG Rule Create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create).
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -152,7 +152,7 @@ az network nsg rule create \
 --priority 200
 ```
 ### <a name="create-nics"></a>Skapa nätverkskort
-Create three virtual NICs with [az network nic create](/cli/azure/network/nic#az-network-nic-create) and associate them with the Public IP address and the network security group. The following example creates six virtual NICs. (Det vill säga ett virtuellt nätverkskort för varje virtuell dator som du skapar för din app i följande steg.) Du kan skapa ytterligare virtuella nätverkskort och virtuella datorer när du vill och lägga till dem i lastbalanseraren:
+Skapa tre virtuella nätverkskort med [AZ Network NIC Create](/cli/azure/network/nic#az-network-nic-create) och koppla dem till den offentliga IP-adressen och nätverks säkerhets gruppen. I följande exempel skapas sex virtuella nätverkskort. (Det vill säga ett virtuellt nätverkskort för varje virtuell dator som du skapar för din app i följande steg.) Du kan skapa ytterligare virtuella nätverkskort och virtuella datorer när du vill och lägga till dem i lastbalanseraren:
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -167,7 +167,7 @@ for i in `seq 1 3`; do
 done
 ```
 ## <a name="create-backend-servers"></a>Skapa serverdelsservrar
-In this example, you create three virtual machines located in zone 1, zone 2, and zone 3 to be used as backend servers for the load balancer. You also install NGINX on the virtual machines to verify that the load balancer was successfully created.
+I det här exemplet skapar du tre virtuella datorer som finns i zon 1, zon 2 och zon 3 som ska användas som backend-servrar för belastningsutjämnaren. Du installerar även NGINX på de virtuella datorerna för att kontrol lera att belastningsutjämnaren har skapats.
 
 ### <a name="create-cloud-init-config"></a>Skapa en cloud-init-konfiguration
 
@@ -215,10 +215,10 @@ runcmd:
   - nodejs index.js
 ```
 
-### <a name="create-the-zonal-virtual-machines"></a>Create the zonal virtual machines
-Create the VMs with [az vm create](/cli/azure/vm#az-vm-create) in zone 1, zone 2, and zone 3. The following example creates a VM in each zone and generates SSH keys if they do not already exist:
+### <a name="create-the-zonal-virtual-machines"></a>Skapa de virtuella zonindelade-datorerna
+Skapa de virtuella [datorerna med AZ VM Create](/cli/azure/vm#az-vm-create) i zon 1, zon 2 och zon 3. I följande exempel skapas en virtuell dator i varje zon och SSH-nycklar skapas om de inte redan finns:
 
-Create a VM in each zone (zone 1, zone2, and zone 3) of the *westeurope* location.
+Skapa en virtuell dator i varje zon (zon 1, 1 och zon 3) för *westeurope* -platsen.
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -234,7 +234,7 @@ done
 ```
 ## <a name="test-the-load-balancer"></a>Testa lastbalanseraren
 
-Get the public IP address of the load balancer using [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). 
+Hämta den offentliga IP-adressen för belastningsutjämnaren med [AZ Network Public-IP show](/cli/azure/network/public-ip#az-network-public-ip-show). 
 
 ```azurecli-interactive
   az network public-ip show \
@@ -247,7 +247,7 @@ Du kan sedan ange den offentliga IP-adressen i en webbläsare. Kom ihåg att det
 
 ![Köra Node.js-app](./media/load-balancer-standard-public-zone-redundant-cli/running-nodejs-app.png)
 
-To see the load balancer distribute traffic across VMs in all three availability zones running your app, you can stop a VM in a particular zone and refresh your browser.
+Om du vill se belastningsutjämnaren distribuerar trafik mellan virtuella datorer i alla tre tillgänglighets zoner som kör din app, kan du stoppa en virtuell dator i en viss zon och uppdatera webbläsaren.
 
 ## <a name="next-steps"></a>Nästa steg
 - Mer information finns i [Standard Load Balancer](./load-balancer-standard-overview.md)

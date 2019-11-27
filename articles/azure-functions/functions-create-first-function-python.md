@@ -1,5 +1,5 @@
 ---
-title: Create an HTTP triggered Python function in Azure
+title: Skapa en HTTP-utlöst python-funktion i Azure
 description: Lär dig hur du skapar din första Python-funktion i Azure med hjälp av Azure Functions Core Tools och Azure CLI.
 ms.date: 11/07/2019
 ms.topic: quickstart
@@ -11,95 +11,95 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74227194"
 ---
-# <a name="quickstart-create-an-http-triggered-python-function-in-azure"></a>Quickstart: Create an HTTP triggered Python function in Azure
+# <a name="quickstart-create-an-http-triggered-python-function-in-azure"></a>Snabb start: skapa en HTTP-utlöst python-funktion i Azure
 
-This article shows you how to use command-line tools to create a Python project that runs in Azure Functions. You also create a function that is triggered by an HTTP request. After running locally, you publish your project to run as a [serverless function](functions-scale.md#consumption-plan) in Azure. 
+Den här artikeln visar hur du använder kommando rads verktyg för att skapa ett python-projekt som körs i Azure Functions. Du skapar också en funktion som utlöses av en HTTP-begäran. När du har kört lokalt publicerar du ditt projekt så att det körs som en [Server lös funktion](functions-scale.md#consumption-plan) i Azure. 
 
-This article is the first of two Python quickstarts for Azure Functions. After you complete this quickstart, you can [add an Azure Storage queue output binding](functions-add-output-binding-storage-queue-python.md) to your function.
+Den här artikeln är den första av två python-snabb starter för Azure Functions. När du har slutfört den här snabb starten kan du [lägga till en Azure Storage utgående bindning för kön](functions-add-output-binding-storage-queue-python.md) till din funktion.
 
-There is also a [Visual Studio Code-based version](/azure/python/tutorial-vs-code-serverless-python-01) of this article.
+Det finns också en [Visual Studio Code-baserad version](/azure/python/tutorial-vs-code-serverless-python-01) av den här artikeln.
 
 ## <a name="prerequisites"></a>Krav
 
-Before you start, you must:
+Innan du börjar måste du:
 
-+ Install [Python 3.7.4](https://www.python.org/downloads/). This version of Python is verified with Functions. Python 3.8 and later versions are not yet supported.
++ Installera [python-3.7.4](https://www.python.org/downloads/). Den här versionen av python verifieras med Functions. Python 3,8 och senare versioner stöds inte ännu.
 
-+ Install [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.7.1846 or a later version.
++ Installera [Azure Functions Core tools](./functions-run-local.md#v2) version 2.7.1846 eller en senare version.
 
-+ Install the [Azure CLI](/cli/azure/install-azure-cli) version 2.0.76 or a later version.
++ Installera [Azure CLI](/cli/azure/install-azure-cli) -versionen 2.0.76 eller en senare version.
 
-+ Have an active Azure subscription.
++ Ha en aktiv Azure-prenumeration.
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-and-activate-a-virtual-environment"></a>Skapa och aktivera en virtuell miljö
 
-You should use a Python 3.7 environment to locally develop Python functions. Kör följande kommandon för att skapa och aktivera en virtuell miljö med namnet `.venv`.
+Du bör använda en python 3,7-miljö för att utveckla python-funktioner lokalt. Kör följande kommandon för att skapa och aktivera en virtuell miljö med namnet `.venv`.
 
 > [!NOTE]
-> If Python didn't install venv on your Linux distribution, you can install it using the following command:
+> Om python inte har installerat venv på din Linux-distribution kan du installera det med hjälp av följande kommando:
 > ```command
 > sudo apt-get install python3-venv
 
-### <a name="bash"></a>Bash:
+### <a name="bash"></a>Bash
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
 ```
 
-### <a name="powershell-or-a-windows-command-prompt"></a>PowerShell or a Windows command prompt:
+### <a name="powershell-or-a-windows-command-prompt"></a>PowerShell eller en kommando tolk i Windows:
 
 ```powershell
 py -m venv .venv
 .venv\scripts\activate
 ```
 
-Now that you activated the virtual environment, run the remaining commands in it. To get out of the virtual environment, run `deactivate`.
+Nu när du har aktiverat den virtuella miljön kör du de återstående kommandona i den. Kör `deactivate`för att ta bort den virtuella miljön.
 
-## <a name="create-a-local-functions-project"></a>Create a local functions project
+## <a name="create-a-local-functions-project"></a>Skapa ett lokalt Functions-projekt
 
-A functions project can have multiple functions that all share the same local and hosting configurations.
+Ett Functions-projekt kan ha flera funktioner som alla delar samma lokala och värdbaserade konfigurationer.
 
-In the virtual environment, run the following commands:
+Kör följande kommandon i den virtuella miljön:
 
 ```console
 func init MyFunctionProj --python
 cd MyFunctionProj
 ```
 
-The `func init` command creates a _MyFunctionProj_ folder. The Python project in this folder doesn't yet have any functions. You'll add them next.
+Kommandot `func init` skapar en _MyFunctionProj_ -mapp. Python-projektet i den här mappen har inte några funktioner än. Du lägger till dem härnäst.
 
 ## <a name="create-a-function"></a>Skapa en funktion
 
-To add a function to your project, run the following command:
+Om du vill lägga till en funktion i projektet kör du följande kommando:
 
 ```console
 func new --name HttpTrigger --template "HTTP trigger"
 ```
 
-This commands creates a subfolder named _HttpTrigger_, which contains the following files:
+Med det här kommandot skapar du en undermapp med namnet _HttpTrigger_, som innehåller följande filer:
 
-* *function.json*: configuration file that defines the function, trigger, and other bindings. Notice that in this file, the value for `scriptFile` points to the file containing the function, and the `bindings` array defines the invocation trigger and bindings.
+* *Function. JSON*: konfigurations fil som definierar funktionen, utlösaren och andra bindningar. Observera att värdet för `scriptFile` pekar på filen som innehåller funktionen i den här filen och att `bindings` matrisen definierar anrops utlösaren och bindningarna.
 
-    Each binding requires a direction, type and a unique name. The HTTP trigger has an input binding of type [`httpTrigger`](functions-bindings-http-webhook.md#trigger) and output binding of type [`http`](functions-bindings-http-webhook.md#output).
+    Varje bindning kräver en riktning, skriv och ett unikt namn. HTTP-utlösaren har en inkommande bindning av typen [`httpTrigger`](functions-bindings-http-webhook.md#trigger) och utgående bindning av typen [`http`](functions-bindings-http-webhook.md#output).
 
-* *\_\_init\_\_.py*: script file that is your HTTP triggered function. Notice that this script has a default `main()`. HTTP data from the trigger passes to the function using the `req` named `binding parameter`. The `req`, which is defined in function.json, is an instance of the [azure.functions.HttpRequest class](/python/api/azure-functions/azure.functions.httprequest). 
+* *\_\_init\_\_. py*: skript fil som är din http-utlöst funktion. Observera att det här skriptet har en standard `main()`. HTTP-data från utlösaren skickas till funktionen med hjälp av `req` med namnet `binding parameter`. `req`, som definieras i function. JSON, är en instans av [klassen Azure. functions. HttpRequest](/python/api/azure-functions/azure.functions.httprequest). 
 
-    The return object, defined as `$return` in *function.json*, is an instance of [azure.functions.HttpResponse class](/python/api/azure-functions/azure.functions.httpresponse). To learn more, see [Azure Functions HTTP triggers and bindings](functions-bindings-http-webhook.md).
+    Returvärdet, som definieras som `$return` i *Function. JSON*, är en instans av [klassen Azure. functions. HttpResponse](/python/api/azure-functions/azure.functions.httpresponse). Läs mer i [Azure Functions HTTP-utlösare och bindningar](functions-bindings-http-webhook.md).
 
-Now you can run the new function on your local computer.
+Nu kan du köra den nya funktionen på den lokala datorn.
 
 ## <a name="run-the-function-locally"></a>Kör funktionen lokalt
 
-This command starts the function app using the Azure Functions runtime (func.exe):
+Med det här kommandot startar du Function-appen med hjälp av Azure Functions Runtime (Func. exe):
 
 ```console
 func host start
 ```
 
-You should see the following information written to the output:
+Du bör se följande information som skrivs till utdata:
 
 ```output
 Http Functions:
@@ -107,27 +107,27 @@ Http Functions:
         HttpTrigger: http://localhost:7071/api/HttpTrigger    
 ```
 
-Copy the URL of your `HttpTrigger` function from this output and paste it into your browser's address bar. Lägg till frågesträngen `?name=<yourname>` i webbadressen och kör din begäran. The following screenshot shows the response to the GET request that the local function returns to the browser:
+Kopiera URL: en för din `HttpTrigger`-funktion från den här utdata och klistra in den i webbläsarens Adress fält. Lägg till frågesträngen `?name=<yourname>` i webbadressen och kör din begäran. Följande skärm bild visar svaret på GET-begäran som den lokala funktionen returnerar till webbläsaren:
 
-![Verify locally in the browser](./media/functions-create-first-function-python/function-test-local-browser.png)
+![Verifiera lokalt i webbläsaren](./media/functions-create-first-function-python/function-test-local-browser.png)
 
-Use Ctrl+C to shut down your function app execution.
+Använd CTRL + C om du vill stänga av funktionen för att köra appen.
 
-Now that you have run your function locally, you can deploy your function code to Azure.  
-Before you can deploy your app, you'll need to create some Azure resources.
+Nu när du har kört funktionen lokalt kan du distribuera funktions koden till Azure.  
+Innan du kan distribuera din app måste du skapa några Azure-resurser.
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
 
 [!INCLUDE [functions-create-storage-account](../../includes/functions-create-storage-account.md)]
 
-## <a name="create-a-function-app-in-azure"></a>Create a function app in Azure
+## <a name="create-a-function-app-in-azure"></a>Skapa en Function-app i Azure
 
-A function app provides an environment for executing your function code. Där kan du gruppera funktioner som en logisk enhet så att det blir enklare att hantera, distribuera och dela resurser. 
+En Function-app tillhandahåller en miljö för att köra funktions koden. Där kan du gruppera funktioner som en logisk enhet så att det blir enklare att hantera, distribuera och dela resurser. 
 
-Kör följande kommando. Replace `<APP_NAME>` with a unique function app name. Replace `<STORAGE_NAME>` with a storage account name. `<APP_NAME>` är även DNS-standarddomänen för funktionsappen. Det här namnet måste vara unikt inom alla appar i Azure.
+Kör följande kommando. Ersätt `<APP_NAME>` med ett unikt namn för Function-appen. Ersätt `<STORAGE_NAME>` med ett lagrings konto namn. `<APP_NAME>` är även DNS-standarddomänen för funktionsappen. Det här namnet måste vara unikt inom alla appar i Azure.
 
 > [!NOTE]
-> You can't host Linux and Windows apps in the same resource group. If you have an existing resource group named `myResourceGroup` with a Windows function app or web app, you must use a different resource group.
+> Du kan inte vara värd för Linux-och Windows-appar i samma resurs grupp. Om du har en befintlig resurs grupp med namnet `myResourceGroup` med en Windows Function-app eller en webbapp måste du använda en annan resurs grupp.
 
 ```azurecli-interactive
 az functionapp create --resource-group myResourceGroup --os-type Linux \
@@ -135,21 +135,21 @@ az functionapp create --resource-group myResourceGroup --os-type Linux \
 --name <APP_NAME> --storage-account  <STORAGE_NAME>
 ```
 
-The preceding command creates a function app running Python 3.7.4. It also provisions an associated Azure Application Insights instance in the same resource group. You can use this instance to monitor your function app and view logs. 
+Föregående kommando skapar en Function-app som kör python-3.7.4. Den etablerar även en associerad Azure Application insikts-instans i samma resurs grupp. Du kan använda den här instansen för att övervaka din Function-app och Visa loggar. 
 
-You're now ready to publish your local functions project to the function app in Azure.
+Nu är du redo att publicera ditt lokala Functions-projekt till Function-appen i Azure.
 
 ## <a name="deploy-the-function-app-project-to-azure"></a>Distribuera funktionsapprojektet till Azure
 
-After you create the function app in Azure, you can use the [func azure functionapp publish](functions-run-local.md#project-file-deployment) Core Tools command to deploy your project code to Azure. In this example, replace `<APP_NAME>` with the name of your app.
+När du har skapat Function-appen i Azure kan du använda kommandot [FUNC Azure-functionapp publicera](functions-run-local.md#project-file-deployment) Core-verktyg för att distribuera projekt koden till Azure. I det här exemplet ersätter du `<APP_NAME>` med namnet på din app.
 
 ```console
 func azure functionapp publish <APP_NAME> --build remote
 ```
 
-The `--build remote` option builds your Python project remotely in Azure from the files in the deployment package, which is recommended. 
+Med alternativet `--build remote` skapas ett python-projekt via fjärr anslutning i Azure från filerna i distributions paketet, vilket rekommenderas. 
 
-You'll see output similar to the following message. It's truncated here so you can read it better:
+Du ser utdata som liknar följande meddelande. Den trunkeras här så att du kan läsa den bättre:
 
 ```output
 Getting site publishing info...
@@ -165,16 +165,16 @@ Functions in myfunctionapp:
         Invoke url: https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....
 ```
 
-You can copy the `Invoke url` value for your `HttpTrigger` and use it to verify your function in Azure. The URL contains a `code` query string value that is your function key, which makes it difficult for others to call your HTTP trigger endpoint in Azure.
+Du kan kopiera `Invoke url`-värdet för din `HttpTrigger` och använda det för att verifiera din funktion i Azure. URL: en innehåller ett `code` frågesträngs värde som är din funktions nyckel, vilket gör det svårt för andra att anropa en slut punkt för HTTP-utlösare i Azure.
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 
 > [!NOTE]
-> To view near real-time logs for a published Python app, use the [Application Insights Live Metrics Stream](functions-monitoring.md#streaming-logs).
+> Om du vill visa nära real tids loggar för en publicerad python-app använder du [Application Insights Live Metrics Stream](functions-monitoring.md#streaming-logs).
 
 ## <a name="next-steps"></a>Nästa steg
 
-You've created a Python functions project with an HTTP triggered function, run it on your local machine, and deployed it to Azure. Now, extend your function by...
+Du har skapat ett python Functions-projekt med en HTTP-utlöst funktion, kört den på din lokala dator och distribuerat den till Azure. Nu kan du utöka din funktion efter...
 
 > [!div class="nextstepaction"]
-> [Adding an Azure Storage queue output binding](functions-add-output-binding-storage-queue-python.md)
+> [Lägga till en Azure Storage utgående bindning för kö](functions-add-output-binding-storage-queue-python.md)

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Wikispaces | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Wikispaces.
+title: 'Självstudie: Azure Active Directory integrering med Wikispaces | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Wikispaces.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -22,13 +22,13 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74233309"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-wikispaces"></a>Tutorial: Azure Active Directory integration with Wikispaces
+# <a name="tutorial-azure-active-directory-integration-with-wikispaces"></a>Självstudie: Azure Active Directory integrering med Wikispaces
 
-In this tutorial, you learn how to integrate Wikispaces with Azure Active Directory (Azure AD).
-Integrating Wikispaces with Azure AD provides you with the following benefits:
+I den här självstudien får du lära dig hur du integrerar Wikispaces med Azure Active Directory (Azure AD).
+Genom att integrera Wikispaces med Azure AD får du följande fördelar:
 
-* You can control in Azure AD who has access to Wikispaces.
-* You can enable your users to be automatically signed-in to Wikispaces (Single Sign-On) with their Azure AD accounts.
+* Du kan styra i Azure AD som har åtkomst till Wikispaces.
+* Du kan göra det möjligt för användarna att logga in automatiskt till Wikispaces (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -36,24 +36,24 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="prerequisites"></a>Krav
 
-To configure Azure AD integration with Wikispaces, you need the following items:
+Om du vill konfigurera Azure AD-integrering med Wikispaces behöver du följande objekt:
 
-* En Azure AD-prenumeration. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
-* Wikispaces single sign-on enabled subscription
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/)
+* Wikispaces-aktiverad prenumeration med enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Wikispaces supports **SP** initiated SSO
+* Wikispaces stöder **SP** -INITIERAd SSO
 
-## <a name="adding-wikispaces-from-the-gallery"></a>Adding Wikispaces from the gallery
+## <a name="adding-wikispaces-from-the-gallery"></a>Lägga till Wikispaces från galleriet
 
-To configure the integration of Wikispaces into Azure AD, you need to add Wikispaces from the gallery to your list of managed SaaS apps.
+Om du vill konfigurera integreringen av Wikispaces i Azure AD måste du lägga till Wikispaces från galleriet i listan över hanterade SaaS-appar.
 
-**To add Wikispaces from the gallery, perform the following steps:**
+**Utför följande steg för att lägga till Wikispaces från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -65,33 +65,33 @@ To configure the integration of Wikispaces into Azure AD, you need to add Wikisp
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. In the search box, type **Wikispaces**, select **Wikispaces** from result panel then click **Add** button to add the application.
+4. I rutan Sök skriver du **Wikispaces**, väljer **Wikispaces** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-     ![Wikispaces in the results list](common/search-new-app.png)
+     ![Wikispaces i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-In this section, you configure and test Azure AD single sign-on with Wikispaces based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in Wikispaces needs to be established.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Wikispaces baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i Wikispaces upprättas.
 
-To configure and test Azure AD single sign-on with Wikispaces, you need to complete the following building blocks:
+Om du vill konfigurera och testa enkel inloggning med Wikispaces i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Configure Wikispaces Single Sign-On](#configure-wikispaces-single-sign-on)** - to configure the Single Sign-On settings on application side.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+2. **[Konfigurera Wikispaces-enkel inloggning](#configure-wikispaces-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Create Wikispaces test user](#create-wikispaces-test-user)** - to have a counterpart of Britta Simon in Wikispaces that is linked to the Azure AD representation of user.
+5. **[Skapa Wikispaces test User](#create-wikispaces-test-user)** – om du vill ha en motsvarighet till Britta Simon i Wikispaces som är länkad till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-To configure Azure AD single sign-on with Wikispaces, perform the following steps:
+Utför följande steg för att konfigurera enkel inloggning med Wikispaces i Azure AD:
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Wikispaces** application integration page, select **Single sign-on**.
+1. Välj **enkel inloggning**på sidan **Wikispaces** Application Integration i [Azure Portal](https://portal.azure.com/).
 
-    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -103,20 +103,20 @@ To configure Azure AD single sign-on with Wikispaces, perform the following step
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Wikispaces Domain and URLs single sign-on information](common/sp-identifier.png)
+    ![Information om enkel inloggning för Wikispaces-domän och URL: er](common/sp-identifier.png)
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<companyname>.wikispaces.net`
 
-    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://session.wikispaces.net/<instancename>`
+    b. I textrutan **Identifierare (entitets-ID)** skriver du en URL med följande mönster: `https://session.wikispaces.net/<instancename>`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Contact [Wikispaces Client support team](https://www.wikispaces.com/site/help) to get these values. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [Wikispaces client support team](https://www.wikispaces.com/site/help) för att hämta dessa värden. Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-6. On the **Set up Wikispaces** section, copy the appropriate URL(s) as per your requirement.
+6. I avsnittet **Konfigurera Wikispaces** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -126,9 +126,9 @@ To configure Azure AD single sign-on with Wikispaces, perform the following step
 
     c. Utloggnings-URL
 
-### <a name="configure-wikispaces-single-sign-on"></a>Configure Wikispaces Single Sign-On
+### <a name="configure-wikispaces-single-sign-on"></a>Konfigurera Wikispaces enkel inloggning
 
-To configure single sign-on on **Wikispaces** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Wikispaces support team](https://www.wikispaces.com/site/help). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Wikispaces** sida måste du skicka den hämtade **XML-metadata för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [support teamet för Wikispaces](https://www.wikispaces.com/site/help). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -148,7 +148,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. In the **User name** field type brittasimon@yourcompanydomain.extension. Till exempel, BrittaSimon@contoso.com
+    b. I fältet **användar namn** anger du brittasimon@yourcompanydomain.extension. Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
@@ -156,17 +156,17 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Wikispaces.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Wikispaces.
 
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Wikispaces**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **Wikispaces**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. In the applications list, select **Wikispaces**.
+2. I listan program väljer du **Wikispaces**.
 
-    ![The Wikispaces link in the Applications list](common/all-applications.png)
+    ![Wikispaces-länken i program listan](common/all-applications.png)
 
-3. I menyn till vänster väljer du **Användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -180,41 +180,41 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-wikispaces-test-user"></a>Create Wikispaces test user
+### <a name="create-wikispaces-test-user"></a>Skapa Wikispaces test användare
 
-In order to enable Azure AD users to sign in to Wikispaces, they must be provisioned into Wikispaces. In the case of Wikispaces, provisioning is a manual task.
+För att Azure AD-användare ska kunna logga in på Wikispaces måste de tillhandahållas i Wikispaces. När det gäller Wikispaces är etableringen en manuell uppgift.
 
 ### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Utför följande steg för att tillhandahålla ett användarkonto:
 
-1. Sign in to your **Wikispaces** company site as an administrator.
+1. Logga in på din **Wikispaces** -företags webbplats som administratör.
 
-2. Go to **Members**.
+2. Gå till **medlemmar**.
    
-    ![Members](./media/wikispaces-tutorial/ic787193.png "Members")
+    ![Ledamöter](./media/wikispaces-tutorial/ic787193.png "Medlemmar")
 
-3. Click the **Invite People**.
+3. Klicka på **Bjud in personer**.
    
-    ![Invite People](./media/wikispaces-tutorial/ic787194.png "Invite People")
+    ![Bjud in personer](./media/wikispaces-tutorial/ic787194.png "Bjud in personer")
 
-4. In the **Invite People** section, perform the following steps:
+4. I avsnittet **Bjud in personer** utför du följande steg:
    
-    ![Invite People](./media/wikispaces-tutorial/ic787208.png "Invite People")
+    ![Bjud in personer](./media/wikispaces-tutorial/ic787208.png "Bjud in personer")
    
-    a. Type the **Usernames or Email Address** of a valid Azure AD account you want to provision into the related textboxes.
+    a. Ange **användar namn eller e-postadress** för ett giltigt Azure AD-konto som du vill etablera i de relaterade text rutorna.
    
     b. Klicka på **Skicka**.  
       
     > [!NOTE]
-    > The Azure Active Directory account holder receives an email including a link to confirm the account before it becomes active.
+    > Azure Active Directory konto innehavaren får ett e-postmeddelande med en länk för att bekräfta kontot innan det blir aktivt.
     
 > [!NOTE]
-> You can use any other Wikispaces user account creation tools or APIs provided by Wikispaces to provision Azure AD user accounts.
+> Du kan använda andra verktyg för Wikispaces av användar konton eller API: er som tillhandahålls av Wikispaces för att etablera Azure AD-användarkonton.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-When you click the Wikispaces tile in the Access Panel, you should be automatically signed in to the Wikispaces for which you set up SSO. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på panelen Wikispaces på åtkomst panelen, bör du loggas in automatiskt på den Wikispaces som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -222,5 +222,5 @@ When you click the Wikispaces tile in the Access Panel, you should be automatica
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -69,6 +69,6 @@ Om de enda anslutningarna i gruppen är inaktiva, är de troligt vis på en dato
 Mer information om hur du utlöser det här problemet finns i portarna felsöka dokument.
 
 ## <a name="next-steps"></a>Nästa steg
-[Förstå Azure AD Application Proxy-anslutningar](application-proxy-connectors.md)
+[Förstå Azure AD-programproxy-kopplingar](application-proxy-connectors.md)
 
 

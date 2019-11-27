@@ -46,7 +46,7 @@ Bilden nedan visar hur: ![visulize-data](./media/resource-known-issues/aml-visua
 
 ## <a name="sdk-installation-issues"></a>SDK-installationsproblem
 
-**Felmeddelande: Det går inte att avinstallera 'PyYAML'**
+**Fel meddelande: det går inte att avinstallera ' PyYAML '**
 
 Azure Machine Learning-SDK för Python: PyYAML är ett projekt för distutils installerad. Därför kan vi inte korrekt avgöra vilka filer som tillhör den om det finns en delvis avinstallation. Om du vill fortsätta installerar denna SDK när du ignorera det här felet, använder du:
 
@@ -76,7 +76,7 @@ Om du ser `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <
 
 ## <a name="fpgas"></a>FPGA:er
 
-Du kommer inte att kunna distribuera modeller på FPGA förrän du har begärt och godkänts för FPGA kvot. För att begära åtkomst, fyller du i formuläret för begäran av kvot: https://aka.ms/aml-real-time-ai
+Du kommer inte att kunna distribuera modeller på FPGA förrän du har begärt och godkänts för FPGA kvot. Om du vill begära åtkomst fyller du i formuläret kvot förfrågan: https://aka.ms/aml-real-time-ai
 
 ## <a name="automated-machine-learning"></a>Automatiserad maskininlärning
 
@@ -159,7 +159,7 @@ Om du ser ett `FailToSendFeather` fel när du läser data på Azure Databricks k
 * Lägg till `azureml-dataprep` version 1.1.8 eller senare.
 * Lägg till `pyarrow` version 0,11 eller senare.
 
-## <a name="azure-portal"></a>Azure portal
+## <a name="azure-portal"></a>Azure Portal
 
 Om du går direkt för att visa din arbetsyta från en delningslänk från SDK: N eller portalen kan du inte visa normala översikt översiktssidan med prenumerationsinformation i tillägget. Du kommer inte heller att kunna växla till en annan arbetsyta. Om du behöver visa en annan arbets yta är lösningen att gå direkt till [Azure Machine Learning Studio](https://ml.azure.com) och söka efter namnet på arbets ytan.
 
@@ -178,7 +178,7 @@ Några av de här åtgärderna visas i området __aktiviteter__ i din arbets yta
 
 ## <a name="resource-quotas"></a>Resurskvoter
 
-Lär dig mer om den [resurskvoter](how-to-manage-quotas.md) som kan uppstå när du arbetar med Azure Machine Learning.
+Lär dig mer om [resurs kvoter](how-to-manage-quotas.md) som du kan stöta på när du arbetar med Azure Machine Learning.
 
 ## <a name="authentication-errors"></a>Autentiseringsfel
 

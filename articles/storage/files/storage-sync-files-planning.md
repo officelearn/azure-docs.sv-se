@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 3c70d2086fc5866b07c31966343397f8ccc809be
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: a732e80549747f7c683a73bf0f16c40d48decea6
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73846734"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546349"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -145,7 +145,7 @@ Så här visar du resultatet i CSV:
 | ethumbs. db $ | Temporär fil för miniatyrer |
 | ~$\*.\* | Tillfällig Office-fil |
 | \*. tmp | Temporär fil |
-| \*.laccdb | Lås fil för åtkomst databasen|
+| \*. LACCDB | Lås fil för åtkomst databasen|
 | 635D02A9D91C401B97884B82B3BCDAEA.* | Intern Sync-fil|
 | \\system volym information | Mapp som är speciell för volym |
 | $RECYCLE. PLATS| Mapp |
@@ -227,7 +227,7 @@ Om du använder en lokal säkerhets kopierings lösning, ska säkerhets kopierin
 > Återställning utan operativ system (BMR) kan orsaka oväntade resultat och stöds inte för närvarande.
 
 > [!Note]  
-> VSS-ögonblicksbilder (inklusive fliken tidigare versioner) stöds för närvarande inte på volymer som har aktiverat moln skiktning. Om moln nivån är aktive rad använder du ögonblicks bilderna i Azure-filresursen för att återställa en fil från säkerhets kopian.
+> Med version 9 av Azure File SYnc-agenten stöds nu VSS-ögonblicksbilder (inklusive tidigare versioner) på volymer som har aktiverat moln skiktning. Du måste dock aktivera tidigare versions kompatibilitet via PowerShell. [Lär dig mer](storage-files-deployment-guide.md).
 
 ### <a name="encryption-solutions"></a>Krypterings lösningar
 Stöd för krypterings lösningar är beroende av hur de implementeras. Azure File Sync är känt att arbeta med:
@@ -250,10 +250,10 @@ Azure File Sync är endast tillgängligt i följande regioner:
 | Region | Data Center plats |
 |--------|---------------------|
 | Östra Australien | New South Wales |
-| Australien, sydöstra | Victoria |
+| Sydöstra Australien | Victoria |
 | Södra Brasilien | Sao Paulo (delstat) |
 | Centrala Kanada | Toronto |
-| Kanada, östra | Quebec City |
+| Östra Kanada | Quebec City |
 | Indien, centrala | Pune |
 | Centrala USA | Iowa |
 | Östasien | Hongkong SAR |
@@ -265,12 +265,12 @@ Azure File Sync är endast tillgängligt i följande regioner:
 | Sydkorea, södra | Busan |
 | Östra Japan | Tokyo, Saitama |
 | Västra Japan | Osaka |
-| USA, norra centrala | Illinois |
-| Europa, norra | Irland |
+| Norra centrala USA | Illinois |
+| Norra Europa | Irland |
 | Sydafrika, norra | Johannesburg |
 | Södra Afrika, västra * | Kapstaden |
 | Södra centrala USA | Texas |
-| Indien, södra | Chennai |
+| Södra Indien | Chennai |
 | Sydostasien | Singapore |
 | Storbritannien, södra | London |
 | Storbritannien, västra | Cardiff |
@@ -279,7 +279,7 @@ Azure File Sync är endast tillgängligt i följande regioner:
 | Virginia (USA-förvaltad region) | Virginia |
 | Förenade Arabemiraten, norra | Dubai |
 | Förenade Arabemiraten Central * | Abu Dhabi |
-| Europa, västra | Nederländerna |
+| Västra Europa | Nederländerna |
 | Västra centrala USA | Wyoming |
 | Västra USA | Kalifornien |
 | Västra USA 2 | Washington |
@@ -298,12 +298,12 @@ För att stödja redundansväxlingen mellan Geo-redundant lagring och Azure File
 
 | Primär region      | Länkad region      |
 |---------------------|--------------------|
-| Östra Australien      | Australien, sydöstra|
-| Australien, sydöstra | Östra Australien     |
+| Östra Australien      | Sydöstra Australien|
+| Sydöstra Australien | Östra Australien     |
 | Södra Brasilien        | Södra centrala USA   |
-| Centrala Kanada      | Kanada, östra        |
-| Kanada, östra         | Centrala Kanada     |
-| Indien, centrala       | Indien, södra        |
+| Centrala Kanada      | Östra Kanada        |
+| Östra Kanada         | Centrala Kanada     |
+| Indien, centrala       | Södra Indien        |
 | Centrala USA          | USA, östra 2          |
 | Östasien           | Sydostasien     |
 | Östra USA             | Västra USA            |
@@ -314,19 +314,19 @@ För att stödja redundansväxlingen mellan Geo-redundant lagring och Azure File
 | Västra Japan          | Östra Japan         |
 | Sydkorea, centrala       | Sydkorea, södra        |
 | Sydkorea, södra         | Sydkorea, centrala      |
-| Europa, norra        | Europa, västra        |
-| USA, norra centrala    | Södra centrala USA   |
+| Norra Europa        | Västra Europa        |
+| Norra centrala USA    | Södra centrala USA   |
 | Sydafrika, norra  | Sydafrika, västra  |
 | Sydafrika, västra   | Sydafrika, norra |
-| Södra centrala USA    | USA, norra centrala   |
-| Indien, södra         | Indien, centrala      |
+| Södra centrala USA    | Norra centrala USA   |
+| Södra Indien         | Indien, centrala      |
 | Sydostasien      | Östasien          |
 | Storbritannien, södra            | Storbritannien, västra            |
 | Storbritannien, västra             | Storbritannien, södra           |
 | Arizona (USA-förvaltad region)      | Texas (USA-förvaltad region)       |
 | US Gov, Iowa         | Virginia (USA-förvaltad region)    |
 | Virginia (USA-förvaltad region)      | Texas (USA-förvaltad region)       |
-| Europa, västra         | Europa, norra       |
+| Västra Europa         | Norra Europa       |
 | Västra centrala USA     | Västra USA 2          |
 | Västra USA             | Östra USA            |
 | Västra USA 2           | Västra centrala USA    |

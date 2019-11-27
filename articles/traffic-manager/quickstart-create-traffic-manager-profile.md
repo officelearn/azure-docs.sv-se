@@ -1,5 +1,5 @@
 ---
-title: Quickstart:Create a profile for HA of applications - Azure portal - Azure Traffic Manager
+title: 'Snabb start: skapa en profil för HA med program – Azure Portal – Azure Traffic Manager'
 description: I den här snabbstartsartikeln beskrivs hur du skapar en Traffic Manager-profil för att bygga en webbapp med hög tillgänglighet.
 services: traffic-manager
 author: asudbring
@@ -19,7 +19,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74483668"
 ---
-# <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Quickstart: Create a Traffic Manager profile using the Azure portal
+# <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Snabb start: skapa en Traffic Manager profil med hjälp av Azure Portal
 
 I den här snabbstarten beskrivs hur du skapar en Traffic Manager-profil som ger hög tillgänglighet för din webbapp.
 
@@ -29,7 +29,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -37,24 +37,24 @@ För den här snabbstarten behöver du två instanser av en webbapp som distribu
 
 1. Uppe till vänster på skärmen väljer du **Skapa en resurs** > **Webb** > **Webbapp**.
 
-1. In **Create a Web App**, type or select the following values in the **Basics** tab:
+1. I **skapa en webbapp**skriver eller väljer du följande värden på fliken **grundläggande** :
 
-   - **Subscription** > **Resource Group**: Select **Create new** and then type **myResourceGroupTM1**.
-   - **Instance Details** > **Name**: Type *myWebAppEastUS*.
-   - **Instance Details** > **Publish**: Select **Code**.
-   - **Instance Details** > **Runtime stack**: Select **ASP.NET V4.7**
-   - **Instance Details** > **Operating System**: Select **Windows**.
-   - **Instance Details** > **Region**:  Select **East US**.
-   - **App Service Plan** > **Windows Plan (East US)** : Select **Create new** and then type **myAppServicePlanEastUS**
-   - **App Service Plan** > **Sku and size**: Select **Standard S1**.
+   - **Prenumerations** > **resurs grupp**: Välj **Skapa ny** och skriv sedan **myResourceGroupTM1**.
+   - **Instans information** > **namn**: Skriv *myWebAppEastUS*.
+   - **Instans information** > **publicera**: Välj **kod**.
+   - **Instans information** > **körnings stack**: Välj **ASP.net v 4.7**
+   - **Instans information** > **operativ system**: Välj **Windows**.
+   - **Instans information** > **region**: Välj **USA, östra**.
+   - **App Service plan** > **Windows plan (USA, östra)** : Välj **Skapa ny** och skriv sedan **myAppServicePlanEastUS**
+   - **App Service Plan** > **SKU och storlek**: Välj **standard S1**.
    
-3. Select the **Monitoring** tab, or select **Next:Monitoring**.  Under **Monitoring**, set **Application Insights** > **Enable Application Insights** to **No**.
+3. Välj fliken **övervakning** eller Välj **Nästa: övervakning**.  Under **övervakning**anger **Application Insights** > **Aktivera Application Insights** till **Nej**.
 
-4. Select **Review and create**
+4. Välj **Granska och skapa**
 
-5. Review the settings, and then click **Create**.  När webbappen har distribuerats skapar den en standardwebbplats.
+5. Granska inställningarna och klicka sedan på **skapa**.  När webbappen har distribuerats skapar den en standardwebbplats.
 
-6. Follow the steps to create a second Web App named *myWebAppWestEurope*, with a **Resource Group** name of *myResourceGroupTM2*, a **Region** of *West Europe*, a **App Service Plan** name of **myAppServicePlanWestEurope**, and all the other settings the same as *myWebAppEastUS*.
+6. Följ stegen för att skapa en andra webbapp med namnet *myWebAppWestEurope*, med **resurs grupp** namnet *MyResourceGroupTM2*, en **region** i *Västeuropa*, ett **App Service plan** namn för **myAppServicePlanWestEurope**och alla andra inställningar på samma sätt som *myWebAppEastUS*.
 
 ## <a name="create-a-traffic-manager-profile"></a>Skapa en Traffic Manager-profil
 

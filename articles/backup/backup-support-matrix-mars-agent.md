@@ -27,7 +27,7 @@ Azure Backup använder MARS-agenten för att säkerhetskopiera data från lokala
 
 Dina säkerhets kopierings alternativ beror på var agenten är installerad. Mer information finns i [Azure Backup-arkitektur med mars-agenten](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders). Information om MABS och DPM backup-arkitekturen finns i [säkerhetskopiera till DPM eller Mabs](backup-architecture.md#architecture-back-up-to-dpmmabs). Se även [kraven](backup-support-matrix-mabs-dpm.md) för säkerhets kopierings arkitekturen.
 
-**Installation** | **Information**
+**Installation** | **Detaljer**
 --- | ---
 Hämta den senaste MARS-agenten | Du kan ladda ned den senaste versionen av agenten från valvet eller [Ladda ned den direkt](https://aka.ms/azurebackup_agent).
 Installera direkt på en dator | Du kan installera MARS-agenten direkt på en lokal Windows Server eller på en virtuell Windows-dator som kör något av de [operativ system som stöds](https://docs.microsoft.com/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
@@ -41,7 +41,7 @@ Installera på en säkerhets kopierings Server | När du konfigurerar DPM eller 
 
 När du använder MARS-agenten för att säkerhetskopiera data tar agenten en ögonblicks bild av data och lagrar den i en lokal cache-mapp innan data skickas till Azure. Mappen cache (scratch) har flera krav:
 
-**Cache** | **Information**
+**Cache** | **Detaljer**
 --- | ---
 Storlek |  Det lediga utrymmet i cache-mappen bör vara minst 5 till 10 procent av den totala storleken på dina säkerhets kopierings data.
 Plats | Cache-mappen måste lagras lokalt på den dator som säkerhets kopie ras och måste vara online. Cache-mappen får inte finnas på en nätverks resurs, på flyttbara medier eller på en frånkopplad volym.
@@ -69,7 +69,7 @@ Och till följande IP-adresser:
 
 ### <a name="throttling-support"></a>Stöd för begränsning
 
-**Funktion** | **Information**
+**Funktion** | **Detaljer**
 --- | ---
 Bandbredds kontroll | Stöds. I MARS-agenten använder du **ändra egenskaper** för att justera bandbredden.
 Nätverks begränsning | Inte tillgängligt för säkerhetskopierade datorer som kör Windows Server 2008 R2, Windows Server 2008 SP2 eller Windows 7.
@@ -131,7 +131,7 @@ OneDrive (synkroniserade filer är sparse-strömmar)| Stöds ej.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>Enheter eller volymer som stöds för säkerhets kopiering
 
-**Enhet/volym** | **Support** | **Information**
+**Enhet/volym** | **Support** | **Detaljer**
 --- | --- | ---
 Skrivskyddade volymer| Stöds inte | VSS (Volume Copy Shadow service) fungerar bara om volymen är skrivbar.
 Offline-volymer| Stöds inte |VSS fungerar bara om volymen är online.

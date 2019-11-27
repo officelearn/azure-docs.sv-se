@@ -1,6 +1,6 @@
 ---
-title: Locate & use apps on the My Apps portal - Azure AD
-description: Learn how to find the My Apps portal and then how to access your organization's cloud-based apps.
+title: Hitta & använda appar på portalen Mina appar – Azure AD
+description: Lär dig hur du hittar portalen för Mina appar och hur du kommer åt din organisations molnbaserade appar.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -20,146 +20,146 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74233179"
 ---
-# <a name="locate-and-use-your-organizations-cloud-based-apps-on-the-my-apps-portal"></a>Locate and use your organization's cloud-based apps on the My Apps portal
+# <a name="locate-and-use-your-organizations-cloud-based-apps-on-the-my-apps-portal"></a>Hitta och Använd din organisations molnbaserade appar på portalen Mina appar
 
-You can use your work or school account with the web-based **My Apps** portal, to view and start many of your organization’s cloud-based apps, to update some of your profile and account information, to see your **Groups** information, and to perform **access reviews** for your apps and groups. If you don’t have access to the **My Apps** portal, you must contact your Helpdesk for permission.
+Du kan använda ditt arbets-eller skol konto med den webbaserade **min Apps** -portalen för att visa och starta många av organisationens molnbaserade appar för att uppdatera viss profil-och konto information, för att se din **grupp** information och utföra  **åtkomst granskningar** för dina appar och grupper. Om du inte har åtkomst till portalen för **Mina appar** måste du kontakta supportavdelningen för att få behörighet.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
->Innehållet är avsett för användare. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](https://docs.microsoft.com/azure/active-directory/manage-apps).
+>Innehållet är avsett för användare. Om du är administratör kan du hitta mer information om hur du konfigurerar och hanterar dina molnbaserade appar i [program hanterings dokumentationen](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
 ## <a name="supported-browsers"></a>Webbläsare som stöds
 
-You can get to the **My Apps** portal from any of the following web browsers:
+Du kan gå till portalen för **Mina appar** från någon av följande webbläsare:
 
 - Google Chrome
 
-- Mozilla Firefox, version 26.0 or later
+- Mozilla Firefox, version 26,0 eller senare
 
 - Microsoft Edge
 
-- Internet Explorer, version 11 (limited support)
+- Internet Explorer, version 11 (begränsat stöd)
 
-## <a name="download-and-install-the-my-apps-secure-sign-in-extension"></a>Download and install the My Apps Secure Sign-in Extension
+## <a name="download-and-install-the-my-apps-secure-sign-in-extension"></a>Ladda ned och installera säkra inloggnings tillägg för Mina appar
 
-Download and install the My Apps Secure Sign-in Extension, if you're prompted. This extension helps you start any of your organization's cloud apps that require you to use a single sign-on process. If your organization has already set you up for single sign-on, the extension is installed automatically and you can skip this section.
+Hämta och installera säker inloggnings tillägg för Mina appar om du uppmanas att göra det. Med det här tillägget kan du starta valfri organisations molnappar som kräver att du använder en enkel inloggnings process. Om din organisation redan har konfigurerat dig för enkel inloggning installeras tillägget automatiskt och du kan hoppa över det här avsnittet.
 
-This extension helps you:
+Det här tillägget hjälper dig att:
 
-- Sign in directly to apps from the sign-in page.
+- Logga in direkt till appar från inloggnings sidan.
 
-- Start any apps using the **Quick search** feature.
+- Starta alla appar med hjälp av funktionen **snabb sökning** .
 
-- See the last apps you used in the **Recently Used** section.
+- Se de senaste apparna som du använde i det **senast använda** avsnittet.
 
-- Use internal company URLs while remote with [Application Proxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started).
+- Använd interna företags-URL: er vid fjärr anslutning med [Application Proxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started).
 
-### <a name="to-download-and-install-the-extension"></a>To download and install the extension
+### <a name="to-download-and-install-the-extension"></a>Hämta och installera tillägget
 
-Download and install the extension, based on the browser you're using:
+Hämta och installera tillägget, baserat på den webbläsare som du använder:
 
-- **Google Chrome.** From the Chrome Web Store, go to the [My Apps Secure Sign-in Extension](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) feature, and then select **Add to Chrome**.
+- **Google Chrome.** Från Chrome-webbarkivet går du till funktionen [Mina appar säker inloggnings tillägg](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) och väljer sedan **Lägg till i Chrome**.
 
-- **Mozilla Firefox** From the **Firefox Add-ons** page, go to the [My Apps Secure Sign-in Extension](https://addons.mozilla.org/firefox/addon/access-panel-extension/) feature, and then select **Add to Firefox**.
+- **Mozilla Firefox** På sidan **Firefox-tillägg** går du till funktionen [Mina appar säker inloggnings tillägg](https://addons.mozilla.org/firefox/addon/access-panel-extension/) och väljer sedan **Lägg till i Firefox**.
 
-- **Microsoft Edge** From the Microsoft Store, go to the [My Apps Secure Sign-in Extension](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab) feature, and then select **Get**.
+- **Microsoft Edge** Från Microsoft Store går du till funktionen [Mina appar säker inloggnings tillägg](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab) och väljer **Hämta**.
 
-An icon is added to the right of your **Address** bar, letting you sign-in and customize the extension.
+En ikon läggs till till höger i **adress** fältet, så att du kan logga in och anpassa tillägget.
 
-#### <a name="to-change-your-my-apps-portal-using-the-extension"></a>To change your My Apps portal using the extension
-You can choose how many apps to view in the **Recently Used** section and decide whether to allow your organization's internal URLs to redirect.
+#### <a name="to-change-your-my-apps-portal-using-the-extension"></a>Så här ändrar du portalen för Mina appar med hjälp av tillägget
+Du kan välja hur många appar som ska visas i avsnittet som **används nyligen** och bestämma om du vill tillåta att organisationens interna URL: er omdirigeras.
 
-1. Select the new **My Apps Secure Sign-in Extension** icon ![Extension icon](media/my-apps-portal/my-apps-portal-extension-icon.png) to the right of your **Address** bar, and then select **Sign in to get started**.
+1. Välj ikonen för **säker inloggnings tillägg för Mina appar** ![tilläggs ikonen](media/my-apps-portal/my-apps-portal-extension-icon.png) till höger om **adress** fältet och välj sedan **Logga in för att komma igång**.
 
-2. Right-click the **Settings** icon ![Settings icon](media/my-apps-portal/my-apps-portal-extension-settings-icon.png), and then select **Settings**.
+2. Högerklicka på ikonen **inställningar** ![inställningar](media/my-apps-portal/my-apps-portal-extension-settings-icon.png)och välj sedan **Inställningar**.
 
-3. In the **Settings** box, select the number of recent apps you want to see on the portal, and whether to allow your organization's internal URLs to redirect so you can use them remotely.
+3. I rutan **Inställningar** väljer du det antal senaste appar som du vill se på portalen, och om du vill att organisationens interna URL: er ska omdirigeras så att du kan använda dem via en fjärr anslutning.
 
-    ![Settings page of the extension, showing the available customizations](media/my-apps-portal/my-apps-portal-extension-settings-page.png)
+    ![Sidan Inställningar för tillägget och visar tillgängliga anpassningar](media/my-apps-portal/my-apps-portal-extension-settings-page.png)
 
-## <a name="access-and-use-the-my-apps-portal-by-device"></a>Access and use the My Apps portal by device
-You can access and use the My Apps portal on your computer, from an Intune-managed browser, or from an iOS or Android mobile device.
+## <a name="access-and-use-the-my-apps-portal-by-device"></a>Komma åt och använda My Apps-portalen per enhet
+Du kan komma åt och använda mina apps-portalen på din dator, från en Intune-hanterad webbläsare eller från en iOS-eller Android-mobil enhet.
 
-![Apps page in the My Apps portal](media/my-apps-portal/my-apps-portal-apps-page.png)
+![Sidan appar i portalen Mina appar](media/my-apps-portal/my-apps-portal-apps-page.png)
 
-### <a name="access-and-use-the-my-apps-portal-on-your-computer"></a>Access and use the My Apps portal on your computer
-If you have permission to access and use your organization's cloud-based apps, you can get to them through the **My Apps** portal.
+### <a name="access-and-use-the-my-apps-portal-on-your-computer"></a>Få åtkomst till och använda Mina appar-portalen på din dator
+Om du har åtkomst behörighet till och använder din organisations molnbaserade appar kan du komma åt dem via portalen **Mina appar** .
 
-1. Sign in to your work or school account.
+1. Logga in på ditt arbets-eller skol konto.
 
-2. Open your web browser and go to https://myapps.microsoft.com, or use the link provided by your organization. For example, you might be directed to a customized page for your organization, such as https://myapps.microsoft.com/contoso.com.
+2. Öppna webbläsaren och gå till https://myapps.microsoft.com, eller Använd länken som tillhandahålls av din organisation. Du kan till exempel dirigeras till en anpassad sida för din organisation, till exempel https://myapps.microsoft.com/contoso.com.
 
-    The **Apps** page appears, showing all the cloud-based apps owned by your organization and available for you to use.
+    Sidan **appar** visas och visar alla molnbaserade appar som ägs av din organisation och som du kan använda.
 
-3. From the **Apps** page, select the app you want to start using.
+3. Från sidan **appar** väljer du den app som du vill börja använda.
 
-    A new page opens for the app, where you can sign-in (if necessary) or begin using the app.
+    En ny sida öppnas för appen där du kan logga in (om det behövs) eller börja använda appen.
 
-### <a name="access-and-use-the-my-apps-portal-on-an-intune-managed-browser"></a>Access and use the My Apps portal on an Intune-managed browser
+### <a name="access-and-use-the-my-apps-portal-on-an-intune-managed-browser"></a>Komma åt och använda mina apps-portalen i en Intune-hanterad webbläsare
 
-View and use your organization's apps from an Intune Managed Browser on your iOS and Android devices.
+Visa och Använd din organisations appar från en Intune Managed Browser på dina iOS-och Android-enheter.
 
-1. On your mobile device, download and install the Intune Managed Browser app from the [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) and the [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser).
+1. Hämta och installera Intune Managed Browser-appen från [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) och [Google Play Butik](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser)på den mobila enheten.
 
-2. Open the Intune Managed Browser app, go to https://myapps.microsoft.com, or use the link provided by your organization. For example, you might be directed to a customized page for your organization, such as https://myapps.microsoft.com/contoso.com.
+2. Öppna appen Intune Managed Browser, gå till https://myapps.microsoft.comeller Använd länken som tillhandahålls av din organisation. Du kan till exempel dirigeras till en anpassad sida för din organisation, till exempel https://myapps.microsoft.com/contoso.com.
 
-    The **Apps** page appears, showing all the cloud-based apps owned by your organization and available for you to use.
+    Sidan **appar** visas och visar alla molnbaserade appar som ägs av din organisation och som du kan använda.
 
-3. From the **Apps** page, select the app you want to start using.
+3. Från sidan **appar** väljer du den app som du vill börja använda.
 
-    A new page opens for the app, where you can sign-in (if necessary) or begin using the app.
+    En ny sida öppnas för appen där du kan logga in (om det behövs) eller börja använda appen.
 
-### <a name="access-and-use-the-my-apps-portal-on-an-ios-device"></a>Access and use the My Apps portal on an iOS device
+### <a name="access-and-use-the-my-apps-portal-on-an-ios-device"></a>Komma åt och använda mina apps-portalen på en iOS-enhet
 
-View and use the **My Apps** portal from an iPhone or iPad device, running iOS version 7 or later. You can also install the [My Apps mobile app](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8) to access your organization's apps on your iOS devices. 
+Visa och använda **Mina Apps** -portalen från en iPhone-eller iPad-enhet, som kör iOS version 7 eller senare. Du kan också installera [mobilappen för Mina appar](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8) för att få åtkomst till din organisations appar på dina iOS-enheter. 
 
-1. On your mobile device, start a web browser app, such as Safari.
+1. Starta en webbapp på din mobila enhet, till exempel Safari.
 
-2. Go to https://myapps.microsoft.com, or use the link provided by your organization. For example, you might be directed to a customized page for your organization, such as https://myapps.microsoft.com/contoso.com.
+2. Gå till https://myapps.microsoft.comeller Använd länken som tillhandahålls av din organisation. Du kan till exempel dirigeras till en anpassad sida för din organisation, till exempel https://myapps.microsoft.com/contoso.com.
 
-    The **Apps** page appears, showing all the cloud-based apps owned by your organization and available for you to use.
+    Sidan **appar** visas och visar alla molnbaserade appar som ägs av din organisation och som du kan använda.
 
-3. From the **Apps** page, select the app you want to start using.
+3. Från sidan **appar** väljer du den app som du vill börja använda.
 
-    A new page opens for the app, where you can sign-in (if necessary) or begin using the app.
+    En ny sida öppnas för appen där du kan logga in (om det behövs) eller börja använda appen.
 
-### <a name="access-and-use-the-my-apps-portal-on-an-android-device"></a>Access and use the My Apps portal on an Android device
+### <a name="access-and-use-the-my-apps-portal-on-an-android-device"></a>Komma åt och använda mina apps-portalen på en Android-enhet
 
-View and use the **My Apps** portal on an Android device.
+Visa och använda **Mina Apps** -portalen på en Android-enhet.
 
-1. On your mobile device, start a web browser app, such as Google Chrome.
+1. Starta en webbapp på din mobila enhet, till exempel Google Chrome.
 
-2. Go to https://myapps.microsoft.com, or use the link provided by your organization. For example, you might be directed to a customized page for your organization, such as https://myapps.microsoft.com/contoso.com.
+2. Gå till https://myapps.microsoft.comeller Använd länken som tillhandahålls av din organisation. Du kan till exempel dirigeras till en anpassad sida för din organisation, till exempel https://myapps.microsoft.com/contoso.com.
 
-    The **Apps** page appears, showing all the cloud-based apps owned by your organization and available for you to use.
+    Sidan **appar** visas och visar alla molnbaserade appar som ägs av din organisation och som du kan använda.
 
-3. From the **Apps** page, select the app you want to start using.
+3. Från sidan **appar** väljer du den app som du vill börja använda.
 
-    A new page opens for the app, where you can sign-in (if necessary) or begin using the app.
+    En ny sida öppnas för appen där du kan logga in (om det behövs) eller börja använda appen.
 
-## <a name="add-a-new-app-to-the-my-apps-portal"></a>Add a new app to the My Apps portal
+## <a name="add-a-new-app-to-the-my-apps-portal"></a>Lägg till en ny app i portalen Mina appar
 
-If your administrator has given you permission, you can add a new app to the **Apps** page.
+Om din administratör har gett dig behörighet kan du lägga till en ny app på sidan **appar** .
 
-1. From the **Apps** page, select **Add App**.
+1. Från sidan **appar** väljer du **Lägg till app**.
 
-    The **Add apps** page appears.
+    Sidan **Lägg till appar** visas.
 
-    ![Add apps page, in the My Apps portal](media/my-apps-portal/my-apps-portal-add-apps-page.png)
+    ![Sidan Lägg till appar i portalen Mina appar](media/my-apps-portal/my-apps-portal-add-apps-page.png)
 
-2. Select the app you want to add from the provided list, and then select **Add**.
+2. Välj den app som du vill lägga till i listan och välj sedan **Lägg till**.
 
-3. The app is added to the list on the **Apps** page.
+3. Appen läggs till i listan på sidan **appar** .
 
-    Some apps might require administrator approval before being added. In this situation, the app isn't added to the **Apps** page until the administrator approves it.
+    Vissa appar kan kräva administratörs godkännande innan de läggs till. I den här situationen har appen inte lagts till på sidan **appar** förrän administratören godkänner den.
 
 ## <a name="next-steps"></a>Nästa steg
 
-After you get to the **Apps** page, you can:
+När du kommer till sidan **appar** kan du:
 
-- [Change your profile information](my-apps-portal-end-user-update-profile.md)
+- [Ändra profil informationen](my-apps-portal-end-user-update-profile.md)
 
-- [View and update your groups-related information](my-apps-portal-end-user-groups.md)
+- [Visa och uppdatera dina grupper – relaterad information](my-apps-portal-end-user-groups.md)
 
 - [Utföra egna åtkomstgranskningar](my-apps-portal-end-user-access-reviews.md)

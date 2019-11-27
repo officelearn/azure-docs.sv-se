@@ -1,6 +1,6 @@
 ---
-title: Submit jobs from R Tools for Visual Studio - Azure HDInsight
-description: Submit R jobs from your local Visual Studio machine to an HDInsight cluster.
+title: Skicka jobb från R-verktyg för Visual Studio – Azure HDInsight
+description: Skicka R-jobb från den lokala Visual Studio-datorn till ett HDInsight-kluster.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -17,58 +17,58 @@ ms.locfileid: "74229004"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Skicka jobb från R Tools för Visual Studio
 
-[R Tools for Visual Studio](https://www.visualstudio.com/vs/rtvs/) (RTVS) is a free, open-source extension for the Community (free), Professional, and Enterprise editions of both [Visual Studio 2017](https://www.visualstudio.com/downloads/), and [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129) or higher. RTVS is not available for [Visual Studio 2019](https://docs.microsoft.com/visualstudio/porting/port-migrate-and-upgrade-visual-studio-projects?view=vs-2019).
+[R Tools för Visual Studio](https://www.visualstudio.com/vs/rtvs/) (RTVS) är ett kostnads fritt tillägg med öppen källkod för community (kostnads fri), Professional-och Enterprise-versionerna av både [Visual Studio 2017](https://www.visualstudio.com/downloads/)och [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129) eller senare. RTVS är inte tillgängligt för [Visual Studio 2019](https://docs.microsoft.com/visualstudio/porting/port-migrate-and-upgrade-visual-studio-projects?view=vs-2019).
 
-RTVS enhances your R workflow by offering tools such as the [R Interactive window](https://docs.microsoft.com/visualstudio/rtvs/interactive-repl) (REPL), intellisense (code completion), [plot visualization](https://docs.microsoft.com/visualstudio/rtvs/visualizing-data) through R libraries such as ggplot2 and ggviz, [R code debugging](https://docs.microsoft.com/visualstudio/rtvs/debugging), and more.
+RTVS förbättrar ditt R-arbetsflöde genom att erbjuda verktyg som t. ex. [R Interactive Window](https://docs.microsoft.com/visualstudio/rtvs/interactive-repl) (repl), IntelliSense (kod komplettering), [Rita visualisering](https://docs.microsoft.com/visualstudio/rtvs/visualizing-data) via R-bibliotek som Ggplot2 och ggviz, [R kod fel sökning](https://docs.microsoft.com/visualstudio/rtvs/debugging)med mera.
 
 ## <a name="set-up-your-environment"></a>Konfigurera din miljö
 
-1. Install [R Tools for Visual Studio](/visualstudio/rtvs/installing-r-tools-for-visual-studio).
+1. Installera [R Tools för Visual Studio](/visualstudio/rtvs/installing-r-tools-for-visual-studio).
 
-    ![Installing RTVS in Visual Studio 2017](./media/r-server-submit-jobs-r-tools-vs/install-r-tools-for-vs.png)
+    ![Installera RTVS i Visual Studio 2017](./media/r-server-submit-jobs-r-tools-vs/install-r-tools-for-vs.png)
 
-2. Select the *Data science and analytical applications* workload, then select the **R language support**, **Runtime support for R development**, and **Microsoft R Client** options.
+2. Välj arbets belastningen *data vetenskap och analys program* och välj sedan **stöd för r-språk**, stöd **för körning av r-utveckling**och alternativ för **Microsoft r-klienten** .
 
-3. You need to have public and private keys for SSH authentication.
+3. Du måste ha offentliga och privata nycklar för SSH-autentisering.
    <!-- {TODO tbd, no such file yet}[use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) -->
 
-4. Install [ML Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows) on your machine. ML Server provides the [`RevoScaleR`](https://msdn.microsoft.com/microsoft-r/scaler/scaler) and `RxSpark` functions.
+4. Installera [ml Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows) på din dator. ML Server tillhandahåller funktionerna [`RevoScaleR`](https://msdn.microsoft.com/microsoft-r/scaler/scaler) och `RxSpark`.
 
-5. Install [PuTTY](https://www.putty.org/) to provide a compute context to run `RevoScaleR` functions from your local client to your HDInsight cluster.
+5. Installera [SparaTillFil](https://www.putty.org/) för att tillhandahålla en beräknings kontext för att köra `RevoScaleR` funktioner från din lokala klient till ditt HDInsight-kluster.
 
-6. You have the option to apply the Data Science Settings to your Visual Studio environment, which provides a new layout for your workspace for the R tools.
-   1. To save your current Visual Studio settings, use the **Tools > Import and Export Settings** command, then select **Export selected environment settings** and specify a file name. To restore those settings, use the same command and select **Import selected environment settings**.
+6. Du kan välja att tillämpa inställningarna för data vetenskap i Visual Studio-miljön, vilket ger en ny layout för din arbets yta för R-verktygen.
+   1. Om du vill spara dina aktuella Visual Studio-inställningar använder du kommandot **verktyg > import-och export inställningar** och väljer sedan **Exportera valda miljö inställningar** och anger ett fil namn. Om du vill återställa de inställningarna använder du samma kommando och väljer **Importera valda miljö inställningar**.
 
-   2. Go to the **R Tools** menu item, then select **Data Science Settings...** .
+   2. Gå till meny alternativet **R tools** och välj **data science-inställningar...** .
 
-       ![Visual Studio Data Science Settings](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
+       ![Inställningar för Visual Studio data science](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
 
       > [!NOTE]  
-      > Using the approach in step 1, you can also save and restore your personalized data scientist layout, rather than repeating the **Data Science Settings** command.
+      > Med hjälp av metoden i steg 1 kan du också spara och återställa din anpassade data expert layout i stället för att upprepa kommandot **data vetenskaps inställningar** .
 
-## <a name="execute-local-r-methods"></a>Execute local R methods
+## <a name="execute-local-r-methods"></a>Köra lokala R-metoder
 
-1. Create your HDInsight ML Services cluster.
-2. Install the [RTVS extension](https://docs.microsoft.com/visualstudio/rtvs/installation).
-3. Download the [samples zip file](https://github.com/Microsoft/RTVS-docs/archive/master.zip).
-4. Open `examples/Examples.sln` to launch the solution in Visual Studio.
-5. Open the `1-Getting Started with R.R` file in the `A first look at R` solution folder.
-6. Starting at the top of the file, press Ctrl+Enter to send each line, one at a time, to the R Interactive window. Some lines might take a while as they install packages.
-    * Alternatively, you can select all lines in the R file (Ctrl+A), then either execute all (Ctrl+Enter), or select the Execute Interactive icon on the toolbar.
+1. Skapa ditt HDInsight ML-tjänst kluster.
+2. Installera [RTVS-tillägget](https://docs.microsoft.com/visualstudio/rtvs/installation).
+3. Ladda ned [zip-filen samples](https://github.com/Microsoft/RTVS-docs/archive/master.zip).
+4. Öppna `examples/Examples.sln` för att starta lösningen i Visual Studio.
+5. Öppna `1-Getting Started with R.R`-filen i mappen `A first look at R`-lösning.
+6. Börja överst i filen och tryck på CTRL + RETUR för att skicka varje rad, en i taget, till det interaktiva R-fönstret. Det kan ta en stund att installera några rader medan paketen installeras.
+    * Alternativt kan du markera alla rader i R-filen (Ctrl + A), sedan antingen köra alla (CTRL + RETUR) eller välja ikonen kör interaktiv i verktygsfältet.
 
-        ![Visual Studio execute interactive](./media/r-server-submit-jobs-r-tools-vs/execute-interactive1.png)
+        ![Visual Studio köra interaktiv](./media/r-server-submit-jobs-r-tools-vs/execute-interactive1.png)
 
-7. After running all the lines in the script, you should see an output similar to this:
+7. När du har kört alla rader i skriptet bör du se utdata som liknar detta:
 
-    ![Visual Studio workspace R tools](./media/r-server-submit-jobs-r-tools-vs/visual-studio-workspace.png)
+    ![Visual Studio Workspace R-verktyg](./media/r-server-submit-jobs-r-tools-vs/visual-studio-workspace.png)
 
-## <a name="submit-jobs-to-an-hdinsight-ml-services-cluster"></a>Submit jobs to an HDInsight ML Services cluster
+## <a name="submit-jobs-to-an-hdinsight-ml-services-cluster"></a>Skicka jobb till ett HDInsight ML-tjänst kluster
 
-Using a Microsoft ML Server/Microsoft R Client from a Windows computer equipped with PuTTY, you can create a compute context that will run distributed `RevoScaleR` functions from your local client to your HDInsight cluster. Use `RxSpark` to create the compute context, specifying your username, the Apache Hadoop cluster's edge node, SSH switches, and so forth.
+Genom att använda en Microsoft ML Server/Microsoft R-klient från en Windows-dator som är utrustad med SparaTillFil kan du skapa en beräknings kontext som kör distribuerade `RevoScaleR`-funktioner från din lokala klient till ditt HDInsight-kluster. Använd `RxSpark` för att skapa beräknings kontexten, ange ditt användar namn, Apache Hadoop klustrets Edge-nod, SSH-växlar och så vidare.
 
-1. The ML Services edge node address on HDInsight is `CLUSTERNAME-ed-ssh.azurehdinsight.net` where `CLUSTERNAME` is the name of your ML Services cluster.
+1. Service-noden med ML-tjänster i HDInsight är `CLUSTERNAME-ed-ssh.azurehdinsight.net` där `CLUSTERNAME` är namnet på ditt ML-tjänst kluster.
 
-1. Paste the following code into the R Interactive window in Visual Studio, altering the values of the setup variables to match your environment.
+1. Klistra in följande kod i det interaktiva fönstret R i Visual Studio och ändra värdena för de konfigurera variablerna så att de överensstämmer med din miljö.
 
     ```R
     # Setup variables that connect the compute context to your HDInsight cluster
@@ -96,9 +96,9 @@ Using a Microsoft ML Server/Microsoft R Client from a Windows computer equipped 
     rxSetComputeContext(mySparkCluster)
     ```
 
-   ![apache spark setting the context](./media/r-server-submit-jobs-r-tools-vs/apache-spark-context.png)
+   ![Apache Spark-inställning för kontexten](./media/r-server-submit-jobs-r-tools-vs/apache-spark-context.png)
 
-1. Execute the following commands in the R Interactive window:
+1. Kör följande kommandon i det interaktiva R-fönstret:
 
     ```R
     rxHadoopCommand("version") # should return version information
@@ -108,24 +108,24 @@ Using a Microsoft ML Server/Microsoft R Client from a Windows computer equipped 
 
     Du bör se utdata som liknar följande:
 
-    ![Successful rx command execution](./media/r-server-submit-jobs-r-tools-vs/successful-rx-commands.png) a
-1. Verify that the `rxHadoopCopy` successfully copied the `people.json` file from the example data folder to the newly created `/user/RevoShare/newUser` folder:
+    ![lyckade RX-kommando körning](./media/r-server-submit-jobs-r-tools-vs/successful-rx-commands.png) en
+1. Kontrol lera att `rxHadoopCopy` har kopierat `people.json`-filen från exempel data mappen till den nyligen skapade `/user/RevoShare/newUser`-mappen:
 
-    1. From your HDInsight ML Services cluster pane in Azure, select **Storage accounts** from the left-hand menu.
+    1. Från ditt kluster i HDInsight ML-tjänster i Azure väljer du **lagrings konton** i den vänstra menyn.
 
-        ![Azure HDInsight Storage accounts](./media/r-server-submit-jobs-r-tools-vs/hdinsight-storage-accounts.png)
+        ![Azure HDInsight Storage-konton](./media/r-server-submit-jobs-r-tools-vs/hdinsight-storage-accounts.png)
 
-    2. Select the default storage account for your cluster, making note of the container/directory name.
+    2. Välj standard lagrings konto för klustret och Anteckna namnet på behållaren/katalogen.
 
-    3. Select **Containers** from the left-hand menu on your storage account pane.
+    3. Välj **behållare** på menyn till vänster i fönstret lagrings konto.
 
-        ![Azure HDInsight Storage containers](./media/r-server-submit-jobs-r-tools-vs/hdi-storage-containers.png)
+        ![Azure HDInsight Storage-behållare](./media/r-server-submit-jobs-r-tools-vs/hdi-storage-containers.png)
 
-    4. Select your cluster's container name, browse to the **user** folder (you might have to click *Load more* at the bottom of the list), then select *RevoShare*, then **newUser**. The `people.json` file should be displayed in the `newUser` folder.
+    4. Välj klustrets behållar namn, bläddra till mappen **användare** (du kanske måste klicka på *Läs in mer* längst ned i listan) och välj sedan *RevoShare*, sedan **newUser**. `people.json`-filen ska visas i mappen `newUser`.
 
-        ![HDInsight copied file folder location](./media/r-server-submit-jobs-r-tools-vs/hdinsight-copied-file.png)
+        ![HDInsight kopierad mappsökväg](./media/r-server-submit-jobs-r-tools-vs/hdinsight-copied-file.png)
 
-1. After you are finished using the current Apache Spark context, you must stop it. You cannot run multiple contexts at once.
+1. När du är färdig med den aktuella Apache Sparks kontexten måste du stoppa den. Det går inte att köra flera kontexter samtidigt.
 
     ```R
     rxStopEngine(mySparkCluster)
@@ -133,5 +133,5 @@ Using a Microsoft ML Server/Microsoft R Client from a Windows computer equipped 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Compute context options for ML Services on HDInsight](r-server-compute-contexts.md)
-* [Combining ScaleR and SparkR](../hdinsight-hadoop-r-scaler-sparkr.md) provides an example of airline flight delay predictions.
+* [Alternativ för beräknings kontext för ML-tjänster i HDInsight](r-server-compute-contexts.md)
+* Genom att [kombinera scaler och sparker](../hdinsight-hadoop-r-scaler-sparkr.md) finns ett exempel på flyg Plans fördröjnings förutsägelser.

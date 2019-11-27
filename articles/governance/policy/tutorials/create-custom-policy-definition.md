@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Create a custom policy definition'
-description: In this tutorial, you craft a custom policy definition for Azure Policy to enforce custom business rules on your Azure resources.
+title: 'Självstudie: skapa en anpassad princip definition'
+description: I den här självstudien får du en anpassad princip definition för Azure Policy att använda anpassade affärs regler på dina Azure-resurser.
 ms.date: 11/25/2019
 ms.topic: tutorial
 ms.openlocfilehash: e30d47ed6e01c4fd8ff061398b1045f9446e466a
@@ -10,7 +10,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74483979"
 ---
-# <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Create a custom policy definition
+# <a name="tutorial-create-a-custom-policy-definition"></a>Självstudie: skapa en anpassad princip definition
 
 Med en anpassad principdefinition kan kunderna definiera egna regler för att använda Azure. De här reglerna framtvingar ofta:
 
@@ -44,11 +44,11 @@ Det är viktigt att du förstår syftet med principen innan du skapar principdef
 
 Dina krav bör tydligt identifiera både resurstillståndet ”to be” och ”not to be”.
 
-Vi har definierat förväntat tillstånd för resursen, men vi har ännu inte definierat vad vi vill ha gjort med icke-kompatibla resurser. Azure Policy supports a number of [effects](../concepts/effects.md). I den här självstudien ska vi definiera affärsbehov som att förhindra skapandet av resurser om de inte är kompatibla med affärsreglerna. För att nå detta mål använder vi effekten för att [neka](../concepts/effects.md#deny). Vi vill också ha alternativet för att inaktivera principen för specifika tilldelningar. Därför använder vi den [inaktiverade](../concepts/effects.md#disabled) effekten och skapar en [parameter](../concepts/definition-structure.md#parameters) i principdefinitionen.
+Vi har definierat förväntat tillstånd för resursen, men vi har ännu inte definierat vad vi vill ha gjort med icke-kompatibla resurser. Azure Policy stöder ett antal [effekter](../concepts/effects.md). I den här självstudien ska vi definiera affärsbehov som att förhindra skapandet av resurser om de inte är kompatibla med affärsreglerna. För att nå detta mål använder vi effekten för att [neka](../concepts/effects.md#deny). Vi vill också ha alternativet för att inaktivera principen för specifika tilldelningar. Därför använder vi den [inaktiverade](../concepts/effects.md#disabled) effekten och skapar en [parameter](../concepts/definition-structure.md#parameters) i principdefinitionen.
 
 ## <a name="determine-resource-properties"></a>Fastställa resursegenskaper
 
-Based on the business requirement, the Azure resource to audit with Azure Policy is a storage account. Vi vet emellertid inte vilka egenskaper som ska användas i principdefinitionen. Azure Policy evaluates against the JSON representation of the resource, so we'll need to understand the properties available on that resource.
+Utifrån affärs kraven är Azure-resursen som ska granskas med Azure Policy ett lagrings konto. Vi vet emellertid inte vilka egenskaper som ska användas i principdefinitionen. Azure Policy utvärderas mot JSON-representationen av resursen så att vi måste förstå de egenskaper som är tillgängliga för den resursen.
 
 Det finns många sätt att avgöra egenskaperna för en Azure-resurs. Vi ska titta på var och en för den här självstudien:
 
@@ -60,9 +60,9 @@ Det finns många sätt att avgöra egenskaperna för en Azure-resurs. Vi ska tit
   - Mallreferensdokument
 - Azure Resource Explorer
 
-### <a name="view-resources-in-vs-code-extension"></a>View resources in VS Code extension
+### <a name="view-resources-in-vs-code-extension"></a>Visa resurser i VS Code-tillägg
 
-The [VS Code extension](../how-to/extension-for-vscode.md#search-for-and-view-resources) can be used to browse resources in your environment and see the Resource Manager properties on each resource.
+[Vs Code-tillägget](../how-to/extension-for-vscode.md#search-for-and-view-resources) kan användas för att söka efter resurser i din miljö och se Resource Manager-egenskaperna för varje resurs.
 
 ### <a name="resource-manager-templates"></a>Mallar för Resurshanteraren
 
@@ -71,9 +71,9 @@ Det finns flera sätt att titta på en [Resource Manager-mall](../../../azure-re
 #### <a name="existing-resource-in-the-portal"></a>Befintlig resurs i portalen
 
 Det enklaste sättet att hitta egenskaper är att titta på en befintlig resurs av samma typ. Resurser som redan har konfigurerats med inställningen som du vill framtvinga innehåller också värdet att jämföra med.
-Look at the **Export template** page (under **Settings**) in the Azure portal for that specific resource.
+Titta på sidan **Exportera mall** (under **inställningar**) i Azure Portal för den aktuella resursen.
 
-![Export template page on existing resource](../media/create-custom-policy-definition/export-template.png)
+![Sidan exportera mall på en befintlig resurs](../media/create-custom-policy-definition/export-template.png)
 
 Om du gör det för ett lagringskonto visas en mall som liknar det här exemplet:
 
@@ -168,9 +168,9 @@ Det finns några olika sätt att avgöra alias för en Azure-resurs. Vi ska titt
 - Azure PowerShell
 - Azure Resource Graph
 
-### <a name="get-aliases-in-vs-code-extension"></a>Get aliases in VS Code extension
+### <a name="get-aliases-in-vs-code-extension"></a>Hämta alias i VS Code-tillägg
 
-The Azure Policy extension for VS Code extension makes it easy to browse your resources and [discover aliases](../how-to/extension-for-vscode.md#discover-aliases-for-resource-properties).
+Tillägget Azure Policy tillägg för VS Code gör det enkelt att söka efter resurser och [identifiera alias](../how-to/extension-for-vscode.md#discover-aliases-for-resource-properties).
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -200,7 +200,7 @@ Som i Azure CLI visar resultatet ett alias som stöds av lagringskonton med namn
 
 ### <a name="azure-resource-graph"></a>Azure Resource Graph
 
-[Azure Resource Graph](../../resource-graph/overview.md) is a new service. Det gör att en annan metod kan hitta egenskaper för Azure-resurser. Här är en exempelfråga för att titta på ett enda lagringskonto med Resource Graph:
+[Azure Resource Graph](../../resource-graph/overview.md) är en ny tjänst. Det gör att en annan metod kan hitta egenskaper för Azure-resurser. Här är en exempelfråga för att titta på ett enda lagringskonto med Resource Graph:
 
 ```kusto
 where type=~'microsoft.storage/storageaccounts'
@@ -215,7 +215,7 @@ az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1"
 Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
-Resultatet liknar vad vi ser i Resource Manager-mallar och via Azure Resource Explorer. However, Azure Resource Graph results can also include [alias](../concepts/definition-structure.md#aliases) details by _projecting_ the _aliases_ array:
+Resultatet liknar vad vi ser i Resource Manager-mallar och via Azure Resource Explorer. Resultatet av Azure-resursens diagram kan dock också innehålla information om [alias](../concepts/definition-structure.md#aliases) genom att _projicera_ _alias_ -matrisen:
 
 ```kusto
 where type=~'microsoft.storage/storageaccounts'
@@ -313,7 +313,7 @@ Här är exempel på utdata från ett lagringskonto för alias:
 }
 ```
 
-Azure Resource Graph can be used through [Cloud Shell](https://shell.azure.com), making it a fast and easy way to explore the properties of your resources.
+Azure Resource Graph kan användas via [Cloud Shell](https://shell.azure.com), vilket gör det till ett snabbt och enkelt sätt att utforska egenskaperna för dina resurser.
 
 ## <a name="determine-the-effect-to-use"></a>Fastställa vilken effekt som ska användas
 
@@ -384,7 +384,7 @@ Skapandet av [principregeln](../concepts/definition-structure.md#policy-rule) ä
 - Lagringskontots **typ** är **Microsoft.Storage/storageAccounts**
 - Att lagringskontot **supportsHttpsTrafficOnly** inte är **sant**
 
-Eftersom vi behöver att båda dessa instruktionerna är sanna använder vi den [logiska operatorn](../concepts/definition-structure.md#logical-operators) **allOf**. Vi ska skicka parametern **effectType** för effekten i stället för att göra en statisk deklaration. Vår slutförda regel ser ut som i följande exempel:
+Eftersom vi behöver att båda dessa instruktionerna är sanna använder vi den **logiska operatorn** [allOf](../concepts/definition-structure.md#logical-operators). Vi ska skicka parametern **effectType** för effekten i stället för att göra en statisk deklaration. Vår slutförda regel ser ut som i följande exempel:
 
 ```json
 "if": {

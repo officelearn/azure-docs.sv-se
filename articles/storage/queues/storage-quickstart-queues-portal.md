@@ -53,7 +53,7 @@ När du har lagt till ett meddelande visar Azure-portalen en lista över alla me
 
 ![Skärmbild som visar meddelandeegenskaper](media/storage-quickstart-queues-portal/view-message-properties.png)
 
-## <a name="dequeue-a-message"></a>Ta bort ett meddelande från en kö
+## <a name="dequeue-a-message"></a>Ta ett meddelande ur kön
 
 Du kan ett meddelande ur första plats i kön från Azure-portalen. När du tar ett meddelande ur kön tas det bort. 
 

@@ -390,7 +390,7 @@ För <code>ProfanityMarker=Tag</code>är svordomar ord omgiven av XML-taggar &lt
   </tr>
 </table> 
 
-Exempel:
+Till exempel:
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'This is a freaking good idea.'}]"

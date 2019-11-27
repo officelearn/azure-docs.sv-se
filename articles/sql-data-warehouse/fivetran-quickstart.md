@@ -1,6 +1,6 @@
 ---
-title: Fivetran quickstart
-description: Get started quickly with Fivetran and Azure SQL Data Warehouse.
+title: Snabb start för Fivetran
+description: Kom igång snabbt med Fivetran och Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
@@ -18,36 +18,36 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74229096"
 ---
-# <a name="get-started-quickly-with-fivetran-and-sql-data-warehouse"></a>Get started quickly with Fivetran and SQL Data Warehouse
+# <a name="get-started-quickly-with-fivetran-and-sql-data-warehouse"></a>Kom igång snabbt med Fivetran och SQL Data Warehouse
 
-This quickstart describes how to set up a new Fivetran user to work with Azure SQL Data Warehouse. The article assumes that you have an existing instance of SQL Data Warehouse.
+I den här snabb starten beskrivs hur du konfigurerar en ny Fivetran-användare att arbeta med Azure SQL Data Warehouse. Artikeln förutsätter att du har en befintlig instans av SQL Data Warehouse.
 
-## <a name="set-up-a-connection"></a>Set up a connection
+## <a name="set-up-a-connection"></a>Konfigurera en anslutning
 
-1. Find the fully qualified server name and database name that you use to connect to SQL Data Warehouse.
+1. Hitta det fullständigt kvalificerade Server namnet och databas namnet som du använder för att ansluta till SQL Data Warehouse.
     
-    If you need help finding this information, see [Connect to Azure SQL Data Warehouse](sql-data-warehouse-connect-overview.md).
+    Om du behöver hjälp med att hitta den här informationen, se [Anslut till Azure SQL Data Warehouse](sql-data-warehouse-connect-overview.md).
 
-2. In the setup wizard, choose whether to connect your database directly or by using an SSH tunnel.
+2. I installations guiden väljer du om du vill ansluta databasen direkt eller med hjälp av en SSH-tunnel.
 
-   If you choose to connect directly to your database, you must create a firewall rule to allow access. This method is the simplest and most secure method.
+   Om du väljer att ansluta direkt till databasen måste du skapa en brand Väggs regel för att tillåta åtkomst. Den här metoden är den enklaste och säkraste metoden.
 
-   If you choose to connect by using an SSH tunnel, Fivetran connects to a separate server on your network. The server provides an SSH tunnel to your database. You must use this method if your database is in an inaccessible subnet on a virtual network.
+   Om du väljer att ansluta med hjälp av en SSH-tunnel ansluter Fivetran till en separat server i nätverket. Servern tillhandahåller en SSH-tunnel till din databas. Du måste använda den här metoden om databasen finns i ett oåtkomligt undernät i ett virtuellt nätverk.
 
-3. Add the IP address **52.0.2.4** to your server-level firewall to allow incoming connections to your SQL Data Warehouse instance from Fivetran.
+3. Lägg till IP- **52.0.2.4** i brand väggen på server nivå för att tillåta inkommande anslutningar till din SQL Data Warehouse instans från Fivetran.
 
    Mer information finns i [Skapa en brandväggsregel på servernivå](create-data-warehouse-portal.md#create-a-server-level-firewall-rule).
 
-## <a name="set-up-user-credentials"></a>Set up user credentials
+## <a name="set-up-user-credentials"></a>Konfigurera användarautentiseringsuppgifter
 
-1. Connect to your Azure SQL Data Warehouse by using SQL Server Management Studio or the tool that you prefer. Sign in as a server admin user. Then, run the following SQL commands to create a user for Fivetran:
-    - In the master database: 
+1. Anslut till din Azure SQL Data Warehouse genom att använda SQL Server Management Studio eller det verktyg som du föredrar. Logga in som en server administratörs användare. Kör sedan följande SQL-kommandon för att skapa en användare för Fivetran:
+    - I huvud databasen: 
     
       ```
       CREATE LOGIN fivetran WITH PASSWORD = '<password>'; 
       ```
 
-    - In SQL Data Warehouse database:
+    - I SQL Data Warehouse databas:
 
       ```
       CREATE USER fivetran_user_without_login without login;
@@ -55,31 +55,31 @@ This quickstart describes how to set up a new Fivetran user to work with Azure S
       GRANT IMPERSONATE on USER::fivetran_user_without_login to fivetran;
       ```
 
-2. Grant the Fivetran user the following permissions to your warehouse:
+2. Ge Fivetran-användaren följande behörigheter till ditt lager:
 
     ```
     GRANT CONTROL to fivetran;
     ```
 
-    CONTROL permission is required to create database-scoped credentials that are used when a user loads files from Azure Blob storage by using PolyBase.
+    KONTROLL behörighet krävs för att skapa autentiseringsuppgifter för databasen som används när en användare läser in filer från Azure Blob Storage med PolyBase.
 
-3. Add a suitable resource class to the Fivetran user. The resource class you use depends on the memory that's required to create a columnstore index. For example, integrations with products like Marketo and Salesforce require a higher resource class because of the large number of columns and the larger volume of data the products use. A higher resource class requires more memory to create columnstore indexes.
+3. Lägg till en lämplig resurs klass till Fivetran-användaren. Vilken resurs klass du använder beror på vilket minne som krävs för att skapa ett columnstore-index. Till exempel är integreringar med produkter som Marketo och Salesforce kräver en högre resurs klass på grund av det stora antalet kolumner och den större mängden data som används av produkterna. En högre resurs klass kräver mer minne för att skapa columnstore-index.
 
-    We recommend that you use static resource classes. You can start with the `staticrc20` resource class. The `staticrc20` resource class allocates 200 MB for each user, regardless of the performance level you use. If columnstore indexing fails at the initial resource class level, increase the resource class.
+    Vi rekommenderar att du använder statiska resurs klasser. Du kan börja med `staticrc20` resurs klass. `staticrc20` resurs klass allokerar 200 MB för varje användare, oavsett vilken prestanda nivå du använder. Om columnstore-indexeringen Miss lyckas på den ursprungliga resurs klass nivån ökar du resurs klassen.
 
     ```
     EXEC sp_addrolemember '<resource_class_name>', 'fivetran';
     ```
 
-    For more information, read about [memory and concurrency limits](memory-concurrency-limits.md) and [resource classes](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md#ways-to-allocate-more-memory).
+    Mer information finns i om [minnes-och samtidighets gränser](memory-concurrency-limits.md) och [resurs klasser](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md#ways-to-allocate-more-memory).
 
 
-## <a name="sign-in-to-fivetran"></a>Sign in to Fivetran
+## <a name="sign-in-to-fivetran"></a>Logga in på Fivetran
 
-To sign in to Fivetran, enter the credentials that you use to access SQL Data Warehouse: 
+Logga in på Fivetran genom att ange de autentiseringsuppgifter som du använder för att få åtkomst till SQL Data Warehouse: 
 
-* Host (your server name).
-* Port.
+* Värd (ditt Server namn).
+* Lastning.
 * Databas.
-* User (the user name should be **fivetran\@_server_name_** where *server_name* is part of your Azure host URI: ***server_name*.database.windows.net**).
-* Password.
+* Användare (användar namnet ska vara **fivetran\@_server_name_**  där *server_name* är en del av din Azure-värd-URI: ***server_name *. Database. Windows. net**).
+* Ords.

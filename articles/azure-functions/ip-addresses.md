@@ -1,6 +1,6 @@
 ---
-title: IP addresses in Azure Functions
-description: Learn how to find inbound and outbound IP addresses for function apps, and what causes them to change.
+title: IP-adresser i Azure Functions
+description: Lär dig hur du hittar inkommande och utgående IP-adresser för Function-appar och vad som gör att de ändras.
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.openlocfilehash: 327d616c36bcbbb1562349afffd529efb2b5d27f
@@ -10,53 +10,53 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74230328"
 ---
-# <a name="ip-addresses-in-azure-functions"></a>IP addresses in Azure Functions
+# <a name="ip-addresses-in-azure-functions"></a>IP-adresser i Azure Functions
 
-This article explains the following topics related to IP addresses of function apps:
+I den här artikeln förklaras följande avsnitt om IP-adresser för Function-appar:
 
-* How to find the IP addresses currently in use by a function app.
-* What causes a function app's IP addresses to be changed.
-* How to restrict the IP addresses that can access a function app.
-* How to get dedicated IP addresses for a function app.
+* Så här hittar du de IP-adresser som används av en Function-app.
+* Vad gör en funktion i appens IP-adresser att ändras.
+* Så här begränsar du IP-adresserna som har åtkomst till en Function-app.
+* Så här hämtar du dedikerade IP-adresser för en Function-app.
 
-IP addresses are associated with function apps, not with individual functions. Incoming HTTP requests can't use the inbound IP address to call individual functions; they must use the default domain name (functionappname.azurewebsites.net) or a custom domain name.
+IP-adresser är kopplade till Function-appar, inte med enskilda funktioner. Inkommande HTTP-begäranden kan inte använda den inkommande IP-adressen för att anropa enskilda funktioner. de måste använda standard domän namnet (functionappname.azurewebsites.net) eller ett eget domän namn.
 
-## <a name="function-app-inbound-ip-address"></a>Function app inbound IP address
+## <a name="function-app-inbound-ip-address"></a>Funktion appens inkommande IP-adress
 
-Each function app has a single inbound IP address. To find that IP address:
+Varje Function-app har en enda inkommande IP-adress. Så här hittar du IP-adressen:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Navigate to the function app.
-3. Select **Platform features**.
-4. Select **Properties**, and the inbound IP address appears under **Virtual IP address**.
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. Navigera till Function-appen.
+3. Välj **plattforms funktioner**.
+4. Välj **Egenskaper**så visas den inkommande IP-adressen under **virtuell IP-adress**.
 
-## <a name="find-outbound-ip-addresses"></a>Function app outbound IP addresses
+## <a name="find-outbound-ip-addresses"></a>Funktion app utgående IP-adresser
 
-Each function app has a set of available outbound IP addresses. Any outbound connection from a function, such as to a back-end database, uses one of the available outbound IP addresses as the origin IP address. You can't know beforehand which IP address a given connection will use. For this reason, your back-end service must open its firewall to all of the function app's outbound IP addresses.
+Varje Function-app har en uppsättning tillgängliga utgående IP-adresser. Utgående anslutningar från en funktion, till exempel till en backend-databas, använder en av de tillgängliga utgående IP-adresserna som ursprungs-IP-adress. Du kan inte veta i förväg vilken IP-adress en anslutning kommer att använda. Av den anledningen måste din backend-tjänst öppna dess brand vägg till alla funktioner i funktions appens utgående IP-adresser.
 
-To find the outbound IP addresses available to a function app:
+Så här hittar du de utgående IP-adresserna som är tillgängliga för en Function-app:
 
-1. Sign in to the [Azure Resource Explorer](https://resources.azure.com).
-2. Select **subscriptions > {your subscription} > providers > Microsoft.Web > sites**.
-3. In the JSON panel, find the site with an `id` property that ends in the name of your function app.
-4. See `outboundIpAddresses` and `possibleOutboundIpAddresses`. 
+1. Logga in på [Azure Resource Explorer](https://resources.azure.com).
+2. Välj **prenumerationer > {din prenumeration} > leverantörer > Microsoft. Web >-platser**.
+3. I JSON-panelen letar du upp platsen med en `id`-egenskap som slutar i namnet på din Function-app.
+4. Se `outboundIpAddresses` och `possibleOutboundIpAddresses`. 
 
-The set of `outboundIpAddresses` is currently available to the function app. The set of `possibleOutboundIpAddresses` includes IP addresses that will be available only if the function app [scales to other pricing tiers](#outbound-ip-address-changes).
+Uppsättningen `outboundIpAddresses` är för närvarande tillgänglig för Function-appen. Uppsättningen `possibleOutboundIpAddresses` inkluderar IP-adresser som bara är tillgängliga om funktions programmet [skalar till andra pris nivåer](#outbound-ip-address-changes).
 
-An alternative way to find the available outbound IP addresses is by using the [Cloud Shell](../cloud-shell/quickstart.md):
+Ett annat sätt att hitta tillgängliga utgående IP-adresser är genom att använda [Cloud Shell](../cloud-shell/quickstart.md):
 
 ```azurecli-interactive
 az webapp show --resource-group <group_name> --name <app_name> --query outboundIpAddresses --output tsv
 az webapp show --resource-group <group_name> --name <app_name> --query possibleOutboundIpAddresses --output tsv
 ```
 > [!NOTE]
-> When a function app that runs on the [Consumption plan](functions-scale.md#consumption-plan) is scaled, a new range of outbound IP addresses may be assigned. When running on the Consumption plan, you may need to whitelist the entire data center.
+> När en Function-app som körs i [förbruknings planen](functions-scale.md#consumption-plan) skalas, kan ett nytt intervall utgående IP-adresser tilldelas. När du kör i förbruknings planen kan du behöva vitlista hela data centret.
 
-## <a name="data-center-outbound-ip-addresses"></a>Data center outbound IP addresses
+## <a name="data-center-outbound-ip-addresses"></a>Utgående IP-adresser för data Center
 
-If you need to whitelist the outbound IP addresses used by your function apps, another option is to whitelist the function apps' data center (Azure region). You can [download a JSON file that lists IP addresses for all Azure data centers](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Then find the JSON fragment that applies to the region that your function app runs in.
+Om du vill lista över tillåtna utgående IP-adresser som används av dina funktionsappar. Ett annat alternativ är att placera funktionsapparnas datacenter (Azure-region) i en lista över tillåtna. Du kan [Hämta en JSON-fil som visar IP-adresser för alla Azure-datacenter](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Leta sedan reda på JSON-fragmentet som gäller den region som din Function-App körs i.
 
-For example, this is what the Western Europe JSON fragment might look like:
+Detta är till exempel det västra Europa-JSON-fragmentet som kan se ut så här:
 
 ```
 {
@@ -78,56 +78,56 @@ For example, this is what the Western Europe JSON fragment might look like:
 }
 ```
 
- For information about when this file is updated and when the IP addresses change, expand the **Details** section of the [Download Center page](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
+ Om du vill ha information om när filen uppdateras och när IP-adresserna ändras, expanderar du avsnittet **information** på [sidan Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
 
-## <a name="inbound-ip-address-changes"></a>Inbound IP address changes
+## <a name="inbound-ip-address-changes"></a>Ändringar av inkommande IP-adress
 
-The inbound IP address **might** change when you:
+Den inkommande IP-adressen **kan** ändras när du:
 
-- Delete a function app and recreate it in a different resource group.
-- Delete the last function app in a resource group and region combination, and re-create it.
-- Delete an SSL binding, such as during [certificate renewal](../app-service/configure-ssl-certificate.md#renew-certificate)).
+- Ta bort en Function-app och återskapa den i en annan resurs grupp.
+- Ta bort den sista Function-appen i en kombination av resurs grupp och region och återskapa den sedan.
+- Ta bort en SSL-bindning, till exempel vid [förnyelse av certifikat](../app-service/configure-ssl-certificate.md#renew-certificate)).
 
-When your function app runs in a [Consumption plan](functions-scale.md#consumption-plan), the inbound IP address might also change when you haven't taken any actions such as the ones listed.
+När din Function-App körs i en [förbruknings plan](functions-scale.md#consumption-plan)kan den inkommande IP-adressen också ändras när du inte har vidtagit några åtgärder, till exempel de som visas.
 
-## <a name="outbound-ip-address-changes"></a>Outbound IP address changes
+## <a name="outbound-ip-address-changes"></a>Utgående IP-adress ändringar
 
-The set of available outbound IP addresses for a function app might change when you:
+Uppsättningen tillgängliga utgående IP-adresser för en Function-app kan ändras när du:
 
-* Take any action that can change the inbound IP address.
-* Change your App Service plan pricing tier. The list of all possible outbound IP addresses your app can use, for all pricing tiers, is in the `possibleOutboundIPAddresses` property. See [Find outbound IPs](#find-outbound-ip-addresses).
+* Vidta alla åtgärder som kan ändra den inkommande IP-adressen.
+* Ändra pris nivån för App Service plan. Listan över alla möjliga utgående IP-adresser som din app kan använda, för alla pris nivåer, är i egenskapen `possibleOutboundIPAddresses`. Se [hitta utgående IP-adresser](#find-outbound-ip-addresses).
 
-When your function app runs in a [Consumption plan](functions-scale.md#consumption-plan), the outbound IP address might also change when you haven't taken any actions such as the ones listed.
+När din Function-App körs i en [förbruknings plan](functions-scale.md#consumption-plan)kan den utgående IP-adressen också ändras när du inte har vidtagit några åtgärder, till exempel de som visas.
 
-To deliberately force an outbound IP address change:
+För att avsiktligt framtvinga en utgående IP-adress ändring:
 
-1. Scale your App Service plan up or down between Standard and Premium v2 pricing tiers.
-2. Wait 10 minutes.
-3. Scale back to where you started.
+1. Skala din App Service plan uppåt eller nedåt mellan pris nivåerna standard och Premium v2.
+2. Vänta 10 minuter.
+3. Skala tillbaka till den plats där du startade.
 
-## <a name="ip-address-restrictions"></a>IP address restrictions
+## <a name="ip-address-restrictions"></a>IP-adressbegränsningar
 
-You can configure a list of IP addresses that you want to allow or deny access to a function app. For more information, see [Azure App Service Static IP Restrictions](../app-service/app-service-ip-restrictions.md).
+Du kan konfigurera en lista med IP-adresser som du vill tillåta eller neka åtkomst till en Function-app. Mer information finns i [Azure App Service statiska IP-begränsningar](../app-service/app-service-ip-restrictions.md).
 
-## <a name="dedicated-ip-addresses"></a>Dedicated IP addresses
+## <a name="dedicated-ip-addresses"></a>Dedikerade IP-adresser
 
-If you need static, dedicated IP addresses, we recommend [App Service Environments](../app-service/environment/intro.md) (the [Isolated tier](https://azure.microsoft.com/pricing/details/app-service/) of App Service plans). For more information, see [App Service Environment IP addresses](../app-service/environment/network-info.md#ase-ip-addresses) and [How to control inbound traffic to an App Service Environment](../app-service/environment/app-service-app-service-environment-control-inbound-traffic.md).
+Om du behöver statiska, dedikerade IP-adresser rekommenderar vi [App Service miljöer](../app-service/environment/intro.md) (den [isolerade nivån](https://azure.microsoft.com/pricing/details/app-service/) App Service planer). Mer information finns i [App Service-miljön IP-adresser](../app-service/environment/network-info.md#ase-ip-addresses) och [hur du styr inkommande trafik till en app service-miljön](../app-service/environment/app-service-app-service-environment-control-inbound-traffic.md).
 
-To find out if your function app runs in an App Service Environment:
+Ta reda på om din Function-App körs i en App Service-miljön:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Navigate to the function app.
-3. Select the **Overview** tab.
-4. The App Service plan tier appears under **App Service plan/pricing tier**. The App Service Environment pricing tier is **Isolated**.
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. Navigera till Function-appen.
+3. Välj fliken **Översikt** .
+4. App Service plan nivån visas under **App Service plan/pris nivå**. Pris nivån för App Service-miljön är **isolerad**.
  
-As an alternative, you can use the [Cloud Shell](../cloud-shell/quickstart.md):
+Alternativt kan du använda [Cloud Shell](../cloud-shell/quickstart.md):
 
 ```azurecli-interactive
 az webapp show --resource-group <group_name> --name <app_name> --query sku --output tsv
 ```
 
-The App Service Environment `sku` is `Isolated`.
+App Service-miljön `sku` är `Isolated`.
 
 ## <a name="next-steps"></a>Nästa steg
 
-A common cause of IP changes is function app scale changes. [Learn more about function app scaling](functions-scale.md).
+En vanlig orsak till IP-ändringar är att skal ändringar i Function-appar. [Lär dig mer om skalning av Function-appar](functions-scale.md).

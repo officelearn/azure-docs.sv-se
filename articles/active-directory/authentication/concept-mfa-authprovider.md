@@ -1,6 +1,6 @@
 ---
-title: Azure Multi-Factor Auth Providers - Azure Active Directory
-description: When should you use an Auth Provider with Azure MFA?
+title: Azure Multi-Factor Auth-provider – Azure Active Directory
+description: När ska du använda en auth-Provider med Azure MFA?
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -18,59 +18,59 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74382008"
 ---
-# <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>When to use an Azure Multi-Factor Authentication Provider
+# <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>När du ska använda en Azure Multi-Factor Authentication-provider
 
 Tvåstegsverifiering är tillgängligt som standard för globala administratörer med Azure Active Directory och Office 365-användare. Men om du vill dra nytta av [avancerade funktioner](howto-mfa-mfasettings.md) ska du köpa den fullständiga versionen av Azure Multi-Factor Authentication (MFA).
 
-An Azure Multi-Factor Auth Provider is used to take advantage of features provided by Azure Multi-Factor Authentication for users who **do not have licenses**.
+En Azure Multi-Factor Auth-provider används för att dra nytta av funktioner som tillhandahålls av Azure Multi-Factor Authentication för användare som **inte har licenser**.
 
 > [!NOTE]
-> Effective September 1st, 2018 new auth providers may no longer be created. Existing auth providers may continue to be used and updated, but migration is no longer possible. Multi-factor authentication will continue to be available as a feature in Azure AD Premium licenses.
+> Från och med den 1 september 2018 kan nya auth providers inte längre skapas. Befintliga auth-providers kan fortsätta att användas och uppdateras, men migreringen är inte längre möjlig. Multi-Factor Authentication är fortfarande tillgängligt som en funktion i Azure AD Premium licenser.
 
-## <a name="caveats-related-to-the-azure-mfa-sdk"></a>Caveats related to the Azure MFA SDK
+## <a name="caveats-related-to-the-azure-mfa-sdk"></a>Varningar som rör Azure MFA SDK
 
-Note the SDK has been deprecated and will only continue to work until November 14, 2018. Efter det misslyckas anrop till SDK.
+Observera att SDK: n är inaktuell och fortsätter att fungera fram till 14 november 2018. Efter det misslyckas anrop till SDK.
 
 ## <a name="what-is-an-mfa-provider"></a>Vad är en MFA-provider?
 
-There are two types of Auth providers, and the distinction is around how your Azure subscription is charged. Med alternativet per autentisering räknas antalet autentiseringar som utförs mot din klientorganisation under en månad. Det här alternativet är bäst om du har ett antal användare som bara autentiserar sig ibland. Med alternativet per användare räknas hur många användare i din klientorganisation som utför en tvåstegsverifiering under en månad. Det här alternativet är bäst om du har några användare med licenser men behöver utöka MFA till fler användare utanför licensgränsen.
+Det finns två typer av auth-providers, och skillnaden är ungefär hur din Azure-prenumeration debiteras. Med alternativet per autentisering räknas antalet autentiseringar som utförs mot din klientorganisation under en månad. Det här alternativet är bäst om du har ett antal användare som bara autentiserar sig ibland. Med alternativet per användare räknas hur många användare i din klientorganisation som utför en tvåstegsverifiering under en månad. Det här alternativet är bäst om du har några användare med licenser men behöver utöka MFA till fler användare utanför licensgränsen.
 
 ## <a name="manage-your-mfa-provider"></a>Hantera din MFA-provider
 
 Du kan inte ändra användningsmodellen (per aktiverad användare eller per autentisering) efter att en MFA-provider har skapats.
 
-If you purchased enough licenses to cover all users that are enabled for MFA, you can delete the MFA provider altogether.
+Om du har köpt tillräckligt många licenser för att alla användare som är aktiverade för MFA, kan du ta bort MFA-providern helt.
 
-Om MFA-providern inte är kopplad till en Azure AD-klientorganisation, eller om du kopplar den nya MFA-providern till en annan Azure AD-klientorganisation, överförs inte användarinställningar eller konfigurationsalternativ. Also, existing Azure MFA Servers need to be reactivated using activation credentials generated through the MFA Provider. Reactivating the MFA Servers to link them to the MFA Provider doesn't impact phone call and text message authentication, but mobile app notifications stop working for all users until they reactivate the mobile app.
+Om MFA-providern inte är kopplad till en Azure AD-klientorganisation, eller om du kopplar den nya MFA-providern till en annan Azure AD-klientorganisation, överförs inte användarinställningar eller konfigurationsalternativ. Dessutom måste befintliga Azure MFA-servrar återaktiveras med hjälp av de aktiverings referenser som genereras via MFA-providern. Om du återaktiverar MFA-servrarna för att länka dem till MFA-providern påverkas inte autentiseringen av telefonsamtal och textmeddelande, men meddelanden om mobilappar upphör att fungera för alla användare tills de återaktiverar mobilappen.
 
-### <a name="removing-an-authentication-provider"></a>Removing an authentication provider
+### <a name="removing-an-authentication-provider"></a>Ta bort en autentiseringsprovider
 
 > [!CAUTION]
-> There is no confirmation when deleting an authentication provider. Selecting **Delete** is a permanent process.
+> Det finns ingen bekräftelse när du tar bort en autentiseringsprovider. Att välja **ta bort** är en permanent process.
 
-Authentication providers can be found in the **Azure portal** > **Azure Active Directory** > **MFA** > **Providers**. Click on listed providers to see details and configurations associated with that provider.
+Du hittar autentiseringsproviders i **Azure Portal** > **Azure Active Directory** > **MFA** > - **leverantörer**. Klicka på listade leverantörer för att se information och konfigurationer som är kopplade till den providern.
 
-Before removing an authentication provider, take note of any customized settings configured in your provider. Decide what settings need to be migrated to general MFA settings from your provider and complete the migration of those settings. 
+Innan du tar bort en autentiseringsprovider bör du anteckna alla anpassade inställningar som kon figurer ATS i din Provider. Bestäm vilka inställningar som måste migreras till allmänna MFA-inställningar från din Provider och Slutför migreringen av dessa inställningar. 
 
-Azure MFA Servers linked to providers will need to be reactivated using credentials generated under **Azure portal** > **Azure Active Directory** > **MFA** > **Server settings**. Before reactivating, the following files must be deleted from the `\Program Files\Multi-Factor Authentication Server\Data\` directory on Azure MFA Servers in your environment:
+Azure MFA-servrar som är länkade till providrar måste återaktiveras med hjälp av autentiseringsuppgifter som genereras under **Azure Portal** > **Azure Active Directory** > **MFA** > **Server inställningar**. Innan du återaktiverar måste följande filer tas bort från `\Program Files\Multi-Factor Authentication Server\Data\` Directory på Azure MFA-servrar i din miljö:
 
 - caCert
-- cert
+- certifikatet
 - groupCACert
 - groupKey
-- groupName
-- licenseKey
+- Namn
+- Licens nyckeln
 - pkey
 
-![Delete an auth provider from the Azure portal](./media/concept-mfa-authprovider/authentication-provider-removal.png)
+![Ta bort en autentiseringsprovider från Azure Portal](./media/concept-mfa-authprovider/authentication-provider-removal.png)
 
-When you have confirmed that all settings have been migrated, you can browse to the **Azure portal** > **Azure Active Directory** > **MFA** > **Providers** and select the ellipses **...** and select **Delete**.
+När du har bekräftat att alla inställningar har migrerats kan du bläddra till **Azure Portal** > **Azure Active Directory** > **MFA** > **providers** och välja ellipserna **...** och välj **ta bort**.
 
 > [!WARNING]
-> Deleting an authentication provider will delete any reporting information associated with that provider. You may want to save activity reports before deleting your provider.
+> Om du tar bort en autentiseringsprovider tas all rapporterings information som är associerad med providern bort. Du kanske vill spara aktivitets rapporter innan du tar bort din Provider.
 
 > [!NOTE]
-> Users with older versions of the Microsoft Authenticator app and Azure MFA Server may need to re-register their app.
+> Användare med äldre versioner av Microsoft Authenticator-appen och Azure MFA-servern kan behöva registrera appen igen.
 
 ## <a name="next-steps"></a>Nästa steg
 

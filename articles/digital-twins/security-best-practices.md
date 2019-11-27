@@ -1,6 +1,6 @@
 ---
-title: Understand security best practices - Azure Digital Twins | Microsoft Docs
-description: Learn about security best practices for Azure Digital Twins and the Internet of Things.
+title: Förstå rekommenderade säkerhets metoder – Azure Digitals flätar | Microsoft Docs
+description: Lär dig mer om rekommenderade säkerhets metoder för Azure Digital-och Sakernas Internet.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -15,69 +15,69 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74229044"
 ---
-# <a name="azure-digital-twins-security-best-practices"></a>Azure Digital Twins security best practices
+# <a name="azure-digital-twins-security-best-practices"></a>Azure Digitals dubblare säkerhets metod tips
 
-Azure Digital Twins security enables precise access to specific resources and actions in your IoT graph. It does so through granular role and permission management called [role-based access control](./security-role-based-access-control.md).
+Azure Digitals dubbla säkerhet ger exakt åtkomst till specifika resurser och åtgärder i IoT-diagrammet. Det gör det genom detaljerad roll-och behörighets hantering som kallas [rollbaserad åtkomst kontroll](./security-role-based-access-control.md).
 
-Azure Digital Twins also uses other security features that are present in Azure IoT, including Azure Active Directory (Azure AD). For that reason, configuring and securing applications built on Azure Digital Twins involves using many of the same [Azure IoT security practices](../iot-fundamentals/iot-security-best-practices.md) currently recommended.
+Azure Digital-dubbla finns också med andra säkerhetsfunktioner som finns i Azure IoT, inklusive Azure Active Directory (Azure AD). Av den anledningen rekommenderar vi att du använder många av samma [Azure IoT-säkerhetspraxiser](../iot-fundamentals/iot-security-best-practices.md) för att konfigurera och säkra program som bygger på Azures digitala dubbla.
 
-This article summarizes key best practices to follow.
+I den här artikeln sammanfattas viktiga metod tips.
 
 > [!IMPORTANT]
-> To ensure maximal security for your IoT space, review additional security resources. Make sure to include your device vendors.
+> Granska ytterligare säkerhets resurser för att säkerställa maximal säkerhet för ditt IoT-utrymme. Se till att ta med dina enhets leverantörer.
 
 > [!TIP]
-> Use [Azure Security Center for IoT](https://docs.microsoft.com/azure/asc-for-iot/) to help detect IoT security threats and vulnerabilities.
+> Använd [Azure Security Center för IoT](https://docs.microsoft.com/azure/asc-for-iot/) för att identifiera IoT-säkerhetshot och sårbarheter.
 
 ## <a name="iot-security-best-practices"></a>Metodtips för IoT-säkerhet
 
-Some key practices to safely secure your IoT devices include:
+Några viktiga metoder för att säkra dina IoT-enheter på ett säkert sätt är:
 
 > [!div class="checklist"]
-> * Secure each device that's connected to your IoT space in a tamper-proof way.
-> * Limit the role of each device, sensor, and person within your IoT space. If compromised, the effect is minimized.
-> * Consider the potential use of device IP address filtering and port restriction.
-> * Limit I/O and device bandwidth to improve performance. Rate-limiting can improve security by preventing denial-of-service attacks.
-> * Keep device firmware, operating system, and software up to date.
-> * Periodically audit and review device, software, network, and gateway security best practices as they continue to improve and evolve.
+> * Skydda alla enheter som är anslutna till ditt IoT-utrymme på ett Manipulerings sätt.
+> * Begränsa rollen för varje enhet, sensor och person inom ditt IoT-utrymme. Om den komprometteras är resultatet minimerat.
+> * Överväg den potentiella användningen av enhets filtrering och port begränsning i enheten.
+> * Begränsa I/O-och enhets bandbredden för att förbättra prestandan. Hastighets begränsning kan förbättra säkerheten genom att förhindra DoS-attacker (Denial-of-Service).
+> * Se till att enhetens inbyggda program vara, operativ system och program vara är uppdaterade.
+> * Regelbundet granska och granska enhets-, program-, nätverks-och gateway-Säkerhetsmetodens säkerhets metoder när de fortsätter att förbättra och utveckla.
 
-Some key practices to safely secure an IoT space include:
+Några viktiga metoder för att säkert skydda ett IoT-utrymme är:
 
 > [!div class="checklist"]
-> * Encrypt saved, stored, or persistent data.
-> * Require passwords or keys to be periodically changed or refreshed.
-> * Carefully restrict access and permissions by role. See the section [Role-based access control best practices](#role-based-access-control-best-practices) below.
-> * Consider a divided network topology so that devices on each network are isolated from the others.
-> * Use powerful encryption. Require long passwords, use secure protocols, and [multi-factor authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
+> * Kryptera sparade, lagrade eller beständiga data.
+> * Kräv lösen ord eller nycklar som ska ändras regelbundet eller uppdateras.
+> * Begränsa åtkomsten och behörigheten noggrant efter roll. Se [metod tipsen för den rollbaserade åtkomst kontrollen](#role-based-access-control-best-practices) nedan.
+> * Överväg en delad nätverkstopologi så att enheterna i varje nätverk isoleras från de andra.
+> * Använd kraftfull kryptering. Kräv långa lösen ord, Använd säkra protokoll och [Multi-Factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
 
-[Monitor](./how-to-configure-monitoring.md) IoT resources to watch for outliers, threats, or resource parameters that fall outside the range of usual operation. Use Azure Analytics for monitoring management.
+[Övervaka](./how-to-configure-monitoring.md) IoT-resurser för att se om det finns extrem värden, hot eller resurs parametrar som ligger utanför det normala drift intervallet. Använd Azure Analytics för övervakning av hantering.
 
 > [!IMPORTANT]
-> Read Azure [IoT security best practices](../iot-fundamentals/iot-security-best-practices.md) to begin a comprehensive IoT security strategy.
+> Läs [metod tips](../iot-fundamentals/iot-security-best-practices.md) för Azure IoT-säkerhet för att påbörja en omfattande IoT-säkerhetsstrategi.
 
 > [!NOTE]
-> For more information on event processing and monitoring, see [Route events and messages with Azure Digital Twins](./concepts-events-routing.md).
+> Mer information om händelse bearbetning och övervakning finns i [dirigera händelser och meddelanden med Azure Digitals](./concepts-events-routing.md).
 
-## <a name="azure-active-directory-best-practices"></a>Azure Active Directory best practices
+## <a name="azure-active-directory-best-practices"></a>Metod tips för Azure Active Directory
 
-Azure Digital Twins uses [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/) to authenticate users and protect applications. Azure Active Directory supports authentication for a variety of modern architectures. They're all based on industry-standard protocols such as OAuth 2.0 or OpenID Connect. A few key practices to secure your IoT space for Azure Active Directory include:
+Azure Digitals dubblare använder [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/) för att autentisera användare och skydda program. Azure Active Directory stöder autentisering för en mängd moderna arkitekturer. De är baserade på bransch standard protokoll som OAuth 2,0 eller OpenID Connect. Några viktiga metoder för att skydda IoT-utrymmet för Azure Active Directory är:
 
 > [!div class="checklist"]
-> * Store Azure Active Directory app secrets and keys in a secure location, such as [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
-> * Use a certificate issued by a trusted [certificate authority](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) rather than app secrets to authenticate.
-> * Limit OAuth 2.0 scope of access for a token.
-> * Verify the length of time a token is valid and whether a token remains valid.
-> * Set appropriate lengths of time that tokens are valid for.
-> * Refresh expired tokens.
+> * Lagra Azure Active Directory-appens hemligheter och nycklar på en säker plats, till exempel [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+> * Använd ett certifikat som utfärdats av en betrodd [certifikat utfärdare](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) i stället för att program hemligheter ska autentiseras.
+> * Begränsa OAuth 2,0-omfånget för åtkomst för en token.
+> * Verifiera hur lång tid en token är giltig och om en token fortfarande är giltig.
+> * Ange lämpliga tids längder som token är giltiga för.
+> * Uppdatera utgångna token.
 
-## <a name="role-based-access-control-best-practices"></a>Role-based access control best practices
+## <a name="role-based-access-control-best-practices"></a>Metod tips för rollbaserad åtkomst kontroll
 
 [!INCLUDE [digital-twins-rbac-best-practices](../../includes/digital-twins-rbac-best-practices.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-* To learn more about Azure IoT best practices, read [IoT security best practices](../iot-fundamentals/iot-security-best-practices.md).
+* Läs mer om bästa praxis för Azure IoT i [metod tips för IoT-säkerhet](../iot-fundamentals/iot-security-best-practices.md).
 
-* To learn about role-based access control, read [Role-based access control](./security-role-based-access-control.md).
+* Läs [rollbaserad åtkomst kontroll](./security-role-based-access-control.md)om du vill veta mer om rollbaserad åtkomst kontroll.
 
-* To learn about authentication, read [Authenticate with APIs](./security-authenticating-apis.md).
+* Läs [autentisera med API: er](./security-authenticating-apis.md)om du vill veta mer om autentisering.

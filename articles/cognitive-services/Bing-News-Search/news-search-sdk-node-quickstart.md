@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Perform a news search using the SDK for Node.js - Bing News Search'
+title: 'Snabb start: utföra en nyhets sökning med SDK för Node. js – Nyhetssökning i Bing'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten till att söka efter nyheter med SDK för nyhetssökning i Bing för Node.js och bearbeta sedan svaret.
 services: cognitive-services
@@ -18,7 +18,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74383890"
 ---
-# <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-nodejs"></a>Quickstart: Perform a news search with the Bing News Search SDK for Node.js
+# <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-nodejs"></a>Snabb start: utföra en nyhets sökning med Nyhetssökning i Bing SDK för Node. js
 
 Använd den här snabbstarten om du vill börja söka efter nyheter med SDK för nyhetssökning i Bing för Node.js. Även om Nyhetssökning i Bing har ett REST API som är kompatibelt med de flesta programmeringsspråk så tillhandahåller SDK:n ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/newsSearch.js).
 
@@ -35,7 +35,7 @@ Så här skapar du ett konsolprogram med API för nyhetssökning i Bing:
 
 ## <a name="create-and-initialize-the-application"></a>Skapa och initiera appen
 
-1. Skapa en instans av `CognitiveServicesCredentials`. Create variables for your subscription key, and a search term.
+1. Skapa en instans av `CognitiveServicesCredentials`. Skapa variabler för din prenumerations nyckel och en sökterm.
 
     ```javascript
     const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;

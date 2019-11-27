@@ -1,6 +1,6 @@
 ---
-title: Azure Functions error handling guidance
-description: Learn to handle errors in Azure Functions with links to specific binding errors.
+title: Vägledning för Azure Functions fel hantering
+description: Lär dig att hantera fel i Azure Functions med länkar till vissa bindnings fel.
 author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/11/2019
@@ -12,19 +12,19 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74227326"
 ---
-# <a name="azure-functions-error-handling"></a>Azure Functions error handling
+# <a name="azure-functions-error-handling"></a>Azure Functions fel hantering
 
-Handling errors in Azure Functions is important to avoid lost data, missed events, and to monitor the health of your application.
+Att hantera fel i Azure Functions är viktigt för att undvika förlorade data, missade händelser och för att övervaka hälso tillståndet för programmet.
 
-This article describes general strategies for error handling along with links to binding-specific errors.
+I den här artikeln beskrivs allmänna strategier för fel hantering tillsammans med länkar till platsspecifika fel.
 
-## <a name="handling-errors"></a>Handling errors
+## <a name="handling-errors"></a>Hantera fel
 
 [!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
 
-## <a name="binding-error-codes"></a>Binding error codes
+## <a name="binding-error-codes"></a>Fel koder för bindning
 
-When integrating with Azure services, errors may originate from the APIs of the underlying services. Information relating to binding-specific errors is available in the **Exceptions and return codes** section of the following articles:
+Vid integrering med Azure-tjänster kan fel komma från API: erna för underliggande tjänster. Information om platsspecifika fel finns i avsnittet **undantag och retur koder** i följande artiklar:
 
 + [Azure Cosmos DB](functions-bindings-cosmosdb.md#exceptions-and-return-codes)
 

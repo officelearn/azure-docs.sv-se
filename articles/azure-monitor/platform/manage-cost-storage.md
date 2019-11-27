@@ -56,13 +56,13 @@ Om du använder Azure Monitor loggar nu är det enkelt att förstå vad kostnade
 
 ![Användning och uppskattade kostnader](media/manage-cost-storage/usage-estimated-cost-dashboard-01.png)
 
-Om du vill utforska dina data i mer detalj klickar du på ikonen längst upp höger på något av diagrammen i den **användning och uppskattade kostnader** sidan. Nu kan du arbeta med den här frågan att utforska mer information om din användning.  
+Om du vill utforska dina data mer detaljerat klickar du på ikonen längst upp till höger i något av diagrammen på sidan **användning och uppskattade kostnader** . Nu kan du arbeta med den här frågan att utforska mer information om din användning.  
 
 ![Visa loggar](media/manage-cost-storage/logs.png)
 
-På sidan **användning och uppskattade kostnader** kan du granska din data volym för månaden. Detta omfattar alla data tas emot och bevaras i Log Analytics-arbetsytan.  Klicka på **användnings information** överst på sidan för att Visa användnings instrument panelen med information om data volym trender efter källa, datorer och erbjudande. Visa och ange en daglig högsta gräns eller ändra kvarhållningsperioden klickar du på **Datavolymhantering**.
+På sidan **användning och uppskattade kostnader** kan du granska din data volym för månaden. Detta omfattar alla data tas emot och bevaras i Log Analytics-arbetsytan.  Klicka på **användnings information** överst på sidan för att Visa användnings instrument panelen med information om data volym trender efter källa, datorer och erbjudande. Om du vill visa och ange en daglig begränsning eller ändra kvarhållningsperioden klickar du på **data volym hantering**.
  
-Log Analytics avgifter läggs till i Azure-fakturan. Du kan se information om din Azure fakturerar under avsnittet fakturering i Azure Portal eller i den [Azure Billing Portal](https://account.windowsazure.com/Subscriptions).  
+Log Analytics avgifter läggs till i Azure-fakturan. Du kan se information om din Azure-faktura under fakturerings avsnittet i Azure Portal eller i [Azure-faktureringsportal](https://account.windowsazure.com/Subscriptions).  
 
 ## <a name="viewing-log-analytics-usage-on-your-azure-bill"></a>Visa Log Analytics användning på din Azure-faktura 
 
@@ -105,7 +105,7 @@ Ange standard kvarhållning för din arbets yta genom att
  
 1. I Azure Portal, från din arbets yta, väljer du **användning och uppskattade kostnader** i det vänstra fönstret.
 2. På sidan **Användning och uppskattade kostnader** klickar du på **Datavolymhantering** högst upp på sidan.
-3. Flytta skjutreglaget för att öka eller minska antalet dagar och klickar sedan på i fönstret **OK**.  Om du använder den *kostnadsfria* nivå, du kommer inte att kunna ändra kvarhållningsperioden för data och du måste uppgradera till betald nivå om du vill styra den här inställningen.
+3. I fönstret flyttar du skjutreglaget för att öka eller minska antalet dagar och klickar sedan på **OK**.  Om du är på den *kostnads fria* nivån kan du inte ändra data lagrings perioden och du måste uppgradera till den betalda nivån för att kunna styra den här inställningen.
 
     ![Ändra inställning för kvarhållning av data arbets yta](media/manage-cost-storage/manage-cost-change-retention-01.png)
     
@@ -160,22 +160,22 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 
 Du kan konfigurera en daglig högsta gräns och begränsa den dagliga datainmatningen för arbetsytan, men var försiktig eftersom målet inte får vara att träffa den dagliga gränsen.  Annars kan förlora du data under resten av den dagen, vilket kan påverka andra Azure-tjänster och lösningar som vars funktioner kan vara beroende uppdaterad information är tillgänglig i arbetsytan.  Därför kan aviseringar din förmåga att Observera och ta emot när hälsovillkoren av resurser som stödjer IT-tjänster som påverkas.  Den dagliga gränsen är avsedd att användas som ett sätt att hantera den oväntade ökningen av data volymen från dina hanterade resurser och hålla dig inom gränsen, eller när du vill begränsa oplanerade kostnader för din arbets yta.  
 
-När den dagliga gränsen har uppnåtts, stoppar insamlingen av fakturerbara datatyper för resten av dagen. En varning banderoll överst på sidan för den valda Log Analytics-arbetsytan och en åtgärd händelse skickas till den *åtgärden* tabellen **LogManagement** kategori. Insamling av data återupptar när återställningstiden definierats *dagliga gränsen ställs in på*. Vi rekommenderar att definiera en aviseringsregel baserat på den här åtgärden-händelser som konfigurerats för att meddela när den dagliga data gränsen har uppnåtts. 
+När den dagliga gränsen har uppnåtts, stoppar insamlingen av fakturerbara datatyper för resten av dagen. En varnings banderoll visas överst på sidan för den valda Log Analytics-arbetsytan och en åtgärds händelse skickas till *Åtgärds* tabellen under kategorin **LogManagement** . Data insamlingen återupptas efter det att återställnings tiden som definierats under den *dagliga gränsen ställs in på*. Vi rekommenderar att definiera en aviseringsregel baserat på den här åtgärden-händelser som konfigurerats för att meddela när den dagliga data gränsen har uppnåtts. 
 
 > [!NOTE]
 > Den dagliga begränsningen stoppar inte data insamlingen från Azure Security Center, förutom för arbets ytor där Azure Security Center installerades före den 19 juni 2017. 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Identifiera vilka dagliga datagräns definiera
 
-Granska [Log Analytics-användning och uppskattade kostnader](usage-estimated-costs.md) att förstå till trenden för inmatning av data och vad är den dagliga Volymgränsen definiera. Det bör ses med försiktighet, eftersom du inte längre att övervaka dina resurser när gränsen har nåtts. 
+Granska [Log Analytics användning och beräknade kostnader](usage-estimated-costs.md) för att förstå data inmatnings trenden och det dagliga volym taket för att definiera. Det bör ses med försiktighet, eftersom du inte längre att övervaka dina resurser när gränsen har nåtts. 
 
 ### <a name="set-the-daily-cap"></a>Ange dagligt tak
 
 Följande steg beskriver hur du konfigurerar en gräns för att hantera den data volym som Log Analytics arbets ytan kommer att ta in per dag.  
 
 1. Välj **Användning och uppskattade kostnader** i det vänstra fönstret på arbetsytan.
-2. På den **användning och uppskattade kostnader** för den valda arbetsytan och klicka på **Datavolymhantering** högst upp på sidan. 
-3. Dagligt tak är **OFF** som standard – klickar du på **på** att aktivera den och ange sedan datavolymen i GB/dag.
+2. På sidan **användning och uppskattade kostnader** för den valda arbets ytan klickar du på **data volym hantering** överst på sidan. 
+3. Dagligt tak **är inaktiverat** som standard – klicka **på på** för att aktivera det och ange sedan data volym gränsen på GB/dag.
 
     ![Log Analytics konfigurera data gräns](media/manage-cost-storage/set-daily-volume-cap-01.png)
 
@@ -197,7 +197,7 @@ Här följer de rekommenderade inställningarna för aviseringen för att komma 
 - Namn på aviseringsregel: dagliga data nådd
 - Allvarlighetsgrad: Varning (Sev 1)
 
-När aviseringen har definierats och gränsen har nåtts kan en avisering har utlösts och utför svaret som definierats i åtgärdsgruppen. Det kan meddela ditt team via e-post och textmeddelanden eller automatisera åtgärder med webhooks, Automation-runbooks eller [integrera med en extern ITSM-lösning](itsmc-overview.md#create-itsm-work-items-from-azure-alerts). 
+När aviseringen har definierats och gränsen har nåtts kan en avisering har utlösts och utför svaret som definierats i åtgärdsgruppen. Det kan meddela ditt team via e-post och textmeddelanden, eller automatisera åtgärder med Webhooks, Automation runbooks eller [integrera med en extern ITSM-lösning](itsmc-overview.md#create-itsm-work-items-from-azure-alerts). 
 
 ## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>Felsökning varför användningen är större än förväntat
 
@@ -250,7 +250,7 @@ union withsource = tt *
 
 ## <a name="understanding-ingested-data-volume"></a>Förstå inmatad data volym
 
-På den **användning och uppskattade kostnader** kan den *datainmatning per lösning* diagrammet visar den totala mängden data som skickas och hur mycket som skickas av varje lösning. På så sätt kan du fastställa trender, till exempel om den övergripande dataanvändning (eller användning av en viss lösning) ökar, förblir oförändrad eller minskar. Frågan används för att generera detta är
+På sidan **användning och uppskattade kostnader** visar diagrammet *data inmatning per lösning* den totala mängden data som skickas och hur mycket som skickas av varje lösning. På så sätt kan du fastställa trender, till exempel om den övergripande dataanvändning (eller användning av en viss lösning) ökar, förblir oförändrad eller minskar. Frågan används för att generera detta är
 
 ```kusto
 Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
@@ -322,7 +322,7 @@ Om du ändrar `subscriptionId` till `resourceGroup` visas resurs gruppen fakture
 
 
 > [!NOTE]
-> Några av fälten i användnings data typen, men fortfarande i schemat, är inaktuella och de kommer inte längre att fyllas i. Det här är **datorn** samt relaterade fält till inmatning (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**,  **BatchesCapped** och **AverageProcessingTimeMs**.
+> Några av fälten i användnings data typen, men fortfarande i schemat, är inaktuella och de kommer inte längre att fyllas i. Dessa är både **datorer** och fält som rör inmatning (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** och **AverageProcessingTimeMs**.
 
 ### <a name="querying-for-common-data-types"></a>Fråga efter vanliga data typer
 
@@ -359,7 +359,7 @@ Några förslag för att minska mängden insamlade loggar är:
 
 ### <a name="getting-security-and-automation-node-counts"></a>Antalet säkerhets-och automation-noder hämtas
 
-Om du är på ”Per nod (OMS)” prisnivå så debiteras du utifrån antal noder och lösningar som du använder, hur många insikter och analys noder som du faktureras kommer att visas i tabellen på den **användning och uppskattade kostnader**sidan.  
+Om du använder pris nivån per nod (OMS), debiteras du baserat på antalet noder och lösningar som du använder, så visas antalet insikter och analys-noder som du faktureras för i tabellen på sidan **användning och uppskattad kostnad** .  
 
 Du kan använda frågan om du vill se antalet separata noder som säkerhet:
 

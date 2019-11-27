@@ -1,6 +1,6 @@
 ---
-title: Create app passwords from Security info (preview) page - Azure AD
-description: Create auto-generated passwords (app passwords) to use with any non-browser app, or any app that doesn't support two-factor verification, in your organization. This app password is separate from a normal password and can be set up from the Security info page.
+title: Skapa applösenord från sidan säkerhets information (för hands version) – Azure AD
+description: Skapa automatiskt genererade lösen ord (applösenord) som ska användas med appar som inte är webbläsarbaserade eller appar som inte stöder tvåstegsverifiering, i din organisation. Det här applösenord är skilt från ett vanligt lösen ord och kan konfigureras från sidan säkerhets information.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -19,70 +19,70 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74231797"
 ---
-# <a name="create-app-passwords-from-the-security-info-preview-page"></a>Create app passwords from the Security info (preview) page
+# <a name="create-app-passwords-from-the-security-info-preview-page"></a>Skapa applösenord från sidan säkerhets information (förhands granskning)
 
-Certain apps, such as Outlook 2010, don't support two-step verification. This lack of support means that if you're using two-step verification in your organization, the app won't work. To get around this problem, you can create an auto-generated password to use with each non-browser app, separate from your normal password.
+Vissa appar, till exempel Outlook 2010, stöder inte tvåstegsverifiering. Detta saknar stöd innebär att om du använder tvåstegsverifiering i din organisation fungerar inte appen. För att komma runt det här problemet kan du skapa ett automatiskt genererat lösen ord som ska användas med varje annan app än en webbläsare, separat från ditt normala lösen ord.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Important]
->Your administrator may not allow you to use app passwords. If you don't see **App passwords** as an option, they're not available in your organization.
+>Din administratör kanske inte tillåter att du använder applösenord. Om du inte ser **applösenord** som ett alternativ är de inte tillgängliga i din organisation.
 
-When using app passwords, it's important to remember:
+När du använder applösenord är det viktigt att komma ihåg:
 
-- App passwords are auto-generated, and should be created and entered once per app.
+- Applösenord genereras automatiskt och bör skapas och anges en gång per app.
 
-- There's a limit of 40 passwords per user. If you try to create one after that limit, you'll be prompted to delete an existing password before being allowed to create the new one.
+- Det finns en gräns på 40 lösen ord per användare. Om du försöker skapa en efter den gränsen uppmanas du att ta bort ett befintligt lösen ord innan du får skapa det nya.
 
     >[!Note]
-    >Office 2013 clients (including Outlook) support new authentication protocols and can be used with two-step verification. This support means that after two-step verification is turned on, you'll no longer need app passwords for Office 2013 clients. For more info, see the [How modern authentication works for Office 2013 and Office 2016 client apps](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517) article.
+    >Office 2013-klienter (inklusive Outlook) har stöd för nya autentiseringsprotokoll och kan användas med tvåstegsverifiering. Det här stödet innebär att när tvåstegsverifiering har Aktiver ATS behöver du inte längre applösenord för Office 2013-klienter. Mer information finns i artikeln [så här fungerar modern autentisering för office 2013 och office 2016-klient program](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517) .
 
-## <a name="create-new-app-passwords"></a>Create new app passwords
+## <a name="create-new-app-passwords"></a>Skapa nya applösenord
 
-If you use two-step verification with your work or school account and your administrator has turned on the security info experience, you can create and delete your app passwords using the **Security info** page.
+Om du använder tvåstegsverifiering med ditt arbets-eller skol konto och din administratör har aktiverat säkerhets informations upplevelsen, kan du skapa och ta bort dina applösenord på sidan **säkerhets information** .
 
 >[!Note]
->If your administrator hasn't turned on the security info experience, you must follow the instructions and information in the [Manage app passwords for two-step verification](multi-factor-authentication-end-user-app-passwords.md) section.
+>Om din administratör inte har aktiverat säkerhets informations upplevelsen måste du följa anvisningarna och informationen i avsnittet [Hantera applösenord för att kontrol lera appar i två steg](multi-factor-authentication-end-user-app-passwords.md) .
 
-### <a name="to-create-a-new-app-password"></a>To create a new app password
+### <a name="to-create-a-new-app-password"></a>Skapa ett nytt applösenord
 
-1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
+1. Logga in på ditt arbets-eller skol konto och gå sedan till din https://myprofile.microsoft.com/ sida.
 
-    ![My Profile page, showing highlighted Security info links](media/security-info/securityinfo-myprofile-page.png)
+    ![Sidan min profil, som visar markerade länkar för säkerhets information](media/security-info/securityinfo-myprofile-page.png)
 
-2. Select **Security info** from the left navigation pane or from the link in the **Security info** block, and then select **Add method** from the **Security info** page.
+2. Välj **säkerhets information** i det vänstra navigerings fönstret eller från länken i **säkerhets informations** blocket och välj sedan **Lägg till metod** på sidan **säkerhets information** .
 
-    ![Security info page with highlighted Add method option](media/security-info/securityinfo-myprofile-addmethod-page.png)
+    ![Sidan säkerhets information med markerat Lägg till metod-alternativ](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
-3. On the **Add a method** page, select **App password** from the drop-down list, and then select **Add**.
+3. På sidan **Lägg till en metod** väljer du **applösenord** i list rutan och väljer sedan **Lägg till**.
 
-    ![Add method box, with App password selected](media/security-info/securityinfo-myprofile-addpassword.png)
+    ![Rutan Lägg till metod med applösenord valt](media/security-info/securityinfo-myprofile-addpassword.png)
 
-4. Type the name of the app that requires the app password, and then select **Next**.
+4. Skriv namnet på den app som kräver applösenord och välj sedan **Nästa**.
 
-    ![App password page, with name of app](media/security-info/securityinfo-myprofile-password-appname.png)
+    ![Sidan applösenord med namnet på appen](media/security-info/securityinfo-myprofile-password-appname.png)
 
-5. Copy the text from the **Password** box, paste the password in the password area of the app (in this example, Outlook 2010), and then select **Done**.
+5. Kopiera texten från rutan **lösen ord** , klistra in lösen ordet i appens lösen ord (i det här exemplet Outlook 2010) och välj sedan **färdig**.
 
-    ![App password page, with name of app](media/security-info/securityinfo-myprofile-password-copytext.png)
+    ![Sidan applösenord med namnet på appen](media/security-info/securityinfo-myprofile-password-copytext.png)
 
-    The password is added and you can successfully log in to your app going forward.
+    Lösen ordet läggs till och du kan logga in på din app framåt.
 
-## <a name="delete-your-app-passwords"></a>Delete your app passwords
+## <a name="delete-your-app-passwords"></a>Ta bort dina applösenord
 
-If you no longer need to use an app that requires an app password, you can delete the associated app password. Deleting the app password frees up one of the available app password spots for use in the future.
+Om du inte längre behöver använda en app som kräver ett applösenord kan du ta bort det associerade applösenord. Om du tar bort app-lösenordet frigörs ett av de tillgängliga applösenord för appar för användning i framtiden.
 
 >[!Important]
->If you delete an app password by mistake, there's no way to undo it. You'll have to create a new app password and re-enter it into the app, following the steps in the [Create new app passwords](#create-new-app-passwords) section of this article.
+>Om du tar bort ett applösenord av misstag finns det inget sätt att ångra det. Du måste skapa ett nytt applösenord och ange det på nytt i appen genom att följa stegen i avsnittet [skapa nya applösenord](#create-new-app-passwords) i den här artikeln.
 
-### <a name="to-delete-an-app-password"></a>To delete an app password
+### <a name="to-delete-an-app-password"></a>Ta bort ett applösenord
 
-1. On the **Security info** page, select the **Delete** link next to the **App password** option for the specific app.
+1. På sidan **säkerhets information** väljer du länken **ta bort** bredvid **appens lösen ords** alternativ för den aktuella appen.
 
-    ![Link to delete the app password method from security info](media/security-info/securityinfo-myprofile-password-appdelete.png)
+    ![Länk för att ta bort appens lösen ords metod från säkerhets information](media/security-info/securityinfo-myprofile-password-appdelete.png)
 
-2. Select **Yes** from the confirmation box to delete the **App password**. After the app password is deleted, it's removed from your security info and it disappears from the **Security info** page.
+2. Välj **Ja** i bekräftelse rutan om du vill ta bort **appens lösen ord**. När applösenord har tagits bort tas den bort från din säkerhets information och försvinner från sidan **säkerhets information** .
 
 ## <a name="for-more-information"></a>Mer information
 
-- For more information about the **Security info** page and how to set it up, see [Security info overview](user-help-security-info-overview.md)
+- Mer information om sidan **säkerhets information** och hur du konfigurerar den finns i [Översikt över säkerhets information](user-help-security-info-overview.md)

@@ -45,6 +45,6 @@ Anvisningar för implementering finns i [Aktivera synkronisering av UserType](..
 ## <a name="next-steps"></a>Nästa steg
 
 - [Azure Active Directory B2B-samarbete för Hybrid organisationer](hybrid-organizations.md)
-- [Grant B2B-användare i Azure AD åtkomst till dina lokala program](hybrid-cloud-to-on-premises.md)
+- [Bevilja B2B-användare i Azure AD åtkomst till dina lokala program](hybrid-cloud-to-on-premises.md)
 - En översikt över Azure AD Connect finns i [integrera dina lokala kataloger med Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Functions trigger and binding example
-description: Learn to configure Azure Function bindings
+title: Azure Functions utlösare och bindnings exempel
+description: Lär dig att konfigurera Azure Function-bindningar
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2019
@@ -12,13 +12,13 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74227245"
 ---
-# <a name="azure-functions-trigger-and-binding-example"></a>Azure Functions trigger and binding example
+# <a name="azure-functions-trigger-and-binding-example"></a>Azure Functions utlösare och bindnings exempel
 
-This article demonstrates how to configure a [trigger and bindings](./functions-triggers-bindings.md) in an Azure Function.
+Den här artikeln visar hur du konfigurerar en [utlösare och bindningar](./functions-triggers-bindings.md) i en Azure-funktion.
 
-Suppose you want to write a new row to Azure Table storage whenever a new message appears in Azure Queue storage. This scenario can be implemented using an Azure Queue storage trigger and an Azure Table storage output binding. 
+Anta att du vill skriva en ny rad i Azure Table Storage varje gång ett nytt meddelande visas i Azure Queue Storage. Det här scenariot kan implementeras med hjälp av en Azure Queue Storage-utlösare och en utgående bindning för Azure Table Storage. 
 
-Here's a *function.json* file for this scenario. 
+Här är en *Function. JSON* -fil för det här scenariot. 
 
 ```json
 {
@@ -41,18 +41,18 @@ Here's a *function.json* file for this scenario.
 }
 ```
 
-The first element in the `bindings` array is the Queue storage trigger. The `type` and `direction` properties identify the trigger. The `name` property identifies the function parameter that receives the queue message content. The name of the queue to monitor is in `queueName`, and the connection string is in the app setting identified by `connection`.
+Det första elementet i `bindings` matrisen är kön Storage-utlösare. Egenskaperna `type` och `direction` identifierar utlösaren. Egenskapen `name` identifierar funktions parametern som tar emot köns meddelande innehåll. Namnet på kön som ska övervakas finns i `queueName`och anslutnings strängen är i den app-inställning som identifieras av `connection`.
 
-The second element in the `bindings` array is the Azure Table Storage output binding. The `type` and `direction` properties identify the binding. The `name` property specifies how the function provides the new table row, in this case by using the function return value. The name of the table is in `tableName`, and the connection string is in the app setting identified by `connection`.
+Det andra elementet i `bindings` matris är Azure Table Storage utgående bindning. Egenskaperna `type` och `direction` identifierar bindningen. Egenskapen `name` anger hur funktionen tillhandahåller den nya tabell raden, i det här fallet genom att använda funktionens retur värde. Namnet på tabellen är i `tableName`och anslutnings strängen är i den app-inställning som identifieras av `connection`.
 
-To view and edit the contents of *function.json* in the Azure portal, click the **Advanced editor** option on the **Integrate** tab of your function.
+Om du vill visa och redigera innehållet i *Function. JSON* i Azure Portal klickar du på alternativet **avancerad redigerare** på fliken **integrera** i din funktion.
 
 > [!NOTE]
-> The value of `connection` is the name of an app setting that contains the connection string, not the connection string itself. Bindings use connection strings stored in app settings to enforce the best practice that *function.json* does not contain service secrets.
+> Värdet för `connection` är namnet på en app-inställning som innehåller anslutnings strängen, inte själva anslutnings strängen. Bindningar använder anslutnings strängar som är lagrade i appinställningar för att framtvinga bästa praxis som *Function. JSON* inte innehåller tjänst hemligheter.
 
-## <a name="c-script-example"></a>C# script example
+## <a name="c-script-example"></a>C#skript exempel
 
-Here's C# script code that works with this trigger and binding. Notice that the name of the parameter that provides the queue message content is `order`; this name is required because the `name` property value in *function.json* is `order` 
+Här är C# skript koden som fungerar med denna utlösare och bindning. Observera att namnet på parametern som innehåller köns meddelande innehållet är `order`; Det här namnet måste anges eftersom värdet för egenskapen `name` i *Function. JSON* är `order` 
 
 ```cs
 #r "Newtonsoft.Json"
@@ -80,9 +80,9 @@ public class Person
 }
 ```
 
-## <a name="javascript-example"></a>JavaScript example
+## <a name="javascript-example"></a>JavaScript-exempel
 
-The same *function.json* file can be used with a JavaScript function:
+Samma *Function. JSON* -fil kan användas med en JavaScript-funktion:
 
 ```javascript
 // From an incoming queue message that is a JSON object, add fields and write to Table Storage
@@ -100,9 +100,9 @@ function generateRandomId() {
 }
 ```
 
-## <a name="class-library-example"></a>Class library example
+## <a name="class-library-example"></a>Exempel på klass bibliotek
 
-In a class library, the same trigger and binding information &mdash; queue and table names, storage accounts, function parameters for input and output &mdash; is provided by attributes instead of a function.json file. Här är ett exempel:
+I ett klass bibliotek tillhandahålls samma utlösare och bindnings information &mdash; kö-och tabell namn, lagrings konton, funktions parametrar för indata och utdata &mdash; av attribut i stället för en function. JSON-fil. Här är ett exempel:
 
 ```csharp
 public static class QueueTriggerTableOutput
@@ -130,9 +130,9 @@ public class Person
 }
 ```
 
-You now have a working function that is triggered by an Azure Queue and outputs data to Azure Table storage.
+Nu har du en fungerande funktion som utlöses av en Azure-kö och matar ut data till Azure Table Storage.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Azure Functions binding expression patterns](./functions-bindings-expressions-patterns.md)
+> [Mönster för Azure Functions bindnings uttryck](./functions-bindings-expressions-patterns.md)

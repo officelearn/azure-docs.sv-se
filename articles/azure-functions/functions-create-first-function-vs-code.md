@@ -19,7 +19,7 @@ I den här artikeln får du lära dig hur du använder [Azure Functions-tillägg
 
 ![Azure Functions-kod i ett Visual Studio-projekt](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
-The extension currently supports C#, JavaScript, Java, and Python functions. The steps in this article and the article that follows support only JavaScript and C# functions. To learn how to use Visual Studio Code to create and publish Python functions, see [Create and deploy serverless Azure Functions in Python with Visual Studio Code](/azure/python/tutorial-vs-code-serverless-python-01). To learn how to use Visual Studio Code to create and publish PowerShell functions, see [Create your first PowerShell function in Azure](functions-create-first-function-powershell.md). 
+Tillägget stöder C#för närvarande funktioner, Java Script, Java och python. Stegen i den här artikeln och artikeln som följer stöder endast Java Script och C# functions. Information om hur du använder Visual Studio Code för att skapa och publicera python-funktioner finns i [skapa och distribuera Server lös Azure Functions i python med Visual Studio Code](/azure/python/tutorial-vs-code-serverless-python-01). Information om hur du använder Visual Studio Code för att skapa och publicera PowerShell-funktioner finns i [skapa din första PowerShell-funktion i Azure](functions-create-first-function-powershell.md). 
 
 Tillägget finns för närvarande i en förhandsversion. Mer information finns på sidan om [Azure Functions-tillägg för Visual Studio Code].
 
@@ -29,16 +29,16 @@ För att slutföra den här snabbstarten behöver du:
 
 * Installera [Visual Studio Code](https://code.visualstudio.com/) på en av de [plattformar som stöds](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
-* Install version 2.x of the [Azure Functions Core Tools](functions-run-local.md#v2).
+* Installera version 2. x av [Azure Functions Core tools](functions-run-local.md#v2).
 
 * Installera de specifika kraven för ditt valda språk:
 
     | Språk | Krav |
     | -------- | --------- |
-    | **C#** | [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)  |
-    | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> | 
+    | **C#** | [C#utöka](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)  |
+    | **JavaScript** | [Node. js](https://nodejs.org/) -<sup>*</sup> | 
  
-    <sup>*</sup>Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
+    <sup>*</sup> Aktiva LTS-och underhålls LTS-versioner (8.11.1 och 10.14.1 rekommenderas).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -54,9 +54,9 @@ När du har kontrollerat att funktionen körs korrekt på den lokala datorn är 
 
 [!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
 
-## <a name="run-the-function-in-azure"></a>Run the function in Azure
+## <a name="run-the-function-in-azure"></a>Kör funktionen i Azure
 
-1. Kopiera URL:en för HTTP-utlösaren från panelen **Utdata**. This URL includes the function key, which is passed to the `code` query parameter. Lägg till frågesträngen `?name=<yourname>` i slutet av URL:en som tidigare och kör begäran.
+1. Kopiera URL:en för HTTP-utlösaren från panelen **Utdata**. Denna URL innehåller funktions nyckeln, som skickas till den `code` Frågeparametern. Lägg till frågesträngen `?name=<yourname>` i slutet av URL:en som tidigare och kör begäran.
 
     Den URL som anropar den HTTP-utlösta funktionen ska ha följande format:
 
@@ -68,10 +68,10 @@ När du har kontrollerat att funktionen körs korrekt på den lokala datorn är 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har nu använt Visual Studio Code för att skapa en funktionsapp med en enkel HTTP-utlöst funktion. In the next article, you expand that function by adding an output binding. This binding writes the string from the HTTP request to a message in an Azure Queue Storage queue. The next article also shows you how to clean up these new Azure resources by removing the resource group you created.
+Du har nu använt Visual Studio Code för att skapa en funktionsapp med en enkel HTTP-utlöst funktion. I nästa artikel expanderar du den funktionen genom att lägga till en utgående bindning. Den här bindningen skriver strängen från HTTP-begäran till ett meddelande i en Azure Queue Storage-kö. I nästa artikel visas också hur du rensar de nya Azure-resurserna genom att ta bort resurs gruppen som du skapade.
 
 > [!div class="nextstepaction"]
-> [Add an Azure Storage queue binding to your function](functions-add-output-binding-storage-queue-vs-code.md)
+> [Lägg till en Azure Storage Queue-bindning till din funktion](functions-add-output-binding-storage-queue-vs-code.md)
 
 [Azure Functions Core Tools]: functions-run-local.md
 [Azure Functions-tillägg för Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions

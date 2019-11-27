@@ -1,5 +1,5 @@
 ---
-title: Tutorial`:` Use a managed identity to access Azure Data Lake Store - Linux - Azure AD
+title: Självstudie`:` använda en hanterad identitet för att komma åt Azure Data Lake Store – Linux – Azure AD
 description: En självstudiekurs som visar hur du använder en systemtilldelad hanterad identitet för virtuell Linux-dator för åtkomst till Azure Data Lake Store.
 services: active-directory
 documentationcenter: ''
@@ -26,9 +26,9 @@ ms.locfileid: "74224289"
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to use a system-assigned managed identity for a Linux virtual machine (VM) to access Azure Data Lake Store. Lär dig att: 
+Den här självstudien visar hur du använder en systemtilldelad hanterad identitet för en virtuell Linux-dator (VM) för att få åtkomst till Azure Data Lake Store. Lär dig att: 
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Bevilja din virtuella dator åtkomst till Azure Data Lake Store.
@@ -49,9 +49,9 @@ I Data Lake Store skapar du en ny mapp och ger den systemtilldelade hanterade id
 3. Klicka på **Datautforskaren** i kommandofältet.
 4. Rotmappen för Data Lake Store-instansen har valts. Välj **Åtkomst** i kommandofältet.
 5. Välj **Lägg till**.  I rutan **Välj** anger du namnet på den virtuella datorn – till exempel **DevTestVM**. Välj den virtuella datorn från sökresultatet och klicka sedan på **Välj**.
-6. Klicka på **Välj behörigheter**.  Välj **Läs** och **Kör**, lägg till **den här mappen**, och lägg till den med **endast åtkomstbehörighet**. Välj **OK**.  Behörigheten bör nu har lagts till.
+6. Klicka på **Välj behörigheter**.  Välj **Läs** och **Kör**, lägg till **den här mappen** och lägg till den med **endast åtkomstbehörighet**. Välj **OK**.  Behörigheten bör nu har lagts till.
 7. Stäng den fönstret **Åtkomst**.
-8. Skapa en ny mapp för den här självstudien. Välj **Ny mapp** i kommandofältet och ge den nya mappen ett namn, till exempel **TestFolder**.  Välj **OK**.
+8. För den här självstudien skapar du en ny mapp. Välj **Ny mapp** i kommandofältet och ge den nya mappen ett namn, till exempel **TestFolder**.  Välj **OK**.
 9. Välj den mapp du skapade och välj sedan **Åtkomst** i kommandofältet.
 10. Välj **Lägg till**, som i steg 5. I rutan **Välj** anger du namnet på den virtuella datorn. Välj den virtuella datorn från sökresultatet och klicka sedan på **Välj**.
 11. Välj **Välj behörigheter**, som i steg 6. Välj **Läs**, **Skriv** och **Kör**, lägga till **den här mappen** och lägg till den som **åtkomstbehörighetsinlägg och standardbehörighetsinlägg**. Välj **OK**.  Behörigheten bör nu har lagts till.
@@ -71,7 +71,7 @@ För att slutföra de här stegen behöver du en SSH-klient. Om du använder Win
 
 1. Bläddra till din virtuella Linux-dator i portalen. I **Översikt** väljer du **Anslut**.  
 2. Anslut till den virtuella datorn med valfri SSH-klient. 
-3. I terminalfönstret, med hjälp av CURL, skickar du en begäran till den lokala hanterade identiteter för Azure-resursslutpunkter för att hämta en åtkomsttoken för Data Lake Store-filsystemet. The resource identifier for Data Lake Store is `https://datalake.azure.net/`.  Det är viktigt att inkludera avslutande snedstreck i resurs-ID.
+3. I terminalfönstret, med hjälp av CURL, skickar du en begäran till den lokala hanterade identiteter för Azure-resursslutpunkter för att hämta en åtkomsttoken för Data Lake Store-filsystemet. Resurs identifieraren för Data Lake Store är `https://datalake.azure.net/`.  Det är viktigt att inkludera avslutande snedstreck i resurs-ID.
     
    ```bash
    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -H Metadata:true   

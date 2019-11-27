@@ -1,6 +1,6 @@
 ---
-title: Python developer reference for Azure Functions
-description: Understand how to develop functions with Python
+title: Python Developer-referens för Azure Functions
+description: Förstå hur du utvecklar funktioner med python
 ms.topic: article
 ms.date: 04/16/2018
 ms.openlocfilehash: 7c8ce87fdf396bc488a7deaf576eea28f989e0e4
@@ -10,17 +10,17 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74226648"
 ---
-# <a name="azure-functions-python-developer-guide"></a>Azure Functions Python developer guide
+# <a name="azure-functions-python-developer-guide"></a>Guide för Azure Functions python-utvecklare
 
-This article is an introduction to developing Azure Functions using Python. The content below assumes that you've already read the [Azure Functions developers guide](functions-reference.md). 
+Den här artikeln är en introduktion till att utveckla Azure Functions med python. Innehållet nedan förutsätter att du redan har läst [guiden Azure Functions utvecklare](functions-reference.md). 
 
-For standalone Function sample projects in Python, see the [Python Functions samples](/samples/browse/?products=azure-functions&languages=python). 
+Exempel projekt för fristående funktioner i python finns i [exempel på python-funktioner](/samples/browse/?products=azure-functions&languages=python). 
 
 ## <a name="programming-model"></a>Programmeringsmodell
 
-Azure Functions expects a function to be a stateless method in your Python script that processes input and produces output. By default, the runtime expects the method to be implemented as a global method called `main()` in the `__init__.py` file. You can also [specify an alternate entry point](#alternate-entry-point).
+Azure Functions förväntar sig att en funktion är en tillstånds lös metod i python-skriptet som bearbetar indata och genererar utdata. Som standard förväntar sig körningen att metoden ska implementeras som en global metod som kallas `main()` i `__init__.py`s filen. Du kan också [Ange en alternativ Start punkt](#alternate-entry-point).
 
-Data from triggers and bindings is bound to the function via method attributes using the `name` property defined in the *function.json* file. For example, the  _function.json_ below describes a simple function triggered by an HTTP request named `req`:
+Data från utlösare och bindningar är kopplade till funktionen via attribut med hjälp av egenskapen `name` som definierats i *Function. JSON* -filen. _Funktionen. JSON_ nedan beskriver till exempel en enkel funktion som utlöses av en http-begäran med namnet `req`:
 
 ```json
 {
@@ -40,7 +40,7 @@ Data from triggers and bindings is bound to the function via method attributes u
 }
 ```
 
-The `__init__.py` file contains the following function code:
+`__init__.py`-filen innehåller följande funktions kod:
 
 ```python
 def main(req):
@@ -48,7 +48,7 @@ def main(req):
     return f'Hello, {user}!'
 ```
 
-you can also explicitly declare the attribute types and return type in the function using Python type annotations. This helps you use the intellisense and autocomplete features provided by many Python code editors.
+Du kan även explicit deklarera attributtyper och retur typen i funktionen med hjälp av python-typ anteckningar. På så sätt kan du använda IntelliSense-och Autoavsluta-funktionerna från många python-kod redigerare.
 
 ```python
 import azure.functions
@@ -59,11 +59,11 @@ def main(req: azure.functions.HttpRequest) -> str:
     return f'Hello, {user}!'
 ```
 
-Use the Python annotations included in the [azure.functions.*](/python/api/azure-functions/azure.functions?view=azure-python) package to bind input and outputs to your methods.
+Använd python-anteckningarna som ingår i [Azure. functions. *](/python/api/azure-functions/azure.functions?view=azure-python) -paketet för att binda indata och utdata till dina metoder.
 
-## <a name="alternate-entry-point"></a>Alternate entry point
+## <a name="alternate-entry-point"></a>Alternativ Start punkt
 
-You can change the default behavior of a function by optionally specifying the `scriptFile` and `entryPoint` properties in the *function.json* file. For example, the _function.json_ below tells the runtime to use the `customentry()` method in the _main.py_ file, as the entry point for your Azure Function.
+Du kan ändra standard beteendet för en funktion genom att alternativt ange `scriptFile` och `entryPoint` egenskaper i filen *Function. JSON* . _Funktionen. JSON_ nedan meddelar till exempel körningen att använda metoden `customentry()` i filen _main.py_ , som start punkt för din Azure-funktion.
 
 ```json
 {
@@ -75,9 +75,9 @@ You can change the default behavior of a function by optionally specifying the `
 }
 ```
 
-## <a name="folder-structure"></a>Folder structure
+## <a name="folder-structure"></a>Mappstruktur
 
-The recommended folder structure for a Python Functions project looks like the following example:
+Den rekommenderade mappstrukturen för ett python Functions-projekt ser ut som i följande exempel:
 
 ```
  __app__
@@ -95,35 +95,35 @@ The recommended folder structure for a Python Functions project looks like the f
  | - requirements.txt
  tests
 ```
-The main project folder (\_\_app\_\_) can contain the following files:
+Huvudprojektmappen (\_\_app\_\_) kan innehålla följande filer:
 
-* *local.settings.json*: Used to store app settings and connection strings when running locally. This file doesn't get published to Azure. To learn more, see [local.settings.file](functions-run-local.md#local-settings-file).
-* *requirements.txt*: Contains the list of packages the system installs when publishing to Azure.
-* *host.json*: Contains global configuration options that affect all functions in a function app. This file does get published to Azure. Not all options are supported when running locally. To learn more, see [host.json](functions-host-json.md).
-* *funcignore*: (Optional) declares files that shouldn't get published to Azure.
-* *gitignore*: (Optional) declares files that are excluded from a git repo, such as local.settings.json.
+* *Local. Settings. JSON*: används för att lagra appinställningar och anslutnings strängar när de körs lokalt. Den här filen publiceras inte i Azure. Mer information finns i [Local. Settings. File](functions-run-local.md#local-settings-file).
+* *Requirements. txt*: innehåller listan över paket som systemet installerar vid publicering till Azure.
+* *Host. JSON*: innehåller globala konfigurations alternativ som påverkar alla funktioner i en Function-app. Den här filen publiceras i Azure. Alla alternativ stöds inte när du kör lokalt. Läs mer i [Host. JSON](functions-host-json.md).
+* *funcignore*: (valfritt) deklarerar filer som inte ska publiceras i Azure.
+* *gitignore*: (valfritt) deklarerar filer som är exkluderade från en git-lagrings platsen, t. ex. local. Settings. JSON.
 
-Each function has its own code file and binding configuration file (function.json). 
+Varje funktion har sin egen kod fil och bindnings konfigurations fil (Function. JSON). 
 
-Shared code should be kept in a separate folder in \_\_app\_\_. To reference modules in the SharedCode folder, you can use the following syntax:
+Delad kod ska lagras i en separat mapp i \_\_app\_\_. Om du vill referera till moduler i SharedCode-mappen kan du använda följande syntax:
 
 ```python
 from __app__.SharedCode import myFirstHelperFunction
 ```
 
-To reference modules local to a function, you can use the relative import syntax as follows:
+Om du vill referera till moduler lokalt i en funktion kan du använda den relativa import-syntaxen enligt följande:
 
 ```python
 from . import example
 ```
 
-When deploying your project to a function app in Azure, the entire content of the *FunctionApp* folder should be included in the package, but not the folder itself. We recommend that you maintain your tests in a folder separate from the project folder, in this example `tests`. This keeps you from deploying test code with your app. For more information, see [Unit Testing](#unit-testing).
+När du distribuerar projektet till en Function-app i Azure ska hela innehållet i *FunctionApp* -mappen inkluderas i paketet, men inte själva mappen. Vi rekommenderar att du underhåller dina tester i en mapp separat från projektmappen, i det här exemplet `tests`. Detta gör att du inte distribuerar test koden med din app. Mer information finns i [enhets testning](#unit-testing).
 
-## <a name="triggers-and-inputs"></a>Triggers and Inputs
+## <a name="triggers-and-inputs"></a>Utlösare och indata
 
-Inputs are divided into two categories in Azure Functions: trigger input and additional input. Although they are different in the `function.json` file, usage is identical in Python code.  Connection strings or secrets for trigger and input sources map to values in the `local.settings.json` file when running locally, and the application settings when running in Azure. 
+Indata är indelade i två kategorier i Azure Functions: Utlös indata och ytterligare indata. Även om de skiljer sig i `function.json`-filen är användningen identiska i python-kod.  Anslutnings strängar eller hemligheter för utlösare och inmatade källor mappar till värden i `local.settings.json`-filen när de körs lokalt och program inställningarna körs i Azure. 
 
-For example, the following code demonstrates the difference between the two:
+Till exempel visar följande kod skillnaden mellan de två:
 
 ```json
 // function.json
@@ -171,16 +171,16 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-When the function is invoked, the HTTP request is passed to the function as `req`. An entry will be retrieved from the Azure Blob Storage based on the _ID_ in the route URL and made available as `obj` in the function body.  Here the storage account specified is the connection string found in  , which is the same storage account used by the function app.
+När funktionen anropas skickas HTTP-begäran till funktionen som `req`. En post hämtas från Azure-Blob Storage baserat på _ID: t_ i väg-URL: en och görs tillgänglig som `obj` i funktions texten.  Här är det angivna lagrings kontot den anslutnings sträng som finns i, vilket är samma lagrings konto som används av Function-appen.
 
 
 ## <a name="outputs"></a>Utdata
 
-Output can be expressed both in return value and output parameters. If there's only one output, we recommend using the return value. For multiple outputs, you'll have to use output parameters.
+Utdata kan uttryckas både i retur värde och utdataparametrar. Om det bara finns en utmatning rekommenderar vi att du använder det returnerade värdet. För flera utdata måste du använda utdataparametrar.
 
-To use the return value of a function as the value of an output binding, the `name` property of the binding should be set to `$return` in `function.json`.
+Om du vill använda returvärdet för en funktion som värde för en utgående bindning ska bindningens `name` egenskap anges till `$return` i `function.json`.
 
-To produce multiple outputs, use the `set()` method provided by the [`azure.functions.Out`](/python/api/azure-functions/azure.functions.out?view=azure-python) interface to assign a value to the binding. For example, the following function can push a message to a queue and also return an HTTP response.
+Om du vill skapa flera utdata använder du metoden `set()` som tillhandahålls av [`azure.functions.Out`](/python/api/azure-functions/azure.functions.out?view=azure-python) -gränssnittet för att tilldela ett värde till bindningen. Följande funktion kan till exempel skicka ett meddelande till en kö och även returnera ett HTTP-svar.
 
 ```json
 {
@@ -222,9 +222,9 @@ def main(req: func.HttpRequest,
 
 ## <a name="logging"></a>Loggning
 
-Access to the Azure Functions runtime logger is available via a root [`logging`](https://docs.python.org/3/library/logging.html#module-logging) handler in your function app. This logger is tied to Application Insights and allows you to flag warnings and errors encountered during the function execution.
+Åtkomst till Azure Functions runtime-loggen är tillgänglig via en rot [`logging`](https://docs.python.org/3/library/logging.html#module-logging) hanterare i din Function-app. Den här loggen är kopplad till Application Insights och gör att du kan flagga varningar och fel som påträffas under funktions körningen.
 
-The following example logs an info message when the function is invoked via an HTTP trigger.
+I följande exempel loggas ett informations meddelande när funktionen anropas via en HTTP-utlösare.
 
 ```python
 import logging
@@ -234,25 +234,25 @@ def main(req):
     logging.info('Python HTTP trigger function processed a request.')
 ```
 
-Additional logging methods are available that let you write to the console at different trace levels:
+Det finns ytterligare loggnings metoder som gör att du kan skriva till-konsolen på olika spårnings nivåer:
 
 | Metod                 | Beskrivning                                |
 | ---------------------- | ------------------------------------------ |
-| **`critical(_message_)`**   | Writes a message with level CRITICAL on the root logger.  |
-| **`error(_message_)`**   | Writes a message with level ERROR on the root logger.    |
-| **`warning(_message_)`**    | Writes a message with level WARNING on the root logger.  |
-| **`info(_message_)`**    | Writes a message with level INFO on the root logger.  |
-| **`debug(_message_)`** | Writes a message with level DEBUG on the root logger.  |
+| **`critical(_message_)`**   | Skriver ett meddelande med nivå kritisk på rot loggaren.  |
+| **`error(_message_)`**   | Skriver ett meddelande med nivå fel på rot loggaren.    |
+| **`warning(_message_)`**    | Skriver ett meddelande med nivå varning på rot loggaren.  |
+| **`info(_message_)`**    | Skriver ett meddelande med nivå information på rot loggaren.  |
+| **`debug(_message_)`** | Skriver ett meddelande med nivå fel sökning på rot loggaren.  |
 
-To learn more about logging, see [Monitor Azure Functions](functions-monitoring.md).
+Mer information om loggning finns i [övervaka Azure Functions](functions-monitoring.md).
 
-## <a name="http-trigger-and-bindings"></a>HTTP Trigger and bindings
+## <a name="http-trigger-and-bindings"></a>HTTP-utlösare och bindningar
 
-The HTTP trigger is defined in the function.jon file. The `name` of the binding must match the named parameter in the function. In the previous examples, a binding name `req` is used. This parameter is an [HttpRequest] object, and an [HttpResponse] object is returned.
+HTTP-utlösaren definieras i filen function. Jon. Bindningens `name` måste matcha den namngivna parametern i funktionen. I föregående exempel används ett bindnings namn `req`. Den här parametern är ett [HttpRequest] -objekt och ett [HttpResponse] -objekt returneras.
 
-From the [HttpRequest] object, you can get request headers, query parameters, route parameters, and the message body. 
+Du kan hämta begärandehuvuden, frågeparametrar, väg parametrar och meddelande texten från [HttpRequest] -objektet. 
 
-The following example is from the [HTTP trigger template for Python](https://github.com/Azure/azure-functions-templates/tree/dev/Functions.Templates/Templates/HttpTrigger-Python). 
+Följande exempel är från [http trigger-mallen för python](https://github.com/Azure/azure-functions-templates/tree/dev/Functions.Templates/Templates/HttpTrigger-Python). 
 
 ```python
 def main(req: func.HttpRequest) -> func.HttpResponse:
@@ -276,23 +276,23 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         )
 ```
 
-In this function, the value of the `name` query parameter is obtained from the `params` parameter of the [HttpRequest] object. The JSON-encoded message body is read using the `get_json` method. 
+I den här funktionen hämtas värdet för parametern `name` Query från parametern `params` i [HttpRequest] -objektet. Den JSON-kodade meddelande texten läses med hjälp av metoden `get_json`. 
 
-Likewise, you can set the `status_code` and `headers` for the response message in the returned [HttpResponse] object.
+På samma sätt kan du ange `status_code` och `headers` för svarsmeddelandet i det returnerade [HttpResponse] -objektet.
 
 ## <a name="concurrency"></a>Samtidighet
 
-By default, the Functions Python runtime can only process one invocation of a function at a time. This concurrency level might not be sufficient under one or more of the following conditions:
+Som standard kan funktioner python-körningen bara bearbeta ett anrop till en funktion i taget. Den samtidiga nivån kanske inte är tillräcklig under ett eller flera av följande villkor:
 
-+ You're trying to handle a number of invocations being made at the same time.
-+ You're processing a large number of I/O events.
-+ Your application is I/O bound.
++ Du försöker hantera ett antal anrop som görs samtidigt.
++ Du bearbetar ett stort antal I/O-händelser.
++ Ditt program är I/O-bindning.
 
-In these situations, you can improve performance by running asynchronously and by using multiple language worker processes.  
+I dessa fall kan du förbättra prestanda genom att köra asynkront och genom att använda flera olika språk arbets processer.  
 
 ### <a name="async"></a>Async
 
-We recommend that you use the `async def` statement to make your function run as an asynchronous coroutine.
+Vi rekommenderar att du använder `async def`-instruktionen för att köra din funktion som en asynkron samarbets rutin.
 
 ```python
 # Runs with asyncio directly
@@ -301,7 +301,7 @@ async def main():
     await some_nonblocking_socket_io_op()
 ```
 
-When the `main()` function is synchronous (without the `async` qualifier), the function is automatically run in an `asyncio` thread-pool.
+När funktionen `main()` är synkron (utan `async`-kvalificeraren) körs funktionen automatiskt i en `asyncio` Thread-pool.
 
 ```python
 # Runs in an asyncio thread-pool
@@ -310,15 +310,15 @@ def main():
     some_blocking_socket_io()
 ```
 
-### <a name="use-multiple-language-worker-processes"></a>Use multiple language worker processes
+### <a name="use-multiple-language-worker-processes"></a>Använd flera språk arbets processer
 
-By default, every Functions host instance has a single language worker process. However there's support to have multiple language worker processes per host instance. Function invocations can then be evenly distributed among these language worker processes. Use the [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) application setting to change this value. 
+Som standard har varje Functions Host-instans en enda språk arbets process. Det finns dock stöd för att ha flera språk arbets processer per värd instans. Funktions anrop kan sedan distribueras jämnt bland dessa språk arbets processer. Använd inställningen [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) program för att ändra det här värdet. 
 
 ## <a name="context"></a>Kontext
 
-To get the invocation context of a function during execution, include the [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python) argument in its signature. 
+Om du vill hämta anrops kontexten för en funktion under körningen inkluderar du argumentet [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python) i signaturen. 
 
-Exempel:
+Till exempel:
 
 ```python
 import azure.functions
@@ -329,20 +329,20 @@ def main(req: azure.functions.HttpRequest,
     return f'{context.invocation_id}'
 ```
 
-The [**Context**](/python/api/azure-functions/azure.functions.context?view=azure-python) class has the following string attributes:
+[**Kontext**](/python/api/azure-functions/azure.functions.context?view=azure-python) klassen har följande String-attribut:
 
 `function_directory`  
-The directory in which the function is running.
+Katalogen där funktionen körs.
 
 `function_name`  
-Name of the function.
+Namnet på funktionen.
 
 `invocation_id`  
-ID of the current function invocation.
+ID för aktuellt funktions anrop.
 
-## <a name="global-variables"></a>Global variables
+## <a name="global-variables"></a>Globala variabler
 
-It is not guaranteed that the state of your app will be preserved for future executions. However, the Azure Functions runtime often reuses the same process for multiple executions of the same app. In order to cache the results of an expensive computation, declare it as a global variable. 
+Det garanterar inte att appens tillstånd kommer att bevaras för framtida körningar. Azure Functions körning återanvänder dock ofta samma process för flera körningar av samma app. För att cachelagra resultatet av en dyr beräkning, deklarera det som en global variabel. 
 
 ```python
 CACHED_DATA = None
@@ -358,9 +358,9 @@ def main(req):
 
 ## <a name="environment-variables"></a>Miljövariabler
 
-In Functions, [application settings](functions-app-settings.md), such as service connection strings, are exposed as environment variables during execution. You can access these settings by declaring `import os` and then using, `setting = os.environ["setting-name"]`.
+I funktioner visas [program inställningar](functions-app-settings.md), t. ex. tjänst anslutnings strängar, som miljövariabler under körningen. Du kan komma åt de här inställningarna genom att deklarera `import os` och sedan använda `setting = os.environ["setting-name"]`.
 
-The following example gets the [application setting](functions-how-to-use-azure-function-app-settings.md#settings), with the key named `myAppSetting`:
+I följande exempel hämtas [program inställningen](functions-how-to-use-azure-function-app-settings.md#settings)med nyckeln med namnet `myAppSetting`:
 
 ```python
 import logging
@@ -374,17 +374,17 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info(f'My app setting value:{my_app_setting_value}')
 ```
 
-For local development, application settings are [maintained in the local.settings.json file](functions-run-local.md#local-settings-file).  
+För lokal utveckling underhålls program inställningarna [i filen Local. Settings. JSON](functions-run-local.md#local-settings-file).  
 
 ## <a name="python-version"></a>Python-version 
 
-Currently, Azure Functions supports both Python 3.6.x and 3.7.x (official CPython distributions). When running locally, the runtime uses the available Python version. To request a specific Python version when you create your function app in Azure, use the `--runtime-version` option of the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command.  
+Azure Functions stöder för närvarande både python 3.6. x och 3.7. x (officiella CPython-distributioner). När den körs lokalt använder körningen den tillgängliga python-versionen. Om du vill begära en speciell python-version när du skapar din Function-app i Azure, använder du alternativet `--runtime-version` i kommandot [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) .  
 
 ## <a name="package-management"></a>Pakethantering
 
-When developing locally using the Azure Functions Core Tools or Visual Studio Code, add the names and versions of the required packages to the `requirements.txt` file and install them using `pip`. 
+När du utvecklar lokalt med Azure Functions Core Tools eller Visual Studio Code lägger du till namn och versioner för de nödvändiga paketen i `requirements.txt`-filen och installerar dem med hjälp av `pip`. 
 
-For example, the following requirements file and pip command can be used to install the `requests` package from PyPI.
+Till exempel kan följande krav fil och pip-kommando användas för att installera `requests`-paketet från PyPI.
 
 ```txt
 requests==2.19.1
@@ -394,65 +394,65 @@ requests==2.19.1
 pip install -r requirements.txt
 ```
 
-## <a name="publishing-to-azure"></a>Publishing to Azure
+## <a name="publishing-to-azure"></a>Publicera till Azure
 
-When you're ready to publish, make sure that all your publicly available dependencies are listed in the requirements.txt file, which is located at the root of your project directory. 
+När du är redo att publicera ser du till att alla dina offentligt tillgängliga beroenden visas i filen Requirements. txt, som finns i roten i projekt katalogen. 
 
-Project files and folders that are excluded from publishing, including the virtual environment folder, are listed in the .funcignore file.
+Projektfiler och mappar som undantas från publicering, inklusive mappen för virtuella miljöer, visas i. funcignore-filen.
 
-There are three build actions supported for publishing your Python project to Azure:
+Det finns tre Bygg åtgärder som stöds för att publicera ditt python-projekt till Azure:
 
-+ Remote build: Dependencies are obtained remotely based on the contents of the requirements.txt file. [Remote build](functions-deployment-technologies.md#remote-build) is the recommended build method. Remote is also the default build option of Azure tooling. 
-+ Local build: Dependencies are obtained locally based on the contents of the requirements.txt file. 
-+ Custom dependencies: Your project uses packages not publicly available to our tools. (Requires Docker.)
++ Fjärran sluten version: beroenden hämtas via fjärr anslutning baserat på innehållet i filen Requirements. txt. [Fjärran slutet](functions-deployment-technologies.md#remote-build) är den rekommenderade build-metoden. Remote är också standard alternativet build för Azure-verktyg. 
++ Lokal version: beroenden hämtas lokalt baserat på innehållet i filen Requirements. txt. 
++ Anpassade beroenden: ditt projekt använder paket som inte är offentligt tillgängliga för våra verktyg. (Kräver Docker.)
 
-To build your dependencies and publish using a continuous delivery (CD) system, [use Azure Pipelines](functions-how-to-azure-devops.md).
+[Använd Azure-pipeline](functions-how-to-azure-devops.md)för att bygga dina beroenden och publicera med ett kontinuerligt leverans system (CD).
 
-### <a name="remote-build"></a>Remote build
+### <a name="remote-build"></a>Fjärrversion
 
-By default, the Azure Functions Core Tools requests a remote build when you use the following [func azure functionapp publish](functions-run-local.md#publish) command to publish your Python project to Azure. 
+Som standard begär Azure Functions Core Tools en fjärr anslutning när du använder följande [FUNC Azure functionapp Publish](functions-run-local.md#publish) -kommando för att publicera ditt python-projekt till Azure. 
 
 ```bash
 func azure functionapp publish <APP_NAME>
 ```
 
-Remember to replace `<APP_NAME>` with the name of your function app in Azure.
+Kom ihåg att ersätta `<APP_NAME>` med namnet på din Function-app i Azure.
 
-The [Azure Functions Extension for Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) also requests a remote build by default. 
+[Azure Functions-tillägget för Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) begär också en fjärran sluten version som standard. 
 
-### <a name="local-build"></a>Local build
+### <a name="local-build"></a>Lokal version
 
-You can prevent doing a remote build by using the following [func azure functionapp publish](functions-run-local.md#publish) command to publish with a local build. 
+Du kan förhindra en fjärran sluten version genom att använda följande [FUNC Azure functionapp Publish](functions-run-local.md#publish) -kommando för att publicera med en lokal version. 
 
 ```command
 func azure functionapp publish <APP_NAME> --build local
 ```
 
-Remember to replace `<APP_NAME>` with the name of your function app in Azure. 
+Kom ihåg att ersätta `<APP_NAME>` med namnet på din Function-app i Azure. 
 
-Using the `--build local` option, project dependencies are read from the requirements.txt file and those dependent packages are downloaded and installed locally. Project files and dependencies are deployed from your local computer to Azure. This results in a larger deployment package being uploaded to Azure. If for some reason, dependencies in your requirements.txt file can't be acquired by Core Tools, you must use the custom dependencies option for publishing. 
+Med alternativet `--build local` läses projekt beroenden från filen Requirements. txt och de beroende paketen hämtas och installeras lokalt. Projektfiler och beroenden distribueras från den lokala datorn till Azure. Detta innebär att ett större distributions paket överförs till Azure. Om det av någon anledning inte går att hämta beroenden i din Requirements. txt-fil med kärn verktyg, måste du använda alternativet anpassade beroenden för att publicera. 
 
-### <a name="custom-dependencies"></a>Custom dependencies
+### <a name="custom-dependencies"></a>Anpassade beroenden
 
-If your project uses packages not publicly available to our tools, you can make them available to your app by putting them in the \_\_app\_\_/.python_packages directory. Before publishing, run the following command to install the dependencies locally:
+Om ditt projekt använder paket som inte är offentligt tillgängliga för våra verktyg kan du göra dem tillgängliga för din app genom att placera dem i \_\_-appen\_\_/. python_packages Directory. Innan du publicerar kör du följande kommando för att installera beroendena lokalt:
 
 ```command
 pip install  --target="<PROJECT_DIR>/.python_packages/lib/site-packages"  -r requirements.txt
 ```
 
-When using custom dependencies, you should use the `--no-build` publishing option, since you have already installed the dependencies.  
+När du använder anpassade beroenden bör du använda alternativet för `--no-build` publicering, eftersom du redan har installerat beroendena.  
 
 ```command
 func azure functionapp publish <APP_NAME> --no-build
 ```
 
-Remember to replace `<APP_NAME>` with the name of your function app in Azure.
+Kom ihåg att ersätta `<APP_NAME>` med namnet på din Function-app i Azure.
 
-## <a name="unit-testing"></a>Unit Testing
+## <a name="unit-testing"></a>Enhets testning
 
-Functions written in Python can be tested like other Python code using standard testing frameworks. For most bindings, it's possible to create a mock input object by creating an instance of an appropriate class from the `azure.functions` package. Since the [`azure.functions`](https://pypi.org/project/azure-functions/) package is not immediately available, be sure to install it via your `requirements.txt` file as described in the [package management](#package-management) section above. 
+Funktioner som skrivs i python kan testas som annan python-kod med standard testnings ramverk. För de flesta bindningar är det möjligt att skapa ett objekt av en modell genom att skapa en instans av en lämplig klass från `azure.functions`-paketet. Eftersom [`azure.functions`](https://pypi.org/project/azure-functions/) -paketet inte är omedelbart tillgängligt, måste du installera det via din `requirements.txt`-fil enligt beskrivningen i avsnittet [paket hantering](#package-management) ovan. 
 
-For example, following is a mock test of an HTTP triggered function:
+Följande är till exempel ett modell test av en HTTP-utlöst funktion:
 
 ```json
 {
@@ -530,7 +530,7 @@ class TestFunction(unittest.TestCase):
         )
 ```
 
-Here is another example, with a queue triggered function:
+Här är ett annat exempel med en funktion som utlöses av en kö:
 
 ```json
 {
@@ -578,14 +578,14 @@ class TestFunction(unittest.TestCase):
             'msg body: test',
         )
 ```
-## <a name="temporary-files"></a>Temporary files
+## <a name="temporary-files"></a>Temporära filer
 
-The `tempfile.gettempdir()` method returns a temporary folder, which on Linux is `/tmp`. Your application can use this directory to store temporary files generated and used by your functions during execution. 
+Metoden `tempfile.gettempdir()` returnerar en tillfällig mapp, som på Linux är `/tmp`. Ditt program kan använda den här katalogen för att lagra temporära filer som skapas och används av funktionerna under körningen. 
 
 > [!IMPORTANT]
-> Files written to the temporary directory aren't guaranteed to persist across invocations. During scale out, temporary files aren't shared between instances. 
+> Filer som skrivs till den temporära katalogen garanterar inte att de behålls i ett anrop. Temporära filer delas inte mellan instanser under utskalning. 
 
-The following example creates a named temporary file in the temporary directory (`/tmp`):
+I följande exempel skapas en namngiven temporär fil i den tillfälliga katalogen (`/tmp`):
 
 ```python
 import logging
@@ -600,17 +600,17 @@ from os import listdir
    filesDirListInTemp = listdir(tempFilePath)     
 ```   
 
-We recommend that you maintain your tests in a folder separate from the project folder. This keeps you from deploying test code with your app. 
+Vi rekommenderar att du underhåller dina tester i en mapp separat från projektmappen. Detta gör att du inte distribuerar test koden med din app. 
 
-## <a name="known-issues-and-faq"></a>Known issues and FAQ
+## <a name="known-issues-and-faq"></a>Kända problem och vanliga frågor och svar
 
-All known issues and feature requests are tracked using [GitHub issues](https://github.com/Azure/azure-functions-python-worker/issues) list. If you run into a problem and can't find the issue in GitHub, open a new issue and include a detailed description of the problem.
+Alla kända problem och funktions begär Anden spåras med hjälp av listan med [GitHub-problem](https://github.com/Azure/azure-functions-python-worker/issues) . Om du stöter på ett problem och inte kan hitta problemet i GitHub, öppnar du ett nytt ärende och innehåller en detaljerad beskrivning av problemet.
 
 ### <a name="cross-origin-resource-sharing"></a>Cross-origin resource sharing (CORS)
 
-Azure Functions supports cross-origin resource sharing (CORS). CORS is configured [in the portal](functions-how-to-use-azure-function-app-settings.md#cors) and through the [Azure CLI](/cli/azure/functionapp/cors). The CORS allowed origins list applies at the function app level. With CORS enabled, responses include the `Access-Control-Allow-Origin` header. Mer information finns i [Cross-origin resource sharing](functions-how-to-use-azure-function-app-settings.md#cors).
+Azure Functions stöder resurs delning mellan ursprung (CORS). CORS konfigureras [i portalen](functions-how-to-use-azure-function-app-settings.md#cors) och via [Azure CLI](/cli/azure/functionapp/cors). Listan över tillåtna ursprung för CORS-listan gäller på funktions nivån app. När CORS är aktiverat inkluderar Svaren `Access-Control-Allow-Origin`-huvudet. Mer information finns i [Cross-origin resource sharing](functions-how-to-use-azure-function-app-settings.md#cors).
 
-The allowed origins list [isn't currently supported](https://github.com/Azure/azure-functions-python-worker/issues/444) for Python function apps. Because of this limitation, you must expressly set the `Access-Control-Allow-Origin` header in your HTTP functions, as shown in the following example:
+Listan över tillåtna ursprung [stöds för närvarande inte](https://github.com/Azure/azure-functions-python-worker/issues/444) för python Function-appar. På grund av den här begränsningen måste du uttryckligen ange `Access-Control-Allow-Origin`s huvudet i dina HTTP-funktioner, som du ser i följande exempel:
 
 ```python
 def main(req: func.HttpRequest) -> func.HttpResponse:
@@ -625,7 +625,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     )
 ``` 
 
-Make sure that you also update your function.json to support the OPTIONS HTTP method:
+Se till att du också uppdaterar function. JSON för att ge stöd för alternativ-HTTP-metoden:
 
 ```json
     ...
@@ -637,18 +637,18 @@ Make sure that you also update your function.json to support the OPTIONS HTTP me
     ...
 ```
 
-This method is used by the Chrome browser to negotiate the allowed origins list. 
+Den här metoden används av Chrome-webbläsaren för att förhandla listan över tillåtna ursprung. 
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information finns i följande resurser:
 
-* [Azure Functions package API documentation](/python/api/azure-functions/azure.functions?view=azure-python)
+* [Dokumentation om Azure Functions Package API](/python/api/azure-functions/azure.functions?view=azure-python)
 * [Metodtips för Azure Functions](functions-best-practices.md)
-* [Azure Functions triggers and bindings](functions-triggers-bindings.md)
-* [Blob storage bindings](functions-bindings-storage-blob.md)
-* [HTTP and Webhook bindings](functions-bindings-http-webhook.md)
-* [Queue storage bindings](functions-bindings-storage-queue.md)
+* [Azure Functions utlösare och bindningar](functions-triggers-bindings.md)
+* [Blob Storage-bindningar](functions-bindings-storage-blob.md)
+* [HTTP-och webhook-bindningar](functions-bindings-http-webhook.md)
+* [Köa lagrings bindningar](functions-bindings-storage-queue.md)
 * [Timerutlösare](functions-bindings-timer.md)
 
 

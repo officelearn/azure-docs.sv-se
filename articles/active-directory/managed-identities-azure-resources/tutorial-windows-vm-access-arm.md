@@ -1,5 +1,5 @@
 ---
-title: Tutorial`:` Use managed identity to access Azure Resource Manager - Windows - Azure AD
+title: Självstudie`:` använda hanterad identitet för att komma åt Azure Resource Manager-Windows-Azure AD
 description: En självstudie som steg för steg beskriver hur du använder en systemtilldelad hanterad identitet för en virtuell Windows-dator för att få åtkomst till Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
